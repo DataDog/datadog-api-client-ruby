@@ -12,7 +12,7 @@ repos:
     language: ruby
     additional_dependencies:
       - rufo
-    entry: rufo examples
+    entry: rufo --simple-exit examples
     files: '^examples'
     pass_filenames: false
   - id: docs

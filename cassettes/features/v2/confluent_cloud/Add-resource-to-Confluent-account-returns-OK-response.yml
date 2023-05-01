@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Thu, 06 Oct 2022 21:02:44 GMT
+- recorded_at: Thu, 06 Apr 2023 14:00:35 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"api_key":"TestAddresourcetoConfluentaccountreturnsOKresponse1665090164","api_secret":"test-api-secret","resources":[{"id":"test-resource-id","resource_type":"kafka","tags":["tag1","tag2:val2"]}],"tags":["tag1","tag2:val2"]},"type":"confluent-cloud-accounts"}}'
+      string: '{"data":{"attributes":{"api_key":"TestAddresourcetoConfluentaccountreturnsOKresponse1680789635","api_secret":"test-api-secret","resources":[{"id":"test-resource-id","resource_type":"kafka","tags":["tag1","tag2:val2"]}],"tags":["tag1","tag2:val2"]},"type":"confluent-cloud-accounts"}}'
     headers:
       Accept:
       - application/json
@@ -14,7 +14,7 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"api_key":"TestAddresourcetoConfluentaccountreturnsOKresponse1665090164","resources":[{"id":"test-resource-id","resource_type":"kafka","tags":["tag1","tag2:val2"]}],"tags":["tag1","tag2:val2"]},"type":"confluent-cloud-accounts","id":"l7mlzljfqc"}}
+      string: '{"data":{"type":"confluent-cloud-accounts","attributes":{"tags":["tag1","tag2:val2"],"api_key":"TestAddresourcetoConfluentaccountreturnsOKresponse1680789635","resources":[{"tags":["tag1","tag2:val2"],"resource_type":"kafka","id":"test-resource-id"}]},"id":"cc6lo3zoip"}}
 
         '
     headers:
@@ -23,22 +23,22 @@ http_interactions:
     status:
       code: 201
       message: Created
-- recorded_at: Thu, 06 Oct 2022 21:02:44 GMT
+- recorded_at: Thu, 06 Apr 2023 14:00:35 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"resource_type":"kafka","tags":["myTag","myTag2:myValue"]},"id":"testaddresourcetoconfluentaccountreturnsokresponse1665090164","type":"confluent-cloud-resources"}}'
+      string: '{"data":{"attributes":{"resource_type":"kafka","tags":["myTag","myTag2:myValue"]},"id":"testaddresourcetoconfluentaccountreturnsokresponse1680789635","type":"confluent-cloud-resources"}}'
     headers:
       Accept:
       - application/json
       Content-Type:
       - application/json
     method: POST
-    uri: https://api.datadoghq.com/api/v2/integrations/confluent-cloud/accounts/l7mlzljfqc/resources
+    uri: https://api.datadoghq.com/api/v2/integrations/confluent-cloud/accounts/cc6lo3zoip/resources
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"resource_type":"kafka","tags":["myTag","myTag2:myValue"]},"type":"confluent-cloud-resources","id":"testaddresourcetoconfluentaccountreturnsokresponse1665090164"}}
+      string: '{"data":{"type":"confluent-cloud-resources","attributes":{"tags":["mytag","mytag2:myvalue"],"resource_type":"kafka"},"id":"testaddresourcetoconfluentaccountreturnsokresponse1680789635"}}
 
         '
     headers:
@@ -47,14 +47,14 @@ http_interactions:
     status:
       code: 201
       message: Created
-- recorded_at: Thu, 06 Oct 2022 21:02:44 GMT
+- recorded_at: Thu, 06 Apr 2023 14:00:35 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/integrations/confluent-cloud/accounts/l7mlzljfqc
+    uri: https://api.datadoghq.com/api/v2/integrations/confluent-cloud/accounts/cc6lo3zoip
   response:
     body:
       encoding: UTF-8

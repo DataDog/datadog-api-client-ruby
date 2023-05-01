@@ -10,7 +10,7 @@ SECURITY_RULE_ID = ENV["SECURITY_RULE_ID"]
 SECURITY_RULE_BIS_ID = ENV["SECURITY_RULE_BIS_ID"]
 
 body = DatadogAPIClient::V2::SecurityMonitoringSignalRuleCreatePayload.new({
-  name: "Example-Create_a_detection_rule_with_type_signal_correlation_returns_OK_response_signal_rule",
+  name: "Example-Security-Monitoring_signal_rule",
   queries: [
     DatadogAPIClient::V2::SecurityMonitoringSignalRuleQuery.new({
       rule_id: SECURITY_RULE_ID,

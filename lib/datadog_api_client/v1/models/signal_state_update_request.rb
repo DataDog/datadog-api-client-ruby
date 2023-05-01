@@ -32,7 +32,7 @@ module DatadogAPIClient::V1
     attr_accessor :archive_reason
 
     # The new triage state of the signal.
-    attr_accessor :state
+    attr_reader :state
 
     # Version of the updated signal. If server side version is higher, update will be rejected.
     attr_accessor :version
@@ -57,13 +57,6 @@ module DatadogAPIClient::V1
         :'state' => :'SignalTriageState',
         :'version' => :'Integer'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

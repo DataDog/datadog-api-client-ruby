@@ -26,13 +26,13 @@ module DatadogAPIClient::V2
     attr_accessor :_unparsed
 
     # Attributes used to update an API Key.
-    attr_accessor :attributes
+    attr_reader :attributes
 
     # ID of the API key.
-    attr_accessor :id
+    attr_reader :id
 
     # API Keys resource type.
-    attr_accessor :type
+    attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -52,13 +52,6 @@ module DatadogAPIClient::V2
         :'id' => :'String',
         :'type' => :'APIKeysType'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

@@ -26,7 +26,7 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # Your service name associated service key in PagerDuty.
-    attr_accessor :service_name
+    attr_reader :service_name
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -42,13 +42,6 @@ module DatadogAPIClient::V1
       {
         :'service_name' => :'String'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

@@ -26,13 +26,13 @@ module DatadogAPIClient::V2
     attr_accessor :_unparsed
 
     # Attributes object for updating a Confluent resource.
-    attr_accessor :attributes
+    attr_reader :attributes
 
     # The ID associated with a Confluent resource.
-    attr_accessor :id
+    attr_reader :id
 
     # The JSON:API type for this request.
-    attr_accessor :type
+    attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -52,13 +52,6 @@ module DatadogAPIClient::V2
         :'id' => :'String',
         :'type' => :'ConfluentResourceType'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

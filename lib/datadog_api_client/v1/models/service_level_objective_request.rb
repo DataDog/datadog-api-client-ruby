@@ -44,7 +44,7 @@ module DatadogAPIClient::V1
     attr_accessor :monitor_ids
 
     # The name of the service level objective object.
-    attr_accessor :name
+    attr_reader :name
 
     # A metric-based SLO. **Required if type is `metric`**. Note that Datadog only allows the sum by aggregator
     # to be used because this will sum up all request counts instead of averaging them, or taking the max or
@@ -56,12 +56,25 @@ module DatadogAPIClient::V1
     # Optional in create/update requests.
     attr_accessor :tags
 
+    # The target threshold such that when the service level indicator is above this
+    # threshold over the given timeframe, the objective is being met.
+    attr_accessor :target_threshold
+
     # The thresholds (timeframes and associated targets) for this service level
     # objective object.
-    attr_accessor :thresholds
+    attr_reader :thresholds
+
+    # The SLO time window options.
+    attr_accessor :timeframe
 
     # The type of the service level objective.
-    attr_accessor :type
+    attr_reader :type
+
+    # The optional warning threshold such that when the service level indicator is
+    # below this value for the given threshold, but above the target threshold, the
+    # objective appears in a "warning" state. This value must be greater than the target
+    # threshold.
+    attr_accessor :warning_threshold
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -73,8 +86,11 @@ module DatadogAPIClient::V1
         :'name' => :'name',
         :'query' => :'query',
         :'tags' => :'tags',
+        :'target_threshold' => :'target_threshold',
         :'thresholds' => :'thresholds',
-        :'type' => :'type'
+        :'timeframe' => :'timeframe',
+        :'type' => :'type',
+        :'warning_threshold' => :'warning_threshold'
       }
     end
 
@@ -88,8 +104,11 @@ module DatadogAPIClient::V1
         :'name' => :'String',
         :'query' => :'ServiceLevelObjectiveQuery',
         :'tags' => :'Array<String>',
+        :'target_threshold' => :'Float',
         :'thresholds' => :'Array<SLOThreshold>',
-        :'type' => :'SLOType'
+        :'timeframe' => :'SLOTimeframe',
+        :'type' => :'SLOType',
+        :'warning_threshold' => :'Float'
       }
     end
 
@@ -147,14 +166,26 @@ module DatadogAPIClient::V1
         end
       end
 
+      if attributes.key?(:'target_threshold')
+        self.target_threshold = attributes[:'target_threshold']
+      end
+
       if attributes.key?(:'thresholds')
         if (value = attributes[:'thresholds']).is_a?(Array)
           self.thresholds = value
         end
       end
 
+      if attributes.key?(:'timeframe')
+        self.timeframe = attributes[:'timeframe']
+      end
+
       if attributes.key?(:'type')
         self.type = attributes[:'type']
+      end
+
+      if attributes.key?(:'warning_threshold')
+        self.warning_threshold = attributes[:'warning_threshold']
       end
     end
 
@@ -210,15 +241,18 @@ module DatadogAPIClient::V1
           name == o.name &&
           query == o.query &&
           tags == o.tags &&
+          target_threshold == o.target_threshold &&
           thresholds == o.thresholds &&
-          type == o.type
+          timeframe == o.timeframe &&
+          type == o.type &&
+          warning_threshold == o.warning_threshold
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [description, groups, monitor_ids, name, query, tags, thresholds, type].hash
+      [description, groups, monitor_ids, name, query, tags, target_threshold, thresholds, timeframe, type, warning_threshold].hash
     end
   end
 end

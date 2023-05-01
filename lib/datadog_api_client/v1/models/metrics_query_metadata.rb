@@ -37,7 +37,7 @@ module DatadogAPIClient::V1
     # Metric expression.
     attr_accessor :expression
 
-    # Number of seconds between data samples.
+    # Number of milliseconds between data samples.
     attr_accessor :interval
 
     # Number of data samples.
@@ -46,7 +46,7 @@ module DatadogAPIClient::V1
     # Metric name.
     attr_accessor :metric
 
-    # List of points of the time series.
+    # List of points of the time series in milliseconds.
     attr_accessor :pointlist
 
     # The index of the series' query within the request.
@@ -62,9 +62,10 @@ module DatadogAPIClient::V1
     attr_accessor :tag_set
 
     # Detailed information about the metric unit.
-    # First element describes the "primary unit" (for example, `bytes` in `bytes per second`),
-    # second describes the "per unit" (for example, `second` in `bytes per second`).
-    attr_accessor :unit
+    # The first element describes the "primary unit" (for example, `bytes` in `bytes per second`).
+    # The second element describes the "per unit" (for example, `second` in `bytes per second`).
+    # If the second element is not present, the API returns null.
+    attr_reader :unit
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

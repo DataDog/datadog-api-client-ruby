@@ -26,7 +26,7 @@ module DatadogAPIClient::V2
     attr_accessor :_unparsed
 
     # Object representing a given user entity.
-    attr_accessor :assignee
+    attr_reader :assignee
 
     # Version of the updated signal. If server side version is higher, update will be rejected.
     attr_accessor :version
@@ -47,13 +47,6 @@ module DatadogAPIClient::V2
         :'assignee' => :'SecurityMonitoringTriageUser',
         :'version' => :'Integer'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

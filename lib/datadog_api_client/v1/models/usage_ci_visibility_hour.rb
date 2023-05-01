@@ -73,6 +73,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_nullable
       Set.new([
+        :'ci_pipeline_indexed_spans',
+        :'ci_test_indexed_spans',
+        :'ci_visibility_pipeline_committers',
+        :'ci_visibility_test_committers',
       ])
     end
 

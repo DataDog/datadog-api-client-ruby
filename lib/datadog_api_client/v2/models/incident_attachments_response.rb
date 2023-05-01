@@ -26,7 +26,7 @@ module DatadogAPIClient::V2
     attr_accessor :_unparsed
 
     # An array of incident attachments.
-    attr_accessor :data
+    attr_reader :data
 
     # Included related resources that the user requested.
     attr_accessor :included
@@ -47,13 +47,6 @@ module DatadogAPIClient::V2
         :'data' => :'Array<IncidentAttachmentData>',
         :'included' => :'Array<IncidentAttachmentsResponseIncludedItem>'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

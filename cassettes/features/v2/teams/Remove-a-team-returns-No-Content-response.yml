@@ -1,0 +1,60 @@
+http_interactions:
+- recorded_at: Mon, 27 Mar 2023 18:33:18 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"handle":"1679941998","name":"1679941998"},"type":"team"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/team
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"team","id":"d8648c52-cccd-11ed-a275-da7ad0900002","attributes":{"name":"1679941998","handle":"1679941998","summary":null,"description":null,"color":3,"created_at":"2023-03-27T18:33:18.917793+00:00","modified_at":"2023-03-27T18:33:18.917799+00:00","user_count":0,"link_count":0},"relationships":{"team_links":{"links":{"related":"/api/v2/team/d8648c52-cccd-11ed-a275-da7ad0900002/links"}},"user_team_permissions":{"links":{"related":"/api/v2/team/d8648c52-cccd-11ed-a275-da7ad0900002/permission-settings"}}}}}
+
+        '
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 201
+      message: Created
+- recorded_at: Mon, 27 Mar 2023 18:33:18 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/team/d8648c52-cccd-11ed-a275-da7ad0900002
+  response:
+    body:
+      encoding: UTF-8
+      string: ''
+    headers: {}
+    status:
+      code: 204
+      message: No Content
+- recorded_at: Mon, 27 Mar 2023 18:33:18 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/team/d8648c52-cccd-11ed-a275-da7ad0900002
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":["Team for ID d8648c52-cccd-11ed-a275-da7ad0900002 not found"]}'
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 404
+      message: Not Found
+recorded_with: VCR 6.0.0

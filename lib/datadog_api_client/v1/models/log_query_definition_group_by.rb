@@ -26,7 +26,7 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # Facet name.
-    attr_accessor :facet
+    attr_reader :facet
 
     # Maximum number of items in the group.
     attr_accessor :limit
@@ -52,13 +52,6 @@ module DatadogAPIClient::V1
         :'limit' => :'Integer',
         :'sort' => :'LogQueryDefinitionGroupBySort'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

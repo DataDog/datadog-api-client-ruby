@@ -32,7 +32,7 @@ module DatadogAPIClient::V1
     attr_accessor :created_by
 
     # API key.
-    attr_accessor :key
+    attr_reader :key
 
     # Name of your API key.
     attr_accessor :name
@@ -57,13 +57,6 @@ module DatadogAPIClient::V1
         :'key' => :'String',
         :'name' => :'String'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

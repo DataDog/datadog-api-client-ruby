@@ -76,7 +76,7 @@ module DatadogAPIClient::V2
     attr_accessor :time_to_resolve
 
     # The title of the incident, which summarizes what happened.
-    attr_accessor :title
+    attr_reader :title
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

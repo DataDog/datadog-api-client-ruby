@@ -39,7 +39,7 @@ module DatadogAPIClient::V1
     attr_accessor :exclusion_filters
 
     # Filter for logs.
-    attr_accessor :filter
+    attr_reader :filter
 
     # The number of days before logs are deleted from this index. Available values depend on
     # retention plans specified in your organization's contract/subscriptions.
@@ -70,13 +70,6 @@ module DatadogAPIClient::V1
         :'filter' => :'LogsFilter',
         :'num_retention_days' => :'Integer'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

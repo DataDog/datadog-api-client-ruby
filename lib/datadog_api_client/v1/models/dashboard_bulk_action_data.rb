@@ -26,10 +26,10 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # Dashboard resource ID.
-    attr_accessor :id
+    attr_reader :id
 
     # Dashboard resource type.
-    attr_accessor :type
+    attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -47,13 +47,6 @@ module DatadogAPIClient::V1
         :'id' => :'String',
         :'type' => :'DashboardResourceType'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

@@ -28,6 +28,9 @@ module DatadogAPIClient::V2
     # Cases for generating signals.
     attr_accessor :cases
 
+    # How to generate compliance signals. Useful for cloud_configuration rules only.
+    attr_accessor :compliance_signal_options
+
     # Additional queries to filter matched events before they are processed.
     attr_accessor :filters
 
@@ -53,13 +56,14 @@ module DatadogAPIClient::V2
     attr_accessor :tags
 
     # The version of the rule being updated.
-    attr_accessor :version
+    attr_reader :version
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
         :'cases' => :'cases',
+        :'compliance_signal_options' => :'complianceSignalOptions',
         :'filters' => :'filters',
         :'has_extended_title' => :'hasExtendedTitle',
         :'is_enabled' => :'isEnabled',
@@ -77,6 +81,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'cases' => :'Array<SecurityMonitoringRuleCase>',
+        :'compliance_signal_options' => :'CloudConfigurationRuleComplianceSignalOptions',
         :'filters' => :'Array<SecurityMonitoringFilter>',
         :'has_extended_title' => :'Boolean',
         :'is_enabled' => :'Boolean',
@@ -87,13 +92,6 @@ module DatadogAPIClient::V2
         :'tags' => :'Array<String>',
         :'version' => :'Integer'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object
@@ -116,6 +114,10 @@ module DatadogAPIClient::V2
         if (value = attributes[:'cases']).is_a?(Array)
           self.cases = value
         end
+      end
+
+      if attributes.key?(:'compliance_signal_options')
+        self.compliance_signal_options = attributes[:'compliance_signal_options']
       end
 
       if attributes.key?(:'filters')
@@ -186,6 +188,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           cases == o.cases &&
+          compliance_signal_options == o.compliance_signal_options &&
           filters == o.filters &&
           has_extended_title == o.has_extended_title &&
           is_enabled == o.is_enabled &&
@@ -201,7 +204,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [cases, filters, has_extended_title, is_enabled, message, name, options, queries, tags, version].hash
+      [cases, compliance_signal_options, filters, has_extended_title, is_enabled, message, name, options, queries, tags, version].hash
     end
   end
 end

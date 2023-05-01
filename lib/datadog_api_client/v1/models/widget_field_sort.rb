@@ -26,10 +26,10 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # Facet path for the column
-    attr_accessor :column
+    attr_reader :column
 
     # Widget sorting methods.
-    attr_accessor :order
+    attr_reader :order
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -47,13 +47,6 @@ module DatadogAPIClient::V1
         :'column' => :'String',
         :'order' => :'WidgetSort'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

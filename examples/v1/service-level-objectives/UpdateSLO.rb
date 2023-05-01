@@ -17,6 +17,9 @@ body = DatadogAPIClient::V1::ServiceLevelObjective.new({
       warning: 98.0,
     }),
   ],
+  timeframe: DatadogAPIClient::V1::SLOTimeframe::SEVEN_DAYS,
+  target_threshold: 97.0,
+  warning_threshold: 98,
   query: DatadogAPIClient::V1::ServiceLevelObjectiveQuery.new({
     numerator: "sum:httpservice.hits{code:2xx}.as_count()",
     denominator: "sum:httpservice.hits{!code:3xx}.as_count()",

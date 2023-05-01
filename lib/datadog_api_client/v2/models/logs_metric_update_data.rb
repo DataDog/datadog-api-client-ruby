@@ -26,10 +26,10 @@ module DatadogAPIClient::V2
     attr_accessor :_unparsed
 
     # The log-based metric properties that will be updated.
-    attr_accessor :attributes
+    attr_reader :attributes
 
     # The type of the resource. The value should always be logs_metrics.
-    attr_accessor :type
+    attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -47,13 +47,6 @@ module DatadogAPIClient::V2
         :'attributes' => :'LogsMetricUpdateAttributes',
         :'type' => :'LogsMetricType'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

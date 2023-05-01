@@ -26,13 +26,13 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # Array of assertions used for the test.
-    attr_accessor :assertions
+    attr_reader :assertions
 
     # Array of variables used for the test.
     attr_accessor :config_variables
 
     # Object describing the Synthetic test request.
-    attr_accessor :request
+    attr_reader :request
 
     # Cookies to be used for the request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
     attr_accessor :set_cookie
@@ -62,13 +62,6 @@ module DatadogAPIClient::V1
         :'set_cookie' => :'String',
         :'variables' => :'Array<SyntheticsBrowserVariable>'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

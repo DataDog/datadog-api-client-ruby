@@ -26,7 +26,7 @@ module DatadogAPIClient::V2
     attr_accessor :_unparsed
 
     # Name of the application key.
-    attr_accessor :name
+    attr_reader :name
 
     # Array of scopes to grant the application key. This feature is in private beta, please contact Datadog support to enable scopes for your application keys.
     attr_accessor :scopes

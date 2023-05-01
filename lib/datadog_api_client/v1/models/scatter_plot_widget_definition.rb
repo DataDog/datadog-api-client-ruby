@@ -32,7 +32,7 @@ module DatadogAPIClient::V1
     attr_accessor :custom_links
 
     # Widget definition.
-    attr_accessor :requests
+    attr_reader :requests
 
     # Time setting for the widget.
     attr_accessor :time
@@ -47,7 +47,7 @@ module DatadogAPIClient::V1
     attr_accessor :title_size
 
     # Type of the scatter plot widget.
-    attr_accessor :type
+    attr_reader :type
 
     # Axis controls for the widget.
     attr_accessor :xaxis
@@ -87,13 +87,6 @@ module DatadogAPIClient::V1
         :'xaxis' => :'WidgetAxis',
         :'yaxis' => :'WidgetAxis'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

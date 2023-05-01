@@ -28,6 +28,9 @@ module DatadogAPIClient::V1
     # Error message if SLO status or error budget could not be calculated.
     attr_accessor :error
 
+    # Remaining error budget of the SLO in percentage.
+    attr_accessor :error_budget_remaining
+
     # timestamp (UNIX time in seconds) of when the SLO status and error budget
     # were calculated.
     attr_accessor :indexed_at
@@ -37,6 +40,9 @@ module DatadogAPIClient::V1
 
     # The amount of decimal places the SLI value is accurate to.
     attr_accessor :span_precision
+
+    # State of the SLO.
+    attr_accessor :state
 
     # The status of the SLO.
     attr_accessor :status
@@ -52,9 +58,11 @@ module DatadogAPIClient::V1
     def self.attribute_map
       {
         :'error' => :'error',
+        :'error_budget_remaining' => :'error_budget_remaining',
         :'indexed_at' => :'indexed_at',
         :'raw_error_budget_remaining' => :'raw_error_budget_remaining',
         :'span_precision' => :'span_precision',
+        :'state' => :'state',
         :'status' => :'status',
         :'target' => :'target',
         :'timeframe' => :'timeframe'
@@ -66,9 +74,11 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'error' => :'String',
+        :'error_budget_remaining' => :'Float',
         :'indexed_at' => :'Integer',
         :'raw_error_budget_remaining' => :'SLORawErrorBudgetRemaining',
         :'span_precision' => :'Integer',
+        :'state' => :'SLOState',
         :'status' => :'Float',
         :'target' => :'Float',
         :'timeframe' => :'SLOTimeframe'
@@ -80,6 +90,9 @@ module DatadogAPIClient::V1
     def self.openapi_nullable
       Set.new([
         :'error',
+        :'error_budget_remaining',
+        :'raw_error_budget_remaining',
+        :'span_precision',
         :'status',
       ])
     end
@@ -104,6 +117,10 @@ module DatadogAPIClient::V1
         self.error = attributes[:'error']
       end
 
+      if attributes.key?(:'error_budget_remaining')
+        self.error_budget_remaining = attributes[:'error_budget_remaining']
+      end
+
       if attributes.key?(:'indexed_at')
         self.indexed_at = attributes[:'indexed_at']
       end
@@ -114,6 +131,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'span_precision')
         self.span_precision = attributes[:'span_precision']
+      end
+
+      if attributes.key?(:'state')
+        self.state = attributes[:'state']
       end
 
       if attributes.key?(:'status')
@@ -143,9 +164,11 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           error == o.error &&
+          error_budget_remaining == o.error_budget_remaining &&
           indexed_at == o.indexed_at &&
           raw_error_budget_remaining == o.raw_error_budget_remaining &&
           span_precision == o.span_precision &&
+          state == o.state &&
           status == o.status &&
           target == o.target &&
           timeframe == o.timeframe
@@ -155,7 +178,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [error, indexed_at, raw_error_budget_remaining, span_precision, status, target, timeframe].hash
+      [error, error_budget_remaining, indexed_at, raw_error_budget_remaining, span_precision, state, status, target, timeframe].hash
     end
   end
 end

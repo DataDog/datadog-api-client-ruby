@@ -35,7 +35,7 @@ module DatadogAPIClient::V2
     attr_accessor :name
 
     # UUID assigned by Datadog to this user account.
-    attr_accessor :uuid
+    attr_reader :uuid
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -63,6 +63,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_nullable
       Set.new([
+        :'name',
       ])
     end
 

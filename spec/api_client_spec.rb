@@ -157,7 +157,6 @@ describe DatadogAPIClient::APIClient do
 
       expect(api_client.json_mime?('application/xml')).to eq false
       expect(api_client.json_mime?('text/plain')).to eq false
-      expect(api_client.json_mime?('application/jsonp')).to eq false
     end
   end
 

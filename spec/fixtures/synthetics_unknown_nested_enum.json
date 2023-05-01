@@ -17,12 +17,12 @@
   "config": {
     "request": {
       "url": "https://www.10.0.0.1.xip.io",
-      "method": "A non existent method",
+      "method": "GET",
       "timeout": 30
     },
     "assertions": [
       {
-        "operator": "is",
+        "operator": "not-an-operator",
         "type": "statusCode",
         "target": 200
       }

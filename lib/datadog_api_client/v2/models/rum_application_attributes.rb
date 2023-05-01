@@ -26,40 +26,48 @@ module DatadogAPIClient::V2
     attr_accessor :_unparsed
 
     # ID of the RUM application.
-    attr_accessor :application_id
-
-    # Timestamp in ms of the creation date.
-    attr_accessor :created_at
-
-    # Handle of the creator user.
-    attr_accessor :created_by_handle
+    attr_reader :application_id
 
     # Client token of the RUM application.
-    attr_accessor :hash
+    attr_reader :client_token
+
+    # Timestamp in ms of the creation date.
+    attr_reader :created_at
+
+    # Handle of the creator user.
+    attr_reader :created_by_handle
+
+    # Hash of the RUM application. Optional.
+    attr_accessor :_hash
+
+    # Indicates if the RUM application is active.
+    attr_accessor :is_active
 
     # Name of the RUM application.
-    attr_accessor :name
+    attr_reader :name
 
     # Org ID of the RUM application.
-    attr_accessor :org_id
+    attr_reader :org_id
 
     # Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`.
-    attr_accessor :type
+    attr_reader :type
 
     # Timestamp in ms of the last update date.
-    attr_accessor :updated_at
+    attr_reader :updated_at
 
     # Handle of the updater user.
-    attr_accessor :updated_by_handle
+    attr_reader :updated_by_handle
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
         :'application_id' => :'application_id',
+        :'client_token' => :'client_token',
         :'created_at' => :'created_at',
         :'created_by_handle' => :'created_by_handle',
-        :'hash' => :'hash',
+        :'_hash' => :'hash',
+        :'is_active' => :'is_active',
         :'name' => :'name',
         :'org_id' => :'org_id',
         :'type' => :'type',
@@ -73,22 +81,17 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'application_id' => :'String',
+        :'client_token' => :'String',
         :'created_at' => :'Integer',
         :'created_by_handle' => :'String',
-        :'hash' => :'String',
+        :'_hash' => :'String',
+        :'is_active' => :'Boolean',
         :'name' => :'String',
         :'org_id' => :'Integer',
         :'type' => :'String',
         :'updated_at' => :'Integer',
         :'updated_by_handle' => :'String'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object
@@ -111,6 +114,10 @@ module DatadogAPIClient::V2
         self.application_id = attributes[:'application_id']
       end
 
+      if attributes.key?(:'client_token')
+        self.client_token = attributes[:'client_token']
+      end
+
       if attributes.key?(:'created_at')
         self.created_at = attributes[:'created_at']
       end
@@ -119,8 +126,12 @@ module DatadogAPIClient::V2
         self.created_by_handle = attributes[:'created_by_handle']
       end
 
-      if attributes.key?(:'hash')
-        self.hash = attributes[:'hash']
+      if attributes.key?(:'_hash')
+        self._hash = attributes[:'_hash']
+      end
+
+      if attributes.key?(:'is_active')
+        self.is_active = attributes[:'is_active']
       end
 
       if attributes.key?(:'name')
@@ -149,6 +160,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @application_id.nil?
+      return false if @client_token.nil?
       return false if @created_at.nil?
       return false if @created_by_handle.nil?
       return false if @name.nil?
@@ -168,6 +180,16 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "application_id", application_id cannot be nil.'
       end
       @application_id = application_id
+    end
+
+    # Custom attribute writer method with validation
+    # @param client_token [Object] Object to be assigned
+    # @!visibility private
+    def client_token=(client_token)
+      if client_token.nil?
+        fail ArgumentError, 'invalid value for "client_token", client_token cannot be nil.'
+      end
+      @client_token = client_token
     end
 
     # Custom attribute writer method with validation
@@ -250,9 +272,11 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           application_id == o.application_id &&
+          client_token == o.client_token &&
           created_at == o.created_at &&
           created_by_handle == o.created_by_handle &&
-          hash == o.hash &&
+          _hash == o._hash &&
+          is_active == o.is_active &&
           name == o.name &&
           org_id == o.org_id &&
           type == o.type &&
@@ -264,7 +288,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [application_id, created_at, created_by_handle, hash, name, org_id, type, updated_at, updated_by_handle].hash
+      [application_id, client_token, created_at, created_by_handle, _hash, is_active, name, org_id, type, updated_at, updated_by_handle].hash
     end
   end
 end

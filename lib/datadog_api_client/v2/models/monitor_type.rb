@@ -29,7 +29,7 @@ module DatadogAPIClient::V2
     attr_accessor :created_at
 
     # Monitor group status used when there is no `result_groups`.
-    attr_accessor :group_status
+    attr_reader :group_status
 
     # Groups to which the monitor belongs.
     attr_accessor :groups
@@ -92,13 +92,6 @@ module DatadogAPIClient::V2
         :'templated_name' => :'String',
         :'type' => :'String'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

@@ -25,8 +25,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The integration metadata relationship array
-    attr_accessor :data
+    # Integration metadata relationship array
+    attr_reader :data
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -42,13 +42,6 @@ module DatadogAPIClient::V2
       {
         :'data' => :'Array<RelationshipToIncidentIntegrationMetadataData>'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

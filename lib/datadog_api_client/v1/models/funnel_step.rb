@@ -26,10 +26,10 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # The facet of the step.
-    attr_accessor :facet
+    attr_reader :facet
 
     # The value of the step.
-    attr_accessor :value
+    attr_reader :value
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -47,13 +47,6 @@ module DatadogAPIClient::V1
         :'facet' => :'String',
         :'value' => :'String'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

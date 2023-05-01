@@ -32,7 +32,7 @@ module DatadogAPIClient::V1
     attr_accessor :is_enabled
 
     # Name of the index exclusion filter.
-    attr_accessor :name
+    attr_reader :name
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -52,13 +52,6 @@ module DatadogAPIClient::V1
         :'is_enabled' => :'Boolean',
         :'name' => :'String'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

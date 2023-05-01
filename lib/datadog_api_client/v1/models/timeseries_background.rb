@@ -26,7 +26,7 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # Timeseries is made using an area or bars.
-    attr_accessor :type
+    attr_reader :type
 
     # Axis controls for the widget.
     attr_accessor :yaxis
@@ -47,13 +47,6 @@ module DatadogAPIClient::V1
         :'type' => :'TimeseriesBackgroundType',
         :'yaxis' => :'WidgetAxis'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

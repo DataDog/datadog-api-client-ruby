@@ -43,6 +43,9 @@ module DatadogAPIClient::V1
     # Shows the sum of all audit logs lines indexed over all hours in the current months for all organizations.
     attr_accessor :audit_logs_lines_indexed_agg_sum
 
+    # Shows the total number of organizations that had Audit Trail enabled over a specific number of months.
+    attr_accessor :audit_trail_enabled_hwm_sum
+
     # Shows the average of all profiled Fargate tasks over all hours in the current months for all organizations.
     attr_accessor :avg_profiled_fargate_tasks_sum
 
@@ -85,8 +88,14 @@ module DatadogAPIClient::V1
     # Shows the high-water mark of all CI visibility test committers over all hours in the current months for all organizations.
     attr_accessor :ci_visibility_test_committers_hwm_sum
 
+    # Sum of the host count average for Cloud Cost Management.
+    attr_accessor :cloud_cost_management_host_count_avg_sum
+
     # Shows the average of all distinct containers over all hours in the current months for all organizations.
     attr_accessor :container_avg_sum
+
+    # Shows the average of the containers without the Datadog Agent over all hours in the current month for all organizations.
+    attr_accessor :container_excl_agent_avg_sum
 
     # Shows the sum of the high-water marks of all distinct containers over all hours in the current months for all organizations.
     attr_accessor :container_hwm_sum
@@ -105,6 +114,9 @@ module DatadogAPIClient::V1
 
     # Shows the sum of the the high-water marks of Cloud Security Posture Management containers over all hours in the current months for all organizations.
     attr_accessor :cspm_container_hwm_sum
+
+    # Shows the 99th percentile of all Cloud Security Posture Management GCP hosts over all hours in the current months for all organizations.
+    attr_accessor :cspm_gcp_host_top99p_sum
 
     # Shows the 99th percentile of all Cloud Security Posture Management hosts over all hours in the current months for all organizations.
     attr_accessor :cspm_host_top99p_sum
@@ -132,6 +144,9 @@ module DatadogAPIClient::V1
 
     # Shows the sum of the high-water marks of all Fargate tasks over all hours in the current months for all organizations.
     attr_accessor :fargate_tasks_count_hwm_sum
+
+    # Shows the sum of all logs forwarding bytes over all hours in the current months for all organizations (data available as of April 1, 2023)
+    attr_accessor :forwarding_events_bytes_agg_sum
 
     # Shows the 99th percentile of all GCP hosts over all hours in the current months for all organizations.
     attr_accessor :gcp_host_top99p_sum
@@ -178,6 +193,9 @@ module DatadogAPIClient::V1
     # Shows the sum of all mobile RUM Sessions on Android over all hours in the current months for all organizations.
     attr_accessor :mobile_rum_session_count_android_agg_sum
 
+    # Shows the sum of all mobile RUM Sessions on Flutter over all hours in the current months for all organizations.
+    attr_accessor :mobile_rum_session_count_flutter_agg_sum
+
     # Shows the sum of all mobile RUM Sessions on iOS over all hours in the current months for all organizations.
     attr_accessor :mobile_rum_session_count_ios_agg_sum
 
@@ -198,6 +216,9 @@ module DatadogAPIClient::V1
 
     # Sum of all online archived events over all hours in the current months for all organizations.
     attr_accessor :online_archive_events_count_agg_sum
+
+    # Shows the 99th percentile of APM hosts reported by the Datadog exporter for the OpenTelemetry Collector over all hours in the current months for all organizations.
+    attr_accessor :opentelemetry_apm_host_top99p_sum
 
     # Shows the 99th percentile of all hosts reported by the Datadog exporter for the OpenTelemetry Collector over all hours in the current months for all organizations.
     attr_accessor :opentelemetry_host_top99p_sum
@@ -250,11 +271,17 @@ module DatadogAPIClient::V1
     # Shows the sum of all Synthetic API tests over all hours in the current months for all organizations.
     attr_accessor :synthetics_check_calls_count_agg_sum
 
+    # Shows the sum of the high-water marks of used synthetics parallel testing slots over all hours in the current month for all organizations.
+    attr_accessor :synthetics_parallel_testing_max_slots_hwm_sum
+
     # Shows the sum of all Indexed Spans indexed over all hours in the current months for all organizations.
     attr_accessor :trace_search_indexed_events_count_agg_sum
 
     # Shows the sum of all ingested APM span bytes over all hours in the current months for all organizations.
     attr_accessor :twol_ingested_events_bytes_agg_sum
+
+    # Shows the 99th percentile of all Universal Service Monitoring hosts over all hours in the current months for all organizations.
+    attr_accessor :universal_service_monitoring_host_top99p_sum
 
     # An array of objects regarding hourly usage.
     attr_accessor :usage
@@ -272,6 +299,7 @@ module DatadogAPIClient::V1
         :'apm_host_top99p_sum' => :'apm_host_top99p_sum',
         :'appsec_fargate_count_avg_sum' => :'appsec_fargate_count_avg_sum',
         :'audit_logs_lines_indexed_agg_sum' => :'audit_logs_lines_indexed_agg_sum',
+        :'audit_trail_enabled_hwm_sum' => :'audit_trail_enabled_hwm_sum',
         :'avg_profiled_fargate_tasks_sum' => :'avg_profiled_fargate_tasks_sum',
         :'aws_host_top99p_sum' => :'aws_host_top99p_sum',
         :'aws_lambda_func_count' => :'aws_lambda_func_count',
@@ -286,13 +314,16 @@ module DatadogAPIClient::V1
         :'ci_test_indexed_spans_agg_sum' => :'ci_test_indexed_spans_agg_sum',
         :'ci_visibility_pipeline_committers_hwm_sum' => :'ci_visibility_pipeline_committers_hwm_sum',
         :'ci_visibility_test_committers_hwm_sum' => :'ci_visibility_test_committers_hwm_sum',
+        :'cloud_cost_management_host_count_avg_sum' => :'cloud_cost_management_host_count_avg_sum',
         :'container_avg_sum' => :'container_avg_sum',
+        :'container_excl_agent_avg_sum' => :'container_excl_agent_avg_sum',
         :'container_hwm_sum' => :'container_hwm_sum',
         :'cspm_aas_host_top99p_sum' => :'cspm_aas_host_top99p_sum',
         :'cspm_aws_host_top99p_sum' => :'cspm_aws_host_top99p_sum',
         :'cspm_azure_host_top99p_sum' => :'cspm_azure_host_top99p_sum',
         :'cspm_container_avg_sum' => :'cspm_container_avg_sum',
         :'cspm_container_hwm_sum' => :'cspm_container_hwm_sum',
+        :'cspm_gcp_host_top99p_sum' => :'cspm_gcp_host_top99p_sum',
         :'cspm_host_top99p_sum' => :'cspm_host_top99p_sum',
         :'custom_ts_sum' => :'custom_ts_sum',
         :'cws_containers_avg_sum' => :'cws_containers_avg_sum',
@@ -302,6 +333,7 @@ module DatadogAPIClient::V1
         :'end_date' => :'end_date',
         :'fargate_tasks_count_avg_sum' => :'fargate_tasks_count_avg_sum',
         :'fargate_tasks_count_hwm_sum' => :'fargate_tasks_count_hwm_sum',
+        :'forwarding_events_bytes_agg_sum' => :'forwarding_events_bytes_agg_sum',
         :'gcp_host_top99p_sum' => :'gcp_host_top99p_sum',
         :'heroku_host_top99p_sum' => :'heroku_host_top99p_sum',
         :'incident_management_monthly_active_users_hwm_sum' => :'incident_management_monthly_active_users_hwm_sum',
@@ -317,6 +349,7 @@ module DatadogAPIClient::V1
         :'mobile_rum_lite_session_count_agg_sum' => :'mobile_rum_lite_session_count_agg_sum',
         :'mobile_rum_session_count_agg_sum' => :'mobile_rum_session_count_agg_sum',
         :'mobile_rum_session_count_android_agg_sum' => :'mobile_rum_session_count_android_agg_sum',
+        :'mobile_rum_session_count_flutter_agg_sum' => :'mobile_rum_session_count_flutter_agg_sum',
         :'mobile_rum_session_count_ios_agg_sum' => :'mobile_rum_session_count_ios_agg_sum',
         :'mobile_rum_session_count_reactnative_agg_sum' => :'mobile_rum_session_count_reactnative_agg_sum',
         :'mobile_rum_units_agg_sum' => :'mobile_rum_units_agg_sum',
@@ -324,6 +357,7 @@ module DatadogAPIClient::V1
         :'npm_host_top99p_sum' => :'npm_host_top99p_sum',
         :'observability_pipelines_bytes_processed_agg_sum' => :'observability_pipelines_bytes_processed_agg_sum',
         :'online_archive_events_count_agg_sum' => :'online_archive_events_count_agg_sum',
+        :'opentelemetry_apm_host_top99p_sum' => :'opentelemetry_apm_host_top99p_sum',
         :'opentelemetry_host_top99p_sum' => :'opentelemetry_host_top99p_sum',
         :'profiling_container_agent_count_avg' => :'profiling_container_agent_count_avg',
         :'profiling_host_count_top99p_sum' => :'profiling_host_count_top99p_sum',
@@ -341,8 +375,10 @@ module DatadogAPIClient::V1
         :'start_date' => :'start_date',
         :'synthetics_browser_check_calls_count_agg_sum' => :'synthetics_browser_check_calls_count_agg_sum',
         :'synthetics_check_calls_count_agg_sum' => :'synthetics_check_calls_count_agg_sum',
+        :'synthetics_parallel_testing_max_slots_hwm_sum' => :'synthetics_parallel_testing_max_slots_hwm_sum',
         :'trace_search_indexed_events_count_agg_sum' => :'trace_search_indexed_events_count_agg_sum',
         :'twol_ingested_events_bytes_agg_sum' => :'twol_ingested_events_bytes_agg_sum',
+        :'universal_service_monitoring_host_top99p_sum' => :'universal_service_monitoring_host_top99p_sum',
         :'usage' => :'usage',
         :'vsphere_host_top99p_sum' => :'vsphere_host_top99p_sum'
       }
@@ -358,6 +394,7 @@ module DatadogAPIClient::V1
         :'apm_host_top99p_sum' => :'Integer',
         :'appsec_fargate_count_avg_sum' => :'Integer',
         :'audit_logs_lines_indexed_agg_sum' => :'Integer',
+        :'audit_trail_enabled_hwm_sum' => :'Integer',
         :'avg_profiled_fargate_tasks_sum' => :'Integer',
         :'aws_host_top99p_sum' => :'Integer',
         :'aws_lambda_func_count' => :'Integer',
@@ -372,13 +409,16 @@ module DatadogAPIClient::V1
         :'ci_test_indexed_spans_agg_sum' => :'Integer',
         :'ci_visibility_pipeline_committers_hwm_sum' => :'Integer',
         :'ci_visibility_test_committers_hwm_sum' => :'Integer',
+        :'cloud_cost_management_host_count_avg_sum' => :'Integer',
         :'container_avg_sum' => :'Integer',
+        :'container_excl_agent_avg_sum' => :'Integer',
         :'container_hwm_sum' => :'Integer',
         :'cspm_aas_host_top99p_sum' => :'Integer',
         :'cspm_aws_host_top99p_sum' => :'Integer',
         :'cspm_azure_host_top99p_sum' => :'Integer',
         :'cspm_container_avg_sum' => :'Integer',
         :'cspm_container_hwm_sum' => :'Integer',
+        :'cspm_gcp_host_top99p_sum' => :'Integer',
         :'cspm_host_top99p_sum' => :'Integer',
         :'custom_ts_sum' => :'Integer',
         :'cws_containers_avg_sum' => :'Integer',
@@ -388,6 +428,7 @@ module DatadogAPIClient::V1
         :'end_date' => :'Time',
         :'fargate_tasks_count_avg_sum' => :'Integer',
         :'fargate_tasks_count_hwm_sum' => :'Integer',
+        :'forwarding_events_bytes_agg_sum' => :'Integer',
         :'gcp_host_top99p_sum' => :'Integer',
         :'heroku_host_top99p_sum' => :'Integer',
         :'incident_management_monthly_active_users_hwm_sum' => :'Integer',
@@ -403,6 +444,7 @@ module DatadogAPIClient::V1
         :'mobile_rum_lite_session_count_agg_sum' => :'Integer',
         :'mobile_rum_session_count_agg_sum' => :'Integer',
         :'mobile_rum_session_count_android_agg_sum' => :'Integer',
+        :'mobile_rum_session_count_flutter_agg_sum' => :'Integer',
         :'mobile_rum_session_count_ios_agg_sum' => :'Integer',
         :'mobile_rum_session_count_reactnative_agg_sum' => :'Integer',
         :'mobile_rum_units_agg_sum' => :'Integer',
@@ -410,6 +452,7 @@ module DatadogAPIClient::V1
         :'npm_host_top99p_sum' => :'Integer',
         :'observability_pipelines_bytes_processed_agg_sum' => :'Integer',
         :'online_archive_events_count_agg_sum' => :'Integer',
+        :'opentelemetry_apm_host_top99p_sum' => :'Integer',
         :'opentelemetry_host_top99p_sum' => :'Integer',
         :'profiling_container_agent_count_avg' => :'Integer',
         :'profiling_host_count_top99p_sum' => :'Integer',
@@ -427,18 +470,13 @@ module DatadogAPIClient::V1
         :'start_date' => :'Time',
         :'synthetics_browser_check_calls_count_agg_sum' => :'Integer',
         :'synthetics_check_calls_count_agg_sum' => :'Integer',
+        :'synthetics_parallel_testing_max_slots_hwm_sum' => :'Integer',
         :'trace_search_indexed_events_count_agg_sum' => :'Integer',
         :'twol_ingested_events_bytes_agg_sum' => :'Integer',
+        :'universal_service_monitoring_host_top99p_sum' => :'Integer',
         :'usage' => :'Array<UsageSummaryDate>',
         :'vsphere_host_top99p_sum' => :'Integer'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object
@@ -479,6 +517,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'audit_logs_lines_indexed_agg_sum')
         self.audit_logs_lines_indexed_agg_sum = attributes[:'audit_logs_lines_indexed_agg_sum']
+      end
+
+      if attributes.key?(:'audit_trail_enabled_hwm_sum')
+        self.audit_trail_enabled_hwm_sum = attributes[:'audit_trail_enabled_hwm_sum']
       end
 
       if attributes.key?(:'avg_profiled_fargate_tasks_sum')
@@ -537,8 +579,16 @@ module DatadogAPIClient::V1
         self.ci_visibility_test_committers_hwm_sum = attributes[:'ci_visibility_test_committers_hwm_sum']
       end
 
+      if attributes.key?(:'cloud_cost_management_host_count_avg_sum')
+        self.cloud_cost_management_host_count_avg_sum = attributes[:'cloud_cost_management_host_count_avg_sum']
+      end
+
       if attributes.key?(:'container_avg_sum')
         self.container_avg_sum = attributes[:'container_avg_sum']
+      end
+
+      if attributes.key?(:'container_excl_agent_avg_sum')
+        self.container_excl_agent_avg_sum = attributes[:'container_excl_agent_avg_sum']
       end
 
       if attributes.key?(:'container_hwm_sum')
@@ -563,6 +613,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'cspm_container_hwm_sum')
         self.cspm_container_hwm_sum = attributes[:'cspm_container_hwm_sum']
+      end
+
+      if attributes.key?(:'cspm_gcp_host_top99p_sum')
+        self.cspm_gcp_host_top99p_sum = attributes[:'cspm_gcp_host_top99p_sum']
       end
 
       if attributes.key?(:'cspm_host_top99p_sum')
@@ -599,6 +653,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'fargate_tasks_count_hwm_sum')
         self.fargate_tasks_count_hwm_sum = attributes[:'fargate_tasks_count_hwm_sum']
+      end
+
+      if attributes.key?(:'forwarding_events_bytes_agg_sum')
+        self.forwarding_events_bytes_agg_sum = attributes[:'forwarding_events_bytes_agg_sum']
       end
 
       if attributes.key?(:'gcp_host_top99p_sum')
@@ -661,6 +719,10 @@ module DatadogAPIClient::V1
         self.mobile_rum_session_count_android_agg_sum = attributes[:'mobile_rum_session_count_android_agg_sum']
       end
 
+      if attributes.key?(:'mobile_rum_session_count_flutter_agg_sum')
+        self.mobile_rum_session_count_flutter_agg_sum = attributes[:'mobile_rum_session_count_flutter_agg_sum']
+      end
+
       if attributes.key?(:'mobile_rum_session_count_ios_agg_sum')
         self.mobile_rum_session_count_ios_agg_sum = attributes[:'mobile_rum_session_count_ios_agg_sum']
       end
@@ -687,6 +749,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'online_archive_events_count_agg_sum')
         self.online_archive_events_count_agg_sum = attributes[:'online_archive_events_count_agg_sum']
+      end
+
+      if attributes.key?(:'opentelemetry_apm_host_top99p_sum')
+        self.opentelemetry_apm_host_top99p_sum = attributes[:'opentelemetry_apm_host_top99p_sum']
       end
 
       if attributes.key?(:'opentelemetry_host_top99p_sum')
@@ -757,12 +823,20 @@ module DatadogAPIClient::V1
         self.synthetics_check_calls_count_agg_sum = attributes[:'synthetics_check_calls_count_agg_sum']
       end
 
+      if attributes.key?(:'synthetics_parallel_testing_max_slots_hwm_sum')
+        self.synthetics_parallel_testing_max_slots_hwm_sum = attributes[:'synthetics_parallel_testing_max_slots_hwm_sum']
+      end
+
       if attributes.key?(:'trace_search_indexed_events_count_agg_sum')
         self.trace_search_indexed_events_count_agg_sum = attributes[:'trace_search_indexed_events_count_agg_sum']
       end
 
       if attributes.key?(:'twol_ingested_events_bytes_agg_sum')
         self.twol_ingested_events_bytes_agg_sum = attributes[:'twol_ingested_events_bytes_agg_sum']
+      end
+
+      if attributes.key?(:'universal_service_monitoring_host_top99p_sum')
+        self.universal_service_monitoring_host_top99p_sum = attributes[:'universal_service_monitoring_host_top99p_sum']
       end
 
       if attributes.key?(:'usage')
@@ -795,6 +869,7 @@ module DatadogAPIClient::V1
           apm_host_top99p_sum == o.apm_host_top99p_sum &&
           appsec_fargate_count_avg_sum == o.appsec_fargate_count_avg_sum &&
           audit_logs_lines_indexed_agg_sum == o.audit_logs_lines_indexed_agg_sum &&
+          audit_trail_enabled_hwm_sum == o.audit_trail_enabled_hwm_sum &&
           avg_profiled_fargate_tasks_sum == o.avg_profiled_fargate_tasks_sum &&
           aws_host_top99p_sum == o.aws_host_top99p_sum &&
           aws_lambda_func_count == o.aws_lambda_func_count &&
@@ -809,13 +884,16 @@ module DatadogAPIClient::V1
           ci_test_indexed_spans_agg_sum == o.ci_test_indexed_spans_agg_sum &&
           ci_visibility_pipeline_committers_hwm_sum == o.ci_visibility_pipeline_committers_hwm_sum &&
           ci_visibility_test_committers_hwm_sum == o.ci_visibility_test_committers_hwm_sum &&
+          cloud_cost_management_host_count_avg_sum == o.cloud_cost_management_host_count_avg_sum &&
           container_avg_sum == o.container_avg_sum &&
+          container_excl_agent_avg_sum == o.container_excl_agent_avg_sum &&
           container_hwm_sum == o.container_hwm_sum &&
           cspm_aas_host_top99p_sum == o.cspm_aas_host_top99p_sum &&
           cspm_aws_host_top99p_sum == o.cspm_aws_host_top99p_sum &&
           cspm_azure_host_top99p_sum == o.cspm_azure_host_top99p_sum &&
           cspm_container_avg_sum == o.cspm_container_avg_sum &&
           cspm_container_hwm_sum == o.cspm_container_hwm_sum &&
+          cspm_gcp_host_top99p_sum == o.cspm_gcp_host_top99p_sum &&
           cspm_host_top99p_sum == o.cspm_host_top99p_sum &&
           custom_ts_sum == o.custom_ts_sum &&
           cws_containers_avg_sum == o.cws_containers_avg_sum &&
@@ -825,6 +903,7 @@ module DatadogAPIClient::V1
           end_date == o.end_date &&
           fargate_tasks_count_avg_sum == o.fargate_tasks_count_avg_sum &&
           fargate_tasks_count_hwm_sum == o.fargate_tasks_count_hwm_sum &&
+          forwarding_events_bytes_agg_sum == o.forwarding_events_bytes_agg_sum &&
           gcp_host_top99p_sum == o.gcp_host_top99p_sum &&
           heroku_host_top99p_sum == o.heroku_host_top99p_sum &&
           incident_management_monthly_active_users_hwm_sum == o.incident_management_monthly_active_users_hwm_sum &&
@@ -840,6 +919,7 @@ module DatadogAPIClient::V1
           mobile_rum_lite_session_count_agg_sum == o.mobile_rum_lite_session_count_agg_sum &&
           mobile_rum_session_count_agg_sum == o.mobile_rum_session_count_agg_sum &&
           mobile_rum_session_count_android_agg_sum == o.mobile_rum_session_count_android_agg_sum &&
+          mobile_rum_session_count_flutter_agg_sum == o.mobile_rum_session_count_flutter_agg_sum &&
           mobile_rum_session_count_ios_agg_sum == o.mobile_rum_session_count_ios_agg_sum &&
           mobile_rum_session_count_reactnative_agg_sum == o.mobile_rum_session_count_reactnative_agg_sum &&
           mobile_rum_units_agg_sum == o.mobile_rum_units_agg_sum &&
@@ -847,6 +927,7 @@ module DatadogAPIClient::V1
           npm_host_top99p_sum == o.npm_host_top99p_sum &&
           observability_pipelines_bytes_processed_agg_sum == o.observability_pipelines_bytes_processed_agg_sum &&
           online_archive_events_count_agg_sum == o.online_archive_events_count_agg_sum &&
+          opentelemetry_apm_host_top99p_sum == o.opentelemetry_apm_host_top99p_sum &&
           opentelemetry_host_top99p_sum == o.opentelemetry_host_top99p_sum &&
           profiling_container_agent_count_avg == o.profiling_container_agent_count_avg &&
           profiling_host_count_top99p_sum == o.profiling_host_count_top99p_sum &&
@@ -864,8 +945,10 @@ module DatadogAPIClient::V1
           start_date == o.start_date &&
           synthetics_browser_check_calls_count_agg_sum == o.synthetics_browser_check_calls_count_agg_sum &&
           synthetics_check_calls_count_agg_sum == o.synthetics_check_calls_count_agg_sum &&
+          synthetics_parallel_testing_max_slots_hwm_sum == o.synthetics_parallel_testing_max_slots_hwm_sum &&
           trace_search_indexed_events_count_agg_sum == o.trace_search_indexed_events_count_agg_sum &&
           twol_ingested_events_bytes_agg_sum == o.twol_ingested_events_bytes_agg_sum &&
+          universal_service_monitoring_host_top99p_sum == o.universal_service_monitoring_host_top99p_sum &&
           usage == o.usage &&
           vsphere_host_top99p_sum == o.vsphere_host_top99p_sum
     end
@@ -874,7 +957,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [agent_host_top99p_sum, apm_azure_app_service_host_top99p_sum, apm_fargate_count_avg_sum, apm_host_top99p_sum, appsec_fargate_count_avg_sum, audit_logs_lines_indexed_agg_sum, avg_profiled_fargate_tasks_sum, aws_host_top99p_sum, aws_lambda_func_count, aws_lambda_invocations_sum, azure_app_service_top99p_sum, azure_host_top99p_sum, billable_ingested_bytes_agg_sum, browser_rum_lite_session_count_agg_sum, browser_rum_replay_session_count_agg_sum, browser_rum_units_agg_sum, ci_pipeline_indexed_spans_agg_sum, ci_test_indexed_spans_agg_sum, ci_visibility_pipeline_committers_hwm_sum, ci_visibility_test_committers_hwm_sum, container_avg_sum, container_hwm_sum, cspm_aas_host_top99p_sum, cspm_aws_host_top99p_sum, cspm_azure_host_top99p_sum, cspm_container_avg_sum, cspm_container_hwm_sum, cspm_host_top99p_sum, custom_ts_sum, cws_containers_avg_sum, cws_host_top99p_sum, dbm_host_top99p_sum, dbm_queries_avg_sum, end_date, fargate_tasks_count_avg_sum, fargate_tasks_count_hwm_sum, gcp_host_top99p_sum, heroku_host_top99p_sum, incident_management_monthly_active_users_hwm_sum, indexed_events_count_agg_sum, infra_host_top99p_sum, ingested_events_bytes_agg_sum, iot_device_agg_sum, iot_device_top99p_sum, last_updated, live_indexed_events_agg_sum, live_ingested_bytes_agg_sum, logs_by_retention, mobile_rum_lite_session_count_agg_sum, mobile_rum_session_count_agg_sum, mobile_rum_session_count_android_agg_sum, mobile_rum_session_count_ios_agg_sum, mobile_rum_session_count_reactnative_agg_sum, mobile_rum_units_agg_sum, netflow_indexed_events_count_agg_sum, npm_host_top99p_sum, observability_pipelines_bytes_processed_agg_sum, online_archive_events_count_agg_sum, opentelemetry_host_top99p_sum, profiling_container_agent_count_avg, profiling_host_count_top99p_sum, rehydrated_indexed_events_agg_sum, rehydrated_ingested_bytes_agg_sum, rum_browser_and_mobile_session_count, rum_session_count_agg_sum, rum_total_session_count_agg_sum, rum_units_agg_sum, sds_apm_scanned_bytes_sum, sds_events_scanned_bytes_sum, sds_logs_scanned_bytes_sum, sds_rum_scanned_bytes_sum, sds_total_scanned_bytes_sum, start_date, synthetics_browser_check_calls_count_agg_sum, synthetics_check_calls_count_agg_sum, trace_search_indexed_events_count_agg_sum, twol_ingested_events_bytes_agg_sum, usage, vsphere_host_top99p_sum].hash
+      [agent_host_top99p_sum, apm_azure_app_service_host_top99p_sum, apm_fargate_count_avg_sum, apm_host_top99p_sum, appsec_fargate_count_avg_sum, audit_logs_lines_indexed_agg_sum, audit_trail_enabled_hwm_sum, avg_profiled_fargate_tasks_sum, aws_host_top99p_sum, aws_lambda_func_count, aws_lambda_invocations_sum, azure_app_service_top99p_sum, azure_host_top99p_sum, billable_ingested_bytes_agg_sum, browser_rum_lite_session_count_agg_sum, browser_rum_replay_session_count_agg_sum, browser_rum_units_agg_sum, ci_pipeline_indexed_spans_agg_sum, ci_test_indexed_spans_agg_sum, ci_visibility_pipeline_committers_hwm_sum, ci_visibility_test_committers_hwm_sum, cloud_cost_management_host_count_avg_sum, container_avg_sum, container_excl_agent_avg_sum, container_hwm_sum, cspm_aas_host_top99p_sum, cspm_aws_host_top99p_sum, cspm_azure_host_top99p_sum, cspm_container_avg_sum, cspm_container_hwm_sum, cspm_gcp_host_top99p_sum, cspm_host_top99p_sum, custom_ts_sum, cws_containers_avg_sum, cws_host_top99p_sum, dbm_host_top99p_sum, dbm_queries_avg_sum, end_date, fargate_tasks_count_avg_sum, fargate_tasks_count_hwm_sum, forwarding_events_bytes_agg_sum, gcp_host_top99p_sum, heroku_host_top99p_sum, incident_management_monthly_active_users_hwm_sum, indexed_events_count_agg_sum, infra_host_top99p_sum, ingested_events_bytes_agg_sum, iot_device_agg_sum, iot_device_top99p_sum, last_updated, live_indexed_events_agg_sum, live_ingested_bytes_agg_sum, logs_by_retention, mobile_rum_lite_session_count_agg_sum, mobile_rum_session_count_agg_sum, mobile_rum_session_count_android_agg_sum, mobile_rum_session_count_flutter_agg_sum, mobile_rum_session_count_ios_agg_sum, mobile_rum_session_count_reactnative_agg_sum, mobile_rum_units_agg_sum, netflow_indexed_events_count_agg_sum, npm_host_top99p_sum, observability_pipelines_bytes_processed_agg_sum, online_archive_events_count_agg_sum, opentelemetry_apm_host_top99p_sum, opentelemetry_host_top99p_sum, profiling_container_agent_count_avg, profiling_host_count_top99p_sum, rehydrated_indexed_events_agg_sum, rehydrated_ingested_bytes_agg_sum, rum_browser_and_mobile_session_count, rum_session_count_agg_sum, rum_total_session_count_agg_sum, rum_units_agg_sum, sds_apm_scanned_bytes_sum, sds_events_scanned_bytes_sum, sds_logs_scanned_bytes_sum, sds_rum_scanned_bytes_sum, sds_total_scanned_bytes_sum, start_date, synthetics_browser_check_calls_count_agg_sum, synthetics_check_calls_count_agg_sum, synthetics_parallel_testing_max_slots_hwm_sum, trace_search_indexed_events_count_agg_sum, twol_ingested_events_bytes_agg_sum, universal_service_monitoring_host_top99p_sum, usage, vsphere_host_top99p_sum].hash
     end
   end
 end

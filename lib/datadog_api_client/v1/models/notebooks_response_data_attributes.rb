@@ -41,7 +41,7 @@ module DatadogAPIClient::V1
     attr_accessor :modified
 
     # The name of the notebook.
-    attr_accessor :name
+    attr_reader :name
 
     # Publication status of the notebook. For now, always "published".
     attr_accessor :status
@@ -77,13 +77,6 @@ module DatadogAPIClient::V1
         :'status' => :'NotebookStatus',
         :'time' => :'NotebookGlobalTime'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

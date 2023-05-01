@@ -1,0 +1,20 @@
+http_interactions:
+- recorded_at: Wed, 08 Feb 2023 21:43:23 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+    method: GET
+    uri: https://api.datadoghq.com/api/v2/restriction_policy/malformed
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":["Invalid resource: ''malformed'' is not in a valid format"]}'
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 400
+      message: Bad Request
+recorded_with: VCR 6.0.0

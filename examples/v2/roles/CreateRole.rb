@@ -7,7 +7,7 @@ body = DatadogAPIClient::V2::RoleCreateRequest.new({
   data: DatadogAPIClient::V2::RoleCreateData.new({
     type: DatadogAPIClient::V2::RolesType::ROLES,
     attributes: DatadogAPIClient::V2::RoleCreateAttributes.new({
-      name: "Example-Create_role_returns_OK_response",
+      name: "Example-Role",
     }),
   }),
 })

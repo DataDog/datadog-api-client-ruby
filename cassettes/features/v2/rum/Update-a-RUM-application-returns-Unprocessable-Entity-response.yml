@@ -1,5 +1,5 @@
 http_interactions:
-- recorded_at: Mon, 03 Oct 2022 19:32:50 GMT
+- recorded_at: Mon, 05 Dec 2022 18:19:14 GMT
   request:
     body:
       encoding: UTF-8
@@ -14,7 +14,7 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"updated_by_handle":"frog@datadoghq.com","application_id":"296a7eed-c8e3-480d-b3f1-0777555d6005","name":"test_name_create","created_by_handle":"frog@datadoghq.com","created_at":1664825571864,"org_id":321813,"updated_at":1664825571864,"is_active":false,"hash":"puba93f53dff0e15bc11416bd06e42c6cd3","type":"browser"},"type":"rum_application","id":"296a7eed-c8e3-480d-b3f1-0777555d6005"}}
+      string: '{"data":{"attributes":{"updated_by_handle":"frog@datadoghq.com","application_id":"fdf8b82d-d289-408c-9e57-561abf7cd7c4","name":"test_name_create","created_by_handle":"frog@datadoghq.com","created_at":1670264354633,"org_id":321813,"updated_at":1670264354633,"is_active":false,"hash":"pub0e8c306f38224753217726072c10be16","client_token":"pub0e8c306f38224753217726072c10be16","type":"browser"},"type":"rum_application","id":"fdf8b82d-d289-408c-9e57-561abf7cd7c4"}}
 
         '
     headers:
@@ -23,7 +23,7 @@ http_interactions:
     status:
       code: 200
       message: OK
-- recorded_at: Mon, 03 Oct 2022 19:32:50 GMT
+- recorded_at: Mon, 05 Dec 2022 18:19:14 GMT
   request:
     body:
       encoding: UTF-8
@@ -34,7 +34,7 @@ http_interactions:
       Content-Type:
       - application/json
     method: PATCH
-    uri: https://api.datadoghq.com/api/v2/rum/applications/296a7eed-c8e3-480d-b3f1-0777555d6005
+    uri: https://api.datadoghq.com/api/v2/rum/applications/fdf8b82d-d289-408c-9e57-561abf7cd7c4
   response:
     body:
       encoding: UTF-8
@@ -46,14 +46,14 @@ http_interactions:
     status:
       code: 422
       message: Unprocessable Entity
-- recorded_at: Mon, 03 Oct 2022 19:32:50 GMT
+- recorded_at: Mon, 05 Dec 2022 18:19:14 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/rum/applications/296a7eed-c8e3-480d-b3f1-0777555d6005
+    uri: https://api.datadoghq.com/api/v2/rum/applications/fdf8b82d-d289-408c-9e57-561abf7cd7c4
   response:
     body:
       encoding: UTF-8

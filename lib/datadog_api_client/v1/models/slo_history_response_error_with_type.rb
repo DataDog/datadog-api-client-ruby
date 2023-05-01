@@ -26,10 +26,10 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # A message with more details about the error.
-    attr_accessor :error_message
+    attr_reader :error_message
 
     # Type of the error.
-    attr_accessor :error_type
+    attr_reader :error_type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -47,13 +47,6 @@ module DatadogAPIClient::V1
         :'error_message' => :'String',
         :'error_type' => :'String'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

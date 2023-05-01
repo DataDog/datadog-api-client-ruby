@@ -83,6 +83,11 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_nullable
       Set.new([
+        :'apm_scanned_bytes',
+        :'events_scanned_bytes',
+        :'logs_scanned_bytes',
+        :'rum_scanned_bytes',
+        :'total_scanned_bytes',
       ])
     end
 

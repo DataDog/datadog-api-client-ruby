@@ -27,7 +27,7 @@ module DatadogAPIClient::V1
 
     # The target value for the service level indicator within the corresponding
     # timeframe.
-    attr_accessor :target
+    attr_reader :target
 
     # A string representation of the target that indicates its precision.
     # It uses trailing zeros to show significant decimal places (for example `98.00`).
@@ -37,7 +37,7 @@ module DatadogAPIClient::V1
     attr_accessor :target_display
 
     # The SLO time window options.
-    attr_accessor :timeframe
+    attr_reader :timeframe
 
     # The warning value for the service level objective.
     attr_accessor :warning

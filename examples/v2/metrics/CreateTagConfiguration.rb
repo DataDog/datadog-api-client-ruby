@@ -6,7 +6,7 @@ api_instance = DatadogAPIClient::V2::MetricsAPI.new
 body = DatadogAPIClient::V2::MetricTagConfigurationCreateRequest.new({
   data: DatadogAPIClient::V2::MetricTagConfigurationCreateData.new({
     type: DatadogAPIClient::V2::MetricTagConfigurationType::MANAGE_TAGS,
-    id: "ExampleCreateatagconfigurationreturnsCreatedresponse",
+    id: "ExampleMetric",
     attributes: DatadogAPIClient::V2::MetricTagConfigurationCreateAttributes.new({
       tags: [
         "app",
@@ -16,4 +16,4 @@ body = DatadogAPIClient::V2::MetricTagConfigurationCreateRequest.new({
     }),
   }),
 })
-p api_instance.create_tag_configuration("ExampleCreateatagconfigurationreturnsCreatedresponse", body)
+p api_instance.create_tag_configuration("ExampleMetric", body)

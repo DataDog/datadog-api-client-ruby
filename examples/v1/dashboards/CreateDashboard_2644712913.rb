@@ -5,7 +5,7 @@ api_instance = DatadogAPIClient::V1::DashboardsAPI.new
 
 body = DatadogAPIClient::V1::Dashboard.new({
   layout_type: DatadogAPIClient::V1::DashboardLayoutType::ORDERED,
-  title: "Example-Create_a_new_dashboard_with_a_query_value_widget_using_the_percentile_aggregator with QVW Percentile Aggregator",
+  title: "Example-Dashboard with QVW Percentile Aggregator",
   widgets: [
     DatadogAPIClient::V1::Widget.new({
       definition: DatadogAPIClient::V1::QueryValueWidgetDefinition.new({

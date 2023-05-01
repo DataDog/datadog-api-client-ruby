@@ -636,7 +636,7 @@ module DatadogAPIClient::V1
 
     # Get an API test's latest results summaries.
     #
-    # Get the last 50 test results summaries for a given Synthetics API test.
+    # Get the last 150 test results summaries for a given Synthetics API test.
     #
     # @param public_id [String] The public ID of the test for which to search results for.
     # @param opts [Hash] the optional parameters
@@ -843,7 +843,7 @@ module DatadogAPIClient::V1
 
     # Get a browser test's latest results summaries.
     #
-    # Get the last 50 test results summaries for a given Synthetics Browser test.
+    # Get the last 150 test results summaries for a given Synthetics Browser test.
     #
     # @param public_id [String] The public ID of the browser test for which to search results for.
     # @param opts [Hash] the optional parameters
@@ -1355,7 +1355,7 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get the list of all tests.
+    # Get the list of all Synthetic tests.
     #
     # @see #list_tests_with_http_info
     def list_tests(opts = {})
@@ -1363,11 +1363,13 @@ module DatadogAPIClient::V1
       data
     end
 
-    # Get the list of all tests.
+    # Get the list of all Synthetic tests.
     #
     # Get the list of all Synthetic tests.
     #
     # @param opts [Hash] the optional parameters
+    # @option opts [String] :page_size Used for pagination. The number of tests returned in the page.
+    # @option opts [String] :page_number Used for pagination. Which page you want to retrieve. Starts at zero.
     # @return [Array<(SyntheticsListTestsResponse, Integer, Hash)>] SyntheticsListTestsResponse data, response status code and response headers
     def list_tests_with_http_info(opts = {})
 
@@ -1379,6 +1381,8 @@ module DatadogAPIClient::V1
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+      query_params[:'page_number'] = opts[:'page_number'] if !opts[:'page_number'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

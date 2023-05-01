@@ -26,7 +26,7 @@ module DatadogAPIClient::V2
     attr_accessor :_unparsed
 
     # The API key associated with your Confluent account.
-    attr_accessor :api_key
+    attr_reader :api_key
 
     # A list of Confluent resources associated with the Confluent account.
     attr_accessor :resources
@@ -52,13 +52,6 @@ module DatadogAPIClient::V2
         :'resources' => :'Array<ConfluentResourceResponseAttributes>',
         :'tags' => :'Array<String>'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

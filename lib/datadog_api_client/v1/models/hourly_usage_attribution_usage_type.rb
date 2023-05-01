@@ -27,9 +27,11 @@ module DatadogAPIClient::V1
     APPSEC_FARGATE_USAGE = "appsec_fargate_usage".freeze
     APPSEC_USAGE = "appsec_usage".freeze
     BROWSER_USAGE = "browser_usage".freeze
+    CONTAINER_EXCL_AGENT_USAGE = "container_excl_agent_usage".freeze
     CONTAINER_USAGE = "container_usage".freeze
     CSPM_CONTAINERS_USAGE = "cspm_containers_usage".freeze
     CSPM_HOSTS_USAGE = "cspm_hosts_usage".freeze
+    CUSTOM_INGESTED_TIMESERIES_USAGE = "custom_ingested_timeseries_usage".freeze
     CUSTOM_TIMESERIES_USAGE = "custom_timeseries_usage".freeze
     CWS_CONTAINERS_USAGE = "cws_containers_usage".freeze
     CWS_HOSTS_USAGE = "cws_hosts_usage".freeze
@@ -41,12 +43,14 @@ module DatadogAPIClient::V1
     ESTIMATED_INGESTED_SPANS_USAGE = "estimated_ingested_spans_usage".freeze
     FARGATE_USAGE = "fargate_usage".freeze
     FUNCTIONS_USAGE = "functions_usage".freeze
-    INDEXED_LOGS_USAGE = "indexed_logs_usage".freeze
     INFRA_HOST_USAGE = "infra_host_usage".freeze
     INVOCATIONS_USAGE = "invocations_usage".freeze
     NPM_HOST_USAGE = "npm_host_usage".freeze
     PROFILED_CONTAINER_USAGE = "profiled_container_usage".freeze
+    PROFILED_FARGATE_USAGE = "profiled_fargate_usage".freeze
     PROFILED_HOST_USAGE = "profiled_host_usage".freeze
     SNMP_USAGE = "snmp_usage".freeze
+    ESTIMATED_RUM_SESSIONS_USAGE = "estimated_rum_sessions_usage".freeze
+    UNIVERSAL_SERVICE_MONITORING_USAGE = "universal_service_monitoring_usage".freeze
   end
 end

@@ -68,6 +68,8 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_nullable
       Set.new([
+        :'dbm_host_count',
+        :'dbm_queries_count',
       ])
     end
 

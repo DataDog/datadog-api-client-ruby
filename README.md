@@ -112,7 +112,7 @@ When talking to a different server, like the `eu` instance, change the `server_v
 
 ```ruby
 config = DatadogAPIClient::Configuration.new
-config.server_variables["site"] = "datadoghq.eu"
+config.server_variables[:site] = "datadoghq.eu"
 client = DatadogAPIClient::APIClient.new(config)
 ```
 

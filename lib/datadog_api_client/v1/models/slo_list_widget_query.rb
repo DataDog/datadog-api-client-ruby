@@ -26,17 +26,21 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # Maximum number of results to display in the table.
-    attr_accessor :limit
+    attr_reader :limit
 
     # Widget query.
-    attr_accessor :query_string
+    attr_reader :query_string
+
+    # Options for sorting results.
+    attr_accessor :sort
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
         :'limit' => :'limit',
-        :'query_string' => :'query_string'
+        :'query_string' => :'query_string',
+        :'sort' => :'sort'
       }
     end
 
@@ -45,15 +49,9 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'limit' => :'Integer',
-        :'query_string' => :'String'
+        :'query_string' => :'String',
+        :'sort' => :'Array<WidgetFieldSort>'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object
@@ -78,6 +76,12 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'query_string')
         self.query_string = attributes[:'query_string']
+      end
+
+      if attributes.key?(:'sort')
+        if (value = attributes[:'sort']).is_a?(Array)
+          self.sort = value
+        end
       end
     end
 
@@ -121,14 +125,15 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           limit == o.limit &&
-          query_string == o.query_string
+          query_string == o.query_string &&
+          sort == o.sort
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [limit, query_string].hash
+      [limit, query_string, sort].hash
     end
   end
 end

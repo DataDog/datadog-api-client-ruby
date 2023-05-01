@@ -29,7 +29,7 @@ module DatadogAPIClient::V1
     attr_accessor :metadata
 
     # The public ID of the Synthetics test to trigger.
-    attr_accessor :public_id
+    attr_reader :public_id
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -47,13 +47,6 @@ module DatadogAPIClient::V1
         :'metadata' => :'SyntheticsCIBatchMetadata',
         :'public_id' => :'String'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

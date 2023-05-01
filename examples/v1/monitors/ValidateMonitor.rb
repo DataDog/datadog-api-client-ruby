@@ -4,12 +4,12 @@ require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::MonitorsAPI.new
 
 body = DatadogAPIClient::V1::Monitor.new({
-  name: "Example-Validate_a_monitor_returns_OK_response",
+  name: "Example-Monitor",
   type: DatadogAPIClient::V1::MonitorType::LOG_ALERT,
   query: 'logs("service:foo AND type:error").index("main").rollup("count").by("source").last("5m") > 2',
   message: "some message Notify: @hipchat-channel",
   tags: [
-    "test:examplevalidateamonitorreturnsokresponse",
+    "test:examplemonitor",
     "env:ci",
   ],
   priority: 3,
@@ -25,6 +25,7 @@ body = DatadogAPIClient::V1::Monitor.new({
     notify_audit: false,
     notify_no_data: false,
     on_missing_data: DatadogAPIClient::V1::OnMissingDataOption::SHOW_AND_NOTIFY_NO_DATA,
+    notification_preset_name: DatadogAPIClient::V1::MonitorOptionsNotificationPresets::HIDE_HANDLES,
     renotify_interval: 60,
     require_full_window: true,
     timeout_h: 24,

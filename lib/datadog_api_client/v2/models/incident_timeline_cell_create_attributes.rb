@@ -44,7 +44,7 @@ module DatadogAPIClient::V2
           begin
             next if klass == :AnyType # "nullable: true"
             typed_data = find_and_cast_into_type(klass, data)
-            next if typed_data._unparsed
+            next if typed_data.respond_to?(:_unparsed) && typed_data._unparsed
             return typed_data if typed_data
           rescue # rescue all errors so we keep iterating even if the current item lookup raises
           end

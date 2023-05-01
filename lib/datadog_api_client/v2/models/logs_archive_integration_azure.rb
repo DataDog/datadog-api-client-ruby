@@ -26,10 +26,10 @@ module DatadogAPIClient::V2
     attr_accessor :_unparsed
 
     # A client ID.
-    attr_accessor :client_id
+    attr_reader :client_id
 
     # A tenant ID.
-    attr_accessor :tenant_id
+    attr_reader :tenant_id
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -47,13 +47,6 @@ module DatadogAPIClient::V2
         :'client_id' => :'String',
         :'tenant_id' => :'String'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

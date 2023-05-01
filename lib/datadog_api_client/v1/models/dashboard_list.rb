@@ -44,7 +44,7 @@ module DatadogAPIClient::V1
     attr_accessor :modified
 
     # The name of the dashboard list.
-    attr_accessor :name
+    attr_reader :name
 
     # The type of dashboard list.
     attr_accessor :type
@@ -77,13 +77,6 @@ module DatadogAPIClient::V1
         :'name' => :'String',
         :'type' => :'String'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

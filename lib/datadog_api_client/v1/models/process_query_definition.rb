@@ -29,10 +29,10 @@ module DatadogAPIClient::V1
     attr_accessor :filter_by
 
     # Max number of items in the filter list.
-    attr_accessor :limit
+    attr_reader :limit
 
     # Your chosen metric.
-    attr_accessor :metric
+    attr_reader :metric
 
     # Your chosen search term.
     attr_accessor :search_by
@@ -57,13 +57,6 @@ module DatadogAPIClient::V1
         :'metric' => :'String',
         :'search_by' => :'String'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

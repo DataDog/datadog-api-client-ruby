@@ -27,7 +27,7 @@ module DatadogAPIClient::V2
 
     # An ordered array of `<ARCHIVE_ID>` strings, the order of archive IDs in the array
     # define the overall archives order for Datadog.
-    attr_accessor :archive_ids
+    attr_reader :archive_ids
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -43,13 +43,6 @@ module DatadogAPIClient::V2
       {
         :'archive_ids' => :'Array<String>'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

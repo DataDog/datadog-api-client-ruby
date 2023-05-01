@@ -26,16 +26,16 @@ module DatadogAPIClient::V2
     attr_accessor :_unparsed
 
     # The bucket where the archive will be stored.
-    attr_accessor :bucket
+    attr_reader :bucket
 
     # The S3 Archive's integration destination.
-    attr_accessor :integration
+    attr_reader :integration
 
     # The archive path.
     attr_accessor :path
 
     # Type of the S3 archive destination.
-    attr_accessor :type
+    attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -57,13 +57,6 @@ module DatadogAPIClient::V2
         :'path' => :'String',
         :'type' => :'LogsArchiveDestinationS3Type'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

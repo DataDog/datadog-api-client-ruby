@@ -29,22 +29,22 @@ module DatadogAPIClient::V1
     attr_accessor :columns
 
     # Environment name.
-    attr_accessor :env
+    attr_reader :env
 
     # Operation name associated with service.
-    attr_accessor :name
+    attr_reader :name
 
     # The organization's host group name and value.
-    attr_accessor :primary_tag
+    attr_reader :primary_tag
 
     # Resource name.
     attr_accessor :resource
 
     # The level of detail for the request.
-    attr_accessor :row_type
+    attr_reader :row_type
 
     # Service name.
-    attr_accessor :service
+    attr_reader :service
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -72,13 +72,6 @@ module DatadogAPIClient::V1
         :'row_type' => :'ApmStatsQueryRowType',
         :'service' => :'String'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

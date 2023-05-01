@@ -44,7 +44,7 @@ module DatadogAPIClient::V1
     attr_accessor :markers
 
     # List of timeseries widget requests.
-    attr_accessor :requests
+    attr_reader :requests
 
     # Axis controls for the widget.
     attr_accessor :right_yaxis
@@ -65,7 +65,7 @@ module DatadogAPIClient::V1
     attr_accessor :title_size
 
     # Type of the timeseries widget.
-    attr_accessor :type
+    attr_reader :type
 
     # Axis controls for the widget.
     attr_accessor :yaxis
@@ -112,13 +112,6 @@ module DatadogAPIClient::V1
         :'type' => :'TimeseriesWidgetDefinitionType',
         :'yaxis' => :'WidgetAxis'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

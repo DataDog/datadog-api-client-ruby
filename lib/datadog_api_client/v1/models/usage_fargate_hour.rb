@@ -78,6 +78,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_nullable
       Set.new([
+        :'apm_fargate_count',
+        :'appsec_fargate_count',
+        :'avg_profiled_fargate_tasks',
+        :'tasks_count',
       ])
     end
 

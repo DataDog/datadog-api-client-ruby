@@ -37,17 +37,23 @@ module DatadogAPIClient::V1
     # Type of the request body.
     attr_accessor :body_type
 
+    # The type of gRPC call to perform.
+    attr_accessor :call_type
+
     # Client certificate to use when performing the test request.
     attr_accessor :certificate
 
     # By default, the client certificate is applied on the domain of the starting URL for browser tests. If you want your client certificate to be applied on other domains instead, add them in `certificateDomains`.
     attr_accessor :certificate_domains
 
+    # A protobuf JSON descriptor that needs to be gzipped first then base64 encoded.
+    attr_accessor :compressed_json_descriptor
+
     # DNS server to use for DNS tests.
     attr_accessor :dns_server
 
     # DNS server port to use for DNS tests.
-    attr_accessor :dns_server_port
+    attr_reader :dns_server_port
 
     # Specifies whether or not the request follows redirects.
     attr_accessor :follow_redirects
@@ -64,14 +70,14 @@ module DatadogAPIClient::V1
     # Metadata to include when performing the gRPC test.
     attr_accessor :metadata
 
-    # The HTTP method.
+    # Either the HTTP method/verb to use or a gRPC method available on the service set in the `service` field. Required if `subtype` is `HTTP` or if `subtype` is `grpc` and `callType` is `unary`.
     attr_accessor :method
 
     # Determines whether or not to save the response body.
     attr_accessor :no_saving_response_body
 
     # Number of pings to use per test.
-    attr_accessor :number_of_packets
+    attr_reader :number_of_packets
 
     # Port to use when performing the test.
     attr_accessor :port
@@ -87,7 +93,7 @@ module DatadogAPIClient::V1
     # the same IP address and TCP port number.
     attr_accessor :servername
 
-    # gRPC service on which you want to perform the healthcheck.
+    # The gRPC service on which you want to perform the gRPC call.
     attr_accessor :service
 
     # Turns on a traceroute probe to discover all gateways along the path to the host destination.
@@ -107,8 +113,10 @@ module DatadogAPIClient::V1
         :'basic_auth' => :'basicAuth',
         :'body' => :'body',
         :'body_type' => :'bodyType',
+        :'call_type' => :'callType',
         :'certificate' => :'certificate',
         :'certificate_domains' => :'certificateDomains',
+        :'compressed_json_descriptor' => :'compressedJsonDescriptor',
         :'dns_server' => :'dnsServer',
         :'dns_server_port' => :'dnsServerPort',
         :'follow_redirects' => :'follow_redirects',
@@ -138,8 +146,10 @@ module DatadogAPIClient::V1
         :'basic_auth' => :'SyntheticsBasicAuth',
         :'body' => :'String',
         :'body_type' => :'SyntheticsTestRequestBodyType',
+        :'call_type' => :'SyntheticsTestCallType',
         :'certificate' => :'SyntheticsTestRequestCertificate',
         :'certificate_domains' => :'Array<String>',
+        :'compressed_json_descriptor' => :'String',
         :'dns_server' => :'String',
         :'dns_server_port' => :'Integer',
         :'follow_redirects' => :'Boolean',
@@ -147,7 +157,7 @@ module DatadogAPIClient::V1
         :'host' => :'String',
         :'message' => :'String',
         :'metadata' => :'Hash<String, String>',
-        :'method' => :'HTTPMethod',
+        :'method' => :'String',
         :'no_saving_response_body' => :'Boolean',
         :'number_of_packets' => :'Integer',
         :'port' => :'Integer',
@@ -159,13 +169,6 @@ module DatadogAPIClient::V1
         :'timeout' => :'Float',
         :'url' => :'String'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object
@@ -200,6 +203,10 @@ module DatadogAPIClient::V1
         self.body_type = attributes[:'body_type']
       end
 
+      if attributes.key?(:'call_type')
+        self.call_type = attributes[:'call_type']
+      end
+
       if attributes.key?(:'certificate')
         self.certificate = attributes[:'certificate']
       end
@@ -208,6 +215,10 @@ module DatadogAPIClient::V1
         if (value = attributes[:'certificate_domains']).is_a?(Array)
           self.certificate_domains = value
         end
+      end
+
+      if attributes.key?(:'compressed_json_descriptor')
+        self.compressed_json_descriptor = attributes[:'compressed_json_descriptor']
       end
 
       if attributes.key?(:'dns_server')
@@ -330,8 +341,10 @@ module DatadogAPIClient::V1
           basic_auth == o.basic_auth &&
           body == o.body &&
           body_type == o.body_type &&
+          call_type == o.call_type &&
           certificate == o.certificate &&
           certificate_domains == o.certificate_domains &&
+          compressed_json_descriptor == o.compressed_json_descriptor &&
           dns_server == o.dns_server &&
           dns_server_port == o.dns_server_port &&
           follow_redirects == o.follow_redirects &&
@@ -356,7 +369,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [allow_insecure, basic_auth, body, body_type, certificate, certificate_domains, dns_server, dns_server_port, follow_redirects, headers, host, message, metadata, method, no_saving_response_body, number_of_packets, port, proxy, query, servername, service, should_track_hops, timeout, url].hash
+      [allow_insecure, basic_auth, body, body_type, call_type, certificate, certificate_domains, compressed_json_descriptor, dns_server, dns_server_port, follow_redirects, headers, host, message, metadata, method, no_saving_response_body, number_of_packets, port, proxy, query, servername, service, should_track_hops, timeout, url].hash
     end
   end
 end

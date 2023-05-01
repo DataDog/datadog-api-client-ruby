@@ -13,7 +13,7 @@ body = DatadogAPIClient::V2::CIAppPipelinesAggregateRequest.new({
   ],
   filter: DatadogAPIClient::V2::CIAppPipelinesQueryFilter.new({
     from: "now-15m",
-    query: "@ci.provider.name:github AND @ci.provider.instance:github-actions",
+    query: "@ci.provider.name:(gitlab OR github)",
     to: "now",
   }),
   group_by: [
@@ -25,9 +25,6 @@ body = DatadogAPIClient::V2::CIAppPipelinesAggregateRequest.new({
   ],
   options: DatadogAPIClient::V2::CIAppQueryOptions.new({
     timezone: "GMT",
-  }),
-  page: DatadogAPIClient::V2::CIAppQueryPageOptions.new({
-    limit: 25,
   }),
 })
 p api_instance.aggregate_ci_app_pipeline_events(body)

@@ -25,6 +25,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
+    # The compute rule to compute the log-based metric.
+    attr_accessor :compute
+
     # The log-based metric filter. Logs matching this filter will be aggregated in this metric.
     attr_accessor :filter
 
@@ -35,6 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'compute' => :'compute',
         :'filter' => :'filter',
         :'group_by' => :'group_by'
       }
@@ -44,16 +48,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'compute' => :'LogsMetricUpdateCompute',
         :'filter' => :'LogsMetricFilter',
         :'group_by' => :'Array<LogsMetricGroupBy>'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object
@@ -71,6 +69,10 @@ module DatadogAPIClient::V2
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'compute')
+        self.compute = attributes[:'compute']
+      end
 
       if attributes.key?(:'filter')
         self.filter = attributes[:'filter']
@@ -96,6 +98,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          compute == o.compute &&
           filter == o.filter &&
           group_by == o.group_by
     end
@@ -104,7 +107,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [filter, group_by].hash
+      [compute, filter, group_by].hash
     end
   end
 end

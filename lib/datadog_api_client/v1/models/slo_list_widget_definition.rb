@@ -26,7 +26,7 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # Array of one request object to display in the widget.
-    attr_accessor :requests
+    attr_reader :requests
 
     # Title of the widget.
     attr_accessor :title
@@ -38,7 +38,7 @@ module DatadogAPIClient::V1
     attr_accessor :title_size
 
     # Type of the SLO List widget.
-    attr_accessor :type
+    attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -62,13 +62,6 @@ module DatadogAPIClient::V1
         :'title_size' => :'String',
         :'type' => :'SLOListWidgetDefinitionType'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

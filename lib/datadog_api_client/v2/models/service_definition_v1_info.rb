@@ -26,7 +26,7 @@ module DatadogAPIClient::V2
     attr_accessor :_unparsed
 
     # Unique identifier of the service. Must be unique across all services and is used to match with a service in Datadog.
-    attr_accessor :dd_service
+    attr_reader :dd_service
 
     # A short description of the service.
     attr_accessor :description
@@ -57,13 +57,6 @@ module DatadogAPIClient::V2
         :'display_name' => :'String',
         :'service_tier' => :'String'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

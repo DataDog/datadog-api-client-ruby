@@ -32,7 +32,7 @@ module DatadogAPIClient::V1
     attr_accessor :audit_query
 
     # List of conditional formats.
-    attr_accessor :conditional_formats
+    attr_reader :conditional_formats
 
     # The log query.
     attr_accessor :event_query
@@ -112,13 +112,6 @@ module DatadogAPIClient::V1
         :'security_query' => :'LogQueryDefinition',
         :'style' => :'WidgetRequestStyle'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

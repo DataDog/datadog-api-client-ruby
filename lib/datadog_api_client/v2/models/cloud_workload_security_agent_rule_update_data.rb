@@ -26,10 +26,10 @@ module DatadogAPIClient::V2
     attr_accessor :_unparsed
 
     # Update an existing Cloud Workload Security Agent rule.
-    attr_accessor :attributes
+    attr_reader :attributes
 
     # The type of the resource. The value should always be `agent_rule`.
-    attr_accessor :type
+    attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -47,13 +47,6 @@ module DatadogAPIClient::V2
         :'attributes' => :'CloudWorkloadSecurityAgentRuleUpdateAttributes',
         :'type' => :'CloudWorkloadSecurityAgentRuleType'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

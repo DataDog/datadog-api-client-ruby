@@ -35,7 +35,7 @@ module DatadogAPIClient::V2
     attr_accessor :relationships
 
     # Roles type.
-    attr_accessor :type
+    attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -57,13 +57,6 @@ module DatadogAPIClient::V2
         :'relationships' => :'RoleResponseRelationships',
         :'type' => :'RolesType'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

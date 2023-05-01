@@ -29,7 +29,7 @@ module DatadogAPIClient::V2
     attr_accessor :region
 
     # Opsgenie service url.
-    attr_accessor :service_url
+    attr_reader :service_url
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -47,13 +47,6 @@ module DatadogAPIClient::V2
         :'region' => :'ServiceDefinitionV2OpsgenieRegion',
         :'service_url' => :'String'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

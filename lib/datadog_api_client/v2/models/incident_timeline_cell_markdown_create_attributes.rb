@@ -26,10 +26,10 @@ module DatadogAPIClient::V2
     attr_accessor :_unparsed
 
     # Type of the Markdown timeline cell.
-    attr_accessor :cell_type
+    attr_reader :cell_type
 
     # The Markdown timeline cell contents.
-    attr_accessor :content
+    attr_reader :content
 
     # A flag indicating whether the timeline cell is important and should be highlighted.
     attr_accessor :important
@@ -52,13 +52,6 @@ module DatadogAPIClient::V2
         :'content' => :'IncidentTimelineCellMarkdownCreateAttributesContent',
         :'important' => :'Boolean'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

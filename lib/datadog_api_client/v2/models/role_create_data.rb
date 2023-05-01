@@ -26,7 +26,7 @@ module DatadogAPIClient::V2
     attr_accessor :_unparsed
 
     # Attributes of the created role.
-    attr_accessor :attributes
+    attr_reader :attributes
 
     # Relationships of the role object.
     attr_accessor :relationships
@@ -52,13 +52,6 @@ module DatadogAPIClient::V2
         :'relationships' => :'RoleRelationships',
         :'type' => :'RolesType'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

@@ -42,7 +42,7 @@ module DatadogAPIClient::V1
     attr_accessor :client_token_id
 
     # Determines whether RUM data is collected during test runs.
-    attr_accessor :is_enabled
+    attr_reader :is_enabled
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -62,13 +62,6 @@ module DatadogAPIClient::V1
         :'client_token_id' => :'Integer',
         :'is_enabled' => :'Boolean'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

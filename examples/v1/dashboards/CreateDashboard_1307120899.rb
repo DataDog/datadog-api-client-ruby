@@ -4,7 +4,7 @@ require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::DashboardsAPI.new
 
 body = DatadogAPIClient::V1::Dashboard.new({
-  title: "Example-Create_a_new_timeseries_widget_with_ci_tests_data_source with ci_tests datasource",
+  title: "Example-Dashboard with ci_tests datasource",
   widgets: [
     DatadogAPIClient::V1::Widget.new({
       definition: DatadogAPIClient::V1::TimeseriesWidgetDefinition.new({

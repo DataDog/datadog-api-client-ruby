@@ -26,10 +26,10 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # Your AWS Account ID without dashes.
-    attr_accessor :account_id
+    attr_reader :account_id
 
     # ARN of the Datadog Lambda created during the Datadog-Amazon Web services Log collection setup.
-    attr_accessor :lambda_arn
+    attr_reader :lambda_arn
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -47,13 +47,6 @@ module DatadogAPIClient::V1
         :'account_id' => :'String',
         :'lambda_arn' => :'String'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

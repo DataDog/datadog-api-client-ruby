@@ -26,7 +26,7 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # Wrapper object with the list of monitor IDs.
-    attr_accessor :data
+    attr_reader :data
 
     # A mapping of Monitor ID to strings denoting where it's used.
     attr_accessor :errors
@@ -53,6 +53,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_nullable
       Set.new([
+        :'errors',
       ])
     end
 

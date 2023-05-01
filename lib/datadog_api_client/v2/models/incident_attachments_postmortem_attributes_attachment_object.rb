@@ -26,10 +26,10 @@ module DatadogAPIClient::V2
     attr_accessor :_unparsed
 
     # The URL of this notebook attachment.
-    attr_accessor :document_url
+    attr_reader :document_url
 
     # The title of this postmortem attachment.
-    attr_accessor :title
+    attr_reader :title
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -47,13 +47,6 @@ module DatadogAPIClient::V2
         :'document_url' => :'String',
         :'title' => :'String'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

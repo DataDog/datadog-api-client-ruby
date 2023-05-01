@@ -26,7 +26,7 @@ module DatadogAPIClient::V2
     attr_accessor :_unparsed
 
     # List of dashboards in the dashboard list.
-    attr_accessor :dashboards
+    attr_reader :dashboards
 
     # Number of dashboards in the dashboard list.
     attr_accessor :total
@@ -47,13 +47,6 @@ module DatadogAPIClient::V2
         :'dashboards' => :'Array<DashboardListItem>',
         :'total' => :'Integer'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

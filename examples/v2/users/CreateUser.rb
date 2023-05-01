@@ -8,7 +8,7 @@ body = DatadogAPIClient::V2::UserCreateRequest.new({
     type: DatadogAPIClient::V2::UsersType::USERS,
     attributes: DatadogAPIClient::V2::UserCreateAttributes.new({
       name: "Datadog API Client Python",
-      email: "Example-Create_a_user_returns_OK_response@datadoghq.com",
+      email: "Example-User@datadoghq.com",
     }),
   }),
 })

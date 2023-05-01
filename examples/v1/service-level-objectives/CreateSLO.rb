@@ -11,7 +11,7 @@ body = DatadogAPIClient::V1::ServiceLevelObjectiveRequest.new({
     "role:mysql",
   ],
   monitor_ids: [],
-  name: "Example-Create_an_SLO_object_returns_OK_response",
+  name: "Example-Service-Level-Objective",
   query: DatadogAPIClient::V1::ServiceLevelObjectiveQuery.new({
     denominator: "sum:httpservice.hits{!code:3xx}.as_count()",
     numerator: "sum:httpservice.hits{code:2xx}.as_count()",
@@ -22,12 +22,15 @@ body = DatadogAPIClient::V1::ServiceLevelObjectiveRequest.new({
   ],
   thresholds: [
     DatadogAPIClient::V1::SLOThreshold.new({
-      target: 95.0,
-      target_display: "95.0",
+      target: 97.0,
+      target_display: "97.0",
       timeframe: DatadogAPIClient::V1::SLOTimeframe::SEVEN_DAYS,
       warning: 98,
       warning_display: "98.0",
     }),
   ],
+  timeframe: DatadogAPIClient::V1::SLOTimeframe::SEVEN_DAYS,
+  target_threshold: 97.0,
+  warning_threshold: 98,
 })
 p api_instance.create_slo(body)

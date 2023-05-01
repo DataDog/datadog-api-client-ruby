@@ -14,7 +14,7 @@ class Object
         else
           case result
           when Hash
-            result = result[part.to_sym] rescue result[part]
+            result = result.include?(part.to_sym) ? result[part.to_sym] : result[part]
           else
             result = result.send(part.snakecase)
           end

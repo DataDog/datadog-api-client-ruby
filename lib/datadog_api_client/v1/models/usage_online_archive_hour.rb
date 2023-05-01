@@ -63,6 +63,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_nullable
       Set.new([
+        :'online_archive_events_count',
       ])
     end
 

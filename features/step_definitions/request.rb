@@ -118,6 +118,16 @@ module APIWorld
 
     return if operation["type"] != "unsafe"
 
+    if operation["tag"] != nil
+      undo_tag = operation["tag"].gsub(/\s/, '')
+      undo_api = Object.const_get("DatadogAPIClient")
+      undo_configuration = from_env(undo_api::Configuration.new)
+      undo_configuration.api_key = ENV["DD_TEST_CLIENT_API_KEY"]
+      undo_configuration.application_key = ENV["DD_TEST_CLIENT_APP_KEY"]
+      undo_api_client = undo_api::APIClient.new undo_configuration
+      api_instance = undo_api.const_get("V#{version}").const_get("#{undo_tag}API").new undo_api_client
+    end
+
     api_instance ||= @api_instance
     operation_name = operation["operationId"].snakecase
     method = api_instance.method("#{operation_name}_with_http_info".to_sym)

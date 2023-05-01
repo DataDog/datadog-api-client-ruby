@@ -26,10 +26,10 @@ module DatadogAPIClient::V2
     attr_accessor :_unparsed
 
     # The attributes associated with the archive order.
-    attr_accessor :attributes
+    attr_reader :attributes
 
     # Type of the archive order definition.
-    attr_accessor :type
+    attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -47,13 +47,6 @@ module DatadogAPIClient::V2
         :'attributes' => :'LogsArchiveOrderAttributes',
         :'type' => :'LogsArchiveOrderDefinitionType'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

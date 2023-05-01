@@ -33,13 +33,13 @@ module DatadogAPIClient::V1
     attr_accessor :id
 
     # Name of the variable.
-    attr_accessor :name
+    attr_reader :name
 
     # Pattern of the variable.
     attr_accessor :pattern
 
     # Type of browser test variable.
-    attr_accessor :type
+    attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -63,13 +63,6 @@ module DatadogAPIClient::V1
         :'pattern' => :'String',
         :'type' => :'SyntheticsBrowserVariableType'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

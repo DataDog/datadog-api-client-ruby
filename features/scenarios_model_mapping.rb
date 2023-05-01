@@ -216,6 +216,32 @@ ScenariosModelMappings = {
     "v1.CreateDashboard" => {
             "body" => "Dashboard",
     },
+    "v1.CreatePublicDashboard" => {
+            "body" => "SharedDashboard",
+    },
+    "v1.DeletePublicDashboard" => {
+            "token" => "String",
+    },
+    "v1.GetPublicDashboard" => {
+            "token" => "String",
+    },
+    "v1.UpdatePublicDashboard" => {
+            "token" => "String",
+            "body" => "SharedDashboardUpdateRequest",
+    },
+    "v1.DeletePublicDashboardInvitation" => {
+            "token" => "String",
+            "body" => "SharedDashboardInvites",
+    },
+    "v1.GetPublicDashboardInvitations" => {
+            "token" => "String",
+            "page_size" => "Integer",
+            "page_number" => "Integer",
+    },
+    "v1.SendPublicDashboardInvitation" => {
+            "token" => "String",
+            "body" => "SharedDashboardInvites",
+    },
     "v1.DeleteDashboard" => {
             "dashboard_id" => "String",
     },
@@ -269,6 +295,7 @@ ScenariosModelMappings = {
     },
     "v1.ListDowntimes" => {
             "current_only" => "Boolean",
+            "with_creator" => "Boolean",
     },
     "v1.CreateDowntime" => {
             "body" => "Downtime",
@@ -642,6 +669,10 @@ ScenariosModelMappings = {
             "target" => "Float",
             "apply_correction" => "Boolean",
     },
+    "v1.ListSLOCorrection" => {
+            "offset" => "Integer",
+            "limit" => "Integer",
+    },
     "v1.CreateSLOCorrection" => {
             "body" => "SLOCorrectionCreateRequest",
     },
@@ -670,6 +701,10 @@ ScenariosModelMappings = {
     "v1.UpdatePrivateLocation" => {
             "location_id" => "String",
             "body" => "SyntheticsPrivateLocation",
+    },
+    "v1.ListTests" => {
+            "page_size" => "String",
+            "page_number" => "String",
     },
     "v1.CreateSyntheticsAPITest" => {
             "body" => "SyntheticsAPITest",
@@ -839,6 +874,19 @@ ScenariosModelMappings = {
             "app_key_id" => "String",
             "body" => "ApplicationKeyUpdateRequest",
     },
+    "v2.CreateSpansMetric" => {
+            "body" => "SpansMetricCreateRequest",
+    },
+    "v2.DeleteSpansMetric" => {
+            "metric_id" => "String",
+    },
+    "v2.GetSpansMetric" => {
+            "metric_id" => "String",
+    },
+    "v2.UpdateSpansMetric" => {
+            "metric_id" => "String",
+            "body" => "SpansMetricUpdateRequest",
+    },
     "v2.ListAuditLogs" => {
             "filter_query" => "String",
             "filter_from" => "Time",
@@ -931,6 +979,13 @@ ScenariosModelMappings = {
     "v2.CreateIncident" => {
             "body" => "IncidentCreateRequest",
     },
+    "v2.SearchIncidents" => {
+            "include" => "IncidentRelatedObject",
+            "query" => "String",
+            "sort" => "IncidentSearchSortOrder",
+            "page_size" => "Integer",
+            "page_offset" => "Integer",
+    },
     "v2.DeleteIncident" => {
             "incident_id" => "String",
     },
@@ -953,6 +1008,46 @@ ScenariosModelMappings = {
             "include" => "Array<IncidentAttachmentRelatedObject>",
             "body" => "IncidentAttachmentUpdateRequest",
     },
+    "v2.ListIncidentIntegrations" => {
+            "incident_id" => "String",
+    },
+    "v2.CreateIncidentIntegration" => {
+            "incident_id" => "String",
+            "body" => "IncidentIntegrationMetadataCreateRequest",
+    },
+    "v2.DeleteIncidentIntegration" => {
+            "incident_id" => "String",
+            "integration_metadata_id" => "String",
+    },
+    "v2.GetIncidentIntegration" => {
+            "incident_id" => "String",
+            "integration_metadata_id" => "String",
+    },
+    "v2.UpdateIncidentIntegration" => {
+            "incident_id" => "String",
+            "integration_metadata_id" => "String",
+            "body" => "IncidentIntegrationMetadataPatchRequest",
+    },
+    "v2.ListIncidentTodos" => {
+            "incident_id" => "String",
+    },
+    "v2.CreateIncidentTodo" => {
+            "incident_id" => "String",
+            "body" => "IncidentTodoCreateRequest",
+    },
+    "v2.DeleteIncidentTodo" => {
+            "incident_id" => "String",
+            "todo_id" => "String",
+    },
+    "v2.GetIncidentTodo" => {
+            "incident_id" => "String",
+            "todo_id" => "String",
+    },
+    "v2.UpdateIncidentTodo" => {
+            "incident_id" => "String",
+            "todo_id" => "String",
+            "body" => "IncidentTodoPatchRequest",
+    },
     "v2.CreateOpsgenieService" => {
             "body" => "OpsgenieServiceCreateRequest",
     },
@@ -965,6 +1060,19 @@ ScenariosModelMappings = {
     "v2.UpdateOpsgenieService" => {
             "integration_service_id" => "String",
             "body" => "OpsgenieServiceUpdateRequest",
+    },
+    "v2.CreateCloudflareAccount" => {
+            "body" => "CloudflareAccountCreateRequest",
+    },
+    "v2.DeleteCloudflareAccount" => {
+            "account_id" => "String",
+    },
+    "v2.GetCloudflareAccount" => {
+            "account_id" => "String",
+    },
+    "v2.UpdateCloudflareAccount" => {
+            "account_id" => "String",
+            "body" => "CloudflareAccountUpdateRequest",
     },
     "v2.CreateConfluentAccount" => {
             "body" => "ConfluentAccountCreateRequest",
@@ -998,6 +1106,42 @@ ScenariosModelMappings = {
             "account_id" => "String",
             "resource_id" => "String",
             "body" => "ConfluentResourceRequest",
+    },
+    "v2.CreateFastlyAccount" => {
+            "body" => "FastlyAccountCreateRequest",
+    },
+    "v2.DeleteFastlyAccount" => {
+            "account_id" => "String",
+    },
+    "v2.GetFastlyAccount" => {
+            "account_id" => "String",
+    },
+    "v2.UpdateFastlyAccount" => {
+            "account_id" => "String",
+            "body" => "FastlyAccountUpdateRequest",
+    },
+    "v2.ListFastlyServices" => {
+            "account_id" => "String",
+    },
+    "v2.CreateFastlyService" => {
+            "account_id" => "String",
+            "body" => "FastlyServiceRequest",
+    },
+    "v2.DeleteFastlyService" => {
+            "account_id" => "String",
+            "service_id" => "String",
+    },
+    "v2.GetFastlyService" => {
+            "account_id" => "String",
+            "service_id" => "String",
+    },
+    "v2.UpdateFastlyService" => {
+            "account_id" => "String",
+            "service_id" => "String",
+            "body" => "FastlyServiceRequest",
+    },
+    "v2.UpdateIPAllowlist" => {
+            "body" => "IPAllowlistUpdateRequest",
     },
     "v2.SubmitLog" => {
             "content_encoding" => "ContentEncoding",
@@ -1107,9 +1251,28 @@ ScenariosModelMappings = {
     "v2.ListVolumesByMetricName" => {
             "metric_name" => "String",
     },
+    "v2.QueryScalarData" => {
+            "body" => "ScalarFormulaQueryRequest",
+    },
+    "v2.QueryTimeseriesData" => {
+            "body" => "TimeseriesFormulaQueryRequest",
+    },
     "v2.SubmitMetrics" => {
             "content_encoding" => "MetricContentEncoding",
             "body" => "MetricPayload",
+    },
+    "v2.CreateMonitorConfigPolicy" => {
+            "body" => "MonitorConfigPolicyCreateRequest",
+    },
+    "v2.DeleteMonitorConfigPolicy" => {
+            "policy_id" => "String",
+    },
+    "v2.GetMonitorConfigPolicy" => {
+            "policy_id" => "String",
+    },
+    "v2.UpdateMonitorConfigPolicy" => {
+            "policy_id" => "String",
+            "body" => "MonitorConfigPolicyEditRequest",
     },
     "v2.ListRoles" => {
             "page_size" => "Integer",
@@ -1160,56 +1323,22 @@ ScenariosModelMappings = {
             "role_id" => "String",
             "body" => "RelationshipToUser",
     },
-    "v2.ListProcesses" => {
-            "search" => "String",
-            "tags" => "String",
-            "from" => "Integer",
-            "to" => "Integer",
+    "v2.ListFindings" => {
             "page_limit" => "Integer",
+            "snapshot_timestamp" => "Integer",
             "page_cursor" => "String",
+            "filter_tags" => "String",
+            "filter_evaluation_changed_at" => "String",
+            "filter_muted" => "Boolean",
+            "filter_rule_id" => "String",
+            "filter_rule_name" => "String",
+            "filter_resource_type" => "String",
+            "filter_discovery_timestamp" => "String",
+            "filter_evaluation" => "FindingEvaluation",
+            "filter_status" => "FindingStatus",
     },
-    "v2.AggregateRUMEvents" => {
-            "body" => "RUMAggregateRequest",
-    },
-    "v2.CreateRUMApplication" => {
-            "body" => "RUMApplicationCreateRequest",
-    },
-    "v2.DeleteRUMApplication" => {
-            "id" => "String",
-    },
-    "v2.GetRUMApplication" => {
-            "id" => "String",
-    },
-    "v2.UpdateRUMApplication" => {
-            "id" => "String",
-            "body" => "RUMApplicationUpdateRequest",
-    },
-    "v2.ListRUMEvents" => {
-            "filter_query" => "String",
-            "filter_from" => "Time",
-            "filter_to" => "Time",
-            "sort" => "RUMSort",
-            "page_cursor" => "String",
-            "page_limit" => "Integer",
-    },
-    "v2.SearchRUMEvents" => {
-            "body" => "RUMSearchEventsRequest",
-    },
-    "v2.UploadIdPMetadata" => {
-            "idp_file" => "File",
-    },
-    "v2.CreateCloudWorkloadSecurityAgentRule" => {
-            "body" => "CloudWorkloadSecurityAgentRuleCreateRequest",
-    },
-    "v2.DeleteCloudWorkloadSecurityAgentRule" => {
-            "agent_rule_id" => "String",
-    },
-    "v2.GetCloudWorkloadSecurityAgentRule" => {
-            "agent_rule_id" => "String",
-    },
-    "v2.UpdateCloudWorkloadSecurityAgentRule" => {
-            "agent_rule_id" => "String",
-            "body" => "CloudWorkloadSecurityAgentRuleUpdateRequest",
+    "v2.GetFinding" => {
+            "finding_id" => "String",
     },
     "v2.CreateSecurityFilter" => {
             "body" => "SecurityFilterCreateRequest",
@@ -1267,41 +1396,94 @@ ScenariosModelMappings = {
             "signal_id" => "String",
             "body" => "SecurityMonitoringSignalStateUpdateRequest",
     },
+    "v2.ListProcesses" => {
+            "search" => "String",
+            "tags" => "String",
+            "from" => "Integer",
+            "to" => "Integer",
+            "page_limit" => "Integer",
+            "page_cursor" => "String",
+    },
+    "v2.DeleteRestrictionPolicy" => {
+            "resource_id" => "String",
+    },
+    "v2.GetRestrictionPolicy" => {
+            "resource_id" => "String",
+    },
+    "v2.UpdateRestrictionPolicy" => {
+            "resource_id" => "String",
+            "body" => "RestrictionPolicyUpdateRequest",
+    },
+    "v2.AggregateRUMEvents" => {
+            "body" => "RUMAggregateRequest",
+    },
+    "v2.CreateRUMApplication" => {
+            "body" => "RUMApplicationCreateRequest",
+    },
+    "v2.DeleteRUMApplication" => {
+            "id" => "String",
+    },
+    "v2.GetRUMApplication" => {
+            "id" => "String",
+    },
+    "v2.UpdateRUMApplication" => {
+            "id" => "String",
+            "body" => "RUMApplicationUpdateRequest",
+    },
+    "v2.ListRUMEvents" => {
+            "filter_query" => "String",
+            "filter_from" => "Time",
+            "filter_to" => "Time",
+            "sort" => "RUMSort",
+            "page_cursor" => "String",
+            "page_limit" => "Integer",
+    },
+    "v2.SearchRUMEvents" => {
+            "body" => "RUMSearchEventsRequest",
+    },
+    "v2.UploadIdPMetadata" => {
+            "idp_file" => "File",
+    },
+    "v2.CreateCloudWorkloadSecurityAgentRule" => {
+            "body" => "CloudWorkloadSecurityAgentRuleCreateRequest",
+    },
+    "v2.DeleteCloudWorkloadSecurityAgentRule" => {
+            "agent_rule_id" => "String",
+    },
+    "v2.GetCloudWorkloadSecurityAgentRule" => {
+            "agent_rule_id" => "String",
+    },
+    "v2.UpdateCloudWorkloadSecurityAgentRule" => {
+            "agent_rule_id" => "String",
+            "body" => "CloudWorkloadSecurityAgentRuleUpdateRequest",
+    },
+    "v2.ReorderScanningGroups" => {
+            "body" => "SensitiveDataScannerConfigRequest",
+    },
+    "v2.CreateScanningGroup" => {
+            "body" => "SensitiveDataScannerGroupCreateRequest",
+    },
+    "v2.DeleteScanningGroup" => {
+            "group_id" => "String",
+            "body" => "SensitiveDataScannerGroupDeleteRequest",
+    },
+    "v2.UpdateScanningGroup" => {
+            "group_id" => "String",
+            "body" => "SensitiveDataScannerGroupUpdateRequest",
+    },
+    "v2.CreateScanningRule" => {
+            "body" => "SensitiveDataScannerRuleCreateRequest",
+    },
+    "v2.DeleteScanningRule" => {
+            "rule_id" => "String",
+            "body" => "SensitiveDataScannerRuleDeleteRequest",
+    },
+    "v2.UpdateScanningRule" => {
+            "rule_id" => "String",
+            "body" => "SensitiveDataScannerRuleUpdateRequest",
+    },
     "v2.CreateServiceAccount" => {
             "body" => "ServiceAccountCreateRequest",
-    },
-    "v2.SendInvitations" => {
-            "body" => "UserInvitationsRequest",
-    },
-    "v2.GetInvitation" => {
-            "user_invitation_uuid" => "String",
-    },
-    "v2.ListUsers" => {
-            "page_size" => "Integer",
-            "page_number" => "Integer",
-            "sort" => "String",
-            "sort_dir" => "QuerySortOrder",
-            "filter" => "String",
-            "filter_status" => "String",
-    },
-    "v2.CreateUser" => {
-            "body" => "UserCreateRequest",
-    },
-    "v2.DisableUser" => {
-            "user_id" => "String",
-    },
-    "v2.GetUser" => {
-            "user_id" => "String",
-    },
-    "v2.UpdateUser" => {
-            "user_id" => "String",
-            "body" => "UserUpdateRequest",
-    },
-    "v2.ListUserOrganizations" => {
-            "user_id" => "String",
-    },
-    "v2.ListUserPermissions" => {
-            "user_id" => "String",
     },
     "v2.ListServiceAccountApplicationKeys" => {
             "service_account_id" => "String",
@@ -1349,6 +1531,10 @@ ScenariosModelMappings = {
             "service_id" => "String",
             "body" => "IncidentServiceUpdateRequest",
     },
+    "v2.ListServiceDefinitions" => {
+            "page_size" => "Integer",
+            "page_number" => "Integer",
+    },
     "v2.CreateOrUpdateServiceDefinitions" => {
             "body" => "ServiceDefinitionsCreateRequest",
     },
@@ -1357,6 +1543,78 @@ ScenariosModelMappings = {
     },
     "v2.GetServiceDefinition" => {
             "service_name" => "String",
+    },
+    "v2.SetOnDemandConcurrencyCap" => {
+            "body" => "OnDemandConcurrencyCapAttributes",
+    },
+    "v2.ListTeams" => {
+            "page_number" => "Integer",
+            "page_size" => "Integer",
+            "sort" => "ListTeamsSort",
+            "include" => "Array<ListTeamsInclude>",
+            "filter_keyword" => "String",
+            "filter_me" => "Boolean",
+    },
+    "v2.CreateTeam" => {
+            "body" => "TeamCreateRequest",
+    },
+    "v2.DeleteTeam" => {
+            "team_id" => "String",
+    },
+    "v2.GetTeam" => {
+            "team_id" => "String",
+    },
+    "v2.UpdateTeam" => {
+            "team_id" => "String",
+            "body" => "TeamUpdateRequest",
+    },
+    "v2.GetTeamLinks" => {
+            "team_id" => "String",
+    },
+    "v2.CreateTeamLink" => {
+            "team_id" => "String",
+            "body" => "TeamLinkCreateRequest",
+    },
+    "v2.DeleteTeamLink" => {
+            "team_id" => "String",
+            "link_id" => "String",
+    },
+    "v2.GetTeamLink" => {
+            "team_id" => "String",
+            "link_id" => "String",
+    },
+    "v2.UpdateTeamLink" => {
+            "team_id" => "String",
+            "link_id" => "String",
+            "body" => "TeamLinkCreateRequest",
+    },
+    "v2.GetTeamMemberships" => {
+            "team_id" => "String",
+            "page_size" => "Integer",
+            "page_number" => "Integer",
+            "sort" => "GetTeamMembershipsSort",
+            "filter_keyword" => "String",
+    },
+    "v2.CreateTeamMembership" => {
+            "team_id" => "String",
+            "body" => "UserTeamRequest",
+    },
+    "v2.DeleteTeamMembership" => {
+            "team_id" => "String",
+            "user_id" => "String",
+    },
+    "v2.UpdateTeamMembership" => {
+            "team_id" => "String",
+            "user_id" => "String",
+            "body" => "UserTeamUpdateRequest",
+    },
+    "v2.GetTeamPermissionSettings" => {
+            "team_id" => "String",
+    },
+    "v2.UpdateTeamPermissionSetting" => {
+            "team_id" => "String",
+            "action" => "String",
+            "body" => "TeamPermissionSettingUpdateRequest",
     },
     "v2.ListIncidentTeams" => {
             "include" => "IncidentRelatedObject",
@@ -1403,6 +1661,7 @@ ScenariosModelMappings = {
             "filter_timestamp_end" => "Time",
             "filter_product_families" => "String",
             "filter_include_descendants" => "Boolean",
+            "filter_include_breakdown" => "Boolean",
             "filter_versions" => "String",
             "page_limit" => "Integer",
             "page_next_record_id" => "String",
@@ -1414,5 +1673,38 @@ ScenariosModelMappings = {
     "v2.GetUsageObservabilityPipelines" => {
             "start_hr" => "Time",
             "end_hr" => "Time",
+    },
+    "v2.SendInvitations" => {
+            "body" => "UserInvitationsRequest",
+    },
+    "v2.GetInvitation" => {
+            "user_invitation_uuid" => "String",
+    },
+    "v2.ListUsers" => {
+            "page_size" => "Integer",
+            "page_number" => "Integer",
+            "sort" => "String",
+            "sort_dir" => "QuerySortOrder",
+            "filter" => "String",
+            "filter_status" => "String",
+    },
+    "v2.CreateUser" => {
+            "body" => "UserCreateRequest",
+    },
+    "v2.DisableUser" => {
+            "user_id" => "String",
+    },
+    "v2.GetUser" => {
+            "user_id" => "String",
+    },
+    "v2.UpdateUser" => {
+            "user_id" => "String",
+            "body" => "UserUpdateRequest",
+    },
+    "v2.ListUserOrganizations" => {
+            "user_id" => "String",
+    },
+    "v2.ListUserPermissions" => {
+            "user_id" => "String",
     },
 }

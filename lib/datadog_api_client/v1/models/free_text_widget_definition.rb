@@ -32,13 +32,13 @@ module DatadogAPIClient::V1
     attr_accessor :font_size
 
     # Text to display.
-    attr_accessor :text
+    attr_reader :text
 
     # How to align the text on the widget.
     attr_accessor :text_align
 
     # Type of the free text widget.
-    attr_accessor :type
+    attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -62,13 +62,6 @@ module DatadogAPIClient::V1
         :'text_align' => :'WidgetTextAlign',
         :'type' => :'FreeTextWidgetDefinitionType'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

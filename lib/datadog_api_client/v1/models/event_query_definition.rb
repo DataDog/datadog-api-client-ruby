@@ -26,10 +26,10 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # The query being made on the event.
-    attr_accessor :search
+    attr_reader :search
 
     # The execution method for multi-value filters. Can be either and or or.
-    attr_accessor :tags_execution
+    attr_reader :tags_execution
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -47,13 +47,6 @@ module DatadogAPIClient::V1
         :'search' => :'String',
         :'tags_execution' => :'String'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

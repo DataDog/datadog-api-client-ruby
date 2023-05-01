@@ -28,11 +28,17 @@ module DatadogAPIClient::V2
     # Cases for generating signals.
     attr_accessor :cases
 
+    # How to generate compliance signals. Useful for cloud_configuration rules only.
+    attr_accessor :compliance_signal_options
+
     # When the rule was created, timestamp in milliseconds.
     attr_accessor :created_at
 
     # User ID of the user who created the rule.
     attr_accessor :creation_author_id
+
+    # When the rule will be deprecated, timestamp in milliseconds.
+    attr_accessor :deprecation_date
 
     # Additional queries to filter matched events before they are processed.
     attr_accessor :filters
@@ -81,8 +87,10 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'cases' => :'cases',
+        :'compliance_signal_options' => :'complianceSignalOptions',
         :'created_at' => :'createdAt',
         :'creation_author_id' => :'creationAuthorId',
+        :'deprecation_date' => :'deprecationDate',
         :'filters' => :'filters',
         :'has_extended_title' => :'hasExtendedTitle',
         :'id' => :'id',
@@ -105,8 +113,10 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'cases' => :'Array<SecurityMonitoringRuleCase>',
+        :'compliance_signal_options' => :'CloudConfigurationRuleComplianceSignalOptions',
         :'created_at' => :'Integer',
         :'creation_author_id' => :'Integer',
+        :'deprecation_date' => :'Integer',
         :'filters' => :'Array<SecurityMonitoringFilter>',
         :'has_extended_title' => :'Boolean',
         :'id' => :'String',
@@ -122,13 +132,6 @@ module DatadogAPIClient::V2
         :'update_author_id' => :'Integer',
         :'version' => :'Integer'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object
@@ -153,12 +156,20 @@ module DatadogAPIClient::V2
         end
       end
 
+      if attributes.key?(:'compliance_signal_options')
+        self.compliance_signal_options = attributes[:'compliance_signal_options']
+      end
+
       if attributes.key?(:'created_at')
         self.created_at = attributes[:'created_at']
       end
 
       if attributes.key?(:'creation_author_id')
         self.creation_author_id = attributes[:'creation_author_id']
+      end
+
+      if attributes.key?(:'deprecation_date')
+        self.deprecation_date = attributes[:'deprecation_date']
       end
 
       if attributes.key?(:'filters')
@@ -238,8 +249,10 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           cases == o.cases &&
+          compliance_signal_options == o.compliance_signal_options &&
           created_at == o.created_at &&
           creation_author_id == o.creation_author_id &&
+          deprecation_date == o.deprecation_date &&
           filters == o.filters &&
           has_extended_title == o.has_extended_title &&
           id == o.id &&
@@ -260,7 +273,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [cases, created_at, creation_author_id, filters, has_extended_title, id, is_default, is_deleted, is_enabled, message, name, options, queries, tags, type, update_author_id, version].hash
+      [cases, compliance_signal_options, created_at, creation_author_id, deprecation_date, filters, has_extended_title, id, is_default, is_deleted, is_enabled, message, name, options, queries, tags, type, update_author_id, version].hash
     end
   end
 end

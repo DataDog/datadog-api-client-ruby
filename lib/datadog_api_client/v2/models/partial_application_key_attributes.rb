@@ -29,7 +29,7 @@ module DatadogAPIClient::V2
     attr_accessor :created_at
 
     # The last four characters of the application key.
-    attr_accessor :last4
+    attr_reader :last4
 
     # Name of the application key.
     attr_accessor :name

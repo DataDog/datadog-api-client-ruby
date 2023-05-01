@@ -33,10 +33,10 @@ module DatadogAPIClient::V2
     attr_accessor :include_tags
 
     # The archive name.
-    attr_accessor :name
+    attr_reader :name
 
     # The archive query/filter. Logs matching this query are included in the archive.
-    attr_accessor :query
+    attr_reader :query
 
     # Maximum scan size for rehydration from this archive.
     attr_accessor :rehydration_max_scan_size_in_gb

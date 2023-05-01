@@ -1,0 +1,26 @@
+http_interactions:
+- recorded_at: Thu, 26 Jan 2023 10:54:47 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"api_key":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","name":"testaddcloudflareaccountreturnsbadrequestresponseusinginvalidauthkey1674730487"},"type":"cloudflare-accounts"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/integrations/cloudflare/accounts
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":["Invalid account. Your Cloudflare configuration is invalid.
+        Impossible to get zones for the account testaddcloudflareaccountreturnsbadrequestresponseusinginvalidauthkey1674730487:
+        API key or email is unknown."]}'
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 400
+      message: Bad Request
+recorded_with: VCR 6.0.0

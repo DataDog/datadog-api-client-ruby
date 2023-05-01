@@ -26,7 +26,7 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # Individual synthetics test.
-    attr_accessor :tests
+    attr_reader :tests
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -42,13 +42,6 @@ module DatadogAPIClient::V1
       {
         :'tests' => :'Array<SyntheticsTriggerTest>'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

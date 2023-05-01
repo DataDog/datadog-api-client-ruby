@@ -26,19 +26,19 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # The check.
-    attr_accessor :check
+    attr_reader :check
 
     # The host name correlated with the check.
-    attr_accessor :host_name
+    attr_reader :host_name
 
     # Message containing check status.
     attr_accessor :message
 
-    # The status of a service check.
-    attr_accessor :status
+    # The status of a service check. Set to `0` for OK, `1` for warning, `2` for critical, and `3` for unknown.
+    attr_reader :status
 
     # Tags related to a check.
-    attr_accessor :tags
+    attr_reader :tags
 
     # Time of check.
     attr_accessor :timestamp
@@ -67,13 +67,6 @@ module DatadogAPIClient::V1
         :'tags' => :'Array<String>',
         :'timestamp' => :'Integer'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

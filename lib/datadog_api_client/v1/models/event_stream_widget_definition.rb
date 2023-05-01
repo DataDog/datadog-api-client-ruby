@@ -30,7 +30,7 @@ module DatadogAPIClient::V1
     attr_accessor :event_size
 
     # Query to filter the event stream with.
-    attr_accessor :query
+    attr_reader :query
 
     # The execution method for multi-value filters. Can be either and or or.
     attr_accessor :tags_execution
@@ -48,7 +48,7 @@ module DatadogAPIClient::V1
     attr_accessor :title_size
 
     # Type of the event stream widget.
-    attr_accessor :type
+    attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -78,13 +78,6 @@ module DatadogAPIClient::V1
         :'title_size' => :'String',
         :'type' => :'EventStreamWidgetDefinitionType'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

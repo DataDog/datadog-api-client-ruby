@@ -15,7 +15,7 @@ body = DatadogAPIClient::V1::SyntheticsBrowserTest.new({
       }),
     ],
     request: DatadogAPIClient::V1::SyntheticsTestRequest.new({
-      method: DatadogAPIClient::V1::HTTPMethod::GET,
+      method: "GET",
       url: "https://datadoghq.com",
       certificate_domains: [
         "https://datadoghq.com",
@@ -27,7 +27,7 @@ body = DatadogAPIClient::V1::SyntheticsBrowserTest.new({
     "aws:us-east-2",
   ],
   message: "Test message",
-  name: "Example-Create_a_browser_test_returns_OK_Returns_saved_rumSettings_response",
+  name: "Example-Synthetic",
   options: DatadogAPIClient::V1::SyntheticsTestOptions.new({
     accept_self_signed: false,
     allow_insecure: true,

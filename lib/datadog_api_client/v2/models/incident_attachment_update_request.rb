@@ -29,7 +29,7 @@ module DatadogAPIClient::V2
     # create that attachment. An attachment object without an "attributes" key indicates that you want to
     # delete that attachment. An attachment object with both the "id" key and a populated "attributes" object
     # indicates that you want to update that attachment.
-    attr_accessor :data
+    attr_reader :data
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -45,13 +45,6 @@ module DatadogAPIClient::V2
       {
         :'data' => :'Array<IncidentAttachmentUpdateData>'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

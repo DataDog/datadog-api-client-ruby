@@ -50,6 +50,9 @@ module DatadogAPIClient::V1
     # For API HTTP test, whether or not the test should follow redirects.
     attr_accessor :follow_redirects
 
+    # HTTP version to use for a Synthetic test.
+    attr_accessor :http_version
+
     # Ignore server certificate error for browser tests.
     attr_accessor :ignore_server_certificate_error
 
@@ -71,7 +74,7 @@ module DatadogAPIClient::V1
     attr_accessor :monitor_options
 
     # Integer from 1 (high) to 5 (low) indicating alert severity.
-    attr_accessor :monitor_priority
+    attr_reader :monitor_priority
 
     # Prevents saving screenshots of the steps.
     attr_accessor :no_screenshot
@@ -95,8 +98,11 @@ module DatadogAPIClient::V1
     # RUM data is collected using the specified application.
     attr_accessor :rum_settings
 
+    # Object containing timeframes and timezone used for advanced scheduling.
+    attr_accessor :scheduling
+
     # The frequency at which to run the Synthetic test (in seconds).
-    attr_accessor :tick_every
+    attr_reader :tick_every
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -110,6 +116,7 @@ module DatadogAPIClient::V1
         :'disable_cors' => :'disableCors',
         :'disable_csp' => :'disableCsp',
         :'follow_redirects' => :'follow_redirects',
+        :'http_version' => :'httpVersion',
         :'ignore_server_certificate_error' => :'ignoreServerCertificateError',
         :'initial_navigation_timeout' => :'initialNavigationTimeout',
         :'min_failure_duration' => :'min_failure_duration',
@@ -121,6 +128,7 @@ module DatadogAPIClient::V1
         :'restricted_roles' => :'restricted_roles',
         :'_retry' => :'retry',
         :'rum_settings' => :'rumSettings',
+        :'scheduling' => :'scheduling',
         :'tick_every' => :'tick_every'
       }
     end
@@ -137,6 +145,7 @@ module DatadogAPIClient::V1
         :'disable_cors' => :'Boolean',
         :'disable_csp' => :'Boolean',
         :'follow_redirects' => :'Boolean',
+        :'http_version' => :'SyntheticsTestOptionsHTTPVersion',
         :'ignore_server_certificate_error' => :'Boolean',
         :'initial_navigation_timeout' => :'Integer',
         :'min_failure_duration' => :'Integer',
@@ -148,15 +157,9 @@ module DatadogAPIClient::V1
         :'restricted_roles' => :'Array<String>',
         :'_retry' => :'SyntheticsTestOptionsRetry',
         :'rum_settings' => :'SyntheticsBrowserTestRumSettings',
+        :'scheduling' => :'SyntheticsTestOptionsScheduling',
         :'tick_every' => :'Integer'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object
@@ -209,6 +212,10 @@ module DatadogAPIClient::V1
         self.follow_redirects = attributes[:'follow_redirects']
       end
 
+      if attributes.key?(:'http_version')
+        self.http_version = attributes[:'http_version']
+      end
+
       if attributes.key?(:'ignore_server_certificate_error')
         self.ignore_server_certificate_error = attributes[:'ignore_server_certificate_error']
       end
@@ -253,6 +260,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'rum_settings')
         self.rum_settings = attributes[:'rum_settings']
+      end
+
+      if attributes.key?(:'scheduling')
+        self.scheduling = attributes[:'scheduling']
       end
 
       if attributes.key?(:'tick_every')
@@ -311,6 +322,7 @@ module DatadogAPIClient::V1
           disable_cors == o.disable_cors &&
           disable_csp == o.disable_csp &&
           follow_redirects == o.follow_redirects &&
+          http_version == o.http_version &&
           ignore_server_certificate_error == o.ignore_server_certificate_error &&
           initial_navigation_timeout == o.initial_navigation_timeout &&
           min_failure_duration == o.min_failure_duration &&
@@ -322,6 +334,7 @@ module DatadogAPIClient::V1
           restricted_roles == o.restricted_roles &&
           _retry == o._retry &&
           rum_settings == o.rum_settings &&
+          scheduling == o.scheduling &&
           tick_every == o.tick_every
     end
 
@@ -329,7 +342,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [accept_self_signed, allow_insecure, check_certificate_revocation, ci, device_ids, disable_cors, disable_csp, follow_redirects, ignore_server_certificate_error, initial_navigation_timeout, min_failure_duration, min_location_failed, monitor_name, monitor_options, monitor_priority, no_screenshot, restricted_roles, _retry, rum_settings, tick_every].hash
+      [accept_self_signed, allow_insecure, check_certificate_revocation, ci, device_ids, disable_cors, disable_csp, follow_redirects, http_version, ignore_server_certificate_error, initial_navigation_timeout, min_failure_duration, min_location_failed, monitor_name, monitor_options, monitor_priority, no_screenshot, restricted_roles, _retry, rum_settings, scheduling, tick_every].hash
     end
   end
 end

@@ -26,13 +26,13 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # The attributes of a notebook in get all response.
-    attr_accessor :attributes
+    attr_reader :attributes
 
     # Unique notebook ID, assigned when you create the notebook.
-    attr_accessor :id
+    attr_reader :id
 
     # Type of the Notebook resource.
-    attr_accessor :type
+    attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -52,13 +52,6 @@ module DatadogAPIClient::V1
         :'id' => :'Integer',
         :'type' => :'NotebookResourceType'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

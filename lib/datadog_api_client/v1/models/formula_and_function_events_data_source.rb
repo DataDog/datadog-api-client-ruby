@@ -30,5 +30,6 @@ module DatadogAPIClient::V1
     AUDIT = "audit".freeze
     EVENTS = "events".freeze
     CI_TESTS = "ci_tests".freeze
+    CI_PIPELINES = "ci_pipelines".freeze
   end
 end

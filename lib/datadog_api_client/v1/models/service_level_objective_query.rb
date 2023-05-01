@@ -28,10 +28,10 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # A Datadog metric query for total (valid) events.
-    attr_accessor :denominator
+    attr_reader :denominator
 
     # A Datadog metric query for good events.
-    attr_accessor :numerator
+    attr_reader :numerator
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -49,13 +49,6 @@ module DatadogAPIClient::V1
         :'denominator' => :'String',
         :'numerator' => :'String'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

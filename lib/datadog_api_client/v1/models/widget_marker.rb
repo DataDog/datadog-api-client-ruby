@@ -39,7 +39,7 @@ module DatadogAPIClient::V1
     attr_accessor :time
 
     # Value to apply. Can be a single value y = 15 or a range of values 0 < y < 10.
-    attr_accessor :value
+    attr_reader :value
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -61,13 +61,6 @@ module DatadogAPIClient::V1
         :'time' => :'String',
         :'value' => :'String'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

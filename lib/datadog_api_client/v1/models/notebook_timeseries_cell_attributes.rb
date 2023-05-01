@@ -26,7 +26,7 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # The timeseries visualization allows you to display the evolution of one or more metrics, log events, or Indexed Spans over time.
-    attr_accessor :definition
+    attr_reader :definition
 
     # The size of the graph.
     attr_accessor :graph_size

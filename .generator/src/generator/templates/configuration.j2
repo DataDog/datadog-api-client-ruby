@@ -5,13 +5,13 @@
 module {{ module_name }}
   class Configuration
     # Defines url scheme
-    attr_accessor :scheme
+    attr_reader :scheme
 
     # Defines url host
-    attr_accessor :host
+    attr_reader :host
 
     # Defines url base path
-    attr_accessor :base_path
+    attr_reader :base_path
 
     # Define server configuration index
     attr_accessor :server_index
@@ -31,7 +31,7 @@ module {{ module_name }}
     #
     # @example parameter name is "api_key", API key is "xxx" (e.g. "api_key=xxx" in query string)
     #   config.api_key['api_key'] = 'xxx'
-    attr_accessor :api_key
+    attr_reader :api_key
 
     # Defines API key prefixes used with API Key authentications.
     #
@@ -226,6 +226,16 @@ module {{ module_name }}
       else
         key
       end
+    end
+
+    # Sets API key.
+    def api_key=(api_key)
+      @api_key['apiKeyAuth'] = api_key
+    end
+
+    # Sets application key.
+    def application_key=(app_key)
+      @api_key['appKeyAuth'] = app_key
     end
 
     # Gets Basic Auth token string

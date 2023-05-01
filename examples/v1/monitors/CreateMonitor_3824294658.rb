@@ -4,12 +4,12 @@ require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::MonitorsAPI.new
 
 body = DatadogAPIClient::V1::Monitor.new({
-  name: "Example-Create_a_ci_pipelines_formula_and_functions_monitor_returns_OK_response",
+  name: "Example-Monitor",
   type: DatadogAPIClient::V1::MonitorType::CI_PIPELINES_ALERT,
   query: 'formula("query1 / query2 * 100").last("15m") >= 0.8',
   message: "some message Notify: @hipchat-channel",
   tags: [
-    "test:examplecreateacipipelinesformulaandfunctionsmonitorreturnsokresponse",
+    "test:examplemonitor",
     "env:ci",
   ],
   priority: 3,

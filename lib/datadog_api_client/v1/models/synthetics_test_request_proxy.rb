@@ -29,7 +29,7 @@ module DatadogAPIClient::V1
     attr_accessor :headers
 
     # URL of the proxy to perform the test.
-    attr_accessor :url
+    attr_reader :url
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -47,13 +47,6 @@ module DatadogAPIClient::V1
         :'headers' => :'Hash<String, String>',
         :'url' => :'String'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

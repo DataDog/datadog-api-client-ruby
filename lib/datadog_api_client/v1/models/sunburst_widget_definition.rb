@@ -35,7 +35,7 @@ module DatadogAPIClient::V1
     attr_accessor :legend
 
     # List of sunburst widget requests.
-    attr_accessor :requests
+    attr_reader :requests
 
     # Time setting for the widget.
     attr_accessor :time
@@ -50,7 +50,7 @@ module DatadogAPIClient::V1
     attr_accessor :title_size
 
     # Type of the Sunburst widget.
-    attr_accessor :type
+    attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -82,13 +82,6 @@ module DatadogAPIClient::V1
         :'title_size' => :'String',
         :'type' => :'SunburstWidgetDefinitionType'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

@@ -29,7 +29,7 @@ module DatadogAPIClient::V1
     attr_accessor :add_to_signal_timeline
 
     # Public ID attribute of the incident to which the signal will be added.
-    attr_accessor :incident_id
+    attr_reader :incident_id
 
     # Version of the updated signal. If server side version is higher, update will be rejected.
     attr_accessor :version
@@ -52,13 +52,6 @@ module DatadogAPIClient::V1
         :'incident_id' => :'Integer',
         :'version' => :'Integer'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

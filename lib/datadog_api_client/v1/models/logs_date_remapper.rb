@@ -50,10 +50,10 @@ module DatadogAPIClient::V1
     attr_accessor :name
 
     # Array of source attributes.
-    attr_accessor :sources
+    attr_reader :sources
 
     # Type of logs date remapper.
-    attr_accessor :type
+    attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -75,13 +75,6 @@ module DatadogAPIClient::V1
         :'sources' => :'Array<String>',
         :'type' => :'LogsDateRemapperType'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

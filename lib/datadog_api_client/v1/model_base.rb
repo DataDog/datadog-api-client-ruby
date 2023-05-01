@@ -67,7 +67,13 @@ module DatadogAPIClient::V1
             self.send("#{key}=", attributes[self.class.attribute_map[key]].map { |v| _deserialize($1, v) })
           end
         elsif !attributes[self.class.attribute_map[key]].nil?
-          self.send("#{key}=", _deserialize(type, attributes[self.class.attribute_map[key]]))
+          res = _deserialize(type, attributes[self.class.attribute_map[key]])
+          if res.instance_of? DatadogAPIClient::UnparsedObject
+            self._unparsed = true
+          elsif (res.kind_of? DatadogAPIClient::V1::BaseGenericModel) && res._unparsed
+            self._unparsed = true
+          end
+          self.send("#{key}=", res)
         end
       end
 
@@ -191,6 +197,12 @@ module DatadogAPIClient::V1
       def build_from_hash(attributes)
         new.build_from_hash(attributes)
       end
+
+      # List of attributes with nullable: true
+      # @!visibility private
+      def openapi_nullable
+        Set[]
+      end
     end
 
     def self.included(base)
@@ -216,7 +228,7 @@ module DatadogAPIClient::V1
       when 'Boolean'
         return data if data.instance_of?(TrueClass) || data.instance_of?(FalseClass)
       when 'Float'
-        return data if data.instance_of?(Float)
+        return data if data.instance_of?(Float) || data.instance_of?(Integer)
       when 'Integer'
         return data if data.instance_of?(Integer)
       when 'Time'
@@ -244,8 +256,6 @@ module DatadogAPIClient::V1
             model = const.build(data)
             return model if model
           else
-            # raise if data contains keys that are not known to the model
-            raise unless (data.keys - const.attribute_map.values).empty?
             model = const.build_from_hash(data)
             return model if model && model.valid?
           end

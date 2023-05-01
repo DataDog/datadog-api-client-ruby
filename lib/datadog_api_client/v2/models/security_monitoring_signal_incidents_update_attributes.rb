@@ -26,7 +26,7 @@ module DatadogAPIClient::V2
     attr_accessor :_unparsed
 
     # Array of incidents that are associated with this signal.
-    attr_accessor :incident_ids
+    attr_reader :incident_ids
 
     # Version of the updated signal. If server side version is higher, update will be rejected.
     attr_accessor :version
@@ -47,13 +47,6 @@ module DatadogAPIClient::V2
         :'incident_ids' => :'Array<Integer>',
         :'version' => :'Integer'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

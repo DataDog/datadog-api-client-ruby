@@ -33,7 +33,7 @@ module DatadogAPIClient::V1
     attr_accessor :canceled
 
     # User ID of the downtime creator.
-    attr_accessor :creator_id
+    attr_reader :creator_id
 
     # If a downtime has been disabled.
     attr_accessor :disabled
@@ -41,7 +41,7 @@ module DatadogAPIClient::V1
     # `0` for a downtime applied on `*` or all,
     # `1` when the downtime is only scoped to hosts,
     # or `2` when the downtime is scoped to anything but hosts.
-    attr_accessor :downtime_type
+    attr_reader :downtime_type
 
     # POSIX timestamp to end the downtime. If not provided,
     # the downtime is in effect indefinitely until you cancel it.
@@ -73,7 +73,7 @@ module DatadogAPIClient::V1
     # An object defining the recurrence of the downtime.
     attr_accessor :recurrence
 
-    # The scope(s) to which the downtime applies. For example, `host:app2`.
+    # The scope(s) to which the downtime applies and must be in `key:value` format. For example, `host:app2`.
     # Provide multiple scopes as a comma-separated list like `env:dev,env:prod`.
     # The resulting downtime applies to sources that matches ALL provided scopes (`env:dev` **AND** `env:prod`).
     attr_accessor :scope
@@ -86,7 +86,7 @@ module DatadogAPIClient::V1
     attr_accessor :timezone
 
     # ID of the last user that updated the downtime.
-    attr_accessor :updater_id
+    attr_reader :updater_id
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -142,6 +142,7 @@ module DatadogAPIClient::V1
       Set.new([
         :'canceled',
         :'_end',
+        :'message',
         :'monitor_id',
         :'parent_id',
         :'recurrence',

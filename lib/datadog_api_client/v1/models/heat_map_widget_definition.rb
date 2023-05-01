@@ -35,7 +35,7 @@ module DatadogAPIClient::V1
     attr_accessor :legend_size
 
     # List of widget types.
-    attr_accessor :requests
+    attr_reader :requests
 
     # Whether or not to display the legend on this widget.
     attr_accessor :show_legend
@@ -53,7 +53,7 @@ module DatadogAPIClient::V1
     attr_accessor :title_size
 
     # Type of the heat map widget.
-    attr_accessor :type
+    attr_reader :type
 
     # Axis controls for the widget.
     attr_accessor :yaxis
@@ -92,13 +92,6 @@ module DatadogAPIClient::V1
         :'type' => :'HeatMapWidgetDefinitionType',
         :'yaxis' => :'WidgetAxis'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

@@ -26,13 +26,13 @@ module DatadogAPIClient::V2
     attr_accessor :_unparsed
 
     # Link name.
-    attr_accessor :name
+    attr_reader :name
 
     # Link type.
-    attr_accessor :type
+    attr_reader :type
 
     # Link URL.
-    attr_accessor :url
+    attr_reader :url
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -52,13 +52,6 @@ module DatadogAPIClient::V2
         :'type' => :'ServiceDefinitionV2LinkType',
         :'url' => :'String'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

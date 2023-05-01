@@ -44,16 +44,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'by' => :'Hash<String, String>',
+        :'by' => :'Hash<String, Object>',
         :'computes' => :'Hash<String, LogsAggregateBucketValue>'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

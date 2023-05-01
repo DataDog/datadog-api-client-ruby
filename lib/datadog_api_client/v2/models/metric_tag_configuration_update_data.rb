@@ -29,10 +29,10 @@ module DatadogAPIClient::V2
     attr_accessor :attributes
 
     # The metric name for this resource.
-    attr_accessor :id
+    attr_reader :id
 
     # The metric tag configuration resource type.
-    attr_accessor :type
+    attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -52,13 +52,6 @@ module DatadogAPIClient::V2
         :'id' => :'String',
         :'type' => :'MetricTagConfigurationType'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

@@ -25,10 +25,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The scope(s) to which the downtime applies. For example, `host:app2`.
+    # The scope(s) to which the downtime applies and must be in `key:value` format. For example, `host:app2`.
     # Provide multiple scopes as a comma-separated list like `env:dev,env:prod`.
     # The resulting downtime applies to sources that matches ALL provided scopes (`env:dev` **AND** `env:prod`).
-    attr_accessor :scope
+    attr_reader :scope
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -44,13 +44,6 @@ module DatadogAPIClient::V1
       {
         :'scope' => :'String'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

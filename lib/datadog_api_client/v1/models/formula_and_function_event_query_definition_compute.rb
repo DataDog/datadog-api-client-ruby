@@ -26,7 +26,7 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # Aggregation methods for event platform queries.
-    attr_accessor :aggregation
+    attr_reader :aggregation
 
     # A time interval in milliseconds.
     attr_accessor :interval
@@ -52,13 +52,6 @@ module DatadogAPIClient::V1
         :'interval' => :'Integer',
         :'metric' => :'String'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

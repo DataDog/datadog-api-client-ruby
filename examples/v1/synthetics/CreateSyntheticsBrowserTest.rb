@@ -12,10 +12,11 @@ body = DatadogAPIClient::V1::SyntheticsBrowserTest.new({
         name: "PROPERTY",
         pattern: "content-type",
         type: DatadogAPIClient::V1::SyntheticsConfigVariableType::TEXT,
+        secure: true,
       }),
     ],
     request: DatadogAPIClient::V1::SyntheticsTestRequest.new({
-      method: DatadogAPIClient::V1::HTTPMethod::GET,
+      method: "GET",
       url: "https://datadoghq.com",
     }),
     set_cookie: "name:test",
@@ -24,7 +25,7 @@ body = DatadogAPIClient::V1::SyntheticsBrowserTest.new({
     "aws:us-east-2",
   ],
   message: "Test message",
-  name: "Example-Create_a_browser_test_returns_OK_Returns_the_created_test_details_response",
+  name: "Example-Synthetic",
   options: DatadogAPIClient::V1::SyntheticsTestOptions.new({
     accept_self_signed: false,
     allow_insecure: true,

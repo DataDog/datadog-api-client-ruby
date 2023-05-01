@@ -210,7 +210,7 @@ module {{ module_name }}
     # @param [String] mime MIME
     # @return [Boolean] True if the MIME is application/json
     def json_mime?(mime)
-      (mime == '*/*') || !(mime =~ /Application\/.*json(?!p)(;.*)?/i).nil? || (mime == 'text/json')
+      (mime && mime.downcase.include?('json')) || mime == '*/*'
     end
 
     # Deserialize the response to the given return type.
@@ -301,7 +301,7 @@ module {{ module_name }}
     # @param [String] filename the filename to be sanitized
     # @return [String] the sanitized filename
     def sanitize_filename(filename)
-      filename.gsub(/.*[\/\\]/, '')
+      filename.split(/\\|\//)[-1]
     end
 
     def build_request_url(path, opts = {})

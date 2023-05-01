@@ -40,7 +40,7 @@ module DatadogAPIClient::V1
     attr_accessor :sources
 
     # Type of logs trace remapper.
-    attr_accessor :type
+    attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -62,13 +62,6 @@ module DatadogAPIClient::V1
         :'sources' => :'Array<String>',
         :'type' => :'LogsTraceRemapperType'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

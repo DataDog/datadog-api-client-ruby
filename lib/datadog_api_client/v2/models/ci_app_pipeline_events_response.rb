@@ -50,15 +50,8 @@ module DatadogAPIClient::V2
       {
         :'data' => :'Array<CIAppPipelineEvent>',
         :'links' => :'CIAppResponseLinks',
-        :'meta' => :'CIAppResponseMetadata'
+        :'meta' => :'CIAppResponseMetadataWithPagination'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

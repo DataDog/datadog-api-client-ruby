@@ -26,7 +26,7 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # The aggregation method.
-    attr_accessor :aggregation
+    attr_reader :aggregation
 
     # Facet name.
     attr_accessor :facet
@@ -52,13 +52,6 @@ module DatadogAPIClient::V1
         :'facet' => :'String',
         :'interval' => :'Integer'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

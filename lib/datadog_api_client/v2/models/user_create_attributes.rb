@@ -26,7 +26,7 @@ module DatadogAPIClient::V2
     attr_accessor :_unparsed
 
     # The email of the user.
-    attr_accessor :email
+    attr_reader :email
 
     # The name of the user.
     attr_accessor :name
@@ -52,13 +52,6 @@ module DatadogAPIClient::V2
         :'name' => :'String',
         :'title' => :'String'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

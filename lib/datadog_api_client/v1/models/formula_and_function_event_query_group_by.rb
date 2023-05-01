@@ -26,7 +26,7 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # Event facet.
-    attr_accessor :facet
+    attr_reader :facet
 
     # Number of groups to return.
     attr_accessor :limit
@@ -52,13 +52,6 @@ module DatadogAPIClient::V1
         :'limit' => :'Integer',
         :'sort' => :'FormulaAndFunctionEventQueryGroupBySort'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

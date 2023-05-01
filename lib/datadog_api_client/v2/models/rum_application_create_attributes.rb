@@ -26,7 +26,7 @@ module DatadogAPIClient::V2
     attr_accessor :_unparsed
 
     # Name of the RUM application.
-    attr_accessor :name
+    attr_reader :name
 
     # Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`.
     attr_accessor :type
@@ -47,13 +47,6 @@ module DatadogAPIClient::V2
         :'name' => :'String',
         :'type' => :'String'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

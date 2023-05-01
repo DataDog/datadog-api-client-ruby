@@ -35,7 +35,7 @@ module DatadogAPIClient::V2
     attr_accessor :icon
 
     # ID of the dashboard.
-    attr_accessor :id
+    attr_reader :id
 
     # Whether or not the dashboard is in the favorites.
     attr_accessor :is_favorite
@@ -50,13 +50,13 @@ module DatadogAPIClient::V2
     attr_accessor :modified
 
     # Popularity of the dashboard.
-    attr_accessor :popularity
+    attr_reader :popularity
 
     # Title of the dashboard.
     attr_accessor :title
 
     # The type of the dashboard.
-    attr_accessor :type
+    attr_reader :type
 
     # URL path to the dashboard.
     attr_accessor :url
@@ -103,6 +103,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_nullable
       Set.new([
+        :'icon',
       ])
     end
 

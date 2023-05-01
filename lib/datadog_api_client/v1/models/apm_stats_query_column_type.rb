@@ -32,7 +32,7 @@ module DatadogAPIClient::V1
     attr_accessor :cell_display_mode
 
     # Column name.
-    attr_accessor :name
+    attr_reader :name
 
     # Widget sorting methods.
     attr_accessor :order
@@ -57,13 +57,6 @@ module DatadogAPIClient::V1
         :'name' => :'String',
         :'order' => :'WidgetSort'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

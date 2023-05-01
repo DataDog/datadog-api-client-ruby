@@ -68,6 +68,8 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_nullable
       Set.new([
+        :'browser_rum_units',
+        :'mobile_rum_units',
         :'rum_units',
       ])
     end

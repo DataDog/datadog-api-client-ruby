@@ -46,7 +46,7 @@ module DatadogAPIClient::V2
     # Timestamp when the tag configuration was created.
     attr_accessor :created_at
 
-    # Toggle to turn on/off percentile aggregations for distribution metrics.
+    # Toggle to include or exclude percentile aggregations for distribution metrics.
     # Only present when the `metric_type` is `distribution`.
     attr_accessor :include_percentiles
 
@@ -83,13 +83,6 @@ module DatadogAPIClient::V2
         :'modified_at' => :'Time',
         :'tags' => :'Array<String>'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

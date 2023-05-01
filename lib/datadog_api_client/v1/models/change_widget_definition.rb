@@ -32,7 +32,7 @@ module DatadogAPIClient::V1
     #
     # See the dedicated [Request JSON schema documentation](https://docs.datadoghq.com/dashboards/graphing_json/request_json)
     #  to learn how to build the `REQUEST_SCHEMA`.
-    attr_accessor :requests
+    attr_reader :requests
 
     # Time setting for the widget.
     attr_accessor :time
@@ -47,7 +47,7 @@ module DatadogAPIClient::V1
     attr_accessor :title_size
 
     # Type of the change widget.
-    attr_accessor :type
+    attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -75,13 +75,6 @@ module DatadogAPIClient::V1
         :'title_size' => :'String',
         :'type' => :'ChangeWidgetDefinitionType'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

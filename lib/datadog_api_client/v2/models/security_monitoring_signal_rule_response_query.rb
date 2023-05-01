@@ -32,7 +32,7 @@ module DatadogAPIClient::V2
     attr_accessor :correlated_by_fields
 
     # Index of the rule query used to retrieve the correlated field.
-    attr_accessor :correlated_query_index
+    attr_reader :correlated_query_index
 
     # Default Rule ID to match on signals.
     attr_accessor :default_rule_id
@@ -72,13 +72,6 @@ module DatadogAPIClient::V2
         :'name' => :'String',
         :'rule_id' => :'String'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

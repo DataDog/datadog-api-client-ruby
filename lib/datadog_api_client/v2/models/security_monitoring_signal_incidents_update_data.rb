@@ -26,7 +26,7 @@ module DatadogAPIClient::V2
     attr_accessor :_unparsed
 
     # Attributes describing the new list of related signals for a security signal.
-    attr_accessor :attributes
+    attr_reader :attributes
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -42,13 +42,6 @@ module DatadogAPIClient::V2
       {
         :'attributes' => :'SecurityMonitoringSignalIncidentsUpdateAttributes'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

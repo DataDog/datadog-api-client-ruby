@@ -69,6 +69,8 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_nullable
       Set.new([
+        :'func_count',
+        :'invocations_sum',
       ])
     end
 

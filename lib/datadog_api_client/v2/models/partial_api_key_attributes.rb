@@ -29,7 +29,7 @@ module DatadogAPIClient::V2
     attr_accessor :created_at
 
     # The last four characters of the API key.
-    attr_accessor :last4
+    attr_reader :last4
 
     # Date the API key was last modified.
     attr_accessor :modified_at
@@ -57,13 +57,6 @@ module DatadogAPIClient::V2
         :'modified_at' => :'String',
         :'name' => :'String'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

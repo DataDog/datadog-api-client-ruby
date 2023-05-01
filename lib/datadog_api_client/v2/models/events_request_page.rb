@@ -29,7 +29,7 @@ module DatadogAPIClient::V2
     attr_accessor :cursor
 
     # The maximum number of logs in the response.
-    attr_accessor :limit
+    attr_reader :limit
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -47,13 +47,6 @@ module DatadogAPIClient::V2
         :'cursor' => :'String',
         :'limit' => :'Integer'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

@@ -28,7 +28,7 @@ module DatadogAPIClient::V1
     # Array of strings identifying by their name(s) the index(es) of your organization.
     # Logs are tested against the query filter of each index one by one, following the order of the array.
     # Logs are eventually stored in the first matching index.
-    attr_accessor :index_names
+    attr_reader :index_names
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -44,13 +44,6 @@ module DatadogAPIClient::V1
       {
         :'index_names' => :'Array<String>'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

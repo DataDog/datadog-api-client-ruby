@@ -26,7 +26,7 @@ module DatadogAPIClient::V2
     attr_accessor :_unparsed
 
     # The compute rule to compute the log-based metric.
-    attr_accessor :compute
+    attr_reader :compute
 
     # The log-based metric filter. Logs matching this filter will be aggregated in this metric.
     attr_accessor :filter
@@ -52,13 +52,6 @@ module DatadogAPIClient::V2
         :'filter' => :'LogsMetricFilter',
         :'group_by' => :'Array<LogsMetricGroupBy>'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

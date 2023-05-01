@@ -4,7 +4,7 @@ require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::SecurityMonitoringAPI.new
 
 body = DatadogAPIClient::V2::SecurityMonitoringStandardRuleCreatePayload.new({
-  name: "Example-Create_a_detection_rule_with_type_workload_security_returns_OK_response",
+  name: "Example-Security-Monitoring",
   queries: [
     DatadogAPIClient::V2::SecurityMonitoringStandardRuleQuery.new({
       query: "@test:true",

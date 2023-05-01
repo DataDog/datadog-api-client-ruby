@@ -1,0 +1,68 @@
+http_interactions:
+- recorded_at: Fri, 27 Jan 2023 08:58:49 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"api_key":"fakekey","email":"dev@datadog.com","name":"testupdatecloudflareaccountreturnsokresponse1674809929"},"type":"cloudflare-accounts"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/integrations/cloudflare/accounts
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"email":"dev@datadog.com","name":"testupdatecloudflareaccountreturnsokresponse1674809929"},"type":"cloudflare-accounts","id":"4d22579092049210a1db06b632485219"}}
+
+        '
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 201
+      message: Created
+- recorded_at: Fri, 27 Jan 2023 08:58:49 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"api_key":"fakekey","email":"new@email"},"type":"cloudflare-accounts"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: PATCH
+    uri: https://api.datadoghq.com/api/v2/integrations/cloudflare/accounts/4d22579092049210a1db06b632485219
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"email":"new@email","name":"testupdatecloudflareaccountreturnsokresponse1674809929"},"type":"cloudflare-accounts","id":"4d22579092049210a1db06b632485219"}}
+
+        '
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+- recorded_at: Fri, 27 Jan 2023 08:58:49 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/integrations/cloudflare/accounts/4d22579092049210a1db06b632485219
+  response:
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Content-Type:
+      - text/html; charset=utf-8
+    status:
+      code: 204
+      message: No Content
+recorded_with: VCR 6.0.0

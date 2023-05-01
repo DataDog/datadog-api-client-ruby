@@ -29,13 +29,13 @@ module DatadogAPIClient::V2
     attr_accessor :attributes
 
     # The incident's ID.
-    attr_accessor :id
+    attr_reader :id
 
     # The incident's relationships from a response.
     attr_accessor :relationships
 
     # Incident resource type.
-    attr_accessor :type
+    attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -57,13 +57,6 @@ module DatadogAPIClient::V2
         :'relationships' => :'IncidentResponseRelationships',
         :'type' => :'IncidentType'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

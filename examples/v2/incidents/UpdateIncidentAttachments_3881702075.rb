@@ -1,7 +1,7 @@
 # Create an incident attachment returns "OK" response
 
 require "datadog_api_client"
-DatadogAPIClient::V2.configure do |config|
+DatadogAPIClient.configure do |config|
   config.unstable_operations["v2.update_incident_attachments".to_sym] = true
 end
 api_instance = DatadogAPIClient::V2::IncidentsAPI.new
@@ -17,7 +17,7 @@ body = DatadogAPIClient::V2::IncidentAttachmentUpdateRequest.new({
         attachment_type: DatadogAPIClient::V2::IncidentAttachmentLinkAttachmentType::LINK,
         attachment: DatadogAPIClient::V2::IncidentAttachmentLinkAttributesAttachmentObject.new({
           document_url: "https://www.example.com/doc",
-          title: "Example-Create_an_incident_attachment_returns_OK_response",
+          title: "Example-Incident",
         }),
       }),
     }),

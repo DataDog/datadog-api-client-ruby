@@ -99,26 +99,19 @@ module DatadogAPIClient::V1
         :'agent_checks' => :'Array<Array<Object>>',
         :'agent_version' => :'String',
         :'cpu_cores' => :'Integer',
-        :'fbsd_v' => :'Array<String>',
+        :'fbsd_v' => :'Array<Object>',
         :'gohai' => :'String',
         :'install_method' => :'HostMetaInstallMethod',
-        :'mac_v' => :'Array<String>',
+        :'mac_v' => :'Array<Object>',
         :'machine' => :'String',
-        :'nix_v' => :'Array<String>',
+        :'nix_v' => :'Array<Object>',
         :'platform' => :'String',
         :'processor' => :'String',
         :'python_v' => :'String',
         :'socket_fqdn' => :'String',
         :'socket_hostname' => :'String',
-        :'win_v' => :'Array<String>'
+        :'win_v' => :'Array<Object>'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

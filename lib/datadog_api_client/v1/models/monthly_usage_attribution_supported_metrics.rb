@@ -33,6 +33,8 @@ module DatadogAPIClient::V1
     APPSEC_PERCENTAGE = "appsec_percentage".freeze
     BROWSER_USAGE = "browser_usage".freeze
     BROWSER_PERCENTAGE = "browser_percentage".freeze
+    CONTAINER_EXCL_AGENT_USAGE = "container_excl_agent_usage".freeze
+    CONTAINER_EXCL_AGENT_PERCENTAGE = "container_excl_agent_percentage".freeze
     CONTAINER_USAGE = "container_usage".freeze
     CONTAINER_PERCENTAGE = "container_percentage".freeze
     CSPM_CONTAINERS_PERCENTAGE = "cspm_containers_percentage".freeze
@@ -41,6 +43,8 @@ module DatadogAPIClient::V1
     CSPM_HOSTS_USAGE = "cspm_hosts_usage".freeze
     CUSTOM_TIMESERIES_USAGE = "custom_timeseries_usage".freeze
     CUSTOM_TIMESERIES_PERCENTAGE = "custom_timeseries_percentage".freeze
+    CUSTOM_INGESTED_TIMESERIES_USAGE = "custom_ingested_timeseries_usage".freeze
+    CUSTOM_INGESTED_TIMESERIES_PERCENTAGE = "custom_ingested_timeseries_percentage".freeze
     CWS_CONTAINERS_PERCENTAGE = "cws_containers_percentage".freeze
     CWS_CONTAINERS_USAGE = "cws_containers_usage".freeze
     CWS_HOSTS_PERCENTAGE = "cws_hosts_percentage".freeze
@@ -61,8 +65,6 @@ module DatadogAPIClient::V1
     FARGATE_PERCENTAGE = "fargate_percentage".freeze
     FUNCTIONS_USAGE = "functions_usage".freeze
     FUNCTIONS_PERCENTAGE = "functions_percentage".freeze
-    INDEXED_LOGS_USAGE = "indexed_logs_usage".freeze
-    INDEXED_LOGS_PERCENTAGE = "indexed_logs_percentage".freeze
     INFRA_HOST_USAGE = "infra_host_usage".freeze
     INFRA_HOST_PERCENTAGE = "infra_host_percentage".freeze
     INVOCATIONS_USAGE = "invocations_usage".freeze
@@ -71,10 +73,16 @@ module DatadogAPIClient::V1
     NPM_HOST_PERCENTAGE = "npm_host_percentage".freeze
     PROFILED_CONTAINER_USAGE = "profiled_container_usage".freeze
     PROFILED_CONTAINER_PERCENTAGE = "profiled_container_percentage".freeze
+    PROFILED_FARGATE_USAGE = "profiled_fargate_usage".freeze
+    PROFILED_FARGATE_PERCENTAGE = "profiled_fargate_percentage".freeze
     PROFILED_HOST_USAGE = "profiled_host_usage".freeze
     PROFILED_HOST_PERCENTAGE = "profiled_host_percentage".freeze
     SNMP_USAGE = "snmp_usage".freeze
     SNMP_PERCENTAGE = "snmp_percentage".freeze
+    ESTIMATED_RUM_SESSIONS_USAGE = "estimated_rum_sessions_usage".freeze
+    ESTIMATED_RUM_SESSIONS_PERCENTAGE = "estimated_rum_sessions_percentage".freeze
+    UNIVERSAL_SERVICE_MONITORING_USAGE = "universal_service_monitoring_usage".freeze
+    UNIVERSAL_SERVICE_MONITORING_PERCENTAGE = "universal_service_monitoring_percentage".freeze
     ALL = "*".freeze
   end
 end

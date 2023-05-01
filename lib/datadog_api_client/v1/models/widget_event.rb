@@ -29,7 +29,7 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # Query definition.
-    attr_accessor :q
+    attr_reader :q
 
     # The execution method for multi-value filters.
     attr_accessor :tags_execution
@@ -50,13 +50,6 @@ module DatadogAPIClient::V1
         :'q' => :'String',
         :'tags_execution' => :'String'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

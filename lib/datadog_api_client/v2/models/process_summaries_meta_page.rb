@@ -30,7 +30,7 @@ module DatadogAPIClient::V2
     attr_accessor :after
 
     # Number of results returned.
-    attr_accessor :size
+    attr_reader :size
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -48,13 +48,6 @@ module DatadogAPIClient::V2
         :'after' => :'String',
         :'size' => :'Integer'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

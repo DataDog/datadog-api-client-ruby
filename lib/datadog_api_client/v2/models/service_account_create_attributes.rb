@@ -26,13 +26,13 @@ module DatadogAPIClient::V2
     attr_accessor :_unparsed
 
     # The email of the user.
-    attr_accessor :email
+    attr_reader :email
 
     # The name of the user.
     attr_accessor :name
 
     # Whether the user is a service account. Must be true.
-    attr_accessor :service_account
+    attr_reader :service_account
 
     # The title of the user.
     attr_accessor :title
@@ -57,13 +57,6 @@ module DatadogAPIClient::V2
         :'service_account' => :'Boolean',
         :'title' => :'String'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

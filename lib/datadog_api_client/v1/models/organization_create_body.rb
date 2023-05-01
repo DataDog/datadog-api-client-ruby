@@ -29,7 +29,7 @@ module DatadogAPIClient::V1
     attr_accessor :billing
 
     # The name of the new child-organization, limited to 32 characters.
-    attr_accessor :name
+    attr_reader :name
 
     # Subscription definition.
     attr_accessor :subscription
@@ -52,13 +52,6 @@ module DatadogAPIClient::V1
         :'name' => :'String',
         :'subscription' => :'OrganizationSubscription'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

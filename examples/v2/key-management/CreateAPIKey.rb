@@ -7,7 +7,7 @@ body = DatadogAPIClient::V2::APIKeyCreateRequest.new({
   data: DatadogAPIClient::V2::APIKeyCreateData.new({
     type: DatadogAPIClient::V2::APIKeysType::API_KEYS,
     attributes: DatadogAPIClient::V2::APIKeyCreateAttributes.new({
-      name: "Example-Create_an_API_key_returns_Created_response",
+      name: "Example-Key-Management",
     }),
   }),
 })

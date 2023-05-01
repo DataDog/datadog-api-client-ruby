@@ -25,6 +25,9 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
+    # Options for the Global Variable for MFA.
+    attr_accessor :options
+
     # Determines if the value of the variable is hidden.
     attr_accessor :secure
 
@@ -36,6 +39,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.attribute_map
       {
+        :'options' => :'options',
         :'secure' => :'secure',
         :'value' => :'value'
       }
@@ -45,16 +49,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
+        :'options' => :'SyntheticsGlobalVariableOptions',
         :'secure' => :'Boolean',
         :'value' => :'String'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object
@@ -72,6 +70,10 @@ module DatadogAPIClient::V1
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'options')
+        self.options = attributes[:'options']
+      end
 
       if attributes.key?(:'secure')
         self.secure = attributes[:'secure']
@@ -95,6 +97,7 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          options == o.options &&
           secure == o.secure &&
           value == o.value
     end
@@ -103,7 +106,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [secure, value].hash
+      [options, secure, value].hash
     end
   end
 end

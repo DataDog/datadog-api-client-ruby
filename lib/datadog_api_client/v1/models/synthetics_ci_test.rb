@@ -56,7 +56,7 @@ module DatadogAPIClient::V1
     attr_accessor :metadata
 
     # The public ID of the Synthetics test to trigger.
-    attr_accessor :public_id
+    attr_reader :public_id
 
     # Object describing the retry strategy to apply to a Synthetic test.
     attr_accessor :_retry
@@ -107,13 +107,6 @@ module DatadogAPIClient::V1
         :'start_url' => :'String',
         :'variables' => :'Hash<String, String>'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

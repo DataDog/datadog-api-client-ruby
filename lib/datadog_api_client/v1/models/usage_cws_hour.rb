@@ -68,6 +68,8 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_nullable
       Set.new([
+        :'cws_container_count',
+        :'cws_host_count',
       ])
     end
 

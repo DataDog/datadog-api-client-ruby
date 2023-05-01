@@ -26,10 +26,10 @@ module DatadogAPIClient::V2
     attr_accessor :_unparsed
 
     # The container where the archive will be stored.
-    attr_accessor :container
+    attr_reader :container
 
     # The Azure archive's integration destination.
-    attr_accessor :integration
+    attr_reader :integration
 
     # The archive path.
     attr_accessor :path
@@ -38,10 +38,10 @@ module DatadogAPIClient::V2
     attr_accessor :region
 
     # The associated storage account.
-    attr_accessor :storage_account
+    attr_reader :storage_account
 
     # Type of the Azure archive destination.
-    attr_accessor :type
+    attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -67,13 +67,6 @@ module DatadogAPIClient::V2
         :'storage_account' => :'String',
         :'type' => :'LogsArchiveDestinationAzureType'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

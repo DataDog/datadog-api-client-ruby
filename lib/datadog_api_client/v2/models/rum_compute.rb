@@ -26,7 +26,7 @@ module DatadogAPIClient::V2
     attr_accessor :_unparsed
 
     # An aggregation function.
-    attr_accessor :aggregation
+    attr_reader :aggregation
 
     # The time buckets' size (only used for type=timeseries)
     # Defaults to a resolution of 150 points.
@@ -58,13 +58,6 @@ module DatadogAPIClient::V2
         :'metric' => :'String',
         :'type' => :'RUMComputeType'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

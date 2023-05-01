@@ -1,0 +1,44 @@
+http_interactions:
+- recorded_at: Thu, 26 Jan 2023 10:54:24 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"api_key":"fakekey","email":"new@email","name":"testaddcloudflareaccountreturnscreatedresponse1674730464"},"type":"cloudflare-accounts"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/integrations/cloudflare/accounts
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"email":"new@email","name":"testaddcloudflareaccountreturnscreatedresponse1674730464"},"type":"cloudflare-accounts","id":"328432a98957fd7bcba6f70daea72519"}}
+
+        '
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 201
+      message: Created
+- recorded_at: Thu, 26 Jan 2023 10:54:24 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/integrations/cloudflare/accounts/328432a98957fd7bcba6f70daea72519
+  response:
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Content-Type:
+      - text/html; charset=utf-8
+    status:
+      code: 204
+      message: No Content
+recorded_with: VCR 6.0.0

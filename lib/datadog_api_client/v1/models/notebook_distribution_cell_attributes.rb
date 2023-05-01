@@ -28,7 +28,7 @@ module DatadogAPIClient::V1
     # The Distribution visualization is another way of showing metrics
     # aggregated across one or several tags, such as hosts.
     # Unlike the heat map, a distribution graph’s x-axis is quantity rather than time.
-    attr_accessor :definition
+    attr_reader :definition
 
     # The size of the graph.
     attr_accessor :graph_size

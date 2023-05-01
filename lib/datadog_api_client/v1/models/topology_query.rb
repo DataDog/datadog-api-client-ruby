@@ -29,7 +29,7 @@ module DatadogAPIClient::V1
     attr_accessor :data_source
 
     # Your environment and primary tag (or * if enabled for your account).
-    attr_accessor :filters
+    attr_reader :filters
 
     # Name of the service
     attr_accessor :service
@@ -52,13 +52,6 @@ module DatadogAPIClient::V1
         :'filters' => :'Array<String>',
         :'service' => :'String'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

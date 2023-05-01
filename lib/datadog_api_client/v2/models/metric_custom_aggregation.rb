@@ -26,10 +26,10 @@ module DatadogAPIClient::V2
     attr_accessor :_unparsed
 
     # A space aggregation for use in query.
-    attr_accessor :space
+    attr_reader :space
 
     # A time aggregation for use in query.
-    attr_accessor :time
+    attr_reader :time
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -47,13 +47,6 @@ module DatadogAPIClient::V2
         :'space' => :'MetricCustomSpaceAggregation',
         :'time' => :'MetricCustomTimeAggregation'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

@@ -42,7 +42,7 @@ module DatadogAPIClient::V1
     attr_accessor :is_read_only
 
     # Name of the pipeline.
-    attr_accessor :name
+    attr_reader :name
 
     # Ordered list of processors in this pipeline.
     attr_accessor :processors
@@ -76,13 +76,6 @@ module DatadogAPIClient::V1
         :'processors' => :'Array<LogsProcessor>',
         :'type' => :'String'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

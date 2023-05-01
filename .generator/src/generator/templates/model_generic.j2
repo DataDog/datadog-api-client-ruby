@@ -5,9 +5,26 @@
     # @!visibility private
     attr_accessor :_unparsed
 {%- for attr, definition in model.get("properties", {}).items() %}
+    {%- set required = attr in model.get("required", []) %}
+    {%- set has_validation = (
+      (not definition.nullable and required) or
+      definition.maxLength is defined or
+      definition.minLength is defined or
+      definition.maximum is defined or
+      definition.minimum is defined or
+      definition.pattern is defined or
+      definition.maxItems is defined or
+      definition.minItems is defined 
+    ) %}{# FIXME add validation for enum
+     or
+      definition.enum is defined #}
 
     {{ definition.description|block_comment|indent(4) }}
+    {%- if has_validation %}
+    attr_reader :{{ attr|attribute_name }}
+    {%- else %}
     attr_accessor :{{ attr|attribute_name }}
+    {%- endif %}
 {%- endfor %}
 {%- if model.get("additionalProperties") %}
 
@@ -28,22 +45,24 @@
     # @!visibility private
     def self.openapi_types
       {
-{%- for attr in model.properties %}
+{%- set nullables = [] %}
+{%- for attr, spec in model.properties.items() %}
+    {%- if spec.nullable %}{%- set tmp = nullables.append(attr) %}{%- endif %}
         :'{{ attr|attribute_name }}' => :'{{ get_type_for_attribute(model, attr, current_name=name) }}'{% if not loop.last %},{% endif %}
 {%- endfor %}
       }
     end
-
+{% if nullables %}
     # List of attributes with nullable: true
     # @!visibility private
     def self.openapi_nullable
       Set.new([
-      {%- for attr, spec in model.properties.items() if spec.nullable %}
+      {%- for attr in nullables %}
         :'{{ attr|attribute_name }}',
       {%- endfor %}
       ])
     end
-
+{% endif %}
     # Initializes the object
     # @param attributes [Hash] Model attributes in the form of hash
     # @!visibility private

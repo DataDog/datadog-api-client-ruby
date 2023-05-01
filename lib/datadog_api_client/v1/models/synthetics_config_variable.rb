@@ -32,13 +32,16 @@ module DatadogAPIClient::V1
     attr_accessor :id
 
     # Name of the variable.
-    attr_accessor :name
+    attr_reader :name
 
     # Pattern of the variable.
     attr_accessor :pattern
 
+    # Whether the value of this variable will be obfuscated in test results. Only for config variables of type `text`.
+    attr_accessor :secure
+
     # Type of the configuration variable.
-    attr_accessor :type
+    attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -48,6 +51,7 @@ module DatadogAPIClient::V1
         :'id' => :'id',
         :'name' => :'name',
         :'pattern' => :'pattern',
+        :'secure' => :'secure',
         :'type' => :'type'
       }
     end
@@ -60,15 +64,9 @@ module DatadogAPIClient::V1
         :'id' => :'String',
         :'name' => :'String',
         :'pattern' => :'String',
+        :'secure' => :'Boolean',
         :'type' => :'SyntheticsConfigVariableType'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object
@@ -101,6 +99,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'pattern')
         self.pattern = attributes[:'pattern']
+      end
+
+      if attributes.key?(:'secure')
+        self.secure = attributes[:'secure']
       end
 
       if attributes.key?(:'type')
@@ -147,6 +149,7 @@ module DatadogAPIClient::V1
           id == o.id &&
           name == o.name &&
           pattern == o.pattern &&
+          secure == o.secure &&
           type == o.type
     end
 
@@ -154,7 +157,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [example, id, name, pattern, type].hash
+      [example, id, name, pattern, secure, type].hash
     end
   end
 end

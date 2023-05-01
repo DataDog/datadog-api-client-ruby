@@ -29,7 +29,7 @@ module DatadogAPIClient::V1
     attr_accessor :alias_name
 
     # Expression name.
-    attr_accessor :expression
+    attr_reader :expression
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -47,13 +47,6 @@ module DatadogAPIClient::V1
         :'alias_name' => :'String',
         :'expression' => :'String'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

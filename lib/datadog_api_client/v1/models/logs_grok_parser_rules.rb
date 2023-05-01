@@ -26,7 +26,7 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # List of match rules for the grok parser, separated by a new line.
-    attr_accessor :match_rules
+    attr_reader :match_rules
 
     # List of support rules for the grok parser, separated by a new line.
     attr_accessor :support_rules
@@ -47,13 +47,6 @@ module DatadogAPIClient::V1
         :'match_rules' => :'String',
         :'support_rules' => :'String'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

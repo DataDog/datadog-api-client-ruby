@@ -9,6 +9,7 @@ body = DatadogAPIClient::V1::SyntheticsBrowserTest.new({
     config_variables: [
       DatadogAPIClient::V1::SyntheticsConfigVariable.new({
         name: "VARIABLE_NAME",
+        secure: false,
         type: DatadogAPIClient::V1::SyntheticsConfigVariableType::TEXT,
       }),
     ],
@@ -19,15 +20,16 @@ body = DatadogAPIClient::V1::SyntheticsBrowserTest.new({
         username: "my_username",
       }),
       body_type: DatadogAPIClient::V1::SyntheticsTestRequestBodyType::TEXT_PLAIN,
+      call_type: DatadogAPIClient::V1::SyntheticsTestCallType::UNARY,
       certificate: DatadogAPIClient::V1::SyntheticsTestRequestCertificate.new({
         cert: DatadogAPIClient::V1::SyntheticsTestRequestCertificateItem.new({}),
         key: DatadogAPIClient::V1::SyntheticsTestRequestCertificateItem.new({}),
       }),
       certificate_domains: [],
-      method: DatadogAPIClient::V1::HTTPMethod::GET,
       proxy: DatadogAPIClient::V1::SyntheticsTestRequestProxy.new({
         url: "https://example.com",
       }),
+      service: "Greeter",
       url: "https://example.com",
     }),
     variables: [
@@ -49,6 +51,7 @@ body = DatadogAPIClient::V1::SyntheticsBrowserTest.new({
     device_ids: [
       DatadogAPIClient::V1::SyntheticsDeviceID::LAPTOP_LARGE,
     ],
+    http_version: DatadogAPIClient::V1::SyntheticsTestOptionsHTTPVersion::HTTP1,
     monitor_options: DatadogAPIClient::V1::SyntheticsTestOptionsMonitorOptions.new({}),
     restricted_roles: [
       "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
@@ -58,6 +61,21 @@ body = DatadogAPIClient::V1::SyntheticsBrowserTest.new({
       application_id: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
       client_token_id: 12345,
       is_enabled: true,
+    }),
+    scheduling: DatadogAPIClient::V1::SyntheticsTestOptionsScheduling.new({
+      timeframes: [
+        DatadogAPIClient::V1::SyntheticsTestOptionsSchedulingTimeframe.new({
+          day: 1,
+          from: "07:00",
+          to: "16:00",
+        }),
+        DatadogAPIClient::V1::SyntheticsTestOptionsSchedulingTimeframe.new({
+          day: 3,
+          from: "07:00",
+          to: "16:00",
+        }),
+      ],
+      timezone: "America/New_York",
     }),
   }),
   status: DatadogAPIClient::V1::SyntheticsTestPauseStatus::LIVE,

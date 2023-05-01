@@ -18,7 +18,6 @@ require 'datadog_api_client/version'
 require 'datadog_api_client/user_agent'
 require 'datadog_api_client/api_client'
 require 'datadog_api_client/configuration'
-require 'datadog_api_client/api_key_configuration'
 
 # Model base
 ## Load in the model_base modules which also initializes the V1 and V2 namespaces

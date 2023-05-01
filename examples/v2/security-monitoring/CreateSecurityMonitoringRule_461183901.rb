@@ -34,7 +34,7 @@ body = DatadogAPIClient::V2::SecurityMonitoringStandardRuleCreatePayload.new({
       baseline_user_locations: false,
     }),
   }),
-  name: "Example-Create_a_detection_rule_with_type_impossible_travel_returns_OK_response",
+  name: "Example-Security-Monitoring",
   type: DatadogAPIClient::V2::SecurityMonitoringRuleTypeCreate::LOG_DETECTION,
   tags: [],
   filters: [],

@@ -4,7 +4,7 @@ require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::DowntimesAPI.new
 
 body = DatadogAPIClient::V1::Downtime.new({
-  message: "Example-Schedule_a_downtime_with_until_occurrences",
+  message: "Example-Downtime",
   recurrence: DatadogAPIClient::V1::DowntimeRecurrence.new({
     period: 1,
     type: "weeks",

@@ -43,10 +43,10 @@ module DatadogAPIClient::V1
     attr_accessor :sizing
 
     # Type of the image widget.
-    attr_accessor :type
+    attr_reader :type
 
     # URL of the image.
-    attr_accessor :url
+    attr_reader :url
 
     # URL of the image in dark mode.
     attr_accessor :url_dark_theme
@@ -84,13 +84,6 @@ module DatadogAPIClient::V1
         :'url_dark_theme' => :'String',
         :'vertical_align' => :'WidgetVerticalAlign'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object

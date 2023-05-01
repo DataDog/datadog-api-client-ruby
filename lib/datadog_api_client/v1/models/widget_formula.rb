@@ -35,10 +35,13 @@ module DatadogAPIClient::V1
     attr_accessor :conditional_formats
 
     # String expression built from queries, formulas, and functions.
-    attr_accessor :formula
+    attr_reader :formula
 
     # Options for limiting results returned.
     attr_accessor :limit
+
+    # Styling options for widget formulas.
+    attr_accessor :style
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -48,7 +51,8 @@ module DatadogAPIClient::V1
         :'cell_display_mode' => :'cell_display_mode',
         :'conditional_formats' => :'conditional_formats',
         :'formula' => :'formula',
-        :'limit' => :'limit'
+        :'limit' => :'limit',
+        :'style' => :'style'
       }
     end
 
@@ -60,15 +64,9 @@ module DatadogAPIClient::V1
         :'cell_display_mode' => :'TableWidgetCellDisplayMode',
         :'conditional_formats' => :'Array<WidgetConditionalFormat>',
         :'formula' => :'String',
-        :'limit' => :'WidgetFormulaLimit'
+        :'limit' => :'WidgetFormulaLimit',
+        :'style' => :'WidgetFormulaStyle'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
     end
 
     # Initializes the object
@@ -108,6 +106,10 @@ module DatadogAPIClient::V1
       if attributes.key?(:'limit')
         self.limit = attributes[:'limit']
       end
+
+      if attributes.key?(:'style')
+        self.style = attributes[:'style']
+      end
     end
 
     # Check to see if the all the properties in the model are valid
@@ -138,14 +140,15 @@ module DatadogAPIClient::V1
           cell_display_mode == o.cell_display_mode &&
           conditional_formats == o.conditional_formats &&
           formula == o.formula &&
-          limit == o.limit
+          limit == o.limit &&
+          style == o.style
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [_alias, cell_display_mode, conditional_formats, formula, limit].hash
+      [_alias, cell_display_mode, conditional_formats, formula, limit, style].hash
     end
   end
 end
