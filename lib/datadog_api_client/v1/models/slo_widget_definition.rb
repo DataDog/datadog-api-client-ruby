@@ -25,6 +25,9 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
+    # Additional filters applied to the SLO query.
+    attr_accessor :additional_query_filters
+
     # Defined global time target.
     attr_accessor :global_time_target
 
@@ -59,6 +62,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.attribute_map
       {
+        :'additional_query_filters' => :'additional_query_filters',
         :'global_time_target' => :'global_time_target',
         :'show_error_budget' => :'show_error_budget',
         :'slo_id' => :'slo_id',
@@ -76,6 +80,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
+        :'additional_query_filters' => :'String',
         :'global_time_target' => :'String',
         :'show_error_budget' => :'Boolean',
         :'slo_id' => :'String',
@@ -104,6 +109,10 @@ module DatadogAPIClient::V1
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'additional_query_filters')
+        self.additional_query_filters = attributes[:'additional_query_filters']
+      end
 
       if attributes.key?(:'global_time_target')
         self.global_time_target = attributes[:'global_time_target']
@@ -183,6 +192,7 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          additional_query_filters == o.additional_query_filters &&
           global_time_target == o.global_time_target &&
           show_error_budget == o.show_error_budget &&
           slo_id == o.slo_id &&
@@ -199,7 +209,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [global_time_target, show_error_budget, slo_id, time_windows, title, title_align, title_size, type, view_mode, view_type].hash
+      [additional_query_filters, global_time_target, show_error_budget, slo_id, time_windows, title, title_align, title_size, type, view_mode, view_type].hash
     end
   end
 end
