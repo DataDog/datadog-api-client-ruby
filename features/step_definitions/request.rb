@@ -319,7 +319,7 @@ Then(/^the response "([^"]+)" has item with field "([^"]+)" with value (.*)$/) d
   expect(response_list.find { |item| item.lookup(key_path) == JSON.parse(value.templated(fixtures), :symbolize_names => true) }).to_not be_nil
 end
 
-Then(/^the response "([^"]+)" contains value (.*)$/) do |response_path, value|
+Then(/^the response "([^"]+)" array contains value (.*)$/) do |response_path, value|
   body = @response[0].respond_to?(:to_body) ? @response[0].to_body : @response[0]
   expect(body.lookup response_path).to include(JSON.parse(value.templated(fixtures), :symbolize_names => true))
 end
