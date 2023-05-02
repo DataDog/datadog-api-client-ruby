@@ -25,6 +25,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
+    # Required if `customer_impacted:"true"`. A summary of the impact customers experienced during the incident.
+    attr_accessor :customer_impact_scope
+
     # A flag indicating whether the incident caused customer impact.
     attr_reader :customer_impacted
 
@@ -44,6 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'customer_impact_scope' => :'customer_impact_scope',
         :'customer_impacted' => :'customer_impacted',
         :'fields' => :'fields',
         :'initial_cells' => :'initial_cells',
@@ -56,6 +60,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'customer_impact_scope' => :'String',
         :'customer_impacted' => :'Boolean',
         :'fields' => :'Hash<String, IncidentFieldAttributes>',
         :'initial_cells' => :'Array<IncidentTimelineCellCreateAttributes>',
@@ -79,6 +84,10 @@ module DatadogAPIClient::V2
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'customer_impact_scope')
+        self.customer_impact_scope = attributes[:'customer_impact_scope']
+      end
 
       if attributes.key?(:'customer_impacted')
         self.customer_impacted = attributes[:'customer_impacted']
@@ -140,6 +149,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          customer_impact_scope == o.customer_impact_scope &&
           customer_impacted == o.customer_impacted &&
           fields == o.fields &&
           initial_cells == o.initial_cells &&
@@ -151,7 +161,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [customer_impacted, fields, initial_cells, notification_handles, title].hash
+      [customer_impact_scope, customer_impacted, fields, initial_cells, notification_handles, title].hash
     end
   end
 end
