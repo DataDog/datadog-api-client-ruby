@@ -35,10 +35,13 @@ module DatadogAPIClient::V2
     #
     # Creates a new incident team.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param body [IncidentTeamCreateRequest] Incident Team Payload.
     # @param opts [Hash] the optional parameters
     # @return [Array<(IncidentTeamResponse, Integer, Hash)>] IncidentTeamResponse data, response status code and response headers
     def create_incident_team_with_http_info(body, opts = {})
+      warn "[DEPRECATION] `CreateIncidentTeam` is deprecated."
       unstable_enabled = @api_client.config.unstable_operations["v2.create_incident_team".to_sym]
       if unstable_enabled
         @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_incident_team")
@@ -108,10 +111,13 @@ module DatadogAPIClient::V2
     #
     # Deletes an existing incident team.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param team_id [String] The ID of the incident team.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_incident_team_with_http_info(team_id, opts = {})
+      warn "[DEPRECATION] `DeleteIncidentTeam` is deprecated."
       unstable_enabled = @api_client.config.unstable_operations["v2.delete_incident_team".to_sym]
       if unstable_enabled
         @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_incident_team")
@@ -180,11 +186,14 @@ module DatadogAPIClient::V2
     # Get details of an incident team. If the `include[users]` query parameter is provided,
     # the included attribute will contain the users related to these incident teams.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param team_id [String] The ID of the incident team.
     # @param opts [Hash] the optional parameters
     # @option opts [IncidentRelatedObject] :include Specifies which types of related objects should be included in the response.
     # @return [Array<(IncidentTeamResponse, Integer, Hash)>] IncidentTeamResponse data, response status code and response headers
     def get_incident_team_with_http_info(team_id, opts = {})
+      warn "[DEPRECATION] `GetIncidentTeam` is deprecated."
       unstable_enabled = @api_client.config.unstable_operations["v2.get_incident_team".to_sym]
       if unstable_enabled
         @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_incident_team")
@@ -257,6 +266,8 @@ module DatadogAPIClient::V2
     #
     # Get all incident teams for the requesting user's organization. If the `include[users]` query parameter is provided, the included attribute will contain the users related to these incident teams.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param opts [Hash] the optional parameters
     # @option opts [IncidentRelatedObject] :include Specifies which types of related objects should be included in the response.
     # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 5000.
@@ -264,6 +275,7 @@ module DatadogAPIClient::V2
     # @option opts [String] :filter A search query that filters teams by name.
     # @return [Array<(IncidentTeamsResponse, Integer, Hash)>] IncidentTeamsResponse data, response status code and response headers
     def list_incident_teams_with_http_info(opts = {})
+      warn "[DEPRECATION] `ListIncidentTeams` is deprecated."
       unstable_enabled = @api_client.config.unstable_operations["v2.list_incident_teams".to_sym]
       if unstable_enabled
         @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_incident_teams")
@@ -335,11 +347,14 @@ module DatadogAPIClient::V2
     #
     # Updates an existing incident team. Only provide the attributes which should be updated as this request is a partial update.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param team_id [String] The ID of the incident team.
     # @param body [IncidentTeamUpdateRequest] Incident Team Payload.
     # @param opts [Hash] the optional parameters
     # @return [Array<(IncidentTeamResponse, Integer, Hash)>] IncidentTeamResponse data, response status code and response headers
     def update_incident_team_with_http_info(team_id, body, opts = {})
+      warn "[DEPRECATION] `UpdateIncidentTeam` is deprecated."
       unstable_enabled = @api_client.config.unstable_operations["v2.update_incident_team".to_sym]
       if unstable_enabled
         @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_incident_team")
