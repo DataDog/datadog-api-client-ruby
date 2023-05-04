@@ -352,6 +352,8 @@ module DatadogAPIClient
           "v1.notebook_update_request" => "NotebookUpdateRequest",
           "v1.note_widget_definition" => "NoteWidgetDefinition",
           "v1.note_widget_definition_type" => "NoteWidgetDefinitionType",
+          "v1.notify_end_state" => "NotifyEndState",
+          "v1.notify_end_type" => "NotifyEndType",
           "v1.on_missing_data_option" => "OnMissingDataOption",
           "v1.organization" => "Organization",
           "v1.organization_billing" => "OrganizationBilling",

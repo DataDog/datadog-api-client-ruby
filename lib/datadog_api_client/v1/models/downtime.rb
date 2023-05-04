@@ -73,6 +73,15 @@ module DatadogAPIClient::V1
     # If the first recovery notification during a downtime should be muted.
     attr_accessor :mute_first_recovery_notification
 
+    # States for which `notify_end_types` sends out notifications for.
+    attr_accessor :notify_end_states
+
+    # If set, notifies if a monitor is in an alert-worthy state (`ALERT`, `WARNING`, or `NO DATA`)
+    # when this downtime expires or is canceled. Applied to monitors that change states during
+    # the downtime (such as from `OK` to `ALERT`, `WARNING`, or `NO DATA`), and to monitors that
+    # already have an alert-worthy state when downtime begins.
+    attr_accessor :notify_end_types
+
     # ID of the parent Downtime.
     attr_accessor :parent_id
 
@@ -110,6 +119,8 @@ module DatadogAPIClient::V1
         :'monitor_id' => :'monitor_id',
         :'monitor_tags' => :'monitor_tags',
         :'mute_first_recovery_notification' => :'mute_first_recovery_notification',
+        :'notify_end_states' => :'notify_end_states',
+        :'notify_end_types' => :'notify_end_types',
         :'parent_id' => :'parent_id',
         :'recurrence' => :'recurrence',
         :'scope' => :'scope',
@@ -135,6 +146,8 @@ module DatadogAPIClient::V1
         :'monitor_id' => :'Integer',
         :'monitor_tags' => :'Array<String>',
         :'mute_first_recovery_notification' => :'Boolean',
+        :'notify_end_states' => :'Array<NotifyEndState>',
+        :'notify_end_types' => :'Array<NotifyEndType>',
         :'parent_id' => :'Integer',
         :'recurrence' => :'DowntimeRecurrence',
         :'scope' => :'Array<String>',
@@ -225,6 +238,18 @@ module DatadogAPIClient::V1
         self.mute_first_recovery_notification = attributes[:'mute_first_recovery_notification']
       end
 
+      if attributes.key?(:'notify_end_states')
+        if (value = attributes[:'notify_end_states']).is_a?(Array)
+          self.notify_end_states = value
+        end
+      end
+
+      if attributes.key?(:'notify_end_types')
+        if (value = attributes[:'notify_end_types']).is_a?(Array)
+          self.notify_end_types = value
+        end
+      end
+
       if attributes.key?(:'parent_id')
         self.parent_id = attributes[:'parent_id']
       end
@@ -310,6 +335,8 @@ module DatadogAPIClient::V1
           monitor_id == o.monitor_id &&
           monitor_tags == o.monitor_tags &&
           mute_first_recovery_notification == o.mute_first_recovery_notification &&
+          notify_end_states == o.notify_end_states &&
+          notify_end_types == o.notify_end_types &&
           parent_id == o.parent_id &&
           recurrence == o.recurrence &&
           scope == o.scope &&
@@ -322,7 +349,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [active, active_child, canceled, creator_id, disabled, downtime_type, _end, id, message, monitor_id, monitor_tags, mute_first_recovery_notification, parent_id, recurrence, scope, start, timezone, updater_id].hash
+      [active, active_child, canceled, creator_id, disabled, downtime_type, _end, id, message, monitor_id, monitor_tags, mute_first_recovery_notification, notify_end_states, notify_end_types, parent_id, recurrence, scope, start, timezone, updater_id].hash
     end
   end
 end

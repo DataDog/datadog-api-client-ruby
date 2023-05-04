@@ -27,5 +27,11 @@ body = DatadogAPIClient::V1::Downtime.new({
   monitor_tags: [
     "tag0",
   ],
+  notify_end_states: [
+    DatadogAPIClient::V1::NotifyEndState::ALERT,
+  ],
+  notify_end_types: [
+    DatadogAPIClient::V1::NotifyEndType::CANCELED,
+  ],
 })
 p api_instance.create_downtime(body)
