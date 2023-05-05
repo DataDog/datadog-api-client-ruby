@@ -52,9 +52,12 @@ Feature: Teams
   @team:DataDog/core-app
   Scenario: Create a team returns "CREATED" response
     Given new "CreateTeam" request
-    And body with value {"data": {"attributes": {"handle": "{{timestamp('now')}}", "name": "{{timestamp('now')}}"}, "relationships": {"users": {"data": []}}, "type": "team"}}
+    And body with value {"data": {"attributes": {"handle": "{{timestamp('now')}}", "name": "{{timestamp('now')}}", "color": 6}, "relationships": {"users": {"data": []}}, "type": "team"}}
     When the request is sent
     Then the response status is 201 CREATED
+    And the response "data.attributes.handle" is equal to "{{timestamp('now')}}"
+    And the response "data.attributes.name" is equal to "{{timestamp('now')}}"
+    And the response "data.attributes.color" is equal to 6
 
   @team:DataDog/core-app
   Scenario: Get a team link returns "API error response." response

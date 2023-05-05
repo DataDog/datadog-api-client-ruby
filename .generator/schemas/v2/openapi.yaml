@@ -13500,6 +13500,12 @@ components:
     TeamCreateAttributes:
       description: Team creation attributes
       properties:
+        color:
+          description: An identifier for the color representing the team
+          format: int32
+          maximum: 13
+          minimum: 0
+          type: integer
         description:
           description: Free-form markdown description/content for the team's homepage
           type: string

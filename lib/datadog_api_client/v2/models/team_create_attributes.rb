@@ -25,6 +25,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
+    # An identifier for the color representing the team
+    attr_reader :color
+
     # Free-form markdown description/content for the team's homepage
     attr_accessor :description
 
@@ -41,6 +44,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'color' => :'color',
         :'description' => :'description',
         :'handle' => :'handle',
         :'link_count' => :'link_count',
@@ -52,6 +56,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'color' => :'Integer',
         :'description' => :'String',
         :'handle' => :'String',
         :'link_count' => :'Integer',
@@ -75,6 +80,10 @@ module DatadogAPIClient::V2
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'color')
+        self.color = attributes[:'color']
+      end
+
       if attributes.key?(:'description')
         self.description = attributes[:'description']
       end
@@ -96,12 +105,27 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
+      return false if !@color.nil? && @color > 13
+      return false if !@color.nil? && @color < 0
       return false if @handle.nil?
       return false if @handle.to_s.length > 64
       return false if !@link_count.nil? && @link_count > 2147483647
       return false if @name.nil?
       return false if @name.to_s.length > 64
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param color [Object] Object to be assigned
+    # @!visibility private
+    def color=(color)
+      if !color.nil? && color > 13
+        fail ArgumentError, 'invalid value for "color", must be smaller than or equal to 13.'
+      end
+      if !color.nil? && color < 0
+        fail ArgumentError, 'invalid value for "color", must be greater than or equal to 0.'
+      end
+      @color = color
     end
 
     # Custom attribute writer method with validation
@@ -146,6 +170,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          color == o.color &&
           description == o.description &&
           handle == o.handle &&
           link_count == o.link_count &&
@@ -156,7 +181,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [description, handle, link_count, name].hash
+      [color, description, handle, link_count, name].hash
     end
   end
 end

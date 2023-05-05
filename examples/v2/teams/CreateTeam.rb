@@ -8,6 +8,7 @@ body = DatadogAPIClient::V2::TeamCreateRequest.new({
     attributes: DatadogAPIClient::V2::TeamCreateAttributes.new({
       handle: "1636629071",
       name: "1636629071",
+      color: 6,
     }),
     relationships: DatadogAPIClient::V2::TeamCreateRelationships.new({
       users: DatadogAPIClient::V2::RelationshipToUsers.new({
