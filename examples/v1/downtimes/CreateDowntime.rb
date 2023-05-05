@@ -22,5 +22,14 @@ body = DatadogAPIClient::V1::Downtime.new({
     ],
     until_date: (Time.now + 21 * 86400).to_i,
   }),
+  notify_end_states: [
+    DatadogAPIClient::V1::NotifyEndState::ALERT,
+    DatadogAPIClient::V1::NotifyEndState::NO_DATA,
+    DatadogAPIClient::V1::NotifyEndState::WARN,
+  ],
+  notify_end_types: [
+    DatadogAPIClient::V1::NotifyEndType::CANCELED,
+    DatadogAPIClient::V1::NotifyEndType::EXPIRED,
+  ],
 })
 p api_instance.create_downtime(body)
