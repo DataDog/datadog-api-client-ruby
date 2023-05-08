@@ -37,7 +37,7 @@ module DatadogAPIClient::V1
     # Metric expression.
     attr_accessor :expression
 
-    # Number of milliseconds between data samples.
+    # Number of seconds between data samples.
     attr_accessor :interval
 
     # Number of data samples.
@@ -46,7 +46,7 @@ module DatadogAPIClient::V1
     # Metric name.
     attr_accessor :metric
 
-    # List of points of the time series in milliseconds.
+    # List of points of the time series.
     attr_accessor :pointlist
 
     # The index of the series' query within the request.

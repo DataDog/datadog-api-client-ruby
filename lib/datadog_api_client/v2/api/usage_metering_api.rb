@@ -115,9 +115,9 @@ module DatadogAPIClient::V2
     #
     # @param opts [Hash] the optional parameters
     # @option opts [String] :view String to specify whether cost is broken down at a parent-org level or at the sub-org level. Available views are `summary` and `sub-org`. Defaults to `summary`.
-    # @option opts [Time] :start_month Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for cost beginning this month. Either start_month or start_date should be specified, but not both. (start_month cannot go beyond two months in the past). Provide an `end_month` to view month-over-month cost.
+    # @option opts [Time] :start_month Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for cost beginning this month. Either start_month or start_date should be specified, but not both. (start_month cannot go beyond two months in the past)
     # @option opts [Time] :end_month Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for cost ending this month.
-    # @option opts [Time] :start_date Datetime in ISO-8601 format, UTC, precise to day: `[YYYY-MM-DD]` for cost beginning this day. Either start_month or start_date should be specified, but not both. (start_date cannot go beyond two months in the past). Provide an `end_date` to view day-over-day cumulative cost.
+    # @option opts [Time] :start_date Datetime in ISO-8601 format, UTC, precise to day: `[YYYY-MM-DD]` for cost beginning this day. Either start_month or start_date should be specified, but not both. (start_date cannot go beyond two months in the past)
     # @option opts [Time] :end_date Datetime in ISO-8601 format, UTC, precise to day: `[YYYY-MM-DD]` for cost ending this day.
     # @return [Array<(CostByOrgResponse, Integer, Hash)>] CostByOrgResponse data, response status code and response headers
     def get_estimated_cost_by_org_with_http_info(opts = {})
@@ -259,7 +259,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @option opts [Time] :filter_timestamp_end Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
     # @option opts [Boolean] :filter_include_descendants Include child org usage in the response. Defaults to false.
-    # @option opts [Boolean] :filter_include_breakdown Include breakdown of usage by subcategories where applicable (for product family logs only). Defaults to false.
     # @option opts [String] :filter_versions Comma separated list of product family versions to use in the format `product_family:version`. For example, `infra_hosts:1.0.0`. If this parameter is not used, the API will use the latest version of each requested product family. Currently all families have one version `1.0.0`.
     # @option opts [Integer] :page_limit Maximum number of results to return (between 1 and 500) - defaults to 500 if limit not specified.
     # @option opts [String] :page_next_record_id List following results with a next_record_id provided in the previous query.
@@ -292,7 +291,6 @@ module DatadogAPIClient::V2
       query_params[:'filter[product_families]'] = filter_product_families
       query_params[:'filter[timestamp][end]'] = opts[:'filter_timestamp_end'] if !opts[:'filter_timestamp_end'].nil?
       query_params[:'filter[include_descendants]'] = opts[:'filter_include_descendants'] if !opts[:'filter_include_descendants'].nil?
-      query_params[:'filter[include_breakdown]'] = opts[:'filter_include_breakdown'] if !opts[:'filter_include_breakdown'].nil?
       query_params[:'filter[versions]'] = opts[:'filter_versions'] if !opts[:'filter_versions'].nil?
       query_params[:'page[limit]'] = opts[:'page_limit'] if !opts[:'page_limit'].nil?
       query_params[:'page[next_record_id]'] = opts[:'page_next_record_id'] if !opts[:'page_next_record_id'].nil?

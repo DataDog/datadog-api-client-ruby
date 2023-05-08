@@ -69,16 +69,6 @@ module DatadogAPIClient::V1
       }
     end
 
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-        :'indexed_events_count',
-        :'live_indexed_events_count',
-        :'rehydrated_indexed_events_count',
-      ])
-    end
-
     # Initializes the object
     # @param attributes [Hash] Model attributes in the form of hash
     # @!visibility private

@@ -197,8 +197,6 @@ module DatadogAPIClient
             "v2.update_incident_todo": false,
             "v2.query_scalar_data": false,
             "v2.query_timeseries_data": false,
-            "v2.get_finding": false,
-            "v2.list_findings": false,
             "v2.create_incident_service": false,
             "v2.delete_incident_service": false,
             "v2.get_incident_service": false,

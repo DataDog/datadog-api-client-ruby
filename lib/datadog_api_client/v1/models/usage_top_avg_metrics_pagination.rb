@@ -59,7 +59,6 @@ module DatadogAPIClient::V1
     def self.openapi_nullable
       Set.new([
         :'next_record_id',
-        :'total_number_of_records',
       ])
     end
 

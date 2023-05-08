@@ -104,10 +104,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_nullable
       Set.new([
-        :'created_at',
         :'duration',
-        :'_end',
-        :'modified_at',
         :'modifier',
         :'rrule',
       ])
