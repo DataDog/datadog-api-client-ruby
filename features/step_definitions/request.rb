@@ -1,6 +1,7 @@
 require 'json'
 require 'active_support'
 require 'active_support/time'
+require 'digest'
 
 require_relative '../scenarios_model_mapping'
 
@@ -46,6 +47,7 @@ module APIWorld
 
   def fixtures
     u = unique
+    u_hash = Digest::SHA256.hexdigest(u)[0, 16]
     alnum = u.gsub(/[^A-Za-z0-9]+/, '')
     @fixtures ||= {
       "unique": u,
@@ -54,6 +56,7 @@ module APIWorld
       "unique_alnum": alnum,
       "unique_lower_alnum": alnum.downcase,
       "unique_upper_alnum": alnum.upcase,
+      "unique_hash": "test-" + u_hash,
       "timestamp": relative_time(false),
       "timeISO": relative_time(true),
     }
