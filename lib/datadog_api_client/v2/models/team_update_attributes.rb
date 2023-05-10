@@ -34,9 +34,6 @@ module DatadogAPIClient::V2
     # The team's identifier
     attr_reader :handle
 
-    # The number of links belonging to the team
-    attr_reader :link_count
-
     # The name of the team
     attr_reader :name
 
@@ -47,7 +44,6 @@ module DatadogAPIClient::V2
         :'color' => :'color',
         :'description' => :'description',
         :'handle' => :'handle',
-        :'link_count' => :'link_count',
         :'name' => :'name'
       }
     end
@@ -59,7 +55,6 @@ module DatadogAPIClient::V2
         :'color' => :'Integer',
         :'description' => :'String',
         :'handle' => :'String',
-        :'link_count' => :'Integer',
         :'name' => :'String'
       }
     end
@@ -92,10 +87,6 @@ module DatadogAPIClient::V2
         self.handle = attributes[:'handle']
       end
 
-      if attributes.key?(:'link_count')
-        self.link_count = attributes[:'link_count']
-      end
-
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
@@ -109,7 +100,6 @@ module DatadogAPIClient::V2
       return false if !@color.nil? && @color < 0
       return false if @handle.nil?
       return false if @handle.to_s.length > 64
-      return false if !@link_count.nil? && @link_count > 2147483647
       return false if @name.nil?
       return false if @name.to_s.length > 64
       true
@@ -142,16 +132,6 @@ module DatadogAPIClient::V2
     end
 
     # Custom attribute writer method with validation
-    # @param link_count [Object] Object to be assigned
-    # @!visibility private
-    def link_count=(link_count)
-      if !link_count.nil? && link_count > 2147483647
-        fail ArgumentError, 'invalid value for "link_count", must be smaller than or equal to 2147483647.'
-      end
-      @link_count = link_count
-    end
-
-    # Custom attribute writer method with validation
     # @param name [Object] Object to be assigned
     # @!visibility private
     def name=(name)
@@ -173,7 +153,6 @@ module DatadogAPIClient::V2
           color == o.color &&
           description == o.description &&
           handle == o.handle &&
-          link_count == o.link_count &&
           name == o.name
     end
 
@@ -181,7 +160,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [color, description, handle, link_count, name].hash
+      [color, description, handle, name].hash
     end
   end
 end
