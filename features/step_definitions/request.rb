@@ -56,7 +56,7 @@ module APIWorld
       "unique_alnum": alnum,
       "unique_lower_alnum": alnum.downcase,
       "unique_upper_alnum": alnum.upcase,
-      "unique_hash": "test-" + u_hash,
+      "unique_hash": u_hash,
       "timestamp": relative_time(false),
       "timeISO": relative_time(true),
     }
