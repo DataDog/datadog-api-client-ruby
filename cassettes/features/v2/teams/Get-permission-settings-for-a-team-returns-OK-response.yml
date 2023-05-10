@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Mon, 27 Mar 2023 18:33:11 GMT
+- recorded_at: Wed, 10 May 2023 16:25:55 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"handle":"1679941991","name":"1679941991"},"type":"team"}}'
+      string: '{"data":{"attributes":{"handle":"handle-a299aa22fee98364","name":"name-a299aa22fee98364"},"type":"team"}}'
     headers:
       Accept:
       - application/json
@@ -14,7 +14,7 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"team","id":"d3fcfa50-cccd-11ed-ba3b-da7ad0900002","attributes":{"name":"1679941991","handle":"1679941991","summary":null,"description":null,"color":11,"created_at":"2023-03-27T18:33:11.528141+00:00","modified_at":"2023-03-27T18:33:11.528147+00:00","user_count":0,"link_count":0},"relationships":{"team_links":{"links":{"related":"/api/v2/team/d3fcfa50-cccd-11ed-ba3b-da7ad0900002/links"}},"user_team_permissions":{"links":{"related":"/api/v2/team/d3fcfa50-cccd-11ed-ba3b-da7ad0900002/permission-settings"}}}}}
+      string: '{"data":{"type":"team","id":"57177c28-ef4f-11ed-9f99-da7ad0900002","attributes":{"name":"name-a299aa22fee98364","handle":"handle-a299aa22fee98364","summary":null,"description":null,"color":2,"created_at":"2023-05-10T16:25:56.096575+00:00","modified_at":"2023-05-10T16:25:56.096579+00:00","user_count":0,"link_count":0},"relationships":{"team_links":{"links":{"related":"/api/v2/team/57177c28-ef4f-11ed-9f99-da7ad0900002/links"}},"user_team_permissions":{"links":{"related":"/api/v2/team/57177c28-ef4f-11ed-9f99-da7ad0900002/permission-settings"}}}}}
 
         '
     headers:
@@ -23,20 +23,20 @@ http_interactions:
     status:
       code: 201
       message: Created
-- recorded_at: Mon, 27 Mar 2023 18:33:11 GMT
+- recorded_at: Wed, 10 May 2023 16:25:55 GMT
   request:
     body: null
     headers:
       Accept:
       - application/json
     method: GET
-    uri: https://api.datadoghq.com/api/v2/team/d3fcfa50-cccd-11ed-ba3b-da7ad0900002/permission-settings
+    uri: https://api.datadoghq.com/api/v2/team/57177c28-ef4f-11ed-9f99-da7ad0900002/permission-settings
   response:
     body:
       encoding: UTF-8
-      string: '{"data":[{"type":"team_permission_settings","attributes":{"title":"Add
-        and Remove Members","editable":true,"value":"organization","options":["user_access_manage","admins","members","organization"],"action":"manage_membership"},"id":"TeamPermission-d3fcfa50-cccd-11ed-ba3b-da7ad0900002-manage_membership"},{"type":"team_permission_settings","attributes":{"title":"Edit
-        Team Details","editable":true,"value":"members","options":["teams_manage","admins","members"],"action":"edit"},"id":"TeamPermission-d3fcfa50-cccd-11ed-ba3b-da7ad0900002-edit"}]}
+      string: '{"data":[{"type":"team_permission_settings","attributes":{"action":"manage_membership","options":["user_access_manage","admins","members","organization"],"value":"organization","editable":true,"title":"Add
+        and Remove Members"},"id":"TeamPermission-57177c28-ef4f-11ed-9f99-da7ad0900002-manage_membership"},{"type":"team_permission_settings","attributes":{"action":"edit","options":["teams_manage","admins","members"],"value":"members","editable":true,"title":"Edit
+        Team Details"},"id":"TeamPermission-57177c28-ef4f-11ed-9f99-da7ad0900002-edit"}]}
 
         '
     headers:
@@ -45,14 +45,14 @@ http_interactions:
     status:
       code: 200
       message: OK
-- recorded_at: Mon, 27 Mar 2023 18:33:11 GMT
+- recorded_at: Wed, 10 May 2023 16:25:55 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/team/d3fcfa50-cccd-11ed-ba3b-da7ad0900002
+    uri: https://api.datadoghq.com/api/v2/team/57177c28-ef4f-11ed-9f99-da7ad0900002
   response:
     body:
       encoding: UTF-8

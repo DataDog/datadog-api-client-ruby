@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Mon, 27 Mar 2023 18:32:58 GMT
+- recorded_at: Wed, 10 May 2023 16:25:49 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"handle":"1679941978","name":"1679941978"},"type":"team"}}'
+      string: '{"data":{"attributes":{"handle":"handle-7f82f490dc758fbf","name":"name-7f82f490dc758fbf"},"type":"team"}}'
     headers:
       Accept:
       - application/json
@@ -14,7 +14,7 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"team","id":"cc3d71dc-cccd-11ed-ac3a-da7ad0900002","attributes":{"name":"1679941978","handle":"1679941978","summary":null,"description":null,"color":10,"created_at":"2023-03-27T18:32:58.528371+00:00","modified_at":"2023-03-27T18:32:58.528375+00:00","user_count":0,"link_count":0},"relationships":{"team_links":{"links":{"related":"/api/v2/team/cc3d71dc-cccd-11ed-ac3a-da7ad0900002/links"}},"user_team_permissions":{"links":{"related":"/api/v2/team/cc3d71dc-cccd-11ed-ac3a-da7ad0900002/permission-settings"}}}}}
+      string: '{"data":{"type":"team","id":"5391cf72-ef4f-11ed-9b09-da7ad0900002","attributes":{"name":"name-7f82f490dc758fbf","handle":"handle-7f82f490dc758fbf","summary":null,"description":null,"color":11,"created_at":"2023-05-10T16:25:50.187661+00:00","modified_at":"2023-05-10T16:25:50.187665+00:00","user_count":0,"link_count":0},"relationships":{"team_links":{"links":{"related":"/api/v2/team/5391cf72-ef4f-11ed-9b09-da7ad0900002/links"}},"user_team_permissions":{"links":{"related":"/api/v2/team/5391cf72-ef4f-11ed-9b09-da7ad0900002/permission-settings"}}}}}
 
         '
     headers:
@@ -23,7 +23,7 @@ http_interactions:
     status:
       code: 201
       message: Created
-- recorded_at: Mon, 27 Mar 2023 18:32:58 GMT
+- recorded_at: Wed, 10 May 2023 16:25:49 GMT
   request:
     body:
       encoding: UTF-8
@@ -34,7 +34,7 @@ http_interactions:
       Content-Type:
       - application/json
     method: POST
-    uri: https://api.datadoghq.com/api/v2/team/cc3d71dc-cccd-11ed-ac3a-da7ad0900002/links
+    uri: https://api.datadoghq.com/api/v2/team/5391cf72-ef4f-11ed-9b09-da7ad0900002/links
   response:
     body:
       encoding: UTF-8
@@ -45,14 +45,14 @@ http_interactions:
     status:
       code: 422
       message: Unprocessable Entity
-- recorded_at: Mon, 27 Mar 2023 18:32:58 GMT
+- recorded_at: Wed, 10 May 2023 16:25:49 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/team/cc3d71dc-cccd-11ed-ac3a-da7ad0900002
+    uri: https://api.datadoghq.com/api/v2/team/5391cf72-ef4f-11ed-9b09-da7ad0900002
   response:
     body:
       encoding: UTF-8
