@@ -1339,6 +1339,7 @@ ScenariosModelMappings = {
     },
     "v2.GetFinding" => {
             "finding_id" => "String",
+            "snapshot_timestamp" => "Integer",
     },
     "v2.CreateSecurityFilter" => {
             "body" => "SecurityFilterCreateRequest",
