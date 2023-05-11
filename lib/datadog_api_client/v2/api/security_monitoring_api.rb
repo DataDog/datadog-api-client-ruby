@@ -520,6 +520,7 @@ module DatadogAPIClient::V2
     #
     # @param finding_id [String] The ID of the finding.
     # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :snapshot_timestamp Return the finding for a given snapshot of time (Unix ms).
     # @return [Array<(GetFindingResponse, Integer, Hash)>] GetFindingResponse data, response status code and response headers
     def get_finding_with_http_info(finding_id, opts = {})
       unstable_enabled = @api_client.config.unstable_operations["v2.get_finding".to_sym]
@@ -536,11 +537,15 @@ module DatadogAPIClient::V2
       if @api_client.config.client_side_validation && finding_id.nil?
         fail ArgumentError, "Missing the required parameter 'finding_id' when calling SecurityMonitoringAPI.get_finding"
       end
+      if @api_client.config.client_side_validation && !opts[:'snapshot_timestamp'].nil? && opts[:'snapshot_timestamp'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"snapshot_timestamp"]" when calling SecurityMonitoringAPI.get_finding, must be greater than or equal to 1.'
+      end
       # resource path
       local_var_path = '/api/v2/posture_management/findings/{finding_id}'.sub('{finding_id}', CGI.escape(finding_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'snapshot_timestamp'] = opts[:'snapshot_timestamp'] if !opts[:'snapshot_timestamp'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
