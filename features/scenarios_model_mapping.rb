@@ -1535,6 +1535,7 @@ ScenariosModelMappings = {
     "v2.ListServiceDefinitions" => {
             "page_size" => "Integer",
             "page_number" => "Integer",
+            "schema_version" => "ServiceDefinitionSchemaVersions",
     },
     "v2.CreateOrUpdateServiceDefinitions" => {
             "body" => "ServiceDefinitionsCreateRequest",
@@ -1544,6 +1545,7 @@ ScenariosModelMappings = {
     },
     "v2.GetServiceDefinition" => {
             "service_name" => "String",
+            "schema_version" => "ServiceDefinitionSchemaVersions",
     },
     "v2.SetOnDemandConcurrencyCap" => {
             "body" => "OnDemandConcurrencyCapAttributes",

@@ -169,6 +169,7 @@ module DatadogAPIClient::V2
     #
     # @param service_name [String] The name of the service.
     # @param opts [Hash] the optional parameters
+    # @option opts [ServiceDefinitionSchemaVersions] :schema_version The schema version desired in the response.
     # @return [Array<(ServiceDefinitionGetResponse, Integer, Hash)>] ServiceDefinitionGetResponse data, response status code and response headers
     def get_service_definition_with_http_info(service_name, opts = {})
 
@@ -179,11 +180,16 @@ module DatadogAPIClient::V2
       if @api_client.config.client_side_validation && service_name.nil?
         fail ArgumentError, "Missing the required parameter 'service_name' when calling ServiceDefinitionAPI.get_service_definition"
       end
+      allowable_values = ['v1', 'v2', 'v2.1']
+      if @api_client.config.client_side_validation && opts[:'schema_version'] && !allowable_values.include?(opts[:'schema_version'])
+        fail ArgumentError, "invalid value for \"schema_version\", must be one of #{allowable_values}"
+      end
       # resource path
       local_var_path = '/api/v2/services/definitions/{service_name}'.sub('{service_name}', CGI.escape(service_name.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'schema_version'] = opts[:'schema_version'] if !opts[:'schema_version'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -235,11 +241,16 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 5000.
     # @option opts [Integer] :page_number Specific page number to return.
+    # @option opts [ServiceDefinitionSchemaVersions] :schema_version The schema version desired in the response.
     # @return [Array<(ServiceDefinitionsListResponse, Integer, Hash)>] ServiceDefinitionsListResponse data, response status code and response headers
     def list_service_definitions_with_http_info(opts = {})
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ServiceDefinitionAPI.list_service_definitions ...'
+      end
+      allowable_values = ['v1', 'v2', 'v2.1']
+      if @api_client.config.client_side_validation && opts[:'schema_version'] && !allowable_values.include?(opts[:'schema_version'])
+        fail ArgumentError, "invalid value for \"schema_version\", must be one of #{allowable_values}"
       end
       # resource path
       local_var_path = '/api/v2/services/definitions'
@@ -248,6 +259,7 @@ module DatadogAPIClient::V2
       query_params = opts[:query_params] || {}
       query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
       query_params[:'page[number]'] = opts[:'page_number'] if !opts[:'page_number'].nil?
+      query_params[:'schema_version'] = opts[:'schema_version'] if !opts[:'schema_version'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -294,14 +306,14 @@ module DatadogAPIClient::V2
     def list_service_definitions_with_pagination(opts = {})
         api_version = "V2"
         page_size = @api_client.get_attribute_from_path(opts, "page_size", 10)
-        @api_client.set_attribute_from_path(api_version, opts, "page_size", Integer, page_size)
+        @api_client.set_attribute_from_path(api_version, opts, "page_size", ServiceDefinitionSchemaVersions, page_size)
         while true do
             response = list_service_definitions(opts)
             @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
             if @api_client.get_attribute_from_path(response, "data").length < page_size
               break
             end
-            @api_client.set_attribute_from_path(api_version, opts, "page_number", Integer, @api_client.get_attribute_from_path(opts, "page_number", 0) + page_size)
+            @api_client.set_attribute_from_path(api_version, opts, "page_number", ServiceDefinitionSchemaVersions, @api_client.get_attribute_from_path(opts, "page_number", 0) + page_size)
         end
     end
   end

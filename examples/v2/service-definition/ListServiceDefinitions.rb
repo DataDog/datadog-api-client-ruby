@@ -2,4 +2,7 @@
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::ServiceDefinitionAPI.new
-p api_instance.list_service_definitions()
+opts = {
+  schema_version: ServiceDefinitionSchemaVersions::V2_1,
+}
+p api_instance.list_service_definitions(opts)
