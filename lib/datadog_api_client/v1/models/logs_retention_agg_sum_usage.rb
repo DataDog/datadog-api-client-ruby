@@ -59,6 +59,17 @@ module DatadogAPIClient::V1
       }
     end
 
+    # List of attributes with nullable: true
+    # @!visibility private
+    def self.openapi_nullable
+      Set.new([
+        :'logs_indexed_logs_usage_agg_sum',
+        :'logs_live_indexed_logs_usage_agg_sum',
+        :'logs_rehydrated_indexed_logs_usage_agg_sum',
+        :'retention',
+      ])
+    end
+
     # Initializes the object
     # @param attributes [Hash] Model attributes in the form of hash
     # @!visibility private

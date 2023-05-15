@@ -88,6 +88,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_nullable
       Set.new([
+        :'replay_session_count',
         :'session_count',
         :'session_count_android',
         :'session_count_flutter',

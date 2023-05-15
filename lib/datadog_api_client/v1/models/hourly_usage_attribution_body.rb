@@ -93,6 +93,7 @@ module DatadogAPIClient::V1
     def self.openapi_nullable
       Set.new([
         :'tags',
+        :'total_usage_sum',
       ])
     end
 

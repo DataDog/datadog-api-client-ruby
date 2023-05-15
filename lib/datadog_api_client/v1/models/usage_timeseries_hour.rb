@@ -69,6 +69,16 @@ module DatadogAPIClient::V1
       }
     end
 
+    # List of attributes with nullable: true
+    # @!visibility private
+    def self.openapi_nullable
+      Set.new([
+        :'num_custom_input_timeseries',
+        :'num_custom_output_timeseries',
+        :'num_custom_timeseries',
+      ])
+    end
+
     # Initializes the object
     # @param attributes [Hash] Model attributes in the form of hash
     # @!visibility private
