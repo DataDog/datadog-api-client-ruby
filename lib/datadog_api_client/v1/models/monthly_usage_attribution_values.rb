@@ -211,6 +211,12 @@ module DatadogAPIClient::V1
     # The universal service monitoring usage by tag(s).
     attr_accessor :universal_service_monitoring_usage
 
+    # The percentage of Application Vulnerability Management usage by tag(s).
+    attr_accessor :vuln_management_hosts_percentage
+
+    # The Application Vulnerability Management usage by tag(s).
+    attr_accessor :vuln_management_hosts_usage
+
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
@@ -276,7 +282,9 @@ module DatadogAPIClient::V1
         :'snmp_percentage' => :'snmp_percentage',
         :'snmp_usage' => :'snmp_usage',
         :'universal_service_monitoring_percentage' => :'universal_service_monitoring_percentage',
-        :'universal_service_monitoring_usage' => :'universal_service_monitoring_usage'
+        :'universal_service_monitoring_usage' => :'universal_service_monitoring_usage',
+        :'vuln_management_hosts_percentage' => :'vuln_management_hosts_percentage',
+        :'vuln_management_hosts_usage' => :'vuln_management_hosts_usage'
       }
     end
 
@@ -345,7 +353,9 @@ module DatadogAPIClient::V1
         :'snmp_percentage' => :'Float',
         :'snmp_usage' => :'Float',
         :'universal_service_monitoring_percentage' => :'Float',
-        :'universal_service_monitoring_usage' => :'Float'
+        :'universal_service_monitoring_usage' => :'Float',
+        :'vuln_management_hosts_percentage' => :'Float',
+        :'vuln_management_hosts_usage' => :'Float'
       }
     end
 
@@ -612,6 +622,14 @@ module DatadogAPIClient::V1
       if attributes.key?(:'universal_service_monitoring_usage')
         self.universal_service_monitoring_usage = attributes[:'universal_service_monitoring_usage']
       end
+
+      if attributes.key?(:'vuln_management_hosts_percentage')
+        self.vuln_management_hosts_percentage = attributes[:'vuln_management_hosts_percentage']
+      end
+
+      if attributes.key?(:'vuln_management_hosts_usage')
+        self.vuln_management_hosts_usage = attributes[:'vuln_management_hosts_usage']
+      end
     end
 
     # Check to see if the all the properties in the model are valid
@@ -688,14 +706,16 @@ module DatadogAPIClient::V1
           snmp_percentage == o.snmp_percentage &&
           snmp_usage == o.snmp_usage &&
           universal_service_monitoring_percentage == o.universal_service_monitoring_percentage &&
-          universal_service_monitoring_usage == o.universal_service_monitoring_usage
+          universal_service_monitoring_usage == o.universal_service_monitoring_usage &&
+          vuln_management_hosts_percentage == o.vuln_management_hosts_percentage &&
+          vuln_management_hosts_usage == o.vuln_management_hosts_usage
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [api_percentage, api_usage, apm_fargate_percentage, apm_fargate_usage, apm_host_percentage, apm_host_usage, appsec_fargate_percentage, appsec_fargate_usage, appsec_percentage, appsec_usage, browser_percentage, browser_usage, container_excl_agent_percentage, container_excl_agent_usage, container_percentage, container_usage, cspm_containers_percentage, cspm_containers_usage, cspm_hosts_percentage, cspm_hosts_usage, custom_ingested_timeseries_percentage, custom_ingested_timeseries_usage, custom_timeseries_percentage, custom_timeseries_usage, cws_containers_percentage, cws_containers_usage, cws_hosts_percentage, cws_hosts_usage, dbm_hosts_percentage, dbm_hosts_usage, dbm_queries_percentage, dbm_queries_usage, estimated_indexed_logs_percentage, estimated_indexed_logs_usage, estimated_indexed_spans_percentage, estimated_indexed_spans_usage, estimated_ingested_logs_percentage, estimated_ingested_logs_usage, estimated_ingested_spans_percentage, estimated_ingested_spans_usage, estimated_rum_sessions_percentage, estimated_rum_sessions_usage, fargate_percentage, fargate_usage, functions_percentage, functions_usage, infra_host_percentage, infra_host_usage, invocations_percentage, invocations_usage, npm_host_percentage, npm_host_usage, profiled_container_percentage, profiled_container_usage, profiled_fargate_percentage, profiled_fargate_usage, profiled_host_percentage, profiled_host_usage, snmp_percentage, snmp_usage, universal_service_monitoring_percentage, universal_service_monitoring_usage].hash
+      [api_percentage, api_usage, apm_fargate_percentage, apm_fargate_usage, apm_host_percentage, apm_host_usage, appsec_fargate_percentage, appsec_fargate_usage, appsec_percentage, appsec_usage, browser_percentage, browser_usage, container_excl_agent_percentage, container_excl_agent_usage, container_percentage, container_usage, cspm_containers_percentage, cspm_containers_usage, cspm_hosts_percentage, cspm_hosts_usage, custom_ingested_timeseries_percentage, custom_ingested_timeseries_usage, custom_timeseries_percentage, custom_timeseries_usage, cws_containers_percentage, cws_containers_usage, cws_hosts_percentage, cws_hosts_usage, dbm_hosts_percentage, dbm_hosts_usage, dbm_queries_percentage, dbm_queries_usage, estimated_indexed_logs_percentage, estimated_indexed_logs_usage, estimated_indexed_spans_percentage, estimated_indexed_spans_usage, estimated_ingested_logs_percentage, estimated_ingested_logs_usage, estimated_ingested_spans_percentage, estimated_ingested_spans_usage, estimated_rum_sessions_percentage, estimated_rum_sessions_usage, fargate_percentage, fargate_usage, functions_percentage, functions_usage, infra_host_percentage, infra_host_usage, invocations_percentage, invocations_usage, npm_host_percentage, npm_host_usage, profiled_container_percentage, profiled_container_usage, profiled_fargate_percentage, profiled_fargate_usage, profiled_host_percentage, profiled_host_usage, snmp_percentage, snmp_usage, universal_service_monitoring_percentage, universal_service_monitoring_usage, vuln_management_hosts_percentage, vuln_management_hosts_usage].hash
     end
   end
 end
