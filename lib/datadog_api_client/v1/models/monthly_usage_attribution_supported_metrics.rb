@@ -83,6 +83,8 @@ module DatadogAPIClient::V1
     ESTIMATED_RUM_SESSIONS_PERCENTAGE = "estimated_rum_sessions_percentage".freeze
     UNIVERSAL_SERVICE_MONITORING_USAGE = "universal_service_monitoring_usage".freeze
     UNIVERSAL_SERVICE_MONITORING_PERCENTAGE = "universal_service_monitoring_percentage".freeze
+    VULN_MANAGEMENT_HOSTS_USAGE = "vuln_management_hosts_usage".freeze
+    VULN_MANAGEMENT_HOSTS_PERCENTAGE = "vuln_management_hosts_percentage".freeze
     ALL = "*".freeze
   end
 end
