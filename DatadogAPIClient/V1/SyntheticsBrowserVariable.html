@@ -109,7 +109,7 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     <p>Object defining a variable that can be used in your browser test.
-Learn more in the <a href="https://docs.datadoghq.com/synthetics/browser_tests/actions#variable">Browser test Actions documentation</a>.</p>
+See the <a href="https://docs.datadoghq.com/synthetics/browser_tests/actions/?tab=testanelementontheactivepage#variables">Recording Steps documentation</a>.</p>
 
 
   </div>
@@ -225,6 +225,32 @@ Learn more in the <a href="https://docs.datadoghq.com/synthetics/browser_tests/a
 
   
     <span class="summary_desc"><div class='inline'><p>Pattern of the variable.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#secure-instance_method" title="#secure (instance method)">#<strong>secure</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Determines whether or not the browser test variable is obfuscated.</p>
 </div></span>
   
 </li>
@@ -719,6 +745,48 @@ Learn more in the <a href="https://docs.datadoghq.com/synthetics/browser_tests/a
 </div>
     
       
+      <span id="secure=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="secure-instance_method">
+  
+    #<strong>secure</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Determines whether or not the browser test variable is obfuscated. Can only be used with browser variables of type <code>text</code>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+42
+43
+44</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/synthetics_browser_variable.rb', line 42</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_secure'>secure</span>
+  <span class='ivar'>@secure</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
       <span id="type=-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="type-instance_method">
@@ -745,12 +813,12 @@ Learn more in the <a href="https://docs.datadoghq.com/synthetics/browser_tests/a
       <pre class="lines">
 
 
-42
-43
-44</pre>
+45
+46
+47</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/synthetics_browser_variable.rb', line 42</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/synthetics_browser_variable.rb', line 45</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_type'>type</span>
   <span class='ivar'>@type</span>
@@ -1658,7 +1726,7 @@ For object, use to_hash. Otherwise, just return the value</p>
 </div>
 
       <div id="footer">
-  Generated on Fri May 19 15:14:58 2023 by
+  Generated on Fri May 19 19:29:54 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.34 (ruby-2.7.8).
 </div>
