@@ -32,6 +32,9 @@ module DatadogAPIClient::V1
     # Query to filter the event stream with.
     attr_reader :query
 
+    # Option to display the year in the date column.
+    attr_accessor :show_year
+
     # The execution method for multi-value filters. Can be either and or or.
     attr_accessor :tags_execution
 
@@ -56,6 +59,7 @@ module DatadogAPIClient::V1
       {
         :'event_size' => :'event_size',
         :'query' => :'query',
+        :'show_year' => :'show_year',
         :'tags_execution' => :'tags_execution',
         :'time' => :'time',
         :'title' => :'title',
@@ -71,6 +75,7 @@ module DatadogAPIClient::V1
       {
         :'event_size' => :'WidgetEventSize',
         :'query' => :'String',
+        :'show_year' => :'Boolean',
         :'tags_execution' => :'String',
         :'time' => :'WidgetTime',
         :'title' => :'String',
@@ -102,6 +107,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'query')
         self.query = attributes[:'query']
+      end
+
+      if attributes.key?(:'show_year')
+        self.show_year = attributes[:'show_year']
       end
 
       if attributes.key?(:'tags_execution')
@@ -166,6 +175,7 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           event_size == o.event_size &&
           query == o.query &&
+          show_year == o.show_year &&
           tags_execution == o.tags_execution &&
           time == o.time &&
           title == o.title &&
@@ -178,7 +188,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [event_size, query, tags_execution, time, title, title_align, title_size, type].hash
+      [event_size, query, show_year, tags_execution, time, title, title_align, title_size, type].hash
     end
   end
 end
