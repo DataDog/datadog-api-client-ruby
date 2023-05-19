@@ -55,7 +55,7 @@ module DatadogAPIClient::V1
     # The step ID.
     attr_accessor :step_id
 
-    # If this steps include a sub-test.
+    # If this step includes a sub-test.
     # [Subtests documentation](https://docs.datadoghq.com/synthetics/browser_tests/advanced_options/#subtests).
     attr_accessor :sub_test_step_details
 

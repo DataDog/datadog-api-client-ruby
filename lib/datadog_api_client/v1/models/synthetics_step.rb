@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # The steps used in a Synthetics browser test.
+  # The steps used in a Synthetic browser test.
   class SyntheticsStep
     include BaseGenericModel
 

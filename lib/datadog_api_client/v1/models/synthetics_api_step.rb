@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # The steps used in a Synthetics multistep API test.
+  # The steps used in a Synthetic multistep API test.
   class SyntheticsAPIStep
     include BaseGenericModel
 

@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Object describing the synthetics tests to trigger.
+  # Object describing the Synthetic tests to trigger.
   class SyntheticsTriggerBody
     include BaseGenericModel
 
@@ -25,7 +25,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Individual synthetics test.
+    # Individual Synthetic test.
     attr_reader :tests
 
     # Attribute mapping from ruby-style variable name to JSON key.

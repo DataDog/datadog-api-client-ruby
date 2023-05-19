@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Test configuration for Synthetics CI
+  # Configuration for Continuous Testing.
   class SyntheticsCITest
     include BaseGenericModel
 
@@ -34,7 +34,7 @@ module DatadogAPIClient::V1
     # Body to include in the test.
     attr_accessor :body
 
-    # Type of the data sent in a synthetics API test.
+    # Type of the data sent in a Synthetic API test.
     attr_accessor :body_type
 
     # Cookies for the request.
@@ -52,10 +52,10 @@ module DatadogAPIClient::V1
     # Array of locations used to run the test.
     attr_accessor :locations
 
-    # Metadata for the Synthetics tests run.
+    # Metadata for the Synthetic tests run.
     attr_accessor :metadata
 
-    # The public ID of the Synthetics test to trigger.
+    # The public ID of the Synthetic test to trigger.
     attr_reader :public_id
 
     # Object describing the retry strategy to apply to a Synthetic test.

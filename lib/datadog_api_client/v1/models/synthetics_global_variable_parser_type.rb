@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Type of parser for a Synthetics global variable from a synthetics test.
+  # Type of parser for a Synthetic global variable from a synthetics test.
   class SyntheticsGlobalVariableParserType
     include BaseEnumModel
 

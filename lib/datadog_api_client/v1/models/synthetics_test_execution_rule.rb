@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Execution rule for a Synthetics test.
+  # Execution rule for a Synthetic test.
   class SyntheticsTestExecutionRule
     include BaseEnumModel
 

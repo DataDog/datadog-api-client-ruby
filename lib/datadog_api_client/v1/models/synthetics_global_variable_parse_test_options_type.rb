@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Property of the Synthetics Test Response to use for a Synthetics global variable.
+  # Property of the Synthetic Test Response to use for a Synthetic global variable.
   class SyntheticsGlobalVariableParseTestOptionsType
     include BaseEnumModel
 

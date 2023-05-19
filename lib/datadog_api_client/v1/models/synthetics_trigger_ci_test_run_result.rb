@@ -31,7 +31,7 @@ module DatadogAPIClient::V1
     # The location ID of the test run.
     attr_accessor :location
 
-    # The public ID of the Synthetics test.
+    # The public ID of the Synthetic test.
     attr_accessor :public_id
 
     # ID of the result.

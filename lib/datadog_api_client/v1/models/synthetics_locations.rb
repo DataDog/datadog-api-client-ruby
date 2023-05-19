@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # List of Synthetics locations.
+  # List of Synthetic locations.
   class SyntheticsLocations
     include BaseGenericModel
 
@@ -25,7 +25,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # List of Synthetics locations.
+    # List of Synthetic locations.
     attr_accessor :locations
 
     # Attribute mapping from ruby-style variable name to JSON key.
