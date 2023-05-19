@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Object with the results of a Synthetics batch.
+  # Object with the results of a Synthetic batch.
   class SyntheticsBatchResult
     include BaseGenericModel
 
@@ -31,7 +31,7 @@ module DatadogAPIClient::V1
     # Total duration in millisecond of the test.
     attr_accessor :duration
 
-    # Execution rule for a Synthetics test.
+    # Execution rule for a Synthetic test.
     attr_accessor :execution_rule
 
     # Name of the location.

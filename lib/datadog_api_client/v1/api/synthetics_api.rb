@@ -33,7 +33,7 @@ module DatadogAPIClient::V1
 
     # Create a global variable.
     #
-    # Create a Synthetics global variable.
+    # Create a Synthetic global variable.
     #
     # @param body [SyntheticsGlobalVariable] Details of the global variable to create.
     # @param opts [Hash] the optional parameters
@@ -100,7 +100,7 @@ module DatadogAPIClient::V1
 
     # Create a private location.
     #
-    # Create a new Synthetics private location.
+    # Create a new Synthetic private location.
     #
     # @param body [SyntheticsPrivateLocation] Details of the private location to create.
     # @param opts [Hash] the optional parameters
@@ -301,7 +301,7 @@ module DatadogAPIClient::V1
 
     # Delete a global variable.
     #
-    # Delete a Synthetics global variable.
+    # Delete a Synthetic global variable.
     #
     # @param variable_id [String] The ID of the global variable.
     # @param opts [Hash] the optional parameters
@@ -366,7 +366,7 @@ module DatadogAPIClient::V1
 
     # Delete a private location.
     #
-    # Delete a Synthetics private location.
+    # Delete a Synthetic private location.
     #
     # @param location_id [String] The ID of the private location.
     # @param opts [Hash] the optional parameters
@@ -498,7 +498,7 @@ module DatadogAPIClient::V1
 
     # Edit a global variable.
     #
-    # Edit a Synthetics global variable.
+    # Edit a Synthetic global variable.
     #
     # @param variable_id [String] The ID of the global variable.
     # @param body [SyntheticsGlobalVariable] Details of the global variable to update.
@@ -636,7 +636,7 @@ module DatadogAPIClient::V1
 
     # Get an API test's latest results summaries.
     #
-    # Get the last 150 test results summaries for a given Synthetics API test.
+    # Get the last 150 test results summaries for a given Synthetic API test.
     #
     # @param public_id [String] The public ID of the test for which to search results for.
     # @param opts [Hash] the optional parameters
@@ -707,7 +707,7 @@ module DatadogAPIClient::V1
 
     # Get an API test result.
     #
-    # Get a specific full result from a given (API) Synthetic test.
+    # Get a specific full result from a given Synthetic API test.
     #
     # @param public_id [String] The public ID of the API test to which the target result belongs.
     # @param result_id [String] The ID of the result to get.
@@ -843,7 +843,7 @@ module DatadogAPIClient::V1
 
     # Get a browser test's latest results summaries.
     #
-    # Get the last 150 test results summaries for a given Synthetics Browser test.
+    # Get the last 150 test results summaries for a given Synthetic browser test.
     #
     # @param public_id [String] The public ID of the browser test for which to search results for.
     # @param opts [Hash] the optional parameters
@@ -914,7 +914,7 @@ module DatadogAPIClient::V1
 
     # Get a browser test result.
     #
-    # Get a specific full result from a given (browser) Synthetic test.
+    # Get a specific full result from a given Synthetic browser test.
     #
     # @param public_id [String] The public ID of the browser test to which the target result belongs.
     # @param result_id [String] The ID of the result to get.
@@ -1049,7 +1049,7 @@ module DatadogAPIClient::V1
 
     # Get a private location.
     #
-    # Get a Synthetics private location.
+    # Get a Synthetic private location.
     #
     # @param location_id [String] The ID of the private location.
     # @param opts [Hash] the optional parameters
@@ -1179,7 +1179,7 @@ module DatadogAPIClient::V1
 
     # Get a test configuration.
     #
-    # Get the detailed configuration associated with a Synthetics test.
+    # Get the detailed configuration associated with a Synthetic test.
     #
     # @param public_id [String] The public ID of the test to get details from.
     # @param opts [Hash] the optional parameters
@@ -1244,7 +1244,7 @@ module DatadogAPIClient::V1
 
     # Get all global variables.
     #
-    # Get the list of all Synthetics global variables.
+    # Get the list of all Synthetic global variables.
     #
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsListGlobalVariablesResponse, Integer, Hash)>] SyntheticsListGlobalVariablesResponse data, response status code and response headers
@@ -1429,7 +1429,7 @@ module DatadogAPIClient::V1
 
     # Trigger tests from CI/CD pipelines.
     #
-    # Trigger a set of Synthetics tests for continuous integration.
+    # Trigger a set of Synthetic tests for continuous integration.
     #
     # @param body [SyntheticsCITestBody] Details of the test to trigger.
     # @param opts [Hash] the optional parameters
@@ -1486,7 +1486,7 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Trigger Synthetics tests.
+    # Trigger Synthetic tests.
     #
     # @see #trigger_tests_with_http_info
     def trigger_tests(body, opts = {})
@@ -1494,9 +1494,9 @@ module DatadogAPIClient::V1
       data
     end
 
-    # Trigger Synthetics tests.
+    # Trigger Synthetic tests.
     #
-    # Trigger a set of Synthetics tests.
+    # Trigger a set of Synthetic tests.
     #
     # @param body [SyntheticsTriggerBody] The identifiers of the tests to trigger.
     # @param opts [Hash] the optional parameters
@@ -1707,7 +1707,7 @@ module DatadogAPIClient::V1
 
     # Edit a private location.
     #
-    # Edit a Synthetics private location.
+    # Edit a Synthetic private location.
     #
     # @param location_id [String] The ID of the private location.
     # @param body [SyntheticsPrivateLocation] Details of the private location to be updated.
@@ -1779,7 +1779,7 @@ module DatadogAPIClient::V1
 
     # Pause or start a test.
     #
-    # Pause or start a Synthetics test by changing the status.
+    # Pause or start a Synthetic test by changing the status.
     #
     # @param public_id [String] The public ID of the Synthetic test to update.
     # @param body [SyntheticsUpdateTestPauseStatusPayload] Status to set the given Synthetic test to.

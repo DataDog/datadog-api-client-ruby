@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Synthetics location.
+  # Synthetic location.
   class SyntheticsTriggerCITestLocation
     include BaseGenericModel
 

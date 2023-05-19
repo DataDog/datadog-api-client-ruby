@@ -6,6 +6,15 @@ api_instance = DatadogAPIClient::V1::SyntheticsAPI.new
 body = DatadogAPIClient::V1::SyntheticsBrowserTest.new({
   config: DatadogAPIClient::V1::SyntheticsBrowserTestConfig.new({
     assertions: [],
+    variables: [
+      DatadogAPIClient::V1::SyntheticsBrowserVariable.new({
+        type: DatadogAPIClient::V1::SyntheticsBrowserVariableType::TEXT,
+        name: "TEST_VARIABLE",
+        pattern: "secret",
+        secure: true,
+        example: "secret",
+      }),
+    ],
     config_variables: [
       DatadogAPIClient::V1::SyntheticsConfigVariable.new({
         example: "content-type",

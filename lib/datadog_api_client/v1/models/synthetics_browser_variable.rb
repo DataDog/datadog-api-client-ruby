@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V1
   # Object defining a variable that can be used in your browser test.
-  # Learn more in the [Browser test Actions documentation](https://docs.datadoghq.com/synthetics/browser_tests/actions#variable).
+  # See the [Recording Steps documentation](https://docs.datadoghq.com/synthetics/browser_tests/actions/?tab=testanelementontheactivepage#variables).
   class SyntheticsBrowserVariable
     include BaseGenericModel
 
@@ -38,6 +38,9 @@ module DatadogAPIClient::V1
     # Pattern of the variable.
     attr_accessor :pattern
 
+    # Determines whether or not the browser test variable is obfuscated. Can only be used with browser variables of type `text`.
+    attr_accessor :secure
+
     # Type of browser test variable.
     attr_reader :type
 
@@ -49,6 +52,7 @@ module DatadogAPIClient::V1
         :'id' => :'id',
         :'name' => :'name',
         :'pattern' => :'pattern',
+        :'secure' => :'secure',
         :'type' => :'type'
       }
     end
@@ -61,6 +65,7 @@ module DatadogAPIClient::V1
         :'id' => :'String',
         :'name' => :'String',
         :'pattern' => :'String',
+        :'secure' => :'Boolean',
         :'type' => :'SyntheticsBrowserVariableType'
       }
     end
@@ -95,6 +100,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'pattern')
         self.pattern = attributes[:'pattern']
+      end
+
+      if attributes.key?(:'secure')
+        self.secure = attributes[:'secure']
       end
 
       if attributes.key?(:'type')
@@ -141,6 +150,7 @@ module DatadogAPIClient::V1
           id == o.id &&
           name == o.name &&
           pattern == o.pattern &&
+          secure == o.secure &&
           type == o.type
     end
 
@@ -148,7 +158,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [example, id, name, pattern, type].hash
+      [example, id, name, pattern, secure, type].hash
     end
   end
 end

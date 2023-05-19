@@ -25,7 +25,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Metadata for the Synthetics tests run.
+    # Metadata for the Synthetic tests run.
     attr_accessor :metadata
 
     # List of results for the batch.

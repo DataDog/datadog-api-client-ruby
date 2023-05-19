@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Metadata for the Synthetics tests run.
+  # Metadata for the Synthetic tests run.
   class SyntheticsCIBatchMetadata
     include BaseGenericModel
 

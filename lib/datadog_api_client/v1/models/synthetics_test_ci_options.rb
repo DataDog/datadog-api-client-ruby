@@ -25,7 +25,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Execution rule for a Synthetics test.
+    # Execution rule for a Synthetic test.
     attr_accessor :execution_rule
 
     # Attribute mapping from ruby-style variable name to JSON key.
