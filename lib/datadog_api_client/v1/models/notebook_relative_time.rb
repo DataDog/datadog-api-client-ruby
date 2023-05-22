@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class NotebookRelativeTime
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The available timeframes depend on the widget you are using.
     attr_reader :live_span
 

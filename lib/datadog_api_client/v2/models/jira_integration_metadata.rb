@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class JiraIntegrationMetadata
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Array of Jira issues in this integration metadata.
     attr_reader :issues
 

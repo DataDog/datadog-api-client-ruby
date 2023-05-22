@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class FormulaLimit
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The number of results to which to limit.
     attr_reader :count
 

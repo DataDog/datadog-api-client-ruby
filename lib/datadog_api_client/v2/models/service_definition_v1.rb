@@ -23,10 +23,6 @@ module DatadogAPIClient::V2
   class ServiceDefinitionV1
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Contact information about the service.
     attr_accessor :contact
 

@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class NotebookCreateRequest
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The data for a notebook create request.
     attr_reader :data
 

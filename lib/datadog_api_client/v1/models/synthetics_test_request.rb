@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SyntheticsTestRequest
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Allows loading insecure content for an HTTP request in a multistep test step.
     attr_accessor :allow_insecure
 

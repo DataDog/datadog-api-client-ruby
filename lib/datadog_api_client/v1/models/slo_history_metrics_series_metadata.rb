@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SLOHistoryMetricsSeriesMetadata
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Query aggregator function.
     attr_accessor :aggr
 

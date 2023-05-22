@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class TimeseriesBackground
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Timeseries is made using an area or bars.
     attr_reader :type
 

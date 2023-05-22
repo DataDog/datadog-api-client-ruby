@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class AWSAccountDeleteRequest
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Your AWS access key ID. Only required if your AWS account is a GovCloud or China account.
     attr_accessor :access_key_id
 

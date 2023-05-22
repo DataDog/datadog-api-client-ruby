@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SuccessfulSignalUpdateResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Status of the response.
     attr_accessor :status
 

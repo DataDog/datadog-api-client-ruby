@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class LogsRetentionSumUsage
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Total indexed logs for this retention period.
     attr_accessor :logs_indexed_logs_usage_sum
 

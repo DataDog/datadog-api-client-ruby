@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class EventQueryDefinition
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The query being made on the event.
     attr_reader :search
 

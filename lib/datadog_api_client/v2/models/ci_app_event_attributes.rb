@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class CIAppEventAttributes
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # JSON object of attributes from CI Visibility events.
     attr_accessor :attributes
 

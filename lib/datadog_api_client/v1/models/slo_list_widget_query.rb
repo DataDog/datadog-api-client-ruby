@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SLOListWidgetQuery
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Maximum number of results to display in the table.
     attr_reader :limit
 

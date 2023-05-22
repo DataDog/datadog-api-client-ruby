@@ -23,10 +23,6 @@ module DatadogAPIClient::V1
   class DistributionWidgetDefinition
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # (Deprecated) The widget legend was replaced by a tooltip and sidebar.
     attr_accessor :legend_size
 

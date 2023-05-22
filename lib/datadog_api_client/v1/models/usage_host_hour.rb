@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class UsageHostHour
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Contains the total number of infrastructure hosts reporting
     # during a given hour that were running the Datadog Agent.
     attr_accessor :agent_host_count

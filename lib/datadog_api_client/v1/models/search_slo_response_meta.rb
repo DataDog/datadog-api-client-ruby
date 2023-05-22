@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SearchSLOResponseMeta
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Pagination metadata returned by the API.
     attr_accessor :pagination
 

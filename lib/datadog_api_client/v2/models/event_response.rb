@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class EventResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The object description of an event response attribute.
     attr_accessor :attributes
 

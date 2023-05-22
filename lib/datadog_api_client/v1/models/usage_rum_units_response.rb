@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class UsageRumUnitsResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Get hourly usage for RUM Units.
     attr_accessor :usage
 

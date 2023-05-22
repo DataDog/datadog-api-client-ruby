@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class PagerDutyService
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Your service key in PagerDuty.
     attr_reader :service_key
 

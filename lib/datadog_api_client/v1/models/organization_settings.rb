@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class OrganizationSettings
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Whether or not the organization users can share widgets outside of Datadog.
     attr_accessor :private_widget_share
 

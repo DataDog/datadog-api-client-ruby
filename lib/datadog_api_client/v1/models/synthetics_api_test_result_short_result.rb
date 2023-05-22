@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SyntheticsAPITestResultShortResult
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Describes if the test run has passed or failed.
     attr_accessor :passed
 

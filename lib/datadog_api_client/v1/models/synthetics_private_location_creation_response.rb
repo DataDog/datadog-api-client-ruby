@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SyntheticsPrivateLocationCreationResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Configuration skeleton for the private location. See installation instructions of the private location on how to use this configuration.
     attr_accessor :config
 

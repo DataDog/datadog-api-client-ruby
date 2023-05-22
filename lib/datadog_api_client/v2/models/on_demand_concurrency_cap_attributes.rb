@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class OnDemandConcurrencyCapAttributes
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Value of the on-demand concurrency cap.
     attr_accessor :on_demand_concurrency_cap
 

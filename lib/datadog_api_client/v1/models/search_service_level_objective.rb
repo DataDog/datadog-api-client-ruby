@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SearchServiceLevelObjective
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # A service level objective ID and attributes.
     attr_accessor :data
 

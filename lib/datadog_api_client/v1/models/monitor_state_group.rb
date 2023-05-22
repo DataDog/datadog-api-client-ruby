@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class MonitorStateGroup
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Latest timestamp the monitor was in NO_DATA state.
     attr_accessor :last_nodata_ts
 

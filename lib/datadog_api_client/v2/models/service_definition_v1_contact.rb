@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class ServiceDefinitionV1Contact
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Service owner’s email.
     attr_accessor :email
 

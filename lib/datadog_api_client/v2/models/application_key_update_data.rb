@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class ApplicationKeyUpdateData
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Attributes used to update an application Key.
     attr_reader :attributes
 

@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class SensitiveDataScannerGroupCreateRequest
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Data related to the creation of a group.
     attr_accessor :data
 

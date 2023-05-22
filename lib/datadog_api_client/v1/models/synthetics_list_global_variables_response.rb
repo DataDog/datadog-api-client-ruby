@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SyntheticsListGlobalVariablesResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Array of Synthetic global variables.
     attr_accessor :variables
 

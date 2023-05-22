@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class CloudConfigurationRegoRule
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The policy written in `rego`, see: https://www.openpolicyagent.org/docs/latest/policy-language/
     attr_reader :policy
 

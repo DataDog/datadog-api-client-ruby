@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class IncidentAttachmentUpdateResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # An array of incident attachments. Only the attachments that were created or updated by the request are
     # returned.
     attr_reader :data

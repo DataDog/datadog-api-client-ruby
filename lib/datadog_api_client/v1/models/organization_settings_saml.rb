@@ -22,10 +22,6 @@ module DatadogAPIClient::V1
   class OrganizationSettingsSaml
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Whether or not SAML is enabled for this organization.
     attr_accessor :enabled
 

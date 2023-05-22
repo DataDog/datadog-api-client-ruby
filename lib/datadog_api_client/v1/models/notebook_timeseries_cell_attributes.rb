@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class NotebookTimeseriesCellAttributes
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The timeseries visualization allows you to display the evolution of one or more metrics, log events, or Indexed Spans over time.
     attr_reader :definition
 

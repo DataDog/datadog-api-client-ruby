@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class AddSignalToIncidentRequest
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Whether to post the signal on the incident timeline.
     attr_accessor :add_to_signal_timeline
 

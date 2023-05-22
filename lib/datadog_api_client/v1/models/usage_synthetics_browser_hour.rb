@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class UsageSyntheticsBrowserHour
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Contains the number of Synthetics Browser tests run.
     attr_accessor :browser_check_calls_count
 

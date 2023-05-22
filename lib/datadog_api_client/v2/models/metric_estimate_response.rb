@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class MetricEstimateResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Object for a metric cardinality estimate.
     attr_accessor :data
 

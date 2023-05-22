@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class ProcessSummaryAttributes
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Process command line.
     attr_accessor :cmdline
 

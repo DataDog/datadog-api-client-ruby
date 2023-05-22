@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SharedDashboardUpdateRequestGlobalTime
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Dashboard global time live_span selection
     attr_accessor :live_span
 

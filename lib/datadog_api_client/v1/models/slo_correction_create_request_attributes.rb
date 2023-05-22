@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SLOCorrectionCreateRequestAttributes
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Category the SLO correction belongs to.
     attr_reader :category
 

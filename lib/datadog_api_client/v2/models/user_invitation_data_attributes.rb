@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class UserInvitationDataAttributes
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Creation time of the user invitation.
     attr_accessor :created_at
 

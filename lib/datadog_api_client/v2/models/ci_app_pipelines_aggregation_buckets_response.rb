@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class CIAppPipelinesAggregationBucketsResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The list of matching buckets, one item per bucket.
     attr_accessor :buckets
 

@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class LogsAPIErrorResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Error returned by the Logs API
     attr_accessor :error
 

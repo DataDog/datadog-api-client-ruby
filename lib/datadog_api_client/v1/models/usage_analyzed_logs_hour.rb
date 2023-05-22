@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class UsageAnalyzedLogsHour
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Contains the number of analyzed logs.
     attr_accessor :analyzed_logs
 

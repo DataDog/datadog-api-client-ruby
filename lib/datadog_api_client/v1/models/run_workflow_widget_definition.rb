@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class RunWorkflowWidgetDefinition
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # List of custom links.
     attr_accessor :custom_links
 

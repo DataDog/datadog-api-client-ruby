@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class AuthenticationValidationResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Return `true` if the authentication response is valid.
     attr_accessor :valid
 

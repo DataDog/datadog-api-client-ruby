@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class NotebookMetadata
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Whether or not the notebook is a template.
     attr_accessor :is_template
 

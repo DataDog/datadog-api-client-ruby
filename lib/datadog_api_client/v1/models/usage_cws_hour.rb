@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class UsageCWSHour
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The total number of Cloud Workload Security container hours from the start of the given hour’s month until the given hour.
     attr_accessor :cws_container_count
 

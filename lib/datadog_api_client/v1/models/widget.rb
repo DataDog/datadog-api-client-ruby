@@ -26,10 +26,6 @@ module DatadogAPIClient::V1
   class Widget
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # [Definition of the widget](https://docs.datadoghq.com/dashboards/widgets/).
     attr_reader :definition
 

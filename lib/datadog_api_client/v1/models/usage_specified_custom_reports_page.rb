@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class UsageSpecifiedCustomReportsPage
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Total page count.
     attr_accessor :total_count
 

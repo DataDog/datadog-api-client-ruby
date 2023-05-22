@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class SpansMetricResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The span-based metric properties.
     attr_accessor :data
 

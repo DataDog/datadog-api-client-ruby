@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class MetricsTimeseriesQuery
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # A data source that is powered by the Metrics platform.
     attr_reader :data_source
 

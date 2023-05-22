@@ -22,10 +22,6 @@ module DatadogAPIClient::V1
   class SyntheticsDeletedTest
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Deletion timestamp of the Synthetic test ID.
     attr_accessor :deleted_at
 

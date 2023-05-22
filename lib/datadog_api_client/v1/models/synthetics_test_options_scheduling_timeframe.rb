@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SyntheticsTestOptionsSchedulingTimeframe
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Number representing the day of the week.
     attr_reader :day
 

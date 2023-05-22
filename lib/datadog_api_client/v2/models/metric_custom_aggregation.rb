@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class MetricCustomAggregation
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # A space aggregation for use in query.
     attr_reader :space
 

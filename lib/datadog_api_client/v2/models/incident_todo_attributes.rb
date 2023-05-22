@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class IncidentTodoAttributes
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Array of todo assignees.
     attr_reader :assignees
 

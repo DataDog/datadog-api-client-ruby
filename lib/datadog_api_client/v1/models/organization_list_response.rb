@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class OrganizationListResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Array of organization objects.
     attr_accessor :orgs
 

@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class SensitiveDataScannerStandardPatternAttributes
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Name of the standard pattern.
     attr_accessor :name
 

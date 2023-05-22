@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class FindingRule
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The ID of the rule that triggered this finding.
     attr_accessor :id
 

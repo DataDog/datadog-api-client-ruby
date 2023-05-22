@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SyntheticsBrowserTestConfig
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Array of assertions used for the test.
     attr_reader :assertions
 

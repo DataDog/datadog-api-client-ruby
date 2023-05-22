@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class MonitorOptionsSchedulingOptions
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Configuration options for the evaluation window. If `hour_starts` is set, no other fields may be set. Otherwise, `day_starts` and `month_starts` must be set together.
     attr_accessor :evaluation_window
 

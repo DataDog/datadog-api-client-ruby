@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class MetricMetadata
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Metric description.
     attr_accessor :description
 

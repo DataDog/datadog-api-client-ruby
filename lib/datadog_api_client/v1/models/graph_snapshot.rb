@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class GraphSnapshot
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # A JSON document defining the graph. `graph_def` can be used instead of `metric_query`.
     # The JSON document uses the [grammar defined here](https://docs.datadoghq.com/graphing/graphing_json/#grammar)
     # and should be formatted to a single line then URL encoded.

@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SignalAssigneeUpdateRequest
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The UUID of the user being assigned. Use empty string to return signal to unassigned.
     attr_reader :assignee
 

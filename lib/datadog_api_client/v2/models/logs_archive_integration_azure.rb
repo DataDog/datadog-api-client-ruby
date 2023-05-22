@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class LogsArchiveIntegrationAzure
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # A client ID.
     attr_reader :client_id
 

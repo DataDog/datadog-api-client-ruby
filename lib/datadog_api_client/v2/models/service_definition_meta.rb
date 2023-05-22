@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class ServiceDefinitionMeta
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # GitHub HTML URL.
     attr_accessor :github_html_url
 

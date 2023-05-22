@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class MetricBulkTagConfigCreate
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Optional parameters for bulk creating metric tag configurations.
     attr_accessor :attributes
 

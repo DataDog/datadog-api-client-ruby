@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SearchSLOResponseDataAttributesFacetsObjectInt
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Count
     attr_accessor :count
 

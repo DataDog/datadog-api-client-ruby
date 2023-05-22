@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class MetricsScalarQuery
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The type of aggregation that can be performed on metrics queries.
     attr_reader :aggregator
 

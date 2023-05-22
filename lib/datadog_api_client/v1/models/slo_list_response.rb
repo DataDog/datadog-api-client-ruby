@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SLOListResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # An array of service level objective objects.
     attr_accessor :data
 

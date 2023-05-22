@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class LogsArchiveDestinationS3
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The bucket where the archive will be stored.
     attr_reader :bucket
 

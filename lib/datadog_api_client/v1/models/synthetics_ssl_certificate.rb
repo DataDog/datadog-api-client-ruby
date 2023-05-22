@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SyntheticsSSLCertificate
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Cipher used for the connection.
     attr_accessor :cipher
 

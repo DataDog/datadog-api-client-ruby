@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class GCPAccount
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Should be `https://www.googleapis.com/oauth2/v1/certs`.
     attr_accessor :auth_provider_x509_cert_url
 

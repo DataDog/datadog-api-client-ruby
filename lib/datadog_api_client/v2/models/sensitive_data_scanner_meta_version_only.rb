@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class SensitiveDataScannerMetaVersionOnly
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Version of the API (optional).
     attr_reader :version
 

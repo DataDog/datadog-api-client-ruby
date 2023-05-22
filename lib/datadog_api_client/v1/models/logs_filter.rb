@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class LogsFilter
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The filter query.
     attr_accessor :query
 

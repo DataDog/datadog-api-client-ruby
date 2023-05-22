@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class HostMapWidgetDefinitionStyle
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Max value to use to color the map.
     attr_accessor :fill_max
 

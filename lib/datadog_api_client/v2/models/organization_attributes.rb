@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class OrganizationAttributes
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Creation time of the organization.
     attr_accessor :created_at
 

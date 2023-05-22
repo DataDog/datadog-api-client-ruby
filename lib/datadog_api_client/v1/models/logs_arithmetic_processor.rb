@@ -41,10 +41,6 @@ module DatadogAPIClient::V1
   class LogsArithmeticProcessor
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Arithmetic operation between one or more log attributes.
     attr_reader :expression
 

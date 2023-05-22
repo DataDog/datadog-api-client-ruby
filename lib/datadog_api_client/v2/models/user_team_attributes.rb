@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class UserTeamAttributes
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The user's role within the team
     attr_accessor :role
 

@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class ApplicationKeyCreateData
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Attributes used to create an application Key.
     attr_reader :attributes
 

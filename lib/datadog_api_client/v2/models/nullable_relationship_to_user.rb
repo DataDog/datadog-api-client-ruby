@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class NullableRelationshipToUser
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Relationship to user object.
     attr_accessor :data
 

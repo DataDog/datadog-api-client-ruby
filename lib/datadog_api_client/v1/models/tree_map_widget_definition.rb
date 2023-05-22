@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class TreeMapWidgetDefinition
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # (deprecated) The attribute formerly used to determine color in the widget.
     attr_accessor :color_by
 

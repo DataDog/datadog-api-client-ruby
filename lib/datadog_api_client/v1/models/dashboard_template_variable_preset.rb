@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class DashboardTemplateVariablePreset
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The name of the variable.
     attr_accessor :name
 

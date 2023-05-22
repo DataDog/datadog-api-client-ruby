@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class LogsListRequestTime
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Minimum timestamp for requested logs.
     attr_reader :from
 

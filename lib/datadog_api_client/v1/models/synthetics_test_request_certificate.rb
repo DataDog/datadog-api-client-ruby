@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SyntheticsTestRequestCertificate
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Define a request certificate.
     attr_accessor :cert
 

@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class UsageFargateHour
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The high-water mark of APM ECS Fargate tasks during the given hour.
     attr_accessor :apm_fargate_count
 

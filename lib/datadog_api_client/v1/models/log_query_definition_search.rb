@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class LogQueryDefinitionSearch
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Search value to apply.
     attr_reader :query
 

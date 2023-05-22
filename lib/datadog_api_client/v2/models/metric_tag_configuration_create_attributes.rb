@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class MetricTagConfigurationCreateAttributes
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # A list of queryable aggregation combinations for a count, rate, or gauge metric.
     # By default, count and rate metrics require the (time: sum, space: sum) aggregation and
     # Gauge metrics require the (time: avg, space: avg) aggregation.

@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SyntheticsBrowserTestResultShortResult
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Object describing the device used to perform the Synthetic test.
     attr_accessor :device
 

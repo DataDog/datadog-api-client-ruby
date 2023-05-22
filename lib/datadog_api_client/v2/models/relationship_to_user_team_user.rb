@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class RelationshipToUserTeamUser
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # A user's relationship with a team
     attr_reader :data
 

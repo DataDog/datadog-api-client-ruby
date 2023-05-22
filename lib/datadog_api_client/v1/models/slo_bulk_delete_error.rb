@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SLOBulkDeleteError
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The ID of the service level objective object associated with
     # this error.
     attr_reader :id

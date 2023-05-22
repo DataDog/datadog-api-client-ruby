@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class FunnelQuery
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Source from which to query items to display in the funnel.
     attr_reader :data_source
 

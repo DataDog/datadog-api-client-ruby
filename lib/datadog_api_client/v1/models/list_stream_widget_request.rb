@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class ListStreamWidgetRequest
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Widget columns.
     attr_reader :columns
 

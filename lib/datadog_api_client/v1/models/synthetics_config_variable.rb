@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SyntheticsConfigVariable
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Example for the variable.
     attr_accessor :example
 

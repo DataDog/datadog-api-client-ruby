@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SLOBulkDeleteResponseData
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # An array of service level objective object IDs that indicates
     # which objects that were completely deleted.
     attr_accessor :deleted

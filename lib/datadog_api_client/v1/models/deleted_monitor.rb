@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class DeletedMonitor
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # ID of the deleted monitor.
     attr_accessor :deleted_monitor_id
 

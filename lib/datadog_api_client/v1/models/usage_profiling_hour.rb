@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class UsageProfilingHour
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Get average number of container agents for that hour.
     attr_accessor :avg_container_agent_count
 

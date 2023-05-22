@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class CloudConfigurationRuleCreatePayload
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Description of generated findings and signals (severity and channels to be notified in case of a signal). Must contain exactly one item.
     #
     attr_reader :cases

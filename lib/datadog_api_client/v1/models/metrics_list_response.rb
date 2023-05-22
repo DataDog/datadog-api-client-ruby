@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class MetricsListResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Time when the metrics were active, seconds since the Unix epoch.
     attr_accessor :from
 

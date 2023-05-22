@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SyntheticsDevice
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Screen height of the device.
     attr_reader :height
 

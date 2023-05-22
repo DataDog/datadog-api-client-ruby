@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class UsageTimeSeriesObject
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Datetime in ISO-8601 format, UTC. The hour for the usage.
     attr_accessor :timestamp
 

@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class GeomapWidgetDefinition
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # A list of custom links.
     attr_accessor :custom_links
 

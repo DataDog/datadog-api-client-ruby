@@ -22,10 +22,6 @@ module DatadogAPIClient::V1
   class Dashboard
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Identifier of the dashboard author.
     attr_accessor :author_handle
 

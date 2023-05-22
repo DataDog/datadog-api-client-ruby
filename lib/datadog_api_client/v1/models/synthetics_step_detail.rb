@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SyntheticsStepDetail
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Array of errors collected for a browser test.
     attr_accessor :browser_errors
 

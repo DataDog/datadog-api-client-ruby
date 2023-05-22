@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class ScalarMeta
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Detailed information about the unit.
     # First element describes the "primary unit" (for example, `bytes` in `bytes per second`).
     # The second element describes the "per unit" (for example, `second` in `bytes per second`).

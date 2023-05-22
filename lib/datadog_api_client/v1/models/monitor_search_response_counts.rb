@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class MonitorSearchResponseCounts
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Search facets.
     attr_accessor :muted
 

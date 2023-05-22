@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class UserCreateRequest
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Object to create a user.
     attr_reader :data
 

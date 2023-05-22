@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class WebhooksIntegration
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # If `null`, uses no header.
     # If given a JSON payload, these will be headers attached to your webhook.
     attr_accessor :custom_headers

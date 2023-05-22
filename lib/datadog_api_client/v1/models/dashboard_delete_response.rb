@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class DashboardDeleteResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # ID of the deleted dashboard.
     attr_accessor :deleted_dashboard_id
 

@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SunburstWidgetLegendTable
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Whether or not to show a table legend.
     attr_reader :type
 

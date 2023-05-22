@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SyntheticsTestConfig
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Array of assertions used for the test. Required for single API tests.
     attr_accessor :assertions
 

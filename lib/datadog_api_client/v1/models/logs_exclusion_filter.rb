@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class LogsExclusionFilter
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Default query is `*`, meaning all logs flowing in the index would be excluded.
     # Scope down exclusion filter to only a subset of logs with a log query.
     attr_accessor :query

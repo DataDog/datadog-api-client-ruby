@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class LogsArchiveOrderAttributes
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # An ordered array of `<ARCHIVE_ID>` strings, the order of archive IDs in the array
     # define the overall archives order for Datadog.
     attr_reader :archive_ids

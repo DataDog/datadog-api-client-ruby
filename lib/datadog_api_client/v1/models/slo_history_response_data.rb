@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SLOHistoryResponseData
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The `from` timestamp in epoch seconds.
     attr_accessor :from_ts
 

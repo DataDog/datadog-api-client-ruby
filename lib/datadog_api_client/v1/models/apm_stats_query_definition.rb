@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class ApmStatsQueryDefinition
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Column properties used by the front end for display.
     attr_accessor :columns
 

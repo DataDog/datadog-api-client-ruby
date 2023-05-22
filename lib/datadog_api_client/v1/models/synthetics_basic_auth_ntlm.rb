@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SyntheticsBasicAuthNTLM
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Domain for the authentication to use when performing the test.
     attr_accessor :domain
 

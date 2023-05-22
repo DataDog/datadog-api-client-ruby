@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class IncidentCreateAttributes
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Required if `customer_impacted:"true"`. A summary of the impact customers experienced during the incident.
     attr_accessor :customer_impact_scope
 

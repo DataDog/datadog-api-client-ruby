@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class MonitorSearchResult
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Classification of the monitor.
     attr_accessor :classification
 

@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SyntheticsAssertionTarget
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Assertion operator to apply.
     attr_reader :operator
 

@@ -22,10 +22,6 @@ module DatadogAPIClient::V1
   class UsageLambdaResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Get hourly usage for Lambda.
     attr_accessor :usage
 

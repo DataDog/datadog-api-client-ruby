@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class NotebookSplitBy
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Keys to split on.
     attr_reader :keys
 

@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class RoleCreateResponseData
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Attributes of the created role.
     attr_accessor :attributes
 

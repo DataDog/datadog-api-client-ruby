@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class CIAppTestsAnalyticsAggregateResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The query results.
     attr_accessor :data
 

@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class IncidentServiceResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Incident Service data from responses.
     attr_reader :data
 

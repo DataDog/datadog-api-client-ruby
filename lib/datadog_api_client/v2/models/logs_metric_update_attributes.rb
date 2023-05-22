@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class LogsMetricUpdateAttributes
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The compute rule to compute the log-based metric.
     attr_accessor :compute
 

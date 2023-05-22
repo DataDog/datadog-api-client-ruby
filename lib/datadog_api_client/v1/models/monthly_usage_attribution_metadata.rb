@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class MonthlyUsageAttributionMetadata
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # An array of available aggregates.
     attr_accessor :aggregates
 

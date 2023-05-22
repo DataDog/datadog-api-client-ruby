@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class LogsExclusion
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Exclusion filter is defined by a query, a sampling rule, and a active/inactive toggle.
     attr_accessor :filter
 

@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class LogsMetricUpdateData
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The log-based metric properties that will be updated.
     attr_reader :attributes
 

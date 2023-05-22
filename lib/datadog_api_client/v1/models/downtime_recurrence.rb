@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class DowntimeRecurrence
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # How often to repeat as an integer.
     # For example, to repeat every 3 days, select a type of `days` and a period of `3`.
     attr_reader :period

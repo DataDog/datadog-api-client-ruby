@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class SensitiveDataScannerMeta
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Maximum number of scanning rules allowed for the org.
     attr_accessor :count_limit
 

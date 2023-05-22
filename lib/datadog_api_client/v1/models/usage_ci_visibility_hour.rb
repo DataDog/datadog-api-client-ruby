@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class UsageCIVisibilityHour
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The number of spans for pipelines in the queried hour.
     attr_accessor :ci_pipeline_indexed_spans
 

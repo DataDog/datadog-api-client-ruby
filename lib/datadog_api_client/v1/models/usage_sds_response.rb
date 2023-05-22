@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class UsageSDSResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Get hourly usage for Sensitive Data Scanner.
     attr_accessor :usage
 

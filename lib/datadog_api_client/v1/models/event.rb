@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class Event
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # If an alert event is enabled, set its type.
     # For example, `error`, `warning`, `info`, `success`, `user_update`,
     # `recommendation`, and `snapshot`.

@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class AzureAccount
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Silence monitors for expected Azure VM shutdowns.
     attr_accessor :automute
 

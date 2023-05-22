@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SyntheticsBatchDetails
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Wrapper object that contains the details of a batch.
     attr_accessor :data
 

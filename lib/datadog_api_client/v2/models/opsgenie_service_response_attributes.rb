@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class OpsgenieServiceResponseAttributes
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The custom URL for a custom region.
     attr_accessor :custom_url
 

@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class UsageAttributionAggregatesBody
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The aggregate type.
     attr_accessor :agg_type
 

@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SearchSLOResponseDataAttributesFacets
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # All tags associated with an SLO.
     attr_accessor :all_tags
 

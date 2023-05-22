@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class IncidentIntegrationMetadataPatchRequest
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Incident integration metadata data for a patch request.
     attr_reader :data
 

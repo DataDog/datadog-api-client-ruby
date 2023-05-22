@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class SensitiveDataScannerGetConfigResponseData
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # ID of the configuration.
     attr_accessor :id
 

@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class IncidentCreateRequest
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Incident data for a create request.
     attr_reader :data
 

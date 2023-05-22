@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class UsageIngestedSpansResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Get hourly usage for ingested spans.
     attr_accessor :usage
 

@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class PermissionAttributes
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Creation time of the permission.
     attr_accessor :created
 

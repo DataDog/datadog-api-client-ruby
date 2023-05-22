@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class MonitorOptionsAggregation
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Group to break down the monitor on.
     attr_accessor :group_by
 

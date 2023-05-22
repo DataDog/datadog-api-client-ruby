@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class UserUpdateData
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Attributes of the edited user.
     attr_reader :attributes
 

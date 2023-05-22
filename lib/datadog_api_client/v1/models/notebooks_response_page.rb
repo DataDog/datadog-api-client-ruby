@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class NotebooksResponsePage
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The total number of notebooks that would be returned if the request was not filtered by `start` and `count` parameters.
     attr_accessor :total_count
 

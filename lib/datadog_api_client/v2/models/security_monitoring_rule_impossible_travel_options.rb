@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class SecurityMonitoringRuleImpossibleTravelOptions
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # If true, signals are suppressed for the first 24 hours. In that time, Datadog learns the user's regular
     # access locations. This can be helpful to reduce noise and infer VPN usage or credentialed API access.
     attr_accessor :baseline_user_locations

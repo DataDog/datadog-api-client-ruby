@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class CIAppPipelinesQueryFilter
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The minimum time for the requested events; supports date, math, and regular timestamps (in milliseconds).
     attr_accessor :from
 

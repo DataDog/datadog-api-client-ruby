@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class UsageSummaryResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Shows the 99th percentile of all agent hosts over all hours in the current months for all organizations.
     attr_accessor :agent_host_top99p_sum
 

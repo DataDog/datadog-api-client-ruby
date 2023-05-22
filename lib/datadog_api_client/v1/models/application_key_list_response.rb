@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class ApplicationKeyListResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Array of application keys.
     attr_accessor :application_keys
 

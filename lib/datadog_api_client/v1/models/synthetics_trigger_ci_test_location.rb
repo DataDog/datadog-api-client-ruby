@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SyntheticsTriggerCITestLocation
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Unique identifier of the location.
     attr_accessor :id
 

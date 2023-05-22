@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class UsageLogsHour
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Contains the number of billable log bytes ingested.
     attr_accessor :billable_ingested_bytes
 

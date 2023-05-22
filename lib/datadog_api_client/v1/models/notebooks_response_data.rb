@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class NotebooksResponseData
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The attributes of a notebook in get all response.
     attr_reader :attributes
 

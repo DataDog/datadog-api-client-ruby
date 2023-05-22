@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class CloudflareAccountUpdateRequestData
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Attributes object for updating a Cloudflare account.
     attr_accessor :attributes
 

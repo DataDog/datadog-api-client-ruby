@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class MonitorConfigPolicyTagPolicy
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The key of the tag.
     attr_reader :tag_key
 

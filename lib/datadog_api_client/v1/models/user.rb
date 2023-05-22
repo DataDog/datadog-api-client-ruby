@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class User
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The access role of the user. Options are **st** (standard user), **adm** (admin user), or **ro** (read-only user).
     attr_accessor :access_role
 

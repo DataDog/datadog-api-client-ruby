@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class GeomapWidgetDefinitionView
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The 2-letter ISO code of a country to focus the map on. Or `WORLD`.
     attr_reader :focus
 

@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class AuditLogsResponseLinks
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Link for the next set of results. Note that the request can also be made using the
     # POST endpoint.
     attr_accessor :_next

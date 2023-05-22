@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SearchSLOResponseLinks
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Link to last page.
     attr_accessor :first
 

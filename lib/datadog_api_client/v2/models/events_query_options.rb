@@ -22,10 +22,6 @@ module DatadogAPIClient::V2
   class EventsQueryOptions
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The time offset to apply to the query in seconds.
     attr_accessor :time_offset
 

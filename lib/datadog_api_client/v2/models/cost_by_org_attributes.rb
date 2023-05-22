@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class CostByOrgAttributes
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # List of charges data reported for the requested month.
     attr_accessor :charges
 

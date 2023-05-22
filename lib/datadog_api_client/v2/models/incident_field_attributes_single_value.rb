@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class IncidentFieldAttributesSingleValue
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Type of the single value field definitions.
     attr_accessor :type
 

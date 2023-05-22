@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class UsageLogsByRetentionResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Get hourly usage for indexed logs by retention period.
     attr_accessor :usage
 

@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class DeleteSharedDashboardResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Token associated with the shared dashboard that was revoked.
     attr_accessor :deleted_public_dashboard_token
 

@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SelectableTemplateVariableItems
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The default value of the template variable.
     attr_accessor :default_value
 

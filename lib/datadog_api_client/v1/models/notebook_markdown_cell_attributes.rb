@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class NotebookMarkdownCellAttributes
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Text in a notebook is formatted with [Markdown](https://daringfireball.net/projects/markdown/), which enables the use of headings, subheadings, links, images, lists, and code blocks.
     attr_reader :definition
 

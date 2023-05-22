@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class SensitiveDataScannerConfigurationRelationships
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # List of groups, ordered.
     attr_accessor :groups
 

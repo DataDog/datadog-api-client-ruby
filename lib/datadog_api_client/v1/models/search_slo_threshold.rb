@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SearchSLOThreshold
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The target value for the service level indicator within the corresponding
     # timeframe.
     attr_reader :target

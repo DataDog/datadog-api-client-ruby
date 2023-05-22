@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class IncidentFieldAttributesMultipleValue
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Type of the multiple value field definitions.
     attr_accessor :type
 

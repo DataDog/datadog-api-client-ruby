@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SyntheticsGlobalVariableOptions
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Parameters for the TOTP/MFA variable
     attr_accessor :totp_parameters
 

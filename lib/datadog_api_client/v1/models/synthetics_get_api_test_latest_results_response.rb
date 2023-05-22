@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SyntheticsGetAPITestLatestResultsResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Timestamp of the latest API test run.
     attr_accessor :last_timestamp_fetched
 

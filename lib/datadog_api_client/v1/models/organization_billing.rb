@@ -23,10 +23,6 @@ module DatadogAPIClient::V1
   class OrganizationBilling
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The type of billing. Only `parent_billing` is supported.
     attr_accessor :type
 

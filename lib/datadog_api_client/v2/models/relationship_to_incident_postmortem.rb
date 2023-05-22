@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class RelationshipToIncidentPostmortem
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The postmortem relationship data.
     attr_reader :data
 

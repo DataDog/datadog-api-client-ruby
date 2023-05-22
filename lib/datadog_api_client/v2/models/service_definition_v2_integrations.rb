@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class ServiceDefinitionV2Integrations
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Opsgenie integration for the service.
     attr_accessor :opsgenie
 

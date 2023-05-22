@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class MonthlyUsageAttributionPagination
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The cursor to use to get the next results, if any. To make the next request, use the same parameters with the addition of the `next_record_id`.
     attr_accessor :next_record_id
 

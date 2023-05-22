@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class HostTotals
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Total number of active host (UP and ???) reporting to Datadog.
     attr_accessor :total_active
 

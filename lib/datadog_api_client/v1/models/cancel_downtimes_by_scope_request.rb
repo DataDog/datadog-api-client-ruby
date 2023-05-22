@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class CancelDowntimesByScopeRequest
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The scope(s) to which the downtime applies and must be in `key:value` format. For example, `host:app2`.
     # Provide multiple scopes as a comma-separated list like `env:dev,env:prod`.
     # The resulting downtime applies to sources that matches ALL provided scopes (`env:dev` **AND** `env:prod`).

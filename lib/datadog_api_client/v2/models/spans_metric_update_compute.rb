@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class SpansMetricUpdateCompute
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Toggle to include or exclude percentile aggregations for distribution metrics.
     # Only present when the `aggregation_type` is `distribution`.
     attr_accessor :include_percentiles

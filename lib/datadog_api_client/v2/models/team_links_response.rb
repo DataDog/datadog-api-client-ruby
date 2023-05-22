@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class TeamLinksResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Team links response data
     attr_accessor :data
 

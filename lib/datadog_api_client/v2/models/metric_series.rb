@@ -22,10 +22,6 @@ module DatadogAPIClient::V2
   class MetricSeries
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # If the type of the metric is rate or count, define the corresponding interval.
     attr_accessor :interval
 

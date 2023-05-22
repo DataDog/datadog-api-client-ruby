@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class LogsAggregateRequestPage
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The returned paging point to use to get the next results
     attr_accessor :cursor
 

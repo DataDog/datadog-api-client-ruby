@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class UserTeamPermission
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # User team permission attributes
     attr_accessor :attributes
 

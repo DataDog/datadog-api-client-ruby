@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SLOCorrectionResponseAttributesModifier
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Email of the Modifier.
     attr_accessor :email
 

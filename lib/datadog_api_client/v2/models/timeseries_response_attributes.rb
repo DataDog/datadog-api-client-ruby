@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class TimeseriesResponseAttributes
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Array of response series. The index here corresponds to the index in the `formulas` or `queries` array from the request.
     attr_accessor :series
 

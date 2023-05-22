@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class MetricsQueryResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Message indicating the errors if status is not `ok`.
     attr_accessor :error
 

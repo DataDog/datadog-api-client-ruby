@@ -22,10 +22,6 @@ module DatadogAPIClient::V1
   class ServiceLevelObjective
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Creation timestamp (UNIX time in seconds)
     #
     # Always included in service level objective responses.

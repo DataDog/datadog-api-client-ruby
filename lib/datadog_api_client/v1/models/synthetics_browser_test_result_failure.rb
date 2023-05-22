@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SyntheticsBrowserTestResultFailure
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Error code that can be returned by a Synthetic test.
     attr_accessor :code
 

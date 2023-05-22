@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class ConfluentResourceRequestAttributes
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The resource type of the Resource. Can be `kafka`, `connector`, `ksql`, or `schema_registry`.
     attr_reader :resource_type
 

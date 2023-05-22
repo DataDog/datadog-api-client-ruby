@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SyntheticsBasicAuthDigest
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Password to use for the digest authentication.
     attr_reader :password
 

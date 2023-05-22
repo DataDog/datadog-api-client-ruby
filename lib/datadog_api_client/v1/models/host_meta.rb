@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class HostMeta
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # A list of Agent checks running on the host.
     attr_accessor :agent_checks
 

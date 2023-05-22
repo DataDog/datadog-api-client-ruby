@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class DashboardTemplateVariable
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The list of values that the template variable drop-down is limited to.
     attr_accessor :available_values
 

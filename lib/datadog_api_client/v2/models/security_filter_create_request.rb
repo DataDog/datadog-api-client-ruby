@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class SecurityFilterCreateRequest
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Object for a single security filter.
     attr_reader :data
 

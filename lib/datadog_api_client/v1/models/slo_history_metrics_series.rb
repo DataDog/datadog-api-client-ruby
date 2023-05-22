@@ -22,10 +22,6 @@ module DatadogAPIClient::V1
   class SLOHistoryMetricsSeries
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Count of submitted metrics.
     attr_reader :count
 

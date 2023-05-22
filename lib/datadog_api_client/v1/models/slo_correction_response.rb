@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SLOCorrectionResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The response object of a list of SLO corrections.
     attr_accessor :data
 

@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class DistributionWidgetRequest
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The log query.
     attr_accessor :apm_query
 

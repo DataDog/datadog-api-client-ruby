@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SyntheticsTriggerTest
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Metadata for the Synthetic tests run.
     attr_accessor :metadata
 

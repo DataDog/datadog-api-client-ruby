@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class AWSAccountListResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # List of enabled AWS accounts.
     attr_accessor :accounts
 

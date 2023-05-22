@@ -26,10 +26,6 @@ module DatadogAPIClient::V1
   class LogsLookupProcessor
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Value to set the target attribute if the source value is not found in the list.
     attr_accessor :default_lookup
 

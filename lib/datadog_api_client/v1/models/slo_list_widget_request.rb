@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SLOListWidgetRequest
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Updated SLO List widget.
     attr_reader :query
 

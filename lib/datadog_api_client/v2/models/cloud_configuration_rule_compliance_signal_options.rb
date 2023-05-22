@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class CloudConfigurationRuleComplianceSignalOptions
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Whether signals will be sent.
     attr_accessor :user_activation_status
 

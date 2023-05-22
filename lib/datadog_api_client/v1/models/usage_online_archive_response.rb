@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class UsageOnlineArchiveResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Response containing Online Archive usage.
     attr_accessor :usage
 

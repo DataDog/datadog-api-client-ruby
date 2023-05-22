@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class FreeTextWidgetDefinition
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Color of the text.
     attr_accessor :color
 

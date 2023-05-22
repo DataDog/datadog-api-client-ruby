@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SunburstWidgetLegendInlineAutomatic
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Whether to hide the percentages of the groups.
     attr_accessor :hide_percent
 

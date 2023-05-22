@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class UsageCloudSecurityPostureManagementResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Get hourly usage for Cloud Security Posture Management.
     attr_accessor :usage
 

@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class UsageLambdaTracedInvocationsResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Response containing Lambda Traced Invocations usage.
     attr_accessor :data
 

@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class MonitorConfigPolicyAttributeResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Configuration for the policy.
     attr_accessor :policy
 

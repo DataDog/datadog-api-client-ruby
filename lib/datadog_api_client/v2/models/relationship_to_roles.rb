@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class RelationshipToRoles
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # An array containing type and the unique identifier of a role.
     attr_accessor :data
 

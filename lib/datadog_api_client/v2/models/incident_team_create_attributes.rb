@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class IncidentTeamCreateAttributes
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Name of the incident team.
     attr_reader :name
 

@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class ChargebackBreakdown
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The type of charge for a particular product.
     attr_accessor :charge_type
 

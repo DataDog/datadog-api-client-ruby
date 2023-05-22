@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class WidgetCustomLink
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The flag for toggling context menu link visibility.
     attr_accessor :is_hidden
 

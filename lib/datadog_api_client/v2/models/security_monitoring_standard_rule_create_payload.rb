@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class SecurityMonitoringStandardRuleCreatePayload
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Cases for generating signals.
     attr_reader :cases
 

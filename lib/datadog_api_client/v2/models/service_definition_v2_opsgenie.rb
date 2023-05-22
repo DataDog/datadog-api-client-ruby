@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class ServiceDefinitionV2Opsgenie
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Opsgenie instance region.
     attr_accessor :region
 

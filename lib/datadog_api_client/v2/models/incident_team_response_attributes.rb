@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class IncidentTeamResponseAttributes
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Timestamp of when the incident team was created.
     attr_accessor :created
 

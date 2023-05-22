@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class ServiceDefinitionV1Info
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Unique identifier of the service. Must be unique across all services and is used to match with a service in Datadog.
     attr_reader :dd_service
 

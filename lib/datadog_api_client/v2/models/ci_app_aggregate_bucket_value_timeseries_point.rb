@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class CIAppAggregateBucketValueTimeseriesPoint
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The time value for this point.
     attr_accessor :time
 

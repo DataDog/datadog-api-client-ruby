@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class ScalarFormulaResponseAtrributes
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # List of response columns, each corresponding to an individual formula or query in the request and with values in parallel arrays matching the series list.
     attr_accessor :columns
 

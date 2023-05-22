@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class ScatterPlotWidgetDefinition
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # List of groups used for colors.
     attr_accessor :color_by_groups
 

@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class SensitiveDataScannerReorderGroupsResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Meta response containing information about the API.
     attr_accessor :meta
 

@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class SecurityFilterUpdateAttributes
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Exclusion filters to exclude some logs from the security filter.
     attr_accessor :exclusion_filters
 

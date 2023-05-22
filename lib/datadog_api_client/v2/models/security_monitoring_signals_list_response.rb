@@ -22,10 +22,6 @@ module DatadogAPIClient::V2
   class SecurityMonitoringSignalsListResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # An array of security signals matching the request.
     attr_accessor :data
 

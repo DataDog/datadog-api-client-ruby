@@ -22,10 +22,6 @@ module DatadogAPIClient::V2
   class MetricBulkTagConfigStatus
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Optional attributes for the status of a bulk tag configuration request.
     attr_accessor :attributes
 

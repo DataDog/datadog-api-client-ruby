@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SyntheticsBasicAuthSigv4
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Access key for the `SIGV4` authentication.
     attr_reader :access_key
 

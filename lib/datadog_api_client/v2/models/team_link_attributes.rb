@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class TeamLinkAttributes
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The link's label
     attr_reader :label
 

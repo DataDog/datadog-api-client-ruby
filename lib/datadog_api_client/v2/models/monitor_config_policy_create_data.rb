@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class MonitorConfigPolicyCreateData
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Policy and policy type for a monitor configuration policy.
     attr_reader :attributes
 

@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SharedDashboardAuthor
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Identifier of the user who shared the dashboard.
     attr_accessor :handle
 

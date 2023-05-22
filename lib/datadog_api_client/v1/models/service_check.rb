@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class ServiceCheck
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The check.
     attr_reader :check
 

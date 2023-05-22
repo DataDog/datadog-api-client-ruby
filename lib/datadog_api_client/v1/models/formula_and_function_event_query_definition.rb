@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class FormulaAndFunctionEventQueryDefinition
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Compute options.
     attr_reader :compute
 

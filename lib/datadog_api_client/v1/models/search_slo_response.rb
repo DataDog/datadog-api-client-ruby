@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SearchSLOResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Data from search SLO response.
     attr_accessor :data
 

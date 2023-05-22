@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class LogStreamWidgetDefinition
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Which columns to display on the widget.
     attr_accessor :columns
 

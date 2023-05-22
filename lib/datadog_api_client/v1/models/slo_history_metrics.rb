@@ -23,10 +23,6 @@ module DatadogAPIClient::V1
   class SLOHistoryMetrics
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # A representation of `metric` based SLO time series for the provided queries.
     # This is the same response type from `batch_query` endpoint.
     attr_reader :denominator

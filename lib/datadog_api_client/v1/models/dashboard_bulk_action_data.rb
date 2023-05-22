@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class DashboardBulkActionData
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Dashboard resource ID.
     attr_reader :id
 

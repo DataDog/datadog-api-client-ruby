@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SLORawErrorBudgetRemaining
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Error budget remaining unit.
     attr_accessor :unit
 

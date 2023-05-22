@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class SecurityFilterMeta
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # A warning message.
     attr_accessor :warning
 

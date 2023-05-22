@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class ApmStatsQueryColumnType
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # A user-assigned alias for the column.
     attr_accessor :_alias
 

@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class FormulaAndFunctionSLOQueryDefinition
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Data source for SLO measures queries.
     attr_reader :data_source
 

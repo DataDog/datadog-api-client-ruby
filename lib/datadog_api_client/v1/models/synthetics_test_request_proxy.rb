@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SyntheticsTestRequestProxy
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Headers to include when performing the test.
     attr_accessor :headers
 

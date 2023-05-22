@@ -23,10 +23,6 @@ module DatadogAPIClient::V1
   class OrganizationSubscription
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The subscription type. Types available are `trial`, `free`, and `pro`.
     attr_accessor :type
 

@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SyntheticsParsingOptions
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # When type is `http_header`, name of the header to use to extract the value.
     attr_accessor :field
 

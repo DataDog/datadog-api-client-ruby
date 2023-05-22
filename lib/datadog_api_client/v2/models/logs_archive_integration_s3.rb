@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class LogsArchiveIntegrationS3
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The account ID for the integration.
     attr_reader :account_id
 

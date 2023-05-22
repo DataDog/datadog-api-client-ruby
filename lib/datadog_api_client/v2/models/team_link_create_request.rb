@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class TeamLinkCreateRequest
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Team link create
     attr_reader :data
 

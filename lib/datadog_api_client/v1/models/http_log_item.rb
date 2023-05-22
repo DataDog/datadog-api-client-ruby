@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class HTTPLogItem
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The integration name associated with your log: the technology from which the log originated.
     # When it matches an integration name, Datadog automatically installs the corresponding parsers and facets.
     # See [reserved attributes](https://docs.datadoghq.com/logs/log_collection/#reserved-attributes).

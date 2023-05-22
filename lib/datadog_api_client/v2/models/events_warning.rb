@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class EventsWarning
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # A unique code for this type of warning.
     attr_accessor :code
 

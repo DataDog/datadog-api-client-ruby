@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class AuthNMappingsResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Array of returned AuthN Mappings.
     attr_accessor :data
 

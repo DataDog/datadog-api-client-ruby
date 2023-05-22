@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class MetricSuggestedTagsAndAggregationsResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Object for a single metric's actively queried tags and aggregations.
     attr_accessor :data
 
