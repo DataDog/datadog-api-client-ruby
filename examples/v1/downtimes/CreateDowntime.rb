@@ -6,6 +6,7 @@ api_instance = DatadogAPIClient::V1::DowntimesAPI.new
 body = DatadogAPIClient::V1::Downtime.new({
   message: "Example-Downtime",
   start: Time.now.to_i,
+  _end: (Time.now + 1 * 3600).to_i,
   timezone: "Etc/UTC",
   scope: [
     "test:exampledowntime",
