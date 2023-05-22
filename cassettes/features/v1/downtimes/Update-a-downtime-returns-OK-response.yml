@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Fri, 05 May 2023 17:13:01 GMT
+- recorded_at: Mon, 22 May 2023 14:37:14 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"message":"Test-Update_a_downtime_returns_OK_response-1683306781","recurrence":{"period":1,"type":"weeks","until_date":1685121181,"week_days":["Mon","Tue","Wed","Thu","Fri"]},"scope":["test:testupdateadowntimereturnsokresponse1683306781"],"start":1683306781,"timezone":"Etc/UTC"}'
+      string: '{"end":1684769834,"message":"Test-Update_a_downtime_returns_OK_response-1684766234","recurrence":{"period":1,"type":"weeks","until_date":1686580634,"week_days":["Mon","Tue","Wed","Thu","Fri"]},"scope":["test:testupdateadowntimereturnsokresponse1684766234"],"start":1684766234,"timezone":"Etc/UTC"}'
     headers:
       Accept:
       - application/json
@@ -14,8 +14,8 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"id":2893673146,"monitor_id":null,"org_id":321813,"start":1683306781,"end":null,"canceled":null,"created":1683306781,"modified":1683306781,"message":"Test-Update_a_downtime_returns_OK_response-1683306781","active":true,"disabled":false,"recurrence":{"type":"weeks","period":1,"week_days":["Mon","Tue","Wed","Thu","Fri"],"until_occurrences":null,"until_date":1685121181},"timezone":"Etc/UTC","parent_id":null,"child_id":null,"creator_id":1445416,"updater_id":null,"downtime_type":2,"status":"active","monitor_tags":["*"],"mute_first_recovery_notification":false,"notify_end_types":["expired"],"notify_end_states":["alert","no
-        data","warn"],"uuid":"171537cc-eb68-11ed-8a83-da7ad0900002","scope":["test:testupdateadowntimereturnsokresponse1683306781"]}
+      string: '{"id":2941982639,"monitor_id":null,"org_id":321813,"start":1684766234,"end":1684769834,"canceled":null,"created":1684766235,"modified":1684766235,"message":"Test-Update_a_downtime_returns_OK_response-1684766234","active":true,"disabled":false,"recurrence":{"type":"weeks","period":1,"week_days":["Mon","Tue","Wed","Thu","Fri"],"until_occurrences":null,"until_date":1686580634},"timezone":"Etc/UTC","parent_id":null,"child_id":null,"creator_id":1445416,"updater_id":null,"downtime_type":2,"status":"active","monitor_tags":["*"],"mute_first_recovery_notification":false,"notify_end_types":["expired"],"notify_end_states":["alert","no
+        data","warn"],"uuid":"25399c6e-f8ae-11ed-b261-da7ad0900002","scope":["test:testupdateadowntimereturnsokresponse1684766234"]}
 
         '
     headers:
@@ -24,11 +24,11 @@ http_interactions:
     status:
       code: 200
       message: OK
-- recorded_at: Fri, 05 May 2023 17:13:01 GMT
+- recorded_at: Mon, 22 May 2023 14:37:14 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"message":"Test-Update_a_downtime_returns_OK_response-1683306781-updated","mute_first_recovery_notification":true,"notify_end_states":["alert","no
+      string: '{"message":"Test-Update_a_downtime_returns_OK_response-1684766234-updated","mute_first_recovery_notification":true,"notify_end_states":["alert","no
         data","warn"],"notify_end_types":["canceled","expired"]}'
     headers:
       Accept:
@@ -36,12 +36,12 @@ http_interactions:
       Content-Type:
       - application/json
     method: PUT
-    uri: https://api.datadoghq.com/api/v1/downtime/2893673146
+    uri: https://api.datadoghq.com/api/v1/downtime/2941982639
   response:
     body:
       encoding: UTF-8
-      string: '{"id":2893673146,"monitor_id":null,"org_id":321813,"start":1683306781,"end":null,"canceled":null,"created":1683306781,"modified":1683306781,"message":"Test-Update_a_downtime_returns_OK_response-1683306781-updated","active":true,"disabled":false,"recurrence":{"type":"weeks","period":1,"week_days":["Mon","Tue","Wed","Thu","Fri"],"until_occurrences":null,"until_date":1685121181},"timezone":"Etc/UTC","parent_id":null,"child_id":null,"creator_id":1445416,"updater_id":1445416,"downtime_type":2,"status":"active","monitor_tags":["*"],"mute_first_recovery_notification":true,"notify_end_types":["canceled","expired"],"notify_end_states":["alert","no
-        data","warn"],"uuid":null,"scope":["test:testupdateadowntimereturnsokresponse1683306781"]}
+      string: '{"id":2941982639,"monitor_id":null,"org_id":321813,"start":1684766234,"end":1684769834,"canceled":null,"created":1684766235,"modified":1684766235,"message":"Test-Update_a_downtime_returns_OK_response-1684766234-updated","active":true,"disabled":false,"recurrence":{"type":"weeks","period":1,"week_days":["Mon","Tue","Wed","Thu","Fri"],"until_occurrences":null,"until_date":1686580634},"timezone":"Etc/UTC","parent_id":null,"child_id":null,"creator_id":1445416,"updater_id":1445416,"downtime_type":2,"status":"active","monitor_tags":["*"],"mute_first_recovery_notification":true,"notify_end_types":["canceled","expired"],"notify_end_states":["alert","no
+        data","warn"],"uuid":null,"scope":["test:testupdateadowntimereturnsokresponse1684766234"]}
 
         '
     headers:
@@ -50,14 +50,14 @@ http_interactions:
     status:
       code: 200
       message: OK
-- recorded_at: Fri, 05 May 2023 17:13:01 GMT
+- recorded_at: Mon, 22 May 2023 14:37:14 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v1/downtime/2893673146
+    uri: https://api.datadoghq.com/api/v1/downtime/2941982639
   response:
     body:
       encoding: UTF-8
