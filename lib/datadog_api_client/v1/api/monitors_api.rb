@@ -422,6 +422,7 @@ module DatadogAPIClient::V1
     # @param monitor_id [Integer] The ID of the monitor
     # @param opts [Hash] the optional parameters
     # @option opts [String] :group_states When specified, shows additional information about the group states. Choose one or more from `all`, `alert`, `warn`, and `no data`.
+    # @option opts [Boolean] :with_downtimes If this argument is set to true, then the returned data includes all current active downtimes for the monitor.
     # @return [Array<(Monitor, Integer, Hash)>] Monitor data, response status code and response headers
     def get_monitor_with_http_info(monitor_id, opts = {})
 
@@ -438,6 +439,7 @@ module DatadogAPIClient::V1
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'group_states'] = opts[:'group_states'] if !opts[:'group_states'].nil?
+      query_params[:'with_downtimes'] = opts[:'with_downtimes'] if !opts[:'with_downtimes'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

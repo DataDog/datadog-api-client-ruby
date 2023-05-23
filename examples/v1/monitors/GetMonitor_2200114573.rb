@@ -1,4 +1,4 @@
-# Get a monitor's details returns "OK" response
+# Get a monitor's details with downtime returns "OK" response
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::MonitorsAPI.new
