@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SLOListResponseMetadata
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The object containing information about the pages of the list of SLOs.
     attr_accessor :page
 

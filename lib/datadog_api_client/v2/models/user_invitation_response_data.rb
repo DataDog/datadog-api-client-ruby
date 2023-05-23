@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class UserInvitationResponseData
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Attributes of a user invitation.
     attr_accessor :attributes
 

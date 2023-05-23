@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class MetricBulkTagConfigDelete
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Optional parameters for bulk deleting metric tag configurations.
     attr_accessor :attributes
 

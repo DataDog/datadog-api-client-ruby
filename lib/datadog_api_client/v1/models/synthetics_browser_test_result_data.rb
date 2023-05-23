@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SyntheticsBrowserTestResultData
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Type of browser device used for the browser test.
     attr_accessor :browser_type
 

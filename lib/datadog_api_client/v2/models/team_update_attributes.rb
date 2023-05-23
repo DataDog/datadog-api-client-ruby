@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class TeamUpdateAttributes
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # An identifier for the color representing the team
     attr_reader :color
 

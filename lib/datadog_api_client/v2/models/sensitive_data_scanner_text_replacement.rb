@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class SensitiveDataScannerTextReplacement
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Required if type == 'partial_replacement_from_beginning'
     # or 'partial_replacement_from_end'. It must be > 0.
     attr_reader :number_of_chars

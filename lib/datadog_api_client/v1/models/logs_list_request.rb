@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class LogsListRequest
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The log index on which the request is performed. For multi-index organizations,
     # the default is all live indexes. Historical indexes of rehydrated logs must be specified.
     attr_accessor :index

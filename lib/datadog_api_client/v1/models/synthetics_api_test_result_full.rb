@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SyntheticsAPITestResultFull
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Object describing the API test configuration.
     attr_accessor :check
 

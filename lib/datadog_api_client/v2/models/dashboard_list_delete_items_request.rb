@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class DashboardListDeleteItemsRequest
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # List of dashboards to delete from the dashboard list.
     attr_accessor :dashboards
 

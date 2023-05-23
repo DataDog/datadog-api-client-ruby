@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class CloudflareAccountCreateRequestAttributes
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The API key (or token) for the Cloudflare account.
     attr_reader :api_key
 

@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SyntheticsCoreWebVitals
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Cumulative Layout Shift.
     attr_accessor :cls
 

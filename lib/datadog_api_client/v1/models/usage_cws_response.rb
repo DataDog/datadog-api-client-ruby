@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class UsageCWSResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Get hourly usage for Cloud Workload Security.
     attr_accessor :usage
 

@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class TeamUpdate
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Team update attributes
     attr_reader :attributes
 

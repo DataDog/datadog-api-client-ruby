@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class CheckCanDeleteMonitorResponseData
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # An array of of Monitor IDs that can be safely deleted.
     attr_accessor :ok
 

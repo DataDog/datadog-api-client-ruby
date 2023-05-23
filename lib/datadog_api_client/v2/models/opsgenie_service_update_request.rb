@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class OpsgenieServiceUpdateRequest
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Opsgenie service for an update request.
     attr_reader :data
 

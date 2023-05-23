@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SyntheticsTestOptionsRetry
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Number of times a test needs to be retried before marking a
     # location as failed. Defaults to 0.
     attr_accessor :count

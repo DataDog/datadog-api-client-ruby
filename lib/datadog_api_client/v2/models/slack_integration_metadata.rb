@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class SlackIntegrationMetadata
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Array of Slack channels in this integration metadata.
     attr_reader :channels
 

@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class ServiceDefinitionV2Dot1
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Identifier for a group of related services serving a product feature, which the service is a part of.
     attr_accessor :application
 

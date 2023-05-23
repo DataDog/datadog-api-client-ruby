@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class SecurityMonitoringTriageUser
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The handle for this user account.
     attr_accessor :handle
 

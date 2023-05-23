@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class MonitorSearchCountItem
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The number of found monitors with the listed value.
     attr_accessor :count
 

@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class SAMLAssertionAttribute
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Key/Value pair of attributes used in SAML assertion attributes.
     attr_accessor :attributes
 

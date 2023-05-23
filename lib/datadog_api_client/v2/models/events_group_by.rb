@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class EventsGroupBy
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The facet by which to split groups.
     attr_reader :facet
 

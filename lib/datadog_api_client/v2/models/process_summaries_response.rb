@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class ProcessSummariesResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Array of process summary objects.
     attr_accessor :data
 

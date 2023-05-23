@@ -33,10 +33,6 @@ module DatadogAPIClient::V1
   class LogsCategoryProcessor
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Array of filters to match or not a log and their
     # corresponding `name` to assign a custom value to the log.
     attr_reader :categories

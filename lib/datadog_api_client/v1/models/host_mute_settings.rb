@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class HostMuteSettings
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # POSIX timestamp in seconds when the host is unmuted. If omitted, the host remains muted until explicitly unmuted.
     attr_accessor :_end
 

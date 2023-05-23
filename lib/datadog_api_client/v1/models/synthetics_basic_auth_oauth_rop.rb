@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SyntheticsBasicAuthOauthROP
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Access token URL to use when performing the authentication.
     attr_reader :access_token_url
 

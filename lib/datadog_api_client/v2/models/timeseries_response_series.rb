@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class TimeseriesResponseSeries
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # List of tags that apply to a single response value.
     attr_accessor :group_tags
 

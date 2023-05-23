@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class AWSAccountAndLambdaRequest
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Your AWS Account ID without dashes.
     attr_reader :account_id
 

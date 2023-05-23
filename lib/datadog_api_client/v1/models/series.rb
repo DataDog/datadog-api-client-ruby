@@ -22,10 +22,6 @@ module DatadogAPIClient::V1
   class Series
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The name of the host that produced the metric.
     attr_accessor :host
 

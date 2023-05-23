@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class AuditLogsQueryFilter
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Minimum time for the requested events. Supports date, math, and regular timestamps (in milliseconds).
     attr_accessor :from
 

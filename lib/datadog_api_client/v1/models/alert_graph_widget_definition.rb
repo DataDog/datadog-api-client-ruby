@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class AlertGraphWidgetDefinition
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # ID of the alert to use in the widget.
     attr_reader :alert_id
 

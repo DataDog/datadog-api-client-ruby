@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class FastlyAccounResponseAttributes
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The name of the Fastly account.
     attr_reader :name
 

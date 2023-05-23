@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SyntheticsPrivateLocationMetadata
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # A list of role identifiers that can be pulled from the Roles API, for restricting read and write access.
     attr_accessor :restricted_roles
 

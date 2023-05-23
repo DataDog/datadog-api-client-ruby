@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class MonitorOptions
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Type of aggregation performed in the monitor query.
     attr_accessor :aggregation
 

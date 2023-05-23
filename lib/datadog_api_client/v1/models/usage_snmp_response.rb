@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class UsageSNMPResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Get hourly usage for SNMP devices.
     attr_accessor :usage
 

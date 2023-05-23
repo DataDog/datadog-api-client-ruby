@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SLOHistoryMetricsSeriesMetadataUnit
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The family of metric unit, for example `bytes` is the family for `kibibyte`, `byte`, and `bit` units.
     attr_accessor :family
 

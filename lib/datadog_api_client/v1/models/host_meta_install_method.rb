@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class HostMetaInstallMethod
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The installer version.
     attr_accessor :installer_version
 

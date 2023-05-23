@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class RunWorkflowWidgetInput
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Name of the workflow input.
     attr_reader :name
 

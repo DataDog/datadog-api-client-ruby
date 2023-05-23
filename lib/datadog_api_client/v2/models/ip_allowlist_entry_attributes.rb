@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class IPAllowlistEntryAttributes
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The CIDR block describing the IP range of the entry.
     attr_accessor :cidr_block
 

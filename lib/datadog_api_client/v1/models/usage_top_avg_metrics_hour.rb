@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class UsageTopAvgMetricsHour
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Average number of timeseries per hour in which the metric occurs.
     attr_accessor :avg_metric_hour
 

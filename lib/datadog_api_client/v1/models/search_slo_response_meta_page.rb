@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SearchSLOResponseMetaPage
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The first number.
     attr_accessor :first_number
 

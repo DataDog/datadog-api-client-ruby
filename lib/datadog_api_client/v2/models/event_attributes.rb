@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class EventAttributes
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Aggregation key of the event.
     attr_accessor :aggregation_key
 

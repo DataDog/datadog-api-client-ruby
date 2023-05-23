@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class UsageAttributesObject
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The organization name.
     attr_accessor :org_name
 

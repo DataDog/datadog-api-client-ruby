@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class LogAttributes
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # JSON object of attributes from your log.
     attr_accessor :attributes
 

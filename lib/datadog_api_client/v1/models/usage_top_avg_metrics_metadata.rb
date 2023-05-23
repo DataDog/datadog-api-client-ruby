@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class UsageTopAvgMetricsMetadata
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The day value from the user request that contains the returned usage data. (If day was used the request)
     attr_accessor :day
 

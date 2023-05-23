@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class IncidentUpdateAttributes
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Timestamp when customers were no longer impacted by the incident.
     attr_accessor :customer_impact_end
 

@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SharedDashboardInvitesMetaPage
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The total number of invitations on this shared board, across all pages.
     attr_accessor :total_count
 

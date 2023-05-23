@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class ProcessSummariesMetaPage
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The cursor used to get the next results, if any. To make the next request, use the same
     # parameters with the addition of the `page[cursor]`.
     attr_accessor :after

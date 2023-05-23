@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class UsageLogsByIndexResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # An array of objects regarding hourly usage of logs by index response.
     attr_accessor :usage
 

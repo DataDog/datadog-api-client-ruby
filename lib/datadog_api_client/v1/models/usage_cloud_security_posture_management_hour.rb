@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class UsageCloudSecurityPostureManagementHour
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The number of Cloud Security Posture Management Azure app services hosts during a given hour.
     attr_accessor :aas_host_count
 

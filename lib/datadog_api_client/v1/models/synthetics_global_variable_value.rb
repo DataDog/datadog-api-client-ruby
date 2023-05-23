@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SyntheticsGlobalVariableValue
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Options for the Global Variable for MFA.
     attr_accessor :options
 

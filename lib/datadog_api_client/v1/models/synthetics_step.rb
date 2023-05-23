@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SyntheticsStep
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # A boolean set to allow this step to fail.
     attr_accessor :allow_failure
 

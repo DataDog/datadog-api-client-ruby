@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class SecurityMonitoringRuleNewValueOptions
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The duration in days after which a learned value is forgotten.
     attr_accessor :forget_after
 

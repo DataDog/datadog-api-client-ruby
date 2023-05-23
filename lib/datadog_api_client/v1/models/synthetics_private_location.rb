@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SyntheticsPrivateLocation
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Description of the private location.
     attr_reader :description
 

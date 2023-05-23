@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class UsageSpecifiedCustomReportsResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Response containing date and type for specified custom reports.
     attr_accessor :data
 

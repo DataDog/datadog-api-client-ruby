@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class ServiceAccountCreateRequest
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Object to create a service account User.
     attr_reader :data
 

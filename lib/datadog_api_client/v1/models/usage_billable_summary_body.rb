@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class UsageBillableSummaryBody
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The total account usage.
     attr_accessor :account_billable_usage
 

@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class IncidentResponseRelationships
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # A relationship reference for attachments.
     attr_accessor :attachments
 

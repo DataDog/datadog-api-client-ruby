@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class HostListResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Array of hosts.
     attr_accessor :host_list
 

@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class SecurityFilterUpdateData
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The security filters properties to be updated.
     attr_reader :attributes
 

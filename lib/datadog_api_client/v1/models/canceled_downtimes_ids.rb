@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class CanceledDowntimesIds
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # ID of downtimes that were canceled.
     attr_accessor :cancelled_ids
 

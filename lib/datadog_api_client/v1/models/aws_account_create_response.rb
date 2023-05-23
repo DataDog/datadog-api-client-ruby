@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class AWSAccountCreateResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # AWS external_id.
     attr_accessor :external_id
 

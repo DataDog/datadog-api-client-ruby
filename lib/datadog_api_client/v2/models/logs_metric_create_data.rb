@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class LogsMetricCreateData
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The object describing the Datadog log-based metric to create.
     attr_reader :attributes
 

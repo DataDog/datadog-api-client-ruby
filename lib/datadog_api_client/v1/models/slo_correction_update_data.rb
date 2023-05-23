@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SLOCorrectionUpdateData
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The attribute object associated with the SLO correction to be updated.
     attr_accessor :attributes
 

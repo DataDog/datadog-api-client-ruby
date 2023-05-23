@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class NoteWidgetDefinition
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Background color of the note.
     attr_accessor :background_color
 

@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class LogsMetricGroupBy
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The path to the value the log-based metric will be aggregated over.
     attr_reader :path
 

@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class UsageLogsByIndexHour
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The total number of indexed logs for the queried hour.
     attr_accessor :event_count
 

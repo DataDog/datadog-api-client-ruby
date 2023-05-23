@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class UsageDBMResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Get hourly usage for Database Monitoring
     attr_accessor :usage
 

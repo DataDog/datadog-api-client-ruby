@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SyntheticsPrivateLocationSecrets
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Authentication part of the secrets.
     attr_accessor :authentication
 

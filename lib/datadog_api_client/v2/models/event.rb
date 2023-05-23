@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class Event
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Event ID.
     attr_accessor :id
 

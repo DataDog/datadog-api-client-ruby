@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SyntheticsCITest
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Disable certificate checks in API tests.
     attr_accessor :allow_insecure_certificates
 

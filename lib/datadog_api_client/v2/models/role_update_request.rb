@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class RoleUpdateRequest
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Data related to the update of a role.
     attr_reader :data
 

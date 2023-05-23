@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class GeomapWidgetDefinitionStyle
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The color palette to apply to the widget.
     attr_reader :palette
 

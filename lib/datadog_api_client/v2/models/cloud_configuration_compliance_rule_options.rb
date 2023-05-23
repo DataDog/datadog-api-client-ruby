@@ -22,10 +22,6 @@ module DatadogAPIClient::V2
   class CloudConfigurationComplianceRuleOptions
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Whether the rule is a complex one.
     # Must be set to true if `regoRule.resourceTypes` contains more than one item. Defaults to false.
     #

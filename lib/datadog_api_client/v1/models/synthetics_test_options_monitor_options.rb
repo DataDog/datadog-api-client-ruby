@@ -22,10 +22,6 @@ module DatadogAPIClient::V1
   class SyntheticsTestOptionsMonitorOptions
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Time interval before renotifying if the test is still failing
     # (in minutes).
     attr_reader :renotify_interval

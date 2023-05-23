@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class UsageNetworkHostsHour
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Contains the number of active NPM hosts.
     attr_accessor :host_count
 

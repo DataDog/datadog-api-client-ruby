@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class OrganizationSettingsSamlStrictMode
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Whether or not the SAML strict mode is enabled. If true, all users must log in with SAML.
     # Learn more on the [SAML Strict documentation](https://docs.datadoghq.com/account_management/saml/#saml-strict).
     attr_accessor :enabled

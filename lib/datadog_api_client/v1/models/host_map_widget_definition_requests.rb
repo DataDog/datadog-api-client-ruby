@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class HostMapWidgetDefinitionRequests
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Updated host map.
     attr_accessor :fill
 

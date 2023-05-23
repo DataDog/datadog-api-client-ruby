@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class RelationshipToOrganizations
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Relationships to organization objects.
     attr_reader :data
 

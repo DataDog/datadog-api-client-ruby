@@ -22,10 +22,6 @@ module DatadogAPIClient::V1
   class SyntheticsDeleteTestsPayload
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # An array of Synthetic test IDs you want to delete.
     attr_accessor :public_ids
 

@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class IntakePayloadAccepted
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The status of the intake payload.
     attr_accessor :status
 

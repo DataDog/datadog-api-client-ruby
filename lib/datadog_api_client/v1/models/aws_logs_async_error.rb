@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class AWSLogsAsyncError
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Code properties
     attr_accessor :code
 

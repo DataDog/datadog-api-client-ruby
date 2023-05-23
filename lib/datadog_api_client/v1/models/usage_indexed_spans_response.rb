@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class UsageIndexedSpansResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Array with the number of hourly traces indexed for a given organization.
     attr_accessor :usage
 

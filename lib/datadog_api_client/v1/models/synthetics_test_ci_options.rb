@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SyntheticsTestCiOptions
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Execution rule for a Synthetic test.
     attr_accessor :execution_rule
 

@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class SecurityMonitoringSignalAssigneeUpdateAttributes
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Object representing a given user entity.
     attr_reader :assignee
 

@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class LogsCompute
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # An aggregation function
     attr_reader :aggregation
 

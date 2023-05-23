@@ -1,9 +1,6 @@
   class {{ name }}
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
 {%- for attr, definition in model.get("properties", {}).items() %}
     {%- set required = attr in model.get("required", []) %}
     {%- set has_validation = (

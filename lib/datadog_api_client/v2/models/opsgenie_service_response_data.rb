@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class OpsgenieServiceResponseData
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The attributes from an Opsgenie service response.
     attr_reader :attributes
 

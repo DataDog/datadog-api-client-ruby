@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SyntheticsGetBrowserTestLatestResultsResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Timestamp of the latest browser test run.
     attr_accessor :last_timestamp_fetched
 

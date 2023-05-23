@@ -22,10 +22,6 @@ module DatadogAPIClient::V2
   class CIAppGroupByHistogram
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The bin size of the histogram buckets.
     attr_reader :interval
 

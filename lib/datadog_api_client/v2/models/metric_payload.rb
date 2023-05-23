@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class MetricPayload
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # A list of time series to submit to Datadog.
     attr_reader :series
 

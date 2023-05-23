@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class FindingMute
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Additional information about the reason why this finding is muted.
     attr_accessor :description
 

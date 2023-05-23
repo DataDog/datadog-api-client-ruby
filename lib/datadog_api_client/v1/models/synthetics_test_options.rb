@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SyntheticsTestOptions
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # For SSL test, whether or not the test should allow self signed
     # certificates.
     attr_accessor :accept_self_signed

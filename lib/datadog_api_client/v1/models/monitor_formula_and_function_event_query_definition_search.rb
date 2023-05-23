@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class MonitorFormulaAndFunctionEventQueryDefinitionSearch
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Events search string.
     attr_reader :query
 

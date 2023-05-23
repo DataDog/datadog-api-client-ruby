@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class MetricAllTagsAttributes
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # List of indexed tag value pairs.
     attr_accessor :tags
 

@@ -22,10 +22,6 @@ module DatadogAPIClient::V2
   class LogsQueryOptions
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The time offset (in seconds) to apply to the query.
     attr_accessor :time_offset
 

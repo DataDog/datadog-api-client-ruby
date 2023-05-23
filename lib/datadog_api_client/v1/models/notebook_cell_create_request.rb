@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class NotebookCellCreateRequest
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The attributes of a notebook cell in create cell request. Valid cell types are `markdown`, `timeseries`, `toplist`, `heatmap`, `distribution`,
     # `log_stream`. [More information on each graph visualization type.](https://docs.datadoghq.com/dashboards/widgets/)
     attr_reader :attributes

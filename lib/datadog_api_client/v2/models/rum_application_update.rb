@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class RUMApplicationUpdate
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # RUM application update attributes.
     attr_accessor :attributes
 

@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class MetricPoint
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The timestamp should be in seconds and current.
     # Current is defined as not more than 10 minutes in the future or more than 1 hour in the past.
     attr_accessor :timestamp

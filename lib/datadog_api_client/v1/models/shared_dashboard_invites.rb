@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SharedDashboardInvites
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # An object or list of objects containing the information for an invitation to a shared dashboard.
     attr_reader :data
 

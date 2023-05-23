@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class MonthlyUsageAttributionBody
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM].
     attr_accessor :month
 

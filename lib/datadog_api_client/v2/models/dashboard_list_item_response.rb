@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class DashboardListItemResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # ID of the dashboard.
     attr_reader :id
 

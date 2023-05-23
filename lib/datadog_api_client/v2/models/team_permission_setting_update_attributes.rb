@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class TeamPermissionSettingUpdateAttributes
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # What type of user is allowed to perform the specified action
     attr_accessor :value
 

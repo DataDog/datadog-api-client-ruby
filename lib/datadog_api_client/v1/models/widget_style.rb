@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class WidgetStyle
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Color palette to apply to the widget.
     attr_accessor :palette
 

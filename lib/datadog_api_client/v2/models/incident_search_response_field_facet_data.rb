@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class IncidentSearchResponseFieldFacetData
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Count of the facet value appearing in search results.
     attr_reader :count
 

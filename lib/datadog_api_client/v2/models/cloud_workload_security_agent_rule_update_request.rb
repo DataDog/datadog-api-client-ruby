@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class CloudWorkloadSecurityAgentRuleUpdateRequest
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Object for a single Agent rule.
     attr_reader :data
 

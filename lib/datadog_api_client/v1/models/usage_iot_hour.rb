@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class UsageIoTHour
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The hour for the usage.
     attr_accessor :hour
 

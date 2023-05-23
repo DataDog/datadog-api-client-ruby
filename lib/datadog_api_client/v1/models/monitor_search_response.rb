@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class MonitorSearchResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The counts of monitors per different criteria.
     attr_accessor :counts
 

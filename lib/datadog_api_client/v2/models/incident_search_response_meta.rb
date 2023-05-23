@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class IncidentSearchResponseMeta
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Pagination properties.
     attr_accessor :pagination
 

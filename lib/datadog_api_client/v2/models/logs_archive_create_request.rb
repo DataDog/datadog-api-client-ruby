@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class LogsArchiveCreateRequest
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The definition of an archive.
     attr_accessor :data
 

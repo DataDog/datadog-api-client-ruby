@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SyntheticsLocations
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # List of Synthetic locations.
     attr_accessor :locations
 

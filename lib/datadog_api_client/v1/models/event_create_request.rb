@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class EventCreateRequest
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # An arbitrary string to use for aggregation. Limited to 100 characters.
     # If you specify a key, all events using that key are grouped together in the Event Stream.
     attr_reader :aggregation_key

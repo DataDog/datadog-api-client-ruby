@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class SpansMetricCreateData
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The object describing the Datadog span-based metric to create.
     attr_reader :attributes
 

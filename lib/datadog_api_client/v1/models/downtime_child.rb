@@ -22,10 +22,6 @@ module DatadogAPIClient::V1
   class DowntimeChild
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # If a scheduled downtime currently exists.
     attr_accessor :active
 

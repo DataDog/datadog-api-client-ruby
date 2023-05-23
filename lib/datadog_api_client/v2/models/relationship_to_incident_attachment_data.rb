@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class RelationshipToIncidentAttachmentData
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # A unique identifier that represents the attachment.
     attr_reader :id
 

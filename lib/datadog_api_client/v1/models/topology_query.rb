@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class TopologyQuery
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Name of the data source
     attr_accessor :data_source
 

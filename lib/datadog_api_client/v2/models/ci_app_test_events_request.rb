@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class CIAppTestEventsRequest
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The search and filter query settings.
     attr_accessor :filter
 

@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class LogQueryDefinition
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Define computation for a log query.
     attr_accessor :compute
 

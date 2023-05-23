@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class LogsByRetention
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Indexed logs usage summary for each organization for each retention period with usage.
     attr_accessor :orgs
 

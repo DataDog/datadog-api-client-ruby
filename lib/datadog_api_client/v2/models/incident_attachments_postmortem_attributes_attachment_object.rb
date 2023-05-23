@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class IncidentAttachmentsPostmortemAttributesAttachmentObject
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The URL of this notebook attachment.
     attr_reader :document_url
 

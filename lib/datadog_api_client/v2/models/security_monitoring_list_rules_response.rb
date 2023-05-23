@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class SecurityMonitoringListRulesResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Array containing the list of rules.
     attr_accessor :data
 

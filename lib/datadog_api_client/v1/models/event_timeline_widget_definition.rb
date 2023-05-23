@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class EventTimelineWidgetDefinition
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Query to filter the event timeline with.
     attr_reader :query
 

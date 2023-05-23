@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SyntheticsTestOptionsScheduling
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Array containing objects describing the scheduling pattern to apply to each day.
     attr_accessor :timeframes
 

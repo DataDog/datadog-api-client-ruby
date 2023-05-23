@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class LogsAggregateBucket
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The key, value pairs for each group by
     attr_accessor :by
 

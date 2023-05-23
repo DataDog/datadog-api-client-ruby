@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class MetricDistinctVolumeAttributes
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Distinct volume for the given metric.
     attr_accessor :distinct_volume
 

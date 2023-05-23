@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class MetricTagConfigurationCreateData
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Object containing the definition of a metric tag configuration to be created.
     attr_accessor :attributes
 

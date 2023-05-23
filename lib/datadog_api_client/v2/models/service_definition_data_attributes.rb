@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class ServiceDefinitionDataAttributes
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Metadata about a service definition.
     attr_accessor :meta
 

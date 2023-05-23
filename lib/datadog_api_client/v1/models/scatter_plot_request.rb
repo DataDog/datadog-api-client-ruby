@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class ScatterPlotRequest
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Aggregator used for the request.
     attr_accessor :aggregator
 

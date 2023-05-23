@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class ServiceDefinitionV2Repo
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Repository name.
     attr_reader :name
 

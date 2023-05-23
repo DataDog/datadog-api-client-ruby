@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class ConfluentAccountResponseAttributes
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The API key associated with your Confluent account.
     attr_reader :api_key
 

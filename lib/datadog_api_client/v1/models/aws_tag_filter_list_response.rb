@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class AWSTagFilterListResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # An array of tag filters.
     attr_accessor :filters
 

@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class WidgetMarker
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Combination of:
     #   - A severity error, warning, ok, or info
     #   - A line type: dashed, solid, or bold

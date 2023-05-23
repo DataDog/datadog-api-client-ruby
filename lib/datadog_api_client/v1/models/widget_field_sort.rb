@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class WidgetFieldSort
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Facet path for the column
     attr_reader :column
 

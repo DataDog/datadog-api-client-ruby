@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SyntheticsTriggerCITestsResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The public ID of the batch triggered.
     attr_accessor :batch_id
 

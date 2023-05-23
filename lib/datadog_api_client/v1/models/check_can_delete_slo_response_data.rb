@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class CheckCanDeleteSLOResponseData
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # An array of of SLO IDs that can be safely deleted.
     attr_accessor :ok
 

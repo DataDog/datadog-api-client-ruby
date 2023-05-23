@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class LogsGrokParserRules
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # List of match rules for the grok parser, separated by a new line.
     attr_reader :match_rules
 

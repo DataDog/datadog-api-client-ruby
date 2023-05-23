@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SyntheticsUpdateTestPauseStatusPayload
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Define whether you want to start (`live`) or pause (`paused`) a
     # Synthetic test.
     attr_accessor :new_status

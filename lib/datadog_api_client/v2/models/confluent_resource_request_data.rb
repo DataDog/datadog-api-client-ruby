@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class ConfluentResourceRequestData
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Attributes object for updating a Confluent resource.
     attr_reader :attributes
 

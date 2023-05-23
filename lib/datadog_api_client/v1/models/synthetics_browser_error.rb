@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SyntheticsBrowserError
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Description of the error.
     attr_reader :description
 

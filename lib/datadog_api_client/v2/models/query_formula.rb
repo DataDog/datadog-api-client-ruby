@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class QueryFormula
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Formula string, referencing one or more queries with their name property.
     attr_reader :formula
 

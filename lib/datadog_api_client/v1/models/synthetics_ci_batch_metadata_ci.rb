@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SyntheticsCIBatchMetadataCI
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Description of the CI pipeline.
     attr_accessor :pipeline
 

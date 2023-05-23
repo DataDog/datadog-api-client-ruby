@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class MonthlyUsageAttributionValues
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The percentage of synthetic API test usage by tag(s).
     attr_accessor :api_percentage
 

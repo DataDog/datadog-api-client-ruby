@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class TeamCreateAttributes
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Free-form markdown description/content for the team's homepage
     attr_accessor :description
 

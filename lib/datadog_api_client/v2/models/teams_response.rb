@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class TeamsResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Teams response data
     attr_accessor :data
 

@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class Creator
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Email of the creator.
     attr_accessor :email
 

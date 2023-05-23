@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class IncidentIntegrationMetadataAttributes
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # UUID of the incident this integration metadata is connected to.
     attr_accessor :incident_id
 

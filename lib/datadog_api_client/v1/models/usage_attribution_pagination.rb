@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class UsageAttributionPagination
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Maximum amount of records to be returned.
     attr_accessor :limit
 

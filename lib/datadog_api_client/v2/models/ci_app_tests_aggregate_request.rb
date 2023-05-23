@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class CIAppTestsAggregateRequest
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The list of metrics or timeseries to compute for the retrieved buckets.
     attr_accessor :compute
 

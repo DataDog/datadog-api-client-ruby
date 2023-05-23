@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class UsageCIVisibilityResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Response containing CI visibility usage.
     attr_accessor :usage
 

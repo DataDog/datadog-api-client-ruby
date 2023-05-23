@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class RUMApplicationList
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # RUM application list attributes.
     attr_reader :attributes
 

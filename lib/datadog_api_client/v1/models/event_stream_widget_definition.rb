@@ -22,10 +22,6 @@ module DatadogAPIClient::V1
   class EventStreamWidgetDefinition
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Size to use to display an event.
     attr_accessor :event_size
 

@@ -22,10 +22,6 @@ module DatadogAPIClient::V1
   class SLOResponseData
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # A list of SLO monitors IDs that reference this SLO. This field is returned only when `with_configured_alert_ids` parameter is true in query.
     attr_accessor :configured_alert_ids
 

@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class FullAPIKey
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Attributes of a full API key.
     attr_accessor :attributes
 

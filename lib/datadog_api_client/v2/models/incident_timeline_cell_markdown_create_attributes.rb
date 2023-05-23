@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class IncidentTimelineCellMarkdownCreateAttributes
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Type of the Markdown timeline cell.
     attr_reader :cell_type
 

@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class IncidentResponseMetaPagination
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The index of the first element in the next page of results. Equal to page size added to the current offset.
     attr_accessor :next_offset
 

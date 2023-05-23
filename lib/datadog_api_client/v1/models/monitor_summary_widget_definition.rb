@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class MonitorSummaryWidgetDefinition
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Which color to use on the widget.
     attr_accessor :color_preference
 

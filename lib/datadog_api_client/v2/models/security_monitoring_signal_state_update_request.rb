@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class SecurityMonitoringSignalStateUpdateRequest
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Data containing the patch for changing the state of a signal.
     attr_reader :data
 

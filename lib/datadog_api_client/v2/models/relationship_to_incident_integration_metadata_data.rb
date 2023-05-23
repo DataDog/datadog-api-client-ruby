@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class RelationshipToIncidentIntegrationMetadataData
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # A unique identifier that represents the integration metadata.
     attr_reader :id
 

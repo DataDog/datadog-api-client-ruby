@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class ConfluentAccountResourceAttributes
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The ID associated with a Confluent resource.
     attr_accessor :id
 

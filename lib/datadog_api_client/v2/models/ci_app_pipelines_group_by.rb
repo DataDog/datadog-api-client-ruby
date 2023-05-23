@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class CIAppPipelinesGroupBy
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The name of the facet to use (required).
     attr_reader :facet
 

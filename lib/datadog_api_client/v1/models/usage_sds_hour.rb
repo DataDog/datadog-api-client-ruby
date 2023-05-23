@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class UsageSDSHour
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The total number of bytes scanned of APM usage across all usage types by the Sensitive Data Scanner from the start of the given hour’s month until the given hour.
     attr_accessor :apm_scanned_bytes
 

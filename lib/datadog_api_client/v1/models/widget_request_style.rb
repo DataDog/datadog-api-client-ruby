@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class WidgetRequestStyle
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Type of lines displayed.
     attr_accessor :line_type
 

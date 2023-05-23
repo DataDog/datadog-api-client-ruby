@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class Host
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Host aliases collected by Datadog.
     attr_accessor :aliases
 

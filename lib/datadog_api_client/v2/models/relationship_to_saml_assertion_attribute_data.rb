@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class RelationshipToSAMLAssertionAttributeData
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The ID of the SAML assertion attribute.
     attr_reader :id
 

@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class WidgetFormulaStyle
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors
     attr_accessor :palette
 

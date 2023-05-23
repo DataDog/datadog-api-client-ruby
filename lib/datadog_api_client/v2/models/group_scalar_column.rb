@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class GroupScalarColumn
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The name of the tag key or group.
     attr_accessor :name
 

@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SignalStateUpdateRequest
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Optional comment to explain why a signal is being archived.
     attr_accessor :archive_comment
 

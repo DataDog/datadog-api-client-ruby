@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class MonitorState
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Dictionary where the keys are groups (comma separated lists of tags) and the values are
     # the list of groups your monitor is broken down on.
     attr_accessor :groups

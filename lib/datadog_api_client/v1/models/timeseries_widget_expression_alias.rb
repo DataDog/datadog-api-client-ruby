@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class TimeseriesWidgetExpressionAlias
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Expression alias.
     attr_accessor :alias_name
 

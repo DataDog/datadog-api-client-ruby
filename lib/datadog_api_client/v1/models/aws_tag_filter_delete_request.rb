@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class AWSTagFilterDeleteRequest
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The unique identifier of your AWS account.
     attr_accessor :account_id
 

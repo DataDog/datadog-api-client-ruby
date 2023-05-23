@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class SecurityFilterExclusionFilter
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Exclusion filter name.
     attr_reader :name
 

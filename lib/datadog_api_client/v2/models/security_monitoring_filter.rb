@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class SecurityMonitoringFilter
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The type of filtering action.
     attr_accessor :action
 

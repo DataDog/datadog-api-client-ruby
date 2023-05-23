@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class CloudWorkloadSecurityAgentRulesListResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # A list of Agent rules objects.
     attr_accessor :data
 

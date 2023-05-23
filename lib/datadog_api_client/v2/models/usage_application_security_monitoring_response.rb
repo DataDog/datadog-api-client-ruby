@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class UsageApplicationSecurityMonitoringResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Response containing Application Security Monitoring usage.
     attr_accessor :data
 

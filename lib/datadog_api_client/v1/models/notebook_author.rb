@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class NotebookAuthor
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Creation time of the user.
     attr_accessor :created_at
 

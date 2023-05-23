@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class LogsMetricResponseCompute
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The type of aggregation to use.
     attr_accessor :aggregation_type
 

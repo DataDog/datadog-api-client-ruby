@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class User
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Attributes of user object returned by the API.
     attr_accessor :attributes
 

@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class FunnelStep
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The facet of the step.
     attr_reader :facet
 

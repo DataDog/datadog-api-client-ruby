@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class NotebookHeatMapCellAttributes
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The heat map visualization shows metrics aggregated across many tags, such as hosts. The more hosts that have a particular value, the darker that square is.
     attr_reader :definition
 

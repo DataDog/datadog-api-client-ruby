@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class DetailedFinding
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The JSON:API attributes of the detailed finding.
     attr_accessor :attributes
 

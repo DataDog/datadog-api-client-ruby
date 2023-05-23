@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class MonitorThresholdWindowOptions
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Describes how long an anomalous metric must be normal before the alert recovers.
     attr_accessor :recovery_window
 

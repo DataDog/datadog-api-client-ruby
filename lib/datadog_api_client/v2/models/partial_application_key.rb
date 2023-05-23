@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class PartialApplicationKey
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Attributes of a partial application key.
     attr_accessor :attributes
 

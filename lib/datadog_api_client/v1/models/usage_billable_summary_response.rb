@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class UsageBillableSummaryResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # An array of objects regarding usage of billable summary.
     attr_accessor :usage
 

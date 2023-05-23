@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SLOOverallStatuses
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Error message if SLO status or error budget could not be calculated.
     attr_accessor :error
 

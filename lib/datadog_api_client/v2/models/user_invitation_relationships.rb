@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class UserInvitationRelationships
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Relationship to user.
     attr_reader :user
 

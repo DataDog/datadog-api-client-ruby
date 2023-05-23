@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class IncidentAttachmentLinkAttributes
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The link attachment.
     attr_reader :attachment
 

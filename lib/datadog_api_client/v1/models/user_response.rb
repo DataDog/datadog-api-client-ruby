@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class UserResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Create, edit, and disable users.
     attr_accessor :user
 

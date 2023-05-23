@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class MetricBulkTagConfigCreateAttributes
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # A list of account emails to notify when the configuration is applied.
     attr_accessor :emails
 

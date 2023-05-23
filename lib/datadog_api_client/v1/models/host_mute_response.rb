@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class HostMuteResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Action applied to the hosts.
     attr_accessor :action
 

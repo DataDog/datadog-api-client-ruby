@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class SensitiveDataScannerRuleIncludedItem
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Attributes of the Sensitive Data Scanner rule.
     attr_accessor :attributes
 

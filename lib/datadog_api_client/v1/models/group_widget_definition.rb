@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class GroupWidgetDefinition
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Background color of the group title.
     attr_accessor :background_color
 

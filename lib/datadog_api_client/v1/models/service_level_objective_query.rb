@@ -23,10 +23,6 @@ module DatadogAPIClient::V1
   class ServiceLevelObjectiveQuery
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # A Datadog metric query for total (valid) events.
     attr_reader :denominator
 

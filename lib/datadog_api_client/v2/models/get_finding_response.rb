@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class GetFindingResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # A single finding with with message and resource configuration.
     attr_reader :data
 

@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class MetricsQueryUnit
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Unit family, allows for conversion between units of the same family, for scaling.
     attr_accessor :family
 

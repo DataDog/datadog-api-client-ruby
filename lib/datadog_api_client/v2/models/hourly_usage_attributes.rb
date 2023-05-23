@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class HourlyUsageAttributes
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # List of the measured usage values for the product family for the org for the time period.
     attr_accessor :measurements
 

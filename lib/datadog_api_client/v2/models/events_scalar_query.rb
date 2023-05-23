@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class EventsScalarQuery
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The instructions for what to compute for this query.
     attr_reader :compute
 

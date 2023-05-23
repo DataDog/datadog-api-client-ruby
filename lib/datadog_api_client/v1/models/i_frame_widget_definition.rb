@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class IFrameWidgetDefinition
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Type of the iframe widget.
     attr_reader :type
 

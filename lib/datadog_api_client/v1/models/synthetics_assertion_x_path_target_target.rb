@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SyntheticsAssertionXPathTargetTarget
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The specific operator to use on the path.
     attr_accessor :operator
 

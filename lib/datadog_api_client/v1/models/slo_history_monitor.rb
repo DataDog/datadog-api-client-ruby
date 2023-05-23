@@ -22,10 +22,6 @@ module DatadogAPIClient::V1
   class SLOHistoryMonitor
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # A mapping of threshold `timeframe` to the remaining error budget.
     attr_accessor :error_budget_remaining
 

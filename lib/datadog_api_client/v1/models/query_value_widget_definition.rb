@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class QueryValueWidgetDefinition
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Whether to use auto-scaling or not.
     attr_accessor :autoscale
 

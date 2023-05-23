@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class SpansMetricResponseFilter
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The search query - following the span search syntax.
     attr_accessor :query
 

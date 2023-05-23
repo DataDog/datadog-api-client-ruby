@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class HostMetrics
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The percent of CPU used (everything but idle).
     attr_accessor :cpu
 

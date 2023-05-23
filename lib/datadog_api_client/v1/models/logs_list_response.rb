@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class LogsListResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Array of logs matching the request and the `nextLogId` if sent.
     attr_accessor :logs
 

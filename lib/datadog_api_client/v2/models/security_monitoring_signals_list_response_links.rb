@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class SecurityMonitoringSignalsListResponseLinks
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The link for the next set of results. **Note**: The request can also be made using the
     # POST endpoint.
     attr_accessor :_next

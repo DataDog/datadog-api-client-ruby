@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class OrganizationResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Create, edit, and manage organizations.
     attr_accessor :org
 

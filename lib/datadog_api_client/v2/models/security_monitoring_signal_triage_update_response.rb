@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class SecurityMonitoringSignalTriageUpdateResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Data containing the updated triage attributes of the signal.
     attr_reader :data
 

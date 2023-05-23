@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class IPRanges
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Available prefix information for the Agent endpoints.
     attr_accessor :agents
 

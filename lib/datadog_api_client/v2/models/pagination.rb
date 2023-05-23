@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class Pagination
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Total count.
     attr_accessor :total_count
 

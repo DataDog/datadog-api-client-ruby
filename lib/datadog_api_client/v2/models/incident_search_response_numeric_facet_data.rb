@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class IncidentSearchResponseNumericFacetData
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Aggregate information for numeric incident data.
     attr_reader :aggregates
 

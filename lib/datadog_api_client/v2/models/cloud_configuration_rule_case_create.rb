@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class CloudConfigurationRuleCaseCreate
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Notification targets for each rule case.
     attr_accessor :notifications
 

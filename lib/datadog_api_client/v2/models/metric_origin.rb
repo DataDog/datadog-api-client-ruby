@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class MetricOrigin
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The origin metric type code
     attr_reader :metric_type
 

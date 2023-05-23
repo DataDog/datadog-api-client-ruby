@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SyntheticsGlobalVariableTOTPParameters
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Number of digits for the OTP code.
     attr_reader :digits
 

@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class IncidentAttachmentUpdateRequest
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # An array of incident attachments. An attachment object without an "id" key indicates that you want to
     # create that attachment. An attachment object without an "attributes" key indicates that you want to
     # delete that attachment. An attachment object with both the "id" key and a populated "attributes" object

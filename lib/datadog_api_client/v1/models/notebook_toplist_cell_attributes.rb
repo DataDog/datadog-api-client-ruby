@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class NotebookToplistCellAttributes
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The top list visualization enables you to display a list of Tag value like hostname or service with the most or least of any metric value, such as highest consumers of CPU, hosts with the least disk space, etc.
     attr_reader :definition
 

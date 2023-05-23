@@ -26,10 +26,6 @@ module DatadogAPIClient::V1
   class LogsTraceRemapper
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Whether or not the processor is enabled.
     attr_accessor :is_enabled
 

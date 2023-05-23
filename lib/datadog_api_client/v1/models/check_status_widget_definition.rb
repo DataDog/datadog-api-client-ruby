@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class CheckStatusWidgetDefinition
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Name of the check to use in the widget.
     attr_reader :check
 

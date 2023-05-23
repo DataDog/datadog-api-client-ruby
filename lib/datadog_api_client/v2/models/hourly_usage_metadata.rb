@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class HourlyUsageMetadata
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The metadata for the current pagination.
     attr_accessor :pagination
 

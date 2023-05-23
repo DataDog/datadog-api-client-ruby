@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SyntheticsAssertionJSONPathTargetTarget
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The JSON path to assert.
     attr_accessor :json_path
 

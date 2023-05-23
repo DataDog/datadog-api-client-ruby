@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class SecurityMonitoringRuleCaseCreate
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # A rule case contains logical operations (`>`,`>=`, `&&`, `||`) to determine if a signal should be generated
     # based on the event counts in the previously defined queries.
     attr_accessor :condition

@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class ListFindingsResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Array of findings.
     attr_reader :data
 

@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SLOListResponseMetadataPage
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The total number of resources that could be retrieved ignoring the parameters and filters in the request.
     attr_accessor :total_count
 

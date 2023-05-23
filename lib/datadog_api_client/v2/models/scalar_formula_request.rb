@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class ScalarFormulaRequest
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The object describing a scalar formula request.
     attr_reader :attributes
 

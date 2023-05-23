@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class MetricTagConfigurationUpdateRequest
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Object for a single tag configuration to be edited.
     attr_reader :data
 

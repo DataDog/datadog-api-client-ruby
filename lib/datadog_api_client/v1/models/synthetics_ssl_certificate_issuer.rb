@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SyntheticsSSLCertificateIssuer
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Country Name that issued the certificate.
     attr_accessor :c
 

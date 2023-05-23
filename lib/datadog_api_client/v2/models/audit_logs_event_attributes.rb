@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class AuditLogsEventAttributes
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # JSON object of attributes from Audit Logs events.
     attr_accessor :attributes
 

@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class RoleRelationships
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Relationship to multiple permissions objects.
     attr_accessor :permissions
 

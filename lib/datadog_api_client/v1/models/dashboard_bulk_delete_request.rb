@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class DashboardBulkDeleteRequest
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # List of dashboard bulk action request data objects.
     attr_reader :data
 

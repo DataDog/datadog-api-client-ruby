@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class ScalarResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The object describing a scalar response.
     attr_accessor :attributes
 

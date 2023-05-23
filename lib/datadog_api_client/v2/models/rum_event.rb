@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class RUMEvent
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # JSON object containing all event attributes and their associated values.
     attr_accessor :attributes
 

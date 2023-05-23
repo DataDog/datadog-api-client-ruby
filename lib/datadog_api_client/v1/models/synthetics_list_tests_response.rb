@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SyntheticsListTestsResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Array of Synthetic tests configuration.
     attr_accessor :tests
 

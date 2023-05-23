@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class IPPrefixesAPM
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # List of IPv4 prefixes.
     attr_accessor :prefixes_ipv4
 

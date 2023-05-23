@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class OrganizationCreateResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Datadog API key.
     attr_accessor :api_key
 

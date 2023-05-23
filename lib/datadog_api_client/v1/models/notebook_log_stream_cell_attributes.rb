@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class NotebookLogStreamCellAttributes
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The Log Stream displays a log flow matching the defined query. Only available on FREE layout dashboards.
     attr_reader :definition
 

@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class OrganizationSettingsSamlAutocreateUsersDomains
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # List of domains where the SAML automated user creation is enabled.
     attr_accessor :domains
 

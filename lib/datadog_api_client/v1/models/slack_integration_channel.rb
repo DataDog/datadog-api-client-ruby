@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SlackIntegrationChannel
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Configuration options for what is shown in an alert event message.
     attr_accessor :display
 

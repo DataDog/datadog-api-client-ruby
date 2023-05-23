@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class RestrictionPolicy
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Restriction policy attributes.
     attr_reader :attributes
 

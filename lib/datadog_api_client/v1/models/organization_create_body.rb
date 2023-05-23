@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class OrganizationCreateBody
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # A JSON array of billing type.
     attr_accessor :billing
 

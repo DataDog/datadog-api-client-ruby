@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class LogsQueryFilter
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The minimum time for the requested logs, supports date math and regular timestamps (milliseconds).
     attr_accessor :from
 

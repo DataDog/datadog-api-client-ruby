@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class AuthNMappingUpdateAttributes
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Key portion of a key/value pair of the attribute sent from the Identity Provider.
     attr_accessor :attribute_key
 

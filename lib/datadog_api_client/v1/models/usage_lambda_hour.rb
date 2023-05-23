@@ -22,10 +22,6 @@ module DatadogAPIClient::V1
   class UsageLambdaHour
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Contains the number of different functions for each region and AWS account.
     attr_accessor :func_count
 

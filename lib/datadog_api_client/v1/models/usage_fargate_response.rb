@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class UsageFargateResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Array with the number of hourly Fargate tasks recorded for a given organization.
     attr_accessor :usage
 

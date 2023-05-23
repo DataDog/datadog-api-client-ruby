@@ -31,10 +31,6 @@ module DatadogAPIClient::V1
   class SyntheticsBrowserTestRumSettings
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # RUM application ID used to collect RUM data for the browser test.
     attr_accessor :application_id
 

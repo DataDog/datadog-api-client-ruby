@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class ScatterplotTableRequest
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # List of Scatterplot formulas that operate on queries.
     attr_accessor :formulas
 

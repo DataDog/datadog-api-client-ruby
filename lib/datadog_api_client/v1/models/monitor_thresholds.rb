@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class MonitorThresholds
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The monitor `CRITICAL` threshold.
     attr_accessor :critical
 

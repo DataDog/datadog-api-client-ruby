@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SyntheticsStepDetailWarning
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Message for the warning.
     attr_reader :message
 

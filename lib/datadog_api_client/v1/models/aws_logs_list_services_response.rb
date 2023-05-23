@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class AWSLogsListServicesResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Key value in returned object.
     attr_accessor :id
 

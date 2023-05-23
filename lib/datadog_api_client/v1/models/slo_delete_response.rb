@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SLODeleteResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # An array containing the ID of the deleted service level objective object.
     attr_accessor :data
 

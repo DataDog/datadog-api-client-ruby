@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class TopologyRequest
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Query to service-based topology data sources like the service map or data streams.
     attr_accessor :query
 

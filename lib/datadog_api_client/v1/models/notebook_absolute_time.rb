@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class NotebookAbsoluteTime
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The end time.
     attr_reader :_end
 

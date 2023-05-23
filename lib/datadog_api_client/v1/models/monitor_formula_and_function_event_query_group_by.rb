@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class MonitorFormulaAndFunctionEventQueryGroupBy
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Event facet.
     attr_reader :facet
 

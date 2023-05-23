@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class IPAllowlistResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # IP allowlist data.
     attr_accessor :data
 

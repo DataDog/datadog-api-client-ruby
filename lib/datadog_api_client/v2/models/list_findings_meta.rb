@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class ListFindingsMeta
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Pagination and findings count information.
     attr_accessor :page
 

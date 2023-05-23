@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class UsageDBMHour
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The total number of Database Monitoring host hours from the start of the given hour’s month until the given hour.
     attr_accessor :dbm_host_count
 

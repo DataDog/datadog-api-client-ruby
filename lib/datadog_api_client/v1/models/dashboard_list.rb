@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class DashboardList
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Object describing the creator of the shared element.
     attr_accessor :author
 

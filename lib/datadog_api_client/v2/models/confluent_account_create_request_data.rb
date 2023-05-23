@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class ConfluentAccountCreateRequestData
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Attributes associated with the account creation request.
     attr_reader :attributes
 

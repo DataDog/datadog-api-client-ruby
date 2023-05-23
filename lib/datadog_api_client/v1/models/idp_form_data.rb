@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class IdpFormData
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The path to the XML metadata file you wish to upload.
     attr_reader :idp_file
 

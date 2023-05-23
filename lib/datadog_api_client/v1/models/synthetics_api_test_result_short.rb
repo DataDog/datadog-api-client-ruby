@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class SyntheticsAPITestResultShort
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Last time the API test was performed.
     attr_accessor :check_time
 

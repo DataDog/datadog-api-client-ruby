@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class TimeseriesFormulaQueryRequest
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # A single timeseries query to be executed.
     attr_reader :data
 

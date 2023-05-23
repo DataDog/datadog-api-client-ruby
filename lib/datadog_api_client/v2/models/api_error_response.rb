@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class APIErrorResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # A list of errors.
     attr_reader :errors
 

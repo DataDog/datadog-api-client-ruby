@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class HTTPLogErrors
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Structured errors.
     attr_accessor :errors
 

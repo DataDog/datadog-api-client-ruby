@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class WidgetFormulaLimit
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Number of results to return.
     attr_accessor :count
 

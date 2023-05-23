@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class ConfluentResourcesResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The JSON:API data attribute.
     attr_accessor :data
 

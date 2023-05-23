@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class MonitorFormulaAndFunctionEventQueryDefinitionCompute
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Aggregation methods for event platform queries.
     attr_reader :aggregation
 

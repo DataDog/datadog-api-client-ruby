@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class FastlyServiceData
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Attributes object for Fastly service requests.
     attr_accessor :attributes
 

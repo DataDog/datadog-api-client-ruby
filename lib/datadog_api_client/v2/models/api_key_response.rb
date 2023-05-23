@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class APIKeyResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Datadog API key.
     attr_accessor :data
 

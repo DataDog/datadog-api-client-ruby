@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class SensitiveDataScannerCreateRuleResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Response data related to the creation of a rule.
     attr_accessor :data
 

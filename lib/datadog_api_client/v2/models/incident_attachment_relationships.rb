@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class IncidentAttachmentRelationships
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Relationship to user.
     attr_accessor :last_modified_by_user
 

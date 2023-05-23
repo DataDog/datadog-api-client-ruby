@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class RoleCloneAttributes
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Name of the new role that is cloned.
     attr_reader :name
 

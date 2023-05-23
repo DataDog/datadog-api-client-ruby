@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class MonitorType
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The POSIX timestamp of the monitor's creation in nanoseconds.
     attr_accessor :created_at
 

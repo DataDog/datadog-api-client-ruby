@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class UsageSyntheticsAPIResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Get hourly usage for Synthetics API tests.
     attr_accessor :usage
 

@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class ListStreamQuery
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Compute configuration for the List Stream Widget. Compute can be used only with the logs_transaction_stream (from 1 to 5 items) list stream source.
     attr_reader :compute
 

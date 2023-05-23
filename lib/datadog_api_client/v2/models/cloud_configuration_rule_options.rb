@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class CloudConfigurationRuleOptions
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Options for cloud_configuration rules.
     # Fields `resourceType` and `regoRule` are mandatory when managing custom `cloud_configuration` rules.
     #

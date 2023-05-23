@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class OrgDowngradedResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Information pertaining to the downgraded child organization.
     attr_accessor :message
 

@@ -21,10 +21,6 @@ module DatadogAPIClient::V2
   class ServiceDefinitionCreateResponse
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # Create service definitions response payload.
     attr_accessor :data
 

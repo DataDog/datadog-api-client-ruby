@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class MonitorOptionsSchedulingOptionsEvaluationWindow
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The time of the day at which a one day cumulative evaluation window starts. Must be defined in UTC time in `HH:mm` format.
     attr_accessor :day_starts
 

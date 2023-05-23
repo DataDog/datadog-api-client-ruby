@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class MonitorSearchResponseMetadata
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # The page to start paginating from.
     attr_accessor :page
 

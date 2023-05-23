@@ -21,10 +21,6 @@ module DatadogAPIClient::V1
   class NotebookCreateDataAttributes
     include BaseGenericModel
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
     # List of cells to display in the notebook.
     attr_reader :cells
 
