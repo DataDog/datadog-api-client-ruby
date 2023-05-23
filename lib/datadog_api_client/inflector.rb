@@ -265,6 +265,7 @@ module DatadogAPIClient
           "v1.logs_url_parser_type" => "LogsURLParserType",
           "v1.logs_user_agent_parser" => "LogsUserAgentParser",
           "v1.logs_user_agent_parser_type" => "LogsUserAgentParserType",
+          "v1.matching_downtime" => "MatchingDowntime",
           "v1.metric_content_encoding" => "MetricContentEncoding",
           "v1.metric_metadata" => "MetricMetadata",
           "v1.metric_search_response" => "MetricSearchResponse",

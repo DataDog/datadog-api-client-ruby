@@ -33,6 +33,9 @@ module DatadogAPIClient::V1
     # ID of this monitor.
     attr_accessor :id
 
+    # A list of active downtimes that match this monitor.
+    attr_accessor :matching_downtimes
+
     # A message to include with notifications for this monitor.
     attr_accessor :message
 
@@ -77,6 +80,7 @@ module DatadogAPIClient::V1
         :'creator' => :'creator',
         :'deleted' => :'deleted',
         :'id' => :'id',
+        :'matching_downtimes' => :'matching_downtimes',
         :'message' => :'message',
         :'modified' => :'modified',
         :'multi' => :'multi',
@@ -100,6 +104,7 @@ module DatadogAPIClient::V1
         :'creator' => :'Creator',
         :'deleted' => :'Time',
         :'id' => :'Integer',
+        :'matching_downtimes' => :'Array<MatchingDowntime>',
         :'message' => :'String',
         :'modified' => :'Time',
         :'multi' => :'Boolean',
@@ -155,6 +160,12 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'id')
         self.id = attributes[:'id']
+      end
+
+      if attributes.key?(:'matching_downtimes')
+        if (value = attributes[:'matching_downtimes']).is_a?(Array)
+          self.matching_downtimes = value
+        end
       end
 
       if attributes.key?(:'message')
@@ -264,6 +275,7 @@ module DatadogAPIClient::V1
           creator == o.creator &&
           deleted == o.deleted &&
           id == o.id &&
+          matching_downtimes == o.matching_downtimes &&
           message == o.message &&
           modified == o.modified &&
           multi == o.multi &&
@@ -282,7 +294,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created, creator, deleted, id, message, modified, multi, name, options, overall_state, priority, query, restricted_roles, state, tags, type].hash
+      [created, creator, deleted, id, matching_downtimes, message, modified, multi, name, options, overall_state, priority, query, restricted_roles, state, tags, type].hash
     end
   end
 end
