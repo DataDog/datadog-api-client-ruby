@@ -22,7 +22,6 @@ body = DatadogAPIClient::V1::Dashboard.new({
         query: "example-query",
         tags_execution: "and",
         event_size: DatadogAPIClient::V1::WidgetEventSize::SMALL,
-        show_year: true,
       }),
     }),
   ],
