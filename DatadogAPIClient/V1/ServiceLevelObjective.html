@@ -127,6 +127,32 @@ for one or more timeframes, and metadata (<code>name</code>, <code>description</
       <li class="public ">
   <span class="summary_signature">
     
+      <a href="#_unparsed-instance_method" title="#_unparsed (instance method)">#<strong>_unparsed</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>whether the object has unparsed attributes.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#created_at-instance_method" title="#created_at (instance method)">#<strong>created_at</strong>  &#x21d2; Object </a>
     
 
@@ -816,9 +842,51 @@ for one or more timeframes, and metadata (<code>name</code>, <code>description</
     <h2>Instance Attribute Details</h2>
     
       
-      <span id="created_at=-instance_method"></span>
+      <span id="_unparsed=-instance_method"></span>
       <div class="method_details first">
-  <h3 class="signature first" id="created_at-instance_method">
+  <h3 class="signature first" id="_unparsed-instance_method">
+  
+    #<strong>_unparsed</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>whether the object has unparsed attributes</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+23
+24
+25</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/service_level_objective.rb', line 23</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid__unparsed'>_unparsed</span>
+  <span class='ivar'>@_unparsed</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="created_at=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="created_at-instance_method">
   
     #<strong>created_at</strong>  &#x21d2; <tt>Object</tt> 
   
@@ -886,12 +954,12 @@ for one or more timeframes, and metadata (<code>name</code>, <code>description</
       <pre class="lines">
 
 
-35
-36
-37</pre>
+31
+32
+33</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/service_level_objective.rb', line 35</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/service_level_objective.rb', line 31</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_creator'>creator</span>
   <span class='ivar'>@creator</span>
@@ -1241,12 +1309,12 @@ min of all of those requests.</p>
       <pre class="lines">
 
 
-78
-79
-80</pre>
+74
+75
+76</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/service_level_objective.rb', line 78</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/service_level_objective.rb', line 74</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_query'>query</span>
   <span class='ivar'>@query</span>
@@ -1328,12 +1396,12 @@ threshold over the given timeframe, the objective is being met.</p>
       <pre class="lines">
 
 
-87
-88
-89</pre>
+83
+84
+85</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/service_level_objective.rb', line 87</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/service_level_objective.rb', line 83</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_target_threshold'>target_threshold</span>
   <span class='ivar'>@target_threshold</span>
@@ -1413,12 +1481,12 @@ objective object.</p>
       <pre class="lines">
 
 
-94
-95
-96</pre>
+90
+91
+92</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/service_level_objective.rb', line 94</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/service_level_objective.rb', line 90</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_timeframe'>timeframe</span>
   <span class='ivar'>@timeframe</span>
@@ -1455,12 +1523,12 @@ objective object.</p>
       <pre class="lines">
 
 
-97
-98
-99</pre>
+93
+94
+95</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/service_level_objective.rb', line 97</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/service_level_objective.rb', line 93</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_type'>type</span>
   <span class='ivar'>@type</span>
@@ -1500,12 +1568,12 @@ threshold.</p>
       <pre class="lines">
 
 
-103
-104
-105</pre>
+99
+100
+101</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/service_level_objective.rb', line 103</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/service_level_objective.rb', line 99</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_warning_threshold'>warning_threshold</span>
   <span class='ivar'>@warning_threshold</span>
@@ -2379,7 +2447,7 @@ For object, use to_hash. Otherwise, just return the value</p>
 </div>
 
       <div id="footer">
-  Generated on Mon May 22 17:42:33 2023 by
+  Generated on Tue May 23 13:47:39 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.34 (ruby-2.7.8).
 </div>

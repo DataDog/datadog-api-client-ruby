@@ -148,6 +148,32 @@ see <a href="https://docs.datadoghq.com/logs/log_configuration/parsing/?tab=filt
       <li class="public ">
   <span class="summary_signature">
     
+      <a href="#_unparsed-instance_method" title="#_unparsed (instance method)">#<strong>_unparsed</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>whether the object has unparsed attributes.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#expression-instance_method" title="#expression (instance method)">#<strong>expression</strong>  &#x21d2; Object </a>
     
 
@@ -600,9 +626,51 @@ see <a href="https://docs.datadoghq.com/logs/log_configuration/parsing/?tab=filt
     <h2>Instance Attribute Details</h2>
     
       
-      <span id="expression=-instance_method"></span>
+      <span id="_unparsed=-instance_method"></span>
       <div class="method_details first">
-  <h3 class="signature first" id="expression-instance_method">
+  <h3 class="signature first" id="_unparsed-instance_method">
+  
+    #<strong>_unparsed</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>whether the object has unparsed attributes</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+23
+24
+25</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/logs_arithmetic_processor.rb', line 23</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid__unparsed'>_unparsed</span>
+  <span class='ivar'>@_unparsed</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="expression=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="expression-instance_method">
   
     #<strong>expression</strong>  &#x21d2; <tt>Object</tt> 
   
@@ -837,12 +905,12 @@ skip the operation if an attribute is missing.</p>
       <pre class="lines">
 
 
-65
-66
-67</pre>
+61
+62
+63</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/logs_arithmetic_processor.rb', line 65</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/logs_arithmetic_processor.rb', line 61</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_type'>type</span>
   <span class='ivar'>@type</span>
@@ -1758,7 +1826,7 @@ For object, use to_hash. Otherwise, just return the value</p>
 </div>
 
       <div id="footer">
-  Generated on Mon May 22 17:42:38 2023 by
+  Generated on Tue May 23 13:47:46 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.34 (ruby-2.7.8).
 </div>

@@ -155,6 +155,32 @@ prevent all alerting related to specified Datadog tags.</p>
       <li class="public ">
   <span class="summary_signature">
     
+      <a href="#_unparsed-instance_method" title="#_unparsed (instance method)">#<strong>_unparsed</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>whether the object has unparsed attributes.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#active-instance_method" title="#active (instance method)">#<strong>active</strong>  &#x21d2; Object </a>
     
 
@@ -965,6 +991,48 @@ the downtime is in effect indefinitely until you cancel it.</p>
 </div>
     
       
+      <span id="_unparsed=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="_unparsed-instance_method">
+  
+    #<strong>_unparsed</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>whether the object has unparsed attributes</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+23
+24
+25</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/downtime.rb', line 23</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid__unparsed'>_unparsed</span>
+  <span class='ivar'>@_unparsed</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
       <span id="active=-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="active-instance_method">
@@ -1034,12 +1102,12 @@ field will only exist on recurring downtimes.</p>
       <pre class="lines">
 
 
-36
-37
-38</pre>
+32
+33
+34</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/downtime.rb', line 36</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/downtime.rb', line 32</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_active_child'>active_child</span>
   <span class='ivar'>@active_child</span>
@@ -1419,12 +1487,12 @@ For example, <code>service:postgres</code> <strong>AND</strong> <code>team:front
       <pre class="lines">
 
 
-74
-75
-76</pre>
+70
+71
+72</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/downtime.rb', line 74</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/downtime.rb', line 70</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_mute_first_recovery_notification'>mute_first_recovery_notification</span>
   <span class='ivar'>@mute_first_recovery_notification</span>
@@ -1461,12 +1529,12 @@ For example, <code>service:postgres</code> <strong>AND</strong> <code>team:front
       <pre class="lines">
 
 
-77
-78
-79</pre>
+73
+74
+75</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/downtime.rb', line 77</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/downtime.rb', line 73</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_notify_end_states'>notify_end_states</span>
   <span class='ivar'>@notify_end_states</span>
@@ -1506,12 +1574,12 @@ already have an alert-worthy state when downtime begins.</p>
       <pre class="lines">
 
 
-83
-84
-85</pre>
+79
+80
+81</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/downtime.rb', line 83</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/downtime.rb', line 79</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_notify_end_types'>notify_end_types</span>
   <span class='ivar'>@notify_end_types</span>
@@ -1590,12 +1658,12 @@ already have an alert-worthy state when downtime begins.</p>
       <pre class="lines">
 
 
-89
-90
-91</pre>
+85
+86
+87</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/downtime.rb', line 89</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/downtime.rb', line 85</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_recurrence'>recurrence</span>
   <span class='ivar'>@recurrence</span>
@@ -2640,7 +2708,7 @@ For object, use to_hash. Otherwise, just return the value</p>
 </div>
 
       <div id="footer">
-  Generated on Mon May 22 17:42:05 2023 by
+  Generated on Tue May 23 13:46:58 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.34 (ruby-2.7.8).
 </div>

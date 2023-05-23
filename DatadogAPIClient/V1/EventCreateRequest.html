@@ -124,6 +124,32 @@
       <li class="public ">
   <span class="summary_signature">
     
+      <a href="#_unparsed-instance_method" title="#_unparsed (instance method)">#<strong>_unparsed</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>whether the object has unparsed attributes.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#aggregation_key-instance_method" title="#aggregation_key (instance method)">#<strong>aggregation_key</strong>  &#x21d2; Object </a>
     
 
@@ -683,9 +709,51 @@
     <h2>Instance Attribute Details</h2>
     
       
-      <span id="aggregation_key=-instance_method"></span>
+      <span id="_unparsed=-instance_method"></span>
       <div class="method_details first">
-  <h3 class="signature first" id="aggregation_key-instance_method">
+  <h3 class="signature first" id="_unparsed-instance_method">
+  
+    #<strong>_unparsed</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>whether the object has unparsed attributes</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+23
+24
+25</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/event_create_request.rb', line 23</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid__unparsed'>_unparsed</span>
+  <span class='ivar'>@_unparsed</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="aggregation_key=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="aggregation_key-instance_method">
   
     #<strong>aggregation_key</strong>  &#x21d2; <tt>Object</tt> 
   
@@ -754,12 +822,12 @@ For example, <code>error</code>, <code>warning</code>, <code>info</code>, <code>
       <pre class="lines">
 
 
-35
-36
-37</pre>
+31
+32
+33</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/event_create_request.rb', line 35</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/event_create_request.rb', line 31</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_alert_type'>alert_type</span>
   <span class='ivar'>@alert_type</span>
@@ -924,12 +992,12 @@ Any tags associated with the host are also applied to this event.</p>
       <pre class="lines">
 
 
-49
-50
-51</pre>
+45
+46
+47</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/event_create_request.rb', line 49</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/event_create_request.rb', line 45</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_priority'>priority</span>
   <span class='ivar'>@priority</span>
@@ -2024,7 +2092,7 @@ For object, use to_hash. Otherwise, just return the value</p>
 </div>
 
       <div id="footer">
-  Generated on Mon May 22 17:42:23 2023 by
+  Generated on Tue May 23 13:47:25 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.34 (ruby-2.7.8).
 </div>

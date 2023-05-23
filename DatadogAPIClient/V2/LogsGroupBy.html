@@ -124,6 +124,32 @@
       <li class="public ">
   <span class="summary_signature">
     
+      <a href="#_unparsed-instance_method" title="#_unparsed (instance method)">#<strong>_unparsed</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>whether the object has unparsed attributes.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#facet-instance_method" title="#facet (instance method)">#<strong>facet</strong>  &#x21d2; Object </a>
     
 
@@ -572,9 +598,51 @@
     <h2>Instance Attribute Details</h2>
     
       
-      <span id="facet=-instance_method"></span>
+      <span id="_unparsed=-instance_method"></span>
       <div class="method_details first">
-  <h3 class="signature first" id="facet-instance_method">
+  <h3 class="signature first" id="_unparsed-instance_method">
+  
+    #<strong>_unparsed</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>whether the object has unparsed attributes</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+23
+24
+25</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/logs_group_by.rb', line 23</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid__unparsed'>_unparsed</span>
+  <span class='ivar'>@_unparsed</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="facet=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="facet-instance_method">
   
     #<strong>facet</strong>  &#x21d2; <tt>Object</tt> 
   
@@ -641,12 +709,12 @@ Note: At most 100 buckets are allowed, the number of buckets is (max - min)/inte
       <pre class="lines">
 
 
-33
-34
-35</pre>
+29
+30
+31</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/logs_group_by.rb', line 33</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/logs_group_by.rb', line 29</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_histogram'>histogram</span>
   <span class='ivar'>@histogram</span>
@@ -725,12 +793,12 @@ Note: At most 100 buckets are allowed, the number of buckets is (max - min)/inte
       <pre class="lines">
 
 
-39
-40
-41</pre>
+35
+36
+37</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/logs_group_by.rb', line 39</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/logs_group_by.rb', line 35</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_missing'>missing</span>
   <span class='ivar'>@missing</span>
@@ -767,12 +835,12 @@ Note: At most 100 buckets are allowed, the number of buckets is (max - min)/inte
       <pre class="lines">
 
 
-42
-43
-44</pre>
+38
+39
+40</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/logs_group_by.rb', line 42</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/logs_group_by.rb', line 38</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_sort'>sort</span>
   <span class='ivar'>@sort</span>
@@ -809,12 +877,12 @@ Note: At most 100 buckets are allowed, the number of buckets is (max - min)/inte
       <pre class="lines">
 
 
-45
-46
-47</pre>
+41
+42
+43</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/logs_group_by.rb', line 45</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/logs_group_by.rb', line 41</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_total'>total</span>
   <span class='ivar'>@total</span>
@@ -1714,7 +1782,7 @@ For object, use to_hash. Otherwise, just return the value</p>
 </div>
 
       <div id="footer">
-  Generated on Mon May 22 17:42:11 2023 by
+  Generated on Tue May 23 13:47:06 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.34 (ruby-2.7.8).
 </div>
