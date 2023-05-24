@@ -22,6 +22,7 @@ body = DatadogAPIClient::V1::Dashboard.new({
               data_source: DatadogAPIClient::V1::ListStreamSource::EVENT_STREAM,
               query_string: "",
               event_size: DatadogAPIClient::V1::WidgetEventSize::LARGE,
+              show_year: true,
             }),
             response_format: DatadogAPIClient::V1::ListStreamResponseFormat::EVENT_LIST,
           }),

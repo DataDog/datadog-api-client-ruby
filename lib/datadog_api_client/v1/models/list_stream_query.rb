@@ -39,6 +39,9 @@ module DatadogAPIClient::V1
     # Widget query.
     attr_reader :query_string
 
+    # Option to display the year in the date column. To be used with the `event_stream`.
+    attr_accessor :show_year
+
     # Option for storage location. Feature in Private Beta.
     attr_accessor :storage
 
@@ -52,6 +55,7 @@ module DatadogAPIClient::V1
         :'group_by' => :'group_by',
         :'indexes' => :'indexes',
         :'query_string' => :'query_string',
+        :'show_year' => :'show_year',
         :'storage' => :'storage'
       }
     end
@@ -66,6 +70,7 @@ module DatadogAPIClient::V1
         :'group_by' => :'Array<ListStreamGroupByItems>',
         :'indexes' => :'Array<String>',
         :'query_string' => :'String',
+        :'show_year' => :'Boolean',
         :'storage' => :'String'
       }
     end
@@ -114,6 +119,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'query_string')
         self.query_string = attributes[:'query_string']
+      end
+
+      if attributes.key?(:'show_year')
+        self.show_year = attributes[:'show_year']
       end
 
       if attributes.key?(:'storage')
@@ -188,6 +197,7 @@ module DatadogAPIClient::V1
           group_by == o.group_by &&
           indexes == o.indexes &&
           query_string == o.query_string &&
+          show_year == o.show_year &&
           storage == o.storage
     end
 
@@ -195,7 +205,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [compute, data_source, event_size, group_by, indexes, query_string, storage].hash
+      [compute, data_source, event_size, group_by, indexes, query_string, show_year, storage].hash
     end
   end
 end
