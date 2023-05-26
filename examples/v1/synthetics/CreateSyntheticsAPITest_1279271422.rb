@@ -31,6 +31,7 @@ body = DatadogAPIClient::V1::SyntheticsAPITest.new({
               type: DatadogAPIClient::V1::SyntheticsGlobalVariableParserType::RAW,
             }),
             type: DatadogAPIClient::V1::SyntheticsGlobalVariableParseTestOptionsType::HTTP_HEADER,
+            secure: true,
           }),
         ],
         is_critical: true,

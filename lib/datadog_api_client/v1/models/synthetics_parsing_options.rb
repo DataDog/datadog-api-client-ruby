@@ -30,6 +30,9 @@ module DatadogAPIClient::V1
     # Details of the parser to use for the global variable.
     attr_accessor :parser
 
+    # Determines whether or not the extracted value will be obfuscated.
+    attr_accessor :secure
+
     # Property of the Synthetic Test Response to use for a Synthetic global variable.
     attr_accessor :type
 
@@ -40,6 +43,7 @@ module DatadogAPIClient::V1
         :'field' => :'field',
         :'name' => :'name',
         :'parser' => :'parser',
+        :'secure' => :'secure',
         :'type' => :'type'
       }
     end
@@ -51,6 +55,7 @@ module DatadogAPIClient::V1
         :'field' => :'String',
         :'name' => :'String',
         :'parser' => :'SyntheticsVariableParser',
+        :'secure' => :'Boolean',
         :'type' => :'SyntheticsGlobalVariableParseTestOptionsType'
       }
     end
@@ -83,6 +88,10 @@ module DatadogAPIClient::V1
         self.parser = attributes[:'parser']
       end
 
+      if attributes.key?(:'secure')
+        self.secure = attributes[:'secure']
+      end
+
       if attributes.key?(:'type')
         self.type = attributes[:'type']
       end
@@ -104,6 +113,7 @@ module DatadogAPIClient::V1
           field == o.field &&
           name == o.name &&
           parser == o.parser &&
+          secure == o.secure &&
           type == o.type
     end
 
@@ -111,7 +121,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [field, name, parser, type].hash
+      [field, name, parser, secure, type].hash
     end
   end
 end
