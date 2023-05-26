@@ -170,7 +170,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Configure tags for multiple metrics.
+    # Delete tags for multiple metrics.
     #
     # @see #delete_bulk_tags_metrics_configuration_with_http_info
     def delete_bulk_tags_metrics_configuration(body, opts = {})
@@ -178,7 +178,7 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Configure tags for multiple metrics.
+    # Delete tags for multiple metrics.
     #
     # Delete all custom lists of queryable tag keys for a set of existing count, gauge, rate, and distribution metrics.
     # Metrics are selected by passing a metric name prefix.
