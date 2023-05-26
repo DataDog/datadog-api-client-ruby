@@ -46,7 +46,6 @@ module DatadogAPIClient::V1
     INFRA_HOST_USAGE = "infra_host_usage".freeze
     INVOCATIONS_USAGE = "invocations_usage".freeze
     NPM_HOST_USAGE = "npm_host_usage".freeze
-    OBS_PIPELINE_BYTES_USAGE = "obs_pipeline_bytes_usage".freeze
     PROFILED_CONTAINER_USAGE = "profiled_container_usage".freeze
     PROFILED_FARGATE_USAGE = "profiled_fargate_usage".freeze
     PROFILED_HOST_USAGE = "profiled_host_usage".freeze
