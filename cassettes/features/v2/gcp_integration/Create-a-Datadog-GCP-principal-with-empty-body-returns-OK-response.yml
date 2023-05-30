@@ -1,0 +1,26 @@
+http_interactions:
+- recorded_at: Thu, 25 May 2023 17:14:37 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/integration/gcp/sts_delegate
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"gcp_sts_delegate","attributes":{"delegate_account_email":"ddgci-b5ee8760a0ff148b3056@datadog-cloud-ints-staging.iam.gserviceaccount.com"},"id":"ddgci-b5ee8760a0ff148b3056@datadog-cloud-ints-staging.iam.gserviceaccount.com"}}
+
+        '
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+recorded_with: VCR 6.0.0
