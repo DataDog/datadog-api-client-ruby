@@ -1049,6 +1049,19 @@ ScenariosModelMappings = {
             "todo_id" => "String",
             "body" => "IncidentTodoPatchRequest",
     },
+    "v2.CreateGCPSTSAccount" => {
+            "body" => "GCPSTSServiceAccountCreateRequest",
+    },
+    "v2.DeleteGCPSTSAccount" => {
+            "account_id" => "String",
+    },
+    "v2.UpdateGCPSTSAccount" => {
+            "account_id" => "String",
+            "body" => "GCPSTSServiceAccountUpdateRequest",
+    },
+    "v2.MakeGCPSTSDelegate" => {
+            "body" => "Object",
+    },
     "v2.CreateOpsgenieService" => {
             "body" => "OpsgenieServiceCreateRequest",
     },
