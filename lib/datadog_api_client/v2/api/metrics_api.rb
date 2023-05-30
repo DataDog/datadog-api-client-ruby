@@ -95,7 +95,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Create a tag configuration.
+    # Get a monitor configuration policy.
     #
     # @see #create_tag_configuration_with_http_info
     def create_tag_configuration(metric_name, body, opts = {})
@@ -103,7 +103,7 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Create a tag configuration.
+    # Get a monitor configuration policy.
     #
     # Create and define a list of queryable tag keys for an existing count/gauge/rate/distribution metric.
     # Optionally, include percentile aggregations on any distribution metric or configure custom aggregations

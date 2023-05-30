@@ -280,7 +280,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Edit a monitor configuration policy.
+    # Delete a monitor configuration policy.
     #
     # @see #update_monitor_config_policy_with_http_info
     def update_monitor_config_policy(policy_id, body, opts = {})
@@ -288,7 +288,7 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Edit a monitor configuration policy.
+    # Delete a monitor configuration policy.
     #
     # Edit a monitor configuration policy.
     #
