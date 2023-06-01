@@ -95,9 +95,9 @@ module DatadogAPIClient::V2
       return false if !@color.nil? && @color > 13
       return false if !@color.nil? && @color < 0
       return false if @handle.nil?
-      return false if @handle.to_s.length > 64
+      return false if @handle.to_s.length > 195
       return false if @name.nil?
-      return false if @name.to_s.length > 64
+      return false if @name.to_s.length > 200
       true
     end
 
@@ -121,8 +121,8 @@ module DatadogAPIClient::V2
       if handle.nil?
         fail ArgumentError, 'invalid value for "handle", handle cannot be nil.'
       end
-      if handle.to_s.length > 64
-        fail ArgumentError, 'invalid value for "handle", the character length must be smaller than or equal to 64.'
+      if handle.to_s.length > 195
+        fail ArgumentError, 'invalid value for "handle", the character length must be smaller than or equal to 195.'
       end
       @handle = handle
     end
@@ -134,8 +134,8 @@ module DatadogAPIClient::V2
       if name.nil?
         fail ArgumentError, 'invalid value for "name", name cannot be nil.'
       end
-      if name.to_s.length > 64
-        fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 64.'
+      if name.to_s.length > 200
+        fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 200.'
       end
       @name = name
     end
