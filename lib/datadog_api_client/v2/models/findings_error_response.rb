@@ -17,26 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A single finding without the message and resource configuration.
-  class Finding
+  # API error response.
+  class FindingsErrorResponse
     include BaseGenericModel
 
-    # The JSON:API attributes of the finding.
-    attr_accessor :attributes
-
-    # The unique ID for this finding.
-    attr_accessor :id
-
-    # The JSON:API type for findings.
-    attr_accessor :type
+    # A list of errors.
+    attr_reader :errors
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'attributes' => :'attributes',
-        :'id' => :'id',
-        :'type' => :'type'
+        :'errors' => :'errors'
       }
     end
 
@@ -44,9 +36,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'FindingAttributes',
-        :'id' => :'String',
-        :'type' => :'FindingType'
+        :'errors' => :'Array<FindingsErrorItem>'
       }
     end
 
@@ -55,27 +45,21 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::Finding` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::FindingsErrorResponse` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::Finding`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::FindingsErrorResponse`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'attributes')
-        self.attributes = attributes[:'attributes']
-      end
-
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
-      end
-
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
+      if attributes.key?(:'errors')
+        if (value = attributes[:'errors']).is_a?(Array)
+          self.errors = value
+        end
       end
     end
 
@@ -83,7 +67,18 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
+      return false if @errors.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param errors [Object] Object to be assigned
+    # @!visibility private
+    def errors=(errors)
+      if errors.nil?
+        fail ArgumentError, 'invalid value for "errors", errors cannot be nil.'
+      end
+      @errors = errors
     end
 
     # Checks equality by comparing each attribute.
@@ -92,16 +87,14 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          attributes == o.attributes &&
-          id == o.id &&
-          type == o.type
+          errors == o.errors
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, id, type].hash
+      [errors].hash
     end
   end
 end

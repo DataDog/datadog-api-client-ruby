@@ -17,13 +17,16 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The reason why this finding is muted.
+  # The reason why this finding is muted or unmuted.
   class FindingMuteReason
     include BaseEnumModel
 
-    ACCEPTED_RISK = "ACCEPTED_RISK".freeze
     PENDING_FIX = "PENDING_FIX".freeze
     FALSE_POSITIVE = "FALSE_POSITIVE".freeze
+    ACCEPTED_RISK = "ACCEPTED_RISK".freeze
+    NO_PENDING_FIX = "NO_PENDING_FIX".freeze
+    HUMAN_ERROR = "HUMAN_ERROR".freeze
+    NO_LONGER_ACCEPTED_RISK = "NO_LONGER_ACCEPTED_RISK".freeze
     OTHER = "OTHER".freeze
   end
 end

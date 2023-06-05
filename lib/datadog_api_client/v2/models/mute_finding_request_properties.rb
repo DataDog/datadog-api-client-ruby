@@ -17,27 +17,23 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Information about the mute status of this finding.
-  class FindingMute
+  # Object containing the new mute properties of the finding.
+  class MuteFindingRequestProperties
     include BaseGenericModel
 
-    # Additional information about the reason why this finding is muted or unmuted.
+    # Additional information about the reason why this finding is muted or unmuted. This field has a maximum limit of 280 characters.
     attr_accessor :description
 
-    # The expiration date of the mute or unmute action (Unix ms).
+    # The expiration date of the mute or unmute action (Unix ms). It must be set to a value greater than the current timestamp.
+    # If this field is not provided, the finding will be muted or unmuted indefinitely, which is equivalent to setting the expiration date to 9999999999999.
+    #
     attr_accessor :expiration_date
 
     # Whether this finding is muted or unmuted.
-    attr_accessor :muted
+    attr_reader :muted
 
     # The reason why this finding is muted or unmuted.
-    attr_accessor :reason
-
-    # The start of the mute period.
-    attr_accessor :start_date
-
-    # The ID of the user who muted or unmuted this finding.
-    attr_accessor :uuid
+    attr_reader :reason
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -46,9 +42,7 @@ module DatadogAPIClient::V2
         :'description' => :'description',
         :'expiration_date' => :'expiration_date',
         :'muted' => :'muted',
-        :'reason' => :'reason',
-        :'start_date' => :'start_date',
-        :'uuid' => :'uuid'
+        :'reason' => :'reason'
       }
     end
 
@@ -59,9 +53,7 @@ module DatadogAPIClient::V2
         :'description' => :'String',
         :'expiration_date' => :'Integer',
         :'muted' => :'Boolean',
-        :'reason' => :'FindingMuteReason',
-        :'start_date' => :'Integer',
-        :'uuid' => :'String'
+        :'reason' => :'FindingMuteReason'
       }
     end
 
@@ -70,13 +62,13 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::FindingMute` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::MuteFindingRequestProperties` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::FindingMute`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::MuteFindingRequestProperties`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
@@ -96,21 +88,35 @@ module DatadogAPIClient::V2
       if attributes.key?(:'reason')
         self.reason = attributes[:'reason']
       end
-
-      if attributes.key?(:'start_date')
-        self.start_date = attributes[:'start_date']
-      end
-
-      if attributes.key?(:'uuid')
-        self.uuid = attributes[:'uuid']
-      end
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     # @!visibility private
     def valid?
+      return false if @muted.nil?
+      return false if @reason.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param muted [Object] Object to be assigned
+    # @!visibility private
+    def muted=(muted)
+      if muted.nil?
+        fail ArgumentError, 'invalid value for "muted", muted cannot be nil.'
+      end
+      @muted = muted
+    end
+
+    # Custom attribute writer method with validation
+    # @param reason [Object] Object to be assigned
+    # @!visibility private
+    def reason=(reason)
+      if reason.nil?
+        fail ArgumentError, 'invalid value for "reason", reason cannot be nil.'
+      end
+      @reason = reason
     end
 
     # Checks equality by comparing each attribute.
@@ -122,16 +128,14 @@ module DatadogAPIClient::V2
           description == o.description &&
           expiration_date == o.expiration_date &&
           muted == o.muted &&
-          reason == o.reason &&
-          start_date == o.start_date &&
-          uuid == o.uuid
+          reason == o.reason
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [description, expiration_date, muted, reason, start_date, uuid].hash
+      [description, expiration_date, muted, reason].hash
     end
   end
 end
