@@ -17,26 +17,26 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A single finding without the message and resource configuration.
-  class Finding
+  # API error response body
+  class FindingsErrorItem
     include BaseGenericModel
 
-    # The JSON:API attributes of the finding.
-    attr_accessor :attributes
+    # A human-readable explanation specific to this occurrence of the error.
+    attr_accessor :detail
 
-    # The unique ID for this finding.
-    attr_accessor :id
+    # Status code of the response.
+    attr_accessor :status
 
-    # The JSON:API type for findings.
-    attr_accessor :type
+    # Short human-readable summary of the error.
+    attr_accessor :title
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'attributes' => :'attributes',
-        :'id' => :'id',
-        :'type' => :'type'
+        :'detail' => :'detail',
+        :'status' => :'status',
+        :'title' => :'title'
       }
     end
 
@@ -44,9 +44,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'FindingAttributes',
-        :'id' => :'String',
-        :'type' => :'FindingType'
+        :'detail' => :'String',
+        :'status' => :'String',
+        :'title' => :'String'
       }
     end
 
@@ -55,27 +55,27 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::Finding` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::FindingsErrorItem` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::Finding`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::FindingsErrorItem`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'attributes')
-        self.attributes = attributes[:'attributes']
+      if attributes.key?(:'detail')
+        self.detail = attributes[:'detail']
       end
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.key?(:'status')
+        self.status = attributes[:'status']
       end
 
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
+      if attributes.key?(:'title')
+        self.title = attributes[:'title']
       end
     end
 
@@ -92,16 +92,16 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          attributes == o.attributes &&
-          id == o.id &&
-          type == o.type
+          detail == o.detail &&
+          status == o.status &&
+          title == o.title
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, id, type].hash
+      [detail, status, title].hash
     end
   end
 end

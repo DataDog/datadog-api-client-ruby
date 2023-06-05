@@ -18,13 +18,17 @@ require 'time'
 
 module DatadogAPIClient::V2
   # Information about the mute status of this finding.
-  class FindingMute
+  class MuteFindingResponseProperties
     include BaseGenericModel
 
     # Additional information about the reason why this finding is muted or unmuted.
+    # This attribute will not be included in the response if the description is not provided in the request body.
+    #
     attr_accessor :description
 
-    # The expiration date of the mute or unmute action (Unix ms).
+    # The expiration date of the mute or unmute action.
+    # If the expiration date is not provided in the request body, this attribute will not be included in the response and the finding will be muted or unmuted indefinitely.
+    #
     attr_accessor :expiration_date
 
     # Whether this finding is muted or unmuted.
@@ -33,12 +37,6 @@ module DatadogAPIClient::V2
     # The reason why this finding is muted or unmuted.
     attr_accessor :reason
 
-    # The start of the mute period.
-    attr_accessor :start_date
-
-    # The ID of the user who muted or unmuted this finding.
-    attr_accessor :uuid
-
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
@@ -46,9 +44,7 @@ module DatadogAPIClient::V2
         :'description' => :'description',
         :'expiration_date' => :'expiration_date',
         :'muted' => :'muted',
-        :'reason' => :'reason',
-        :'start_date' => :'start_date',
-        :'uuid' => :'uuid'
+        :'reason' => :'reason'
       }
     end
 
@@ -59,9 +55,7 @@ module DatadogAPIClient::V2
         :'description' => :'String',
         :'expiration_date' => :'Integer',
         :'muted' => :'Boolean',
-        :'reason' => :'FindingMuteReason',
-        :'start_date' => :'Integer',
-        :'uuid' => :'String'
+        :'reason' => :'FindingMuteReason'
       }
     end
 
@@ -70,13 +64,13 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::FindingMute` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::MuteFindingResponseProperties` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::FindingMute`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::MuteFindingResponseProperties`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
@@ -96,14 +90,6 @@ module DatadogAPIClient::V2
       if attributes.key?(:'reason')
         self.reason = attributes[:'reason']
       end
-
-      if attributes.key?(:'start_date')
-        self.start_date = attributes[:'start_date']
-      end
-
-      if attributes.key?(:'uuid')
-        self.uuid = attributes[:'uuid']
-      end
     end
 
     # Check to see if the all the properties in the model are valid
@@ -122,16 +108,14 @@ module DatadogAPIClient::V2
           description == o.description &&
           expiration_date == o.expiration_date &&
           muted == o.muted &&
-          reason == o.reason &&
-          start_date == o.start_date &&
-          uuid == o.uuid
+          reason == o.reason
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [description, expiration_date, muted, reason, start_date, uuid].hash
+      [description, expiration_date, muted, reason].hash
     end
   end
 end
