@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Thu, 01 Sep 2022 12:00:27 GMT
+- recorded_at: Mon, 05 Jun 2023 14:44:05 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"series":[{"metric":"TestListactivetagsandaggregationsreturnsSuccessresponse1662033627","points":[[1662033627,1.1]],"tags":["test:ExampleSubmitmetricsreturnsPayloadacceptedresponse"],"type":"gauge"}]}'
+      string: '{"series":[{"metric":"static_test_metric_donotdelete","points":[[1685976245,1.1]],"tags":["test:static_test_metric_donotdelete"],"type":"gauge"}]}'
     headers:
       Accept:
       - text/json, application/json
@@ -21,18 +21,18 @@ http_interactions:
     status:
       code: 202
       message: Accepted
-- recorded_at: Thu, 01 Sep 2022 12:00:27 GMT
+- recorded_at: Mon, 05 Jun 2023 14:44:05 GMT
   request:
     body: null
     headers:
       Accept:
       - application/json
     method: GET
-    uri: https://api.datadoghq.com/api/v2/metrics/TestListactivetagsandaggregationsreturnsSuccessresponse1662033627/active-configurations
+    uri: https://api.datadoghq.com/api/v2/metrics/static_test_metric_donotdelete/active-configurations
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"actively_queried_configurations","id":"TestListactivetagsandaggregationsreturnsSuccessresponse1662033627","attributes":{"active_tags":[],"active_aggregations":[]}}}
+      string: '{"data":{"type":"actively_queried_configurations","id":"static_test_metric_donotdelete","attributes":{"active_tags":[],"active_aggregations":[]}}}
 
         '
     headers:
