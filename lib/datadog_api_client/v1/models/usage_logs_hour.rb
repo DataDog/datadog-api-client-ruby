@@ -166,13 +166,6 @@ module DatadogAPIClient::V1
       end
     end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    # @!visibility private
-    def valid?
-      true
-    end
-
     # Checks equality by comparing each attribute.
     # @param o [Object] Object to be compared
     # @!visibility private

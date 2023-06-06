@@ -189,6 +189,13 @@ module DatadogAPIClient::V2
       end
     end
 
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      true
+    end
+
     module ClassMethods
       # Builds the object from hash
       # @param attributes [Hash] Model attributes in the form of hash

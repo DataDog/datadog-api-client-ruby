@@ -102,6 +102,37 @@
 {%- endfor %}
     end
 
+{%- set ns = namespace(hasValidation=False) %}
+{%- for attr, definition in model.get("properties", {}).items() %}
+      {%- set required = attr in model.get("required", []) %}
+      {%- if not definition.nullable and required %}
+      {%- set ns.hasValidation = True %}
+      {%- endif %}
+      {%- if definition.maxLength is defined %}
+      {%- set ns.hasValidation = True %}
+      {%- endif %}
+      {%- if definition.minLength is defined %}
+      {%- set ns.hasValidation = True %}
+      {%- endif %}
+      {%- if definition.maximum is defined %}
+      {%- set ns.hasValidation = True %}
+      {%- endif %}
+      {%- if definition.minimum is defined %}
+      {%- set ns.hasValidation = True %}
+      {%- endif %}
+      {%- if definition.pattern is defined %}
+      {%- set ns.hasValidation = True %}
+      {%- endif %}
+      {%- if definition.maxItems is defined %}
+      {%- set ns.hasValidation = True %}
+      {%- endif %}
+      {%- if definition.minItems is defined %}
+      {%- set ns.hasValidation = True %}
+      {%- endif %}
+{%- endfor %}
+
+{%- if ns.hasValidation %}
+
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     # @!visibility private
@@ -136,6 +167,7 @@
 {%- endfor %}
       true
     end
+{%- endif %}
 
 {%- for attr, definition in model.get("properties", {}).items() %}
     {%- set required = attr in model.get("required", []) %}
