@@ -2,4 +2,4 @@
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::MetricsAPI.new
-p api_instance.list_volumes_by_metric_name("static_test_metric_donotdelete")
+p api_instance.list_volumes_by_metric_name("ExampleMetric")

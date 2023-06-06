@@ -21,22 +21,22 @@ module DatadogAPIClient::V2
   class FindingMute
     include BaseGenericModel
 
-    # Additional information about the reason why this finding is muted or unmuted.
+    # Additional information about the reason why this finding is muted.
     attr_accessor :description
 
-    # The expiration date of the mute or unmute action (Unix ms).
+    # The end of the mute period.
     attr_accessor :expiration_date
 
-    # Whether this finding is muted or unmuted.
+    # Whether this finding is muted.
     attr_accessor :muted
 
-    # The reason why this finding is muted or unmuted.
+    # The reason why this finding is muted.
     attr_accessor :reason
 
     # The start of the mute period.
     attr_accessor :start_date
 
-    # The ID of the user who muted or unmuted this finding.
+    # The ID of the user who muted this finding.
     attr_accessor :uuid
 
     # Attribute mapping from ruby-style variable name to JSON key.

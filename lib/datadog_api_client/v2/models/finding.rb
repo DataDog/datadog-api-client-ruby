@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A single finding without the message and resource configuration.
+  # A single finding without message and resource configuration.
   class Finding
     include BaseGenericModel
 
