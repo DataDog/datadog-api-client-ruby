@@ -314,6 +314,11 @@ def format_data_with_schema_dict(
     parameters = ""
     has_properties = schema.get("properties")
     if has_properties:
+        required_properties = set(schema.get("required", []))
+        missing = required_properties - set(data.keys())
+        if missing:
+            raise ValueError(f"missing required properties: {missing}")
+        
         for k, v in data.items():
             if k not in schema["properties"]:
                 continue
