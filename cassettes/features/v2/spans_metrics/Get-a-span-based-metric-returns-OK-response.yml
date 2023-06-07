@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Wed, 07 Jun 2023 12:05:41 GMT
+- recorded_at: Tue, 28 Mar 2023 14:55:26 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"compute":{"aggregation_type":"distribution","include_percentiles":false,"path":"@duration"},"filter":{"query":"source:Test-Get_a_span_based_metric_returns_OK_response-1686139541"},"group_by":[{"path":"resource_name","tag_name":"resource_name"}]},"id":"Test-Get_a_span_based_metric_returns_OK_response-1686139541","type":"spans_metrics"}}'
+      string: '{"data":{"attributes":{"compute":{"aggregation_type":"distribution","include_percentiles":false,"path":"@duration"},"filter":{"query":"source:Test-Get_a_span_based_metric_returns_OK_response-1680015326"},"group_by":[{"path":"resource_name","tag_name":"resource_name"}]},"id":"Test-Get_a_span_based_metric_returns_OK_response-1680015326","type":"spans_metrics"}}'
     headers:
       Accept:
       - application/json
@@ -14,7 +14,7 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"Test_Get_a_span_based_metric_returns_OK_response_1686139541","attributes":{"filter":{"query":"source:Test-Get_a_span_based_metric_returns_OK_response-1686139541"},"group_by":[{"path":"resource_name","tag_name":"resource_name"}],"compute":{"aggregation_type":"distribution","path":"@duration","include_percentiles":false}},"type":"spans_metrics"}}
+      string: '{"data":{"id":"Test_Get_a_span_based_metric_returns_OK_response_1680015326","attributes":{"filter":{"query":"source:Test-Get_a_span_based_metric_returns_OK_response-1680015326"},"group_by":[{"path":"resource_name","tag_name":"resource_name"}],"compute":{"aggregation_type":"distribution","path":"@duration","include_percentiles":false}},"type":"spans_metrics"}}
 
         '
     headers:
@@ -23,18 +23,18 @@ http_interactions:
     status:
       code: 200
       message: OK
-- recorded_at: Wed, 07 Jun 2023 12:05:41 GMT
+- recorded_at: Tue, 28 Mar 2023 14:55:26 GMT
   request:
     body: null
     headers:
       Accept:
       - application/json
     method: GET
-    uri: https://api.datadoghq.com/api/v2/apm/config/metrics/Test_Get_a_span_based_metric_returns_OK_response_1686139541
+    uri: https://api.datadoghq.com/api/v2/apm/config/metrics/Test_Get_a_span_based_metric_returns_OK_response_1680015326
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"Test_Get_a_span_based_metric_returns_OK_response_1686139541","attributes":{"filter":{"query":"source:Test-Get_a_span_based_metric_returns_OK_response-1686139541"},"group_by":[{"path":"resource_name","tag_name":"resource_name"}],"compute":{"aggregation_type":"distribution","path":"@duration","include_percentiles":false}},"type":"spans_metrics"}}
+      string: '{"data":{"id":"Test_Get_a_span_based_metric_returns_OK_response_1680015326","attributes":{"filter":{"query":"source:Test-Get_a_span_based_metric_returns_OK_response-1680015326"},"group_by":[{"path":"resource_name","tag_name":"resource_name"}],"compute":{"aggregation_type":"distribution","path":"@duration","include_percentiles":false}},"type":"spans_metrics"}}
 
         '
     headers:
@@ -43,22 +43,24 @@ http_interactions:
     status:
       code: 200
       message: OK
-- recorded_at: Wed, 07 Jun 2023 12:05:41 GMT
+- recorded_at: Tue, 28 Mar 2023 14:55:26 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/apm/config/metrics/Test_Get_a_span_based_metric_returns_OK_response_1686139541
+    uri: https://api.datadoghq.com/api/v2/apm/config/metrics/Test_Get_a_span_based_metric_returns_OK_response_1680015326
   response:
     body:
       encoding: UTF-8
-      string: ''
+      string: '{}
+
+        '
     headers:
       Content-Type:
-      - text/html; charset=utf-8
+      - application/json
     status:
-      code: 204
-      message: No Content
+      code: 200
+      message: OK
 recorded_with: VCR 6.0.0
