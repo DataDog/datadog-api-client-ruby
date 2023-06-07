@@ -1,10 +1,10 @@
 http_interactions:
-- recorded_at: Tue, 28 Mar 2023 14:55:24 GMT
+- recorded_at: Wed, 07 Jun 2023 12:04:58 GMT
   request:
     body:
       encoding: UTF-8
       string: '{"data":{"attributes":{"compute":{"aggregation_type":"distribution","include_percentiles":false,"path":"@duration"},"filter":{"query":"@http.status_code:200
-        service:my-service"},"group_by":[{"path":"resource_name","tag_name":"resource_name"}]},"id":"TestCreateaspanbasedmetricreturnsOKresponse1680015324","type":"spans_metrics"}}'
+        service:my-service"},"group_by":[{"path":"resource_name","tag_name":"resource_name"}]},"id":"TestCreateaspanbasedmetricreturnsOKresponse1686139498","type":"spans_metrics"}}'
     headers:
       Accept:
       - application/json
@@ -15,7 +15,7 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"TestCreateaspanbasedmetricreturnsOKresponse1680015324","attributes":{"filter":{"query":"@http.status_code:200
+      string: '{"data":{"id":"TestCreateaspanbasedmetricreturnsOKresponse1686139498","attributes":{"filter":{"query":"@http.status_code:200
         service:my-service"},"group_by":[{"path":"resource_name","tag_name":"resource_name"}],"compute":{"aggregation_type":"distribution","path":"@duration","include_percentiles":false}},"type":"spans_metrics"}}
 
         '
@@ -25,24 +25,22 @@ http_interactions:
     status:
       code: 200
       message: OK
-- recorded_at: Tue, 28 Mar 2023 14:55:24 GMT
+- recorded_at: Wed, 07 Jun 2023 12:04:58 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/apm/config/metrics/TestCreateaspanbasedmetricreturnsOKresponse1680015324
+    uri: https://api.datadoghq.com/api/v2/apm/config/metrics/TestCreateaspanbasedmetricreturnsOKresponse1686139498
   response:
     body:
       encoding: UTF-8
-      string: '{}
-
-        '
+      string: ''
     headers:
       Content-Type:
-      - application/json
+      - text/html; charset=utf-8
     status:
-      code: 200
-      message: OK
+      code: 204
+      message: No Content
 recorded_with: VCR 6.0.0

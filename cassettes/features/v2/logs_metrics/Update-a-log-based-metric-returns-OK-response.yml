@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Thu, 12 May 2022 09:52:28 GMT
+- recorded_at: Wed, 07 Jun 2023 11:55:30 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"compute":{"aggregation_type":"count"},"filter":{"query":"source:Test-Update_a_log_based_metric_returns_OK_response-1652349148"}},"id":"Test-Update_a_log_based_metric_returns_OK_response-1652349148","type":"logs_metrics"}}'
+      string: '{"data":{"attributes":{"compute":{"aggregation_type":"count"},"filter":{"query":"source:Test-Update_a_log_based_metric_returns_OK_response-1686138930"}},"id":"Test-Update_a_log_based_metric_returns_OK_response-1686138930","type":"logs_metrics"}}'
     headers:
       Accept:
       - application/json
@@ -14,51 +14,55 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"filter":{"query":"source:Test-Update_a_log_based_metric_returns_OK_response-1652349148"},"group_by":[],"compute":{"aggregation_type":"count"}},"type":"logs_metrics","id":"Test_Update_a_log_based_metric_returns_OK_response_1652349148"}}'
+      string: '{"data":{"id":"Test_Update_a_log_based_metric_returns_OK_response_1686138930","attributes":{"filter":{"query":"source:Test-Update_a_log_based_metric_returns_OK_response-1686138930"},"group_by":[],"compute":{"aggregation_type":"count"}},"type":"logs_metrics"}}
+
+        '
     headers:
       Content-Type:
       - application/json
     status:
       code: 200
       message: OK
-- recorded_at: Thu, 12 May 2022 09:52:28 GMT
+- recorded_at: Wed, 07 Jun 2023 11:55:30 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"filter":{"query":"source:Test-Update_a_log_based_metric_returns_OK_response-1652349148-updated"}},"type":"logs_metrics"}}'
+      string: '{"data":{"attributes":{"filter":{"query":"source:Test-Update_a_log_based_metric_returns_OK_response-1686138930-updated"}},"type":"logs_metrics"}}'
     headers:
       Accept:
       - application/json
       Content-Type:
       - application/json
     method: PATCH
-    uri: https://api.datadoghq.com/api/v2/logs/config/metrics/Test_Update_a_log_based_metric_returns_OK_response_1652349148
+    uri: https://api.datadoghq.com/api/v2/logs/config/metrics/Test_Update_a_log_based_metric_returns_OK_response_1686138930
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"filter":{"query":"source:Test-Update_a_log_based_metric_returns_OK_response-1652349148-updated"},"group_by":[],"compute":{"aggregation_type":"count"}},"type":"logs_metrics","id":"Test_Update_a_log_based_metric_returns_OK_response_1652349148"}}'
+      string: '{"data":{"id":"Test_Update_a_log_based_metric_returns_OK_response_1686138930","attributes":{"filter":{"query":"source:Test-Update_a_log_based_metric_returns_OK_response-1686138930-updated"},"group_by":[],"compute":{"aggregation_type":"count"}},"type":"logs_metrics"}}
+
+        '
     headers:
       Content-Type:
       - application/json
     status:
       code: 200
       message: OK
-- recorded_at: Thu, 12 May 2022 09:52:28 GMT
+- recorded_at: Wed, 07 Jun 2023 11:55:30 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/logs/config/metrics/Test_Update_a_log_based_metric_returns_OK_response_1652349148
+    uri: https://api.datadoghq.com/api/v2/logs/config/metrics/Test_Update_a_log_based_metric_returns_OK_response_1686138930
   response:
     body:
       encoding: UTF-8
-      string: '{}'
+      string: ''
     headers:
       Content-Type:
-      - application/json
+      - text/html; charset=utf-8
     status:
-      code: 200
-      message: OK
+      code: 204
+      message: No Content
 recorded_with: VCR 6.0.0
