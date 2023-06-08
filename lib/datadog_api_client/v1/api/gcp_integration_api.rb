@@ -33,15 +33,12 @@ module DatadogAPIClient::V1
 
     # Create a GCP integration.
     #
-    # This endpoint is deprecated. Create a Datadog-GCP integration.
-    #
-    # @deprecated This API is deprecated.
+    # Create a Datadog-GCP integration.
     #
     # @param body [GCPAccount] Create a Datadog-GCP integration.
     # @param opts [Hash] the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def create_gcp_integration_with_http_info(body, opts = {})
-      warn "[DEPRECATION] `CreateGCPIntegration` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: GCPIntegrationAPI.create_gcp_integration ...'
@@ -103,15 +100,12 @@ module DatadogAPIClient::V1
 
     # Delete a GCP integration.
     #
-    # This endpoint is deprecated. Delete a given Datadog-GCP integration.
-    #
-    # @deprecated This API is deprecated.
+    # Delete a given Datadog-GCP integration.
     #
     # @param body [GCPAccount] Delete a given Datadog-GCP integration.
     # @param opts [Hash] the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def delete_gcp_integration_with_http_info(body, opts = {})
-      warn "[DEPRECATION] `DeleteGCPIntegration` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: GCPIntegrationAPI.delete_gcp_integration ...'
@@ -173,14 +167,11 @@ module DatadogAPIClient::V1
 
     # List all GCP integrations.
     #
-    # This endpoint is deprecated. List all Datadog-GCP integrations configured in your Datadog account.
-    #
-    # @deprecated This API is deprecated.
+    # List all Datadog-GCP integrations configured in your Datadog account.
     #
     # @param opts [Hash] the optional parameters
     # @return [Array<(Array<GCPAccount>, Integer, Hash)>] Array<GCPAccount> data, response status code and response headers
     def list_gcp_integration_with_http_info(opts = {})
-      warn "[DEPRECATION] `ListGCPIntegration` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: GCPIntegrationAPI.list_gcp_integration ...'
@@ -236,18 +227,15 @@ module DatadogAPIClient::V1
 
     # Update a GCP integration.
     #
-    # This endpoint is deprecated. Update a Datadog-GCP integrations host_filters and/or auto-mute.
+    # Update a Datadog-GCP integrations host_filters and/or auto-mute.
     # Requires a `project_id` and `client_email`, however these fields cannot be updated.
     # If you need to update these fields, delete and use the create (`POST`) endpoint.
     # The unspecified fields will keep their original values.
-    #
-    # @deprecated This API is deprecated.
     #
     # @param body [GCPAccount] Update a Datadog-GCP integration.
     # @param opts [Hash] the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def update_gcp_integration_with_http_info(body, opts = {})
-      warn "[DEPRECATION] `UpdateGCPIntegration` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: GCPIntegrationAPI.update_gcp_integration ...'
