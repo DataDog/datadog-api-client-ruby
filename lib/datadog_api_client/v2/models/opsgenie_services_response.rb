@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Response with a list of Opsgenie services.
+  # Response with a list of Opsgenie services. Test coverage.
   class OpsgenieServicesResponse
     include BaseGenericModel
 
