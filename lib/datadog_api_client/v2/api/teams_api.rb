@@ -654,7 +654,7 @@ module DatadogAPIClient::V2
     #
     # @param team_id [String] None
     # @param opts [Hash] the optional parameters
-    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 5000.
+    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 100.
     # @option opts [Integer] :page_number Specific page number to return.
     # @option opts [GetTeamMembershipsSort] :sort Specifies the order of returned team memberships
     # @option opts [String] :filter_keyword Search query, can be user email or name
@@ -797,7 +797,7 @@ module DatadogAPIClient::V2
     #
     # @param opts [Hash] the optional parameters
     # @option opts [Integer] :page_number Specific page number to return.
-    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 5000.
+    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 100.
     # @option opts [ListTeamsSort] :sort Specifies the order of the returned teams
     # @option opts [Array<ListTeamsInclude>] :include Included related resources optionally requested. Allowed enum values: `team_links, user_team_permissions`
     # @option opts [String] :filter_keyword Search query. Can be team name, team handle, or email of team member

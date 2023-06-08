@@ -233,7 +233,7 @@ module DatadogAPIClient::V2
     # List all AuthN Mappings in the org.
     #
     # @param opts [Hash] the optional parameters
-    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 5000.
+    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 100.
     # @option opts [Integer] :page_number Specific page number to return.
     # @option opts [AuthNMappingsSort] :sort Sort AuthN Mappings depending on the given field.
     # @option opts [String] :filter Filter all mappings by the given string.

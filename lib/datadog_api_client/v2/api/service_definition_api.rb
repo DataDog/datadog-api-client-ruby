@@ -239,7 +239,7 @@ module DatadogAPIClient::V2
     # Get a list of all service definitions from the Datadog Service Catalog.
     #
     # @param opts [Hash] the optional parameters
-    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 5000.
+    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 100.
     # @option opts [Integer] :page_number Specific page number to return.
     # @option opts [ServiceDefinitionSchemaVersions] :schema_version The schema version desired in the response.
     # @return [Array<(ServiceDefinitionsListResponse, Integer, Hash)>] ServiceDefinitionsListResponse data, response status code and response headers
