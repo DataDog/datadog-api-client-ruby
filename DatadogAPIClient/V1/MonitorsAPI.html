@@ -1073,6 +1073,7 @@
 <li>event-v2: <code>event-v2 alert</code></li>
 <li>audit: <code>audit alert</code></li>
 <li>error-tracking: <code>error-tracking alert</code></li>
+<li>database-monitoring: <code>database-monitoring alert</code></li>
 </ul>
 
 <p><strong>Note</strong>: Synthetic monitors are created through the Synthetics API. See the <a href="https://docs.datadoghq.com/api/latest/synthetics/">Synthetics API</a> documentation for more information.</p>
@@ -1259,6 +1260,21 @@ Example(APM Traces): <code>error-tracking-traces(query).rollup(rollup_method[, m
 <li><code>operator</code> <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>==</code>, or <code>!=</code>.</li>
 <li><code>#</code> an integer or decimal number used to set the threshold.</li>
 </ul>
+
+<p><strong>Database Monitoring Alert Query</strong></p>
+
+<p>Example: <code>database-monitoring(query).rollup(rollup_method[, measure]).last(time_window) operator #</code></p>
+
+<ul>
+<li><code>query</code> The search query - following the <a href="https://docs.datadoghq.com/logs/search_syntax/">Log search syntax</a>.</li>
+<li><code>rollup_method</code> The stats roll-up method - supports <code>count</code>, <code>avg</code>, and <code>cardinality</code>.</li>
+<li><code>measure</code> For <code>avg</code> and cardinality <code>rollup_method</code> - specify the measure or the facet name you want to use.</li>
+<li><code>time_window</code> #m (between 1 and 2880), #h (between 1 and 48).</li>
+<li><code>operator</code> <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>==</code>, or <code>!=</code>.</li>
+<li><code>#</code> an integer or decimal number used to set the threshold.</li>
+</ul>
+
+<p><strong>NOTE</strong> Database Monitoring monitors are in alpha on US1.</p>
 
 
   </div>
@@ -3275,13 +3291,13 @@ Example(APM Traces): <code>error-tracking-traces(query).rollup(rollup_method[, m
       <pre class="lines">
 
 
-769
-770
-771
-772</pre>
+783
+784
+785
+786</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/api/monitors_api.rb', line 769</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/api/monitors_api.rb', line 783</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_validate_existing_monitor'>validate_existing_monitor</span><span class='lparen'>(</span><span class='id identifier rubyid_monitor_id'>monitor_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_validate_existing_monitor_with_http_info'>validate_existing_monitor_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_monitor_id'>monitor_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -3387,20 +3403,6 @@ Example(APM Traces): <code>error-tracking-traces(query).rollup(rollup_method[, m
       <pre class="lines">
 
 
-782
-783
-784
-785
-786
-787
-788
-789
-790
-791
-792
-793
-794
-795
 796
 797
 798
@@ -3441,10 +3443,24 @@ Example(APM Traces): <code>error-tracking-traces(query).rollup(rollup_method[, m
 833
 834
 835
-836</pre>
+836
+837
+838
+839
+840
+841
+842
+843
+844
+845
+846
+847
+848
+849
+850</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/api/monitors_api.rb', line 782</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/api/monitors_api.rb', line 796</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_validate_existing_monitor_with_http_info'>validate_existing_monitor_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_monitor_id'>monitor_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -3767,7 +3783,7 @@ Example(APM Traces): <code>error-tracking-traces(query).rollup(rollup_method[, m
 </div>
 
       <div id="footer">
-  Generated on Thu Jun  8 19:33:59 2023 by
+  Generated on Thu Jun  8 20:04:56 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.34 (ruby-2.7.8).
 </div>
