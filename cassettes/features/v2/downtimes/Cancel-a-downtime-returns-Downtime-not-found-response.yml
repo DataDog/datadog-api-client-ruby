@@ -1,0 +1,20 @@
+http_interactions:
+- recorded_at: Thu, 25 May 2023 20:24:18 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/downtime/00000000-0000-1234-0000-000000000000
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":["Downtime 00000000-0000-1234-0000-000000000000 not found"]}'
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 404
+      message: Not Found
+recorded_with: VCR 6.0.0

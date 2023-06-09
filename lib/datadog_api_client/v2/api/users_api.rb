@@ -432,7 +432,7 @@ module DatadogAPIClient::V2
     # all users even if they are deactivated or unverified.
     #
     # @param opts [Hash] the optional parameters
-    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 100.
+    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 5000.
     # @option opts [Integer] :page_number Specific page number to return.
     # @option opts [String] :sort User attribute to order results by. Sort order is ascending by default. Sort order is descending if the field is prefixed by a negative sign, for example `sort=-name`. Options: `name`, `modified_at`, `user_count`.
     # @option opts [QuerySortOrder] :sort_dir Direction of sort. Options: `asc`, `desc`.

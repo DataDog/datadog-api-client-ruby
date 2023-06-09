@@ -72,7 +72,6 @@ module DatadogAPIClient::V1
         :'indexed_events_count',
         :'live_indexed_events_count',
         :'rehydrated_indexed_events_count',
-        :'retention',
       ])
     end
 

@@ -37,6 +37,5 @@ module DatadogAPIClient::V1
     CI_PIPELINES_ALERT = "ci-pipelines alert".freeze
     CI_TESTS_ALERT = "ci-tests alert".freeze
     ERROR_TRACKING_ALERT = "error-tracking alert".freeze
-    DATABASE_MONITORING_ALERT = "database-monitoring alert".freeze
   end
 end

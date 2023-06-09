@@ -1009,7 +1009,7 @@ module DatadogAPIClient::V2
     # List rules.
     #
     # @param opts [Hash] the optional parameters
-    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 100.
+    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 5000.
     # @option opts [Integer] :page_number Specific page number to return.
     # @return [Array<(SecurityMonitoringListRulesResponse, Integer, Hash)>] SecurityMonitoringListRulesResponse data, response status code and response headers
     def list_security_monitoring_rules_with_http_info(opts = {})

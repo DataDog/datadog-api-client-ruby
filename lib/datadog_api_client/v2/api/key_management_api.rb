@@ -564,7 +564,7 @@ module DatadogAPIClient::V2
     # List all API keys available for your account.
     #
     # @param opts [Hash] the optional parameters
-    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 100.
+    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 5000.
     # @option opts [Integer] :page_number Specific page number to return.
     # @option opts [APIKeysSort] :sort API key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign.
     # @option opts [String] :filter Filter API keys by the specified string.
@@ -646,7 +646,7 @@ module DatadogAPIClient::V2
     # List all application keys available for your org
     #
     # @param opts [Hash] the optional parameters
-    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 100.
+    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 5000.
     # @option opts [Integer] :page_number Specific page number to return.
     # @option opts [ApplicationKeysSort] :sort Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign.
     # @option opts [String] :filter Filter application keys by the specified string.
@@ -722,7 +722,7 @@ module DatadogAPIClient::V2
     # List all application keys available for current user
     #
     # @param opts [Hash] the optional parameters
-    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 100.
+    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 5000.
     # @option opts [Integer] :page_number Specific page number to return.
     # @option opts [ApplicationKeysSort] :sort Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign.
     # @option opts [String] :filter Filter application keys by the specified string.

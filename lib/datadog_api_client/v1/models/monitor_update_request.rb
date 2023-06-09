@@ -120,7 +120,6 @@ module DatadogAPIClient::V1
     def self.openapi_nullable
       Set.new([
         :'deleted',
-        :'restricted_roles',
       ])
     end
 
