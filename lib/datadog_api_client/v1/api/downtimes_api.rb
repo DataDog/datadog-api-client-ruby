@@ -351,7 +351,7 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get all downtimes for a monitor.
+    # Get active downtimes for a monitor.
     #
     # @see #list_monitor_downtimes_with_http_info
     def list_monitor_downtimes(monitor_id, opts = {})
@@ -359,7 +359,7 @@ module DatadogAPIClient::V1
       data
     end
 
-    # Get all downtimes for a monitor.
+    # Get active downtimes for a monitor.
     #
     # Get all active downtimes for the specified monitor.
     #
