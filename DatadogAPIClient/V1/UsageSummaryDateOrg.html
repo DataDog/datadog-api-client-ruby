@@ -670,6 +670,58 @@
       <li class="public ">
   <span class="summary_signature">
     
+      <a href="#cloud_cost_management_aws_host_count_avg-instance_method" title="#cloud_cost_management_aws_host_count_avg (instance method)">#<strong>cloud_cost_management_aws_host_count_avg</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Host count average of Cloud Cost Management for AWS for the given date and given org.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#cloud_cost_management_azure_host_count_avg-instance_method" title="#cloud_cost_management_azure_host_count_avg (instance method)">#<strong>cloud_cost_management_azure_host_count_avg</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Host count average of Cloud Cost Management for Azure for the given date and given org.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#cloud_cost_management_host_count_avg-instance_method" title="#cloud_cost_management_host_count_avg (instance method)">#<strong>cloud_cost_management_host_count_avg</strong>  &#x21d2; Object </a>
     
 
@@ -687,7 +739,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Host count average of Cloud Cost Management for the given date and given org.</p>
+    <span class="summary_desc"><div class='inline'><p>Host count average of Cloud Cost Management for all cloud providers for the given date and given org.</p>
 </div></span>
   
 </li>
@@ -3503,11 +3555,11 @@
 </div>
     
       
-      <span id="cloud_cost_management_host_count_avg=-instance_method"></span>
+      <span id="cloud_cost_management_aws_host_count_avg=-instance_method"></span>
       <div class="method_details ">
-  <h3 class="signature " id="cloud_cost_management_host_count_avg-instance_method">
+  <h3 class="signature " id="cloud_cost_management_aws_host_count_avg-instance_method">
   
-    #<strong>cloud_cost_management_host_count_avg</strong>  &#x21d2; <tt>Object</tt> 
+    #<strong>cloud_cost_management_aws_host_count_avg</strong>  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -3515,7 +3567,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Host count average of Cloud Cost Management for the given date and given org.</p>
+    <p>Host count average of Cloud Cost Management for AWS for the given date and given org.</p>
 
 
   </div>
@@ -3535,6 +3587,90 @@
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 85</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_cloud_cost_management_aws_host_count_avg'>cloud_cost_management_aws_host_count_avg</span>
+  <span class='ivar'>@cloud_cost_management_aws_host_count_avg</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="cloud_cost_management_azure_host_count_avg=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="cloud_cost_management_azure_host_count_avg-instance_method">
+  
+    #<strong>cloud_cost_management_azure_host_count_avg</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Host count average of Cloud Cost Management for Azure for the given date and given org.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+88
+89
+90</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 88</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_cloud_cost_management_azure_host_count_avg'>cloud_cost_management_azure_host_count_avg</span>
+  <span class='ivar'>@cloud_cost_management_azure_host_count_avg</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="cloud_cost_management_host_count_avg=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="cloud_cost_management_host_count_avg-instance_method">
+  
+    #<strong>cloud_cost_management_host_count_avg</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Host count average of Cloud Cost Management for all cloud providers for the given date and given org.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+91
+92
+93</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 91</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_cloud_cost_management_host_count_avg'>cloud_cost_management_host_count_avg</span>
   <span class='ivar'>@cloud_cost_management_host_count_avg</span>
@@ -3613,12 +3749,12 @@
       <pre class="lines">
 
 
-91
-92
-93</pre>
+97
+98
+99</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 91</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 97</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_container_excl_agent_avg'>container_excl_agent_avg</span>
   <span class='ivar'>@container_excl_agent_avg</span>
@@ -3739,12 +3875,12 @@
       <pre class="lines">
 
 
-100
-101
-102</pre>
+106
+107
+108</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 100</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 106</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_cspm_aws_host_top99p'>cspm_aws_host_top99p</span>
   <span class='ivar'>@cspm_aws_host_top99p</span>
@@ -3907,12 +4043,12 @@
       <pre class="lines">
 
 
-112
-113
-114</pre>
+118
+119
+120</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 112</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 118</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_cspm_gcp_host_top99p'>cspm_gcp_host_top99p</span>
   <span class='ivar'>@cspm_gcp_host_top99p</span>
@@ -4285,12 +4421,12 @@
       <pre class="lines">
 
 
-139
-140
-141</pre>
+145
+146
+147</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 139</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 145</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_forwarding_events_bytes_sum'>forwarding_events_bytes_sum</span>
   <span class='ivar'>@forwarding_events_bytes_sum</span>
@@ -4789,12 +4925,12 @@
       <pre class="lines">
 
 
-175
-176
-177</pre>
+181
+182
+183</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 175</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 181</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_mobile_rum_session_count_flutter_sum'>mobile_rum_session_count_flutter_sum</span>
   <span class='ivar'>@mobile_rum_session_count_flutter_sum</span>
@@ -4873,12 +5009,12 @@
       <pre class="lines">
 
 
-181
-182
-183</pre>
+187
+188
+189</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 181</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 187</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_mobile_rum_session_count_reactnative_sum'>mobile_rum_session_count_reactnative_sum</span>
   <span class='ivar'>@mobile_rum_session_count_reactnative_sum</span>
@@ -4915,12 +5051,12 @@
       <pre class="lines">
 
 
-184
-185
-186</pre>
+190
+191
+192</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 184</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 190</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_mobile_rum_session_count_roku_sum'>mobile_rum_session_count_roku_sum</span>
   <span class='ivar'>@mobile_rum_session_count_roku_sum</span>
@@ -5167,12 +5303,12 @@
       <pre class="lines">
 
 
-202
-203
-204</pre>
+208
+209
+210</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 202</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 208</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_observability_pipelines_bytes_processed_sum'>observability_pipelines_bytes_processed_sum</span>
   <span class='ivar'>@observability_pipelines_bytes_processed_sum</span>
@@ -5209,12 +5345,12 @@
       <pre class="lines">
 
 
-205
-206
-207</pre>
+211
+212
+213</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 205</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 211</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_online_archive_events_count_sum'>online_archive_events_count_sum</span>
   <span class='ivar'>@online_archive_events_count_sum</span>
@@ -5251,12 +5387,12 @@
       <pre class="lines">
 
 
-208
-209
-210</pre>
+214
+215
+216</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 208</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 214</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_opentelemetry_apm_host_top99p'>opentelemetry_apm_host_top99p</span>
   <span class='ivar'>@opentelemetry_apm_host_top99p</span>
@@ -5419,12 +5555,12 @@
       <pre class="lines">
 
 
-220
-221
-222</pre>
+226
+227
+228</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 220</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 226</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_region'>region</span>
   <span class='ivar'>@region</span>
@@ -5629,12 +5765,12 @@
       <pre class="lines">
 
 
-235
-236
-237</pre>
+241
+242
+243</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 235</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 241</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_sds_apm_scanned_bytes_sum'>sds_apm_scanned_bytes_sum</span>
   <span class='ivar'>@sds_apm_scanned_bytes_sum</span>
@@ -5671,12 +5807,12 @@
       <pre class="lines">
 
 
-238
-239
-240</pre>
+244
+245
+246</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 238</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 244</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_sds_events_scanned_bytes_sum'>sds_events_scanned_bytes_sum</span>
   <span class='ivar'>@sds_events_scanned_bytes_sum</span>
@@ -5755,12 +5891,12 @@
       <pre class="lines">
 
 
-244
-245
-246</pre>
+250
+251
+252</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 244</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 250</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_sds_rum_scanned_bytes_sum'>sds_rum_scanned_bytes_sum</span>
   <span class='ivar'>@sds_rum_scanned_bytes_sum</span>
@@ -5923,12 +6059,12 @@
       <pre class="lines">
 
 
-256
-257
-258</pre>
+262
+263
+264</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 256</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 262</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_synthetics_parallel_testing_max_slots_hwm'>synthetics_parallel_testing_max_slots_hwm</span>
   <span class='ivar'>@synthetics_parallel_testing_max_slots_hwm</span>
@@ -6049,12 +6185,12 @@
       <pre class="lines">
 
 
-265
-266
-267</pre>
+271
+272
+273</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 265</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 271</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_universal_service_monitoring_host_top99p'>universal_service_monitoring_host_top99p</span>
   <span class='ivar'>@universal_service_monitoring_host_top99p</span>
@@ -6133,12 +6269,12 @@
       <pre class="lines">
 
 
-271
-272
-273</pre>
+277
+278
+279</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 271</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 277</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_vuln_management_host_count_top99p'>vuln_management_host_count_top99p</span>
   <span class='ivar'>@vuln_management_host_count_top99p</span>
@@ -7087,7 +7223,7 @@ For object, use to_hash. Otherwise, just return the value</p>
 </div>
 
       <div id="footer">
-  Generated on Tue Jun 13 17:18:41 2023 by
+  Generated on Tue Jun 13 20:13:07 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.34 (ruby-2.7.8).
 </div>
