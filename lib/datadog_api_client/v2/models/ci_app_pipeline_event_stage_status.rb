@@ -17,10 +17,13 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Type of the event.
-  class CIAppTestEventTypeName
+  # The final status of the stage.
+  class CIAppPipelineEventStageStatus
     include BaseEnumModel
 
-    CITEST = "citest".freeze
+    SUCCESS = "success".freeze
+    ERROR = "error".freeze
+    CANCELED = "canceled".freeze
+    SKIPPED = "skipped".freeze
   end
 end

@@ -21,6 +21,6 @@ module DatadogAPIClient::V2
   class CIAppPipelineEventTypeName
     include BaseEnumModel
 
-    cipipeline = "cipipeline".freeze
+    CIPIPELINE = "cipipeline".freeze
   end
 end

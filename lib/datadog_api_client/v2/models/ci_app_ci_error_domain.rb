@@ -17,10 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Type of the event.
-  class CIAppTestEventTypeName
+  # Error category used to differentiate between issues related to the developer or provider environments.
+  class CIAppCIErrorDomain
     include BaseEnumModel
 
-    CITEST = "citest".freeze
+    PROVIDER = "provider".freeze
+    USER = "user".freeze
+    UNKNOWN = "unknown".freeze
   end
 end

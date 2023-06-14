@@ -17,10 +17,10 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Type of the event.
-  class CIAppTestEventTypeName
+  # Used to distinguish between pipelines, stages, jobs, and steps.
+  class CIAppPipelineEventJobLevel
     include BaseEnumModel
 
-    CITEST = "citest".freeze
+    JOB = "job".freeze
   end
 end

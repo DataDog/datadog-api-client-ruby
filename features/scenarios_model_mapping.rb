@@ -918,6 +918,9 @@ ScenariosModelMappings = {
             "authn_mapping_id" => "String",
             "body" => "AuthNMappingUpdateRequest",
     },
+    "v2.CreateCIAppPipelineEvent" => {
+            "body" => "CIAppCreatePipelineEventRequest",
+    },
     "v2.AggregateCIAppPipelineEvents" => {
             "body" => "CIAppPipelinesAggregateRequest",
     },

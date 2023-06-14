@@ -90,6 +90,73 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Send pipeline event.
+    #
+    # @see #create_ci_app_pipeline_event_with_http_info
+    def create_ci_app_pipeline_event(body, opts = {})
+      data, _status_code, _headers = create_ci_app_pipeline_event_with_http_info(body, opts)
+      data
+    end
+
+    # Send pipeline event.
+    #
+    # Send your pipeline event to your Datadog platform over HTTP.
+    #
+    # @param body [CIAppCreatePipelineEventRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
+    def create_ci_app_pipeline_event_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CIVisibilityPipelinesAPI.create_ci_app_pipeline_event ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CIVisibilityPipelinesAPI.create_ci_app_pipeline_event"
+      end
+      # resource path
+      local_var_path = '/api/v2/ci/pipeline'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'Object'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :create_ci_app_pipeline_event,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CIVisibilityPipelinesAPI#create_ci_app_pipeline_event\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get a list of pipelines events.
     #
     # @see #list_ci_app_pipeline_events_with_http_info
