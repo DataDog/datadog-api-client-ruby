@@ -21,19 +21,19 @@ module DatadogAPIClient::V1
   class WidgetAxis
     include BaseGenericModel
 
-    # True includes zero.
+    # Set to `true` to include zero.
     attr_accessor :include_zero
 
-    # The label of the axis to display on the graph.
+    # The label of the axis to display on the graph. Only usable on Scatterplot Widgets.
     attr_accessor :label
 
-    # Specifies the maximum value to show on the y-axis. It takes a number, or auto for default behavior.
+    # Specifies maximum numeric value to show on the axis. Defaults to `auto`.
     attr_accessor :max
 
-    # Specifies minimum value to show on the y-axis. It takes a number, or auto for default behavior.
+    # Specifies minimum numeric value to show on the axis. Defaults to `auto`.
     attr_accessor :min
 
-    # Specifies the scale type. Possible values are `linear`, `log`, `sqrt`, `pow##` (for example `pow2`, `pow0.5` etc.).
+    # Specifies the scale type. Possible values are `linear`, `log`, `sqrt`, and `pow##` (for example `pow2` or `pow0.5`).
     attr_accessor :scale
 
     # Attribute mapping from ruby-style variable name to JSON key.
