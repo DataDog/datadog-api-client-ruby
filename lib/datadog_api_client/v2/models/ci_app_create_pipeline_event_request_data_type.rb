@@ -18,9 +18,9 @@ require 'time'
 
 module DatadogAPIClient::V2
   # Type of the event.
-  class CIAppTestEventTypeName
+  class CIAppCreatePipelineEventRequestDataType
     include BaseEnumModel
 
-    CITEST = "citest".freeze
+    CIPIPELINE_RESOURCE_REQUEST = "cipipeline_resource_request".freeze
   end
 end

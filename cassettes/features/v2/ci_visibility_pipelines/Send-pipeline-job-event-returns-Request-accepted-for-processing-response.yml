@@ -1,0 +1,25 @@
+http_interactions:
+- recorded_at: Tue, 13 Jun 2023 14:47:56 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"resource":{"end":"2023-06-13T14:47:26.023Z","id":"cf9456de-8b9e-4c27-aa79-27b1e78c1a33","level":"job","name":"Build
+        image","pipeline_name":"Deploy to AWS","pipeline_unique_id":"3eacb6f3-ff04-4e10-8a9c-46e6d054024a","start":"2023-06-13T14:45:56.023Z","status":"error","url":"https://my-ci-provider.example/jobs/my-jobs/run/1"}},"type":"cipipeline_resource_request"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/ci/pipeline
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":null}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 202
+      message: Accepted
+recorded_with: VCR 6.0.0
