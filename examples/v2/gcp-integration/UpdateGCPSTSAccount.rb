@@ -3,14 +3,19 @@
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::GCPIntegrationAPI.new
 
+# there is a valid "gcp_sts_account" in the system
+GCP_STS_ACCOUNT_DATA_ID = ENV["GCP_STS_ACCOUNT_DATA_ID"]
+
 body = DatadogAPIClient::V2::GCPSTSServiceAccountUpdateRequest.new({
   data: DatadogAPIClient::V2::GCPSTSServiceAccountUpdateRequestData.new({
     attributes: DatadogAPIClient::V2::GCPSTSServiceAccountAttributes.new({
-      client_email: "datadog-service-account@test-project.iam.gserviceaccount.com",
-      host_filters: [],
+      client_email: "252bf553ef04b351@example.com",
+      host_filters: [
+        "foo:bar",
+      ],
     }),
-    id: "d291291f-12c2-22g4-j290-123456678897",
+    id: GCP_STS_ACCOUNT_DATA_ID,
     type: DatadogAPIClient::V2::GCPServiceAccountType::GCP_SERVICE_ACCOUNT,
   }),
 })
-p api_instance.update_gcpsts_account("account_id", body)
+p api_instance.update_gcpsts_account(GCP_STS_ACCOUNT_DATA_ID, body)
