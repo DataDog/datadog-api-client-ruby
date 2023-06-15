@@ -35,5 +35,6 @@ module DatadogAPIClient::V1
     IS_IN_MORE_DAYS_THAN = "isInMoreThan".freeze
     IS_IN_LESS_DAYS_THAN = "isInLessThan".freeze
     DOES_NOT_EXIST = "doesNotExist".freeze
+    IS_UNDEFINED = "isUndefined".freeze
   end
 end
