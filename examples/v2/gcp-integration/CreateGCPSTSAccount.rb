@@ -6,7 +6,7 @@ api_instance = DatadogAPIClient::V2::GCPIntegrationAPI.new
 body = DatadogAPIClient::V2::GCPSTSServiceAccountCreateRequest.new({
   data: DatadogAPIClient::V2::GCPSTSServiceAccountData.new({
     attributes: DatadogAPIClient::V2::GCPSTSServiceAccountAttributes.new({
-      client_email: "datadog-service-account@test-project.iam.gserviceaccount.com",
+      client_email: "252bf553ef04b351@test-project.iam.gserviceaccount.com",
       host_filters: [],
     }),
     type: DatadogAPIClient::V2::GCPServiceAccountType::GCP_SERVICE_ACCOUNT,
