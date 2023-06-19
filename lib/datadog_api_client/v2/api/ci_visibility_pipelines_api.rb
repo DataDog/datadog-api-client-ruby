@@ -102,6 +102,8 @@ module DatadogAPIClient::V2
     #
     # Send your pipeline event to your Datadog platform over HTTP.
     #
+    # This API endpoint is in private beta.
+    #
     # @param body [CIAppCreatePipelineEventRequest] 
     # @param opts [Hash] the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
@@ -167,7 +169,7 @@ module DatadogAPIClient::V2
 
     # Get a list of pipelines events.
     #
-    # List endpoint returns CI Visibility pipeline events that match a log search query.
+    # List endpoint returns CI Visibility pipeline events that match a [log search query](https://docs.datadoghq.com/logs/explorer/search_syntax/).
     # [Results are paginated similarly to logs](https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination).
     #
     # Use this endpoint to see your latest pipeline events.
@@ -270,7 +272,7 @@ module DatadogAPIClient::V2
 
     # Search pipelines events.
     #
-    # List endpoint returns CI Visibility pipeline events that match a log search query.
+    # List endpoint returns CI Visibility pipeline events that match a [log search query](https://docs.datadoghq.com/logs/explorer/search_syntax/).
     # [Results are paginated similarly to logs](https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination).
     #
     # Use this endpoint to build complex events filtering and search.
