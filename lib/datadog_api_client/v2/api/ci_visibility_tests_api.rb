@@ -100,7 +100,7 @@ module DatadogAPIClient::V2
 
     # Get a list of tests events.
     #
-    # List endpoint returns CI Visibility test events that match a log search query.
+    # List endpoint returns CI Visibility test events that match a [log search query](https://docs.datadoghq.com/logs/explorer/search_syntax/).
     # [Results are paginated similarly to logs](https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination).
     #
     # Use this endpoint to see your latest test events.
@@ -203,7 +203,7 @@ module DatadogAPIClient::V2
 
     # Search tests events.
     #
-    # List endpoint returns CI Visibility test events that match a log search query.
+    # List endpoint returns CI Visibility test events that match a [log search query](https://docs.datadoghq.com/logs/explorer/search_syntax/).
     # [Results are paginated similarly to logs](https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination).
     #
     # Use this endpoint to build complex events filtering and search.
