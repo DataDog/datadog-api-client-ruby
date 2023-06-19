@@ -800,6 +800,8 @@
 
 <p>Send your pipeline event to your Datadog platform over HTTP.</p>
 
+<p>This API endpoint is in private beta.</p>
+
 
   </div>
 </div>
@@ -861,8 +863,6 @@
       <pre class="lines">
 
 
-108
-109
 110
 111
 112
@@ -911,10 +911,12 @@
 155
 156
 157
-158</pre>
+158
+159
+160</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/ci_visibility_pipelines_api.rb', line 108</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/ci_visibility_pipelines_api.rb', line 110</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create_ci_app_pipeline_event_with_http_info'>create_ci_app_pipeline_event_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -1004,13 +1006,13 @@
       <pre class="lines">
 
 
-163
-164
 165
-166</pre>
+166
+167
+168</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/ci_visibility_pipelines_api.rb', line 163</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/ci_visibility_pipelines_api.rb', line 165</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_ci_app_pipeline_events'>list_ci_app_pipeline_events</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_list_ci_app_pipeline_events_with_http_info'>list_ci_app_pipeline_events_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -1034,7 +1036,7 @@
   <div class="discussion">
     <p>Get a list of pipelines events.</p>
 
-<p>List endpoint returns CI Visibility pipeline events that match a log search query.
+<p>List endpoint returns CI Visibility pipeline events that match a <a href="https://docs.datadoghq.com/logs/explorer/search_syntax/">log search query</a>.
 <a href="https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination">Results are paginated similarly to logs</a>.</p>
 
 <p>Use this endpoint to see your latest pipeline events.</p>
@@ -1170,8 +1172,6 @@
       <pre class="lines">
 
 
-183
-184
 185
 186
 187
@@ -1227,10 +1227,12 @@
 237
 238
 239
-240</pre>
+240
+241
+242</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/ci_visibility_pipelines_api.rb', line 183</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/ci_visibility_pipelines_api.rb', line 185</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_ci_app_pipeline_events_with_http_info'>list_ci_app_pipeline_events_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -1341,8 +1343,6 @@
       <pre class="lines">
 
 
-249
-250
 251
 252
 253
@@ -1353,10 +1353,12 @@
 258
 259
 260
-261</pre>
+261
+262
+263</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/ci_visibility_pipelines_api.rb', line 249</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/ci_visibility_pipelines_api.rb', line 251</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_ci_app_pipeline_events_with_pagination'>list_ci_app_pipeline_events_with_pagination</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_api_version'>api_version</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>V2</span><span class='tstring_end'>&quot;</span></span>
@@ -1408,13 +1410,13 @@
       <pre class="lines">
 
 
-266
-267
 268
-269</pre>
+269
+270
+271</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/ci_visibility_pipelines_api.rb', line 266</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/ci_visibility_pipelines_api.rb', line 268</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_search_ci_app_pipeline_events'>search_ci_app_pipeline_events</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_search_ci_app_pipeline_events_with_http_info'>search_ci_app_pipeline_events_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -1438,7 +1440,7 @@
   <div class="discussion">
     <p>Search pipelines events.</p>
 
-<p>List endpoint returns CI Visibility pipeline events that match a log search query.
+<p>List endpoint returns CI Visibility pipeline events that match a <a href="https://docs.datadoghq.com/logs/explorer/search_syntax/">log search query</a>.
 <a href="https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination">Results are paginated similarly to logs</a>.</p>
 
 <p>Use this endpoint to build complex events filtering and search.</p>
@@ -1511,8 +1513,6 @@
       <pre class="lines">
 
 
-281
-282
 283
 284
 285
@@ -1557,10 +1557,12 @@
 324
 325
 326
-327</pre>
+327
+328
+329</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/ci_visibility_pipelines_api.rb', line 281</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/ci_visibility_pipelines_api.rb', line 283</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_search_ci_app_pipeline_events_with_http_info'>search_ci_app_pipeline_events_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -1660,8 +1662,6 @@
       <pre class="lines">
 
 
-336
-337
 338
 339
 340
@@ -1672,10 +1672,12 @@
 345
 346
 347
-348</pre>
+348
+349
+350</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/ci_visibility_pipelines_api.rb', line 336</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/ci_visibility_pipelines_api.rb', line 338</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_search_ci_app_pipeline_events_with_pagination'>search_ci_app_pipeline_events_with_pagination</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_api_version'>api_version</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>V2</span><span class='tstring_end'>&quot;</span></span>
@@ -1700,7 +1702,7 @@
 </div>
 
       <div id="footer">
-  Generated on Fri Jun 16 18:27:33 2023 by
+  Generated on Mon Jun 19 14:29:43 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.34 (ruby-2.7.8).
 </div>
