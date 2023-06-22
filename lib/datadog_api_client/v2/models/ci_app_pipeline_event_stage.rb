@@ -70,10 +70,6 @@ module DatadogAPIClient::V2
     # A list of user-defined tags. The tags must follow the `key:value` pattern.
     attr_accessor :tags
 
-    # Used to specify user-related information when the payload does not have Git information.
-    # For example, if Git information is missing for manually triggered pipelines, this field can be used instead.
-    attr_accessor :user
-
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
@@ -93,8 +89,7 @@ module DatadogAPIClient::V2
         :'queue_time' => :'queue_time',
         :'start' => :'start',
         :'status' => :'status',
-        :'tags' => :'tags',
-        :'user' => :'user'
+        :'tags' => :'tags'
       }
     end
 
@@ -117,8 +112,7 @@ module DatadogAPIClient::V2
         :'queue_time' => :'Integer',
         :'start' => :'Time',
         :'status' => :'CIAppPipelineEventStageStatus',
-        :'tags' => :'Array<String>',
-        :'user' => :'CIAppUserInfo'
+        :'tags' => :'Array<String>'
       }
     end
 
@@ -134,7 +128,6 @@ module DatadogAPIClient::V2
         :'parameters',
         :'queue_time',
         :'tags',
-        :'user',
       ])
     end
 
@@ -222,10 +215,6 @@ module DatadogAPIClient::V2
         if (value = attributes[:'tags']).is_a?(Array)
           self.tags = value
         end
-      end
-
-      if attributes.key?(:'user')
-        self.user = attributes[:'user']
       end
     end
 
@@ -356,15 +345,14 @@ module DatadogAPIClient::V2
           queue_time == o.queue_time &&
           start == o.start &&
           status == o.status &&
-          tags == o.tags &&
-          user == o.user
+          tags == o.tags
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [dependencies, _end, error, git, id, level, metrics, name, node, parameters, pipeline_name, pipeline_unique_id, queue_time, start, status, tags, user].hash
+      [dependencies, _end, error, git, id, level, metrics, name, node, parameters, pipeline_name, pipeline_unique_id, queue_time, start, status, tags].hash
     end
   end
 end

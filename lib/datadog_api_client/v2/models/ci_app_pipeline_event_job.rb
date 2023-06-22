@@ -79,10 +79,6 @@ module DatadogAPIClient::V2
     # The URL to look at the job in the CI provider UI.
     attr_reader :url
 
-    # Used to specify user-related information when the payload does not have Git information.
-    # For example, if Git information is missing for manually triggered pipelines, this field can be used instead.
-    attr_accessor :user
-
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
@@ -105,8 +101,7 @@ module DatadogAPIClient::V2
         :'start' => :'start',
         :'status' => :'status',
         :'tags' => :'tags',
-        :'url' => :'url',
-        :'user' => :'user'
+        :'url' => :'url'
       }
     end
 
@@ -132,8 +127,7 @@ module DatadogAPIClient::V2
         :'start' => :'Time',
         :'status' => :'CIAppPipelineEventJobStatus',
         :'tags' => :'Array<String>',
-        :'url' => :'String',
-        :'user' => :'CIAppUserInfo'
+        :'url' => :'String'
       }
     end
 
@@ -151,7 +145,6 @@ module DatadogAPIClient::V2
         :'stage_id',
         :'stage_name',
         :'tags',
-        :'user',
       ])
     end
 
@@ -251,10 +244,6 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'url')
         self.url = attributes[:'url']
-      end
-
-      if attributes.key?(:'user')
-        self.user = attributes[:'user']
       end
     end
 
@@ -399,15 +388,14 @@ module DatadogAPIClient::V2
           start == o.start &&
           status == o.status &&
           tags == o.tags &&
-          url == o.url &&
-          user == o.user
+          url == o.url
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [dependencies, _end, error, git, id, level, metrics, name, node, parameters, pipeline_name, pipeline_unique_id, queue_time, stage_id, stage_name, start, status, tags, url, user].hash
+      [dependencies, _end, error, git, id, level, metrics, name, node, parameters, pipeline_name, pipeline_unique_id, queue_time, stage_id, stage_name, start, status, tags, url].hash
     end
   end
 end
