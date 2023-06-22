@@ -155,7 +155,7 @@
       return false if {% if not required %}!@{{ attr|attribute_name }}.nil? && {% endif %}@{{ attr|attribute_name }} <{% if definition.exclusiveMinimum %}={% endif %} {{ definition.minimum }}
       {%- endif %}
       {%- if definition.pattern is defined %}
-      pattern = Regexp.new({{ definition.pattern }})
+      pattern = Regexp.new("{{ definition.pattern }}")
       return false if {% if not required %}!@{{ attr|attribute_name }}.nil? && {% endif %}@{{ attr|attribute_name }} !~ pattern
       {%- endif %}
       {%- if definition.maxItems is defined %}
@@ -221,7 +221,7 @@
       end
       {%- endif %}
       {%- if definition.pattern is defined %}
-      pattern = Regexp.new({{ definition.pattern }})
+      pattern = Regexp.new("{{ definition.pattern }}")
       if {% if not required %}!{{ attr|attribute_name }}.nil? && {% endif %}{{ attr|attribute_name }} !~ pattern
         fail ArgumentError, "invalid value for \"{{ attr|attribute_name }}\", must conform to the pattern #{pattern}."
       end

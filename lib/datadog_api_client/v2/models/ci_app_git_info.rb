@@ -184,7 +184,7 @@ module DatadogAPIClient::V2
       return false if @author_email.nil?
       return false if @repository_url.nil?
       return false if @sha.nil?
-      pattern = Regexp.new(^[a-fA-f0-9]{40}$)
+      pattern = Regexp.new("^[a-fA-f0-9]{40}$")
       return false if @sha !~ pattern
       true
     end
@@ -216,7 +216,7 @@ module DatadogAPIClient::V2
       if sha.nil?
         fail ArgumentError, 'invalid value for "sha", sha cannot be nil.'
       end
-      pattern = Regexp.new(^[a-fA-f0-9]{40}$)
+      pattern = Regexp.new("^[a-fA-f0-9]{40}$")
       if sha !~ pattern
         fail ArgumentError, "invalid value for \"sha\", must conform to the pattern #{pattern}."
       end

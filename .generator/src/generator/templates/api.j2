@@ -116,7 +116,7 @@ module {{ module_name }}::{{ version|upper }}
 
   {%- endif %}
   {%- if schema.pattern is defined %}
-      pattern = Regexp.new({{ schema.pattern }})
+      pattern = Regexp.new("{{ schema.pattern }}")
       if @api_client.config.client_side_validation && {% if not parameter.required %}!opts[:'{{ name|attribute_name }}'].nil? && {% endif %}{% if parameter.required %}{{ name|attribute_name }}{% else %}opts[:'{{ name|attribute_name }}']{% endif %} !~ pattern
         fail ArgumentError, "invalid value for '{% if parameter.required %}{{ name|attribute_name }}{% else %}opts[:\"{{ name|attribute_name }}\"]{% endif %}' when calling {{classname}}.{{ operation.operationId|snake_case }}, must conform to the pattern #{pattern}."
       end
