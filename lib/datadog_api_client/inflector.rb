@@ -920,7 +920,6 @@ module DatadogAPIClient
           "v2.ci_app_tests_bucket_response" => "CIAppTestsBucketResponse",
           "v2.ci_app_tests_group_by" => "CIAppTestsGroupBy",
           "v2.ci_app_tests_query_filter" => "CIAppTestsQueryFilter",
-          "v2.ci_app_user_info" => "CIAppUserInfo",
           "v2.ci_app_warning" => "CIAppWarning",
           "v2.cloud_configuration_compliance_rule_options" => "CloudConfigurationComplianceRuleOptions",
           "v2.cloud_configuration_rego_rule" => "CloudConfigurationRegoRule",

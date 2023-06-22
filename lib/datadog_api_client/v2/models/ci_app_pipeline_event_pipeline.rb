@@ -85,10 +85,6 @@ module DatadogAPIClient::V2
     # The URL to look at the pipeline in the CI provider UI.
     attr_reader :url
 
-    # Used to specify user-related information when the payload does not have Git information.
-    # For example, if Git information is missing for manually triggered pipelines, this field can be used instead.
-    attr_accessor :user
-
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
@@ -112,8 +108,7 @@ module DatadogAPIClient::V2
         :'status' => :'status',
         :'tags' => :'tags',
         :'unique_id' => :'unique_id',
-        :'url' => :'url',
-        :'user' => :'user'
+        :'url' => :'url'
       }
     end
 
@@ -140,8 +135,7 @@ module DatadogAPIClient::V2
         :'status' => :'CIAppPipelineEventPipelineStatus',
         :'tags' => :'Array<String>',
         :'unique_id' => :'String',
-        :'url' => :'String',
-        :'user' => :'CIAppUserInfo'
+        :'url' => :'String'
       }
     end
 
@@ -160,7 +154,6 @@ module DatadogAPIClient::V2
         :'previous_attempt',
         :'queue_time',
         :'tags',
-        :'user',
       ])
     end
 
@@ -262,10 +255,6 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'url')
         self.url = attributes[:'url']
-      end
-
-      if attributes.key?(:'user')
-        self.user = attributes[:'user']
       end
     end
 
@@ -400,15 +389,14 @@ module DatadogAPIClient::V2
           status == o.status &&
           tags == o.tags &&
           unique_id == o.unique_id &&
-          url == o.url &&
-          user == o.user
+          url == o.url
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [_end, error, git, is_manual, is_resumed, level, metrics, name, node, parameters, parent_pipeline, partial_retry, pipeline_id, previous_attempt, queue_time, start, status, tags, unique_id, url, user].hash
+      [_end, error, git, is_manual, is_resumed, level, metrics, name, node, parameters, parent_pipeline, partial_retry, pipeline_id, previous_attempt, queue_time, start, status, tags, unique_id, url].hash
     end
   end
 end
