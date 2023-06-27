@@ -1,5 +1,35 @@
 # CHANGELOG
 
+## 2.12.0 / 2023-06-27
+
+### Fixed
+* Mark `restricted_roles` as nullable in monitor update request by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1403
+* Mark additional usage fields as `nullable` by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1411
+* Updated findings api error responses by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1391
+* Mark usage metering field `lines_indexed` as `nullable` by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1417
+* Update dashboard widget axis field descriptions by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1401
+* Fix `CreateGCPSTSAccount` return code and update tests by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1422
+* Fix `CreateGCPSTSAccount` response status code by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1425
+* Add missing descriptions for authorization scopes in public docs  by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1423
+* Fix pattern definition by @therve in https://github.com/DataDog/datadog-api-client-ruby/pull/1429
+* Update CI Visibility pipelines write API endpoint fields by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1428
+### Added
+* Add support for mute findings endpoint by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1376
+* Expose `database-monitoring` monitor type by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1255
+* Add endpoint to get Synthetics default locations by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1410
+* Add usage metering RUM Roku fields by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1418
+* Add usage metering fields for AWS and Azure cloud cost management by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1419
+* Add support for CI Visibility create pipeline events endpoint by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1413
+* Add isUndefined synthetics assertion operator by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1421
+* Add missing Synthetics and Metrics Scope descriptions by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1424
+### Changed
+* Team name and handle length updates by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1398
+### Deprecated
+* mark v1 GCP APIs as deprecated by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1414
+
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-ruby/compare/v2.11.0...v2.12.0
+
 ## 2.11.0 / 2023-05-31
 
 ### Fixed
