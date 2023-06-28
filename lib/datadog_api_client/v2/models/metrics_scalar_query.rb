@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class MetricsScalarQuery
     include BaseGenericModel
 
-    # The type of aggregation that can be performed on metrics queries.
+    # The type of aggregation that can be performed on metrics-based queries.
     attr_reader :aggregator
 
     # A data source that is powered by the Metrics platform.
