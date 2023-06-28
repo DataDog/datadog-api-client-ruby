@@ -742,7 +742,7 @@ module DatadogAPIClient::V2
 
     # Query scalar data across multiple products.
     #
-    # Query scalar values (as seen on Query Value, Table and Toplist widgets).
+    # Query scalar values (as seen on Query Value, Table, and Toplist widgets).
     # Multiple data sources are supported with the ability to
     # process the data using formulas and functions.
     #

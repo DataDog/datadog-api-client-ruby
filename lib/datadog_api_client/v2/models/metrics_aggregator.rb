@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The type of aggregation that can be performed on metrics queries.
+  # The type of aggregation that can be performed on metrics-based queries.
   class MetricsAggregator
     include BaseEnumModel
 
