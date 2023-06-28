@@ -21,6 +21,9 @@ module DatadogAPIClient::V1
   class GeomapWidgetRequest
     include BaseGenericModel
 
+    # Widget columns.
+    attr_accessor :columns
+
     # List of formulas that operate on queries.
     attr_accessor :formulas
 
@@ -33,7 +36,10 @@ module DatadogAPIClient::V1
     # List of queries that can be returned directly or used in formulas.
     attr_accessor :queries
 
-    # Timeseries or Scalar response.
+    # Updated list stream widget.
+    attr_accessor :query
+
+    # Timeseries, scalar, or event list response. Event list response formats are supported by Geomap widgets.
     attr_accessor :response_format
 
     # The log query.
@@ -46,10 +52,12 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.attribute_map
       {
+        :'columns' => :'columns',
         :'formulas' => :'formulas',
         :'log_query' => :'log_query',
         :'q' => :'q',
         :'queries' => :'queries',
+        :'query' => :'query',
         :'response_format' => :'response_format',
         :'rum_query' => :'rum_query',
         :'security_query' => :'security_query'
@@ -60,10 +68,12 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
+        :'columns' => :'Array<ListStreamColumn>',
         :'formulas' => :'Array<WidgetFormula>',
         :'log_query' => :'LogQueryDefinition',
         :'q' => :'String',
         :'queries' => :'Array<FormulaAndFunctionQueryDefinition>',
+        :'query' => :'ListStreamQuery',
         :'response_format' => :'FormulaAndFunctionResponseFormat',
         :'rum_query' => :'LogQueryDefinition',
         :'security_query' => :'LogQueryDefinition'
@@ -86,6 +96,12 @@ module DatadogAPIClient::V1
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'columns')
+        if (value = attributes[:'columns']).is_a?(Array)
+          self.columns = value
+        end
+      end
+
       if attributes.key?(:'formulas')
         if (value = attributes[:'formulas']).is_a?(Array)
           self.formulas = value
@@ -104,6 +120,10 @@ module DatadogAPIClient::V1
         if (value = attributes[:'queries']).is_a?(Array)
           self.queries = value
         end
+      end
+
+      if attributes.key?(:'query')
+        self.query = attributes[:'query']
       end
 
       if attributes.key?(:'response_format')
@@ -125,10 +145,12 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          columns == o.columns &&
           formulas == o.formulas &&
           log_query == o.log_query &&
           q == o.q &&
           queries == o.queries &&
+          query == o.query &&
           response_format == o.response_format &&
           rum_query == o.rum_query &&
           security_query == o.security_query
@@ -138,7 +160,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [formulas, log_query, q, queries, response_format, rum_query, security_query].hash
+      [columns, formulas, log_query, q, queries, query, response_format, rum_query, security_query].hash
     end
   end
 end
