@@ -150,6 +150,32 @@
       <li class="public ">
   <span class="summary_signature">
     
+      <a href="#columns-instance_method" title="#columns (instance method)">#<strong>columns</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Widget columns.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#formulas-instance_method" title="#formulas (instance method)">#<strong>formulas</strong>  &#x21d2; Object </a>
     
 
@@ -254,6 +280,32 @@
       <li class="public ">
   <span class="summary_signature">
     
+      <a href="#query-instance_method" title="#query (instance method)">#<strong>query</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Updated list stream widget.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#response_format-instance_method" title="#response_format (instance method)">#<strong>response_format</strong>  &#x21d2; Object </a>
     
 
@@ -271,7 +323,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Timeseries or Scalar response.</p>
+    <span class="summary_desc"><div class='inline'><p>Timeseries, scalar, or event list response.</p>
 </div></span>
   
 </li>
@@ -687,6 +739,48 @@
 </div>
     
       
+      <span id="columns=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="columns-instance_method">
+  
+    #<strong>columns</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Widget columns.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+25
+26
+27</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/geomap_widget_request.rb', line 25</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_columns'>columns</span>
+  <span class='ivar'>@columns</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
       <span id="formulas=-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="formulas-instance_method">
@@ -755,12 +849,12 @@
       <pre class="lines">
 
 
-28
-29
-30</pre>
+31
+32
+33</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/geomap_widget_request.rb', line 28</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/geomap_widget_request.rb', line 31</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_log_query'>log_query</span>
   <span class='ivar'>@log_query</span>
@@ -855,11 +949,11 @@
 </div>
     
       
-      <span id="response_format=-instance_method"></span>
+      <span id="query=-instance_method"></span>
       <div class="method_details ">
-  <h3 class="signature " id="response_format-instance_method">
+  <h3 class="signature " id="query-instance_method">
   
-    #<strong>response_format</strong>  &#x21d2; <tt>Object</tt> 
+    #<strong>query</strong>  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -867,7 +961,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Timeseries or Scalar response.</p>
+    <p>Updated list stream widget.</p>
 
 
   </div>
@@ -881,12 +975,54 @@
       <pre class="lines">
 
 
-37
-38
-39</pre>
+40
+41
+42</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/geomap_widget_request.rb', line 37</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/geomap_widget_request.rb', line 40</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_query'>query</span>
+  <span class='ivar'>@query</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="response_format=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="response_format-instance_method">
+  
+    #<strong>response_format</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Timeseries, scalar, or event list response. Event list response formats are supported by Geomap widgets.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+43
+44
+45</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/geomap_widget_request.rb', line 43</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_response_format'>response_format</span>
   <span class='ivar'>@response_format</span>
@@ -923,12 +1059,12 @@
       <pre class="lines">
 
 
-40
-41
-42</pre>
+46
+47
+48</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/geomap_widget_request.rb', line 40</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/geomap_widget_request.rb', line 46</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rum_query'>rum_query</span>
   <span class='ivar'>@rum_query</span>
@@ -965,12 +1101,12 @@
       <pre class="lines">
 
 
-43
-44
-45</pre>
+49
+50
+51</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/geomap_widget_request.rb', line 43</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/geomap_widget_request.rb', line 49</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_security_query'>security_query</span>
   <span class='ivar'>@security_query</span>
@@ -1919,7 +2055,7 @@ For object, use to_hash. Otherwise, just return the value</p>
 </div>
 
       <div id="footer">
-  Generated on Wed Jun 28 13:57:38 2023 by
+  Generated on Wed Jun 28 21:15:52 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.34 (ruby-2.7.8).
 </div>
