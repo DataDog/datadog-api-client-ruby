@@ -63,7 +63,7 @@ module DatadogAPIClient::V1
     # List of queries that can be returned directly or used in formulas.
     attr_accessor :queries
 
-    # Timeseries or Scalar response.
+    # Timeseries, scalar, or event list response. Event list response formats are supported by Geomap widgets.
     attr_accessor :response_format
 
     # The log query.

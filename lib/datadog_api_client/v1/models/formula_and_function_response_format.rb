@@ -17,11 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Timeseries or Scalar response.
+  # Timeseries, scalar, or event list response. Event list response formats are supported by Geomap widgets.
   class FormulaAndFunctionResponseFormat
     include BaseEnumModel
 
     TIMESERIES = "timeseries".freeze
     SCALAR = "scalar".freeze
+    EVENT_LIST = "event_list".freeze
   end
 end
