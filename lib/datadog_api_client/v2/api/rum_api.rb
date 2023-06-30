@@ -534,14 +534,14 @@ module DatadogAPIClient::V2
     def search_rum_events_with_pagination(body, opts = {})
         api_version = "V2"
         page_size = @api_client.get_attribute_from_path(body, "page.limit", 10)
-        @api_client.set_attribute_from_path(api_version, body, "page.limit", RUMSearchEventsRequest, page_size)
+        @api_client.set_attribute_from_path(api_version, body, "page.limit", RUMQueryPageOptions, page_size)
         while true do
             response = search_rum_events(body, opts)
             @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
             if @api_client.get_attribute_from_path(response, "data").length < page_size
               break
             end
-            @api_client.set_attribute_from_path(api_version, body, "page.cursor", RUMSearchEventsRequest, @api_client.get_attribute_from_path(response, "meta.page.after"))
+            @api_client.set_attribute_from_path(api_version, body, "page.cursor", RUMQueryPageOptions, @api_client.get_attribute_from_path(response, "meta.page.after"))
         end
     end
 
