@@ -461,8 +461,10 @@ def get_default(operation, attribute_path):
 
 
 def get_container(operation, attribute_path, with_type=False):
-    def get_type(parameter):
+    def get_type(parameter, attribute=None):
         if with_type:
+            if attribute:
+                return ", {}".format(type_to_ruby(parameter_schema(parameter)["properties"][attribute]))
             return f", {get_type_for_parameter(parameter)}"
         return ""
 
@@ -473,7 +475,7 @@ def get_container(operation, attribute_path, with_type=False):
                 return '{}, "{}"{}'.format(
                     name,
                     ".".join(formatter.attribute_name(a) for a in attribute_path.split(".")[1:]),
-                    get_type(parameter),
+                    get_type(parameter, attribute_path.split(".")[1]),
                 )
     return f'opts, "{formatter.attribute_path(attribute_path)}"{get_type(parameter)}'
 
