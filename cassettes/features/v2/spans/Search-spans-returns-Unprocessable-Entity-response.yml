@@ -1,0 +1,26 @@
+http_interactions:
+- recorded_at: Thu, 29 Jun 2023 09:59:05 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"filter":{"from":"now","query":"service:web*
+        AND @http.status_code:[200 TO 299]","to":"now-15m"},"options":{"timezone":"GMT"},"page":{"limit":10},"sort":"timestamp"},"type":"search_request"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/spans/events/search
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"title":"Generic Error","detail":"invalid_argument(Field
+        ''filter.from,to'' is invalid: ''from'' should be anterior to ''to'')"}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 422
+      message: Unprocessable Entity
+recorded_with: VCR 6.0.0

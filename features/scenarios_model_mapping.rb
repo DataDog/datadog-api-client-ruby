@@ -1568,6 +1568,20 @@ ScenariosModelMappings = {
             "service_name" => "String",
             "schema_version" => "ServiceDefinitionSchemaVersions",
     },
+    "v2.AggregateSpans" => {
+            "body" => "SpansAggregateRequest",
+    },
+    "v2.ListSpansGet" => {
+            "filter_query" => "String",
+            "filter_from" => "String",
+            "filter_to" => "String",
+            "sort" => "SpansSort",
+            "page_cursor" => "String",
+            "page_limit" => "Integer",
+    },
+    "v2.ListSpans" => {
+            "body" => "SpansListRequest",
+    },
     "v2.SetOnDemandConcurrencyCap" => {
             "body" => "OnDemandConcurrencyCapAttributes",
     },
