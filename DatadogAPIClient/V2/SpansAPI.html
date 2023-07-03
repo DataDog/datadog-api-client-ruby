@@ -516,7 +516,8 @@
   <div class="discussion">
     <p>Aggregate spans.</p>
 
-<p>The API endpoint to aggregate spans into buckets and compute metrics and timeseries.</p>
+<p>The API endpoint to aggregate spans into buckets and compute metrics and timeseries.
+This endpoint is rate limited to <code>300</code> requests per hour.</p>
 
 
   </div>
@@ -579,7 +580,6 @@
       <pre class="lines">
 
 
-41
 42
 43
 44
@@ -629,10 +629,11 @@
 88
 89
 90
-91</pre>
+91
+92</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/spans_api.rb', line 41</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/spans_api.rb', line 42</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_aggregate_spans_with_http_info'>aggregate_spans_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -722,13 +723,13 @@
       <pre class="lines">
 
 
-96
 97
 98
-99</pre>
+99
+100</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/spans_api.rb', line 96</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/spans_api.rb', line 97</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_spans'>list_spans</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_list_spans_with_http_info'>list_spans_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -771,13 +772,13 @@
       <pre class="lines">
 
 
-187
-188
-189
-190</pre>
+191
+192
+193
+194</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/spans_api.rb', line 187</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/spans_api.rb', line 191</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_spans_get'>list_spans_get</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_list_spans_get_with_http_info'>list_spans_get_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -802,9 +803,10 @@
     <p>Get a list of spans.</p>
 
 <p>List endpoint returns spans that match a span search query.
-[Results are paginated][1].</p>
+<a href="/logs/guide/collect-multiple-logs-with-pagination">Results are paginated</a>.</p>
 
-<p>Use this endpoint to see your latest spans.</p>
+<p>Use this endpoint to see your latest spans.
+This endpoint is rate limited to <code>300</code> requests per hour.</p>
 
 
   </div>
@@ -937,13 +939,6 @@
       <pre class="lines">
 
 
-207
-208
-209
-210
-211
-212
-213
 214
 215
 216
@@ -994,10 +989,17 @@
 261
 262
 263
-264</pre>
+264
+265
+266
+267
+268
+269
+270
+271</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/spans_api.rb', line 207</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/spans_api.rb', line 214</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_spans_get_with_http_info'>list_spans_get_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -1108,22 +1110,22 @@
       <pre class="lines">
 
 
-273
-274
-275
-276
-277
-278
-279
 280
 281
 282
 283
 284
-285</pre>
+285
+286
+287
+288
+289
+290
+291
+292</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/spans_api.rb', line 273</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/spans_api.rb', line 280</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_spans_get_with_pagination'>list_spans_get_with_pagination</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_api_version'>api_version</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>V2</span><span class='tstring_end'>&quot;</span></span>
@@ -1157,9 +1159,10 @@
     <p>Search spans.</p>
 
 <p>List endpoint returns spans that match a span search query.
-[Results are paginated][1].</p>
+<a href="/logs/guide/collect-multiple-logs-with-pagination">Results are paginated</a>.</p>
 
-<p>Use this endpoint to build complex spans filtering and search.</p>
+<p>Use this endpoint to build complex spans filtering and search.
+This endpoint is rate limited to <code>300</code> requests per hour.</p>
 
 
   </div>
@@ -1222,10 +1225,6 @@
       <pre class="lines">
 
 
-111
-112
-113
-114
 115
 116
 117
@@ -1272,10 +1271,14 @@
 158
 159
 160
-161</pre>
+161
+162
+163
+164
+165</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/spans_api.rb', line 111</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/spans_api.rb', line 115</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_spans_with_http_info'>list_spans_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -1379,10 +1382,6 @@
       <pre class="lines">
 
 
-170
-171
-172
-173
 174
 175
 176
@@ -1391,10 +1390,14 @@
 179
 180
 181
-182</pre>
+182
+183
+184
+185
+186</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/spans_api.rb', line 170</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/spans_api.rb', line 174</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_spans_with_pagination'>list_spans_with_pagination</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_api_version'>api_version</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>V2</span><span class='tstring_end'>&quot;</span></span>
@@ -1419,7 +1422,7 @@
 </div>
 
       <div id="footer">
-  Generated on Mon Jul  3 06:46:03 2023 by
+  Generated on Mon Jul  3 15:00:03 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.34 (ruby-2.7.8).
 </div>
