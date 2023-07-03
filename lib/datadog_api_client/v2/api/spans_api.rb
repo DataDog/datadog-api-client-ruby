@@ -34,6 +34,7 @@ module DatadogAPIClient::V2
     # Aggregate spans.
     #
     # The API endpoint to aggregate spans into buckets and compute metrics and timeseries.
+    # This endpoint is rate limited to `300` requests per hour.
     #
     # @param body [SpansAggregateRequest] 
     # @param opts [Hash] the optional parameters
@@ -104,6 +105,9 @@ module DatadogAPIClient::V2
     # [Results are paginated][1].
     #
     # Use this endpoint to build complex spans filtering and search.
+    # This endpoint is rate limited to `300` requests per hour.
+    #
+    # [1]: /logs/guide/collect-multiple-logs-with-pagination
     #
     # @param body [SpansListRequest] 
     # @param opts [Hash] the optional parameters
@@ -195,6 +199,9 @@ module DatadogAPIClient::V2
     # [Results are paginated][1].
     #
     # Use this endpoint to see your latest spans.
+    # This endpoint is rate limited to `300` requests per hour.
+    #
+    # [1]: /logs/guide/collect-multiple-logs-with-pagination
     #
     # @param opts [Hash] the optional parameters
     # @option opts [String] :filter_query Search query following spans syntax.
