@@ -1,0 +1,20 @@
+http_interactions:
+- recorded_at: Fri, 09 Jun 2023 18:54:40 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+    method: GET
+    uri: https://api.datadoghq.com/api/v2/monitor/0/downtime_matches
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":["Monitor with id 0 not found"]}'
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 404
+      message: Not Found
+recorded_with: VCR 6.0.0

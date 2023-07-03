@@ -964,6 +964,27 @@ ScenariosModelMappings = {
             "dashboard_list_id" => "Integer",
             "body" => "DashboardListUpdateItemsRequest",
     },
+    "v2.ListDowntimes" => {
+            "current_only" => "Boolean",
+            "include" => "String",
+    },
+    "v2.CreateDowntime" => {
+            "body" => "DowntimeCreateRequest",
+    },
+    "v2.CancelDowntime" => {
+            "downtime_id" => "String",
+    },
+    "v2.GetDowntime" => {
+            "downtime_id" => "String",
+            "include" => "String",
+    },
+    "v2.UpdateDowntime" => {
+            "downtime_id" => "String",
+            "body" => "DowntimeUpdateRequest",
+    },
+    "v2.ListMonitorDowntimes" => {
+            "monitor_id" => "Integer",
+    },
     "v2.ListEvents" => {
             "filter_query" => "String",
             "filter_from" => "String",
