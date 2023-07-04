@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class CIAppPipelineEventPipeline
     include BaseGenericModel
 
-    # Time when the pipeline run finished. The time format must be RFC3339.
+    # Time when the pipeline run finished. It cannot be older than 18 hours in the past from the current time. The time format must be RFC3339.
     attr_reader :_end
 
     # Contains information of the CI error.
