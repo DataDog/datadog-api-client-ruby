@@ -107,7 +107,7 @@ module DatadogAPIClient::V2
     # Use this endpoint to build complex spans filtering and search.
     # This endpoint is rate limited to `300` requests per hour.
     #
-    # [1]: /logs/guide/collect-multiple-logs-with-pagination
+    # [1]: /logs/guide/collect-multiple-logs-with-pagination?tab=v2api
     #
     # @param body [SpansListRequest] 
     # @param opts [Hash] the optional parameters
@@ -201,7 +201,7 @@ module DatadogAPIClient::V2
     # Use this endpoint to see your latest spans.
     # This endpoint is rate limited to `300` requests per hour.
     #
-    # [1]: /logs/guide/collect-multiple-logs-with-pagination
+    # [1]: /logs/guide/collect-multiple-logs-with-pagination?tab=v2api
     #
     # @param opts [Hash] the optional parameters
     # @option opts [String] :filter_query Search query following spans syntax.
