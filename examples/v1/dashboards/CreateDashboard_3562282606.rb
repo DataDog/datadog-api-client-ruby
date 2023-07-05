@@ -34,6 +34,7 @@ body = DatadogAPIClient::V1::Dashboard.new({
                 measure: DatadogAPIClient::V1::FormulaAndFunctionSLOMeasure::SLO_STATUS,
                 group_mode: DatadogAPIClient::V1::FormulaAndFunctionSLOGroupMode::OVERALL,
                 slo_query_type: DatadogAPIClient::V1::FormulaAndFunctionSLOQueryType::METRIC,
+                additional_query_filters: "*",
               }),
             ],
             response_format: DatadogAPIClient::V1::FormulaAndFunctionResponseFormat::SCALAR,
