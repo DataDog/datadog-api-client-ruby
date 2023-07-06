@@ -1191,7 +1191,7 @@ ScenariosModelMappings = {
     },
     "v2.ListLogsGet" => {
             "filter_query" => "String",
-            "filter_index" => "String",
+            "filter_indexes" => "Array<String>",
             "filter_from" => "Time",
             "filter_to" => "Time",
             "filter_storage_tier" => "LogsStorageTier",
