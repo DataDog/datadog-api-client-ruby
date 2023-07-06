@@ -21,6 +21,9 @@ module DatadogAPIClient::V1
   class FormulaAndFunctionSLOQueryDefinition
     include BaseGenericModel
 
+    # Additional filters applied to the SLO query.
+    attr_accessor :additional_query_filters
+
     # Data source for SLO measures queries.
     attr_reader :data_source
 
@@ -43,6 +46,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.attribute_map
       {
+        :'additional_query_filters' => :'additional_query_filters',
         :'data_source' => :'data_source',
         :'group_mode' => :'group_mode',
         :'measure' => :'measure',
@@ -56,6 +60,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
+        :'additional_query_filters' => :'String',
         :'data_source' => :'FormulaAndFunctionSLODataSource',
         :'group_mode' => :'FormulaAndFunctionSLOGroupMode',
         :'measure' => :'FormulaAndFunctionSLOMeasure',
@@ -80,6 +85,10 @@ module DatadogAPIClient::V1
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'additional_query_filters')
+        self.additional_query_filters = attributes[:'additional_query_filters']
+      end
 
       if attributes.key?(:'data_source')
         self.data_source = attributes[:'data_source']
@@ -152,6 +161,7 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          additional_query_filters == o.additional_query_filters &&
           data_source == o.data_source &&
           group_mode == o.group_mode &&
           measure == o.measure &&
@@ -164,7 +174,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data_source, group_mode, measure, name, slo_id, slo_query_type].hash
+      [additional_query_filters, data_source, group_mode, measure, name, slo_id, slo_query_type].hash
     end
   end
 end
