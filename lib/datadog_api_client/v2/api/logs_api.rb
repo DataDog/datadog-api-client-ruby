@@ -208,7 +208,7 @@ module DatadogAPIClient::V2
     #
     # @param opts [Hash] the optional parameters
     # @option opts [String] :filter_query Search query following logs syntax.
-    # @option opts [String] :filter_index For customers with multiple indexes, the indexes to search Defaults to '*' which means all indexes
+    # @option opts [Array<String>] :filter_indexes For customers with multiple indexes, the indexes to search. Defaults to '*' which means all indexes
     # @option opts [Time] :filter_from Minimum timestamp for requested logs.
     # @option opts [Time] :filter_to Maximum timestamp for requested logs.
     # @option opts [LogsStorageTier] :filter_storage_tier Specifies the storage type to be used
@@ -238,7 +238,7 @@ module DatadogAPIClient::V2
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'filter[query]'] = opts[:'filter_query'] if !opts[:'filter_query'].nil?
-      query_params[:'filter[index]'] = opts[:'filter_index'] if !opts[:'filter_index'].nil?
+      query_params[:'filter[indexes]'] = @api_client.build_collection_param(opts[:'filter_indexes'], :csv) if !opts[:'filter_indexes'].nil?
       query_params[:'filter[from]'] = opts[:'filter_from'] if !opts[:'filter_from'].nil?
       query_params[:'filter[to]'] = opts[:'filter_to'] if !opts[:'filter_to'].nil?
       query_params[:'filter[storage_tier]'] = opts[:'filter_storage_tier'] if !opts[:'filter_storage_tier'].nil?
