@@ -10,6 +10,7 @@ body = DatadogAPIClient::V2::ConfluentAccountCreateRequest.new({
       api_secret: "test-api-secret-123",
       resources: [
         DatadogAPIClient::V2::ConfluentAccountResourceAttributes.new({
+          enable_custom_metrics: false,
           id: "resource-id-123",
           resource_type: "kafka",
           tags: [

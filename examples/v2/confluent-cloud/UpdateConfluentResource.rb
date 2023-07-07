@@ -6,6 +6,7 @@ api_instance = DatadogAPIClient::V2::ConfluentCloudAPI.new
 body = DatadogAPIClient::V2::ConfluentResourceRequest.new({
   data: DatadogAPIClient::V2::ConfluentResourceRequestData.new({
     attributes: DatadogAPIClient::V2::ConfluentResourceRequestAttributes.new({
+      enable_custom_metrics: false,
       resource_type: "kafka",
       tags: [
         "myTag",

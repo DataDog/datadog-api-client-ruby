@@ -14,6 +14,7 @@ body = DatadogAPIClient::V2::ConfluentResourceRequest.new({
         "myTag",
         "myTag2:myValue",
       ],
+      enable_custom_metrics: false,
     }),
     id: "exampleconfluentcloud",
     type: DatadogAPIClient::V2::ConfluentResourceType::CONFLUENT_CLOUD_RESOURCES,
