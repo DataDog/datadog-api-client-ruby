@@ -24,6 +24,9 @@ module DatadogAPIClient::V2
     # Enable the `custom.consumer_lag_offset` metric, which contains extra metric tags.
     attr_accessor :enable_custom_metrics
 
+    # The ID associated with the Confluent resource.
+    attr_accessor :id
+
     # The resource type of the Resource. Can be `kafka`, `connector`, `ksql`, or `schema_registry`.
     attr_reader :resource_type
 
@@ -35,6 +38,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'enable_custom_metrics' => :'enable_custom_metrics',
+        :'id' => :'id',
         :'resource_type' => :'resource_type',
         :'tags' => :'tags'
       }
@@ -45,6 +49,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'enable_custom_metrics' => :'Boolean',
+        :'id' => :'String',
         :'resource_type' => :'String',
         :'tags' => :'Array<String>'
       }
@@ -68,6 +73,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'enable_custom_metrics')
         self.enable_custom_metrics = attributes[:'enable_custom_metrics']
+      end
+
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
       end
 
       if attributes.key?(:'resource_type')
@@ -106,6 +115,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           enable_custom_metrics == o.enable_custom_metrics &&
+          id == o.id &&
           resource_type == o.resource_type &&
           tags == o.tags
     end
@@ -114,7 +124,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [enable_custom_metrics, resource_type, tags].hash
+      [enable_custom_metrics, id, resource_type, tags].hash
     end
   end
 end
