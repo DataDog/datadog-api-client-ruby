@@ -124,7 +124,33 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#created_at-instance_method" title="#created_at (instance method)">#<strong>created_at</strong>  &#x21d2; Object </a>
+      <a href="#canceled-instance_method" title="#canceled (instance method)">#<strong>canceled</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Time that the downtime was canceled.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#created-instance_method" title="#created (instance method)">#<strong>created</strong>  &#x21d2; Object </a>
     
 
     
@@ -202,7 +228,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#modified_at-instance_method" title="#modified_at (instance method)">#<strong>modified_at</strong>  &#x21d2; Object </a>
+      <a href="#modified-instance_method" title="#modified (instance method)">#<strong>modified</strong>  &#x21d2; Object </a>
     
 
     
@@ -428,11 +454,53 @@
     <h2>Instance Attribute Details</h2>
     
       
-      <span id="created_at=-instance_method"></span>
+      <span id="canceled=-instance_method"></span>
       <div class="method_details first">
-  <h3 class="signature first" id="created_at-instance_method">
+  <h3 class="signature first" id="canceled-instance_method">
   
-    #<strong>created_at</strong>  &#x21d2; <tt>Object</tt> 
+    #<strong>canceled</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Time that the downtime was canceled.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+25
+26
+27</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/downtime_response_attributes.rb', line 25</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_canceled'>canceled</span>
+  <span class='ivar'>@canceled</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="created=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="created-instance_method">
+  
+    #<strong>created</strong>  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -454,15 +522,15 @@
       <pre class="lines">
 
 
-25
-26
-27</pre>
+28
+29
+30</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/downtime_response_attributes.rb', line 25</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/downtime_response_attributes.rb', line 28</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_created_at'>created_at</span>
-  <span class='ivar'>@created_at</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_created'>created</span>
+  <span class='ivar'>@created</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -497,12 +565,12 @@ as an offset for scheduling.</p>
       <pre class="lines">
 
 
-29
-30
-31</pre>
+32
+33
+34</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/downtime_response_attributes.rb', line 29</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/downtime_response_attributes.rb', line 32</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_display_timezone'>display_timezone</span>
   <span class='ivar'>@display_timezone</span>
@@ -540,12 +608,12 @@ by using the same <code>@username</code> notation as events.</p>
       <pre class="lines">
 
 
-33
-34
-35</pre>
+36
+37
+38</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/downtime_response_attributes.rb', line 33</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/downtime_response_attributes.rb', line 36</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_message'>message</span>
   <span class='ivar'>@message</span>
@@ -556,11 +624,11 @@ by using the same <code>@username</code> notation as events.</p>
 </div>
     
       
-      <span id="modified_at=-instance_method"></span>
+      <span id="modified=-instance_method"></span>
       <div class="method_details ">
-  <h3 class="signature " id="modified_at-instance_method">
+  <h3 class="signature " id="modified-instance_method">
   
-    #<strong>modified_at</strong>  &#x21d2; <tt>Object</tt> 
+    #<strong>modified</strong>  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -582,15 +650,15 @@ by using the same <code>@username</code> notation as events.</p>
       <pre class="lines">
 
 
-36
-37
-38</pre>
+39
+40
+41</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/downtime_response_attributes.rb', line 36</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/downtime_response_attributes.rb', line 39</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_modified_at'>modified_at</span>
-  <span class='ivar'>@modified_at</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_modified'>modified</span>
+  <span class='ivar'>@modified</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -624,12 +692,12 @@ by using the same <code>@username</code> notation as events.</p>
       <pre class="lines">
 
 
-39
-40
-41</pre>
+42
+43
+44</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/downtime_response_attributes.rb', line 39</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/downtime_response_attributes.rb', line 42</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_monitor_identifier'>monitor_identifier</span>
   <span class='ivar'>@monitor_identifier</span>
@@ -666,12 +734,12 @@ by using the same <code>@username</code> notation as events.</p>
       <pre class="lines">
 
 
-42
-43
-44</pre>
+45
+46
+47</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/downtime_response_attributes.rb', line 42</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/downtime_response_attributes.rb', line 45</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_mute_first_recovery_notification'>mute_first_recovery_notification</span>
   <span class='ivar'>@mute_first_recovery_notification</span>
@@ -708,12 +776,12 @@ by using the same <code>@username</code> notation as events.</p>
       <pre class="lines">
 
 
-45
-46
-47</pre>
+48
+49
+50</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/downtime_response_attributes.rb', line 45</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/downtime_response_attributes.rb', line 48</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_notify_end_states'>notify_end_states</span>
   <span class='ivar'>@notify_end_states</span>
@@ -750,12 +818,12 @@ by using the same <code>@username</code> notation as events.</p>
       <pre class="lines">
 
 
-48
-49
-50</pre>
+51
+52
+53</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/downtime_response_attributes.rb', line 48</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/downtime_response_attributes.rb', line 51</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_notify_end_types'>notify_end_types</span>
   <span class='ivar'>@notify_end_types</span>
@@ -794,12 +862,12 @@ provided, the downtime will begin immediately and never end.</p>
       <pre class="lines">
 
 
-53
-54
-55</pre>
+56
+57
+58</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/downtime_response_attributes.rb', line 53</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/downtime_response_attributes.rb', line 56</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_schedule'>schedule</span>
   <span class='ivar'>@schedule</span>
@@ -836,12 +904,12 @@ provided, the downtime will begin immediately and never end.</p>
       <pre class="lines">
 
 
-56
-57
-58</pre>
+59
+60
+61</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/downtime_response_attributes.rb', line 56</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/downtime_response_attributes.rb', line 59</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_scope'>scope</span>
   <span class='ivar'>@scope</span>
@@ -878,12 +946,12 @@ provided, the downtime will begin immediately and never end.</p>
       <pre class="lines">
 
 
-59
-60
-61</pre>
+62
+63
+64</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/downtime_response_attributes.rb', line 59</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/downtime_response_attributes.rb', line 62</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_status'>status</span>
   <span class='ivar'>@status</span>
@@ -899,7 +967,7 @@ provided, the downtime will begin immediately and never end.</p>
 </div>
 
       <div id="footer">
-  Generated on Mon Jul 10 14:44:44 2023 by
+  Generated on Mon Jul 10 15:17:18 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.34 (ruby-2.7.8).
 </div>
