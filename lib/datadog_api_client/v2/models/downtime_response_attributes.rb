@@ -21,8 +21,11 @@ module DatadogAPIClient::V2
   class DowntimeResponseAttributes
     include BaseGenericModel
 
+    # Time that the downtime was canceled.
+    attr_accessor :canceled
+
     # Creation time of the downtime.
-    attr_accessor :created_at
+    attr_accessor :created
 
     # The timezone in which to display the downtime's start and end times in Datadog applications. This is not used
     # as an offset for scheduling.
@@ -33,7 +36,7 @@ module DatadogAPIClient::V2
     attr_accessor :message
 
     # Time that the downtime was last modified.
-    attr_accessor :modified_at
+    attr_accessor :modified
 
     # Monitor identifier for the downtime.
     attr_accessor :monitor_identifier
@@ -62,10 +65,11 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'created_at' => :'created_at',
+        :'canceled' => :'canceled',
+        :'created' => :'created',
         :'display_timezone' => :'display_timezone',
         :'message' => :'message',
-        :'modified_at' => :'modified_at',
+        :'modified' => :'modified',
         :'monitor_identifier' => :'monitor_identifier',
         :'mute_first_recovery_notification' => :'mute_first_recovery_notification',
         :'notify_end_states' => :'notify_end_states',
@@ -80,10 +84,11 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'created_at' => :'Time',
+        :'canceled' => :'Time',
+        :'created' => :'Time',
         :'display_timezone' => :'String',
         :'message' => :'String',
-        :'modified_at' => :'Time',
+        :'modified' => :'Time',
         :'monitor_identifier' => :'DowntimeMonitorIdentifier',
         :'mute_first_recovery_notification' => :'Boolean',
         :'notify_end_states' => :'Array<DowntimeNotifyEndStateTypes>',
@@ -98,6 +103,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_nullable
       Set.new([
+        :'canceled',
         :'display_timezone',
         :'message',
       ])
@@ -119,8 +125,12 @@ module DatadogAPIClient::V2
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'created_at')
-        self.created_at = attributes[:'created_at']
+      if attributes.key?(:'canceled')
+        self.canceled = attributes[:'canceled']
+      end
+
+      if attributes.key?(:'created')
+        self.created = attributes[:'created']
       end
 
       if attributes.key?(:'display_timezone')
@@ -131,8 +141,8 @@ module DatadogAPIClient::V2
         self.message = attributes[:'message']
       end
 
-      if attributes.key?(:'modified_at')
-        self.modified_at = attributes[:'modified_at']
+      if attributes.key?(:'modified')
+        self.modified = attributes[:'modified']
       end
 
       if attributes.key?(:'monitor_identifier')
@@ -174,10 +184,11 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          created_at == o.created_at &&
+          canceled == o.canceled &&
+          created == o.created &&
           display_timezone == o.display_timezone &&
           message == o.message &&
-          modified_at == o.modified_at &&
+          modified == o.modified &&
           monitor_identifier == o.monitor_identifier &&
           mute_first_recovery_notification == o.mute_first_recovery_notification &&
           notify_end_states == o.notify_end_states &&
@@ -191,7 +202,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created_at, display_timezone, message, modified_at, monitor_identifier, mute_first_recovery_notification, notify_end_states, notify_end_types, schedule, scope, status].hash
+      [canceled, created, display_timezone, message, modified, monitor_identifier, mute_first_recovery_notification, notify_end_states, notify_end_types, schedule, scope, status].hash
     end
   end
 end
