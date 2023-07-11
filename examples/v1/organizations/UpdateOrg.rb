@@ -15,7 +15,7 @@ body = DatadogAPIClient::V1::Organization.new({
     saml: DatadogAPIClient::V1::OrganizationSettingsSaml.new({
       enabled: false,
     }),
-    saml_autocreate_access_role: DatadogAPIClient::V1::AccessRole::STANDARD,
+    saml_autocreate_access_role: DatadogAPIClient::V1::AccessRole::READ_ONLY,
     saml_autocreate_users_domains: DatadogAPIClient::V1::OrganizationSettingsSamlAutocreateUsersDomains.new({
       domains: [
         "example.com",
