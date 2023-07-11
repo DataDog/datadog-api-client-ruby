@@ -1,10 +1,10 @@
-# Create a user returns "User created" response
+# Create a user returns null access role
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::UsersAPI.new
 
 body = DatadogAPIClient::V1::User.new({
-  access_role: DatadogAPIClient::V1::AccessRole::READ_ONLY,
+  access_role: nil,
   disabled: false,
   email: "test@datadoghq.com",
   handle: "test@datadoghq.com",
