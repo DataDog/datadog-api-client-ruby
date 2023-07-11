@@ -113,6 +113,8 @@ module DatadogAPIClient
           "v1.formula_and_function_apm_resource_stat_name" => "FormulaAndFunctionApmResourceStatName",
           "v1.formula_and_function_apm_resource_stats_data_source" => "FormulaAndFunctionApmResourceStatsDataSource",
           "v1.formula_and_function_apm_resource_stats_query_definition" => "FormulaAndFunctionApmResourceStatsQueryDefinition",
+          "v1.formula_and_function_cloud_cost_data_source" => "FormulaAndFunctionCloudCostDataSource",
+          "v1.formula_and_function_cloud_cost_query_definition" => "FormulaAndFunctionCloudCostQueryDefinition",
           "v1.formula_and_function_event_aggregation" => "FormulaAndFunctionEventAggregation",
           "v1.formula_and_function_event_query_definition" => "FormulaAndFunctionEventQueryDefinition",
           "v1.formula_and_function_event_query_definition_compute" => "FormulaAndFunctionEventQueryDefinitionCompute",
