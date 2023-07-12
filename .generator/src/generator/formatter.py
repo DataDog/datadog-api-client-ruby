@@ -216,9 +216,13 @@ def format_data_with_schema(
     default_name=None,
 ):
     name = get_name(schema)
+    nullable = schema.get("nullable", False)
 
-    if "enum" in schema and data not in schema["enum"]:
-        raise ValueError(f"{data} is not valid enum value {schema['enum']}")
+    if "enum" in schema:
+        if nullable and data is None:
+            pass
+        elif data not in schema["enum"]:
+            raise ValueError(f"{data} is not valid enum value {schema['enum']}")
 
     if replace_values and data in replace_values:
         parameters = replace_values[data]
@@ -227,9 +231,11 @@ def format_data_with_schema(
         elif schema.get("type") == "number":
             parameters = f"{parameters}.to_f"
     elif "enum" in schema:
+        if nullable and data is None:
+            return "nil"
         parameters = schema["x-enum-varnames"][schema["enum"].index(data)]
     else:
-        if schema.get("nullable") and data is None:
+        if nullable and data is None:
             return "nil"
         else:
             if "oneOf" in schema:
