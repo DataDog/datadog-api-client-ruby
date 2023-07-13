@@ -21,8 +21,14 @@ module DatadogAPIClient::V2
   class CloudWorkloadSecurityAgentRuleAttributes
     include BaseGenericModel
 
+    # The version of the agent.
+    attr_accessor :agent_constraint
+
     # The category of the Agent rule.
     attr_accessor :category
+
+    # The ID of the user who created the rule.
+    attr_accessor :creation_author_uu_id
 
     # When the Agent rule was created, timestamp in milliseconds.
     attr_accessor :creation_date
@@ -45,6 +51,12 @@ module DatadogAPIClient::V2
     # The name of the Agent rule.
     attr_accessor :name
 
+    # The ID of the user who updated the rule.
+    attr_accessor :update_author_uu_id
+
+    # Timestamp in milliseconds when the Agent rule was last updated.
+    attr_accessor :update_date
+
     # When the Agent rule was last updated, timestamp in milliseconds.
     attr_accessor :updated_at
 
@@ -58,7 +70,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'agent_constraint' => :'agentConstraint',
         :'category' => :'category',
+        :'creation_author_uu_id' => :'creationAuthorUuId',
         :'creation_date' => :'creationDate',
         :'creator' => :'creator',
         :'default_rule' => :'defaultRule',
@@ -66,6 +80,8 @@ module DatadogAPIClient::V2
         :'enabled' => :'enabled',
         :'expression' => :'expression',
         :'name' => :'name',
+        :'update_author_uu_id' => :'updateAuthorUuId',
+        :'update_date' => :'updateDate',
         :'updated_at' => :'updatedAt',
         :'updater' => :'updater',
         :'version' => :'version'
@@ -76,7 +92,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'agent_constraint' => :'String',
         :'category' => :'String',
+        :'creation_author_uu_id' => :'String',
         :'creation_date' => :'Integer',
         :'creator' => :'CloudWorkloadSecurityAgentRuleCreatorAttributes',
         :'default_rule' => :'Boolean',
@@ -84,6 +102,8 @@ module DatadogAPIClient::V2
         :'enabled' => :'Boolean',
         :'expression' => :'String',
         :'name' => :'String',
+        :'update_author_uu_id' => :'String',
+        :'update_date' => :'Integer',
         :'updated_at' => :'Integer',
         :'updater' => :'CloudWorkloadSecurityAgentRuleUpdaterAttributes',
         :'version' => :'Integer'
@@ -106,8 +126,16 @@ module DatadogAPIClient::V2
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'agent_constraint')
+        self.agent_constraint = attributes[:'agent_constraint']
+      end
+
       if attributes.key?(:'category')
         self.category = attributes[:'category']
+      end
+
+      if attributes.key?(:'creation_author_uu_id')
+        self.creation_author_uu_id = attributes[:'creation_author_uu_id']
       end
 
       if attributes.key?(:'creation_date')
@@ -138,6 +166,14 @@ module DatadogAPIClient::V2
         self.name = attributes[:'name']
       end
 
+      if attributes.key?(:'update_author_uu_id')
+        self.update_author_uu_id = attributes[:'update_author_uu_id']
+      end
+
+      if attributes.key?(:'update_date')
+        self.update_date = attributes[:'update_date']
+      end
+
       if attributes.key?(:'updated_at')
         self.updated_at = attributes[:'updated_at']
       end
@@ -157,7 +193,9 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          agent_constraint == o.agent_constraint &&
           category == o.category &&
+          creation_author_uu_id == o.creation_author_uu_id &&
           creation_date == o.creation_date &&
           creator == o.creator &&
           default_rule == o.default_rule &&
@@ -165,6 +203,8 @@ module DatadogAPIClient::V2
           enabled == o.enabled &&
           expression == o.expression &&
           name == o.name &&
+          update_author_uu_id == o.update_author_uu_id &&
+          update_date == o.update_date &&
           updated_at == o.updated_at &&
           updater == o.updater &&
           version == o.version
@@ -174,7 +214,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [category, creation_date, creator, default_rule, description, enabled, expression, name, updated_at, updater, version].hash
+      [agent_constraint, category, creation_author_uu_id, creation_date, creator, default_rule, description, enabled, expression, name, update_author_uu_id, update_date, updated_at, updater, version].hash
     end
   end
 end
