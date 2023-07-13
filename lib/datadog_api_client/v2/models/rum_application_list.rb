@@ -24,6 +24,9 @@ module DatadogAPIClient::V2
     # RUM application list attributes.
     attr_reader :attributes
 
+    # RUM application ID.
+    attr_accessor :id
+
     # RUM application list type.
     attr_reader :type
 
@@ -32,6 +35,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'attributes' => :'attributes',
+        :'id' => :'id',
         :'type' => :'type'
       }
     end
@@ -41,6 +45,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'attributes' => :'RUMApplicationListAttributes',
+        :'id' => :'String',
         :'type' => :'RUMApplicationListType'
       }
     end
@@ -63,6 +68,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'attributes')
         self.attributes = attributes[:'attributes']
+      end
+
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
       end
 
       if attributes.key?(:'type')
@@ -106,6 +115,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           attributes == o.attributes &&
+          id == o.id &&
           type == o.type
     end
 
@@ -113,7 +123,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, type].hash
+      [attributes, id, type].hash
     end
   end
 end
