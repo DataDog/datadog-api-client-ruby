@@ -24,6 +24,9 @@ module DatadogAPIClient::V2
     # Object description of attributes from your event.
     attr_accessor :attributes
 
+    # The message of the event.
+    attr_accessor :message
+
     # An array of tags associated with the event.
     attr_accessor :tags
 
@@ -35,6 +38,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'attributes' => :'attributes',
+        :'message' => :'message',
         :'tags' => :'tags',
         :'timestamp' => :'timestamp'
       }
@@ -45,6 +49,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'attributes' => :'EventAttributes',
+        :'message' => :'String',
         :'tags' => :'Array<String>',
         :'timestamp' => :'Time'
       }
@@ -70,6 +75,10 @@ module DatadogAPIClient::V2
         self.attributes = attributes[:'attributes']
       end
 
+      if attributes.key?(:'message')
+        self.message = attributes[:'message']
+      end
+
       if attributes.key?(:'tags')
         if (value = attributes[:'tags']).is_a?(Array)
           self.tags = value
@@ -88,6 +97,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           attributes == o.attributes &&
+          message == o.message &&
           tags == o.tags &&
           timestamp == o.timestamp
     end
@@ -96,7 +106,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, tags, timestamp].hash
+      [attributes, message, tags, timestamp].hash
     end
   end
 end
