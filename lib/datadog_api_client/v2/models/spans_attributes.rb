@@ -24,6 +24,9 @@ module DatadogAPIClient::V2
     # JSON object of attributes from your span.
     attr_accessor :attributes
 
+    # JSON object of custom spans data.
+    attr_accessor :custom
+
     # End timestamp of your span.
     attr_accessor :end_timestamp
 
@@ -76,6 +79,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'attributes' => :'attributes',
+        :'custom' => :'custom',
         :'end_timestamp' => :'end_timestamp',
         :'env' => :'env',
         :'host' => :'host',
@@ -99,6 +103,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'attributes' => :'Hash<String, Object>',
+        :'custom' => :'Hash<String, Object>',
         :'end_timestamp' => :'Time',
         :'env' => :'String',
         :'host' => :'String',
@@ -135,6 +140,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'attributes')
         self.attributes = attributes[:'attributes']
+      end
+
+      if attributes.key?(:'custom')
+        self.custom = attributes[:'custom']
       end
 
       if attributes.key?(:'end_timestamp')
@@ -207,6 +216,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           attributes == o.attributes &&
+          custom == o.custom &&
           end_timestamp == o.end_timestamp &&
           env == o.env &&
           host == o.host &&
@@ -228,7 +238,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, end_timestamp, env, host, ingestion_reason, parent_id, resource_hash, resource_name, retained_by, service, single_span, span_id, start_timestamp, tags, trace_id, type].hash
+      [attributes, custom, end_timestamp, env, host, ingestion_reason, parent_id, resource_hash, resource_name, retained_by, service, single_span, span_id, start_timestamp, tags, trace_id, type].hash
     end
   end
 end
