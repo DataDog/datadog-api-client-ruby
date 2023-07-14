@@ -17,26 +17,26 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Service definition data.
-  class ServiceDefinitionData
+  # Schema validation warnings.
+  class ServiceDefinitionMetaWarnings
     include BaseGenericModel
 
-    # Service definition attributes.
-    attr_accessor :attributes
+    # The warning instance location.
+    attr_accessor :instance_location
 
-    # Service definition id.
-    attr_accessor :id
+    # The warning keyword location.
+    attr_accessor :keyword_location
 
-    # Service definition type.
-    attr_accessor :type
+    # The warning message.
+    attr_accessor :message
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'attributes' => :'attributes',
-        :'id' => :'id',
-        :'type' => :'type'
+        :'instance_location' => :'instance-location',
+        :'keyword_location' => :'keyword-location',
+        :'message' => :'message'
       }
     end
 
@@ -44,9 +44,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'ServiceDefinitionDataAttributes',
-        :'id' => :'String',
-        :'type' => :'String'
+        :'instance_location' => :'String',
+        :'keyword_location' => :'String',
+        :'message' => :'String'
       }
     end
 
@@ -55,27 +55,27 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ServiceDefinitionData` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ServiceDefinitionMetaWarnings` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::ServiceDefinitionData`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::ServiceDefinitionMetaWarnings`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'attributes')
-        self.attributes = attributes[:'attributes']
+      if attributes.key?(:'instance_location')
+        self.instance_location = attributes[:'instance_location']
       end
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.key?(:'keyword_location')
+        self.keyword_location = attributes[:'keyword_location']
       end
 
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
+      if attributes.key?(:'message')
+        self.message = attributes[:'message']
       end
     end
 
@@ -85,16 +85,16 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          attributes == o.attributes &&
-          id == o.id &&
-          type == o.type
+          instance_location == o.instance_location &&
+          keyword_location == o.keyword_location &&
+          message == o.message
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, id, type].hash
+      [instance_location, keyword_location, message].hash
     end
   end
 end
