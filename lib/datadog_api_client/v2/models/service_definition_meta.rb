@@ -33,6 +33,15 @@ module DatadogAPIClient::V2
     # Last modified time of the service definition.
     attr_accessor :last_modified_time
 
+    # User defined origin of the service definition.
+    attr_accessor :origin
+
+    # User defined origin's detail of the service definition.
+    attr_accessor :origin_detail
+
+    # A list of schema validation warnings.
+    attr_accessor :warnings
+
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
@@ -40,7 +49,10 @@ module DatadogAPIClient::V2
         :'github_html_url' => :'github-html-url',
         :'ingested_schema_version' => :'ingested-schema-version',
         :'ingestion_source' => :'ingestion-source',
-        :'last_modified_time' => :'last-modified-time'
+        :'last_modified_time' => :'last-modified-time',
+        :'origin' => :'origin',
+        :'origin_detail' => :'origin-detail',
+        :'warnings' => :'warnings'
       }
     end
 
@@ -51,7 +63,10 @@ module DatadogAPIClient::V2
         :'github_html_url' => :'String',
         :'ingested_schema_version' => :'String',
         :'ingestion_source' => :'String',
-        :'last_modified_time' => :'String'
+        :'last_modified_time' => :'String',
+        :'origin' => :'String',
+        :'origin_detail' => :'String',
+        :'warnings' => :'Array<ServiceDefinitionMetaWarnings>'
       }
     end
 
@@ -86,6 +101,20 @@ module DatadogAPIClient::V2
       if attributes.key?(:'last_modified_time')
         self.last_modified_time = attributes[:'last_modified_time']
       end
+
+      if attributes.key?(:'origin')
+        self.origin = attributes[:'origin']
+      end
+
+      if attributes.key?(:'origin_detail')
+        self.origin_detail = attributes[:'origin_detail']
+      end
+
+      if attributes.key?(:'warnings')
+        if (value = attributes[:'warnings']).is_a?(Array)
+          self.warnings = value
+        end
+      end
     end
 
     # Checks equality by comparing each attribute.
@@ -97,14 +126,17 @@ module DatadogAPIClient::V2
           github_html_url == o.github_html_url &&
           ingested_schema_version == o.ingested_schema_version &&
           ingestion_source == o.ingestion_source &&
-          last_modified_time == o.last_modified_time
+          last_modified_time == o.last_modified_time &&
+          origin == o.origin &&
+          origin_detail == o.origin_detail &&
+          warnings == o.warnings
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [github_html_url, ingested_schema_version, ingestion_source, last_modified_time].hash
+      [github_html_url, ingested_schema_version, ingestion_source, last_modified_time, origin, origin_detail, warnings].hash
     end
   end
 end

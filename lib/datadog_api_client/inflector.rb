@@ -1703,6 +1703,7 @@ module DatadogAPIClient
           "v2.service_definition_data_attributes" => "ServiceDefinitionDataAttributes",
           "v2.service_definition_get_response" => "ServiceDefinitionGetResponse",
           "v2.service_definition_meta" => "ServiceDefinitionMeta",
+          "v2.service_definition_meta_warnings" => "ServiceDefinitionMetaWarnings",
           "v2.service_definition_schema" => "ServiceDefinitionSchema",
           "v2.service_definition_schema_versions" => "ServiceDefinitionSchemaVersions",
           "v2.service_definitions_create_request" => "ServiceDefinitionsCreateRequest",
