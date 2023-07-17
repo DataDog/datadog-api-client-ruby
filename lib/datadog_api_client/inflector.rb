@@ -1751,6 +1751,8 @@ module DatadogAPIClient
           "v2.slack_integration_metadata_channel_item" => "SlackIntegrationMetadataChannelItem",
           "v2.span" => "Span",
           "v2.spans_aggregate_bucket" => "SpansAggregateBucket",
+          "v2.spans_aggregate_bucket_attributes" => "SpansAggregateBucketAttributes",
+          "v2.spans_aggregate_bucket_type" => "SpansAggregateBucketType",
           "v2.spans_aggregate_bucket_value" => "SpansAggregateBucketValue",
           "v2.spans_aggregate_bucket_value_timeseries_point" => "SpansAggregateBucketValueTimeseriesPoint",
           "v2.spans_aggregate_data" => "SpansAggregateData",
