@@ -305,6 +305,10 @@ Then(/the response "([^"]+)" is false/) do |response_path|
   expect(@response[0].lookup response_path).to be false
 end
 
+Then(/the response "([^"]+)" has field "([^"]+)"/) do |response_path, field|
+  expect(@response[0].lookup response_path).to include(field.to_sym)
+end
+
 Then(/^the response "([^"]+)" has the same value as "(.*)"$/) do |response_path, fixture_path|
   expect(@response[0].lookup response_path).to eq fixtures.lookup(fixture_path)
 end
