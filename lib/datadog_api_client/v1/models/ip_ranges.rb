@@ -42,6 +42,9 @@ module DatadogAPIClient::V1
     # Available prefix information for the Process endpoints.
     attr_accessor :process
 
+    # Available prefix information for the Remote Configuration endpoints.
+    attr_accessor :remote_configuration
+
     # Available prefix information for the Synthetics endpoints.
     attr_accessor :synthetics
 
@@ -65,6 +68,7 @@ module DatadogAPIClient::V1
         :'modified' => :'modified',
         :'orchestrator' => :'orchestrator',
         :'process' => :'process',
+        :'remote_configuration' => :'remote-configuration',
         :'synthetics' => :'synthetics',
         :'synthetics_private_locations' => :'synthetics-private-locations',
         :'version' => :'version',
@@ -83,6 +87,7 @@ module DatadogAPIClient::V1
         :'modified' => :'String',
         :'orchestrator' => :'IPPrefixesOrchestrator',
         :'process' => :'IPPrefixesProcess',
+        :'remote_configuration' => :'IPPrefixesRemoteConfiguration',
         :'synthetics' => :'IPPrefixesSynthetics',
         :'synthetics_private_locations' => :'IPPrefixesSyntheticsPrivateLocations',
         :'version' => :'Integer',
@@ -134,6 +139,10 @@ module DatadogAPIClient::V1
         self.process = attributes[:'process']
       end
 
+      if attributes.key?(:'remote_configuration')
+        self.remote_configuration = attributes[:'remote_configuration']
+      end
+
       if attributes.key?(:'synthetics')
         self.synthetics = attributes[:'synthetics']
       end
@@ -164,6 +173,7 @@ module DatadogAPIClient::V1
           modified == o.modified &&
           orchestrator == o.orchestrator &&
           process == o.process &&
+          remote_configuration == o.remote_configuration &&
           synthetics == o.synthetics &&
           synthetics_private_locations == o.synthetics_private_locations &&
           version == o.version &&
@@ -174,7 +184,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [agents, api, apm, logs, modified, orchestrator, process, synthetics, synthetics_private_locations, version, webhooks].hash
+      [agents, api, apm, logs, modified, orchestrator, process, remote_configuration, synthetics, synthetics_private_locations, version, webhooks].hash
     end
   end
 end
