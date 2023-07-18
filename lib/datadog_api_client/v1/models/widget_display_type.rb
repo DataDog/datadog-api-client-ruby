@@ -24,5 +24,6 @@ module DatadogAPIClient::V1
     AREA = "area".freeze
     BARS = "bars".freeze
     LINE = "line".freeze
+    OVERLAY = "overlay".freeze
   end
 end
