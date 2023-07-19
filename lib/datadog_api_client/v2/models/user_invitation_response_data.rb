@@ -27,6 +27,9 @@ module DatadogAPIClient::V2
     # ID of the user invitation.
     attr_accessor :id
 
+    # Relationships data for user invitation.
+    attr_accessor :relationships
+
     # User invitations type.
     attr_accessor :type
 
@@ -36,6 +39,7 @@ module DatadogAPIClient::V2
       {
         :'attributes' => :'attributes',
         :'id' => :'id',
+        :'relationships' => :'relationships',
         :'type' => :'type'
       }
     end
@@ -46,6 +50,7 @@ module DatadogAPIClient::V2
       {
         :'attributes' => :'UserInvitationDataAttributes',
         :'id' => :'String',
+        :'relationships' => :'UserInvitationRelationships',
         :'type' => :'UserInvitationsType'
       }
     end
@@ -74,6 +79,10 @@ module DatadogAPIClient::V2
         self.id = attributes[:'id']
       end
 
+      if attributes.key?(:'relationships')
+        self.relationships = attributes[:'relationships']
+      end
+
       if attributes.key?(:'type')
         self.type = attributes[:'type']
       end
@@ -87,6 +96,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           attributes == o.attributes &&
           id == o.id &&
+          relationships == o.relationships &&
           type == o.type
     end
 
@@ -94,7 +104,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, id, type].hash
+      [attributes, id, relationships, type].hash
     end
   end
 end
