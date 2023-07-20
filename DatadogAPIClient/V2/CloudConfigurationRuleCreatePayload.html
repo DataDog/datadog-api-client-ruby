@@ -180,6 +180,32 @@
       <li class="public ">
   <span class="summary_signature">
     
+      <a href="#filters-instance_method" title="#filters (instance method)">#<strong>filters</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Additional queries to filter matched events before they are processed.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#is_enabled-instance_method" title="#is_enabled (instance method)">#<strong>is_enabled</strong>  &#x21d2; Object </a>
     
 
@@ -446,6 +472,48 @@
 </div>
     
       
+      <span id="filters=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="filters-instance_method">
+  
+    #<strong>filters</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Additional queries to filter matched events before they are processed.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+32
+33
+34</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/cloud_configuration_rule_create_payload.rb', line 32</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_filters'>filters</span>
+  <span class='ivar'>@filters</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
       <span id="is_enabled=-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="is_enabled-instance_method">
@@ -472,12 +540,12 @@
       <pre class="lines">
 
 
-32
-33
-34</pre>
+35
+36
+37</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/cloud_configuration_rule_create_payload.rb', line 32</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/cloud_configuration_rule_create_payload.rb', line 35</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_is_enabled'>is_enabled</span>
   <span class='ivar'>@is_enabled</span>
@@ -514,12 +582,12 @@
       <pre class="lines">
 
 
-35
-36
-37</pre>
+38
+39
+40</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/cloud_configuration_rule_create_payload.rb', line 35</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/cloud_configuration_rule_create_payload.rb', line 38</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_message'>message</span>
   <span class='ivar'>@message</span>
@@ -556,12 +624,12 @@
       <pre class="lines">
 
 
-38
-39
-40</pre>
+41
+42
+43</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/cloud_configuration_rule_create_payload.rb', line 38</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/cloud_configuration_rule_create_payload.rb', line 41</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_name'>name</span>
   <span class='ivar'>@name</span>
@@ -598,12 +666,12 @@
       <pre class="lines">
 
 
-41
-42
-43</pre>
+44
+45
+46</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/cloud_configuration_rule_create_payload.rb', line 41</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/cloud_configuration_rule_create_payload.rb', line 44</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_options'>options</span>
   <span class='ivar'>@options</span>
@@ -640,12 +708,12 @@
       <pre class="lines">
 
 
-44
-45
-46</pre>
+47
+48
+49</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/cloud_configuration_rule_create_payload.rb', line 44</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/cloud_configuration_rule_create_payload.rb', line 47</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_tags'>tags</span>
   <span class='ivar'>@tags</span>
@@ -682,12 +750,12 @@
       <pre class="lines">
 
 
-47
-48
-49</pre>
+50
+51
+52</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/cloud_configuration_rule_create_payload.rb', line 47</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/cloud_configuration_rule_create_payload.rb', line 50</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_type'>type</span>
   <span class='ivar'>@type</span>
@@ -703,7 +771,7 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Jul 19 18:29:40 2023 by
+  Generated on Thu Jul 20 16:35:30 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.34 (ruby-2.7.8).
 </div>
