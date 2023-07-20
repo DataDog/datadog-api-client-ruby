@@ -201,7 +201,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'SpansMetricResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :get_spans_metric,
@@ -261,7 +261,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'SpansMetricsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :list_spans_metrics,
