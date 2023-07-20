@@ -63,7 +63,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'IPAllowlistResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :get_ip_allowlist,
@@ -130,7 +130,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'IPAllowlistResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :update_ip_allowlist,
