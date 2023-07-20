@@ -37,5 +37,15 @@ body = DatadogAPIClient::V2::CloudConfigurationRuleCreatePayload.new({
       "@account_id",
     ],
   }),
+  filters: [
+    DatadogAPIClient::V2::SecurityMonitoringFilter.new({
+      action: DatadogAPIClient::V2::SecurityMonitoringFilterAction::REQUIRE,
+      query: "resource_id:helo*",
+    }),
+    DatadogAPIClient::V2::SecurityMonitoringFilter.new({
+      action: DatadogAPIClient::V2::SecurityMonitoringFilterAction::SUPPRESS,
+      query: "control:helo*",
+    }),
+  ],
 })
 p api_instance.create_security_monitoring_rule(body)
