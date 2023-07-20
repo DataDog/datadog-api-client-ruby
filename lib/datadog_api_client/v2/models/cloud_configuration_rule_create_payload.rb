@@ -28,6 +28,9 @@ module DatadogAPIClient::V2
     # How to generate compliance signals. Useful for cloud_configuration rules only.
     attr_reader :compliance_signal_options
 
+    # Additional queries to filter matched events before they are processed.
+    attr_accessor :filters
+
     # Whether the rule is enabled.
     attr_reader :is_enabled
 
@@ -52,6 +55,7 @@ module DatadogAPIClient::V2
       {
         :'cases' => :'cases',
         :'compliance_signal_options' => :'complianceSignalOptions',
+        :'filters' => :'filters',
         :'is_enabled' => :'isEnabled',
         :'message' => :'message',
         :'name' => :'name',
@@ -67,6 +71,7 @@ module DatadogAPIClient::V2
       {
         :'cases' => :'Array<CloudConfigurationRuleCaseCreate>',
         :'compliance_signal_options' => :'CloudConfigurationRuleComplianceSignalOptions',
+        :'filters' => :'Array<SecurityMonitoringFilter>',
         :'is_enabled' => :'Boolean',
         :'message' => :'String',
         :'name' => :'String',
@@ -100,6 +105,12 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'compliance_signal_options')
         self.compliance_signal_options = attributes[:'compliance_signal_options']
+      end
+
+      if attributes.key?(:'filters')
+        if (value = attributes[:'filters']).is_a?(Array)
+          self.filters = value
+        end
       end
 
       if attributes.key?(:'is_enabled')
@@ -210,6 +221,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           cases == o.cases &&
           compliance_signal_options == o.compliance_signal_options &&
+          filters == o.filters &&
           is_enabled == o.is_enabled &&
           message == o.message &&
           name == o.name &&
@@ -222,7 +234,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [cases, compliance_signal_options, is_enabled, message, name, options, tags, type].hash
+      [cases, compliance_signal_options, filters, is_enabled, message, name, options, tags, type].hash
     end
   end
 end
