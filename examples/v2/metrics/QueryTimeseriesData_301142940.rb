@@ -12,10 +12,6 @@ body = DatadogAPIClient::V2::TimeseriesFormulaQueryRequest.new({
       formulas: [
         DatadogAPIClient::V2::QueryFormula.new({
           formula: "a",
-          limit: DatadogAPIClient::V2::FormulaLimit.new({
-            count: 10,
-            order: DatadogAPIClient::V2::QuerySortOrder::DESC,
-          }),
         }),
       ],
       from: 1671612804000,

@@ -10,7 +10,7 @@ body = DatadogAPIClient::V2::ScalarFormulaQueryRequest.new({
   data: DatadogAPIClient::V2::ScalarFormulaRequest.new({
     attributes: DatadogAPIClient::V2::ScalarFormulaRequestAttributes.new({
       formulas: [
-        DatadogAPIClient::V2::QueryFormula.new({
+        DatadogAPIClient::V2::QueryFormulaWithLimit.new({
           formula: "a+b",
           limit: DatadogAPIClient::V2::FormulaLimit.new({
             count: 10,

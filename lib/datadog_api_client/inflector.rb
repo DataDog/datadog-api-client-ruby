@@ -1453,6 +1453,7 @@ module DatadogAPIClient
           "v2.process_summary_attributes" => "ProcessSummaryAttributes",
           "v2.process_summary_type" => "ProcessSummaryType",
           "v2.query_formula" => "QueryFormula",
+          "v2.query_formula_with_limit" => "QueryFormulaWithLimit",
           "v2.query_sort_order" => "QuerySortOrder",
           "v2.relationship_to_incident_attachment" => "RelationshipToIncidentAttachment",
           "v2.relationship_to_incident_attachment_data" => "RelationshipToIncidentAttachmentData",

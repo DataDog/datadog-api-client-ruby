@@ -18,17 +18,21 @@ require 'time'
 
 module DatadogAPIClient::V2
   # A formula for calculation based on one or more queries.
-  class QueryFormula
+  class QueryFormulaWithLimit
     include BaseGenericModel
 
     # Formula string, referencing one or more queries with their name property.
     attr_reader :formula
 
+    # Message for specifying limits to the number of values returned by a query.
+    attr_accessor :limit
+
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'formula' => :'formula'
+        :'formula' => :'formula',
+        :'limit' => :'limit'
       }
     end
 
@@ -36,7 +40,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'formula' => :'String'
+        :'formula' => :'String',
+        :'limit' => :'FormulaLimit'
       }
     end
 
@@ -45,19 +50,23 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::QueryFormula` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::QueryFormulaWithLimit` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::QueryFormula`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::QueryFormulaWithLimit`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
       if attributes.key?(:'formula')
         self.formula = attributes[:'formula']
+      end
+
+      if attributes.key?(:'limit')
+        self.limit = attributes[:'limit']
       end
     end
 
@@ -85,14 +94,15 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          formula == o.formula
+          formula == o.formula &&
+          limit == o.limit
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [formula].hash
+      [formula, limit].hash
     end
   end
 end

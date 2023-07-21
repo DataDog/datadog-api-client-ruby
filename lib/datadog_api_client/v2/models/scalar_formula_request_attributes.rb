@@ -48,7 +48,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'formulas' => :'Array<QueryFormula>',
+        :'formulas' => :'Array<QueryFormulaWithLimit>',
         :'from' => :'Integer',
         :'queries' => :'Array<ScalarQuery>',
         :'to' => :'Integer'

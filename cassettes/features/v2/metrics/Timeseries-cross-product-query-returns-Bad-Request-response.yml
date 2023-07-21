@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Wed, 21 Dec 2022 11:14:01 GMT
+- recorded_at: Thu, 20 Jul 2023 17:38:07 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"formulas":[{"formula":"a+b","limit":{"count":10,"order":"desc"}}],"from":1671617641,"interval":5000,"queries":[{"data_source":"metrics","query":"avg:system.cpu.user{*}"}],"to":1671621241},"type":"timeseries_rquest"}}'
+      string: '{"data":{"attributes":{"formulas":[{"formula":"a+b"}],"from":1689871087,"interval":5000,"queries":[{"data_source":"metrics","query":"avg:system.cpu.user{*}"}],"to":1689874687},"type":"timeseries_rquest"}}'
     headers:
       Accept:
       - application/json
