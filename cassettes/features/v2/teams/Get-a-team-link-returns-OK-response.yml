@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Wed, 10 May 2023 16:25:52 GMT
+- recorded_at: Wed, 12 Jul 2023 17:29:29 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"handle":"handle-5aa41859bbf3789a","name":"name-5aa41859bbf3789a"},"type":"team"}}'
+      string: '{"data":{"attributes":{"handle":"handle-fa841defccf7dd70","name":"name-fa841defccf7dd70"},"type":"team"}}'
     headers:
       Accept:
       - application/json
@@ -14,7 +14,7 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"team","id":"55525bf6-ef4f-11ed-99e4-da7ad0900002","attributes":{"name":"name-5aa41859bbf3789a","handle":"handle-5aa41859bbf3789a","summary":null,"description":null,"color":5,"created_at":"2023-05-10T16:25:53.127054+00:00","modified_at":"2023-05-10T16:25:53.127058+00:00","user_count":0,"link_count":0},"relationships":{"team_links":{"links":{"related":"/api/v2/team/55525bf6-ef4f-11ed-99e4-da7ad0900002/links"}},"user_team_permissions":{"links":{"related":"/api/v2/team/55525bf6-ef4f-11ed-99e4-da7ad0900002/permission-settings"}}}}}
+      string: '{"data":{"type":"team","id":"a8114d8c-20d9-11ee-bedb-da7ad0900002","attributes":{"name":"name-fa841defccf7dd70","handle":"handle-fa841defccf7dd70","summary":null,"description":null,"created_at":"2023-07-12T17:29:29.474550+00:00","modified_at":"2023-07-12T17:29:29.474556+00:00","user_count":0,"link_count":0},"relationships":{"team_links":{"links":{"related":"/api/v2/team/a8114d8c-20d9-11ee-bedb-da7ad0900002/links"}},"user_team_permissions":{"links":{"related":"/api/v2/team/a8114d8c-20d9-11ee-bedb-da7ad0900002/permission-settings"}}}}}
 
         '
     headers:
@@ -23,22 +23,22 @@ http_interactions:
     status:
       code: 201
       message: Created
-- recorded_at: Wed, 10 May 2023 16:25:52 GMT
+- recorded_at: Wed, 12 Jul 2023 17:29:29 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"label":"Test-Get_a_team_link_returns_OK_response-1683735952","position":0,"url":"https://example.com"},"type":"team_links"}}'
+      string: '{"data":{"attributes":{"label":"Test-Get_a_team_link_returns_OK_response-1689182969","position":0,"url":"https://example.com"},"type":"team_links"}}'
     headers:
       Accept:
       - application/json
       Content-Type:
       - application/json
     method: POST
-    uri: https://api.datadoghq.com/api/v2/team/55525bf6-ef4f-11ed-99e4-da7ad0900002/links
+    uri: https://api.datadoghq.com/api/v2/team/a8114d8c-20d9-11ee-bedb-da7ad0900002/links
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"team_links","id":"557af0c0-ef4f-11ed-b60b-da7ad0900002","attributes":{"team_id":"55525bf6-ef4f-11ed-99e4-da7ad0900002","label":"Test-Get_a_team_link_returns_OK_response-1683735952","url":"https://example.com","position":0}}}
+      string: '{"data":{"type":"team_links","id":"a8996d2a-20d9-11ee-b209-da7ad0900002","attributes":{"team_id":"a8114d8c-20d9-11ee-bedb-da7ad0900002","label":"Test-Get_a_team_link_returns_OK_response-1689182969","url":"https://example.com","position":0}}}
 
         '
     headers:
@@ -47,18 +47,18 @@ http_interactions:
     status:
       code: 200
       message: OK
-- recorded_at: Wed, 10 May 2023 16:25:52 GMT
+- recorded_at: Wed, 12 Jul 2023 17:29:29 GMT
   request:
     body: null
     headers:
       Accept:
       - application/json
     method: GET
-    uri: https://api.datadoghq.com/api/v2/team/55525bf6-ef4f-11ed-99e4-da7ad0900002/links/557af0c0-ef4f-11ed-b60b-da7ad0900002
+    uri: https://api.datadoghq.com/api/v2/team/a8114d8c-20d9-11ee-bedb-da7ad0900002/links/a8996d2a-20d9-11ee-b209-da7ad0900002
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"team_links","id":"557af0c0-ef4f-11ed-b60b-da7ad0900002","attributes":{"team_id":"55525bf6-ef4f-11ed-99e4-da7ad0900002","label":"Test-Get_a_team_link_returns_OK_response-1683735952","url":"https://example.com","position":0}}}
+      string: '{"data":{"type":"team_links","id":"a8996d2a-20d9-11ee-b209-da7ad0900002","attributes":{"team_id":"a8114d8c-20d9-11ee-bedb-da7ad0900002","label":"Test-Get_a_team_link_returns_OK_response-1689182969","url":"https://example.com","position":0}}}
 
         '
     headers:
@@ -67,14 +67,14 @@ http_interactions:
     status:
       code: 200
       message: OK
-- recorded_at: Wed, 10 May 2023 16:25:52 GMT
+- recorded_at: Wed, 12 Jul 2023 17:29:29 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/team/55525bf6-ef4f-11ed-99e4-da7ad0900002/links/557af0c0-ef4f-11ed-b60b-da7ad0900002
+    uri: https://api.datadoghq.com/api/v2/team/a8114d8c-20d9-11ee-bedb-da7ad0900002/links/a8996d2a-20d9-11ee-b209-da7ad0900002
   response:
     body:
       encoding: UTF-8
@@ -83,14 +83,14 @@ http_interactions:
     status:
       code: 204
       message: No Content
-- recorded_at: Wed, 10 May 2023 16:25:52 GMT
+- recorded_at: Wed, 12 Jul 2023 17:29:29 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/team/55525bf6-ef4f-11ed-99e4-da7ad0900002
+    uri: https://api.datadoghq.com/api/v2/team/a8114d8c-20d9-11ee-bedb-da7ad0900002
   response:
     body:
       encoding: UTF-8

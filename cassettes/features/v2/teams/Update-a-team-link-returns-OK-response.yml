@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Wed, 10 May 2023 16:26:00 GMT
+- recorded_at: Wed, 12 Jul 2023 17:29:36 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"handle":"handle-5e9bed3a0071cff3","name":"name-5e9bed3a0071cff3"},"type":"team"}}'
+      string: '{"data":{"attributes":{"handle":"handle-d4767872f1c173b0","name":"name-d4767872f1c173b0"},"type":"team"}}'
     headers:
       Accept:
       - application/json
@@ -14,7 +14,7 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"team","id":"59c71da2-ef4f-11ed-a58b-da7ad0900002","attributes":{"name":"name-5e9bed3a0071cff3","handle":"handle-5e9bed3a0071cff3","summary":null,"description":null,"color":4,"created_at":"2023-05-10T16:26:00.603167+00:00","modified_at":"2023-05-10T16:26:00.603171+00:00","user_count":0,"link_count":0},"relationships":{"team_links":{"links":{"related":"/api/v2/team/59c71da2-ef4f-11ed-a58b-da7ad0900002/links"}},"user_team_permissions":{"links":{"related":"/api/v2/team/59c71da2-ef4f-11ed-a58b-da7ad0900002/permission-settings"}}}}}
+      string: '{"data":{"type":"team","id":"ac8b5bb4-20d9-11ee-a287-da7ad0900002","attributes":{"name":"name-d4767872f1c173b0","handle":"handle-d4767872f1c173b0","summary":null,"description":null,"created_at":"2023-07-12T17:29:36.985262+00:00","modified_at":"2023-07-12T17:29:36.985267+00:00","user_count":0,"link_count":0},"relationships":{"team_links":{"links":{"related":"/api/v2/team/ac8b5bb4-20d9-11ee-a287-da7ad0900002/links"}},"user_team_permissions":{"links":{"related":"/api/v2/team/ac8b5bb4-20d9-11ee-a287-da7ad0900002/permission-settings"}}}}}
 
         '
     headers:
@@ -23,22 +23,22 @@ http_interactions:
     status:
       code: 201
       message: Created
-- recorded_at: Wed, 10 May 2023 16:26:00 GMT
+- recorded_at: Wed, 12 Jul 2023 17:29:36 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"label":"Test-Update_a_team_link_returns_OK_response-1683735960","position":0,"url":"https://example.com"},"type":"team_links"}}'
+      string: '{"data":{"attributes":{"label":"Test-Update_a_team_link_returns_OK_response-1689182976","position":0,"url":"https://example.com"},"type":"team_links"}}'
     headers:
       Accept:
       - application/json
       Content-Type:
       - application/json
     method: POST
-    uri: https://api.datadoghq.com/api/v2/team/59c71da2-ef4f-11ed-a58b-da7ad0900002/links
+    uri: https://api.datadoghq.com/api/v2/team/ac8b5bb4-20d9-11ee-a287-da7ad0900002/links
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"team_links","id":"59f1bb16-ef4f-11ed-8e16-da7ad0900002","attributes":{"team_id":"59c71da2-ef4f-11ed-a58b-da7ad0900002","label":"Test-Update_a_team_link_returns_OK_response-1683735960","url":"https://example.com","position":0}}}
+      string: '{"data":{"type":"team_links","id":"aca6c3a4-20d9-11ee-b74b-da7ad0900002","attributes":{"team_id":"ac8b5bb4-20d9-11ee-a287-da7ad0900002","label":"Test-Update_a_team_link_returns_OK_response-1689182976","url":"https://example.com","position":0}}}
 
         '
     headers:
@@ -47,7 +47,7 @@ http_interactions:
     status:
       code: 200
       message: OK
-- recorded_at: Wed, 10 May 2023 16:26:00 GMT
+- recorded_at: Wed, 12 Jul 2023 17:29:36 GMT
   request:
     body:
       encoding: UTF-8
@@ -58,11 +58,11 @@ http_interactions:
       Content-Type:
       - application/json
     method: PATCH
-    uri: https://api.datadoghq.com/api/v2/team/59c71da2-ef4f-11ed-a58b-da7ad0900002/links/59f1bb16-ef4f-11ed-8e16-da7ad0900002
+    uri: https://api.datadoghq.com/api/v2/team/ac8b5bb4-20d9-11ee-a287-da7ad0900002/links/aca6c3a4-20d9-11ee-b74b-da7ad0900002
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"team_links","id":"59f1bb16-ef4f-11ed-8e16-da7ad0900002","attributes":{"team_id":"59c71da2-ef4f-11ed-a58b-da7ad0900002","label":"New
+      string: '{"data":{"type":"team_links","id":"aca6c3a4-20d9-11ee-b74b-da7ad0900002","attributes":{"team_id":"ac8b5bb4-20d9-11ee-a287-da7ad0900002","label":"New
         Label","url":"https://example.com","position":0}}}
 
         '
@@ -72,14 +72,14 @@ http_interactions:
     status:
       code: 200
       message: OK
-- recorded_at: Wed, 10 May 2023 16:26:00 GMT
+- recorded_at: Wed, 12 Jul 2023 17:29:36 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/team/59c71da2-ef4f-11ed-a58b-da7ad0900002/links/59f1bb16-ef4f-11ed-8e16-da7ad0900002
+    uri: https://api.datadoghq.com/api/v2/team/ac8b5bb4-20d9-11ee-a287-da7ad0900002/links/aca6c3a4-20d9-11ee-b74b-da7ad0900002
   response:
     body:
       encoding: UTF-8
@@ -88,14 +88,14 @@ http_interactions:
     status:
       code: 204
       message: No Content
-- recorded_at: Wed, 10 May 2023 16:26:00 GMT
+- recorded_at: Wed, 12 Jul 2023 17:29:36 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/team/59c71da2-ef4f-11ed-a58b-da7ad0900002
+    uri: https://api.datadoghq.com/api/v2/team/ac8b5bb4-20d9-11ee-a287-da7ad0900002
   response:
     body:
       encoding: UTF-8

@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Wed, 10 May 2023 16:26:02 GMT
+- recorded_at: Wed, 12 Jul 2023 17:29:39 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"handle":"handle-5fc4017c72fce64f","name":"name-5fc4017c72fce64f"},"type":"team"}}'
+      string: '{"data":{"attributes":{"handle":"handle-72b5ed797b3e5f13","name":"name-72b5ed797b3e5f13"},"type":"team"}}'
     headers:
       Accept:
       - application/json
@@ -14,7 +14,7 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"team","id":"5b163526-ef4f-11ed-a5d4-da7ad0900002","attributes":{"name":"name-5fc4017c72fce64f","handle":"handle-5fc4017c72fce64f","summary":null,"description":null,"color":12,"created_at":"2023-05-10T16:26:02.799664+00:00","modified_at":"2023-05-10T16:26:02.799668+00:00","user_count":0,"link_count":0},"relationships":{"team_links":{"links":{"related":"/api/v2/team/5b163526-ef4f-11ed-a5d4-da7ad0900002/links"}},"user_team_permissions":{"links":{"related":"/api/v2/team/5b163526-ef4f-11ed-a5d4-da7ad0900002/permission-settings"}}}}}
+      string: '{"data":{"type":"team","id":"ae41b534-20d9-11ee-ad0a-da7ad0900002","attributes":{"name":"name-72b5ed797b3e5f13","handle":"handle-72b5ed797b3e5f13","summary":null,"description":null,"created_at":"2023-07-12T17:29:39.857772+00:00","modified_at":"2023-07-12T17:29:39.857780+00:00","user_count":0,"link_count":0},"relationships":{"team_links":{"links":{"related":"/api/v2/team/ae41b534-20d9-11ee-ad0a-da7ad0900002/links"}},"user_team_permissions":{"links":{"related":"/api/v2/team/ae41b534-20d9-11ee-ad0a-da7ad0900002/permission-settings"}}}}}
 
         '
     headers:
@@ -23,7 +23,7 @@ http_interactions:
     status:
       code: 201
       message: Created
-- recorded_at: Wed, 10 May 2023 16:26:02 GMT
+- recorded_at: Wed, 12 Jul 2023 17:29:39 GMT
   request:
     body:
       encoding: UTF-8
@@ -34,7 +34,7 @@ http_interactions:
       Content-Type:
       - application/json
     method: PUT
-    uri: https://api.datadoghq.com/api/v2/team/5b163526-ef4f-11ed-a5d4-da7ad0900002/permission-settings/REPLACE.ME
+    uri: https://api.datadoghq.com/api/v2/team/ae41b534-20d9-11ee-ad0a-da7ad0900002/permission-settings/REPLACE.ME
   response:
     body:
       encoding: UTF-8
@@ -46,14 +46,14 @@ http_interactions:
     status:
       code: 404
       message: Not Found
-- recorded_at: Wed, 10 May 2023 16:26:02 GMT
+- recorded_at: Wed, 12 Jul 2023 17:29:39 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/team/5b163526-ef4f-11ed-a5d4-da7ad0900002
+    uri: https://api.datadoghq.com/api/v2/team/ae41b534-20d9-11ee-ad0a-da7ad0900002
   response:
     body:
       encoding: UTF-8

@@ -36,7 +36,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'TeamData'
+        :'data' => :'Team'
       }
     end
 
