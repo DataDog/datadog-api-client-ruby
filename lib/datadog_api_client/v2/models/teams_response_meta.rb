@@ -17,22 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Relationship between a user team permission and a team
-  class RelationshipToUserTeamPermission
+  # Teams response metadata.
+  class TeamsResponseMeta
     include BaseGenericModel
 
-    # Related user team permission data
-    attr_accessor :data
-
-    # Links attributes.
-    attr_accessor :links
+    # Teams response metadata.
+    attr_accessor :pagination
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data',
-        :'links' => :'links'
+        :'pagination' => :'pagination'
       }
     end
 
@@ -40,8 +36,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'RelationshipToUserTeamPermissionData',
-        :'links' => :'TeamRelationshipsLinks'
+        :'pagination' => :'TeamsResponseMetaPagination'
       }
     end
 
@@ -50,23 +45,19 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RelationshipToUserTeamPermission` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TeamsResponseMeta` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::RelationshipToUserTeamPermission`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::TeamsResponseMeta`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'data')
-        self.data = attributes[:'data']
-      end
-
-      if attributes.key?(:'links')
-        self.links = attributes[:'links']
+      if attributes.key?(:'pagination')
+        self.pagination = attributes[:'pagination']
       end
     end
 
@@ -76,15 +67,14 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data &&
-          links == o.links
+          pagination == o.pagination
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, links].hash
+      [pagination].hash
     end
   end
 end

@@ -27,12 +27,20 @@ module DatadogAPIClient::V2
     # Resources related to the team
     attr_accessor :included
 
+    # Teams response links.
+    attr_accessor :links
+
+    # Teams response metadata.
+    attr_accessor :meta
+
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
         :'data' => :'data',
-        :'included' => :'included'
+        :'included' => :'included',
+        :'links' => :'links',
+        :'meta' => :'meta'
       }
     end
 
@@ -41,7 +49,9 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'data' => :'Array<Team>',
-        :'included' => :'Array<TeamIncluded>'
+        :'included' => :'Array<TeamIncluded>',
+        :'links' => :'TeamsResponseLinks',
+        :'meta' => :'TeamsResponseMeta'
       }
     end
 
@@ -72,6 +82,14 @@ module DatadogAPIClient::V2
           self.included = value
         end
       end
+
+      if attributes.key?(:'links')
+        self.links = attributes[:'links']
+      end
+
+      if attributes.key?(:'meta')
+        self.meta = attributes[:'meta']
+      end
     end
 
     # Checks equality by comparing each attribute.
@@ -81,14 +99,16 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           data == o.data &&
-          included == o.included
+          included == o.included &&
+          links == o.links &&
+          meta == o.meta
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, included].hash
+      [data, included, links, meta].hash
     end
   end
 end

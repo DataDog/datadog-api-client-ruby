@@ -17,26 +17,34 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Team memberships response
-  class UserTeamsResponse
+  # Teams response links.
+  class TeamsResponseLinks
     include BaseGenericModel
 
-    # Team memberships response data
-    attr_accessor :data
+    # First link.
+    attr_accessor :first
 
-    # Teams response links.
-    attr_accessor :links
+    # Last link.
+    attr_accessor :last
 
-    # Teams response metadata.
-    attr_accessor :meta
+    # Next link.
+    attr_accessor :_next
+
+    # Previous link.
+    attr_accessor :prev
+
+    # Current link.
+    attr_accessor :_self
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data',
-        :'links' => :'links',
-        :'meta' => :'meta'
+        :'first' => :'first',
+        :'last' => :'last',
+        :'_next' => :'next',
+        :'prev' => :'prev',
+        :'_self' => :'self'
       }
     end
 
@@ -44,10 +52,21 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'Array<UserTeam>',
-        :'links' => :'TeamsResponseLinks',
-        :'meta' => :'TeamsResponseMeta'
+        :'first' => :'String',
+        :'last' => :'String',
+        :'_next' => :'String',
+        :'prev' => :'String',
+        :'_self' => :'String'
       }
+    end
+
+    # List of attributes with nullable: true
+    # @!visibility private
+    def self.openapi_nullable
+      Set.new([
+        :'last',
+        :'prev',
+      ])
     end
 
     # Initializes the object
@@ -55,29 +74,35 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::UserTeamsResponse` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TeamsResponseLinks` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::UserTeamsResponse`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::TeamsResponseLinks`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'data')
-        if (value = attributes[:'data']).is_a?(Array)
-          self.data = value
-        end
+      if attributes.key?(:'first')
+        self.first = attributes[:'first']
       end
 
-      if attributes.key?(:'links')
-        self.links = attributes[:'links']
+      if attributes.key?(:'last')
+        self.last = attributes[:'last']
       end
 
-      if attributes.key?(:'meta')
-        self.meta = attributes[:'meta']
+      if attributes.key?(:'_next')
+        self._next = attributes[:'_next']
+      end
+
+      if attributes.key?(:'prev')
+        self.prev = attributes[:'prev']
+      end
+
+      if attributes.key?(:'_self')
+        self._self = attributes[:'_self']
       end
     end
 
@@ -87,16 +112,18 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data &&
-          links == o.links &&
-          meta == o.meta
+          first == o.first &&
+          last == o.last &&
+          _next == o._next &&
+          prev == o.prev &&
+          _self == o._self
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, links, meta].hash
+      [first, last, _next, prev, _self].hash
     end
   end
 end
