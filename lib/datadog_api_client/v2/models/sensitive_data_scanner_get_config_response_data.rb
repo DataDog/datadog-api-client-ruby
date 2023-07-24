@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class SensitiveDataScannerGetConfigResponseData
     include BaseGenericModel
 
+    # Attributes of the Sensitive Data configuration.
+    attr_accessor :attributes
+
     # ID of the configuration.
     attr_accessor :id
 
@@ -34,6 +37,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'attributes' => :'attributes',
         :'id' => :'id',
         :'relationships' => :'relationships',
         :'type' => :'type'
@@ -44,6 +48,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'attributes' => :'Hash<String, Object>',
         :'id' => :'String',
         :'relationships' => :'SensitiveDataScannerConfigurationRelationships',
         :'type' => :'SensitiveDataScannerConfigurationType'
@@ -66,6 +71,10 @@ module DatadogAPIClient::V2
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'attributes')
+        self.attributes = attributes[:'attributes']
+      end
+
       if attributes.key?(:'id')
         self.id = attributes[:'id']
       end
@@ -85,6 +94,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          attributes == o.attributes &&
           id == o.id &&
           relationships == o.relationships &&
           type == o.type
@@ -94,7 +104,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [id, relationships, type].hash
+      [attributes, id, relationships, type].hash
     end
   end
 end
