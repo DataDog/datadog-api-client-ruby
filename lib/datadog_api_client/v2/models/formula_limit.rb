@@ -18,6 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # Message for specifying limits to the number of values returned by a query.
+  # This limit is only for scalar queries and has no effect on timeseries queries.
   class FormulaLimit
     include BaseGenericModel
 
