@@ -25,7 +25,7 @@ module DatadogAPIClient::V2
     attr_accessor :_end
 
     # ISO-8601 Datetime to start the downtime.
-    attr_accessor :start
+    attr_reader :start
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -76,6 +76,24 @@ module DatadogAPIClient::V2
       if attributes.key?(:'start')
         self.start = attributes[:'start']
       end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @start.nil?
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param start [Object] Object to be assigned
+    # @!visibility private
+    def start=(start)
+      if start.nil?
+        fail ArgumentError, 'invalid value for "start", start cannot be nil.'
+      end
+      @start = start
     end
 
     # Checks equality by comparing each attribute.
