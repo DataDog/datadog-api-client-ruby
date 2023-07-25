@@ -24,11 +24,19 @@ module DatadogAPIClient::V2
     # Team memberships response data
     attr_accessor :data
 
+    # Teams response links.
+    attr_accessor :links
+
+    # Teams response metadata.
+    attr_accessor :meta
+
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data'
+        :'data' => :'data',
+        :'links' => :'links',
+        :'meta' => :'meta'
       }
     end
 
@@ -36,7 +44,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'Array<UserTeam>'
+        :'data' => :'Array<UserTeam>',
+        :'links' => :'TeamsResponseLinks',
+        :'meta' => :'TeamsResponseMeta'
       }
     end
 
@@ -61,6 +71,14 @@ module DatadogAPIClient::V2
           self.data = value
         end
       end
+
+      if attributes.key?(:'links')
+        self.links = attributes[:'links']
+      end
+
+      if attributes.key?(:'meta')
+        self.meta = attributes[:'meta']
+      end
     end
 
     # Checks equality by comparing each attribute.
@@ -69,14 +87,16 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data
+          data == o.data &&
+          links == o.links &&
+          meta == o.meta
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data].hash
+      [data, links, meta].hash
     end
   end
 end

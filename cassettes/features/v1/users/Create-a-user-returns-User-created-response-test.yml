@@ -1,0 +1,47 @@
+http_interactions:
+- recorded_at: Mon, 10 Jul 2023 18:57:28 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"access_role":"st","disabled":false,"email":"test@datadoghq.com","handle":"test@datadoghq.com","name":"test
+        user"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v1/user
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"user":{"handle":"test@datadoghq.com","name":"test user","role":null,"title":null,"email":"test@datadoghq.com","disabled":false,"access_role":null,"is_admin":false,"icon":"https://secure.gravatar.com/avatar/f979f58720feb88e09cc3d11ce3d15da?s=48&d=retro","verified":false}}
+
+        '
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+- recorded_at: Mon, 10 Jul 2023 18:57:28 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v1/user/test%40datadoghq.com
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"message":"User test@datadoghq.com disabled"}
+
+        '
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+recorded_with: VCR 6.0.0

@@ -1,5 +1,36 @@
 # CHANGELOG
 
+## 2.13.0 / 2023-07-20
+
+### Fixed
+* Set the right object creation in pagination by @therve in https://github.com/DataDog/datadog-api-client-ruby/pull/1437
+* Spans API docs update by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1442
+* Fix filter indexes parameter in logs search by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1447
+* Fix Spans endpoint schemas by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1462
+### Added
+* Add support for geomap widget using response_type `event_list` by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1427
+* Add support for the spans API endpoints by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1431
+* Add a new field additional_query_filters to formula and function slo query by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1443
+* Add support for `enable_custom_metrics` in Confluent Account by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1440
+* Add missing `id` attribute for Confluent Account Response by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1446
+* Fix downtimes v2 schema and add missing field `canceled` by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1451
+* Add cloud_cost data source and query definition to dashboards by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1452
+* Add missing cloud workload security fields by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1457
+* Add `integration_id` field for dashboard list item by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1461
+* Add events response fields `message` and `status` by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1459
+* Add missing `GetRUMApplications` response field `id` by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1458
+* Add missing service definition fields by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1460
+* Add overlay type to Dashboards WidgetDisplayType by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1463
+* Update IP ranges with remote configuration section by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1465
+* Add missing `relationships` to UsersInvitations response by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1467
+* Added optional field filters when creating a cloud configuration rule by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1471
+### Changed
+* Add downtime v2 API in private beta by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1388
+* Mark `access_role` as nullable by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1449
+
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-ruby/compare/v2.12.0...v2.13.0
+
 ## 2.12.0 / 2023-06-27
 
 ### Fixed

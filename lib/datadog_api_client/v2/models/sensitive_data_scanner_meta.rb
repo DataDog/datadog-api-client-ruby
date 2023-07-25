@@ -30,6 +30,9 @@ module DatadogAPIClient::V2
     # Whether or not scanned events are highlighted in Logs or RUM for the org.
     attr_accessor :has_highlight_enabled
 
+    # Whether or not scanned events have multi-pass enabled.
+    attr_accessor :has_multi_pass_enabled
+
     # Whether or not the org is compliant to the payment card industry standard.
     attr_accessor :is_pci_compliant
 
@@ -43,6 +46,7 @@ module DatadogAPIClient::V2
         :'count_limit' => :'count_limit',
         :'group_count_limit' => :'group_count_limit',
         :'has_highlight_enabled' => :'has_highlight_enabled',
+        :'has_multi_pass_enabled' => :'has_multi_pass_enabled',
         :'is_pci_compliant' => :'is_pci_compliant',
         :'version' => :'version'
       }
@@ -55,6 +59,7 @@ module DatadogAPIClient::V2
         :'count_limit' => :'Integer',
         :'group_count_limit' => :'Integer',
         :'has_highlight_enabled' => :'Boolean',
+        :'has_multi_pass_enabled' => :'Boolean',
         :'is_pci_compliant' => :'Boolean',
         :'version' => :'Integer'
       }
@@ -86,6 +91,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'has_highlight_enabled')
         self.has_highlight_enabled = attributes[:'has_highlight_enabled']
+      end
+
+      if attributes.key?(:'has_multi_pass_enabled')
+        self.has_multi_pass_enabled = attributes[:'has_multi_pass_enabled']
       end
 
       if attributes.key?(:'is_pci_compliant')
@@ -124,6 +133,7 @@ module DatadogAPIClient::V2
           count_limit == o.count_limit &&
           group_count_limit == o.group_count_limit &&
           has_highlight_enabled == o.has_highlight_enabled &&
+          has_multi_pass_enabled == o.has_multi_pass_enabled &&
           is_pci_compliant == o.is_pci_compliant &&
           version == o.version
     end
@@ -132,7 +142,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [count_limit, group_count_limit, has_highlight_enabled, is_pci_compliant, version].hash
+      [count_limit, group_count_limit, has_highlight_enabled, has_multi_pass_enabled, is_pci_compliant, version].hash
     end
   end
 end

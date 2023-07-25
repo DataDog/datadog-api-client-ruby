@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class SensitiveDataScannerStandardPatternAttributes
     include BaseGenericModel
 
+    # Description of the standard pattern.
+    attr_accessor :description
+
     # Name of the standard pattern.
     attr_accessor :name
 
@@ -34,6 +37,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'description' => :'description',
         :'name' => :'name',
         :'pattern' => :'pattern',
         :'tags' => :'tags'
@@ -44,6 +48,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'description' => :'String',
         :'name' => :'String',
         :'pattern' => :'String',
         :'tags' => :'Array<String>'
@@ -66,6 +71,10 @@ module DatadogAPIClient::V2
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'description')
+        self.description = attributes[:'description']
+      end
+
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
@@ -87,6 +96,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          description == o.description &&
           name == o.name &&
           pattern == o.pattern &&
           tags == o.tags
@@ -96,7 +106,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [name, pattern, tags].hash
+      [description, name, pattern, tags].hash
     end
   end
 end

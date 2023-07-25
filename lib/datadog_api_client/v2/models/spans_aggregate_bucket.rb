@@ -17,22 +17,26 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A bucket values.
+  # Spans aggregate.
   class SpansAggregateBucket
     include BaseGenericModel
 
-    # The key, value pairs for each group by.
-    attr_accessor :by
+    # A bucket values.
+    attr_accessor :attributes
 
-    # A map of the metric name -> value for regular compute or list of values for a timeseries.
-    attr_accessor :computes
+    # ID of the spans aggregate.
+    attr_accessor :id
+
+    # The spans aggregate bucket type.
+    attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'by' => :'by',
-        :'computes' => :'computes'
+        :'attributes' => :'attributes',
+        :'id' => :'id',
+        :'type' => :'type'
       }
     end
 
@@ -40,8 +44,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'by' => :'Hash<String, Object>',
-        :'computes' => :'Hash<String, SpansAggregateBucketValue>'
+        :'attributes' => :'SpansAggregateBucketAttributes',
+        :'id' => :'String',
+        :'type' => :'SpansAggregateBucketType'
       }
     end
 
@@ -61,12 +66,16 @@ module DatadogAPIClient::V2
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'by')
-        self.by = attributes[:'by']
+      if attributes.key?(:'attributes')
+        self.attributes = attributes[:'attributes']
       end
 
-      if attributes.key?(:'computes')
-        self.computes = attributes[:'computes']
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
+      end
+
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
       end
     end
 
@@ -76,15 +85,16 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          by == o.by &&
-          computes == o.computes
+          attributes == o.attributes &&
+          id == o.id &&
+          type == o.type
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [by, computes].hash
+      [attributes, id, type].hash
     end
   end
 end

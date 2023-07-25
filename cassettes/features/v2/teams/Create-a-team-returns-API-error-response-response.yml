@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Wed, 10 May 2023 16:25:51 GMT
+- recorded_at: Wed, 12 Jul 2023 17:29:28 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"handle":"handle-8b8486a76bc6e6a1","name":"name-8b8486a76bc6e6a1"},"type":"team"}}'
+      string: '{"data":{"attributes":{"handle":"handle-c12045e3c85ab6fe","name":"name-c12045e3c85ab6fe"},"type":"team"}}'
     headers:
       Accept:
       - application/json
@@ -14,7 +14,7 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"team","id":"547c6370-ef4f-11ed-9672-da7ad0900002","attributes":{"name":"name-8b8486a76bc6e6a1","handle":"handle-8b8486a76bc6e6a1","summary":null,"description":null,"color":9,"created_at":"2023-05-10T16:25:51.725343+00:00","modified_at":"2023-05-10T16:25:51.725347+00:00","user_count":0,"link_count":0},"relationships":{"team_links":{"links":{"related":"/api/v2/team/547c6370-ef4f-11ed-9672-da7ad0900002/links"}},"user_team_permissions":{"links":{"related":"/api/v2/team/547c6370-ef4f-11ed-9672-da7ad0900002/permission-settings"}}}}}
+      string: '{"data":{"type":"team","id":"a74521bc-20d9-11ee-be22-da7ad0900002","attributes":{"name":"name-c12045e3c85ab6fe","handle":"handle-c12045e3c85ab6fe","summary":null,"description":null,"created_at":"2023-07-12T17:29:28.136431+00:00","modified_at":"2023-07-12T17:29:28.136436+00:00","user_count":0,"link_count":0},"relationships":{"team_links":{"links":{"related":"/api/v2/team/a74521bc-20d9-11ee-be22-da7ad0900002/links"}},"user_team_permissions":{"links":{"related":"/api/v2/team/a74521bc-20d9-11ee-be22-da7ad0900002/permission-settings"}}}}}
 
         '
     headers:
@@ -23,11 +23,11 @@ http_interactions:
     status:
       code: 201
       message: Created
-- recorded_at: Wed, 10 May 2023 16:25:51 GMT
+- recorded_at: Wed, 12 Jul 2023 17:29:28 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"handle":"handle-8b8486a76bc6e6a1","name":"Example
+      string: '{"data":{"attributes":{"handle":"handle-c12045e3c85ab6fe","name":"Example
         Team"},"relationships":{"users":{"data":[]}},"type":"team"}}'
     headers:
       Accept:
@@ -46,14 +46,14 @@ http_interactions:
     status:
       code: 409
       message: Conflict
-- recorded_at: Wed, 10 May 2023 16:25:51 GMT
+- recorded_at: Wed, 12 Jul 2023 17:29:28 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/team/547c6370-ef4f-11ed-9672-da7ad0900002
+    uri: https://api.datadoghq.com/api/v2/team/a74521bc-20d9-11ee-be22-da7ad0900002
   response:
     body:
       encoding: UTF-8

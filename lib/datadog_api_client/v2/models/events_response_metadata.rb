@@ -30,6 +30,9 @@ module DatadogAPIClient::V2
     # The identifier of the request.
     attr_accessor :request_id
 
+    # The request status.
+    attr_accessor :status
+
     # A list of warnings (non-fatal errors) encountered. Partial results might be returned if
     # warnings are present in the response.
     attr_accessor :warnings
@@ -41,6 +44,7 @@ module DatadogAPIClient::V2
         :'elapsed' => :'elapsed',
         :'page' => :'page',
         :'request_id' => :'request_id',
+        :'status' => :'status',
         :'warnings' => :'warnings'
       }
     end
@@ -52,6 +56,7 @@ module DatadogAPIClient::V2
         :'elapsed' => :'Integer',
         :'page' => :'EventsResponseMetadataPage',
         :'request_id' => :'String',
+        :'status' => :'String',
         :'warnings' => :'Array<EventsWarning>'
       }
     end
@@ -84,6 +89,10 @@ module DatadogAPIClient::V2
         self.request_id = attributes[:'request_id']
       end
 
+      if attributes.key?(:'status')
+        self.status = attributes[:'status']
+      end
+
       if attributes.key?(:'warnings')
         if (value = attributes[:'warnings']).is_a?(Array)
           self.warnings = value
@@ -100,6 +109,7 @@ module DatadogAPIClient::V2
           elapsed == o.elapsed &&
           page == o.page &&
           request_id == o.request_id &&
+          status == o.status &&
           warnings == o.warnings
     end
 
@@ -107,7 +117,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [elapsed, page, request_id, warnings].hash
+      [elapsed, page, request_id, status, warnings].hash
     end
   end
 end

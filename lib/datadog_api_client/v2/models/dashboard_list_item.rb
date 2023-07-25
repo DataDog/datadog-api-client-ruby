@@ -33,6 +33,9 @@ module DatadogAPIClient::V2
     # ID of the dashboard.
     attr_reader :id
 
+    # The short name of the integration.
+    attr_accessor :integration_id
+
     # Whether or not the dashboard is in the favorites.
     attr_accessor :is_favorite
 
@@ -65,6 +68,7 @@ module DatadogAPIClient::V2
         :'created' => :'created',
         :'icon' => :'icon',
         :'id' => :'id',
+        :'integration_id' => :'integration_id',
         :'is_favorite' => :'is_favorite',
         :'is_read_only' => :'is_read_only',
         :'is_shared' => :'is_shared',
@@ -84,6 +88,7 @@ module DatadogAPIClient::V2
         :'created' => :'Time',
         :'icon' => :'String',
         :'id' => :'String',
+        :'integration_id' => :'String',
         :'is_favorite' => :'Boolean',
         :'is_read_only' => :'Boolean',
         :'is_shared' => :'Boolean',
@@ -100,6 +105,7 @@ module DatadogAPIClient::V2
     def self.openapi_nullable
       Set.new([
         :'icon',
+        :'integration_id',
       ])
     end
 
@@ -133,6 +139,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'id')
         self.id = attributes[:'id']
+      end
+
+      if attributes.key?(:'integration_id')
+        self.integration_id = attributes[:'integration_id']
       end
 
       if attributes.key?(:'is_favorite')
@@ -218,6 +228,7 @@ module DatadogAPIClient::V2
           created == o.created &&
           icon == o.icon &&
           id == o.id &&
+          integration_id == o.integration_id &&
           is_favorite == o.is_favorite &&
           is_read_only == o.is_read_only &&
           is_shared == o.is_shared &&
@@ -232,7 +243,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [author, created, icon, id, is_favorite, is_read_only, is_shared, modified, popularity, title, type, url].hash
+      [author, created, icon, id, integration_id, is_favorite, is_read_only, is_shared, modified, popularity, title, type, url].hash
     end
   end
 end
