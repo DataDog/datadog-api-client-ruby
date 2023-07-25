@@ -250,7 +250,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Message for specifying limits to the number of values returned by a query.</p>
+    <p>Message for specifying limits to the number of values returned by a query.
+This limit is only for scalar queries and has no effect on timeseries queries.</p>
 
 
   </div>
@@ -264,12 +265,12 @@
       <pre class="lines">
 
 
-28
 29
-30</pre>
+30
+31</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/query_formula.rb', line 28</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/query_formula.rb', line 29</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_limit'>limit</span>
   <span class='ivar'>@limit</span>
@@ -285,7 +286,7 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Jul 25 21:19:30 2023 by
+  Generated on Tue Jul 25 21:41:40 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.34 (ruby-2.7.8).
 </div>
