@@ -24,11 +24,15 @@ module DatadogAPIClient::V2
     # On-demand concurrency cap attributes.
     attr_accessor :attributes
 
+    # On-demand concurrency cap type.
+    attr_accessor :type
+
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'attributes' => :'attributes'
+        :'attributes' => :'attributes',
+        :'type' => :'type'
       }
     end
 
@@ -36,7 +40,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'OnDemandConcurrencyCapAttributes'
+        :'attributes' => :'OnDemandConcurrencyCapAttributes',
+        :'type' => :'OnDemandConcurrencyCapType'
       }
     end
 
@@ -59,6 +64,10 @@ module DatadogAPIClient::V2
       if attributes.key?(:'attributes')
         self.attributes = attributes[:'attributes']
       end
+
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
+      end
     end
 
     # Checks equality by comparing each attribute.
@@ -67,14 +76,15 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          attributes == o.attributes
+          attributes == o.attributes &&
+          type == o.type
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes].hash
+      [attributes, type].hash
     end
   end
 end
