@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # The aggregation type.
     attr_accessor :aggregation
 
-    # Fields to group by.
+    # Fields to correlate by.
     attr_accessor :correlated_by_fields
 
     # Index of the rule query used to retrieve the correlated field.
@@ -32,6 +32,12 @@ module DatadogAPIClient::V2
 
     # Default Rule ID to match on signals.
     attr_accessor :default_rule_id
+
+    # Field for which the cardinality is measured. Sent as an array.
+    attr_accessor :distinct_fields
+
+    # Fields to group by.
+    attr_accessor :group_by_fields
 
     # Group of target fields to aggregate over.
     attr_accessor :metrics
@@ -50,6 +56,8 @@ module DatadogAPIClient::V2
         :'correlated_by_fields' => :'correlatedByFields',
         :'correlated_query_index' => :'correlatedQueryIndex',
         :'default_rule_id' => :'defaultRuleId',
+        :'distinct_fields' => :'distinctFields',
+        :'group_by_fields' => :'groupByFields',
         :'metrics' => :'metrics',
         :'name' => :'name',
         :'rule_id' => :'ruleId'
@@ -64,6 +72,8 @@ module DatadogAPIClient::V2
         :'correlated_by_fields' => :'Array<String>',
         :'correlated_query_index' => :'Integer',
         :'default_rule_id' => :'String',
+        :'distinct_fields' => :'Array<String>',
+        :'group_by_fields' => :'Array<String>',
         :'metrics' => :'Array<String>',
         :'name' => :'String',
         :'rule_id' => :'String'
@@ -102,6 +112,18 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'default_rule_id')
         self.default_rule_id = attributes[:'default_rule_id']
+      end
+
+      if attributes.key?(:'distinct_fields')
+        if (value = attributes[:'distinct_fields']).is_a?(Array)
+          self.distinct_fields = value
+        end
+      end
+
+      if attributes.key?(:'group_by_fields')
+        if (value = attributes[:'group_by_fields']).is_a?(Array)
+          self.group_by_fields = value
+        end
       end
 
       if attributes.key?(:'metrics')
@@ -147,6 +169,8 @@ module DatadogAPIClient::V2
           correlated_by_fields == o.correlated_by_fields &&
           correlated_query_index == o.correlated_query_index &&
           default_rule_id == o.default_rule_id &&
+          distinct_fields == o.distinct_fields &&
+          group_by_fields == o.group_by_fields &&
           metrics == o.metrics &&
           name == o.name &&
           rule_id == o.rule_id
@@ -156,7 +180,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [aggregation, correlated_by_fields, correlated_query_index, default_rule_id, metrics, name, rule_id].hash
+      [aggregation, correlated_by_fields, correlated_query_index, default_rule_id, distinct_fields, group_by_fields, metrics, name, rule_id].hash
     end
   end
 end

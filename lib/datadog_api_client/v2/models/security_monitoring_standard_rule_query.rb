@@ -41,7 +41,7 @@ module DatadogAPIClient::V2
     attr_accessor :name
 
     # Query to run on logs.
-    attr_reader :query
+    attr_accessor :query
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -120,24 +120,6 @@ module DatadogAPIClient::V2
       if attributes.key?(:'query')
         self.query = attributes[:'query']
       end
-    end
-
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    # @!visibility private
-    def valid?
-      return false if @query.nil?
-      true
-    end
-
-    # Custom attribute writer method with validation
-    # @param query [Object] Object to be assigned
-    # @!visibility private
-    def query=(query)
-      if query.nil?
-        fail ArgumentError, 'invalid value for "query", query cannot be nil.'
-      end
-      @query = query
     end
 
     # Checks equality by comparing each attribute.

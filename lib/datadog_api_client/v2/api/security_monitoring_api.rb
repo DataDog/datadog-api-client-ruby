@@ -729,7 +729,7 @@ module DatadogAPIClient::V2
     #
     # @param signal_id [String] The ID of the signal.
     # @param opts [Hash] the optional parameters
-    # @return [Array<(SecurityMonitoringSignal, Integer, Hash)>] SecurityMonitoringSignal data, response status code and response headers
+    # @return [Array<(SecurityMonitoringSignalResponse, Integer, Hash)>] SecurityMonitoringSignalResponse data, response status code and response headers
     def get_security_monitoring_signal_with_http_info(signal_id, opts = {})
 
       if @api_client.config.debugging
@@ -757,7 +757,7 @@ module DatadogAPIClient::V2
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'SecurityMonitoringSignal'
+      return_type = opts[:debug_return_type] || 'SecurityMonitoringSignalResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]

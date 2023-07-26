@@ -24,6 +24,9 @@ module DatadogAPIClient::V2
     # The handle for this user account.
     attr_accessor :handle
 
+    # Gravatar icon associated to the user.
+    attr_accessor :icon
+
     # Numerical ID assigned by Datadog to this user account.
     attr_accessor :id
 
@@ -38,6 +41,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'handle' => :'handle',
+        :'icon' => :'icon',
         :'id' => :'id',
         :'name' => :'name',
         :'uuid' => :'uuid'
@@ -49,6 +53,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'handle' => :'String',
+        :'icon' => :'String',
         :'id' => :'Integer',
         :'name' => :'String',
         :'uuid' => :'String'
@@ -81,6 +86,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'handle')
         self.handle = attributes[:'handle']
+      end
+
+      if attributes.key?(:'icon')
+        self.icon = attributes[:'icon']
       end
 
       if attributes.key?(:'id')
@@ -121,6 +130,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           handle == o.handle &&
+          icon == o.icon &&
           id == o.id &&
           name == o.name &&
           uuid == o.uuid
@@ -130,7 +140,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [handle, id, name, uuid].hash
+      [handle, icon, id, name, uuid].hash
     end
   end
 end
