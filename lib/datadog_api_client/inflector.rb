@@ -1421,6 +1421,7 @@ module DatadogAPIClient
           "v2.on_demand_concurrency_cap" => "OnDemandConcurrencyCap",
           "v2.on_demand_concurrency_cap_attributes" => "OnDemandConcurrencyCapAttributes",
           "v2.on_demand_concurrency_cap_response" => "OnDemandConcurrencyCapResponse",
+          "v2.on_demand_concurrency_cap_type" => "OnDemandConcurrencyCapType",
           "v2.opsgenie_service_create_attributes" => "OpsgenieServiceCreateAttributes",
           "v2.opsgenie_service_create_data" => "OpsgenieServiceCreateData",
           "v2.opsgenie_service_create_request" => "OpsgenieServiceCreateRequest",
