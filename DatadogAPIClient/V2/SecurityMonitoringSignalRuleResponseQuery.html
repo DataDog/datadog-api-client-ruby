@@ -167,7 +167,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Fields to group by.</p>
+    <span class="summary_desc"><div class='inline'><p>Fields to correlate by.</p>
 </div></span>
   
 </li>
@@ -222,6 +222,58 @@
 
   
     <span class="summary_desc"><div class='inline'><p>Default Rule ID to match on signals.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#distinct_fields-instance_method" title="#distinct_fields (instance method)">#<strong>distinct_fields</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Field for which the cardinality is measured.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#group_by_fields-instance_method" title="#group_by_fields (instance method)">#<strong>group_by_fields</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Fields to group by.</p>
 </div></span>
   
 </li>
@@ -380,7 +432,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Fields to group by.</p>
+    <p>Fields to correlate by.</p>
 
 
   </div>
@@ -494,6 +546,90 @@
 </div>
     
       
+      <span id="distinct_fields=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="distinct_fields-instance_method">
+  
+    #<strong>distinct_fields</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Field for which the cardinality is measured. Sent as an array.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+37
+38
+39</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/security_monitoring_signal_rule_response_query.rb', line 37</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_distinct_fields'>distinct_fields</span>
+  <span class='ivar'>@distinct_fields</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="group_by_fields=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="group_by_fields-instance_method">
+  
+    #<strong>group_by_fields</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Fields to group by.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+40
+41
+42</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/security_monitoring_signal_rule_response_query.rb', line 40</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_group_by_fields'>group_by_fields</span>
+  <span class='ivar'>@group_by_fields</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
       <span id="metrics=-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="metrics-instance_method">
@@ -520,12 +656,12 @@
       <pre class="lines">
 
 
-37
-38
-39</pre>
+43
+44
+45</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/security_monitoring_signal_rule_response_query.rb', line 37</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/security_monitoring_signal_rule_response_query.rb', line 43</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_metrics'>metrics</span>
   <span class='ivar'>@metrics</span>
@@ -562,12 +698,12 @@
       <pre class="lines">
 
 
-40
-41
-42</pre>
+46
+47
+48</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/security_monitoring_signal_rule_response_query.rb', line 40</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/security_monitoring_signal_rule_response_query.rb', line 46</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_name'>name</span>
   <span class='ivar'>@name</span>
@@ -604,12 +740,12 @@
       <pre class="lines">
 
 
-43
-44
-45</pre>
+49
+50
+51</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/security_monitoring_signal_rule_response_query.rb', line 43</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/security_monitoring_signal_rule_response_query.rb', line 49</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rule_id'>rule_id</span>
   <span class='ivar'>@rule_id</span>
@@ -625,7 +761,7 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Jul 26 15:25:02 2023 by
+  Generated on Wed Jul 26 17:59:02 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.34 (ruby-2.7.8).
 </div>
