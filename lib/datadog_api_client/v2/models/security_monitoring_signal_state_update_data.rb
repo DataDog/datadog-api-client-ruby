@@ -24,11 +24,19 @@ module DatadogAPIClient::V2
     # Attributes describing the change of state of a security signal.
     attr_reader :attributes
 
+    # The unique ID of the security signal.
+    attr_accessor :id
+
+    # The type of event.
+    attr_accessor :type
+
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'attributes' => :'attributes'
+        :'attributes' => :'attributes',
+        :'id' => :'id',
+        :'type' => :'type'
       }
     end
 
@@ -36,7 +44,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'SecurityMonitoringSignalStateUpdateAttributes'
+        :'attributes' => :'SecurityMonitoringSignalStateUpdateAttributes',
+        :'id' => :'Object',
+        :'type' => :'SecurityMonitoringSignalMetadataType'
       }
     end
 
@@ -58,6 +68,14 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'attributes')
         self.attributes = attributes[:'attributes']
+      end
+
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
+      end
+
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
       end
     end
 
@@ -85,14 +103,16 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          attributes == o.attributes
+          attributes == o.attributes &&
+          id == o.id &&
+          type == o.type
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes].hash
+      [attributes, id, type].hash
     end
   end
 end

@@ -21,6 +21,12 @@ module DatadogAPIClient::V2
   class CloudConfigurationRuleComplianceSignalOptions
     include BaseGenericModel
 
+    # The default activation status.
+    attr_accessor :default_activation_status
+
+    # The default group by fields.
+    attr_accessor :default_group_by_fields
+
     # Whether signals will be sent.
     attr_accessor :user_activation_status
 
@@ -31,6 +37,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'default_activation_status' => :'defaultActivationStatus',
+        :'default_group_by_fields' => :'defaultGroupByFields',
         :'user_activation_status' => :'userActivationStatus',
         :'user_group_by_fields' => :'userGroupByFields'
       }
@@ -40,6 +48,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'default_activation_status' => :'Boolean',
+        :'default_group_by_fields' => :'Array<String>',
         :'user_activation_status' => :'Boolean',
         :'user_group_by_fields' => :'Array<String>'
       }
@@ -49,6 +59,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_nullable
       Set.new([
+        :'default_activation_status',
+        :'default_group_by_fields',
         :'user_activation_status',
         :'user_group_by_fields',
       ])
@@ -70,6 +82,16 @@ module DatadogAPIClient::V2
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'default_activation_status')
+        self.default_activation_status = attributes[:'default_activation_status']
+      end
+
+      if attributes.key?(:'default_group_by_fields')
+        if (value = attributes[:'default_group_by_fields']).is_a?(Array)
+          self.default_group_by_fields = value
+        end
+      end
+
       if attributes.key?(:'user_activation_status')
         self.user_activation_status = attributes[:'user_activation_status']
       end
@@ -87,6 +109,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          default_activation_status == o.default_activation_status &&
+          default_group_by_fields == o.default_group_by_fields &&
           user_activation_status == o.user_activation_status &&
           user_group_by_fields == o.user_group_by_fields
     end
@@ -95,7 +119,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [user_activation_status, user_group_by_fields].hash
+      [default_activation_status, default_group_by_fields, user_activation_status, user_group_by_fields].hash
     end
   end
 end
