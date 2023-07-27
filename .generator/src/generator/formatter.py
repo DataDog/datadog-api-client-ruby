@@ -2,7 +2,6 @@
 import pathlib
 import json
 import re
-import warnings
 from functools import singledispatch
 
 
@@ -185,6 +184,8 @@ def _format_oneof(data, schema, name_prefix=None, replace_values=None):
     matched = 0
     for sub_schema in schema["oneOf"]:
         try:
+            if "items" in sub_schema and not isinstance(data, list):
+                continue
             formatted = format_data_with_schema(
                 data,
                 sub_schema,
@@ -196,13 +197,11 @@ def _format_oneof(data, schema, name_prefix=None, replace_values=None):
                 # parameters += formatted
                 parameters = formatted
             matched += 1
-        except (KeyError, ValueError):
+        except (KeyError, ValueError, TypeError):
             pass
 
-    if matched == 0:
+    if matched != 1:
         raise ValueError(f"[{matched}] {data} is not valid for schema")
-    elif matched > 1:
-        warnings.warn(f"[{matched}] {data} is not valid for schema")
 
     return parameters
 
@@ -246,11 +245,28 @@ def format_data_with_schema(
                 def open_file(x):
                     return f"File.open({repr(x)}, 'r')"
 
+                def format_number(x):
+                    if isinstance(x, (bool, str)):
+                        raise TypeError(f"{x} is not supported type {schema}")
+                    return str(x)
+
+                def format_string(x):
+                    if isinstance(x, bool):
+                        raise TypeError(f"{x} is not supported type {schema}")
+                    if schema.get("format") == "binary":
+                        return open_file(x)
+                    return repr(x)
+
+                def format_boolean(x):
+                    if not isinstance(x, bool):
+                        raise TypeError(f"{x} is not supported type {schema}")
+                    return "true" if x else "false"
+
                 formatter = {
-                    "number": str,
-                    "integer": str,
-                    "boolean": lambda x: "true" if x else "false",
-                    "string": open_file if schema.get("format") == "binary" else repr,
+                    "number": format_number,
+                    "integer": format_number,
+                    "boolean": format_boolean,
+                    "string": format_string,
                     None: repr,
                 }[schema.get("type")]
 
@@ -289,7 +305,7 @@ def format_data_with_schema_list(
                     replace_values=replace_values,
                     default_name=name,
                 )
-            except (KeyError, ValueError):
+            except (KeyError, ValueError, TypeError):
                 continue
             return value
         raise ValueError(f"{data} is not valid oneOf {schema}")
@@ -324,7 +340,7 @@ def format_data_with_schema_dict(
         missing = required_properties - set(data.keys())
         if missing:
             raise ValueError(f"missing required properties: {missing}")
-        
+
         for k, v in data.items():
             if k not in schema["properties"]:
                 continue
@@ -355,18 +371,18 @@ def format_data_with_schema_dict(
         if default_name and not schema.get("additionalProperties") and schema.get("properties"):
             name = default_name
         else:
-            name = "dict"
-            warnings.warn(f"Unnamed schema {schema} for {data}")
+            if not parameters and data:
+                parameters = ", ".join(f"\"{k}\": \"{v}\"" for k, v in data.items())
+            return f"{{\n{parameters}}}"
 
     if "oneOf" in schema:
         name = None
         parameters = _format_oneof(data, schema, name_prefix=name_prefix, replace_values=replace_values)
 
-    if name == "dict":
-        if not parameters and data:
-            parameters = ", ".join(f"\"{k}\": \"{v}\"" for k, v in data.items())
-        return f"{{\n{parameters}}}"
-    elif name:
+    if parameters == "" and schema.get("type") == "string":
+        raise ValueError(f"No schema matched for {data}")
+
+    if name:
         return f"{name_prefix}{name}.new({{\n{parameters}}})"
 
     return parameters
