@@ -5,11 +5,11 @@ api_instance = DatadogAPIClient::V1::DashboardsAPI.new
 
 body = DatadogAPIClient::V1::SharedDashboardInvites.new({
   data: [
-    SharedDashboardInvitesDataObject.new({
-      attributes: SharedDashboardInvitesDataObjectAttributes.new({
+    DatadogAPIClient::V1::SharedDashboardInvitesDataObject.new({
+      attributes: DatadogAPIClient::V1::SharedDashboardInvitesDataObjectAttributes.new({
         email: "test@datadoghq.com",
       }),
-      type: DashboardInviteType::PUBLIC_DASHBOARD_INVITATION,
+      type: DatadogAPIClient::V1::DashboardInviteType::PUBLIC_DASHBOARD_INVITATION,
     }),
   ],
 })

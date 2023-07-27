@@ -297,18 +297,7 @@ def format_data_with_schema_list(
     name = get_name(schema)
 
     if "oneOf" in schema:
-        for sub_schema in schema["oneOf"]:
-            try:
-                value = format_data_with_schema(
-                    data,
-                    sub_schema,
-                    replace_values=replace_values,
-                    default_name=name,
-                )
-            except (KeyError, ValueError, TypeError):
-                continue
-            return value
-        raise ValueError(f"{data} is not valid oneOf {schema}")
+        return _format_oneof(data, schema, name_prefix=name_prefix, replace_values=replace_values)
 
     parameters = ""
     for d in data:
