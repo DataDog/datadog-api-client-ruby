@@ -46,7 +46,7 @@ module DatadogAPIClient::V2
       {
         :'data' => :'CIAppTestsAggregationBucketsResponse',
         :'links' => :'CIAppResponseLinks',
-        :'meta' => :'CIAppResponseMetadata'
+        :'meta' => :'CIAppResponseMetadataWithPagination'
       }
     end
 

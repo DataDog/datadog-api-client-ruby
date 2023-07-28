@@ -44,7 +44,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'CIAppEventAttributes',
+        :'attributes' => :'CIAppPipelineEventAttributes',
         :'id' => :'String',
         :'type' => :'CIAppPipelineEventTypeName'
       }
