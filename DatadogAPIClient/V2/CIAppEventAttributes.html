@@ -141,33 +141,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>JSON object of attributes from CI Visibility events.</p>
-</div></span>
-  
-</li>
-
-    
-      <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#service-instance_method" title="#service (instance method)">#<strong>service</strong>  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-    
-    
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>The name of the application or service generating CI Visibility events.</p>
+    <span class="summary_desc"><div class='inline'><p>JSON object of attributes from CI Visibility test events.</p>
 </div></span>
   
 </li>
@@ -202,7 +176,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#timestamp-instance_method" title="#timestamp (instance method)">#<strong>timestamp</strong>  &#x21d2; Object </a>
+      <a href="#test_level-instance_method" title="#test_level (instance method)">#<strong>test_level</strong>  &#x21d2; Object </a>
     
 
     
@@ -219,7 +193,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Timestamp of your event.</p>
+    <span class="summary_desc"><div class='inline'><p>Test run level.</p>
 </div></span>
   
 </li>
@@ -258,7 +232,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>JSON object of attributes from CI Visibility events.</p>
+    <p>JSON object of attributes from CI Visibility test events.</p>
 
 
   </div>
@@ -281,50 +255,6 @@
 
 <span class='kw'>def</span> <span class='id identifier rubyid_attributes'>attributes</span>
   <span class='ivar'>@attributes</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      
-      <span id="service=-instance_method"></span>
-      <div class="method_details ">
-  <h3 class="signature " id="service-instance_method">
-  
-    #<strong>service</strong>  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>The name of the application or service generating CI Visibility events.
-It is used to switch from CI Visibility to APM, so make sure you define the same
-value when you use both products.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-30
-31
-32</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/ci_app_event_attributes.rb', line 30</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_service'>service</span>
-  <span class='ivar'>@service</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -358,12 +288,12 @@ value when you use both products.</p>
       <pre class="lines">
 
 
-33
-34
-35</pre>
+28
+29
+30</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/ci_app_event_attributes.rb', line 33</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/ci_app_event_attributes.rb', line 28</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_tags'>tags</span>
   <span class='ivar'>@tags</span>
@@ -374,11 +304,11 @@ value when you use both products.</p>
 </div>
     
       
-      <span id="timestamp=-instance_method"></span>
+      <span id="test_level=-instance_method"></span>
       <div class="method_details ">
-  <h3 class="signature " id="timestamp-instance_method">
+  <h3 class="signature " id="test_level-instance_method">
   
-    #<strong>timestamp</strong>  &#x21d2; <tt>Object</tt> 
+    #<strong>test_level</strong>  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -386,7 +316,7 @@ value when you use both products.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Timestamp of your event.</p>
+    <p>Test run level.</p>
 
 
   </div>
@@ -400,15 +330,15 @@ value when you use both products.</p>
       <pre class="lines">
 
 
-36
-37
-38</pre>
+31
+32
+33</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/ci_app_event_attributes.rb', line 36</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/ci_app_event_attributes.rb', line 31</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_timestamp'>timestamp</span>
-  <span class='ivar'>@timestamp</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_test_level'>test_level</span>
+  <span class='ivar'>@test_level</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -421,7 +351,7 @@ value when you use both products.</p>
 </div>
 
       <div id="footer">
-  Generated on Fri Jul 28 07:53:02 2023 by
+  Generated on Fri Jul 28 15:19:46 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.34 (ruby-2.7.8).
 </div>
