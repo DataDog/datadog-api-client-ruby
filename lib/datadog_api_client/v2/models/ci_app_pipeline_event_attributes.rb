@@ -18,25 +18,25 @@ require 'time'
 
 module DatadogAPIClient::V2
   # JSON object containing all event attributes and their associated values.
-  class CIAppEventAttributes
+  class CIAppPipelineEventAttributes
     include BaseGenericModel
 
-    # JSON object of attributes from CI Visibility test events.
+    # JSON object of attributes from CI Visibility pipeline events.
     attr_accessor :attributes
+
+    # Pipeline execution level.
+    attr_accessor :ci_level
 
     # Array of tags associated with your event.
     attr_accessor :tags
-
-    # Test run level.
-    attr_accessor :test_level
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
         :'attributes' => :'attributes',
-        :'tags' => :'tags',
-        :'test_level' => :'test_level'
+        :'ci_level' => :'ci_level',
+        :'tags' => :'tags'
       }
     end
 
@@ -45,8 +45,8 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'attributes' => :'Hash<String, Object>',
-        :'tags' => :'Array<String>',
-        :'test_level' => :'CIAppTestLevel'
+        :'ci_level' => :'CIAppPipelineLevel',
+        :'tags' => :'Array<String>'
       }
     end
 
@@ -55,13 +55,13 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::CIAppEventAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::CIAppPipelineEventAttributes` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::CIAppEventAttributes`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::CIAppPipelineEventAttributes`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
@@ -70,14 +70,14 @@ module DatadogAPIClient::V2
         self.attributes = attributes[:'attributes']
       end
 
+      if attributes.key?(:'ci_level')
+        self.ci_level = attributes[:'ci_level']
+      end
+
       if attributes.key?(:'tags')
         if (value = attributes[:'tags']).is_a?(Array)
           self.tags = value
         end
-      end
-
-      if attributes.key?(:'test_level')
-        self.test_level = attributes[:'test_level']
       end
     end
 
@@ -88,15 +88,15 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           attributes == o.attributes &&
-          tags == o.tags &&
-          test_level == o.test_level
+          ci_level == o.ci_level &&
+          tags == o.tags
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, tags, test_level].hash
+      [attributes, ci_level, tags].hash
     end
   end
 end
