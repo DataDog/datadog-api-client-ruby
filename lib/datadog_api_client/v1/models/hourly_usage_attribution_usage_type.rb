@@ -28,6 +28,7 @@ module DatadogAPIClient::V1
     APPSEC_USAGE = "appsec_usage".freeze
     BROWSER_USAGE = "browser_usage".freeze
     CONTAINER_EXCL_AGENT_USAGE = "container_excl_agent_usage".freeze
+    CI_VISIBILITY_ITR_USAGE = "ci_visibility_itr_usage".freeze
     CONTAINER_USAGE = "container_usage".freeze
     CSPM_CONTAINERS_USAGE = "cspm_containers_usage".freeze
     CSPM_HOSTS_USAGE = "cspm_hosts_usage".freeze

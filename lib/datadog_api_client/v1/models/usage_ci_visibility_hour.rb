@@ -27,6 +27,9 @@ module DatadogAPIClient::V1
     # The number of spans for tests in the queried hour.
     attr_accessor :ci_test_indexed_spans
 
+    # Shows the total count of all active Git committers for Intelligent Test Runner in the current month. A committer is active if they commit at least 3 times in a given month.
+    attr_accessor :ci_visibility_itr_committers
+
     # Shows the total count of all active Git committers for Pipelines in the current month. A committer is active if they commit at least 3 times in a given month.
     attr_accessor :ci_visibility_pipeline_committers
 
@@ -45,6 +48,7 @@ module DatadogAPIClient::V1
       {
         :'ci_pipeline_indexed_spans' => :'ci_pipeline_indexed_spans',
         :'ci_test_indexed_spans' => :'ci_test_indexed_spans',
+        :'ci_visibility_itr_committers' => :'ci_visibility_itr_committers',
         :'ci_visibility_pipeline_committers' => :'ci_visibility_pipeline_committers',
         :'ci_visibility_test_committers' => :'ci_visibility_test_committers',
         :'org_name' => :'org_name',
@@ -58,6 +62,7 @@ module DatadogAPIClient::V1
       {
         :'ci_pipeline_indexed_spans' => :'Integer',
         :'ci_test_indexed_spans' => :'Integer',
+        :'ci_visibility_itr_committers' => :'Integer',
         :'ci_visibility_pipeline_committers' => :'Integer',
         :'ci_visibility_test_committers' => :'Integer',
         :'org_name' => :'String',
@@ -71,6 +76,7 @@ module DatadogAPIClient::V1
       Set.new([
         :'ci_pipeline_indexed_spans',
         :'ci_test_indexed_spans',
+        :'ci_visibility_itr_committers',
         :'ci_visibility_pipeline_committers',
         :'ci_visibility_test_committers',
       ])
@@ -100,6 +106,10 @@ module DatadogAPIClient::V1
         self.ci_test_indexed_spans = attributes[:'ci_test_indexed_spans']
       end
 
+      if attributes.key?(:'ci_visibility_itr_committers')
+        self.ci_visibility_itr_committers = attributes[:'ci_visibility_itr_committers']
+      end
+
       if attributes.key?(:'ci_visibility_pipeline_committers')
         self.ci_visibility_pipeline_committers = attributes[:'ci_visibility_pipeline_committers']
       end
@@ -125,6 +135,7 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           ci_pipeline_indexed_spans == o.ci_pipeline_indexed_spans &&
           ci_test_indexed_spans == o.ci_test_indexed_spans &&
+          ci_visibility_itr_committers == o.ci_visibility_itr_committers &&
           ci_visibility_pipeline_committers == o.ci_visibility_pipeline_committers &&
           ci_visibility_test_committers == o.ci_visibility_test_committers &&
           org_name == o.org_name &&
@@ -135,7 +146,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [ci_pipeline_indexed_spans, ci_test_indexed_spans, ci_visibility_pipeline_committers, ci_visibility_test_committers, org_name, public_id].hash
+      [ci_pipeline_indexed_spans, ci_test_indexed_spans, ci_visibility_itr_committers, ci_visibility_pipeline_committers, ci_visibility_test_committers, org_name, public_id].hash
     end
   end
 end
