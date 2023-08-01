@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # The minimum time for the requested events; supports date, math, and regular timestamps (in milliseconds).
     attr_accessor :from
 
-    # The search query following the Log search syntax.
+    # The search query following the CI Visibility Explorer search syntax.
     attr_accessor :query
 
     # The maximum time for the requested events, supports date, math, and regular timestamps (in milliseconds).

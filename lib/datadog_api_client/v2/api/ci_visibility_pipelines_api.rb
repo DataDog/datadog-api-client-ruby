@@ -33,7 +33,7 @@ module DatadogAPIClient::V2
 
     # Aggregate pipelines events.
     #
-    # The API endpoint to aggregate CI Visibility pipeline events into buckets of computed metrics and timeseries.
+    # Use this API endpoint to aggregate CI Visibility pipeline events into buckets of computed metrics and timeseries.
     #
     # @param body [CIAppPipelinesAggregateRequest] 
     # @param opts [Hash] the optional parameters
@@ -100,16 +100,20 @@ module DatadogAPIClient::V2
 
     # Send pipeline event.
     #
-    # Send your pipeline event to your Datadog platform over HTTP. For details about how pipeline executions are modeled and what execution types we support, see the [guide](https://docs.datadoghq.com/continuous_integration/guides/pipeline_data_model/).
+    # Send your pipeline event to your Datadog platform over HTTP. For details about how pipeline executions are modeled and what execution types we support, see [Pipeline Data Model And Execution Types](https://docs.datadoghq.com/continuous_integration/guides/pipeline_data_model/).
     #
     # Pipeline events can be submitted with a timestamp that is up to 18 hours in the past.
-    #
-    # This API endpoint is in private beta.
     #
     # @param body [CIAppCreatePipelineEventRequest] 
     # @param opts [Hash] the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def create_ci_app_pipeline_event_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_ci_app_pipeline_event".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_ci_app_pipeline_event")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_ci_app_pipeline_event"))
+      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CIVisibilityPipelinesAPI.create_ci_app_pipeline_event ...'
@@ -171,7 +175,7 @@ module DatadogAPIClient::V2
 
     # Get a list of pipelines events.
     #
-    # List endpoint returns CI Visibility pipeline events that match a [log search query](https://docs.datadoghq.com/logs/explorer/search_syntax/).
+    # List endpoint returns CI Visibility pipeline events that match a [search query](https://docs.datadoghq.com/continuous_integration/explorer/search_syntax/).
     # [Results are paginated similarly to logs](https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination).
     #
     # Use this endpoint to see your latest pipeline events.
@@ -274,7 +278,7 @@ module DatadogAPIClient::V2
 
     # Search pipelines events.
     #
-    # List endpoint returns CI Visibility pipeline events that match a [log search query](https://docs.datadoghq.com/logs/explorer/search_syntax/).
+    # List endpoint returns CI Visibility pipeline events that match a [search query](https://docs.datadoghq.com/continuous_integration/explorer/search_syntax/).
     # [Results are paginated similarly to logs](https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination).
     #
     # Use this endpoint to build complex events filtering and search.
