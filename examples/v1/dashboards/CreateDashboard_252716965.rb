@@ -13,6 +13,12 @@ body = DatadogAPIClient::V1::Dashboard.new({
         title_align: DatadogAPIClient::V1::WidgetTextAlign::LEFT,
         show_legend: false,
         type: DatadogAPIClient::V1::DistributionWidgetDefinitionType::DISTRIBUTION,
+        custom_links: [
+          DatadogAPIClient::V1::WidgetCustomLink.new({
+            label: "Example",
+            link: "https://example.org/",
+          }),
+        ],
         xaxis: DatadogAPIClient::V1::DistributionWidgetXAxis.new({
           max: "auto",
           include_zero: true,
