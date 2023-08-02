@@ -30,6 +30,9 @@ module DatadogAPIClient::V2
     # The organization public ID.
     attr_accessor :public_id
 
+    # The region of the Datadog instance that the organization belongs to.
+    attr_accessor :region
+
     # List of usage data reported for each requested hour.
     attr_accessor :timeseries
 
@@ -43,6 +46,7 @@ module DatadogAPIClient::V2
         :'org_name' => :'org_name',
         :'product_family' => :'product_family',
         :'public_id' => :'public_id',
+        :'region' => :'region',
         :'timeseries' => :'timeseries',
         :'usage_type' => :'usage_type'
       }
@@ -55,6 +59,7 @@ module DatadogAPIClient::V2
         :'org_name' => :'String',
         :'product_family' => :'String',
         :'public_id' => :'String',
+        :'region' => :'String',
         :'timeseries' => :'Array<UsageTimeSeriesObject>',
         :'usage_type' => :'HourlyUsageType'
       }
@@ -88,6 +93,10 @@ module DatadogAPIClient::V2
         self.public_id = attributes[:'public_id']
       end
 
+      if attributes.key?(:'region')
+        self.region = attributes[:'region']
+      end
+
       if attributes.key?(:'timeseries')
         if (value = attributes[:'timeseries']).is_a?(Array)
           self.timeseries = value
@@ -108,6 +117,7 @@ module DatadogAPIClient::V2
           org_name == o.org_name &&
           product_family == o.product_family &&
           public_id == o.public_id &&
+          region == o.region &&
           timeseries == o.timeseries &&
           usage_type == o.usage_type
     end
@@ -116,7 +126,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [org_name, product_family, public_id, timeseries, usage_type].hash
+      [org_name, product_family, public_id, region, timeseries, usage_type].hash
     end
   end
 end
