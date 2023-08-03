@@ -24,6 +24,9 @@ module DatadogAPIClient::V2
     # JSON object of attributes from Audit Logs events.
     attr_accessor :attributes
 
+    # Message of the event.
+    attr_accessor :message
+
     # Name of the application or service generating Audit Logs events.
     # This name is used to correlate Audit Logs to APM, so make sure you specify the same
     # value when you use both products.
@@ -40,6 +43,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'attributes' => :'attributes',
+        :'message' => :'message',
         :'service' => :'service',
         :'tags' => :'tags',
         :'timestamp' => :'timestamp'
@@ -51,6 +55,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'attributes' => :'Hash<String, Object>',
+        :'message' => :'String',
         :'service' => :'String',
         :'tags' => :'Array<String>',
         :'timestamp' => :'Time'
@@ -77,6 +82,10 @@ module DatadogAPIClient::V2
         self.attributes = attributes[:'attributes']
       end
 
+      if attributes.key?(:'message')
+        self.message = attributes[:'message']
+      end
+
       if attributes.key?(:'service')
         self.service = attributes[:'service']
       end
@@ -99,6 +108,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           attributes == o.attributes &&
+          message == o.message &&
           service == o.service &&
           tags == o.tags &&
           timestamp == o.timestamp
@@ -108,7 +118,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, service, tags, timestamp].hash
+      [attributes, message, service, tags, timestamp].hash
     end
   end
 end
