@@ -51,6 +51,9 @@ module DatadogAPIClient::V2
     # Popularity of the dashboard.
     attr_reader :popularity
 
+    # List of team names representing ownership of a dashboard.
+    attr_reader :tags
+
     # Title of the dashboard.
     attr_accessor :title
 
@@ -74,6 +77,7 @@ module DatadogAPIClient::V2
         :'is_shared' => :'is_shared',
         :'modified' => :'modified',
         :'popularity' => :'popularity',
+        :'tags' => :'tags',
         :'title' => :'title',
         :'type' => :'type',
         :'url' => :'url'
@@ -94,6 +98,7 @@ module DatadogAPIClient::V2
         :'is_shared' => :'Boolean',
         :'modified' => :'Time',
         :'popularity' => :'Integer',
+        :'tags' => :'Array<String>',
         :'title' => :'String',
         :'type' => :'DashboardType',
         :'url' => :'String'
@@ -106,6 +111,7 @@ module DatadogAPIClient::V2
       Set.new([
         :'icon',
         :'integration_id',
+        :'tags',
       ])
     end
 
@@ -165,6 +171,12 @@ module DatadogAPIClient::V2
         self.popularity = attributes[:'popularity']
       end
 
+      if attributes.key?(:'tags')
+        if (value = attributes[:'tags']).is_a?(Array)
+          self.tags = value
+        end
+      end
+
       if attributes.key?(:'title')
         self.title = attributes[:'title']
       end
@@ -184,6 +196,7 @@ module DatadogAPIClient::V2
     def valid?
       return false if @id.nil?
       return false if !@popularity.nil? && @popularity > 5
+      return false if !@tags.nil? && @tags.length > 5
       return false if @type.nil?
       true
     end
@@ -206,6 +219,16 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "popularity", must be smaller than or equal to 5.'
       end
       @popularity = popularity
+    end
+
+    # Custom attribute writer method with validation
+    # @param tags [Object] Object to be assigned
+    # @!visibility private
+    def tags=(tags)
+      if !tags.nil? && tags.length > 5
+        fail ArgumentError, 'invalid value for "tags", number of items must be less than or equal to 5.'
+      end
+      @tags = tags
     end
 
     # Custom attribute writer method with validation
@@ -234,6 +257,7 @@ module DatadogAPIClient::V2
           is_shared == o.is_shared &&
           modified == o.modified &&
           popularity == o.popularity &&
+          tags == o.tags &&
           title == o.title &&
           type == o.type &&
           url == o.url
@@ -243,7 +267,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [author, created, icon, id, integration_id, is_favorite, is_read_only, is_shared, modified, popularity, title, type, url].hash
+      [author, created, icon, id, integration_id, is_favorite, is_read_only, is_shared, modified, popularity, tags, title, type, url].hash
     end
   end
 end
