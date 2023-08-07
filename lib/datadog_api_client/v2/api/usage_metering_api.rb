@@ -401,6 +401,94 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get hourly CI Committers Detailed.
+    #
+    # @see #get_usage_ci_committers_detailed_with_http_info
+    def get_usage_ci_committers_detailed(filter_timestamp_start, filter_usage_type, opts = {})
+      data, _status_code, _headers = get_usage_ci_committers_detailed_with_http_info(filter_timestamp_start, filter_usage_type, opts)
+      data
+    end
+
+    # Get hourly CI Committers Detailed.
+    #
+    # Get hourly CI Committers Detailed.
+    #
+    # @param filter_timestamp_start [Time] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
+    # @param filter_usage_type [String] usage type: `[pipeline, test]`
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :usage_type usage type: `[pipeline, test]`. Defaults to `pipeline`.
+    # @option opts [Time] :filter_timestamp_end Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
+    # @option opts [Boolean] :filter_include_descendants Include child org usage in the response. Defaults to false.
+    # @option opts [Integer] :page_limit Maximum number of results to return (between 1 and 500) - defaults to 500 if limit not specified.
+    # @option opts [String] :page_next_record_id List following results with a next_record_id provided in the previous query.
+    # @return [Array<(UsageCICommittersDetailedResponse, Integer, Hash)>] UsageCICommittersDetailedResponse data, response status code and response headers
+    def get_usage_ci_committers_detailed_with_http_info(filter_timestamp_start, filter_usage_type, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_ci_committers_detailed ...'
+      end
+      # verify the required parameter 'filter_timestamp_start' is set
+      if @api_client.config.client_side_validation && filter_timestamp_start.nil?
+        fail ArgumentError, "Missing the required parameter 'filter_timestamp_start' when calling UsageMeteringAPI.get_usage_ci_committers_detailed"
+      end
+      # verify the required parameter 'filter_usage_type' is set
+      if @api_client.config.client_side_validation && filter_usage_type.nil?
+        fail ArgumentError, "Missing the required parameter 'filter_usage_type' when calling UsageMeteringAPI.get_usage_ci_committers_detailed"
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_limit'].nil? && opts[:'page_limit'] > 500
+        fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling UsageMeteringAPI.get_usage_ci_committers_detailed, must be smaller than or equal to 500.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_limit'].nil? && opts[:'page_limit'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling UsageMeteringAPI.get_usage_ci_committers_detailed, must be greater than or equal to 1.'
+      end
+      # resource path
+      local_var_path = '/api/v2/usage/ci_committers_detailed'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter[timestamp][start]'] = filter_timestamp_start
+      query_params[:'filter[usage_type]'] = filter_usage_type
+      query_params[:'usage_type'] = opts[:'usage_type'] if !opts[:'usage_type'].nil?
+      query_params[:'filter[timestamp][end]'] = opts[:'filter_timestamp_end'] if !opts[:'filter_timestamp_end'].nil?
+      query_params[:'filter[include_descendants]'] = opts[:'filter_include_descendants'] if !opts[:'filter_include_descendants'].nil?
+      query_params[:'page[limit]'] = opts[:'page_limit'] if !opts[:'page_limit'].nil?
+      query_params[:'page[next_record_id]'] = opts[:'page_next_record_id'] if !opts[:'page_next_record_id'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'UsageCICommittersDetailedResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_usage_ci_committers_detailed,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: UsageMeteringAPI#get_usage_ci_committers_detailed\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get hourly usage for lambda traced invocations.
     #
     # @see #get_usage_lambda_traced_invocations_with_http_info
