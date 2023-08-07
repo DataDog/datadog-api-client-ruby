@@ -55,5 +55,9 @@ module DatadogAPIClient::V1
     ESTIMATED_RUM_SESSIONS_USAGE = "estimated_rum_sessions_usage".freeze
     UNIVERSAL_SERVICE_MONITORING_USAGE = "universal_service_monitoring_usage".freeze
     VULN_MANAGEMENT_HOSTS_USAGE = "vuln_management_hosts_usage".freeze
+    SDS_EVT_EVENTS_USAGE = "sds_evt_events_usage".freeze
+    SDS_LOG_EVENTS_USAGE = "sds_log_events_usage".freeze
+    SDS_SPANS_EVENTS_USAGE = "sds_spans_events_usage".freeze
+    SDS_RUM_EVENTS_USAGE = "sds_rum_events_usage".freeze
   end
 end

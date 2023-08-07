@@ -207,6 +207,30 @@ module DatadogAPIClient::V1
     # The profiled hosts usage by tag(s).
     attr_accessor :profiled_host_usage
 
+    # The percentage of Sensitive Data Scanner events usage by tag(s).
+    attr_accessor :sds_evt_events_percentage
+
+    # The Sensitive Data Scanner events usage by tag(s).
+    attr_accessor :sds_evt_events_usage
+
+    # The percentage of Sensitive Data Scanner logs usage by tag(s).
+    attr_accessor :sds_log_events_percentage
+
+    # The Sensitive Data Scanner logs usage by tag(s).
+    attr_accessor :sds_log_events_usage
+
+    # The percentage of Sensitive Data Scanner RUM usage by tag(s).
+    attr_accessor :sds_rum_events_percentage
+
+    # The Sensitive Data Scanner RUM usage by tag(s).
+    attr_accessor :sds_rum_events_usage
+
+    # The percentage of Sensitive Data Scanner spans usage by tag(s).
+    attr_accessor :sds_spans_events_percentage
+
+    # The Sensitive Data Scanner spans usage by tag(s).
+    attr_accessor :sds_spans_events_usage
+
     # The percentage of network device usage by tag(s).
     attr_accessor :snmp_percentage
 
@@ -291,6 +315,14 @@ module DatadogAPIClient::V1
         :'profiled_fargate_usage' => :'profiled_fargate_usage',
         :'profiled_host_percentage' => :'profiled_host_percentage',
         :'profiled_host_usage' => :'profiled_host_usage',
+        :'sds_evt_events_percentage' => :'sds_evt_events_percentage',
+        :'sds_evt_events_usage' => :'sds_evt_events_usage',
+        :'sds_log_events_percentage' => :'sds_log_events_percentage',
+        :'sds_log_events_usage' => :'sds_log_events_usage',
+        :'sds_rum_events_percentage' => :'sds_rum_events_percentage',
+        :'sds_rum_events_usage' => :'sds_rum_events_usage',
+        :'sds_spans_events_percentage' => :'sds_spans_events_percentage',
+        :'sds_spans_events_usage' => :'sds_spans_events_usage',
         :'snmp_percentage' => :'snmp_percentage',
         :'snmp_usage' => :'snmp_usage',
         :'universal_service_monitoring_percentage' => :'universal_service_monitoring_percentage',
@@ -366,6 +398,14 @@ module DatadogAPIClient::V1
         :'profiled_fargate_usage' => :'Float',
         :'profiled_host_percentage' => :'Float',
         :'profiled_host_usage' => :'Float',
+        :'sds_evt_events_percentage' => :'Float',
+        :'sds_evt_events_usage' => :'Float',
+        :'sds_log_events_percentage' => :'Float',
+        :'sds_log_events_usage' => :'Float',
+        :'sds_rum_events_percentage' => :'Float',
+        :'sds_rum_events_usage' => :'Float',
+        :'sds_spans_events_percentage' => :'Float',
+        :'sds_spans_events_usage' => :'Float',
         :'snmp_percentage' => :'Float',
         :'snmp_usage' => :'Float',
         :'universal_service_monitoring_percentage' => :'Float',
@@ -639,6 +679,38 @@ module DatadogAPIClient::V1
         self.profiled_host_usage = attributes[:'profiled_host_usage']
       end
 
+      if attributes.key?(:'sds_evt_events_percentage')
+        self.sds_evt_events_percentage = attributes[:'sds_evt_events_percentage']
+      end
+
+      if attributes.key?(:'sds_evt_events_usage')
+        self.sds_evt_events_usage = attributes[:'sds_evt_events_usage']
+      end
+
+      if attributes.key?(:'sds_log_events_percentage')
+        self.sds_log_events_percentage = attributes[:'sds_log_events_percentage']
+      end
+
+      if attributes.key?(:'sds_log_events_usage')
+        self.sds_log_events_usage = attributes[:'sds_log_events_usage']
+      end
+
+      if attributes.key?(:'sds_rum_events_percentage')
+        self.sds_rum_events_percentage = attributes[:'sds_rum_events_percentage']
+      end
+
+      if attributes.key?(:'sds_rum_events_usage')
+        self.sds_rum_events_usage = attributes[:'sds_rum_events_usage']
+      end
+
+      if attributes.key?(:'sds_spans_events_percentage')
+        self.sds_spans_events_percentage = attributes[:'sds_spans_events_percentage']
+      end
+
+      if attributes.key?(:'sds_spans_events_usage')
+        self.sds_spans_events_usage = attributes[:'sds_spans_events_usage']
+      end
+
       if attributes.key?(:'snmp_percentage')
         self.snmp_percentage = attributes[:'snmp_percentage']
       end
@@ -732,6 +804,14 @@ module DatadogAPIClient::V1
           profiled_fargate_usage == o.profiled_fargate_usage &&
           profiled_host_percentage == o.profiled_host_percentage &&
           profiled_host_usage == o.profiled_host_usage &&
+          sds_evt_events_percentage == o.sds_evt_events_percentage &&
+          sds_evt_events_usage == o.sds_evt_events_usage &&
+          sds_log_events_percentage == o.sds_log_events_percentage &&
+          sds_log_events_usage == o.sds_log_events_usage &&
+          sds_rum_events_percentage == o.sds_rum_events_percentage &&
+          sds_rum_events_usage == o.sds_rum_events_usage &&
+          sds_spans_events_percentage == o.sds_spans_events_percentage &&
+          sds_spans_events_usage == o.sds_spans_events_usage &&
           snmp_percentage == o.snmp_percentage &&
           snmp_usage == o.snmp_usage &&
           universal_service_monitoring_percentage == o.universal_service_monitoring_percentage &&
@@ -744,7 +824,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [api_percentage, api_usage, apm_fargate_percentage, apm_fargate_usage, apm_host_percentage, apm_host_usage, appsec_fargate_percentage, appsec_fargate_usage, appsec_percentage, appsec_usage, browser_percentage, browser_usage, ci_visibility_itr_percentage, ci_visibility_itr_usage, container_excl_agent_percentage, container_excl_agent_usage, container_percentage, container_usage, cspm_containers_percentage, cspm_containers_usage, cspm_hosts_percentage, cspm_hosts_usage, custom_ingested_timeseries_percentage, custom_ingested_timeseries_usage, custom_timeseries_percentage, custom_timeseries_usage, cws_containers_percentage, cws_containers_usage, cws_hosts_percentage, cws_hosts_usage, dbm_hosts_percentage, dbm_hosts_usage, dbm_queries_percentage, dbm_queries_usage, estimated_indexed_logs_percentage, estimated_indexed_logs_usage, estimated_indexed_spans_percentage, estimated_indexed_spans_usage, estimated_ingested_logs_percentage, estimated_ingested_logs_usage, estimated_ingested_spans_percentage, estimated_ingested_spans_usage, estimated_rum_sessions_percentage, estimated_rum_sessions_usage, fargate_percentage, fargate_usage, functions_percentage, functions_usage, infra_host_percentage, infra_host_usage, invocations_percentage, invocations_usage, npm_host_percentage, npm_host_usage, obs_pipeline_bytes_percentage, obs_pipeline_bytes_usage, profiled_container_percentage, profiled_container_usage, profiled_fargate_percentage, profiled_fargate_usage, profiled_host_percentage, profiled_host_usage, snmp_percentage, snmp_usage, universal_service_monitoring_percentage, universal_service_monitoring_usage, vuln_management_hosts_percentage, vuln_management_hosts_usage].hash
+      [api_percentage, api_usage, apm_fargate_percentage, apm_fargate_usage, apm_host_percentage, apm_host_usage, appsec_fargate_percentage, appsec_fargate_usage, appsec_percentage, appsec_usage, browser_percentage, browser_usage, ci_visibility_itr_percentage, ci_visibility_itr_usage, container_excl_agent_percentage, container_excl_agent_usage, container_percentage, container_usage, cspm_containers_percentage, cspm_containers_usage, cspm_hosts_percentage, cspm_hosts_usage, custom_ingested_timeseries_percentage, custom_ingested_timeseries_usage, custom_timeseries_percentage, custom_timeseries_usage, cws_containers_percentage, cws_containers_usage, cws_hosts_percentage, cws_hosts_usage, dbm_hosts_percentage, dbm_hosts_usage, dbm_queries_percentage, dbm_queries_usage, estimated_indexed_logs_percentage, estimated_indexed_logs_usage, estimated_indexed_spans_percentage, estimated_indexed_spans_usage, estimated_ingested_logs_percentage, estimated_ingested_logs_usage, estimated_ingested_spans_percentage, estimated_ingested_spans_usage, estimated_rum_sessions_percentage, estimated_rum_sessions_usage, fargate_percentage, fargate_usage, functions_percentage, functions_usage, infra_host_percentage, infra_host_usage, invocations_percentage, invocations_usage, npm_host_percentage, npm_host_usage, obs_pipeline_bytes_percentage, obs_pipeline_bytes_usage, profiled_container_percentage, profiled_container_usage, profiled_fargate_percentage, profiled_fargate_usage, profiled_host_percentage, profiled_host_usage, sds_evt_events_percentage, sds_evt_events_usage, sds_log_events_percentage, sds_log_events_usage, sds_rum_events_percentage, sds_rum_events_usage, sds_spans_events_percentage, sds_spans_events_usage, snmp_percentage, snmp_usage, universal_service_monitoring_percentage, universal_service_monitoring_usage, vuln_management_hosts_percentage, vuln_management_hosts_usage].hash
     end
   end
 end
