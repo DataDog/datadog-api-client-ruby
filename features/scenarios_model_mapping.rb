@@ -1699,6 +1699,15 @@ ScenariosModelMappings = {
             "start_hr" => "Time",
             "end_hr" => "Time",
     },
+    "v2.GetUsageCICommittersDetailed" => {
+            "usage_type" => "String",
+            "filter_timestamp_start" => "Time",
+            "filter_timestamp_end" => "Time",
+            "filter_usage_type" => "String",
+            "filter_include_descendants" => "Boolean",
+            "page_limit" => "Integer",
+            "page_next_record_id" => "String",
+    },
     "v2.GetCostByOrg" => {
             "start_month" => "Time",
             "end_month" => "Time",
