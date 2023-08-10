@@ -1675,6 +1675,9 @@ ScenariosModelMappings = {
             "action" => "String",
             "body" => "TeamPermissionSettingUpdateRequest",
     },
+    "v2.GetUserMemberships" => {
+            "user_uuid" => "String",
+    },
     "v2.ListIncidentTeams" => {
             "include" => "IncidentRelatedObject",
             "page_size" => "Integer",
