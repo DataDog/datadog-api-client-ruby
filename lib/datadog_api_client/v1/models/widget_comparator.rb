@@ -21,6 +21,7 @@ module DatadogAPIClient::V1
   class WidgetComparator
     include BaseEnumModel
 
+    EQUAL_TO = "=".freeze
     GREATER_THAN = ">".freeze
     GREATER_THAN_OR_EQUAL_TO = ">=".freeze
     LESS_THAN = "<".freeze
