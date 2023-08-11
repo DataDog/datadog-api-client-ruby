@@ -75,6 +75,9 @@ module DatadogAPIClient::V1
     # Number of pings to use per test.
     attr_reader :number_of_packets
 
+    # Persist cookies across redirects.
+    attr_accessor :persist_cookies
+
     # Port to use when performing the test.
     attr_accessor :port
 
@@ -123,6 +126,7 @@ module DatadogAPIClient::V1
         :'method' => :'method',
         :'no_saving_response_body' => :'noSavingResponseBody',
         :'number_of_packets' => :'numberOfPackets',
+        :'persist_cookies' => :'persistCookies',
         :'port' => :'port',
         :'proxy' => :'proxy',
         :'query' => :'query',
@@ -156,6 +160,7 @@ module DatadogAPIClient::V1
         :'method' => :'String',
         :'no_saving_response_body' => :'Boolean',
         :'number_of_packets' => :'Integer',
+        :'persist_cookies' => :'Boolean',
         :'port' => :'Integer',
         :'proxy' => :'SyntheticsTestRequestProxy',
         :'query' => :'Object',
@@ -257,6 +262,10 @@ module DatadogAPIClient::V1
         self.number_of_packets = attributes[:'number_of_packets']
       end
 
+      if attributes.key?(:'persist_cookies')
+        self.persist_cookies = attributes[:'persist_cookies']
+      end
+
       if attributes.key?(:'port')
         self.port = attributes[:'port']
       end
@@ -351,6 +360,7 @@ module DatadogAPIClient::V1
           method == o.method &&
           no_saving_response_body == o.no_saving_response_body &&
           number_of_packets == o.number_of_packets &&
+          persist_cookies == o.persist_cookies &&
           port == o.port &&
           proxy == o.proxy &&
           query == o.query &&
@@ -365,7 +375,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [allow_insecure, basic_auth, body, body_type, call_type, certificate, certificate_domains, compressed_json_descriptor, dns_server, dns_server_port, follow_redirects, headers, host, message, metadata, method, no_saving_response_body, number_of_packets, port, proxy, query, servername, service, should_track_hops, timeout, url].hash
+      [allow_insecure, basic_auth, body, body_type, call_type, certificate, certificate_domains, compressed_json_descriptor, dns_server, dns_server_port, follow_redirects, headers, host, message, metadata, method, no_saving_response_body, number_of_packets, persist_cookies, port, proxy, query, servername, service, should_track_hops, timeout, url].hash
     end
   end
 end

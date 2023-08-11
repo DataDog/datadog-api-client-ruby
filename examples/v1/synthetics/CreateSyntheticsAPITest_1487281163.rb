@@ -77,6 +77,7 @@ body = DatadogAPIClient::V1::SyntheticsAPITest.new({
         token_api_authentication: DatadogAPIClient::V1::SyntheticsBasicAuthOauthTokenApiAuthentication::HEADER,
         type: DatadogAPIClient::V1::SyntheticsBasicAuthOauthClientType::OAUTH_CLIENT,
       }),
+      persist_cookies: true,
     }),
   }),
   locations: [
