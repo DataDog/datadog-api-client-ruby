@@ -89,6 +89,8 @@ module DatadogAPIClient::V1
     UNIVERSAL_SERVICE_MONITORING_PERCENTAGE = "universal_service_monitoring_percentage".freeze
     VULN_MANAGEMENT_HOSTS_USAGE = "vuln_management_hosts_usage".freeze
     VULN_MANAGEMENT_HOSTS_PERCENTAGE = "vuln_management_hosts_percentage".freeze
+    SDS_SCANNED_BYTES_USAGE = "sds_scanned_bytes_usage".freeze
+    SDS_SCANNED_BYTES_PERCENTAGE = "sds_scanned_bytes_percentage".freeze
     ALL = "*".freeze
   end
 end
