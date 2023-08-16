@@ -21,6 +21,10 @@ module DatadogAPIClient::V1
   class AzureAccount
     include BaseGenericModel
 
+    # Limit the Azure app service plans that are pulled into Datadog using tags.
+    # Only app service plans that match one of the defined tags are imported into Datadog.
+    attr_accessor :app_service_plan_filters
+
     # Silence monitors for expected Azure VM shutdowns.
     attr_accessor :automute
 
@@ -29,6 +33,12 @@ module DatadogAPIClient::V1
 
     # Your Azure web application secret key.
     attr_accessor :client_secret
+
+    # Enable Cloud Security Management Misconfigurations for your organization.
+    attr_accessor :cspm_enabled
+
+    # Enable custom metrics for your organization.
+    attr_accessor :custom_metrics_enabled
 
     # Errors in your configuration.
     attr_accessor :errors
@@ -50,9 +60,12 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.attribute_map
       {
+        :'app_service_plan_filters' => :'app_service_plan_filters',
         :'automute' => :'automute',
         :'client_id' => :'client_id',
         :'client_secret' => :'client_secret',
+        :'cspm_enabled' => :'cspm_enabled',
+        :'custom_metrics_enabled' => :'custom_metrics_enabled',
         :'errors' => :'errors',
         :'host_filters' => :'host_filters',
         :'new_client_id' => :'new_client_id',
@@ -65,9 +78,12 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
+        :'app_service_plan_filters' => :'String',
         :'automute' => :'Boolean',
         :'client_id' => :'String',
         :'client_secret' => :'String',
+        :'cspm_enabled' => :'Boolean',
+        :'custom_metrics_enabled' => :'Boolean',
         :'errors' => :'Array<String>',
         :'host_filters' => :'String',
         :'new_client_id' => :'String',
@@ -92,6 +108,10 @@ module DatadogAPIClient::V1
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'app_service_plan_filters')
+        self.app_service_plan_filters = attributes[:'app_service_plan_filters']
+      end
+
       if attributes.key?(:'automute')
         self.automute = attributes[:'automute']
       end
@@ -102,6 +122,14 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'client_secret')
         self.client_secret = attributes[:'client_secret']
+      end
+
+      if attributes.key?(:'cspm_enabled')
+        self.cspm_enabled = attributes[:'cspm_enabled']
+      end
+
+      if attributes.key?(:'custom_metrics_enabled')
+        self.custom_metrics_enabled = attributes[:'custom_metrics_enabled']
       end
 
       if attributes.key?(:'errors')
@@ -133,9 +161,12 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          app_service_plan_filters == o.app_service_plan_filters &&
           automute == o.automute &&
           client_id == o.client_id &&
           client_secret == o.client_secret &&
+          cspm_enabled == o.cspm_enabled &&
+          custom_metrics_enabled == o.custom_metrics_enabled &&
           errors == o.errors &&
           host_filters == o.host_filters &&
           new_client_id == o.new_client_id &&
@@ -147,7 +178,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [automute, client_id, client_secret, errors, host_filters, new_client_id, new_tenant_name, tenant_name].hash
+      [app_service_plan_filters, automute, client_id, client_secret, cspm_enabled, custom_metrics_enabled, errors, host_filters, new_client_id, new_tenant_name, tenant_name].hash
     end
   end
 end

@@ -4,9 +4,12 @@ require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::AzureIntegrationAPI.new
 
 body = DatadogAPIClient::V1::AzureAccount.new({
+  app_service_plan_filters: "key:value,filter:example",
   automute: true,
   client_id: "testc7f6-1234-5678-9101-3fcbf464test",
   client_secret: "testingx./Sw*g/Y33t..R1cH+hScMDt",
+  cspm_enabled: true,
+  custom_metrics_enabled: true,
   errors: [
     "*",
   ],
