@@ -31,7 +31,7 @@ module DatadogAPIClient::V2
     attr_accessor :group_by
 
     # Global query options that are used during the query.
-    # Note: You should only supply timezone or time offset but not both otherwise the query will fail.
+    # Note: you should supply either timezone or time offset, but not both. Otherwise, the query will fail.
     attr_accessor :options
 
     # Paging settings
