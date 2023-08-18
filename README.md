@@ -165,6 +165,25 @@ api_instance.list_incidents_with_pagination() do |incident|
 end
 ```
 
+### Retry
+
+To enable the client to retry when rate limited (status 429) or status 500 and above:
+
+```ruby
+config = DatadogAPIClient::Configuration.new
+config.retry_config['enableRetry'] = true
+client = DatadogAPIClient::APIClient.new(config)
+```
+The interval between 2 retry attempts will be the value of the `x-ratelimit-reset` response header when available. 
+If not, it will be :
+```ruby
+(retry_config['backoffMultiplier'] ** current_retry_count) * retry_config['backoffBase']
+```
+The maximum number of retry attempts is `3` by default and can be modified with 
+```ruby
+retry_config['maxRetries']
+```
+
 ## Documentation
 
 If you are interested in general documentation for all public Datadog API endpoints, checkout the [general documentation site][api docs].
