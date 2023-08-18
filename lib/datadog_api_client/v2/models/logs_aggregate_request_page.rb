@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class LogsAggregateRequestPage
     include BaseGenericModel
 
-    # The returned paging point to use to get the next results
+    # The returned paging point to use to get the next results. Note: at most 1000 results can be paged.
     attr_accessor :cursor
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -24,6 +24,7 @@ module DatadogAPIClient::V1
     API_USAGE = "api_usage".freeze
     APM_FARGATE_USAGE = "apm_fargate_usage".freeze
     APM_HOST_USAGE = "apm_host_usage".freeze
+    APM_USM_USAGE = "apm_usm_usage".freeze
     APPSEC_FARGATE_USAGE = "appsec_fargate_usage".freeze
     APPSEC_USAGE = "appsec_usage".freeze
     BROWSER_USAGE = "browser_usage".freeze
