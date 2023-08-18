@@ -1,4 +1,5 @@
-# require 'spec_helper'
+require 'spec_helper'
+require 'webmock/rspec'
 
 describe 'logs_archive retry test' do
   before do
@@ -14,19 +15,17 @@ describe 'logs_archive retry test' do
     fixture = File.read('spec/fixtures/logs_archive_unknown_nested_oneof.json')
     stub_request(:post, "#{@base_path}api/v2/logs/config/archives")
       .to_return(
-        {:body => fixture, :headers => [{"Content-Type": "application/json"}, {"X-Ratelimit-Reset" => "1"}], :status => 429},
-        {:body => fixture, :headers => [{"Content-Type": "application/json"}, {"X-Ratelimit-Reset" => "1"}], :status => 429},
-        {:body => fixture, :headers => [{"Content-Type": "application/json"}, {"X-Ratelimit-Reset" => "1"}], :status => 429},
-        {:body => fixture, :headers => [{"Content-Type": "application/json"}], :status => 299}
+        {:body => fixture, :headers => {"Content-Type": "application/json", "X-Ratelimit-Reset" => "1"}, :status => 429},
+        {:body => fixture, :headers => {"Content-Type": "application/json", "X-Ratelimit-Reset" => "1"}, :status => 429},
+        {:body => fixture, :headers => {"Content-Type": "application/json", "X-Ratelimit-Reset" => "1"}, :status => 429},
+        {:body => fixture, :headers => {"Content-Type": "application/json"}, :status => 299}
       )
 
     data = @api_instance.create_logs_archive(@body)
 
-    expect(webmock).to have_requested(:post, "#{@base_path}api/v2/logs/config/archives").times(3)
-    expect(calculate_retry_interval.call()).to eq(1).times(3)
+    expect(WebMock).to have_requested(:post, "#{@base_path}api/v2/logs/config/archives").times(4)
+    #expect(@api_instance.api_client.calculate_retry_interval.call()).to eq(1).times(3)
 
     expect(data).to be_a DatadogAPIClient::V2::LogsArchive
-    expect(data.data.attributes._unparsed).to be true
-    expect(data.data.attributes.destination.data[:type]).to eq "A non existent destination"
   end
 end

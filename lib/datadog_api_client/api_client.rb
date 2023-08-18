@@ -57,78 +57,78 @@ module DatadogAPIClient
       request = build_request(http_method, path, opts)
       attempt = 0
       loop do
-      if opts[:stream_body]
-        tempfile = nil
-        encoding = nil
+        if opts[:stream_body]
+          tempfile = nil
+          encoding = nil
 
-        response = request.perform do | chunk |
-          unless tempfile
-            content_disposition = chunk.http_response.header['Content-Disposition']
-            if content_disposition && content_disposition =~ /filename=/i
-              filename = content_disposition[/filename=['"]?([^'"\s]+)['"]?/, 1]
-              prefix = sanitize_filename(filename)
-            else
-              prefix = 'download-'
+          response = request.perform do | chunk |
+            unless tempfile
+              content_disposition = chunk.http_response.header['Content-Disposition']
+              if content_disposition && content_disposition =~ /filename=/i
+                filename = content_disposition[/filename=['"]?([^'"\s]+)['"]?/, 1]
+                prefix = sanitize_filename(filename)
+              else
+                prefix = 'download-'
+              end
+              prefix = prefix + '-' unless prefix.end_with?('-')
+              unless encoding
+                encoding = chunk.encoding
+              end
+              tempfile = Tempfile.open(prefix, @config.temp_folder_path, encoding: encoding)
+              @tempfile = tempfile
             end
-            prefix = prefix + '-' unless prefix.end_with?('-')
-            unless encoding
-              encoding = chunk.encoding
-            end
-            tempfile = Tempfile.open(prefix, @config.temp_folder_path, encoding: encoding)
-            @tempfile = tempfile
+            chunk.force_encoding(encoding)
+            tempfile.write(chunk)
           end
-          chunk.force_encoding(encoding)
-          tempfile.write(chunk)
-        end
-        if tempfile
-          tempfile.close
-          @config.logger.info "Temp file written to #{tempfile.path}, please copy the file to a proper folder "\
-                            "with e.g. `FileUtils.cp(tempfile.path, '/new/file/path')` otherwise the temp file "\
-                            "will be deleted automatically with GC. It's also recommended to delete the temp file "\
-                            "explicitly with `tempfile.delete`"
-        end
-      else
-        response = request.perform
-      end
-
-      if @config.debugging
-        @config.logger.debug "HTTP response body ~BEGIN~\n#{response.body}\n~END~\n"
-      end
-
-      unless response.success?
-        if response.request_timeout?
-          fail APIError.new('Connection timed out')
-        elsif response.code == 0
-          # Errors from libcurl will be made visible here
-          fail APIError.new(:code => 0,
-                            :message => response.return_message)
+          if tempfile
+            tempfile.close
+            @config.logger.info "Temp file written to #{tempfile.path}, please copy the file to a proper folder "\
+                              "with e.g. `FileUtils.cp(tempfile.path, '/new/file/path')` otherwise the temp file "\
+                              "will be deleted automatically with GC. It's also recommended to delete the temp file "\
+                              "explicitly with `tempfile.delete`"
+          end
         else
-          body = response.body
-          if response.headers['Content-Encoding'].eql?('gzip') && !(body.nil? || body.empty?) then
-            gzip = Zlib::Inflate.new(Zlib::MAX_WBITS + 16)
-            body = gzip.inflate(body)
-            gzip.close
-          end
-          if should_retry(attempt, @config.retry_config, response.code)
-            sleep calculate_retry_interval(response, @config.retry_config, attempt, @config.timeout)
-            attempt = attempt + 1
-            break
+          response = request.perform
+        end
+
+        if @config.debugging
+          @config.logger.debug "HTTP response body ~BEGIN~\n#{response.body}\n~END~\n"
+        end
+
+        unless response.success?
+          if response.request_timeout?
+            fail APIError.new('Connection timed out')
+          elsif response.code == 0
+            # Errors from libcurl will be made visible here
+            fail APIError.new(:code => 0,
+                              :message => response.return_message)
           else
-            fail APIError.new(:code => response.code,
-              :response_headers => response.headers,
-              :response_body => body),
-            response.message
+            body = response.body
+            if response.headers['Content-Encoding'].eql?('gzip') && !(body.nil? || body.empty?) then
+              gzip = Zlib::Inflate.new(Zlib::MAX_WBITS + 16)
+              body = gzip.inflate(body)
+              gzip.close
+            end
+            if should_retry(attempt, @config.retry_config, response.code)
+              sleep calculate_retry_interval(response, @config.retry_config, attempt, @config.timeout)
+              attempt = attempt + 1
+              next
+            else
+              fail APIError.new(:code => response.code,
+                :response_headers => response.headers,
+                :response_body => body),
+              response.message
+            end
           end
         end
-      end
 
-      if opts[:return_type]
-        data = deserialize(opts[:api_version], response, opts[:return_type])
-      else
-        data = nil
+        if opts[:return_type]
+          data = deserialize(opts[:api_version], response, opts[:return_type])
+        else
+          data = nil
+        end
+        return data, response.code, response.headers
       end
-      return data, response.code, response.headers
-    end
     end
 
     # Check if an http request should be retried
