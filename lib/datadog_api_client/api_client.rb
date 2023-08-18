@@ -111,7 +111,7 @@ module DatadogAPIClient
           end
           if should_retry(attempt, @config.retry_config, response.code)
             sleep calculate_retry_interval(response, @config.retry_config, attempt, @config.timeout)
-            attempt += 1
+            attempt = attempt + 1
             break
           else
             fail APIError.new(:code => response.code,
@@ -145,7 +145,7 @@ module DatadogAPIClient
         sleep_time = reset_header.to_i
       else
         sleep_time = (backoff_multiplier**attempt) * backoff_base
-        if timeout > 0
+        if timeout && timeout > 0
           sleep_time = [timeout, sleep_time].min
         end
       end
