@@ -109,8 +109,8 @@ module DatadogAPIClient
               body = gzip.inflate(body)
               gzip.close
             end
-            if should_retry(attempt, @config.retry_config, response.code)
-              sleep calculate_retry_interval(response, @config.retry_config, attempt, @config.timeout)
+            if should_retry(attempt, @config.max_retries, response.code, @config.enable_retry)
+              sleep calculate_retry_interval(response, @config.backoff_base, @config.backoff_multiplier, attempt, @config.timeout)
               attempt = attempt + 1
               next
             else
@@ -132,14 +132,12 @@ module DatadogAPIClient
     end
 
     # Check if an http request should be retried
-    def should_retry(attempt, retry_config, http_code)
-      (http_code == 429 || http_code >= 500) && retry_config["maxRetries"] > attempt && retry_config["enableRetry"]
+    def should_retry(attempt, max_retries, http_code, enable_retry)
+      (http_code == 429 || http_code >= 500) && max_retries > attempt && enable_retry
     end
 
     # Calculate the sleep interval between 2 retry attempts
-    def calculate_retry_interval(response, retry_config, attempt, timeout)
-      backoff_base = retry_config["backoffBase"]
-      backoff_multiplier = retry_config["backoffMultiplier"]
+    def calculate_retry_interval(response, backoff_base, backoff_multiplier, attempt, timeout)
       reset_header = response.headers['X-Ratelimit-Reset']
       if  !reset_header.nil? && !reset_header.empty?
         sleep_time = reset_header.to_i
@@ -473,7 +471,7 @@ module DatadogAPIClient
     # @param [Object] default The default value, if not found
     # @return [Object] The value found, or default
     # @!visibility private
-    def get_attribute_from_path(obj, attribute_path, default=nil)
+    def get_attribute_from_path(obj, attribute_path, default = nil)
       for attr in attribute_path.split(".") do
         case obj
         when Hash

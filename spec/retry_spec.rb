@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'logs_archive retry test' do
   before do
-    DatadogAPIClient.configure { |c| c.retry_config["enableRetry"] = true }
+    DatadogAPIClient.configure { |c| c.enable_retry = true }
     @api_instance = DatadogAPIClient::V2::LogsArchivesAPI.new
     @base_path = @api_instance.api_client.build_request_url('')
     @body = DatadogAPIClient::V2::LogsArchiveCreateRequest.new

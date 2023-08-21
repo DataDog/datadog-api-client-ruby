@@ -149,8 +149,15 @@ module DatadogAPIClient
     # Password for proxy server authentication
     attr_accessor :http_proxypass
 
-    # Configuration for retry behavior
-    attr_accessor :retry_config
+    # Enable retry when rate limited
+    attr_accessor :enable_retry
+
+    # Retrt backoff calculation parameters
+    attr_accessor :backoff_base
+    attr_accessor :backoff_multiplier
+
+    # Maximum number of retry attempts allowed
+    attr_accessor :max_retries
 
     def initialize
       @scheme = 'https'
@@ -162,7 +169,10 @@ module DatadogAPIClient
       @server_operation_variables = {}
       @api_key = {}
       @api_key_prefix = {}
-      @retry_config = {}
+      @enable_retry = false
+      @backoff_base = 2
+      @backoff_multiplier = 2
+      @max_retries = 3
       @timeout = nil
       @client_side_validation = true
       @verify_ssl = true
@@ -225,10 +235,6 @@ module DatadogAPIClient
       @server_variables[:site] = ENV['DD_SITE'] if ENV.key? 'DD_SITE'
       @api_key['apiKeyAuth'] = ENV['DD_API_KEY'] if ENV.key? 'DD_API_KEY'
       @api_key['appKeyAuth'] = ENV['DD_APP_KEY'] if ENV.key? 'DD_APP_KEY'
-      @retry_config['enableRetry'] = false
-      @retry_config['backoffBase'] = 2
-      @retry_config['backoffMultiplier'] = 2
-      @retry_config['maxRetries'] = 3
 
       yield(self) if block_given?
     end
@@ -424,7 +430,7 @@ module DatadogAPIClient
                 default_value: "ip-ranges",
               }
             }
-          }  
+          }
         ],
         "v1.submit_log": [
           {
@@ -476,7 +482,7 @@ module DatadogAPIClient
                 default_value: "http-intake.logs",
               }
             }
-          }  
+          }
         ],
         "v2.submit_log": [
           {
@@ -528,7 +534,7 @@ module DatadogAPIClient
                 default_value: "http-intake.logs",
               }
             }
-          }  
+          }
         ],
       }
     end
@@ -580,5 +586,4 @@ module DatadogAPIClient
       self.data
     end
   end
-
 end
