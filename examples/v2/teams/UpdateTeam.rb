@@ -13,6 +13,15 @@ body = DatadogAPIClient::V2::TeamUpdateRequest.new({
     attributes: DatadogAPIClient::V2::TeamUpdateAttributes.new({
       handle: DD_TEAM_DATA_ATTRIBUTES_HANDLE,
       name: "Example Team updated",
+      avatar: "🥑",
+      banner: 7,
+      hidden_modules: [
+        "m3",
+      ],
+      visible_modules: [
+        "m1",
+        "m2",
+      ],
     }),
     type: DatadogAPIClient::V2::TeamType::TEAM,
   }),

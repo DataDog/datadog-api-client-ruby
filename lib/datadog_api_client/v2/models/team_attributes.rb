@@ -21,6 +21,12 @@ module DatadogAPIClient::V2
   class TeamAttributes
     include BaseGenericModel
 
+    # Unicode representation of the avatar for the team, limited to a single grapheme
+    attr_accessor :avatar
+
+    # Banner selection for the team
+    attr_accessor :banner
+
     # Creation date of the team
     attr_accessor :created_at
 
@@ -29,6 +35,9 @@ module DatadogAPIClient::V2
 
     # The team's identifier
     attr_reader :handle
+
+    # Collection of hidden modules for the team
+    attr_accessor :hidden_modules
 
     # The number of links belonging to the team
     attr_reader :link_count
@@ -45,18 +54,25 @@ module DatadogAPIClient::V2
     # The number of users belonging to the team
     attr_reader :user_count
 
+    # Collection of visible modules for the team
+    attr_accessor :visible_modules
+
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
+        :'avatar' => :'avatar',
+        :'banner' => :'banner',
         :'created_at' => :'created_at',
         :'description' => :'description',
         :'handle' => :'handle',
+        :'hidden_modules' => :'hidden_modules',
         :'link_count' => :'link_count',
         :'modified_at' => :'modified_at',
         :'name' => :'name',
         :'summary' => :'summary',
-        :'user_count' => :'user_count'
+        :'user_count' => :'user_count',
+        :'visible_modules' => :'visible_modules'
       }
     end
 
@@ -64,14 +80,18 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'avatar' => :'String',
+        :'banner' => :'Integer',
         :'created_at' => :'Time',
         :'description' => :'String',
         :'handle' => :'String',
+        :'hidden_modules' => :'Array<String>',
         :'link_count' => :'Integer',
         :'modified_at' => :'Time',
         :'name' => :'String',
         :'summary' => :'String',
-        :'user_count' => :'Integer'
+        :'user_count' => :'Integer',
+        :'visible_modules' => :'Array<String>'
       }
     end
 
@@ -79,6 +99,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_nullable
       Set.new([
+        :'avatar',
+        :'banner',
         :'description',
         :'summary',
       ])
@@ -100,6 +122,14 @@ module DatadogAPIClient::V2
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'avatar')
+        self.avatar = attributes[:'avatar']
+      end
+
+      if attributes.key?(:'banner')
+        self.banner = attributes[:'banner']
+      end
+
       if attributes.key?(:'created_at')
         self.created_at = attributes[:'created_at']
       end
@@ -110,6 +140,12 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'handle')
         self.handle = attributes[:'handle']
+      end
+
+      if attributes.key?(:'hidden_modules')
+        if (value = attributes[:'hidden_modules']).is_a?(Array)
+          self.hidden_modules = value
+        end
       end
 
       if attributes.key?(:'link_count')
@@ -130,6 +166,12 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'user_count')
         self.user_count = attributes[:'user_count']
+      end
+
+      if attributes.key?(:'visible_modules')
+        if (value = attributes[:'visible_modules']).is_a?(Array)
+          self.visible_modules = value
+        end
       end
     end
 
@@ -209,21 +251,25 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          avatar == o.avatar &&
+          banner == o.banner &&
           created_at == o.created_at &&
           description == o.description &&
           handle == o.handle &&
+          hidden_modules == o.hidden_modules &&
           link_count == o.link_count &&
           modified_at == o.modified_at &&
           name == o.name &&
           summary == o.summary &&
-          user_count == o.user_count
+          user_count == o.user_count &&
+          visible_modules == o.visible_modules
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created_at, description, handle, link_count, modified_at, name, summary, user_count].hash
+      [avatar, banner, created_at, description, handle, hidden_modules, link_count, modified_at, name, summary, user_count, visible_modules].hash
     end
   end
 end
