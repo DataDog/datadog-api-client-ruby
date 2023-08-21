@@ -138,6 +138,9 @@ module {{ module_name }}
     # Password for proxy server authentication
     attr_accessor :http_proxypass
 
+    # Configuration for retry behavior
+    attr_accessor :retry_config
+
     def initialize
       {%- set default_server = openapi.servers[0]|format_server %}
       @scheme = '{{ default_server.scheme }}'
@@ -149,6 +152,7 @@ module {{ module_name }}
       @server_operation_variables = {}
       @api_key = {}
       @api_key_prefix = {}
+      @retry_config = {}
       @timeout = nil
       @client_side_validation = true
       @verify_ssl = true
@@ -179,6 +183,10 @@ module {{ module_name }}
       {%- for name, schema in openapi.components.securitySchemes.items() if "x-env-name" in schema and schema.in == "header" and schema.type == "apiKey" %}
       @api_key['{{ name }}'] = ENV['{{ schema["x-env-name"] }}'] if ENV.key? '{{ schema["x-env-name"] }}'
       {%- endfor %}
+      @retry_config['enableRetry'] = false
+      @retry_config['backoffBase'] = 2
+      @retry_config['backoffMultiplier'] = 2
+      @retry_config['maxRetries'] = 3
 
       yield(self) if block_given?
     end
