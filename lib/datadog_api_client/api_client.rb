@@ -471,7 +471,7 @@ module DatadogAPIClient
     # @param [Object] default The default value, if not found
     # @return [Object] The value found, or default
     # @!visibility private
-    def get_attribute_from_path(obj, attribute_path, default = nil)
+    def get_attribute_from_path(obj, attribute_path, default=nil)
       for attr in attribute_path.split(".") do
         case obj
         when Hash
