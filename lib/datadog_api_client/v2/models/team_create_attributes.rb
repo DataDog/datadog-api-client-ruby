@@ -21,22 +21,38 @@ module DatadogAPIClient::V2
   class TeamCreateAttributes
     include BaseGenericModel
 
+    # Unicode representation of the avatar for the team, limited to a single grapheme
+    attr_accessor :avatar
+
+    # Banner selection for the team
+    attr_accessor :banner
+
     # Free-form markdown description/content for the team's homepage
     attr_accessor :description
 
     # The team's identifier
     attr_reader :handle
 
+    # Collection of hidden modules for the team
+    attr_accessor :hidden_modules
+
     # The name of the team
     attr_reader :name
+
+    # Collection of visible modules for the team
+    attr_accessor :visible_modules
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
+        :'avatar' => :'avatar',
+        :'banner' => :'banner',
         :'description' => :'description',
         :'handle' => :'handle',
-        :'name' => :'name'
+        :'hidden_modules' => :'hidden_modules',
+        :'name' => :'name',
+        :'visible_modules' => :'visible_modules'
       }
     end
 
@@ -44,10 +60,23 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'avatar' => :'String',
+        :'banner' => :'Integer',
         :'description' => :'String',
         :'handle' => :'String',
-        :'name' => :'String'
+        :'hidden_modules' => :'Array<String>',
+        :'name' => :'String',
+        :'visible_modules' => :'Array<String>'
       }
+    end
+
+    # List of attributes with nullable: true
+    # @!visibility private
+    def self.openapi_nullable
+      Set.new([
+        :'avatar',
+        :'banner',
+      ])
     end
 
     # Initializes the object
@@ -66,6 +95,14 @@ module DatadogAPIClient::V2
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'avatar')
+        self.avatar = attributes[:'avatar']
+      end
+
+      if attributes.key?(:'banner')
+        self.banner = attributes[:'banner']
+      end
+
       if attributes.key?(:'description')
         self.description = attributes[:'description']
       end
@@ -74,8 +111,20 @@ module DatadogAPIClient::V2
         self.handle = attributes[:'handle']
       end
 
+      if attributes.key?(:'hidden_modules')
+        if (value = attributes[:'hidden_modules']).is_a?(Array)
+          self.hidden_modules = value
+        end
+      end
+
       if attributes.key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'visible_modules')
+        if (value = attributes[:'visible_modules']).is_a?(Array)
+          self.visible_modules = value
+        end
       end
     end
 
@@ -122,16 +171,20 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          avatar == o.avatar &&
+          banner == o.banner &&
           description == o.description &&
           handle == o.handle &&
-          name == o.name
+          hidden_modules == o.hidden_modules &&
+          name == o.name &&
+          visible_modules == o.visible_modules
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [description, handle, name].hash
+      [avatar, banner, description, handle, hidden_modules, name, visible_modules].hash
     end
   end
 end
