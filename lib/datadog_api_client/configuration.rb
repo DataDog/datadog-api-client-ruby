@@ -424,7 +424,7 @@ module DatadogAPIClient
                 default_value: "ip-ranges",
               }
             }
-          }
+          }  
         ],
         "v1.submit_log": [
           {
@@ -476,7 +476,7 @@ module DatadogAPIClient
                 default_value: "http-intake.logs",
               }
             }
-          }
+          }  
         ],
         "v2.submit_log": [
           {
@@ -528,7 +528,7 @@ module DatadogAPIClient
                 default_value: "http-intake.logs",
               }
             }
-          }
+          }  
         ],
       }
     end
@@ -580,4 +580,5 @@ module DatadogAPIClient
       self.data
     end
   end
+
 end

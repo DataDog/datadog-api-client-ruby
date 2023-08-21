@@ -174,12 +174,16 @@ config = DatadogAPIClient::Configuration.new
 config.retry_config['enableRetry'] = true
 client = DatadogAPIClient::APIClient.new(config)
 ```
-The interval between 2 retry attempts will be the value of the `x-ratelimit-reset` response header when available. 
+
+The interval between 2 retry attempts will be the value of the `x-ratelimit-reset` response header when available.
 If not, it will be :
+
 ```ruby
 (retry_config['backoffMultiplier'] ** current_retry_count) * retry_config['backoffBase']
 ```
-The maximum number of retry attempts is `3` by default and can be modified with 
+
+The maximum number of retry attempts is `3` by default and can be modified with
+
 ```ruby
 retry_config['maxRetries']
 ```
