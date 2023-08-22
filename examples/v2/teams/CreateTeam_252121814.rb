@@ -6,8 +6,8 @@ api_instance = DatadogAPIClient::V2::TeamsAPI.new
 body = DatadogAPIClient::V2::TeamCreateRequest.new({
   data: DatadogAPIClient::V2::TeamCreate.new({
     attributes: DatadogAPIClient::V2::TeamCreateAttributes.new({
-      handle: "handle-a0fc0297eb519635",
-      name: "name-a0fc0297eb519635",
+      handle: "test-handle-a0fc0297eb519635",
+      name: "test-name-a0fc0297eb519635",
       avatar: "🥑",
       banner: 7,
       visible_modules: [
