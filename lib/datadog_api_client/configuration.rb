@@ -244,6 +244,13 @@ module DatadogAPIClient
       @@default ||= Configuration.new
     end
 
+    def backoff_base=(value)
+      if value < 2
+        raise ArgumentError, 'backoff_base cannot be smaller than 2'
+      end
+      @backoff_base = value
+    end
+
     def configure
       yield(self) if block_given?
     end
