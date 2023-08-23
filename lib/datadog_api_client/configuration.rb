@@ -244,6 +244,13 @@ module DatadogAPIClient
       @@default ||= Configuration.new
     end
 
+    def backoff_base=(value)
+      if value < 2
+        raise ArgumentError, 'backoff_base cannot be smaller than 2'
+      end
+      @backoff_base = value
+    end
+
     def configure
       yield(self) if block_given?
     end
@@ -430,7 +437,7 @@ module DatadogAPIClient
                 default_value: "ip-ranges",
               }
             }
-          }  
+          }
         ],
         "v1.submit_log": [
           {
@@ -482,7 +489,7 @@ module DatadogAPIClient
                 default_value: "http-intake.logs",
               }
             }
-          }  
+          }
         ],
         "v2.submit_log": [
           {
@@ -534,7 +541,7 @@ module DatadogAPIClient
                 default_value: "http-intake.logs",
               }
             }
-          }  
+          }
         ],
       }
     end
@@ -586,5 +593,4 @@ module DatadogAPIClient
       self.data
     end
   end
-
 end
