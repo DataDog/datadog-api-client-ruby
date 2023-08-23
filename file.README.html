@@ -224,6 +224,26 @@ For example, to retrieve all your incidents:</p>
 <span class='kw'>end</span>
 </code></pre>
 
+<h3 id="retry">Retry</h3>
+
+<p>To enable the client to retry when rate limited (status 429) or status 500 and above:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_config'>config</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="DatadogAPIClient.html" title="DatadogAPIClient (module)">DatadogAPIClient</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="DatadogAPIClient/Configuration.html" title="DatadogAPIClient::Configuration (class)">Configuration</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="DatadogAPIClient/Configuration.html#initialize-instance_method" title="DatadogAPIClient::Configuration#initialize (method)">new</a></span></span>
+<span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_enable_retry'>enable_retry</span> <span class='op'>=</span> <span class='kw'>true</span>
+<span class='id identifier rubyid_client'>client</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="DatadogAPIClient.html" title="DatadogAPIClient (module)">DatadogAPIClient</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="DatadogAPIClient/APIClient.html" title="DatadogAPIClient::APIClient (class)">APIClient</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="DatadogAPIClient/APIClient.html#initialize-instance_method" title="DatadogAPIClient::APIClient#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_config'>config</span><span class='rparen'>)</span>
+</code></pre>
+
+<p>The interval between 2 retry attempts will be the value of the <code>x-ratelimit-reset</code> response header when available.
+If not, it will be :</p>
+
+<pre class="code ruby"><code class="ruby"><span class='lparen'>(</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_backoffMultiplier'>backoffMultiplier</span> <span class='op'>**</span> <span class='id identifier rubyid_current_retry_count'>current_retry_count</span><span class='rparen'>)</span> <span class='op'>*</span> <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_backoffBase'>backoffBase</span>
+</code></pre>
+
+<p>The maximum number of retry attempts is <code>3</code> by default and can be modified with</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_maxRetries'>maxRetries</span>
+</code></pre>
+
 <h2 id="documentation">Documentation</h2>
 
 <p>If you are interested in general documentation for all public Datadog API endpoints, checkout the <a href="https://docs.datadoghq.com/api/">general documentation site</a>.</p>
@@ -238,7 +258,7 @@ For example, to retrieve all your incidents:</p>
 </div></div>
 
       <div id="footer">
-  Generated on Tue Aug 22 15:19:15 2023 by
+  Generated on Wed Aug 23 16:25:14 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.34 (ruby-2.7.8).
 </div>

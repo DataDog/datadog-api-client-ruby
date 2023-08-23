@@ -296,6 +296,29 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#calculate_retry_interval-instance_method" title="#calculate_retry_interval (instance method)">#<strong>calculate_retry_interval</strong>(response, backoff_base, backoff_multiplier, attempt, timeout)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Calculate the sleep interval between 2 retry attempts.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#call_api-instance_method" title="#call_api (instance method)">#<strong>call_api</strong>(http_method, path, opts = {})  &#x21d2; Array&lt;(Object, Integer, Hash)&gt; </a>
     
 
@@ -520,6 +543,29 @@
 
   
     <span class="summary_desc"><div class='inline'><p>Return Content-Type header based on an array of content types provided.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#should_retry-instance_method" title="#should_retry (instance method)">#<strong>should_retry</strong>(attempt, max_retries, http_code, enable_retry)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Check if an http request should be retried.</p>
 </div></span>
   
 </li>
@@ -881,26 +927,26 @@
       <pre class="lines">
 
 
-420
-421
-422
-423
-424
-425
-426
-427
-428
-429
-430
-431
-432
-433
-434
-435
-436</pre>
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/api_client.rb', line 420</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/api_client.rb', line 448</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_build_collection_param'>build_collection_param</span><span class='lparen'>(</span><span class='id identifier rubyid_param'>param</span><span class='comma'>,</span> <span class='id identifier rubyid_collection_format'>collection_format</span><span class='rparen'>)</span>
   <span class='kw'>case</span> <span class='id identifier rubyid_collection_format'>collection_format</span>
@@ -1078,34 +1124,6 @@
       <pre class="lines">
 
 
-134
-135
-136
-137
-138
-139
-140
-141
-142
-143
-144
-145
-146
-147
-148
-149
-150
-151
-152
-153
-154
-155
-156
-157
-158
-159
-160
-161
 162
 163
 164
@@ -1120,10 +1138,38 @@
 173
 174
 175
-176</pre>
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/api_client.rb', line 134</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/api_client.rb', line 162</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_build_request'>build_request</span><span class='lparen'>(</span><span class='id identifier rubyid_http_method'>http_method</span><span class='comma'>,</span> <span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='id identifier rubyid_build_request_url'>build_request_url</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -1264,39 +1310,39 @@
       <pre class="lines">
 
 
-184
-185
-186
-187
-188
-189
-190
-191
-192
-193
-194
-195
-196
-197
-198
-199
-200
-201
-202
-203
-204
-205
-206
-207
-208
-209
-210
-211
 212
-213</pre>
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/api_client.rb', line 184</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/api_client.rb', line 212</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_build_request_body'>build_request_body</span><span class='lparen'>(</span><span class='id identifier rubyid_header_params'>header_params</span><span class='comma'>,</span> <span class='id identifier rubyid_form_params'>form_params</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
   <span class='comment'># http form
@@ -1348,19 +1394,77 @@
       <pre class="lines">
 
 
-318
-319
-320
-321
-322</pre>
+346
+347
+348
+349
+350</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/api_client.rb', line 318</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/api_client.rb', line 346</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_build_request_url'>build_request_url</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='comment'># Add leading and trailing slashes to path
 </span>  <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_path'>path</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\/+</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
   <span class='ivar'>@config</span><span class='period'>.</span><span class='id identifier rubyid_base_url'>base_url</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:api_version</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:downcase</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:api_version</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_downcase'>downcase</span> <span class='op'>:</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:api_version</span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_content'>.</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:operation</span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='op'>+</span> <span class='id identifier rubyid_path'>path</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="calculate_retry_interval-instance_method">
+  
+    #<strong>calculate_retry_interval</strong>(response, backoff_base, backoff_multiplier, attempt, timeout)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Calculate the sleep interval between 2 retry attempts</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/api_client.rb', line 140</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_calculate_retry_interval'>calculate_retry_interval</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='comma'>,</span> <span class='id identifier rubyid_backoff_base'>backoff_base</span><span class='comma'>,</span> <span class='id identifier rubyid_backoff_multiplier'>backoff_multiplier</span><span class='comma'>,</span> <span class='id identifier rubyid_attempt'>attempt</span><span class='comma'>,</span> <span class='id identifier rubyid_timeout'>timeout</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_reset_header'>reset_header</span> <span class='op'>=</span> <span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_headers'>headers</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>X-Ratelimit-Reset</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+  <span class='kw'>if</span>  <span class='op'>!</span><span class='id identifier rubyid_reset_header'>reset_header</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='id identifier rubyid_reset_header'>reset_header</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+    <span class='id identifier rubyid_sleep_time'>sleep_time</span> <span class='op'>=</span> <span class='id identifier rubyid_reset_header'>reset_header</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_sleep_time'>sleep_time</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='id identifier rubyid_backoff_multiplier'>backoff_multiplier</span><span class='op'>**</span><span class='id identifier rubyid_attempt'>attempt</span><span class='rparen'>)</span> <span class='op'>*</span> <span class='id identifier rubyid_backoff_base'>backoff_base</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_timeout'>timeout</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_timeout'>timeout</span> <span class='op'>&gt;</span> <span class='int'>0</span>
+      <span class='id identifier rubyid_sleep_time'>sleep_time</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id identifier rubyid_timeout'>timeout</span><span class='comma'>,</span> <span class='id identifier rubyid_sleep_time'>sleep_time</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_min'>min</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_sleep_time'>sleep_time</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1477,78 +1581,96 @@ the data deserialized from response body (could be nil), response status code an
 120
 121
 122
-123</pre>
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/datadog_api_client/api_client.rb', line 56</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_call_api'>call_api</span><span class='lparen'>(</span><span class='id identifier rubyid_http_method'>http_method</span><span class='comma'>,</span> <span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_request'>request</span> <span class='op'>=</span> <span class='id identifier rubyid_build_request'>build_request</span><span class='lparen'>(</span><span class='id identifier rubyid_http_method'>http_method</span><span class='comma'>,</span> <span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
-  <span class='kw'>if</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:stream_body</span><span class='rbracket'>]</span>
-    <span class='id identifier rubyid_tempfile'>tempfile</span> <span class='op'>=</span> <span class='kw'>nil</span>
-    <span class='id identifier rubyid_encoding'>encoding</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='id identifier rubyid_attempt'>attempt</span> <span class='op'>=</span> <span class='int'>0</span>
+  <span class='id identifier rubyid_loop'>loop</span> <span class='kw'>do</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:stream_body</span><span class='rbracket'>]</span>
+      <span class='id identifier rubyid_tempfile'>tempfile</span> <span class='op'>=</span> <span class='kw'>nil</span>
+      <span class='id identifier rubyid_encoding'>encoding</span> <span class='op'>=</span> <span class='kw'>nil</span>
 
-    <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_request'>request</span><span class='period'>.</span><span class='id identifier rubyid_perform'>perform</span> <span class='kw'>do</span> <span class='op'>|</span> <span class='id identifier rubyid_chunk'>chunk</span> <span class='op'>|</span>
-      <span class='kw'>unless</span> <span class='id identifier rubyid_tempfile'>tempfile</span>
-        <span class='id identifier rubyid_content_disposition'>content_disposition</span> <span class='op'>=</span> <span class='id identifier rubyid_chunk'>chunk</span><span class='period'>.</span><span class='id identifier rubyid_http_response'>http_response</span><span class='period'>.</span><span class='id identifier rubyid_header'>header</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Content-Disposition</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
-        <span class='kw'>if</span> <span class='id identifier rubyid_content_disposition'>content_disposition</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_content_disposition'>content_disposition</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>filename=</span><span class='regexp_end'>/i</span></span>
-          <span class='id identifier rubyid_filename'>filename</span> <span class='op'>=</span> <span class='id identifier rubyid_content_disposition'>content_disposition</span><span class='lbracket'>[</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>filename=[&#39;&quot;]?([^&#39;&quot;\s]+)[&#39;&quot;]?</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='int'>1</span><span class='rbracket'>]</span>
-          <span class='id identifier rubyid_prefix'>prefix</span> <span class='op'>=</span> <span class='id identifier rubyid_sanitize_filename'>sanitize_filename</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span>
-        <span class='kw'>else</span>
-          <span class='id identifier rubyid_prefix'>prefix</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>download-</span><span class='tstring_end'>&#39;</span></span>
+      <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_request'>request</span><span class='period'>.</span><span class='id identifier rubyid_perform'>perform</span> <span class='kw'>do</span> <span class='op'>|</span> <span class='id identifier rubyid_chunk'>chunk</span> <span class='op'>|</span>
+        <span class='kw'>unless</span> <span class='id identifier rubyid_tempfile'>tempfile</span>
+          <span class='id identifier rubyid_content_disposition'>content_disposition</span> <span class='op'>=</span> <span class='id identifier rubyid_chunk'>chunk</span><span class='period'>.</span><span class='id identifier rubyid_http_response'>http_response</span><span class='period'>.</span><span class='id identifier rubyid_header'>header</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Content-Disposition</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+          <span class='kw'>if</span> <span class='id identifier rubyid_content_disposition'>content_disposition</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_content_disposition'>content_disposition</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>filename=</span><span class='regexp_end'>/i</span></span>
+            <span class='id identifier rubyid_filename'>filename</span> <span class='op'>=</span> <span class='id identifier rubyid_content_disposition'>content_disposition</span><span class='lbracket'>[</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>filename=[&#39;&quot;]?([^&#39;&quot;\s]+)[&#39;&quot;]?</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='int'>1</span><span class='rbracket'>]</span>
+            <span class='id identifier rubyid_prefix'>prefix</span> <span class='op'>=</span> <span class='id identifier rubyid_sanitize_filename'>sanitize_filename</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span>
+          <span class='kw'>else</span>
+            <span class='id identifier rubyid_prefix'>prefix</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>download-</span><span class='tstring_end'>&#39;</span></span>
+          <span class='kw'>end</span>
+          <span class='id identifier rubyid_prefix'>prefix</span> <span class='op'>=</span> <span class='id identifier rubyid_prefix'>prefix</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>-</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_prefix'>prefix</span><span class='period'>.</span><span class='id identifier rubyid_end_with?'>end_with?</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>-</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+          <span class='kw'>unless</span> <span class='id identifier rubyid_encoding'>encoding</span>
+            <span class='id identifier rubyid_encoding'>encoding</span> <span class='op'>=</span> <span class='id identifier rubyid_chunk'>chunk</span><span class='period'>.</span><span class='id identifier rubyid_encoding'>encoding</span>
+          <span class='kw'>end</span>
+          <span class='id identifier rubyid_tempfile'>tempfile</span> <span class='op'>=</span> <span class='const'>Tempfile</span><span class='period'>.</span><span class='id identifier rubyid_open'>open</span><span class='lparen'>(</span><span class='id identifier rubyid_prefix'>prefix</span><span class='comma'>,</span> <span class='ivar'>@config</span><span class='period'>.</span><span class='id identifier rubyid_temp_folder_path'>temp_folder_path</span><span class='comma'>,</span> <span class='label'>encoding:</span> <span class='id identifier rubyid_encoding'>encoding</span><span class='rparen'>)</span>
+          <span class='ivar'>@tempfile</span> <span class='op'>=</span> <span class='id identifier rubyid_tempfile'>tempfile</span>
         <span class='kw'>end</span>
-        <span class='id identifier rubyid_prefix'>prefix</span> <span class='op'>=</span> <span class='id identifier rubyid_prefix'>prefix</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>-</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_prefix'>prefix</span><span class='period'>.</span><span class='id identifier rubyid_end_with?'>end_with?</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>-</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
-        <span class='kw'>unless</span> <span class='id identifier rubyid_encoding'>encoding</span>
-          <span class='id identifier rubyid_encoding'>encoding</span> <span class='op'>=</span> <span class='id identifier rubyid_chunk'>chunk</span><span class='period'>.</span><span class='id identifier rubyid_encoding'>encoding</span>
-        <span class='kw'>end</span>
-        <span class='id identifier rubyid_tempfile'>tempfile</span> <span class='op'>=</span> <span class='const'>Tempfile</span><span class='period'>.</span><span class='id identifier rubyid_open'>open</span><span class='lparen'>(</span><span class='id identifier rubyid_prefix'>prefix</span><span class='comma'>,</span> <span class='ivar'>@config</span><span class='period'>.</span><span class='id identifier rubyid_temp_folder_path'>temp_folder_path</span><span class='comma'>,</span> <span class='label'>encoding:</span> <span class='id identifier rubyid_encoding'>encoding</span><span class='rparen'>)</span>
-        <span class='ivar'>@tempfile</span> <span class='op'>=</span> <span class='id identifier rubyid_tempfile'>tempfile</span>
+        <span class='id identifier rubyid_chunk'>chunk</span><span class='period'>.</span><span class='id identifier rubyid_force_encoding'>force_encoding</span><span class='lparen'>(</span><span class='id identifier rubyid_encoding'>encoding</span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_tempfile'>tempfile</span><span class='period'>.</span><span class='id identifier rubyid_write'>write</span><span class='lparen'>(</span><span class='id identifier rubyid_chunk'>chunk</span><span class='rparen'>)</span>
       <span class='kw'>end</span>
-      <span class='id identifier rubyid_chunk'>chunk</span><span class='period'>.</span><span class='id identifier rubyid_force_encoding'>force_encoding</span><span class='lparen'>(</span><span class='id identifier rubyid_encoding'>encoding</span><span class='rparen'>)</span>
-      <span class='id identifier rubyid_tempfile'>tempfile</span><span class='period'>.</span><span class='id identifier rubyid_write'>write</span><span class='lparen'>(</span><span class='id identifier rubyid_chunk'>chunk</span><span class='rparen'>)</span>
-    <span class='kw'>end</span>
-    <span class='kw'>if</span> <span class='id identifier rubyid_tempfile'>tempfile</span>
-      <span class='id identifier rubyid_tempfile'>tempfile</span><span class='period'>.</span><span class='id identifier rubyid_close'>close</span>
-      <span class='ivar'>@config</span><span class='period'>.</span><span class='id identifier rubyid_logger'>logger</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Temp file written to </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_tempfile'>tempfile</span><span class='period'>.</span><span class='id identifier rubyid_path'>path</span><span class='embexpr_end'>}</span><span class='tstring_content'>, please copy the file to a proper folder </span><span class='tstring_end'>&quot;</span></span>\
-                        <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>with e.g. `FileUtils.cp(tempfile.path, &#39;/new/file/path&#39;)` otherwise the temp file </span><span class='tstring_end'>&quot;</span></span>\
-                        <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>will be deleted automatically with GC. It&#39;s also recommended to delete the temp file </span><span class='tstring_end'>&quot;</span></span>\
-                        <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>explicitly with `tempfile.delete`</span><span class='tstring_end'>&quot;</span></span>
-    <span class='kw'>end</span>
-  <span class='kw'>else</span>
-    <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_request'>request</span><span class='period'>.</span><span class='id identifier rubyid_perform'>perform</span>
-  <span class='kw'>end</span>
-
-  <span class='kw'>if</span> <span class='ivar'>@config</span><span class='period'>.</span><span class='id identifier rubyid_debugging'>debugging</span>
-    <span class='ivar'>@config</span><span class='period'>.</span><span class='id identifier rubyid_logger'>logger</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>HTTP response body ~BEGIN~\n</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span><span class='embexpr_end'>}</span><span class='tstring_content'>\n~END~\n</span><span class='tstring_end'>&quot;</span></span>
-  <span class='kw'>end</span>
-
-  <span class='kw'>unless</span> <span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_success?'>success?</span>
-    <span class='kw'>if</span> <span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_request_timeout?'>request_timeout?</span>
-      <span class='id identifier rubyid_fail'>fail</span> <span class='const'><span class='object_link'><a href="APIError.html" title="DatadogAPIClient::APIError (class)">APIError</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="APIError.html#initialize-instance_method" title="DatadogAPIClient::APIError#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Connection timed out</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
-    <span class='kw'>elsif</span> <span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_code'>code</span> <span class='op'>==</span> <span class='int'>0</span>
-      <span class='comment'># Errors from libcurl will be made visible here
-</span>      <span class='id identifier rubyid_fail'>fail</span> <span class='const'><span class='object_link'><a href="APIError.html" title="DatadogAPIClient::APIError (class)">APIError</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="APIError.html#initialize-instance_method" title="DatadogAPIClient::APIError#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='symbol'>:code</span> <span class='op'>=&gt;</span> <span class='int'>0</span><span class='comma'>,</span>
-                        <span class='symbol'>:message</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_return_message'>return_message</span><span class='rparen'>)</span>
+      <span class='kw'>if</span> <span class='id identifier rubyid_tempfile'>tempfile</span>
+        <span class='id identifier rubyid_tempfile'>tempfile</span><span class='period'>.</span><span class='id identifier rubyid_close'>close</span>
+        <span class='ivar'>@config</span><span class='period'>.</span><span class='id identifier rubyid_logger'>logger</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Temp file written to </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_tempfile'>tempfile</span><span class='period'>.</span><span class='id identifier rubyid_path'>path</span><span class='embexpr_end'>}</span><span class='tstring_content'>, please copy the file to a proper folder </span><span class='tstring_end'>&quot;</span></span>\
+                          <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>with e.g. `FileUtils.cp(tempfile.path, &#39;/new/file/path&#39;)` otherwise the temp file </span><span class='tstring_end'>&quot;</span></span>\
+                          <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>will be deleted automatically with GC. It&#39;s also recommended to delete the temp file </span><span class='tstring_end'>&quot;</span></span>\
+                          <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>explicitly with `tempfile.delete`</span><span class='tstring_end'>&quot;</span></span>
+      <span class='kw'>end</span>
     <span class='kw'>else</span>
-      <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span>
-      <span class='kw'>if</span> <span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_headers'>headers</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Content-Encoding</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_eql?'>eql?</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>gzip</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>||</span> <span class='id identifier rubyid_body'>body</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span><span class='rparen'>)</span> <span class='kw'>then</span>
-        <span class='id identifier rubyid_gzip'>gzip</span> <span class='op'>=</span> <span class='const'>Zlib</span><span class='op'>::</span><span class='const'>Inflate</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='const'>Zlib</span><span class='op'>::</span><span class='const'>MAX_WBITS</span> <span class='op'>+</span> <span class='int'>16</span><span class='rparen'>)</span>
-        <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='id identifier rubyid_gzip'>gzip</span><span class='period'>.</span><span class='id identifier rubyid_inflate'>inflate</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
-        <span class='id identifier rubyid_gzip'>gzip</span><span class='period'>.</span><span class='id identifier rubyid_close'>close</span>
-      <span class='kw'>end</span>
-      <span class='id identifier rubyid_fail'>fail</span> <span class='const'><span class='object_link'><a href="APIError.html" title="DatadogAPIClient::APIError (class)">APIError</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="APIError.html#initialize-instance_method" title="DatadogAPIClient::APIError#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='symbol'>:code</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_code'>code</span><span class='comma'>,</span>
-                        <span class='symbol'>:response_headers</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span>
-                        <span class='symbol'>:response_body</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span><span class='comma'>,</span>
-           <span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_message'>message</span>
+      <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_request'>request</span><span class='period'>.</span><span class='id identifier rubyid_perform'>perform</span>
     <span class='kw'>end</span>
-  <span class='kw'>end</span>
 
-  <span class='kw'>if</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:return_type</span><span class='rbracket'>]</span>
-    <span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span class='id identifier rubyid_deserialize'>deserialize</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:api_version</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_response'>response</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:return_type</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-  <span class='kw'>else</span>
-    <span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span class='kw'>nil</span>
+    <span class='kw'>if</span> <span class='ivar'>@config</span><span class='period'>.</span><span class='id identifier rubyid_debugging'>debugging</span>
+      <span class='ivar'>@config</span><span class='period'>.</span><span class='id identifier rubyid_logger'>logger</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>HTTP response body ~BEGIN~\n</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span><span class='embexpr_end'>}</span><span class='tstring_content'>\n~END~\n</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+
+    <span class='kw'>unless</span> <span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_success?'>success?</span>
+      <span class='kw'>if</span> <span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_request_timeout?'>request_timeout?</span>
+        <span class='id identifier rubyid_fail'>fail</span> <span class='const'><span class='object_link'><a href="APIError.html" title="DatadogAPIClient::APIError (class)">APIError</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="APIError.html#initialize-instance_method" title="DatadogAPIClient::APIError#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Connection timed out</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+      <span class='kw'>elsif</span> <span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_code'>code</span> <span class='op'>==</span> <span class='int'>0</span>
+        <span class='comment'># Errors from libcurl will be made visible here
+</span>        <span class='id identifier rubyid_fail'>fail</span> <span class='const'><span class='object_link'><a href="APIError.html" title="DatadogAPIClient::APIError (class)">APIError</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="APIError.html#initialize-instance_method" title="DatadogAPIClient::APIError#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='symbol'>:code</span> <span class='op'>=&gt;</span> <span class='int'>0</span><span class='comma'>,</span>
+                          <span class='symbol'>:message</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_return_message'>return_message</span><span class='rparen'>)</span>
+      <span class='kw'>else</span>
+        <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span>
+        <span class='kw'>if</span> <span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_headers'>headers</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Content-Encoding</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_eql?'>eql?</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>gzip</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>||</span> <span class='id identifier rubyid_body'>body</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span><span class='rparen'>)</span> <span class='kw'>then</span>
+          <span class='id identifier rubyid_gzip'>gzip</span> <span class='op'>=</span> <span class='const'>Zlib</span><span class='op'>::</span><span class='const'>Inflate</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='const'>Zlib</span><span class='op'>::</span><span class='const'>MAX_WBITS</span> <span class='op'>+</span> <span class='int'>16</span><span class='rparen'>)</span>
+          <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='id identifier rubyid_gzip'>gzip</span><span class='period'>.</span><span class='id identifier rubyid_inflate'>inflate</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
+          <span class='id identifier rubyid_gzip'>gzip</span><span class='period'>.</span><span class='id identifier rubyid_close'>close</span>
+        <span class='kw'>end</span>
+        <span class='kw'>if</span> <span class='id identifier rubyid_should_retry'>should_retry</span><span class='lparen'>(</span><span class='id identifier rubyid_attempt'>attempt</span><span class='comma'>,</span> <span class='ivar'>@config</span><span class='period'>.</span><span class='id identifier rubyid_max_retries'>max_retries</span><span class='comma'>,</span> <span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_code'>code</span><span class='comma'>,</span> <span class='ivar'>@config</span><span class='period'>.</span><span class='id identifier rubyid_enable_retry'>enable_retry</span><span class='rparen'>)</span>
+          <span class='id identifier rubyid_sleep'>sleep</span> <span class='id identifier rubyid_calculate_retry_interval'>calculate_retry_interval</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='comma'>,</span> <span class='ivar'>@config</span><span class='period'>.</span><span class='id identifier rubyid_backoff_base'>backoff_base</span><span class='comma'>,</span> <span class='ivar'>@config</span><span class='period'>.</span><span class='id identifier rubyid_backoff_multiplier'>backoff_multiplier</span><span class='comma'>,</span> <span class='id identifier rubyid_attempt'>attempt</span><span class='comma'>,</span> <span class='ivar'>@config</span><span class='period'>.</span><span class='id identifier rubyid_timeout'>timeout</span><span class='rparen'>)</span>
+          <span class='id identifier rubyid_attempt'>attempt</span> <span class='op'>=</span> <span class='id identifier rubyid_attempt'>attempt</span> <span class='op'>+</span> <span class='int'>1</span>
+          <span class='kw'>next</span>
+        <span class='kw'>else</span>
+          <span class='id identifier rubyid_fail'>fail</span> <span class='const'><span class='object_link'><a href="APIError.html" title="DatadogAPIClient::APIError (class)">APIError</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="APIError.html#initialize-instance_method" title="DatadogAPIClient::APIError#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='symbol'>:code</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_code'>code</span><span class='comma'>,</span>
+            <span class='symbol'>:response_headers</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span>
+            <span class='symbol'>:response_body</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span><span class='comma'>,</span>
+          <span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_message'>message</span>
+        <span class='kw'>end</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+
+    <span class='kw'>if</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:return_type</span><span class='rbracket'>]</span>
+      <span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span class='id identifier rubyid_deserialize'>deserialize</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:api_version</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_response'>response</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:return_type</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+    <span class='kw'>else</span>
+      <span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span class='kw'>nil</span>
+    <span class='kw'>end</span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_code'>code</span><span class='comma'>,</span> <span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_headers'>headers</span>
   <span class='kw'>end</span>
-  <span class='kw'>return</span> <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_code'>code</span><span class='comma'>,</span> <span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_headers'>headers</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1631,34 +1753,6 @@ the data deserialized from response body (could be nil), response status code an
       <pre class="lines">
 
 
-272
-273
-274
-275
-276
-277
-278
-279
-280
-281
-282
-283
-284
-285
-286
-287
-288
-289
-290
-291
-292
-293
-294
-295
-296
-297
-298
-299
 300
 301
 302
@@ -1666,10 +1760,38 @@ the data deserialized from response body (could be nil), response status code an
 304
 305
 306
-307</pre>
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/api_client.rb', line 272</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/api_client.rb', line 300</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_convert_to_type'>convert_to_type</span><span class='lparen'>(</span><span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid_return_type'>return_type</span><span class='comma'>,</span> <span class='id identifier rubyid_api_version'>api_version</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='kw'>nil</span> <span class='kw'>if</span> <span class='id identifier rubyid_data'>data</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
@@ -1786,44 +1908,44 @@ the data deserialized from response body (could be nil), response status code an
       <pre class="lines">
 
 
-232
-233
-234
-235
-236
-237
-238
-239
-240
-241
-242
-243
-244
-245
-246
-247
-248
-249
-250
-251
-252
-253
-254
-255
-256
-257
-258
-259
 260
 261
 262
 263
 264
 265
-266</pre>
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/api_client.rb', line 232</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/api_client.rb', line 260</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_deserialize'>deserialize</span><span class='lparen'>(</span><span class='id identifier rubyid_api_version'>api_version</span><span class='comma'>,</span> <span class='id identifier rubyid_response'>response</span><span class='comma'>,</span> <span class='id identifier rubyid_return_type'>return_type</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span>
@@ -1931,12 +2053,12 @@ JSON MIME examples:
       <pre class="lines">
 
 
-223
-224
-225</pre>
+251
+252
+253</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/api_client.rb', line 223</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/api_client.rb', line 251</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_json_mime?'>json_mime?</span><span class='lparen'>(</span><span class='id identifier rubyid_mime'>mime</span><span class='rparen'>)</span>
   <span class='lparen'>(</span><span class='id identifier rubyid_mime'>mime</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_mime'>mime</span><span class='period'>.</span><span class='id identifier rubyid_downcase'>downcase</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>json</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='id identifier rubyid_mime'>mime</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>*/*</span><span class='tstring_end'>&#39;</span></span>
@@ -2007,16 +2129,16 @@ JSON MIME examples:
       <pre class="lines">
 
 
-410
-411
-412
-413
-414
-415
-416</pre>
+438
+439
+440
+441
+442
+443
+444</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/api_client.rb', line 410</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/api_client.rb', line 438</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_object_to_hash'>object_to_hash</span><span class='lparen'>(</span><span class='id identifier rubyid_obj'>obj</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_obj'>obj</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:to_hash</span><span class='rparen'>)</span>
@@ -2091,19 +2213,19 @@ JSON MIME examples:
       <pre class="lines">
 
 
-371
-372
-373
-374
-375
-376
-377
-378
-379
-380</pre>
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/api_client.rb', line 371</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/api_client.rb', line 399</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_object_to_http_body'>object_to_http_body</span><span class='lparen'>(</span><span class='id identifier rubyid_model'>model</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='id identifier rubyid_model'>model</span> <span class='kw'>if</span> <span class='id identifier rubyid_model'>model</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>||</span> <span class='id identifier rubyid_model'>model</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>String</span><span class='rparen'>)</span>
@@ -2182,12 +2304,12 @@ e.g. ../../sun.gif becomes sun.gif</p>
       <pre class="lines">
 
 
-314
-315
-316</pre>
+342
+343
+344</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/api_client.rb', line 314</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/api_client.rb', line 342</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_sanitize_filename'>sanitize_filename</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_filename'>filename</span><span class='period'>.</span><span class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\\|\/</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span>
@@ -2258,13 +2380,13 @@ e.g. ../../sun.gif becomes sun.gif</p>
       <pre class="lines">
 
 
-352
-353
-354
-355</pre>
+380
+381
+382
+383</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/api_client.rb', line 352</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/api_client.rb', line 380</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_select_header_accept'>select_header_accept</span><span class='lparen'>(</span><span class='id identifier rubyid_accepts'>accepts</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='kw'>nil</span> <span class='kw'>if</span> <span class='id identifier rubyid_accepts'>accepts</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>||</span> <span class='id identifier rubyid_accepts'>accepts</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
@@ -2336,16 +2458,16 @@ e.g. ../../sun.gif becomes sun.gif</p>
       <pre class="lines">
 
 
-360
-361
-362
-363
-364
-365
-366</pre>
+388
+389
+390
+391
+392
+393
+394</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/api_client.rb', line 360</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/api_client.rb', line 388</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_select_header_content_type'>select_header_content_type</span><span class='lparen'>(</span><span class='id identifier rubyid_content_types'>content_types</span><span class='rparen'>)</span>
   <span class='comment'># use application/json by default
@@ -2353,6 +2475,46 @@ e.g. ../../sun.gif becomes sun.gif</p>
   <span class='comment'># use JSON when present, otherwise use the first one
 </span>  <span class='id identifier rubyid_json_content_type'>json_content_type</span> <span class='op'>=</span> <span class='id identifier rubyid_content_types'>content_types</span><span class='period'>.</span><span class='id identifier rubyid_find'>find</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_s'>s</span><span class='op'>|</span> <span class='id identifier rubyid_json_mime?'>json_mime?</span><span class='lparen'>(</span><span class='id identifier rubyid_s'>s</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
   <span class='id identifier rubyid_json_content_type'>json_content_type</span> <span class='op'>||</span> <span class='id identifier rubyid_content_types'>content_types</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="should_retry-instance_method">
+  
+    #<strong>should_retry</strong>(attempt, max_retries, http_code, enable_retry)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Check if an http request should be retried</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+135
+136
+137</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/api_client.rb', line 135</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_should_retry'>should_retry</span><span class='lparen'>(</span><span class='id identifier rubyid_attempt'>attempt</span><span class='comma'>,</span> <span class='id identifier rubyid_max_retries'>max_retries</span><span class='comma'>,</span> <span class='id identifier rubyid_http_code'>http_code</span><span class='comma'>,</span> <span class='id identifier rubyid_enable_retry'>enable_retry</span><span class='rparen'>)</span>
+  <span class='lparen'>(</span><span class='id identifier rubyid_http_code'>http_code</span> <span class='op'>==</span> <span class='int'>429</span> <span class='op'>||</span> <span class='id identifier rubyid_http_code'>http_code</span> <span class='op'>&gt;=</span> <span class='int'>500</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_max_retries'>max_retries</span> <span class='op'>&gt;</span> <span class='id identifier rubyid_attempt'>attempt</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_enable_retry'>enable_retry</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -2416,30 +2578,30 @@ e.g. ../../sun.gif becomes sun.gif</p>
       <pre class="lines">
 
 
-385
-386
-387
-388
-389
-390
-391
-392
-393
-394
-395
-396
-397
-398
-399
-400
-401
-402
-403
-404
-405</pre>
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/api_client.rb', line 385</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/api_client.rb', line 413</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_transform_hash'>transform_hash</span><span class='lparen'>(</span><span class='id identifier rubyid_obj'>obj</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_obj'>obj</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Array</span><span class='rparen'>)</span>
@@ -2541,20 +2703,20 @@ e.g. ../../sun.gif becomes sun.gif</p>
       <pre class="lines">
 
 
-329
-330
-331
-332
-333
-334
-335
-336
-337
-338
-339</pre>
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/api_client.rb', line 329</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/api_client.rb', line 357</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update_params_for_auth!'>update_params_for_auth!</span><span class='lparen'>(</span><span class='id identifier rubyid_header_params'>header_params</span><span class='comma'>,</span> <span class='id identifier rubyid_query_params'>query_params</span><span class='comma'>,</span> <span class='id identifier rubyid_auth_names'>auth_names</span><span class='rparen'>)</span>
   <span class='const'>Array</span><span class='lparen'>(</span><span class='id identifier rubyid_auth_names'>auth_names</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_auth_name'>auth_name</span><span class='op'>|</span>
@@ -2616,13 +2778,13 @@ e.g. ../../sun.gif becomes sun.gif</p>
       <pre class="lines">
 
 
-344
-345
-346
-347</pre>
+372
+373
+374
+375</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/api_client.rb', line 344</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/api_client.rb', line 372</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_user_agent='>user_agent=</span><span class='lparen'>(</span><span class='id identifier rubyid_user_agent'>user_agent</span><span class='rparen'>)</span>
   <span class='ivar'>@user_agent</span> <span class='op'>=</span> <span class='id identifier rubyid_user_agent'>user_agent</span>
@@ -2638,7 +2800,7 @@ e.g. ../../sun.gif becomes sun.gif</p>
 </div>
 
       <div id="footer">
-  Generated on Tue Aug 22 15:20:27 2023 by
+  Generated on Wed Aug 23 16:26:27 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.34 (ruby-2.7.8).
 </div>
