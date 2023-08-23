@@ -1,5 +1,36 @@
 # CHANGELOG
 
+## 2.14.0 / 2023-08-23
+
+### Fixed
+* Update team schemas by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1470
+* Mark downtime v2 start response as required by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1482
+* Document new properties and fix security monitoring schemas by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1469
+* Add missing CI App fields `page` and `test_level` by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1448
+### Added
+* Update stated limit for api/v2/metrics from 14 days to 30 days by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1476
+* Add missing sensitive data scanner fields by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1466
+* Add Workflow Executions to usage metering API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1478
+* Add missing `type` field for OnDemandConcurrencyCap response by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1468
+* Add CI Visibility Intelligent Test Runner to usage metering API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1477
+* Add custom_links to distribution widget schema by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1485
+* Add usage field `region` by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1486
+* Add `message` field to audit logs response by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1488
+* Add `tags` field to dashboard list response by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1487
+* API specs for user team memberships by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1495
+* Document `EQUAL` comparator by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1498
+* Add persistCookies option synthetics test request by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1497
+* Expose sds_scanned_bytes_usage in usage attribution API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1501
+* Add support in azure integration endpoint for app service plan filters/cspm/custom metrics by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1496
+* Add APM and USM usage attribution type by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1494
+* Document new attributes for team models by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1492
+* Add retry support  by @HantingZhang2 in https://github.com/DataDog/datadog-api-client-ruby/pull/1502
+
+## New Contributors
+* @HantingZhang2 made their first contribution in https://github.com/DataDog/datadog-api-client-ruby/pull/1502
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-ruby/compare/v2.13.0...v2.14.0
+
 ## 2.13.0 / 2023-07-20
 
 ### Fixed
