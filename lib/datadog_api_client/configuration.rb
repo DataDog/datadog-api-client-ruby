@@ -149,6 +149,16 @@ module DatadogAPIClient
     # Password for proxy server authentication
     attr_accessor :http_proxypass
 
+    # Enable retry when rate limited
+    attr_accessor :enable_retry
+
+    # Retry backoff calculation parameters
+    attr_accessor :backoff_base
+    attr_accessor :backoff_multiplier
+
+    # Maximum number of retry attempts allowed
+    attr_accessor :max_retries
+
     def initialize
       @scheme = 'https'
       @host = 'api.datadoghq.com'
@@ -159,6 +169,10 @@ module DatadogAPIClient
       @server_operation_variables = {}
       @api_key = {}
       @api_key_prefix = {}
+      @enable_retry = false
+      @backoff_base = 2
+      @backoff_multiplier = 2
+      @max_retries = 3
       @timeout = nil
       @client_side_validation = true
       @verify_ssl = true
@@ -228,6 +242,13 @@ module DatadogAPIClient
     # The default Configuration object.
     def self.default
       @@default ||= Configuration.new
+    end
+
+    def backoff_base=(value)
+      if value < 2
+        raise ArgumentError, 'backoff_base cannot be smaller than 2'
+      end
+      @backoff_base = value
     end
 
     def configure

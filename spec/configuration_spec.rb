@@ -42,4 +42,21 @@ describe DatadogAPIClient::Configuration do
       end
     end
   end
+
+  describe '#backoff_base' do
+    context 'when setting a valid backoff_base value > 2' do
+      it 'sets the backoff_base attribute' do
+        config.backoff_base = 3
+        expect(config.backoff_base).to eq(3)
+      end
+    end
+  end
+
+  context 'when setting an invalid backoff_base value < 2' do
+    it 'raises an ArgumentError' do
+      expect { config.backoff_base = 1 }.to raise_error(ArgumentError, 'backoff_base cannot be smaller than 2')
+    end
+  end
+
+
 end
