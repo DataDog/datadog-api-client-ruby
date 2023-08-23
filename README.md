@@ -180,7 +180,6 @@ If not, it will be :
 
 ```ruby
 (config.backoffMultiplier ** current_retry_count) * config.backoffBase
-
 ```
 
 The maximum number of retry attempts is `3` by default and can be modified with
