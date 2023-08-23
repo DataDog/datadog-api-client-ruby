@@ -27,6 +27,7 @@ module DatadogAPIClient::V1
     CI_TEST_STREAM = "ci_test_stream".freeze
     RUM_ISSUE_STREAM = "rum_issue_stream".freeze
     APM_ISSUE_STREAM = "apm_issue_stream".freeze
+    TRACE_STREAM = "trace_stream".freeze
     LOGS_ISSUE_STREAM = "logs_issue_stream".freeze
     LOGS_PATTERN_STREAM = "logs_pattern_stream".freeze
     LOGS_TRANSACTION_STREAM = "logs_transaction_stream".freeze
