@@ -152,7 +152,7 @@ module DatadogAPIClient
     # Enable retry when rate limited
     attr_accessor :enable_retry
 
-    # Retrt backoff calculation parameters
+    # Retry backoff calculation parameters
     attr_accessor :backoff_base
     attr_accessor :backoff_multiplier
 
@@ -235,7 +235,7 @@ module DatadogAPIClient
       @server_variables[:site] = ENV['DD_SITE'] if ENV.key? 'DD_SITE'
       @api_key['apiKeyAuth'] = ENV['DD_API_KEY'] if ENV.key? 'DD_API_KEY'
       @api_key['appKeyAuth'] = ENV['DD_APP_KEY'] if ENV.key? 'DD_APP_KEY'
-      
+
       yield(self) if block_given?
     end
 
@@ -430,7 +430,7 @@ module DatadogAPIClient
                 default_value: "ip-ranges",
               }
             }
-          }  
+          }
         ],
         "v1.submit_log": [
           {
@@ -482,7 +482,7 @@ module DatadogAPIClient
                 default_value: "http-intake.logs",
               }
             }
-          }  
+          }
         ],
         "v2.submit_log": [
           {
@@ -534,7 +534,7 @@ module DatadogAPIClient
                 default_value: "http-intake.logs",
               }
             }
-          }  
+          }
         ],
       }
     end
@@ -586,5 +586,4 @@ module DatadogAPIClient
       self.data
     end
   end
-
 end

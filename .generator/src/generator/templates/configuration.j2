@@ -141,7 +141,7 @@ module {{ module_name }}
     # Enable retry when rate limited
     attr_accessor :enable_retry
 
-    # Retrt backoff calculation parameters
+    # Retry backoff calculation parameters
     attr_accessor :backoff_base
     attr_accessor :backoff_multiplier
 
@@ -193,7 +193,7 @@ module {{ module_name }}
       {%- for name, schema in openapi.components.securitySchemes.items() if "x-env-name" in schema and schema.in == "header" and schema.type == "apiKey" %}
       @api_key['{{ name }}'] = ENV['{{ schema["x-env-name"] }}'] if ENV.key? '{{ schema["x-env-name"] }}'
       {%- endfor %}
-      
+
       yield(self) if block_given?
     end
 
