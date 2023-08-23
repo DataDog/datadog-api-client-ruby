@@ -1,4 +1,4 @@
-# Create a team returns "CREATED" response
+# Create a team with V2 fields returns "CREATED" response
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::TeamsAPI.new
@@ -8,11 +8,15 @@ body = DatadogAPIClient::V2::TeamCreateRequest.new({
     attributes: DatadogAPIClient::V2::TeamCreateAttributes.new({
       handle: "test-handle-a0fc0297eb519635",
       name: "test-name-a0fc0297eb519635",
-    }),
-    relationships: DatadogAPIClient::V2::TeamCreateRelationships.new({
-      users: DatadogAPIClient::V2::RelationshipToUsers.new({
-        data: [],
-      }),
+      avatar: "🥑",
+      banner: 7,
+      visible_modules: [
+        "m1",
+        "m2",
+      ],
+      hidden_modules: [
+        "m3",
+      ],
     }),
     type: DatadogAPIClient::V2::TeamType::TEAM,
   }),
