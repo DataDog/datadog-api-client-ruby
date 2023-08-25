@@ -284,6 +284,27 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
+    # Get all SLO corrections.
+    #
+    # Provide a paginated version of {#list_slo_correction}, returning all items.
+    #
+    # To use it you need to use a block: list_slo_correction_with_pagination { |item| p item }
+    #
+    # @yield [SLOCorrection] Paginated items
+    def list_slo_correction_with_pagination(opts = {})
+        api_version = "V1"
+        page_size = @api_client.get_attribute_from_path(opts, "limit", 25)
+        @api_client.set_attribute_from_path(api_version, opts, "limit", Integer, page_size)
+        while true do
+            response = list_slo_correction(opts)
+            @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
+            if @api_client.get_attribute_from_path(response, "data").length < page_size
+              break
+            end
+            @api_client.set_attribute_from_path(api_version, opts, "offset", Integer, @api_client.get_attribute_from_path(opts, "offset", 0) + page_size)
+        end
+    end
+
     # Update an SLO correction.
     #
     # @see #update_slo_correction_with_http_info
