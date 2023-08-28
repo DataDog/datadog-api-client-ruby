@@ -21,6 +21,9 @@ module DatadogAPIClient::V1
   class UsageProfilingHour
     include BaseGenericModel
 
+    # Contains the total number of profiled Azure app services reporting during a given hour.
+    attr_accessor :aas_count
+
     # Get average number of container agents for that hour.
     attr_accessor :avg_container_agent_count
 
@@ -40,6 +43,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.attribute_map
       {
+        :'aas_count' => :'aas_count',
         :'avg_container_agent_count' => :'avg_container_agent_count',
         :'host_count' => :'host_count',
         :'hour' => :'hour',
@@ -52,6 +56,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
+        :'aas_count' => :'Integer',
         :'avg_container_agent_count' => :'Integer',
         :'host_count' => :'Integer',
         :'hour' => :'Time',
@@ -64,6 +69,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_nullable
       Set.new([
+        :'aas_count',
         :'avg_container_agent_count',
         :'host_count',
       ])
@@ -84,6 +90,10 @@ module DatadogAPIClient::V1
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'aas_count')
+        self.aas_count = attributes[:'aas_count']
+      end
 
       if attributes.key?(:'avg_container_agent_count')
         self.avg_container_agent_count = attributes[:'avg_container_agent_count']
@@ -112,6 +122,7 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          aas_count == o.aas_count &&
           avg_container_agent_count == o.avg_container_agent_count &&
           host_count == o.host_count &&
           hour == o.hour &&
@@ -123,7 +134,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [avg_container_agent_count, host_count, hour, org_name, public_id].hash
+      [aas_count, avg_container_agent_count, host_count, hour, org_name, public_id].hash
     end
   end
 end
