@@ -569,6 +569,28 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
+    # Get all monitor details.
+    #
+    # Provide a paginated version of {#list_monitors}, returning all items.
+    #
+    # To use it you need to use a block: list_monitors_with_pagination { |item| p item }
+    #
+    # @yield [Monitor] Paginated items
+    def list_monitors_with_pagination(opts = {})
+        api_version = "V1"
+        page_size = @api_client.get_attribute_from_path(opts, "page_size", 100)
+        @api_client.set_attribute_from_path(api_version, opts, "page_size", Integer, page_size)
+        @api_client.set_attribute_from_path(api_version, opts, "page", Integer, 0)
+        while true do
+            response = list_monitors(opts)
+            @api_client.get_attribute_from_path(response, "").each { |item| yield(item) }
+            if @api_client.get_attribute_from_path(response, "").length < page_size
+              break
+            end
+            @api_client.set_attribute_from_path(api_version, opts, "page", Integer, @api_client.get_attribute_from_path(opts, "page", 0) + 1)
+        end
+    end
+
     # Monitors group search.
     #
     # @see #search_monitor_groups_with_http_info

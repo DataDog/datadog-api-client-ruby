@@ -491,6 +491,8 @@ def get_type_at_path(operation, attribute_path):
     if content is None:
         raise RuntimeError("Default response not found")
     content = content["schema"]
+    if not attribute_path:
+        return get_name(content.get("items"))
     for attr in attribute_path.split("."):
         content = content["properties"][attr]
     return get_name(content.get("items"))
