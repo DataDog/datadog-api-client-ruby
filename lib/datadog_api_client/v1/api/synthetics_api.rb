@@ -1428,8 +1428,8 @@ module DatadogAPIClient::V1
     # Get the list of all Synthetic tests.
     #
     # @param opts [Hash] the optional parameters
-    # @option opts [String] :page_size Used for pagination. The number of tests returned in the page.
-    # @option opts [String] :page_number Used for pagination. Which page you want to retrieve. Starts at zero.
+    # @option opts [Integer] :page_size Used for pagination. The number of tests returned in the page.
+    # @option opts [Integer] :page_number Used for pagination. Which page you want to retrieve. Starts at zero.
     # @return [Array<(SyntheticsListTestsResponse, Integer, Hash)>] SyntheticsListTestsResponse data, response status code and response headers
     def list_tests_with_http_info(opts = {})
 
@@ -1477,6 +1477,28 @@ module DatadogAPIClient::V1
         @api_client.config.logger.debug "API called: SyntheticsAPI#list_tests\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
+    end
+
+    # Get the list of all Synthetic tests.
+    #
+    # Provide a paginated version of {#list_tests}, returning all items.
+    #
+    # To use it you need to use a block: list_tests_with_pagination { |item| p item }
+    #
+    # @yield [SyntheticsTestDetails] Paginated items
+    def list_tests_with_pagination(opts = {})
+        api_version = "V1"
+        page_size = @api_client.get_attribute_from_path(opts, "page_size", 100)
+        @api_client.set_attribute_from_path(api_version, opts, "page_size", Integer, page_size)
+        @api_client.set_attribute_from_path(api_version, opts, "page_number", Integer, 0)
+        while true do
+            response = list_tests(opts)
+            @api_client.get_attribute_from_path(response, "tests").each { |item| yield(item) }
+            if @api_client.get_attribute_from_path(response, "tests").length < page_size
+              break
+            end
+            @api_client.set_attribute_from_path(api_version, opts, "page_number", Integer, @api_client.get_attribute_from_path(opts, "page_number", 0) + 1)
+        end
     end
 
     # Trigger tests from CI/CD pipelines.
