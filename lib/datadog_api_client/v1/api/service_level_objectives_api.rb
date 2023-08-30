@@ -596,6 +596,27 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
+    # Get all SLOs.
+    #
+    # Provide a paginated version of {#list_slos}, returning all items.
+    #
+    # To use it you need to use a block: list_slos_with_pagination { |item| p item }
+    #
+    # @yield [ServiceLevelObjective] Paginated items
+    def list_slos_with_pagination(opts = {})
+        api_version = "V1"
+        page_size = @api_client.get_attribute_from_path(opts, "limit", 1000)
+        @api_client.set_attribute_from_path(api_version, opts, "limit", Integer, page_size)
+        while true do
+            response = list_slos(opts)
+            @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
+            if @api_client.get_attribute_from_path(response, "data").length < page_size
+              break
+            end
+            @api_client.set_attribute_from_path(api_version, opts, "offset", Integer, @api_client.get_attribute_from_path(opts, "offset", 0) + page_size)
+        end
+    end
+
     # Search for SLOs.
     #
     # @see #search_slo_with_http_info
