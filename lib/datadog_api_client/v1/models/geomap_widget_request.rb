@@ -48,6 +48,9 @@ module DatadogAPIClient::V1
     # The log query.
     attr_accessor :security_query
 
+    # The style for the points coming from this request.
+    attr_accessor :style
+
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
@@ -60,7 +63,8 @@ module DatadogAPIClient::V1
         :'query' => :'query',
         :'response_format' => :'response_format',
         :'rum_query' => :'rum_query',
-        :'security_query' => :'security_query'
+        :'security_query' => :'security_query',
+        :'style' => :'style'
       }
     end
 
@@ -76,7 +80,8 @@ module DatadogAPIClient::V1
         :'query' => :'ListStreamQuery',
         :'response_format' => :'FormulaAndFunctionResponseFormat',
         :'rum_query' => :'LogQueryDefinition',
-        :'security_query' => :'LogQueryDefinition'
+        :'security_query' => :'LogQueryDefinition',
+        :'style' => :'GeomapWidgetStyle'
       }
     end
 
@@ -137,6 +142,10 @@ module DatadogAPIClient::V1
       if attributes.key?(:'security_query')
         self.security_query = attributes[:'security_query']
       end
+
+      if attributes.key?(:'style')
+        self.style = attributes[:'style']
+      end
     end
 
     # Checks equality by comparing each attribute.
@@ -153,14 +162,15 @@ module DatadogAPIClient::V1
           query == o.query &&
           response_format == o.response_format &&
           rum_query == o.rum_query &&
-          security_query == o.security_query
+          security_query == o.security_query &&
+          style == o.style
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [columns, formulas, log_query, q, queries, query, response_format, rum_query, security_query].hash
+      [columns, formulas, log_query, q, queries, query, response_format, rum_query, security_query, style].hash
     end
   end
 end
