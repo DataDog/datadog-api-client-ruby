@@ -28,6 +28,9 @@ body = DatadogAPIClient::V1::Dashboard.new({
                 aggregator: DatadogAPIClient::V1::FormulaAndFunctionMetricAggregation::SUM,
               }),
             ],
+            style: DatadogAPIClient::V1::WidgetStyle.new({
+              palette: "dog_classic",
+            }),
           }),
         ],
       }),

@@ -60,6 +60,9 @@ module DatadogAPIClient::V1
     # The log query.
     attr_accessor :security_query
 
+    # Widget style definition.
+    attr_accessor :style
+
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
@@ -76,7 +79,8 @@ module DatadogAPIClient::V1
         :'queries' => :'queries',
         :'response_format' => :'response_format',
         :'rum_query' => :'rum_query',
-        :'security_query' => :'security_query'
+        :'security_query' => :'security_query',
+        :'style' => :'style'
       }
     end
 
@@ -96,7 +100,8 @@ module DatadogAPIClient::V1
         :'queries' => :'Array<FormulaAndFunctionQueryDefinition>',
         :'response_format' => :'FormulaAndFunctionResponseFormat',
         :'rum_query' => :'LogQueryDefinition',
-        :'security_query' => :'LogQueryDefinition'
+        :'security_query' => :'LogQueryDefinition',
+        :'style' => :'WidgetStyle'
       }
     end
 
@@ -171,6 +176,10 @@ module DatadogAPIClient::V1
       if attributes.key?(:'security_query')
         self.security_query = attributes[:'security_query']
       end
+
+      if attributes.key?(:'style')
+        self.style = attributes[:'style']
+      end
     end
 
     # Checks equality by comparing each attribute.
@@ -191,14 +200,15 @@ module DatadogAPIClient::V1
           queries == o.queries &&
           response_format == o.response_format &&
           rum_query == o.rum_query &&
-          security_query == o.security_query
+          security_query == o.security_query &&
+          style == o.style
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [apm_query, audit_query, event_query, formulas, log_query, network_query, process_query, profile_metrics_query, q, queries, response_format, rum_query, security_query].hash
+      [apm_query, audit_query, event_query, formulas, log_query, network_query, process_query, profile_metrics_query, q, queries, response_format, rum_query, security_query, style].hash
     end
   end
 end
