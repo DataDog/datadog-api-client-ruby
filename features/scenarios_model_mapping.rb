@@ -704,8 +704,8 @@ ScenariosModelMappings = {
             "body" => "SyntheticsPrivateLocation",
     },
     "v1.ListTests" => {
-            "page_size" => "String",
-            "page_number" => "String",
+            "page_size" => "Integer",
+            "page_number" => "Integer",
     },
     "v1.CreateSyntheticsAPITest" => {
             "body" => "SyntheticsAPITest",
