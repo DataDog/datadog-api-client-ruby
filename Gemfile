@@ -6,7 +6,7 @@ gemspec
 
 group :development, :test do
   gem 'activesupport'
-  gem 'cucumber'
+  gem 'cucumber', '<9'
   gem 'ddtrace', '>=1.0.0.beta1'
   gem 'gem-release'
   gem 'rake', '~> 13.0.1'
