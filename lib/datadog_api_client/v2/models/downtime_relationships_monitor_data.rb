@@ -40,7 +40,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'id' => :'Integer',
+        :'id' => :'String',
         :'type' => :'DowntimeIncludedMonitorType'
       }
     end
