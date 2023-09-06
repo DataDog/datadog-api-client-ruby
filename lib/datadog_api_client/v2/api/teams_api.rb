@@ -924,6 +924,28 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get all teams.
+    #
+    # Provide a paginated version of {#list_teams}, returning all items.
+    #
+    # To use it you need to use a block: list_teams_with_pagination { |item| p item }
+    #
+    # @yield [Team] Paginated items
+    def list_teams_with_pagination(opts = {})
+        api_version = "V2"
+        page_size = @api_client.get_attribute_from_path(opts, "page_size", 10)
+        @api_client.set_attribute_from_path(api_version, opts, "page_size", Integer, page_size)
+        @api_client.set_attribute_from_path(api_version, opts, "page_number", Integer, 0)
+        while true do
+            response = list_teams(opts)
+            @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
+            if @api_client.get_attribute_from_path(response, "data").length < page_size
+              break
+            end
+            @api_client.set_attribute_from_path(api_version, opts, "page_number", Integer, @api_client.get_attribute_from_path(opts, "page_number", 0) + 1)
+        end
+    end
+
     # Update a team.
     #
     # @see #update_team_with_http_info

@@ -311,14 +311,14 @@ module DatadogAPIClient::V1
     def list_notebooks_with_pagination(opts = {})
         api_version = "V1"
         page_size = @api_client.get_attribute_from_path(opts, "count", 100)
-        @api_client.set_attribute_from_path(api_version, opts, "count", String, page_size)
+        @api_client.set_attribute_from_path(api_version, opts, "count", Integer, page_size)
         while true do
             response = list_notebooks(opts)
             @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
             if @api_client.get_attribute_from_path(response, "data").length < page_size
               break
             end
-            @api_client.set_attribute_from_path(api_version, opts, "start", String, @api_client.get_attribute_from_path(opts, "start", 0) + page_size)
+            @api_client.set_attribute_from_path(api_version, opts, "start", Integer, @api_client.get_attribute_from_path(opts, "start", 0) + page_size)
         end
     end
 

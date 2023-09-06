@@ -306,14 +306,14 @@ module DatadogAPIClient::V2
     def list_service_definitions_with_pagination(opts = {})
         api_version = "V2"
         page_size = @api_client.get_attribute_from_path(opts, "page_size", 10)
-        @api_client.set_attribute_from_path(api_version, opts, "page_size", ServiceDefinitionSchemaVersions, page_size)
+        @api_client.set_attribute_from_path(api_version, opts, "page_size", Integer, page_size)
         while true do
             response = list_service_definitions(opts)
             @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
             if @api_client.get_attribute_from_path(response, "data").length < page_size
               break
             end
-            @api_client.set_attribute_from_path(api_version, opts, "page_number", ServiceDefinitionSchemaVersions, @api_client.get_attribute_from_path(opts, "page_number", 0) + page_size)
+            @api_client.set_attribute_from_path(api_version, opts, "page_number", Integer, @api_client.get_attribute_from_path(opts, "page_number", 0) + page_size)
         end
     end
   end
