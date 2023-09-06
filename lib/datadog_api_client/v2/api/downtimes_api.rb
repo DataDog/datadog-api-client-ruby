@@ -255,6 +255,8 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @option opts [Boolean] :current_only Only return downtimes that are active when the request is made.
     # @option opts [String] :include Comma-separated list of resource paths for related resources to include in the response. Supported resource paths are `created_by` and `monitor`.
+    # @option opts [Integer] :page_offset Specific offset to use as the beginning of the returned page.
+    # @option opts [Integer] :page_limit Maximum number of downtimes in the response.
     # @return [Array<(ListDowntimesResponse, Integer, Hash)>] ListDowntimesResponse data, response status code and response headers
     def list_downtimes_with_http_info(opts = {})
       unstable_enabled = @api_client.config.unstable_operations["v2.list_downtimes".to_sym]
@@ -274,6 +276,8 @@ module DatadogAPIClient::V2
       query_params = opts[:query_params] || {}
       query_params[:'current_only'] = opts[:'current_only'] if !opts[:'current_only'].nil?
       query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
+      query_params[:'page[offset]'] = opts[:'page_offset'] if !opts[:'page_offset'].nil?
+      query_params[:'page[limit]'] = opts[:'page_limit'] if !opts[:'page_limit'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -308,6 +312,27 @@ module DatadogAPIClient::V2
         @api_client.config.logger.debug "API called: DowntimesAPI#list_downtimes\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
+    end
+
+    # Get all downtimes.
+    #
+    # Provide a paginated version of {#list_downtimes}, returning all items.
+    #
+    # To use it you need to use a block: list_downtimes_with_pagination { |item| p item }
+    #
+    # @yield [DowntimeResponseData] Paginated items
+    def list_downtimes_with_pagination(opts = {})
+        api_version = "V2"
+        page_size = @api_client.get_attribute_from_path(opts, "page_limit", 30)
+        @api_client.set_attribute_from_path(api_version, opts, "page_limit", Integer, page_size)
+        while true do
+            response = list_downtimes(opts)
+            @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
+            if @api_client.get_attribute_from_path(response, "data").length < page_size
+              break
+            end
+            @api_client.set_attribute_from_path(api_version, opts, "page_offset", Integer, @api_client.get_attribute_from_path(opts, "page_offset", 0) + page_size)
+        end
     end
 
     # Get active downtimes for a monitor.
