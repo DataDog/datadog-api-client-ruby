@@ -477,7 +477,7 @@ def get_container(operation, attribute_path, with_type=False):
                     ".".join(formatter.attribute_name(a) for a in attribute_path.split(".")[1:]),
                     get_type(parameter, attribute_path.split(".")[1]),
                 )
-    return f'opts, "{formatter.attribute_path(attribute_path)}"{get_type(parameter)}'
+            return f'opts, "{formatter.attribute_path(attribute_path)}"{get_type(parameter)}'
 
 
 def get_type_at_path(operation, attribute_path):
