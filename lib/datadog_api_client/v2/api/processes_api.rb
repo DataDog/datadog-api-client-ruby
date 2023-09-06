@@ -111,7 +111,7 @@ module DatadogAPIClient::V2
     def list_processes_with_pagination(opts = {})
         api_version = "V2"
         page_size = @api_client.get_attribute_from_path(opts, "page_limit", 1000)
-        @api_client.set_attribute_from_path(api_version, opts, "page_limit", String, page_size)
+        @api_client.set_attribute_from_path(api_version, opts, "page_limit", Integer, page_size)
         while true do
             response = list_processes(opts)
             @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
