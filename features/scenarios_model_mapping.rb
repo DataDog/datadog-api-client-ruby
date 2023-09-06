@@ -209,6 +209,8 @@ ScenariosModelMappings = {
     "v1.ListDashboards" => {
             "filter_shared" => "Boolean",
             "filter_deleted" => "Boolean",
+            "count" => "Integer",
+            "start" => "Integer",
     },
     "v1.RestoreDashboards" => {
             "body" => "DashboardRestoreRequest",
