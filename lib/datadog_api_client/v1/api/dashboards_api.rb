@@ -644,6 +644,8 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @option opts [Boolean] :filter_shared When `true`, this query only returns shared custom created or cloned dashboards.
     # @option opts [Boolean] :filter_deleted When `true`, this query returns only deleted custom-created or cloned dashboards. This parameter is incompatible with `filter[shared]`.
+    # @option opts [Integer] :count The maximum number of dashboards returned in the list.
+    # @option opts [Integer] :start The specific offset to use as the beginning of the returned response.
     # @return [Array<(DashboardSummary, Integer, Hash)>] DashboardSummary data, response status code and response headers
     def list_dashboards_with_http_info(opts = {})
 
@@ -657,6 +659,8 @@ module DatadogAPIClient::V1
       query_params = opts[:query_params] || {}
       query_params[:'filter[shared]'] = opts[:'filter_shared'] if !opts[:'filter_shared'].nil?
       query_params[:'filter[deleted]'] = opts[:'filter_deleted'] if !opts[:'filter_deleted'].nil?
+      query_params[:'count'] = opts[:'count'] if !opts[:'count'].nil?
+      query_params[:'start'] = opts[:'start'] if !opts[:'start'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -691,6 +695,27 @@ module DatadogAPIClient::V1
         @api_client.config.logger.debug "API called: DashboardsAPI#list_dashboards\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
+    end
+
+    # Get all dashboards.
+    #
+    # Provide a paginated version of {#list_dashboards}, returning all items.
+    #
+    # To use it you need to use a block: list_dashboards_with_pagination { |item| p item }
+    #
+    # @yield [DashboardSummaryDefinition] Paginated items
+    def list_dashboards_with_pagination(opts = {})
+        api_version = "V1"
+        page_size = @api_client.get_attribute_from_path(opts, "count", 100)
+        @api_client.set_attribute_from_path(api_version, opts, "count", Integer, page_size)
+        while true do
+            response = list_dashboards(opts)
+            @api_client.get_attribute_from_path(response, "dashboards").each { |item| yield(item) }
+            if @api_client.get_attribute_from_path(response, "dashboards").length < page_size
+              break
+            end
+            @api_client.set_attribute_from_path(api_version, opts, "start", Integer, @api_client.get_attribute_from_path(opts, "start", 0) + page_size)
+        end
     end
 
     # Restore deleted dashboards.
