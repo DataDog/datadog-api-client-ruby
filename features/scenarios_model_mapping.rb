@@ -969,6 +969,8 @@ ScenariosModelMappings = {
     "v2.ListDowntimes" => {
             "current_only" => "Boolean",
             "include" => "String",
+            "page_offset" => "Integer",
+            "page_limit" => "Integer",
     },
     "v2.CreateDowntime" => {
             "body" => "DowntimeCreateRequest",
