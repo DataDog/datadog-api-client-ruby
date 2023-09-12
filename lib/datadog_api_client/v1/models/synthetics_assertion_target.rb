@@ -30,6 +30,9 @@ module DatadogAPIClient::V1
     # Value used by the operator.
     attr_reader :target
 
+    # Timings scope for response time assertions.
+    attr_accessor :timings_scope
+
     # Type of the assertion.
     attr_reader :type
 
@@ -40,6 +43,7 @@ module DatadogAPIClient::V1
         :'operator' => :'operator',
         :'property' => :'property',
         :'target' => :'target',
+        :'timings_scope' => :'timingsScope',
         :'type' => :'type'
       }
     end
@@ -51,6 +55,7 @@ module DatadogAPIClient::V1
         :'operator' => :'SyntheticsAssertionOperator',
         :'property' => :'String',
         :'target' => :'Object',
+        :'timings_scope' => :'SyntheticsAssertionTimingsScope',
         :'type' => :'SyntheticsAssertionType'
       }
     end
@@ -81,6 +86,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'target')
         self.target = attributes[:'target']
+      end
+
+      if attributes.key?(:'timings_scope')
+        self.timings_scope = attributes[:'timings_scope']
       end
 
       if attributes.key?(:'type')
@@ -137,6 +146,7 @@ module DatadogAPIClient::V1
           operator == o.operator &&
           property == o.property &&
           target == o.target &&
+          timings_scope == o.timings_scope &&
           type == o.type
     end
 
@@ -144,7 +154,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [operator, property, target, type].hash
+      [operator, property, target, timings_scope, type].hash
     end
   end
 end
