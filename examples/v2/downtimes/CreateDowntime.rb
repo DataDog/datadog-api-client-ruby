@@ -1,9 +1,6 @@
 # Schedule a downtime returns "OK" response
 
 require "datadog_api_client"
-DatadogAPIClient.configure do |config|
-  config.unstable_operations["v2.create_downtime".to_sym] = true
-end
 api_instance = DatadogAPIClient::V2::DowntimesAPI.new
 
 body = DatadogAPIClient::V2::DowntimeCreateRequest.new({
