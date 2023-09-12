@@ -1233,6 +1233,19 @@ ScenariosModelMappings = {
             "archive_id" => "String",
             "body" => "RelationshipToRole",
     },
+    "v2.CreateLogsCustomDestination" => {
+            "body" => "CustomDestinationCreatePayload",
+    },
+    "v2.DeleteLogsCustomDestination" => {
+            "custom_destination_id" => "String",
+    },
+    "v2.GetLogsCustomDestination" => {
+            "custom_destination_id" => "String",
+    },
+    "v2.UpdateLogsCustomDestination" => {
+            "custom_destination_id" => "String",
+            "body" => "CustomDestinationUpdatePayload",
+    },
     "v2.CreateLogsMetric" => {
             "body" => "LogsMetricCreateRequest",
     },

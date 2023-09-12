@@ -1,0 +1,27 @@
+http_interactions:
+- recorded_at: Tue, 12 Sep 2023 09:38:35 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"forwarderDestination":{"auth":{"password":"password","type":"basic","username":"username"},"endpoint":"https://example.org/my-intake","type":"http"},"name":"","version":0},"type":"custom_destination"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/logs/config/custom_destinations
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":["Invalid custom destination configuration","Custom destination
+        name must not be empty"]}
+
+        '
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 400
+      message: Bad Request
+recorded_with: VCR 6.0.0

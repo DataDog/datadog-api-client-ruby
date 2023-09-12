@@ -1,0 +1,22 @@
+http_interactions:
+- recorded_at: Thu, 07 Sep 2023 14:35:39 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+    method: GET
+    uri: https://api.datadoghq.com/api/v2/logs/config/custom_destinations
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":[],"meta":{"customDestinationsLimit":3}}
+
+        '
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+recorded_with: VCR 6.0.0
