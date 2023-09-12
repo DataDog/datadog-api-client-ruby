@@ -33,7 +33,7 @@ module DatadogAPIClient::V1
     # ID of this monitor.
     attr_accessor :id
 
-    # A list of active downtimes that match this monitor.
+    # A list of active v1 downtimes that match this monitor.
     attr_accessor :matching_downtimes
 
     # A message to include with notifications for this monitor.

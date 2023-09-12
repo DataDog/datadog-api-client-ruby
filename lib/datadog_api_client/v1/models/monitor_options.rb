@@ -132,7 +132,7 @@ module DatadogAPIClient::V1
     # Configuration options for scheduling.
     attr_accessor :scheduling_options
 
-    # Information about the downtime applied to the monitor.
+    # Information about the downtime applied to the monitor. Only shows v1 downtimes.
     attr_accessor :silenced
 
     # ID of the corresponding Synthetic check.
