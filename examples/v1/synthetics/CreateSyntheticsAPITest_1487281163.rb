@@ -16,6 +16,7 @@ body = DatadogAPIClient::V1::SyntheticsAPITest.new({
         operator: DatadogAPIClient::V1::SyntheticsAssertionOperator::LESS_THAN,
         target: 2000,
         type: DatadogAPIClient::V1::SyntheticsAssertionType::RESPONSE_TIME,
+        timings_scope: DatadogAPIClient::V1::SyntheticsAssertionTimingsScope::WITHOUT_DNS,
       }),
       DatadogAPIClient::V1::SyntheticsAssertionJSONPathTarget.new({
         operator: DatadogAPIClient::V1::SyntheticsAssertionJSONPathOperator::VALIDATES_JSON_PATH,
