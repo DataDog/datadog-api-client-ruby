@@ -202,6 +202,32 @@
       <li class="public ">
   <span class="summary_signature">
     
+      <a href="#formulas-instance_method" title="#formulas (instance method)">#<strong>formulas</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>List of formulas that operate on queries.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#log_query-instance_method" title="#log_query (instance method)">#<strong>log_query</strong>  &#x21d2; Object </a>
     
 
@@ -324,6 +350,58 @@
 
   
     <span class="summary_desc"><div class='inline'><p>Widget query.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#queries-instance_method" title="#queries (instance method)">#<strong>queries</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>List of queries that can be returned directly or used in formulas.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#response_format-instance_method" title="#response_format (instance method)">#<strong>response_format</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Timeseries, scalar, or event list response.</p>
 </div></span>
   
 </li>
@@ -849,6 +927,48 @@
 </div>
     
       
+      <span id="formulas=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="formulas-instance_method">
+  
+    #<strong>formulas</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>List of formulas that operate on queries.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+31
+32
+33</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/heat_map_widget_request.rb', line 31</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_formulas'>formulas</span>
+  <span class='ivar'>@formulas</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
       <span id="log_query=-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="log_query-instance_method">
@@ -875,12 +995,12 @@
       <pre class="lines">
 
 
-31
-32
-33</pre>
+34
+35
+36</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/heat_map_widget_request.rb', line 31</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/heat_map_widget_request.rb', line 34</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_log_query'>log_query</span>
   <span class='ivar'>@log_query</span>
@@ -917,12 +1037,12 @@
       <pre class="lines">
 
 
-34
-35
-36</pre>
+37
+38
+39</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/heat_map_widget_request.rb', line 34</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/heat_map_widget_request.rb', line 37</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_network_query'>network_query</span>
   <span class='ivar'>@network_query</span>
@@ -959,12 +1079,12 @@
       <pre class="lines">
 
 
-37
-38
-39</pre>
+40
+41
+42</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/heat_map_widget_request.rb', line 37</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/heat_map_widget_request.rb', line 40</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_process_query'>process_query</span>
   <span class='ivar'>@process_query</span>
@@ -1001,12 +1121,12 @@
       <pre class="lines">
 
 
-40
-41
-42</pre>
+43
+44
+45</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/heat_map_widget_request.rb', line 40</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/heat_map_widget_request.rb', line 43</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_profile_metrics_query'>profile_metrics_query</span>
   <span class='ivar'>@profile_metrics_query</span>
@@ -1059,6 +1179,90 @@
 </div>
     
       
+      <span id="queries=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="queries-instance_method">
+  
+    #<strong>queries</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>List of queries that can be returned directly or used in formulas.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+49
+50
+51</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/heat_map_widget_request.rb', line 49</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_queries'>queries</span>
+  <span class='ivar'>@queries</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="response_format=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="response_format-instance_method">
+  
+    #<strong>response_format</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Timeseries, scalar, or event list response. Event list response formats are supported by Geomap widgets.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+52
+53
+54</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/heat_map_widget_request.rb', line 52</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_response_format'>response_format</span>
+  <span class='ivar'>@response_format</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
       <span id="rum_query=-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="rum_query-instance_method">
@@ -1085,12 +1289,12 @@
       <pre class="lines">
 
 
-46
-47
-48</pre>
+55
+56
+57</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/heat_map_widget_request.rb', line 46</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/heat_map_widget_request.rb', line 55</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rum_query'>rum_query</span>
   <span class='ivar'>@rum_query</span>
@@ -1127,12 +1331,12 @@
       <pre class="lines">
 
 
-49
-50
-51</pre>
+58
+59
+60</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/heat_map_widget_request.rb', line 49</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/heat_map_widget_request.rb', line 58</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_security_query'>security_query</span>
   <span class='ivar'>@security_query</span>
@@ -1169,12 +1373,12 @@
       <pre class="lines">
 
 
-52
-53
-54</pre>
+61
+62
+63</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/heat_map_widget_request.rb', line 52</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/heat_map_widget_request.rb', line 61</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_style'>style</span>
   <span class='ivar'>@style</span>
@@ -2123,7 +2327,7 @@ For object, use to_hash. Otherwise, just return the value</p>
 </div>
 
       <div id="footer">
-  Generated on Tue Sep 12 21:31:26 2023 by
+  Generated on Wed Sep 13 18:03:03 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.34 (ruby-2.7.8).
 </div>
