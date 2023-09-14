@@ -73,6 +73,8 @@ module DatadogAPIClient::V1
     INFRA_HOST_PERCENTAGE = "infra_host_percentage".freeze
     INVOCATIONS_USAGE = "invocations_usage".freeze
     INVOCATIONS_PERCENTAGE = "invocations_percentage".freeze
+    MOBILE_APP_TESTING_USAGE = "mobile_app_testing_percentage".freeze
+    MOBILE_APP_TESTING_PERCENTAGE = "mobile_app_testing_usage".freeze
     NPM_HOST_USAGE = "npm_host_usage".freeze
     NPM_HOST_PERCENTAGE = "npm_host_percentage".freeze
     OBS_PIPELINE_BYTES_USAGE = "obs_pipeline_bytes_usage".freeze
