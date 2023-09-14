@@ -92,6 +92,7 @@ module DatadogAPIClient
         end
 
         if @config.debugging
+          @config.logger.debug "HTTP response header ~BEGIN~\n#{response.headers}\n~END~\n"
           @config.logger.debug "HTTP response body ~BEGIN~\n#{response.body}\n~END~\n"
         end
 
@@ -150,6 +151,13 @@ module DatadogAPIClient
       sleep_time
     end
 
+    #Redact api and app key in the request header
+    def sanitize_request_header(request_header)
+      request_header["DD-API-KEY"] = "REDACTED" if request_header.key?("DD-API-KEY")
+      request_header["DD-APPLICATION-KEY"] = "REDACTED" if request_header.key?("DD-APPLICATION-KEY")
+      return request_header
+    end
+
     # Build the HTTP request
     #
     # @param [String] http_method HTTP method/verb (e.g. POST)
@@ -196,6 +204,8 @@ module DatadogAPIClient
         req_body = build_request_body(header_params, form_params, opts[:body])
         req_opts.update :body => req_body
         if @config.debugging
+          request_headers = sanitize_request_header(header_params)
+          @config.logger.debug "HTTP request header param ~BEGIN~\n#{request_headers}\n~END~\n"
           @config.logger.debug "HTTP request body param ~BEGIN~\n#{req_body}\n~END~\n"
         end
       end
