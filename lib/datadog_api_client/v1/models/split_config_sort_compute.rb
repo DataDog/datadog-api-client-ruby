@@ -21,10 +21,10 @@ module DatadogAPIClient::V1
   class SplitConfigSortCompute
     include BaseGenericModel
 
-    # The metric to use for sorting graphs.
+    # How to aggregate the sort metric for the purposes of ordering.
     attr_reader :aggregation
 
-    # How to aggregate the sort metric for the purposes of ordering.
+    # The metric to use for sorting graphs.
     attr_reader :metric
 
     # Attribute mapping from ruby-style variable name to JSON key.
