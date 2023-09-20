@@ -169,6 +169,7 @@ module DatadogAPIClient::V1
     #
     # @param list_id [Integer] ID of the dashboard list to fetch.
     # @param opts [Hash] the optional parameters
+    # @option opts [Array<String>] :test_query Test query.
     # @return [Array<(DashboardList, Integer, Hash)>] DashboardList data, response status code and response headers
     def get_dashboard_list_with_http_info(list_id, opts = {})
 
@@ -184,6 +185,7 @@ module DatadogAPIClient::V1
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'test_query'] = @api_client.build_collection_param(opts[:'test_query'], :multi) if !opts[:'test_query'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

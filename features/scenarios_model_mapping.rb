@@ -262,6 +262,7 @@ ScenariosModelMappings = {
     },
     "v1.GetDashboardList" => {
             "list_id" => "Integer",
+            "test_query" => "Array<String>",
     },
     "v1.UpdateDashboardList" => {
             "list_id" => "Integer",
