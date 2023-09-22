@@ -94,6 +94,7 @@ module DatadogAPIClient::V2
     # @return [Object] Deserialized data
     # @!visibility private
     def _deserialize(type, value)
+      return nil if value == nil
       case type.to_sym
       when :Time
       Time.parse(value)
