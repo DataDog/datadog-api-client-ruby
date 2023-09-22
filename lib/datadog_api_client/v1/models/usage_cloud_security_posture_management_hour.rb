@@ -17,29 +17,29 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Cloud Security Posture Management usage for a given organization for a given hour.
+  # Cloud Security Management Pro usage for a given organization for a given hour.
   class UsageCloudSecurityPostureManagementHour
     include BaseGenericModel
 
-    # The number of Cloud Security Posture Management Azure app services hosts during a given hour.
+    # The number of Cloud Security Management Pro Azure app services hosts during a given hour.
     attr_accessor :aas_host_count
 
-    # The number of Cloud Security Posture Management AWS hosts during a given hour.
+    # The number of Cloud Security Management Pro AWS hosts during a given hour.
     attr_accessor :aws_host_count
 
-    # The number of Cloud Security Posture Management Azure hosts during a given hour.
+    # The number of Cloud Security Management Pro Azure hosts during a given hour.
     attr_accessor :azure_host_count
 
-    # The number of Cloud Security Posture Management hosts during a given hour.
+    # The number of Cloud Security Management Pro hosts during a given hour.
     attr_accessor :compliance_host_count
 
-    # The total number of Cloud Security Posture Management containers during a given hour.
+    # The total number of Cloud Security Management Pro containers during a given hour.
     attr_accessor :container_count
 
-    # The number of Cloud Security Posture Management GCP hosts during a given hour.
+    # The number of Cloud Security Management Pro GCP hosts during a given hour.
     attr_accessor :gcp_host_count
 
-    # The total number of Cloud Security Posture Management hosts during a given hour.
+    # The total number of Cloud Security Management Pro hosts during a given hour.
     attr_accessor :host_count
 
     # The hour for the usage.
