@@ -81,16 +81,16 @@ module DatadogAPIClient::V1
     # The container usage by tag(s).
     attr_accessor :container_usage
 
-    # The percentage of CSPM container usage by tag(s).
+    # The percentage of Cloud Security Management Pro container usage by tag(s).
     attr_accessor :cspm_containers_percentage
 
-    # The CSPM container usage by tag(s).
+    # The Cloud Security Management Pro container usage by tag(s).
     attr_accessor :cspm_containers_usage
 
-    # The percentage of CSPM host usage by by tag(s).
+    # The percentage of Cloud Security Management Pro host usage by tag(s).
     attr_accessor :cspm_hosts_percentage
 
-    # The CSPM host usage by tag(s).
+    # The Cloud Security Management Pro host usage by tag(s).
     attr_accessor :cspm_hosts_usage
 
     # The percentage of ingested custom metrics usage by tag(s).

@@ -1572,6 +1572,8 @@ module DatadogAPIClient
           "v2.saml_assertion_attribute_attributes" => "SAMLAssertionAttributeAttributes",
           "v2.saml_assertion_attributes_type" => "SAMLAssertionAttributesType",
           "v2.scalar_column" => "ScalarColumn",
+          "v2.scalar_column_type_group" => "ScalarColumnTypeGroup",
+          "v2.scalar_column_type_number" => "ScalarColumnTypeNumber",
           "v2.scalar_formula_query_request" => "ScalarFormulaQueryRequest",
           "v2.scalar_formula_query_response" => "ScalarFormulaQueryResponse",
           "v2.scalar_formula_request" => "ScalarFormulaRequest",

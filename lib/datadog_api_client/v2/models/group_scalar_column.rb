@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # The name of the tag key or group.
     attr_accessor :name
 
-    # The type of column present.
+    # The type of column present for groups.
     attr_accessor :type
 
     # The array of tag values for each group found for the results of the formulas or queries.
@@ -45,7 +45,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'name' => :'String',
-        :'type' => :'String',
+        :'type' => :'ScalarColumnTypeGroup',
         :'values' => :'Array<Array<String>>'
       }
     end

@@ -27,7 +27,7 @@ module DatadogAPIClient::V2
     # The name referencing the formula or query for this column.
     attr_accessor :name
 
-    # The type of column present.
+    # The type of column present for numbers.
     attr_accessor :type
 
     # The array of numerical values for one formula or query.
@@ -50,7 +50,7 @@ module DatadogAPIClient::V2
       {
         :'meta' => :'ScalarMeta',
         :'name' => :'String',
-        :'type' => :'String',
+        :'type' => :'ScalarColumnTypeNumber',
         :'values' => :'Array<Float>'
       }
     end
