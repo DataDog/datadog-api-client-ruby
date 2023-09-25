@@ -237,7 +237,7 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @option opts [Boolean] :current_only Only return downtimes that are active when the request is made.
     # @option opts [String] :include Comma-separated list of resource paths for related resources to include in the response. Supported resource paths are `created_by` and `monitor`.
-    # @option opts [Integer] :page_offset Specific offset to use as the beginning of the returned page.
+    # @option opts [String] :page_offset Specific offset to use as the beginning of the returned page.
     # @option opts [Integer] :page_limit Maximum number of downtimes in the response.
     # @return [Array<(ListDowntimesResponse, Integer, Hash)>] ListDowntimesResponse data, response status code and response headers
     def list_downtimes_with_http_info(opts = {})
@@ -307,7 +307,7 @@ module DatadogAPIClient::V2
             if @api_client.get_attribute_from_path(response, "data").length < page_size
               break
             end
-            @api_client.set_attribute_from_path(api_version, opts, "page_offset", Integer, @api_client.get_attribute_from_path(opts, "page_offset", 0) + page_size)
+            @api_client.set_attribute_from_path(api_version, opts, "page_offset", String, @api_client.get_attribute_from_path(opts, "page_offset", 0) + page_size)
         end
     end
 

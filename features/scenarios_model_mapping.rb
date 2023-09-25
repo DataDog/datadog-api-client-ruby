@@ -969,7 +969,7 @@ ScenariosModelMappings = {
     "v2.ListDowntimes" => {
             "current_only" => "Boolean",
             "include" => "String",
-            "page_offset" => "Integer",
+            "page_offset" => "String",
             "page_limit" => "Integer",
     },
     "v2.CreateDowntime" => {
@@ -1003,7 +1003,7 @@ ScenariosModelMappings = {
     "v2.ListIncidents" => {
             "include" => "Array<IncidentRelatedObject>",
             "page_size" => "Integer",
-            "page_offset" => "Integer",
+            "page_offset" => "String",
     },
     "v2.CreateIncident" => {
             "body" => "IncidentCreateRequest",
@@ -1013,7 +1013,7 @@ ScenariosModelMappings = {
             "query" => "String",
             "sort" => "IncidentSearchSortOrder",
             "page_size" => "Integer",
-            "page_offset" => "Integer",
+            "page_offset" => "String",
     },
     "v2.DeleteIncident" => {
             "incident_id" => "String",
@@ -1561,7 +1561,7 @@ ScenariosModelMappings = {
     "v2.ListIncidentServices" => {
             "include" => "IncidentRelatedObject",
             "page_size" => "Integer",
-            "page_offset" => "Integer",
+            "page_offset" => "String",
             "filter" => "String",
     },
     "v2.CreateIncidentService" => {
@@ -1685,7 +1685,7 @@ ScenariosModelMappings = {
     "v2.ListIncidentTeams" => {
             "include" => "IncidentRelatedObject",
             "page_size" => "Integer",
-            "page_offset" => "Integer",
+            "page_offset" => "String",
             "filter" => "String",
     },
     "v2.CreateIncidentTeam" => {
