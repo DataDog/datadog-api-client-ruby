@@ -1,0 +1,69 @@
+http_interactions:
+- recorded_at: Tue, 19 Sep 2023 10:11:35 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"enabled":true,"filter":{"query":"@_top_level:1
+        test:service-demo"},"filter_type":"spans-sampling-processor","name":"demo
+        retention filter","rate":0.9},"type":"apm_retention_filter"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/apm/config/retention-filters
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"ErO5dcpeRPmDWbmrryfpYQ","attributes":{"name":"demo retention
+        filter","rate":0.9,"enabled":true,"filter_type":"spans-sampling-processor","filter":{"query":"@_top_level:1
+        test:service-demo"},"modified_by":"frog@datadoghq.com","modified_at":1695118296,"created_by":"frog@datadoghq.com","created_at":1695118296,"editable":true},"type":"apm_retention_filter"}}
+
+        '
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+- recorded_at: Tue, 19 Sep 2023 10:11:35 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/apm/config/retention-filters/ErO5dcpeRPmDWbmrryfpYQ
+  response:
+    body:
+      encoding: UTF-8
+      string: '{}
+
+        '
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+- recorded_at: Tue, 19 Sep 2023 10:11:35 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/apm/config/retention-filters/ErO5dcpeRPmDWbmrryfpYQ
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":["retention filter with id: ''ErO5dcpeRPmDWbmrryfpYQ'' not
+        found"]}'
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 404
+      message: Not Found
+recorded_with: VCR 6.0.0

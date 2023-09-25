@@ -890,6 +890,19 @@ ScenariosModelMappings = {
             "metric_id" => "String",
             "body" => "SpansMetricUpdateRequest",
     },
+    "v2.CreateApmRetentionFilter" => {
+            "body" => "RetentionFilterCreateRequest",
+    },
+    "v2.ReorderApmRetentionFilters" => {
+            "body" => "ReorderRetentionFiltersRequest",
+    },
+    "v2.DeleteApmRetentionFilter" => {
+            "filter_id" => "String",
+    },
+    "v2.UpdateApmRetentionFilter" => {
+            "filter_id" => "String",
+            "body" => "RetentionFilterUpdateRequest",
+    },
     "v2.ListAuditLogs" => {
             "filter_query" => "String",
             "filter_from" => "Time",

@@ -1,0 +1,20 @@
+http_interactions:
+- recorded_at: Wed, 06 Sep 2023 23:15:15 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/apm/config/retention-filters/not_found
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":["retention filter with id: ''not_found'' not found"]}'
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 404
+      message: Not Found
+recorded_with: VCR 6.0.0
