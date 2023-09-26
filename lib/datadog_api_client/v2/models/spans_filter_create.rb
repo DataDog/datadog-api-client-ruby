@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class SpansFilterCreate
     include BaseGenericModel
 
-    # The search query - following the span search syntax.
+    # The search query - following the [span search syntax](https://docs.datadoghq.com/tracing/trace_explorer/query_syntax/).
     attr_reader :query
 
     # Attribute mapping from ruby-style variable name to JSON key.
