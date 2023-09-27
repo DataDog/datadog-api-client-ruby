@@ -40,7 +40,7 @@ body = DatadogAPIClient::V1::SyntheticsBrowserTest.new({
     min_location_failed: 1,
     no_screenshot: true,
     _retry: DatadogAPIClient::V1::SyntheticsTestOptionsRetry.new({
-      count: 3,
+      count: 2,
       interval: 10,
     }),
     rum_settings: DatadogAPIClient::V1::SyntheticsBrowserTestRumSettings.new({
