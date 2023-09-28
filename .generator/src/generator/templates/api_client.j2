@@ -81,7 +81,7 @@ module {{ module_name }}
         end
 
         if @config.debugging
-          @config.logger.debug "HTTP response header ~BEGIN~\n#{response.headers}\n~END~\n"
+          @config.logger.debug "HTTP response header\n#{response.headers}\n"
           @config.logger.debug "HTTP response body ~BEGIN~\n#{response.body}\n~END~\n"
         end
 
@@ -195,15 +195,15 @@ module {{ module_name }}
       req_opts[:ssl_ca_file] = File.read(@config.ssl_ca_cert) if @config.ssl_ca_cert
 
       if @config.debugging
-        @config.logger.debug "HTTP request url ~BEGIN~\n#{url}\n~END~\n"
-        @config.logger.debug "HTTP request header param ~BEGIN~\n#{sanitize_request_header(header_params)}\n~END~\n"
+        @config.logger.debug "HTTP request url\n#{url}\n"
+        @config.logger.debug "HTTP request header\n#{sanitize_request_header(header_params)}\n"
       end
 
       if ["POST", "PATCH", "PUT", "DELETE"].include?(http_method.const_get(:METHOD))
         req_body = build_request_body(header_params, form_params, opts[:body])
         req_opts.update :body => req_body
         if @config.debugging
-          @config.logger.debug "HTTP request body param ~BEGIN~\n#{req_body}\n~END~\n"
+          @config.logger.debug "HTTP request body ~BEGIN~\n#{req_body}\n~END~\n"
         end
       end
 
