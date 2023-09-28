@@ -19,11 +19,6 @@ body = DatadogAPIClient::V2::CIAppCreatePipelineEventRequest.new({
         pipeline_unique_id: "3eacb6f3-ff04-4e10-8a9c-46e6d054024a",
         pipeline_name: "Deploy to AWS",
         url: "https://my-ci-provider.example/jobs/my-jobs/run/1",
-        git: DatadogAPIClient::V2::CIAppGitInfo.new({
-          repository_url: "https://github.com/DataDog/datadog-agent",
-          sha: "7f263865994b76066c4612fd1965215e7dcb4cd2",
-          author_email: "john.doe@email.com",
-        }),
       }),
     }),
     type: DatadogAPIClient::V2::CIAppCreatePipelineEventRequestDataType::CIPIPELINE_RESOURCE_REQUEST,
