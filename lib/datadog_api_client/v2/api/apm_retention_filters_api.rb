@@ -156,6 +156,71 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get a given APM retention filter.
+    #
+    # @see #get_apm_retention_filter_with_http_info
+    def get_apm_retention_filter(filter_id, opts = {})
+      data, _status_code, _headers = get_apm_retention_filter_with_http_info(filter_id, opts)
+      data
+    end
+
+    # Get a given APM retention filter.
+    #
+    # Get an APM retention filter.
+    #
+    # @param filter_id [String] The ID of the retention filter.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(RetentionFilterResponse, Integer, Hash)>] RetentionFilterResponse data, response status code and response headers
+    def get_apm_retention_filter_with_http_info(filter_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: APMRetentionFiltersAPI.get_apm_retention_filter ...'
+      end
+      # verify the required parameter 'filter_id' is set
+      if @api_client.config.client_side_validation && filter_id.nil?
+        fail ArgumentError, "Missing the required parameter 'filter_id' when calling APMRetentionFiltersAPI.get_apm_retention_filter"
+      end
+      # resource path
+      local_var_path = '/api/v2/apm/config/retention-filters/{filter_id}'.sub('{filter_id}', CGI.escape(filter_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'RetentionFilterResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_apm_retention_filter,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: APMRetentionFiltersAPI#get_apm_retention_filter\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List all APM retention filters.
     #
     # @see #list_apm_retention_filters_with_http_info
