@@ -49,6 +49,7 @@ module DatadogAPIClient::V1
     INFRA_HOST_USAGE = "infra_host_usage".freeze
     INVOCATIONS_USAGE = "invocations_usage".freeze
     MOBILE_APP_TESTING_USAGE = "mobile_app_testing_usage".freeze
+    NDM_NETFLOW_USAGE = "ndm_netflow_usage".freeze
     NPM_HOST_USAGE = "npm_host_usage".freeze
     OBS_PIPELINE_BYTES_USAGE = "obs_pipeline_bytes_usage".freeze
     PROFILED_CONTAINER_USAGE = "profiled_container_usage".freeze
