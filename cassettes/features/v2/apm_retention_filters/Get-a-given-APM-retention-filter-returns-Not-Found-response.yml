@@ -1,0 +1,20 @@
+http_interactions:
+- recorded_at: Thu, 28 Sep 2023 08:19:42 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+    method: GET
+    uri: https://api.datadoghq.com/api/v2/apm/config/retention-filters/REPLACE.ME
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":["retention filter with id: ''REPLACE.ME'' not found"]}'
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 404
+      message: Not Found
+recorded_with: VCR 6.0.0

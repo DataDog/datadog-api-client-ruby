@@ -288,6 +288,15 @@ module DatadogAPIClient::V1
     # Shows the sum of all bytes scanned across all usage types by the Sensitive Data Scanner over all hours in the current month for the given org.
     attr_accessor :sds_total_scanned_bytes_sum
 
+    # Shows the average of the number of Serverless Apps for Azure for the given date and given org.
+    attr_accessor :serverless_apps_azure_count_avg
+
+    # Shows the average of the number of Serverless Apps for Google Cloud for the given date and given org.
+    attr_accessor :serverless_apps_google_count_avg
+
+    # Shows the average of the number of Serverless Apps for Azure and Google Cloud for the given date and given org.
+    attr_accessor :serverless_apps_total_count_avg
+
     # Shows the sum of all Synthetic browser tests over all hours in the current date for the given org.
     attr_accessor :synthetics_browser_check_calls_count_sum
 
@@ -411,6 +420,9 @@ module DatadogAPIClient::V1
         :'sds_logs_scanned_bytes_sum' => :'sds_logs_scanned_bytes_sum',
         :'sds_rum_scanned_bytes_sum' => :'sds_rum_scanned_bytes_sum',
         :'sds_total_scanned_bytes_sum' => :'sds_total_scanned_bytes_sum',
+        :'serverless_apps_azure_count_avg' => :'serverless_apps_azure_count_avg',
+        :'serverless_apps_google_count_avg' => :'serverless_apps_google_count_avg',
+        :'serverless_apps_total_count_avg' => :'serverless_apps_total_count_avg',
         :'synthetics_browser_check_calls_count_sum' => :'synthetics_browser_check_calls_count_sum',
         :'synthetics_check_calls_count_sum' => :'synthetics_check_calls_count_sum',
         :'synthetics_mobile_test_runs_sum' => :'synthetics_mobile_test_runs_sum',
@@ -517,6 +529,9 @@ module DatadogAPIClient::V1
         :'sds_logs_scanned_bytes_sum' => :'Integer',
         :'sds_rum_scanned_bytes_sum' => :'Integer',
         :'sds_total_scanned_bytes_sum' => :'Integer',
+        :'serverless_apps_azure_count_avg' => :'Integer',
+        :'serverless_apps_google_count_avg' => :'Integer',
+        :'serverless_apps_total_count_avg' => :'Integer',
         :'synthetics_browser_check_calls_count_sum' => :'Integer',
         :'synthetics_check_calls_count_sum' => :'Integer',
         :'synthetics_mobile_test_runs_sum' => :'Integer',
@@ -902,6 +917,18 @@ module DatadogAPIClient::V1
         self.sds_total_scanned_bytes_sum = attributes[:'sds_total_scanned_bytes_sum']
       end
 
+      if attributes.key?(:'serverless_apps_azure_count_avg')
+        self.serverless_apps_azure_count_avg = attributes[:'serverless_apps_azure_count_avg']
+      end
+
+      if attributes.key?(:'serverless_apps_google_count_avg')
+        self.serverless_apps_google_count_avg = attributes[:'serverless_apps_google_count_avg']
+      end
+
+      if attributes.key?(:'serverless_apps_total_count_avg')
+        self.serverless_apps_total_count_avg = attributes[:'serverless_apps_total_count_avg']
+      end
+
       if attributes.key?(:'synthetics_browser_check_calls_count_sum')
         self.synthetics_browser_check_calls_count_sum = attributes[:'synthetics_browser_check_calls_count_sum']
       end
@@ -1038,6 +1065,9 @@ module DatadogAPIClient::V1
           sds_logs_scanned_bytes_sum == o.sds_logs_scanned_bytes_sum &&
           sds_rum_scanned_bytes_sum == o.sds_rum_scanned_bytes_sum &&
           sds_total_scanned_bytes_sum == o.sds_total_scanned_bytes_sum &&
+          serverless_apps_azure_count_avg == o.serverless_apps_azure_count_avg &&
+          serverless_apps_google_count_avg == o.serverless_apps_google_count_avg &&
+          serverless_apps_total_count_avg == o.serverless_apps_total_count_avg &&
           synthetics_browser_check_calls_count_sum == o.synthetics_browser_check_calls_count_sum &&
           synthetics_check_calls_count_sum == o.synthetics_check_calls_count_sum &&
           synthetics_mobile_test_runs_sum == o.synthetics_mobile_test_runs_sum &&
@@ -1054,7 +1084,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [agent_host_top99p, apm_azure_app_service_host_top99p, apm_fargate_count_avg, apm_host_top99p, appsec_fargate_count_avg, audit_logs_lines_indexed_sum, audit_trail_enabled_hwm, avg_profiled_fargate_tasks, aws_host_top99p, aws_lambda_func_count, aws_lambda_invocations_sum, azure_app_service_top99p, billable_ingested_bytes_sum, browser_rum_lite_session_count_sum, browser_rum_replay_session_count_sum, browser_rum_units_sum, ci_pipeline_indexed_spans_sum, ci_test_indexed_spans_sum, ci_visibility_itr_committers_hwm, ci_visibility_pipeline_committers_hwm, ci_visibility_test_committers_hwm, cloud_cost_management_aws_host_count_avg, cloud_cost_management_azure_host_count_avg, cloud_cost_management_host_count_avg, container_avg, container_excl_agent_avg, container_hwm, csm_container_enterprise_compliance_count_sum, csm_container_enterprise_cws_count_sum, csm_container_enterprise_total_count_sum, csm_host_enterprise_aas_host_count_top99p, csm_host_enterprise_aws_host_count_top99p, csm_host_enterprise_azure_host_count_top99p, csm_host_enterprise_compliance_host_count_top99p, csm_host_enterprise_cws_host_count_top99p, csm_host_enterprise_gcp_host_count_top99p, csm_host_enterprise_total_host_count_top99p, cspm_aas_host_top99p, cspm_aws_host_top99p, cspm_azure_host_top99p, cspm_container_avg, cspm_container_hwm, cspm_gcp_host_top99p, cspm_host_top99p, custom_ts_avg, cws_container_count_avg, cws_host_top99p, dbm_host_top99p_sum, dbm_queries_avg_sum, fargate_tasks_count_avg, fargate_tasks_count_hwm, forwarding_events_bytes_sum, gcp_host_top99p, heroku_host_top99p, id, incident_management_monthly_active_users_hwm, indexed_events_count_sum, infra_host_top99p, ingested_events_bytes_sum, iot_device_agg_sum, iot_device_top99p_sum, mobile_rum_lite_session_count_sum, mobile_rum_session_count_android_sum, mobile_rum_session_count_flutter_sum, mobile_rum_session_count_ios_sum, mobile_rum_session_count_reactnative_sum, mobile_rum_session_count_roku_sum, mobile_rum_session_count_sum, mobile_rum_units_sum, name, netflow_indexed_events_count_sum, npm_host_top99p, observability_pipelines_bytes_processed_sum, online_archive_events_count_sum, opentelemetry_apm_host_top99p, opentelemetry_host_top99p, profiling_aas_count_top99p, profiling_host_top99p, public_id, region, rum_browser_and_mobile_session_count, rum_session_count_sum, rum_total_session_count_sum, rum_units_sum, sds_apm_scanned_bytes_sum, sds_events_scanned_bytes_sum, sds_logs_scanned_bytes_sum, sds_rum_scanned_bytes_sum, sds_total_scanned_bytes_sum, synthetics_browser_check_calls_count_sum, synthetics_check_calls_count_sum, synthetics_mobile_test_runs_sum, synthetics_parallel_testing_max_slots_hwm, trace_search_indexed_events_count_sum, twol_ingested_events_bytes_sum, universal_service_monitoring_host_top99p, vsphere_host_top99p, vuln_management_host_count_top99p, workflow_executions_usage_sum].hash
+      [agent_host_top99p, apm_azure_app_service_host_top99p, apm_fargate_count_avg, apm_host_top99p, appsec_fargate_count_avg, audit_logs_lines_indexed_sum, audit_trail_enabled_hwm, avg_profiled_fargate_tasks, aws_host_top99p, aws_lambda_func_count, aws_lambda_invocations_sum, azure_app_service_top99p, billable_ingested_bytes_sum, browser_rum_lite_session_count_sum, browser_rum_replay_session_count_sum, browser_rum_units_sum, ci_pipeline_indexed_spans_sum, ci_test_indexed_spans_sum, ci_visibility_itr_committers_hwm, ci_visibility_pipeline_committers_hwm, ci_visibility_test_committers_hwm, cloud_cost_management_aws_host_count_avg, cloud_cost_management_azure_host_count_avg, cloud_cost_management_host_count_avg, container_avg, container_excl_agent_avg, container_hwm, csm_container_enterprise_compliance_count_sum, csm_container_enterprise_cws_count_sum, csm_container_enterprise_total_count_sum, csm_host_enterprise_aas_host_count_top99p, csm_host_enterprise_aws_host_count_top99p, csm_host_enterprise_azure_host_count_top99p, csm_host_enterprise_compliance_host_count_top99p, csm_host_enterprise_cws_host_count_top99p, csm_host_enterprise_gcp_host_count_top99p, csm_host_enterprise_total_host_count_top99p, cspm_aas_host_top99p, cspm_aws_host_top99p, cspm_azure_host_top99p, cspm_container_avg, cspm_container_hwm, cspm_gcp_host_top99p, cspm_host_top99p, custom_ts_avg, cws_container_count_avg, cws_host_top99p, dbm_host_top99p_sum, dbm_queries_avg_sum, fargate_tasks_count_avg, fargate_tasks_count_hwm, forwarding_events_bytes_sum, gcp_host_top99p, heroku_host_top99p, id, incident_management_monthly_active_users_hwm, indexed_events_count_sum, infra_host_top99p, ingested_events_bytes_sum, iot_device_agg_sum, iot_device_top99p_sum, mobile_rum_lite_session_count_sum, mobile_rum_session_count_android_sum, mobile_rum_session_count_flutter_sum, mobile_rum_session_count_ios_sum, mobile_rum_session_count_reactnative_sum, mobile_rum_session_count_roku_sum, mobile_rum_session_count_sum, mobile_rum_units_sum, name, netflow_indexed_events_count_sum, npm_host_top99p, observability_pipelines_bytes_processed_sum, online_archive_events_count_sum, opentelemetry_apm_host_top99p, opentelemetry_host_top99p, profiling_aas_count_top99p, profiling_host_top99p, public_id, region, rum_browser_and_mobile_session_count, rum_session_count_sum, rum_total_session_count_sum, rum_units_sum, sds_apm_scanned_bytes_sum, sds_events_scanned_bytes_sum, sds_logs_scanned_bytes_sum, sds_rum_scanned_bytes_sum, sds_total_scanned_bytes_sum, serverless_apps_azure_count_avg, serverless_apps_google_count_avg, serverless_apps_total_count_avg, synthetics_browser_check_calls_count_sum, synthetics_check_calls_count_sum, synthetics_mobile_test_runs_sum, synthetics_parallel_testing_max_slots_hwm, trace_search_indexed_events_count_sum, twol_ingested_events_bytes_sum, universal_service_monitoring_host_top99p, vsphere_host_top99p, vuln_management_host_count_top99p, workflow_executions_usage_sum].hash
     end
   end
 end
