@@ -108,7 +108,7 @@ module {{ module_name }}::{{ version|upper }}
         # generic array, return directly
         value
       when :UUID
-        UUIDTools::UUID.parse(value)
+        value.to_s
       when /\AArray<(?<inner_type>.+)>\z/
         inner_type = Regexp.last_match[:inner_type]
         value.map { |v| _deserialize(inner_type, v) }

@@ -308,7 +308,7 @@ module {{ module_name }}
         data
       when 'UUID'
         # parse uuid object
-        UUIDTools::UUID.parse(data)
+        data.to_s
       when /\AArray<(.+)>\z/
         # e.g. Array<Pet>
         sub_type = $1
