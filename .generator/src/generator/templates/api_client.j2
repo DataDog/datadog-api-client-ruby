@@ -81,6 +81,7 @@ module {{ module_name }}
         end
 
         if @config.debugging
+          @config.logger.debug "HTTP response header\n#{response.headers}\n"
           @config.logger.debug "HTTP response body ~BEGIN~\n#{response.body}\n~END~\n"
         end
 
@@ -139,6 +140,18 @@ module {{ module_name }}
       sleep_time
     end
 
+    #Redact api and app key in the request header
+    def sanitize_request_header(request_header)
+      sanitized_headers= request_header.dup
+      keys_to_redact = ["DD-API-KEY", "DD-APPLICATION-KEY"]
+      keys_to_redact.each do |key_to_redact|
+        if sanitized_headers.key?(key_to_redact)
+          sanitized_headers[key_to_redact] = "REDACTED"
+        end
+      end
+      return sanitized_headers
+    end
+
     # Build the HTTP request
     #
     # @param [String] http_method HTTP method/verb (e.g. POST)
@@ -181,11 +194,16 @@ module {{ module_name }}
       # set custom cert, if provided
       req_opts[:ssl_ca_file] = File.read(@config.ssl_ca_cert) if @config.ssl_ca_cert
 
+      if @config.debugging
+        @config.logger.debug "HTTP request url\n#{url}\n"
+        @config.logger.debug "HTTP request header\n#{sanitize_request_header(header_params)}\n"
+      end
+
       if ["POST", "PATCH", "PUT", "DELETE"].include?(http_method.const_get(:METHOD))
         req_body = build_request_body(header_params, form_params, opts[:body])
         req_opts.update :body => req_body
         if @config.debugging
-          @config.logger.debug "HTTP request body param ~BEGIN~\n#{req_body}\n~END~\n"
+          @config.logger.debug "HTTP request body ~BEGIN~\n#{req_body}\n~END~\n"
         end
       end
 
