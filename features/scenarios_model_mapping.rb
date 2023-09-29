@@ -899,6 +899,9 @@ ScenariosModelMappings = {
     "v2.DeleteApmRetentionFilter" => {
             "filter_id" => "String",
     },
+    "v2.GetApmRetentionFilter" => {
+            "filter_id" => "String",
+    },
     "v2.UpdateApmRetentionFilter" => {
             "filter_id" => "String",
             "body" => "RetentionFilterUpdateRequest",
