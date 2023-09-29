@@ -262,11 +262,15 @@ def format_data_with_schema(
                         raise TypeError(f"{x} is not supported type {schema}")
                     return "true" if x else "false"
 
+                def format_uuid(x):
+                    return f'UUIDTools::UUID.parse("{x}")'
+
                 formatter = {
                     "number": format_number,
                     "integer": format_number,
                     "boolean": format_boolean,
                     "string": format_string,
+                    "uuid": format_uuid,
                     None: repr,
                 }[schema.get("type")]
 

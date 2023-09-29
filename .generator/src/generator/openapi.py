@@ -58,6 +58,8 @@ def type_to_ruby(schema, alternative_name=None):
             return "Time"
         elif format_ == "binary":
             return "File"
+        elif format_ == "uuid":
+            return "UUID"
         return "String"
     elif type_ == "boolean":
         return "Boolean"
