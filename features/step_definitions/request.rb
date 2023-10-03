@@ -22,6 +22,12 @@ module APIWorld
         c.server_index = 2
         c.server_variables[:site] = ENV['DD_TEST_SITE']
       end
+
+      if ENV.key? 'DEBUG' then
+        c.debugging = true if ENV['DEBUG'].downcase == "true" else false
+      end
+
+      c.enable_retry = true
     end
     configuration
   end
@@ -215,7 +221,6 @@ Given('a valid "appKeyAuth" key in the system') do
 end
 
 Given(/^an instance of "([^"]+)" API$/) do |api_name|
-  configuration.debugging = ENV["DEBUG"].present?
   @api_instance = api.const_get("V#{@api_version}").const_get("#{api_name}API").new api_client
 end
 
