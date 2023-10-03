@@ -75,6 +75,8 @@ module DatadogAPIClient::V1
     INVOCATIONS_PERCENTAGE = "invocations_percentage".freeze
     MOBILE_APP_TESTING_USAGE = "mobile_app_testing_percentage".freeze
     MOBILE_APP_TESTING_PERCENTAGE = "mobile_app_testing_usage".freeze
+    NDM_NETFLOW_USAGE = "ndm_netflow_usage".freeze
+    NDM_NETFLOW_PERCENTAGE = "ndm_netflow_percentage".freeze
     NPM_HOST_USAGE = "npm_host_usage".freeze
     NPM_HOST_PERCENTAGE = "npm_host_percentage".freeze
     OBS_PIPELINE_BYTES_USAGE = "obs_pipeline_bytes_usage".freeze
@@ -85,6 +87,8 @@ module DatadogAPIClient::V1
     PROFILED_FARGATE_PERCENTAGE = "profiled_fargate_percentage".freeze
     PROFILED_HOST_USAGE = "profiled_host_usage".freeze
     PROFILED_HOST_PERCENTAGE = "profiled_host_percentage".freeze
+    SERVERLESS_APPS_USAGE = "serverless_apps_usage".freeze
+    SERVERLESS_APPS_PERCENTAGE = "serverless_apps_percentage".freeze
     SNMP_USAGE = "snmp_usage".freeze
     SNMP_PERCENTAGE = "snmp_percentage".freeze
     ESTIMATED_RUM_SESSIONS_USAGE = "estimated_rum_sessions_usage".freeze

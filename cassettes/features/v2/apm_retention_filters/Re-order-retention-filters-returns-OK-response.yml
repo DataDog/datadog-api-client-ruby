@@ -1,0 +1,26 @@
+http_interactions:
+- recorded_at: Mon, 25 Sep 2023 11:39:25 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"jdZrilSJQLqzb6Cu7aub9Q","type":"apm_retention_filter"},{"id":"7RBOb7dLSYWI01yc3pIH8w","type":"apm_retention_filter"}]}'
+    headers:
+      Accept:
+      - '*/*'
+      Content-Type:
+      - application/json
+    method: PUT
+    uri: https://api.datadoghq.com/api/v2/apm/config/retention-filters-execution-order
+  response:
+    body:
+      encoding: UTF-8
+      string: '{}
+
+        '
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+recorded_with: VCR 6.0.0

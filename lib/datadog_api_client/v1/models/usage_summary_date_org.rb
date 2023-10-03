@@ -102,25 +102,55 @@ module DatadogAPIClient::V1
     # Shows the high-water mark of all distinct containers over all hours in the current date for the given org.
     attr_accessor :container_hwm
 
-    # Shows the 99th percentile of all Cloud Security Posture Management Azure app services hosts over all hours in the current date for the given org.
+    # Shows the sum of all Cloud Security Management Enterprise compliance containers over all hours in the current date for the given org.
+    attr_accessor :csm_container_enterprise_compliance_count_sum
+
+    # Shows the sum of all Cloud Security Management Enterprise Cloud Workload Security containers over all hours in the current date for the given org.
+    attr_accessor :csm_container_enterprise_cws_count_sum
+
+    # Shows the sum of all Cloud Security Management Enterprise containers over all hours in the current date for the given org.
+    attr_accessor :csm_container_enterprise_total_count_sum
+
+    # Shows the 99th percentile of all Cloud Security Management Enterprise Azure app services hosts over all hours in the current date for the given org.
+    attr_accessor :csm_host_enterprise_aas_host_count_top99p
+
+    # Shows the 99th percentile of all Cloud Security Management Enterprise AWS hosts over all hours in the current date for the given org.
+    attr_accessor :csm_host_enterprise_aws_host_count_top99p
+
+    # Shows the 99th percentile of all Cloud Security Management Enterprise Azure hosts over all hours in the current date for the given org.
+    attr_accessor :csm_host_enterprise_azure_host_count_top99p
+
+    # Shows the 99th percentile of all Cloud Security Management Enterprise compliance hosts over all hours in the current date for the given org.
+    attr_accessor :csm_host_enterprise_compliance_host_count_top99p
+
+    # Shows the 99th percentile of all Cloud Security Management Enterprise Cloud Workload Security hosts over all hours in the current date for the given org.
+    attr_accessor :csm_host_enterprise_cws_host_count_top99p
+
+    # Shows the 99th percentile of all Cloud Security Management Enterprise GCP hosts over all hours in the current date for the given org.
+    attr_accessor :csm_host_enterprise_gcp_host_count_top99p
+
+    # Shows the 99th percentile of all Cloud Security Management Enterprise hosts over all hours in the current date for the given org.
+    attr_accessor :csm_host_enterprise_total_host_count_top99p
+
+    # Shows the 99th percentile of all Cloud Security Management Pro Azure app services hosts over all hours in the current date for the given org.
     attr_accessor :cspm_aas_host_top99p
 
-    # Shows the 99th percentile of all Cloud Security Posture Management AWS hosts over all hours in the current date for the given org.
+    # Shows the 99th percentile of all Cloud Security Management Pro AWS hosts over all hours in the current date for the given org.
     attr_accessor :cspm_aws_host_top99p
 
-    # Shows the 99th percentile of all Cloud Security Posture Management Azure hosts over all hours in the current date for the given org.
+    # Shows the 99th percentile of all Cloud Security Management Pro Azure hosts over all hours in the current date for the given org.
     attr_accessor :cspm_azure_host_top99p
 
-    # Shows the average number of Cloud Security Posture Management containers over all hours in the current date for the given org.
+    # Shows the average number of Cloud Security Management Pro containers over all hours in the current date for the given org.
     attr_accessor :cspm_container_avg
 
-    # Shows the high-water mark of Cloud Security Posture Management containers over all hours in the current date for the given org.
+    # Shows the high-water mark of Cloud Security Management Pro containers over all hours in the current date for the given org.
     attr_accessor :cspm_container_hwm
 
-    # Shows the 99th percentile of all Cloud Security Posture Management GCP hosts over all hours in the current date for the given org.
+    # Shows the 99th percentile of all Cloud Security Management Pro GCP hosts over all hours in the current date for the given org.
     attr_accessor :cspm_gcp_host_top99p
 
-    # Shows the 99th percentile of all Cloud Security Posture Management hosts over all hours in the current date for the given org.
+    # Shows the 99th percentile of all Cloud Security Management Pro hosts over all hours in the current date for the given org.
     attr_accessor :cspm_host_top99p
 
     # Shows the average number of distinct custom metrics over all hours in the current date for the given org.
@@ -201,6 +231,9 @@ module DatadogAPIClient::V1
     # The organization name.
     attr_accessor :name
 
+    # Shows the sum of all Network Device Monitoring NetFlow events over all hours in the current date for the given org.
+    attr_accessor :ndm_netflow_events_sum
+
     # Shows the sum of all Network flows indexed over all hours in the current date for the given org.
     attr_accessor :netflow_indexed_events_count_sum
 
@@ -257,6 +290,15 @@ module DatadogAPIClient::V1
 
     # Shows the sum of all bytes scanned across all usage types by the Sensitive Data Scanner over all hours in the current month for the given org.
     attr_accessor :sds_total_scanned_bytes_sum
+
+    # Shows the average of the number of Serverless Apps for Azure for the given date and given org.
+    attr_accessor :serverless_apps_azure_count_avg
+
+    # Shows the average of the number of Serverless Apps for Google Cloud for the given date and given org.
+    attr_accessor :serverless_apps_google_count_avg
+
+    # Shows the average of the number of Serverless Apps for Azure and Google Cloud for the given date and given org.
+    attr_accessor :serverless_apps_total_count_avg
 
     # Shows the sum of all Synthetic browser tests over all hours in the current date for the given org.
     attr_accessor :synthetics_browser_check_calls_count_sum
@@ -319,6 +361,16 @@ module DatadogAPIClient::V1
         :'container_avg' => :'container_avg',
         :'container_excl_agent_avg' => :'container_excl_agent_avg',
         :'container_hwm' => :'container_hwm',
+        :'csm_container_enterprise_compliance_count_sum' => :'csm_container_enterprise_compliance_count_sum',
+        :'csm_container_enterprise_cws_count_sum' => :'csm_container_enterprise_cws_count_sum',
+        :'csm_container_enterprise_total_count_sum' => :'csm_container_enterprise_total_count_sum',
+        :'csm_host_enterprise_aas_host_count_top99p' => :'csm_host_enterprise_aas_host_count_top99p',
+        :'csm_host_enterprise_aws_host_count_top99p' => :'csm_host_enterprise_aws_host_count_top99p',
+        :'csm_host_enterprise_azure_host_count_top99p' => :'csm_host_enterprise_azure_host_count_top99p',
+        :'csm_host_enterprise_compliance_host_count_top99p' => :'csm_host_enterprise_compliance_host_count_top99p',
+        :'csm_host_enterprise_cws_host_count_top99p' => :'csm_host_enterprise_cws_host_count_top99p',
+        :'csm_host_enterprise_gcp_host_count_top99p' => :'csm_host_enterprise_gcp_host_count_top99p',
+        :'csm_host_enterprise_total_host_count_top99p' => :'csm_host_enterprise_total_host_count_top99p',
         :'cspm_aas_host_top99p' => :'cspm_aas_host_top99p',
         :'cspm_aws_host_top99p' => :'cspm_aws_host_top99p',
         :'cspm_azure_host_top99p' => :'cspm_azure_host_top99p',
@@ -352,6 +404,7 @@ module DatadogAPIClient::V1
         :'mobile_rum_session_count_sum' => :'mobile_rum_session_count_sum',
         :'mobile_rum_units_sum' => :'mobile_rum_units_sum',
         :'name' => :'name',
+        :'ndm_netflow_events_sum' => :'ndm_netflow_events_sum',
         :'netflow_indexed_events_count_sum' => :'netflow_indexed_events_count_sum',
         :'npm_host_top99p' => :'npm_host_top99p',
         :'observability_pipelines_bytes_processed_sum' => :'observability_pipelines_bytes_processed_sum',
@@ -371,6 +424,9 @@ module DatadogAPIClient::V1
         :'sds_logs_scanned_bytes_sum' => :'sds_logs_scanned_bytes_sum',
         :'sds_rum_scanned_bytes_sum' => :'sds_rum_scanned_bytes_sum',
         :'sds_total_scanned_bytes_sum' => :'sds_total_scanned_bytes_sum',
+        :'serverless_apps_azure_count_avg' => :'serverless_apps_azure_count_avg',
+        :'serverless_apps_google_count_avg' => :'serverless_apps_google_count_avg',
+        :'serverless_apps_total_count_avg' => :'serverless_apps_total_count_avg',
         :'synthetics_browser_check_calls_count_sum' => :'synthetics_browser_check_calls_count_sum',
         :'synthetics_check_calls_count_sum' => :'synthetics_check_calls_count_sum',
         :'synthetics_mobile_test_runs_sum' => :'synthetics_mobile_test_runs_sum',
@@ -415,6 +471,16 @@ module DatadogAPIClient::V1
         :'container_avg' => :'Integer',
         :'container_excl_agent_avg' => :'Integer',
         :'container_hwm' => :'Integer',
+        :'csm_container_enterprise_compliance_count_sum' => :'Integer',
+        :'csm_container_enterprise_cws_count_sum' => :'Integer',
+        :'csm_container_enterprise_total_count_sum' => :'Integer',
+        :'csm_host_enterprise_aas_host_count_top99p' => :'Integer',
+        :'csm_host_enterprise_aws_host_count_top99p' => :'Integer',
+        :'csm_host_enterprise_azure_host_count_top99p' => :'Integer',
+        :'csm_host_enterprise_compliance_host_count_top99p' => :'Integer',
+        :'csm_host_enterprise_cws_host_count_top99p' => :'Integer',
+        :'csm_host_enterprise_gcp_host_count_top99p' => :'Integer',
+        :'csm_host_enterprise_total_host_count_top99p' => :'Integer',
         :'cspm_aas_host_top99p' => :'Integer',
         :'cspm_aws_host_top99p' => :'Integer',
         :'cspm_azure_host_top99p' => :'Integer',
@@ -448,6 +514,7 @@ module DatadogAPIClient::V1
         :'mobile_rum_session_count_sum' => :'Integer',
         :'mobile_rum_units_sum' => :'Integer',
         :'name' => :'String',
+        :'ndm_netflow_events_sum' => :'Integer',
         :'netflow_indexed_events_count_sum' => :'Integer',
         :'npm_host_top99p' => :'Integer',
         :'observability_pipelines_bytes_processed_sum' => :'Integer',
@@ -467,6 +534,9 @@ module DatadogAPIClient::V1
         :'sds_logs_scanned_bytes_sum' => :'Integer',
         :'sds_rum_scanned_bytes_sum' => :'Integer',
         :'sds_total_scanned_bytes_sum' => :'Integer',
+        :'serverless_apps_azure_count_avg' => :'Integer',
+        :'serverless_apps_google_count_avg' => :'Integer',
+        :'serverless_apps_total_count_avg' => :'Integer',
         :'synthetics_browser_check_calls_count_sum' => :'Integer',
         :'synthetics_check_calls_count_sum' => :'Integer',
         :'synthetics_mobile_test_runs_sum' => :'Integer',
@@ -604,6 +674,46 @@ module DatadogAPIClient::V1
         self.container_hwm = attributes[:'container_hwm']
       end
 
+      if attributes.key?(:'csm_container_enterprise_compliance_count_sum')
+        self.csm_container_enterprise_compliance_count_sum = attributes[:'csm_container_enterprise_compliance_count_sum']
+      end
+
+      if attributes.key?(:'csm_container_enterprise_cws_count_sum')
+        self.csm_container_enterprise_cws_count_sum = attributes[:'csm_container_enterprise_cws_count_sum']
+      end
+
+      if attributes.key?(:'csm_container_enterprise_total_count_sum')
+        self.csm_container_enterprise_total_count_sum = attributes[:'csm_container_enterprise_total_count_sum']
+      end
+
+      if attributes.key?(:'csm_host_enterprise_aas_host_count_top99p')
+        self.csm_host_enterprise_aas_host_count_top99p = attributes[:'csm_host_enterprise_aas_host_count_top99p']
+      end
+
+      if attributes.key?(:'csm_host_enterprise_aws_host_count_top99p')
+        self.csm_host_enterprise_aws_host_count_top99p = attributes[:'csm_host_enterprise_aws_host_count_top99p']
+      end
+
+      if attributes.key?(:'csm_host_enterprise_azure_host_count_top99p')
+        self.csm_host_enterprise_azure_host_count_top99p = attributes[:'csm_host_enterprise_azure_host_count_top99p']
+      end
+
+      if attributes.key?(:'csm_host_enterprise_compliance_host_count_top99p')
+        self.csm_host_enterprise_compliance_host_count_top99p = attributes[:'csm_host_enterprise_compliance_host_count_top99p']
+      end
+
+      if attributes.key?(:'csm_host_enterprise_cws_host_count_top99p')
+        self.csm_host_enterprise_cws_host_count_top99p = attributes[:'csm_host_enterprise_cws_host_count_top99p']
+      end
+
+      if attributes.key?(:'csm_host_enterprise_gcp_host_count_top99p')
+        self.csm_host_enterprise_gcp_host_count_top99p = attributes[:'csm_host_enterprise_gcp_host_count_top99p']
+      end
+
+      if attributes.key?(:'csm_host_enterprise_total_host_count_top99p')
+        self.csm_host_enterprise_total_host_count_top99p = attributes[:'csm_host_enterprise_total_host_count_top99p']
+      end
+
       if attributes.key?(:'cspm_aas_host_top99p')
         self.cspm_aas_host_top99p = attributes[:'cspm_aas_host_top99p']
       end
@@ -736,6 +846,10 @@ module DatadogAPIClient::V1
         self.name = attributes[:'name']
       end
 
+      if attributes.key?(:'ndm_netflow_events_sum')
+        self.ndm_netflow_events_sum = attributes[:'ndm_netflow_events_sum']
+      end
+
       if attributes.key?(:'netflow_indexed_events_count_sum')
         self.netflow_indexed_events_count_sum = attributes[:'netflow_indexed_events_count_sum']
       end
@@ -812,6 +926,18 @@ module DatadogAPIClient::V1
         self.sds_total_scanned_bytes_sum = attributes[:'sds_total_scanned_bytes_sum']
       end
 
+      if attributes.key?(:'serverless_apps_azure_count_avg')
+        self.serverless_apps_azure_count_avg = attributes[:'serverless_apps_azure_count_avg']
+      end
+
+      if attributes.key?(:'serverless_apps_google_count_avg')
+        self.serverless_apps_google_count_avg = attributes[:'serverless_apps_google_count_avg']
+      end
+
+      if attributes.key?(:'serverless_apps_total_count_avg')
+        self.serverless_apps_total_count_avg = attributes[:'serverless_apps_total_count_avg']
+      end
+
       if attributes.key?(:'synthetics_browser_check_calls_count_sum')
         self.synthetics_browser_check_calls_count_sum = attributes[:'synthetics_browser_check_calls_count_sum']
       end
@@ -886,6 +1012,16 @@ module DatadogAPIClient::V1
           container_avg == o.container_avg &&
           container_excl_agent_avg == o.container_excl_agent_avg &&
           container_hwm == o.container_hwm &&
+          csm_container_enterprise_compliance_count_sum == o.csm_container_enterprise_compliance_count_sum &&
+          csm_container_enterprise_cws_count_sum == o.csm_container_enterprise_cws_count_sum &&
+          csm_container_enterprise_total_count_sum == o.csm_container_enterprise_total_count_sum &&
+          csm_host_enterprise_aas_host_count_top99p == o.csm_host_enterprise_aas_host_count_top99p &&
+          csm_host_enterprise_aws_host_count_top99p == o.csm_host_enterprise_aws_host_count_top99p &&
+          csm_host_enterprise_azure_host_count_top99p == o.csm_host_enterprise_azure_host_count_top99p &&
+          csm_host_enterprise_compliance_host_count_top99p == o.csm_host_enterprise_compliance_host_count_top99p &&
+          csm_host_enterprise_cws_host_count_top99p == o.csm_host_enterprise_cws_host_count_top99p &&
+          csm_host_enterprise_gcp_host_count_top99p == o.csm_host_enterprise_gcp_host_count_top99p &&
+          csm_host_enterprise_total_host_count_top99p == o.csm_host_enterprise_total_host_count_top99p &&
           cspm_aas_host_top99p == o.cspm_aas_host_top99p &&
           cspm_aws_host_top99p == o.cspm_aws_host_top99p &&
           cspm_azure_host_top99p == o.cspm_azure_host_top99p &&
@@ -919,6 +1055,7 @@ module DatadogAPIClient::V1
           mobile_rum_session_count_sum == o.mobile_rum_session_count_sum &&
           mobile_rum_units_sum == o.mobile_rum_units_sum &&
           name == o.name &&
+          ndm_netflow_events_sum == o.ndm_netflow_events_sum &&
           netflow_indexed_events_count_sum == o.netflow_indexed_events_count_sum &&
           npm_host_top99p == o.npm_host_top99p &&
           observability_pipelines_bytes_processed_sum == o.observability_pipelines_bytes_processed_sum &&
@@ -938,6 +1075,9 @@ module DatadogAPIClient::V1
           sds_logs_scanned_bytes_sum == o.sds_logs_scanned_bytes_sum &&
           sds_rum_scanned_bytes_sum == o.sds_rum_scanned_bytes_sum &&
           sds_total_scanned_bytes_sum == o.sds_total_scanned_bytes_sum &&
+          serverless_apps_azure_count_avg == o.serverless_apps_azure_count_avg &&
+          serverless_apps_google_count_avg == o.serverless_apps_google_count_avg &&
+          serverless_apps_total_count_avg == o.serverless_apps_total_count_avg &&
           synthetics_browser_check_calls_count_sum == o.synthetics_browser_check_calls_count_sum &&
           synthetics_check_calls_count_sum == o.synthetics_check_calls_count_sum &&
           synthetics_mobile_test_runs_sum == o.synthetics_mobile_test_runs_sum &&
@@ -954,7 +1094,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [agent_host_top99p, apm_azure_app_service_host_top99p, apm_fargate_count_avg, apm_host_top99p, appsec_fargate_count_avg, audit_logs_lines_indexed_sum, audit_trail_enabled_hwm, avg_profiled_fargate_tasks, aws_host_top99p, aws_lambda_func_count, aws_lambda_invocations_sum, azure_app_service_top99p, billable_ingested_bytes_sum, browser_rum_lite_session_count_sum, browser_rum_replay_session_count_sum, browser_rum_units_sum, ci_pipeline_indexed_spans_sum, ci_test_indexed_spans_sum, ci_visibility_itr_committers_hwm, ci_visibility_pipeline_committers_hwm, ci_visibility_test_committers_hwm, cloud_cost_management_aws_host_count_avg, cloud_cost_management_azure_host_count_avg, cloud_cost_management_host_count_avg, container_avg, container_excl_agent_avg, container_hwm, cspm_aas_host_top99p, cspm_aws_host_top99p, cspm_azure_host_top99p, cspm_container_avg, cspm_container_hwm, cspm_gcp_host_top99p, cspm_host_top99p, custom_ts_avg, cws_container_count_avg, cws_host_top99p, dbm_host_top99p_sum, dbm_queries_avg_sum, fargate_tasks_count_avg, fargate_tasks_count_hwm, forwarding_events_bytes_sum, gcp_host_top99p, heroku_host_top99p, id, incident_management_monthly_active_users_hwm, indexed_events_count_sum, infra_host_top99p, ingested_events_bytes_sum, iot_device_agg_sum, iot_device_top99p_sum, mobile_rum_lite_session_count_sum, mobile_rum_session_count_android_sum, mobile_rum_session_count_flutter_sum, mobile_rum_session_count_ios_sum, mobile_rum_session_count_reactnative_sum, mobile_rum_session_count_roku_sum, mobile_rum_session_count_sum, mobile_rum_units_sum, name, netflow_indexed_events_count_sum, npm_host_top99p, observability_pipelines_bytes_processed_sum, online_archive_events_count_sum, opentelemetry_apm_host_top99p, opentelemetry_host_top99p, profiling_aas_count_top99p, profiling_host_top99p, public_id, region, rum_browser_and_mobile_session_count, rum_session_count_sum, rum_total_session_count_sum, rum_units_sum, sds_apm_scanned_bytes_sum, sds_events_scanned_bytes_sum, sds_logs_scanned_bytes_sum, sds_rum_scanned_bytes_sum, sds_total_scanned_bytes_sum, synthetics_browser_check_calls_count_sum, synthetics_check_calls_count_sum, synthetics_mobile_test_runs_sum, synthetics_parallel_testing_max_slots_hwm, trace_search_indexed_events_count_sum, twol_ingested_events_bytes_sum, universal_service_monitoring_host_top99p, vsphere_host_top99p, vuln_management_host_count_top99p, workflow_executions_usage_sum].hash
+      [agent_host_top99p, apm_azure_app_service_host_top99p, apm_fargate_count_avg, apm_host_top99p, appsec_fargate_count_avg, audit_logs_lines_indexed_sum, audit_trail_enabled_hwm, avg_profiled_fargate_tasks, aws_host_top99p, aws_lambda_func_count, aws_lambda_invocations_sum, azure_app_service_top99p, billable_ingested_bytes_sum, browser_rum_lite_session_count_sum, browser_rum_replay_session_count_sum, browser_rum_units_sum, ci_pipeline_indexed_spans_sum, ci_test_indexed_spans_sum, ci_visibility_itr_committers_hwm, ci_visibility_pipeline_committers_hwm, ci_visibility_test_committers_hwm, cloud_cost_management_aws_host_count_avg, cloud_cost_management_azure_host_count_avg, cloud_cost_management_host_count_avg, container_avg, container_excl_agent_avg, container_hwm, csm_container_enterprise_compliance_count_sum, csm_container_enterprise_cws_count_sum, csm_container_enterprise_total_count_sum, csm_host_enterprise_aas_host_count_top99p, csm_host_enterprise_aws_host_count_top99p, csm_host_enterprise_azure_host_count_top99p, csm_host_enterprise_compliance_host_count_top99p, csm_host_enterprise_cws_host_count_top99p, csm_host_enterprise_gcp_host_count_top99p, csm_host_enterprise_total_host_count_top99p, cspm_aas_host_top99p, cspm_aws_host_top99p, cspm_azure_host_top99p, cspm_container_avg, cspm_container_hwm, cspm_gcp_host_top99p, cspm_host_top99p, custom_ts_avg, cws_container_count_avg, cws_host_top99p, dbm_host_top99p_sum, dbm_queries_avg_sum, fargate_tasks_count_avg, fargate_tasks_count_hwm, forwarding_events_bytes_sum, gcp_host_top99p, heroku_host_top99p, id, incident_management_monthly_active_users_hwm, indexed_events_count_sum, infra_host_top99p, ingested_events_bytes_sum, iot_device_agg_sum, iot_device_top99p_sum, mobile_rum_lite_session_count_sum, mobile_rum_session_count_android_sum, mobile_rum_session_count_flutter_sum, mobile_rum_session_count_ios_sum, mobile_rum_session_count_reactnative_sum, mobile_rum_session_count_roku_sum, mobile_rum_session_count_sum, mobile_rum_units_sum, name, ndm_netflow_events_sum, netflow_indexed_events_count_sum, npm_host_top99p, observability_pipelines_bytes_processed_sum, online_archive_events_count_sum, opentelemetry_apm_host_top99p, opentelemetry_host_top99p, profiling_aas_count_top99p, profiling_host_top99p, public_id, region, rum_browser_and_mobile_session_count, rum_session_count_sum, rum_total_session_count_sum, rum_units_sum, sds_apm_scanned_bytes_sum, sds_events_scanned_bytes_sum, sds_logs_scanned_bytes_sum, sds_rum_scanned_bytes_sum, sds_total_scanned_bytes_sum, serverless_apps_azure_count_avg, serverless_apps_google_count_avg, serverless_apps_total_count_avg, synthetics_browser_check_calls_count_sum, synthetics_check_calls_count_sum, synthetics_mobile_test_runs_sum, synthetics_parallel_testing_max_slots_hwm, trace_search_indexed_events_count_sum, twol_ingested_events_bytes_sum, universal_service_monitoring_host_top99p, vsphere_host_top99p, vuln_management_host_count_top99p, workflow_executions_usage_sum].hash
     end
   end
 end

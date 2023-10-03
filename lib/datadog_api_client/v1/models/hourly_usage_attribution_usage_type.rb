@@ -28,8 +28,8 @@ module DatadogAPIClient::V1
     APPSEC_FARGATE_USAGE = "appsec_fargate_usage".freeze
     APPSEC_USAGE = "appsec_usage".freeze
     BROWSER_USAGE = "browser_usage".freeze
-    CONTAINER_EXCL_AGENT_USAGE = "container_excl_agent_usage".freeze
     CI_VISIBILITY_ITR_USAGE = "ci_visibility_itr_usage".freeze
+    CONTAINER_EXCL_AGENT_USAGE = "container_excl_agent_usage".freeze
     CONTAINER_USAGE = "container_usage".freeze
     CSPM_CONTAINERS_USAGE = "cspm_containers_usage".freeze
     CSPM_HOSTS_USAGE = "cspm_hosts_usage".freeze
@@ -40,23 +40,25 @@ module DatadogAPIClient::V1
     DBM_HOSTS_USAGE = "dbm_hosts_usage".freeze
     DBM_QUERIES_USAGE = "dbm_queries_usage".freeze
     ESTIMATED_INDEXED_LOGS_USAGE = "estimated_indexed_logs_usage".freeze
-    ESTIMATED_INGESTED_LOGS_USAGE = "estimated_ingested_logs_usage".freeze
     ESTIMATED_INDEXED_SPANS_USAGE = "estimated_indexed_spans_usage".freeze
+    ESTIMATED_INGESTED_LOGS_USAGE = "estimated_ingested_logs_usage".freeze
     ESTIMATED_INGESTED_SPANS_USAGE = "estimated_ingested_spans_usage".freeze
+    ESTIMATED_RUM_SESSIONS_USAGE = "estimated_rum_sessions_usage".freeze
     FARGATE_USAGE = "fargate_usage".freeze
     FUNCTIONS_USAGE = "functions_usage".freeze
     INFRA_HOST_USAGE = "infra_host_usage".freeze
     INVOCATIONS_USAGE = "invocations_usage".freeze
     MOBILE_APP_TESTING_USAGE = "mobile_app_testing_usage".freeze
+    NDM_NETFLOW_USAGE = "ndm_netflow_usage".freeze
     NPM_HOST_USAGE = "npm_host_usage".freeze
     OBS_PIPELINE_BYTES_USAGE = "obs_pipeline_bytes_usage".freeze
     PROFILED_CONTAINER_USAGE = "profiled_container_usage".freeze
     PROFILED_FARGATE_USAGE = "profiled_fargate_usage".freeze
     PROFILED_HOST_USAGE = "profiled_host_usage".freeze
+    SDS_SCANNED_BYTES_USAGE = "sds_scanned_bytes_usage".freeze
+    SERVERLESS_APPS_USAGE = "serverless_apps_usage".freeze
     SNMP_USAGE = "snmp_usage".freeze
-    ESTIMATED_RUM_SESSIONS_USAGE = "estimated_rum_sessions_usage".freeze
     UNIVERSAL_SERVICE_MONITORING_USAGE = "universal_service_monitoring_usage".freeze
     VULN_MANAGEMENT_HOSTS_USAGE = "vuln_management_hosts_usage".freeze
-    SDS_SCANNED_BYTES_USAGE = "sds_scanned_bytes_usage".freeze
   end
 end

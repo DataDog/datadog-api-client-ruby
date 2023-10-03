@@ -890,6 +890,22 @@ ScenariosModelMappings = {
             "metric_id" => "String",
             "body" => "SpansMetricUpdateRequest",
     },
+    "v2.CreateApmRetentionFilter" => {
+            "body" => "RetentionFilterCreateRequest",
+    },
+    "v2.ReorderApmRetentionFilters" => {
+            "body" => "ReorderRetentionFiltersRequest",
+    },
+    "v2.DeleteApmRetentionFilter" => {
+            "filter_id" => "String",
+    },
+    "v2.GetApmRetentionFilter" => {
+            "filter_id" => "String",
+    },
+    "v2.UpdateApmRetentionFilter" => {
+            "filter_id" => "String",
+            "body" => "RetentionFilterUpdateRequest",
+    },
     "v2.ListAuditLogs" => {
             "filter_query" => "String",
             "filter_from" => "Time",
@@ -1442,6 +1458,19 @@ ScenariosModelMappings = {
     "v2.EditSecurityMonitoringSignalState" => {
             "signal_id" => "String",
             "body" => "SecurityMonitoringSignalStateUpdateRequest",
+    },
+    "v2.CreatePowerpack" => {
+            "body" => "Powerpack",
+    },
+    "v2.DeletePowerpack" => {
+            "powerpack_id" => "String",
+    },
+    "v2.GetPowerpack" => {
+            "powerpack_id" => "String",
+    },
+    "v2.UpdatePowerpack" => {
+            "powerpack_id" => "String",
+            "body" => "Powerpack",
     },
     "v2.ListProcesses" => {
             "search" => "String",

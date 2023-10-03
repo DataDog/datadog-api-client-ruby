@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class GCPSTSServiceAccountAttributes
     include BaseGenericModel
 
+    # Tags to be associated with GCP metrics and service checks from your account.
+    attr_accessor :account_tags
+
     # Silence monitors for expected GCE instance shutdowns.
     attr_accessor :automute
 
@@ -37,6 +40,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'account_tags' => :'account_tags',
         :'automute' => :'automute',
         :'client_email' => :'client_email',
         :'host_filters' => :'host_filters',
@@ -48,6 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'account_tags' => :'Array<String>',
         :'automute' => :'Boolean',
         :'client_email' => :'String',
         :'host_filters' => :'Array<String>',
@@ -70,6 +75,12 @@ module DatadogAPIClient::V2
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'account_tags')
+        if (value = attributes[:'account_tags']).is_a?(Array)
+          self.account_tags = value
+        end
+      end
 
       if attributes.key?(:'automute')
         self.automute = attributes[:'automute']
@@ -96,6 +107,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          account_tags == o.account_tags &&
           automute == o.automute &&
           client_email == o.client_email &&
           host_filters == o.host_filters &&
@@ -106,7 +118,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [automute, client_email, host_filters, is_cspm_enabled].hash
+      [account_tags, automute, client_email, host_filters, is_cspm_enabled].hash
     end
   end
 end

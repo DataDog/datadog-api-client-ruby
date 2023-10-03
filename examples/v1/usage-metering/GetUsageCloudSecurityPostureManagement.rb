@@ -1,4 +1,4 @@
-# Get hourly usage for CSPM returns "OK" response
+# Get hourly usage for CSM Pro returns "OK" response
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::UsageMeteringAPI.new
