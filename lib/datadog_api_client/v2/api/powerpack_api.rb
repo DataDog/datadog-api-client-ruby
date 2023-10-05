@@ -155,66 +155,6 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Get all powerpacks.
-    #
-    # @see #get_all_powerpacks_with_http_info
-    def get_all_powerpacks(opts = {})
-      data, _status_code, _headers = get_all_powerpacks_with_http_info(opts)
-      data
-    end
-
-    # Get all powerpacks.
-    #
-    # Get a list of all powerpacks.
-    #
-    # @param opts [Hash] the optional parameters
-    # @return [Array<(GetAllPowerpacksResponse, Integer, Hash)>] GetAllPowerpacksResponse data, response status code and response headers
-    def get_all_powerpacks_with_http_info(opts = {})
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: PowerpackAPI.get_all_powerpacks ...'
-      end
-      # resource path
-      local_var_path = '/api/v2/powerpacks'
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'GetAllPowerpacksResponse'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
-
-      new_options = opts.merge(
-        :operation => :get_all_powerpacks,
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type,
-        :api_version => "V2"
-      )
-
-      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: PowerpackAPI#get_all_powerpacks\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
     # Get a Powerpack.
     #
     # @see #get_powerpack_with_http_info
@@ -276,6 +216,66 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PowerpackAPI#get_powerpack\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get all powerpacks.
+    #
+    # @see #list_powerpacks_with_http_info
+    def list_powerpacks(opts = {})
+      data, _status_code, _headers = list_powerpacks_with_http_info(opts)
+      data
+    end
+
+    # Get all powerpacks.
+    #
+    # Get a list of all powerpacks.
+    #
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(ListPowerpacksResponse, Integer, Hash)>] ListPowerpacksResponse data, response status code and response headers
+    def list_powerpacks_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: PowerpackAPI.list_powerpacks ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/powerpacks'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ListPowerpacksResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_powerpacks,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: PowerpackAPI#list_powerpacks\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

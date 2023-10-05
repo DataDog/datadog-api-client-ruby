@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # Description of this powerpack.
     attr_accessor :description
 
-    # Templated group of dashboard widgets for the powerpack.
+    # Powerpack group widget definition object.
     attr_reader :group_widget
 
     # Name of the powerpack.
@@ -53,7 +53,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'description' => :'String',
-        :'group_widget' => :'Hash<String, Object>',
+        :'group_widget' => :'PowerpackGroupWidget',
         :'name' => :'String',
         :'tags' => :'Array<String>',
         :'template_variables' => :'Array<PowerpackTemplateVariable>'
