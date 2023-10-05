@@ -17,22 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Configuration options for scheduling.
-  class MonitorOptionsSchedulingOptions
+  # Configuration options for the custom schedule. **This feature is in private beta.**
+  class MonitorOptionsCustomSchedule
     include BaseGenericModel
 
-    # Configuration options for the custom schedule. **This feature is in private beta.**
-    attr_accessor :custom_schedule
-
-    # Configuration options for the evaluation window. If `hour_starts` is set, no other fields may be set. Otherwise, `day_starts` and `month_starts` must be set together.
-    attr_accessor :evaluation_window
+    # Array of custom schedule recurrences.
+    attr_accessor :recurrences
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'custom_schedule' => :'custom_schedule',
-        :'evaluation_window' => :'evaluation_window'
+        :'recurrences' => :'recurrences'
       }
     end
 
@@ -40,8 +36,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
-        :'custom_schedule' => :'MonitorOptionsCustomSchedule',
-        :'evaluation_window' => :'MonitorOptionsSchedulingOptionsEvaluationWindow'
+        :'recurrences' => :'Array<MonitorOptionsCustomScheduleRecurrence>'
       }
     end
 
@@ -50,23 +45,21 @@ module DatadogAPIClient::V1
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::MonitorOptionsSchedulingOptions` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::MonitorOptionsCustomSchedule` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::MonitorOptionsSchedulingOptions`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::MonitorOptionsCustomSchedule`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'custom_schedule')
-        self.custom_schedule = attributes[:'custom_schedule']
-      end
-
-      if attributes.key?(:'evaluation_window')
-        self.evaluation_window = attributes[:'evaluation_window']
+      if attributes.key?(:'recurrences')
+        if (value = attributes[:'recurrences']).is_a?(Array)
+          self.recurrences = value
+        end
       end
     end
 
@@ -76,15 +69,14 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          custom_schedule == o.custom_schedule &&
-          evaluation_window == o.evaluation_window
+          recurrences == o.recurrences
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [custom_schedule, evaluation_window].hash
+      [recurrences].hash
     end
   end
 end

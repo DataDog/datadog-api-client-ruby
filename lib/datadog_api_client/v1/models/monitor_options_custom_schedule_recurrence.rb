@@ -17,22 +17,26 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Configuration options for scheduling.
-  class MonitorOptionsSchedulingOptions
+  # Configuration for a recurrence set on the monitor options for custom schedule.
+  class MonitorOptionsCustomScheduleRecurrence
     include BaseGenericModel
 
-    # Configuration options for the custom schedule. **This feature is in private beta.**
-    attr_accessor :custom_schedule
+    # Defines the recurrence rule (RRULE) for a given schedule.
+    attr_accessor :rrule
 
-    # Configuration options for the evaluation window. If `hour_starts` is set, no other fields may be set. Otherwise, `day_starts` and `month_starts` must be set together.
-    attr_accessor :evaluation_window
+    # Defines the start date and time of the recurring schedule.
+    attr_accessor :start
+
+    # Defines the timezone the schedule runs on.
+    attr_accessor :timezone
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'custom_schedule' => :'custom_schedule',
-        :'evaluation_window' => :'evaluation_window'
+        :'rrule' => :'rrule',
+        :'start' => :'start',
+        :'timezone' => :'timezone'
       }
     end
 
@@ -40,8 +44,9 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
-        :'custom_schedule' => :'MonitorOptionsCustomSchedule',
-        :'evaluation_window' => :'MonitorOptionsSchedulingOptionsEvaluationWindow'
+        :'rrule' => :'String',
+        :'start' => :'String',
+        :'timezone' => :'String'
       }
     end
 
@@ -50,23 +55,27 @@ module DatadogAPIClient::V1
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::MonitorOptionsSchedulingOptions` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::MonitorOptionsCustomScheduleRecurrence` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::MonitorOptionsSchedulingOptions`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::MonitorOptionsCustomScheduleRecurrence`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'custom_schedule')
-        self.custom_schedule = attributes[:'custom_schedule']
+      if attributes.key?(:'rrule')
+        self.rrule = attributes[:'rrule']
       end
 
-      if attributes.key?(:'evaluation_window')
-        self.evaluation_window = attributes[:'evaluation_window']
+      if attributes.key?(:'start')
+        self.start = attributes[:'start']
+      end
+
+      if attributes.key?(:'timezone')
+        self.timezone = attributes[:'timezone']
       end
     end
 
@@ -76,15 +85,16 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          custom_schedule == o.custom_schedule &&
-          evaluation_window == o.evaluation_window
+          rrule == o.rrule &&
+          start == o.start &&
+          timezone == o.timezone
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [custom_schedule, evaluation_window].hash
+      [rrule, start, timezone].hash
     end
   end
 end
