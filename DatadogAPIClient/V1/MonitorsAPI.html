@@ -1145,22 +1145,7 @@ For example, Postgres integration monitors are tagged by <code>db</code>, <code>
 
 <h5 id="event-alert-query">Event Alert Query</h5>
 
-<p>Example: <code>events(&#39;sources:nagios status:error,warning priority:normal tags: &quot;string query&quot;&#39;).rollup(&quot;count&quot;).last(&quot;1h&quot;)&quot;</code></p>
-
-<ul>
-<li><code>event</code>, the event query string:</li>
-<li><code>string_query</code> free text query to match against event title and text.</li>
-<li><code>sources</code> event sources (comma-separated).</li>
-<li><code>status</code> event statuses (comma-separated). Valid options: error, warn, and info.</li>
-<li><code>priority</code> event priorities (comma-separated). Valid options: low, normal, all.</li>
-<li><code>host</code> event reporting host (comma-separated).</li>
-<li><code>tags</code> event tags (comma-separated).</li>
-<li><code>excluded_tags</code> excluded event tags (comma-separated).</li>
-<li><code>rollup</code> the stats roll-up method. <code>count</code> is the only supported method now.</li>
-<li><code>last</code> the timeframe to roll up the counts. Examples: 45m, 4h. Supported timeframes: m, h and d. This value should not exceed 48 hours.</li>
-</ul>
-
-<p><strong>NOTE</strong> The Event Alert Query is being deprecated and replaced by the Event V2 Alert Query. For more information, see the <a href="https://docs.datadoghq.com/events/guides/migrating_to_new_events_features/">Event Migration guide</a>.</p>
+<p><strong>Note:</strong> The Event Alert Query has been replaced by the Event V2 Alert Query. For more information, see the <a href="https://docs.datadoghq.com/service_management/events/guides/migrating_to_new_events_features/">Event Migration guide</a>.</p>
 
 <h5 id="event-v2-alert-query">Event V2 Alert Query</h5>
 
@@ -1238,8 +1223,6 @@ It is only available via the API and isn&#39;t visible or editable in the Datado
 <li><code>#</code> an integer or decimal number used to set the threshold.</li>
 </ul>
 
-<p><strong>NOTE</strong> Only available on US1-FED and in closed beta on US1, EU, AP1, US3, and US5.</p>
-
 <h5 id="ci-pipelines-alert-query">CI Pipelines Alert Query</h5>
 
 <p>Example: <code>ci-pipelines(query).rollup(rollup_method[, measure]).last(time_window) operator #</code></p>
@@ -1253,8 +1236,6 @@ It is only available via the API and isn&#39;t visible or editable in the Datado
 <li><code>#</code> an integer or decimal number used to set the threshold.</li>
 </ul>
 
-<p><strong>NOTE</strong> CI Pipeline monitors are in alpha on US1, EU, AP1, US3, and US5.</p>
-
 <h5 id="ci-tests-alert-query">CI Tests Alert Query</h5>
 
 <p>Example: <code>ci-tests(query).rollup(rollup_method[, measure]).last(time_window) operator #</code></p>
@@ -1267,8 +1248,6 @@ It is only available via the API and isn&#39;t visible or editable in the Datado
 <li><code>operator</code> <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>==</code>, or <code>!=</code>.</li>
 <li><code>#</code> an integer or decimal number used to set the threshold.</li>
 </ul>
-
-<p><strong>NOTE</strong> CI Test monitors are available only in closed beta on US1, EU, AP1, US3, and US5.</p>
 
 <h5 id="error-tracking-alert-query">Error Tracking Alert Query</h5>
 
@@ -2461,23 +2440,23 @@ Example(APM Traces): <code>error-tracking-traces(query).rollup(rollup_method[, m
       <pre class="lines">
 
 
-579
-580
-581
-582
-583
-584
-585
-586
-587
-588
-589
-590
-591
-592</pre>
+560
+561
+562
+563
+564
+565
+566
+567
+568
+569
+570
+571
+572
+573</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/api/monitors_api.rb', line 579</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/api/monitors_api.rb', line 560</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_monitors_with_pagination'>list_monitors_with_pagination</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_api_version'>api_version</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>V1</span><span class='tstring_end'>&quot;</span></span>
@@ -3397,13 +3376,13 @@ Example(APM Traces): <code>error-tracking-traces(query).rollup(rollup_method[, m
       <pre class="lines">
 
 
-805
-806
-807
-808</pre>
+786
+787
+788
+789</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/api/monitors_api.rb', line 805</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/api/monitors_api.rb', line 786</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_validate_existing_monitor'>validate_existing_monitor</span><span class='lparen'>(</span><span class='id identifier rubyid_monitor_id'>monitor_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_validate_existing_monitor_with_http_info'>validate_existing_monitor_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_monitor_id'>monitor_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -3509,6 +3488,25 @@ Example(APM Traces): <code>error-tracking-traces(query).rollup(rollup_method[, m
       <pre class="lines">
 
 
+799
+800
+801
+802
+803
+804
+805
+806
+807
+808
+809
+810
+811
+812
+813
+814
+815
+816
+817
 818
 819
 820
@@ -3544,29 +3542,10 @@ Example(APM Traces): <code>error-tracking-traces(query).rollup(rollup_method[, m
 850
 851
 852
-853
-854
-855
-856
-857
-858
-859
-860
-861
-862
-863
-864
-865
-866
-867
-868
-869
-870
-871
-872</pre>
+853</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/api/monitors_api.rb', line 818</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/api/monitors_api.rb', line 799</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_validate_existing_monitor_with_http_info'>validate_existing_monitor_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_monitor_id'>monitor_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -3889,7 +3868,7 @@ Example(APM Traces): <code>error-tracking-traces(query).rollup(rollup_method[, m
 </div>
 
       <div id="footer">
-  Generated on Thu Oct  5 17:04:28 2023 by
+  Generated on Thu Oct  5 19:29:03 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.34 (ruby-2.7.8).
 </div>
