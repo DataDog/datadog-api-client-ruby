@@ -293,6 +293,8 @@ module DatadogAPIClient
           "v1.monitor_group_search_result" => "MonitorGroupSearchResult",
           "v1.monitor_options" => "MonitorOptions",
           "v1.monitor_options_aggregation" => "MonitorOptionsAggregation",
+          "v1.monitor_options_custom_schedule" => "MonitorOptionsCustomSchedule",
+          "v1.monitor_options_custom_schedule_recurrence" => "MonitorOptionsCustomScheduleRecurrence",
           "v1.monitor_options_notification_presets" => "MonitorOptionsNotificationPresets",
           "v1.monitor_options_scheduling_options" => "MonitorOptionsSchedulingOptions",
           "v1.monitor_options_scheduling_options_evaluation_window" => "MonitorOptionsSchedulingOptionsEvaluationWindow",
