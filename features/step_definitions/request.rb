@@ -5,7 +5,7 @@ require 'digest'
 
 require_relative '../scenarios_model_mapping'
 
-SLEEP_AFTER_REQUEST = ENV["SLEEP_AFTER_REQUEST"].present? ? ENV["SLEEP_AFTER_REQUEST"].to_i : 0
+SLEEP_AFTER_REQUEST = ENV.has_key?("SLEEP_AFTER_REQUEST") ? ENV["SLEEP_AFTER_REQUEST"].to_i : 0
 
 module APIWorld
   def api
