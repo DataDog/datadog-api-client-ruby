@@ -7,9 +7,27 @@ body = DatadogAPIClient::V2::Powerpack.new({
   data: DatadogAPIClient::V2::PowerpackData.new({
     attributes: DatadogAPIClient::V2::PowerpackAttributes.new({
       description: "Sample powerpack",
-      group_widget: {
-        "definition": "{'layout_type': 'ordered', 'show_title': True, 'title': 'Sample Powerpack', 'type': 'group', 'widgets': [{'definition': {'content': 'test', 'type': 'note'}}]}", "layout": "{'height': 3, 'width': 12, 'x': 0, 'y': 0}",
-      },
+      group_widget: DatadogAPIClient::V2::PowerpackGroupWidget.new({
+        definition: DatadogAPIClient::V2::PowerpackGroupWidgetDefinition.new({
+          layout_type: "ordered",
+          show_title: true,
+          title: "Sample Powerpack",
+          type: "group",
+          widgets: [
+            DatadogAPIClient::V2::PowerpackInnerWidgets.new({
+              definition: {
+                "content": "test", "type": "note",
+              },
+            }),
+          ],
+        }),
+        layout: DatadogAPIClient::V2::PowerpackGroupWidgetLayout.new({
+          height: 3,
+          width: 12,
+          x: 0,
+          y: 0,
+        }),
+      }),
       name: "Sample Powerpack",
       tags: [
         "tag:sample",
