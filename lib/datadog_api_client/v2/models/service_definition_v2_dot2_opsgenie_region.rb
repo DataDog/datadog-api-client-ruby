@@ -17,13 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Schema versions
-  class ServiceDefinitionSchemaVersions
+  # Opsgenie instance region.
+  class ServiceDefinitionV2Dot2OpsgenieRegion
     include BaseEnumModel
 
-    V1 = "v1".freeze
-    V2 = "v2".freeze
-    V2_1 = "v2.1".freeze
-    V2_2 = "v2.2".freeze
+    US = "US".freeze
+    EU = "EU".freeze
   end
 end

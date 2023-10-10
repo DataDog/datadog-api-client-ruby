@@ -180,7 +180,7 @@ module DatadogAPIClient::V2
       if @api_client.config.client_side_validation && service_name.nil?
         fail ArgumentError, "Missing the required parameter 'service_name' when calling ServiceDefinitionAPI.get_service_definition"
       end
-      allowable_values = ['v1', 'v2', 'v2.1']
+      allowable_values = ['v1', 'v2', 'v2.1', 'v2.2']
       if @api_client.config.client_side_validation && opts[:'schema_version'] && !allowable_values.include?(opts[:'schema_version'])
         fail ArgumentError, "invalid value for \"schema_version\", must be one of #{allowable_values}"
       end
@@ -248,7 +248,7 @@ module DatadogAPIClient::V2
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ServiceDefinitionAPI.list_service_definitions ...'
       end
-      allowable_values = ['v1', 'v2', 'v2.1']
+      allowable_values = ['v1', 'v2', 'v2.1', 'v2.2']
       if @api_client.config.client_side_validation && opts[:'schema_version'] && !allowable_values.include?(opts[:'schema_version'])
         fail ArgumentError, "invalid value for \"schema_version\", must be one of #{allowable_values}"
       end
