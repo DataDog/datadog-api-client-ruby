@@ -28,7 +28,8 @@ module DatadogAPIClient::V2
         [
           :'ServiceDefinitionV1',
           :'ServiceDefinitionV2',
-          :'ServiceDefinitionV2Dot1'
+          :'ServiceDefinitionV2Dot1',
+          :'ServiceDefinitionV2Dot2'
         ]
       end
       # Builds the object
