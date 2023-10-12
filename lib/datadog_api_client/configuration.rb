@@ -190,6 +190,7 @@ module DatadogAPIClient
       @logger = defined?(Rails) ? Rails.logger : Logger.new(STDOUT)
       @unstable_operations = {
             "v2.create_ci_app_pipeline_event": false,
+            "v2.list_container_images": false,
             "v2.list_events": false,
             "v2.search_events": false,
             "v2.create_incident": false,
