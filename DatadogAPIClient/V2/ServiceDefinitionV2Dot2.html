@@ -388,32 +388,6 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#service_type-instance_method" title="#service_type (instance method)">#<strong>service_type</strong>  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-    
-    
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>The type of service.</p>
-</div></span>
-  
-</li>
-
-    
-      <li class="public ">
-  <span class="summary_signature">
-    
       <a href="#tags-instance_method" title="#tags (instance method)">#<strong>tags</strong>  &#x21d2; Object </a>
     
 
@@ -484,6 +458,32 @@
 
   
     <span class="summary_desc"><div class='inline'><p>Importance of the service.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#type-instance_method" title="#type (instance method)">#<strong>type</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The type of service.</p>
 </div></span>
   
 </li>
@@ -930,48 +930,6 @@
 </div>
     
       
-      <span id="service_type=-instance_method"></span>
-      <div class="method_details ">
-  <h3 class="signature " id="service_type-instance_method">
-  
-    #<strong>service_type</strong>  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>The type of service. Datadog recognizes the following service types: <code>database</code>, <code>cache</code>, <code>function</code>, <code>web</code>, <code>browser</code>, and <code>mobile</code>.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-55
-56
-57</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/service_definition_v2_dot2.rb', line 55</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_service_type'>service_type</span>
-  <span class='ivar'>@service_type</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      
       <span id="tags=-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="tags-instance_method">
@@ -998,12 +956,12 @@
       <pre class="lines">
 
 
-58
-59
-60</pre>
+55
+56
+57</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/service_definition_v2_dot2.rb', line 58</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/service_definition_v2_dot2.rb', line 55</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_tags'>tags</span>
   <span class='ivar'>@tags</span>
@@ -1040,12 +998,12 @@
       <pre class="lines">
 
 
-61
-62
-63</pre>
+58
+59
+60</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/service_definition_v2_dot2.rb', line 61</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/service_definition_v2_dot2.rb', line 58</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_team'>team</span>
   <span class='ivar'>@team</span>
@@ -1082,6 +1040,48 @@
       <pre class="lines">
 
 
+61
+62
+63</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/service_definition_v2_dot2.rb', line 61</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_tier'>tier</span>
+  <span class='ivar'>@tier</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="type=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="type-instance_method">
+  
+    #<strong>type</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>The type of service.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
 64
 65
 66</pre>
@@ -1089,8 +1089,8 @@
     <td>
       <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/service_definition_v2_dot2.rb', line 64</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_tier'>tier</span>
-  <span class='ivar'>@tier</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_type'>type</span>
+  <span class='ivar'>@type</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1103,7 +1103,7 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Oct 12 19:11:07 2023 by
+  Generated on Thu Oct 12 23:27:05 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.34 (ruby-2.7.8).
 </div>
