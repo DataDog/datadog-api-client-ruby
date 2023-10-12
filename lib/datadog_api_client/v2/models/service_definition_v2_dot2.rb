@@ -51,9 +51,6 @@ module DatadogAPIClient::V2
     # Schema version being used.
     attr_reader :schema_version
 
-    # The type of service. Datadog recognizes the following service types: `database`, `cache`, `function`, `web`, `browser`, and `mobile`.
-    attr_accessor :service_type
-
     # A set of custom tags.
     attr_accessor :tags
 
@@ -62,6 +59,9 @@ module DatadogAPIClient::V2
 
     # Importance of the service.
     attr_accessor :tier
+
+    # The type of service.
+    attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -77,10 +77,10 @@ module DatadogAPIClient::V2
         :'lifecycle' => :'lifecycle',
         :'links' => :'links',
         :'schema_version' => :'schema-version',
-        :'service_type' => :'service-type',
         :'tags' => :'tags',
         :'team' => :'team',
-        :'tier' => :'tier'
+        :'tier' => :'tier',
+        :'type' => :'type'
       }
     end
 
@@ -98,10 +98,10 @@ module DatadogAPIClient::V2
         :'lifecycle' => :'String',
         :'links' => :'Array<ServiceDefinitionV2Dot2Link>',
         :'schema_version' => :'ServiceDefinitionV2Dot2Version',
-        :'service_type' => :'String',
         :'tags' => :'Array<String>',
         :'team' => :'String',
-        :'tier' => :'String'
+        :'tier' => :'String',
+        :'type' => :'ServiceDefinitionV2Dot2Type'
       }
     end
 
@@ -167,10 +167,6 @@ module DatadogAPIClient::V2
         self.schema_version = attributes[:'schema_version']
       end
 
-      if attributes.key?(:'service_type')
-        self.service_type = attributes[:'service_type']
-      end
-
       if attributes.key?(:'tags')
         if (value = attributes[:'tags']).is_a?(Array)
           self.tags = value
@@ -183,6 +179,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'tier')
         self.tier = attributes[:'tier']
+      end
+
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
       end
     end
 
@@ -231,17 +231,17 @@ module DatadogAPIClient::V2
           lifecycle == o.lifecycle &&
           links == o.links &&
           schema_version == o.schema_version &&
-          service_type == o.service_type &&
           tags == o.tags &&
           team == o.team &&
-          tier == o.tier
+          tier == o.tier &&
+          type == o.type
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [application, contacts, dd_service, description, extensions, integrations, langauges, lifecycle, links, schema_version, service_type, tags, team, tier].hash
+      [application, contacts, dd_service, description, extensions, integrations, langauges, lifecycle, links, schema_version, tags, team, tier, type].hash
     end
   end
 end

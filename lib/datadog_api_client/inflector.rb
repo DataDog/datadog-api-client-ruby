@@ -1815,6 +1815,7 @@ module DatadogAPIClient
           "v2.service_definition_v2_dot2_opsgenie" => "ServiceDefinitionV2Dot2Opsgenie",
           "v2.service_definition_v2_dot2_opsgenie_region" => "ServiceDefinitionV2Dot2OpsgenieRegion",
           "v2.service_definition_v2_dot2_pagerduty" => "ServiceDefinitionV2Dot2Pagerduty",
+          "v2.service_definition_v2_dot2_type" => "ServiceDefinitionV2Dot2Type",
           "v2.service_definition_v2_dot2_version" => "ServiceDefinitionV2Dot2Version",
           "v2.service_definition_v2_email" => "ServiceDefinitionV2Email",
           "v2.service_definition_v2_email_type" => "ServiceDefinitionV2EmailType",
