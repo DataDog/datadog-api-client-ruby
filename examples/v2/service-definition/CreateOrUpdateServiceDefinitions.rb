@@ -46,12 +46,12 @@ body = DatadogAPIClient::V2::ServiceDefinitionV2Dot2.new({
     }),
   ],
   schema_version: DatadogAPIClient::V2::ServiceDefinitionV2Dot2Version::V2_2,
-  service_type: "web",
   tags: [
     "my:tag",
     "service:tag",
   ],
   team: "my-team",
   tier: "High",
+  type: DatadogAPIClient::V2::ServiceDefinitionV2Dot2Type::WEB,
 })
 p api_instance.create_or_update_service_definitions(body)
