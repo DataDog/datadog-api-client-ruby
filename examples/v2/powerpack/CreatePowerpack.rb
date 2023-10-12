@@ -28,7 +28,7 @@ body = DatadogAPIClient::V2::Powerpack.new({
           y: 0,
         }),
       }),
-      name: "Sample Powerpack",
+      name: "Example-Powerpack",
       tags: [
         "tag:sample",
       ],

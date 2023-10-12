@@ -1459,6 +1459,10 @@ ScenariosModelMappings = {
             "signal_id" => "String",
             "body" => "SecurityMonitoringSignalStateUpdateRequest",
     },
+    "v2.ListPowerpacks" => {
+            "page_limit" => "Integer",
+            "page_offset" => "Integer",
+    },
     "v2.CreatePowerpack" => {
             "body" => "Powerpack",
     },
