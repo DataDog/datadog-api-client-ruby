@@ -30,6 +30,9 @@ module DatadogAPIClient::V1
     # Available prefix information for the APM endpoints.
     attr_accessor :apm
 
+    # Available prefix information for all Datadog endpoints.
+    attr_accessor :global
+
     # Available prefix information for the Logs endpoints.
     attr_accessor :logs
 
@@ -64,6 +67,7 @@ module DatadogAPIClient::V1
         :'agents' => :'agents',
         :'api' => :'api',
         :'apm' => :'apm',
+        :'global' => :'global',
         :'logs' => :'logs',
         :'modified' => :'modified',
         :'orchestrator' => :'orchestrator',
@@ -83,6 +87,7 @@ module DatadogAPIClient::V1
         :'agents' => :'IPPrefixesAgents',
         :'api' => :'IPPrefixesAPI',
         :'apm' => :'IPPrefixesAPM',
+        :'global' => :'IPPrefixesGlobal',
         :'logs' => :'IPPrefixesLogs',
         :'modified' => :'String',
         :'orchestrator' => :'IPPrefixesOrchestrator',
@@ -121,6 +126,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'apm')
         self.apm = attributes[:'apm']
+      end
+
+      if attributes.key?(:'global')
+        self.global = attributes[:'global']
       end
 
       if attributes.key?(:'logs')
@@ -169,6 +178,7 @@ module DatadogAPIClient::V1
           agents == o.agents &&
           api == o.api &&
           apm == o.apm &&
+          global == o.global &&
           logs == o.logs &&
           modified == o.modified &&
           orchestrator == o.orchestrator &&
@@ -184,7 +194,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [agents, api, apm, logs, modified, orchestrator, process, remote_configuration, synthetics, synthetics_private_locations, version, webhooks].hash
+      [agents, api, apm, global, logs, modified, orchestrator, process, remote_configuration, synthetics, synthetics_private_locations, version, webhooks].hash
     end
   end
 end

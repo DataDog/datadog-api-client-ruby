@@ -186,6 +186,7 @@ module DatadogAPIClient
           "v1.ip_prefixes_agents" => "IPPrefixesAgents",
           "v1.ip_prefixes_api" => "IPPrefixesAPI",
           "v1.ip_prefixes_apm" => "IPPrefixesAPM",
+          "v1.ip_prefixes_global" => "IPPrefixesGlobal",
           "v1.ip_prefixes_logs" => "IPPrefixesLogs",
           "v1.ip_prefixes_orchestrator" => "IPPrefixesOrchestrator",
           "v1.ip_prefixes_process" => "IPPrefixesProcess",
