@@ -328,7 +328,13 @@ end
 
 Then(/^the response "([^"]+)" has item with field "([^"]+)" with value (.*)$/) do |response_path, key_path, value|
   response_list = @response[0].lookup response_path
-  expect(response_list.find { |item| item.lookup(key_path) == JSON.parse(value.templated(fixtures), :symbolize_names => true) }).to_not be_nil
+  expect(response_list.find {|item|
+    begin
+      item.lookup(key_path) == JSON.parse(value.templated(fixtures), :symbolize_names => true)
+    rescue
+      false
+    end
+  }).to_not be_nil
 end
 
 Then(/^the response "([^"]+)" array contains value (.*)$/) do |response_path, value|

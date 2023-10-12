@@ -233,17 +233,24 @@ module DatadogAPIClient::V2
     # Get a list of all powerpacks.
     #
     # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :page_limit Maximum number of powerpacks in the response.
+    # @option opts [Integer] :page_offset Specific offset to use as the beginning of the returned page.
     # @return [Array<(ListPowerpacksResponse, Integer, Hash)>] ListPowerpacksResponse data, response status code and response headers
     def list_powerpacks_with_http_info(opts = {})
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PowerpackAPI.list_powerpacks ...'
       end
+      if @api_client.config.client_side_validation && !opts[:'page_limit'].nil? && opts[:'page_limit'] > 1000
+        fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling PowerpackAPI.list_powerpacks, must be smaller than or equal to 1000.'
+      end
       # resource path
       local_var_path = '/api/v2/powerpacks'
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'page[limit]'] = opts[:'page_limit'] if !opts[:'page_limit'].nil?
+      query_params[:'page[offset]'] = opts[:'page_offset'] if !opts[:'page_offset'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -278,6 +285,27 @@ module DatadogAPIClient::V2
         @api_client.config.logger.debug "API called: PowerpackAPI#list_powerpacks\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
+    end
+
+    # Get all powerpacks.
+    #
+    # Provide a paginated version of {#list_powerpacks}, returning all items.
+    #
+    # To use it you need to use a block: list_powerpacks_with_pagination { |item| p item }
+    #
+    # @yield [PowerpackData] Paginated items
+    def list_powerpacks_with_pagination(opts = {})
+        api_version = "V2"
+        page_size = @api_client.get_attribute_from_path(opts, "page_limit", 25)
+        @api_client.set_attribute_from_path(api_version, opts, "page_limit", Integer, page_size)
+        while true do
+            response = list_powerpacks(opts)
+            @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
+            if @api_client.get_attribute_from_path(response, "data").length < page_size
+              break
+            end
+            @api_client.set_attribute_from_path(api_version, opts, "page_offset", Integer, @api_client.get_attribute_from_path(opts, "page_offset", 0) + page_size)
+        end
     end
 
     # Update a powerpack.
