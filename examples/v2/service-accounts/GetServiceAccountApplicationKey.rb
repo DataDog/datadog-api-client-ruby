@@ -2,4 +2,10 @@
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::ServiceAccountsAPI.new
-p api_instance.get_service_account_application_key("00000000-0000-1234-0000-000000000000", "app_key_id")
+
+# there is a valid "service_account_user" in the system
+SERVICE_ACCOUNT_USER_DATA_ID = ENV["SERVICE_ACCOUNT_USER_DATA_ID"]
+
+# there is a valid "service_account_application_key" for "service_account_user"
+SERVICE_ACCOUNT_APPLICATION_KEY_DATA_ID = ENV["SERVICE_ACCOUNT_APPLICATION_KEY_DATA_ID"]
+p api_instance.get_service_account_application_key(SERVICE_ACCOUNT_USER_DATA_ID, SERVICE_ACCOUNT_APPLICATION_KEY_DATA_ID)
