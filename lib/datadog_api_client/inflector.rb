@@ -152,6 +152,8 @@ module DatadogAPIClient
           "v1.graph_snapshot" => "GraphSnapshot",
           "v1.group_widget_definition" => "GroupWidgetDefinition",
           "v1.group_widget_definition_type" => "GroupWidgetDefinitionType",
+          "v1.group_widget_item" => "GroupWidgetItem",
+          "v1.group_widget_item_definition" => "GroupWidgetItemDefinition",
           "v1.heat_map_widget_definition" => "HeatMapWidgetDefinition",
           "v1.heat_map_widget_definition_type" => "HeatMapWidgetDefinitionType",
           "v1.heat_map_widget_request" => "HeatMapWidgetRequest",
