@@ -71,7 +71,7 @@ module DatadogAPIClient::V1
         :'title' => :'String',
         :'title_align' => :'WidgetTextAlign',
         :'type' => :'GroupWidgetDefinitionType',
-        :'widgets' => :'Array<Widget>'
+        :'widgets' => :'Array<GroupWidgetItem>'
       }
     end
 
