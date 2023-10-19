@@ -974,6 +974,13 @@ ScenariosModelMappings = {
             "page_size" => "Integer",
             "page_cursor" => "String",
     },
+    "v2.ListContainers" => {
+            "filter_tags" => "String",
+            "group_by" => "String",
+            "sort" => "String",
+            "page_size" => "Integer",
+            "page_cursor" => "String",
+    },
     "v2.DeleteDashboardListItems" => {
             "dashboard_list_id" => "Integer",
             "body" => "DashboardListDeleteItemsRequest",
