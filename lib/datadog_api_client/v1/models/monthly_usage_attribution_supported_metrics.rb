@@ -75,6 +75,8 @@ module DatadogAPIClient::V1
     INFRA_HOST_PERCENTAGE = "infra_host_percentage".freeze
     INVOCATIONS_USAGE = "invocations_usage".freeze
     INVOCATIONS_PERCENTAGE = "invocations_percentage".freeze
+    LAMBDA_TRACED_INVOCATIONS_USAGE = "lambda_traced_invocations_usage".freeze
+    LAMBDA_TRACED_INVOCATIONS_PERCENTAGE = "lambda_traced_invocations_percentage".freeze
     MOBILE_APP_TESTING_USAGE = "mobile_app_testing_percentage".freeze
     MOBILE_APP_TESTING_PERCENTAGE = "mobile_app_testing_usage".freeze
     NDM_NETFLOW_USAGE = "ndm_netflow_usage".freeze
