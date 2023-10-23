@@ -5,7 +5,7 @@ require 'digest'
 
 require_relative '../scenarios_model_mapping'
 
-SLEEP_AFTER_REQUEST = ENV["SLEEP_AFTER_REQUEST"].present? ? ENV["SLEEP_AFTER_REQUEST"].to_i : 0
+SLEEP_AFTER_REQUEST = ENV.has_key?("SLEEP_AFTER_REQUEST") ? ENV["SLEEP_AFTER_REQUEST"].to_i : 0
 
 module APIWorld
   def api
@@ -22,6 +22,12 @@ module APIWorld
         c.server_index = 2
         c.server_variables[:site] = ENV['DD_TEST_SITE']
       end
+
+      if ENV.key? 'DEBUG' then
+        c.debugging = true if ENV['DEBUG'].downcase == "true" else false
+      end
+
+      c.enable_retry = true
     end
     configuration
   end
@@ -215,7 +221,6 @@ Given('a valid "appKeyAuth" key in the system') do
 end
 
 Given(/^an instance of "([^"]+)" API$/) do |api_name|
-  configuration.debugging = ENV["DEBUG"].present?
   @api_instance = api.const_get("V#{@api_version}").const_get("#{api_name}API").new api_client
 end
 
@@ -323,7 +328,13 @@ end
 
 Then(/^the response "([^"]+)" has item with field "([^"]+)" with value (.*)$/) do |response_path, key_path, value|
   response_list = @response[0].lookup response_path
-  expect(response_list.find { |item| item.lookup(key_path) == JSON.parse(value.templated(fixtures), :symbolize_names => true) }).to_not be_nil
+  expect(response_list.find {|item|
+    begin
+      item.lookup(key_path) == JSON.parse(value.templated(fixtures), :symbolize_names => true)
+    rescue
+      false
+    end
+  }).to_not be_nil
 end
 
 Then(/^the response "([^"]+)" array contains value (.*)$/) do |response_path, value|

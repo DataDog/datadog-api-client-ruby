@@ -167,20 +167,7 @@ module DatadogAPIClient::V1
     #
     # ##### Event Alert Query
     #
-    # Example: `events('sources:nagios status:error,warning priority:normal tags: "string query"').rollup("count").last("1h")"`
-    #
-    # - `event`, the event query string:
-    # - `string_query` free text query to match against event title and text.
-    # - `sources` event sources (comma-separated).
-    # - `status` event statuses (comma-separated). Valid options: error, warn, and info.
-    # - `priority` event priorities (comma-separated). Valid options: low, normal, all.
-    # - `host` event reporting host (comma-separated).
-    # - `tags` event tags (comma-separated).
-    # - `excluded_tags` excluded event tags (comma-separated).
-    # - `rollup` the stats roll-up method. `count` is the only supported method now.
-    # - `last` the timeframe to roll up the counts. Examples: 45m, 4h. Supported timeframes: m, h and d. This value should not exceed 48 hours.
-    #
-    # **NOTE** The Event Alert Query is being deprecated and replaced by the Event V2 Alert Query. For more information, see the [Event Migration guide](https://docs.datadoghq.com/events/guides/migrating_to_new_events_features/).
+    # **Note:** The Event Alert Query has been replaced by the Event V2 Alert Query. For more information, see the [Event Migration guide](https://docs.datadoghq.com/service_management/events/guides/migrating_to_new_events_features/).
     #
     # ##### Event V2 Alert Query
     #
@@ -246,8 +233,6 @@ module DatadogAPIClient::V1
     # - `operator` `<`, `<=`, `>`, `>=`, `==`, or `!=`.
     # - `#` an integer or decimal number used to set the threshold.
     #
-    # **NOTE** Only available on US1-FED and in closed beta on US1, EU, AP1, US3, and US5.
-    #
     # ##### CI Pipelines Alert Query
     #
     # Example: `ci-pipelines(query).rollup(rollup_method[, measure]).last(time_window) operator #`
@@ -259,8 +244,6 @@ module DatadogAPIClient::V1
     # - `operator` `<`, `<=`, `>`, `>=`, `==`, or `!=`.
     # - `#` an integer or decimal number used to set the threshold.
     #
-    # **NOTE** CI Pipeline monitors are in alpha on US1, EU, AP1, US3, and US5.
-    #
     # ##### CI Tests Alert Query
     #
     # Example: `ci-tests(query).rollup(rollup_method[, measure]).last(time_window) operator #`
@@ -271,8 +254,6 @@ module DatadogAPIClient::V1
     # - `time_window` #m (between 1 and 2880), #h (between 1 and 48).
     # - `operator` `<`, `<=`, `>`, `>=`, `==`, or `!=`.
     # - `#` an integer or decimal number used to set the threshold.
-    #
-    # **NOTE** CI Test monitors are available only in closed beta on US1, EU, AP1, US3, and US5.
     #
     # ##### Error Tracking Alert Query
     #

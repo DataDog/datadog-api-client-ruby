@@ -1,9 +1,6 @@
 # Send pipeline job event returns "Request accepted for processing" response
 
 require "datadog_api_client"
-DatadogAPIClient.configure do |config|
-  config.unstable_operations["v2.create_ci_app_pipeline_event".to_sym] = true
-end
 api_instance = DatadogAPIClient::V2::CIVisibilityPipelinesAPI.new
 
 body = DatadogAPIClient::V2::CIAppCreatePipelineEventRequest.new({

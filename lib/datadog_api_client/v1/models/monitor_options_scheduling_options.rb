@@ -21,6 +21,9 @@ module DatadogAPIClient::V1
   class MonitorOptionsSchedulingOptions
     include BaseGenericModel
 
+    # Configuration options for the custom schedule. **This feature is in private beta.**
+    attr_accessor :custom_schedule
+
     # Configuration options for the evaluation window. If `hour_starts` is set, no other fields may be set. Otherwise, `day_starts` and `month_starts` must be set together.
     attr_accessor :evaluation_window
 
@@ -28,6 +31,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.attribute_map
       {
+        :'custom_schedule' => :'custom_schedule',
         :'evaluation_window' => :'evaluation_window'
       }
     end
@@ -36,6 +40,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
+        :'custom_schedule' => :'MonitorOptionsCustomSchedule',
         :'evaluation_window' => :'MonitorOptionsSchedulingOptionsEvaluationWindow'
       }
     end
@@ -56,6 +61,10 @@ module DatadogAPIClient::V1
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'custom_schedule')
+        self.custom_schedule = attributes[:'custom_schedule']
+      end
+
       if attributes.key?(:'evaluation_window')
         self.evaluation_window = attributes[:'evaluation_window']
       end
@@ -67,6 +76,7 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          custom_schedule == o.custom_schedule &&
           evaluation_window == o.evaluation_window
     end
 
@@ -74,7 +84,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [evaluation_window].hash
+      [custom_schedule, evaluation_window].hash
     end
   end
 end

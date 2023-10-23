@@ -1,0 +1,273 @@
+http_interactions:
+- recorded_at: Mon, 16 Oct 2023 15:58:19 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+    method: GET
+    uri: https://api.datadoghq.com/api/v2/containers?group_by=short_image
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data": [{"type": "container_group", "id": "test_id", "attributes":
+        {"count": 123, "tags": {"short_image": "test_short_image"}}, "relationships":
+        {"containers": {"links": {"related": "test_related"}, "data": []}}}, {"type":
+        "container_group", "id": "test_id", "attributes": {"count": 1, "tags": {"short_image":
+        "test_short_image"}}, "relationships": {"containers": {"links": {"related":
+        "test_related"}, "data": []}}}, {"type": "container_group", "id": "test_id",
+        "attributes": {"count": 1, "tags": {"short_image": "test_short_image"}}, "relationships":
+        {"containers": {"links": {"related": "test_related"}, "data": []}}}, {"type":
+        "container_group", "id": "test_id", "attributes": {"count": 1, "tags": {"short_image":
+        "test_short_image"}}, "relationships": {"containers": {"links": {"related":
+        "test_related"}, "data": []}}}, {"type": "container_group", "id": "test_id",
+        "attributes": {"count": 1, "tags": {"short_image": "test_short_image"}}, "relationships":
+        {"containers": {"links": {"related": "test_related"}, "data": []}}}, {"type":
+        "container_group", "id": "test_id", "attributes": {"count": 1, "tags": {"short_image":
+        "test_short_image"}}, "relationships": {"containers": {"links": {"related":
+        "test_related"}, "data": []}}}, {"type": "container_group", "id": "test_id",
+        "attributes": {"count": 1, "tags": {"short_image": "test_short_image"}}, "relationships":
+        {"containers": {"links": {"related": "test_related"}, "data": []}}}, {"type":
+        "container_group", "id": "test_id", "attributes": {"count": 1, "tags": {"short_image":
+        "test_short_image"}}, "relationships": {"containers": {"links": {"related":
+        "test_related"}, "data": []}}}, {"type": "container_group", "id": "test_id",
+        "attributes": {"count": 1, "tags": {"short_image": "test_short_image"}}, "relationships":
+        {"containers": {"links": {"related": "test_related"}, "data": []}}}, {"type":
+        "container_group", "id": "test_id", "attributes": {"count": 1, "tags": {"short_image":
+        "test_short_image"}}, "relationships": {"containers": {"links": {"related":
+        "test_related"}, "data": []}}}, {"type": "container_group", "id": "test_id",
+        "attributes": {"count": 1, "tags": {"short_image": "test_short_image"}}, "relationships":
+        {"containers": {"links": {"related": "test_related"}, "data": []}}}, {"type":
+        "container_group", "id": "test_id", "attributes": {"count": 1, "tags": {"short_image":
+        "test_short_image"}}, "relationships": {"containers": {"links": {"related":
+        "test_related"}, "data": []}}}, {"type": "container_group", "id": "test_id",
+        "attributes": {"count": 1, "tags": {"short_image": "test_short_image"}}, "relationships":
+        {"containers": {"links": {"related": "test_related"}, "data": []}}}, {"type":
+        "container_group", "id": "test_id", "attributes": {"count": 1, "tags": {"short_image":
+        "test_short_image"}}, "relationships": {"containers": {"links": {"related":
+        "test_related"}, "data": []}}}, {"type": "container_group", "id": "test_id",
+        "attributes": {"count": 1, "tags": {"short_image": "test_short_image"}}, "relationships":
+        {"containers": {"links": {"related": "test_related"}, "data": []}}}, {"type":
+        "container_group", "id": "test_id", "attributes": {"count": 1, "tags": {"short_image":
+        "test_short_image"}}, "relationships": {"containers": {"links": {"related":
+        "test_related"}, "data": []}}}, {"type": "container_group", "id": "test_id",
+        "attributes": {"count": 1, "tags": {"short_image": "test_short_image"}}, "relationships":
+        {"containers": {"links": {"related": "test_related"}, "data": []}}}, {"type":
+        "container_group", "id": "test_id", "attributes": {"count": 1, "tags": {"short_image":
+        "test_short_image"}}, "relationships": {"containers": {"links": {"related":
+        "test_related"}, "data": []}}}, {"type": "container_group", "id": "test_id",
+        "attributes": {"count": 1, "tags": {"short_image": "test_short_image"}}, "relationships":
+        {"containers": {"links": {"related": "test_related"}, "data": []}}}, {"type":
+        "container_group", "id": "test_id", "attributes": {"count": 1, "tags": {"short_image":
+        "test_short_image"}}, "relationships": {"containers": {"links": {"related":
+        "test_related"}, "data": []}}}, {"type": "container_group", "id": "test_id",
+        "attributes": {"count": 1, "tags": {"short_image": "test_short_image"}}, "relationships":
+        {"containers": {"links": {"related": "test_related"}, "data": []}}}, {"type":
+        "container_group", "id": "test_id", "attributes": {"count": 1, "tags": {"short_image":
+        "test_short_image"}}, "relationships": {"containers": {"links": {"related":
+        "test_related"}, "data": []}}}, {"type": "container_group", "id": "test_id",
+        "attributes": {"count": 1, "tags": {"short_image": "test_short_image"}}, "relationships":
+        {"containers": {"links": {"related": "test_related"}, "data": []}}}, {"type":
+        "container_group", "id": "test_id", "attributes": {"count": 1, "tags": {"short_image":
+        "test_short_image"}}, "relationships": {"containers": {"links": {"related":
+        "test_related"}, "data": []}}}, {"type": "container_group", "id": "test_id",
+        "attributes": {"count": 1, "tags": {"short_image": "test_short_image"}}, "relationships":
+        {"containers": {"links": {"related": "test_related"}, "data": []}}}, {"type":
+        "container_group", "id": "test_id", "attributes": {"count": 1, "tags": {"short_image":
+        "test_short_image"}}, "relationships": {"containers": {"links": {"related":
+        "test_related"}, "data": []}}}, {"type": "container_group", "id": "test_id",
+        "attributes": {"count": 1, "tags": {"short_image": "test_short_image"}}, "relationships":
+        {"containers": {"links": {"related": "test_related"}, "data": []}}}, {"type":
+        "container_group", "id": "test_id", "attributes": {"count": 1, "tags": {"short_image":
+        "test_short_image"}}, "relationships": {"containers": {"links": {"related":
+        "test_related"}, "data": []}}}, {"type": "container_group", "id": "test_id",
+        "attributes": {"count": 1, "tags": {"short_image": "test_short_image"}}, "relationships":
+        {"containers": {"links": {"related": "test_related"}, "data": []}}}, {"type":
+        "container_group", "id": "test_id", "attributes": {"count": 1, "tags": {"short_image":
+        "test_short_image"}}, "relationships": {"containers": {"links": {"related":
+        "test_related"}, "data": []}}}, {"type": "container_group", "id": "test_id",
+        "attributes": {"count": 1, "tags": {"short_image": "test_short_image"}}, "relationships":
+        {"containers": {"links": {"related": "test_related"}, "data": []}}}, {"type":
+        "container_group", "id": "test_id", "attributes": {"count": 1, "tags": {"short_image":
+        "test_short_image"}}, "relationships": {"containers": {"links": {"related":
+        "test_related"}, "data": []}}}, {"type": "container_group", "id": "test_id",
+        "attributes": {"count": 1, "tags": {"short_image": "test_short_image"}}, "relationships":
+        {"containers": {"links": {"related": "test_related"}, "data": []}}}, {"type":
+        "container_group", "id": "test_id", "attributes": {"count": 1, "tags": {"short_image":
+        "test_short_image"}}, "relationships": {"containers": {"links": {"related":
+        "test_related"}, "data": []}}}, {"type": "container_group", "id": "test_id",
+        "attributes": {"count": 1, "tags": {"short_image": "test_short_image"}}, "relationships":
+        {"containers": {"links": {"related": "test_related"}, "data": []}}}, {"type":
+        "container_group", "id": "test_id", "attributes": {"count": 1, "tags": {"short_image":
+        "test_short_image"}}, "relationships": {"containers": {"links": {"related":
+        "test_related"}, "data": []}}}, {"type": "container_group", "id": "test_id",
+        "attributes": {"count": 1, "tags": {"short_image": "test_short_image"}}, "relationships":
+        {"containers": {"links": {"related": "test_related"}, "data": []}}}, {"type":
+        "container_group", "id": "test_id", "attributes": {"count": 1, "tags": {"short_image":
+        "test_short_image"}}, "relationships": {"containers": {"links": {"related":
+        "test_related"}, "data": []}}}, {"type": "container_group", "id": "test_id",
+        "attributes": {"count": 1, "tags": {"short_image": "test_short_image"}}, "relationships":
+        {"containers": {"links": {"related": "test_related"}, "data": []}}}, {"type":
+        "container_group", "id": "test_id", "attributes": {"count": 1, "tags": {"short_image":
+        "test_short_image"}}, "relationships": {"containers": {"links": {"related":
+        "test_related"}, "data": []}}}, {"type": "container_group", "id": "test_id",
+        "attributes": {"count": 1, "tags": {"short_image": "test_short_image"}}, "relationships":
+        {"containers": {"links": {"related": "test_related"}, "data": []}}}, {"type":
+        "container_group", "id": "test_id", "attributes": {"count": 1, "tags": {"short_image":
+        "test_short_image"}}, "relationships": {"containers": {"links": {"related":
+        "test_related"}, "data": []}}}, {"type": "container_group", "id": "test_id",
+        "attributes": {"count": 1, "tags": {"short_image": "test_short_image"}}, "relationships":
+        {"containers": {"links": {"related": "test_related"}, "data": []}}}, {"type":
+        "container_group", "id": "test_id", "attributes": {"count": 1, "tags": {"short_image":
+        "test_short_image"}}, "relationships": {"containers": {"links": {"related":
+        "test_related"}, "data": []}}}, {"type": "container_group", "id": "test_id",
+        "attributes": {"count": 1, "tags": {"short_image": "test_short_image"}}, "relationships":
+        {"containers": {"links": {"related": "test_related"}, "data": []}}}, {"type":
+        "container_group", "id": "test_id", "attributes": {"count": 1, "tags": {"short_image":
+        "test_short_image"}}, "relationships": {"containers": {"links": {"related":
+        "test_related"}, "data": []}}}, {"type": "container_group", "id": "test_id",
+        "attributes": {"count": 1, "tags": {"short_image": "test_short_image"}}, "relationships":
+        {"containers": {"links": {"related": "test_related"}, "data": []}}}, {"type":
+        "container_group", "id": "test_id", "attributes": {"count": 1, "tags": {"short_image":
+        "test_short_image"}}, "relationships": {"containers": {"links": {"related":
+        "test_related"}, "data": []}}}, {"type": "container_group", "id": "test_id",
+        "attributes": {"count": 1, "tags": {"short_image": "test_short_image"}}, "relationships":
+        {"containers": {"links": {"related": "test_related"}, "data": []}}}, {"type":
+        "container_group", "id": "test_id", "attributes": {"count": 1, "tags": {"short_image":
+        "test_short_image"}}, "relationships": {"containers": {"links": {"related":
+        "test_related"}, "data": []}}}, {"type": "container_group", "id": "test_id",
+        "attributes": {"count": 1, "tags": {"short_image": "test_short_image"}}, "relationships":
+        {"containers": {"links": {"related": "test_related"}, "data": []}}}, {"type":
+        "container_group", "id": "test_id", "attributes": {"count": 1, "tags": {"short_image":
+        "test_short_image"}}, "relationships": {"containers": {"links": {"related":
+        "test_related"}, "data": []}}}, {"type": "container_group", "id": "test_id",
+        "attributes": {"count": 1, "tags": {"short_image": "test_short_image"}}, "relationships":
+        {"containers": {"links": {"related": "test_related"}, "data": []}}}, {"type":
+        "container_group", "id": "test_id", "attributes": {"count": 1, "tags": {"short_image":
+        "test_short_image"}}, "relationships": {"containers": {"links": {"related":
+        "test_related"}, "data": []}}}, {"type": "container_group", "id": "test_id",
+        "attributes": {"count": 1, "tags": {"short_image": "test_short_image"}}, "relationships":
+        {"containers": {"links": {"related": "test_related"}, "data": []}}}, {"type":
+        "container_group", "id": "test_id", "attributes": {"count": 1, "tags": {"short_image":
+        "test_short_image"}}, "relationships": {"containers": {"links": {"related":
+        "test_related"}, "data": []}}}, {"type": "container_group", "id": "test_id",
+        "attributes": {"count": 1, "tags": {"short_image": "test_short_image"}}, "relationships":
+        {"containers": {"links": {"related": "test_related"}, "data": []}}}, {"type":
+        "container_group", "id": "test_id", "attributes": {"count": 1, "tags": {"short_image":
+        "test_short_image"}}, "relationships": {"containers": {"links": {"related":
+        "test_related"}, "data": []}}}, {"type": "container_group", "id": "test_id",
+        "attributes": {"count": 1, "tags": {"short_image": "test_short_image"}}, "relationships":
+        {"containers": {"links": {"related": "test_related"}, "data": []}}}, {"type":
+        "container_group", "id": "test_id", "attributes": {"count": 1, "tags": {"short_image":
+        "test_short_image"}}, "relationships": {"containers": {"links": {"related":
+        "test_related"}, "data": []}}}, {"type": "container_group", "id": "test_id",
+        "attributes": {"count": 1, "tags": {"short_image": "test_short_image"}}, "relationships":
+        {"containers": {"links": {"related": "test_related"}, "data": []}}}, {"type":
+        "container_group", "id": "test_id", "attributes": {"count": 1, "tags": {"short_image":
+        "test_short_image"}}, "relationships": {"containers": {"links": {"related":
+        "test_related"}, "data": []}}}, {"type": "container_group", "id": "test_id",
+        "attributes": {"count": 1, "tags": {"short_image": "test_short_image"}}, "relationships":
+        {"containers": {"links": {"related": "test_related"}, "data": []}}}, {"type":
+        "container_group", "id": "test_id", "attributes": {"count": 1, "tags": {"short_image":
+        "test_short_image"}}, "relationships": {"containers": {"links": {"related":
+        "test_related"}, "data": []}}}, {"type": "container_group", "id": "test_id",
+        "attributes": {"count": 1, "tags": {"short_image": "test_short_image"}}, "relationships":
+        {"containers": {"links": {"related": "test_related"}, "data": []}}}, {"type":
+        "container_group", "id": "test_id", "attributes": {"count": 1, "tags": {"short_image":
+        "test_short_image"}}, "relationships": {"containers": {"links": {"related":
+        "test_related"}, "data": []}}}, {"type": "container_group", "id": "test_id",
+        "attributes": {"count": 1, "tags": {"short_image": "test_short_image"}}, "relationships":
+        {"containers": {"links": {"related": "test_related"}, "data": []}}}, {"type":
+        "container_group", "id": "test_id", "attributes": {"count": 1, "tags": {"short_image":
+        "test_short_image"}}, "relationships": {"containers": {"links": {"related":
+        "test_related"}, "data": []}}}, {"type": "container_group", "id": "test_id",
+        "attributes": {"count": 1, "tags": {"short_image": "test_short_image"}}, "relationships":
+        {"containers": {"links": {"related": "test_related"}, "data": []}}}, {"type":
+        "container_group", "id": "test_id", "attributes": {"count": 1, "tags": {"short_image":
+        "test_short_image"}}, "relationships": {"containers": {"links": {"related":
+        "test_related"}, "data": []}}}, {"type": "container_group", "id": "test_id",
+        "attributes": {"count": 1, "tags": {"short_image": "test_short_image"}}, "relationships":
+        {"containers": {"links": {"related": "test_related"}, "data": []}}}, {"type":
+        "container_group", "id": "test_id", "attributes": {"count": 1, "tags": {"short_image":
+        "test_short_image"}}, "relationships": {"containers": {"links": {"related":
+        "test_related"}, "data": []}}}, {"type": "container_group", "id": "test_id",
+        "attributes": {"count": 1, "tags": {"short_image": "test_short_image"}}, "relationships":
+        {"containers": {"links": {"related": "test_related"}, "data": []}}}, {"type":
+        "container_group", "id": "test_id", "attributes": {"count": 1, "tags": {"short_image":
+        "test_short_image"}}, "relationships": {"containers": {"links": {"related":
+        "test_related"}, "data": []}}}, {"type": "container_group", "id": "test_id",
+        "attributes": {"count": 1, "tags": {"short_image": "test_short_image"}}, "relationships":
+        {"containers": {"links": {"related": "test_related"}, "data": []}}}, {"type":
+        "container_group", "id": "test_id", "attributes": {"count": 1, "tags": {"short_image":
+        "test_short_image"}}, "relationships": {"containers": {"links": {"related":
+        "test_related"}, "data": []}}}, {"type": "container_group", "id": "test_id",
+        "attributes": {"count": 1, "tags": {"short_image": "test_short_image"}}, "relationships":
+        {"containers": {"links": {"related": "test_related"}, "data": []}}}, {"type":
+        "container_group", "id": "test_id", "attributes": {"count": 1, "tags": {"short_image":
+        "test_short_image"}}, "relationships": {"containers": {"links": {"related":
+        "test_related"}, "data": []}}}, {"type": "container_group", "id": "test_id",
+        "attributes": {"count": 1, "tags": {"short_image": "test_short_image"}}, "relationships":
+        {"containers": {"links": {"related": "test_related"}, "data": []}}}, {"type":
+        "container_group", "id": "test_id", "attributes": {"count": 1, "tags": {"short_image":
+        "test_short_image"}}, "relationships": {"containers": {"links": {"related":
+        "test_related"}, "data": []}}}, {"type": "container_group", "id": "test_id",
+        "attributes": {"count": 1, "tags": {"short_image": "test_short_image"}}, "relationships":
+        {"containers": {"links": {"related": "test_related"}, "data": []}}}, {"type":
+        "container_group", "id": "test_id", "attributes": {"count": 1, "tags": {"short_image":
+        "test_short_image"}}, "relationships": {"containers": {"links": {"related":
+        "test_related"}, "data": []}}}, {"type": "container_group", "id": "test_id",
+        "attributes": {"count": 1, "tags": {"short_image": "test_short_image"}}, "relationships":
+        {"containers": {"links": {"related": "test_related"}, "data": []}}}, {"type":
+        "container_group", "id": "test_id", "attributes": {"count": 1, "tags": {"short_image":
+        "test_short_image"}}, "relationships": {"containers": {"links": {"related":
+        "test_related"}, "data": []}}}, {"type": "container_group", "id": "test_id",
+        "attributes": {"count": 1, "tags": {"short_image": "test_short_image"}}, "relationships":
+        {"containers": {"links": {"related": "test_related"}, "data": []}}}, {"type":
+        "container_group", "id": "test_id", "attributes": {"count": 1, "tags": {"short_image":
+        "test_short_image"}}, "relationships": {"containers": {"links": {"related":
+        "test_related"}, "data": []}}}, {"type": "container_group", "id": "test_id",
+        "attributes": {"count": 1, "tags": {"short_image": "test_short_image"}}, "relationships":
+        {"containers": {"links": {"related": "test_related"}, "data": []}}}, {"type":
+        "container_group", "id": "test_id", "attributes": {"count": 1, "tags": {"short_image":
+        "test_short_image"}}, "relationships": {"containers": {"links": {"related":
+        "test_related"}, "data": []}}}, {"type": "container_group", "id": "test_id",
+        "attributes": {"count": 1, "tags": {"short_image": "test_short_image"}}, "relationships":
+        {"containers": {"links": {"related": "test_related"}, "data": []}}}, {"type":
+        "container_group", "id": "test_id", "attributes": {"count": 1, "tags": {"short_image":
+        "test_short_image"}}, "relationships": {"containers": {"links": {"related":
+        "test_related"}, "data": []}}}, {"type": "container_group", "id": "test_id",
+        "attributes": {"count": 1, "tags": {"short_image": "test_short_image"}}, "relationships":
+        {"containers": {"links": {"related": "test_related"}, "data": []}}}, {"type":
+        "container_group", "id": "test_id", "attributes": {"count": 1, "tags": {"short_image":
+        "test_short_image"}}, "relationships": {"containers": {"links": {"related":
+        "test_related"}, "data": []}}}, {"type": "container_group", "id": "test_id",
+        "attributes": {"count": 1, "tags": {"short_image": "test_short_image"}}, "relationships":
+        {"containers": {"links": {"related": "test_related"}, "data": []}}}, {"type":
+        "container_group", "id": "test_id", "attributes": {"count": 1, "tags": {"short_image":
+        "test_short_image"}}, "relationships": {"containers": {"links": {"related":
+        "test_related"}, "data": []}}}, {"type": "container_group", "id": "test_id",
+        "attributes": {"count": 1, "tags": {"short_image": "test_short_image"}}, "relationships":
+        {"containers": {"links": {"related": "test_related"}, "data": []}}}, {"type":
+        "container_group", "id": "test_id", "attributes": {"count": 1, "tags": {"short_image":
+        "test_short_image"}}, "relationships": {"containers": {"links": {"related":
+        "test_related"}, "data": []}}}, {"type": "container_group", "id": "test_id",
+        "attributes": {"count": 1, "tags": {"short_image": "test_short_image"}}, "relationships":
+        {"containers": {"links": {"related": "test_related"}, "data": []}}}, {"type":
+        "container_group", "id": "test_id", "attributes": {"count": 1, "tags": {"short_image":
+        "test_short_image"}}, "relationships": {"containers": {"links": {"related":
+        "test_related"}, "data": []}}}, {"type": "container_group", "id": "test_id",
+        "attributes": {"count": 1, "tags": {"short_image": "test_short_image"}}, "relationships":
+        {"containers": {"links": {"related": "test_related"}, "data": []}}}, {"type":
+        "container_group", "id": "test_id", "attributes": {"count": 1, "tags": {"short_image":
+        "test_short_image"}}, "relationships": {"containers": {"links": {"related":
+        "test_related"}, "data": []}}}], "meta": {"pagination": {"cursor": "", "prev_cursor":
+        null, "next_cursor": "", "limit": 100, "type": "cursor_limit", "total": 0}},
+        "links": {"self": "https://api.datadoghq.com/api/v2/containers?group_by=short_image",
+        "last": null, "next": null, "prev": null, "first": "https://api.datadoghq.com/api/v2/containers?group_by=short_image&page[size]=100"}}'
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+recorded_with: VCR 6.0.0

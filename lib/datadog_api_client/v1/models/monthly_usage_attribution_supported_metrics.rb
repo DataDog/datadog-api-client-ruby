@@ -37,6 +37,8 @@ module DatadogAPIClient::V1
     BROWSER_PERCENTAGE = "browser_percentage".freeze
     CI_VISIBILITY_ITR_USAGE = "ci_visibility_itr_usage".freeze
     CI_VISIBILITY_ITR_PERCENTAGE = "ci_visibility_itr_percentage".freeze
+    CLOUD_SIEM_USAGE = "cloud_siem_usage".freeze
+    CLOUD_SIEM_PERCENTAGE = "cloud_siem_percentage".freeze
     CONTAINER_EXCL_AGENT_USAGE = "container_excl_agent_usage".freeze
     CONTAINER_EXCL_AGENT_PERCENTAGE = "container_excl_agent_percentage".freeze
     CONTAINER_USAGE = "container_usage".freeze
@@ -75,6 +77,8 @@ module DatadogAPIClient::V1
     INVOCATIONS_PERCENTAGE = "invocations_percentage".freeze
     MOBILE_APP_TESTING_USAGE = "mobile_app_testing_percentage".freeze
     MOBILE_APP_TESTING_PERCENTAGE = "mobile_app_testing_usage".freeze
+    NDM_NETFLOW_USAGE = "ndm_netflow_usage".freeze
+    NDM_NETFLOW_PERCENTAGE = "ndm_netflow_percentage".freeze
     NPM_HOST_USAGE = "npm_host_usage".freeze
     NPM_HOST_PERCENTAGE = "npm_host_percentage".freeze
     OBS_PIPELINE_BYTES_USAGE = "obs_pipeline_bytes_usage".freeze

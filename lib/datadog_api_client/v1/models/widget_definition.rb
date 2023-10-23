@@ -45,6 +45,7 @@ module DatadogAPIClient::V1
           :'LogStreamWidgetDefinition',
           :'MonitorSummaryWidgetDefinition',
           :'NoteWidgetDefinition',
+          :'PowerpackWidgetDefinition',
           :'QueryValueWidgetDefinition',
           :'RunWorkflowWidgetDefinition',
           :'SLOListWidgetDefinition',

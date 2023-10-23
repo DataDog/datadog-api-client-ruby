@@ -5,15 +5,10 @@ api_instance = DatadogAPIClient::V2::KeyManagementAPI.new
 
 body = DatadogAPIClient::V2::ApplicationKeyCreateRequest.new({
   data: DatadogAPIClient::V2::ApplicationKeyCreateData.new({
-    attributes: DatadogAPIClient::V2::ApplicationKeyCreateAttributes.new({
-      name: "Application Key for managing dashboards",
-      scopes: [
-        "dashboards_read",
-        "dashboards_write",
-        "dashboards_public_share",
-      ],
-    }),
     type: DatadogAPIClient::V2::ApplicationKeysType::APPLICATION_KEYS,
+    attributes: DatadogAPIClient::V2::ApplicationKeyCreateAttributes.new({
+      name: "Example-Key-Management",
+    }),
   }),
 })
 p api_instance.create_current_user_application_key(body)

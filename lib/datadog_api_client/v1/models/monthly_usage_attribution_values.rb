@@ -69,6 +69,12 @@ module DatadogAPIClient::V1
     # The Git committers for Intelligent Test Runner usage by tag(s).
     attr_accessor :ci_visibility_itr_usage
 
+    # The percentage of Cloud Security Information and Event Management usage by tag(s).
+    attr_accessor :cloud_siem_percentage
+
+    # The Cloud Security Information and Event Management usage by tag(s).
+    attr_accessor :cloud_siem_usage
+
     # The percentage of container usage without the Datadog Agent by tag(s).
     attr_accessor :container_excl_agent_percentage
 
@@ -189,6 +195,12 @@ module DatadogAPIClient::V1
     # The Synthetic mobile application test usage by tag(s).
     attr_accessor :mobile_app_testing_usage
 
+    # The percentage of Network Device Monitoring NetFlow usage by tag(s).
+    attr_accessor :ndm_netflow_percentage
+
+    # The Network Device Monitoring NetFlow usage by tag(s).
+    attr_accessor :ndm_netflow_usage
+
     # The percentage of network host usage by tag(s).
     attr_accessor :npm_host_percentage
 
@@ -269,6 +281,8 @@ module DatadogAPIClient::V1
         :'browser_usage' => :'browser_usage',
         :'ci_visibility_itr_percentage' => :'ci_visibility_itr_percentage',
         :'ci_visibility_itr_usage' => :'ci_visibility_itr_usage',
+        :'cloud_siem_percentage' => :'cloud_siem_percentage',
+        :'cloud_siem_usage' => :'cloud_siem_usage',
         :'container_excl_agent_percentage' => :'container_excl_agent_percentage',
         :'container_excl_agent_usage' => :'container_excl_agent_usage',
         :'container_percentage' => :'container_percentage',
@@ -309,6 +323,8 @@ module DatadogAPIClient::V1
         :'invocations_usage' => :'invocations_usage',
         :'mobile_app_testing_percentage' => :'mobile_app_testing_percentage',
         :'mobile_app_testing_usage' => :'mobile_app_testing_usage',
+        :'ndm_netflow_percentage' => :'ndm_netflow_percentage',
+        :'ndm_netflow_usage' => :'ndm_netflow_usage',
         :'npm_host_percentage' => :'npm_host_percentage',
         :'npm_host_usage' => :'npm_host_usage',
         :'obs_pipeline_bytes_percentage' => :'obs_pipeline_bytes_percentage',
@@ -352,6 +368,8 @@ module DatadogAPIClient::V1
         :'browser_usage' => :'Float',
         :'ci_visibility_itr_percentage' => :'Float',
         :'ci_visibility_itr_usage' => :'Float',
+        :'cloud_siem_percentage' => :'Float',
+        :'cloud_siem_usage' => :'Float',
         :'container_excl_agent_percentage' => :'Float',
         :'container_excl_agent_usage' => :'Float',
         :'container_percentage' => :'Float',
@@ -392,6 +410,8 @@ module DatadogAPIClient::V1
         :'invocations_usage' => :'Float',
         :'mobile_app_testing_percentage' => :'Float',
         :'mobile_app_testing_usage' => :'Float',
+        :'ndm_netflow_percentage' => :'Float',
+        :'ndm_netflow_usage' => :'Float',
         :'npm_host_percentage' => :'Float',
         :'npm_host_usage' => :'Float',
         :'obs_pipeline_bytes_percentage' => :'Float',
@@ -493,6 +513,14 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'ci_visibility_itr_usage')
         self.ci_visibility_itr_usage = attributes[:'ci_visibility_itr_usage']
+      end
+
+      if attributes.key?(:'cloud_siem_percentage')
+        self.cloud_siem_percentage = attributes[:'cloud_siem_percentage']
+      end
+
+      if attributes.key?(:'cloud_siem_usage')
+        self.cloud_siem_usage = attributes[:'cloud_siem_usage']
       end
 
       if attributes.key?(:'container_excl_agent_percentage')
@@ -655,6 +683,14 @@ module DatadogAPIClient::V1
         self.mobile_app_testing_usage = attributes[:'mobile_app_testing_usage']
       end
 
+      if attributes.key?(:'ndm_netflow_percentage')
+        self.ndm_netflow_percentage = attributes[:'ndm_netflow_percentage']
+      end
+
+      if attributes.key?(:'ndm_netflow_usage')
+        self.ndm_netflow_usage = attributes[:'ndm_netflow_usage']
+      end
+
       if attributes.key?(:'npm_host_percentage')
         self.npm_host_percentage = attributes[:'npm_host_percentage']
       end
@@ -758,6 +794,8 @@ module DatadogAPIClient::V1
           browser_usage == o.browser_usage &&
           ci_visibility_itr_percentage == o.ci_visibility_itr_percentage &&
           ci_visibility_itr_usage == o.ci_visibility_itr_usage &&
+          cloud_siem_percentage == o.cloud_siem_percentage &&
+          cloud_siem_usage == o.cloud_siem_usage &&
           container_excl_agent_percentage == o.container_excl_agent_percentage &&
           container_excl_agent_usage == o.container_excl_agent_usage &&
           container_percentage == o.container_percentage &&
@@ -798,6 +836,8 @@ module DatadogAPIClient::V1
           invocations_usage == o.invocations_usage &&
           mobile_app_testing_percentage == o.mobile_app_testing_percentage &&
           mobile_app_testing_usage == o.mobile_app_testing_usage &&
+          ndm_netflow_percentage == o.ndm_netflow_percentage &&
+          ndm_netflow_usage == o.ndm_netflow_usage &&
           npm_host_percentage == o.npm_host_percentage &&
           npm_host_usage == o.npm_host_usage &&
           obs_pipeline_bytes_percentage == o.obs_pipeline_bytes_percentage &&
@@ -824,7 +864,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [api_percentage, api_usage, apm_fargate_percentage, apm_fargate_usage, apm_host_percentage, apm_host_usage, apm_usm_percentage, apm_usm_usage, appsec_fargate_percentage, appsec_fargate_usage, appsec_percentage, appsec_usage, browser_percentage, browser_usage, ci_visibility_itr_percentage, ci_visibility_itr_usage, container_excl_agent_percentage, container_excl_agent_usage, container_percentage, container_usage, cspm_containers_percentage, cspm_containers_usage, cspm_hosts_percentage, cspm_hosts_usage, custom_ingested_timeseries_percentage, custom_ingested_timeseries_usage, custom_timeseries_percentage, custom_timeseries_usage, cws_containers_percentage, cws_containers_usage, cws_hosts_percentage, cws_hosts_usage, dbm_hosts_percentage, dbm_hosts_usage, dbm_queries_percentage, dbm_queries_usage, estimated_indexed_logs_percentage, estimated_indexed_logs_usage, estimated_indexed_spans_percentage, estimated_indexed_spans_usage, estimated_ingested_logs_percentage, estimated_ingested_logs_usage, estimated_ingested_spans_percentage, estimated_ingested_spans_usage, estimated_rum_sessions_percentage, estimated_rum_sessions_usage, fargate_percentage, fargate_usage, functions_percentage, functions_usage, infra_host_percentage, infra_host_usage, invocations_percentage, invocations_usage, mobile_app_testing_percentage, mobile_app_testing_usage, npm_host_percentage, npm_host_usage, obs_pipeline_bytes_percentage, obs_pipeline_bytes_usage, profiled_container_percentage, profiled_container_usage, profiled_fargate_percentage, profiled_fargate_usage, profiled_host_percentage, profiled_host_usage, sds_scanned_bytes_percentage, sds_scanned_bytes_usage, serverless_apps_percentage, serverless_apps_usage, snmp_percentage, snmp_usage, universal_service_monitoring_percentage, universal_service_monitoring_usage, vuln_management_hosts_percentage, vuln_management_hosts_usage].hash
+      [api_percentage, api_usage, apm_fargate_percentage, apm_fargate_usage, apm_host_percentage, apm_host_usage, apm_usm_percentage, apm_usm_usage, appsec_fargate_percentage, appsec_fargate_usage, appsec_percentage, appsec_usage, browser_percentage, browser_usage, ci_visibility_itr_percentage, ci_visibility_itr_usage, cloud_siem_percentage, cloud_siem_usage, container_excl_agent_percentage, container_excl_agent_usage, container_percentage, container_usage, cspm_containers_percentage, cspm_containers_usage, cspm_hosts_percentage, cspm_hosts_usage, custom_ingested_timeseries_percentage, custom_ingested_timeseries_usage, custom_timeseries_percentage, custom_timeseries_usage, cws_containers_percentage, cws_containers_usage, cws_hosts_percentage, cws_hosts_usage, dbm_hosts_percentage, dbm_hosts_usage, dbm_queries_percentage, dbm_queries_usage, estimated_indexed_logs_percentage, estimated_indexed_logs_usage, estimated_indexed_spans_percentage, estimated_indexed_spans_usage, estimated_ingested_logs_percentage, estimated_ingested_logs_usage, estimated_ingested_spans_percentage, estimated_ingested_spans_usage, estimated_rum_sessions_percentage, estimated_rum_sessions_usage, fargate_percentage, fargate_usage, functions_percentage, functions_usage, infra_host_percentage, infra_host_usage, invocations_percentage, invocations_usage, mobile_app_testing_percentage, mobile_app_testing_usage, ndm_netflow_percentage, ndm_netflow_usage, npm_host_percentage, npm_host_usage, obs_pipeline_bytes_percentage, obs_pipeline_bytes_usage, profiled_container_percentage, profiled_container_usage, profiled_fargate_percentage, profiled_fargate_usage, profiled_host_percentage, profiled_host_usage, sds_scanned_bytes_percentage, sds_scanned_bytes_usage, serverless_apps_percentage, serverless_apps_usage, snmp_percentage, snmp_usage, universal_service_monitoring_percentage, universal_service_monitoring_usage, vuln_management_hosts_percentage, vuln_management_hosts_usage].hash
     end
   end
 end

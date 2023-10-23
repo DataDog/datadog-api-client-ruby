@@ -967,6 +967,20 @@ ScenariosModelMappings = {
     "v2.SearchCIAppTestEvents" => {
             "body" => "CIAppTestEventsRequest",
     },
+    "v2.ListContainerImages" => {
+            "filter_tags" => "String",
+            "group_by" => "String",
+            "sort" => "String",
+            "page_size" => "Integer",
+            "page_cursor" => "String",
+    },
+    "v2.ListContainers" => {
+            "filter_tags" => "String",
+            "group_by" => "String",
+            "sort" => "String",
+            "page_size" => "Integer",
+            "page_cursor" => "String",
+    },
     "v2.DeleteDashboardListItems" => {
             "dashboard_list_id" => "Integer",
             "body" => "DashboardListDeleteItemsRequest",
@@ -1458,6 +1472,23 @@ ScenariosModelMappings = {
     "v2.EditSecurityMonitoringSignalState" => {
             "signal_id" => "String",
             "body" => "SecurityMonitoringSignalStateUpdateRequest",
+    },
+    "v2.ListPowerpacks" => {
+            "page_limit" => "Integer",
+            "page_offset" => "Integer",
+    },
+    "v2.CreatePowerpack" => {
+            "body" => "Powerpack",
+    },
+    "v2.DeletePowerpack" => {
+            "powerpack_id" => "String",
+    },
+    "v2.GetPowerpack" => {
+            "powerpack_id" => "String",
+    },
+    "v2.UpdatePowerpack" => {
+            "powerpack_id" => "String",
+            "body" => "Powerpack",
     },
     "v2.ListProcesses" => {
             "search" => "String",

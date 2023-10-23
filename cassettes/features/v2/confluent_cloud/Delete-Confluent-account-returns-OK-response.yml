@@ -1,0 +1,62 @@
+http_interactions:
+- recorded_at: Mon, 16 Oct 2023 13:02:15 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"api_key":"TestDeleteConfluentaccountreturnsOKresponse1697461335","api_secret":"test-api-secret","resources":[{"id":"test-resource-id","resource_type":"kafka","tags":["tag1","tag2:val2"]}],"tags":["tag1","tag2:val2"]},"type":"confluent-cloud-accounts"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/integrations/confluent-cloud/accounts
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"confluent-cloud-accounts","attributes":{"resources":[{"tags":["tag1","tag2:val2"],"id":"test-resource-id","enable_custom_metrics":false,"resource_type":"kafka"}],"tags":["tag1","tag2:val2"],"api_key":"TestDeleteConfluentaccountreturnsOKresponse1697461335"},"id":"ed3f03aa36fdd7ba6b48381d54280e45"}}
+
+        '
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 201
+      message: Created
+- recorded_at: Mon, 16 Oct 2023 13:02:15 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/integrations/confluent-cloud/accounts/ed3f03aa36fdd7ba6b48381d54280e45
+  response:
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Content-Type:
+      - text/html; charset=utf-8
+    status:
+      code: 204
+      message: No Content
+- recorded_at: Mon, 16 Oct 2023 13:02:15 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/integrations/confluent-cloud/accounts/ed3f03aa36fdd7ba6b48381d54280e45
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":["Account not found not found"]}'
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 404
+      message: Not Found
+recorded_with: VCR 6.0.0

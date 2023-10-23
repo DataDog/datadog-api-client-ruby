@@ -29,6 +29,7 @@ module DatadogAPIClient::V1
     APPSEC_USAGE = "appsec_usage".freeze
     BROWSER_USAGE = "browser_usage".freeze
     CI_VISIBILITY_ITR_USAGE = "ci_visibility_itr_usage".freeze
+    CLOUD_SIEM_USAGE = "cloud_siem_usage".freeze
     CONTAINER_EXCL_AGENT_USAGE = "container_excl_agent_usage".freeze
     CONTAINER_USAGE = "container_usage".freeze
     CSPM_CONTAINERS_USAGE = "cspm_containers_usage".freeze
@@ -49,6 +50,7 @@ module DatadogAPIClient::V1
     INFRA_HOST_USAGE = "infra_host_usage".freeze
     INVOCATIONS_USAGE = "invocations_usage".freeze
     MOBILE_APP_TESTING_USAGE = "mobile_app_testing_usage".freeze
+    NDM_NETFLOW_USAGE = "ndm_netflow_usage".freeze
     NPM_HOST_USAGE = "npm_host_usage".freeze
     OBS_PIPELINE_BYTES_USAGE = "obs_pipeline_bytes_usage".freeze
     PROFILED_CONTAINER_USAGE = "profiled_container_usage".freeze

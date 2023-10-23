@@ -24,5 +24,6 @@ module DatadogAPIClient::V2
     V1 = "v1".freeze
     V2 = "v2".freeze
     V2_1 = "v2.1".freeze
+    V2_2 = "v2.2".freeze
   end
 end
