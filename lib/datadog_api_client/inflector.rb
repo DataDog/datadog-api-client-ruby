@@ -1933,6 +1933,7 @@ module DatadogAPIClient
           "v2.team_relationships" => "TeamRelationships",
           "v2.team_relationships_links" => "TeamRelationshipsLinks",
           "v2.team_response" => "TeamResponse",
+          "v2.teams_field" => "TeamsField",
           "v2.teams_response" => "TeamsResponse",
           "v2.teams_response_links" => "TeamsResponseLinks",
           "v2.teams_response_meta" => "TeamsResponseMeta",

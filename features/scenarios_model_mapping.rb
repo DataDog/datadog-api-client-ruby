@@ -822,6 +822,8 @@ ScenariosModelMappings = {
             "filter_modified_at_start" => "String",
             "filter_modified_at_end" => "String",
             "include" => "String",
+            "filter_remote_config_read_enabled" => "Boolean",
+            "filter_category" => "String",
     },
     "v2.CreateAPIKey" => {
             "body" => "APIKeyCreateRequest",
@@ -844,6 +846,7 @@ ScenariosModelMappings = {
             "filter" => "String",
             "filter_created_at_start" => "String",
             "filter_created_at_end" => "String",
+            "include" => "String",
     },
     "v2.DeleteApplicationKey" => {
             "app_key_id" => "String",
@@ -863,6 +866,7 @@ ScenariosModelMappings = {
             "filter" => "String",
             "filter_created_at_start" => "String",
             "filter_created_at_end" => "String",
+            "include" => "String",
     },
     "v2.CreateCurrentUserApplicationKey" => {
             "body" => "ApplicationKeyCreateRequest",
@@ -1351,6 +1355,7 @@ ScenariosModelMappings = {
             "page_number" => "Integer",
             "sort" => "RolesSort",
             "filter" => "String",
+            "filter_id" => "String",
     },
     "v2.CreateRole" => {
             "body" => "RoleCreateRequest",
@@ -1664,6 +1669,7 @@ ScenariosModelMappings = {
             "include" => "Array<ListTeamsInclude>",
             "filter_keyword" => "String",
             "filter_me" => "Boolean",
+            "fields_team" => "Array<TeamsField>",
     },
     "v2.CreateTeam" => {
             "body" => "TeamCreateRequest",
