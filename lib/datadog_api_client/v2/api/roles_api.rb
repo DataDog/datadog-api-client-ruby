@@ -578,6 +578,7 @@ module DatadogAPIClient::V2
     # @option opts [Integer] :page_number Specific page number to return.
     # @option opts [RolesSort] :sort Sort roles depending on the given field. Sort order is **ascending** by default. Sort order is **descending** if the field is prefixed by a negative sign, for example: `sort=-name`.
     # @option opts [String] :filter Filter all roles by the given string.
+    # @option opts [String] :filter_id Filter all roles by the given list of role IDs.
     # @return [Array<(RolesResponse, Integer, Hash)>] RolesResponse data, response status code and response headers
     def list_roles_with_http_info(opts = {})
 
@@ -597,6 +598,7 @@ module DatadogAPIClient::V2
       query_params[:'page[number]'] = opts[:'page_number'] if !opts[:'page_number'].nil?
       query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
       query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'filter[id]'] = opts[:'filter_id'] if !opts[:'filter_id'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
