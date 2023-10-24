@@ -1791,7 +1791,7 @@ ScenariosModelMappings = {
             "body" => "UserInvitationsRequest",
     },
     "v2.GetInvitation" => {
-            "user_invitation_uuid" => "String",
+            "user_invitation_uuid" => "UUID",
     },
     "v2.ListUsers" => {
             "page_size" => "Integer",

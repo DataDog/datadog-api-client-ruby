@@ -49,7 +49,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'attributes' => :'UserInvitationDataAttributes',
-        :'id' => :'String',
+        :'id' => :'UUID',
         :'relationships' => :'UserInvitationRelationships',
         :'type' => :'UserInvitationsType'
       }

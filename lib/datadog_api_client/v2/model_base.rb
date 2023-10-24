@@ -118,6 +118,8 @@ module DatadogAPIClient::V2
       when :Array
         # generic array, return directly
         value
+      when :UUID
+        value.to_s
       when /\AArray<(?<inner_type>.+)>\z/
         inner_type = Regexp.last_match[:inner_type]
         value.map { |v| _deserialize(inner_type, v) }
@@ -247,6 +249,8 @@ module DatadogAPIClient::V2
         return data if data.instance_of?(String)
       when 'Object' # "type: object"
         return data if data.instance_of?(Hash)
+      when 'UUID'
+        return UUIDTools::UUID.parse(data)
       when /\AArray<(?<sub_type>.+)>\z/ # "type: array"
         if data.instance_of?(Array)
           sub_type = Regexp.last_match[:sub_type]

@@ -168,7 +168,7 @@ module DatadogAPIClient::V2
     #
     # Returns a single user invitation by its UUID.
     #
-    # @param user_invitation_uuid [String] The UUID of the user invitation.
+    # @param user_invitation_uuid [UUID] The UUID of the user invitation.
     # @param opts [Hash] the optional parameters
     # @return [Array<(UserInvitationResponse, Integer, Hash)>] UserInvitationResponse data, response status code and response headers
     def get_invitation_with_http_info(user_invitation_uuid, opts = {})

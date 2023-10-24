@@ -51,7 +51,7 @@ module DatadogAPIClient::V2
         :'created_at' => :'Time',
         :'expires_at' => :'Time',
         :'invite_type' => :'String',
-        :'uuid' => :'String'
+        :'uuid' => :'UUID'
       }
     end
 
