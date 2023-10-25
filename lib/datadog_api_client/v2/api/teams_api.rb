@@ -867,6 +867,7 @@ module DatadogAPIClient::V2
     # @option opts [Array<ListTeamsInclude>] :include Included related resources optionally requested. Allowed enum values: `team_links, user_team_permissions`
     # @option opts [String] :filter_keyword Search query. Can be team name, team handle, or email of team member
     # @option opts [Boolean] :filter_me When true, only returns teams the current user belongs to
+    # @option opts [Array<TeamsField>] :fields_team List of fields that need to be fetched.
     # @return [Array<(TeamsResponse, Integer, Hash)>] TeamsResponse data, response status code and response headers
     def list_teams_with_http_info(opts = {})
 
@@ -888,6 +889,7 @@ module DatadogAPIClient::V2
       query_params[:'include'] = @api_client.build_collection_param(opts[:'include'], :multi) if !opts[:'include'].nil?
       query_params[:'filter[keyword]'] = opts[:'filter_keyword'] if !opts[:'filter_keyword'].nil?
       query_params[:'filter[me]'] = opts[:'filter_me'] if !opts[:'filter_me'].nil?
+      query_params[:'fields[team]'] = @api_client.build_collection_param(opts[:'fields_team'], :csv) if !opts[:'fields_team'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

@@ -573,6 +573,8 @@ module DatadogAPIClient::V2
     # @option opts [String] :filter_modified_at_start Only include API keys modified on or after the specified date.
     # @option opts [String] :filter_modified_at_end Only include API keys modified on or before the specified date.
     # @option opts [String] :include Comma separated list of resource paths for related resources to include in the response. Supported resource paths are `created_by` and `modified_by`.
+    # @option opts [Boolean] :filter_remote_config_read_enabled Filter API keys by remote config read enabled status.
+    # @option opts [String] :filter_category Filter API keys by category.
     # @return [Array<(APIKeysResponse, Integer, Hash)>] APIKeysResponse data, response status code and response headers
     def list_api_keys_with_http_info(opts = {})
 
@@ -597,6 +599,8 @@ module DatadogAPIClient::V2
       query_params[:'filter[modified_at][start]'] = opts[:'filter_modified_at_start'] if !opts[:'filter_modified_at_start'].nil?
       query_params[:'filter[modified_at][end]'] = opts[:'filter_modified_at_end'] if !opts[:'filter_modified_at_end'].nil?
       query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
+      query_params[:'filter[remote_config_read_enabled]'] = opts[:'filter_remote_config_read_enabled'] if !opts[:'filter_remote_config_read_enabled'].nil?
+      query_params[:'filter[category]'] = opts[:'filter_category'] if !opts[:'filter_category'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -652,6 +656,7 @@ module DatadogAPIClient::V2
     # @option opts [String] :filter Filter application keys by the specified string.
     # @option opts [String] :filter_created_at_start Only include application keys created on or after the specified date.
     # @option opts [String] :filter_created_at_end Only include application keys created on or before the specified date.
+    # @option opts [String] :include Resource path for related resources to include in the response. Only `owned_by` is supported.
     # @return [Array<(ListApplicationKeysResponse, Integer, Hash)>] ListApplicationKeysResponse data, response status code and response headers
     def list_application_keys_with_http_info(opts = {})
 
@@ -673,6 +678,7 @@ module DatadogAPIClient::V2
       query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
       query_params[:'filter[created_at][start]'] = opts[:'filter_created_at_start'] if !opts[:'filter_created_at_start'].nil?
       query_params[:'filter[created_at][end]'] = opts[:'filter_created_at_end'] if !opts[:'filter_created_at_end'].nil?
+      query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -728,6 +734,7 @@ module DatadogAPIClient::V2
     # @option opts [String] :filter Filter application keys by the specified string.
     # @option opts [String] :filter_created_at_start Only include application keys created on or after the specified date.
     # @option opts [String] :filter_created_at_end Only include application keys created on or before the specified date.
+    # @option opts [String] :include Resource path for related resources to include in the response. Only `owned_by` is supported.
     # @return [Array<(ListApplicationKeysResponse, Integer, Hash)>] ListApplicationKeysResponse data, response status code and response headers
     def list_current_user_application_keys_with_http_info(opts = {})
 
@@ -749,6 +756,7 @@ module DatadogAPIClient::V2
       query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
       query_params[:'filter[created_at][start]'] = opts[:'filter_created_at_start'] if !opts[:'filter_created_at_start'].nil?
       query_params[:'filter[created_at][end]'] = opts[:'filter_created_at_end'] if !opts[:'filter_created_at_end'].nil?
+      query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
