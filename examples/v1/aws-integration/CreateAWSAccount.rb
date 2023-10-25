@@ -4,7 +4,7 @@ require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::AWSIntegrationAPI.new
 
 body = DatadogAPIClient::V1::AWSAccount.new({
-  account_id: "1234567",
+  account_id: "123456789012",
   account_specific_namespace_rules: {
     auto_scaling: false, opswork: false,
   },
