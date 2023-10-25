@@ -93,6 +93,73 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
+    # Create an Amazon EventBridge source.
+    #
+    # @see #create_aws_event_bridge_source_with_http_info
+    def create_aws_event_bridge_source(body, opts = {})
+      data, _status_code, _headers = create_aws_event_bridge_source_with_http_info(body, opts)
+      data
+    end
+
+    # Create an Amazon EventBridge source.
+    #
+    # Create an Amazon EventBridge source.
+    #
+    # @param body [AWSEventBridgeCreateRequest] Create an Amazon EventBridge source for an AWS account with a given name and region.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(AWSEventBridgeCreateResponse, Integer, Hash)>] AWSEventBridgeCreateResponse data, response status code and response headers
+    def create_aws_event_bridge_source_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AWSIntegrationAPI.create_aws_event_bridge_source ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling AWSIntegrationAPI.create_aws_event_bridge_source"
+      end
+      # resource path
+      local_var_path = '/api/v1/integration/aws/event_bridge'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AWSEventBridgeCreateResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :create_aws_event_bridge_source,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V1"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AWSIntegrationAPI#create_aws_event_bridge_source\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Set an AWS tag filter.
     #
     # @see #create_aws_tag_filter_with_http_info
@@ -294,6 +361,73 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
+    # Delete an Amazon EventBridge source.
+    #
+    # @see #delete_aws_event_bridge_source_with_http_info
+    def delete_aws_event_bridge_source(body, opts = {})
+      data, _status_code, _headers = delete_aws_event_bridge_source_with_http_info(body, opts)
+      data
+    end
+
+    # Delete an Amazon EventBridge source.
+    #
+    # Delete an Amazon EventBridge source.
+    #
+    # @param body [AWSEventBridgeDeleteRequest] Delete the Amazon EventBridge source with the given name, region, and associated AWS account.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(AWSEventBridgeDeleteResponse, Integer, Hash)>] AWSEventBridgeDeleteResponse data, response status code and response headers
+    def delete_aws_event_bridge_source_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AWSIntegrationAPI.delete_aws_event_bridge_source ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling AWSIntegrationAPI.delete_aws_event_bridge_source"
+      end
+      # resource path
+      local_var_path = '/api/v1/integration/aws/event_bridge'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AWSEventBridgeDeleteResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :delete_aws_event_bridge_source,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V1"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AWSIntegrationAPI#delete_aws_event_bridge_source\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Delete a tag filtering entry.
     #
     # @see #delete_aws_tag_filter_with_http_info
@@ -483,6 +617,66 @@ module DatadogAPIClient::V1
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AWSIntegrationAPI#list_aws_accounts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get all Amazon EventBridge sources.
+    #
+    # @see #list_aws_event_bridge_sources_with_http_info
+    def list_aws_event_bridge_sources(opts = {})
+      data, _status_code, _headers = list_aws_event_bridge_sources_with_http_info(opts)
+      data
+    end
+
+    # Get all Amazon EventBridge sources.
+    #
+    # Get all Amazon EventBridge sources.
+    #
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(AWSEventBridgeListResponse, Integer, Hash)>] AWSEventBridgeListResponse data, response status code and response headers
+    def list_aws_event_bridge_sources_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AWSIntegrationAPI.list_aws_event_bridge_sources ...'
+      end
+      # resource path
+      local_var_path = '/api/v1/integration/aws/event_bridge'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AWSEventBridgeListResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :list_aws_event_bridge_sources,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V1"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AWSIntegrationAPI#list_aws_event_bridge_sources\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
