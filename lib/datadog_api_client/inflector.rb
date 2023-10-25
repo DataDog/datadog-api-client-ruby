@@ -1998,6 +1998,7 @@ module DatadogAPIClient
           "v2.user_update_attributes" => "UserUpdateAttributes",
           "v2.user_update_data" => "UserUpdateData",
           "v2.user_update_request" => "UserUpdateRequest",
+          "v2.widget_live_span" => "WidgetLiveSpan",
         # APIs
         "v1.authentication_api" => "AuthenticationAPI",
         "v1.aws_integration_api" => "AWSIntegrationAPI",
