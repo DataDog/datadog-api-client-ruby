@@ -27,6 +27,7 @@ body = DatadogAPIClient::V2::Powerpack.new({
           x: 0,
           y: 0,
         }),
+        live_span: DatadogAPIClient::V2::WidgetLiveSpan::PAST_ONE_HOUR,
       }),
       name: "Example-Powerpack",
       tags: [

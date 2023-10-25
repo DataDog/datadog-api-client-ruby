@@ -27,12 +27,16 @@ module DatadogAPIClient::V2
     # Powerpack group widget layout.
     attr_accessor :layout
 
+    # The available timeframes depend on the widget you are using.
+    attr_accessor :live_span
+
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
         :'definition' => :'definition',
-        :'layout' => :'layout'
+        :'layout' => :'layout',
+        :'live_span' => :'live_span'
       }
     end
 
@@ -41,7 +45,8 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'definition' => :'PowerpackGroupWidgetDefinition',
-        :'layout' => :'PowerpackGroupWidgetLayout'
+        :'layout' => :'PowerpackGroupWidgetLayout',
+        :'live_span' => :'WidgetLiveSpan'
       }
     end
 
@@ -67,6 +72,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'layout')
         self.layout = attributes[:'layout']
+      end
+
+      if attributes.key?(:'live_span')
+        self.live_span = attributes[:'live_span']
       end
     end
 
@@ -95,14 +104,15 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           definition == o.definition &&
-          layout == o.layout
+          layout == o.layout &&
+          live_span == o.live_span
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [definition, layout].hash
+      [definition, layout, live_span].hash
     end
   end
 end
