@@ -104,7 +104,7 @@ module DatadogAPIClient::V1
     # Setting `notify_by` to `[*]` configures the monitor to notify as a simple-alert.
     attr_accessor :notify_by
 
-    # A Boolean indicating whether this monitor notifies when data stops reporting.
+    # A Boolean indicating whether this monitor notifies when data stops reporting. Defaults to `false`.
     attr_accessor :notify_no_data
 
     # Controls how groups or monitors are treated if an evaluation does not return any data points.
