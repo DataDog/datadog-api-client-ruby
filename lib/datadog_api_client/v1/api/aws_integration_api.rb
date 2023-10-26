@@ -661,7 +661,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'AWSEventBridgeListResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_aws_event_bridge_sources,
