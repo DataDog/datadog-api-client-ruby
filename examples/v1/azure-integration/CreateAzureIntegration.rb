@@ -8,6 +8,7 @@ body = DatadogAPIClient::V1::AzureAccount.new({
   automute: true,
   client_id: "testc7f6-1234-5678-9101-3fcbf464test",
   client_secret: "testingx./Sw*g/Y33t..R1cH+hScMDt",
+  container_app_filters: "key:value,filter:example",
   cspm_enabled: true,
   custom_metrics_enabled: true,
   errors: [
