@@ -71,6 +71,7 @@ tomlrb,MIT,Francois Bernier
 typhoeus,MIT,"David Balatero, Paul Dix, Hans Hasselberg"
 tzinfo,MIT,Philip Ross
 unicode-display_width,MIT,Jan Lelis
+uuidtools,Apache-2.0,Bob Aman
 vcr,"Hippocratic-2.1,MIT","Myron Marston, Kurtis Rainbolt-Greene, Olle Jonsson"
 webmock,MIT,Bartosz Blimke
 with_env,MIT,Zach Dennis
