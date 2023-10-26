@@ -381,6 +381,12 @@ ScenariosModelMappings = {
             "access_key_id" => "String",
             "body" => "AWSAccount",
     },
+    "v1.DeleteAWSEventBridgeSource" => {
+            "body" => "AWSEventBridgeDeleteRequest",
+    },
+    "v1.CreateAWSEventBridgeSource" => {
+            "body" => "AWSEventBridgeCreateRequest",
+    },
     "v1.DeleteAWSTagFilter" => {
             "body" => "AWSTagFilterDeleteRequest",
     },

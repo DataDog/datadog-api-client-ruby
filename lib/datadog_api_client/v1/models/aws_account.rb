@@ -35,7 +35,8 @@ module DatadogAPIClient::V1
     # Whether Datadog collects cloud security posture management resources from your AWS account. This includes additional resources not covered under the general `resource_collection`.
     attr_accessor :cspm_resource_collection_enabled
 
-    # An array of AWS regions to exclude from metrics collection.
+    # An array of [AWS regions](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints)
+    # to exclude from metrics collection.
     attr_accessor :excluded_regions
 
     # The array of EC2 tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from EC2.
