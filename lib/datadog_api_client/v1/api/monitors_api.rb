@@ -127,7 +127,9 @@ module DatadogAPIClient::V1
     # - error-tracking: `error-tracking alert`
     # - database-monitoring: `database-monitoring alert`
     #
-    # **Note**: Synthetic monitors are created through the Synthetics API. See the [Synthetics API] (https://docs.datadoghq.com/api/latest/synthetics/) documentation for more information.
+    # **Notes**:
+    # - Synthetic monitors are created through the Synthetics API. See the [Synthetics API] (https://docs.datadoghq.com/api/latest/synthetics/) documentation for more information.
+    # - Log monitors require an unscoped App Key.
     #
     # #### Query Types
     #
@@ -863,6 +865,8 @@ module DatadogAPIClient::V1
     # Validate a monitor.
     #
     # Validate the monitor provided in the request.
+    #
+    # **Note**: Log monitors require an unscoped App Key.
     #
     # @param body [Monitor] Monitor request object
     # @param opts [Hash] the optional parameters
