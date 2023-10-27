@@ -335,6 +335,9 @@ module DatadogAPIClient
       when 'Object'
         # generic object (usually a Hash), return directly
         data
+      when 'UUID'
+        # parse uuid object
+        data.to_s
       when /\AArray<(.+)>\z/
         # e.g. Array<Pet>
         sub_type = $1
