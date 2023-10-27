@@ -108,6 +108,12 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def create_ci_app_pipeline_event_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_ci_app_pipeline_event".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_ci_app_pipeline_event")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_ci_app_pipeline_event"))
+      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CIVisibilityPipelinesAPI.create_ci_app_pipeline_event ...'

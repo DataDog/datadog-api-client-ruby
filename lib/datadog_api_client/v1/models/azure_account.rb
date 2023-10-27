@@ -34,6 +34,10 @@ module DatadogAPIClient::V1
     # Your Azure web application secret key.
     attr_accessor :client_secret
 
+    # Limit the Azure container apps that are pulled into Datadog using tags.
+    # Only container apps that match one of the defined tags are imported into Datadog.
+    attr_accessor :container_app_filters
+
     # Enable Cloud Security Management Misconfigurations for your organization.
     attr_accessor :cspm_enabled
 
@@ -64,6 +68,7 @@ module DatadogAPIClient::V1
         :'automute' => :'automute',
         :'client_id' => :'client_id',
         :'client_secret' => :'client_secret',
+        :'container_app_filters' => :'container_app_filters',
         :'cspm_enabled' => :'cspm_enabled',
         :'custom_metrics_enabled' => :'custom_metrics_enabled',
         :'errors' => :'errors',
@@ -82,6 +87,7 @@ module DatadogAPIClient::V1
         :'automute' => :'Boolean',
         :'client_id' => :'String',
         :'client_secret' => :'String',
+        :'container_app_filters' => :'String',
         :'cspm_enabled' => :'Boolean',
         :'custom_metrics_enabled' => :'Boolean',
         :'errors' => :'Array<String>',
@@ -122,6 +128,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'client_secret')
         self.client_secret = attributes[:'client_secret']
+      end
+
+      if attributes.key?(:'container_app_filters')
+        self.container_app_filters = attributes[:'container_app_filters']
       end
 
       if attributes.key?(:'cspm_enabled')
@@ -165,6 +175,7 @@ module DatadogAPIClient::V1
           automute == o.automute &&
           client_id == o.client_id &&
           client_secret == o.client_secret &&
+          container_app_filters == o.container_app_filters &&
           cspm_enabled == o.cspm_enabled &&
           custom_metrics_enabled == o.custom_metrics_enabled &&
           errors == o.errors &&
@@ -178,7 +189,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [app_service_plan_filters, automute, client_id, client_secret, cspm_enabled, custom_metrics_enabled, errors, host_filters, new_client_id, new_tenant_name, tenant_name].hash
+      [app_service_plan_filters, automute, client_id, client_secret, container_app_filters, cspm_enabled, custom_metrics_enabled, errors, host_filters, new_client_id, new_tenant_name, tenant_name].hash
     end
   end
 end
