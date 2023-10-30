@@ -17,18 +17,22 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The expected response schema.
-  class MuteFindingResponse
+  # Data object containing the ID of the request that was updated.
+  class BulkMuteFindingsResponseData
     include BaseGenericModel
 
-    # Data object containing the updated finding.
-    attr_reader :data
+    # UUID used to identify the request
+    attr_accessor :id
+
+    # The JSON:API type for findings.
+    attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data'
+        :'id' => :'id',
+        :'type' => :'type'
       }
     end
 
@@ -36,7 +40,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'MuteFindingResponseData'
+        :'id' => :'String',
+        :'type' => :'FindingType'
       }
     end
 
@@ -45,38 +50,24 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::MuteFindingResponse` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::BulkMuteFindingsResponseData` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::MuteFindingResponse`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::BulkMuteFindingsResponseData`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'data')
-        self.data = attributes[:'data']
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
       end
-    end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    # @!visibility private
-    def valid?
-      return false if @data.nil?
-      true
-    end
-
-    # Custom attribute writer method with validation
-    # @param data [Object] Object to be assigned
-    # @!visibility private
-    def data=(data)
-      if data.nil?
-        fail ArgumentError, 'invalid value for "data", data cannot be nil.'
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
       end
-      @data = data
     end
 
     # Checks equality by comparing each attribute.
@@ -85,14 +76,15 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data
+          id == o.id &&
+          type == o.type
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data].hash
+      [id, type].hash
     end
   end
 end

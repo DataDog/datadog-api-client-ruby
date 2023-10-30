@@ -1420,13 +1420,12 @@ ScenariosModelMappings = {
             "filter_evaluation" => "FindingEvaluation",
             "filter_status" => "FindingStatus",
     },
+    "v2.MuteFindings" => {
+            "body" => "BulkMuteFindingsRequest",
+    },
     "v2.GetFinding" => {
             "finding_id" => "String",
             "snapshot_timestamp" => "Integer",
-    },
-    "v2.UpdateFinding" => {
-            "finding_id" => "String",
-            "body" => "MuteFindingRequest",
     },
     "v2.CreateSecurityFilter" => {
             "body" => "SecurityFilterCreateRequest",

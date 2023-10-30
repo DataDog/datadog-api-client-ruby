@@ -17,15 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Data object containing the new mute properties of the finding.
-  class MuteFindingRequestData
+  # Data object containing the new bulk mute properties of the finding.
+  class BulkMuteFindingsRequestData
     include BaseGenericModel
 
     # The mute properties to be updated.
     attr_reader :attributes
 
-    # The unique ID for this finding.
+    # UUID to identify the request
     attr_reader :id
+
+    # Meta object containing the findings to be updated.
+    attr_reader :meta
 
     # The JSON:API type for findings.
     attr_reader :type
@@ -36,6 +39,7 @@ module DatadogAPIClient::V2
       {
         :'attributes' => :'attributes',
         :'id' => :'id',
+        :'meta' => :'meta',
         :'type' => :'type'
       }
     end
@@ -44,8 +48,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'MuteFindingRequestAttributes',
+        :'attributes' => :'BulkMuteFindingsRequestAttributes',
         :'id' => :'String',
+        :'meta' => :'BulkMuteFindingsRequestMeta',
         :'type' => :'FindingType'
       }
     end
@@ -55,13 +60,13 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::MuteFindingRequestData` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::BulkMuteFindingsRequestData` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::MuteFindingRequestData`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::BulkMuteFindingsRequestData`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
@@ -72,6 +77,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'id')
         self.id = attributes[:'id']
+      end
+
+      if attributes.key?(:'meta')
+        self.meta = attributes[:'meta']
       end
 
       if attributes.key?(:'type')
@@ -85,6 +94,7 @@ module DatadogAPIClient::V2
     def valid?
       return false if @attributes.nil?
       return false if @id.nil?
+      return false if @meta.nil?
       return false if @type.nil?
       true
     end
@@ -110,6 +120,16 @@ module DatadogAPIClient::V2
     end
 
     # Custom attribute writer method with validation
+    # @param meta [Object] Object to be assigned
+    # @!visibility private
+    def meta=(meta)
+      if meta.nil?
+        fail ArgumentError, 'invalid value for "meta", meta cannot be nil.'
+      end
+      @meta = meta
+    end
+
+    # Custom attribute writer method with validation
     # @param type [Object] Object to be assigned
     # @!visibility private
     def type=(type)
@@ -127,6 +147,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           attributes == o.attributes &&
           id == o.id &&
+          meta == o.meta &&
           type == o.type
     end
 
@@ -134,7 +155,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, id, type].hash
+      [attributes, id, meta, type].hash
     end
   end
 end
