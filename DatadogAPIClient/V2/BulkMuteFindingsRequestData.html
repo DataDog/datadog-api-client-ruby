@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
-  Class: DatadogAPIClient::V2::MuteFindingResponseProperties
+  Class: DatadogAPIClient::V2::BulkMuteFindingsRequestData
   
     &mdash; datadog-api-client 2.16.0.dev.1 documentation
   
@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="../../css/common.css" type="text/css" />
 
 <script type="text/javascript">
-  pathId = "DatadogAPIClient::V2::MuteFindingResponseProperties";
+  pathId = "DatadogAPIClient::V2::BulkMuteFindingsRequestData";
   relpath = '../../';
 </script>
 
@@ -36,10 +36,10 @@
       <div id="header">
         <div id="menu">
   
-    <a href="../../_index.html">Index (M)</a> &raquo;
+    <a href="../../_index.html">Index (B)</a> &raquo;
     <span class='title'><span class='object_link'><a href="../../DatadogAPIClient.html" title="DatadogAPIClient (module)">DatadogAPIClient</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../V2.html" title="DatadogAPIClient::V2 (module)">V2</a></span></span>
      &raquo; 
-    <span class="title">MuteFindingResponseProperties</span>
+    <span class="title">BulkMuteFindingsRequestData</span>
   
 </div>
 
@@ -59,7 +59,7 @@
         <div class="clear"></div>
       </div>
 
-      <div id="content"><h1>Class: DatadogAPIClient::V2::MuteFindingResponseProperties
+      <div id="content"><h1>Class: DatadogAPIClient::V2::BulkMuteFindingsRequestData
   
   
   
@@ -74,7 +74,7 @@
         <ul class="fullTree">
           <li>Object</li>
           
-            <li class="next">DatadogAPIClient::V2::MuteFindingResponseProperties</li>
+            <li class="next">DatadogAPIClient::V2::BulkMuteFindingsRequestData</li>
           
         </ul>
         <a href="#" class="inheritanceTree">show all</a>
@@ -99,14 +99,14 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/datadog_api_client/v2/models/mute_finding_response_properties.rb</dd>
+    <dd>lib/datadog_api_client/v2/models/bulk_mute_findings_request_data.rb</dd>
   </dl>
   
 </div>
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>Information about the mute status of this finding.</p>
+    <p>Data object containing the new bulk mute properties of the finding.</p>
 
 
   </div>
@@ -124,7 +124,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#description-instance_method" title="#description (instance method)">#<strong>description</strong>  &#x21d2; Object </a>
+      <a href="#attributes-instance_method" title="#attributes (instance method)">#<strong>attributes</strong>  &#x21d2; Object </a>
     
 
     
@@ -133,6 +133,8 @@
   
   
     
+      <span class="note title readonly">readonly</span>
+    
     
   
   
@@ -141,7 +143,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Additional information about the reason why this finding is muted or unmuted.</p>
+    <span class="summary_desc"><div class='inline'><p>The mute properties to be updated.</p>
 </div></span>
   
 </li>
@@ -150,7 +152,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#expiration_date-instance_method" title="#expiration_date (instance method)">#<strong>expiration_date</strong>  &#x21d2; Object </a>
+      <a href="#id-instance_method" title="#id (instance method)">#<strong>id</strong>  &#x21d2; Object </a>
     
 
     
@@ -159,6 +161,8 @@
   
   
     
+      <span class="note title readonly">readonly</span>
+    
     
   
   
@@ -167,7 +171,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>The expiration date of the mute or unmute action.</p>
+    <span class="summary_desc"><div class='inline'><p>UUID to identify the request.</p>
 </div></span>
   
 </li>
@@ -176,7 +180,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#muted-instance_method" title="#muted (instance method)">#<strong>muted</strong>  &#x21d2; Object </a>
+      <a href="#meta-instance_method" title="#meta (instance method)">#<strong>meta</strong>  &#x21d2; Object </a>
     
 
     
@@ -185,6 +189,8 @@
   
   
     
+      <span class="note title readonly">readonly</span>
+    
     
   
   
@@ -193,7 +199,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Whether this finding is muted or unmuted.</p>
+    <span class="summary_desc"><div class='inline'><p>Meta object containing the findings to be updated.</p>
 </div></span>
   
 </li>
@@ -202,7 +208,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#reason-instance_method" title="#reason (instance method)">#<strong>reason</strong>  &#x21d2; Object </a>
+      <a href="#type-instance_method" title="#type (instance method)">#<strong>type</strong>  &#x21d2; Object </a>
     
 
     
@@ -211,6 +217,8 @@
   
   
     
+      <span class="note title readonly">readonly</span>
+    
     
   
   
@@ -219,7 +227,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>The reason why this finding is muted or unmuted.</p>
+    <span class="summary_desc"><div class='inline'><p>The JSON:API type for findings.</p>
 </div></span>
   
 </li>
@@ -246,11 +254,11 @@
     <h2>Instance Attribute Details</h2>
     
       
-      <span id="description=-instance_method"></span>
+      <span id="attributes=-instance_method"></span>
       <div class="method_details first">
-  <h3 class="signature first" id="description-instance_method">
+  <h3 class="signature first" id="attributes-instance_method">
   
-    #<strong>description</strong>  &#x21d2; <tt>Object</tt> 
+    #<strong>attributes</strong>  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -258,8 +266,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Additional information about the reason why this finding is muted or unmuted.
-This attribute will not be included in the response if the description is not provided in the request body.</p>
+    <p>The mute properties to be updated.</p>
 
 
   </div>
@@ -273,15 +280,57 @@ This attribute will not be included in the response if the description is not pr
       <pre class="lines">
 
 
-27
+25
+26
+27</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/bulk_mute_findings_request_data.rb', line 25</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_attributes'>attributes</span>
+  <span class='ivar'>@attributes</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="id=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="id-instance_method">
+  
+    #<strong>id</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>UUID to identify the request</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
 28
-29</pre>
+29
+30</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/mute_finding_response_properties.rb', line 27</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/bulk_mute_findings_request_data.rb', line 28</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_description'>description</span>
-  <span class='ivar'>@description</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_id'>id</span>
+  <span class='ivar'>@id</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -289,11 +338,11 @@ This attribute will not be included in the response if the description is not pr
 </div>
     
       
-      <span id="expiration_date=-instance_method"></span>
+      <span id="meta=-instance_method"></span>
       <div class="method_details ">
-  <h3 class="signature " id="expiration_date-instance_method">
+  <h3 class="signature " id="meta-instance_method">
   
-    #<strong>expiration_date</strong>  &#x21d2; <tt>Object</tt> 
+    #<strong>meta</strong>  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -301,8 +350,7 @@ This attribute will not be included in the response if the description is not pr
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>The expiration date of the mute or unmute action.
-If the expiration date is not provided in the request body, this attribute will not be included in the response and the finding will be muted or unmuted indefinitely.</p>
+    <p>Meta object containing the findings to be updated.</p>
 
 
   </div>
@@ -316,15 +364,15 @@ If the expiration date is not provided in the request body, this attribute will 
       <pre class="lines">
 
 
+31
 32
-33
-34</pre>
+33</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/mute_finding_response_properties.rb', line 32</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/bulk_mute_findings_request_data.rb', line 31</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_expiration_date'>expiration_date</span>
-  <span class='ivar'>@expiration_date</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_meta'>meta</span>
+  <span class='ivar'>@meta</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -332,11 +380,11 @@ If the expiration date is not provided in the request body, this attribute will 
 </div>
     
       
-      <span id="muted=-instance_method"></span>
+      <span id="type=-instance_method"></span>
       <div class="method_details ">
-  <h3 class="signature " id="muted-instance_method">
+  <h3 class="signature " id="type-instance_method">
   
-    #<strong>muted</strong>  &#x21d2; <tt>Object</tt> 
+    #<strong>type</strong>  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -344,7 +392,7 @@ If the expiration date is not provided in the request body, this attribute will 
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Whether this finding is muted or unmuted.</p>
+    <p>The JSON:API type for findings.</p>
 
 
   </div>
@@ -358,57 +406,15 @@ If the expiration date is not provided in the request body, this attribute will 
       <pre class="lines">
 
 
+34
 35
-36
-37</pre>
+36</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/mute_finding_response_properties.rb', line 35</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/bulk_mute_findings_request_data.rb', line 34</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_muted'>muted</span>
-  <span class='ivar'>@muted</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      
-      <span id="reason=-instance_method"></span>
-      <div class="method_details ">
-  <h3 class="signature " id="reason-instance_method">
-  
-    #<strong>reason</strong>  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>The reason why this finding is muted or unmuted.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-38
-39
-40</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/mute_finding_response_properties.rb', line 38</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_reason'>reason</span>
-  <span class='ivar'>@reason</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_type'>type</span>
+  <span class='ivar'>@type</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -421,7 +427,7 @@ If the expiration date is not provided in the request body, this attribute will 
 </div>
 
       <div id="footer">
-  Generated on Fri Oct 27 13:39:57 2023 by
+  Generated on Mon Oct 30 18:04:37 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.34 (ruby-2.7.8).
 </div>

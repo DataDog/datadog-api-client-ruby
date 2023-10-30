@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
-  Class: DatadogAPIClient::V2::MuteFindingResponseData
+  Class: DatadogAPIClient::V2::BulkMuteFindingsRequestAttributes
   
     &mdash; datadog-api-client 2.16.0.dev.1 documentation
   
@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="../../css/common.css" type="text/css" />
 
 <script type="text/javascript">
-  pathId = "DatadogAPIClient::V2::MuteFindingResponseData";
+  pathId = "DatadogAPIClient::V2::BulkMuteFindingsRequestAttributes";
   relpath = '../../';
 </script>
 
@@ -36,10 +36,10 @@
       <div id="header">
         <div id="menu">
   
-    <a href="../../_index.html">Index (M)</a> &raquo;
+    <a href="../../_index.html">Index (B)</a> &raquo;
     <span class='title'><span class='object_link'><a href="../../DatadogAPIClient.html" title="DatadogAPIClient (module)">DatadogAPIClient</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../V2.html" title="DatadogAPIClient::V2 (module)">V2</a></span></span>
      &raquo; 
-    <span class="title">MuteFindingResponseData</span>
+    <span class="title">BulkMuteFindingsRequestAttributes</span>
   
 </div>
 
@@ -59,7 +59,7 @@
         <div class="clear"></div>
       </div>
 
-      <div id="content"><h1>Class: DatadogAPIClient::V2::MuteFindingResponseData
+      <div id="content"><h1>Class: DatadogAPIClient::V2::BulkMuteFindingsRequestAttributes
   
   
   
@@ -74,7 +74,7 @@
         <ul class="fullTree">
           <li>Object</li>
           
-            <li class="next">DatadogAPIClient::V2::MuteFindingResponseData</li>
+            <li class="next">DatadogAPIClient::V2::BulkMuteFindingsRequestAttributes</li>
           
         </ul>
         <a href="#" class="inheritanceTree">show all</a>
@@ -99,14 +99,14 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/datadog_api_client/v2/models/mute_finding_response_data.rb</dd>
+    <dd>lib/datadog_api_client/v2/models/bulk_mute_findings_request_attributes.rb</dd>
   </dl>
   
 </div>
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>Data object containing the updated finding.</p>
+    <p>The mute properties to be updated.</p>
 
 
   </div>
@@ -124,7 +124,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#attributes-instance_method" title="#attributes (instance method)">#<strong>attributes</strong>  &#x21d2; Object </a>
+      <a href="#mute-instance_method" title="#mute (instance method)">#<strong>mute</strong>  &#x21d2; Object </a>
     
 
     
@@ -133,31 +133,7 @@
   
   
     
-    
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>The JSON:API attributes of the finding.</p>
-</div></span>
-  
-</li>
-
-    
-      <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#id-instance_method" title="#id (instance method)">#<strong>id</strong>  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
+      <span class="note title readonly">readonly</span>
     
     
   
@@ -167,33 +143,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>The unique ID for this finding.</p>
-</div></span>
-  
-</li>
-
-    
-      <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#type-instance_method" title="#type (instance method)">#<strong>type</strong>  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-    
-    
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>The JSON:API type for findings.</p>
+    <span class="summary_desc"><div class='inline'><p>Object containing the new mute properties of the findings.</p>
 </div></span>
   
 </li>
@@ -220,11 +170,11 @@
     <h2>Instance Attribute Details</h2>
     
       
-      <span id="attributes=-instance_method"></span>
+      <span id="mute=-instance_method"></span>
       <div class="method_details first">
-  <h3 class="signature first" id="attributes-instance_method">
+  <h3 class="signature first" id="mute-instance_method">
   
-    #<strong>attributes</strong>  &#x21d2; <tt>Object</tt> 
+    #<strong>mute</strong>  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -232,7 +182,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>The JSON:API attributes of the finding.</p>
+    <p>Object containing the new mute properties of the findings.</p>
 
 
   </div>
@@ -251,94 +201,10 @@
 27</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/mute_finding_response_data.rb', line 25</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/bulk_mute_findings_request_attributes.rb', line 25</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_attributes'>attributes</span>
-  <span class='ivar'>@attributes</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      
-      <span id="id=-instance_method"></span>
-      <div class="method_details ">
-  <h3 class="signature " id="id-instance_method">
-  
-    #<strong>id</strong>  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>The unique ID for this finding.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-28
-29
-30</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/mute_finding_response_data.rb', line 28</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_id'>id</span>
-  <span class='ivar'>@id</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      
-      <span id="type=-instance_method"></span>
-      <div class="method_details ">
-  <h3 class="signature " id="type-instance_method">
-  
-    #<strong>type</strong>  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>The JSON:API type for findings.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-31
-32
-33</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/mute_finding_response_data.rb', line 31</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_type'>type</span>
-  <span class='ivar'>@type</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_mute'>mute</span>
+  <span class='ivar'>@mute</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -351,7 +217,7 @@
 </div>
 
       <div id="footer">
-  Generated on Fri Oct 27 13:39:55 2023 by
+  Generated on Mon Oct 30 18:04:40 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.34 (ruby-2.7.8).
 </div>
