@@ -63,6 +63,18 @@ module DatadogAPIClient::V1
     # The synthetic browser test usage by tag(s).
     attr_accessor :browser_usage
 
+    # The percentage of CI Pipeline Indexed Spans usage by tag(s).
+    attr_accessor :ci_pipeline_indexed_spans_percentage
+
+    # The total CI Pipeline Indexed Spans usage by tag(s).
+    attr_accessor :ci_pipeline_indexed_spans_usage
+
+    # The percentage of CI Test Indexed Spans usage by tag(s).
+    attr_accessor :ci_test_indexed_spans_percentage
+
+    # The total CI Test Indexed Spans usage by tag(s).
+    attr_accessor :ci_test_indexed_spans_usage
+
     # The percentage of Git committers for Intelligent Test Runner usage by tag(s).
     attr_accessor :ci_visibility_itr_percentage
 
@@ -98,6 +110,12 @@ module DatadogAPIClient::V1
 
     # The Cloud Security Management Pro host usage by tag(s).
     attr_accessor :cspm_hosts_usage
+
+    # The percentage of Custom Events usage by tag(s).
+    attr_accessor :custom_event_percentage
+
+    # The total Custom Events usage by tag(s).
+    attr_accessor :custom_event_usage
 
     # The percentage of ingested custom metrics usage by tag(s).
     attr_accessor :custom_ingested_timeseries_percentage
@@ -177,11 +195,29 @@ module DatadogAPIClient::V1
     # The Lambda function usage by tag(s).
     attr_accessor :functions_usage
 
+    # The percentage of APM Indexed Spans usage by tag(s).
+    attr_accessor :indexed_spans_percentage
+
+    # The total APM Indexed Spans usage by tag(s).
+    attr_accessor :indexed_spans_usage
+
     # The percentage of infrastructure host usage by tag(s).
     attr_accessor :infra_host_percentage
 
     # The infrastructure host usage by tag(s).
     attr_accessor :infra_host_usage
+
+    # The percentage of Ingested Logs usage by tag(s).
+    attr_accessor :ingested_logs_bytes_percentage
+
+    # The total Ingested Logs usage by tag(s).
+    attr_accessor :ingested_logs_bytes_usage
+
+    # The percentage of APM Ingested Spans usage by tag(s).
+    attr_accessor :ingested_spans_bytes_percentage
+
+    # The total APM Ingested Spans usage by tag(s).
+    attr_accessor :ingested_spans_bytes_usage
 
     # The percentage of Lambda invocation usage by tag(s).
     attr_accessor :invocations_percentage
@@ -194,6 +230,66 @@ module DatadogAPIClient::V1
 
     # The Serverless APM usage by tag(s).
     attr_accessor :lambda_traced_invocations_usage
+
+    # The percentage of Indexed Logs (15-day Retention) usage by tag(s).
+    attr_accessor :logs_indexed_15day_percentage
+
+    # The total Indexed Logs (15-day Retention) usage by tag(s).
+    attr_accessor :logs_indexed_15day_usage
+
+    # The percentage of Indexed Logs (180-day Retention) usage by tag(s).
+    attr_accessor :logs_indexed_180day_percentage
+
+    # The total Indexed Logs (180-day Retention) usage by tag(s).
+    attr_accessor :logs_indexed_180day_usage
+
+    # The percentage of Indexed Logs (30-day Retention) usage by tag(s).
+    attr_accessor :logs_indexed_30day_percentage
+
+    # The total Indexed Logs (30-day Retention) usage by tag(s).
+    attr_accessor :logs_indexed_30day_usage
+
+    # The percentage of Indexed Logs (360-day Retention) usage by tag(s).
+    attr_accessor :logs_indexed_360day_percentage
+
+    # The total Indexed Logs (360-day Retention) usage by tag(s).
+    attr_accessor :logs_indexed_360day_usage
+
+    # The percentage of Indexed Logs (3-day Retention) usage by tag(s).
+    attr_accessor :logs_indexed_3day_percentage
+
+    # The total Indexed Logs (3-day Retention) usage by tag(s).
+    attr_accessor :logs_indexed_3day_usage
+
+    # The percentage of Indexed Logs (45-day Retention) usage by tag(s).
+    attr_accessor :logs_indexed_45day_percentage
+
+    # The total Indexed Logs (45-day Retention) usage by tag(s).
+    attr_accessor :logs_indexed_45day_usage
+
+    # The percentage of Indexed Logs (60-day Retention) usage by tag(s).
+    attr_accessor :logs_indexed_60day_percentage
+
+    # The total Indexed Logs (60-day Retention) usage by tag(s).
+    attr_accessor :logs_indexed_60day_usage
+
+    # The percentage of Indexed Logs (7-day Retention) usage by tag(s).
+    attr_accessor :logs_indexed_7day_percentage
+
+    # The total Indexed Logs (7-day Retention) usage by tag(s).
+    attr_accessor :logs_indexed_7day_usage
+
+    # The percentage of Indexed Logs (90-day Retention) usage by tag(s).
+    attr_accessor :logs_indexed_90day_percentage
+
+    # The total Indexed Logs (90-day Retention) usage by tag(s).
+    attr_accessor :logs_indexed_90day_usage
+
+    # The percentage of Indexed Logs (Custom Retention) usage by tag(s).
+    attr_accessor :logs_indexed_custom_retention_percentage
+
+    # The total Indexed Logs (Custom Retention) usage by tag(s).
+    attr_accessor :logs_indexed_custom_retention_usage
 
     # The percentage of Synthetic mobile application test usage by tag(s).
     attr_accessor :mobile_app_testing_percentage
@@ -237,6 +333,18 @@ module DatadogAPIClient::V1
     # The profiled hosts usage by tag(s).
     attr_accessor :profiled_host_usage
 
+    # The percentage of RUM Browser and Mobile usage by tag(s).
+    attr_accessor :rum_browser_mobile_sessions_percentage
+
+    # The total RUM Browser and Mobile usage by tag(s).
+    attr_accessor :rum_browser_mobile_sessions_usage
+
+    # The percentage of RUM Replay Sessions usage by tag(s).
+    attr_accessor :rum_replay_sessions_percentage
+
+    # The total RUM Replay Sessions usage by tag(s).
+    attr_accessor :rum_replay_sessions_usage
+
     # The percentage of Sensitive Data Scanner usage by tag(s).
     attr_accessor :sds_scanned_bytes_percentage
 
@@ -248,6 +356,12 @@ module DatadogAPIClient::V1
 
     # The total Serverless Apps usage by tag(s).
     attr_accessor :serverless_apps_usage
+
+    # The percentage of SIEM usage by tag(s).
+    attr_accessor :siem_ingested_bytes_percentage
+
+    # The total SIEM usage by tag(s).
+    attr_accessor :siem_ingested_bytes_usage
 
     # The percentage of network device usage by tag(s).
     attr_accessor :snmp_percentage
@@ -285,6 +399,10 @@ module DatadogAPIClient::V1
         :'appsec_usage' => :'appsec_usage',
         :'browser_percentage' => :'browser_percentage',
         :'browser_usage' => :'browser_usage',
+        :'ci_pipeline_indexed_spans_percentage' => :'ci_pipeline_indexed_spans_percentage',
+        :'ci_pipeline_indexed_spans_usage' => :'ci_pipeline_indexed_spans_usage',
+        :'ci_test_indexed_spans_percentage' => :'ci_test_indexed_spans_percentage',
+        :'ci_test_indexed_spans_usage' => :'ci_test_indexed_spans_usage',
         :'ci_visibility_itr_percentage' => :'ci_visibility_itr_percentage',
         :'ci_visibility_itr_usage' => :'ci_visibility_itr_usage',
         :'cloud_siem_percentage' => :'cloud_siem_percentage',
@@ -297,6 +415,8 @@ module DatadogAPIClient::V1
         :'cspm_containers_usage' => :'cspm_containers_usage',
         :'cspm_hosts_percentage' => :'cspm_hosts_percentage',
         :'cspm_hosts_usage' => :'cspm_hosts_usage',
+        :'custom_event_percentage' => :'custom_event_percentage',
+        :'custom_event_usage' => :'custom_event_usage',
         :'custom_ingested_timeseries_percentage' => :'custom_ingested_timeseries_percentage',
         :'custom_ingested_timeseries_usage' => :'custom_ingested_timeseries_usage',
         :'custom_timeseries_percentage' => :'custom_timeseries_percentage',
@@ -323,12 +443,38 @@ module DatadogAPIClient::V1
         :'fargate_usage' => :'fargate_usage',
         :'functions_percentage' => :'functions_percentage',
         :'functions_usage' => :'functions_usage',
+        :'indexed_spans_percentage' => :'indexed_spans_percentage',
+        :'indexed_spans_usage' => :'indexed_spans_usage',
         :'infra_host_percentage' => :'infra_host_percentage',
         :'infra_host_usage' => :'infra_host_usage',
+        :'ingested_logs_bytes_percentage' => :'ingested_logs_bytes_percentage',
+        :'ingested_logs_bytes_usage' => :'ingested_logs_bytes_usage',
+        :'ingested_spans_bytes_percentage' => :'ingested_spans_bytes_percentage',
+        :'ingested_spans_bytes_usage' => :'ingested_spans_bytes_usage',
         :'invocations_percentage' => :'invocations_percentage',
         :'invocations_usage' => :'invocations_usage',
         :'lambda_traced_invocations_percentage' => :'lambda_traced_invocations_percentage',
         :'lambda_traced_invocations_usage' => :'lambda_traced_invocations_usage',
+        :'logs_indexed_15day_percentage' => :'logs_indexed_15day_percentage',
+        :'logs_indexed_15day_usage' => :'logs_indexed_15day_usage',
+        :'logs_indexed_180day_percentage' => :'logs_indexed_180day_percentage',
+        :'logs_indexed_180day_usage' => :'logs_indexed_180day_usage',
+        :'logs_indexed_30day_percentage' => :'logs_indexed_30day_percentage',
+        :'logs_indexed_30day_usage' => :'logs_indexed_30day_usage',
+        :'logs_indexed_360day_percentage' => :'logs_indexed_360day_percentage',
+        :'logs_indexed_360day_usage' => :'logs_indexed_360day_usage',
+        :'logs_indexed_3day_percentage' => :'logs_indexed_3day_percentage',
+        :'logs_indexed_3day_usage' => :'logs_indexed_3day_usage',
+        :'logs_indexed_45day_percentage' => :'logs_indexed_45day_percentage',
+        :'logs_indexed_45day_usage' => :'logs_indexed_45day_usage',
+        :'logs_indexed_60day_percentage' => :'logs_indexed_60day_percentage',
+        :'logs_indexed_60day_usage' => :'logs_indexed_60day_usage',
+        :'logs_indexed_7day_percentage' => :'logs_indexed_7day_percentage',
+        :'logs_indexed_7day_usage' => :'logs_indexed_7day_usage',
+        :'logs_indexed_90day_percentage' => :'logs_indexed_90day_percentage',
+        :'logs_indexed_90day_usage' => :'logs_indexed_90day_usage',
+        :'logs_indexed_custom_retention_percentage' => :'logs_indexed_custom_retention_percentage',
+        :'logs_indexed_custom_retention_usage' => :'logs_indexed_custom_retention_usage',
         :'mobile_app_testing_percentage' => :'mobile_app_testing_percentage',
         :'mobile_app_testing_usage' => :'mobile_app_testing_usage',
         :'ndm_netflow_percentage' => :'ndm_netflow_percentage',
@@ -343,10 +489,16 @@ module DatadogAPIClient::V1
         :'profiled_fargate_usage' => :'profiled_fargate_usage',
         :'profiled_host_percentage' => :'profiled_host_percentage',
         :'profiled_host_usage' => :'profiled_host_usage',
+        :'rum_browser_mobile_sessions_percentage' => :'rum_browser_mobile_sessions_percentage',
+        :'rum_browser_mobile_sessions_usage' => :'rum_browser_mobile_sessions_usage',
+        :'rum_replay_sessions_percentage' => :'rum_replay_sessions_percentage',
+        :'rum_replay_sessions_usage' => :'rum_replay_sessions_usage',
         :'sds_scanned_bytes_percentage' => :'sds_scanned_bytes_percentage',
         :'sds_scanned_bytes_usage' => :'sds_scanned_bytes_usage',
         :'serverless_apps_percentage' => :'serverless_apps_percentage',
         :'serverless_apps_usage' => :'serverless_apps_usage',
+        :'siem_ingested_bytes_percentage' => :'siem_ingested_bytes_percentage',
+        :'siem_ingested_bytes_usage' => :'siem_ingested_bytes_usage',
         :'snmp_percentage' => :'snmp_percentage',
         :'snmp_usage' => :'snmp_usage',
         :'universal_service_monitoring_percentage' => :'universal_service_monitoring_percentage',
@@ -374,6 +526,10 @@ module DatadogAPIClient::V1
         :'appsec_usage' => :'Float',
         :'browser_percentage' => :'Float',
         :'browser_usage' => :'Float',
+        :'ci_pipeline_indexed_spans_percentage' => :'Float',
+        :'ci_pipeline_indexed_spans_usage' => :'Float',
+        :'ci_test_indexed_spans_percentage' => :'Float',
+        :'ci_test_indexed_spans_usage' => :'Float',
         :'ci_visibility_itr_percentage' => :'Float',
         :'ci_visibility_itr_usage' => :'Float',
         :'cloud_siem_percentage' => :'Float',
@@ -386,6 +542,8 @@ module DatadogAPIClient::V1
         :'cspm_containers_usage' => :'Float',
         :'cspm_hosts_percentage' => :'Float',
         :'cspm_hosts_usage' => :'Float',
+        :'custom_event_percentage' => :'Float',
+        :'custom_event_usage' => :'Float',
         :'custom_ingested_timeseries_percentage' => :'Float',
         :'custom_ingested_timeseries_usage' => :'Float',
         :'custom_timeseries_percentage' => :'Float',
@@ -412,12 +570,38 @@ module DatadogAPIClient::V1
         :'fargate_usage' => :'Float',
         :'functions_percentage' => :'Float',
         :'functions_usage' => :'Float',
+        :'indexed_spans_percentage' => :'Float',
+        :'indexed_spans_usage' => :'Float',
         :'infra_host_percentage' => :'Float',
         :'infra_host_usage' => :'Float',
+        :'ingested_logs_bytes_percentage' => :'Float',
+        :'ingested_logs_bytes_usage' => :'Float',
+        :'ingested_spans_bytes_percentage' => :'Float',
+        :'ingested_spans_bytes_usage' => :'Float',
         :'invocations_percentage' => :'Float',
         :'invocations_usage' => :'Float',
         :'lambda_traced_invocations_percentage' => :'Float',
         :'lambda_traced_invocations_usage' => :'Float',
+        :'logs_indexed_15day_percentage' => :'Float',
+        :'logs_indexed_15day_usage' => :'Float',
+        :'logs_indexed_180day_percentage' => :'Float',
+        :'logs_indexed_180day_usage' => :'Float',
+        :'logs_indexed_30day_percentage' => :'Float',
+        :'logs_indexed_30day_usage' => :'Float',
+        :'logs_indexed_360day_percentage' => :'Float',
+        :'logs_indexed_360day_usage' => :'Float',
+        :'logs_indexed_3day_percentage' => :'Float',
+        :'logs_indexed_3day_usage' => :'Float',
+        :'logs_indexed_45day_percentage' => :'Float',
+        :'logs_indexed_45day_usage' => :'Float',
+        :'logs_indexed_60day_percentage' => :'Float',
+        :'logs_indexed_60day_usage' => :'Float',
+        :'logs_indexed_7day_percentage' => :'Float',
+        :'logs_indexed_7day_usage' => :'Float',
+        :'logs_indexed_90day_percentage' => :'Float',
+        :'logs_indexed_90day_usage' => :'Float',
+        :'logs_indexed_custom_retention_percentage' => :'Float',
+        :'logs_indexed_custom_retention_usage' => :'Float',
         :'mobile_app_testing_percentage' => :'Float',
         :'mobile_app_testing_usage' => :'Float',
         :'ndm_netflow_percentage' => :'Float',
@@ -432,10 +616,16 @@ module DatadogAPIClient::V1
         :'profiled_fargate_usage' => :'Float',
         :'profiled_host_percentage' => :'Float',
         :'profiled_host_usage' => :'Float',
+        :'rum_browser_mobile_sessions_percentage' => :'Float',
+        :'rum_browser_mobile_sessions_usage' => :'Float',
+        :'rum_replay_sessions_percentage' => :'Float',
+        :'rum_replay_sessions_usage' => :'Float',
         :'sds_scanned_bytes_percentage' => :'Float',
         :'sds_scanned_bytes_usage' => :'Float',
         :'serverless_apps_percentage' => :'Float',
         :'serverless_apps_usage' => :'Float',
+        :'siem_ingested_bytes_percentage' => :'Float',
+        :'siem_ingested_bytes_usage' => :'Float',
         :'snmp_percentage' => :'Float',
         :'snmp_usage' => :'Float',
         :'universal_service_monitoring_percentage' => :'Float',
@@ -517,6 +707,22 @@ module DatadogAPIClient::V1
         self.browser_usage = attributes[:'browser_usage']
       end
 
+      if attributes.key?(:'ci_pipeline_indexed_spans_percentage')
+        self.ci_pipeline_indexed_spans_percentage = attributes[:'ci_pipeline_indexed_spans_percentage']
+      end
+
+      if attributes.key?(:'ci_pipeline_indexed_spans_usage')
+        self.ci_pipeline_indexed_spans_usage = attributes[:'ci_pipeline_indexed_spans_usage']
+      end
+
+      if attributes.key?(:'ci_test_indexed_spans_percentage')
+        self.ci_test_indexed_spans_percentage = attributes[:'ci_test_indexed_spans_percentage']
+      end
+
+      if attributes.key?(:'ci_test_indexed_spans_usage')
+        self.ci_test_indexed_spans_usage = attributes[:'ci_test_indexed_spans_usage']
+      end
+
       if attributes.key?(:'ci_visibility_itr_percentage')
         self.ci_visibility_itr_percentage = attributes[:'ci_visibility_itr_percentage']
       end
@@ -563,6 +769,14 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'cspm_hosts_usage')
         self.cspm_hosts_usage = attributes[:'cspm_hosts_usage']
+      end
+
+      if attributes.key?(:'custom_event_percentage')
+        self.custom_event_percentage = attributes[:'custom_event_percentage']
+      end
+
+      if attributes.key?(:'custom_event_usage')
+        self.custom_event_usage = attributes[:'custom_event_usage']
       end
 
       if attributes.key?(:'custom_ingested_timeseries_percentage')
@@ -669,12 +883,36 @@ module DatadogAPIClient::V1
         self.functions_usage = attributes[:'functions_usage']
       end
 
+      if attributes.key?(:'indexed_spans_percentage')
+        self.indexed_spans_percentage = attributes[:'indexed_spans_percentage']
+      end
+
+      if attributes.key?(:'indexed_spans_usage')
+        self.indexed_spans_usage = attributes[:'indexed_spans_usage']
+      end
+
       if attributes.key?(:'infra_host_percentage')
         self.infra_host_percentage = attributes[:'infra_host_percentage']
       end
 
       if attributes.key?(:'infra_host_usage')
         self.infra_host_usage = attributes[:'infra_host_usage']
+      end
+
+      if attributes.key?(:'ingested_logs_bytes_percentage')
+        self.ingested_logs_bytes_percentage = attributes[:'ingested_logs_bytes_percentage']
+      end
+
+      if attributes.key?(:'ingested_logs_bytes_usage')
+        self.ingested_logs_bytes_usage = attributes[:'ingested_logs_bytes_usage']
+      end
+
+      if attributes.key?(:'ingested_spans_bytes_percentage')
+        self.ingested_spans_bytes_percentage = attributes[:'ingested_spans_bytes_percentage']
+      end
+
+      if attributes.key?(:'ingested_spans_bytes_usage')
+        self.ingested_spans_bytes_usage = attributes[:'ingested_spans_bytes_usage']
       end
 
       if attributes.key?(:'invocations_percentage')
@@ -691,6 +929,86 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'lambda_traced_invocations_usage')
         self.lambda_traced_invocations_usage = attributes[:'lambda_traced_invocations_usage']
+      end
+
+      if attributes.key?(:'logs_indexed_15day_percentage')
+        self.logs_indexed_15day_percentage = attributes[:'logs_indexed_15day_percentage']
+      end
+
+      if attributes.key?(:'logs_indexed_15day_usage')
+        self.logs_indexed_15day_usage = attributes[:'logs_indexed_15day_usage']
+      end
+
+      if attributes.key?(:'logs_indexed_180day_percentage')
+        self.logs_indexed_180day_percentage = attributes[:'logs_indexed_180day_percentage']
+      end
+
+      if attributes.key?(:'logs_indexed_180day_usage')
+        self.logs_indexed_180day_usage = attributes[:'logs_indexed_180day_usage']
+      end
+
+      if attributes.key?(:'logs_indexed_30day_percentage')
+        self.logs_indexed_30day_percentage = attributes[:'logs_indexed_30day_percentage']
+      end
+
+      if attributes.key?(:'logs_indexed_30day_usage')
+        self.logs_indexed_30day_usage = attributes[:'logs_indexed_30day_usage']
+      end
+
+      if attributes.key?(:'logs_indexed_360day_percentage')
+        self.logs_indexed_360day_percentage = attributes[:'logs_indexed_360day_percentage']
+      end
+
+      if attributes.key?(:'logs_indexed_360day_usage')
+        self.logs_indexed_360day_usage = attributes[:'logs_indexed_360day_usage']
+      end
+
+      if attributes.key?(:'logs_indexed_3day_percentage')
+        self.logs_indexed_3day_percentage = attributes[:'logs_indexed_3day_percentage']
+      end
+
+      if attributes.key?(:'logs_indexed_3day_usage')
+        self.logs_indexed_3day_usage = attributes[:'logs_indexed_3day_usage']
+      end
+
+      if attributes.key?(:'logs_indexed_45day_percentage')
+        self.logs_indexed_45day_percentage = attributes[:'logs_indexed_45day_percentage']
+      end
+
+      if attributes.key?(:'logs_indexed_45day_usage')
+        self.logs_indexed_45day_usage = attributes[:'logs_indexed_45day_usage']
+      end
+
+      if attributes.key?(:'logs_indexed_60day_percentage')
+        self.logs_indexed_60day_percentage = attributes[:'logs_indexed_60day_percentage']
+      end
+
+      if attributes.key?(:'logs_indexed_60day_usage')
+        self.logs_indexed_60day_usage = attributes[:'logs_indexed_60day_usage']
+      end
+
+      if attributes.key?(:'logs_indexed_7day_percentage')
+        self.logs_indexed_7day_percentage = attributes[:'logs_indexed_7day_percentage']
+      end
+
+      if attributes.key?(:'logs_indexed_7day_usage')
+        self.logs_indexed_7day_usage = attributes[:'logs_indexed_7day_usage']
+      end
+
+      if attributes.key?(:'logs_indexed_90day_percentage')
+        self.logs_indexed_90day_percentage = attributes[:'logs_indexed_90day_percentage']
+      end
+
+      if attributes.key?(:'logs_indexed_90day_usage')
+        self.logs_indexed_90day_usage = attributes[:'logs_indexed_90day_usage']
+      end
+
+      if attributes.key?(:'logs_indexed_custom_retention_percentage')
+        self.logs_indexed_custom_retention_percentage = attributes[:'logs_indexed_custom_retention_percentage']
+      end
+
+      if attributes.key?(:'logs_indexed_custom_retention_usage')
+        self.logs_indexed_custom_retention_usage = attributes[:'logs_indexed_custom_retention_usage']
       end
 
       if attributes.key?(:'mobile_app_testing_percentage')
@@ -749,6 +1067,22 @@ module DatadogAPIClient::V1
         self.profiled_host_usage = attributes[:'profiled_host_usage']
       end
 
+      if attributes.key?(:'rum_browser_mobile_sessions_percentage')
+        self.rum_browser_mobile_sessions_percentage = attributes[:'rum_browser_mobile_sessions_percentage']
+      end
+
+      if attributes.key?(:'rum_browser_mobile_sessions_usage')
+        self.rum_browser_mobile_sessions_usage = attributes[:'rum_browser_mobile_sessions_usage']
+      end
+
+      if attributes.key?(:'rum_replay_sessions_percentage')
+        self.rum_replay_sessions_percentage = attributes[:'rum_replay_sessions_percentage']
+      end
+
+      if attributes.key?(:'rum_replay_sessions_usage')
+        self.rum_replay_sessions_usage = attributes[:'rum_replay_sessions_usage']
+      end
+
       if attributes.key?(:'sds_scanned_bytes_percentage')
         self.sds_scanned_bytes_percentage = attributes[:'sds_scanned_bytes_percentage']
       end
@@ -763,6 +1097,14 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'serverless_apps_usage')
         self.serverless_apps_usage = attributes[:'serverless_apps_usage']
+      end
+
+      if attributes.key?(:'siem_ingested_bytes_percentage')
+        self.siem_ingested_bytes_percentage = attributes[:'siem_ingested_bytes_percentage']
+      end
+
+      if attributes.key?(:'siem_ingested_bytes_usage')
+        self.siem_ingested_bytes_usage = attributes[:'siem_ingested_bytes_usage']
       end
 
       if attributes.key?(:'snmp_percentage')
@@ -810,6 +1152,10 @@ module DatadogAPIClient::V1
           appsec_usage == o.appsec_usage &&
           browser_percentage == o.browser_percentage &&
           browser_usage == o.browser_usage &&
+          ci_pipeline_indexed_spans_percentage == o.ci_pipeline_indexed_spans_percentage &&
+          ci_pipeline_indexed_spans_usage == o.ci_pipeline_indexed_spans_usage &&
+          ci_test_indexed_spans_percentage == o.ci_test_indexed_spans_percentage &&
+          ci_test_indexed_spans_usage == o.ci_test_indexed_spans_usage &&
           ci_visibility_itr_percentage == o.ci_visibility_itr_percentage &&
           ci_visibility_itr_usage == o.ci_visibility_itr_usage &&
           cloud_siem_percentage == o.cloud_siem_percentage &&
@@ -822,6 +1168,8 @@ module DatadogAPIClient::V1
           cspm_containers_usage == o.cspm_containers_usage &&
           cspm_hosts_percentage == o.cspm_hosts_percentage &&
           cspm_hosts_usage == o.cspm_hosts_usage &&
+          custom_event_percentage == o.custom_event_percentage &&
+          custom_event_usage == o.custom_event_usage &&
           custom_ingested_timeseries_percentage == o.custom_ingested_timeseries_percentage &&
           custom_ingested_timeseries_usage == o.custom_ingested_timeseries_usage &&
           custom_timeseries_percentage == o.custom_timeseries_percentage &&
@@ -848,12 +1196,38 @@ module DatadogAPIClient::V1
           fargate_usage == o.fargate_usage &&
           functions_percentage == o.functions_percentage &&
           functions_usage == o.functions_usage &&
+          indexed_spans_percentage == o.indexed_spans_percentage &&
+          indexed_spans_usage == o.indexed_spans_usage &&
           infra_host_percentage == o.infra_host_percentage &&
           infra_host_usage == o.infra_host_usage &&
+          ingested_logs_bytes_percentage == o.ingested_logs_bytes_percentage &&
+          ingested_logs_bytes_usage == o.ingested_logs_bytes_usage &&
+          ingested_spans_bytes_percentage == o.ingested_spans_bytes_percentage &&
+          ingested_spans_bytes_usage == o.ingested_spans_bytes_usage &&
           invocations_percentage == o.invocations_percentage &&
           invocations_usage == o.invocations_usage &&
           lambda_traced_invocations_percentage == o.lambda_traced_invocations_percentage &&
           lambda_traced_invocations_usage == o.lambda_traced_invocations_usage &&
+          logs_indexed_15day_percentage == o.logs_indexed_15day_percentage &&
+          logs_indexed_15day_usage == o.logs_indexed_15day_usage &&
+          logs_indexed_180day_percentage == o.logs_indexed_180day_percentage &&
+          logs_indexed_180day_usage == o.logs_indexed_180day_usage &&
+          logs_indexed_30day_percentage == o.logs_indexed_30day_percentage &&
+          logs_indexed_30day_usage == o.logs_indexed_30day_usage &&
+          logs_indexed_360day_percentage == o.logs_indexed_360day_percentage &&
+          logs_indexed_360day_usage == o.logs_indexed_360day_usage &&
+          logs_indexed_3day_percentage == o.logs_indexed_3day_percentage &&
+          logs_indexed_3day_usage == o.logs_indexed_3day_usage &&
+          logs_indexed_45day_percentage == o.logs_indexed_45day_percentage &&
+          logs_indexed_45day_usage == o.logs_indexed_45day_usage &&
+          logs_indexed_60day_percentage == o.logs_indexed_60day_percentage &&
+          logs_indexed_60day_usage == o.logs_indexed_60day_usage &&
+          logs_indexed_7day_percentage == o.logs_indexed_7day_percentage &&
+          logs_indexed_7day_usage == o.logs_indexed_7day_usage &&
+          logs_indexed_90day_percentage == o.logs_indexed_90day_percentage &&
+          logs_indexed_90day_usage == o.logs_indexed_90day_usage &&
+          logs_indexed_custom_retention_percentage == o.logs_indexed_custom_retention_percentage &&
+          logs_indexed_custom_retention_usage == o.logs_indexed_custom_retention_usage &&
           mobile_app_testing_percentage == o.mobile_app_testing_percentage &&
           mobile_app_testing_usage == o.mobile_app_testing_usage &&
           ndm_netflow_percentage == o.ndm_netflow_percentage &&
@@ -868,10 +1242,16 @@ module DatadogAPIClient::V1
           profiled_fargate_usage == o.profiled_fargate_usage &&
           profiled_host_percentage == o.profiled_host_percentage &&
           profiled_host_usage == o.profiled_host_usage &&
+          rum_browser_mobile_sessions_percentage == o.rum_browser_mobile_sessions_percentage &&
+          rum_browser_mobile_sessions_usage == o.rum_browser_mobile_sessions_usage &&
+          rum_replay_sessions_percentage == o.rum_replay_sessions_percentage &&
+          rum_replay_sessions_usage == o.rum_replay_sessions_usage &&
           sds_scanned_bytes_percentage == o.sds_scanned_bytes_percentage &&
           sds_scanned_bytes_usage == o.sds_scanned_bytes_usage &&
           serverless_apps_percentage == o.serverless_apps_percentage &&
           serverless_apps_usage == o.serverless_apps_usage &&
+          siem_ingested_bytes_percentage == o.siem_ingested_bytes_percentage &&
+          siem_ingested_bytes_usage == o.siem_ingested_bytes_usage &&
           snmp_percentage == o.snmp_percentage &&
           snmp_usage == o.snmp_usage &&
           universal_service_monitoring_percentage == o.universal_service_monitoring_percentage &&
@@ -884,7 +1264,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [api_percentage, api_usage, apm_fargate_percentage, apm_fargate_usage, apm_host_percentage, apm_host_usage, apm_usm_percentage, apm_usm_usage, appsec_fargate_percentage, appsec_fargate_usage, appsec_percentage, appsec_usage, browser_percentage, browser_usage, ci_visibility_itr_percentage, ci_visibility_itr_usage, cloud_siem_percentage, cloud_siem_usage, container_excl_agent_percentage, container_excl_agent_usage, container_percentage, container_usage, cspm_containers_percentage, cspm_containers_usage, cspm_hosts_percentage, cspm_hosts_usage, custom_ingested_timeseries_percentage, custom_ingested_timeseries_usage, custom_timeseries_percentage, custom_timeseries_usage, cws_containers_percentage, cws_containers_usage, cws_hosts_percentage, cws_hosts_usage, dbm_hosts_percentage, dbm_hosts_usage, dbm_queries_percentage, dbm_queries_usage, estimated_indexed_logs_percentage, estimated_indexed_logs_usage, estimated_indexed_spans_percentage, estimated_indexed_spans_usage, estimated_ingested_logs_percentage, estimated_ingested_logs_usage, estimated_ingested_spans_percentage, estimated_ingested_spans_usage, estimated_rum_sessions_percentage, estimated_rum_sessions_usage, fargate_percentage, fargate_usage, functions_percentage, functions_usage, infra_host_percentage, infra_host_usage, invocations_percentage, invocations_usage, lambda_traced_invocations_percentage, lambda_traced_invocations_usage, mobile_app_testing_percentage, mobile_app_testing_usage, ndm_netflow_percentage, ndm_netflow_usage, npm_host_percentage, npm_host_usage, obs_pipeline_bytes_percentage, obs_pipeline_bytes_usage, profiled_container_percentage, profiled_container_usage, profiled_fargate_percentage, profiled_fargate_usage, profiled_host_percentage, profiled_host_usage, sds_scanned_bytes_percentage, sds_scanned_bytes_usage, serverless_apps_percentage, serverless_apps_usage, snmp_percentage, snmp_usage, universal_service_monitoring_percentage, universal_service_monitoring_usage, vuln_management_hosts_percentage, vuln_management_hosts_usage].hash
+      [api_percentage, api_usage, apm_fargate_percentage, apm_fargate_usage, apm_host_percentage, apm_host_usage, apm_usm_percentage, apm_usm_usage, appsec_fargate_percentage, appsec_fargate_usage, appsec_percentage, appsec_usage, browser_percentage, browser_usage, ci_pipeline_indexed_spans_percentage, ci_pipeline_indexed_spans_usage, ci_test_indexed_spans_percentage, ci_test_indexed_spans_usage, ci_visibility_itr_percentage, ci_visibility_itr_usage, cloud_siem_percentage, cloud_siem_usage, container_excl_agent_percentage, container_excl_agent_usage, container_percentage, container_usage, cspm_containers_percentage, cspm_containers_usage, cspm_hosts_percentage, cspm_hosts_usage, custom_event_percentage, custom_event_usage, custom_ingested_timeseries_percentage, custom_ingested_timeseries_usage, custom_timeseries_percentage, custom_timeseries_usage, cws_containers_percentage, cws_containers_usage, cws_hosts_percentage, cws_hosts_usage, dbm_hosts_percentage, dbm_hosts_usage, dbm_queries_percentage, dbm_queries_usage, estimated_indexed_logs_percentage, estimated_indexed_logs_usage, estimated_indexed_spans_percentage, estimated_indexed_spans_usage, estimated_ingested_logs_percentage, estimated_ingested_logs_usage, estimated_ingested_spans_percentage, estimated_ingested_spans_usage, estimated_rum_sessions_percentage, estimated_rum_sessions_usage, fargate_percentage, fargate_usage, functions_percentage, functions_usage, indexed_spans_percentage, indexed_spans_usage, infra_host_percentage, infra_host_usage, ingested_logs_bytes_percentage, ingested_logs_bytes_usage, ingested_spans_bytes_percentage, ingested_spans_bytes_usage, invocations_percentage, invocations_usage, lambda_traced_invocations_percentage, lambda_traced_invocations_usage, logs_indexed_15day_percentage, logs_indexed_15day_usage, logs_indexed_180day_percentage, logs_indexed_180day_usage, logs_indexed_30day_percentage, logs_indexed_30day_usage, logs_indexed_360day_percentage, logs_indexed_360day_usage, logs_indexed_3day_percentage, logs_indexed_3day_usage, logs_indexed_45day_percentage, logs_indexed_45day_usage, logs_indexed_60day_percentage, logs_indexed_60day_usage, logs_indexed_7day_percentage, logs_indexed_7day_usage, logs_indexed_90day_percentage, logs_indexed_90day_usage, logs_indexed_custom_retention_percentage, logs_indexed_custom_retention_usage, mobile_app_testing_percentage, mobile_app_testing_usage, ndm_netflow_percentage, ndm_netflow_usage, npm_host_percentage, npm_host_usage, obs_pipeline_bytes_percentage, obs_pipeline_bytes_usage, profiled_container_percentage, profiled_container_usage, profiled_fargate_percentage, profiled_fargate_usage, profiled_host_percentage, profiled_host_usage, rum_browser_mobile_sessions_percentage, rum_browser_mobile_sessions_usage, rum_replay_sessions_percentage, rum_replay_sessions_usage, sds_scanned_bytes_percentage, sds_scanned_bytes_usage, serverless_apps_percentage, serverless_apps_usage, siem_ingested_bytes_percentage, siem_ingested_bytes_usage, snmp_percentage, snmp_usage, universal_service_monitoring_percentage, universal_service_monitoring_usage, vuln_management_hosts_percentage, vuln_management_hosts_usage].hash
     end
   end
 end
