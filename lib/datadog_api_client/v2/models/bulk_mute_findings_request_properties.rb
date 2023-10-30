@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Object containing the new mute properties of the finding.
-  class MuteFindingRequestProperties
+  # Object containing the new mute properties of the findings.
+  class BulkMuteFindingsRequestProperties
     include BaseGenericModel
 
-    # Additional information about the reason why this finding is muted or unmuted. This field has a maximum limit of 280 characters.
+    # Additional information about the reason why those findings are muted or unmuted. This field has a maximum limit of 280 characters.
     attr_accessor :description
 
     # The expiration date of the mute or unmute action (Unix ms). It must be set to a value greater than the current timestamp.
@@ -29,7 +29,7 @@ module DatadogAPIClient::V2
     #
     attr_accessor :expiration_date
 
-    # Whether this finding is muted or unmuted.
+    # Whether those findings should be muted or unmuted.
     attr_reader :muted
 
     # The reason why this finding is muted or unmuted.
@@ -62,13 +62,13 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::MuteFindingRequestProperties` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::BulkMuteFindingsRequestProperties` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::MuteFindingRequestProperties`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::BulkMuteFindingsRequestProperties`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
