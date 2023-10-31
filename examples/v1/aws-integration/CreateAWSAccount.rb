@@ -6,7 +6,7 @@ api_instance = DatadogAPIClient::V1::AWSIntegrationAPI.new
 body = DatadogAPIClient::V1::AWSAccount.new({
   account_id: "123456789012",
   account_specific_namespace_rules: {
-    auto_scaling: false, opswork: false,
+    auto_scaling: false,
   },
   cspm_resource_collection_enabled: true,
   excluded_regions: [

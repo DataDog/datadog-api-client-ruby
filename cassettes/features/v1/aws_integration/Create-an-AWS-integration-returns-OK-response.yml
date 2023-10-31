@@ -1,0 +1,50 @@
+http_interactions:
+- recorded_at: Mon, 30 Oct 2023 20:37:07 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"account_id":"123456789012","account_specific_namespace_rules":{"auto_scaling":false},"cspm_resource_collection_enabled":true,"excluded_regions":["us-east-1","us-west-2"],"filter_tags":["$KEY:$VALUE"],"host_tags":["$KEY:$VALUE"],"metrics_collection_enabled":false,"resource_collection_enabled":true,"role_name":"DatadogAWSIntegrationRole"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v1/integration/aws
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"external_id":"240b016c46fe4ceb95ac0232da138c88"}
+
+        '
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+- recorded_at: Mon, 30 Oct 2023 20:37:07 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"account_id":"123456789012","role_name":"DatadogAWSIntegrationRole"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v1/integration/aws
+  response:
+    body:
+      encoding: UTF-8
+      string: '{}
+
+        '
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+recorded_with: VCR 6.0.0
