@@ -39,6 +39,11 @@ module DatadogAPIClient::V2
     # Can only be applied to metrics that have a `metric_type` of `count`, `rate`, or `gauge`.
     attr_accessor :aggregations
 
+    # When set to true, the configuration will exclude the configured tags and include any other submitted tags.
+    # When set to false, the configuration will include the configured tags and exclude any other submitted tags.
+    # Defaults to false. Requires `tags` property.
+    attr_accessor :exclude_tags_mode
+
     # Toggle to include/exclude percentiles for a distribution metric.
     # Defaults to false. Can only be applied to metrics that have a `metric_type` of `distribution`.
     attr_accessor :include_percentiles
@@ -54,6 +59,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'aggregations' => :'aggregations',
+        :'exclude_tags_mode' => :'exclude_tags_mode',
         :'include_percentiles' => :'include_percentiles',
         :'metric_type' => :'metric_type',
         :'tags' => :'tags'
@@ -65,6 +71,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'aggregations' => :'Array<MetricCustomAggregation>',
+        :'exclude_tags_mode' => :'Boolean',
         :'include_percentiles' => :'Boolean',
         :'metric_type' => :'MetricTagConfigurationMetricTypes',
         :'tags' => :'Array<String>'
@@ -91,6 +98,10 @@ module DatadogAPIClient::V2
         if (value = attributes[:'aggregations']).is_a?(Array)
           self.aggregations = value
         end
+      end
+
+      if attributes.key?(:'exclude_tags_mode')
+        self.exclude_tags_mode = attributes[:'exclude_tags_mode']
       end
 
       if attributes.key?(:'include_percentiles')
@@ -144,6 +155,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           aggregations == o.aggregations &&
+          exclude_tags_mode == o.exclude_tags_mode &&
           include_percentiles == o.include_percentiles &&
           metric_type == o.metric_type &&
           tags == o.tags
@@ -153,7 +165,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [aggregations, include_percentiles, metric_type, tags].hash
+      [aggregations, exclude_tags_mode, include_percentiles, metric_type, tags].hash
     end
   end
 end
