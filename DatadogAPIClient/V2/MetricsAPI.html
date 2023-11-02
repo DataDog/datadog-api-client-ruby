@@ -980,7 +980,8 @@
 Metrics are selected by passing a metric name prefix. Use the Delete method of this API path to remove tag configurations.
 Results can be sent to a set of account email addresses, just like the same operation in the Datadog web app.
 If multiple calls include the same metric, the last configuration applied (not by submit order) is used, do not
-expect deterministic ordering of concurrent calls.
+expect deterministic ordering of concurrent calls. The <code>exclude_tags_mode</code> value will set all metrics that match the prefix to
+the same exclusion state, metric tag configurations do not support mixed inclusion and exclusion for tags on the same metric.
 Can only be used with application keys of users with the <code>Manage Tags for Metrics</code> permission.</p>
 
 
@@ -1044,7 +1045,6 @@ Can only be used with application keys of users with the <code>Manage Tags for M
       <pre class="lines">
 
 
-46
 47
 48
 49
@@ -1094,10 +1094,11 @@ Can only be used with application keys of users with the <code>Manage Tags for M
 93
 94
 95
-96</pre>
+96
+97</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/metrics_api.rb', line 46</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/metrics_api.rb', line 47</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create_bulk_tags_metrics_configuration_with_http_info'>create_bulk_tags_metrics_configuration_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -1219,7 +1220,8 @@ Can only be used with application keys of users with the <code>Manage Tags for M
 
 <p>Create and define a list of queryable tag keys for an existing count/gauge/rate/distribution metric.
 Optionally, include percentile aggregations on any distribution metric or configure custom aggregations
-on any count, rate, or gauge metric.
+on any count, rate, or gauge metric. By setting <code>exclude_tags_mode</code> to true the behavior is changed
+from an allow-list to a deny-list, and tags in the defined list will not be queryable.
 Can only be used with application keys of users with the <code>Manage Tags for Metrics</code> permission.</p>
 
 
@@ -1465,13 +1467,13 @@ Can only be used with application keys of users with the <code>Manage Tags for M
       <pre class="lines">
 
 
-176
-177
 178
-179</pre>
+179
+180
+181</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/metrics_api.rb', line 176</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/metrics_api.rb', line 178</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete_bulk_tags_metrics_configuration'>delete_bulk_tags_metrics_configuration</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_delete_bulk_tags_metrics_configuration_with_http_info'>delete_bulk_tags_metrics_configuration_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -1561,8 +1563,6 @@ Can only be used with application keys of users with the <code>Manage Tags for M
       <pre class="lines">
 
 
-191
-192
 193
 194
 195
@@ -1611,10 +1611,12 @@ Can only be used with application keys of users with the <code>Manage Tags for M
 238
 239
 240
-241</pre>
+241
+242
+243</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/metrics_api.rb', line 191</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/metrics_api.rb', line 193</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete_bulk_tags_metrics_configuration_with_http_info'>delete_bulk_tags_metrics_configuration_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -1957,13 +1959,13 @@ keys from users with the <code>Manage Tags for Metrics</code> permission.</p>
       <pre class="lines">
 
 
-312
-313
 314
-315</pre>
+315
+316
+317</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/metrics_api.rb', line 312</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/metrics_api.rb', line 314</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_estimate_metrics_output_series'>estimate_metrics_output_series</span><span class='lparen'>(</span><span class='id identifier rubyid_metric_name'>metric_name</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_estimate_metrics_output_series_with_http_info'>estimate_metrics_output_series_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_metric_name'>metric_name</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -2125,8 +2127,6 @@ keys from users with the <code>Manage Tags for Metrics</code> permission.</p>
       <pre class="lines">
 
 
-329
-330
 331
 332
 333
@@ -2187,10 +2187,12 @@ keys from users with the <code>Manage Tags for Metrics</code> permission.</p>
 388
 389
 390
-391</pre>
+391
+392
+393</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/metrics_api.rb', line 329</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/metrics_api.rb', line 331</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_estimate_metrics_output_series_with_http_info'>estimate_metrics_output_series_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_metric_name'>metric_name</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -2292,13 +2294,13 @@ keys from users with the <code>Manage Tags for Metrics</code> permission.</p>
       <pre class="lines">
 
 
-396
-397
 398
-399</pre>
+399
+400
+401</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/metrics_api.rb', line 396</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/metrics_api.rb', line 398</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_active_metric_configurations'>list_active_metric_configurations</span><span class='lparen'>(</span><span class='id identifier rubyid_metric_name'>metric_name</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_list_active_metric_configurations_with_http_info'>list_active_metric_configurations_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_metric_name'>metric_name</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -2412,8 +2414,6 @@ keys from users with the <code>Manage Tags for Metrics</code> permission.</p>
       <pre class="lines">
 
 
-409
-410
 411
 412
 413
@@ -2461,10 +2461,12 @@ keys from users with the <code>Manage Tags for Metrics</code> permission.</p>
 455
 456
 457
-458</pre>
+458
+459
+460</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/metrics_api.rb', line 409</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/metrics_api.rb', line 411</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_active_metric_configurations_with_http_info'>list_active_metric_configurations_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_metric_name'>metric_name</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -3645,13 +3647,13 @@ keys from users with the <code>Manage Tags for Metrics</code> permission.</p>
       <pre class="lines">
 
 
-738
-739
 740
-741</pre>
+741
+742
+743</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/metrics_api.rb', line 738</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/metrics_api.rb', line 740</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_query_scalar_data'>query_scalar_data</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_query_scalar_data_with_http_info'>query_scalar_data_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -3740,8 +3742,6 @@ process the data using formulas and functions.</p>
       <pre class="lines">
 
 
-752
-753
 754
 755
 756
@@ -3796,10 +3796,12 @@ process the data using formulas and functions.</p>
 805
 806
 807
-808</pre>
+808
+809
+810</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/metrics_api.rb', line 752</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/metrics_api.rb', line 754</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_query_scalar_data_with_http_info'>query_scalar_data_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_unstable_enabled'>unstable_enabled</span> <span class='op'>=</span> <span class='ivar'>@api_client</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_unstable_operations'>unstable_operations</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>v2.query_scalar_data</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='rbracket'>]</span>
@@ -3895,13 +3897,13 @@ process the data using formulas and functions.</p>
       <pre class="lines">
 
 
-813
-814
 815
-816</pre>
+816
+817
+818</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/metrics_api.rb', line 813</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/metrics_api.rb', line 815</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_query_timeseries_data'>query_timeseries_data</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_query_timeseries_data_with_http_info'>query_timeseries_data_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -3989,8 +3991,6 @@ process the data by applying formulas and functions.</p>
       <pre class="lines">
 
 
-826
-827
 828
 829
 830
@@ -4045,10 +4045,12 @@ process the data by applying formulas and functions.</p>
 879
 880
 881
-882</pre>
+882
+883
+884</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/metrics_api.rb', line 826</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/metrics_api.rb', line 828</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_query_timeseries_data_with_http_info'>query_timeseries_data_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_unstable_enabled'>unstable_enabled</span> <span class='op'>=</span> <span class='ivar'>@api_client</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_unstable_operations'>unstable_operations</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>v2.query_timeseries_data</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='rbracket'>]</span>
@@ -4144,13 +4146,13 @@ process the data by applying formulas and functions.</p>
       <pre class="lines">
 
 
-887
-888
 889
-890</pre>
+890
+891
+892</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/metrics_api.rb', line 887</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/metrics_api.rb', line 889</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_submit_metrics'>submit_metrics</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_submit_metrics_with_http_info'>submit_metrics_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -4273,8 +4275,6 @@ The maximum payload size is 500 kilobytes (512000 bytes). Compressed payloads mu
       <pre class="lines">
 
 
-911
-912
 913
 914
 915
@@ -4328,10 +4328,12 @@ The maximum payload size is 500 kilobytes (512000 bytes). Compressed payloads mu
 963
 964
 965
-966</pre>
+966
+967
+968</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/metrics_api.rb', line 911</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/metrics_api.rb', line 913</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_submit_metrics_with_http_info'>submit_metrics_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -4676,7 +4678,7 @@ Can only be used with application keys from users with the <code>Manage Tags for
 </div>
 
       <div id="footer">
-  Generated on Tue Oct 31 17:40:15 2023 by
+  Generated on Thu Nov  2 17:34:40 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.34 (ruby-2.7.8).
 </div>

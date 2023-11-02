@@ -176,6 +176,32 @@
       <li class="public ">
   <span class="summary_signature">
     
+      <a href="#exclude_tags_mode-instance_method" title="#exclude_tags_mode (instance method)">#<strong>exclude_tags_mode</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>When set to true, the configuration will exclude the configured tags and include any other submitted tags.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#include_percentiles-instance_method" title="#include_percentiles (instance method)">#<strong>include_percentiles</strong>  &#x21d2; Object </a>
     
 
@@ -649,6 +675,50 @@ Additional time &amp; space combinations are also available:</p>
 </div>
     
       
+      <span id="exclude_tags_mode=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="exclude_tags_mode-instance_method">
+  
+    #<strong>exclude_tags_mode</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>When set to true, the configuration will exclude the configured tags and include any other submitted tags.
+When set to false, the configuration will include the configured tags and exclude any other submitted tags.
+Defaults to false. Requires <code>tags</code> property.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+45
+46
+47</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/metric_tag_configuration_create_attributes.rb', line 45</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_exclude_tags_mode'>exclude_tags_mode</span>
+  <span class='ivar'>@exclude_tags_mode</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
       <span id="include_percentiles=-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="include_percentiles-instance_method">
@@ -718,12 +788,12 @@ Defaults to false. Can only be applied to metrics that have a <code>metric_type<
       <pre class="lines">
 
 
-47
-48
-49</pre>
+52
+53
+54</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/metric_tag_configuration_create_attributes.rb', line 47</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/metric_tag_configuration_create_attributes.rb', line 52</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_metric_type'>metric_type</span>
   <span class='ivar'>@metric_type</span>
@@ -1673,7 +1743,7 @@ For object, use to_hash. Otherwise, just return the value</p>
 </div>
 
       <div id="footer">
-  Generated on Tue Oct 31 17:41:37 2023 by
+  Generated on Thu Nov  2 17:35:27 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.34 (ruby-2.7.8).
 </div>
