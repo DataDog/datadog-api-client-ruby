@@ -1,0 +1,64 @@
+http_interactions:
+- recorded_at: Wed, 01 Nov 2023 22:17:31 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"enabled":true,"name":"Test-Delete_a_rule_returns_OK_response-1698877051","owner":"Datadog","scorecard_name":"OpenAPI
+        Spec Test Best Practices"},"type":"rule"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/scorecard/rules
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"74d92a4b-2242-488d-b3de-dd557eecb18b","type":"rule","attributes":{"category":"OpenAPI
+        Spec Test Best Practices","created_at":"2023-11-01T22:17:31.138205Z","custom":true,"enabled":true,"modified_at":"2023-11-01T22:17:31.138205Z","name":"Test-Delete_a_rule_returns_OK_response-1698877051","owner":"Datadog","scorecard_name":"OpenAPI
+        Spec Test Best Practices"},"relationships":{"scorecard":{"data":{"id":"qsxpoYRhU_yz","type":"scorecard"}}}}}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 201
+      message: Created
+- recorded_at: Wed, 01 Nov 2023 22:17:31 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/scorecard/rules/74d92a4b-2242-488d-b3de-dd557eecb18b
+  response:
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 204
+      message: No Content
+- recorded_at: Wed, 01 Nov 2023 22:17:31 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/scorecard/rules/74d92a4b-2242-488d-b3de-dd557eecb18b
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"status":"404","title":"Not Found","detail":"rule not found:
+        74d92a4b-2242-488d-b3de-dd557eecb18b"}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 404
+      message: Not Found
+recorded_with: VCR 6.0.0

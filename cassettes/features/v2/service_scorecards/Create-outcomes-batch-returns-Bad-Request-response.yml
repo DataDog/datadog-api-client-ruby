@@ -1,0 +1,68 @@
+http_interactions:
+- recorded_at: Thu, 02 Nov 2023 21:19:11 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"enabled":true,"name":"Test-Create_outcomes_batch_returns_Bad_Request_response-1698959951","owner":"Datadog","scorecard_name":"OpenAPI
+        Spec Test Best Practices"},"type":"rule"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/scorecard/rules
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"0451feb1-fb1b-463f-ba02-4568feb2795b","type":"rule","attributes":{"category":"OpenAPI
+        Spec Test Best Practices","created_at":"2023-11-02T21:19:11.70524Z","custom":true,"enabled":true,"modified_at":"2023-11-02T21:19:11.70524Z","name":"Test-Create_outcomes_batch_returns_Bad_Request_response-1698959951","owner":"Datadog","scorecard_name":"OpenAPI
+        Spec Test Best Practices"},"relationships":{"scorecard":{"data":{"id":"qsxpoYRhU_yz","type":"scorecard"}}}}}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 201
+      message: Created
+- recorded_at: Thu, 02 Nov 2023 21:19:11 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"results":[{"remarks":"See: <a href=\"https://app.datadoghq.com/services\">Services</a>","rule_id":"0451feb1-fb1b-463f-ba02-4568feb2795b","service_name":"","state":"pass"}]},"type":"batched-outcome"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/scorecard/outcomes/batch
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"status":"400","title":"Bad Request","detail":"attribute
+        \"service_name\" is required"}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 400
+      message: Bad Request
+- recorded_at: Thu, 02 Nov 2023 21:19:11 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/scorecard/rules/0451feb1-fb1b-463f-ba02-4568feb2795b
+  response:
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 204
+      message: No Content
+recorded_with: VCR 6.0.0

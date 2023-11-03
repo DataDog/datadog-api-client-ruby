@@ -1,0 +1,45 @@
+http_interactions:
+- recorded_at: Wed, 01 Nov 2023 22:17:30 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"enabled":true,"name":"Test-Create_a_new_rule_returns_Created_response-1698877050","scorecard_name":"Observability
+        Best Practices"},"type":"rule"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/scorecard/rules
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"b6a60878-a110-4df5-b8aa-648d7f02dd02","type":"rule","attributes":{"category":"Observability
+        Best Practices","created_at":"2023-11-01T22:17:30.596814Z","custom":true,"enabled":true,"modified_at":"2023-11-01T22:17:30.596814Z","name":"Test-Create_a_new_rule_returns_Created_response-1698877050","scorecard_name":"Observability
+        Best Practices"},"relationships":{"scorecard":{"data":{"id":"hA5zOZJXXJ4K","type":"scorecard"}}}}}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 201
+      message: Created
+- recorded_at: Wed, 01 Nov 2023 22:17:30 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/scorecard/rules/b6a60878-a110-4df5-b8aa-648d7f02dd02
+  response:
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 204
+      message: No Content
+recorded_with: VCR 6.0.0
