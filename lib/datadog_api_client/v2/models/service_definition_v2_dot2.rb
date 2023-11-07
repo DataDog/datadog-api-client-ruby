@@ -40,7 +40,7 @@ module DatadogAPIClient::V2
     attr_accessor :integrations
 
     # The service's programming language. Datadog recognizes the following languages: `dotnet`, `go`, `java`, `js`, `php`, `python`, `ruby`, and `c++`.
-    attr_accessor :langauges
+    attr_accessor :languages
 
     # The current life cycle phase of the service.
     attr_accessor :lifecycle
@@ -73,7 +73,7 @@ module DatadogAPIClient::V2
         :'description' => :'description',
         :'extensions' => :'extensions',
         :'integrations' => :'integrations',
-        :'langauges' => :'langauges',
+        :'languages' => :'languages',
         :'lifecycle' => :'lifecycle',
         :'links' => :'links',
         :'schema_version' => :'schema-version',
@@ -94,7 +94,7 @@ module DatadogAPIClient::V2
         :'description' => :'String',
         :'extensions' => :'Hash<String, Object>',
         :'integrations' => :'ServiceDefinitionV2Dot2Integrations',
-        :'langauges' => :'Array<String>',
+        :'languages' => :'Array<String>',
         :'lifecycle' => :'String',
         :'links' => :'Array<ServiceDefinitionV2Dot2Link>',
         :'schema_version' => :'ServiceDefinitionV2Dot2Version',
@@ -147,9 +147,9 @@ module DatadogAPIClient::V2
         self.integrations = attributes[:'integrations']
       end
 
-      if attributes.key?(:'langauges')
-        if (value = attributes[:'langauges']).is_a?(Array)
-          self.langauges = value
+      if attributes.key?(:'languages')
+        if (value = attributes[:'languages']).is_a?(Array)
+          self.languages = value
         end
       end
 
@@ -227,7 +227,7 @@ module DatadogAPIClient::V2
           description == o.description &&
           extensions == o.extensions &&
           integrations == o.integrations &&
-          langauges == o.langauges &&
+          languages == o.languages &&
           lifecycle == o.lifecycle &&
           links == o.links &&
           schema_version == o.schema_version &&
@@ -241,7 +241,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [application, contacts, dd_service, description, extensions, integrations, langauges, lifecycle, links, schema_version, tags, team, tier, type].hash
+      [application, contacts, dd_service, description, extensions, integrations, languages, lifecycle, links, schema_version, tags, team, tier, type].hash
     end
   end
 end
