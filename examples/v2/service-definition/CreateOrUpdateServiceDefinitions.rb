@@ -26,7 +26,7 @@ body = DatadogAPIClient::V2::ServiceDefinitionV2Dot2.new({
       service_url: "https://my-org.pagerduty.com/service-directory/PMyService",
     }),
   }),
-  langauges: [
+  languages: [
     "dotnet",
     "go",
     "java",
