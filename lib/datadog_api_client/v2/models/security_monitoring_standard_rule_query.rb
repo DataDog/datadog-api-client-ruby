@@ -30,6 +30,9 @@ module DatadogAPIClient::V2
     # Fields to group by.
     attr_accessor :group_by_fields
 
+    # When false, events without a group-by value are ignored by the rule. When true, events with missing group-by fields are processed with `N/A`, replacing the missing values.
+    attr_accessor :has_optional_group_by_fields
+
     # (Deprecated) The target field to aggregate over when using the sum or max
     # aggregations. `metrics` field should be used instead.
     attr_accessor :metric
@@ -50,6 +53,7 @@ module DatadogAPIClient::V2
         :'aggregation' => :'aggregation',
         :'distinct_fields' => :'distinctFields',
         :'group_by_fields' => :'groupByFields',
+        :'has_optional_group_by_fields' => :'hasOptionalGroupByFields',
         :'metric' => :'metric',
         :'metrics' => :'metrics',
         :'name' => :'name',
@@ -64,6 +68,7 @@ module DatadogAPIClient::V2
         :'aggregation' => :'SecurityMonitoringRuleQueryAggregation',
         :'distinct_fields' => :'Array<String>',
         :'group_by_fields' => :'Array<String>',
+        :'has_optional_group_by_fields' => :'Boolean',
         :'metric' => :'String',
         :'metrics' => :'Array<String>',
         :'name' => :'String',
@@ -103,6 +108,10 @@ module DatadogAPIClient::V2
         end
       end
 
+      if attributes.key?(:'has_optional_group_by_fields')
+        self.has_optional_group_by_fields = attributes[:'has_optional_group_by_fields']
+      end
+
       if attributes.key?(:'metric')
         self.metric = attributes[:'metric']
       end
@@ -131,6 +140,7 @@ module DatadogAPIClient::V2
           aggregation == o.aggregation &&
           distinct_fields == o.distinct_fields &&
           group_by_fields == o.group_by_fields &&
+          has_optional_group_by_fields == o.has_optional_group_by_fields &&
           metric == o.metric &&
           metrics == o.metrics &&
           name == o.name &&
@@ -141,7 +151,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [aggregation, distinct_fields, group_by_fields, metric, metrics, name, query].hash
+      [aggregation, distinct_fields, group_by_fields, has_optional_group_by_fields, metric, metrics, name, query].hash
     end
   end
 end
