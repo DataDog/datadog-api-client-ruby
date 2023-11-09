@@ -202,6 +202,32 @@
       <li class="public ">
   <span class="summary_signature">
     
+      <a href="#has_optional_group_by_fields-instance_method" title="#has_optional_group_by_fields (instance method)">#<strong>has_optional_group_by_fields</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>When false, events without a group-by value are ignored by the rule.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#metric-instance_method" title="#metric (instance method)">#<strong>metric</strong>  &#x21d2; Object </a>
     
 
@@ -450,6 +476,48 @@
 </div>
     
       
+      <span id="has_optional_group_by_fields=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="has_optional_group_by_fields-instance_method">
+  
+    #<strong>has_optional_group_by_fields</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>When false, events without a group-by value are ignored by the rule. When true, events with missing group-by fields are processed with <code>N/A</code>, replacing the missing values.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+34
+35
+36</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/security_monitoring_standard_rule_query.rb', line 34</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_has_optional_group_by_fields'>has_optional_group_by_fields</span>
+  <span class='ivar'>@has_optional_group_by_fields</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
       <span id="metric=-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="metric-instance_method">
@@ -477,12 +545,12 @@ aggregations. <code>metrics</code> field should be used instead.</p>
       <pre class="lines">
 
 
-35
-36
-37</pre>
+38
+39
+40</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/security_monitoring_standard_rule_query.rb', line 35</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/security_monitoring_standard_rule_query.rb', line 38</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_metric'>metric</span>
   <span class='ivar'>@metric</span>
@@ -519,12 +587,12 @@ aggregations. <code>metrics</code> field should be used instead.</p>
       <pre class="lines">
 
 
-38
-39
-40</pre>
+41
+42
+43</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/security_monitoring_standard_rule_query.rb', line 38</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/security_monitoring_standard_rule_query.rb', line 41</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_metrics'>metrics</span>
   <span class='ivar'>@metrics</span>
@@ -561,12 +629,12 @@ aggregations. <code>metrics</code> field should be used instead.</p>
       <pre class="lines">
 
 
-41
-42
-43</pre>
+44
+45
+46</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/security_monitoring_standard_rule_query.rb', line 41</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/security_monitoring_standard_rule_query.rb', line 44</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_name'>name</span>
   <span class='ivar'>@name</span>
@@ -603,12 +671,12 @@ aggregations. <code>metrics</code> field should be used instead.</p>
       <pre class="lines">
 
 
-44
-45
-46</pre>
+47
+48
+49</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/security_monitoring_standard_rule_query.rb', line 44</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/security_monitoring_standard_rule_query.rb', line 47</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_query'>query</span>
   <span class='ivar'>@query</span>
@@ -624,7 +692,7 @@ aggregations. <code>metrics</code> field should be used instead.</p>
 </div>
 
       <div id="footer">
-  Generated on Wed Nov  8 09:44:37 2023 by
+  Generated on Thu Nov  9 12:43:22 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.34 (ruby-2.7.8).
 </div>
