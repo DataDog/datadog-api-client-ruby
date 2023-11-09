@@ -4459,7 +4459,8 @@ The maximum payload size is 500 kilobytes (512000 bytes). Compressed payloads mu
     <p>Update a tag configuration.</p>
 
 <p>Update the tag configuration of a metric or percentile aggregations of a distribution metric or custom aggregations
-of a count, rate, or gauge metric.
+of a count, rate, or gauge metric. By setting <code>exclude_tags_mode</code> to true the behavior is changed
+from an allow-list to a deny-list, and tags in the defined list will not be queryable.
 Can only be used with application keys from users with the <code>Manage Tags for Metrics</code> permission.</p>
 
 
@@ -4678,7 +4679,7 @@ Can only be used with application keys from users with the <code>Manage Tags for
 </div>
 
       <div id="footer">
-  Generated on Thu Nov  9 12:42:19 2023 by
+  Generated on Thu Nov  9 22:35:50 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.34 (ruby-2.7.8).
 </div>
