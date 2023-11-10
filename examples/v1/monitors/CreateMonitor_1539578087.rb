@@ -13,7 +13,6 @@ body = DatadogAPIClient::V1::Monitor.new({
       critical: 0.5,
     }),
     notify_audit: false,
-    on_missing_data: DatadogAPIClient::V1::OnMissingDataOption::DEFAULT,
     include_tags: false,
     scheduling_options: DatadogAPIClient::V1::MonitorOptionsSchedulingOptions.new({
       evaluation_window: DatadogAPIClient::V1::MonitorOptionsSchedulingOptionsEvaluationWindow.new({
