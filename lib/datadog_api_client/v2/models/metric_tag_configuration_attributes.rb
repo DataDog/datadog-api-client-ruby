@@ -42,6 +42,11 @@ module DatadogAPIClient::V2
     # Timestamp when the tag configuration was created.
     attr_accessor :created_at
 
+    # When set to true, the configuration will exclude the configured tags and include any other submitted tags.
+    # When set to false, the configuration will include the configured tags and exclude any other submitted tags.
+    # Defaults to false. Requires `tags` property.
+    attr_accessor :exclude_tags_mode
+
     # Toggle to include or exclude percentile aggregations for distribution metrics.
     # Only present when the `metric_type` is `distribution`.
     attr_accessor :include_percentiles
@@ -61,6 +66,7 @@ module DatadogAPIClient::V2
       {
         :'aggregations' => :'aggregations',
         :'created_at' => :'created_at',
+        :'exclude_tags_mode' => :'exclude_tags_mode',
         :'include_percentiles' => :'include_percentiles',
         :'metric_type' => :'metric_type',
         :'modified_at' => :'modified_at',
@@ -74,6 +80,7 @@ module DatadogAPIClient::V2
       {
         :'aggregations' => :'Array<MetricCustomAggregation>',
         :'created_at' => :'Time',
+        :'exclude_tags_mode' => :'Boolean',
         :'include_percentiles' => :'Boolean',
         :'metric_type' => :'MetricTagConfigurationMetricTypes',
         :'modified_at' => :'Time',
@@ -107,6 +114,10 @@ module DatadogAPIClient::V2
         self.created_at = attributes[:'created_at']
       end
 
+      if attributes.key?(:'exclude_tags_mode')
+        self.exclude_tags_mode = attributes[:'exclude_tags_mode']
+      end
+
       if attributes.key?(:'include_percentiles')
         self.include_percentiles = attributes[:'include_percentiles']
       end
@@ -134,6 +145,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           aggregations == o.aggregations &&
           created_at == o.created_at &&
+          exclude_tags_mode == o.exclude_tags_mode &&
           include_percentiles == o.include_percentiles &&
           metric_type == o.metric_type &&
           modified_at == o.modified_at &&
@@ -144,7 +156,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [aggregations, created_at, include_percentiles, metric_type, modified_at, tags].hash
+      [aggregations, created_at, exclude_tags_mode, include_percentiles, metric_type, modified_at, tags].hash
     end
   end
 end

@@ -24,6 +24,11 @@ module DatadogAPIClient::V2
     # A list of account emails to notify when the configuration is applied.
     attr_accessor :emails
 
+    # When set to true, the configuration will exclude the configured tags and include any other submitted tags.
+    # When set to false, the configuration will include the configured tags and exclude any other submitted tags.
+    # Defaults to false.
+    attr_accessor :exclude_tags_mode
+
     # A list of tag names to apply to the configuration.
     attr_accessor :tags
 
@@ -32,6 +37,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'emails' => :'emails',
+        :'exclude_tags_mode' => :'exclude_tags_mode',
         :'tags' => :'tags'
       }
     end
@@ -41,6 +47,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'emails' => :'Array<String>',
+        :'exclude_tags_mode' => :'Boolean',
         :'tags' => :'Array<String>'
       }
     end
@@ -67,6 +74,10 @@ module DatadogAPIClient::V2
         end
       end
 
+      if attributes.key?(:'exclude_tags_mode')
+        self.exclude_tags_mode = attributes[:'exclude_tags_mode']
+      end
+
       if attributes.key?(:'tags')
         if (value = attributes[:'tags']).is_a?(Array)
           self.tags = value
@@ -81,6 +92,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           emails == o.emails &&
+          exclude_tags_mode == o.exclude_tags_mode &&
           tags == o.tags
     end
 
@@ -88,7 +100,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [emails, tags].hash
+      [emails, exclude_tags_mode, tags].hash
     end
   end
 end

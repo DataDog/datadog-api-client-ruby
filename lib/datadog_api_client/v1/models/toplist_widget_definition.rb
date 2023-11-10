@@ -27,6 +27,9 @@ module DatadogAPIClient::V1
     # List of top list widget requests.
     attr_reader :requests
 
+    # Style customization for a top list widget.
+    attr_accessor :style
+
     # Time setting for the widget.
     attr_accessor :time
 
@@ -48,6 +51,7 @@ module DatadogAPIClient::V1
       {
         :'custom_links' => :'custom_links',
         :'requests' => :'requests',
+        :'style' => :'style',
         :'time' => :'time',
         :'title' => :'title',
         :'title_align' => :'title_align',
@@ -62,6 +66,7 @@ module DatadogAPIClient::V1
       {
         :'custom_links' => :'Array<WidgetCustomLink>',
         :'requests' => :'Array<ToplistWidgetRequest>',
+        :'style' => :'ToplistWidgetStyle',
         :'time' => :'WidgetTime',
         :'title' => :'String',
         :'title_align' => :'WidgetTextAlign',
@@ -96,6 +101,10 @@ module DatadogAPIClient::V1
         if (value = attributes[:'requests']).is_a?(Array)
           self.requests = value
         end
+      end
+
+      if attributes.key?(:'style')
+        self.style = attributes[:'style']
       end
 
       if attributes.key?(:'time')
@@ -156,6 +165,7 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           custom_links == o.custom_links &&
           requests == o.requests &&
+          style == o.style &&
           time == o.time &&
           title == o.title &&
           title_align == o.title_align &&
@@ -167,7 +177,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [custom_links, requests, time, title, title_align, title_size, type].hash
+      [custom_links, requests, style, time, title, title_align, title_size, type].hash
     end
   end
 end

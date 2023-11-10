@@ -1548,6 +1548,39 @@ ScenariosModelMappings = {
     "v2.UploadIdPMetadata" => {
             "idp_file" => "File",
     },
+    "v2.ListScorecardOutcomes" => {
+            "page_size" => "Integer",
+            "page_offset" => "Integer",
+            "include" => "String",
+            "fields_outcome" => "String",
+            "fields_rule" => "String",
+            "filter_outcome_service_name" => "String",
+            "filter_outcome_state" => "String",
+            "filter_rule_enabled" => "Boolean",
+            "filter_rule_id" => "String",
+            "filter_rule_name" => "String",
+    },
+    "v2.CreateScorecardOutcomesBatch" => {
+            "body" => "OutcomesBatchRequest",
+    },
+    "v2.ListScorecardRules" => {
+            "page_size" => "Integer",
+            "page_offset" => "Integer",
+            "include" => "String",
+            "filter_rule_id" => "String",
+            "filter_rule_enabled" => "Boolean",
+            "filter_rule_custom" => "Boolean",
+            "filter_rule_name" => "String",
+            "filter_rule_description" => "String",
+            "fields_rule" => "String",
+            "fields_scorecard" => "String",
+    },
+    "v2.CreateScorecardRule" => {
+            "body" => "CreateRuleRequest",
+    },
+    "v2.DeleteScorecardRule" => {
+            "rule_id" => "String",
+    },
     "v2.CreateCloudWorkloadSecurityAgentRule" => {
             "body" => "CloudWorkloadSecurityAgentRuleCreateRequest",
     },
