@@ -1222,6 +1222,19 @@ ScenariosModelMappings = {
             "service_id" => "String",
             "body" => "FastlyServiceRequest",
     },
+    "v2.CreateOktaAccount" => {
+            "body" => "OktaAccountRequest",
+    },
+    "v2.DeleteOktaAccount" => {
+            "account_id" => "String",
+    },
+    "v2.GetOktaAccount" => {
+            "account_id" => "String",
+    },
+    "v2.UpdateOktaAccount" => {
+            "account_id" => "String",
+            "body" => "OktaAccountRequest",
+    },
     "v2.UpdateIPAllowlist" => {
             "body" => "IPAllowlistUpdateRequest",
     },
