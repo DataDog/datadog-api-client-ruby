@@ -1427,6 +1427,19 @@ ScenariosModelMappings = {
             "finding_id" => "String",
             "snapshot_timestamp" => "Integer",
     },
+    "v2.CreateSecurityMonitoringNotificationRule" => {
+            "body" => "SecurityMonitoringNotificationRuleCreateRequest",
+    },
+    "v2.DeleteSecurityMonitoringNotificationRule" => {
+            "notification_profile_id" => "String",
+    },
+    "v2.GetSecurityMonitoringNotificationRule" => {
+            "notification_profile_id" => "String",
+    },
+    "v2.EditSecurityMonitoringNotificationRule" => {
+            "notification_profile_id" => "String",
+            "body" => "SecurityMonitoringNotificationRuleUpdateRequest",
+    },
     "v2.CreateSecurityFilter" => {
             "body" => "SecurityFilterCreateRequest",
     },
