@@ -1016,14 +1016,14 @@ ScenariosModelMappings = {
             "body" => "DowntimeCreateRequest",
     },
     "v2.CancelDowntime" => {
-            "downtime_id" => "String",
+            "downtime_uuid" => "String",
     },
     "v2.GetDowntime" => {
-            "downtime_id" => "String",
+            "downtime_uuid" => "String",
             "include" => "String",
     },
     "v2.UpdateDowntime" => {
-            "downtime_id" => "String",
+            "downtime_uuid" => "String",
             "body" => "DowntimeUpdateRequest",
     },
     "v2.ListMonitorDowntimes" => {

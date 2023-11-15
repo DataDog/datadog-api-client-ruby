@@ -26,8 +26,8 @@ module DatadogAPIClient::V2
     # Cancel a downtime.
     #
     # @see #cancel_downtime_with_http_info
-    def cancel_downtime(downtime_id, opts = {})
-      cancel_downtime_with_http_info(downtime_id, opts)
+    def cancel_downtime(downtime_uuid, opts = {})
+      cancel_downtime_with_http_info(downtime_uuid, opts)
       nil
     end
 
@@ -35,20 +35,20 @@ module DatadogAPIClient::V2
     #
     # Cancel a downtime.
     #
-    # @param downtime_id [String] ID of the downtime to cancel.
+    # @param downtime_uuid [String] ID of the downtime to cancel.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def cancel_downtime_with_http_info(downtime_id, opts = {})
+    def cancel_downtime_with_http_info(downtime_uuid, opts = {})
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DowntimesAPI.cancel_downtime ...'
       end
-      # verify the required parameter 'downtime_id' is set
-      if @api_client.config.client_side_validation && downtime_id.nil?
-        fail ArgumentError, "Missing the required parameter 'downtime_id' when calling DowntimesAPI.cancel_downtime"
+      # verify the required parameter 'downtime_uuid' is set
+      if @api_client.config.client_side_validation && downtime_uuid.nil?
+        fail ArgumentError, "Missing the required parameter 'downtime_uuid' when calling DowntimesAPI.cancel_downtime"
       end
       # resource path
-      local_var_path = '/api/v2/downtime/{downtime_id}'.sub('{downtime_id}', CGI.escape(downtime_id.to_s).gsub('%2F', '/'))
+      local_var_path = '/api/v2/downtime/{downtime_uuid}'.sub('{downtime_uuid}', CGI.escape(downtime_uuid.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -158,30 +158,30 @@ module DatadogAPIClient::V2
     # Get a downtime.
     #
     # @see #get_downtime_with_http_info
-    def get_downtime(downtime_id, opts = {})
-      data, _status_code, _headers = get_downtime_with_http_info(downtime_id, opts)
+    def get_downtime(downtime_uuid, opts = {})
+      data, _status_code, _headers = get_downtime_with_http_info(downtime_uuid, opts)
       data
     end
 
     # Get a downtime.
     #
-    # Get downtime detail by `downtime_id`.
+    # Get downtime detail by `downtime_uuid`.
     #
-    # @param downtime_id [String] ID of the downtime to fetch.
+    # @param downtime_uuid [String] ID of the downtime to fetch.
     # @param opts [Hash] the optional parameters
     # @option opts [String] :include Comma-separated list of resource paths for related resources to include in the response. Supported resource paths are `created_by` and `monitor`.
     # @return [Array<(DowntimeResponse, Integer, Hash)>] DowntimeResponse data, response status code and response headers
-    def get_downtime_with_http_info(downtime_id, opts = {})
+    def get_downtime_with_http_info(downtime_uuid, opts = {})
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DowntimesAPI.get_downtime ...'
       end
-      # verify the required parameter 'downtime_id' is set
-      if @api_client.config.client_side_validation && downtime_id.nil?
-        fail ArgumentError, "Missing the required parameter 'downtime_id' when calling DowntimesAPI.get_downtime"
+      # verify the required parameter 'downtime_uuid' is set
+      if @api_client.config.client_side_validation && downtime_uuid.nil?
+        fail ArgumentError, "Missing the required parameter 'downtime_uuid' when calling DowntimesAPI.get_downtime"
       end
       # resource path
-      local_var_path = '/api/v2/downtime/{downtime_id}'.sub('{downtime_id}', CGI.escape(downtime_id.to_s).gsub('%2F', '/'))
+      local_var_path = '/api/v2/downtime/{downtime_uuid}'.sub('{downtime_uuid}', CGI.escape(downtime_uuid.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -379,34 +379,34 @@ module DatadogAPIClient::V2
     # Update a downtime.
     #
     # @see #update_downtime_with_http_info
-    def update_downtime(downtime_id, body, opts = {})
-      data, _status_code, _headers = update_downtime_with_http_info(downtime_id, body, opts)
+    def update_downtime(downtime_uuid, body, opts = {})
+      data, _status_code, _headers = update_downtime_with_http_info(downtime_uuid, body, opts)
       data
     end
 
     # Update a downtime.
     #
-    # Update a downtime by `downtime_id`.
+    # Update a downtime by `downtime_uuid`.
     #
-    # @param downtime_id [String] ID of the downtime to update.
+    # @param downtime_uuid [String] ID of the downtime to update.
     # @param body [DowntimeUpdateRequest] Update a downtime request body.
     # @param opts [Hash] the optional parameters
     # @return [Array<(DowntimeResponse, Integer, Hash)>] DowntimeResponse data, response status code and response headers
-    def update_downtime_with_http_info(downtime_id, body, opts = {})
+    def update_downtime_with_http_info(downtime_uuid, body, opts = {})
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DowntimesAPI.update_downtime ...'
       end
-      # verify the required parameter 'downtime_id' is set
-      if @api_client.config.client_side_validation && downtime_id.nil?
-        fail ArgumentError, "Missing the required parameter 'downtime_id' when calling DowntimesAPI.update_downtime"
+      # verify the required parameter 'downtime_uuid' is set
+      if @api_client.config.client_side_validation && downtime_uuid.nil?
+        fail ArgumentError, "Missing the required parameter 'downtime_uuid' when calling DowntimesAPI.update_downtime"
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
         fail ArgumentError, "Missing the required parameter 'body' when calling DowntimesAPI.update_downtime"
       end
       # resource path
-      local_var_path = '/api/v2/downtime/{downtime_id}'.sub('{downtime_id}', CGI.escape(downtime_id.to_s).gsub('%2F', '/'))
+      local_var_path = '/api/v2/downtime/{downtime_uuid}'.sub('{downtime_uuid}', CGI.escape(downtime_uuid.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
