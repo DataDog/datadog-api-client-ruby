@@ -93,6 +93,73 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Create a notification rule.
+    #
+    # @see #create_security_monitoring_notification_rule_with_http_info
+    def create_security_monitoring_notification_rule(body, opts = {})
+      data, _status_code, _headers = create_security_monitoring_notification_rule_with_http_info(body, opts)
+      data
+    end
+
+    # Create a notification rule.
+    #
+    # Create a notification rule.
+    #
+    # @param body [SecurityMonitoringNotificationRuleCreateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SecurityMonitoringNotificationRuleResponse, Integer, Hash)>] SecurityMonitoringNotificationRuleResponse data, response status code and response headers
+    def create_security_monitoring_notification_rule_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.create_security_monitoring_notification_rule ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.create_security_monitoring_notification_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/configuration/notification_profiles'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityMonitoringNotificationRuleResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_security_monitoring_notification_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#create_security_monitoring_notification_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create a detection rule.
     #
     # @see #create_security_monitoring_rule_with_http_info
@@ -225,6 +292,71 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Delete a notification rule.
+    #
+    # @see #delete_security_monitoring_notification_rule_with_http_info
+    def delete_security_monitoring_notification_rule(notification_profile_id, opts = {})
+      delete_security_monitoring_notification_rule_with_http_info(notification_profile_id, opts)
+      nil
+    end
+
+    # Delete a notification rule.
+    #
+    # Delete a specific notification rule.
+    #
+    # @param notification_profile_id [String] The ID of the notification rule.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_security_monitoring_notification_rule_with_http_info(notification_profile_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.delete_security_monitoring_notification_rule ...'
+      end
+      # verify the required parameter 'notification_profile_id' is set
+      if @api_client.config.client_side_validation && notification_profile_id.nil?
+        fail ArgumentError, "Missing the required parameter 'notification_profile_id' when calling SecurityMonitoringAPI.delete_security_monitoring_notification_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/configuration/notification_profiles/{notification_profile_id}'.sub('{notification_profile_id}', CGI.escape(notification_profile_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_security_monitoring_notification_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#delete_security_monitoring_notification_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Delete an existing rule.
     #
     # @see #delete_security_monitoring_rule_with_http_info
@@ -286,6 +418,78 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SecurityMonitoringAPI#delete_security_monitoring_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update a notification rule.
+    #
+    # @see #edit_security_monitoring_notification_rule_with_http_info
+    def edit_security_monitoring_notification_rule(notification_profile_id, body, opts = {})
+      data, _status_code, _headers = edit_security_monitoring_notification_rule_with_http_info(notification_profile_id, body, opts)
+      data
+    end
+
+    # Update a notification rule.
+    #
+    # Update a specific notification rule.
+    #
+    # @param notification_profile_id [String] The ID of the notification rule.
+    # @param body [SecurityMonitoringNotificationRuleUpdateRequest] Attributes describing the signal update.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SecurityMonitoringNotificationRuleResponse, Integer, Hash)>] SecurityMonitoringNotificationRuleResponse data, response status code and response headers
+    def edit_security_monitoring_notification_rule_with_http_info(notification_profile_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.edit_security_monitoring_notification_rule ...'
+      end
+      # verify the required parameter 'notification_profile_id' is set
+      if @api_client.config.client_side_validation && notification_profile_id.nil?
+        fail ArgumentError, "Missing the required parameter 'notification_profile_id' when calling SecurityMonitoringAPI.edit_security_monitoring_notification_rule"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.edit_security_monitoring_notification_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/configuration/notification_profiles/{notification_profile_id}'.sub('{notification_profile_id}', CGI.escape(notification_profile_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityMonitoringNotificationRuleResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :edit_security_monitoring_notification_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#edit_security_monitoring_notification_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -650,6 +854,71 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get notification rule by ID.
+    #
+    # @see #get_security_monitoring_notification_rule_with_http_info
+    def get_security_monitoring_notification_rule(notification_profile_id, opts = {})
+      data, _status_code, _headers = get_security_monitoring_notification_rule_with_http_info(notification_profile_id, opts)
+      data
+    end
+
+    # Get notification rule by ID.
+    #
+    # Get notification rule by ID.
+    #
+    # @param notification_profile_id [String] The ID of the notification rule.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SecurityMonitoringNotificationRuleResponse, Integer, Hash)>] SecurityMonitoringNotificationRuleResponse data, response status code and response headers
+    def get_security_monitoring_notification_rule_with_http_info(notification_profile_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_security_monitoring_notification_rule ...'
+      end
+      # verify the required parameter 'notification_profile_id' is set
+      if @api_client.config.client_side_validation && notification_profile_id.nil?
+        fail ArgumentError, "Missing the required parameter 'notification_profile_id' when calling SecurityMonitoringAPI.get_security_monitoring_notification_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/configuration/notification_profiles/{notification_profile_id}'.sub('{notification_profile_id}', CGI.escape(notification_profile_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityMonitoringNotificationRuleResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_security_monitoring_notification_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#get_security_monitoring_notification_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get a rule's details.
     #
     # @see #get_security_monitoring_rule_with_http_info
@@ -938,7 +1207,7 @@ module DatadogAPIClient::V2
         end
     end
 
-    # Get all security filters.
+    # List security filters.
     #
     # @see #list_security_filters_with_http_info
     def list_security_filters(opts = {})
@@ -946,9 +1215,9 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Get all security filters.
+    # List security filters.
     #
-    # Get the list of configured security filters with their definitions.
+    # List all configured security filters with their definitions.
     #
     # @param opts [Hash] the optional parameters
     # @return [Array<(SecurityFiltersResponse, Integer, Hash)>] SecurityFiltersResponse data, response status code and response headers
@@ -998,6 +1267,66 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # List notification rules.
+    #
+    # @see #list_security_monitoring_notification_rules_with_http_info
+    def list_security_monitoring_notification_rules(opts = {})
+      data, _status_code, _headers = list_security_monitoring_notification_rules_with_http_info(opts)
+      data
+    end
+
+    # List notification rules.
+    #
+    # List all notification rules.
+    #
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SecurityMonitoringNotificationRuleListResponse, Integer, Hash)>] SecurityMonitoringNotificationRuleListResponse data, response status code and response headers
+    def list_security_monitoring_notification_rules_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.list_security_monitoring_notification_rules ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/configuration/notification_profiles'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityMonitoringNotificationRuleListResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_security_monitoring_notification_rules,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#list_security_monitoring_notification_rules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List rules.
     #
     # @see #list_security_monitoring_rules_with_http_info
@@ -1008,7 +1337,7 @@ module DatadogAPIClient::V2
 
     # List rules.
     #
-    # List rules.
+    # List all rules.
     #
     # @param opts [Hash] the optional parameters
     # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 100.
