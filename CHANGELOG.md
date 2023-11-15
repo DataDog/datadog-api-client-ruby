@@ -1,5 +1,34 @@
 # CHANGELOG
 
+## 2.17.0 / 2023-11-15
+
+### Fixed
+* Remove notify_no_data default by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1595
+* Fix SecurityMonitoringSignalAttribute field name by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1602
+* Fix for inflection when your absolute filepath happens to match `v[0-9]` by @ienders in https://github.com/DataDog/datadog-api-client-ruby/pull/1618
+* Fix typo in service definition field by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1615
+### Added
+* Update documentation for Cloud SIEM by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1587
+* Add containers API spec by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1588
+* Add serverless apm to usage attribution api by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1593
+* Document missing parameters by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1552
+* Powerpack Live Span Support by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1600
+* Add Amazon EventBridge endpoints to AWS Integration API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1589
+* Add Container App filters to Azure API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1571
+* Add UUID format support by @HantingZhang2 in https://github.com/DataDog/datadog-api-client-ruby/pull/1606
+* Add new UA products to usage metering docs by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1604
+* Add scorecards endpoints  by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1610
+* Document top list widget style by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1596
+* Add optional group-bys support to security signals by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1611
+### Changed
+* Add Beta Banner to Send Pipeline Events Endpoint by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1601
+* Remove endpoint for mute or unmute a finding and add support for bulk mute findings endpoint by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1597
+
+## New Contributors
+* @ienders made their first contribution in https://github.com/DataDog/datadog-api-client-ruby/pull/1618
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-ruby/compare/v2.16.0...v2.17.0
+
 ## 2.16.0 / 2023-10-16
 
 ### Fixed
