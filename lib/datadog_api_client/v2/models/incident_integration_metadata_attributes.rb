@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class IncidentIntegrationMetadataAttributes
     include BaseGenericModel
 
+    # Timestamp when the incident todo was created.
+    attr_accessor :created
+
     # UUID of the incident this integration metadata is connected to.
     attr_accessor :incident_id
 
@@ -31,6 +34,9 @@ module DatadogAPIClient::V2
     # Incident integration metadata's metadata attribute.
     attr_reader :metadata
 
+    # Timestamp when the incident todo was last modified.
+    attr_accessor :modified
+
     # A number indicating the status of this integration metadata. 0 indicates unknown;
     # 1 indicates pending; 2 indicates complete; 3 indicates manually created;
     # 4 indicates manually updated; 5 indicates failed.
@@ -40,9 +46,11 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'created' => :'created',
         :'incident_id' => :'incident_id',
         :'integration_type' => :'integration_type',
         :'metadata' => :'metadata',
+        :'modified' => :'modified',
         :'status' => :'status'
       }
     end
@@ -51,9 +59,11 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'created' => :'Time',
         :'incident_id' => :'String',
         :'integration_type' => :'Integer',
         :'metadata' => :'IncidentIntegrationMetadataMetadata',
+        :'modified' => :'Time',
         :'status' => :'Integer'
       }
     end
@@ -74,6 +84,10 @@ module DatadogAPIClient::V2
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'created')
+        self.created = attributes[:'created']
+      end
+
       if attributes.key?(:'incident_id')
         self.incident_id = attributes[:'incident_id']
       end
@@ -84,6 +98,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'metadata')
         self.metadata = attributes[:'metadata']
+      end
+
+      if attributes.key?(:'modified')
+        self.modified = attributes[:'modified']
       end
 
       if attributes.key?(:'status')
@@ -141,9 +159,11 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          created == o.created &&
           incident_id == o.incident_id &&
           integration_type == o.integration_type &&
           metadata == o.metadata &&
+          modified == o.modified &&
           status == o.status
     end
 
@@ -151,7 +171,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [incident_id, integration_type, metadata, status].hash
+      [created, incident_id, integration_type, metadata, modified, status].hash
     end
   end
 end

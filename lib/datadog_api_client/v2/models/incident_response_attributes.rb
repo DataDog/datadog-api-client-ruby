@@ -21,6 +21,12 @@ module DatadogAPIClient::V2
   class IncidentResponseAttributes
     include BaseGenericModel
 
+    # Timestamp of when the incident was archived.
+    attr_accessor :archived
+
+    # The incident case id.
+    attr_accessor :case_id
+
     # Timestamp when the incident was created.
     attr_accessor :created
 
@@ -49,6 +55,9 @@ module DatadogAPIClient::V2
     # Timestamp when the incident was last modified.
     attr_accessor :modified
 
+    # Incident's non Datadog creator.
+    attr_accessor :non_datadog_creator
+
     # Notification handles that will be notified of the incident during update.
     attr_accessor :notification_handles
 
@@ -57,6 +66,12 @@ module DatadogAPIClient::V2
 
     # Timestamp when the incident's state was last changed from active or stable to resolved or completed.
     attr_accessor :resolved
+
+    # The incident severity.
+    attr_accessor :severity
+
+    # The state incident.
+    attr_accessor :state
 
     # The amount of time in seconds to detect the incident.
     # Equals the difference between `customer_impact_start` and `detected`.
@@ -74,10 +89,15 @@ module DatadogAPIClient::V2
     # The title of the incident, which summarizes what happened.
     attr_reader :title
 
+    # The incident visibility status.
+    attr_accessor :visibility
+
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
+        :'archived' => :'archived',
+        :'case_id' => :'case_id',
         :'created' => :'created',
         :'customer_impact_duration' => :'customer_impact_duration',
         :'customer_impact_end' => :'customer_impact_end',
@@ -87,14 +107,18 @@ module DatadogAPIClient::V2
         :'detected' => :'detected',
         :'fields' => :'fields',
         :'modified' => :'modified',
+        :'non_datadog_creator' => :'non_datadog_creator',
         :'notification_handles' => :'notification_handles',
         :'public_id' => :'public_id',
         :'resolved' => :'resolved',
+        :'severity' => :'severity',
+        :'state' => :'state',
         :'time_to_detect' => :'time_to_detect',
         :'time_to_internal_response' => :'time_to_internal_response',
         :'time_to_repair' => :'time_to_repair',
         :'time_to_resolve' => :'time_to_resolve',
-        :'title' => :'title'
+        :'title' => :'title',
+        :'visibility' => :'visibility'
       }
     end
 
@@ -102,6 +126,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'archived' => :'Time',
+        :'case_id' => :'Integer',
         :'created' => :'Time',
         :'customer_impact_duration' => :'Integer',
         :'customer_impact_end' => :'Time',
@@ -111,14 +137,18 @@ module DatadogAPIClient::V2
         :'detected' => :'Time',
         :'fields' => :'Hash<String, IncidentFieldAttributes>',
         :'modified' => :'Time',
+        :'non_datadog_creator' => :'IncidentNonDatadogCreator',
         :'notification_handles' => :'Array<IncidentNotificationHandle>',
         :'public_id' => :'Integer',
         :'resolved' => :'Time',
+        :'severity' => :'IncidentSeverity',
+        :'state' => :'String',
         :'time_to_detect' => :'Integer',
         :'time_to_internal_response' => :'Integer',
         :'time_to_repair' => :'Integer',
         :'time_to_resolve' => :'Integer',
-        :'title' => :'String'
+        :'title' => :'String',
+        :'visibility' => :'String'
       }
     end
 
@@ -126,12 +156,17 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_nullable
       Set.new([
+        :'archived',
+        :'case_id',
         :'customer_impact_end',
         :'customer_impact_scope',
         :'customer_impact_start',
         :'detected',
+        :'non_datadog_creator',
         :'notification_handles',
         :'resolved',
+        :'state',
+        :'visibility',
       ])
     end
 
@@ -150,6 +185,14 @@ module DatadogAPIClient::V2
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'archived')
+        self.archived = attributes[:'archived']
+      end
+
+      if attributes.key?(:'case_id')
+        self.case_id = attributes[:'case_id']
+      end
 
       if attributes.key?(:'created')
         self.created = attributes[:'created']
@@ -187,6 +230,10 @@ module DatadogAPIClient::V2
         self.modified = attributes[:'modified']
       end
 
+      if attributes.key?(:'non_datadog_creator')
+        self.non_datadog_creator = attributes[:'non_datadog_creator']
+      end
+
       if attributes.key?(:'notification_handles')
         if (value = attributes[:'notification_handles']).is_a?(Array)
           self.notification_handles = value
@@ -199,6 +246,14 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'resolved')
         self.resolved = attributes[:'resolved']
+      end
+
+      if attributes.key?(:'severity')
+        self.severity = attributes[:'severity']
+      end
+
+      if attributes.key?(:'state')
+        self.state = attributes[:'state']
       end
 
       if attributes.key?(:'time_to_detect')
@@ -219,6 +274,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'title')
         self.title = attributes[:'title']
+      end
+
+      if attributes.key?(:'visibility')
+        self.visibility = attributes[:'visibility']
       end
     end
 
@@ -246,6 +305,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          archived == o.archived &&
+          case_id == o.case_id &&
           created == o.created &&
           customer_impact_duration == o.customer_impact_duration &&
           customer_impact_end == o.customer_impact_end &&
@@ -255,21 +316,25 @@ module DatadogAPIClient::V2
           detected == o.detected &&
           fields == o.fields &&
           modified == o.modified &&
+          non_datadog_creator == o.non_datadog_creator &&
           notification_handles == o.notification_handles &&
           public_id == o.public_id &&
           resolved == o.resolved &&
+          severity == o.severity &&
+          state == o.state &&
           time_to_detect == o.time_to_detect &&
           time_to_internal_response == o.time_to_internal_response &&
           time_to_repair == o.time_to_repair &&
           time_to_resolve == o.time_to_resolve &&
-          title == o.title
+          title == o.title &&
+          visibility == o.visibility
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created, customer_impact_duration, customer_impact_end, customer_impact_scope, customer_impact_start, customer_impacted, detected, fields, modified, notification_handles, public_id, resolved, time_to_detect, time_to_internal_response, time_to_repair, time_to_resolve, title].hash
+      [archived, case_id, created, customer_impact_duration, customer_impact_end, customer_impact_scope, customer_impact_start, customer_impacted, detected, fields, modified, non_datadog_creator, notification_handles, public_id, resolved, severity, state, time_to_detect, time_to_internal_response, time_to_repair, time_to_resolve, title, visibility].hash
     end
   end
 end
