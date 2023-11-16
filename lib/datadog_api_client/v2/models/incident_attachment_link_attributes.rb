@@ -27,12 +27,16 @@ module DatadogAPIClient::V2
     # The type of link attachment attributes.
     attr_reader :attachment_type
 
+    # Timestamp when the incident attachment link was last modified.
+    attr_accessor :modified
+
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
         :'attachment' => :'attachment',
-        :'attachment_type' => :'attachment_type'
+        :'attachment_type' => :'attachment_type',
+        :'modified' => :'modified'
       }
     end
 
@@ -41,7 +45,8 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'attachment' => :'IncidentAttachmentLinkAttributesAttachmentObject',
-        :'attachment_type' => :'IncidentAttachmentLinkAttachmentType'
+        :'attachment_type' => :'IncidentAttachmentLinkAttachmentType',
+        :'modified' => :'Time'
       }
     end
 
@@ -67,6 +72,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'attachment_type')
         self.attachment_type = attributes[:'attachment_type']
+      end
+
+      if attributes.key?(:'modified')
+        self.modified = attributes[:'modified']
       end
     end
 
@@ -106,14 +115,15 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           attachment == o.attachment &&
-          attachment_type == o.attachment_type
+          attachment_type == o.attachment_type &&
+          modified == o.modified
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attachment, attachment_type].hash
+      [attachment, attachment_type, modified].hash
     end
   end
 end

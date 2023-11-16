@@ -17,29 +17,21 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Incident todo response data.
-  class IncidentTodoResponseData
+  # Relationship to impact object.
+  class RelationshipToIncidentResponderData
     include BaseGenericModel
 
-    # Incident todo's attributes.
-    attr_accessor :attributes
-
-    # The incident todo's ID.
+    # A unique identifier that represents the responder.
     attr_reader :id
 
-    # The incident's relationships from a response.
-    attr_accessor :relationships
-
-    # Todo resource type.
+    # The incident responders type.
     attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'attributes' => :'attributes',
         :'id' => :'id',
-        :'relationships' => :'relationships',
         :'type' => :'type'
       }
     end
@@ -48,10 +40,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'IncidentTodoAttributes',
         :'id' => :'String',
-        :'relationships' => :'IncidentTodoRelationships',
-        :'type' => :'IncidentTodoType'
+        :'type' => :'IncidentRespondersType'
       }
     end
 
@@ -60,27 +50,19 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::IncidentTodoResponseData` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RelationshipToIncidentResponderData` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::IncidentTodoResponseData`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::RelationshipToIncidentResponderData`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'attributes')
-        self.attributes = attributes[:'attributes']
-      end
-
       if attributes.key?(:'id')
         self.id = attributes[:'id']
-      end
-
-      if attributes.key?(:'relationships')
-        self.relationships = attributes[:'relationships']
       end
 
       if attributes.key?(:'type')
@@ -123,9 +105,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          attributes == o.attributes &&
           id == o.id &&
-          relationships == o.relationships &&
           type == o.type
     end
 
@@ -133,7 +113,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, id, relationships, type].hash
+      [id, type].hash
     end
   end
 end

@@ -30,11 +30,20 @@ module DatadogAPIClient::V2
     # Relationship to user.
     attr_accessor :created_by_user
 
+    # Relationship to impacts.
+    attr_accessor :impacts
+
     # A relationship reference for multiple integration metadata objects.
     attr_accessor :integrations
 
     # Relationship to user.
     attr_accessor :last_modified_by_user
+
+    # Relationship to incident responders.
+    attr_accessor :responders
+
+    # Relationship to incident user defined fields.
+    attr_accessor :user_defined_fields
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -43,8 +52,11 @@ module DatadogAPIClient::V2
         :'attachments' => :'attachments',
         :'commander_user' => :'commander_user',
         :'created_by_user' => :'created_by_user',
+        :'impacts' => :'impacts',
         :'integrations' => :'integrations',
-        :'last_modified_by_user' => :'last_modified_by_user'
+        :'last_modified_by_user' => :'last_modified_by_user',
+        :'responders' => :'responders',
+        :'user_defined_fields' => :'user_defined_fields'
       }
     end
 
@@ -55,9 +67,20 @@ module DatadogAPIClient::V2
         :'attachments' => :'RelationshipToIncidentAttachment',
         :'commander_user' => :'NullableRelationshipToUser',
         :'created_by_user' => :'RelationshipToUser',
+        :'impacts' => :'RelationshipToIncidentImpacts',
         :'integrations' => :'RelationshipToIncidentIntegrationMetadatas',
-        :'last_modified_by_user' => :'RelationshipToUser'
+        :'last_modified_by_user' => :'RelationshipToUser',
+        :'responders' => :'RelationshipToIncidentResponders',
+        :'user_defined_fields' => :'RelationshipToIncidentUserDefinedFields'
       }
+    end
+
+    # List of attributes with nullable: true
+    # @!visibility private
+    def self.openapi_nullable
+      Set.new([
+        :'commander_user',
+      ])
     end
 
     # Initializes the object
@@ -88,12 +111,24 @@ module DatadogAPIClient::V2
         self.created_by_user = attributes[:'created_by_user']
       end
 
+      if attributes.key?(:'impacts')
+        self.impacts = attributes[:'impacts']
+      end
+
       if attributes.key?(:'integrations')
         self.integrations = attributes[:'integrations']
       end
 
       if attributes.key?(:'last_modified_by_user')
         self.last_modified_by_user = attributes[:'last_modified_by_user']
+      end
+
+      if attributes.key?(:'responders')
+        self.responders = attributes[:'responders']
+      end
+
+      if attributes.key?(:'user_defined_fields')
+        self.user_defined_fields = attributes[:'user_defined_fields']
       end
     end
 
@@ -106,15 +141,18 @@ module DatadogAPIClient::V2
           attachments == o.attachments &&
           commander_user == o.commander_user &&
           created_by_user == o.created_by_user &&
+          impacts == o.impacts &&
           integrations == o.integrations &&
-          last_modified_by_user == o.last_modified_by_user
+          last_modified_by_user == o.last_modified_by_user &&
+          responders == o.responders &&
+          user_defined_fields == o.user_defined_fields
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attachments, commander_user, created_by_user, integrations, last_modified_by_user].hash
+      [attachments, commander_user, created_by_user, impacts, integrations, last_modified_by_user, responders, user_defined_fields].hash
     end
   end
 end

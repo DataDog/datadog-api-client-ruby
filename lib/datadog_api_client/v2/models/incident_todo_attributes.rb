@@ -30,11 +30,17 @@ module DatadogAPIClient::V2
     # The follow-up task's content.
     attr_reader :content
 
+    # Timestamp when the incident todo was created.
+    attr_accessor :created
+
     # Timestamp when the todo should be completed by.
     attr_accessor :due_date
 
     # UUID of the incident this todo is connected to.
     attr_accessor :incident_id
+
+    # Timestamp when the incident todo was last modified.
+    attr_accessor :modified
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -43,8 +49,10 @@ module DatadogAPIClient::V2
         :'assignees' => :'assignees',
         :'completed' => :'completed',
         :'content' => :'content',
+        :'created' => :'created',
         :'due_date' => :'due_date',
-        :'incident_id' => :'incident_id'
+        :'incident_id' => :'incident_id',
+        :'modified' => :'modified'
       }
     end
 
@@ -55,8 +63,10 @@ module DatadogAPIClient::V2
         :'assignees' => :'Array<IncidentTodoAssignee>',
         :'completed' => :'String',
         :'content' => :'String',
+        :'created' => :'Time',
         :'due_date' => :'String',
-        :'incident_id' => :'String'
+        :'incident_id' => :'String',
+        :'modified' => :'Time'
       }
     end
 
@@ -99,12 +109,20 @@ module DatadogAPIClient::V2
         self.content = attributes[:'content']
       end
 
+      if attributes.key?(:'created')
+        self.created = attributes[:'created']
+      end
+
       if attributes.key?(:'due_date')
         self.due_date = attributes[:'due_date']
       end
 
       if attributes.key?(:'incident_id')
         self.incident_id = attributes[:'incident_id']
+      end
+
+      if attributes.key?(:'modified')
+        self.modified = attributes[:'modified']
       end
     end
 
@@ -146,15 +164,17 @@ module DatadogAPIClient::V2
           assignees == o.assignees &&
           completed == o.completed &&
           content == o.content &&
+          created == o.created &&
           due_date == o.due_date &&
-          incident_id == o.incident_id
+          incident_id == o.incident_id &&
+          modified == o.modified
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [assignees, completed, content, due_date, incident_id].hash
+      [assignees, completed, content, created, due_date, incident_id, modified].hash
     end
   end
 end

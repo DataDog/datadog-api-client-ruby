@@ -17,18 +17,22 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The relationships the incident will have with other resources once created.
-  class IncidentCreateRelationships
+  # Incident's non Datadog creator.
+  class IncidentNonDatadogCreator
     include BaseGenericModel
 
-    # Relationship to user.
-    attr_accessor :commander_user
+    # Non Datadog creator `48px` image.
+    attr_accessor :image_48_px
+
+    # Non Datadog creator name.
+    attr_accessor :name
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'commander_user' => :'commander_user'
+        :'image_48_px' => :'image_48_px',
+        :'name' => :'name'
       }
     end
 
@@ -36,16 +40,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'commander_user' => :'NullableRelationshipToUser'
+        :'image_48_px' => :'String',
+        :'name' => :'String'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-        :'commander_user',
-      ])
     end
 
     # Initializes the object
@@ -53,19 +50,23 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::IncidentCreateRelationships` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::IncidentNonDatadogCreator` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::IncidentCreateRelationships`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::IncidentNonDatadogCreator`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'commander_user')
-        self.commander_user = attributes[:'commander_user']
+      if attributes.key?(:'image_48_px')
+        self.image_48_px = attributes[:'image_48_px']
+      end
+
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
     end
 
@@ -75,14 +76,15 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          commander_user == o.commander_user
+          image_48_px == o.image_48_px &&
+          name == o.name
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [commander_user].hash
+      [image_48_px, name].hash
     end
   end
 end
