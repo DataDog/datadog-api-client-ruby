@@ -175,7 +175,7 @@ module DatadogAPIClient::V1
 
     # Mute a host.
     #
-    # Mute a host.
+    # Mute a host. **Note:** This creates a [Downtime V2](https://docs.datadoghq.com/api/latest/downtimes/#schedule-a-downtime) for the host.
     #
     # @param host_name [String] Name of the host to mute.
     # @param body [HostMuteSettings] Mute a host request body.
