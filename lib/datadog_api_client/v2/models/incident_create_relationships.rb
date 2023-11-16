@@ -22,7 +22,7 @@ module DatadogAPIClient::V2
     include BaseGenericModel
 
     # Relationship to user.
-    attr_reader :commander_user
+    attr_accessor :commander_user
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -38,6 +38,14 @@ module DatadogAPIClient::V2
       {
         :'commander_user' => :'NullableRelationshipToUser'
       }
+    end
+
+    # List of attributes with nullable: true
+    # @!visibility private
+    def self.openapi_nullable
+      Set.new([
+        :'commander_user',
+      ])
     end
 
     # Initializes the object
@@ -59,24 +67,6 @@ module DatadogAPIClient::V2
       if attributes.key?(:'commander_user')
         self.commander_user = attributes[:'commander_user']
       end
-    end
-
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    # @!visibility private
-    def valid?
-      return false if @commander_user.nil?
-      true
-    end
-
-    # Custom attribute writer method with validation
-    # @param commander_user [Object] Object to be assigned
-    # @!visibility private
-    def commander_user=(commander_user)
-      if commander_user.nil?
-        fail ArgumentError, 'invalid value for "commander_user", commander_user cannot be nil.'
-      end
-      @commander_user = commander_user
     end
 
     # Checks equality by comparing each attribute.
