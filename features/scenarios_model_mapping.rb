@@ -1831,6 +1831,9 @@ ScenariosModelMappings = {
             "start_hr" => "Time",
             "end_hr" => "Time",
     },
+    "v2.GetProjectedCost" => {
+            "view" => "String",
+    },
     "v2.SendInvitations" => {
             "body" => "UserInvitationsRequest",
     },
