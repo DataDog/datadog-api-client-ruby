@@ -192,6 +192,7 @@ module DatadogAPIClient
             "v2.create_ci_app_pipeline_event": false,
             "v2.list_container_images": false,
             "v2.list_containers": false,
+            "v2.get_active_billing_dimensions": false,
             "v2.list_events": false,
             "v2.search_events": false,
             "v2.create_incident": false,

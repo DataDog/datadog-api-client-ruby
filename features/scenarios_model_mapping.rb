@@ -991,6 +991,47 @@ ScenariosModelMappings = {
             "page_size" => "Integer",
             "page_cursor" => "String",
     },
+    "v2.GetUsageApplicationSecurityMonitoring" => {
+            "start_hr" => "Time",
+            "end_hr" => "Time",
+    },
+    "v2.GetCostByOrg" => {
+            "start_month" => "Time",
+            "end_month" => "Time",
+    },
+    "v2.GetEstimatedCostByOrg" => {
+            "view" => "String",
+            "start_month" => "Time",
+            "end_month" => "Time",
+            "start_date" => "Time",
+            "end_date" => "Time",
+    },
+    "v2.GetHistoricalCostByOrg" => {
+            "view" => "String",
+            "start_month" => "Time",
+            "end_month" => "Time",
+    },
+    "v2.GetHourlyUsage" => {
+            "filter_timestamp_start" => "Time",
+            "filter_timestamp_end" => "Time",
+            "filter_product_families" => "String",
+            "filter_include_descendants" => "Boolean",
+            "filter_include_breakdown" => "Boolean",
+            "filter_versions" => "String",
+            "page_limit" => "Integer",
+            "page_next_record_id" => "String",
+    },
+    "v2.GetUsageLambdaTracedInvocations" => {
+            "start_hr" => "Time",
+            "end_hr" => "Time",
+    },
+    "v2.GetUsageObservabilityPipelines" => {
+            "start_hr" => "Time",
+            "end_hr" => "Time",
+    },
+    "v2.GetProjectedCost" => {
+            "view" => "String",
+    },
     "v2.DeleteDashboardListItems" => {
             "dashboard_list_id" => "Integer",
             "body" => "DashboardListDeleteItemsRequest",
@@ -1792,47 +1833,6 @@ ScenariosModelMappings = {
     "v2.UpdateIncidentTeam" => {
             "team_id" => "String",
             "body" => "IncidentTeamUpdateRequest",
-    },
-    "v2.GetUsageApplicationSecurityMonitoring" => {
-            "start_hr" => "Time",
-            "end_hr" => "Time",
-    },
-    "v2.GetCostByOrg" => {
-            "start_month" => "Time",
-            "end_month" => "Time",
-    },
-    "v2.GetEstimatedCostByOrg" => {
-            "view" => "String",
-            "start_month" => "Time",
-            "end_month" => "Time",
-            "start_date" => "Time",
-            "end_date" => "Time",
-    },
-    "v2.GetHistoricalCostByOrg" => {
-            "view" => "String",
-            "start_month" => "Time",
-            "end_month" => "Time",
-    },
-    "v2.GetHourlyUsage" => {
-            "filter_timestamp_start" => "Time",
-            "filter_timestamp_end" => "Time",
-            "filter_product_families" => "String",
-            "filter_include_descendants" => "Boolean",
-            "filter_include_breakdown" => "Boolean",
-            "filter_versions" => "String",
-            "page_limit" => "Integer",
-            "page_next_record_id" => "String",
-    },
-    "v2.GetUsageLambdaTracedInvocations" => {
-            "start_hr" => "Time",
-            "end_hr" => "Time",
-    },
-    "v2.GetUsageObservabilityPipelines" => {
-            "start_hr" => "Time",
-            "end_hr" => "Time",
-    },
-    "v2.GetProjectedCost" => {
-            "view" => "String",
     },
     "v2.SendInvitations" => {
             "body" => "UserInvitationsRequest",
