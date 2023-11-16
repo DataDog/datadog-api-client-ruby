@@ -1,0 +1,22 @@
+http_interactions:
+- recorded_at: Thu, 16 Nov 2023 19:43:19 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json;datetime-format=rfc3339
+    method: GET
+    uri: https://api.datadoghq.com/api/v2/cost_by_tag/monthly_cost_attribution?start_month=2023-11-11T19%3A43%3A19.607Z&end_month=2023-11-13T19%3A43%3A19.607Z&fields=infra_host_total_cost
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":[]}
+
+        '
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+recorded_with: VCR 6.0.0

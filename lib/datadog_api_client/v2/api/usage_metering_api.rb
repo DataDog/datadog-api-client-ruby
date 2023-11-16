@@ -398,6 +398,117 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get Monthly Cost Attribution.
+    #
+    # @see #get_monthly_cost_attribution_with_http_info
+    def get_monthly_cost_attribution(start_month, end_month, fields, opts = {})
+      data, _status_code, _headers = get_monthly_cost_attribution_with_http_info(start_month, end_month, fields, opts)
+      data
+    end
+
+    # Get Monthly Cost Attribution.
+    #
+    # Get monthly cost attribution by tag across multi-org and single root-org accounts.
+    # Cost Attribution data for a given month becomes available no later than the 17th of the following month.
+    # This API endpoint is paginated. To make sure you receive all records, check if the value of `next_record_id` is
+    # set in the response. If it is, make another request and pass `next_record_id` as a parameter.
+    # Pseudo code example:
+    # ```
+    # response := GetMonthlyCostAttribution(start_month, end_month)
+    # cursor := response.metadata.pagination.next_record_id
+    # WHILE cursor != null BEGIN
+    #   sleep(5 seconds)  # Avoid running into rate limit
+    #   response := GetMonthlyCostAttribution(start_month, end_month, next_record_id=cursor)
+    #   cursor := response.metadata.pagination.next_record_id
+    # END
+    # ```
+    #
+    # @param start_month [Time] Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for cost beginning in this month.
+    # @param end_month [Time] Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for cost ending this month.
+    # @param fields [String] Comma-separated list specifying cost types (e.g., `<billing_dimension>_on_demand_cost`, `<billing_dimension>_committed_cost`, `<billing_dimension>_total_cost`) and the proportions (`<billing_dimension>_percentage_in_org`, `<billing_dimension>_percentage_in_account`). Use `*` to retrieve all fields. Example: `infra_host_on_demand_cost,infra_host_percentage_in_account` To obtain the complete list of active billing dimensions that can be used to replace `<billing_dimension>` in the field names, make a request to the [Get active billing dimensions API](https://docs.datadoghq.com/api/latest/usage-metering/#get-active-billing-dimensions-for-cost-attribution).
+    # @param opts [Hash] the optional parameters
+    # @option opts [SortDirection] :sort_direction The direction to sort by: `[desc, asc]`.
+    # @option opts [String] :sort_name The billing dimension to sort by. Always sorted by total cost. Example: `infra_host`.
+    # @option opts [String] :tag_breakdown_keys Comma separated list of tag keys used to group cost. If no value is provided the cost will not be broken down by tags. To see which tags are available, look for the value of `tag_config_source` in the API response.
+    # @option opts [String] :next_record_id List following results with a next_record_id provided in the previous query.
+    # @option opts [Boolean] :include_descendants Include child org cost in the response. Defaults to `true`.
+    # @return [Array<(MonthlyCostAttributionResponse, Integer, Hash)>] MonthlyCostAttributionResponse data, response status code and response headers
+    def get_monthly_cost_attribution_with_http_info(start_month, end_month, fields, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_monthly_cost_attribution".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_monthly_cost_attribution")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_monthly_cost_attribution"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_monthly_cost_attribution ...'
+      end
+      # verify the required parameter 'start_month' is set
+      if @api_client.config.client_side_validation && start_month.nil?
+        fail ArgumentError, "Missing the required parameter 'start_month' when calling UsageMeteringAPI.get_monthly_cost_attribution"
+      end
+      # verify the required parameter 'end_month' is set
+      if @api_client.config.client_side_validation && end_month.nil?
+        fail ArgumentError, "Missing the required parameter 'end_month' when calling UsageMeteringAPI.get_monthly_cost_attribution"
+      end
+      # verify the required parameter 'fields' is set
+      if @api_client.config.client_side_validation && fields.nil?
+        fail ArgumentError, "Missing the required parameter 'fields' when calling UsageMeteringAPI.get_monthly_cost_attribution"
+      end
+      allowable_values = ['desc', 'asc']
+      if @api_client.config.client_side_validation && opts[:'sort_direction'] && !allowable_values.include?(opts[:'sort_direction'])
+        fail ArgumentError, "invalid value for \"sort_direction\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/api/v2/cost_by_tag/monthly_cost_attribution'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'start_month'] = start_month
+      query_params[:'end_month'] = end_month
+      query_params[:'fields'] = fields
+      query_params[:'sort_direction'] = opts[:'sort_direction'] if !opts[:'sort_direction'].nil?
+      query_params[:'sort_name'] = opts[:'sort_name'] if !opts[:'sort_name'].nil?
+      query_params[:'tag_breakdown_keys'] = opts[:'tag_breakdown_keys'] if !opts[:'tag_breakdown_keys'].nil?
+      query_params[:'next_record_id'] = opts[:'next_record_id'] if !opts[:'next_record_id'].nil?
+      query_params[:'include_descendants'] = opts[:'include_descendants'] if !opts[:'include_descendants'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MonthlyCostAttributionResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_monthly_cost_attribution,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: UsageMeteringAPI#get_monthly_cost_attribution\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get projected cost across your account.
     #
     # @see #get_projected_cost_with_http_info

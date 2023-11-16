@@ -991,6 +991,16 @@ ScenariosModelMappings = {
             "page_size" => "Integer",
             "page_cursor" => "String",
     },
+    "v2.GetMonthlyCostAttribution" => {
+            "start_month" => "Time",
+            "end_month" => "Time",
+            "fields" => "String",
+            "sort_direction" => "SortDirection",
+            "sort_name" => "String",
+            "tag_breakdown_keys" => "String",
+            "next_record_id" => "String",
+            "include_descendants" => "Boolean",
+    },
     "v2.GetUsageApplicationSecurityMonitoring" => {
             "start_hr" => "Time",
             "end_hr" => "Time",
