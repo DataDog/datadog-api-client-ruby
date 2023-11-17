@@ -757,6 +757,10 @@ ScenariosModelMappings = {
     "v1.GetTest" => {
             "public_id" => "String",
     },
+    "v1.PatchTest" => {
+            "public_id" => "String",
+            "body" => "SyntheticsPatchTestBody",
+    },
     "v1.GetAPITestLatestResults" => {
             "public_id" => "String",
             "from_ts" => "Integer",
