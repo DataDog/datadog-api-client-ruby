@@ -17,26 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Response for a list of application keys.
-  class ListApplicationKeysResponse
+  # Additional information related to the application key response.
+  class ApplicationKeyResponseMetaPage
     include BaseGenericModel
 
-    # Array of application keys.
-    attr_accessor :data
-
-    # Array of objects related to the application key.
-    attr_accessor :included
-
-    # Additional information related to the application key response.
-    attr_accessor :meta
+    # Total filtered application key count.
+    attr_accessor :total_filtered_count
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data',
-        :'included' => :'included',
-        :'meta' => :'meta'
+        :'total_filtered_count' => :'total_filtered_count'
       }
     end
 
@@ -44,9 +36,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'Array<PartialApplicationKey>',
-        :'included' => :'Array<ApplicationKeyResponseIncludedItem>',
-        :'meta' => :'ApplicationKeyResponseMeta'
+        :'total_filtered_count' => :'Integer'
       }
     end
 
@@ -55,31 +45,19 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ListApplicationKeysResponse` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ApplicationKeyResponseMetaPage` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::ListApplicationKeysResponse`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::ApplicationKeyResponseMetaPage`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'data')
-        if (value = attributes[:'data']).is_a?(Array)
-          self.data = value
-        end
-      end
-
-      if attributes.key?(:'included')
-        if (value = attributes[:'included']).is_a?(Array)
-          self.included = value
-        end
-      end
-
-      if attributes.key?(:'meta')
-        self.meta = attributes[:'meta']
+      if attributes.key?(:'total_filtered_count')
+        self.total_filtered_count = attributes[:'total_filtered_count']
       end
     end
 
@@ -89,16 +67,14 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data &&
-          included == o.included &&
-          meta == o.meta
+          total_filtered_count == o.total_filtered_count
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, included, meta].hash
+      [total_filtered_count].hash
     end
   end
 end
