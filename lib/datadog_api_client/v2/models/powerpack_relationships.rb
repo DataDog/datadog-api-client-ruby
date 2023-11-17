@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class PowerpackRelationships
     include BaseGenericModel
 
-    # Creator of the object.
+    # Relationship to user.
     attr_accessor :author
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -36,7 +36,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'author' => :'Creator'
+        :'author' => :'RelationshipToUser'
       }
     end
 
