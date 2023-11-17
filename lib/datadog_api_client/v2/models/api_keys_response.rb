@@ -27,12 +27,16 @@ module DatadogAPIClient::V2
     # Array of objects related to the API key.
     attr_accessor :included
 
+    # Additional information related to api keys response.
+    attr_accessor :meta
+
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
         :'data' => :'data',
-        :'included' => :'included'
+        :'included' => :'included',
+        :'meta' => :'meta'
       }
     end
 
@@ -41,7 +45,8 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'data' => :'Array<PartialAPIKey>',
-        :'included' => :'Array<APIKeyResponseIncludedItem>'
+        :'included' => :'Array<APIKeyResponseIncludedItem>',
+        :'meta' => :'APIKeysResponseMeta'
       }
     end
 
@@ -72,6 +77,10 @@ module DatadogAPIClient::V2
           self.included = value
         end
       end
+
+      if attributes.key?(:'meta')
+        self.meta = attributes[:'meta']
+      end
     end
 
     # Checks equality by comparing each attribute.
@@ -81,14 +90,15 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           data == o.data &&
-          included == o.included
+          included == o.included &&
+          meta == o.meta
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, included].hash
+      [data, included, meta].hash
     end
   end
 end
