@@ -1057,6 +1057,12 @@ ScenariosModelMappings = {
             "dashboard_list_id" => "Integer",
             "body" => "DashboardListUpdateItemsRequest",
     },
+    "v2.CreateDORADeployment" => {
+            "body" => "DORADeploymentRequest",
+    },
+    "v2.CreateDORAIncident" => {
+            "body" => "DORAIncidentRequest",
+    },
     "v2.ListDowntimes" => {
             "current_only" => "Boolean",
             "include" => "String",
