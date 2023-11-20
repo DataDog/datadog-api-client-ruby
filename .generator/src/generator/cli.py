@@ -55,6 +55,7 @@ def cli(specs, output):
     api_j2 = env.get_template("api.j2")
     model_j2 = env.get_template("model.j2")
     package_j2 = env.get_template("package.j2")
+    datadog_api_client_j2 = env.get_template("datadog_api_client.j2")
 
     extra_files = {
         "model_base.rb": env.get_template("model_base.j2"),
@@ -119,6 +120,10 @@ def cli(specs, output):
         filename = common_output / name
         with filename.open("w") as fp:
             fp.write(template.render(all_apis=all_apis, all_specs=all_specs, all_models=all_models))
+
+    datadog_api_client_output = output / "datadog_api_client.rb"
+    with datadog_api_client_output.open("w") as fp:
+        fp.write(datadog_api_client_j2.render(all_apis=all_apis))
 
     # Parameter mappings for bdd tests
     scenarios_test_output = pathlib.Path("../features/")
