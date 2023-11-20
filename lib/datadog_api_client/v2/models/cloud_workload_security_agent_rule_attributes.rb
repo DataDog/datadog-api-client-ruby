@@ -48,6 +48,9 @@ module DatadogAPIClient::V2
     # The SECL expression of the Agent rule.
     attr_accessor :expression
 
+    # The platforms the Agent rule is supported on.
+    attr_accessor :filters
+
     # The name of the Agent rule.
     attr_accessor :name
 
@@ -79,6 +82,7 @@ module DatadogAPIClient::V2
         :'description' => :'description',
         :'enabled' => :'enabled',
         :'expression' => :'expression',
+        :'filters' => :'filters',
         :'name' => :'name',
         :'update_author_uu_id' => :'updateAuthorUuId',
         :'update_date' => :'updateDate',
@@ -101,6 +105,7 @@ module DatadogAPIClient::V2
         :'description' => :'String',
         :'enabled' => :'Boolean',
         :'expression' => :'String',
+        :'filters' => :'Array<String>',
         :'name' => :'String',
         :'update_author_uu_id' => :'String',
         :'update_date' => :'Integer',
@@ -162,6 +167,12 @@ module DatadogAPIClient::V2
         self.expression = attributes[:'expression']
       end
 
+      if attributes.key?(:'filters')
+        if (value = attributes[:'filters']).is_a?(Array)
+          self.filters = value
+        end
+      end
+
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
@@ -202,6 +213,7 @@ module DatadogAPIClient::V2
           description == o.description &&
           enabled == o.enabled &&
           expression == o.expression &&
+          filters == o.filters &&
           name == o.name &&
           update_author_uu_id == o.update_author_uu_id &&
           update_date == o.update_date &&
@@ -214,7 +226,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [agent_constraint, category, creation_author_uu_id, creation_date, creator, default_rule, description, enabled, expression, name, update_author_uu_id, update_date, updated_at, updater, version].hash
+      [agent_constraint, category, creation_author_uu_id, creation_date, creator, default_rule, description, enabled, expression, filters, name, update_author_uu_id, update_date, updated_at, updater, version].hash
     end
   end
 end

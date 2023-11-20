@@ -17,18 +17,22 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Powerpack relationship object.
-  class PowerpackRelationships
+  # Additional information related to api keys response.
+  class APIKeysResponseMeta
     include BaseGenericModel
 
-    # Relationship to user.
-    attr_accessor :author
+    # Max allowed number of API keys.
+    attr_accessor :max_allowed
+
+    # Additional information related to the API keys response.
+    attr_accessor :page
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'author' => :'author'
+        :'max_allowed' => :'max_allowed',
+        :'page' => :'page'
       }
     end
 
@@ -36,7 +40,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'author' => :'RelationshipToUser'
+        :'max_allowed' => :'Integer',
+        :'page' => :'APIKeysResponseMetaPage'
       }
     end
 
@@ -45,19 +50,23 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::PowerpackRelationships` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::APIKeysResponseMeta` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::PowerpackRelationships`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::APIKeysResponseMeta`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'author')
-        self.author = attributes[:'author']
+      if attributes.key?(:'max_allowed')
+        self.max_allowed = attributes[:'max_allowed']
+      end
+
+      if attributes.key?(:'page')
+        self.page = attributes[:'page']
       end
     end
 
@@ -67,14 +76,15 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          author == o.author
+          max_allowed == o.max_allowed &&
+          page == o.page
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [author].hash
+      [max_allowed, page].hash
     end
   end
 end

@@ -17,18 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Powerpack relationship object.
-  class PowerpackRelationships
+  # Additional information related to the API keys response.
+  class APIKeysResponseMetaPage
     include BaseGenericModel
 
-    # Relationship to user.
-    attr_accessor :author
+    # Total filtered application key count.
+    attr_accessor :total_filtered_count
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'author' => :'author'
+        :'total_filtered_count' => :'total_filtered_count'
       }
     end
 
@@ -36,7 +36,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'author' => :'RelationshipToUser'
+        :'total_filtered_count' => :'Integer'
       }
     end
 
@@ -45,19 +45,19 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::PowerpackRelationships` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::APIKeysResponseMetaPage` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::PowerpackRelationships`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::APIKeysResponseMetaPage`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'author')
-        self.author = attributes[:'author']
+      if attributes.key?(:'total_filtered_count')
+        self.total_filtered_count = attributes[:'total_filtered_count']
       end
     end
 
@@ -67,14 +67,14 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          author == o.author
+          total_filtered_count == o.total_filtered_count
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [author].hash
+      [total_filtered_count].hash
     end
   end
 end
