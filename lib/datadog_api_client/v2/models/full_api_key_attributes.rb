@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class FullAPIKeyAttributes
     include BaseGenericModel
 
+    # The category of the API key.
+    attr_accessor :category
+
     # Creation date of the API key.
     attr_accessor :created_at
 
@@ -36,15 +39,20 @@ module DatadogAPIClient::V2
     # Name of the API key.
     attr_accessor :name
 
+    # The remote config read enabled status.
+    attr_accessor :remote_config_read_enabled
+
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
+        :'category' => :'category',
         :'created_at' => :'created_at',
         :'key' => :'key',
         :'last4' => :'last4',
         :'modified_at' => :'modified_at',
-        :'name' => :'name'
+        :'name' => :'name',
+        :'remote_config_read_enabled' => :'remote_config_read_enabled'
       }
     end
 
@@ -52,11 +60,13 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'category' => :'String',
         :'created_at' => :'String',
         :'key' => :'String',
         :'last4' => :'String',
         :'modified_at' => :'String',
-        :'name' => :'String'
+        :'name' => :'String',
+        :'remote_config_read_enabled' => :'Boolean'
       }
     end
 
@@ -76,6 +86,10 @@ module DatadogAPIClient::V2
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'category')
+        self.category = attributes[:'category']
+      end
+
       if attributes.key?(:'created_at')
         self.created_at = attributes[:'created_at']
       end
@@ -94,6 +108,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'remote_config_read_enabled')
+        self.remote_config_read_enabled = attributes[:'remote_config_read_enabled']
       end
     end
 
@@ -125,18 +143,20 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          category == o.category &&
           created_at == o.created_at &&
           key == o.key &&
           last4 == o.last4 &&
           modified_at == o.modified_at &&
-          name == o.name
+          name == o.name &&
+          remote_config_read_enabled == o.remote_config_read_enabled
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created_at, key, last4, modified_at, name].hash
+      [category, created_at, key, last4, modified_at, name, remote_config_read_enabled].hash
     end
   end
 end
