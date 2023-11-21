@@ -24,6 +24,9 @@ module DatadogAPIClient::V2
     # Description of the standard pattern.
     attr_accessor :description
 
+    # List of included keywords.
+    attr_accessor :included_keywords
+
     # Name of the standard pattern.
     attr_accessor :name
 
@@ -38,6 +41,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'description' => :'description',
+        :'included_keywords' => :'included_keywords',
         :'name' => :'name',
         :'pattern' => :'pattern',
         :'tags' => :'tags'
@@ -49,6 +53,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'description' => :'String',
+        :'included_keywords' => :'Array<String>',
         :'name' => :'String',
         :'pattern' => :'String',
         :'tags' => :'Array<String>'
@@ -75,6 +80,12 @@ module DatadogAPIClient::V2
         self.description = attributes[:'description']
       end
 
+      if attributes.key?(:'included_keywords')
+        if (value = attributes[:'included_keywords']).is_a?(Array)
+          self.included_keywords = value
+        end
+      end
+
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
@@ -97,6 +108,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           description == o.description &&
+          included_keywords == o.included_keywords &&
           name == o.name &&
           pattern == o.pattern &&
           tags == o.tags
@@ -106,7 +118,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [description, name, pattern, tags].hash
+      [description, included_keywords, name, pattern, tags].hash
     end
   end
 end
