@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Mon, 30 Oct 2023 20:37:07 GMT
+- recorded_at: Mon, 13 Nov 2023 14:17:01 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"account_id":"123456789012","account_specific_namespace_rules":{"auto_scaling":false},"cspm_resource_collection_enabled":true,"excluded_regions":["us-east-1","us-west-2"],"filter_tags":["$KEY:$VALUE"],"host_tags":["$KEY:$VALUE"],"metrics_collection_enabled":false,"resource_collection_enabled":true,"role_name":"DatadogAWSIntegrationRole"}'
+      string: '{"account_id":"169988502100","account_specific_namespace_rules":{"auto_scaling":false},"cspm_resource_collection_enabled":true,"excluded_regions":["us-east-1","us-west-2"],"filter_tags":["$KEY:$VALUE"],"host_tags":["$KEY:$VALUE"],"metrics_collection_enabled":false,"resource_collection_enabled":true,"role_name":"DatadogAWSIntegrationRole"}'
     headers:
       Accept:
       - application/json
@@ -14,7 +14,7 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"external_id":"240b016c46fe4ceb95ac0232da138c88"}
+      string: '{"external_id":"9668e281c0ef4cc8be01710ef7a0ae4c"}
 
         '
     headers:
@@ -23,11 +23,11 @@ http_interactions:
     status:
       code: 200
       message: OK
-- recorded_at: Mon, 30 Oct 2023 20:37:07 GMT
+- recorded_at: Mon, 13 Nov 2023 14:17:01 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"account_id":"123456789012","role_name":"DatadogAWSIntegrationRole"}'
+      string: '{"account_id":"169988502100","role_name":"DatadogAWSIntegrationRole"}'
     headers:
       Accept:
       - application/json
