@@ -141,12 +141,18 @@ module APIWorld
     operation_name = operation["operationId"].snakecase
     method = api_instance.method("#{operation_name}_with_http_info".to_sym)
 
-    lambda do |response|
+    lambda do |response, request|
       args = operation["parameters"].map do |p|
+        if p["origin"] && p["origin"] == "request"
+          data = request[0]
+        else
+          data = response
+        end
         if p["source"]
-          [p["name"].to_sym, response.lookup(p["source"])]
+          [p["name"].to_sym, data.lookup(p["source"])]
         elsif p["template"]
-          [p["name"].to_sym, p["template"].templated(response)]
+          puts p["name"].to_sym
+          [p["name"].to_sym,  p["template"].templated(data)]
         end
       end.to_h
       params = method.parameters.select { |p| p[0] == :req }.map { |p| args.delete(p[1]) }
@@ -189,7 +195,7 @@ module APIWorld
     result = method.call(*args)[0]
 
     # register undo method
-    @undo << undo_builder.call(result) if undo_builder
+    @undo << undo_builder.call(result, args) if undo_builder
 
     # optional re-shaping
     result = result.lookup(operation['source']) if operation.key? 'source'
@@ -264,14 +270,14 @@ When('the request is sent') do
     # Instead of finding the response class of the method, we use the fact that all
     # responses returned have the `1` element set to the response code
     begin
-        @response = [JSON.parse(e.response_body, :symbolize_names => true), e.code, nil]
-    rescue JSON::ParserError
-        @response = [e.response_body, e.code, nil]
+      @response = [JSON.parse(e.response_body, :symbolize_names => true), e.code, nil]
+  rescue JSON::ParserError
+    @response = [e.response_body, e.code, nil]
     end
   end
 
   if @response[1].between?(200, 299)  then
-    @undo << undo_builder.call(@response[0]) if undo_builder
+    @undo << undo_builder.call(@response[0], params) if undo_builder
   end
 
 end
@@ -290,9 +296,9 @@ When('the request with pagination is sent') do
     # Instead of finding the response class of the method, we use the fact that all
     # responses returned have the `1` element set to the response code
     begin
-        @response = [JSON.parse(e.response_body, :symbolize_names => true), e.code, nil]
-    rescue JSON::ParserError
-        @response = [e.response_body, e.code, nil]
+      @response = [JSON.parse(e.response_body, :symbolize_names => true), e.code, nil]
+  rescue JSON::ParserError
+    @response = [e.response_body, e.code, nil]
     end
   end
 end
@@ -328,7 +334,7 @@ end
 
 Then(/^the response "([^"]+)" has item with field "([^"]+)" with value (.*)$/) do |response_path, key_path, value|
   response_list = @response[0].lookup response_path
-  expect(response_list.find {|item|
+  expect(response_list.find { |item|
     begin
       item.lookup(key_path) == JSON.parse(value.templated(fixtures), :symbolize_names => true)
     rescue
