@@ -43,12 +43,6 @@ module DatadogAPIClient::V2
     # @option opts [String] :page_cursor String to query the next page of results. This key is provided with each valid response from the API in `meta.pagination.next_cursor`.
     # @return [Array<(ContainersResponse, Integer, Hash)>] ContainersResponse data, response status code and response headers
     def list_containers_with_http_info(opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.list_containers".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_containers")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_containers"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ContainersAPI.list_containers ...'
