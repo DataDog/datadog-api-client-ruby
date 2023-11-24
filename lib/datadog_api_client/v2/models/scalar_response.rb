@@ -40,7 +40,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'ScalarFormulaResponseAtrributes',
+        :'attributes' => :'ScalarFormulaResponseAttributes',
         :'type' => :'ScalarFormulaResponseType'
       }
     end

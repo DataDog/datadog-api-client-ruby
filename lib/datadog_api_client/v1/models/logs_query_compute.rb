@@ -27,8 +27,19 @@ module DatadogAPIClient::V1
     # Facet name.
     attr_accessor :facet
 
-    # Define a time interval in seconds.
+    # Fixed numeric interval for compute (in milliseconds).
+    # Fields `interval` (numeric interval) and `rollup` (calendar interval) are mutually exclusive.
     attr_accessor :interval
+
+    # Calendar interval options for compute.
+    # Fields `interval` (numeric interval) and `rollup` (calendar interval) are mutually exclusive.
+    #
+    # For instance:
+    # - { type: 'day', alignment: '1pm', timezone: 'Europe/Paris' }
+    # - { type: 'week', alignment: 'tuesday', quantity: 2 }
+    # - { type: 'month', alignment: '15th' }
+    # - { type: 'year', alignment: 'april' }
+    attr_accessor :rollup
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -36,7 +47,8 @@ module DatadogAPIClient::V1
       {
         :'aggregation' => :'aggregation',
         :'facet' => :'facet',
-        :'interval' => :'interval'
+        :'interval' => :'interval',
+        :'rollup' => :'rollup'
       }
     end
 
@@ -46,7 +58,8 @@ module DatadogAPIClient::V1
       {
         :'aggregation' => :'String',
         :'facet' => :'String',
-        :'interval' => :'Integer'
+        :'interval' => :'Integer',
+        :'rollup' => :'CalendarInterval'
       }
     end
 
@@ -77,6 +90,10 @@ module DatadogAPIClient::V1
       if attributes.key?(:'interval')
         self.interval = attributes[:'interval']
       end
+
+      if attributes.key?(:'rollup')
+        self.rollup = attributes[:'rollup']
+      end
     end
 
     # Check to see if the all the properties in the model are valid
@@ -105,14 +122,15 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           aggregation == o.aggregation &&
           facet == o.facet &&
-          interval == o.interval
+          interval == o.interval &&
+          rollup == o.rollup
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [aggregation, facet, interval].hash
+      [aggregation, facet, interval, rollup].hash
     end
   end
 end
