@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The object describing a scalar response.
-  class ScalarFormulaResponseAtrributes
+  class ScalarFormulaResponseAttributes
     include BaseGenericModel
 
     # List of response columns, each corresponding to an individual formula or query in the request and with values in parallel arrays matching the series list.
@@ -45,13 +45,13 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ScalarFormulaResponseAtrributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ScalarFormulaResponseAttributes` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::ScalarFormulaResponseAtrributes`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::ScalarFormulaResponseAttributes`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }

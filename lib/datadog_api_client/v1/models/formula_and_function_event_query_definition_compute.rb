@@ -24,11 +24,22 @@ module DatadogAPIClient::V1
     # Aggregation methods for event platform queries.
     attr_reader :aggregation
 
-    # A time interval in milliseconds.
+    # Fixed numeric interval for compute (in milliseconds).
+    # Fields `interval` (numeric interval) and `rollup` (calendar interval) are mutually exclusive.
     attr_accessor :interval
 
     # Measurable attribute to compute.
     attr_accessor :metric
+
+    # Calendar interval options for compute.
+    # Fields `interval` (numeric interval) and `rollup` (calendar interval) are mutually exclusive.
+    #
+    # For instance:
+    # - { type: 'day', alignment: '1pm', timezone: 'Europe/Paris' }
+    # - { type: 'week', alignment: 'tuesday', quantity: 2 }
+    # - { type: 'month', alignment: '15th' }
+    # - { type: 'year', alignment: 'april' }
+    attr_accessor :rollup
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -36,7 +47,8 @@ module DatadogAPIClient::V1
       {
         :'aggregation' => :'aggregation',
         :'interval' => :'interval',
-        :'metric' => :'metric'
+        :'metric' => :'metric',
+        :'rollup' => :'rollup'
       }
     end
 
@@ -46,7 +58,8 @@ module DatadogAPIClient::V1
       {
         :'aggregation' => :'FormulaAndFunctionEventAggregation',
         :'interval' => :'Integer',
-        :'metric' => :'String'
+        :'metric' => :'String',
+        :'rollup' => :'CalendarInterval'
       }
     end
 
@@ -77,6 +90,10 @@ module DatadogAPIClient::V1
       if attributes.key?(:'metric')
         self.metric = attributes[:'metric']
       end
+
+      if attributes.key?(:'rollup')
+        self.rollup = attributes[:'rollup']
+      end
     end
 
     # Check to see if the all the properties in the model are valid
@@ -105,14 +122,15 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           aggregation == o.aggregation &&
           interval == o.interval &&
-          metric == o.metric
+          metric == o.metric &&
+          rollup == o.rollup
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [aggregation, interval, metric].hash
+      [aggregation, interval, metric, rollup].hash
     end
   end
 end
