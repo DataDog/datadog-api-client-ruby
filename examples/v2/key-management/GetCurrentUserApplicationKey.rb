@@ -2,4 +2,7 @@
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::KeyManagementAPI.new
-p api_instance.get_current_user_application_key("app_key_id")
+
+# there is a valid "application_key" in the system
+APPLICATION_KEY_DATA_ID = ENV["APPLICATION_KEY_DATA_ID"]
+p api_instance.get_current_user_application_key(APPLICATION_KEY_DATA_ID)

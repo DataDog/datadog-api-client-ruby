@@ -1,0 +1,62 @@
+http_interactions:
+- recorded_at: Fri, 24 Nov 2023 13:54:39 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"api_key":"TestDeleteFastlyaccountreturnsOKresponse1700834079","name":"Test-Delete_Fastly_account_returns_OK_response-1700834079","services":[]},"type":"fastly-accounts"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/integrations/fastly/accounts
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"fastly-accounts","attributes":{"name":"Test-Delete_Fastly_account_returns_OK_response-1700834079","services":[]},"id":"c161584cae34e5249aeb16f9b7d46244"}}
+
+        '
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 201
+      message: Created
+- recorded_at: Fri, 24 Nov 2023 13:54:39 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/integrations/fastly/accounts/c161584cae34e5249aeb16f9b7d46244
+  response:
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Content-Type:
+      - text/html; charset=utf-8
+    status:
+      code: 204
+      message: No Content
+- recorded_at: Fri, 24 Nov 2023 13:54:39 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/integrations/fastly/accounts/c161584cae34e5249aeb16f9b7d46244
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":["Account not found not found"]}'
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 404
+      message: Not Found
+recorded_with: VCR 6.0.0

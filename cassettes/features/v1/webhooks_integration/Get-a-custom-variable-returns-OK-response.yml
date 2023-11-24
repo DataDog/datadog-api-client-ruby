@@ -1,0 +1,66 @@
+http_interactions:
+- recorded_at: Fri, 24 Nov 2023 12:29:15 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"is_secret":false,"name":"TESTGETACUSTOMVARIABLERETURNSOKRESPONSE1700828955","value":"variable-value"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v1/integration/webhooks/configuration/custom-variables
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"name":"TESTGETACUSTOMVARIABLERETURNSOKRESPONSE1700828955","is_secret":false,"value":"variable-value"}
+
+        '
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 201
+      message: Created
+- recorded_at: Fri, 24 Nov 2023 12:29:15 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+    method: GET
+    uri: https://api.datadoghq.com/api/v1/integration/webhooks/configuration/custom-variables/TESTGETACUSTOMVARIABLERETURNSOKRESPONSE1700828955
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"name":"TESTGETACUSTOMVARIABLERETURNSOKRESPONSE1700828955","is_secret":false,"value":"variable-value"}
+
+        '
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+- recorded_at: Fri, 24 Nov 2023 12:29:15 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v1/integration/webhooks/configuration/custom-variables/TESTGETACUSTOMVARIABLERETURNSOKRESPONSE1700828955
+  response:
+    body:
+      encoding: UTF-8
+      string: '{}
+
+        '
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+recorded_with: VCR 6.0.0

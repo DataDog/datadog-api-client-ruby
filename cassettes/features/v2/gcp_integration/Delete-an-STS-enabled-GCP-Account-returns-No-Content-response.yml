@@ -1,0 +1,62 @@
+http_interactions:
+- recorded_at: Fri, 24 Nov 2023 13:57:00 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"client_email":"832ce4b0f6318b5e@example.com","host_filters":[]},"type":"gcp_service_account"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/integration/gcp/accounts
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"gcp_service_account","attributes":{"is_security_command_center_enabled":false,"host_filters":[],"is_cspm_enabled":false,"client_email":"832ce4b0f6318b5e@example.com","automute":false,"account_tags":[],"resource_collection_enabled":false},"id":"f9be086a-db3e-447b-a60a-956f876aa7d9"}}
+
+        '
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 201
+      message: Created
+- recorded_at: Fri, 24 Nov 2023 13:57:00 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/integration/gcp/accounts/f9be086a-db3e-447b-a60a-956f876aa7d9
+  response:
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Content-Type:
+      - text/html; charset=utf-8
+    status:
+      code: 204
+      message: No Content
+- recorded_at: Fri, 24 Nov 2023 13:57:00 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/integration/gcp/accounts/f9be086a-db3e-447b-a60a-956f876aa7d9
+  response:
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Content-Type:
+      - text/html; charset=utf-8
+    status:
+      code: 204
+      message: No Content
+recorded_with: VCR 6.0.0
