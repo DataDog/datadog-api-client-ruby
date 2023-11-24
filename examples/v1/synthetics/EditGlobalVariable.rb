@@ -3,31 +3,26 @@
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::SyntheticsAPI.new
 
+# there is a valid "synthetics_global_variable" in the system
+SYNTHETICS_GLOBAL_VARIABLE_ID = ENV["SYNTHETICS_GLOBAL_VARIABLE_ID"]
+
+# there is a valid "synthetics_api_test_multi_step" in the system
+SYNTHETICS_API_TEST_MULTI_STEP_PUBLIC_ID = ENV["SYNTHETICS_API_TEST_MULTI_STEP_PUBLIC_ID"]
+
 body = DatadogAPIClient::V1::SyntheticsGlobalVariable.new({
-  attributes: DatadogAPIClient::V1::SyntheticsGlobalVariableAttributes.new({
-    restricted_roles: [
-      "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-    ],
-  }),
-  description: "Example description",
-  name: "MY_VARIABLE",
+  description: "Updated description.",
+  name: "GLOBAL_VARIABLE_PAYLOAD_EXAMPLESYNTHETIC",
   parse_test_options: DatadogAPIClient::V1::SyntheticsGlobalVariableParseTestOptions.new({
-    field: "content-type",
-    local_variable_name: "LOCAL_VARIABLE",
-    parser: DatadogAPIClient::V1::SyntheticsVariableParser.new({
-      type: DatadogAPIClient::V1::SyntheticsGlobalVariableParserType::REGEX,
-      value: ".*",
-    }),
-    type: DatadogAPIClient::V1::SyntheticsGlobalVariableParseTestOptionsType::HTTP_BODY,
+    type: DatadogAPIClient::V1::SyntheticsGlobalVariableParseTestOptionsType::LOCAL_VARIABLE,
+    local_variable_name: "EXTRACTED_VALUE",
   }),
-  parse_test_public_id: "abc-def-123",
-  tags: [
-    "team:front",
-    "test:workflow-1",
-  ],
+  parse_test_public_id: SYNTHETICS_API_TEST_MULTI_STEP_PUBLIC_ID,
   value: DatadogAPIClient::V1::SyntheticsGlobalVariableValue.new({
-    secure: true,
-    value: "value",
+    secure: false,
+    value: "",
   }),
+  tags: [
+    "test:mytag",
+  ],
 })
-p api_instance.edit_global_variable("variable_id", body)
+p api_instance.edit_global_variable(SYNTHETICS_GLOBAL_VARIABLE_ID, body)

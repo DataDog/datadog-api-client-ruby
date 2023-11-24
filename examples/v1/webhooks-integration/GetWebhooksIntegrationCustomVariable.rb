@@ -2,4 +2,7 @@
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::WebhooksIntegrationAPI.new
-p api_instance.get_webhooks_integration_custom_variable("custom_variable_name")
+
+# there is a valid "webhook_custom_variable" in the system
+WEBHOOK_CUSTOM_VARIABLE_NAME = ENV["WEBHOOK_CUSTOM_VARIABLE_NAME"]
+p api_instance.get_webhooks_integration_custom_variable(WEBHOOK_CUSTOM_VARIABLE_NAME)

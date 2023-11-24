@@ -1,0 +1,62 @@
+http_interactions:
+- recorded_at: Fri, 24 Nov 2023 12:31:39 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"api_key":"fakekey","email":"dev@datadog.com","name":"testdeletecloudflareaccountreturnsokresponse1700829099"},"type":"cloudflare-accounts"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/integrations/cloudflare/accounts
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"email":"new@email","name":"testdeletecloudflareaccountreturnsokresponse1700829099"},"type":"cloudflare-accounts","id":"328432a98957fd7bcba6f70daea72519"}}
+
+        '
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 201
+      message: Created
+- recorded_at: Fri, 24 Nov 2023 12:31:39 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/integrations/cloudflare/accounts/328432a98957fd7bcba6f70daea72519
+  response:
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Content-Type:
+      - text/html; charset=utf-8
+    status:
+      code: 204
+      message: No Content
+- recorded_at: Fri, 24 Nov 2023 12:31:39 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/integrations/cloudflare/accounts/328432a98957fd7bcba6f70daea72519
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":["not_found"]}'
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 404
+      message: No Found
+recorded_with: VCR 6.0.0
