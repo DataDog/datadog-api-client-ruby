@@ -21,13 +21,16 @@ module DatadogAPIClient::V2
   class MetricOrigin
     include BaseGenericModel
 
-    # The origin metric type code
+    # The origin metric type code.
     attr_reader :metric_type
 
-    # The origin product code
+    # The origin product code.
+    attr_reader :origin_product
+
+    # The product code.
     attr_reader :product
 
-    # The origin service code
+    # The service code.
     attr_reader :service
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -35,6 +38,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'metric_type' => :'metric_type',
+        :'origin_product' => :'origin_product',
         :'product' => :'product',
         :'service' => :'service'
       }
@@ -45,6 +49,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'metric_type' => :'Integer',
+        :'origin_product' => :'Integer',
         :'product' => :'Integer',
         :'service' => :'Integer'
       }
@@ -70,6 +75,10 @@ module DatadogAPIClient::V2
         self.metric_type = attributes[:'metric_type']
       end
 
+      if attributes.key?(:'origin_product')
+        self.origin_product = attributes[:'origin_product']
+      end
+
       if attributes.key?(:'product')
         self.product = attributes[:'product']
       end
@@ -84,6 +93,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if !@metric_type.nil? && @metric_type > 1000
+      return false if !@origin_product.nil? && @origin_product > 1000
       return false if !@product.nil? && @product > 1000
       return false if !@service.nil? && @service > 1000
       true
@@ -97,6 +107,16 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "metric_type", must be smaller than or equal to 1000.'
       end
       @metric_type = metric_type
+    end
+
+    # Custom attribute writer method with validation
+    # @param origin_product [Object] Object to be assigned
+    # @!visibility private
+    def origin_product=(origin_product)
+      if !origin_product.nil? && origin_product > 1000
+        fail ArgumentError, 'invalid value for "origin_product", must be smaller than or equal to 1000.'
+      end
+      @origin_product = origin_product
     end
 
     # Custom attribute writer method with validation
@@ -126,6 +146,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           metric_type == o.metric_type &&
+          origin_product == o.origin_product &&
           product == o.product &&
           service == o.service
     end
@@ -134,7 +155,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [metric_type, product, service].hash
+      [metric_type, origin_product, product, service].hash
     end
   end
 end
