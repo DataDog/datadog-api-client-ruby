@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class DORAIncidentRequestAttributes
     include BaseGenericModel
 
-    # Unix timestamp in nanoseconds when the deployment finished. It should not be older than 3 hours.
+    # Unix timestamp in nanoseconds when the incident finished. It should not be older than 3 hours.
     attr_accessor :finished_at
 
     # Git info for DORA Metrics events.
@@ -39,7 +39,7 @@ module DatadogAPIClient::V2
     # Incident severity.
     attr_accessor :severity
 
-    # Unix timestamp in nanoseconds when the deployment started.
+    # Unix timestamp in nanoseconds when the incident started.
     attr_reader :started_at
 
     # Version to correlate with [APM Deployment Tracking](https://docs.datadoghq.com/tracing/services/deployment_tracking/).
