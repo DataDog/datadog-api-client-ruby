@@ -297,7 +297,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Enable Cloud Security Management Misconfigurations for your organization.</p>
+    <span class="summary_desc"><div class='inline'><p>When enabled, Datadog’s Cloud Security Management product will scan resource configurations monitored by this app registration.</p>
 </div></span>
   
 </li>
@@ -428,6 +428,32 @@
 
   
     <span class="summary_desc"><div class='inline'><p>Your New Azure Active Directory ID.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#resource_collection_enabled-instance_method" title="#resource_collection_enabled (instance method)">#<strong>resource_collection_enabled</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>When enabled, Datadog collects metadata and configuration info from cloud resources (compute instances, databases, load balancers, etc.) monitored by this app registration.</p>
 </div></span>
   
 </li>
@@ -1041,7 +1067,8 @@ Only container apps that match one of the defined tags are imported into Datadog
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Enable Cloud Security Management Misconfigurations for your organization.</p>
+    <p>When enabled, Datadog’s Cloud Security Management product will scan resource configurations monitored by this app registration.
+Note: This requires resource_collection_enabled to be set to true.</p>
 
 
   </div>
@@ -1055,12 +1082,12 @@ Only container apps that match one of the defined tags are imported into Datadog
       <pre class="lines">
 
 
-42
 43
-44</pre>
+44
+45</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/azure_account.rb', line 42</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/azure_account.rb', line 43</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_cspm_enabled'>cspm_enabled</span>
   <span class='ivar'>@cspm_enabled</span>
@@ -1097,12 +1124,12 @@ Only container apps that match one of the defined tags are imported into Datadog
       <pre class="lines">
 
 
-45
 46
-47</pre>
+47
+48</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/azure_account.rb', line 45</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/azure_account.rb', line 46</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_custom_metrics_enabled'>custom_metrics_enabled</span>
   <span class='ivar'>@custom_metrics_enabled</span>
@@ -1275,6 +1302,48 @@ Only hosts that match one of the defined tags are imported into Datadog.</p>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_new_tenant_name'>new_tenant_name</span>
   <span class='ivar'>@new_tenant_name</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="resource_collection_enabled=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="resource_collection_enabled-instance_method">
+  
+    #<strong>resource_collection_enabled</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>When enabled, Datadog collects metadata and configuration info from cloud resources (compute instances, databases, load balancers, etc.) monitored by this app registration.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+62
+63
+64</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/azure_account.rb', line 62</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_resource_collection_enabled'>resource_collection_enabled</span>
+  <span class='ivar'>@resource_collection_enabled</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -2262,7 +2331,7 @@ For object, use to_hash. Otherwise, just return the value</p>
 </div>
 
       <div id="footer">
-  Generated on Tue Nov 21 22:17:25 2023 by
+  Generated on Mon Dec  4 15:02:42 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.34 (ruby-2.7.8).
 </div>
