@@ -4,11 +4,11 @@ require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::AWSIntegrationAPI.new
 
 body = DatadogAPIClient::V1::AWSAccount.new({
-  account_id: "123456789012",
+  account_id: "163662907100",
   account_specific_namespace_rules: {
     auto_scaling: false,
   },
-  cspm_resource_collection_enabled: true,
+  cspm_resource_collection_enabled: false,
   excluded_regions: [
     "us-east-1",
     "us-west-2",
@@ -19,12 +19,12 @@ body = DatadogAPIClient::V1::AWSAccount.new({
   host_tags: [
     "$KEY:$VALUE",
   ],
-  metrics_collection_enabled: false,
+  metrics_collection_enabled: true,
   resource_collection_enabled: true,
-  role_name: "datadog-role",
+  role_name: "DatadogAWSIntegrationRole",
 })
 opts = {
-  account_id: "123456789012",
-  role_name: "datadog-role",
+  account_id: "163662907100",
+  role_name: "DatadogAWSIntegrationRole",
 }
 p api_instance.update_aws_account(body, opts)
