@@ -38,7 +38,8 @@ module DatadogAPIClient::V1
     # Only container apps that match one of the defined tags are imported into Datadog.
     attr_accessor :container_app_filters
 
-    # Enable Cloud Security Management Misconfigurations for your organization.
+    # When enabled, Datadog’s Cloud Security Management product will scan resource configurations monitored by this app registration.
+    # Note: This requires resource_collection_enabled to be set to true.
     attr_accessor :cspm_enabled
 
     # Enable custom metrics for your organization.
@@ -56,6 +57,9 @@ module DatadogAPIClient::V1
 
     # Your New Azure Active Directory ID.
     attr_accessor :new_tenant_name
+
+    # When enabled, Datadog collects metadata and configuration info from cloud resources (compute instances, databases, load balancers, etc.) monitored by this app registration.
+    attr_accessor :resource_collection_enabled
 
     # Your Azure Active Directory ID.
     attr_accessor :tenant_name
@@ -75,6 +79,7 @@ module DatadogAPIClient::V1
         :'host_filters' => :'host_filters',
         :'new_client_id' => :'new_client_id',
         :'new_tenant_name' => :'new_tenant_name',
+        :'resource_collection_enabled' => :'resource_collection_enabled',
         :'tenant_name' => :'tenant_name'
       }
     end
@@ -94,6 +99,7 @@ module DatadogAPIClient::V1
         :'host_filters' => :'String',
         :'new_client_id' => :'String',
         :'new_tenant_name' => :'String',
+        :'resource_collection_enabled' => :'Boolean',
         :'tenant_name' => :'String'
       }
     end
@@ -160,6 +166,10 @@ module DatadogAPIClient::V1
         self.new_tenant_name = attributes[:'new_tenant_name']
       end
 
+      if attributes.key?(:'resource_collection_enabled')
+        self.resource_collection_enabled = attributes[:'resource_collection_enabled']
+      end
+
       if attributes.key?(:'tenant_name')
         self.tenant_name = attributes[:'tenant_name']
       end
@@ -182,6 +192,7 @@ module DatadogAPIClient::V1
           host_filters == o.host_filters &&
           new_client_id == o.new_client_id &&
           new_tenant_name == o.new_tenant_name &&
+          resource_collection_enabled == o.resource_collection_enabled &&
           tenant_name == o.tenant_name
     end
 
@@ -189,7 +200,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [app_service_plan_filters, automute, client_id, client_secret, container_app_filters, cspm_enabled, custom_metrics_enabled, errors, host_filters, new_client_id, new_tenant_name, tenant_name].hash
+      [app_service_plan_filters, automute, client_id, client_secret, container_app_filters, cspm_enabled, custom_metrics_enabled, errors, host_filters, new_client_id, new_tenant_name, resource_collection_enabled, tenant_name].hash
     end
   end
 end
