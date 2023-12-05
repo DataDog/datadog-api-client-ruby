@@ -27,11 +27,17 @@ module DatadogAPIClient::V2
     # Creation date of the API key.
     attr_accessor :created_at
 
+    # The date and time the API key was last used.
+    attr_accessor :date_last_used
+
     # The API key.
     attr_accessor :key
 
     # The last four characters of the API key.
     attr_reader :last4
+
+    # Attributes for the last time the specific API key was used.
+    attr_accessor :last_used_date
 
     # Date the API key was last modified.
     attr_accessor :modified_at
@@ -42,17 +48,23 @@ module DatadogAPIClient::V2
     # The remote config read enabled status.
     attr_accessor :remote_config_read_enabled
 
+    # If the API key was used within the last 24 hours.
+    attr_accessor :used_in_last_24_hours
+
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
         :'category' => :'category',
         :'created_at' => :'created_at',
+        :'date_last_used' => :'date_last_used',
         :'key' => :'key',
         :'last4' => :'last4',
+        :'last_used_date' => :'last_used_date',
         :'modified_at' => :'modified_at',
         :'name' => :'name',
-        :'remote_config_read_enabled' => :'remote_config_read_enabled'
+        :'remote_config_read_enabled' => :'remote_config_read_enabled',
+        :'used_in_last_24_hours' => :'used_in_last_24_hours'
       }
     end
 
@@ -62,12 +74,23 @@ module DatadogAPIClient::V2
       {
         :'category' => :'String',
         :'created_at' => :'String',
+        :'date_last_used' => :'String',
         :'key' => :'String',
         :'last4' => :'String',
+        :'last_used_date' => :'FullAPIKeyLastUsedDate',
         :'modified_at' => :'String',
         :'name' => :'String',
-        :'remote_config_read_enabled' => :'Boolean'
+        :'remote_config_read_enabled' => :'Boolean',
+        :'used_in_last_24_hours' => :'Boolean'
       }
+    end
+
+    # List of attributes with nullable: true
+    # @!visibility private
+    def self.openapi_nullable
+      Set.new([
+        :'date_last_used',
+      ])
     end
 
     # Initializes the object
@@ -94,12 +117,20 @@ module DatadogAPIClient::V2
         self.created_at = attributes[:'created_at']
       end
 
+      if attributes.key?(:'date_last_used')
+        self.date_last_used = attributes[:'date_last_used']
+      end
+
       if attributes.key?(:'key')
         self.key = attributes[:'key']
       end
 
       if attributes.key?(:'last4')
         self.last4 = attributes[:'last4']
+      end
+
+      if attributes.key?(:'last_used_date')
+        self.last_used_date = attributes[:'last_used_date']
       end
 
       if attributes.key?(:'modified_at')
@@ -112,6 +143,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'remote_config_read_enabled')
         self.remote_config_read_enabled = attributes[:'remote_config_read_enabled']
+      end
+
+      if attributes.key?(:'used_in_last_24_hours')
+        self.used_in_last_24_hours = attributes[:'used_in_last_24_hours']
       end
     end
 
@@ -145,18 +180,21 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           category == o.category &&
           created_at == o.created_at &&
+          date_last_used == o.date_last_used &&
           key == o.key &&
           last4 == o.last4 &&
+          last_used_date == o.last_used_date &&
           modified_at == o.modified_at &&
           name == o.name &&
-          remote_config_read_enabled == o.remote_config_read_enabled
+          remote_config_read_enabled == o.remote_config_read_enabled &&
+          used_in_last_24_hours == o.used_in_last_24_hours
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [category, created_at, key, last4, modified_at, name, remote_config_read_enabled].hash
+      [category, created_at, date_last_used, key, last4, last_used_date, modified_at, name, remote_config_read_enabled, used_in_last_24_hours].hash
     end
   end
 end

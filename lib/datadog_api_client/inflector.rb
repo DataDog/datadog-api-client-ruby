@@ -1197,6 +1197,7 @@ module DatadogAPIClient
           "v2.formula_limit" => "FormulaLimit",
           "v2.full_api_key" => "FullAPIKey",
           "v2.full_api_key_attributes" => "FullAPIKeyAttributes",
+          "v2.full_api_key_last_used_date" => "FullAPIKeyLastUsedDate",
           "v2.full_application_key" => "FullApplicationKey",
           "v2.full_application_key_attributes" => "FullApplicationKeyAttributes",
           "v2.gcp_service_account_meta" => "GCPServiceAccountMeta",
