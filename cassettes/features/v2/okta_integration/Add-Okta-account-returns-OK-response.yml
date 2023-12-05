@@ -1,0 +1,44 @@
+http_interactions:
+- recorded_at: Tue, 21 Nov 2023 16:59:43 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"auth_method":"oauth","client_id":"client_id","client_secret":"client_secret","domain":"https://example.okta.com/","name":"Okta_Prod"},"id":"f749daaf-682e-4208-a38d-c9b43162c609","type":"okta-accounts"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/integrations/okta/accounts
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"okta-accounts","attributes":{"domain":"https://example.okta.com/","client_id":"client_id","auth_method":"oauth","name":"Okta_Prod"},"id":"6330b376-d352-4a06-a169-107002bd6e6c"}}
+
+        '
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 201
+      message: Created
+- recorded_at: Tue, 21 Nov 2023 16:59:43 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/integrations/okta/accounts/6330b376-d352-4a06-a169-107002bd6e6c
+  response:
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Content-Type:
+      - text/html; charset=utf-8
+    status:
+      code: 204
+      message: No Content
+recorded_with: VCR 6.0.0
