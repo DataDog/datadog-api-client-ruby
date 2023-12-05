@@ -21,6 +21,7 @@ module DatadogAPIClient::V2
   class SecurityMonitoringRuleTypeCreate
     include BaseEnumModel
 
+    APPLICATION_SECURITY = "application_security".freeze
     LOG_DETECTION = "log_detection".freeze
     WORKLOAD_SECURITY = "workload_security".freeze
   end
