@@ -47,12 +47,6 @@ module DatadogAPIClient::V2
     # @option opts [Integer] :page_limit Maximum number of events in the response.
     # @return [Array<(EventsListResponse, Integer, Hash)>] EventsListResponse data, response status code and response headers
     def list_events_with_http_info(opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.list_events".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_events")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_events"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: EventsAPI.list_events ...'
@@ -151,12 +145,6 @@ module DatadogAPIClient::V2
     # @option opts [EventsListRequest] :body 
     # @return [Array<(EventsListResponse, Integer, Hash)>] EventsListResponse data, response status code and response headers
     def search_events_with_http_info(opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.search_events".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.search_events")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.search_events"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: EventsAPI.search_events ...'
