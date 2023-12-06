@@ -1,9 +1,6 @@
 # Get a list of events returns "OK" response with pagination
 
 require "datadog_api_client"
-DatadogAPIClient.configure do |config|
-  config.unstable_operations["v2.list_events".to_sym] = true
-end
 api_instance = DatadogAPIClient::V2::EventsAPI.new
 opts = {
   filter_from: "now-15m",
