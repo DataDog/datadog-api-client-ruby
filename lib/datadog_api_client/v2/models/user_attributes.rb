@@ -36,6 +36,9 @@ module DatadogAPIClient::V2
     # URL of the user's icon.
     attr_accessor :icon
 
+    # Whether the user has MFA enabled.
+    attr_accessor :mfa_enabled
+
     # Time that the user was last modified.
     attr_accessor :modified_at
 
@@ -63,6 +66,7 @@ module DatadogAPIClient::V2
         :'email' => :'email',
         :'handle' => :'handle',
         :'icon' => :'icon',
+        :'mfa_enabled' => :'mfa_enabled',
         :'modified_at' => :'modified_at',
         :'name' => :'name',
         :'service_account' => :'service_account',
@@ -81,6 +85,7 @@ module DatadogAPIClient::V2
         :'email' => :'String',
         :'handle' => :'String',
         :'icon' => :'String',
+        :'mfa_enabled' => :'Boolean',
         :'modified_at' => :'Time',
         :'name' => :'String',
         :'service_account' => :'Boolean',
@@ -135,6 +140,10 @@ module DatadogAPIClient::V2
         self.icon = attributes[:'icon']
       end
 
+      if attributes.key?(:'mfa_enabled')
+        self.mfa_enabled = attributes[:'mfa_enabled']
+      end
+
       if attributes.key?(:'modified_at')
         self.modified_at = attributes[:'modified_at']
       end
@@ -171,6 +180,7 @@ module DatadogAPIClient::V2
           email == o.email &&
           handle == o.handle &&
           icon == o.icon &&
+          mfa_enabled == o.mfa_enabled &&
           modified_at == o.modified_at &&
           name == o.name &&
           service_account == o.service_account &&
@@ -183,7 +193,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created_at, disabled, email, handle, icon, modified_at, name, service_account, status, title, verified].hash
+      [created_at, disabled, email, handle, icon, mfa_enabled, modified_at, name, service_account, status, title, verified].hash
     end
   end
 end
