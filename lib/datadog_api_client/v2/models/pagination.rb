@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class Pagination
     include BaseGenericModel
 
+    # The maximum element count allowed per page.
+    attr_accessor :max_page_size
+
     # Total count.
     attr_accessor :total_count
 
@@ -31,6 +34,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'max_page_size' => :'max_page_size',
         :'total_count' => :'total_count',
         :'total_filtered_count' => :'total_filtered_count'
       }
@@ -40,6 +44,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'max_page_size' => :'Integer',
         :'total_count' => :'Integer',
         :'total_filtered_count' => :'Integer'
       }
@@ -61,6 +66,10 @@ module DatadogAPIClient::V2
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'max_page_size')
+        self.max_page_size = attributes[:'max_page_size']
+      end
+
       if attributes.key?(:'total_count')
         self.total_count = attributes[:'total_count']
       end
@@ -76,6 +85,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          max_page_size == o.max_page_size &&
           total_count == o.total_count &&
           total_filtered_count == o.total_filtered_count
     end
@@ -84,7 +94,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [total_count, total_filtered_count].hash
+      [max_page_size, total_count, total_filtered_count].hash
     end
   end
 end
