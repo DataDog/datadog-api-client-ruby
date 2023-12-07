@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Thu, 12 May 2022 09:52:29 GMT
+- recorded_at: Thu, 07 Dec 2023 15:20:06 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"email":"Test-Configure_tags_for_multiple_metrics_returns_Accepted_response-1652349149@datadoghq.com","title":"user
+      string: '{"data":{"attributes":{"email":"Test-Configure_tags_for_multiple_metrics_returns_Accepted_response-1701962406@datadoghq.com","title":"user
         title"},"type":"users"}}'
     headers:
       Accept:
@@ -15,19 +15,21 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"users","id":"3cf23548-d1d9-11ec-ad3d-da7ad0900002","attributes":{"name":null,"handle":"test-configure_tags_for_multiple_metrics_returns_accepted_response-1652349149@datadoghq.com","created_at":"2022-05-12T09:52:30.224025+00:00","modified_at":"2022-05-12T09:52:30.279356+00:00","email":"test-configure_tags_for_multiple_metrics_returns_accepted_response-1652349149@datadoghq.com","icon":"https://secure.gravatar.com/avatar/37b97ed3403eaebb504eab5b74a44f2a?s=48&d=retro","title":"user
-        title","verified":false,"service_account":false,"disabled":false,"allowed_login_methods":[],"status":"Pending"},"relationships":{"roles":{"data":[]},"org":{"data":{"type":"orgs","id":"4dee724d-00cc-11ea-a77b-570c9d03c6c5"}}}}}'
+      string: '{"data":{"type":"users","id":"1a6aac59-9514-11ee-8d56-0adb1a638a47","attributes":{"name":null,"handle":"test-configure_tags_for_multiple_metrics_returns_accepted_response-1701962406@datadoghq.com","created_at":"2023-12-07T15:20:07.014747+00:00","modified_at":"2023-12-07T15:20:07.014747+00:00","email":"test-configure_tags_for_multiple_metrics_returns_accepted_response-1701962406@datadoghq.com","icon":"https://secure.gravatar.com/avatar/0a707b27174d49cd592ec7a4fc13bc4d?s=48&d=retro","title":"user
+        title","verified":false,"service_account":false,"disabled":false,"allowed_login_methods":[],"status":"Pending"},"relationships":{"roles":{"data":[]},"org":{"data":{"type":"orgs","id":"3386799c-00cc-11ea-a77b-eb0f88a49e0f"}}}}}
+
+        '
     headers:
       Content-Type:
       - application/json
     status:
       code: 201
       message: Created
-- recorded_at: Thu, 12 May 2022 09:52:29 GMT
+- recorded_at: Thu, 07 Dec 2023 15:20:06 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"emails":["test-configure_tags_for_multiple_metrics_returns_accepted_response-1652349149@datadoghq.com"],"tags":["test","testconfiguretagsformultiplemetricsreturnsacceptedresponse1652349149"]},"id":"system.load.1","type":"metric_bulk_configure_tags"}}'
+      string: '{"data":{"attributes":{"emails":["test-configure_tags_for_multiple_metrics_returns_accepted_response-1701962406@datadoghq.com"],"tags":["test","testconfiguretagsformultiplemetricsreturnsacceptedresponse1701962406"]},"id":"system.load.1","type":"metric_bulk_configure_tags"}}'
     headers:
       Accept:
       - application/json
@@ -38,18 +40,20 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"metric_bulk_configure_tags","id":"system.load.1","attributes":{"tags":["test","testconfiguretagsformultiplemetricsreturnsacceptedresponse1652349149"],"emails":["test-configure_tags_for_multiple_metrics_returns_accepted_response-1652349149@datadoghq.com"],"status":"Accepted"}}}'
+      string: '{"data":{"type":"metric_bulk_configure_tags","id":"system.load.1","attributes":{"tags":["test","testconfiguretagsformultiplemetricsreturnsacceptedresponse1701962406"],"emails":["test-configure_tags_for_multiple_metrics_returns_accepted_response-1701962406@datadoghq.com"],"status":"Accepted","exclude_tags_mode":null}}}
+
+        '
     headers:
       Content-Type:
       - application/json
     status:
       code: 202
       message: Accepted
-- recorded_at: Thu, 12 May 2022 09:52:29 GMT
+- recorded_at: Thu, 07 Dec 2023 15:20:06 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"emails":["test-configure_tags_for_multiple_metrics_returns_accepted_response-1652349149@datadoghq.com"],"status":"Accepted","tags":["test","testconfiguretagsformultiplemetricsreturnsacceptedresponse1652349149"]},"id":"system.load.1","type":"metric_bulk_configure_tags"}}'
+      string: '{"data":{"attributes":{"emails":["test-configure_tags_for_multiple_metrics_returns_accepted_response-1701962406@datadoghq.com"]},"id":"system.load.1","type":"metric_bulk_configure_tags"}}'
     headers:
       Accept:
       - application/json
@@ -60,21 +64,23 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"metric_bulk_configure_tags","id":"system.load.1","attributes":{"emails":["test-configure_tags_for_multiple_metrics_returns_accepted_response-1652349149@datadoghq.com"],"status":"Accepted"}}}'
+      string: '{"data":{"type":"metric_bulk_configure_tags","id":"system.load.1","attributes":{"emails":["test-configure_tags_for_multiple_metrics_returns_accepted_response-1701962406@datadoghq.com"],"status":"Accepted"}}}
+
+        '
     headers:
       Content-Type:
       - application/json
     status:
       code: 202
       message: Accepted
-- recorded_at: Thu, 12 May 2022 09:52:29 GMT
+- recorded_at: Thu, 07 Dec 2023 15:20:06 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/users/3cf23548-d1d9-11ec-ad3d-da7ad0900002
+    uri: https://api.datadoghq.com/api/v2/users/1a6aac59-9514-11ee-8d56-0adb1a638a47
   response:
     body:
       encoding: UTF-8
