@@ -38,7 +38,7 @@ module DatadogAPIClient::V1
     # Only container apps that match one of the defined tags are imported into Datadog.
     attr_accessor :container_app_filters
 
-    # When enabled, Datadog’s Cloud Security Management product will scan resource configurations monitored by this app registration.
+    # When enabled, Datadog’s Cloud Security Management product scans resource configurations monitored by this app registration.
     # Note: This requires resource_collection_enabled to be set to true.
     attr_accessor :cspm_enabled
 
