@@ -15,7 +15,6 @@
 * Document new field `filters` for `CloudWorkloadSecurityAgentRule` by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1638
 * Live and historical custom timeseries docs by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1628
 * Add week_to_date and month_to_date to widget livespan by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1631
-* Use request data for undo operations in tests when response empty by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1608
 * Document `included_keywords` in `ListStandardPatterns` response by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1641
 * Document fields `remote_config_read_enabled` and `category` by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1639
 * Update Azure Spec to include Resource Collection by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1646
