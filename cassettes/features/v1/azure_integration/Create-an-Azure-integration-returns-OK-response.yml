@@ -1,0 +1,100 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.datadoghq.com/api/v1/integration/azure
+    body:
+      encoding: UTF-8
+      string: '{"app_service_plan_filters":"key:value,filter:example","automute":true,"client_id":"17024021-0000-0000-0000-170240214500","client_secret":"testingx./Sw*g/Y33t..R1cH+hScMDt","container_app_filters":"key:value,filter:example","cspm_enabled":true,"custom_metrics_enabled":true,"errors":["*"],"host_filters":"key:value,filter:example","new_client_id":"17024021-0000-0000-0000-170240214500","new_tenant_name":"17024021-0000-0000-0000-170240214500","resource_collection_enabled":true,"tenant_name":"17024021-0000-0000-0000-170240214500"}'
+    headers:
+      User-Agent:
+      - datadog-api-client-ruby/2.17.0.dev.1 (ruby 3.2.2; os darwin22; arch x86_64;
+        httparty-version 0.21.0)
+      Accept-Encoding:
+      - gzip
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 12 Dec 2023 17:29:02 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '3'
+      Connection:
+      - keep-alive
+      X-Frame-Options:
+      - SAMEORIGIN
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://logs.browser-intake-datadoghq.com/api/v2/logs?dd-api-key=pube4f163c23bbf91c16b8f57f56af9fc58&dd-evp-origin=content-security-policy&ddsource=csp-report&ddtags=site%3Adatadoghq.com
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: "{}\n"
+  recorded_at: Tue, 12 Dec 2023 17:29:05 GMT
+- request:
+    method: delete
+    uri: https://api.datadoghq.com/api/v1/integration/azure
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "app_service_plan_filters": "key:value,filter:example",
+          "automute": true,
+          "client_id": "17024021-0000-0000-0000-170240214500",
+          "client_secret": "testingx./Sw*g/Y33t..R1cH+hScMDt",
+          "container_app_filters": "key:value,filter:example",
+          "cspm_enabled": true,
+          "custom_metrics_enabled": true,
+          "errors": ["*"],
+          "host_filters": "key:value,filter:example",
+          "new_client_id": "17024021-0000-0000-0000-170240214500",
+          "new_tenant_name": "17024021-0000-0000-0000-170240214500",
+          "resource_collection_enabled": true,
+          "tenant_name": "17024021-0000-0000-0000-170240214500"
+        }
+    headers:
+      User-Agent:
+      - datadog-api-client-ruby/2.17.0.dev.1 (ruby 3.2.2; os darwin22; arch x86_64;
+        httparty-version 0.21.0)
+      Accept-Encoding:
+      - gzip
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 12 Dec 2023 17:29:03 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '3'
+      Connection:
+      - keep-alive
+      X-Frame-Options:
+      - SAMEORIGIN
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://logs.browser-intake-datadoghq.com/api/v2/logs?dd-api-key=pube4f163c23bbf91c16b8f57f56af9fc58&dd-evp-origin=content-security-policy&ddsource=csp-report&ddtags=site%3Adatadoghq.com
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: "{}\n"
+  recorded_at: Tue, 12 Dec 2023 17:29:05 GMT
+recorded_with: VCR 6.2.0
