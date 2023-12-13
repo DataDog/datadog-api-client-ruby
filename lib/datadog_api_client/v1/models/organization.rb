@@ -30,7 +30,7 @@ module DatadogAPIClient::V1
     # Description of the organization.
     attr_accessor :description
 
-    # The name of the new child-organization, limited to 32 characters.
+    # The name of the child organization, limited to 32 characters.
     attr_reader :name
 
     # The `public_id` of the organization you are operating within.
