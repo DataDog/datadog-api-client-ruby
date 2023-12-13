@@ -40,6 +40,9 @@ module DatadogAPIClient::V2
     # Not included if there is a relationship to a standard pattern.
     attr_accessor :pattern
 
+    # Integer from 1 (high) to 5 (low) indicating rule issue severity.
+    attr_reader :priority
+
     # List of tags.
     attr_accessor :tags
 
@@ -56,6 +59,7 @@ module DatadogAPIClient::V2
         :'name' => :'name',
         :'namespaces' => :'namespaces',
         :'pattern' => :'pattern',
+        :'priority' => :'priority',
         :'tags' => :'tags',
         :'text_replacement' => :'text_replacement'
       }
@@ -71,6 +75,7 @@ module DatadogAPIClient::V2
         :'name' => :'String',
         :'namespaces' => :'Array<String>',
         :'pattern' => :'String',
+        :'priority' => :'Integer',
         :'tags' => :'Array<String>',
         :'text_replacement' => :'SensitiveDataScannerTextReplacement'
       }
@@ -120,6 +125,10 @@ module DatadogAPIClient::V2
         self.pattern = attributes[:'pattern']
       end
 
+      if attributes.key?(:'priority')
+        self.priority = attributes[:'priority']
+      end
+
       if attributes.key?(:'tags')
         if (value = attributes[:'tags']).is_a?(Array)
           self.tags = value
@@ -129,6 +138,28 @@ module DatadogAPIClient::V2
       if attributes.key?(:'text_replacement')
         self.text_replacement = attributes[:'text_replacement']
       end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if !@priority.nil? && @priority > 5
+      return false if !@priority.nil? && @priority < 1
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param priority [Object] Object to be assigned
+    # @!visibility private
+    def priority=(priority)
+      if !priority.nil? && priority > 5
+        fail ArgumentError, 'invalid value for "priority", must be smaller than or equal to 5.'
+      end
+      if !priority.nil? && priority < 1
+        fail ArgumentError, 'invalid value for "priority", must be greater than or equal to 1.'
+      end
+      @priority = priority
     end
 
     # Checks equality by comparing each attribute.
@@ -143,6 +174,7 @@ module DatadogAPIClient::V2
           name == o.name &&
           namespaces == o.namespaces &&
           pattern == o.pattern &&
+          priority == o.priority &&
           tags == o.tags &&
           text_replacement == o.text_replacement
     end
@@ -151,7 +183,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [description, excluded_namespaces, is_enabled, name, namespaces, pattern, tags, text_replacement].hash
+      [description, excluded_namespaces, is_enabled, name, namespaces, pattern, priority, tags, text_replacement].hash
     end
   end
 end
