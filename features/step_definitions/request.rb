@@ -70,7 +70,7 @@ module APIWorld
   end
 
   def generate_uuid(now)
-    ret.to_i.to_s[0, 8] + "-0000-0000-0000-" + ret.to_i.to_s[0, 10] + "00"
+    now.to_i.to_s[0, 8] + "-0000-0000-0000-" + now.to_i.to_s[0, 10] + "00"
   end
 
   def relative_time(iso)
