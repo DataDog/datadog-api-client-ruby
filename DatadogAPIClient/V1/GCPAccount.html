@@ -375,7 +375,33 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource.</p>
+    <span class="summary_desc"><div class='inline'><p>When enabled, Datadog will activate the Cloud Security Monitoring product for this service account.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#is_security_command_center_enabled-instance_method" title="#is_security_command_center_enabled (instance method)">#<strong>is_security_command_center_enabled</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>When enabled, Datadog will attempt to collect Security Command Center Findings.</p>
 </div></span>
   
 </li>
@@ -454,6 +480,32 @@
 
   
     <span class="summary_desc"><div class='inline'><p>Your Google Cloud project ID found in your JSON service account key.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#resource_collection_enabled-instance_method" title="#resource_collection_enabled (instance method)">#<strong>resource_collection_enabled</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>When enabled, Datadog scans for all resources in your GCP environment.</p>
 </div></span>
   
 </li>
@@ -1219,7 +1271,7 @@ Only hosts that match one of the defined tags are imported into Datadog.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource.</p>
+    <p>When enabled, Datadog will activate the Cloud Security Monitoring product for this service account. Note: This requires resource_collection_enabled to be set to true.</p>
 
 
   </div>
@@ -1242,6 +1294,48 @@ Only hosts that match one of the defined tags are imported into Datadog.</p>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_is_cspm_enabled'>is_cspm_enabled</span>
   <span class='ivar'>@is_cspm_enabled</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="is_security_command_center_enabled=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="is_security_command_center_enabled-instance_method">
+  
+    #<strong>is_security_command_center_enabled</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+54
+55
+56</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/gcp_account.rb', line 54</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_is_security_command_center_enabled'>is_security_command_center_enabled</span>
+  <span class='ivar'>@is_security_command_center_enabled</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1368,6 +1462,48 @@ Only hosts that match one of the defined tags are imported into Datadog.</p>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_project_id'>project_id</span>
   <span class='ivar'>@project_id</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="resource_collection_enabled=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="resource_collection_enabled-instance_method">
+  
+    #<strong>resource_collection_enabled</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>When enabled, Datadog scans for all resources in your GCP environment.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+66
+67
+68</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/gcp_account.rb', line 66</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_resource_collection_enabled'>resource_collection_enabled</span>
+  <span class='ivar'>@resource_collection_enabled</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -2397,7 +2533,7 @@ For object, use to_hash. Otherwise, just return the value</p>
 </div>
 
       <div id="footer">
-  Generated on Thu Dec 14 11:26:22 2023 by
+  Generated on Thu Dec 14 17:37:16 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.34 (ruby-2.7.8).
 </div>
