@@ -47,8 +47,11 @@ module DatadogAPIClient::V1
     # Only hosts that match one of the defined tags are imported into Datadog.
     attr_accessor :host_filters
 
-    # When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource.
+    # When enabled, Datadog will activate the Cloud Security Monitoring product for this service account. Note: This requires resource_collection_enabled to be set to true.
     attr_accessor :is_cspm_enabled
+
+    # When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account.
+    attr_accessor :is_security_command_center_enabled
 
     # Your private key name found in your JSON service account key.
     attr_accessor :private_key
@@ -58,6 +61,9 @@ module DatadogAPIClient::V1
 
     # Your Google Cloud project ID found in your JSON service account key.
     attr_accessor :project_id
+
+    # When enabled, Datadog scans for all resources in your GCP environment.
+    attr_accessor :resource_collection_enabled
 
     # Should be `https://accounts.google.com/o/oauth2/token`.
     attr_accessor :token_uri
@@ -78,9 +84,11 @@ module DatadogAPIClient::V1
         :'errors' => :'errors',
         :'host_filters' => :'host_filters',
         :'is_cspm_enabled' => :'is_cspm_enabled',
+        :'is_security_command_center_enabled' => :'is_security_command_center_enabled',
         :'private_key' => :'private_key',
         :'private_key_id' => :'private_key_id',
         :'project_id' => :'project_id',
+        :'resource_collection_enabled' => :'resource_collection_enabled',
         :'token_uri' => :'token_uri',
         :'type' => :'type'
       }
@@ -99,9 +107,11 @@ module DatadogAPIClient::V1
         :'errors' => :'Array<String>',
         :'host_filters' => :'String',
         :'is_cspm_enabled' => :'Boolean',
+        :'is_security_command_center_enabled' => :'Boolean',
         :'private_key' => :'String',
         :'private_key_id' => :'String',
         :'project_id' => :'String',
+        :'resource_collection_enabled' => :'Boolean',
         :'token_uri' => :'String',
         :'type' => :'String'
       }
@@ -161,6 +171,10 @@ module DatadogAPIClient::V1
         self.is_cspm_enabled = attributes[:'is_cspm_enabled']
       end
 
+      if attributes.key?(:'is_security_command_center_enabled')
+        self.is_security_command_center_enabled = attributes[:'is_security_command_center_enabled']
+      end
+
       if attributes.key?(:'private_key')
         self.private_key = attributes[:'private_key']
       end
@@ -171,6 +185,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'project_id')
         self.project_id = attributes[:'project_id']
+      end
+
+      if attributes.key?(:'resource_collection_enabled')
+        self.resource_collection_enabled = attributes[:'resource_collection_enabled']
       end
 
       if attributes.key?(:'token_uri')
@@ -197,9 +215,11 @@ module DatadogAPIClient::V1
           errors == o.errors &&
           host_filters == o.host_filters &&
           is_cspm_enabled == o.is_cspm_enabled &&
+          is_security_command_center_enabled == o.is_security_command_center_enabled &&
           private_key == o.private_key &&
           private_key_id == o.private_key_id &&
           project_id == o.project_id &&
+          resource_collection_enabled == o.resource_collection_enabled &&
           token_uri == o.token_uri &&
           type == o.type
     end
@@ -208,7 +228,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [auth_provider_x509_cert_url, auth_uri, automute, client_email, client_id, client_x509_cert_url, errors, host_filters, is_cspm_enabled, private_key, private_key_id, project_id, token_uri, type].hash
+      [auth_provider_x509_cert_url, auth_uri, automute, client_email, client_id, client_x509_cert_url, errors, host_filters, is_cspm_enabled, is_security_command_center_enabled, private_key, private_key_id, project_id, resource_collection_enabled, token_uri, type].hash
     end
   end
 end
