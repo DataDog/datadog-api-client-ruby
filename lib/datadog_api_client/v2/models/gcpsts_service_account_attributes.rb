@@ -33,8 +33,14 @@ module DatadogAPIClient::V2
     # Your Host Filters.
     attr_accessor :host_filters
 
-    # When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource.
+    # When enabled, Datadog will activate the Cloud Security Monitoring product for this service account. Note: This requires resource_collection_enabled to be set to true.
     attr_accessor :is_cspm_enabled
+
+    # When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account.
+    attr_accessor :is_security_command_center_enabled
+
+    # When enabled, Datadog scans for all resources in your GCP environment.
+    attr_accessor :resource_collection_enabled
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -44,7 +50,9 @@ module DatadogAPIClient::V2
         :'automute' => :'automute',
         :'client_email' => :'client_email',
         :'host_filters' => :'host_filters',
-        :'is_cspm_enabled' => :'is_cspm_enabled'
+        :'is_cspm_enabled' => :'is_cspm_enabled',
+        :'is_security_command_center_enabled' => :'is_security_command_center_enabled',
+        :'resource_collection_enabled' => :'resource_collection_enabled'
       }
     end
 
@@ -56,7 +64,9 @@ module DatadogAPIClient::V2
         :'automute' => :'Boolean',
         :'client_email' => :'String',
         :'host_filters' => :'Array<String>',
-        :'is_cspm_enabled' => :'Boolean'
+        :'is_cspm_enabled' => :'Boolean',
+        :'is_security_command_center_enabled' => :'Boolean',
+        :'resource_collection_enabled' => :'Boolean'
       }
     end
 
@@ -99,6 +109,14 @@ module DatadogAPIClient::V2
       if attributes.key?(:'is_cspm_enabled')
         self.is_cspm_enabled = attributes[:'is_cspm_enabled']
       end
+
+      if attributes.key?(:'is_security_command_center_enabled')
+        self.is_security_command_center_enabled = attributes[:'is_security_command_center_enabled']
+      end
+
+      if attributes.key?(:'resource_collection_enabled')
+        self.resource_collection_enabled = attributes[:'resource_collection_enabled']
+      end
     end
 
     # Checks equality by comparing each attribute.
@@ -111,14 +129,16 @@ module DatadogAPIClient::V2
           automute == o.automute &&
           client_email == o.client_email &&
           host_filters == o.host_filters &&
-          is_cspm_enabled == o.is_cspm_enabled
+          is_cspm_enabled == o.is_cspm_enabled &&
+          is_security_command_center_enabled == o.is_security_command_center_enabled &&
+          resource_collection_enabled == o.resource_collection_enabled
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [account_tags, automute, client_email, host_filters, is_cspm_enabled].hash
+      [account_tags, automute, client_email, host_filters, is_cspm_enabled, is_security_command_center_enabled, resource_collection_enabled].hash
     end
   end
 end
