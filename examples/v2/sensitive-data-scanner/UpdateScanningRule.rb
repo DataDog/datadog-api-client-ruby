@@ -24,6 +24,7 @@ body = DatadogAPIClient::V2::SensitiveDataScannerRuleUpdateRequest.new({
         "sensitive_data:true",
       ],
       is_enabled: true,
+      priority: 5,
     }),
     relationships: DatadogAPIClient::V2::SensitiveDataScannerRuleRelationships.new({
       group: DatadogAPIClient::V2::SensitiveDataScannerGroupData.new({
