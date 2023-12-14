@@ -33,6 +33,9 @@ module DatadogAPIClient::V2
     # Regex to match.
     attr_accessor :pattern
 
+    # Integer from 1 (high) to 5 (low) indicating standard pattern issue severity.
+    attr_reader :priority
+
     # List of tags.
     attr_accessor :tags
 
@@ -44,6 +47,7 @@ module DatadogAPIClient::V2
         :'included_keywords' => :'included_keywords',
         :'name' => :'name',
         :'pattern' => :'pattern',
+        :'priority' => :'priority',
         :'tags' => :'tags'
       }
     end
@@ -56,6 +60,7 @@ module DatadogAPIClient::V2
         :'included_keywords' => :'Array<String>',
         :'name' => :'String',
         :'pattern' => :'String',
+        :'priority' => :'Integer',
         :'tags' => :'Array<String>'
       }
     end
@@ -94,11 +99,37 @@ module DatadogAPIClient::V2
         self.pattern = attributes[:'pattern']
       end
 
+      if attributes.key?(:'priority')
+        self.priority = attributes[:'priority']
+      end
+
       if attributes.key?(:'tags')
         if (value = attributes[:'tags']).is_a?(Array)
           self.tags = value
         end
       end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if !@priority.nil? && @priority > 5
+      return false if !@priority.nil? && @priority < 1
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param priority [Object] Object to be assigned
+    # @!visibility private
+    def priority=(priority)
+      if !priority.nil? && priority > 5
+        fail ArgumentError, 'invalid value for "priority", must be smaller than or equal to 5.'
+      end
+      if !priority.nil? && priority < 1
+        fail ArgumentError, 'invalid value for "priority", must be greater than or equal to 1.'
+      end
+      @priority = priority
     end
 
     # Checks equality by comparing each attribute.
@@ -111,6 +142,7 @@ module DatadogAPIClient::V2
           included_keywords == o.included_keywords &&
           name == o.name &&
           pattern == o.pattern &&
+          priority == o.priority &&
           tags == o.tags
     end
 
@@ -118,7 +150,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [description, included_keywords, name, pattern, tags].hash
+      [description, included_keywords, name, pattern, priority, tags].hash
     end
   end
 end
