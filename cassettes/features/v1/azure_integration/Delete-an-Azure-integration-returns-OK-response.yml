@@ -1,0 +1,74 @@
+http_interactions:
+- recorded_at: Fri, 15 Dec 2023 17:19:40 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"app_service_plan_filters":"key:value,filter:example","automute":true,"client_id":"17026607-0000-0000-0000-170266078000","client_secret":"testingx./Sw*g/Y33t..R1cH+hScMDt","container_app_filters":"key:value,filter:example","cspm_enabled":true,"custom_metrics_enabled":true,"errors":["*"],"host_filters":"key:value,filter:example","new_client_id":"17026607-0000-0000-0000-170266078000","new_tenant_name":"17026607-0000-0000-0000-170266078000","resource_collection_enabled":true,"tenant_name":"17026607-0000-0000-0000-170266078000"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v1/integration/azure
+  response:
+    body:
+      encoding: UTF-8
+      string: '{}
+
+        '
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+- recorded_at: Fri, 15 Dec 2023 17:19:40 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"app_service_plan_filters":"key:value,filter:example","automute":true,"client_id":"17026607-0000-0000-0000-170266078000","client_secret":"testingx./Sw*g/Y33t..R1cH+hScMDt","container_app_filters":"key:value,filter:example","cspm_enabled":true,"custom_metrics_enabled":true,"errors":["*"],"host_filters":"key:value,filter:example","new_client_id":"17026607-0000-0000-0000-170266078000","new_tenant_name":"17026607-0000-0000-0000-170266078000","resource_collection_enabled":true,"tenant_name":"17026607-0000-0000-0000-170266078000"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v1/integration/azure
+  response:
+    body:
+      encoding: UTF-8
+      string: '{}
+
+        '
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+- recorded_at: Fri, 15 Dec 2023 17:19:40 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"app_service_plan_filters":"key:value,filter:example","automute":true,"client_id":"17026607-0000-0000-0000-170266078000","client_secret":"testingx./Sw*g/Y33t..R1cH+hScMDt","container_app_filters":"key:value,filter:example","cspm_enabled":true,"custom_metrics_enabled":true,"errors":["*"],"host_filters":"key:value,filter:example","new_client_id":"17026607-0000-0000-0000-170266078000","new_tenant_name":"17026607-0000-0000-0000-170266078000","resource_collection_enabled":true,"tenant_name":"17026607-0000-0000-0000-170266078000"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v1/integration/azure
+  response:
+    body:
+      encoding: UTF-8
+      string: '{}
+
+        '
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+recorded_with: VCR 6.0.0
