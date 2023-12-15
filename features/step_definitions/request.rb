@@ -65,7 +65,12 @@ module APIWorld
       "unique_hash": u_hash,
       "timestamp": relative_time(false),
       "timeISO": relative_time(true),
+      "uuid": generate_uuid(Time.now.utc),
     }
+  end
+
+  def generate_uuid(now)
+    now.to_i.to_s[0, 8] + "-0000-0000-0000-" + now.to_i.to_s[0, 10] + "00"
   end
 
   def relative_time(iso)
