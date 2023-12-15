@@ -7,6 +7,7 @@ body = DatadogAPIClient::V2::GCPSTSServiceAccountCreateRequest.new({
   data: DatadogAPIClient::V2::GCPSTSServiceAccountData.new({
     attributes: DatadogAPIClient::V2::GCPSTSServiceAccountAttributes.new({
       is_cspm_enabled: true,
+      resource_collection_enabled: true,
       client_email: "252bf553ef04b351@test-project.iam.gserviceaccount.com",
       host_filters: [],
     }),
