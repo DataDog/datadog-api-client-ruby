@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Fri, 08 Dec 2023 15:34:43 GMT
+- recorded_at: Fri, 15 Dec 2023 18:21:55 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"app_service_plan_filters":"key:value,filter:example","automute":true,"client_id":"17020496-0000-0000-0000-170204968300","client_secret":"testingx./Sw*g/Y33t..R1cH+hScMDt","container_app_filters":"key:value,filter:example","cspm_enabled":true,"custom_metrics_enabled":true,"errors":["*"],"host_filters":"key:value,filter:example","new_client_id":"17020496-0000-0000-0000-170204968300","new_tenant_name":"17020496-0000-0000-0000-170204968300","resource_collection_enabled":true,"tenant_name":"17020496-0000-0000-0000-170204968300"}'
+      string: '{"app_service_plan_filters":"key:value,filter:example","automute":true,"client_id":"17026645-0000-0000-0000-170266451500","client_secret":"testingx./Sw*g/Y33t..R1cH+hScMDt","container_app_filters":"key:value,filter:example","cspm_enabled":true,"custom_metrics_enabled":true,"errors":["*"],"host_filters":"key:value,filter:example","new_client_id":"17026645-0000-0000-0000-170266451500","new_tenant_name":"17026645-0000-0000-0000-170266451500","resource_collection_enabled":true,"tenant_name":"17026645-0000-0000-0000-170266451500"}'
     headers:
       Accept:
       - application/json
@@ -23,11 +23,11 @@ http_interactions:
     status:
       code: 200
       message: OK
-- recorded_at: Fri, 08 Dec 2023 15:34:43 GMT
+- recorded_at: Fri, 15 Dec 2023 18:21:55 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"app_service_plan_filters":"key:value,filter:example","automute":true,"client_id":"17020496-0000-0000-0000-170204968300","client_secret":"testingx./Sw*g/Y33t..R1cH+hScMDt","container_app_filters":"key:value,filter:example","cspm_enabled":true,"custom_metrics_enabled":true,"errors":["*"],"host_filters":"key:value,filter:example","new_client_id":"17020496-0000-0000-0000-170204968300","new_tenant_name":"17020496-0000-0000-0000-170204968300","resource_collection_enabled":true,"tenant_name":"17020496-0000-0000-0000-170204968300"}'
+      string: '{"client_id":"17026645-0000-0000-0000-170266451500","tenant_name":"17026645-0000-0000-0000-170266451500"}'
     headers:
       Accept:
       - application/json
