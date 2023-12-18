@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Fri, 15 Dec 2023 17:19:43 GMT
+- recorded_at: Fri, 15 Dec 2023 18:21:59 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"app_service_plan_filters":"key:value,filter:example","automute":true,"client_id":"17026607-0000-0000-0000-170266078300","client_secret":"testingx./Sw*g/Y33t..R1cH+hScMDt","container_app_filters":"key:value,filter:example","cspm_enabled":true,"custom_metrics_enabled":true,"errors":["*"],"host_filters":"key:value,filter:example","new_client_id":"17026607-0000-0000-0000-170266078300","new_tenant_name":"17026607-0000-0000-0000-170266078300","resource_collection_enabled":true,"tenant_name":"17026607-0000-0000-0000-170266078300"}'
+      string: '{"app_service_plan_filters":"key:value,filter:example","automute":true,"client_id":"17026645-0000-0000-0000-170266451900","client_secret":"testingx./Sw*g/Y33t..R1cH+hScMDt","container_app_filters":"key:value,filter:example","cspm_enabled":true,"custom_metrics_enabled":true,"errors":["*"],"host_filters":"key:value,filter:example","new_client_id":"17026645-0000-0000-0000-170266451900","new_tenant_name":"17026645-0000-0000-0000-170266451900","resource_collection_enabled":true,"tenant_name":"17026645-0000-0000-0000-170266451900"}'
     headers:
       Accept:
       - application/json
@@ -23,11 +23,11 @@ http_interactions:
     status:
       code: 200
       message: OK
-- recorded_at: Fri, 15 Dec 2023 17:19:43 GMT
+- recorded_at: Fri, 15 Dec 2023 18:21:59 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"app_service_plan_filters":"key:value,filter:example","automute":true,"client_id":"17026607-0000-0000-0000-170266078300","client_secret":"testingx./Sw*g/Y33t..R1cH+hScMDt","container_app_filters":"key:value,filter:example","cspm_enabled":true,"custom_metrics_enabled":true,"errors":["*"],"host_filters":"key:value,filter:example","new_client_id":"17026607-0000-0000-0000-170266078300","new_tenant_name":"17026607-0000-0000-0000-170266078300","resource_collection_enabled":true,"tenant_name":"17026607-0000-0000-0000-170266078300"}'
+      string: '{"app_service_plan_filters":"key:value,filter:example","automute":true,"client_id":"17026645-0000-0000-0000-170266451900","client_secret":"testingx./Sw*g/Y33t..R1cH+hScMDt","container_app_filters":"key:value,filter:example","cspm_enabled":true,"custom_metrics_enabled":true,"errors":["*"],"host_filters":"key:value,filter:example","new_client_id":"17026645-0000-0000-0000-170266451900","new_tenant_name":"17026645-0000-0000-0000-170266451900","resource_collection_enabled":true,"tenant_name":"17026645-0000-0000-0000-170266451900"}'
     headers:
       Accept:
       - application/json
@@ -47,11 +47,11 @@ http_interactions:
     status:
       code: 200
       message: OK
-- recorded_at: Fri, 15 Dec 2023 17:19:43 GMT
+- recorded_at: Fri, 15 Dec 2023 18:21:59 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"app_service_plan_filters":"key:value,filter:example","automute":true,"client_id":"17026607-0000-0000-0000-170266078300","client_secret":"testingx./Sw*g/Y33t..R1cH+hScMDt","container_app_filters":"key:value,filter:example","cspm_enabled":true,"custom_metrics_enabled":true,"errors":["*"],"host_filters":"key:value,filter:example","new_client_id":"17026607-0000-0000-0000-170266078300","new_tenant_name":"17026607-0000-0000-0000-170266078300","resource_collection_enabled":true,"tenant_name":"17026607-0000-0000-0000-170266078300"}'
+      string: '{"client_id":"17026645-0000-0000-0000-170266451900","tenant_name":"17026645-0000-0000-0000-170266451900"}'
     headers:
       Accept:
       - application/json
