@@ -253,7 +253,7 @@ module DatadogAPIClient::V2
     # Fetches all rule outcomes.
     #
     # @param opts [Hash] the optional parameters
-    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 100.
+    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is `1000`.
     # @option opts [Integer] :page_offset Specific offset to use as the beginning of the returned page.
     # @option opts [String] :include Include related rule details in the response.
     # @option opts [String] :fields_outcome Return only specified values in the outcome attributes.
@@ -360,7 +360,7 @@ module DatadogAPIClient::V2
     # Fetch all rules.
     #
     # @param opts [Hash] the optional parameters
-    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 100.
+    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is `1000`.
     # @option opts [Integer] :page_offset Specific offset to use as the beginning of the returned page.
     # @option opts [String] :include Include related scorecard details in the response.
     # @option opts [String] :filter_rule_id Filter the rules on a rule ID.

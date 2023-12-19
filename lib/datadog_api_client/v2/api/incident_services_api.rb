@@ -259,7 +259,7 @@ module DatadogAPIClient::V2
     #
     # @param opts [Hash] the optional parameters
     # @option opts [IncidentRelatedObject] :include Specifies which types of related objects should be included in the response.
-    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 100.
+    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is `1000`.
     # @option opts [Integer] :page_offset Specific offset to use as the beginning of the returned page.
     # @option opts [String] :filter A search query that filters services by name.
     # @return [Array<(IncidentServicesResponse, Integer, Hash)>] IncidentServicesResponse data, response status code and response headers
