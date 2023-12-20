@@ -27,6 +27,7 @@ module DatadogAPIClient::V1
       def openapi_one_of
         [
           :'ChangeWidgetDefinition',
+          :'DistributionWidgetDefinition',
           :'GeomapWidgetDefinition',
           :'QueryValueWidgetDefinition',
           :'ScatterPlotWidgetDefinition',
