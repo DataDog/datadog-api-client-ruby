@@ -21,6 +21,13 @@ module DatadogAPIClient::V2
   class UserTeamAttributes
     include BaseGenericModel
 
+    # The mechanism responsible for provisioning the team relationship.
+    # Possible values: null for added by a user, "service_account" if added by a service account, and "saml_mapping" if provisioned via SAML mapping.
+    attr_accessor :provisioned_by
+
+    # UUID of the User or Service Account who provisioned this team membership, or null if provisioned via SAML mapping.
+    attr_accessor :provisioned_by_id
+
     # The user's role within the team
     attr_accessor :role
 
@@ -28,6 +35,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'provisioned_by' => :'provisioned_by',
+        :'provisioned_by_id' => :'provisioned_by_id',
         :'role' => :'role'
       }
     end
@@ -36,6 +45,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'provisioned_by' => :'String',
+        :'provisioned_by_id' => :'String',
         :'role' => :'UserTeamRole'
       }
     end
@@ -44,6 +55,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_nullable
       Set.new([
+        :'provisioned_by',
+        :'provisioned_by_id',
         :'role',
       ])
     end
@@ -64,6 +77,14 @@ module DatadogAPIClient::V2
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'provisioned_by')
+        self.provisioned_by = attributes[:'provisioned_by']
+      end
+
+      if attributes.key?(:'provisioned_by_id')
+        self.provisioned_by_id = attributes[:'provisioned_by_id']
+      end
+
       if attributes.key?(:'role')
         self.role = attributes[:'role']
       end
@@ -75,6 +96,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          provisioned_by == o.provisioned_by &&
+          provisioned_by_id == o.provisioned_by_id &&
           role == o.role
     end
 
@@ -82,7 +105,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [role].hash
+      [provisioned_by, provisioned_by_id, role].hash
     end
   end
 end
