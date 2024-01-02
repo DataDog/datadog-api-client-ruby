@@ -1112,6 +1112,8 @@ ScenariosModelMappings = {
     },
     "v2.ListMonitorDowntimes" => {
             "monitor_id" => "Integer",
+            "page_offset" => "Integer",
+            "page_limit" => "Integer",
     },
     "v2.ListEvents" => {
             "filter_query" => "String",
