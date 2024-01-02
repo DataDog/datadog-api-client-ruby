@@ -33,12 +33,15 @@ module DatadogAPIClient::V1
 
     # Cancel a downtime.
     #
-    # Cancel a downtime.
+    # Cancel a downtime. **Note:** This endpoint has been deprecated. Please use v2 endpoints.
+    #
+    # @deprecated This API is deprecated.
     #
     # @param downtime_id [Integer] ID of the downtime to cancel.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def cancel_downtime_with_http_info(downtime_id, opts = {})
+      warn "[DEPRECATION] `CancelDowntime` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DowntimesAPI.cancel_downtime ...'
@@ -98,12 +101,15 @@ module DatadogAPIClient::V1
 
     # Cancel downtimes by scope.
     #
-    # Delete all downtimes that match the scope of `X`.
+    # Delete all downtimes that match the scope of `X`. **Note:** This only interacts with Downtimes created using v1 endpoints. This endpoint has been deprecated and will not be replaced. Please use v2 endpoints to find and cancel downtimes.
+    #
+    # @deprecated This API is deprecated.
     #
     # @param body [CancelDowntimesByScopeRequest] Scope to cancel downtimes for.
     # @param opts [Hash] the optional parameters
     # @return [Array<(CanceledDowntimesIds, Integer, Hash)>] CanceledDowntimesIds data, response status code and response headers
     def cancel_downtimes_by_scope_with_http_info(body, opts = {})
+      warn "[DEPRECATION] `CancelDowntimesByScope` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DowntimesAPI.cancel_downtimes_by_scope ...'
@@ -165,12 +171,15 @@ module DatadogAPIClient::V1
 
     # Schedule a downtime.
     #
-    # Schedule a downtime.
+    # Schedule a downtime. **Note:** This endpoint has been deprecated. Please use v2 endpoints.
+    #
+    # @deprecated This API is deprecated.
     #
     # @param body [Downtime] Schedule a downtime request body.
     # @param opts [Hash] the optional parameters
     # @return [Array<(Downtime, Integer, Hash)>] Downtime data, response status code and response headers
     def create_downtime_with_http_info(body, opts = {})
+      warn "[DEPRECATION] `CreateDowntime` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DowntimesAPI.create_downtime ...'
@@ -232,12 +241,15 @@ module DatadogAPIClient::V1
 
     # Get a downtime.
     #
-    # Get downtime detail by `downtime_id`.
+    # Get downtime detail by `downtime_id`. **Note:** This endpoint has been deprecated. Please use v2 endpoints.
+    #
+    # @deprecated This API is deprecated.
     #
     # @param downtime_id [Integer] ID of the downtime to fetch.
     # @param opts [Hash] the optional parameters
     # @return [Array<(Downtime, Integer, Hash)>] Downtime data, response status code and response headers
     def get_downtime_with_http_info(downtime_id, opts = {})
+      warn "[DEPRECATION] `GetDowntime` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DowntimesAPI.get_downtime ...'
@@ -297,13 +309,16 @@ module DatadogAPIClient::V1
 
     # Get all downtimes.
     #
-    # Get all scheduled downtimes.
+    # Get all scheduled downtimes. **Note:** This endpoint has been deprecated. Please use v2 endpoints.
+    #
+    # @deprecated This API is deprecated.
     #
     # @param opts [Hash] the optional parameters
     # @option opts [Boolean] :current_only Only return downtimes that are active when the request is made.
     # @option opts [Boolean] :with_creator Return creator information.
     # @return [Array<(Array<Downtime>, Integer, Hash)>] Array<Downtime> data, response status code and response headers
     def list_downtimes_with_http_info(opts = {})
+      warn "[DEPRECATION] `ListDowntimes` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DowntimesAPI.list_downtimes ...'
@@ -361,12 +376,15 @@ module DatadogAPIClient::V1
 
     # Get active downtimes for a monitor.
     #
-    # Get all active downtimes for the specified monitor.
+    # Get all active v1 downtimes for the specified monitor. **Note:** This endpoint has been deprecated. Please use v2 endpoints.
+    #
+    # @deprecated This API is deprecated.
     #
     # @param monitor_id [Integer] The id of the monitor
     # @param opts [Hash] the optional parameters
     # @return [Array<(Array<Downtime>, Integer, Hash)>] Array<Downtime> data, response status code and response headers
     def list_monitor_downtimes_with_http_info(monitor_id, opts = {})
+      warn "[DEPRECATION] `ListMonitorDowntimes` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DowntimesAPI.list_monitor_downtimes ...'
@@ -426,13 +444,16 @@ module DatadogAPIClient::V1
 
     # Update a downtime.
     #
-    # Update a single downtime by `downtime_id`.
+    # Update a single downtime by `downtime_id`. **Note:** This endpoint has been deprecated. Please use v2 endpoints.
+    #
+    # @deprecated This API is deprecated.
     #
     # @param downtime_id [Integer] ID of the downtime to update.
     # @param body [Downtime] Update a downtime request body.
     # @param opts [Hash] the optional parameters
     # @return [Array<(Downtime, Integer, Hash)>] Downtime data, response status code and response headers
     def update_downtime_with_http_info(downtime_id, body, opts = {})
+      warn "[DEPRECATION] `UpdateDowntime` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DowntimesAPI.update_downtime ...'

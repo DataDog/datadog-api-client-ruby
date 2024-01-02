@@ -17,22 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Relationship between membership and a user
-  class UserTeamRelationships
+  # Relationship between team membership and team
+  class RelationshipToUserTeamTeam
     include BaseGenericModel
 
-    # Relationship between team membership and team
-    attr_accessor :team
-
-    # Relationship between team membership and user
-    attr_accessor :user
+    # The team associated with the membership
+    attr_reader :data
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'team' => :'team',
-        :'user' => :'user'
+        :'data' => :'data'
       }
     end
 
@@ -40,8 +36,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'team' => :'RelationshipToUserTeamTeam',
-        :'user' => :'RelationshipToUserTeamUser'
+        :'data' => :'RelationshipToUserTeamTeamData'
       }
     end
 
@@ -50,24 +45,38 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::UserTeamRelationships` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RelationshipToUserTeamTeam` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::UserTeamRelationships`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::RelationshipToUserTeamTeam`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'team')
-        self.team = attributes[:'team']
+      if attributes.key?(:'data')
+        self.data = attributes[:'data']
       end
+    end
 
-      if attributes.key?(:'user')
-        self.user = attributes[:'user']
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @data.nil?
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param data [Object] Object to be assigned
+    # @!visibility private
+    def data=(data)
+      if data.nil?
+        fail ArgumentError, 'invalid value for "data", data cannot be nil.'
       end
+      @data = data
     end
 
     # Checks equality by comparing each attribute.
@@ -76,15 +85,14 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          team == o.team &&
-          user == o.user
+          data == o.data
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [team, user].hash
+      [data].hash
     end
   end
 end

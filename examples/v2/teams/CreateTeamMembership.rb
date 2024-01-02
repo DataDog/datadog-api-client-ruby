@@ -9,6 +9,12 @@ body = DatadogAPIClient::V2::UserTeamRequest.new({
       role: DatadogAPIClient::V2::UserTeamRole::ADMIN,
     }),
     relationships: DatadogAPIClient::V2::UserTeamRelationships.new({
+      team: DatadogAPIClient::V2::RelationshipToUserTeamTeam.new({
+        data: DatadogAPIClient::V2::RelationshipToUserTeamTeamData.new({
+          id: "d7e15d9d-d346-43da-81d8-3d9e71d9a5e9",
+          type: DatadogAPIClient::V2::UserTeamTeamType::TEAM,
+        }),
+      }),
       user: DatadogAPIClient::V2::RelationshipToUserTeamUser.new({
         data: DatadogAPIClient::V2::RelationshipToUserTeamUserData.new({
           id: "b8626d7e-cedd-11eb-abf5-da7ad0900001",
