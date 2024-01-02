@@ -1,0 +1,20 @@
+http_interactions:
+- recorded_at: Tue, 12 Dec 2023 16:00:55 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/cost/azure_uc_config/100
+  response:
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Content-Type:
+      - text/html; charset=utf-8
+    status:
+      code: 204
+      message: No Content
+recorded_with: VCR 6.0.0

@@ -995,6 +995,29 @@ ScenariosModelMappings = {
             "page_size" => "Integer",
             "page_cursor" => "String",
     },
+    "v2.CreateCostAWSCURConfig" => {
+            "body" => "AwsCURConfigPostRequest",
+    },
+    "v2.DeleteCostAWSCURConfig" => {
+            "cloud_account_id" => "String",
+    },
+    "v2.UpdateCostAWSCURConfig" => {
+            "cloud_account_id" => "String",
+            "body" => "AwsCURConfigPatchRequest",
+    },
+    "v2.ListAWSRelatedAccounts" => {
+            "filter_management_account_id" => "String",
+    },
+    "v2.CreateCostAzureUCConfigs" => {
+            "body" => "AzureUCConfigPostRequest",
+    },
+    "v2.DeleteCostAzureUCConfig" => {
+            "cloud_account_id" => "String",
+    },
+    "v2.UpdateCostAzureUCConfigs" => {
+            "cloud_account_id" => "String",
+            "body" => "AzureUCConfigPatchRequest",
+    },
     "v2.GetMonthlyCostAttribution" => {
             "start_month" => "Time",
             "end_month" => "Time",
