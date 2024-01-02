@@ -17,22 +17,22 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Git info for DORA Metrics events.
-  class DORAGitInfo
+  # AWS CUR config Post data.
+  class AwsCURConfigPostData
     include BaseGenericModel
 
-    # Git Commit SHA.
-    attr_reader :commit_sha
+    # Attributes for AWS CUR config Post Request.
+    attr_reader :attributes
 
-    # Git Repository URL
-    attr_reader :repository_url
+    # Type of AWS CUR config Post Request.
+    attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'commit_sha' => :'commit_sha',
-        :'repository_url' => :'repository_url'
+        :'attributes' => :'attributes',
+        :'type' => :'type'
       }
     end
 
@@ -40,8 +40,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'commit_sha' => :'String',
-        :'repository_url' => :'String'
+        :'attributes' => :'AwsCURConfigPostRequestAttributes',
+        :'type' => :'AwsCURConfigPostRequestType'
       }
     end
 
@@ -50,23 +50,23 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::DORAGitInfo` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::AwsCURConfigPostData` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::DORAGitInfo`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::AwsCURConfigPostData`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'commit_sha')
-        self.commit_sha = attributes[:'commit_sha']
+      if attributes.key?(:'attributes')
+        self.attributes = attributes[:'attributes']
       end
 
-      if attributes.key?(:'repository_url')
-        self.repository_url = attributes[:'repository_url']
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
       end
     end
 
@@ -74,35 +74,29 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @commit_sha.nil?
-      pattern = Regexp.new(/^[a-fA-F0-9]{40,}$/)
-      return false if @commit_sha !~ pattern
-      return false if @repository_url.nil?
+      return false if @attributes.nil?
+      return false if @type.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param commit_sha [Object] Object to be assigned
+    # @param attributes [Object] Object to be assigned
     # @!visibility private
-    def commit_sha=(commit_sha)
-      if commit_sha.nil?
-        fail ArgumentError, 'invalid value for "commit_sha", commit_sha cannot be nil.'
+    def attributes=(attributes)
+      if attributes.nil?
+        fail ArgumentError, 'invalid value for "attributes", attributes cannot be nil.'
       end
-      pattern = Regexp.new(/^[a-fA-F0-9]{40,}$/)
-      if commit_sha !~ pattern
-        fail ArgumentError, "invalid value for \"commit_sha\", must conform to the pattern #{pattern}."
-      end
-      @commit_sha = commit_sha
+      @attributes = attributes
     end
 
     # Custom attribute writer method with validation
-    # @param repository_url [Object] Object to be assigned
+    # @param type [Object] Object to be assigned
     # @!visibility private
-    def repository_url=(repository_url)
-      if repository_url.nil?
-        fail ArgumentError, 'invalid value for "repository_url", repository_url cannot be nil.'
+    def type=(type)
+      if type.nil?
+        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
       end
-      @repository_url = repository_url
+      @type = type
     end
 
     # Checks equality by comparing each attribute.
@@ -111,15 +105,15 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          commit_sha == o.commit_sha &&
-          repository_url == o.repository_url
+          attributes == o.attributes &&
+          type == o.type
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [commit_sha, repository_url].hash
+      [attributes, type].hash
     end
   end
 end
