@@ -45,7 +45,7 @@ module DatadogAPIClient::V2
     # The ID of the Azure config.
     attr_accessor :id
 
-    # (deprecated) The number of months the report has been backfilled.
+    # The number of months the report has been backfilled.
     attr_reader :months
 
     # The scope of your observed subscription.

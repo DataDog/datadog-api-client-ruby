@@ -36,7 +36,7 @@ module DatadogAPIClient::V2
     # The error messages for the AWS CUR config.
     attr_accessor :error_messages
 
-    # (deprecated) The number of months the report has been backfilled.
+    # The number of months the report has been backfilled.
     attr_reader :months
 
     # The name of the Cost and Usage Report.
