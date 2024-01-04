@@ -69,6 +69,9 @@ module DatadogAPIClient::V2
     # Tags for generated signals.
     attr_accessor :tags
 
+    # Cases for generating signals from third party rules. Only available for third party rules.
+    attr_accessor :third_party_cases
+
     # The rule type.
     attr_accessor :type
 
@@ -98,6 +101,7 @@ module DatadogAPIClient::V2
         :'options' => :'options',
         :'queries' => :'queries',
         :'tags' => :'tags',
+        :'third_party_cases' => :'thirdPartyCases',
         :'type' => :'type',
         :'update_author_id' => :'updateAuthorId',
         :'version' => :'version'
@@ -124,6 +128,7 @@ module DatadogAPIClient::V2
         :'options' => :'SecurityMonitoringRuleOptions',
         :'queries' => :'Array<SecurityMonitoringStandardRuleQuery>',
         :'tags' => :'Array<String>',
+        :'third_party_cases' => :'Array<SecurityMonitoringThirdPartyRuleCase>',
         :'type' => :'SecurityMonitoringRuleTypeRead',
         :'update_author_id' => :'Integer',
         :'version' => :'Integer'
@@ -218,6 +223,12 @@ module DatadogAPIClient::V2
         end
       end
 
+      if attributes.key?(:'third_party_cases')
+        if (value = attributes[:'third_party_cases']).is_a?(Array)
+          self.third_party_cases = value
+        end
+      end
+
       if attributes.key?(:'type')
         self.type = attributes[:'type']
       end
@@ -253,6 +264,7 @@ module DatadogAPIClient::V2
           options == o.options &&
           queries == o.queries &&
           tags == o.tags &&
+          third_party_cases == o.third_party_cases &&
           type == o.type &&
           update_author_id == o.update_author_id &&
           version == o.version
@@ -262,7 +274,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [cases, compliance_signal_options, created_at, creation_author_id, deprecation_date, filters, has_extended_title, id, is_default, is_deleted, is_enabled, message, name, options, queries, tags, type, update_author_id, version].hash
+      [cases, compliance_signal_options, created_at, creation_author_id, deprecation_date, filters, has_extended_title, id, is_default, is_deleted, is_enabled, message, name, options, queries, tags, third_party_cases, type, update_author_id, version].hash
     end
   end
 end

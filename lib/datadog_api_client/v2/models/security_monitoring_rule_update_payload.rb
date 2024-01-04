@@ -51,6 +51,9 @@ module DatadogAPIClient::V2
     # Tags for generated signals.
     attr_accessor :tags
 
+    # Cases for generating signals from third party rules. Only available for third party rules.
+    attr_accessor :third_party_cases
+
     # The version of the rule being updated.
     attr_reader :version
 
@@ -68,6 +71,7 @@ module DatadogAPIClient::V2
         :'options' => :'options',
         :'queries' => :'queries',
         :'tags' => :'tags',
+        :'third_party_cases' => :'thirdPartyCases',
         :'version' => :'version'
       }
     end
@@ -86,6 +90,7 @@ module DatadogAPIClient::V2
         :'options' => :'SecurityMonitoringRuleOptions',
         :'queries' => :'Array<SecurityMonitoringRuleQuery>',
         :'tags' => :'Array<String>',
+        :'third_party_cases' => :'Array<SecurityMonitoringThirdPartyRuleCase>',
         :'version' => :'Integer'
       }
     end
@@ -154,6 +159,12 @@ module DatadogAPIClient::V2
         end
       end
 
+      if attributes.key?(:'third_party_cases')
+        if (value = attributes[:'third_party_cases']).is_a?(Array)
+          self.third_party_cases = value
+        end
+      end
+
       if attributes.key?(:'version')
         self.version = attributes[:'version']
       end
@@ -193,6 +204,7 @@ module DatadogAPIClient::V2
           options == o.options &&
           queries == o.queries &&
           tags == o.tags &&
+          third_party_cases == o.third_party_cases &&
           version == o.version
     end
 
@@ -200,7 +212,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [cases, compliance_signal_options, filters, has_extended_title, is_enabled, message, name, options, queries, tags, version].hash
+      [cases, compliance_signal_options, filters, has_extended_title, is_enabled, message, name, options, queries, tags, third_party_cases, version].hash
     end
   end
 end
