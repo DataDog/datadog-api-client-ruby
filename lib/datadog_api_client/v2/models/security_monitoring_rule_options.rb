@@ -55,6 +55,9 @@ module DatadogAPIClient::V2
     # Options on new value rules.
     attr_accessor :new_value_options
 
+    # Options on third party rules.
+    attr_accessor :third_party_rule_options
+
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
@@ -67,7 +70,8 @@ module DatadogAPIClient::V2
         :'impossible_travel_options' => :'impossibleTravelOptions',
         :'keep_alive' => :'keepAlive',
         :'max_signal_duration' => :'maxSignalDuration',
-        :'new_value_options' => :'newValueOptions'
+        :'new_value_options' => :'newValueOptions',
+        :'third_party_rule_options' => :'thirdPartyRuleOptions'
       }
     end
 
@@ -83,7 +87,8 @@ module DatadogAPIClient::V2
         :'impossible_travel_options' => :'SecurityMonitoringRuleImpossibleTravelOptions',
         :'keep_alive' => :'SecurityMonitoringRuleKeepAlive',
         :'max_signal_duration' => :'SecurityMonitoringRuleMaxSignalDuration',
-        :'new_value_options' => :'SecurityMonitoringRuleNewValueOptions'
+        :'new_value_options' => :'SecurityMonitoringRuleNewValueOptions',
+        :'third_party_rule_options' => :'SecurityMonitoringRuleThirdPartyOptions'
       }
     end
 
@@ -138,6 +143,10 @@ module DatadogAPIClient::V2
       if attributes.key?(:'new_value_options')
         self.new_value_options = attributes[:'new_value_options']
       end
+
+      if attributes.key?(:'third_party_rule_options')
+        self.third_party_rule_options = attributes[:'third_party_rule_options']
+      end
     end
 
     # Checks equality by comparing each attribute.
@@ -154,14 +163,15 @@ module DatadogAPIClient::V2
           impossible_travel_options == o.impossible_travel_options &&
           keep_alive == o.keep_alive &&
           max_signal_duration == o.max_signal_duration &&
-          new_value_options == o.new_value_options
+          new_value_options == o.new_value_options &&
+          third_party_rule_options == o.third_party_rule_options
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [compliance_rule_options, decrease_criticality_based_on_env, detection_method, evaluation_window, hardcoded_evaluator_type, impossible_travel_options, keep_alive, max_signal_duration, new_value_options].hash
+      [compliance_rule_options, decrease_criticality_based_on_env, detection_method, evaluation_window, hardcoded_evaluator_type, impossible_travel_options, keep_alive, max_signal_duration, new_value_options, third_party_rule_options].hash
     end
   end
 end
