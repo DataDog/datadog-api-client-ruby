@@ -27,6 +27,12 @@ module DatadogAPIClient::V2
     # Attributes excluded from the scan. If namespaces is provided, it has to be a sub-path of the namespaces array.
     attr_accessor :excluded_namespaces
 
+    # Object defining a set of keywords and a number of characters that help reduce noise.
+    # You can provide a list of keywords you would like to check within a defined proximity of the matching pattern.
+    # If any of the keywords are found within the proximity check, the match is kept.
+    # If none are found, the match is discarded.
+    attr_accessor :included_keyword_configuration
+
     # Whether or not the rule is enabled.
     attr_accessor :is_enabled
 
@@ -55,6 +61,7 @@ module DatadogAPIClient::V2
       {
         :'description' => :'description',
         :'excluded_namespaces' => :'excluded_namespaces',
+        :'included_keyword_configuration' => :'included_keyword_configuration',
         :'is_enabled' => :'is_enabled',
         :'name' => :'name',
         :'namespaces' => :'namespaces',
@@ -71,6 +78,7 @@ module DatadogAPIClient::V2
       {
         :'description' => :'String',
         :'excluded_namespaces' => :'Array<String>',
+        :'included_keyword_configuration' => :'SensitiveDataScannerIncludedKeywordConfiguration',
         :'is_enabled' => :'Boolean',
         :'name' => :'String',
         :'namespaces' => :'Array<String>',
@@ -105,6 +113,10 @@ module DatadogAPIClient::V2
         if (value = attributes[:'excluded_namespaces']).is_a?(Array)
           self.excluded_namespaces = value
         end
+      end
+
+      if attributes.key?(:'included_keyword_configuration')
+        self.included_keyword_configuration = attributes[:'included_keyword_configuration']
       end
 
       if attributes.key?(:'is_enabled')
@@ -170,6 +182,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           description == o.description &&
           excluded_namespaces == o.excluded_namespaces &&
+          included_keyword_configuration == o.included_keyword_configuration &&
           is_enabled == o.is_enabled &&
           name == o.name &&
           namespaces == o.namespaces &&
@@ -183,7 +196,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [description, excluded_namespaces, is_enabled, name, namespaces, pattern, priority, tags, text_replacement].hash
+      [description, excluded_namespaces, included_keyword_configuration, is_enabled, name, namespaces, pattern, priority, tags, text_replacement].hash
     end
   end
 end
