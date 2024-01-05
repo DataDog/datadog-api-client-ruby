@@ -17,14 +17,13 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # A numeric representation of the type of the service level objective (`0` for
-  # monitor, `1` for metric). Always included in service level objective responses.
-  # Ignored in create/update requests.
-  class SLOTypeNumeric
+  # The comparator used to compare the SLI value to the threshold.
+  class SLOTimeSliceComparator
     include BaseEnumModel
 
-    MONITOR = 0.freeze
-    METRIC = 1.freeze
-    TIME_SLICE = 2.freeze
+    GREATER = ">".freeze
+    GREATER_EQUAL = ">=".freeze
+    LESS = "<".freeze
+    LESS_EQUAL = "<=".freeze
   end
 end

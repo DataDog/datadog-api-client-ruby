@@ -76,6 +76,9 @@ module DatadogAPIClient::V1
     # min of all of those requests.
     attr_accessor :query
 
+    # A generic SLI specification. This is currently used for time-slice SLOs only.
+    attr_accessor :sli_specification
+
     # A list of tags associated with this service level objective.
     # Always included in service level objective responses (but may be empty).
     # Optional in create/update requests.
@@ -116,6 +119,7 @@ module DatadogAPIClient::V1
         :'monitor_tags' => :'monitor_tags',
         :'name' => :'name',
         :'query' => :'query',
+        :'sli_specification' => :'sli_specification',
         :'tags' => :'tags',
         :'target_threshold' => :'target_threshold',
         :'thresholds' => :'thresholds',
@@ -140,6 +144,7 @@ module DatadogAPIClient::V1
         :'monitor_tags' => :'Array<String>',
         :'name' => :'String',
         :'query' => :'ServiceLevelObjectiveQuery',
+        :'sli_specification' => :'SLOSliSpec',
         :'tags' => :'Array<String>',
         :'target_threshold' => :'Float',
         :'thresholds' => :'Array<SLOThreshold>',
@@ -225,6 +230,10 @@ module DatadogAPIClient::V1
         self.query = attributes[:'query']
       end
 
+      if attributes.key?(:'sli_specification')
+        self.sli_specification = attributes[:'sli_specification']
+      end
+
       if attributes.key?(:'tags')
         if (value = attributes[:'tags']).is_a?(Array)
           self.tags = value
@@ -271,6 +280,7 @@ module DatadogAPIClient::V1
           monitor_tags == o.monitor_tags &&
           name == o.name &&
           query == o.query &&
+          sli_specification == o.sli_specification &&
           tags == o.tags &&
           target_threshold == o.target_threshold &&
           thresholds == o.thresholds &&
@@ -283,7 +293,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [configured_alert_ids, created_at, creator, description, groups, id, modified_at, monitor_ids, monitor_tags, name, query, tags, target_threshold, thresholds, timeframe, type, warning_threshold].hash
+      [configured_alert_ids, created_at, creator, description, groups, id, modified_at, monitor_ids, monitor_tags, name, query, sli_specification, tags, target_threshold, thresholds, timeframe, type, warning_threshold].hash
     end
   end
 end
