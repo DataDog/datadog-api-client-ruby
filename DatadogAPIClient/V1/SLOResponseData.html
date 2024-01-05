@@ -439,6 +439,32 @@ for one or more timeframes, and metadata (<code>name</code>, <code>description</
       <li class="public ">
   <span class="summary_signature">
     
+      <a href="#sli_specification-instance_method" title="#sli_specification (instance method)">#<strong>sli_specification</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>A generic SLI specification.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#tags-instance_method" title="#tags (instance method)">#<strong>tags</strong>  &#x21d2; Object </a>
     
 
@@ -1410,6 +1436,48 @@ min of all of those requests.</p>
 </div>
     
       
+      <span id="sli_specification=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="sli_specification-instance_method">
+  
+    #<strong>sli_specification</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>A generic SLI specification. This is currently used for time-slice SLOs only.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+80
+81
+82</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/slo_response_data.rb', line 80</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_sli_specification'>sli_specification</span>
+  <span class='ivar'>@sli_specification</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
       <span id="tags=-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="tags-instance_method">
@@ -1481,12 +1549,12 @@ threshold over the given timeframe, the objective is being met.</p>
       <pre class="lines">
 
 
-86
-87
-88</pre>
+89
+90
+91</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/slo_response_data.rb', line 86</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/slo_response_data.rb', line 89</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_target_threshold'>target_threshold</span>
   <span class='ivar'>@target_threshold</span>
@@ -1566,12 +1634,12 @@ objective object.</p>
       <pre class="lines">
 
 
-93
-94
-95</pre>
+96
+97
+98</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/slo_response_data.rb', line 93</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/slo_response_data.rb', line 96</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_timeframe'>timeframe</span>
   <span class='ivar'>@timeframe</span>
@@ -1608,12 +1676,12 @@ objective object.</p>
       <pre class="lines">
 
 
-96
-97
-98</pre>
+99
+100
+101</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/slo_response_data.rb', line 96</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/slo_response_data.rb', line 99</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_type'>type</span>
   <span class='ivar'>@type</span>
@@ -1653,12 +1721,12 @@ threshold.</p>
       <pre class="lines">
 
 
-102
-103
-104</pre>
+105
+106
+107</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/slo_response_data.rb', line 102</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/slo_response_data.rb', line 105</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_warning_threshold'>warning_threshold</span>
   <span class='ivar'>@warning_threshold</span>
@@ -2565,7 +2633,7 @@ For object, use to_hash. Otherwise, just return the value</p>
 </div>
 
       <div id="footer">
-  Generated on Thu Jan  4 15:57:49 2024 by
+  Generated on Fri Jan  5 16:01:11 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.34 (ruby-2.7.8).
 </div>
