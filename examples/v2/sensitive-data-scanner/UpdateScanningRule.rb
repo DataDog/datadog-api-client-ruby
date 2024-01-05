@@ -6,9 +6,6 @@ api_instance = DatadogAPIClient::V2::SensitiveDataScannerAPI.new
 # the "scanning_group" has a "scanning_rule"
 RULE_DATA_ID = ENV["RULE_DATA_ID"]
 
-# there is a valid "scanning_group" in the system
-GROUP_DATA_ID = ENV["GROUP_DATA_ID"]
-
 body = DatadogAPIClient::V2::SensitiveDataScannerRuleUpdateRequest.new({
   meta: DatadogAPIClient::V2::SensitiveDataScannerMetaVersionOnly.new({}),
   data: DatadogAPIClient::V2::SensitiveDataScannerRuleUpdate.new({
@@ -25,13 +22,12 @@ body = DatadogAPIClient::V2::SensitiveDataScannerRuleUpdateRequest.new({
       ],
       is_enabled: true,
       priority: 5,
-    }),
-    relationships: DatadogAPIClient::V2::SensitiveDataScannerRuleRelationships.new({
-      group: DatadogAPIClient::V2::SensitiveDataScannerGroupData.new({
-        data: DatadogAPIClient::V2::SensitiveDataScannerGroup.new({
-          type: DatadogAPIClient::V2::SensitiveDataScannerGroupType::SENSITIVE_DATA_SCANNER_GROUP,
-          id: GROUP_DATA_ID,
-        }),
+      included_keyword_configuration: DatadogAPIClient::V2::SensitiveDataScannerIncludedKeywordConfiguration.new({
+        keywords: [
+          "credit card",
+          "cc",
+        ],
+        character_count: 35,
       }),
     }),
   }),

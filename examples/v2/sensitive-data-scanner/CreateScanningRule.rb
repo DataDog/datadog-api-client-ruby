@@ -27,6 +27,12 @@ body = DatadogAPIClient::V2::SensitiveDataScannerRuleCreateRequest.new({
       ],
       is_enabled: true,
       priority: 1,
+      included_keyword_configuration: DatadogAPIClient::V2::SensitiveDataScannerIncludedKeywordConfiguration.new({
+        keywords: [
+          "credit card",
+        ],
+        character_count: 35,
+      }),
     }),
     relationships: DatadogAPIClient::V2::SensitiveDataScannerRuleRelationships.new({
       group: DatadogAPIClient::V2::SensitiveDataScannerGroupData.new({

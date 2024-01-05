@@ -1911,6 +1911,7 @@ module DatadogAPIClient
           "v2.sensitive_data_scanner_group_update" => "SensitiveDataScannerGroupUpdate",
           "v2.sensitive_data_scanner_group_update_request" => "SensitiveDataScannerGroupUpdateRequest",
           "v2.sensitive_data_scanner_group_update_response" => "SensitiveDataScannerGroupUpdateResponse",
+          "v2.sensitive_data_scanner_included_keyword_configuration" => "SensitiveDataScannerIncludedKeywordConfiguration",
           "v2.sensitive_data_scanner_meta" => "SensitiveDataScannerMeta",
           "v2.sensitive_data_scanner_meta_version_only" => "SensitiveDataScannerMetaVersionOnly",
           "v2.sensitive_data_scanner_product" => "SensitiveDataScannerProduct",
