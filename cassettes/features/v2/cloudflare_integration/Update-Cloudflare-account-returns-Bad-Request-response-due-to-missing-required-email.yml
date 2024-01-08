@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Fri, 27 Jan 2023 08:59:14 GMT
+- recorded_at: Thu, 04 Jan 2024 18:40:46 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"api_key":"fakekey","email":"dev@datadog.com","name":"testupdatecloudflareaccountreturnsbadrequestresponseduetomissingrequiredemail1674809954"},"type":"cloudflare-accounts"}}'
+      string: '{"data":{"attributes":{"api_key":"fakekey","email":"dev@datadog.com","name":"testupdatecloudflareaccountreturnsbadrequestresponseduetomissingrequiredemail1704393646","resources":["web","dns"],"zones":["zone-id-1","zone-id-2"]},"type":"cloudflare-accounts"}}'
     headers:
       Accept:
       - application/json
@@ -14,7 +14,7 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"email":"dev@datadog.com","name":"testupdatecloudflareaccountreturnsbadrequestresponseduetomissingrequiredemail1674809954"},"type":"cloudflare-accounts","id":"c588ce074fe908f56db516f007afd3fd"}}
+      string: '{"data":{"type":"cloudflare-accounts","attributes":{"zones":["zone-id-1","zone-id-2"],"resources":["web","dns"],"name":"testupdatecloudflareaccountreturnsbadrequestresponseduetomissingrequiredemail1704393646","email":"dev@datadog.com"},"id":"f1d4f10fbad4add4962f2bc1fcb18c36"}}
 
         '
     headers:
@@ -23,22 +23,22 @@ http_interactions:
     status:
       code: 201
       message: Created
-- recorded_at: Fri, 27 Jan 2023 08:59:14 GMT
+- recorded_at: Thu, 04 Jan 2024 18:40:46 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"api_key":"abcdefghijklmnopqrstuvwxyz"},"type":"cloudflare-accounts"}}'
+      string: '{"data":{"attributes":{"api_key":"fakekey"},"type":"cloudflare-accounts"}}'
     headers:
       Accept:
       - application/json
       Content-Type:
       - application/json
     method: PATCH
-    uri: https://api.datadoghq.com/api/v2/integrations/cloudflare/accounts/c588ce074fe908f56db516f007afd3fd
+    uri: https://api.datadoghq.com/api/v2/integrations/cloudflare/accounts/f1d4f10fbad4add4962f2bc1fcb18c36
   response:
     body:
       encoding: UTF-8
-      string: '{"errors":["{u''_schema'': [''Email address is required if providing
+      string: '{"errors":["{''_schema'': [''Email address is required if providing
         an api key and not an api token.'']}"]}'
     headers:
       Content-Type:
@@ -46,14 +46,14 @@ http_interactions:
     status:
       code: 400
       message: Bad Request
-- recorded_at: Fri, 27 Jan 2023 08:59:14 GMT
+- recorded_at: Thu, 04 Jan 2024 18:40:46 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/integrations/cloudflare/accounts/c588ce074fe908f56db516f007afd3fd
+    uri: https://api.datadoghq.com/api/v2/integrations/cloudflare/accounts/f1d4f10fbad4add4962f2bc1fcb18c36
   response:
     body:
       encoding: UTF-8

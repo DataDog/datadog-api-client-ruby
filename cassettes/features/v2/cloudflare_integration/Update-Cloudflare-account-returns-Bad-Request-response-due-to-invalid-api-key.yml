@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Fri, 27 Jan 2023 08:59:31 GMT
+- recorded_at: Thu, 04 Jan 2024 18:40:44 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"api_key":"fakekey","email":"dev@datadog.com","name":"testupdatecloudflareaccountreturnsbadrequestresponseduetoinvalidapikey1674809971"},"type":"cloudflare-accounts"}}'
+      string: '{"data":{"attributes":{"api_key":"fakekey","email":"dev@datadog.com","name":"testupdatecloudflareaccountreturnsbadrequestresponseduetoinvalidapikey1704393644","resources":["web","dns"],"zones":["zone-id-1","zone-id-2"]},"type":"cloudflare-accounts"}}'
     headers:
       Accept:
       - application/json
@@ -14,7 +14,7 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"email":"dev@datadog.com","name":"testupdatecloudflareaccountreturnsbadrequestresponseduetoinvalidapikey1674809971"},"type":"cloudflare-accounts","id":"56a7295bd711e0aea34906a3bea8a2b3"}}
+      string: '{"data":{"type":"cloudflare-accounts","attributes":{"email":"dev@datadog.com","name":"testupdatecloudflareaccountreturnsbadrequestresponseduetoinvalidapikey1704393644","resources":["web","dns"],"zones":["zone-id-1","zone-id-2"]},"id":"25336f9851edaf58647eec09ce3b636f"}}
 
         '
     headers:
@@ -23,7 +23,7 @@ http_interactions:
     status:
       code: 201
       message: Created
-- recorded_at: Fri, 27 Jan 2023 08:59:31 GMT
+- recorded_at: Thu, 04 Jan 2024 18:40:44 GMT
   request:
     body:
       encoding: UTF-8
@@ -34,12 +34,12 @@ http_interactions:
       Content-Type:
       - application/json
     method: PATCH
-    uri: https://api.datadoghq.com/api/v2/integrations/cloudflare/accounts/56a7295bd711e0aea34906a3bea8a2b3
+    uri: https://api.datadoghq.com/api/v2/integrations/cloudflare/accounts/25336f9851edaf58647eec09ce3b636f
   response:
     body:
       encoding: UTF-8
       string: '{"errors":["Invalid account. Your Cloudflare configuration is invalid.
-        Impossible to get zones for the account testupdatecloudflareaccountreturnsbadrequestresponseduetoinvalidapikey1674809971:
+        Impossible to get zones for the account testupdatecloudflareaccountreturnsbadrequestresponseduetoinvalidapikey1704393644:
         API key or email is unknown."]}'
     headers:
       Content-Type:
@@ -47,14 +47,14 @@ http_interactions:
     status:
       code: 400
       message: Bad Request
-- recorded_at: Fri, 27 Jan 2023 08:59:31 GMT
+- recorded_at: Thu, 04 Jan 2024 18:40:44 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/integrations/cloudflare/accounts/56a7295bd711e0aea34906a3bea8a2b3
+    uri: https://api.datadoghq.com/api/v2/integrations/cloudflare/accounts/25336f9851edaf58647eec09ce3b636f
   response:
     body:
       encoding: UTF-8
