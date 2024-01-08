@@ -27,12 +27,20 @@ module DatadogAPIClient::V2
     # The name of the Cloudflare account.
     attr_reader :name
 
+    # An allowlist of resources to restrict pulling metrics for.
+    attr_accessor :resources
+
+    # An allowlist of zones to restrict pulling metrics for.
+    attr_accessor :zones
+
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
         :'email' => :'email',
-        :'name' => :'name'
+        :'name' => :'name',
+        :'resources' => :'resources',
+        :'zones' => :'zones'
       }
     end
 
@@ -41,7 +49,9 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'email' => :'String',
-        :'name' => :'String'
+        :'name' => :'String',
+        :'resources' => :'Array<String>',
+        :'zones' => :'Array<String>'
       }
     end
 
@@ -67,6 +77,18 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'resources')
+        if (value = attributes[:'resources']).is_a?(Array)
+          self.resources = value
+        end
+      end
+
+      if attributes.key?(:'zones')
+        if (value = attributes[:'zones']).is_a?(Array)
+          self.zones = value
+        end
       end
     end
 
@@ -95,14 +117,16 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           email == o.email &&
-          name == o.name
+          name == o.name &&
+          resources == o.resources &&
+          zones == o.zones
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [email, name].hash
+      [email, name, resources, zones].hash
     end
   end
 end

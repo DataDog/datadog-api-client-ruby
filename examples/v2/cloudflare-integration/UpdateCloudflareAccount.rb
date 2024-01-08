@@ -10,7 +10,10 @@ body = DatadogAPIClient::V2::CloudflareAccountUpdateRequest.new({
   data: DatadogAPIClient::V2::CloudflareAccountUpdateRequestData.new({
     attributes: DatadogAPIClient::V2::CloudflareAccountUpdateRequestAttributes.new({
       api_key: "fakekey",
-      email: "new@email",
+      email: "dev@datadoghq.com",
+      zones: [
+        "zone-id-3",
+      ],
     }),
     type: DatadogAPIClient::V2::CloudflareAccountType::CLOUDFLARE_ACCOUNTS,
   }),
