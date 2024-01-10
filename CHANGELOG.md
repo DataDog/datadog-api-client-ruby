@@ -5,7 +5,6 @@
 ### Added
 * Add priority field to SDS rule and standard-pattern by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1664
 * Document new `resource_collection` and `is_security_command_center_enabled` fields in GCP APIs by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1665
-* Enable azure update delete by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1668
 * Add SAML attributes by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1656
 * Security Monitoring - Support custom third party rules by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1682
 * Add public API support for time-slice SLOs by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1674
