@@ -24,7 +24,7 @@ module DatadogAPIClient::V1
     # JSON object containing all log attributes and their associated values.
     attr_accessor :content
 
-    # Unique ID of the Log.
+    # ID of the Log.
     attr_accessor :id
 
     # Attribute mapping from ruby-style variable name to JSON key.
