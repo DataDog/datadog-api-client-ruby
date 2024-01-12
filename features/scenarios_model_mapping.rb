@@ -1539,6 +1539,19 @@ ScenariosModelMappings = {
             "security_filter_id" => "String",
             "body" => "SecurityFilterUpdateRequest",
     },
+    "v2.CreateSecurityMonitoringSuppression" => {
+            "body" => "SecurityMonitoringSuppressionCreateRequest",
+    },
+    "v2.DeleteSecurityMonitoringSuppression" => {
+            "suppression_id" => "String",
+    },
+    "v2.GetSecurityMonitoringSuppression" => {
+            "suppression_id" => "String",
+    },
+    "v2.UpdateSecurityMonitoringSuppression" => {
+            "suppression_id" => "String",
+            "body" => "SecurityMonitoringSuppressionUpdateRequest",
+    },
     "v2.ListSecurityMonitoringRules" => {
             "page_size" => "Integer",
             "page_number" => "Integer",
