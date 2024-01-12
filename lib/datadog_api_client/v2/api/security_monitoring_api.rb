@@ -160,6 +160,73 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Create a suppression rule.
+    #
+    # @see #create_security_monitoring_suppression_with_http_info
+    def create_security_monitoring_suppression(body, opts = {})
+      data, _status_code, _headers = create_security_monitoring_suppression_with_http_info(body, opts)
+      data
+    end
+
+    # Create a suppression rule.
+    #
+    # Create a new suppression rule.
+    #
+    # @param body [SecurityMonitoringSuppressionCreateRequest] The definition of the new suppression rule.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SecurityMonitoringSuppressionResponse, Integer, Hash)>] SecurityMonitoringSuppressionResponse data, response status code and response headers
+    def create_security_monitoring_suppression_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.create_security_monitoring_suppression ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.create_security_monitoring_suppression"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/configuration/suppressions'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityMonitoringSuppressionResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_security_monitoring_suppression,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#create_security_monitoring_suppression\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Delete a security filter.
     #
     # @see #delete_security_filter_with_http_info
@@ -286,6 +353,71 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SecurityMonitoringAPI#delete_security_monitoring_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete a suppression rule.
+    #
+    # @see #delete_security_monitoring_suppression_with_http_info
+    def delete_security_monitoring_suppression(suppression_id, opts = {})
+      delete_security_monitoring_suppression_with_http_info(suppression_id, opts)
+      nil
+    end
+
+    # Delete a suppression rule.
+    #
+    # Delete a specific suppression rule.
+    #
+    # @param suppression_id [String] The ID of the suppression rule
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_security_monitoring_suppression_with_http_info(suppression_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.delete_security_monitoring_suppression ...'
+      end
+      # verify the required parameter 'suppression_id' is set
+      if @api_client.config.client_side_validation && suppression_id.nil?
+        fail ArgumentError, "Missing the required parameter 'suppression_id' when calling SecurityMonitoringAPI.delete_security_monitoring_suppression"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/configuration/suppressions/{suppression_id}'.sub('{suppression_id}', CGI.escape(suppression_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_security_monitoring_suppression,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#delete_security_monitoring_suppression\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -780,6 +912,71 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get a suppression rule.
+    #
+    # @see #get_security_monitoring_suppression_with_http_info
+    def get_security_monitoring_suppression(suppression_id, opts = {})
+      data, _status_code, _headers = get_security_monitoring_suppression_with_http_info(suppression_id, opts)
+      data
+    end
+
+    # Get a suppression rule.
+    #
+    # Get the details of a specific suppression rule.
+    #
+    # @param suppression_id [String] The ID of the suppression rule
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SecurityMonitoringSuppressionResponse, Integer, Hash)>] SecurityMonitoringSuppressionResponse data, response status code and response headers
+    def get_security_monitoring_suppression_with_http_info(suppression_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_security_monitoring_suppression ...'
+      end
+      # verify the required parameter 'suppression_id' is set
+      if @api_client.config.client_side_validation && suppression_id.nil?
+        fail ArgumentError, "Missing the required parameter 'suppression_id' when calling SecurityMonitoringAPI.get_security_monitoring_suppression"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/configuration/suppressions/{suppression_id}'.sub('{suppression_id}', CGI.escape(suppression_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityMonitoringSuppressionResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_security_monitoring_suppression,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#get_security_monitoring_suppression\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List findings.
     #
     # @see #list_findings_with_http_info
@@ -1164,6 +1361,66 @@ module DatadogAPIClient::V2
         end
     end
 
+    # Get all suppression rules.
+    #
+    # @see #list_security_monitoring_suppressions_with_http_info
+    def list_security_monitoring_suppressions(opts = {})
+      data, _status_code, _headers = list_security_monitoring_suppressions_with_http_info(opts)
+      data
+    end
+
+    # Get all suppression rules.
+    #
+    # Get the list of all suppression rules.
+    #
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SecurityMonitoringSuppressionsResponse, Integer, Hash)>] SecurityMonitoringSuppressionsResponse data, response status code and response headers
+    def list_security_monitoring_suppressions_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.list_security_monitoring_suppressions ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/configuration/suppressions'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityMonitoringSuppressionsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_security_monitoring_suppressions,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#list_security_monitoring_suppressions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Mute or unmute a batch of findings.
     #
     # @see #mute_findings_with_http_info
@@ -1466,6 +1723,78 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SecurityMonitoringAPI#update_security_monitoring_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update a suppression rule.
+    #
+    # @see #update_security_monitoring_suppression_with_http_info
+    def update_security_monitoring_suppression(suppression_id, body, opts = {})
+      data, _status_code, _headers = update_security_monitoring_suppression_with_http_info(suppression_id, body, opts)
+      data
+    end
+
+    # Update a suppression rule.
+    #
+    # Update a specific suppression rule.
+    #
+    # @param suppression_id [String] The ID of the suppression rule
+    # @param body [SecurityMonitoringSuppressionUpdateRequest] New definition of the suppression rule. Supports partial updates.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SecurityMonitoringSuppressionResponse, Integer, Hash)>] SecurityMonitoringSuppressionResponse data, response status code and response headers
+    def update_security_monitoring_suppression_with_http_info(suppression_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.update_security_monitoring_suppression ...'
+      end
+      # verify the required parameter 'suppression_id' is set
+      if @api_client.config.client_side_validation && suppression_id.nil?
+        fail ArgumentError, "Missing the required parameter 'suppression_id' when calling SecurityMonitoringAPI.update_security_monitoring_suppression"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.update_security_monitoring_suppression"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/configuration/suppressions/{suppression_id}'.sub('{suppression_id}', CGI.escape(suppression_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityMonitoringSuppressionResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_security_monitoring_suppression,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#update_security_monitoring_suppression\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
