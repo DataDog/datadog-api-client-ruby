@@ -1134,7 +1134,9 @@ key performance metrics, which enable you to monitor the health of your infrastr
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Whether this dashboard is read-only. If True, only the author and admins can make changes to it. Prefer using <code>restricted_roles</code> to manage write authorization.</p>
+    <p>Whether this dashboard is read-only. If True, only the author and admins can make changes to it.</p>
+
+<p>This property is deprecated; please use the <a href="https://docs.datadoghq.com/api/latest/restriction-policies/">Restriction Policies API</a> instead to manage write authorization for individual dashboards.</p>
 
 
   </div>
@@ -1190,12 +1192,12 @@ key performance metrics, which enable you to monitor the health of your infrastr
       <pre class="lines">
 
 
-44
-45
-46</pre>
+46
+47
+48</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/dashboard.rb', line 44</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/dashboard.rb', line 46</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_layout_type'>layout_type</span>
   <span class='ivar'>@layout_type</span>
@@ -1318,12 +1320,12 @@ widgets should not have layouts.</p>
       <pre class="lines">
 
 
-55
-56
-57</pre>
+57
+58
+59</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/dashboard.rb', line 55</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/dashboard.rb', line 57</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_reflow_type'>reflow_type</span>
   <span class='ivar'>@reflow_type</span>
@@ -1347,6 +1349,8 @@ widgets should not have layouts.</p>
 </h3><div class="docstring">
   <div class="discussion">
     <p>A list of role identifiers. Only the author and users associated with at least one of these roles can edit this dashboard.</p>
+
+<p>This property is deprecated; please use the <a href="https://docs.datadoghq.com/api/latest/restriction-policies/">Restriction Policies API</a> instead to manage write authorization for individual dashboards.</p>
 
 
   </div>
@@ -1402,12 +1406,12 @@ widgets should not have layouts.</p>
       <pre class="lines">
 
 
-61
-62
-63</pre>
+65
+66
+67</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/dashboard.rb', line 61</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/dashboard.rb', line 65</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_tags'>tags</span>
   <span class='ivar'>@tags</span>
@@ -2491,7 +2495,7 @@ For object, use to_hash. Otherwise, just return the value</p>
 </div>
 
       <div id="footer">
-  Generated on Fri Jan 12 21:10:32 2024 by
+  Generated on Thu Jan 18 23:20:15 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.34 (ruby-2.7.8).
 </div>

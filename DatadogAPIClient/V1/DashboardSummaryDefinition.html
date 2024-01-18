@@ -898,6 +898,8 @@
   <div class="discussion">
     <p>Whether this dashboard is read-only. If True, only the author and admins can make changes to it.</p>
 
+<p>This property is deprecated; please use the <a href="https://docs.datadoghq.com/api/latest/restriction-policies/">Restriction Policies API</a> instead to manage write authorization for individual dashboards.</p>
+
 
   </div>
 </div>
@@ -952,12 +954,12 @@
       <pre class="lines">
 
 
-40
-41
-42</pre>
+42
+43
+44</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/dashboard_summary_definition.rb', line 40</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/dashboard_summary_definition.rb', line 42</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_layout_type'>layout_type</span>
   <span class='ivar'>@layout_type</span>
@@ -1990,7 +1992,7 @@ For object, use to_hash. Otherwise, just return the value</p>
 </div>
 
       <div id="footer">
-  Generated on Fri Jan 12 21:11:04 2024 by
+  Generated on Thu Jan 18 23:20:49 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.34 (ruby-2.7.8).
 </div>
