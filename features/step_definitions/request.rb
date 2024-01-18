@@ -216,6 +216,9 @@ module APIWorld
 
   def model_builder(param, obj)
     model = ScenariosModelMappings["v#{@api_version}.#{@operation_id}"][param]
+    if model == 'File'
+       return File.open(File.join(__dir__, "..", "v" + @api_version, obj))
+    end
     @api_client.convert_to_type(obj, model, "V#{@api_version}")
   end
 end
