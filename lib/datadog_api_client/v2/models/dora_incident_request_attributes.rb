@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class DORAIncidentRequestAttributes
     include BaseGenericModel
 
+    # Environment name that was impacted by the incident.
+    attr_accessor :env
+
     # Unix timestamp in nanoseconds when the incident finished. It should not be older than 3 hours.
     attr_accessor :finished_at
 
@@ -49,6 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'env' => :'env',
         :'finished_at' => :'finished_at',
         :'git' => :'git',
         :'id' => :'id',
@@ -64,6 +68,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'env' => :'String',
         :'finished_at' => :'Integer',
         :'git' => :'DORAGitInfo',
         :'id' => :'String',
@@ -90,6 +95,10 @@ module DatadogAPIClient::V2
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'env')
+        self.env = attributes[:'env']
+      end
 
       if attributes.key?(:'finished_at')
         self.finished_at = attributes[:'finished_at']
@@ -159,6 +168,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          env == o.env &&
           finished_at == o.finished_at &&
           git == o.git &&
           id == o.id &&
@@ -173,7 +183,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [finished_at, git, id, name, service, severity, started_at, version].hash
+      [env, finished_at, git, id, name, service, severity, started_at, version].hash
     end
   end
 end
