@@ -45,6 +45,9 @@ module DatadogAPIClient::V1
     # A protobuf JSON descriptor that needs to be gzipped first then base64 encoded.
     attr_accessor :compressed_json_descriptor
 
+    # A protobuf file that needs to be gzipped first then base64 encoded.
+    attr_accessor :compressed_proto_file
+
     # DNS server to use for DNS tests.
     attr_accessor :dns_server
 
@@ -116,6 +119,7 @@ module DatadogAPIClient::V1
         :'certificate' => :'certificate',
         :'certificate_domains' => :'certificateDomains',
         :'compressed_json_descriptor' => :'compressedJsonDescriptor',
+        :'compressed_proto_file' => :'compressedProtoFile',
         :'dns_server' => :'dnsServer',
         :'dns_server_port' => :'dnsServerPort',
         :'follow_redirects' => :'follow_redirects',
@@ -150,6 +154,7 @@ module DatadogAPIClient::V1
         :'certificate' => :'SyntheticsTestRequestCertificate',
         :'certificate_domains' => :'Array<String>',
         :'compressed_json_descriptor' => :'String',
+        :'compressed_proto_file' => :'String',
         :'dns_server' => :'String',
         :'dns_server_port' => :'Integer',
         :'follow_redirects' => :'Boolean',
@@ -220,6 +225,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'compressed_json_descriptor')
         self.compressed_json_descriptor = attributes[:'compressed_json_descriptor']
+      end
+
+      if attributes.key?(:'compressed_proto_file')
+        self.compressed_proto_file = attributes[:'compressed_proto_file']
       end
 
       if attributes.key?(:'dns_server')
@@ -350,6 +359,7 @@ module DatadogAPIClient::V1
           certificate == o.certificate &&
           certificate_domains == o.certificate_domains &&
           compressed_json_descriptor == o.compressed_json_descriptor &&
+          compressed_proto_file == o.compressed_proto_file &&
           dns_server == o.dns_server &&
           dns_server_port == o.dns_server_port &&
           follow_redirects == o.follow_redirects &&
@@ -375,7 +385,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [allow_insecure, basic_auth, body, body_type, call_type, certificate, certificate_domains, compressed_json_descriptor, dns_server, dns_server_port, follow_redirects, headers, host, message, metadata, method, no_saving_response_body, number_of_packets, persist_cookies, port, proxy, query, servername, service, should_track_hops, timeout, url].hash
+      [allow_insecure, basic_auth, body, body_type, call_type, certificate, certificate_domains, compressed_json_descriptor, compressed_proto_file, dns_server, dns_server_port, follow_redirects, headers, host, message, metadata, method, no_saving_response_body, number_of_packets, persist_cookies, port, proxy, query, servername, service, should_track_hops, timeout, url].hash
     end
   end
 end
