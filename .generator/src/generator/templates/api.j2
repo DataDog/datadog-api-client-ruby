@@ -182,13 +182,13 @@ module {{ module_name }}::{{ version|upper }}
       {%- endfor %}
 
       # http body (model)
-      post_body = opts[:debug_body]{% if operation.requestBody %} || @api_client.object_to_http_body(
-        {%- if operation.requestBody.required -%}
-        {{ operation.get("x-codegen-request-body-name", "body") }}
+      post_body = opts[:debug_body]{% for name, parameter in operation|parameters if name == "body" %} || @api_client.object_to_http_body(
+        {%- if parameter.required -%}
+        body
         {%- else -%}
-        opts[:'{{ operation.get("x-codegen-request-body-name", "body") }}']
+        opts[:'body']
         {%- endif -%}
-      ){% endif %}
+      ){% endfor %}
 
       # return_type
       return_type = opts[:debug_return_type]{% if returnType %} || '{{ returnType }}'{% endif %}

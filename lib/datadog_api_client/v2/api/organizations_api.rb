@@ -63,7 +63,7 @@ module DatadogAPIClient::V2
       form_params['idp_file'] = opts[:'idp_file'] if !opts[:'idp_file'].nil?
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+      post_body = opts[:debug_body]
 
       # return_type
       return_type = opts[:debug_return_type]
