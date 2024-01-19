@@ -34,7 +34,7 @@ module DatadogAPIClient::V1
     attr_accessor :_end
 
     # The recurrence rules as defined in the iCalendar RFC 5545. The supported rules for SLO corrections
-    # are `FREQ`, `INTERVAL`, `COUNT`, and `UNTIL`.
+    # are `FREQ`, `INTERVAL`, `COUNT`, `UNTIL` and `BYDAY`.
     attr_accessor :rrule
 
     # Starting time of the correction in epoch seconds.
