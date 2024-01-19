@@ -124,6 +124,32 @@
       <li class="public ">
   <span class="summary_signature">
     
+      <a href="#env-instance_method" title="#env (instance method)">#<strong>env</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Environment name that was impacted by the incident.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#finished_at-instance_method" title="#finished_at (instance method)">#<strong>finished_at</strong>  &#x21d2; Object </a>
     
 
@@ -354,9 +380,51 @@
     <h2>Instance Attribute Details</h2>
     
       
-      <span id="finished_at=-instance_method"></span>
+      <span id="env=-instance_method"></span>
       <div class="method_details first">
-  <h3 class="signature first" id="finished_at-instance_method">
+  <h3 class="signature first" id="env-instance_method">
+  
+    #<strong>env</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Environment name that was impacted by the incident.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+25
+26
+27</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/dora_incident_request_attributes.rb', line 25</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_env'>env</span>
+  <span class='ivar'>@env</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="finished_at=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="finished_at-instance_method">
   
     #<strong>finished_at</strong>  &#x21d2; <tt>Object</tt> 
   
@@ -380,12 +448,12 @@
       <pre class="lines">
 
 
-25
-26
-27</pre>
+28
+29
+30</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/dora_incident_request_attributes.rb', line 25</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/dora_incident_request_attributes.rb', line 28</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_finished_at'>finished_at</span>
   <span class='ivar'>@finished_at</span>
@@ -422,12 +490,12 @@
       <pre class="lines">
 
 
-28
-29
-30</pre>
+31
+32
+33</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/dora_incident_request_attributes.rb', line 28</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/dora_incident_request_attributes.rb', line 31</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_git'>git</span>
   <span class='ivar'>@git</span>
@@ -464,12 +532,12 @@
       <pre class="lines">
 
 
-31
-32
-33</pre>
+34
+35
+36</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/dora_incident_request_attributes.rb', line 31</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/dora_incident_request_attributes.rb', line 34</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_id'>id</span>
   <span class='ivar'>@id</span>
@@ -506,12 +574,12 @@
       <pre class="lines">
 
 
-34
-35
-36</pre>
+37
+38
+39</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/dora_incident_request_attributes.rb', line 34</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/dora_incident_request_attributes.rb', line 37</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_name'>name</span>
   <span class='ivar'>@name</span>
@@ -548,12 +616,12 @@
       <pre class="lines">
 
 
-37
-38
-39</pre>
+40
+41
+42</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/dora_incident_request_attributes.rb', line 37</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/dora_incident_request_attributes.rb', line 40</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_service'>service</span>
   <span class='ivar'>@service</span>
@@ -590,12 +658,12 @@
       <pre class="lines">
 
 
-40
-41
-42</pre>
+43
+44
+45</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/dora_incident_request_attributes.rb', line 40</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/dora_incident_request_attributes.rb', line 43</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_severity'>severity</span>
   <span class='ivar'>@severity</span>
@@ -632,12 +700,12 @@
       <pre class="lines">
 
 
-43
-44
-45</pre>
+46
+47
+48</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/dora_incident_request_attributes.rb', line 43</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/dora_incident_request_attributes.rb', line 46</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_started_at'>started_at</span>
   <span class='ivar'>@started_at</span>
@@ -674,12 +742,12 @@
       <pre class="lines">
 
 
-46
-47
-48</pre>
+49
+50
+51</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/dora_incident_request_attributes.rb', line 46</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/dora_incident_request_attributes.rb', line 49</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_version'>version</span>
   <span class='ivar'>@version</span>
@@ -695,7 +763,7 @@
 </div>
 
       <div id="footer">
-  Generated on Fri Jan 19 16:06:07 2024 by
+  Generated on Fri Jan 19 16:34:47 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.34 (ruby-2.7.8).
 </div>
