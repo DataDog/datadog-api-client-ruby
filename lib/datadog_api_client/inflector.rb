@@ -234,6 +234,7 @@ module DatadogAPIClient
           "v1.logs_category_processor" => "LogsCategoryProcessor",
           "v1.logs_category_processor_category" => "LogsCategoryProcessorCategory",
           "v1.logs_category_processor_type" => "LogsCategoryProcessorType",
+          "v1.logs_daily_limit_reset" => "LogsDailyLimitReset",
           "v1.logs_date_remapper" => "LogsDateRemapper",
           "v1.logs_date_remapper_type" => "LogsDateRemapperType",
           "v1.logs_exclusion" => "LogsExclusion",
