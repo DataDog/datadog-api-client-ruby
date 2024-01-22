@@ -176,6 +176,60 @@
       <li class="public ">
   <span class="summary_signature">
     
+      <a href="#daily_limit_reset-instance_method" title="#daily_limit_reset (instance method)">#<strong>daily_limit_reset</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Object containing options to override the default daily limit reset time.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#daily_limit_warning_threshold_percentage-instance_method" title="#daily_limit_warning_threshold_percentage (instance method)">#<strong>daily_limit_warning_threshold_percentage</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>A percentage threshold of the daily quota at which a Datadog warning event is generated.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#exclusion_filters-instance_method" title="#exclusion_filters (instance method)">#<strong>exclusion_filters</strong>  &#x21d2; Object </a>
     
 
@@ -684,6 +738,90 @@
 </div>
     
       
+      <span id="daily_limit_reset=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="daily_limit_reset-instance_method">
+  
+    #<strong>daily_limit_reset</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Object containing options to override the default daily limit reset time.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+28
+29
+30</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/logs_index.rb', line 28</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_daily_limit_reset'>daily_limit_reset</span>
+  <span class='ivar'>@daily_limit_reset</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="daily_limit_warning_threshold_percentage=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="daily_limit_warning_threshold_percentage-instance_method">
+  
+    #<strong>daily_limit_warning_threshold_percentage</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>A percentage threshold of the daily quota at which a Datadog warning event is generated.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+31
+32
+33</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/logs_index.rb', line 31</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_daily_limit_warning_threshold_percentage'>daily_limit_warning_threshold_percentage</span>
+  <span class='ivar'>@daily_limit_warning_threshold_percentage</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
       <span id="exclusion_filters=-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="exclusion_filters-instance_method">
@@ -754,12 +892,12 @@ others (if any) are ignored.</p>
       <pre class="lines">
 
 
-33
-34
-35</pre>
+39
+40
+41</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/logs_index.rb', line 33</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/logs_index.rb', line 39</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_filter'>filter</span>
   <span class='ivar'>@filter</span>
@@ -1795,7 +1933,7 @@ For object, use to_hash. Otherwise, just return the value</p>
 </div>
 
       <div id="footer">
-  Generated on Fri Jan 19 17:11:00 2024 by
+  Generated on Mon Jan 22 19:35:48 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.34 (ruby-2.7.8).
 </div>
