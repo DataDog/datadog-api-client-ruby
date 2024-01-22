@@ -24,6 +24,12 @@ module DatadogAPIClient::V1
     # The number of log events you can send in this index per day before you are rate-limited.
     attr_accessor :daily_limit
 
+    # Object containing options to override the default daily limit reset time.
+    attr_accessor :daily_limit_reset
+
+    # A percentage threshold of the daily quota at which a Datadog warning event is generated.
+    attr_reader :daily_limit_warning_threshold_percentage
+
     # An array of exclusion objects. The logs are tested against the query of each filter,
     # following the order of the array. Only the first matching active exclusion matters,
     # others (if any) are ignored.
@@ -48,6 +54,8 @@ module DatadogAPIClient::V1
     def self.attribute_map
       {
         :'daily_limit' => :'daily_limit',
+        :'daily_limit_reset' => :'daily_limit_reset',
+        :'daily_limit_warning_threshold_percentage' => :'daily_limit_warning_threshold_percentage',
         :'exclusion_filters' => :'exclusion_filters',
         :'filter' => :'filter',
         :'is_rate_limited' => :'is_rate_limited',
@@ -61,6 +69,8 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'daily_limit' => :'Integer',
+        :'daily_limit_reset' => :'LogsDailyLimitReset',
+        :'daily_limit_warning_threshold_percentage' => :'Float',
         :'exclusion_filters' => :'Array<LogsExclusion>',
         :'filter' => :'LogsFilter',
         :'is_rate_limited' => :'Boolean',
@@ -87,6 +97,14 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'daily_limit')
         self.daily_limit = attributes[:'daily_limit']
+      end
+
+      if attributes.key?(:'daily_limit_reset')
+        self.daily_limit_reset = attributes[:'daily_limit_reset']
+      end
+
+      if attributes.key?(:'daily_limit_warning_threshold_percentage')
+        self.daily_limit_warning_threshold_percentage = attributes[:'daily_limit_warning_threshold_percentage']
       end
 
       if attributes.key?(:'exclusion_filters')
@@ -116,9 +134,24 @@ module DatadogAPIClient::V1
     # @return true if the model is valid
     # @!visibility private
     def valid?
+      return false if !@daily_limit_warning_threshold_percentage.nil? && @daily_limit_warning_threshold_percentage > 99.99
+      return false if !@daily_limit_warning_threshold_percentage.nil? && @daily_limit_warning_threshold_percentage < 50
       return false if @filter.nil?
       return false if @name.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param daily_limit_warning_threshold_percentage [Object] Object to be assigned
+    # @!visibility private
+    def daily_limit_warning_threshold_percentage=(daily_limit_warning_threshold_percentage)
+      if !daily_limit_warning_threshold_percentage.nil? && daily_limit_warning_threshold_percentage > 99.99
+        fail ArgumentError, 'invalid value for "daily_limit_warning_threshold_percentage", must be smaller than or equal to 99.99.'
+      end
+      if !daily_limit_warning_threshold_percentage.nil? && daily_limit_warning_threshold_percentage < 50
+        fail ArgumentError, 'invalid value for "daily_limit_warning_threshold_percentage", must be greater than or equal to 50.'
+      end
+      @daily_limit_warning_threshold_percentage = daily_limit_warning_threshold_percentage
     end
 
     # Custom attribute writer method with validation
@@ -148,6 +181,8 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           daily_limit == o.daily_limit &&
+          daily_limit_reset == o.daily_limit_reset &&
+          daily_limit_warning_threshold_percentage == o.daily_limit_warning_threshold_percentage &&
           exclusion_filters == o.exclusion_filters &&
           filter == o.filter &&
           is_rate_limited == o.is_rate_limited &&
@@ -159,7 +194,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [daily_limit, exclusion_filters, filter, is_rate_limited, name, num_retention_days].hash
+      [daily_limit, daily_limit_reset, daily_limit_warning_threshold_percentage, exclusion_filters, filter, is_rate_limited, name, num_retention_days].hash
     end
   end
 end
