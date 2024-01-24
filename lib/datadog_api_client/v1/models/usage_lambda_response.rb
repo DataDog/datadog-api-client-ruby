@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Response containing the number of lambda functions and sum of the invocations of all lambda functions
+  # Response containing the number of Lambda functions and sum of the invocations of all Lambda functions
   # for each hour for a given organization.
   class UsageLambdaResponse
     include BaseGenericModel

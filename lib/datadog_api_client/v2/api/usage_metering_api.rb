@@ -642,7 +642,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Get hourly usage for lambda traced invocations.
+    # Get hourly usage for Lambda traced invocations.
     #
     # @see #get_usage_lambda_traced_invocations_with_http_info
     def get_usage_lambda_traced_invocations(start_hr, opts = {})
@@ -650,9 +650,9 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Get hourly usage for lambda traced invocations.
+    # Get hourly usage for Lambda traced invocations.
     #
-    # Get hourly usage for lambda traced invocations.
+    # Get hourly usage for Lambda traced invocations.
     # **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family)
     #
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.

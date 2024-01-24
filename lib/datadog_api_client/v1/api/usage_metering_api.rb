@@ -1530,7 +1530,7 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get hourly usage for lambda.
+    # Get hourly usage for Lambda.
     #
     # @see #get_usage_lambda_with_http_info
     def get_usage_lambda(start_hr, opts = {})
@@ -1538,9 +1538,9 @@ module DatadogAPIClient::V1
       data
     end
 
-    # Get hourly usage for lambda.
+    # Get hourly usage for Lambda.
     #
-    # Get hourly usage for lambda.
+    # Get hourly usage for Lambda.
     # **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
     #
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
