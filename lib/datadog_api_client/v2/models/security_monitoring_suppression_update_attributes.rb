@@ -27,7 +27,7 @@ module DatadogAPIClient::V2
     # Whether the suppression rule is enabled.
     attr_accessor :enabled
 
-    # A Unix millisecond timestamp giving an expiration date for the suppression rule. After this date, it won't suppress signals anymore.
+    # A Unix millisecond timestamp giving an expiration date for the suppression rule. After this date, it won't suppress signals anymore. If unset, the expiration date of the suppression rule is left untouched. If set to `null`, the expiration date is removed.
     attr_accessor :expiration_date
 
     # The name of the suppression rule.
@@ -68,6 +68,14 @@ module DatadogAPIClient::V2
         :'suppression_query' => :'String',
         :'version' => :'Integer'
       }
+    end
+
+    # List of attributes with nullable: true
+    # @!visibility private
+    def self.openapi_nullable
+      Set.new([
+        :'expiration_date',
+      ])
     end
 
     # Initializes the object
