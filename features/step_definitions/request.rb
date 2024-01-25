@@ -194,6 +194,10 @@ module APIWorld
     args = operation["parameters"].map do |p|
       result = JSON.parse(p["value"].templated fixtures) if p.key? "value"
       result = fixtures.lookup(p["source"]) if p.key? "source"
+      model = ScenariosModelMappings["v#{api_version}.#{operation["operationId"]}"][p["name"]]
+      if model == 'File'
+        result = {p["name"].to_sym => File.open(File.join(__dir__, "..", "v" + api_version, result))}
+      end
       result
     end if operation["parameters"]
 
