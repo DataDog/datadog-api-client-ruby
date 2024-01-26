@@ -189,6 +189,10 @@ module DatadogAPIClient
       @http_proxypass = nil
       @logger = defined?(Rails) ? Rails.logger : Logger.new(STDOUT)
       @unstable_operations = {
+            "v2.create_open_api": false,
+            "v2.delete_open_api": false,
+            "v2.get_open_api": false,
+            "v2.update_open_api": false,
             "v2.get_active_billing_dimensions": false,
             "v2.get_monthly_cost_attribution": false,
             "v2.create_dora_deployment": false,

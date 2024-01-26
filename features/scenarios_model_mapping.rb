@@ -891,6 +891,19 @@ ScenariosModelMappings = {
             "app_key_id" => "String",
             "body" => "ApplicationKeyUpdateRequest",
     },
+    "v2.DeleteOpenAPI" => {
+            "id" => "UUID",
+    },
+    "v2.GetOpenAPI" => {
+            "id" => "UUID",
+    },
+    "v2.UpdateOpenAPI" => {
+            "id" => "UUID",
+            "openapi_spec_file" => "File",
+    },
+    "v2.CreateOpenAPI" => {
+            "openapi_spec_file" => "File",
+    },
     "v2.CreateSpansMetric" => {
             "body" => "SpansMetricCreateRequest",
     },
