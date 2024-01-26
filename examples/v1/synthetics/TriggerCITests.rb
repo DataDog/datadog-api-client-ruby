@@ -12,7 +12,7 @@ body = DatadogAPIClient::V1::SyntheticsCITestBody.new({
         username: "my_username",
       }),
       device_ids: [
-        DatadogAPIClient::V1::SyntheticsDeviceID::LAPTOP_LARGE,
+        DatadogAPIClient::V1::SyntheticsDeviceID::CHROME_LAPTOP_LARGE,
       ],
       locations: [
         "aws:eu-west-3",
