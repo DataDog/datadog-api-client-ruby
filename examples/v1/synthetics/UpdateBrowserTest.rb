@@ -49,7 +49,7 @@ body = DatadogAPIClient::V1::SyntheticsBrowserTest.new({
       execution_rule: DatadogAPIClient::V1::SyntheticsTestExecutionRule::BLOCKING,
     }),
     device_ids: [
-      DatadogAPIClient::V1::SyntheticsDeviceID::LAPTOP_LARGE,
+      DatadogAPIClient::V1::SyntheticsDeviceID::CHROME_LAPTOP_LARGE,
     ],
     http_version: DatadogAPIClient::V1::SyntheticsTestOptionsHTTPVersion::HTTP1,
     monitor_options: DatadogAPIClient::V1::SyntheticsTestOptionsMonitorOptions.new({}),
