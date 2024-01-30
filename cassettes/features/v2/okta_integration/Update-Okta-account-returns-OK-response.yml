@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Tue, 21 Nov 2023 16:59:47 GMT
+- recorded_at: Tue, 30 Jan 2024 15:54:03 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"auth_method":"oauth","client_id":"fakeclientid","client_secret":"fakeclientsecret","domain":"https://dev-test.okta.com/","name":"testupdateoktaaccountreturnsokresponse1700585987"},"type":"okta-accounts"}}'
+      string: '{"data":{"attributes":{"auth_method":"oauth","client_id":"fakeclientid","client_secret":"fakeclientsecret","domain":"https://dev-test.okta.com/","name":"testupdateoktaaccountreturnsokresponse1706630043"},"type":"okta-accounts"}}'
     headers:
       Accept:
       - application/json
@@ -14,7 +14,7 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"okta-accounts","attributes":{"domain":"https://dev-test.okta.com/","auth_method":"oauth","client_id":"fakeclientid","name":"testupdateoktaaccountreturnsokresponse1700585987"},"id":"c847a349-9687-4b80-8b0f-996e0e75f73e"}}
+      string: '{"data":{"type":"okta-accounts","attributes":{"name":"testupdateoktaaccountreturnsokresponse1706630043","auth_method":"oauth","domain":"https://dev-test.okta.com/","client_id":"fakeclientid"},"id":"e8630371-1a60-4444-b84e-f674beec5f73"}}
 
         '
     headers:
@@ -23,7 +23,7 @@ http_interactions:
     status:
       code: 201
       message: Created
-- recorded_at: Tue, 21 Nov 2023 16:59:47 GMT
+- recorded_at: Tue, 30 Jan 2024 15:54:03 GMT
   request:
     body:
       encoding: UTF-8
@@ -34,11 +34,11 @@ http_interactions:
       Content-Type:
       - application/json
     method: PATCH
-    uri: https://api.datadoghq.com/api/v2/integrations/okta/accounts/c847a349-9687-4b80-8b0f-996e0e75f73e
+    uri: https://api.datadoghq.com/api/v2/integrations/okta/accounts/e8630371-1a60-4444-b84e-f674beec5f73
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"okta-accounts","id":"7343985f-6e86-4327-8792-538b4c9b38e9","attributes":{"auth_method":"oauth","client_id":"client_id","domain":"https://example.okta.com/","name":"testupdateoktaaccountreturnsokresponse1700585987"}}}
+      string: '{"data":{"type":"okta-accounts","attributes":{"name":"testupdateoktaaccountreturnsokresponse1706630043","client_id":"client_id","domain":"https://example.okta.com/","auth_method":"oauth"},"id":"7caeaadf-8391-45b0-b99b-5356eed810fd"}}
 
         '
     headers:
@@ -47,14 +47,32 @@ http_interactions:
     status:
       code: 200
       message: OK
-- recorded_at: Tue, 21 Nov 2023 16:59:47 GMT
+- recorded_at: Tue, 30 Jan 2024 15:54:03 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/integrations/okta/accounts/c847a349-9687-4b80-8b0f-996e0e75f73e
+    uri: https://api.datadoghq.com/api/v2/integrations/okta/accounts/7caeaadf-8391-45b0-b99b-5356eed810fd
+  response:
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Content-Type:
+      - text/html; charset=utf-8
+    status:
+      code: 204
+      message: No Content
+- recorded_at: Tue, 30 Jan 2024 15:54:03 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/integrations/okta/accounts/e8630371-1a60-4444-b84e-f674beec5f73
   response:
     body:
       encoding: UTF-8
