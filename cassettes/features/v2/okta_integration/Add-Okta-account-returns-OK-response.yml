@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Tue, 21 Nov 2023 16:59:43 GMT
+- recorded_at: Mon, 29 Jan 2024 14:58:52 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"auth_method":"oauth","client_id":"client_id","client_secret":"client_secret","domain":"https://example.okta.com/","name":"Okta_Prod"},"id":"f749daaf-682e-4208-a38d-c9b43162c609","type":"okta-accounts"}}'
+      string: '{"data":{"attributes":{"auth_method":"oauth","client_id":"client_id","client_secret":"client_secret","domain":"https://example.okta.com/","name":"testaddoktaaccountreturnsokresponse1706540332"},"id":"f749daaf-682e-4208-a38d-c9b43162c609","type":"okta-accounts"}}'
     headers:
       Accept:
       - application/json
@@ -14,7 +14,7 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"okta-accounts","attributes":{"domain":"https://example.okta.com/","client_id":"client_id","auth_method":"oauth","name":"Okta_Prod"},"id":"6330b376-d352-4a06-a169-107002bd6e6c"}}
+      string: '{"data":{"type":"okta-accounts","attributes":{"auth_method":"oauth","client_id":"client_id","domain":"https://example.okta.com/","name":"testaddoktaaccountreturnsokresponse1706540332"},"id":"1e62be98-94ab-403d-9491-98b7fbf9a7de"}}
 
         '
     headers:
@@ -23,14 +23,14 @@ http_interactions:
     status:
       code: 201
       message: Created
-- recorded_at: Tue, 21 Nov 2023 16:59:43 GMT
+- recorded_at: Mon, 29 Jan 2024 14:58:52 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/integrations/okta/accounts/6330b376-d352-4a06-a169-107002bd6e6c
+    uri: https://api.datadoghq.com/api/v2/integrations/okta/accounts/1e62be98-94ab-403d-9491-98b7fbf9a7de
   response:
     body:
       encoding: UTF-8
