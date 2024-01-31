@@ -29,7 +29,7 @@ module DatadogAPIClient::V2
     attr_reader :character_count
 
     # Keyword list that will be checked during scanning in order to validate a match.
-    # The number of keywords in the list must be less than or equal to 20.
+    # The number of keywords in the list must be less than or equal to 30.
     attr_reader :keywords
 
     # Attribute mapping from ruby-style variable name to JSON key.
