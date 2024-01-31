@@ -97,13 +97,13 @@ module DatadogAPIClient::V1
     # @!visibility private
     def valid?
       return false if @limit.nil?
-      return false if @limit > 100
+      return false if @limit > 500
       return false if @limit < 1
       return false if @sort.nil?
       return false if @split_dimensions.nil?
       return false if @split_dimensions.length > 1
       return false if @split_dimensions.length < 1
-      return false if !@static_splits.nil? && @static_splits.length > 100
+      return false if !@static_splits.nil? && @static_splits.length > 500
       true
     end
 
@@ -114,8 +114,8 @@ module DatadogAPIClient::V1
       if limit.nil?
         fail ArgumentError, 'invalid value for "limit", limit cannot be nil.'
       end
-      if limit > 100
-        fail ArgumentError, 'invalid value for "limit", must be smaller than or equal to 100.'
+      if limit > 500
+        fail ArgumentError, 'invalid value for "limit", must be smaller than or equal to 500.'
       end
       if limit < 1
         fail ArgumentError, 'invalid value for "limit", must be greater than or equal to 1.'
@@ -153,8 +153,8 @@ module DatadogAPIClient::V1
     # @param static_splits [Object] Object to be assigned
     # @!visibility private
     def static_splits=(static_splits)
-      if !static_splits.nil? && static_splits.length > 100
-        fail ArgumentError, 'invalid value for "static_splits", number of items must be less than or equal to 100.'
+      if !static_splits.nil? && static_splits.length > 500
+        fail ArgumentError, 'invalid value for "static_splits", number of items must be less than or equal to 500.'
       end
       @static_splits = static_splits
     end
