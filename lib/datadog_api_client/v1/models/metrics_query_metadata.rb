@@ -42,7 +42,7 @@ module DatadogAPIClient::V1
     # Metric name.
     attr_accessor :metric
 
-    # List of points of the time series in milliseconds.
+    # List of points of the timeseries in milliseconds.
     attr_accessor :pointlist
 
     # The index of the series' query within the request.
