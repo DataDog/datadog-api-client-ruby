@@ -1,5 +1,25 @@
 # CHANGELOG
 
+## 2.20.0 / 2024-02-06
+
+### Fixed
+* Add test support for file parameters by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1700
+* Security Monitoring Suppressions - Make expiration date nullable in update payload by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1709
+### Added
+* Security Monitoring - Add API support for suppression rules by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1696
+* Document support for BYDAY in SLO corrections by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1701
+* Add missing optional field env in DORA API endpoints by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1702
+* Add compressedProtoFile field to SyntheticsTestRequest by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1699
+* Add daily limit reset options to logs indexes api by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1703
+* Add support for API management API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1698
+* Add pagination helper for team memberships by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1712
+* Increase limit on allowed number of graphs in split graph widget by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1717
+### Deprecated
+* Mark dashboard 'is_read_only' and 'restricted_roles' properties as deprecated by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1688
+
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-ruby/compare/v2.19.0...v2.20.0
+
 ## 2.19.0 / 2024-01-10
 
 ### Added
