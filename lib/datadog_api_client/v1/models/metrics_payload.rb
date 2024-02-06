@@ -21,7 +21,7 @@ module DatadogAPIClient::V1
   class MetricsPayload
     include BaseGenericModel
 
-    # A list of time series to submit to Datadog.
+    # A list of timeseries to submit to Datadog.
     attr_reader :series
 
     # Attribute mapping from ruby-style variable name to JSON key.

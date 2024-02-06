@@ -23,7 +23,7 @@ module DatadogAPIClient::V1
   class SLOHistoryMetrics
     include BaseGenericModel
 
-    # A representation of `metric` based SLO time series for the provided queries.
+    # A representation of `metric` based SLO timeseries for the provided queries.
     # This is the same response type from `batch_query` endpoint.
     attr_reader :denominator
 
@@ -33,7 +33,7 @@ module DatadogAPIClient::V1
     # Optional message if there are specific query issues/warnings.
     attr_accessor :message
 
-    # A representation of `metric` based SLO time series for the provided queries.
+    # A representation of `metric` based SLO timeseries for the provided queries.
     # This is the same response type from `batch_query` endpoint.
     attr_reader :numerator
 
