@@ -963,6 +963,52 @@ ScenariosModelMappings = {
             "authn_mapping_id" => "String",
             "body" => "AuthNMappingUpdateRequest",
     },
+    "v2.SearchCases" => {
+            "page_size" => "Integer",
+            "page_offset" => "Integer",
+            "sort_field" => "CaseSortableField",
+            "filter" => "String",
+            "sort_asc" => "Boolean",
+    },
+    "v2.CreateCase" => {
+            "body" => "CaseCreateRequest",
+    },
+    "v2.GetCase" => {
+            "case_id" => "String",
+    },
+    "v2.ArchiveCase" => {
+            "case_id" => "String",
+            "body" => "CaseEmptyRequest",
+    },
+    "v2.AssignCase" => {
+            "case_id" => "String",
+            "body" => "CaseAssignRequest",
+    },
+    "v2.UpdatePriority" => {
+            "case_id" => "String",
+            "body" => "CaseUpdatePriorityRequest",
+    },
+    "v2.UpdateStatus" => {
+            "case_id" => "String",
+            "body" => "CaseUpdateStatusRequest",
+    },
+    "v2.UnarchiveCase" => {
+            "case_id" => "String",
+            "body" => "CaseEmptyRequest",
+    },
+    "v2.UnassignCase" => {
+            "case_id" => "String",
+            "body" => "CaseEmptyRequest",
+    },
+    "v2.CreateProject" => {
+            "body" => "ProjectCreateRequest",
+    },
+    "v2.DeleteProject" => {
+            "project_id" => "String",
+    },
+    "v2.GetProject" => {
+            "project_id" => "String",
+    },
     "v2.CreateCIAppPipelineEvent" => {
             "body" => "CIAppCreatePipelineEventRequest",
     },
