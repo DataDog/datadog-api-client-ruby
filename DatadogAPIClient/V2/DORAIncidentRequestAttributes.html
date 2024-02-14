@@ -254,7 +254,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#service-instance_method" title="#service (instance method)">#<strong>service</strong>  &#x21d2; Object </a>
+      <a href="#services-instance_method" title="#services (instance method)">#<strong>services</strong>  &#x21d2; Object </a>
     
 
     
@@ -263,8 +263,6 @@
   
   
     
-      <span class="note title readonly">readonly</span>
-    
     
   
   
@@ -273,7 +271,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Service name from a service available in the Service Catalog.</p>
+    <span class="summary_desc"><div class='inline'><p>Service names impacted by the incident.</p>
 </div></span>
   
 </li>
@@ -328,6 +326,32 @@
 
   
     <span class="summary_desc"><div class='inline'><p>Unix timestamp in nanoseconds when the incident started.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#team-instance_method" title="#team (instance method)">#<strong>team</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Name of the team owning the services impacted.</p>
 </div></span>
   
 </li>
@@ -518,7 +542,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Incident ID</p>
+    <p>Incident ID. Required to update a previously sent incident.</p>
 
 
   </div>
@@ -590,11 +614,11 @@
 </div>
     
       
-      <span id="service=-instance_method"></span>
+      <span id="services=-instance_method"></span>
       <div class="method_details ">
-  <h3 class="signature " id="service-instance_method">
+  <h3 class="signature " id="services-instance_method">
   
-    #<strong>service</strong>  &#x21d2; <tt>Object</tt> 
+    #<strong>services</strong>  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -602,7 +626,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Service name from a service available in the Service Catalog.</p>
+    <p>Service names impacted by the incident. If possible, use names registered in the Service Catalog. Required when the team field is not provided.</p>
 
 
   </div>
@@ -623,8 +647,8 @@
     <td>
       <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/dora_incident_request_attributes.rb', line 40</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_service'>service</span>
-  <span class='ivar'>@service</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_services'>services</span>
+  <span class='ivar'>@services</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -716,6 +740,48 @@
 </div>
     
       
+      <span id="team=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="team-instance_method">
+  
+    #<strong>team</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Name of the team owning the services impacted. If possible, use team handles registered in Datadog. Required when the services field is not provided.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+49
+50
+51</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/dora_incident_request_attributes.rb', line 49</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_team'>team</span>
+  <span class='ivar'>@team</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
       <span id="version=-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="version-instance_method">
@@ -742,12 +808,12 @@
       <pre class="lines">
 
 
-49
-50
-51</pre>
+52
+53
+54</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/dora_incident_request_attributes.rb', line 49</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/dora_incident_request_attributes.rb', line 52</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_version'>version</span>
   <span class='ivar'>@version</span>
@@ -763,7 +829,7 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Feb 13 13:03:40 2024 by
+  Generated on Wed Feb 14 14:30:20 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.34 (ruby-2.7.8).
 </div>
