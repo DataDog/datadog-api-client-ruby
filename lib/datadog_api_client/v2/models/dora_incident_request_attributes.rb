@@ -30,20 +30,23 @@ module DatadogAPIClient::V2
     # Git info for DORA Metrics events.
     attr_accessor :git
 
-    # Incident ID
+    # Incident ID. Required to update a previously sent incident.
     attr_accessor :id
 
     # Incident name.
     attr_accessor :name
 
-    # Service name from a service available in the Service Catalog.
-    attr_reader :service
+    # Service names impacted by the incident. If possible, use names registered in the Service Catalog. Required when the team field is not provided.
+    attr_accessor :services
 
     # Incident severity.
     attr_accessor :severity
 
     # Unix timestamp in nanoseconds when the incident started.
     attr_reader :started_at
+
+    # Name of the team owning the services impacted. If possible, use team handles registered in Datadog. Required when the services field is not provided.
+    attr_accessor :team
 
     # Version to correlate with [APM Deployment Tracking](https://docs.datadoghq.com/tracing/services/deployment_tracking/).
     attr_accessor :version
@@ -57,9 +60,10 @@ module DatadogAPIClient::V2
         :'git' => :'git',
         :'id' => :'id',
         :'name' => :'name',
-        :'service' => :'service',
+        :'services' => :'services',
         :'severity' => :'severity',
         :'started_at' => :'started_at',
+        :'team' => :'team',
         :'version' => :'version'
       }
     end
@@ -73,9 +77,10 @@ module DatadogAPIClient::V2
         :'git' => :'DORAGitInfo',
         :'id' => :'String',
         :'name' => :'String',
-        :'service' => :'String',
+        :'services' => :'Array<String>',
         :'severity' => :'String',
         :'started_at' => :'Integer',
+        :'team' => :'String',
         :'version' => :'String'
       }
     end
@@ -116,8 +121,10 @@ module DatadogAPIClient::V2
         self.name = attributes[:'name']
       end
 
-      if attributes.key?(:'service')
-        self.service = attributes[:'service']
+      if attributes.key?(:'services')
+        if (value = attributes[:'services']).is_a?(Array)
+          self.services = value
+        end
       end
 
       if attributes.key?(:'severity')
@@ -126,6 +133,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'started_at')
         self.started_at = attributes[:'started_at']
+      end
+
+      if attributes.key?(:'team')
+        self.team = attributes[:'team']
       end
 
       if attributes.key?(:'version')
@@ -137,19 +148,8 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @service.nil?
       return false if @started_at.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param service [Object] Object to be assigned
-    # @!visibility private
-    def service=(service)
-      if service.nil?
-        fail ArgumentError, 'invalid value for "service", service cannot be nil.'
-      end
-      @service = service
     end
 
     # Custom attribute writer method with validation
@@ -173,9 +173,10 @@ module DatadogAPIClient::V2
           git == o.git &&
           id == o.id &&
           name == o.name &&
-          service == o.service &&
+          services == o.services &&
           severity == o.severity &&
           started_at == o.started_at &&
+          team == o.team &&
           version == o.version
     end
 
@@ -183,7 +184,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [env, finished_at, git, id, name, service, severity, started_at, version].hash
+      [env, finished_at, git, id, name, services, severity, started_at, team, version].hash
     end
   end
 end
