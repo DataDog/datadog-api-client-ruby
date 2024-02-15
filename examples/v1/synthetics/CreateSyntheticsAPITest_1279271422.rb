@@ -47,6 +47,34 @@ body = DatadogAPIClient::V1::SyntheticsAPITest.new({
         }),
         subtype: DatadogAPIClient::V1::SyntheticsAPIStepSubtype::HTTP,
       }),
+      DatadogAPIClient::V1::SyntheticsAPIStep.new({
+        name: "GRPC CALL",
+        subtype: DatadogAPIClient::V1::SyntheticsAPIStepSubtype::GRPC,
+        extracted_values: [],
+        allow_failure: false,
+        is_critical: true,
+        _retry: DatadogAPIClient::V1::SyntheticsTestOptionsRetry.new({
+          count: 0,
+          interval: 300,
+        }),
+        assertions: [
+          DatadogAPIClient::V1::SyntheticsAssertionTarget.new({
+            operator: DatadogAPIClient::V1::SyntheticsAssertionOperator::LESS_THAN,
+            type: DatadogAPIClient::V1::SyntheticsAssertionType::RESPONSE_TIME,
+            target: 1000,
+          }),
+        ],
+        request: DatadogAPIClient::V1::SyntheticsTestRequest.new({
+          host: "grpcbin.test.k6.io",
+          port: 9000,
+          service: "grpcbin.GRPCBin",
+          method: "Index",
+          message: "{}",
+          compressed_json_descriptor: "eJy1lU1z2yAQhv+Lzj74I3ETH506bQ7OZOSm1w4Wa4epBARQppqM/3v5koCJJdvtxCdW77vPssCO3zMKUgHOFu/ZXvBiS6hZho/f8qe7pftYgXphWJrlA8XwxywEvNba+6PhkC2yVcVVswYp0R6ykRYlZ1SCV21SDrxsssPIeS9FJKqGfK2rqnmmSBwhWa2XlKgtaQPiDcRGCUDVfwGD2sKUqKEtc1cSoOrsMlaMOec1sySYCCgUYRSVLv2zSva2u+FQkB0pVkIw8bFuIudOOn3pOaKYVT3Iy97Pd0AYhOx5QcMsnxvRHlnuLf8ETDd3CNtrv2nejkDpRnANCmGkkFn/hsYzpBKE7jVbufgnKnV9HRM9zRPDDKPttYT61n0TdWkAAjggk9AhuxIeaXd69CYTcsGw7cBTakLVbNpRzGEgyWjkSOpMbZXkhGL6oX30R49qt3GoHrap7i0XdD41WQ+2icCNm5p1hmFqnHNlcla0riKmDZ183crDxChjbnurtxHPRE784sVhWvDfGP+SsTKibU3o5NtWHuZFGZOxP6P5VXqIOvaOSec4eYohyd7NslHuJbd1bewds85xYrNxkr2d+5IhFWF3NvaO684xjE2S5ulY+tu64Pna0fCPJgzw6vF5/WucLcYjt5xoq19O3UDptOg/OamJQRaCcPPnMTQ2QDFn+uhPvUfnCrMc99upyQY4Ui9Dlc/YoG3R/v4Cs9YE+g==",
+          metadata: {},
+          call_type: DatadogAPIClient::V1::SyntheticsTestCallType::UNARY,
+        }),
+      }),
     ],
   }),
   locations: [

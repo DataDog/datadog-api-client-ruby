@@ -22,5 +22,6 @@ module DatadogAPIClient::V1
     include BaseEnumModel
 
     HTTP = "http".freeze
+    GRPC = "grpc".freeze
   end
 end
