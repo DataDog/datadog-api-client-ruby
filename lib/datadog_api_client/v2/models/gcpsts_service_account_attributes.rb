@@ -30,6 +30,10 @@ module DatadogAPIClient::V2
     # Your service account email address.
     attr_accessor :client_email
 
+    # List of filters to limit the Cloud Run revisions that are pulled into Datadog by using tags.
+    # Only Cloud Run revision resources that apply to specified filters are imported into Datadog.
+    attr_accessor :cloud_run_revision_filters
+
     # Your Host Filters.
     attr_accessor :host_filters
 
@@ -49,6 +53,7 @@ module DatadogAPIClient::V2
         :'account_tags' => :'account_tags',
         :'automute' => :'automute',
         :'client_email' => :'client_email',
+        :'cloud_run_revision_filters' => :'cloud_run_revision_filters',
         :'host_filters' => :'host_filters',
         :'is_cspm_enabled' => :'is_cspm_enabled',
         :'is_security_command_center_enabled' => :'is_security_command_center_enabled',
@@ -63,6 +68,7 @@ module DatadogAPIClient::V2
         :'account_tags' => :'Array<String>',
         :'automute' => :'Boolean',
         :'client_email' => :'String',
+        :'cloud_run_revision_filters' => :'Array<String>',
         :'host_filters' => :'Array<String>',
         :'is_cspm_enabled' => :'Boolean',
         :'is_security_command_center_enabled' => :'Boolean',
@@ -100,6 +106,12 @@ module DatadogAPIClient::V2
         self.client_email = attributes[:'client_email']
       end
 
+      if attributes.key?(:'cloud_run_revision_filters')
+        if (value = attributes[:'cloud_run_revision_filters']).is_a?(Array)
+          self.cloud_run_revision_filters = value
+        end
+      end
+
       if attributes.key?(:'host_filters')
         if (value = attributes[:'host_filters']).is_a?(Array)
           self.host_filters = value
@@ -128,6 +140,7 @@ module DatadogAPIClient::V2
           account_tags == o.account_tags &&
           automute == o.automute &&
           client_email == o.client_email &&
+          cloud_run_revision_filters == o.cloud_run_revision_filters &&
           host_filters == o.host_filters &&
           is_cspm_enabled == o.is_cspm_enabled &&
           is_security_command_center_enabled == o.is_security_command_center_enabled &&
@@ -138,7 +151,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [account_tags, automute, client_email, host_filters, is_cspm_enabled, is_security_command_center_enabled, resource_collection_enabled].hash
+      [account_tags, automute, client_email, cloud_run_revision_filters, host_filters, is_cspm_enabled, is_security_command_center_enabled, resource_collection_enabled].hash
     end
   end
 end

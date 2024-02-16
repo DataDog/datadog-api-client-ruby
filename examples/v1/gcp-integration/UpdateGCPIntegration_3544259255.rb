@@ -1,4 +1,4 @@
-# Create a GCP integration returns "OK" response
+# Update a GCP integration cloud run revision filters returns "OK" response
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::GCPIntegrationAPI.new
@@ -11,7 +11,7 @@ body = DatadogAPIClient::V1::GCPAccount.new({
   client_x509_cert_url: "https://www.googleapis.com/robot/v1/metadata/x509/$CLIENT_EMAIL",
   host_filters: "key:value,filter:example",
   cloud_run_revision_filters: [
-    "dr:dre",
+    "merp:derp",
   ],
   is_cspm_enabled: true,
   is_security_command_center_enabled: true,
@@ -22,4 +22,4 @@ body = DatadogAPIClient::V1::GCPAccount.new({
   token_uri: "https://accounts.google.com/o/oauth2/token",
   type: "service_account",
 })
-p api_instance.create_gcp_integration(body)
+p api_instance.update_gcp_integration(body)
