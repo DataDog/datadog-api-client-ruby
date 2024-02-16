@@ -306,6 +306,32 @@
       <li class="public ">
   <span class="summary_signature">
     
+      <a href="#cloud_run_revision_filters-instance_method" title="#cloud_run_revision_filters (instance method)">#<strong>cloud_run_revision_filters</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Limit the Cloud Run revisions that are pulled into Datadog by using tags.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#errors-instance_method" title="#errors (instance method)">#<strong>errors</strong>  &#x21d2; Object </a>
     
 
@@ -1174,6 +1200,49 @@ where <code>$CLIENT_EMAIL</code> is the email found in your JSON service account
 </div>
     
       
+      <span id="cloud_run_revision_filters=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="cloud_run_revision_filters-instance_method">
+  
+    #<strong>cloud_run_revision_filters</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Limit the Cloud Run revisions that are pulled into Datadog by using tags.
+Only Cloud Run revision resources that apply to specified filters are imported into Datadog.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+45
+46
+47</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/gcp_account.rb', line 45</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_cloud_run_revision_filters'>cloud_run_revision_filters</span>
+  <span class='ivar'>@cloud_run_revision_filters</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
       <span id="errors=-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="errors-instance_method">
@@ -1285,12 +1354,12 @@ Only hosts that match one of the defined tags are imported into Datadog.</p>
       <pre class="lines">
 
 
-51
-52
-53</pre>
+55
+56
+57</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/gcp_account.rb', line 51</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/gcp_account.rb', line 55</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_is_cspm_enabled'>is_cspm_enabled</span>
   <span class='ivar'>@is_cspm_enabled</span>
@@ -1327,12 +1396,12 @@ Only hosts that match one of the defined tags are imported into Datadog.</p>
       <pre class="lines">
 
 
-54
-55
-56</pre>
+58
+59
+60</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/gcp_account.rb', line 54</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/gcp_account.rb', line 58</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_is_security_command_center_enabled'>is_security_command_center_enabled</span>
   <span class='ivar'>@is_security_command_center_enabled</span>
@@ -1495,12 +1564,12 @@ Only hosts that match one of the defined tags are imported into Datadog.</p>
       <pre class="lines">
 
 
-66
-67
-68</pre>
+70
+71
+72</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/gcp_account.rb', line 66</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/gcp_account.rb', line 70</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_resource_collection_enabled'>resource_collection_enabled</span>
   <span class='ivar'>@resource_collection_enabled</span>
@@ -2533,7 +2602,7 @@ For object, use to_hash. Otherwise, just return the value</p>
 </div>
 
       <div id="footer">
-  Generated on Thu Feb 15 18:25:36 2024 by
+  Generated on Fri Feb 16 19:57:12 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.34 (ruby-2.7.8).
 </div>
