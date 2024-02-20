@@ -40,6 +40,10 @@ module DatadogAPIClient::V1
     # where `$CLIENT_EMAIL` is the email found in your JSON service account key.
     attr_accessor :client_x509_cert_url
 
+    # Limit the Cloud Run revisions that are pulled into Datadog by using tags.
+    # Only Cloud Run revision resources that apply to specified filters are imported into Datadog.
+    attr_accessor :cloud_run_revision_filters
+
     # An array of errors.
     attr_accessor :errors
 
@@ -81,6 +85,7 @@ module DatadogAPIClient::V1
         :'client_email' => :'client_email',
         :'client_id' => :'client_id',
         :'client_x509_cert_url' => :'client_x509_cert_url',
+        :'cloud_run_revision_filters' => :'cloud_run_revision_filters',
         :'errors' => :'errors',
         :'host_filters' => :'host_filters',
         :'is_cspm_enabled' => :'is_cspm_enabled',
@@ -104,6 +109,7 @@ module DatadogAPIClient::V1
         :'client_email' => :'String',
         :'client_id' => :'String',
         :'client_x509_cert_url' => :'String',
+        :'cloud_run_revision_filters' => :'Array<String>',
         :'errors' => :'Array<String>',
         :'host_filters' => :'String',
         :'is_cspm_enabled' => :'Boolean',
@@ -155,6 +161,12 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'client_x509_cert_url')
         self.client_x509_cert_url = attributes[:'client_x509_cert_url']
+      end
+
+      if attributes.key?(:'cloud_run_revision_filters')
+        if (value = attributes[:'cloud_run_revision_filters']).is_a?(Array)
+          self.cloud_run_revision_filters = value
+        end
       end
 
       if attributes.key?(:'errors')
@@ -212,6 +224,7 @@ module DatadogAPIClient::V1
           client_email == o.client_email &&
           client_id == o.client_id &&
           client_x509_cert_url == o.client_x509_cert_url &&
+          cloud_run_revision_filters == o.cloud_run_revision_filters &&
           errors == o.errors &&
           host_filters == o.host_filters &&
           is_cspm_enabled == o.is_cspm_enabled &&
@@ -228,7 +241,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [auth_provider_x509_cert_url, auth_uri, automute, client_email, client_id, client_x509_cert_url, errors, host_filters, is_cspm_enabled, is_security_command_center_enabled, private_key, private_key_id, project_id, resource_collection_enabled, token_uri, type].hash
+      [auth_provider_x509_cert_url, auth_uri, automute, client_email, client_id, client_x509_cert_url, cloud_run_revision_filters, errors, host_filters, is_cspm_enabled, is_security_command_center_enabled, private_key, private_key_id, project_id, resource_collection_enabled, token_uri, type].hash
     end
   end
 end

@@ -34,7 +34,7 @@ module DatadogAPIClient::V2
     # The value to use for logs that don't have the facet used to group-by.
     attr_accessor :missing
 
-    # A sort rule.
+    # A sort rule. The `aggregation` field is required when `type` is `measure`.
     attr_accessor :sort
 
     # A resulting object to put the given computes in over all the matching records.
