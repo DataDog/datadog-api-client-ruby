@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A sort rule.
+  # A sort rule. The `aggregation` field is required when `type` is `measure`.
   class CIAppAggregateSort
     include BaseGenericModel
 
