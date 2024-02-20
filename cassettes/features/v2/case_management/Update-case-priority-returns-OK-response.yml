@@ -1,0 +1,48 @@
+http_interactions:
+- recorded_at: Wed, 14 Feb 2024 18:55:19 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"priority":"P4","title":"My new case","type":"STANDARD"},"relationships":{"project":{"data":{"id":"d4bbe1af-f36e-42f1-87c1-493ca35c320e","type":"project"}}},"type":"case"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/cases
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"c55de906-a08b-4916-ade3-5f1b268379c3","type":"case","attributes":{"attributes":{},"created_at":"2024-02-14T18:55:19.080339451Z","creation_source":"MANUAL","description":"","insights":[],"internal_id":"c55de906-a08b-4916-ade3-5f1b268379c3","key":"DDFC-193","priority":"P4","public_id":"253","status":"OPEN","title":"My
+        new case","type":"STANDARD"},"relationships":{"created_by":{"data":{"id":"3ad549bf-eba0-11e9-a77a-0705486660d0","type":"user"}},"project":{"data":{"id":"d4bbe1af-f36e-42f1-87c1-493ca35c320e","type":"project"}}}},"included":[{"id":"3ad549bf-eba0-11e9-a77a-0705486660d0","type":"user","attributes":{"email":"frog@datadoghq.com","handle":"frog@datadoghq.com","name":""}}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 201
+      message: Created
+- recorded_at: Wed, 14 Feb 2024 18:55:19 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"priority":"P3"},"type":"case"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/cases/c55de906-a08b-4916-ade3-5f1b268379c3/priority
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"c55de906-a08b-4916-ade3-5f1b268379c3","type":"case","attributes":{"attributes":{},"created_at":"2024-02-14T18:55:19.080339Z","creation_source":"MANUAL","description":"","insights":[],"internal_id":"c55de906-a08b-4916-ade3-5f1b268379c3","key":"DDFC-193","modified_at":"2024-02-14T18:55:19.160763Z","priority":"P3","public_id":"253","status":"OPEN","title":"My
+        new case","type":"STANDARD"},"relationships":{"created_by":{"data":{"id":"3ad549bf-eba0-11e9-a77a-0705486660d0","type":"user"}},"modified_by":{"data":{"id":"3ad549bf-eba0-11e9-a77a-0705486660d0","type":"user"}},"project":{"data":{"id":"d4bbe1af-f36e-42f1-87c1-493ca35c320e","type":"project"}}}},"included":[{"id":"3ad549bf-eba0-11e9-a77a-0705486660d0","type":"user","attributes":{"email":"frog@datadoghq.com","handle":"frog@datadoghq.com","name":""}}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 200
+      message: OK
+recorded_with: VCR 6.0.0

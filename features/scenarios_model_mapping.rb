@@ -973,6 +973,15 @@ ScenariosModelMappings = {
     "v2.CreateCase" => {
             "body" => "CaseCreateRequest",
     },
+    "v2.CreateProject" => {
+            "body" => "ProjectCreateRequest",
+    },
+    "v2.DeleteProject" => {
+            "project_id" => "String",
+    },
+    "v2.GetProject" => {
+            "project_id" => "String",
+    },
     "v2.GetCase" => {
             "case_id" => "String",
     },
@@ -999,15 +1008,6 @@ ScenariosModelMappings = {
     "v2.UnassignCase" => {
             "case_id" => "String",
             "body" => "CaseEmptyRequest",
-    },
-    "v2.CreateProject" => {
-            "body" => "ProjectCreateRequest",
-    },
-    "v2.DeleteProject" => {
-            "project_id" => "String",
-    },
-    "v2.GetProject" => {
-            "project_id" => "String",
     },
     "v2.CreateCIAppPipelineEvent" => {
             "body" => "CIAppCreatePipelineEventRequest",
