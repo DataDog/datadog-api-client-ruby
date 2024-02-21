@@ -323,7 +323,7 @@ module DatadogAPIClient::V2
     # @param metric_name [String] The name of the metric.
     # @param opts [Hash] the optional parameters
     # @option opts [String] :filter_groups Filtered tag keys that the metric is configured to query with.
-    # @option opts [Integer] :filter_hours_ago The number of hours of look back (from now) to estimate cardinality with.
+    # @option opts [Integer] :filter_hours_ago The number of hours of look back (from now) to estimate cardinality with. Estimates are based on historical data, and unspecified fields default to the minimum 49 hours.
     # @option opts [Integer] :filter_num_aggregations The number of aggregations that a `count`, `rate`, or `gauge` metric is configured to use. Max number of aggregation combos is 9.
     # @option opts [Boolean] :filter_pct A boolean, for distribution metrics only, to estimate cardinality if the metric includes additional percentile aggregators.
     # @option opts [Integer] :filter_timespan_h A window, in hours, from the look back to estimate cardinality with.
@@ -339,6 +339,9 @@ module DatadogAPIClient::V2
       end
       if @api_client.config.client_side_validation && !opts[:'filter_hours_ago'].nil? && opts[:'filter_hours_ago'] > 2147483647
         fail ArgumentError, 'invalid value for "opts[:"filter_hours_ago"]" when calling MetricsAPI.estimate_metrics_output_series, must be smaller than or equal to 2147483647.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'filter_hours_ago'].nil? && opts[:'filter_hours_ago'] < 49
+        fail ArgumentError, 'invalid value for "opts[:"filter_hours_ago"]" when calling MetricsAPI.estimate_metrics_output_series, must be greater than or equal to 49.'
       end
       if @api_client.config.client_side_validation && !opts[:'filter_num_aggregations'].nil? && opts[:'filter_num_aggregations'] > 9
         fail ArgumentError, 'invalid value for "opts[:"filter_num_aggregations"]" when calling MetricsAPI.estimate_metrics_output_series, must be smaller than or equal to 9.'
