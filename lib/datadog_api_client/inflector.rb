@@ -2209,6 +2209,7 @@ module DatadogAPIClient
           "v2.user_team" => "UserTeam",
           "v2.user_team_attributes" => "UserTeamAttributes",
           "v2.user_team_create" => "UserTeamCreate",
+          "v2.user_team_included" => "UserTeamIncluded",
           "v2.user_team_permission" => "UserTeamPermission",
           "v2.user_team_permission_attributes" => "UserTeamPermissionAttributes",
           "v2.user_team_permission_type" => "UserTeamPermissionType",

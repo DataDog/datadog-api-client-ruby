@@ -24,11 +24,15 @@ module DatadogAPIClient::V2
     # A user's relationship with a team
     attr_accessor :data
 
+    # Resources related to the team memberships
+    attr_accessor :included
+
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data'
+        :'data' => :'data',
+        :'included' => :'included'
       }
     end
 
@@ -36,7 +40,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'UserTeam'
+        :'data' => :'UserTeam',
+        :'included' => :'Array<UserTeamIncluded>'
       }
     end
 
@@ -59,6 +64,12 @@ module DatadogAPIClient::V2
       if attributes.key?(:'data')
         self.data = attributes[:'data']
       end
+
+      if attributes.key?(:'included')
+        if (value = attributes[:'included']).is_a?(Array)
+          self.included = value
+        end
+      end
     end
 
     # Checks equality by comparing each attribute.
@@ -67,14 +78,15 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data
+          data == o.data &&
+          included == o.included
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data].hash
+      [data, included].hash
     end
   end
 end
