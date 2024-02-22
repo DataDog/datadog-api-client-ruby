@@ -67,6 +67,8 @@ module DatadogAPIClient::V1
     APPSEC_FARGATE_PERCENTAGE = "appsec_fargate_percentage".freeze
     ESTIMATED_RUM_USAGE_ATTRIBUTION_USAGE = "estimated_rum_usage_attribution_usage".freeze
     ESTIMATED_RUM_USAGE_ATTRIBUTION_PERCENTAGE = "estimated_rum_usage_attribution_percentage".freeze
+    ASM_SERVERLESS_TRACED_INVOCATIONS_USAGE = "asm_serverless_traced_invocations_usage".freeze
+    ASM_SERVERLESS_TRACED_INVOCATIONS_PERCENTAGE = "asm_serverless_traced_invocations_percentage".freeze
     ALL = "*".freeze
   end
 end
