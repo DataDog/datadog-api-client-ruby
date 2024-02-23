@@ -494,6 +494,8 @@ module DatadogAPIClient::V1
     # @option opts [Integer] :id_offset Use this parameter for paginating through large sets of monitors. Start with a value of zero, make a request, set the value to the last ID of result set, and then repeat until the response is empty.
     # @option opts [Integer] :page The page to start paginating from. If this argument is not specified, the request returns all monitors without pagination.
     # @option opts [Integer] :page_size The number of monitors to return per page. If the page argument is not specified, the default behavior returns all monitors without a `page_size` limit. However, if page is specified and `page_size` is not, the argument defaults to 100.
+    # @option opts [String] :monitor_ids A comma separated list of monitor ids
+    # @option opts [Boolean] :with_freshness If this argument is set to true, then the returned monitors include the monitor freshness, indicating whether the monitor is correctly evaluating
     # @return [Array<(Array<Monitor>, Integer, Hash)>] Array<Monitor> data, response status code and response headers
     def list_monitors_with_http_info(opts = {})
 
@@ -516,6 +518,8 @@ module DatadogAPIClient::V1
       query_params[:'id_offset'] = opts[:'id_offset'] if !opts[:'id_offset'].nil?
       query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
       query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+      query_params[:'monitor_ids'] = opts[:'monitor_ids'] if !opts[:'monitor_ids'].nil?
+      query_params[:'with_freshness'] = opts[:'with_freshness'] if !opts[:'with_freshness'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

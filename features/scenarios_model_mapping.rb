@@ -540,6 +540,8 @@ ScenariosModelMappings = {
             "id_offset" => "Integer",
             "page" => "Integer",
             "page_size" => "Integer",
+            "monitor_ids" => "String",
+            "with_freshness" => "Boolean",
     },
     "v1.CreateMonitor" => {
             "body" => "Monitor",

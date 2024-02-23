@@ -30,6 +30,9 @@ module DatadogAPIClient::V1
     # Whether or not the monitor is deleted. (Always `null`)
     attr_accessor :deleted
 
+    # The freshness of the monitor, indicating if the monitor evaluation is up to date. **This feature is currently in private beta.**
+    attr_accessor :freshness
+
     # ID of this monitor.
     attr_accessor :id
 
@@ -79,6 +82,7 @@ module DatadogAPIClient::V1
         :'created' => :'created',
         :'creator' => :'creator',
         :'deleted' => :'deleted',
+        :'freshness' => :'freshness',
         :'id' => :'id',
         :'matching_downtimes' => :'matching_downtimes',
         :'message' => :'message',
@@ -103,6 +107,7 @@ module DatadogAPIClient::V1
         :'created' => :'Time',
         :'creator' => :'Creator',
         :'deleted' => :'Time',
+        :'freshness' => :'MonitorFreshness',
         :'id' => :'Integer',
         :'matching_downtimes' => :'Array<MatchingDowntime>',
         :'message' => :'String',
@@ -156,6 +161,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'deleted')
         self.deleted = attributes[:'deleted']
+      end
+
+      if attributes.key?(:'freshness')
+        self.freshness = attributes[:'freshness']
       end
 
       if attributes.key?(:'id')
@@ -274,6 +283,7 @@ module DatadogAPIClient::V1
           created == o.created &&
           creator == o.creator &&
           deleted == o.deleted &&
+          freshness == o.freshness &&
           id == o.id &&
           matching_downtimes == o.matching_downtimes &&
           message == o.message &&
@@ -294,7 +304,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created, creator, deleted, id, matching_downtimes, message, modified, multi, name, options, overall_state, priority, query, restricted_roles, state, tags, type].hash
+      [created, creator, deleted, freshness, id, matching_downtimes, message, modified, multi, name, options, overall_state, priority, query, restricted_roles, state, tags, type].hash
     end
   end
 end
