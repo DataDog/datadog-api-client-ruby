@@ -28,5 +28,6 @@ module DatadogAPIClient::V1
     EVENTS = "events".freeze
     LOGS = "logs".freeze
     SPANS = "spans".freeze
+    DATABASE_QUERIES = "database_queries".freeze
   end
 end
