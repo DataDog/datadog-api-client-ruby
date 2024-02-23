@@ -40,7 +40,7 @@ module DatadogAPIClient::V1
     # In this scenario the API returns the total usage, not broken down by tags.
     attr_accessor :tags
 
-    # Shows the the most recent hour in the current months for all organizations for which all usages were calculated.
+    # Shows the the most recent hour in the current month for all organizations for which all usages were calculated.
     attr_accessor :updated_at
 
     # Fields in Usage Summary by tag(s).

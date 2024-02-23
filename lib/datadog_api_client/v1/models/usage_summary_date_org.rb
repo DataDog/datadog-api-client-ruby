@@ -30,13 +30,13 @@ module DatadogAPIClient::V1
     # Shows the 99th percentile of all APM DevSecOps hosts over all hours in the current date for the given org.
     attr_accessor :apm_devsecops_host_top99p
 
-    # Shows the average of all APM ECS Fargate tasks over all hours in the current months for the given org.
+    # Shows the average of all APM ECS Fargate tasks over all hours in the current month for the given org.
     attr_accessor :apm_fargate_count_avg
 
     # Shows the 99th percentile of all distinct APM hosts over all hours in the current date for the given org.
     attr_accessor :apm_host_top99p
 
-    # Shows the average of all Application Security Monitoring ECS Fargate tasks over all hours in the current months for the given org.
+    # Shows the average of all Application Security Monitoring ECS Fargate tasks over all hours in the current month for the given org.
     attr_accessor :appsec_fargate_count_avg
 
     # Shows the sum of all Application Security Monitoring Serverless invocations over all hours in the current month for the given org.
