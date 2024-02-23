@@ -27,6 +27,8 @@ module DatadogAPIClient::V1
     APM_USM_USAGE = "apm_usm_usage".freeze
     APPSEC_FARGATE_USAGE = "appsec_fargate_usage".freeze
     APPSEC_USAGE = "appsec_usage".freeze
+    ASM_SERVERLESS_TRACED_INVOCATIONS_USAGE = "asm_serverless_traced_invocations_usage".freeze
+    ASM_SERVERLESS_TRACED_INVOCATIONS_PERCENTAGE = "asm_serverless_traced_invocations_percentage".freeze
     BROWSER_USAGE = "browser_usage".freeze
     CI_PIPELINE_INDEXED_SPANS_USAGE = "ci_pipeline_indexed_spans_usage".freeze
     CI_TEST_INDEXED_SPANS_USAGE = "ci_test_indexed_spans_usage".freeze
@@ -43,6 +45,8 @@ module DatadogAPIClient::V1
     CWS_HOSTS_USAGE = "cws_hosts_usage".freeze
     DBM_HOSTS_USAGE = "dbm_hosts_usage".freeze
     DBM_QUERIES_USAGE = "dbm_queries_usage".freeze
+    ERROR_TRACKING_USAGE = "error_tracking_usage".freeze
+    ERROR_TRACKING_PERCENTAGE = "error_tracking_percentage".freeze
     ESTIMATED_INDEXED_LOGS_USAGE = "estimated_indexed_logs_usage".freeze
     ESTIMATED_INDEXED_SPANS_USAGE = "estimated_indexed_spans_usage".freeze
     ESTIMATED_INGESTED_LOGS_USAGE = "estimated_ingested_logs_usage".freeze
