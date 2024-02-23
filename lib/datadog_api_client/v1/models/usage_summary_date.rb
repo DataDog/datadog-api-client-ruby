@@ -96,6 +96,9 @@ module DatadogAPIClient::V1
     # Host count average of Cloud Cost Management for Azure for the given date and given organization.
     attr_accessor :cloud_cost_management_azure_host_count_avg
 
+    # Host count average of Cloud Cost Management for GCP for the given date and given organization.
+    attr_accessor :cloud_cost_management_gcp_host_count_avg
+
     # Host count average of Cloud Cost Management for all cloud providers for the given date and given organization.
     attr_accessor :cloud_cost_management_host_count_avg
 
@@ -180,11 +183,29 @@ module DatadogAPIClient::V1
     # Shows the average of all normalized Database Monitoring queries over all hours in the current date for all organizations.
     attr_accessor :dbm_queries_count_avg
 
+    # Shows the sum of all Error Tracking events over all hours in the current date for the given org.
+    attr_accessor :error_tracking_events_sum
+
     # Shows the high-watermark of all Fargate tasks over all hours in the current date for all organizations.
     attr_accessor :fargate_tasks_count_avg
 
     # Shows the average of all Fargate tasks over all hours in the current date for all organizations.
     attr_accessor :fargate_tasks_count_hwm
+
+    # Shows the average number of Flex Logs Compute Large Instances over all hours in the current date for the given org.
+    attr_accessor :flex_logs_compute_large_avg
+
+    # Shows the average number of Flex Logs Compute Medium Instances over all hours in the current date for the given org.
+    attr_accessor :flex_logs_compute_medium_avg
+
+    # Shows the average number of Flex Logs Compute Small Instances over all hours in the current date for the given org.
+    attr_accessor :flex_logs_compute_small_avg
+
+    # Shows the average number of Flex Logs Compute Extra Small Instances over all hours in the current date for the given org.
+    attr_accessor :flex_logs_compute_xsmall_avg
+
+    # Shows the average of all Flex Stored Logs over all hours in the current date for the given org.
+    attr_accessor :flex_stored_logs_avg
 
     # Shows the sum of all log bytes forwarded over all hours in the current date for all organizations.
     attr_accessor :forwarding_events_bytes_sum
@@ -362,6 +383,7 @@ module DatadogAPIClient::V1
         :'ci_visibility_test_committers_hwm' => :'ci_visibility_test_committers_hwm',
         :'cloud_cost_management_aws_host_count_avg' => :'cloud_cost_management_aws_host_count_avg',
         :'cloud_cost_management_azure_host_count_avg' => :'cloud_cost_management_azure_host_count_avg',
+        :'cloud_cost_management_gcp_host_count_avg' => :'cloud_cost_management_gcp_host_count_avg',
         :'cloud_cost_management_host_count_avg' => :'cloud_cost_management_host_count_avg',
         :'cloud_siem_events_sum' => :'cloud_siem_events_sum',
         :'container_avg' => :'container_avg',
@@ -390,8 +412,14 @@ module DatadogAPIClient::V1
         :'date' => :'date',
         :'dbm_host_top99p' => :'dbm_host_top99p',
         :'dbm_queries_count_avg' => :'dbm_queries_count_avg',
+        :'error_tracking_events_sum' => :'error_tracking_events_sum',
         :'fargate_tasks_count_avg' => :'fargate_tasks_count_avg',
         :'fargate_tasks_count_hwm' => :'fargate_tasks_count_hwm',
+        :'flex_logs_compute_large_avg' => :'flex_logs_compute_large_avg',
+        :'flex_logs_compute_medium_avg' => :'flex_logs_compute_medium_avg',
+        :'flex_logs_compute_small_avg' => :'flex_logs_compute_small_avg',
+        :'flex_logs_compute_xsmall_avg' => :'flex_logs_compute_xsmall_avg',
+        :'flex_stored_logs_avg' => :'flex_stored_logs_avg',
         :'forwarding_events_bytes_sum' => :'forwarding_events_bytes_sum',
         :'gcp_host_top99p' => :'gcp_host_top99p',
         :'heroku_host_top99p' => :'heroku_host_top99p',
@@ -473,6 +501,7 @@ module DatadogAPIClient::V1
         :'ci_visibility_test_committers_hwm' => :'Integer',
         :'cloud_cost_management_aws_host_count_avg' => :'Integer',
         :'cloud_cost_management_azure_host_count_avg' => :'Integer',
+        :'cloud_cost_management_gcp_host_count_avg' => :'Integer',
         :'cloud_cost_management_host_count_avg' => :'Integer',
         :'cloud_siem_events_sum' => :'Integer',
         :'container_avg' => :'Integer',
@@ -501,8 +530,14 @@ module DatadogAPIClient::V1
         :'date' => :'Time',
         :'dbm_host_top99p' => :'Integer',
         :'dbm_queries_count_avg' => :'Integer',
+        :'error_tracking_events_sum' => :'Integer',
         :'fargate_tasks_count_avg' => :'Integer',
         :'fargate_tasks_count_hwm' => :'Integer',
+        :'flex_logs_compute_large_avg' => :'Integer',
+        :'flex_logs_compute_medium_avg' => :'Integer',
+        :'flex_logs_compute_small_avg' => :'Integer',
+        :'flex_logs_compute_xsmall_avg' => :'Integer',
+        :'flex_stored_logs_avg' => :'Integer',
         :'forwarding_events_bytes_sum' => :'Integer',
         :'gcp_host_top99p' => :'Integer',
         :'heroku_host_top99p' => :'Integer',
@@ -671,6 +706,10 @@ module DatadogAPIClient::V1
         self.cloud_cost_management_azure_host_count_avg = attributes[:'cloud_cost_management_azure_host_count_avg']
       end
 
+      if attributes.key?(:'cloud_cost_management_gcp_host_count_avg')
+        self.cloud_cost_management_gcp_host_count_avg = attributes[:'cloud_cost_management_gcp_host_count_avg']
+      end
+
       if attributes.key?(:'cloud_cost_management_host_count_avg')
         self.cloud_cost_management_host_count_avg = attributes[:'cloud_cost_management_host_count_avg']
       end
@@ -783,12 +822,36 @@ module DatadogAPIClient::V1
         self.dbm_queries_count_avg = attributes[:'dbm_queries_count_avg']
       end
 
+      if attributes.key?(:'error_tracking_events_sum')
+        self.error_tracking_events_sum = attributes[:'error_tracking_events_sum']
+      end
+
       if attributes.key?(:'fargate_tasks_count_avg')
         self.fargate_tasks_count_avg = attributes[:'fargate_tasks_count_avg']
       end
 
       if attributes.key?(:'fargate_tasks_count_hwm')
         self.fargate_tasks_count_hwm = attributes[:'fargate_tasks_count_hwm']
+      end
+
+      if attributes.key?(:'flex_logs_compute_large_avg')
+        self.flex_logs_compute_large_avg = attributes[:'flex_logs_compute_large_avg']
+      end
+
+      if attributes.key?(:'flex_logs_compute_medium_avg')
+        self.flex_logs_compute_medium_avg = attributes[:'flex_logs_compute_medium_avg']
+      end
+
+      if attributes.key?(:'flex_logs_compute_small_avg')
+        self.flex_logs_compute_small_avg = attributes[:'flex_logs_compute_small_avg']
+      end
+
+      if attributes.key?(:'flex_logs_compute_xsmall_avg')
+        self.flex_logs_compute_xsmall_avg = attributes[:'flex_logs_compute_xsmall_avg']
+      end
+
+      if attributes.key?(:'flex_stored_logs_avg')
+        self.flex_stored_logs_avg = attributes[:'flex_stored_logs_avg']
       end
 
       if attributes.key?(:'forwarding_events_bytes_sum')
@@ -1021,6 +1084,7 @@ module DatadogAPIClient::V1
           ci_visibility_test_committers_hwm == o.ci_visibility_test_committers_hwm &&
           cloud_cost_management_aws_host_count_avg == o.cloud_cost_management_aws_host_count_avg &&
           cloud_cost_management_azure_host_count_avg == o.cloud_cost_management_azure_host_count_avg &&
+          cloud_cost_management_gcp_host_count_avg == o.cloud_cost_management_gcp_host_count_avg &&
           cloud_cost_management_host_count_avg == o.cloud_cost_management_host_count_avg &&
           cloud_siem_events_sum == o.cloud_siem_events_sum &&
           container_avg == o.container_avg &&
@@ -1049,8 +1113,14 @@ module DatadogAPIClient::V1
           date == o.date &&
           dbm_host_top99p == o.dbm_host_top99p &&
           dbm_queries_count_avg == o.dbm_queries_count_avg &&
+          error_tracking_events_sum == o.error_tracking_events_sum &&
           fargate_tasks_count_avg == o.fargate_tasks_count_avg &&
           fargate_tasks_count_hwm == o.fargate_tasks_count_hwm &&
+          flex_logs_compute_large_avg == o.flex_logs_compute_large_avg &&
+          flex_logs_compute_medium_avg == o.flex_logs_compute_medium_avg &&
+          flex_logs_compute_small_avg == o.flex_logs_compute_small_avg &&
+          flex_logs_compute_xsmall_avg == o.flex_logs_compute_xsmall_avg &&
+          flex_stored_logs_avg == o.flex_stored_logs_avg &&
           forwarding_events_bytes_sum == o.forwarding_events_bytes_sum &&
           gcp_host_top99p == o.gcp_host_top99p &&
           heroku_host_top99p == o.heroku_host_top99p &&
@@ -1106,7 +1176,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [agent_host_top99p, apm_azure_app_service_host_top99p, apm_devsecops_host_top99p, apm_fargate_count_avg, apm_host_top99p, appsec_fargate_count_avg, asm_serverless_sum, audit_logs_lines_indexed_sum, audit_trail_enabled_hwm, avg_profiled_fargate_tasks, aws_host_top99p, aws_lambda_func_count, aws_lambda_invocations_sum, azure_app_service_top99p, billable_ingested_bytes_sum, browser_rum_lite_session_count_sum, browser_rum_replay_session_count_sum, browser_rum_units_sum, ci_pipeline_indexed_spans_sum, ci_test_indexed_spans_sum, ci_visibility_itr_committers_hwm, ci_visibility_pipeline_committers_hwm, ci_visibility_test_committers_hwm, cloud_cost_management_aws_host_count_avg, cloud_cost_management_azure_host_count_avg, cloud_cost_management_host_count_avg, cloud_siem_events_sum, container_avg, container_excl_agent_avg, container_hwm, csm_container_enterprise_compliance_count_sum, csm_container_enterprise_cws_count_sum, csm_container_enterprise_total_count_sum, csm_host_enterprise_aas_host_count_top99p, csm_host_enterprise_aws_host_count_top99p, csm_host_enterprise_azure_host_count_top99p, csm_host_enterprise_compliance_host_count_top99p, csm_host_enterprise_cws_host_count_top99p, csm_host_enterprise_gcp_host_count_top99p, csm_host_enterprise_total_host_count_top99p, cspm_aas_host_top99p, cspm_aws_host_top99p, cspm_azure_host_top99p, cspm_container_avg, cspm_container_hwm, cspm_gcp_host_top99p, cspm_host_top99p, custom_ts_avg, cws_container_count_avg, cws_host_top99p, date, dbm_host_top99p, dbm_queries_count_avg, fargate_tasks_count_avg, fargate_tasks_count_hwm, forwarding_events_bytes_sum, gcp_host_top99p, heroku_host_top99p, incident_management_monthly_active_users_hwm, indexed_events_count_sum, infra_host_top99p, ingested_events_bytes_sum, iot_device_sum, iot_device_top99p, mobile_rum_lite_session_count_sum, mobile_rum_session_count_android_sum, mobile_rum_session_count_flutter_sum, mobile_rum_session_count_ios_sum, mobile_rum_session_count_reactnative_sum, mobile_rum_session_count_roku_sum, mobile_rum_session_count_sum, mobile_rum_units_sum, ndm_netflow_events_sum, netflow_indexed_events_count_sum, npm_host_top99p, observability_pipelines_bytes_processed_sum, online_archive_events_count_sum, opentelemetry_apm_host_top99p, opentelemetry_host_top99p, orgs, profiling_aas_count_top99p, profiling_host_top99p, rum_browser_and_mobile_session_count, rum_session_count_sum, rum_total_session_count_sum, rum_units_sum, sds_apm_scanned_bytes_sum, sds_events_scanned_bytes_sum, sds_logs_scanned_bytes_sum, sds_rum_scanned_bytes_sum, sds_total_scanned_bytes_sum, serverless_apps_azure_count_avg, serverless_apps_google_count_avg, serverless_apps_total_count_avg, synthetics_browser_check_calls_count_sum, synthetics_check_calls_count_sum, synthetics_mobile_test_runs_sum, synthetics_parallel_testing_max_slots_hwm, trace_search_indexed_events_count_sum, twol_ingested_events_bytes_sum, universal_service_monitoring_host_top99p, vsphere_host_top99p, vuln_management_host_count_top99p, workflow_executions_usage_sum].hash
+      [agent_host_top99p, apm_azure_app_service_host_top99p, apm_devsecops_host_top99p, apm_fargate_count_avg, apm_host_top99p, appsec_fargate_count_avg, asm_serverless_sum, audit_logs_lines_indexed_sum, audit_trail_enabled_hwm, avg_profiled_fargate_tasks, aws_host_top99p, aws_lambda_func_count, aws_lambda_invocations_sum, azure_app_service_top99p, billable_ingested_bytes_sum, browser_rum_lite_session_count_sum, browser_rum_replay_session_count_sum, browser_rum_units_sum, ci_pipeline_indexed_spans_sum, ci_test_indexed_spans_sum, ci_visibility_itr_committers_hwm, ci_visibility_pipeline_committers_hwm, ci_visibility_test_committers_hwm, cloud_cost_management_aws_host_count_avg, cloud_cost_management_azure_host_count_avg, cloud_cost_management_gcp_host_count_avg, cloud_cost_management_host_count_avg, cloud_siem_events_sum, container_avg, container_excl_agent_avg, container_hwm, csm_container_enterprise_compliance_count_sum, csm_container_enterprise_cws_count_sum, csm_container_enterprise_total_count_sum, csm_host_enterprise_aas_host_count_top99p, csm_host_enterprise_aws_host_count_top99p, csm_host_enterprise_azure_host_count_top99p, csm_host_enterprise_compliance_host_count_top99p, csm_host_enterprise_cws_host_count_top99p, csm_host_enterprise_gcp_host_count_top99p, csm_host_enterprise_total_host_count_top99p, cspm_aas_host_top99p, cspm_aws_host_top99p, cspm_azure_host_top99p, cspm_container_avg, cspm_container_hwm, cspm_gcp_host_top99p, cspm_host_top99p, custom_ts_avg, cws_container_count_avg, cws_host_top99p, date, dbm_host_top99p, dbm_queries_count_avg, error_tracking_events_sum, fargate_tasks_count_avg, fargate_tasks_count_hwm, flex_logs_compute_large_avg, flex_logs_compute_medium_avg, flex_logs_compute_small_avg, flex_logs_compute_xsmall_avg, flex_stored_logs_avg, forwarding_events_bytes_sum, gcp_host_top99p, heroku_host_top99p, incident_management_monthly_active_users_hwm, indexed_events_count_sum, infra_host_top99p, ingested_events_bytes_sum, iot_device_sum, iot_device_top99p, mobile_rum_lite_session_count_sum, mobile_rum_session_count_android_sum, mobile_rum_session_count_flutter_sum, mobile_rum_session_count_ios_sum, mobile_rum_session_count_reactnative_sum, mobile_rum_session_count_roku_sum, mobile_rum_session_count_sum, mobile_rum_units_sum, ndm_netflow_events_sum, netflow_indexed_events_count_sum, npm_host_top99p, observability_pipelines_bytes_processed_sum, online_archive_events_count_sum, opentelemetry_apm_host_top99p, opentelemetry_host_top99p, orgs, profiling_aas_count_top99p, profiling_host_top99p, rum_browser_and_mobile_session_count, rum_session_count_sum, rum_total_session_count_sum, rum_units_sum, sds_apm_scanned_bytes_sum, sds_events_scanned_bytes_sum, sds_logs_scanned_bytes_sum, sds_rum_scanned_bytes_sum, sds_total_scanned_bytes_sum, serverless_apps_azure_count_avg, serverless_apps_google_count_avg, serverless_apps_total_count_avg, synthetics_browser_check_calls_count_sum, synthetics_check_calls_count_sum, synthetics_mobile_test_runs_sum, synthetics_parallel_testing_max_slots_hwm, trace_search_indexed_events_count_sum, twol_ingested_events_bytes_sum, universal_service_monitoring_host_top99p, vsphere_host_top99p, vuln_management_host_count_top99p, workflow_executions_usage_sum].hash
     end
   end
 end

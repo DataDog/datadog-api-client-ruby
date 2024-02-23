@@ -33,6 +33,8 @@ module DatadogAPIClient::V1
     APM_USM_PERCENTAGE = "apm_usm_percentage".freeze
     APPSEC_USAGE = "appsec_usage".freeze
     APPSEC_PERCENTAGE = "appsec_percentage".freeze
+    ASM_SERVERLESS_TRACED_INVOCATIONS_USAGE = "asm_serverless_traced_invocations_usage".freeze
+    ASM_SERVERLESS_TRACED_INVOCATIONS_PERCENTAGE = "asm_serverless_traced_invocations_percentage".freeze
     BROWSER_USAGE = "browser_usage".freeze
     BROWSER_PERCENTAGE = "browser_percentage".freeze
     CI_VISIBILITY_ITR_USAGE = "ci_visibility_itr_usage".freeze
@@ -59,6 +61,8 @@ module DatadogAPIClient::V1
     DBM_HOSTS_USAGE = "dbm_hosts_usage".freeze
     DBM_QUERIES_PERCENTAGE = "dbm_queries_percentage".freeze
     DBM_QUERIES_USAGE = "dbm_queries_usage".freeze
+    ERROR_TRACKING_USAGE = "error_tracking_usage".freeze
+    ERROR_TRACKING_PERCENTAGE = "error_tracking_percentage".freeze
     ESTIMATED_INDEXED_LOGS_USAGE = "estimated_indexed_logs_usage".freeze
     ESTIMATED_INDEXED_LOGS_PERCENTAGE = "estimated_indexed_logs_percentage".freeze
     ESTIMATED_INGESTED_LOGS_USAGE = "estimated_ingested_logs_usage".freeze
