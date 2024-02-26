@@ -128,7 +128,7 @@ module DatadogAPIClient::V1
     # - database-monitoring: `database-monitoring alert`
     #
     # **Notes**:
-    # - Synthetic monitors are created through the Synthetics API. See the [Synthetics API] (https://docs.datadoghq.com/api/latest/synthetics/) documentation for more information.
+    # - Synthetic monitors are created through the Synthetics API. See the [Synthetics API](https://docs.datadoghq.com/api/latest/synthetics/) documentation for more information.
     # - Log monitors require an unscoped App Key.
     #
     # #### Query Types
@@ -279,8 +279,6 @@ module DatadogAPIClient::V1
     # - `time_window` #m (between 1 and 2880), #h (between 1 and 48).
     # - `operator` `<`, `<=`, `>`, `>=`, `==`, or `!=`.
     # - `#` an integer or decimal number used to set the threshold.
-    #
-    # **NOTE** Database Monitoring monitors are in alpha on US1.
     #
     # @param body [Monitor] Create a monitor request body.
     # @param opts [Hash] the optional parameters
