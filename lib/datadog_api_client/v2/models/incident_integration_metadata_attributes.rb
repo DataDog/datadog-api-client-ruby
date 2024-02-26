@@ -28,6 +28,7 @@ module DatadogAPIClient::V2
     attr_accessor :incident_id
 
     # A number indicating the type of integration this metadata is for. 1 indicates Slack;
+    # 7 indicates Microsoft Teams;
     # 8 indicates Jira.
     attr_reader :integration_type
 
