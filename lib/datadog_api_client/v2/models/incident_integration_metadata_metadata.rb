@@ -27,7 +27,8 @@ module DatadogAPIClient::V2
       def openapi_one_of
         [
           :'SlackIntegrationMetadata',
-          :'JiraIntegrationMetadata'
+          :'JiraIntegrationMetadata',
+          :'MicrosoftTeamsIntegrationMetadata'
         ]
       end
       # Builds the object

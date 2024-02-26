@@ -1583,6 +1583,8 @@ module DatadogAPIClient
           "v2.metric_type" => "MetricType",
           "v2.metric_volumes" => "MetricVolumes",
           "v2.metric_volumes_response" => "MetricVolumesResponse",
+          "v2.microsoft_teams_integration_metadata" => "MicrosoftTeamsIntegrationMetadata",
+          "v2.microsoft_teams_integration_metadata_teams_item" => "MicrosoftTeamsIntegrationMetadataTeamsItem",
           "v2.monitor_config_policy_attribute_create_request" => "MonitorConfigPolicyAttributeCreateRequest",
           "v2.monitor_config_policy_attribute_edit_request" => "MonitorConfigPolicyAttributeEditRequest",
           "v2.monitor_config_policy_attribute_response" => "MonitorConfigPolicyAttributeResponse",
