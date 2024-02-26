@@ -1281,8 +1281,6 @@ Example(APM Traces): <code>error-tracking-traces(query).rollup(rollup_method[, m
 <li><code>#</code> an integer or decimal number used to set the threshold.</li>
 </ul>
 
-<p><strong>NOTE</strong> Database Monitoring monitors are in alpha on US1.</p>
-
 
   </div>
 </div>
@@ -2445,6 +2443,8 @@ Example(APM Traces): <code>error-tracking-traces(query).rollup(rollup_method[, m
       <pre class="lines">
 
 
+560
+561
 562
 563
 564
@@ -2456,12 +2456,10 @@ Example(APM Traces): <code>error-tracking-traces(query).rollup(rollup_method[, m
 570
 571
 572
-573
-574
-575</pre>
+573</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/api/monitors_api.rb', line 562</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/api/monitors_api.rb', line 560</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_monitors_with_pagination'>list_monitors_with_pagination</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_api_version'>api_version</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>V1</span><span class='tstring_end'>&quot;</span></span>
@@ -3381,13 +3379,13 @@ Example(APM Traces): <code>error-tracking-traces(query).rollup(rollup_method[, m
       <pre class="lines">
 
 
+786
+787
 788
-789
-790
-791</pre>
+789</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/api/monitors_api.rb', line 788</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/api/monitors_api.rb', line 786</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_validate_existing_monitor'>validate_existing_monitor</span><span class='lparen'>(</span><span class='id identifier rubyid_monitor_id'>monitor_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_validate_existing_monitor_with_http_info'>validate_existing_monitor_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_monitor_id'>monitor_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -3493,6 +3491,8 @@ Example(APM Traces): <code>error-tracking-traces(query).rollup(rollup_method[, m
       <pre class="lines">
 
 
+799
+800
 801
 802
 803
@@ -3545,12 +3545,10 @@ Example(APM Traces): <code>error-tracking-traces(query).rollup(rollup_method[, m
 850
 851
 852
-853
-854
-855</pre>
+853</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/api/monitors_api.rb', line 801</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/api/monitors_api.rb', line 799</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_validate_existing_monitor_with_http_info'>validate_existing_monitor_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_monitor_id'>monitor_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -3875,7 +3873,7 @@ Example(APM Traces): <code>error-tracking-traces(query).rollup(rollup_method[, m
 </div>
 
       <div id="footer">
-  Generated on Fri Feb 23 18:46:19 2024 by
+  Generated on Mon Feb 26 19:09:00 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.34 (ruby-2.7.8).
 </div>
