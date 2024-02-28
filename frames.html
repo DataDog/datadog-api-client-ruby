@@ -5,10 +5,10 @@
 	<title>datadog-api-client 2.20.0.dev.1 documentation</title>
 </head>
 <script type="text/javascript">
-  var match = unescape(window.location.hash).match(/^#!(.+)/);
+  var match = decodeURIComponent(window.location.hash).match(/^#!(.+)/);
   var name = match ? match[1] : 'index.html';
-  name = name.replace(/^(\w+):\/\//, '').replace(/^\/\//, '');
-  window.top.location = name;
+  name = name.replace(/^((\w*):)?[\/\\]*/gm, '').trim();
+  window.top.location.replace(name)
 </script>
 <noscript>
   <h1>Oops!</h1>
