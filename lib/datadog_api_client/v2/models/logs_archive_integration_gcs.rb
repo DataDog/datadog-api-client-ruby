@@ -25,7 +25,7 @@ module DatadogAPIClient::V2
     attr_reader :client_email
 
     # A project ID.
-    attr_reader :project_id
+    attr_accessor :project_id
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -75,7 +75,6 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @client_email.nil?
-      return false if @project_id.nil?
       true
     end
 
@@ -87,16 +86,6 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "client_email", client_email cannot be nil.'
       end
       @client_email = client_email
-    end
-
-    # Custom attribute writer method with validation
-    # @param project_id [Object] Object to be assigned
-    # @!visibility private
-    def project_id=(project_id)
-      if project_id.nil?
-        fail ArgumentError, 'invalid value for "project_id", project_id cannot be nil.'
-      end
-      @project_id = project_id
     end
 
     # Checks equality by comparing each attribute.
