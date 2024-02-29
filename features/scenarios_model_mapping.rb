@@ -1466,6 +1466,9 @@ ScenariosModelMappings = {
     "v2.ListTagsByMetricName" => {
             "metric_name" => "String",
     },
+    "v2.ListMetricAssets" => {
+            "metric_name" => "String",
+    },
     "v2.EstimateMetricsOutputSeries" => {
             "metric_name" => "String",
             "filter_groups" => "String",
