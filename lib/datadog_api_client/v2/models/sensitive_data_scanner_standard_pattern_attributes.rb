@@ -30,7 +30,7 @@ module DatadogAPIClient::V2
     # Name of the standard pattern.
     attr_accessor :name
 
-    # Regex to match.
+    # (Deprecated) Regex to match, optionally documented for older standard rules. Refer to the `description` field to understand what the rule does.
     attr_accessor :pattern
 
     # Integer from 1 (high) to 5 (low) indicating standard pattern issue severity.
