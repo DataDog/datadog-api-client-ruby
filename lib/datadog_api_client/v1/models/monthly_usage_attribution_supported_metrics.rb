@@ -89,6 +89,8 @@ module DatadogAPIClient::V1
     NPM_HOST_PERCENTAGE = "npm_host_percentage".freeze
     OBS_PIPELINE_BYTES_USAGE = "obs_pipeline_bytes_usage".freeze
     OBS_PIPELINE_BYTES_PERCENTAGE = "obs_pipeline_bytes_percentage".freeze
+    OBS_PIPELINES_VCPU_USAGE = "obs_pipelines_vcpu_usage".freeze
+    OBS_PIPELINES_VCPU_PERCENTAGE = "obs_pipelines_vcpu_percentage".freeze
     PROFILED_CONTAINER_USAGE = "profiled_container_usage".freeze
     PROFILED_CONTAINER_PERCENTAGE = "profiled_container_percentage".freeze
     PROFILED_FARGATE_USAGE = "profiled_fargate_usage".freeze

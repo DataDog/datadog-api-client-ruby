@@ -74,6 +74,7 @@ module DatadogAPIClient::V1
     NDM_NETFLOW_USAGE = "ndm_netflow_usage".freeze
     NPM_HOST_USAGE = "npm_host_usage".freeze
     OBS_PIPELINE_BYTES_USAGE = "obs_pipeline_bytes_usage".freeze
+    OBS_PIPELINE_VCPU_USAGE = "obs_pipelines_vcpu_usage".freeze
     PROFILED_CONTAINER_USAGE = "profiled_container_usage".freeze
     PROFILED_FARGATE_USAGE = "profiled_fargate_usage".freeze
     PROFILED_HOST_USAGE = "profiled_host_usage".freeze
