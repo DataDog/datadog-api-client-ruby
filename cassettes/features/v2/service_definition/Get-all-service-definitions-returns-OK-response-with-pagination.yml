@@ -6,7 +6,7 @@ http_interactions:
       Accept:
       - application/json
     method: GET
-    uri: https://api.datadoghq.com/api/v2/services/definitions?page%5Bsize%5D=2
+    uri: https://api.datadoghq.com/api/v2/services/definitions?page%5Bsize%5D=2&page%5Bnumber%5D=0
   response:
     body:
       encoding: UTF-8
@@ -32,7 +32,7 @@ http_interactions:
       Accept:
       - application/json
     method: GET
-    uri: https://api.datadoghq.com/api/v2/services/definitions?page%5Bsize%5D=2&page%5Bnumber%5D=2
+    uri: https://api.datadoghq.com/api/v2/services/definitions?page%5Bsize%5D=2&page%5Bnumber%5D=1
   response:
     body:
       encoding: UTF-8
