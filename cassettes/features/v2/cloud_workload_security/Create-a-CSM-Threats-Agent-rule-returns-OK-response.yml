@@ -1,0 +1,47 @@
+http_interactions:
+- recorded_at: Fri, 08 Mar 2024 14:19:02 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"description":"My Agent rule","enabled":true,"expression":"exec.file.name
+        == \"sh\"","name":"my_agent_rule"},"type":"agent_rule"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/remote_config/products/cws/agent_rules
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"zer-ow9-d4q","type":"agent_rule","attributes":{"category":"Process
+        Activity","creationDate":1709907542607,"creator":{"name":"Malo Le Goff","handle":"malo.legoff@datadoghq.com"},"defaultRule":false,"description":"My
+        Agent rule","enabled":true,"expression":"exec.file.name == \"sh\"","filters":["os
+        == \"linux\""],"name":"my_agent_rule","updateDate":1709907542607,"updater":{"name":"Malo
+        Le Goff","handle":"malo.legoff@datadoghq.com"}}}}'
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+- recorded_at: Fri, 08 Mar 2024 14:19:02 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/remote_config/products/cws/agent_rules/zer-ow9-d4q
+  response:
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 204
+      message: No Content
+recorded_with: VCR 6.0.0

@@ -1682,6 +1682,32 @@ ScenariosModelMappings = {
             "page_limit" => "Integer",
             "page_cursor" => "String",
     },
+    "v2.CreateCSMThreatsAgentRule" => {
+            "body" => "CloudWorkloadSecurityAgentRuleCreateRequest",
+    },
+    "v2.DeleteCSMThreatsAgentRule" => {
+            "agent_rule_id" => "String",
+    },
+    "v2.GetCSMThreatsAgentRule" => {
+            "agent_rule_id" => "String",
+    },
+    "v2.UpdateCSMThreatsAgentRule" => {
+            "agent_rule_id" => "String",
+            "body" => "CloudWorkloadSecurityAgentRuleUpdateRequest",
+    },
+    "v2.CreateCloudWorkloadSecurityAgentRule" => {
+            "body" => "CloudWorkloadSecurityAgentRuleCreateRequest",
+    },
+    "v2.DeleteCloudWorkloadSecurityAgentRule" => {
+            "agent_rule_id" => "String",
+    },
+    "v2.GetCloudWorkloadSecurityAgentRule" => {
+            "agent_rule_id" => "String",
+    },
+    "v2.UpdateCloudWorkloadSecurityAgentRule" => {
+            "agent_rule_id" => "String",
+            "body" => "CloudWorkloadSecurityAgentRuleUpdateRequest",
+    },
     "v2.DeleteRestrictionPolicy" => {
             "resource_id" => "String",
     },
@@ -1754,19 +1780,6 @@ ScenariosModelMappings = {
     },
     "v2.DeleteScorecardRule" => {
             "rule_id" => "String",
-    },
-    "v2.CreateCloudWorkloadSecurityAgentRule" => {
-            "body" => "CloudWorkloadSecurityAgentRuleCreateRequest",
-    },
-    "v2.DeleteCloudWorkloadSecurityAgentRule" => {
-            "agent_rule_id" => "String",
-    },
-    "v2.GetCloudWorkloadSecurityAgentRule" => {
-            "agent_rule_id" => "String",
-    },
-    "v2.UpdateCloudWorkloadSecurityAgentRule" => {
-            "agent_rule_id" => "String",
-            "body" => "CloudWorkloadSecurityAgentRuleUpdateRequest",
     },
     "v2.ReorderScanningGroups" => {
             "body" => "SensitiveDataScannerConfigRequest",

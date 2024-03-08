@@ -1,0 +1,74 @@
+http_interactions:
+- recorded_at: Fri, 08 Mar 2024 14:19:17 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"description":"My Agent rule","enabled":true,"expression":"exec.file.name
+        == \"sh\"","name":"testupdateacsmthreatsagentrulereturnsokresponse1709907557"},"type":"agent_rule"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/remote_config/products/cws/agent_rules
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"qp6-ix5-6o6","type":"agent_rule","attributes":{"category":"Process
+        Activity","creationDate":1709907558307,"creator":{"name":"Malo Le Goff","handle":"malo.legoff@datadoghq.com"},"defaultRule":false,"description":"My
+        Agent rule","enabled":true,"expression":"exec.file.name == \"sh\"","filters":["os
+        == \"linux\""],"name":"testupdateacsmthreatsagentrulereturnsokresponse1709907557","updateDate":1709907558307,"updater":{"name":"Malo
+        Le Goff","handle":"malo.legoff@datadoghq.com"}}}}'
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+- recorded_at: Fri, 08 Mar 2024 14:19:17 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"description":"Test Agent rule","enabled":true,"expression":"exec.file.name
+        == \"sh\""},"id":"qp6-ix5-6o6","type":"agent_rule"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: PATCH
+    uri: https://api.datadoghq.com/api/v2/remote_config/products/cws/agent_rules/qp6-ix5-6o6
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"qp6-ix5-6o6","type":"agent_rule","attributes":{"category":"Process
+        Activity","creationDate":1709907558000,"creator":{"name":"Malo Le Goff","handle":"malo.legoff@datadoghq.com"},"defaultRule":false,"description":"Test
+        Agent rule","enabled":true,"expression":"exec.file.name == \"sh\"","filters":["os
+        == \"linux\""],"name":"testupdateacsmthreatsagentrulereturnsokresponse1709907557","updateDate":1709907559088,"updater":{"name":"Malo
+        Le Goff","handle":"malo.legoff@datadoghq.com"}}}}'
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+- recorded_at: Fri, 08 Mar 2024 14:19:17 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/remote_config/products/cws/agent_rules/qp6-ix5-6o6
+  response:
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 204
+      message: No Content
+recorded_with: VCR 6.0.0

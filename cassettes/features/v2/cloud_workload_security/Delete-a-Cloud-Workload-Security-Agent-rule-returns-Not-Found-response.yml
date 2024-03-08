@@ -1,5 +1,5 @@
 http_interactions:
-- recorded_at: Thu, 12 May 2022 09:51:21 GMT
+- recorded_at: Fri, 08 Mar 2024 14:19:07 GMT
   request:
     body: null
     headers:
@@ -10,7 +10,9 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"errors":["not_found(Agent rule not found: agentRuleId=abc-123-xyz)"]}'
+      string: '{"errors":["not_found(Agent rule not found: agentRuleId=abc-123-xyz)"]}
+
+        '
     headers:
       Content-Type:
       - application/json
