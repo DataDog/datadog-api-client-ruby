@@ -86,5 +86,6 @@ module DatadogAPIClient::V1
     SNMP_USAGE = "snmp_usage".freeze
     UNIVERSAL_SERVICE_MONITORING_USAGE = "universal_service_monitoring_usage".freeze
     VULN_MANAGEMENT_HOSTS_USAGE = "vuln_management_hosts_usage".freeze
+    WORKFLOW_EXECUTIONS_USAGE = "workflow_executions_usage".freeze
   end
 end

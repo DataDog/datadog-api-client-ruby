@@ -1,10 +1,10 @@
 http_interactions:
-- recorded_at: Tue, 11 Jan 2022 18:11:35 GMT
+- recorded_at: Fri, 08 Mar 2024 14:19:03 GMT
   request:
     body:
       encoding: UTF-8
       string: '{"data":{"attributes":{"description":"Test Agent rule","enabled":true,"expression":"open.file.path
-        = sh","name":"testcreateacloudworkloadsecurityagentrulereturnsbadrequestresponse1641924695"},"type":"agent_rule"}}'
+        = sh","name":"testcreateacloudworkloadsecurityagentrulereturnsbadrequestresponse1709907543"},"type":"agent_rule"}}'
     headers:
       Accept:
       - application/json
@@ -16,8 +16,10 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"errors":["input_validation_error(Field ''expression'' is invalid:
-        rule `testcreateacloudworkloadsecurityagentrulereturnsbadrequestresponse1641924695`
-        definition error: syntax error: 1:18: unexpected token \"sh\" (expected \"~\"))"]}'
+        rule `testcreateacloudworkloadsecurityagentrulereturnsbadrequestresponse1709907543`
+        error: syntax error `1:18: unexpected token \"sh\" (expected \"~\")`)"]}
+
+        '
     headers:
       Content-Type:
       - application/json
