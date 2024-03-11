@@ -1,0 +1,27 @@
+http_interactions:
+- recorded_at: Fri, 08 Mar 2024 14:19:17 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"description":"My Agent rule","enabled":true,"expression":"exec.file.name
+        == \"sh\""},"id":"abc-123-xyz","type":"agent_rule"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: PATCH
+    uri: https://api.datadoghq.com/api/v2/remote_config/products/cws/agent_rules/abc-123-xyz
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"title":"failed to update rule"}]}
+
+        '
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 404
+      message: Not Found
+recorded_with: VCR 6.0.0

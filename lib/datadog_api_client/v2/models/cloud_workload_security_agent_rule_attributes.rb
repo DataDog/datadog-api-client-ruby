@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class CloudWorkloadSecurityAgentRuleAttributes
     include BaseGenericModel
 
+    # The array of actions the rule can perform if triggered.
+    attr_accessor :actions
+
     # The version of the agent.
     attr_accessor :agent_constraint
 
@@ -73,6 +76,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'actions' => :'actions',
         :'agent_constraint' => :'agentConstraint',
         :'category' => :'category',
         :'creation_author_uu_id' => :'creationAuthorUuId',
@@ -96,6 +100,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'actions' => :'Array<CloudWorkloadSecurityAgentRuleAction>',
         :'agent_constraint' => :'String',
         :'category' => :'String',
         :'creation_author_uu_id' => :'String',
@@ -115,6 +120,14 @@ module DatadogAPIClient::V2
       }
     end
 
+    # List of attributes with nullable: true
+    # @!visibility private
+    def self.openapi_nullable
+      Set.new([
+        :'actions',
+      ])
+    end
+
     # Initializes the object
     # @param attributes [Hash] Model attributes in the form of hash
     # @!visibility private
@@ -130,6 +143,12 @@ module DatadogAPIClient::V2
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'actions')
+        if (value = attributes[:'actions']).is_a?(Array)
+          self.actions = value
+        end
+      end
 
       if attributes.key?(:'agent_constraint')
         self.agent_constraint = attributes[:'agent_constraint']
@@ -204,6 +223,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          actions == o.actions &&
           agent_constraint == o.agent_constraint &&
           category == o.category &&
           creation_author_uu_id == o.creation_author_uu_id &&
@@ -226,7 +246,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [agent_constraint, category, creation_author_uu_id, creation_date, creator, default_rule, description, enabled, expression, filters, name, update_author_uu_id, update_date, updated_at, updater, version].hash
+      [actions, agent_constraint, category, creation_author_uu_id, creation_date, creator, default_rule, description, enabled, expression, filters, name, update_author_uu_id, update_date, updated_at, updater, version].hash
     end
   end
 end
