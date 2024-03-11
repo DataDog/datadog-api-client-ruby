@@ -147,6 +147,8 @@ module DatadogAPIClient::V1
     INGESTED_SPANS_BYTES_PERCENTAGE = "ingested_spans_bytes_percentage".freeze
     SIEM_INGESTED_BYTES_USAGE = "siem_ingested_bytes_usage".freeze
     SIEM_INGESTED_BYTES_PERCENTAGE = "siem_ingested_bytes_percentage".freeze
+    WORKFLOW_EXECUTIONS_USAGE = "workflow_executions_usage".freeze
+    WORKFLOW_EXECUTIONS_PERCENTAGE = "workflow_executions_percentage".freeze
     ALL = "*".freeze
   end
 end
