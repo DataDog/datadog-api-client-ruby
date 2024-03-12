@@ -35,10 +35,13 @@ module DatadogAPIClient::V2
     #
     # Creates a new incident service.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param body [IncidentServiceCreateRequest] Incident Service Payload.
     # @param opts [Hash] the optional parameters
     # @return [Array<(IncidentServiceResponse, Integer, Hash)>] IncidentServiceResponse data, response status code and response headers
     def create_incident_service_with_http_info(body, opts = {})
+      warn "[DEPRECATION] `CreateIncidentService` is deprecated."
       unstable_enabled = @api_client.config.unstable_operations["v2.create_incident_service".to_sym]
       if unstable_enabled
         @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_incident_service")
@@ -108,10 +111,13 @@ module DatadogAPIClient::V2
     #
     # Deletes an existing incident service.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param service_id [String] The ID of the incident service.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_incident_service_with_http_info(service_id, opts = {})
+      warn "[DEPRECATION] `DeleteIncidentService` is deprecated."
       unstable_enabled = @api_client.config.unstable_operations["v2.delete_incident_service".to_sym]
       if unstable_enabled
         @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_incident_service")
@@ -180,11 +186,14 @@ module DatadogAPIClient::V2
     # Get details of an incident service. If the `include[users]` query parameter is provided,
     # the included attribute will contain the users related to these incident services.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param service_id [String] The ID of the incident service.
     # @param opts [Hash] the optional parameters
     # @option opts [IncidentRelatedObject] :include Specifies which types of related objects should be included in the response.
     # @return [Array<(IncidentServiceResponse, Integer, Hash)>] IncidentServiceResponse data, response status code and response headers
     def get_incident_service_with_http_info(service_id, opts = {})
+      warn "[DEPRECATION] `GetIncidentService` is deprecated."
       unstable_enabled = @api_client.config.unstable_operations["v2.get_incident_service".to_sym]
       if unstable_enabled
         @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_incident_service")
@@ -257,6 +266,8 @@ module DatadogAPIClient::V2
     #
     # Get all incident services uploaded for the requesting user's organization. If the `include[users]` query parameter is provided, the included attribute will contain the users related to these incident services.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param opts [Hash] the optional parameters
     # @option opts [IncidentRelatedObject] :include Specifies which types of related objects should be included in the response.
     # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 100.
@@ -264,6 +275,7 @@ module DatadogAPIClient::V2
     # @option opts [String] :filter A search query that filters services by name.
     # @return [Array<(IncidentServicesResponse, Integer, Hash)>] IncidentServicesResponse data, response status code and response headers
     def list_incident_services_with_http_info(opts = {})
+      warn "[DEPRECATION] `ListIncidentServices` is deprecated."
       unstable_enabled = @api_client.config.unstable_operations["v2.list_incident_services".to_sym]
       if unstable_enabled
         @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_incident_services")
@@ -335,11 +347,14 @@ module DatadogAPIClient::V2
     #
     # Updates an existing incident service. Only provide the attributes which should be updated as this request is a partial update.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param service_id [String] The ID of the incident service.
     # @param body [IncidentServiceUpdateRequest] Incident Service Payload.
     # @param opts [Hash] the optional parameters
     # @return [Array<(IncidentServiceResponse, Integer, Hash)>] IncidentServiceResponse data, response status code and response headers
     def update_incident_service_with_http_info(service_id, body, opts = {})
+      warn "[DEPRECATION] `UpdateIncidentService` is deprecated."
       unstable_enabled = @api_client.config.unstable_operations["v2.update_incident_service".to_sym]
       if unstable_enabled
         @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_incident_service")
