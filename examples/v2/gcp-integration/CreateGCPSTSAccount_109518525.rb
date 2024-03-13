@@ -10,7 +10,7 @@ body = DatadogAPIClient::V2::GCPSTSServiceAccountCreateRequest.new({
         "lorem",
         "ipsum",
       ],
-      client_email: "252bf553ef04b351@test-project.iam.gserviceaccount.com",
+      client_email: "Test-252bf553ef04b351@test-project.iam.gserviceaccount.com",
       host_filters: [],
     }),
     type: DatadogAPIClient::V2::GCPServiceAccountType::GCP_SERVICE_ACCOUNT,

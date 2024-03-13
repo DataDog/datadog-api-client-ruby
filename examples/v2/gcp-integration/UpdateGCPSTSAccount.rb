@@ -9,7 +9,7 @@ GCP_STS_ACCOUNT_DATA_ID = ENV["GCP_STS_ACCOUNT_DATA_ID"]
 body = DatadogAPIClient::V2::GCPSTSServiceAccountUpdateRequest.new({
   data: DatadogAPIClient::V2::GCPSTSServiceAccountUpdateRequestData.new({
     attributes: DatadogAPIClient::V2::GCPSTSServiceAccountAttributes.new({
-      client_email: "252bf553ef04b351@example.com",
+      client_email: "Test-252bf553ef04b351@example.com",
       host_filters: [
         "foo:bar",
       ],
