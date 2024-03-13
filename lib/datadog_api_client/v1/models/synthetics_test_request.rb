@@ -63,6 +63,9 @@ module DatadogAPIClient::V1
     # Host name to perform the test with.
     attr_accessor :host
 
+    # HTTP version to use for a Synthetic test.
+    attr_accessor :http_version
+
     # Message to send for UDP or WebSocket tests.
     attr_accessor :message
 
@@ -125,6 +128,7 @@ module DatadogAPIClient::V1
         :'follow_redirects' => :'follow_redirects',
         :'headers' => :'headers',
         :'host' => :'host',
+        :'http_version' => :'httpVersion',
         :'message' => :'message',
         :'metadata' => :'metadata',
         :'method' => :'method',
@@ -160,6 +164,7 @@ module DatadogAPIClient::V1
         :'follow_redirects' => :'Boolean',
         :'headers' => :'Hash<String, String>',
         :'host' => :'String',
+        :'http_version' => :'SyntheticsTestOptionsHTTPVersion',
         :'message' => :'String',
         :'metadata' => :'Hash<String, String>',
         :'method' => :'String',
@@ -249,6 +254,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'host')
         self.host = attributes[:'host']
+      end
+
+      if attributes.key?(:'http_version')
+        self.http_version = attributes[:'http_version']
       end
 
       if attributes.key?(:'message')
@@ -365,6 +374,7 @@ module DatadogAPIClient::V1
           follow_redirects == o.follow_redirects &&
           headers == o.headers &&
           host == o.host &&
+          http_version == o.http_version &&
           message == o.message &&
           metadata == o.metadata &&
           method == o.method &&
@@ -385,7 +395,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [allow_insecure, basic_auth, body, body_type, call_type, certificate, certificate_domains, compressed_json_descriptor, compressed_proto_file, dns_server, dns_server_port, follow_redirects, headers, host, message, metadata, method, no_saving_response_body, number_of_packets, persist_cookies, port, proxy, query, servername, service, should_track_hops, timeout, url].hash
+      [allow_insecure, basic_auth, body, body_type, call_type, certificate, certificate_domains, compressed_json_descriptor, compressed_proto_file, dns_server, dns_server_port, follow_redirects, headers, host, http_version, message, metadata, method, no_saving_response_body, number_of_packets, persist_cookies, port, proxy, query, servername, service, should_track_hops, timeout, url].hash
     end
   end
 end

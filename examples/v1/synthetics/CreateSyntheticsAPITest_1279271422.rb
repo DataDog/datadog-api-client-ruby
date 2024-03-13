@@ -40,6 +40,7 @@ body = DatadogAPIClient::V1::SyntheticsAPITest.new({
           method: "GET",
           timeout: 10,
           url: "https://datadoghq.com",
+          http_version: DatadogAPIClient::V1::SyntheticsTestOptionsHTTPVersion::HTTP2,
         }),
         _retry: DatadogAPIClient::V1::SyntheticsTestOptionsRetry.new({
           count: 5,
