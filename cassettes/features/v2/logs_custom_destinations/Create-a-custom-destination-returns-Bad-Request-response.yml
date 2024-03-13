@@ -1,0 +1,24 @@
+http_interactions:
+- recorded_at: Tue, 12 Mar 2024 09:20:10 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"name":"Nginx logs"},"type":"custom_destination"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/logs/config/custom-destinations
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":["The parameter ''forwarder_destination'' is required"]}'
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 400
+      message: Bad Request
+recorded_with: VCR 6.0.0

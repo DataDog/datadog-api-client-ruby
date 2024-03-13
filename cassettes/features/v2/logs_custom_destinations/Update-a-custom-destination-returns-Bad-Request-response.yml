@@ -1,0 +1,68 @@
+http_interactions:
+- recorded_at: Tue, 12 Mar 2024 09:20:16 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"enabled":false,"forward_tags":false,"forward_tags_restriction_list":["host"],"forward_tags_restriction_list_type":"BLOCK_LIST","forwarder_destination":{"auth":{"password":"my-password","type":"basic","username":"my-username"},"endpoint":"https://example.com","type":"http"},"name":"Test-Update_a_custom_destination_returns_Bad_Request_response-1710235216","query":"source:nginx"},"type":"custom_destination"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/logs/config/custom-destinations
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"0f1b60fc-4671-4bd5-834b-bc86c8a5065b","attributes":{"name":"Test-Update_a_custom_destination_returns_Bad_Request_response-1710235216","query":"source:nginx","enabled":false,"forwarder_destination":{"endpoint":"https://example.com","auth":{"type":"basic"},"type":"http"},"forward_tags_restriction_list_type":"BLOCK_LIST","forward_tags_restriction_list":["host"],"forward_tags":false},"type":"custom_destination"}}
+
+        '
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+- recorded_at: Tue, 12 Mar 2024 09:20:16 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"forward_tags_restriction_list_type":"this_list_type_does_not_exist"},"id":"0f1b60fc-4671-4bd5-834b-bc86c8a5065b","type":"custom_destination"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: PATCH
+    uri: https://api.datadoghq.com/api/v2/logs/config/custom-destinations/0f1b60fc-4671-4bd5-834b-bc86c8a5065b
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":["Internal error"]}
+
+        '
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 400
+      message: Bad Request
+- recorded_at: Tue, 12 Mar 2024 09:20:16 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/logs/config/custom-destinations/0f1b60fc-4671-4bd5-834b-bc86c8a5065b
+  response:
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Content-Type:
+      - text/html; charset=utf-8
+    status:
+      code: 204
+      message: No Content
+recorded_with: VCR 6.0.0
