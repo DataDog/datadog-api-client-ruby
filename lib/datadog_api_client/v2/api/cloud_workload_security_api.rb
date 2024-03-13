@@ -106,6 +106,12 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(CloudWorkloadSecurityAgentRuleResponse, Integer, Hash)>] CloudWorkloadSecurityAgentRuleResponse data, response status code and response headers
     def create_csm_threats_agent_rule_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_csm_threats_agent_rule".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_csm_threats_agent_rule")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_csm_threats_agent_rule"))
+      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudWorkloadSecurityAPI.create_csm_threats_agent_rule ...'
@@ -238,6 +244,12 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_csm_threats_agent_rule_with_http_info(agent_rule_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.delete_csm_threats_agent_rule".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_csm_threats_agent_rule")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_csm_threats_agent_rule"))
+      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudWorkloadSecurityAPI.delete_csm_threats_agent_rule ...'
@@ -366,6 +378,12 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
     def download_csm_threats_policy_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.download_csm_threats_policy".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.download_csm_threats_policy")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.download_csm_threats_policy"))
+      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudWorkloadSecurityAPI.download_csm_threats_policy ...'
@@ -492,6 +510,12 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(CloudWorkloadSecurityAgentRuleResponse, Integer, Hash)>] CloudWorkloadSecurityAgentRuleResponse data, response status code and response headers
     def get_csm_threats_agent_rule_with_http_info(agent_rule_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_csm_threats_agent_rule".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_csm_threats_agent_rule")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_csm_threats_agent_rule"))
+      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudWorkloadSecurityAPI.get_csm_threats_agent_rule ...'
@@ -616,6 +640,12 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(CloudWorkloadSecurityAgentRulesListResponse, Integer, Hash)>] CloudWorkloadSecurityAgentRulesListResponse data, response status code and response headers
     def list_csm_threats_agent_rules_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_csm_threats_agent_rules".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_csm_threats_agent_rules")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_csm_threats_agent_rules"))
+      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudWorkloadSecurityAPI.list_csm_threats_agent_rules ...'
@@ -752,6 +782,12 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(CloudWorkloadSecurityAgentRuleResponse, Integer, Hash)>] CloudWorkloadSecurityAgentRuleResponse data, response status code and response headers
     def update_csm_threats_agent_rule_with_http_info(agent_rule_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.update_csm_threats_agent_rule".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_csm_threats_agent_rule")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_csm_threats_agent_rule"))
+      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudWorkloadSecurityAPI.update_csm_threats_agent_rule ...'

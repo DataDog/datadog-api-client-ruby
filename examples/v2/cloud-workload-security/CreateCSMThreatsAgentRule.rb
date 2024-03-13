@@ -1,6 +1,9 @@
 # Create a CSM Threats Agent rule returns "OK" response
 
 require "datadog_api_client"
+DatadogAPIClient.configure do |config|
+  config.unstable_operations["v2.create_csm_threats_agent_rule".to_sym] = true
+end
 api_instance = DatadogAPIClient::V2::CloudWorkloadSecurityAPI.new
 
 body = DatadogAPIClient::V2::CloudWorkloadSecurityAgentRuleCreateRequest.new({
