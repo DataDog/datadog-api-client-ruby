@@ -24,6 +24,9 @@ module DatadogAPIClient::V2
     # Identifier for a group of related services serving a product feature, which the service is a part of.
     attr_accessor :application
 
+    # A set of CI fingerprints.
+    attr_accessor :ci_pipeline_fingerprints
+
     # A list of contacts related to the services.
     attr_accessor :contacts
 
@@ -68,6 +71,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'application' => :'application',
+        :'ci_pipeline_fingerprints' => :'ci-pipeline-fingerprints',
         :'contacts' => :'contacts',
         :'dd_service' => :'dd-service',
         :'description' => :'description',
@@ -89,6 +93,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'application' => :'String',
+        :'ci_pipeline_fingerprints' => :'Array<String>',
         :'contacts' => :'Array<ServiceDefinitionV2Dot2Contact>',
         :'dd_service' => :'String',
         :'description' => :'String',
@@ -123,6 +128,12 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'application')
         self.application = attributes[:'application']
+      end
+
+      if attributes.key?(:'ci_pipeline_fingerprints')
+        if (value = attributes[:'ci_pipeline_fingerprints']).is_a?(Array)
+          self.ci_pipeline_fingerprints = value
+        end
       end
 
       if attributes.key?(:'contacts')
@@ -222,6 +233,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           application == o.application &&
+          ci_pipeline_fingerprints == o.ci_pipeline_fingerprints &&
           contacts == o.contacts &&
           dd_service == o.dd_service &&
           description == o.description &&
@@ -241,7 +253,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [application, contacts, dd_service, description, extensions, integrations, languages, lifecycle, links, schema_version, tags, team, tier, type].hash
+      [application, ci_pipeline_fingerprints, contacts, dd_service, description, extensions, integrations, languages, lifecycle, links, schema_version, tags, team, tier, type].hash
     end
   end
 end
