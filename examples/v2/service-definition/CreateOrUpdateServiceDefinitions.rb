@@ -5,6 +5,10 @@ api_instance = DatadogAPIClient::V2::ServiceDefinitionAPI.new
 
 body = DatadogAPIClient::V2::ServiceDefinitionV2Dot2.new({
   application: "my-app",
+  ci_pipeline_fingerprints: [
+    "j88xdEy0J5lc",
+    "eZ7LMljCk8vo",
+  ],
   contacts: [
     DatadogAPIClient::V2::ServiceDefinitionV2Dot2Contact.new({
       contact: "https://teams.microsoft.com/myteam",
