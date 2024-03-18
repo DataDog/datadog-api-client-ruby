@@ -2284,7 +2284,8 @@ It only re-notifies if it’s not resolved.</p>
   <div class="discussion">
     <p>A Boolean indicating whether this monitor needs a full window of data before it’s evaluated.
 We highly recommend you set this to <code>false</code> for sparse metrics,
-otherwise some evaluations are skipped. Default is false.</p>
+otherwise some evaluations are skipped. Default is false. This setting only applies to
+metric monitors.</p>
 
 
   </div>
@@ -2340,12 +2341,12 @@ otherwise some evaluations are skipped. Default is false.</p>
       <pre class="lines">
 
 
-133
 134
-135</pre>
+135
+136</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/monitor_options.rb', line 133</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/monitor_options.rb', line 134</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_scheduling_options'>scheduling_options</span>
   <span class='ivar'>@scheduling_options</span>
@@ -2466,12 +2467,12 @@ otherwise some evaluations are skipped. Default is false.</p>
       <pre class="lines">
 
 
-142
 143
-144</pre>
+144
+145</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/monitor_options.rb', line 142</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/monitor_options.rb', line 143</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_threshold_windows'>threshold_windows</span>
   <span class='ivar'>@threshold_windows</span>
@@ -2508,12 +2509,12 @@ otherwise some evaluations are skipped. Default is false.</p>
       <pre class="lines">
 
 
-145
 146
-147</pre>
+147
+148</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/monitor_options.rb', line 145</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/monitor_options.rb', line 146</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_thresholds'>thresholds</span>
   <span class='ivar'>@thresholds</span>
@@ -2592,12 +2593,12 @@ otherwise some evaluations are skipped. Default is false.</p>
       <pre class="lines">
 
 
-151
 152
-153</pre>
+153
+154</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/monitor_options.rb', line 151</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/monitor_options.rb', line 152</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_variables'>variables</span>
   <span class='ivar'>@variables</span>
@@ -3463,7 +3464,7 @@ For object, use to_hash. Otherwise, just return the value</p>
 </div>
 
       <div id="footer">
-  Generated on Fri Mar 15 14:33:39 2024 by
+  Generated on Mon Mar 18 15:19:48 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.36 (ruby-2.7.8).
 </div>
