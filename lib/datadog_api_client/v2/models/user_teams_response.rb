@@ -24,6 +24,9 @@ module DatadogAPIClient::V2
     # Team memberships response data
     attr_accessor :data
 
+    # Resources related to the team memberships
+    attr_accessor :included
+
     # Teams response links.
     attr_accessor :links
 
@@ -35,6 +38,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'data' => :'data',
+        :'included' => :'included',
         :'links' => :'links',
         :'meta' => :'meta'
       }
@@ -45,6 +49,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'data' => :'Array<UserTeam>',
+        :'included' => :'Array<UserTeamIncluded>',
         :'links' => :'TeamsResponseLinks',
         :'meta' => :'TeamsResponseMeta'
       }
@@ -72,6 +77,12 @@ module DatadogAPIClient::V2
         end
       end
 
+      if attributes.key?(:'included')
+        if (value = attributes[:'included']).is_a?(Array)
+          self.included = value
+        end
+      end
+
       if attributes.key?(:'links')
         self.links = attributes[:'links']
       end
@@ -88,6 +99,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           data == o.data &&
+          included == o.included &&
           links == o.links &&
           meta == o.meta
     end
@@ -96,7 +108,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, links, meta].hash
+      [data, included, links, meta].hash
     end
   end
 end
