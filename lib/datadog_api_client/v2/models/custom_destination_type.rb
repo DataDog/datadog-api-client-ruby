@@ -21,6 +21,6 @@ module DatadogAPIClient::V2
   class CustomDestinationType
     include BaseEnumModel
 
-    custom_destination = "custom_destination".freeze
+    CUSTOM_DESTINATION = "custom_destination".freeze
   end
 end
