@@ -50,16 +50,6 @@ ScenariosModelMappings = {
             "start_hr" => "Time",
             "end_hr" => "Time",
     },
-    "v1.GetUsageAttribution" => {
-            "start_month" => "Time",
-            "fields" => "UsageAttributionSupportedMetrics",
-            "end_month" => "Time",
-            "sort_direction" => "UsageSortDirection",
-            "sort_name" => "UsageAttributionSort",
-            "include_descendants" => "Boolean",
-            "offset" => "Integer",
-            "limit" => "Integer",
-    },
     "v1.GetUsageAuditLogs" => {
             "start_hr" => "Time",
             "end_hr" => "Time",
