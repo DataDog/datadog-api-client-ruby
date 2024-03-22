@@ -562,7 +562,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#get_usage_attribution-instance_method" title="#get_usage_attribution (instance method)">#<strong>get_usage_attribution</strong>(start_month, fields, opts = {})  &#x21d2; Object </a>
+      <a href="#get_usage_attribution-instance_method" title="#get_usage_attribution (instance method)">#<strong>get_usage_attribution</strong>(start_month, fields, opts = {})  &#x21d2; UsageAttributionResponse </a>
     
 
     
@@ -576,13 +576,13 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Get usage attribution.</p>
+    <span class="summary_desc"><div class='inline'><p>Get Usage Attribution Get Usage Attribution.</p>
 </div></span>
   
 </li>
 
       
-        <li class="public deprecated">
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#get_usage_attribution_with_http_info-instance_method" title="#get_usage_attribution_with_http_info (instance method)">#<strong>get_usage_attribution_with_http_info</strong>(start_month, fields, opts = {})  &#x21d2; Array&lt;(UsageAttributionResponse, Integer, Hash)&gt; </a>
@@ -595,11 +595,11 @@
   
   
   
-  <span class="deprecated note title">deprecated</span>
+  
   
 
   
-    <span class="summary_desc"><strong>Deprecated.</strong> <div class='inline'><p>This API is deprecated.</p>
+    <span class="summary_desc"><div class='inline'><p>Get Usage Attribution Get Usage Attribution.</p>
 </div></span>
   
 </li>
@@ -4715,7 +4715,7 @@ Refer to <a href="https://docs.datadoghq.com/account_management/guide/usage-attr
       <div class="method_details ">
   <h3 class="signature " id="get_usage_attribution-instance_method">
   
-    #<strong>get_usage_attribution</strong>(start_month, fields, opts = {})  &#x21d2; <tt>Object</tt> 
+    #<strong>get_usage_attribution</strong>(start_month, fields, opts = {})  &#x21d2; <tt><span class='object_link'><a href="UsageAttributionResponse.html" title="DatadogAPIClient::V1::UsageAttributionResponse (class)">UsageAttributionResponse</a></span></tt> 
   
 
   
@@ -4723,62 +4723,8 @@ Refer to <a href="https://docs.datadoghq.com/account_management/guide/usage-attr
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Get usage attribution.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-  <p class="tag_title">See Also:</p>
-  <ul class="see">
-    
-      <li><span class='object_link'><a href="#get_usage_attribution_with_http_info-instance_method" title="DatadogAPIClient::V1::UsageMeteringAPI#get_usage_attribution_with_http_info (method)">#get_usage_attribution_with_http_info</a></span></li>
-    
-  </ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-758
-759
-760
-761</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/api/usage_metering_api.rb', line 758</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_get_usage_attribution'>get_usage_attribution</span><span class='lparen'>(</span><span class='id identifier rubyid_start_month'>start_month</span><span class='comma'>,</span> <span class='id identifier rubyid_fields'>fields</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_get_usage_attribution_with_http_info'>get_usage_attribution_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_start_month'>start_month</span><span class='comma'>,</span> <span class='id identifier rubyid_fields'>fields</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_data'>data</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="get_usage_attribution_with_http_info-instance_method">
-  
-    #<strong>get_usage_attribution_with_http_info</strong>(start_month, fields, opts = {})  &#x21d2; <tt>Array&lt;(<span class='object_link'><a href="UsageAttributionResponse.html" title="DatadogAPIClient::V1::UsageAttributionResponse (class)">UsageAttributionResponse</a></span>, Integer, Hash)&gt;</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <div class="note deprecated"><strong>Deprecated.</strong> <div class='inline'><p>This API is deprecated.</p>
-</div></div>
-<p>Get usage attribution.</p>
-
-<p>Get usage attribution.
-<strong>Note:</strong> This endpoint will be fully deprecated on December 1, 2022.
-Refer to <a href="https://docs.datadoghq.com/account_management/guide/usage-attribution-migration/">Migrating from v1 to v2 of the Usage Attribution API</a> for the associated migration guide.</p>
+    <p>Get Usage Attribution
+Get Usage Attribution.</p>
 
 
   </div>
@@ -4797,7 +4743,7 @@ Refer to <a href="https://docs.datadoghq.com/account_management/guide/usage-attr
       
       
         &mdash;
-        <div class='inline'><p>Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code> for usage beginning in this month. Maximum of 15 months ago.</p>
+        <div class='inline'><p>Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage beginning in this month. Maximum of 15 months ago.</p>
 </div>
       
     </li>
@@ -4812,7 +4758,7 @@ Refer to <a href="https://docs.datadoghq.com/account_management/guide/usage-attr
       
       
         &mdash;
-        <div class='inline'><p>Comma-separated list of usage types to return, or <code>*</code> for all usage types.</p>
+        <div class='inline'><p>Comma-separated list of usage types to return, or &#x60;*&#x60; for all usage types.</p>
 </div>
       
     </li>
@@ -4853,7 +4799,7 @@ Refer to <a href="https://docs.datadoghq.com/account_management/guide/usage-attr
             
           </span>
           
-            &mdash; <div class='inline'><p>Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code> for usage ending this month.</p>
+            &mdash; <div class='inline'><p>Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month.</p>
 </div>
           
         </li>
@@ -4865,7 +4811,199 @@ Refer to <a href="https://docs.datadoghq.com/account_management/guide/usage-attr
             
           </span>
           
-            &mdash; <div class='inline'><p>The direction to sort by: <code>[desc, asc]</code>.</p>
+            &mdash; <div class='inline'><p>The direction to sort by: &#x60;[desc, asc]&#x60;. (default to &#39;desc&#39;)</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:sort_name</span>
+          <span class="type">(<tt><span class='object_link'><a href="UsageAttributionSort.html" title="DatadogAPIClient::V1::UsageAttributionSort (class)">UsageAttributionSort</a></span></tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>The field to sort by. (default to &#39;custom_timeseries_usage&#39;)</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:include_descendants</span>
+          <span class="type">(<tt>Boolean</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Include child org usage in the response. Defaults to false. (default to false)</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:offset</span>
+          <span class="type">(<tt>Integer</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Number of records to skip before beginning to return. (default to 0)</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:limit</span>
+          <span class="type">(<tt>Integer</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Maximum number of records to be returned. (default to 5000)</p>
+</div>
+          
+        </li>
+      
+    </ul>
+  
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="UsageAttributionResponse.html" title="DatadogAPIClient::V1::UsageAttributionResponse (class)">UsageAttributionResponse</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+758
+759
+760
+761</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/api/usage_metering_api.rb', line 758</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_usage_attribution'>get_usage_attribution</span><span class='lparen'>(</span><span class='id identifier rubyid_start_month'>start_month</span><span class='comma'>,</span> <span class='id identifier rubyid_fields'>fields</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_get_usage_attribution_with_http_info'>get_usage_attribution_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_start_month'>start_month</span><span class='comma'>,</span> <span class='id identifier rubyid_fields'>fields</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_data'>data</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_usage_attribution_with_http_info-instance_method">
+  
+    #<strong>get_usage_attribution_with_http_info</strong>(start_month, fields, opts = {})  &#x21d2; <tt>Array&lt;(<span class='object_link'><a href="UsageAttributionResponse.html" title="DatadogAPIClient::V1::UsageAttributionResponse (class)">UsageAttributionResponse</a></span>, Integer, Hash)&gt;</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Get Usage Attribution
+Get Usage Attribution.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>start_month</span>
+      
+      
+        <span class='type'>(<tt>Time</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage beginning in this month. Maximum of 15 months ago.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>fields</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="UsageAttributionSupportedMetrics.html" title="DatadogAPIClient::V1::UsageAttributionSupportedMetrics (class)">UsageAttributionSupportedMetrics</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Comma-separated list of usage types to return, or &#x60;*&#x60; for all usage types.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>opts</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>the optional parameters</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  
+    
+    
+    
+    
+    
+    
+    <p class="tag_title">Options Hash (<tt>opts</tt>):</p>
+    <ul class="option">
+      
+        <li>
+          <span class="name">:end_month</span>
+          <span class="type">(<tt>Time</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month.</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:sort_direction</span>
+          <span class="type">(<tt><span class='object_link'><a href="UsageSortDirection.html" title="DatadogAPIClient::V1::UsageSortDirection (class)">UsageSortDirection</a></span></tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>The direction to sort by: &#x60;[desc, asc]&#x60;.</p>
 </div>
           
         </li>
@@ -5658,13 +5796,13 @@ Refer to <a href="https://docs.datadoghq.com/account_management/guide/usage-attr
       <pre class="lines">
 
 
-984
-985
-986
-987</pre>
+882
+883
+884
+885</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/api/usage_metering_api.rb', line 984</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/api/usage_metering_api.rb', line 882</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_usage_ci_app'>get_usage_ci_app</span><span class='lparen'>(</span><span class='id identifier rubyid_start_hr'>start_hr</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_get_usage_ci_app_with_http_info'>get_usage_ci_app_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_start_hr'>start_hr</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -5779,60 +5917,60 @@ Refer to <a href="https://docs.datadoghq.com/account_management/guide/usage-attr
       <pre class="lines">
 
 
-998
-999
-1000
-1001
-1002
-1003
-1004
-1005
-1006
-1007
-1008
-1009
-1010
-1011
-1012
-1013
-1014
-1015
-1016
-1017
-1018
-1019
-1020
-1021
-1022
-1023
-1024
-1025
-1026
-1027
-1028
-1029
-1030
-1031
-1032
-1033
-1034
-1035
-1036
-1037
-1038
-1039
-1040
-1041
-1042
-1043
-1044
-1045
-1046
-1047
-1048</pre>
+896
+897
+898
+899
+900
+901
+902
+903
+904
+905
+906
+907
+908
+909
+910
+911
+912
+913
+914
+915
+916
+917
+918
+919
+920
+921
+922
+923
+924
+925
+926
+927
+928
+929
+930
+931
+932
+933
+934
+935
+936
+937
+938
+939
+940
+941
+942
+943
+944
+945
+946</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/api/usage_metering_api.rb', line 998</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/api/usage_metering_api.rb', line 896</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_usage_ci_app_with_http_info'>get_usage_ci_app_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_start_hr'>start_hr</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -9575,13 +9713,13 @@ Refer to <a href="https://docs.datadoghq.com/account_management/guide/usage-attr
       <pre class="lines">
 
 
-1951
-1952
-1953
-1954</pre>
+1849
+1850
+1851
+1852</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/api/usage_metering_api.rb', line 1951</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/api/usage_metering_api.rb', line 1849</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_usage_online_archive'>get_usage_online_archive</span><span class='lparen'>(</span><span class='id identifier rubyid_start_hr'>start_hr</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_get_usage_online_archive_with_http_info'>get_usage_online_archive_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_start_hr'>start_hr</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -9696,60 +9834,60 @@ Refer to <a href="https://docs.datadoghq.com/account_management/guide/usage-attr
       <pre class="lines">
 
 
-1965
-1966
-1967
-1968
-1969
-1970
-1971
-1972
-1973
-1974
-1975
-1976
-1977
-1978
-1979
-1980
-1981
-1982
-1983
-1984
-1985
-1986
-1987
-1988
-1989
-1990
-1991
-1992
-1993
-1994
-1995
-1996
-1997
-1998
-1999
-2000
-2001
-2002
-2003
-2004
-2005
-2006
-2007
-2008
-2009
-2010
-2011
-2012
-2013
-2014
-2015</pre>
+1863
+1864
+1865
+1866
+1867
+1868
+1869
+1870
+1871
+1872
+1873
+1874
+1875
+1876
+1877
+1878
+1879
+1880
+1881
+1882
+1883
+1884
+1885
+1886
+1887
+1888
+1889
+1890
+1891
+1892
+1893
+1894
+1895
+1896
+1897
+1898
+1899
+1900
+1901
+1902
+1903
+1904
+1905
+1906
+1907
+1908
+1909
+1910
+1911
+1912
+1913</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/api/usage_metering_api.rb', line 1965</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/api/usage_metering_api.rb', line 1863</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_usage_online_archive_with_http_info'>get_usage_online_archive_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_start_hr'>start_hr</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -12965,7 +13103,7 @@ Refer to <a href="https://docs.datadoghq.com/account_management/guide/usage-attr
 </div>
 
       <div id="footer">
-  Generated on Fri Mar 22 18:04:48 2024 by
+  Generated on Fri Mar 22 21:15:35 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.36 (ruby-2.7.8).
 </div>
