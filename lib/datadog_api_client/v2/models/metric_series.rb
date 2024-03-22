@@ -22,7 +22,7 @@ module DatadogAPIClient::V2
   class MetricSeries
     include BaseGenericModel
 
-    # If the type of the metric is rate or count, define the corresponding interval.
+    # If the type of the metric is rate or count, define the corresponding interval in seconds.
     attr_accessor :interval
 
     # Metadata for the metric.
