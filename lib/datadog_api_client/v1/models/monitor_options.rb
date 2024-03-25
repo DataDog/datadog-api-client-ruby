@@ -122,6 +122,8 @@ module DatadogAPIClient::V1
     attr_accessor :renotify_occurrences
 
     # The types of monitor statuses for which re-notification messages are sent.
+    # Default: **null** if `renotify_interval` is **null**.
+    # If `renotify_interval` is set, defaults to renotify on `Alert` and `No Data`.
     attr_accessor :renotify_statuses
 
     # A Boolean indicating whether this monitor needs a full window of data before it’s evaluated.
