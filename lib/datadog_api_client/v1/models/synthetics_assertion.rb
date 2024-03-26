@@ -29,6 +29,7 @@ module DatadogAPIClient::V1
         [
           :'SyntheticsAssertionTarget',
           :'SyntheticsAssertionJSONPathTarget',
+          :'SyntheticsAssertionJSONSchemaTarget',
           :'SyntheticsAssertionXPathTarget'
         ]
       end
