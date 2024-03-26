@@ -10,7 +10,7 @@ body = DatadogAPIClient::V2::TeamLinkCreateRequest.new({
   data: DatadogAPIClient::V2::TeamLinkCreate.new({
     attributes: DatadogAPIClient::V2::TeamLinkAttributes.new({
       label: "Link label",
-      url: "https://example.com",
+      url: "https://example.com/one",
       position: 0,
     }),
     type: DatadogAPIClient::V2::TeamLinkType::TEAM_LINKS,

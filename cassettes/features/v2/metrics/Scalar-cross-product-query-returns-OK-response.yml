@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Mon, 25 Mar 2024 19:28:00 GMT
+- recorded_at: Wed, 21 Dec 2022 11:14:01 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"formulas":[{"formula":"a","limit":{"count":10,"order":"desc"}}],"from":1711391280000,"queries":[{"aggregator":"avg","data_source":"metrics","name":"a","query":"avg:system.cpu.user{*}"}],"to":1711394880000},"type":"scalar_request"}}'
+      string: '{"data":{"attributes":{"formulas":[{"formula":"a","limit":{"count":10,"order":"desc"}}],"from":1671612804000,"queries":[{"aggregator":"avg","data_source":"metrics","name":"a","query":"avg:system.cpu.user{*}"}],"to":1671620004000},"type":"scalar_request"}}'
     headers:
       Accept:
       - application/json
@@ -14,7 +14,7 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"scalar_response","attributes":{"columns":[{"values":[6.368151928283307],"name":"a","meta":{"unit":[{"short_name":"%","id":17,"plural":"percent","name":"percent","family":"percentage","scale_factor":1.0},null]},"type":"number"}]}}}'
+      string: '{"data":{"type":"scalar_response","attributes":{"columns":[{"name":"a","values":[5.173633659114822],"type":"number","meta":{"unit":[{"scale_factor":1.0,"id":17,"name":"percent","plural":"percent","family":"percentage","short_name":"%"},null]}}]}}}'
     headers:
       Content-Type:
       - application/json

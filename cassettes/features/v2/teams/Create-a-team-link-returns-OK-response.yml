@@ -27,7 +27,7 @@ http_interactions:
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"label":"Link label","position":0,"url":"https://example.com"},"type":"team_links"}}'
+      string: '{"data":{"attributes":{"label":"Link label","position":0,"url":"https://example.com/one"},"type":"team_links"}}'
     headers:
       Accept:
       - application/json
@@ -39,7 +39,7 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"data":{"type":"team_links","id":"2d348dee-405b-11ee-b5db-da7ad0900002","attributes":{"team_id":"2d0e6d4e-405b-11ee-84bc-da7ad0900002","label":"Link
-        label","url":"https://example.com","position":0}}}
+        label","url":"https://example.com/one","position":0}}}
 
         '
     headers:
