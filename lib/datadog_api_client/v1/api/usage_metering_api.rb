@@ -214,13 +214,16 @@ module DatadogAPIClient::V1
     # Get hourly usage for incident management.
     #
     # Get hourly usage for incident management.
-    # **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
+    # **Note:** This endpoint has been deprecated. Hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
+    #
+    # @deprecated This API is deprecated.
     #
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
     # @param opts [Hash] the optional parameters
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
     # @return [Array<(UsageIncidentManagementResponse, Integer, Hash)>] UsageIncidentManagementResponse data, response status code and response headers
     def get_incident_management_with_http_info(start_hr, opts = {})
+      warn "[DEPRECATION] `GetIncidentManagement` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_incident_management ...'
@@ -283,13 +286,16 @@ module DatadogAPIClient::V1
     # Get hourly usage for ingested spans.
     #
     # Get hourly usage for ingested spans.
-    # **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
+    # **Note:** This endpoint has been deprecated. Hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
+    #
+    # @deprecated This API is deprecated.
     #
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
     # @param opts [Hash] the optional parameters
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
     # @return [Array<(UsageIngestedSpansResponse, Integer, Hash)>] UsageIngestedSpansResponse data, response status code and response headers
     def get_ingested_spans_with_http_info(start_hr, opts = {})
+      warn "[DEPRECATION] `GetIngestedSpans` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_ingested_spans ...'
@@ -684,13 +690,16 @@ module DatadogAPIClient::V1
     # Get hourly usage for analyzed logs.
     #
     # Get hourly usage for analyzed logs (Security Monitoring).
-    # **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
+    # **Note:** This endpoint has been deprecated. Hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
+    #
+    # @deprecated This API is deprecated.
     #
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
     # @param opts [Hash] the optional parameters
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
     # @return [Array<(UsageAnalyzedLogsResponse, Integer, Hash)>] UsageAnalyzedLogsResponse data, response status code and response headers
     def get_usage_analyzed_logs_with_http_info(start_hr, opts = {})
+      warn "[DEPRECATION] `GetUsageAnalyzedLogs` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_analyzed_logs ...'
@@ -887,13 +896,16 @@ module DatadogAPIClient::V1
     # Get hourly usage for CI visibility.
     #
     # Get hourly usage for CI visibility (tests, pipeline, and spans).
-    # **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
+    # **Note:** This endpoint has been deprecated. Hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
+    #
+    # @deprecated This API is deprecated.
     #
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
     # @param opts [Hash] the optional parameters
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
     # @return [Array<(UsageCIVisibilityResponse, Integer, Hash)>] UsageCIVisibilityResponse data, response status code and response headers
     def get_usage_ci_app_with_http_info(start_hr, opts = {})
+      warn "[DEPRECATION] `GetUsageCIApp` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_ci_app ...'
@@ -956,13 +968,16 @@ module DatadogAPIClient::V1
     # Get hourly usage for CSM Pro.
     #
     # Get hourly usage for cloud security management (CSM) pro.
-    # **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
+    # **Note:** This endpoint has been deprecated. Hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
+    #
+    # @deprecated This API is deprecated.
     #
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
     # @param opts [Hash] the optional parameters
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
     # @return [Array<(UsageCloudSecurityPostureManagementResponse, Integer, Hash)>] UsageCloudSecurityPostureManagementResponse data, response status code and response headers
     def get_usage_cloud_security_posture_management_with_http_info(start_hr, opts = {})
+      warn "[DEPRECATION] `GetUsageCloudSecurityPostureManagement` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_cloud_security_posture_management ...'
@@ -1025,13 +1040,16 @@ module DatadogAPIClient::V1
     # Get hourly usage for cloud workload security.
     #
     # Get hourly usage for cloud workload security.
-    # **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
+    # **Note:** This endpoint has been deprecated. Hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
+    #
+    # @deprecated This API is deprecated.
     #
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
     # @param opts [Hash] the optional parameters
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
     # @return [Array<(UsageCWSResponse, Integer, Hash)>] UsageCWSResponse data, response status code and response headers
     def get_usage_cws_with_http_info(start_hr, opts = {})
+      warn "[DEPRECATION] `GetUsageCWS` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_cws ...'
@@ -1094,13 +1112,16 @@ module DatadogAPIClient::V1
     # Get hourly usage for database monitoring.
     #
     # Get hourly usage for database monitoring
-    # **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
+    # **Note:** This endpoint has been deprecated. Hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
+    #
+    # @deprecated This API is deprecated.
     #
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
     # @param opts [Hash] the optional parameters
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
     # @return [Array<(UsageDBMResponse, Integer, Hash)>] UsageDBMResponse data, response status code and response headers
     def get_usage_dbm_with_http_info(start_hr, opts = {})
+      warn "[DEPRECATION] `GetUsageDBM` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_dbm ...'
@@ -1163,13 +1184,16 @@ module DatadogAPIClient::V1
     # Get hourly usage for Fargate.
     #
     # Get hourly usage for [Fargate](https://docs.datadoghq.com/integrations/ecs_fargate/).
-    # **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
+    # **Note:** This endpoint has been deprecated. Hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
+    #
+    # @deprecated This API is deprecated.
     #
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
     # @param opts [Hash] the optional parameters
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
     # @return [Array<(UsageFargateResponse, Integer, Hash)>] UsageFargateResponse data, response status code and response headers
     def get_usage_fargate_with_http_info(start_hr, opts = {})
+      warn "[DEPRECATION] `GetUsageFargate` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_fargate ...'
@@ -1232,13 +1256,16 @@ module DatadogAPIClient::V1
     # Get hourly usage for hosts and containers.
     #
     # Get hourly usage for hosts and containers.
-    # **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
+    # **Note:** This endpoint has been deprecated. Hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
+    #
+    # @deprecated This API is deprecated.
     #
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
     # @param opts [Hash] the optional parameters
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
     # @return [Array<(UsageHostsResponse, Integer, Hash)>] UsageHostsResponse data, response status code and response headers
     def get_usage_hosts_with_http_info(start_hr, opts = {})
+      warn "[DEPRECATION] `GetUsageHosts` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_hosts ...'
@@ -1301,13 +1328,16 @@ module DatadogAPIClient::V1
     # Get hourly usage for indexed spans.
     #
     # Get hourly usage for indexed spans.
-    # **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
+    # **Note:** This endpoint has been deprecated. Hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
+    #
+    # @deprecated This API is deprecated.
     #
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
     # @param opts [Hash] the optional parameters
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
     # @return [Array<(UsageIndexedSpansResponse, Integer, Hash)>] UsageIndexedSpansResponse data, response status code and response headers
     def get_usage_indexed_spans_with_http_info(start_hr, opts = {})
+      warn "[DEPRECATION] `GetUsageIndexedSpans` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_indexed_spans ...'
@@ -1370,13 +1400,16 @@ module DatadogAPIClient::V1
     # Get hourly usage for IoT.
     #
     # Get hourly usage for IoT.
-    # **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
+    # **Note:** This endpoint has been deprecated. Hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
+    #
+    # @deprecated This API is deprecated.
     #
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
     # @param opts [Hash] the optional parameters
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
     # @return [Array<(UsageIoTResponse, Integer, Hash)>] UsageIoTResponse data, response status code and response headers
     def get_usage_internet_of_things_with_http_info(start_hr, opts = {})
+      warn "[DEPRECATION] `GetUsageInternetOfThings` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_internet_of_things ...'
@@ -1439,13 +1472,16 @@ module DatadogAPIClient::V1
     # Get hourly usage for Lambda.
     #
     # Get hourly usage for Lambda.
-    # **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
+    # **Note:** This endpoint has been deprecated. Hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
+    #
+    # @deprecated This API is deprecated.
     #
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
     # @param opts [Hash] the optional parameters
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
     # @return [Array<(UsageLambdaResponse, Integer, Hash)>] UsageLambdaResponse data, response status code and response headers
     def get_usage_lambda_with_http_info(start_hr, opts = {})
+      warn "[DEPRECATION] `GetUsageLambda` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_lambda ...'
@@ -1508,13 +1544,16 @@ module DatadogAPIClient::V1
     # Get hourly usage for logs.
     #
     # Get hourly usage for logs.
-    # **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
+    # **Note:** This endpoint has been deprecated. Hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
+    #
+    # @deprecated This API is deprecated.
     #
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
     # @param opts [Hash] the optional parameters
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
     # @return [Array<(UsageLogsResponse, Integer, Hash)>] UsageLogsResponse data, response status code and response headers
     def get_usage_logs_with_http_info(start_hr, opts = {})
+      warn "[DEPRECATION] `GetUsageLogs` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_logs ...'
@@ -1647,13 +1686,16 @@ module DatadogAPIClient::V1
     # Get hourly logs usage by retention.
     #
     # Get hourly usage for indexed logs by retention period.
-    # **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
+    # **Note:** This endpoint has been deprecated. Hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
+    #
+    # @deprecated This API is deprecated.
     #
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
     # @param opts [Hash] the optional parameters
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
     # @return [Array<(UsageLogsByRetentionResponse, Integer, Hash)>] UsageLogsByRetentionResponse data, response status code and response headers
     def get_usage_logs_by_retention_with_http_info(start_hr, opts = {})
+      warn "[DEPRECATION] `GetUsageLogsByRetention` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_logs_by_retention ...'
@@ -1716,13 +1758,16 @@ module DatadogAPIClient::V1
     # get hourly usage for network flows.
     #
     # Get hourly usage for network flows.
-    # **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
+    # **Note:** This endpoint has been deprecated. Hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
+    #
+    # @deprecated This API is deprecated.
     #
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
     # @param opts [Hash] the optional parameters
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
     # @return [Array<(UsageNetworkFlowsResponse, Integer, Hash)>] UsageNetworkFlowsResponse data, response status code and response headers
     def get_usage_network_flows_with_http_info(start_hr, opts = {})
+      warn "[DEPRECATION] `GetUsageNetworkFlows` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_network_flows ...'
@@ -1785,13 +1830,16 @@ module DatadogAPIClient::V1
     # Get hourly usage for network hosts.
     #
     # Get hourly usage for network hosts.
-    # **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
+    # **Note:** This endpoint has been deprecated. Hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
+    #
+    # @deprecated This API is deprecated.
     #
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
     # @param opts [Hash] the optional parameters
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
     # @return [Array<(UsageNetworkHostsResponse, Integer, Hash)>] UsageNetworkHostsResponse data, response status code and response headers
     def get_usage_network_hosts_with_http_info(start_hr, opts = {})
+      warn "[DEPRECATION] `GetUsageNetworkHosts` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_network_hosts ...'
@@ -1854,13 +1902,16 @@ module DatadogAPIClient::V1
     # Get hourly usage for online archive.
     #
     # Get hourly usage for online archive.
-    # **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
+    # **Note:** This endpoint has been deprecated. Hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
+    #
+    # @deprecated This API is deprecated.
     #
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
     # @param opts [Hash] the optional parameters
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
     # @return [Array<(UsageOnlineArchiveResponse, Integer, Hash)>] UsageOnlineArchiveResponse data, response status code and response headers
     def get_usage_online_archive_with_http_info(start_hr, opts = {})
+      warn "[DEPRECATION] `GetUsageOnlineArchive` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_online_archive ...'
@@ -1923,13 +1974,16 @@ module DatadogAPIClient::V1
     # Get hourly usage for profiled hosts.
     #
     # Get hourly usage for profiled hosts.
-    # **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
+    # **Note:** This endpoint has been deprecated. Hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
+    #
+    # @deprecated This API is deprecated.
     #
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
     # @param opts [Hash] the optional parameters
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
     # @return [Array<(UsageProfilingResponse, Integer, Hash)>] UsageProfilingResponse data, response status code and response headers
     def get_usage_profiling_with_http_info(start_hr, opts = {})
+      warn "[DEPRECATION] `GetUsageProfiling` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_profiling ...'
@@ -1992,7 +2046,9 @@ module DatadogAPIClient::V1
     # Get hourly usage for RUM sessions.
     #
     # Get hourly usage for [RUM](https://docs.datadoghq.com/real_user_monitoring/) Sessions.
-    # **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
+    # **Note:** This endpoint has been deprecated. Hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
+    #
+    # @deprecated This API is deprecated.
     #
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
     # @param opts [Hash] the optional parameters
@@ -2000,6 +2056,7 @@ module DatadogAPIClient::V1
     # @option opts [String] :type RUM type: `[browser, mobile]`. Defaults to `browser`.
     # @return [Array<(UsageRumSessionsResponse, Integer, Hash)>] UsageRumSessionsResponse data, response status code and response headers
     def get_usage_rum_sessions_with_http_info(start_hr, opts = {})
+      warn "[DEPRECATION] `GetUsageRumSessions` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_rum_sessions ...'
@@ -2063,13 +2120,16 @@ module DatadogAPIClient::V1
     # Get hourly usage for RUM units.
     #
     # Get hourly usage for [RUM](https://docs.datadoghq.com/real_user_monitoring/) Units.
-    # **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
+    # **Note:** This endpoint has been deprecated. Hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
+    #
+    # @deprecated This API is deprecated.
     #
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
     # @param opts [Hash] the optional parameters
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
     # @return [Array<(UsageRumUnitsResponse, Integer, Hash)>] UsageRumUnitsResponse data, response status code and response headers
     def get_usage_rum_units_with_http_info(start_hr, opts = {})
+      warn "[DEPRECATION] `GetUsageRumUnits` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_rum_units ...'
@@ -2132,13 +2192,16 @@ module DatadogAPIClient::V1
     # Get hourly usage for sensitive data scanner.
     #
     # Get hourly usage for sensitive data scanner.
-    # **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
+    # **Note:** This endpoint has been deprecated. Hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
+    #
+    # @deprecated This API is deprecated.
     #
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
     # @param opts [Hash] the optional parameters
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
     # @return [Array<(UsageSDSResponse, Integer, Hash)>] UsageSDSResponse data, response status code and response headers
     def get_usage_sds_with_http_info(start_hr, opts = {})
+      warn "[DEPRECATION] `GetUsageSDS` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_sds ...'
@@ -2201,13 +2264,16 @@ module DatadogAPIClient::V1
     # Get hourly usage for SNMP devices.
     #
     # Get hourly usage for SNMP devices.
-    # **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
+    # **Note:** This endpoint has been deprecated. Hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
+    #
+    # @deprecated This API is deprecated.
     #
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
     # @param opts [Hash] the optional parameters
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
     # @return [Array<(UsageSNMPResponse, Integer, Hash)>] UsageSNMPResponse data, response status code and response headers
     def get_usage_snmp_with_http_info(start_hr, opts = {})
+      warn "[DEPRECATION] `GetUsageSNMP` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_snmp ...'
@@ -2340,7 +2406,7 @@ module DatadogAPIClient::V1
     # Get hourly usage for synthetics checks.
     #
     # Get hourly usage for [synthetics checks](https://docs.datadoghq.com/synthetics/).
-    # **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
+    # **Note:** This endpoint has been deprecated. Hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
     #
     # @deprecated This API is deprecated.
     #
@@ -2412,13 +2478,16 @@ module DatadogAPIClient::V1
     # Get hourly usage for synthetics API checks.
     #
     # Get hourly usage for [synthetics API checks](https://docs.datadoghq.com/synthetics/).
-    # **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
+    # **Note:** This endpoint has been deprecated. Hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
+    #
+    # @deprecated This API is deprecated.
     #
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
     # @param opts [Hash] the optional parameters
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
     # @return [Array<(UsageSyntheticsAPIResponse, Integer, Hash)>] UsageSyntheticsAPIResponse data, response status code and response headers
     def get_usage_synthetics_api_with_http_info(start_hr, opts = {})
+      warn "[DEPRECATION] `GetUsageSyntheticsAPI` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_synthetics_api ...'
@@ -2481,13 +2550,16 @@ module DatadogAPIClient::V1
     # Get hourly usage for synthetics browser checks.
     #
     # Get hourly usage for synthetics browser checks.
-    # **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
+    # **Note:** This endpoint has been deprecated. Hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
+    #
+    # @deprecated This API is deprecated.
     #
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
     # @param opts [Hash] the optional parameters
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
     # @return [Array<(UsageSyntheticsBrowserResponse, Integer, Hash)>] UsageSyntheticsBrowserResponse data, response status code and response headers
     def get_usage_synthetics_browser_with_http_info(start_hr, opts = {})
+      warn "[DEPRECATION] `GetUsageSyntheticsBrowser` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_synthetics_browser ...'
@@ -2550,13 +2622,16 @@ module DatadogAPIClient::V1
     # Get hourly usage for custom metrics.
     #
     # Get hourly usage for [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/).
-    # **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
+    # **Note:** This endpoint has been deprecated. Hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
+    #
+    # @deprecated This API is deprecated.
     #
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
     # @param opts [Hash] the optional parameters
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
     # @return [Array<(UsageTimeseriesResponse, Integer, Hash)>] UsageTimeseriesResponse data, response status code and response headers
     def get_usage_timeseries_with_http_info(start_hr, opts = {})
+      warn "[DEPRECATION] `GetUsageTimeseries` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_timeseries ...'
