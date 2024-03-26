@@ -18,7 +18,7 @@ body = DatadogAPIClient::V2::ScalarFormulaQueryRequest.new({
           }),
         }),
       ],
-      from: 1671612804000,
+      from: 1636625471000,
       queries: [
         DatadogAPIClient::V2::MetricsScalarQuery.new({
           aggregator: DatadogAPIClient::V2::MetricsAggregator::AVG,
@@ -27,7 +27,7 @@ body = DatadogAPIClient::V2::ScalarFormulaQueryRequest.new({
           name: "a",
         }),
       ],
-      to: 1671620004000,
+      to: 1636629071000,
     }),
     type: DatadogAPIClient::V2::ScalarFormulaRequestType::SCALAR_REQUEST,
   }),

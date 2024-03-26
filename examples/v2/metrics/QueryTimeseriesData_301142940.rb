@@ -18,7 +18,7 @@ body = DatadogAPIClient::V2::TimeseriesFormulaQueryRequest.new({
           }),
         }),
       ],
-      from: 1671612804000,
+      from: 1636625471000,
       interval: 5000,
       queries: [
         DatadogAPIClient::V2::MetricsTimeseriesQuery.new({
@@ -27,7 +27,7 @@ body = DatadogAPIClient::V2::TimeseriesFormulaQueryRequest.new({
           name: "a",
         }),
       ],
-      to: 1671620004000,
+      to: 1636629071000,
     }),
     type: DatadogAPIClient::V2::TimeseriesFormulaRequestType::TIMESERIES_REQUEST,
   }),
