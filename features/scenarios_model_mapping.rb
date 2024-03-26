@@ -1873,6 +1873,15 @@ ScenariosModelMappings = {
             "service_name" => "String",
             "schema_version" => "ServiceDefinitionSchemaVersions",
     },
+    "v2.CreateSLOReportJob" => {
+            "body" => "SLOReportPostRequest",
+    },
+    "v2.GetSLOReport" => {
+            "report_id" => "String",
+    },
+    "v2.GetSLOReportJobStatus" => {
+            "report_id" => "String",
+    },
     "v2.AggregateSpans" => {
             "body" => "SpansAggregateRequest",
     },
