@@ -584,13 +584,16 @@ module DatadogAPIClient::V2
     # Get hourly usage for application security.
     #
     # Get hourly usage for application security .
-    # **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family)
+    # **Note:** This endpoint has been deprecated. Hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family)
+    #
+    # @deprecated This API is deprecated.
     #
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
     # @param opts [Hash] the optional parameters
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
     # @return [Array<(UsageApplicationSecurityMonitoringResponse, Integer, Hash)>] UsageApplicationSecurityMonitoringResponse data, response status code and response headers
     def get_usage_application_security_monitoring_with_http_info(start_hr, opts = {})
+      warn "[DEPRECATION] `GetUsageApplicationSecurityMonitoring` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_application_security_monitoring ...'
@@ -653,13 +656,16 @@ module DatadogAPIClient::V2
     # Get hourly usage for Lambda traced invocations.
     #
     # Get hourly usage for Lambda traced invocations.
-    # **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family)
+    # **Note:** This endpoint has been deprecated.. Hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family)
+    #
+    # @deprecated This API is deprecated.
     #
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
     # @param opts [Hash] the optional parameters
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
     # @return [Array<(UsageLambdaTracedInvocationsResponse, Integer, Hash)>] UsageLambdaTracedInvocationsResponse data, response status code and response headers
     def get_usage_lambda_traced_invocations_with_http_info(start_hr, opts = {})
+      warn "[DEPRECATION] `GetUsageLambdaTracedInvocations` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_lambda_traced_invocations ...'
@@ -722,13 +728,16 @@ module DatadogAPIClient::V2
     # Get hourly usage for observability pipelines.
     #
     # Get hourly usage for observability pipelines.
-    # **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family)
+    # **Note:** This endpoint has been deprecated. Hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family)
+    #
+    # @deprecated This API is deprecated.
     #
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
     # @param opts [Hash] the optional parameters
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
     # @return [Array<(UsageObservabilityPipelinesResponse, Integer, Hash)>] UsageObservabilityPipelinesResponse data, response status code and response headers
     def get_usage_observability_pipelines_with_http_info(start_hr, opts = {})
+      warn "[DEPRECATION] `GetUsageObservabilityPipelines` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_observability_pipelines ...'
