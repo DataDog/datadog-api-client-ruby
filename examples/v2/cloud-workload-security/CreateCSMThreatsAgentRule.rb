@@ -9,7 +9,7 @@ body = DatadogAPIClient::V2::CloudWorkloadSecurityAgentRuleCreateRequest.new({
       description: "My Agent rule",
       enabled: true,
       expression: 'exec.file.name == "sh"',
-      name: "my_agent_rule",
+      name: "examplecloudworkloadsecurity",
     }),
     type: DatadogAPIClient::V2::CloudWorkloadSecurityAgentRuleType::AGENT_RULE,
   }),
