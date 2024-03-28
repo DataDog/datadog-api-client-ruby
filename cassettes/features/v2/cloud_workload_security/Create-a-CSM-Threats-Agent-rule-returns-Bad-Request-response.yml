@@ -1,10 +1,10 @@
 http_interactions:
-- recorded_at: Fri, 08 Mar 2024 14:19:01 GMT
+- recorded_at: Thu, 28 Mar 2024 13:57:47 GMT
   request:
     body:
       encoding: UTF-8
       string: '{"data":{"attributes":{"description":"My Agent rule","enabled":true,"expression":"exec.file.name
-        == sh","name":"my_agent_rule"},"type":"agent_rule"}}'
+        == sh","name":"testcreateacsmthreatsagentrulereturnsbadrequestresponse1711634267"},"type":"agent_rule"}}'
     headers:
       Accept:
       - application/json
@@ -16,7 +16,8 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"errors":["input_validation_error(Field ''expression'' is invalid:
-        rule `my_agent_rule` error: rule compilation error: field `sh` not found)"]}'
+        rule `testcreateacsmthreatsagentrulereturnsbadrequestresponse1711634267` error:
+        rule compilation error: field `sh` not found)"]}'
     headers:
       Content-Type:
       - application/json
