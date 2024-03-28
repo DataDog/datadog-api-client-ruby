@@ -12,7 +12,7 @@ body = DatadogAPIClient::V2::AuthNMappingCreateRequest.new({
       attribute_key: "exampleauthnmapping",
       attribute_value: "Example-AuthN-Mapping",
     }),
-    relationships: DatadogAPIClient::V2::AuthNMappingCreateRelationships.new({
+    relationships: DatadogAPIClient::V2::AuthNMappingRelationshipToRole.new({
       role: DatadogAPIClient::V2::RelationshipToRole.new({
         data: DatadogAPIClient::V2::RelationshipToRoleData.new({
           id: ROLE_DATA_ID,

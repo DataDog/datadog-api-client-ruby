@@ -27,7 +27,8 @@ module DatadogAPIClient::V2
       def openapi_one_of
         [
           :'SAMLAssertionAttribute',
-          :'Role'
+          :'Role',
+          :'AuthNMappingTeam'
         ]
       end
       # Builds the object
