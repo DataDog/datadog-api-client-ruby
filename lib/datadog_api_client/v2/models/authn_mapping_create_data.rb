@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # Key/Value pair of attributes used for create request.
     attr_accessor :attributes
 
-    # Relationship of AuthN Mapping create object to Role.
+    # Relationship of AuthN Mapping create object to a Role or Team.
     attr_accessor :relationships
 
     # AuthN Mappings resource type.

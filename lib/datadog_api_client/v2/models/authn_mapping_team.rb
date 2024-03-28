@@ -17,21 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Data for updating an AuthN Mapping.
-  class AuthNMappingUpdateData
+  # Team.
+  class AuthNMappingTeam
     include BaseGenericModel
 
-    # Key/Value pair of attributes used for update request.
+    # Team attributes.
     attr_accessor :attributes
 
-    # ID of the AuthN Mapping.
-    attr_reader :id
+    # The ID of the Team.
+    attr_accessor :id
 
-    # Relationship of AuthN Mapping update object to a Role or Team.
-    attr_accessor :relationships
-
-    # AuthN Mappings resource type.
-    attr_reader :type
+    # Team type
+    attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -39,7 +36,6 @@ module DatadogAPIClient::V2
       {
         :'attributes' => :'attributes',
         :'id' => :'id',
-        :'relationships' => :'relationships',
         :'type' => :'type'
       }
     end
@@ -48,10 +44,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'AuthNMappingUpdateAttributes',
+        :'attributes' => :'AuthNMappingTeamAttributes',
         :'id' => :'String',
-        :'relationships' => :'AuthNMappingUpdateRelationships',
-        :'type' => :'AuthNMappingsType'
+        :'type' => :'TeamType'
       }
     end
 
@@ -60,13 +55,13 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::AuthNMappingUpdateData` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::AuthNMappingTeam` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::AuthNMappingUpdateData`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::AuthNMappingTeam`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
@@ -79,42 +74,9 @@ module DatadogAPIClient::V2
         self.id = attributes[:'id']
       end
 
-      if attributes.key?(:'relationships')
-        self.relationships = attributes[:'relationships']
-      end
-
       if attributes.key?(:'type')
         self.type = attributes[:'type']
       end
-    end
-
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    # @!visibility private
-    def valid?
-      return false if @id.nil?
-      return false if @type.nil?
-      true
-    end
-
-    # Custom attribute writer method with validation
-    # @param id [Object] Object to be assigned
-    # @!visibility private
-    def id=(id)
-      if id.nil?
-        fail ArgumentError, 'invalid value for "id", id cannot be nil.'
-      end
-      @id = id
-    end
-
-    # Custom attribute writer method with validation
-    # @param type [Object] Object to be assigned
-    # @!visibility private
-    def type=(type)
-      if type.nil?
-        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
-      end
-      @type = type
     end
 
     # Checks equality by comparing each attribute.
@@ -125,7 +87,6 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           attributes == o.attributes &&
           id == o.id &&
-          relationships == o.relationships &&
           type == o.type
     end
 
@@ -133,7 +94,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, id, relationships, type].hash
+      [attributes, id, type].hash
     end
   end
 end
