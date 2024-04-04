@@ -107,7 +107,7 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     <p>The time-slice condition, composed of 3 parts: 1. the metric timeseries query, 2. the comparator,
-and 3. the threshold.</p>
+and 3. the threshold. Optionally, a fourth part, the query interval, can be provided.</p>
 
 
   </div>
@@ -173,6 +173,32 @@ and 3. the threshold.</p>
 
   
     <span class="summary_desc"><div class='inline'><p>The queries and formula used to calculate the SLI value.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#query_interval_seconds-instance_method" title="#query_interval_seconds (instance method)">#<strong>query_interval_seconds</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The interval used when querying data, which defines the size of a time slice.</p>
 </div></span>
   
 </li>
@@ -311,6 +337,50 @@ and 3. the threshold.</p>
 </div>
     
       
+      <span id="query_interval_seconds=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="query_interval_seconds-instance_method">
+  
+    #<strong>query_interval_seconds</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>The interval used when querying data, which defines the size of a time slice.
+Two values are allowed: 60 (1 minute) and 300 (5 minutes).
+If not provided, the value defaults to 300 (5 minutes).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+34
+35
+36</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/slo_time_slice_condition.rb', line 34</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_query_interval_seconds'>query_interval_seconds</span>
+  <span class='ivar'>@query_interval_seconds</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
       <span id="threshold=-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="threshold-instance_method">
@@ -337,12 +407,12 @@ and 3. the threshold.</p>
       <pre class="lines">
 
 
-32
-33
-34</pre>
+37
+38
+39</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/slo_time_slice_condition.rb', line 32</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/slo_time_slice_condition.rb', line 37</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_threshold'>threshold</span>
   <span class='ivar'>@threshold</span>
@@ -358,7 +428,7 @@ and 3. the threshold.</p>
 </div>
 
       <div id="footer">
-  Generated on Tue Apr  2 14:14:17 2024 by
+  Generated on Thu Apr  4 14:38:24 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.36 (ruby-2.7.8).
 </div>
