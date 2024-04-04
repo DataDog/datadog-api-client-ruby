@@ -2240,7 +2240,9 @@ It only re-notifies if it’s not resolved.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>The types of monitor statuses for which re-notification messages are sent.</p>
+    <p>The types of monitor statuses for which re-notification messages are sent.
+Default: <strong>null</strong> if <code>renotify_interval</code> is <strong>null</strong>.
+If <code>renotify_interval</code> is set, defaults to renotify on <code>Alert</code> and <code>No Data</code>.</p>
 
 
   </div>
@@ -2341,12 +2343,12 @@ metric monitors.</p>
       <pre class="lines">
 
 
-134
-135
-136</pre>
+136
+137
+138</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/monitor_options.rb', line 134</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/monitor_options.rb', line 136</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_scheduling_options'>scheduling_options</span>
   <span class='ivar'>@scheduling_options</span>
@@ -2467,12 +2469,12 @@ metric monitors.</p>
       <pre class="lines">
 
 
-143
-144
-145</pre>
+145
+146
+147</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/monitor_options.rb', line 143</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/monitor_options.rb', line 145</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_threshold_windows'>threshold_windows</span>
   <span class='ivar'>@threshold_windows</span>
@@ -2509,12 +2511,12 @@ metric monitors.</p>
       <pre class="lines">
 
 
-146
-147
-148</pre>
+148
+149
+150</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/monitor_options.rb', line 146</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/monitor_options.rb', line 148</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_thresholds'>thresholds</span>
   <span class='ivar'>@thresholds</span>
@@ -2593,12 +2595,12 @@ metric monitors.</p>
       <pre class="lines">
 
 
-152
-153
-154</pre>
+154
+155
+156</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/monitor_options.rb', line 152</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/monitor_options.rb', line 154</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_variables'>variables</span>
   <span class='ivar'>@variables</span>
@@ -3464,7 +3466,7 @@ For object, use to_hash. Otherwise, just return the value</p>
 </div>
 
       <div id="footer">
-  Generated on Thu Apr  4 19:01:19 2024 by
+  Generated on Thu Apr  4 20:25:24 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.36 (ruby-2.7.8).
 </div>
