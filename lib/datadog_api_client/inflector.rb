@@ -508,6 +508,7 @@ module DatadogAPIClient
           "v1.slo_timeframe" => "SLOTimeframe",
           "v1.slo_time_slice_comparator" => "SLOTimeSliceComparator",
           "v1.slo_time_slice_condition" => "SLOTimeSliceCondition",
+          "v1.slo_time_slice_interval" => "SLOTimeSliceInterval",
           "v1.slo_time_slice_query" => "SLOTimeSliceQuery",
           "v1.slo_time_slice_spec" => "SLOTimeSliceSpec",
           "v1.slo_type" => "SLOType",

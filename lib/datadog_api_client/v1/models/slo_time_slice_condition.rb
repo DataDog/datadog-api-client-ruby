@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V1
   # The time-slice condition, composed of 3 parts: 1. the metric timeseries query, 2. the comparator,
-  # and 3. the threshold.
+  # and 3. the threshold. Optionally, a fourth part, the query interval, can be provided.
   class SLOTimeSliceCondition
     include BaseGenericModel
 
@@ -27,6 +27,11 @@ module DatadogAPIClient::V1
 
     # The queries and formula used to calculate the SLI value.
     attr_reader :query
+
+    # The interval used when querying data, which defines the size of a time slice.
+    # Two values are allowed: 60 (1 minute) and 300 (5 minutes).
+    # If not provided, the value defaults to 300 (5 minutes).
+    attr_accessor :query_interval_seconds
 
     # The threshold value to which each SLI value will be compared.
     attr_reader :threshold
@@ -37,6 +42,7 @@ module DatadogAPIClient::V1
       {
         :'comparator' => :'comparator',
         :'query' => :'query',
+        :'query_interval_seconds' => :'query_interval_seconds',
         :'threshold' => :'threshold'
       }
     end
@@ -47,6 +53,7 @@ module DatadogAPIClient::V1
       {
         :'comparator' => :'SLOTimeSliceComparator',
         :'query' => :'SLOTimeSliceQuery',
+        :'query_interval_seconds' => :'SLOTimeSliceInterval',
         :'threshold' => :'Float'
       }
     end
@@ -73,6 +80,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'query')
         self.query = attributes[:'query']
+      end
+
+      if attributes.key?(:'query_interval_seconds')
+        self.query_interval_seconds = attributes[:'query_interval_seconds']
       end
 
       if attributes.key?(:'threshold')
@@ -128,6 +139,7 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           comparator == o.comparator &&
           query == o.query &&
+          query_interval_seconds == o.query_interval_seconds &&
           threshold == o.threshold
     end
 
@@ -135,7 +147,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [comparator, query, threshold].hash
+      [comparator, query, query_interval_seconds, threshold].hash
     end
   end
 end
