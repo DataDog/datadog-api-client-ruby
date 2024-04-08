@@ -17,26 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # All relationships associated with AuthN Mapping.
-  class AuthNMappingRelationships
+  # Relationship of AuthN Mapping to a Role.
+  class AuthNMappingRelationshipToRole
     include BaseGenericModel
 
     # Relationship to role.
-    attr_accessor :role
-
-    # AuthN Mapping relationship to SAML Assertion Attribute.
-    attr_accessor :saml_assertion_attribute
-
-    # Relationship to team.
-    attr_accessor :team
+    attr_reader :role
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'role' => :'role',
-        :'saml_assertion_attribute' => :'saml_assertion_attribute',
-        :'team' => :'team'
+        :'role' => :'role'
       }
     end
 
@@ -44,9 +36,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'role' => :'RelationshipToRole',
-        :'saml_assertion_attribute' => :'RelationshipToSAMLAssertionAttribute',
-        :'team' => :'RelationshipToTeam'
+        :'role' => :'RelationshipToRole'
       }
     end
 
@@ -55,13 +45,13 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::AuthNMappingRelationships` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::AuthNMappingRelationshipToRole` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::AuthNMappingRelationships`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::AuthNMappingRelationshipToRole`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
@@ -69,14 +59,24 @@ module DatadogAPIClient::V2
       if attributes.key?(:'role')
         self.role = attributes[:'role']
       end
+    end
 
-      if attributes.key?(:'saml_assertion_attribute')
-        self.saml_assertion_attribute = attributes[:'saml_assertion_attribute']
-      end
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @role.nil?
+      true
+    end
 
-      if attributes.key?(:'team')
-        self.team = attributes[:'team']
+    # Custom attribute writer method with validation
+    # @param role [Object] Object to be assigned
+    # @!visibility private
+    def role=(role)
+      if role.nil?
+        fail ArgumentError, 'invalid value for "role", role cannot be nil.'
       end
+      @role = role
     end
 
     # Checks equality by comparing each attribute.
@@ -85,16 +85,14 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          role == o.role &&
-          saml_assertion_attribute == o.saml_assertion_attribute &&
-          team == o.team
+          role == o.role
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [role, saml_assertion_attribute, team].hash
+      [role].hash
     end
   end
 end
