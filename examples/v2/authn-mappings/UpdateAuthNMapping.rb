@@ -16,7 +16,7 @@ body = DatadogAPIClient::V2::AuthNMappingUpdateRequest.new({
       attribute_value: "Development",
     }),
     id: AUTHN_MAPPING_DATA_ID,
-    relationships: DatadogAPIClient::V2::AuthNMappingUpdateRelationships.new({
+    relationships: DatadogAPIClient::V2::AuthNMappingRelationshipToRole.new({
       role: DatadogAPIClient::V2::RelationshipToRole.new({
         data: DatadogAPIClient::V2::RelationshipToRoleData.new({
           id: ROLE_DATA_ID,
