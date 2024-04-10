@@ -124,6 +124,32 @@
       <li class="public ">
   <span class="summary_signature">
     
+      <a href="#data_exclusion_query-instance_method" title="#data_exclusion_query (instance method)">#<strong>data_exclusion_query</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>An exclusion query on the input data of the security rules, which could be logs, Agent events, or other types of data based on the security rule.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#description-instance_method" title="#description (instance method)">#<strong>description</strong>  &#x21d2; Object </a>
     
 
@@ -326,9 +352,51 @@
     <h2>Instance Attribute Details</h2>
     
       
-      <span id="description=-instance_method"></span>
+      <span id="data_exclusion_query=-instance_method"></span>
       <div class="method_details first">
-  <h3 class="signature first" id="description-instance_method">
+  <h3 class="signature first" id="data_exclusion_query-instance_method">
+  
+    #<strong>data_exclusion_query</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>An exclusion query on the input data of the security rules, which could be logs, Agent events, or other types of data based on the security rule. Events matching this query are ignored by any detection rules referenced in the suppression rule.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+25
+26
+27</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/security_monitoring_suppression_update_attributes.rb', line 25</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_data_exclusion_query'>data_exclusion_query</span>
+  <span class='ivar'>@data_exclusion_query</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="description=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="description-instance_method">
   
     #<strong>description</strong>  &#x21d2; <tt>Object</tt> 
   
@@ -352,12 +420,12 @@
       <pre class="lines">
 
 
-25
-26
-27</pre>
+28
+29
+30</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/security_monitoring_suppression_update_attributes.rb', line 25</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/security_monitoring_suppression_update_attributes.rb', line 28</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_description'>description</span>
   <span class='ivar'>@description</span>
@@ -394,12 +462,12 @@
       <pre class="lines">
 
 
-28
-29
-30</pre>
+31
+32
+33</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/security_monitoring_suppression_update_attributes.rb', line 28</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/security_monitoring_suppression_update_attributes.rb', line 31</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_enabled'>enabled</span>
   <span class='ivar'>@enabled</span>
@@ -436,12 +504,12 @@
       <pre class="lines">
 
 
-31
-32
-33</pre>
+34
+35
+36</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/security_monitoring_suppression_update_attributes.rb', line 31</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/security_monitoring_suppression_update_attributes.rb', line 34</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_expiration_date'>expiration_date</span>
   <span class='ivar'>@expiration_date</span>
@@ -478,12 +546,12 @@
       <pre class="lines">
 
 
-34
-35
-36</pre>
+37
+38
+39</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/security_monitoring_suppression_update_attributes.rb', line 34</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/security_monitoring_suppression_update_attributes.rb', line 37</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_name'>name</span>
   <span class='ivar'>@name</span>
@@ -520,12 +588,12 @@
       <pre class="lines">
 
 
-37
-38
-39</pre>
+40
+41
+42</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/security_monitoring_suppression_update_attributes.rb', line 37</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/security_monitoring_suppression_update_attributes.rb', line 40</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rule_query'>rule_query</span>
   <span class='ivar'>@rule_query</span>
@@ -562,12 +630,12 @@
       <pre class="lines">
 
 
-40
-41
-42</pre>
+43
+44
+45</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/security_monitoring_suppression_update_attributes.rb', line 40</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/security_monitoring_suppression_update_attributes.rb', line 43</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_suppression_query'>suppression_query</span>
   <span class='ivar'>@suppression_query</span>
@@ -604,12 +672,12 @@
       <pre class="lines">
 
 
-43
-44
-45</pre>
+46
+47
+48</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/security_monitoring_suppression_update_attributes.rb', line 43</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/security_monitoring_suppression_update_attributes.rb', line 46</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_version'>version</span>
   <span class='ivar'>@version</span>
@@ -625,7 +693,7 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Apr 10 14:41:19 2024 by
+  Generated on Wed Apr 10 17:19:03 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.36 (ruby-2.7.8).
 </div>
