@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class SecurityMonitoringSuppressionUpdateAttributes
     include BaseGenericModel
 
+    # An exclusion query on the input data of the security rules, which could be logs, Agent events, or other types of data based on the security rule. Events matching this query are ignored by any detection rules referenced in the suppression rule.
+    attr_accessor :data_exclusion_query
+
     # A description for the suppression rule.
     attr_accessor :description
 
@@ -46,6 +49,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'data_exclusion_query' => :'data_exclusion_query',
         :'description' => :'description',
         :'enabled' => :'enabled',
         :'expiration_date' => :'expiration_date',
@@ -60,6 +64,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'data_exclusion_query' => :'String',
         :'description' => :'String',
         :'enabled' => :'Boolean',
         :'expiration_date' => :'Integer',
@@ -93,6 +98,10 @@ module DatadogAPIClient::V2
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'data_exclusion_query')
+        self.data_exclusion_query = attributes[:'data_exclusion_query']
+      end
 
       if attributes.key?(:'description')
         self.description = attributes[:'description']
@@ -147,6 +156,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          data_exclusion_query == o.data_exclusion_query &&
           description == o.description &&
           enabled == o.enabled &&
           expiration_date == o.expiration_date &&
@@ -160,7 +170,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [description, enabled, expiration_date, name, rule_query, suppression_query, version].hash
+      [data_exclusion_query, description, enabled, expiration_date, name, rule_query, suppression_query, version].hash
     end
   end
 end
