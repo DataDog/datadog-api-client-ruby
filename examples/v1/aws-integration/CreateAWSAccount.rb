@@ -13,6 +13,7 @@ body = DatadogAPIClient::V1::AWSAccount.new({
     "us-east-1",
     "us-west-2",
   ],
+  extended_resource_collection_enabled: true,
   filter_tags: [
     "$KEY:$VALUE",
   ],
@@ -20,7 +21,6 @@ body = DatadogAPIClient::V1::AWSAccount.new({
     "$KEY:$VALUE",
   ],
   metrics_collection_enabled: false,
-  resource_collection_enabled: true,
   role_name: "DatadogAWSIntegrationRole",
 })
 p api_instance.create_aws_account(body)
