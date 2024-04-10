@@ -280,6 +280,32 @@
       <li class="public ">
   <span class="summary_signature">
     
+      <a href="#extended_resource_collection_enabled-instance_method" title="#extended_resource_collection_enabled (instance method)">#<strong>extended_resource_collection_enabled</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Whether Datadog collects additional attributes and configuration information about the resources in your AWS account.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#filter_tags-instance_method" title="#filter_tags (instance method)">#<strong>filter_tags</strong>  &#x21d2; Object </a>
     
 
@@ -375,7 +401,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Whether Datadog collects a standard set of resources from your AWS account.</p>
+    <span class="summary_desc"><div class='inline'><p>Deprecated in favor of &#39;extended_resource_collection_enabled&#39;.</p>
 </div></span>
   
 </li>
@@ -1004,6 +1030,48 @@ to exclude from metrics collection.</p>
 </div>
     
       
+      <span id="extended_resource_collection_enabled=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="extended_resource_collection_enabled-instance_method">
+  
+    #<strong>extended_resource_collection_enabled</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Required for <code>cspm_resource_collection</code>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+43
+44
+45</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/aws_account.rb', line 43</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_extended_resource_collection_enabled'>extended_resource_collection_enabled</span>
+  <span class='ivar'>@extended_resource_collection_enabled</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
       <span id="filter_tags=-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="filter_tags-instance_method">
@@ -1148,7 +1216,7 @@ and metrics reporting through this integration.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Whether Datadog collects a standard set of resources from your AWS account.</p>
+    <p>Deprecated in favor of &#39;extended_resource_collection_enabled&#39;. Whether Datadog collects a standard set of resources from your AWS account.</p>
 
 
   </div>
@@ -2200,7 +2268,7 @@ For object, use to_hash. Otherwise, just return the value</p>
 </div>
 
       <div id="footer">
-  Generated on Wed Apr 10 18:25:17 2024 by
+  Generated on Wed Apr 10 20:30:26 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.36 (ruby-2.7.8).
 </div>
