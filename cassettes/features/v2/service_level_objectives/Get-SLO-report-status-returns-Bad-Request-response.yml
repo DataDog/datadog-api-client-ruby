@@ -1,0 +1,21 @@
+http_interactions:
+- recorded_at: Tue, 09 Apr 2024 17:56:36 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+    method: GET
+    uri: https://api.datadoghq.com/api/v2/slo/report/invalid-report-id/status
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"title":"Invalid Argument","detail":"invalid report ID:
+        invalid-report-id"}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 400
+      message: Bad Request
+recorded_with: VCR 6.0.0
