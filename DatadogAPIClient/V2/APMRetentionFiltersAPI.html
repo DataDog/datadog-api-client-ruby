@@ -611,6 +611,8 @@
 <p>Create a retention filter to index spans in your organization.
 Returns the retention filter definition when the request is successful.</p>
 
+<p>Default filters with types spans-errors-sampling-processor and spans-appsec-sampling-processor cannot be created.</p>
+
 
   </div>
 </div>
@@ -676,8 +678,6 @@ Returns the retention filter definition when the request is successful.</p>
       <pre class="lines">
 
 
-42
-43
 44
 45
 46
@@ -726,10 +726,12 @@ Returns the retention filter definition when the request is successful.</p>
 89
 90
 91
-92</pre>
+92
+93
+94</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/apm_retention_filters_api.rb', line 42</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/apm_retention_filters_api.rb', line 44</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create_apm_retention_filter_with_http_info'>create_apm_retention_filter_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -819,13 +821,13 @@ Returns the retention filter definition when the request is successful.</p>
       <pre class="lines">
 
 
-97
-98
 99
-100</pre>
+100
+101
+102</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/apm_retention_filters_api.rb', line 97</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/apm_retention_filters_api.rb', line 99</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete_apm_retention_filter'>delete_apm_retention_filter</span><span class='lparen'>(</span><span class='id identifier rubyid_filter_id'>filter_id</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_delete_apm_retention_filter_with_http_info'>delete_apm_retention_filter_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_filter_id'>filter_id</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -850,6 +852,8 @@ Returns the retention filter definition when the request is successful.</p>
     <p>Delete a retention filter.</p>
 
 <p>Delete a specific retention filter from your organization.</p>
+
+<p>Default filters with types spans-errors-sampling-processor and spans-appsec-sampling-processor cannot be deleted.</p>
 
 
   </div>
@@ -916,10 +920,6 @@ Returns the retention filter definition when the request is successful.</p>
       <pre class="lines">
 
 
-109
-110
-111
-112
 113
 114
 115
@@ -964,10 +964,14 @@ Returns the retention filter definition when the request is successful.</p>
 154
 155
 156
-157</pre>
+157
+158
+159
+160
+161</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/apm_retention_filters_api.rb', line 109</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/apm_retention_filters_api.rb', line 113</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete_apm_retention_filter_with_http_info'>delete_apm_retention_filter_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_filter_id'>filter_id</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -1055,13 +1059,13 @@ Returns the retention filter definition when the request is successful.</p>
       <pre class="lines">
 
 
-162
-163
-164
-165</pre>
+166
+167
+168
+169</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/apm_retention_filters_api.rb', line 162</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/apm_retention_filters_api.rb', line 166</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_apm_retention_filter'>get_apm_retention_filter</span><span class='lparen'>(</span><span class='id identifier rubyid_filter_id'>filter_id</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_get_apm_retention_filter_with_http_info'>get_apm_retention_filter_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_filter_id'>filter_id</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -1152,10 +1156,6 @@ Returns the retention filter definition when the request is successful.</p>
       <pre class="lines">
 
 
-174
-175
-176
-177
 178
 179
 180
@@ -1200,10 +1200,14 @@ Returns the retention filter definition when the request is successful.</p>
 219
 220
 221
-222</pre>
+222
+223
+224
+225
+226</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/apm_retention_filters_api.rb', line 174</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/apm_retention_filters_api.rb', line 178</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_apm_retention_filter_with_http_info'>get_apm_retention_filter_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_filter_id'>filter_id</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -1291,13 +1295,13 @@ Returns the retention filter definition when the request is successful.</p>
       <pre class="lines">
 
 
-227
-228
-229
-230</pre>
+231
+232
+233
+234</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/apm_retention_filters_api.rb', line 227</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/apm_retention_filters_api.rb', line 231</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_apm_retention_filters'>list_apm_retention_filters</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_list_apm_retention_filters_with_http_info'>list_apm_retention_filters_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -1373,10 +1377,6 @@ Returns the retention filter definition when the request is successful.</p>
       <pre class="lines">
 
 
-238
-239
-240
-241
 242
 243
 244
@@ -1417,10 +1417,14 @@ Returns the retention filter definition when the request is successful.</p>
 279
 280
 281
-282</pre>
+282
+283
+284
+285
+286</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/apm_retention_filters_api.rb', line 238</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/apm_retention_filters_api.rb', line 242</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_apm_retention_filters_with_http_info'>list_apm_retention_filters_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -1504,13 +1508,13 @@ Returns the retention filter definition when the request is successful.</p>
       <pre class="lines">
 
 
-287
-288
-289
-290</pre>
+291
+292
+293
+294</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/apm_retention_filters_api.rb', line 287</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/apm_retention_filters_api.rb', line 291</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_reorder_apm_retention_filters'>reorder_apm_retention_filters</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_reorder_apm_retention_filters_with_http_info'>reorder_apm_retention_filters_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -1601,10 +1605,6 @@ Returns the retention filter definition when the request is successful.</p>
       <pre class="lines">
 
 
-299
-300
-301
-302
 303
 304
 305
@@ -1651,10 +1651,14 @@ Returns the retention filter definition when the request is successful.</p>
 346
 347
 348
-349</pre>
+349
+350
+351
+352
+353</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/apm_retention_filters_api.rb', line 299</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/apm_retention_filters_api.rb', line 303</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_reorder_apm_retention_filters_with_http_info'>reorder_apm_retention_filters_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -1744,13 +1748,13 @@ Returns the retention filter definition when the request is successful.</p>
       <pre class="lines">
 
 
-354
-355
-356
-357</pre>
+358
+359
+360
+361</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/apm_retention_filters_api.rb', line 354</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/apm_retention_filters_api.rb', line 358</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update_apm_retention_filter'>update_apm_retention_filter</span><span class='lparen'>(</span><span class='id identifier rubyid_filter_id'>filter_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_update_apm_retention_filter_with_http_info'>update_apm_retention_filter_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_filter_id'>filter_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -1775,6 +1779,8 @@ Returns the retention filter definition when the request is successful.</p>
     <p>Update a retention filter.</p>
 
 <p>Update a retention filter from your organization.</p>
+
+<p>Default filters (filters with types spans-errors-sampling-processor and spans-appsec-sampling-processor) cannot be renamed or removed.</p>
 
 
   </div>
@@ -1856,12 +1862,6 @@ Returns the retention filter definition when the request is successful.</p>
       <pre class="lines">
 
 
-367
-368
-369
-370
-371
-372
 373
 374
 375
@@ -1910,10 +1910,16 @@ Returns the retention filter definition when the request is successful.</p>
 418
 419
 420
-421</pre>
+421
+422
+423
+424
+425
+426
+427</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/apm_retention_filters_api.rb', line 367</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/apm_retention_filters_api.rb', line 373</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update_apm_retention_filter_with_http_info'>update_apm_retention_filter_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_filter_id'>filter_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -1980,7 +1986,7 @@ Returns the retention filter definition when the request is successful.</p>
 </div>
 
       <div id="footer">
-  Generated on Wed Apr 10 20:31:22 2024 by
+  Generated on Thu Apr 11 17:22:36 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.36 (ruby-2.7.8).
 </div>
