@@ -27,6 +27,9 @@ module DatadogAPIClient::V2
     # A user.
     attr_accessor :creator
 
+    # An exclusion query on the input data of the security rules, which could be logs, Agent events, or other types of data based on the security rule. Events matching this query are ignored by any detection rules referenced in the suppression rule.
+    attr_accessor :data_exclusion_query
+
     # A description for the suppression rule.
     attr_accessor :description
 
@@ -60,6 +63,7 @@ module DatadogAPIClient::V2
       {
         :'creation_date' => :'creation_date',
         :'creator' => :'creator',
+        :'data_exclusion_query' => :'data_exclusion_query',
         :'description' => :'description',
         :'enabled' => :'enabled',
         :'expiration_date' => :'expiration_date',
@@ -78,6 +82,7 @@ module DatadogAPIClient::V2
       {
         :'creation_date' => :'Integer',
         :'creator' => :'SecurityMonitoringUser',
+        :'data_exclusion_query' => :'String',
         :'description' => :'String',
         :'enabled' => :'Boolean',
         :'expiration_date' => :'Integer',
@@ -112,6 +117,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'creator')
         self.creator = attributes[:'creator']
+      end
+
+      if attributes.key?(:'data_exclusion_query')
+        self.data_exclusion_query = attributes[:'data_exclusion_query']
       end
 
       if attributes.key?(:'description')
@@ -177,6 +186,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           creation_date == o.creation_date &&
           creator == o.creator &&
+          data_exclusion_query == o.data_exclusion_query &&
           description == o.description &&
           enabled == o.enabled &&
           expiration_date == o.expiration_date &&
@@ -192,7 +202,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [creation_date, creator, description, enabled, expiration_date, name, rule_query, suppression_query, update_date, updater, version].hash
+      [creation_date, creator, data_exclusion_query, description, enabled, expiration_date, name, rule_query, suppression_query, update_date, updater, version].hash
     end
   end
 end

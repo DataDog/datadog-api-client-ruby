@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Tue, 12 Mar 2024 09:20:18 GMT
+- recorded_at: Fri, 05 Apr 2024 19:31:41 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"enabled":false,"forward_tags":false,"forward_tags_restriction_list":["host"],"forward_tags_restriction_list_type":"BLOCK_LIST","forwarder_destination":{"auth":{"password":"my-password","type":"basic","username":"my-username"},"endpoint":"https://example.com","type":"http"},"name":"Test-Update_a_custom_destination_returns_OK_response-1710235218","query":"source:nginx"},"type":"custom_destination"}}'
+      string: '{"data":{"attributes":{"enabled":false,"forward_tags":false,"forward_tags_restriction_list":["host"],"forward_tags_restriction_list_type":"BLOCK_LIST","forwarder_destination":{"auth":{"password":"my-password","type":"basic","username":"my-username"},"endpoint":"https://example.com","type":"http"},"name":"Test-Update_a_custom_destination_returns_OK_response-1712345501","query":"source:nginx"},"type":"custom_destination"}}'
     headers:
       Accept:
       - application/json
@@ -14,7 +14,7 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"22ce0782-a48f-4340-98f5-fd3671b66e19","attributes":{"name":"Test-Update_a_custom_destination_returns_OK_response-1710235218","query":"source:nginx","enabled":false,"forwarder_destination":{"endpoint":"https://example.com","auth":{"type":"basic"},"type":"http"},"forward_tags_restriction_list_type":"BLOCK_LIST","forward_tags_restriction_list":["host"],"forward_tags":false},"type":"custom_destination"}}
+      string: '{"data":{"id":"60f4b01e-7853-4d48-8f6d-b98802dca889","attributes":{"name":"Test-Update_a_custom_destination_returns_OK_response-1712345501","query":"source:nginx","enabled":false,"forwarder_destination":{"endpoint":"https://example.com","auth":{"type":"basic"},"type":"http"},"forward_tags_restriction_list_type":"BLOCK_LIST","forward_tags_restriction_list":["host"],"forward_tags":false},"type":"custom_destination"}}
 
         '
     headers:
@@ -23,22 +23,23 @@ http_interactions:
     status:
       code: 200
       message: OK
-- recorded_at: Tue, 12 Mar 2024 09:20:18 GMT
+- recorded_at: Fri, 05 Apr 2024 19:31:41 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"name":"Nginx logs (Updated)"},"id":"22ce0782-a48f-4340-98f5-fd3671b66e19","type":"custom_destination"}}'
+      string: '{"data":{"attributes":{"enabled":false,"forward_tags":false,"forward_tags_restriction_list_type":"BLOCK_LIST","name":"Nginx
+        logs (Updated)","query":"source:nginx"},"id":"60f4b01e-7853-4d48-8f6d-b98802dca889","type":"custom_destination"}}'
     headers:
       Accept:
       - application/json
       Content-Type:
       - application/json
     method: PATCH
-    uri: https://api.datadoghq.com/api/v2/logs/config/custom-destinations/22ce0782-a48f-4340-98f5-fd3671b66e19
+    uri: https://api.datadoghq.com/api/v2/logs/config/custom-destinations/60f4b01e-7853-4d48-8f6d-b98802dca889
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"22ce0782-a48f-4340-98f5-fd3671b66e19","attributes":{"name":"Nginx
+      string: '{"data":{"id":"60f4b01e-7853-4d48-8f6d-b98802dca889","attributes":{"name":"Nginx
         logs (Updated)","query":"source:nginx","enabled":false,"forwarder_destination":{"endpoint":"https://example.com","auth":{"type":"basic"},"type":"http"},"forward_tags_restriction_list_type":"BLOCK_LIST","forward_tags_restriction_list":["host"],"forward_tags":false},"type":"custom_destination"}}
 
         '
@@ -48,14 +49,14 @@ http_interactions:
     status:
       code: 200
       message: OK
-- recorded_at: Tue, 12 Mar 2024 09:20:18 GMT
+- recorded_at: Fri, 05 Apr 2024 19:31:41 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/logs/config/custom-destinations/22ce0782-a48f-4340-98f5-fd3671b66e19
+    uri: https://api.datadoghq.com/api/v2/logs/config/custom-destinations/60f4b01e-7853-4d48-8f6d-b98802dca889
   response:
     body:
       encoding: UTF-8

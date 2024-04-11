@@ -25,7 +25,7 @@ module DatadogAPIClient::V1
     # The name of the host that produced the metric.
     attr_accessor :host
 
-    # If the type of the metric is rate or count, define the corresponding interval.
+    # If the type of the metric is rate or count, define the corresponding interval in seconds.
     attr_accessor :interval
 
     # The name of the timeseries.

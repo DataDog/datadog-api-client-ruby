@@ -27,12 +27,16 @@ module DatadogAPIClient::V2
     # AuthN Mapping relationship to SAML Assertion Attribute.
     attr_accessor :saml_assertion_attribute
 
+    # Relationship to team.
+    attr_accessor :team
+
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
         :'role' => :'role',
-        :'saml_assertion_attribute' => :'saml_assertion_attribute'
+        :'saml_assertion_attribute' => :'saml_assertion_attribute',
+        :'team' => :'team'
       }
     end
 
@@ -41,7 +45,8 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'role' => :'RelationshipToRole',
-        :'saml_assertion_attribute' => :'RelationshipToSAMLAssertionAttribute'
+        :'saml_assertion_attribute' => :'RelationshipToSAMLAssertionAttribute',
+        :'team' => :'RelationshipToTeam'
       }
     end
 
@@ -68,6 +73,10 @@ module DatadogAPIClient::V2
       if attributes.key?(:'saml_assertion_attribute')
         self.saml_assertion_attribute = attributes[:'saml_assertion_attribute']
       end
+
+      if attributes.key?(:'team')
+        self.team = attributes[:'team']
+      end
     end
 
     # Checks equality by comparing each attribute.
@@ -77,14 +86,15 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           role == o.role &&
-          saml_assertion_attribute == o.saml_assertion_attribute
+          saml_assertion_attribute == o.saml_assertion_attribute &&
+          team == o.team
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [role, saml_assertion_attribute].hash
+      [role, saml_assertion_attribute, team].hash
     end
   end
 end

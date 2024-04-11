@@ -44,7 +44,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'RetentionFilterCreateAttributes',
+        :'attributes' => :'RetentionFilterUpdateAttributes',
         :'id' => :'String',
         :'type' => :'ApmRetentionFilterType'
       }

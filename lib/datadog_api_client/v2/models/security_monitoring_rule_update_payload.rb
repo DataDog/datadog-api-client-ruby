@@ -27,7 +27,7 @@ module DatadogAPIClient::V2
     # How to generate compliance signals. Useful for cloud_configuration rules only.
     attr_accessor :compliance_signal_options
 
-    # Additional queries to filter matched events before they are processed.
+    # Additional queries to filter matched events before they are processed. This field is deprecated for log detection, signal correlation, and workload security rules.
     attr_accessor :filters
 
     # Whether the notifications include the triggering group-by values in their title.

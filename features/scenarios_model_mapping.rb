@@ -1624,6 +1624,9 @@ ScenariosModelMappings = {
     "v2.CreateSecurityMonitoringRule" => {
             "body" => "SecurityMonitoringRuleCreatePayload",
     },
+    "v2.ValidateSecurityMonitoringRule" => {
+            "body" => "SecurityMonitoringRuleCreatePayload",
+    },
     "v2.DeleteSecurityMonitoringRule" => {
             "rule_id" => "String",
     },
@@ -1872,6 +1875,15 @@ ScenariosModelMappings = {
     "v2.GetServiceDefinition" => {
             "service_name" => "String",
             "schema_version" => "ServiceDefinitionSchemaVersions",
+    },
+    "v2.CreateSLOReportJob" => {
+            "body" => "SloReportCreateRequest",
+    },
+    "v2.GetSLOReport" => {
+            "report_id" => "String",
+    },
+    "v2.GetSLOReportJobStatus" => {
+            "report_id" => "String",
     },
     "v2.AggregateSpans" => {
             "body" => "SpansAggregateRequest",

@@ -1751,6 +1751,12 @@
       "type": "unsafe"
     }
   },
+  "ValidateSecurityMonitoringRule": {
+    "tag": "Security Monitoring",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
   "DeleteSecurityMonitoringRule": {
     "tag": "Security Monitoring",
     "undo": {
@@ -2008,6 +2014,24 @@
     "tag": "Incident Services",
     "undo": {
       "type": "idempotent"
+    }
+  },
+  "CreateSLOReportJob": {
+    "tag": "Service Level Objectives",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "GetSLOReport": {
+    "tag": "Service Level Objectives",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "GetSLOReportJobStatus": {
+    "tag": "Service Level Objectives",
+    "undo": {
+      "type": "safe"
     }
   },
   "AggregateSpans": {

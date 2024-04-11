@@ -26,6 +26,9 @@ body = DatadogAPIClient::V1::SyntheticsBrowserTest.new({
         key: DatadogAPIClient::V1::SyntheticsTestRequestCertificateItem.new({}),
       }),
       certificate_domains: [],
+      files: [
+        DatadogAPIClient::V1::SyntheticsTestRequestBodyFile.new({}),
+      ],
       http_version: DatadogAPIClient::V1::SyntheticsTestOptionsHTTPVersion::HTTP1,
       proxy: DatadogAPIClient::V1::SyntheticsTestRequestProxy.new({
         url: "https://example.com",

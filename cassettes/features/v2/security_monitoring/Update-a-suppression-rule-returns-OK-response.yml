@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Thu, 11 Jan 2024 10:06:37 GMT
+- recorded_at: Mon, 08 Apr 2024 09:57:43 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"description":"Test-Update_a_suppression_rule_returns_OK_response-1704967597","enabled":true,"name":"Test-Update_a_suppression_rule_returns_OK_response-1704967597","rule_query":"source:cloudtrail","suppression_query":"env:test"},"type":"suppressions"}}'
+      string: '{"data":{"attributes":{"description":"Test-Update_a_suppression_rule_returns_OK_response-1712570263","enabled":true,"name":"Test-Update_a_suppression_rule_returns_OK_response-1712570263","rule_query":"source:cloudtrail","suppression_query":"env:test"},"type":"suppressions"}}'
     headers:
       Accept:
       - application/json
@@ -14,7 +14,7 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"xhe-kbx-qym","attributes":{"name":"Test-Update_a_suppression_rule_returns_OK_response-1704967597","enabled":true,"description":"Test-Update_a_suppression_rule_returns_OK_response-1704967597","rule_query":"source:cloudtrail","suppression_query":"env:test","version":1,"creation_date":1704967597310,"update_date":1704967597310,"creator":{"name":null,"handle":"frog@datadoghq.com"},"updater":{"name":null,"handle":"frog@datadoghq.com"}},"type":"suppressions"}}
+      string: '{"data":{"id":"h4v-y6f-ycg","attributes":{"name":"Test-Update_a_suppression_rule_returns_OK_response-1712570263","enabled":true,"description":"Test-Update_a_suppression_rule_returns_OK_response-1712570263","rule_query":"source:cloudtrail","suppression_query":"env:test","log_exclusion_query":"","data_exclusion_query":"","version":1,"creation_date":1712570264756,"update_date":1712570264756,"creator":{"name":null,"handle":"frog@datadoghq.com"},"updater":{"name":null,"handle":"frog@datadoghq.com"}},"type":"suppressions"}}
 
         '
     headers:
@@ -23,7 +23,7 @@ http_interactions:
     status:
       code: 200
       message: OK
-- recorded_at: Thu, 11 Jan 2024 10:06:37 GMT
+- recorded_at: Mon, 08 Apr 2024 09:57:43 GMT
   request:
     body:
       encoding: UTF-8
@@ -34,12 +34,12 @@ http_interactions:
       Content-Type:
       - application/json
     method: PATCH
-    uri: https://api.datadoghq.com/api/v2/security_monitoring/configuration/suppressions/xhe-kbx-qym
+    uri: https://api.datadoghq.com/api/v2/security_monitoring/configuration/suppressions/h4v-y6f-ycg
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"xhe-kbx-qym","attributes":{"name":"Test-Update_a_suppression_rule_returns_OK_response-1704967597","enabled":true,"description":"Test-Update_a_suppression_rule_returns_OK_response-1704967597","rule_query":"source:cloudtrail","suppression_query":"env:staging
-        status:low","version":2,"creation_date":1704967597310,"update_date":1704967597660,"creator":{"name":null,"handle":"frog@datadoghq.com"},"updater":{"name":null,"handle":"frog@datadoghq.com"}},"type":"suppressions"}}
+      string: '{"data":{"id":"h4v-y6f-ycg","attributes":{"name":"Test-Update_a_suppression_rule_returns_OK_response-1712570263","enabled":true,"description":"Test-Update_a_suppression_rule_returns_OK_response-1712570263","rule_query":"source:cloudtrail","suppression_query":"env:staging
+        status:low","log_exclusion_query":"","data_exclusion_query":"","version":2,"creation_date":1712570264756,"update_date":1712570265486,"creator":{"name":null,"handle":"frog@datadoghq.com"},"updater":{"name":null,"handle":"frog@datadoghq.com"}},"type":"suppressions"}}
 
         '
     headers:
@@ -48,14 +48,14 @@ http_interactions:
     status:
       code: 200
       message: OK
-- recorded_at: Thu, 11 Jan 2024 10:06:37 GMT
+- recorded_at: Mon, 08 Apr 2024 09:57:43 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/security_monitoring/configuration/suppressions/xhe-kbx-qym
+    uri: https://api.datadoghq.com/api/v2/security_monitoring/configuration/suppressions/h4v-y6f-ycg
   response:
     body:
       encoding: UTF-8

@@ -17,64 +17,47 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Relationship of AuthN Mapping create object to Role.
-  class AuthNMappingCreateRelationships
-    include BaseGenericModel
+  # Relationship of AuthN Mapping create object to a Role or Team.
+  module AuthNMappingCreateRelationships
+    class << self
+      include BaseOneOfModel
+      include BaseOneOfModelNoDiscriminator
 
-    # Relationship to role.
-    attr_accessor :role
-
-    # Attribute mapping from ruby-style variable name to JSON key.
-    # @!visibility private
-    def self.attribute_map
-      {
-        :'role' => :'role'
-      }
-    end
-
-    # Attribute type mapping.
-    # @!visibility private
-    def self.openapi_types
-      {
-        :'role' => :'RelationshipToRole'
-      }
-    end
-
-    # Initializes the object
-    # @param attributes [Hash] Model attributes in the form of hash
-    # @!visibility private
-    def initialize(attributes = {})
-      if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::AuthNMappingCreateRelationships` initialize method"
+      # List of class defined in oneOf (OpenAPI v3)
+      def openapi_one_of
+        [
+          :'AuthNMappingRelationshipToRole',
+          :'AuthNMappingRelationshipToTeam'
+        ]
       end
-
-      # check to see if the attribute exists and convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h|
-        if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::AuthNMappingCreateRelationships`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+      # Builds the object
+      # @param data [Mixed] Data to be matched against the list of oneOf items
+      # @return [Object] Returns the model or the data itself
+      def build(data)
+        # Go through the list of oneOf items and attempt to identify the appropriate one.
+        # Note:
+        # - We do not attempt to check whether exactly one item matches.
+        # - No advanced validation of types in some cases (e.g. "x: { type: string }" will happily match { x: 123 })
+        #   due to the way the deserialization is made in the base_object template (it just casts without verifying).
+        # - TODO: scalar values are de facto behaving as if they were nullable.
+        # - TODO: logging when debugging is set.
+        openapi_one_of.each do |klass|
+          begin
+            next if klass == :AnyType # "nullable: true"
+            typed_data = find_and_cast_into_type(klass, data)
+            next if typed_data.respond_to?(:_unparsed) && typed_data._unparsed
+            return typed_data if typed_data
+          rescue # rescue all errors so we keep iterating even if the current item lookup raises
+          end
         end
-        h[k.to_sym] = v
-      }
 
-      if attributes.key?(:'role')
-        self.role = attributes[:'role']
+        if openapi_one_of.include?(:AnyType)
+          data
+        else
+          self._unparsed = true
+          DatadogAPIClient::UnparsedObject.new(data)
+        end
       end
-    end
-
-    # Checks equality by comparing each attribute.
-    # @param o [Object] Object to be compared
-    # @!visibility private
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          role == o.role
-    end
-
-    # Calculates hash code according to all attributes.
-    # @return [Integer] Hash code
-    # @!visibility private
-    def hash
-      [role].hash
     end
   end
 end

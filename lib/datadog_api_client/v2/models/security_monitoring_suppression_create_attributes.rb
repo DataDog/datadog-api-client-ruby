@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class SecurityMonitoringSuppressionCreateAttributes
     include BaseGenericModel
 
+    # An exclusion query on the input data of the security rules, which could be logs, Agent events, or other types of data based on the security rule. Events matching this query are ignored by any detection rules referenced in the suppression rule.
+    attr_accessor :data_exclusion_query
+
     # A description for the suppression rule.
     attr_accessor :description
 
@@ -36,13 +39,14 @@ module DatadogAPIClient::V2
     # The rule query of the suppression rule, with the same syntax as the search bar for detection rules.
     attr_reader :rule_query
 
-    # The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered . Same syntax as the queries to search signals in the signal explorer.
-    attr_reader :suppression_query
+    # The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.
+    attr_accessor :suppression_query
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
+        :'data_exclusion_query' => :'data_exclusion_query',
         :'description' => :'description',
         :'enabled' => :'enabled',
         :'expiration_date' => :'expiration_date',
@@ -56,6 +60,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'data_exclusion_query' => :'String',
         :'description' => :'String',
         :'enabled' => :'Boolean',
         :'expiration_date' => :'Integer',
@@ -80,6 +85,10 @@ module DatadogAPIClient::V2
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'data_exclusion_query')
+        self.data_exclusion_query = attributes[:'data_exclusion_query']
+      end
 
       if attributes.key?(:'description')
         self.description = attributes[:'description']
@@ -113,7 +122,6 @@ module DatadogAPIClient::V2
       return false if @enabled.nil?
       return false if @name.nil?
       return false if @rule_query.nil?
-      return false if @suppression_query.nil?
       true
     end
 
@@ -147,22 +155,13 @@ module DatadogAPIClient::V2
       @rule_query = rule_query
     end
 
-    # Custom attribute writer method with validation
-    # @param suppression_query [Object] Object to be assigned
-    # @!visibility private
-    def suppression_query=(suppression_query)
-      if suppression_query.nil?
-        fail ArgumentError, 'invalid value for "suppression_query", suppression_query cannot be nil.'
-      end
-      @suppression_query = suppression_query
-    end
-
     # Checks equality by comparing each attribute.
     # @param o [Object] Object to be compared
     # @!visibility private
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          data_exclusion_query == o.data_exclusion_query &&
           description == o.description &&
           enabled == o.enabled &&
           expiration_date == o.expiration_date &&
@@ -175,7 +174,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [description, enabled, expiration_date, name, rule_query, suppression_query].hash
+      [data_exclusion_query, description, enabled, expiration_date, name, rule_query, suppression_query].hash
     end
   end
 end
