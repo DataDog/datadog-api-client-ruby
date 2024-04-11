@@ -1825,6 +1825,7 @@ module DatadogAPIClient
           "v2.retention_filter_response" => "RetentionFilterResponse",
           "v2.retention_filters_response" => "RetentionFiltersResponse",
           "v2.retention_filter_type" => "RetentionFilterType",
+          "v2.retention_filter_update_attributes" => "RetentionFilterUpdateAttributes",
           "v2.retention_filter_update_data" => "RetentionFilterUpdateData",
           "v2.retention_filter_update_request" => "RetentionFilterUpdateRequest",
           "v2.retention_filter_without_attributes" => "RetentionFilterWithoutAttributes",

@@ -8,14 +8,14 @@ RETENTION_FILTER_DATA_ID = ENV["RETENTION_FILTER_DATA_ID"]
 
 body = DatadogAPIClient::V2::RetentionFilterUpdateRequest.new({
   data: DatadogAPIClient::V2::RetentionFilterUpdateData.new({
-    attributes: DatadogAPIClient::V2::RetentionFilterCreateAttributes.new({
+    attributes: DatadogAPIClient::V2::RetentionFilterUpdateAttributes.new({
       name: "test",
       rate: 0.9,
       filter: DatadogAPIClient::V2::SpansFilterCreate.new({
         query: "@_top_level:1 test:service-demo",
       }),
       enabled: true,
-      filter_type: DatadogAPIClient::V2::RetentionFilterType::SPANS_SAMPLING_PROCESSOR,
+      filter_type: DatadogAPIClient::V2::RetentionFilterAllType::SPANS_SAMPLING_PROCESSOR,
     }),
     id: "test-id",
     type: DatadogAPIClient::V2::ApmRetentionFilterType::APM_RETENTION_FILTER,
