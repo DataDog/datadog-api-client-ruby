@@ -570,7 +570,7 @@ module DatadogAPIClient::V2
     #
     # @param opts [Hash] the optional parameters
     # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 100.
-    # @option opts [Integer] :page_offset Specific offset to use as the beginning of the returned page.
+    # @option opts [Integer] :page_number Specific page number to return.
     # @option opts [CaseSortableField] :sort_field Specify which field to sort
     # @option opts [String] :filter Search query
     # @option opts [Boolean] :sort_asc Specify if order is ascending or not
@@ -590,7 +590,7 @@ module DatadogAPIClient::V2
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
-      query_params[:'page[offset]'] = opts[:'page_offset'] if !opts[:'page_offset'].nil?
+      query_params[:'page[number]'] = opts[:'page_number'] if !opts[:'page_number'].nil?
       query_params[:'sort[field]'] = opts[:'sort_field'] if !opts[:'sort_field'].nil?
       query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
       query_params[:'sort[asc]'] = opts[:'sort_asc'] if !opts[:'sort_asc'].nil?
@@ -641,13 +641,14 @@ module DatadogAPIClient::V2
         api_version = "V2"
         page_size = @api_client.get_attribute_from_path(opts, "page_size", 10)
         @api_client.set_attribute_from_path(api_version, opts, "page_size", Integer, page_size)
+        @api_client.set_attribute_from_path(api_version, opts, "page_number", Integer, 0)
         while true do
             response = search_cases(opts)
             @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
             if @api_client.get_attribute_from_path(response, "data").length < page_size
               break
             end
-            @api_client.set_attribute_from_path(api_version, opts, "page_offset", Integer, @api_client.get_attribute_from_path(opts, "page_offset", 0) + page_size)
+            @api_client.set_attribute_from_path(api_version, opts, "page_number", Integer, @api_client.get_attribute_from_path(opts, "page_number", 0) + 1)
         end
     end
 

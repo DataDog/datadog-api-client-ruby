@@ -955,7 +955,7 @@ ScenariosModelMappings = {
     },
     "v2.SearchCases" => {
             "page_size" => "Integer",
-            "page_offset" => "Integer",
+            "page_number" => "Integer",
             "sort_field" => "CaseSortableField",
             "filter" => "String",
             "sort_asc" => "Boolean",
