@@ -45,6 +45,7 @@ body = DatadogAPIClient::V1::SyntheticsAPITest.new({
         type: DatadogAPIClient::V1::SyntheticsConfigVariableType::TEXT,
       }),
     ],
+    variables_from_script: 'dd.variable.set("FOO", "foo")',
     request: DatadogAPIClient::V1::SyntheticsTestRequest.new({
       certificate: DatadogAPIClient::V1::SyntheticsTestRequestCertificate.new({
         cert: DatadogAPIClient::V1::SyntheticsTestRequestCertificateItem.new({
