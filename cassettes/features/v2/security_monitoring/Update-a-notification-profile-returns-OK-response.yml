@@ -1,0 +1,68 @@
+http_interactions:
+- recorded_at: Tue, 14 Nov 2023 15:45:17 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"enabled":true,"name":"Test-Update_a_notification_rule_returns_OK_response-1699976717","selectors":{"attributes":["fim:true"],"implicit_vm_rule_match":false,"rule_tags":["fim:true"],"rule_types":["log_detection","cloud_configuration"],"severities":["high"],"signal_tags":[]},"targets":["test"]},"type":"notification_rules"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/security_monitoring/configuration/notification_rules
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"e5b-mqw-fn9","attributes":{"version":1,"name":"Test-Update_a_notification_rule_returns_OK_response-1699976717","targets":["test"],"selectors":{"severities":["high"],"rule_types":["log_detection","cloud_configuration"],"rule_tags":["fim:true"],"signal_tags":[],"attributes":["fim:true"],"implicit_vm_rule_match":false},"enabled":true,"creation_date":1699976717460,"update_date":1699976717460,"creator":{"name":null,"handle":"frog@datadoghq.com"},"updater":{"name":null,"handle":"frog@datadoghq.com"}},"type":"notification_rules"}}
+
+        '
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+- recorded_at: Tue, 14 Nov 2023 15:45:17 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"enabled":false,"name":"Test-Update_a_notification_rule_returns_OK_response-1699976717","selectors":{"attributes":["fim:true"],"implicit_vm_rule_match":false,"rule_tags":["fim:true"],"rule_types":["log_detection","cloud_configuration"],"severities":["high"],"signal_tags":[]},"targets":["test2"],"version":1},"type":"notification_rules"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: PATCH
+    uri: https://api.datadoghq.com/api/v2/security_monitoring/configuration/notification_rules/e5b-mqw-fn9
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"e5b-mqw-fn9","attributes":{"version":2,"name":"Test-Update_a_notification_rule_returns_OK_response-1699976717","targets":["test2"],"selectors":{"severities":["high"],"rule_types":["log_detection","cloud_configuration"],"rule_tags":["fim:true"],"signal_tags":[],"attributes":["fim:true"],"implicit_vm_rule_match":false},"enabled":false,"creation_date":1699976717460,"update_date":1699976717674,"creator":{"name":null,"handle":"frog@datadoghq.com"},"updater":{"name":null,"handle":"frog@datadoghq.com"}},"type":"notification_rules"}}
+
+        '
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+- recorded_at: Tue, 14 Nov 2023 15:45:17 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/security_monitoring/configuration/notification_rules/e5b-mqw-fn9
+  response:
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Content-Type:
+      - text/html; charset=utf-8
+    status:
+      code: 204
+      message: No Content
+recorded_with: VCR 6.0.0
