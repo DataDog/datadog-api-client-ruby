@@ -33,6 +33,9 @@ module DatadogAPIClient::V1
     # When the test subtype is `multi`, the steps of the test.
     attr_accessor :steps
 
+    # Variables defined from JavaScript code.
+    attr_accessor :variables_from_script
+
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
@@ -40,7 +43,8 @@ module DatadogAPIClient::V1
         :'assertions' => :'assertions',
         :'config_variables' => :'configVariables',
         :'request' => :'request',
-        :'steps' => :'steps'
+        :'steps' => :'steps',
+        :'variables_from_script' => :'variablesFromScript'
       }
     end
 
@@ -51,7 +55,8 @@ module DatadogAPIClient::V1
         :'assertions' => :'Array<SyntheticsAssertion>',
         :'config_variables' => :'Array<SyntheticsConfigVariable>',
         :'request' => :'SyntheticsTestRequest',
-        :'steps' => :'Array<SyntheticsAPIStep>'
+        :'steps' => :'Array<SyntheticsAPIStep>',
+        :'variables_from_script' => :'String'
       }
     end
 
@@ -92,6 +97,10 @@ module DatadogAPIClient::V1
           self.steps = value
         end
       end
+
+      if attributes.key?(:'variables_from_script')
+        self.variables_from_script = attributes[:'variables_from_script']
+      end
     end
 
     # Checks equality by comparing each attribute.
@@ -103,14 +112,15 @@ module DatadogAPIClient::V1
           assertions == o.assertions &&
           config_variables == o.config_variables &&
           request == o.request &&
-          steps == o.steps
+          steps == o.steps &&
+          variables_from_script == o.variables_from_script
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [assertions, config_variables, request, steps].hash
+      [assertions, config_variables, request, steps, variables_from_script].hash
     end
   end
 end
