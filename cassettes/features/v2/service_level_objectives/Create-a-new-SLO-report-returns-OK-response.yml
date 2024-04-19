@@ -1,5 +1,5 @@
 http_interactions:
-- recorded_at: Tue, 09 Apr 2024 17:56:36 GMT
+- recorded_at: Thu, 18 Apr 2024 20:09:43 GMT
   request:
     body:
       encoding: UTF-8
@@ -15,7 +15,7 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"8226c9b6-f69a-11ee-8916-13e390f416b9","type":"report_id"}}'
+      string: '{"data":{"id":"98c67bea-fdbf-11ee-8a01-bfd37432018b","type":"report_id"}}'
     headers:
       Content-Type:
       - application/vnd.api+json
