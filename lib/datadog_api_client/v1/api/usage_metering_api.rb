@@ -835,6 +835,8 @@ module DatadogAPIClient::V1
     #
     # Get billable usage across your account.
     #
+    # This endpoint is only accessible for [parent-level organizations](https://docs.datadoghq.com/account_management/multi_organization/).
+    #
     # @param opts [Hash] the optional parameters
     # @option opts [Time] :month Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage starting this month.
     # @return [Array<(UsageBillableSummaryResponse, Integer, Hash)>] UsageBillableSummaryResponse data, response status code and response headers
@@ -2336,6 +2338,8 @@ module DatadogAPIClient::V1
     # Get usage across your account.
     #
     # Get all usage across your account.
+    #
+    # This endpoint is only accessible for [parent-level organizations](https://docs.datadoghq.com/account_management/multi_organization/).
     #
     # @param start_month [Time] Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage beginning in this month. Maximum of 15 months ago.
     # @param opts [Hash] the optional parameters
