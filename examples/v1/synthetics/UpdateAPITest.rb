@@ -29,6 +29,14 @@ body = DatadogAPIClient::V1::SyntheticsAPITest.new({
         }),
         type: DatadogAPIClient::V1::SyntheticsAssertionType::BODY,
       }),
+      DatadogAPIClient::V1::SyntheticsAssertionJSONSchemaTarget.new({
+        operator: DatadogAPIClient::V1::SyntheticsAssertionJSONSchemaOperator::VALIDATES_JSON_SCHEMA,
+        target: DatadogAPIClient::V1::SyntheticsAssertionJSONSchemaTargetTarget.new({
+          meta_schema: DatadogAPIClient::V1::SyntheticsAssertionJSONSchemaMetaSchema::DRAFT_07,
+          json_schema: '{"type": "object", "properties":{"slideshow":{"type":"object"}}}',
+        }),
+        type: DatadogAPIClient::V1::SyntheticsAssertionType::BODY,
+      }),
     ],
     config_variables: [
       DatadogAPIClient::V1::SyntheticsConfigVariable.new({
