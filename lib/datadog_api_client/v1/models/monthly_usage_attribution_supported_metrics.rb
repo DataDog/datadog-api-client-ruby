@@ -143,6 +143,8 @@ module DatadogAPIClient::V1
     LOGS_INDEXED_7DAY_PERCENTAGE = "logs_indexed_7day_percentage".freeze
     LOGS_INDEXED_3DAY_USAGE = "logs_indexed_3day_usage".freeze
     LOGS_INDEXED_3DAY_PERCENTAGE = "logs_indexed_3day_percentage".freeze
+    LOGS_INDEXED_1DAY_USAGE = "logs_indexed_1day_usage".freeze
+    LOGS_INDEXED_1DAY_PERCENTAGE = "logs_indexed_1day_percentage".freeze
     RUM_REPLAY_SESSIONS_USAGE = "rum_replay_sessions_usage".freeze
     RUM_REPLAY_SESSIONS_PERCENTAGE = "rum_replay_sessions_percentage".freeze
     RUM_BROWSER_MOBILE_SESSIONS_USAGE = "rum_browser_mobile_sessions_usage".freeze

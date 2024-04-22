@@ -261,6 +261,12 @@ module DatadogAPIClient::V1
     # The total Indexed Logs (180-day Retention) usage by tag(s).
     attr_accessor :logs_indexed_180day_usage
 
+    # The percentage of Indexed Logs (1-day Retention) usage by tag(s).
+    attr_accessor :logs_indexed_1day_percentage
+
+    # The total Indexed Logs (1-day Retention) usage by tag(s).
+    attr_accessor :logs_indexed_1day_usage
+
     # The percentage of Indexed Logs (30-day Retention) usage by tag(s).
     attr_accessor :logs_indexed_30day_percentage
 
@@ -501,6 +507,8 @@ module DatadogAPIClient::V1
         :'logs_indexed_15day_usage' => :'logs_indexed_15day_usage',
         :'logs_indexed_180day_percentage' => :'logs_indexed_180day_percentage',
         :'logs_indexed_180day_usage' => :'logs_indexed_180day_usage',
+        :'logs_indexed_1day_percentage' => :'logs_indexed_1day_percentage',
+        :'logs_indexed_1day_usage' => :'logs_indexed_1day_usage',
         :'logs_indexed_30day_percentage' => :'logs_indexed_30day_percentage',
         :'logs_indexed_30day_usage' => :'logs_indexed_30day_usage',
         :'logs_indexed_360day_percentage' => :'logs_indexed_360day_percentage',
@@ -640,6 +648,8 @@ module DatadogAPIClient::V1
         :'logs_indexed_15day_usage' => :'Float',
         :'logs_indexed_180day_percentage' => :'Float',
         :'logs_indexed_180day_usage' => :'Float',
+        :'logs_indexed_1day_percentage' => :'Float',
+        :'logs_indexed_1day_usage' => :'Float',
         :'logs_indexed_30day_percentage' => :'Float',
         :'logs_indexed_30day_usage' => :'Float',
         :'logs_indexed_360day_percentage' => :'Float',
@@ -1031,6 +1041,14 @@ module DatadogAPIClient::V1
         self.logs_indexed_180day_usage = attributes[:'logs_indexed_180day_usage']
       end
 
+      if attributes.key?(:'logs_indexed_1day_percentage')
+        self.logs_indexed_1day_percentage = attributes[:'logs_indexed_1day_percentage']
+      end
+
+      if attributes.key?(:'logs_indexed_1day_usage')
+        self.logs_indexed_1day_usage = attributes[:'logs_indexed_1day_usage']
+      end
+
       if attributes.key?(:'logs_indexed_30day_percentage')
         self.logs_indexed_30day_percentage = attributes[:'logs_indexed_30day_percentage']
       end
@@ -1326,6 +1344,8 @@ module DatadogAPIClient::V1
           logs_indexed_15day_usage == o.logs_indexed_15day_usage &&
           logs_indexed_180day_percentage == o.logs_indexed_180day_percentage &&
           logs_indexed_180day_usage == o.logs_indexed_180day_usage &&
+          logs_indexed_1day_percentage == o.logs_indexed_1day_percentage &&
+          logs_indexed_1day_usage == o.logs_indexed_1day_usage &&
           logs_indexed_30day_percentage == o.logs_indexed_30day_percentage &&
           logs_indexed_30day_usage == o.logs_indexed_30day_usage &&
           logs_indexed_360day_percentage == o.logs_indexed_360day_percentage &&
@@ -1384,7 +1404,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [api_percentage, api_usage, apm_fargate_percentage, apm_fargate_usage, apm_host_percentage, apm_host_usage, apm_usm_percentage, apm_usm_usage, appsec_fargate_percentage, appsec_fargate_usage, appsec_percentage, appsec_usage, asm_serverless_traced_invocations_percentage, asm_serverless_traced_invocations_usage, browser_percentage, browser_usage, ci_pipeline_indexed_spans_percentage, ci_pipeline_indexed_spans_usage, ci_test_indexed_spans_percentage, ci_test_indexed_spans_usage, ci_visibility_itr_percentage, ci_visibility_itr_usage, cloud_siem_percentage, cloud_siem_usage, container_excl_agent_percentage, container_excl_agent_usage, container_percentage, container_usage, cspm_containers_percentage, cspm_containers_usage, cspm_hosts_percentage, cspm_hosts_usage, custom_event_percentage, custom_event_usage, custom_ingested_timeseries_percentage, custom_ingested_timeseries_usage, custom_timeseries_percentage, custom_timeseries_usage, cws_containers_percentage, cws_containers_usage, cws_hosts_percentage, cws_hosts_usage, dbm_hosts_percentage, dbm_hosts_usage, dbm_queries_percentage, dbm_queries_usage, error_tracking_percentage, error_tracking_usage, estimated_indexed_logs_percentage, estimated_indexed_logs_usage, estimated_indexed_spans_percentage, estimated_indexed_spans_usage, estimated_ingested_logs_percentage, estimated_ingested_logs_usage, estimated_ingested_spans_percentage, estimated_ingested_spans_usage, estimated_rum_sessions_percentage, estimated_rum_sessions_usage, fargate_percentage, fargate_usage, functions_percentage, functions_usage, incident_management_monthly_active_users_percentage, incident_management_monthly_active_users_usage, indexed_spans_percentage, indexed_spans_usage, infra_host_percentage, infra_host_usage, ingested_logs_bytes_percentage, ingested_logs_bytes_usage, ingested_spans_bytes_percentage, ingested_spans_bytes_usage, invocations_percentage, invocations_usage, lambda_traced_invocations_percentage, lambda_traced_invocations_usage, logs_indexed_15day_percentage, logs_indexed_15day_usage, logs_indexed_180day_percentage, logs_indexed_180day_usage, logs_indexed_30day_percentage, logs_indexed_30day_usage, logs_indexed_360day_percentage, logs_indexed_360day_usage, logs_indexed_3day_percentage, logs_indexed_3day_usage, logs_indexed_45day_percentage, logs_indexed_45day_usage, logs_indexed_60day_percentage, logs_indexed_60day_usage, logs_indexed_7day_percentage, logs_indexed_7day_usage, logs_indexed_90day_percentage, logs_indexed_90day_usage, logs_indexed_custom_retention_percentage, logs_indexed_custom_retention_usage, mobile_app_testing_percentage, mobile_app_testing_usage, ndm_netflow_percentage, ndm_netflow_usage, npm_host_percentage, npm_host_usage, obs_pipeline_bytes_percentage, obs_pipeline_bytes_usage, obs_pipelines_vcpu_percentage, obs_pipelines_vcpu_usage, online_archive_percentage, online_archive_usage, profiled_container_percentage, profiled_container_usage, profiled_fargate_percentage, profiled_fargate_usage, profiled_host_percentage, profiled_host_usage, rum_browser_mobile_sessions_percentage, rum_browser_mobile_sessions_usage, rum_replay_sessions_percentage, rum_replay_sessions_usage, sds_scanned_bytes_percentage, sds_scanned_bytes_usage, serverless_apps_percentage, serverless_apps_usage, siem_ingested_bytes_percentage, siem_ingested_bytes_usage, snmp_percentage, snmp_usage, universal_service_monitoring_percentage, universal_service_monitoring_usage, vuln_management_hosts_percentage, vuln_management_hosts_usage, workflow_executions_percentage, workflow_executions_usage].hash
+      [api_percentage, api_usage, apm_fargate_percentage, apm_fargate_usage, apm_host_percentage, apm_host_usage, apm_usm_percentage, apm_usm_usage, appsec_fargate_percentage, appsec_fargate_usage, appsec_percentage, appsec_usage, asm_serverless_traced_invocations_percentage, asm_serverless_traced_invocations_usage, browser_percentage, browser_usage, ci_pipeline_indexed_spans_percentage, ci_pipeline_indexed_spans_usage, ci_test_indexed_spans_percentage, ci_test_indexed_spans_usage, ci_visibility_itr_percentage, ci_visibility_itr_usage, cloud_siem_percentage, cloud_siem_usage, container_excl_agent_percentage, container_excl_agent_usage, container_percentage, container_usage, cspm_containers_percentage, cspm_containers_usage, cspm_hosts_percentage, cspm_hosts_usage, custom_event_percentage, custom_event_usage, custom_ingested_timeseries_percentage, custom_ingested_timeseries_usage, custom_timeseries_percentage, custom_timeseries_usage, cws_containers_percentage, cws_containers_usage, cws_hosts_percentage, cws_hosts_usage, dbm_hosts_percentage, dbm_hosts_usage, dbm_queries_percentage, dbm_queries_usage, error_tracking_percentage, error_tracking_usage, estimated_indexed_logs_percentage, estimated_indexed_logs_usage, estimated_indexed_spans_percentage, estimated_indexed_spans_usage, estimated_ingested_logs_percentage, estimated_ingested_logs_usage, estimated_ingested_spans_percentage, estimated_ingested_spans_usage, estimated_rum_sessions_percentage, estimated_rum_sessions_usage, fargate_percentage, fargate_usage, functions_percentage, functions_usage, incident_management_monthly_active_users_percentage, incident_management_monthly_active_users_usage, indexed_spans_percentage, indexed_spans_usage, infra_host_percentage, infra_host_usage, ingested_logs_bytes_percentage, ingested_logs_bytes_usage, ingested_spans_bytes_percentage, ingested_spans_bytes_usage, invocations_percentage, invocations_usage, lambda_traced_invocations_percentage, lambda_traced_invocations_usage, logs_indexed_15day_percentage, logs_indexed_15day_usage, logs_indexed_180day_percentage, logs_indexed_180day_usage, logs_indexed_1day_percentage, logs_indexed_1day_usage, logs_indexed_30day_percentage, logs_indexed_30day_usage, logs_indexed_360day_percentage, logs_indexed_360day_usage, logs_indexed_3day_percentage, logs_indexed_3day_usage, logs_indexed_45day_percentage, logs_indexed_45day_usage, logs_indexed_60day_percentage, logs_indexed_60day_usage, logs_indexed_7day_percentage, logs_indexed_7day_usage, logs_indexed_90day_percentage, logs_indexed_90day_usage, logs_indexed_custom_retention_percentage, logs_indexed_custom_retention_usage, mobile_app_testing_percentage, mobile_app_testing_usage, ndm_netflow_percentage, ndm_netflow_usage, npm_host_percentage, npm_host_usage, obs_pipeline_bytes_percentage, obs_pipeline_bytes_usage, obs_pipelines_vcpu_percentage, obs_pipelines_vcpu_usage, online_archive_percentage, online_archive_usage, profiled_container_percentage, profiled_container_usage, profiled_fargate_percentage, profiled_fargate_usage, profiled_host_percentage, profiled_host_usage, rum_browser_mobile_sessions_percentage, rum_browser_mobile_sessions_usage, rum_replay_sessions_percentage, rum_replay_sessions_usage, sds_scanned_bytes_percentage, sds_scanned_bytes_usage, serverless_apps_percentage, serverless_apps_usage, siem_ingested_bytes_percentage, siem_ingested_bytes_usage, snmp_percentage, snmp_usage, universal_service_monitoring_percentage, universal_service_monitoring_usage, vuln_management_hosts_percentage, vuln_management_hosts_usage, workflow_executions_percentage, workflow_executions_usage].hash
     end
   end
 end
