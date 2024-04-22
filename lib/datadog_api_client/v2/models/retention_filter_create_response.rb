@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The retention filters definition.
-  class RetentionFilterResponse
+  class RetentionFilterCreateResponse
     include BaseGenericModel
 
     # The definition of the retention filter.
@@ -36,7 +36,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'RetentionFilterAll'
+        :'data' => :'RetentionFilter'
       }
     end
 
@@ -45,13 +45,13 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RetentionFilterResponse` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RetentionFilterCreateResponse` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::RetentionFilterResponse`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::RetentionFilterCreateResponse`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
