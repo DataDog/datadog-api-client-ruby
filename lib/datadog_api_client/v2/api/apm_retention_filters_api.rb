@@ -40,7 +40,7 @@ module DatadogAPIClient::V2
     #
     # @param body [RetentionFilterCreateRequest] The definition of the new retention filter.
     # @param opts [Hash] the optional parameters
-    # @return [Array<(RetentionFilterResponse, Integer, Hash)>] RetentionFilterResponse data, response status code and response headers
+    # @return [Array<(RetentionFilterCreateResponse, Integer, Hash)>] RetentionFilterCreateResponse data, response status code and response headers
     def create_apm_retention_filter_with_http_info(body, opts = {})
 
       if @api_client.config.debugging
@@ -70,7 +70,7 @@ module DatadogAPIClient::V2
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'RetentionFilterResponse'
+      return_type = opts[:debug_return_type] || 'RetentionFilterCreateResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
