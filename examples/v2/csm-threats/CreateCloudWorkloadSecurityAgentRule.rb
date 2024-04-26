@@ -1,7 +1,7 @@
 # Create a Cloud Workload Security Agent rule returns "OK" response
 
 require "datadog_api_client"
-api_instance = DatadogAPIClient::V2::CloudWorkloadSecurityAPI.new
+api_instance = DatadogAPIClient::V2::CSMThreatsAPI.new
 
 body = DatadogAPIClient::V2::CloudWorkloadSecurityAgentRuleCreateRequest.new({
   data: DatadogAPIClient::V2::CloudWorkloadSecurityAgentRuleCreateData.new({
@@ -9,7 +9,7 @@ body = DatadogAPIClient::V2::CloudWorkloadSecurityAgentRuleCreateRequest.new({
       description: "Test Agent rule",
       enabled: true,
       expression: 'exec.file.name == "sh"',
-      name: "examplecloudworkloadsecurity",
+      name: "examplecsmthreat",
     }),
     type: DatadogAPIClient::V2::CloudWorkloadSecurityAgentRuleType::AGENT_RULE,
   }),
