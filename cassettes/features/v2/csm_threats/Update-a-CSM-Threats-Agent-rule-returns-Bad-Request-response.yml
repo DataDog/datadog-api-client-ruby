@@ -1,0 +1,71 @@
+http_interactions:
+- recorded_at: Tue, 23 Apr 2024 17:57:50 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"description":"My Agent rule","enabled":true,"expression":"exec.file.name
+        == \"sh\"","name":"testupdateacsmthreatsagentrulereturnsbadrequestresponse1713895070"},"type":"agent_rule"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/remote_config/products/cws/agent_rules
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"rgf-aao-lo8","type":"agent_rule","attributes":{"category":"Process
+        Activity","creationDate":1713895070561,"creator":{"name":"","handle":"frog@datadoghq.com"},"defaultRule":false,"description":"My
+        Agent rule","enabled":true,"expression":"exec.file.name == \"sh\"","filters":["os
+        == \"linux\""],"name":"testupdateacsmthreatsagentrulereturnsbadrequestresponse1713895070","updateDate":1713895070561,"updater":{"name":"","handle":"frog@datadoghq.com"}}}}'
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+- recorded_at: Tue, 23 Apr 2024 17:57:50 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"description":"Test Agent rule","enabled":true,"expression":"open.file.path
+        = sh"},"id":"abc-123-xyz","type":"agent_rule"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: PATCH
+    uri: https://api.datadoghq.com/api/v2/remote_config/products/cws/agent_rules/rgf-aao-lo8
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"title":"failed to update rule"}]}
+
+        '
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 400
+      message: Bad Request
+- recorded_at: Tue, 23 Apr 2024 17:57:50 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/remote_config/products/cws/agent_rules/rgf-aao-lo8
+  response:
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 204
+      message: No Content
+recorded_with: VCR 6.0.0
