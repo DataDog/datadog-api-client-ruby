@@ -195,7 +195,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'LogsIndexesOrder'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :get_logs_index_order,
