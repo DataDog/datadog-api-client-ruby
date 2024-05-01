@@ -272,7 +272,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'LogsArchive'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :get_logs_archive,
@@ -333,7 +333,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'LogsArchiveOrder'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :get_logs_archive_order,
@@ -398,7 +398,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'RolesResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :list_archive_read_roles,
@@ -458,7 +458,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'LogsArchives'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :list_logs_archives,
