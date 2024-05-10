@@ -1,10 +1,10 @@
 http_interactions:
-- recorded_at: Wed, 19 Oct 2022 13:36:46 GMT
+- recorded_at: Fri, 10 May 2024 16:34:50 GMT
   request:
     body:
       encoding: UTF-8
       string: '{"data":{"attributes":{"exclusion_filters":[{"name":"Exclude logs from
-        staging","query":"source:staging"}],"filtered_data_type":"logs","is_enabled":true,"name":"Test-Update_a_security_filter_returns_OK_response-1666186606","query":"service:TestUpdateasecurityfilterreturnsOKresponse1666186606"},"type":"security_filters"}}'
+        staging","query":"source:staging"}],"filtered_data_type":"logs","is_enabled":true,"name":"Test-Update_a_security_filter_returns_OK_response-1715358890","query":"service:TestUpdateasecurityfilterreturnsOKresponse1715358890"},"type":"security_filters"}}'
     headers:
       Accept:
       - application/json
@@ -15,8 +15,8 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"is_enabled":true,"name":"Test-Update_a_security_filter_returns_OK_response-1666186606","filtered_data_type":"logs","exclusion_filters":[{"query":"source:staging","name":"Exclude
-        logs from staging"}],"version":1,"query":"service:TestUpdateasecurityfilterreturnsOKresponse1666186606","is_builtin":false},"type":"security_filters","id":"dtb-n4z-x9c"}}
+      string: '{"data":{"id":"kk9-x1s-rgi","attributes":{"version":1,"name":"Test-Update_a_security_filter_returns_OK_response-1715358890","query":"service:TestUpdateasecurityfilterreturnsOKresponse1715358890","is_enabled":true,"exclusion_filters":[{"name":"Exclude
+        logs from staging","query":"source:staging"}],"filtered_data_type":"logs","is_builtin":false},"type":"security_filters"}}
 
         '
     headers:
@@ -25,22 +25,22 @@ http_interactions:
     status:
       code: 200
       message: OK
-- recorded_at: Wed, 19 Oct 2022 13:36:46 GMT
+- recorded_at: Fri, 10 May 2024 16:34:50 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"exclusion_filters":[],"filtered_data_type":"logs","is_enabled":true,"name":"Test-Update_a_security_filter_returns_OK_response-1666186606","query":"service:TestUpdateasecurityfilterreturnsOKresponse1666186606","version":1},"type":"security_filters"}}'
+      string: '{"data":{"attributes":{"exclusion_filters":[],"filtered_data_type":"logs","is_enabled":true,"name":"Test-Update_a_security_filter_returns_OK_response-1715358890","query":"service:TestUpdateasecurityfilterreturnsOKresponse1715358890","version":1},"type":"security_filters"}}'
     headers:
       Accept:
       - application/json
       Content-Type:
       - application/json
     method: PATCH
-    uri: https://api.datadoghq.com/api/v2/security_monitoring/configuration/security_filters/dtb-n4z-x9c
+    uri: https://api.datadoghq.com/api/v2/security_monitoring/configuration/security_filters/kk9-x1s-rgi
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"is_enabled":true,"name":"Test-Update_a_security_filter_returns_OK_response-1666186606","filtered_data_type":"logs","exclusion_filters":[],"version":2,"query":"service:TestUpdateasecurityfilterreturnsOKresponse1666186606","is_builtin":false},"type":"security_filters","id":"dtb-n4z-x9c"}}
+      string: '{"data":{"id":"kk9-x1s-rgi","attributes":{"version":2,"name":"Test-Update_a_security_filter_returns_OK_response-1715358890","query":"service:TestUpdateasecurityfilterreturnsOKresponse1715358890","is_enabled":true,"exclusion_filters":[],"filtered_data_type":"logs","is_builtin":false},"type":"security_filters"}}
 
         '
     headers:
@@ -49,14 +49,14 @@ http_interactions:
     status:
       code: 200
       message: OK
-- recorded_at: Wed, 19 Oct 2022 13:36:46 GMT
+- recorded_at: Fri, 10 May 2024 16:34:50 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/security_monitoring/configuration/security_filters/dtb-n4z-x9c
+    uri: https://api.datadoghq.com/api/v2/security_monitoring/configuration/security_filters/kk9-x1s-rgi
   response:
     body:
       encoding: UTF-8
