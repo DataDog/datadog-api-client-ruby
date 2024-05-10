@@ -7628,7 +7628,8 @@ Returns the security filter object when the request is successful.</p>
 
 <p>Update an existing rule. When updating <code>cases</code>, <code>queries</code> or <code>options</code>, the whole field
 must be included. For example, when modifying a query all queries must be included.
-Default rules can only be updated to be enabled and to change notifications.</p>
+Default rules can only be updated to be enabled, to change notifications, or to update
+the tags (default tags cannot be removed).</p>
 
 
   </div>
@@ -7873,13 +7874,13 @@ Default rules can only be updated to be enabled and to change notifications.</p>
       <pre class="lines">
 
 
-1733
 1734
 1735
-1736</pre>
+1736
+1737</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 1733</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 1734</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update_security_monitoring_suppression'>update_security_monitoring_suppression</span><span class='lparen'>(</span><span class='id identifier rubyid_suppression_id'>suppression_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_update_security_monitoring_suppression_with_http_info'>update_security_monitoring_suppression_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_suppression_id'>suppression_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -7985,7 +7986,6 @@ Default rules can only be updated to be enabled and to change notifications.</p>
       <pre class="lines">
 
 
-1746
 1747
 1748
 1749
@@ -8039,10 +8039,11 @@ Default rules can only be updated to be enabled and to change notifications.</p>
 1797
 1798
 1799
-1800</pre>
+1800
+1801</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 1746</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 1747</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update_security_monitoring_suppression_with_http_info'>update_security_monitoring_suppression_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_suppression_id'>suppression_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -8136,13 +8137,13 @@ Default rules can only be updated to be enabled and to change notifications.</p>
       <pre class="lines">
 
 
-1805
 1806
 1807
-1808</pre>
+1808
+1809</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 1805</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 1806</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_validate_security_monitoring_rule'>validate_security_monitoring_rule</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_validate_security_monitoring_rule_with_http_info'>validate_security_monitoring_rule_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -8229,7 +8230,6 @@ Default rules can only be updated to be enabled and to change notifications.</p>
       <pre class="lines">
 
 
-1817
 1818
 1819
 1820
@@ -8279,10 +8279,11 @@ Default rules can only be updated to be enabled and to change notifications.</p>
 1864
 1865
 1866
-1867</pre>
+1867
+1868</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 1817</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 1818</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_validate_security_monitoring_rule_with_http_info'>validate_security_monitoring_rule_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -8345,7 +8346,7 @@ Default rules can only be updated to be enabled and to change notifications.</p>
 </div>
 
       <div id="footer">
-  Generated on Thu May  9 15:39:39 2024 by
+  Generated on Fri May 10 13:43:04 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.36 (ruby-2.7.8).
 </div>
