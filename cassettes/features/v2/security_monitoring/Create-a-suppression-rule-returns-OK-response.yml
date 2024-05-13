@@ -1,10 +1,10 @@
 http_interactions:
-- recorded_at: Mon, 08 Apr 2024 09:56:58 GMT
+- recorded_at: Fri, 10 May 2024 16:34:35 GMT
   request:
     body:
       encoding: UTF-8
       string: '{"data":{"attributes":{"description":"This rule suppresses low-severity
-        signals in staging environments.","enabled":true,"expiration_date":1703187336000,"name":"Test-Create_a_suppression_rule_returns_OK_response-1712570218","rule_query":"type:log_detection
+        signals in staging environments.","enabled":true,"expiration_date":1703187336000,"name":"Test-Create_a_suppression_rule_returns_OK_response-1715358875","rule_query":"type:log_detection
         source:cloudtrail","suppression_query":"env:staging status:low"},"type":"suppressions"}}'
     headers:
       Accept:
@@ -16,9 +16,9 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"mu8-qje-pys","attributes":{"name":"Test-Create_a_suppression_rule_returns_OK_response-1712570218","enabled":true,"description":"This
+      string: '{"data":{"id":"lzo-uda-vpz","attributes":{"name":"Test-Create_a_suppression_rule_returns_OK_response-1715358875","enabled":true,"description":"This
         rule suppresses low-severity signals in staging environments.","rule_query":"type:log_detection
-        source:cloudtrail","suppression_query":"env:staging status:low","log_exclusion_query":"","data_exclusion_query":"","expiration_date":1703187336000,"version":1,"creation_date":1712570219298,"update_date":1712570219298,"creator":{"name":null,"handle":"frog@datadoghq.com"},"updater":{"name":null,"handle":"frog@datadoghq.com"}},"type":"suppressions"}}
+        source:cloudtrail","suppression_query":"env:staging status:low","data_exclusion_query":"","expiration_date":1703187336000,"version":1,"creation_date":1715358876178,"update_date":1715358876178,"creator":{"name":null,"handle":"frog@datadoghq.com"},"updater":{"name":null,"handle":"frog@datadoghq.com"}},"type":"suppressions"}}
 
         '
     headers:
@@ -27,14 +27,14 @@ http_interactions:
     status:
       code: 200
       message: OK
-- recorded_at: Mon, 08 Apr 2024 09:56:58 GMT
+- recorded_at: Fri, 10 May 2024 16:34:35 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/security_monitoring/configuration/suppressions/mu8-qje-pys
+    uri: https://api.datadoghq.com/api/v2/security_monitoring/configuration/suppressions/lzo-uda-vpz
   response:
     body:
       encoding: UTF-8
