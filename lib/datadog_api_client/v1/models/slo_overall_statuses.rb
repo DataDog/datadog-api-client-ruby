@@ -46,7 +46,8 @@ module DatadogAPIClient::V1
     # The target of the SLO.
     attr_accessor :target
 
-    # The SLO time window options.
+    # The SLO time window options. Note that "custom" is not a valid option for creating
+    # or updating SLOs. It is only used when querying SLO history over custom timeframes.
     attr_accessor :timeframe
 
     # Attribute mapping from ruby-style variable name to JSON key.
