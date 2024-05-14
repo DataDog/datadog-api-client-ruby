@@ -1620,7 +1620,8 @@ objective object.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>The SLO time window options.</p>
+    <p>The SLO time window options. Note that &quot;custom&quot; is not a valid option for creating
+or updating SLOs. It is only used when querying SLO history over custom timeframes.</p>
 
 
   </div>
@@ -1634,12 +1635,12 @@ objective object.</p>
       <pre class="lines">
 
 
-96
 97
-98</pre>
+98
+99</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/slo_response_data.rb', line 96</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/slo_response_data.rb', line 97</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_timeframe'>timeframe</span>
   <span class='ivar'>@timeframe</span>
@@ -1676,12 +1677,12 @@ objective object.</p>
       <pre class="lines">
 
 
-99
 100
-101</pre>
+101
+102</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/slo_response_data.rb', line 99</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/slo_response_data.rb', line 100</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_type'>type</span>
   <span class='ivar'>@type</span>
@@ -1721,12 +1722,12 @@ threshold.</p>
       <pre class="lines">
 
 
-105
 106
-107</pre>
+107
+108</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/slo_response_data.rb', line 105</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/slo_response_data.rb', line 106</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_warning_threshold'>warning_threshold</span>
   <span class='ivar'>@warning_threshold</span>
@@ -2633,7 +2634,7 @@ For object, use to_hash. Otherwise, just return the value</p>
 </div>
 
       <div id="footer">
-  Generated on Mon May 13 13:19:02 2024 by
+  Generated on Tue May 14 16:10:08 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.36 (ruby-2.7.8).
 </div>

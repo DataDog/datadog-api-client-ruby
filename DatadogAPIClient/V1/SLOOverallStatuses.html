@@ -725,7 +725,8 @@ were calculated.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>The SLO time window options.</p>
+    <p>The SLO time window options. Note that &quot;custom&quot; is not a valid option for creating
+or updating SLOs. It is only used when querying SLO history over custom timeframes.</p>
 
 
   </div>
@@ -739,12 +740,12 @@ were calculated.</p>
       <pre class="lines">
 
 
-50
 51
-52</pre>
+52
+53</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/slo_overall_statuses.rb', line 50</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/slo_overall_statuses.rb', line 51</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_timeframe'>timeframe</span>
   <span class='ivar'>@timeframe</span>
@@ -760,7 +761,7 @@ were calculated.</p>
 </div>
 
       <div id="footer">
-  Generated on Mon May 13 13:19:49 2024 by
+  Generated on Tue May 14 16:10:54 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.36 (ruby-2.7.8).
 </div>
