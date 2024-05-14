@@ -32,7 +32,8 @@ module DatadogAPIClient::V1
     # create/update requests.
     attr_accessor :target_display
 
-    # The SLO time window options.
+    # The SLO time window options. Note that "custom" is not a valid option for creating
+    # or updating SLOs. It is only used when querying SLO history over custom timeframes.
     attr_reader :timeframe
 
     # The warning value for the service level objective.
