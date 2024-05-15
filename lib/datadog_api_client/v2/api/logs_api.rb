@@ -221,7 +221,7 @@ module DatadogAPIClient::V2
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LogsAPI.list_logs_get ...'
       end
-      allowable_values = ['indexes', 'online-archives']
+      allowable_values = ['indexes', 'online-archives', 'flex']
       if @api_client.config.client_side_validation && opts[:'filter_storage_tier'] && !allowable_values.include?(opts[:'filter_storage_tier'])
         fail ArgumentError, "invalid value for \"filter_storage_tier\", must be one of #{allowable_values}"
       end
