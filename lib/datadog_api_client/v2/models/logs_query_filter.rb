@@ -30,7 +30,7 @@ module DatadogAPIClient::V2
     # The search query - following the log search syntax.
     attr_accessor :query
 
-    # Specifies storage type as indexes or online-archives
+    # Specifies storage type as indexes, online-archives or flex
     attr_accessor :storage_tier
 
     # The maximum time for the requested logs, supports date math and regular timestamps (milliseconds).

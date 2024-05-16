@@ -17,11 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Specifies storage type as indexes or online-archives
+  # Specifies storage type as indexes, online-archives or flex
   class LogsStorageTier
     include BaseEnumModel
 
     INDEXES = "indexes".freeze
     ONLINE_ARCHIVES = "online-archives".freeze
+    FLEX = "flex".freeze
   end
 end
