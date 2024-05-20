@@ -8,7 +8,7 @@ body = DatadogAPIClient::V2::SecurityMonitoringSuppressionCreateRequest.new({
     attributes: DatadogAPIClient::V2::SecurityMonitoringSuppressionCreateAttributes.new({
       description: "This rule suppresses low-severity signals in staging environments.",
       enabled: true,
-      expiration_date: 1703187336000,
+      expiration_date: 1638443471000,
       name: "Example-Security-Monitoring",
       rule_query: "type:log_detection source:cloudtrail",
       suppression_query: "env:staging status:low",
