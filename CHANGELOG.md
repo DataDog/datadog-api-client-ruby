@@ -1,5 +1,22 @@
 # CHANGELOG
 
+## 2.23.0 / 2024-05-22
+
+### Fixed
+* fix case search documentation by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1805
+### Added
+* Add support variablesFromScript in Synthetics API test by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1807
+* Add JSONSchema assertion support to API and multistep tests by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1782
+* add 1 day logs to usage api docs by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1811
+* Update UserTeamIncluded to include teams by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1816
+* Security Monitoring - Make Default Tags available in the response by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1823
+* Add flex logs storage tier by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1825
+### Changed
+* Rename the Cloud Workload Security tag to CSM Threats by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1815
+
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-ruby/compare/v2.22.0...v2.23.0
+
 ## 2.22.0 / 2024-04-11
 
 ### Fixed
@@ -15,7 +32,7 @@
 * Adding SLO Reporting API Documentation by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1764
 * Security Monitoring Suppression - Add data_exclusion_query field by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1797
 * aws api adding extended and deprecating old resource collection field by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1795
-### Changed
+### [**Breaking**] Changed
 * Add Team relationship to AuthNMappings by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1726
 ### Deprecated
 * Remove deprecated /api/v1/usage/attribution by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1778
