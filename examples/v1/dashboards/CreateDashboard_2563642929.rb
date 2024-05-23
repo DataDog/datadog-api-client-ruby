@@ -1,4 +1,4 @@
-# Create a new dashboard with query_table widget
+# Create a new dashboard with a toplist widget sorted by group
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::DashboardsAPI.new
@@ -11,46 +11,50 @@ body = DatadogAPIClient::V1::Dashboard.new({
       layout: DatadogAPIClient::V1::WidgetLayout.new({
         x: 0,
         y: 0,
-        width: 54,
-        height: 32,
+        width: 47,
+        height: 15,
       }),
-      definition: DatadogAPIClient::V1::TableWidgetDefinition.new({
+      definition: DatadogAPIClient::V1::ToplistWidgetDefinition.new({
         title: "",
         title_size: "16",
         title_align: DatadogAPIClient::V1::WidgetTextAlign::LEFT,
         time: DatadogAPIClient::V1::WidgetTime.new({}),
-        type: DatadogAPIClient::V1::TableWidgetDefinitionType::QUERY_TABLE,
+        style: DatadogAPIClient::V1::ToplistWidgetStyle.new({
+          display: DatadogAPIClient::V1::ToplistWidgetStacked.new({
+            type: DatadogAPIClient::V1::ToplistWidgetStackedType::STACKED,
+            legend: DatadogAPIClient::V1::ToplistWidgetLegend::INLINE,
+          }),
+          scaling: DatadogAPIClient::V1::ToplistWidgetScaling::RELATIVE,
+        }),
+        type: DatadogAPIClient::V1::ToplistWidgetDefinitionType::TOPLIST,
         requests: [
-          DatadogAPIClient::V1::TableWidgetRequest.new({
+          DatadogAPIClient::V1::ToplistWidgetRequest.new({
             queries: [
               DatadogAPIClient::V1::FormulaAndFunctionMetricQueryDefinition.new({
                 data_source: DatadogAPIClient::V1::FormulaAndFunctionMetricDataSource::METRICS,
                 name: "query1",
-                query: "avg:system.cpu.user{*} by {host}",
+                query: "avg:system.cpu.user{*} by {service}",
                 aggregator: DatadogAPIClient::V1::FormulaAndFunctionMetricAggregation::AVG,
               }),
             ],
             formulas: [
               DatadogAPIClient::V1::WidgetFormula.new({
                 formula: "query1",
-                conditional_formats: [],
-                cell_display_mode: DatadogAPIClient::V1::TableWidgetCellDisplayMode::BAR,
               }),
             ],
             sort: DatadogAPIClient::V1::WidgetSortBy.new({
-              count: 500,
+              count: 10,
               order_by: [
-                DatadogAPIClient::V1::WidgetFormulaSort.new({
-                  type: DatadogAPIClient::V1::FormulaType::FORMULA,
-                  index: 0,
-                  order: DatadogAPIClient::V1::WidgetSort::DESCENDING,
+                DatadogAPIClient::V1::WidgetGroupSort.new({
+                  type: DatadogAPIClient::V1::GroupType::GROUP,
+                  name: "service",
+                  order: DatadogAPIClient::V1::WidgetSort::ASCENDING,
                 }),
               ],
             }),
             response_format: DatadogAPIClient::V1::FormulaAndFunctionResponseFormat::SCALAR,
           }),
         ],
-        has_search_bar: DatadogAPIClient::V1::TableWidgetHasSearchBar::AUTO,
       }),
     }),
   ],
