@@ -78,6 +78,9 @@ module DatadogAPIClient::V1
     # The log query.
     attr_accessor :security_query
 
+    # The controls for sorting the widget.
+    attr_accessor :sort
+
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
@@ -100,7 +103,8 @@ module DatadogAPIClient::V1
         :'queries' => :'queries',
         :'response_format' => :'response_format',
         :'rum_query' => :'rum_query',
-        :'security_query' => :'security_query'
+        :'security_query' => :'security_query',
+        :'sort' => :'sort'
       }
     end
 
@@ -126,7 +130,8 @@ module DatadogAPIClient::V1
         :'queries' => :'Array<FormulaAndFunctionQueryDefinition>',
         :'response_format' => :'FormulaAndFunctionResponseFormat',
         :'rum_query' => :'LogQueryDefinition',
-        :'security_query' => :'LogQueryDefinition'
+        :'security_query' => :'LogQueryDefinition',
+        :'sort' => :'WidgetSortBy'
       }
     end
 
@@ -229,6 +234,10 @@ module DatadogAPIClient::V1
       if attributes.key?(:'security_query')
         self.security_query = attributes[:'security_query']
       end
+
+      if attributes.key?(:'sort')
+        self.sort = attributes[:'sort']
+      end
     end
 
     # Checks equality by comparing each attribute.
@@ -255,14 +264,15 @@ module DatadogAPIClient::V1
           queries == o.queries &&
           response_format == o.response_format &&
           rum_query == o.rum_query &&
-          security_query == o.security_query
+          security_query == o.security_query &&
+          sort == o.sort
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [aggregator, _alias, apm_query, apm_stats_query, cell_display_mode, conditional_formats, event_query, formulas, limit, log_query, network_query, order, process_query, profile_metrics_query, q, queries, response_format, rum_query, security_query].hash
+      [aggregator, _alias, apm_query, apm_stats_query, cell_display_mode, conditional_formats, event_query, formulas, limit, log_query, network_query, order, process_query, profile_metrics_query, q, queries, response_format, rum_query, security_query, sort].hash
     end
   end
 end
