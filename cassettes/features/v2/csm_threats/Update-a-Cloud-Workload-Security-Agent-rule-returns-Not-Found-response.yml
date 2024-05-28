@@ -4,7 +4,7 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"data":{"attributes":{"description":"Test Agent rule","enabled":true,"expression":"exec.file.name
-        == \"sh\""},"type":"agent_rule"}}'
+        == \"sh\""},"id":"abc-123-xyz","type":"agent_rule"}}'
     headers:
       Accept:
       - application/json
