@@ -34,8 +34,8 @@ module DatadogAPIClient::V2
     # Create a new API.
     #
     # Create a new API from the [OpenAPI](https://spec.openapis.org/oas/latest.html) specification given.
-    # It supports version `2.0`, `3.0` and `3.1` of the specification. A specific extension section, `x-datadog`,
-    # let you specify the `teamHandle` for your team responsible for the API in Datadog.
+    # See the [API Catalog documentation](https://docs.datadoghq.com/api_catalog/add_metadata/) for additional
+    # information about the possible metadata.
     # It returns the created API ID.
     #
     #
