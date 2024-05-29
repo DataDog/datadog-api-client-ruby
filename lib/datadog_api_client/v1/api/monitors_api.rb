@@ -585,7 +585,7 @@ module DatadogAPIClient::V1
     # Search and filter your monitor groups details.
     #
     # @param opts [Hash] the optional parameters
-    # @option opts [String] :query After entering a search query in your [Manage Monitor page][1] use the query parameter value in the URL of the page as value for this parameter. Consult the dedicated [manage monitor documentation][2] page to learn more.  The query can contain any number of space-separated monitor attributes, for instance `query="type:metric status:alert"`.  [1]: https://app.datadoghq.com/monitors/manage [2]: /monitors/manage/#find-the-monitors
+    # @option opts [String] :query After entering a search query on the [Triggered Monitors page][1], use the query parameter value in the URL of the page as a value for this parameter. For more information, see the [Manage Monitors documentation][2].  The query can contain any number of space-separated monitor attributes, for instance: `query="type:metric group_status:alert"`.  [1]: https://app.datadoghq.com/monitors/triggered [2]: /monitors/manage/#triggered-monitors
     # @option opts [Integer] :page Page to start paginating from.
     # @option opts [Integer] :per_page Number of monitors to return per page.
     # @option opts [String] :sort String for sort order, composed of field and sort order separate by a comma, for example `name,asc`. Supported sort directions: `asc`, `desc`. Supported fields:  * `name` * `status` * `tags`
