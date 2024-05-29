@@ -1624,6 +1624,9 @@ ScenariosModelMappings = {
     "v2.CreateSecurityMonitoringRule" => {
             "body" => "SecurityMonitoringRuleCreatePayload",
     },
+    "v2.TestSecurityMonitoringRule" => {
+            "body" => "SecurityMonitoringRuleTestRequest",
+    },
     "v2.ValidateSecurityMonitoringRule" => {
             "body" => "SecurityMonitoringRuleCreatePayload",
     },
@@ -1636,6 +1639,10 @@ ScenariosModelMappings = {
     "v2.UpdateSecurityMonitoringRule" => {
             "rule_id" => "String",
             "body" => "SecurityMonitoringRuleUpdatePayload",
+    },
+    "v2.TestExistingSecurityMonitoringRule" => {
+            "rule_id" => "String",
+            "body" => "SecurityMonitoringRuleTestRequest",
     },
     "v2.ListSecurityMonitoringSignals" => {
             "filter_query" => "String",

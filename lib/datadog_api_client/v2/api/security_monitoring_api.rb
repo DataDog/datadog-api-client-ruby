@@ -1580,6 +1580,145 @@ module DatadogAPIClient::V2
         end
     end
 
+    # Test an existing rule.
+    #
+    # @see #test_existing_security_monitoring_rule_with_http_info
+    def test_existing_security_monitoring_rule(rule_id, body, opts = {})
+      data, _status_code, _headers = test_existing_security_monitoring_rule_with_http_info(rule_id, body, opts)
+      data
+    end
+
+    # Test an existing rule.
+    #
+    # Test an existing rule.
+    #
+    # @param rule_id [String] The ID of the rule.
+    # @param body [SecurityMonitoringRuleTestRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SecurityMonitoringRuleTestResponse, Integer, Hash)>] SecurityMonitoringRuleTestResponse data, response status code and response headers
+    def test_existing_security_monitoring_rule_with_http_info(rule_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.test_existing_security_monitoring_rule ...'
+      end
+      # verify the required parameter 'rule_id' is set
+      if @api_client.config.client_side_validation && rule_id.nil?
+        fail ArgumentError, "Missing the required parameter 'rule_id' when calling SecurityMonitoringAPI.test_existing_security_monitoring_rule"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.test_existing_security_monitoring_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/rules/{rule_id}/test'.sub('{rule_id}', CGI.escape(rule_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityMonitoringRuleTestResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :test_existing_security_monitoring_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#test_existing_security_monitoring_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Test a rule.
+    #
+    # @see #test_security_monitoring_rule_with_http_info
+    def test_security_monitoring_rule(body, opts = {})
+      data, _status_code, _headers = test_security_monitoring_rule_with_http_info(body, opts)
+      data
+    end
+
+    # Test a rule.
+    #
+    # Test a rule.
+    #
+    # @param body [SecurityMonitoringRuleTestRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SecurityMonitoringRuleTestResponse, Integer, Hash)>] SecurityMonitoringRuleTestResponse data, response status code and response headers
+    def test_security_monitoring_rule_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.test_security_monitoring_rule ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.test_security_monitoring_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/rules/test'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityMonitoringRuleTestResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :test_security_monitoring_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#test_security_monitoring_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Update a security filter.
     #
     # @see #update_security_filter_with_http_info
