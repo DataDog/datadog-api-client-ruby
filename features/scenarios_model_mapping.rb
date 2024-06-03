@@ -1628,7 +1628,7 @@ ScenariosModelMappings = {
             "body" => "SecurityMonitoringRuleTestRequest",
     },
     "v2.ValidateSecurityMonitoringRule" => {
-            "body" => "SecurityMonitoringRuleCreatePayload",
+            "body" => "SecurityMonitoringRuleValidatePayload",
     },
     "v2.DeleteSecurityMonitoringRule" => {
             "rule_id" => "String",

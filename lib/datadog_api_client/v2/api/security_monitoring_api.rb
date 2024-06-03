@@ -1951,7 +1951,7 @@ module DatadogAPIClient::V2
     #
     # Validate a detection rule.
     #
-    # @param body [SecurityMonitoringRuleCreatePayload] 
+    # @param body [SecurityMonitoringRuleValidatePayload] 
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def validate_security_monitoring_rule_with_http_info(body, opts = {})

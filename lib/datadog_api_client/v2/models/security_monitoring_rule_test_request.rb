@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Test the rule queries of a rule.
+  # Test the rule queries of a rule (rule property is ignored when applied to an existing rule)
   class SecurityMonitoringRuleTestRequest
     include BaseGenericModel
 
-    # Create a new rule.
+    # Test a rule.
     attr_accessor :rule
 
     # Data payloads used to test rules query with the expected result.
@@ -40,7 +40,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'rule' => :'SecurityMonitoringRuleCreatePayload',
+        :'rule' => :'SecurityMonitoringRuleTestPayload',
         :'rule_query_payloads' => :'Array<SecurityMonitoringRuleQueryPayload>'
       }
     end
