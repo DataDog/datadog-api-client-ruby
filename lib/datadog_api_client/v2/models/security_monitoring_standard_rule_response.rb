@@ -72,7 +72,7 @@ module DatadogAPIClient::V2
     # Tags for generated signals.
     attr_accessor :tags
 
-    # Cases for generating signals from third party rules. Only available for third party rules.
+    # Cases for generating signals from third-party rules. Only available for third-party rules.
     attr_accessor :third_party_cases
 
     # The rule type.

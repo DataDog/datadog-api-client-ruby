@@ -3,7 +3,7 @@
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::SecurityMonitoringAPI.new
 
-body = DatadogAPIClient::V2::SecurityMonitoringStandardRuleCreatePayload.new({
+body = DatadogAPIClient::V2::SecurityMonitoringStandardRulePayload.new({
   cases: [
     DatadogAPIClient::V2::SecurityMonitoringRuleCaseCreate.new({
       name: "",

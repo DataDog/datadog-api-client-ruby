@@ -4,7 +4,7 @@ require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::SecurityMonitoringAPI.new
 
 body = DatadogAPIClient::V2::SecurityMonitoringRuleTestRequest.new({
-  rule: DatadogAPIClient::V2::SecurityMonitoringStandardRuleCreatePayload.new({
+  rule: DatadogAPIClient::V2::SecurityMonitoringStandardRuleTestPayload.new({
     cases: [
       DatadogAPIClient::V2::SecurityMonitoringRuleCaseCreate.new({
         name: "",
@@ -39,7 +39,7 @@ body = DatadogAPIClient::V2::SecurityMonitoringRuleTestRequest.new({
       "env:prod",
       "team:security",
     ],
-    type: DatadogAPIClient::V2::SecurityMonitoringRuleTypeCreate::LOG_DETECTION,
+    type: DatadogAPIClient::V2::SecurityMonitoringRuleTypeTest::LOG_DETECTION,
   }),
   rule_query_payloads: [
     DatadogAPIClient::V2::SecurityMonitoringRuleQueryPayload.new({
