@@ -30,6 +30,9 @@ module DatadogAPIClient::V1
     # Name of the file.
     attr_reader :name
 
+    # Original name of the file.
+    attr_reader :original_file_name
+
     # Size of the file.
     attr_reader :size
 
@@ -43,6 +46,7 @@ module DatadogAPIClient::V1
         :'bucket_key' => :'bucketKey',
         :'content' => :'content',
         :'name' => :'name',
+        :'original_file_name' => :'originalFileName',
         :'size' => :'size',
         :'type' => :'type'
       }
@@ -55,6 +59,7 @@ module DatadogAPIClient::V1
         :'bucket_key' => :'String',
         :'content' => :'String',
         :'name' => :'String',
+        :'original_file_name' => :'String',
         :'size' => :'Integer',
         :'type' => :'String'
       }
@@ -88,6 +93,10 @@ module DatadogAPIClient::V1
         self.name = attributes[:'name']
       end
 
+      if attributes.key?(:'original_file_name')
+        self.original_file_name = attributes[:'original_file_name']
+      end
+
       if attributes.key?(:'size')
         self.size = attributes[:'size']
       end
@@ -103,6 +112,7 @@ module DatadogAPIClient::V1
     def valid?
       return false if !@content.nil? && @content.to_s.length > 3145728
       return false if !@name.nil? && @name.to_s.length > 1500
+      return false if !@original_file_name.nil? && @original_file_name.to_s.length > 1500
       return false if !@size.nil? && @size > 3145728
       return false if !@size.nil? && @size < 1
       return false if !@type.nil? && @type.to_s.length > 1500
@@ -127,6 +137,16 @@ module DatadogAPIClient::V1
         fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 1500.'
       end
       @name = name
+    end
+
+    # Custom attribute writer method with validation
+    # @param original_file_name [Object] Object to be assigned
+    # @!visibility private
+    def original_file_name=(original_file_name)
+      if !original_file_name.nil? && original_file_name.to_s.length > 1500
+        fail ArgumentError, 'invalid value for "original_file_name", the character length must be smaller than or equal to 1500.'
+      end
+      @original_file_name = original_file_name
     end
 
     # Custom attribute writer method with validation
@@ -161,6 +181,7 @@ module DatadogAPIClient::V1
           bucket_key == o.bucket_key &&
           content == o.content &&
           name == o.name &&
+          original_file_name == o.original_file_name &&
           size == o.size &&
           type == o.type
     end
@@ -169,7 +190,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [bucket_key, content, name, size, type].hash
+      [bucket_key, content, name, original_file_name, size, type].hash
     end
   end
 end
