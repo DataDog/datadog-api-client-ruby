@@ -1,10 +1,10 @@
 http_interactions:
-- recorded_at: Tue, 23 Apr 2024 17:57:53 GMT
+- recorded_at: Tue, 28 May 2024 19:38:10 GMT
   request:
     body:
       encoding: UTF-8
       string: '{"data":{"attributes":{"description":"Test Agent rule","enabled":true,"expression":"exec.file.name
-        == \"sh\""},"type":"agent_rule"}}'
+        == \"sh\""},"id":"abc-123-xyz","type":"agent_rule"}}'
     headers:
       Accept:
       - application/json
