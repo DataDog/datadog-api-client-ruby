@@ -1,10 +1,10 @@
 http_interactions:
-- recorded_at: Tue, 23 Apr 2024 17:57:53 GMT
+- recorded_at: Tue, 28 May 2024 19:38:10 GMT
   request:
     body:
       encoding: UTF-8
       string: '{"data":{"attributes":{"description":"My Agent rule","enabled":true,"expression":"exec.file.name
-        == \"sh\"","name":"testupdateacloudworkloadsecurityagentrulereturnsokresponse1713895073"},"type":"agent_rule"}}'
+        == \"sh\"","name":"testupdateacloudworkloadsecurityagentrulereturnsokresponse1716925090"},"type":"agent_rule"}}'
     headers:
       Accept:
       - application/json
@@ -15,9 +15,11 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"sir-mer-toj","attributes":{"version":1,"name":"testupdateacloudworkloadsecurityagentrulereturnsokresponse1713895073","description":"My
-        Agent rule","expression":"exec.file.name == \"sh\"","category":"Process Activity","creationAuthorUuId":"3ad549bf-eba0-11e9-a77a-0705486660d0","creationDate":1713895073761,"updateAuthorUuId":"3ad549bf-eba0-11e9-a77a-0705486660d0","updateDate":1713895073761,"filters":["os
-        == \"linux\""],"actions":[],"agentConstraint":"","enabled":true,"defaultRule":false,"creator":{"name":null,"handle":"frog@datadoghq.com"},"updater":{"name":null,"handle":"frog@datadoghq.com"}},"type":"agent_rule"}}
+      string: '{"data":{"id":"wmz-xld-san","attributes":{"version":1,"name":"testupdateacloudworkloadsecurityagentrulereturnsokresponse1716925090","description":"My
+        Agent rule","expression":"exec.file.name == \"sh\"","category":"Process Activity","creationAuthorUuId":"9919ec9b-ebc7-49ee-8dc8-03626e717cca","creationDate":1716925090332,"updateAuthorUuId":"9919ec9b-ebc7-49ee-8dc8-03626e717cca","updateDate":1716925090332,"filters":["os
+        == \"linux\""],"actions":[],"agentConstraint":"","enabled":true,"defaultRule":false,"creator":{"name":"CI
+        Account","handle":"9919ec9b-ebc7-49ee-8dc8-03626e717cca"},"updater":{"name":"CI
+        Account","handle":"9919ec9b-ebc7-49ee-8dc8-03626e717cca"}},"type":"agent_rule"}}
 
         '
     headers:
@@ -26,25 +28,27 @@ http_interactions:
     status:
       code: 200
       message: OK
-- recorded_at: Tue, 23 Apr 2024 17:57:53 GMT
+- recorded_at: Tue, 28 May 2024 19:38:10 GMT
   request:
     body:
       encoding: UTF-8
       string: '{"data":{"attributes":{"description":"Test Agent rule","enabled":true,"expression":"exec.file.name
-        == \"sh\""},"type":"agent_rule"}}'
+        == \"sh\""},"id":"wmz-xld-san","type":"agent_rule"}}'
     headers:
       Accept:
       - application/json
       Content-Type:
       - application/json
     method: PATCH
-    uri: https://api.datadoghq.com/api/v2/security_monitoring/cloud_workload_security/agent_rules/sir-mer-toj
+    uri: https://api.datadoghq.com/api/v2/security_monitoring/cloud_workload_security/agent_rules/wmz-xld-san
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"sir-mer-toj","attributes":{"version":2,"name":"testupdateacloudworkloadsecurityagentrulereturnsokresponse1713895073","description":"Test
-        Agent rule","expression":"exec.file.name == \"sh\"","category":"Process Activity","creationAuthorUuId":"3ad549bf-eba0-11e9-a77a-0705486660d0","creationDate":1713895073761,"updateAuthorUuId":"3ad549bf-eba0-11e9-a77a-0705486660d0","updateDate":1713895073928,"filters":["os
-        == \"linux\""],"actions":[],"agentConstraint":"","enabled":true,"defaultRule":false,"creator":{"name":null,"handle":"frog@datadoghq.com"},"updater":{"name":null,"handle":"frog@datadoghq.com"}},"type":"agent_rule"}}
+      string: '{"data":{"id":"wmz-xld-san","attributes":{"version":2,"name":"testupdateacloudworkloadsecurityagentrulereturnsokresponse1716925090","description":"Test
+        Agent rule","expression":"exec.file.name == \"sh\"","category":"Process Activity","creationAuthorUuId":"9919ec9b-ebc7-49ee-8dc8-03626e717cca","creationDate":1716925090332,"updateAuthorUuId":"9919ec9b-ebc7-49ee-8dc8-03626e717cca","updateDate":1716925090525,"filters":["os
+        == \"linux\""],"actions":[],"agentConstraint":"","enabled":true,"defaultRule":false,"creator":{"name":"CI
+        Account","handle":"9919ec9b-ebc7-49ee-8dc8-03626e717cca"},"updater":{"name":"CI
+        Account","handle":"9919ec9b-ebc7-49ee-8dc8-03626e717cca"}},"type":"agent_rule"}}
 
         '
     headers:
@@ -53,14 +57,14 @@ http_interactions:
     status:
       code: 200
       message: OK
-- recorded_at: Tue, 23 Apr 2024 17:57:53 GMT
+- recorded_at: Tue, 28 May 2024 19:38:10 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/security_monitoring/cloud_workload_security/agent_rules/sir-mer-toj
+    uri: https://api.datadoghq.com/api/v2/security_monitoring/cloud_workload_security/agent_rules/wmz-xld-san
   response:
     body:
       encoding: UTF-8
