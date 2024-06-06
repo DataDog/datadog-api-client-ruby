@@ -1252,6 +1252,19 @@ ScenariosModelMappings = {
             "todo_id" => "String",
             "body" => "IncidentTodoPatchRequest",
     },
+    "v2.CreateAWSAccountv2" => {
+            "body" => "AWSAccountCreateRequest",
+    },
+    "v2.DeleteAWSAccountv2" => {
+            "aws_account_config_id" => "String",
+    },
+    "v2.GetAWSAccountv2" => {
+            "aws_account_config_id" => "String",
+    },
+    "v2.PatchAWSAccountv2" => {
+            "aws_account_config_id" => "String",
+            "body" => "AWSAccountPatchRequest",
+    },
     "v2.CreateGCPSTSAccount" => {
             "body" => "GCPSTSServiceAccountCreateRequest",
     },
