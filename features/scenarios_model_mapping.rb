@@ -939,6 +939,7 @@ ScenariosModelMappings = {
             "page_number" => "Integer",
             "sort" => "AuthNMappingsSort",
             "filter" => "String",
+            "resource_type" => "AuthNMappingResourceType",
     },
     "v2.CreateAuthNMapping" => {
             "body" => "AuthNMappingCreateRequest",
