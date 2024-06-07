@@ -434,7 +434,7 @@ module DatadogAPIClient::V2
     # @param app_key_id [String] The ID of the application key.
     # @param opts [Hash] the optional parameters
     # @option opts [String] :include Resource path for related resources to include in the response. Only `owned_by` is supported.
-    # @return [Array<(ApplicationKeyResponse, Integer, Hash)>] ApplicationKeyResponse data, response status code and response headers
+    # @return [Array<(PartialApplicationKeyResponse, Integer, Hash)>] PartialApplicationKeyResponse data, response status code and response headers
     def get_application_key_with_http_info(app_key_id, opts = {})
 
       if @api_client.config.debugging
@@ -463,7 +463,7 @@ module DatadogAPIClient::V2
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'ApplicationKeyResponse'
+      return_type = opts[:debug_return_type] || 'PartialApplicationKeyResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
