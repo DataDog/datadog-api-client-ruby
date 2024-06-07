@@ -67,7 +67,6 @@ module DatadogAPIClient::V1
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if !@renotify_interval.nil? && @renotify_interval > 1440
       return false if !@renotify_interval.nil? && @renotify_interval < 0
       true
     end
@@ -76,9 +75,6 @@ module DatadogAPIClient::V1
     # @param renotify_interval [Object] Object to be assigned
     # @!visibility private
     def renotify_interval=(renotify_interval)
-      if !renotify_interval.nil? && renotify_interval > 1440
-        fail ArgumentError, 'invalid value for "renotify_interval", must be smaller than or equal to 1440.'
-      end
       if !renotify_interval.nil? && renotify_interval < 0
         fail ArgumentError, 'invalid value for "renotify_interval", must be greater than or equal to 0.'
       end
