@@ -881,6 +881,11 @@ ScenariosModelMappings = {
             "app_key_id" => "String",
             "body" => "ApplicationKeyUpdateRequest",
     },
+    "v2.ListAPIs" => {
+            "query" => "String",
+            "page_limit" => "Integer",
+            "page_offset" => "Integer",
+    },
     "v2.DeleteOpenAPI" => {
             "id" => "UUID",
     },
