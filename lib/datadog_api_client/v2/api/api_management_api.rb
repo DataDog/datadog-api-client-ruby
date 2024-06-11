@@ -239,6 +239,84 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # List APIs.
+    #
+    # @see #list_ap_is_with_http_info
+    def list_ap_is(opts = {})
+      data, _status_code, _headers = list_ap_is_with_http_info(opts)
+      data
+    end
+
+    # List APIs.
+    #
+    # List APIs and their IDs.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :query Filter APIs by name
+    # @option opts [Integer] :page_limit Number of items per page.
+    # @option opts [Integer] :page_offset Offset for pagination.
+    # @return [Array<(ListAPIsResponse, Integer, Hash)>] ListAPIsResponse data, response status code and response headers
+    def list_ap_is_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_ap_is".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_ap_is")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_ap_is"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: APIManagementAPI.list_ap_is ...'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_limit'].nil? && opts[:'page_limit'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling APIManagementAPI.list_ap_is, must be greater than or equal to 1.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_offset'].nil? && opts[:'page_offset'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"page_offset"]" when calling APIManagementAPI.list_ap_is, must be greater than or equal to 0.'
+      end
+      # resource path
+      local_var_path = '/api/v2/apicatalog/api'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'query'] = opts[:'query'] if !opts[:'query'].nil?
+      query_params[:'page[limit]'] = opts[:'page_limit'] if !opts[:'page_limit'].nil?
+      query_params[:'page[offset]'] = opts[:'page_offset'] if !opts[:'page_offset'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ListAPIsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :list_ap_is,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: APIManagementAPI#list_ap_is\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Update an API.
     #
     # @see #update_open_api_with_http_info
