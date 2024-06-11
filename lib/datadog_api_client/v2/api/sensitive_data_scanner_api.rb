@@ -74,7 +74,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'SensitiveDataScannerCreateGroupResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_scanning_group,
@@ -145,7 +145,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'SensitiveDataScannerCreateRuleResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_scanning_rule,
@@ -217,7 +217,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'SensitiveDataScannerGroupDeleteResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :delete_scanning_group,
@@ -289,7 +289,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'SensitiveDataScannerRuleDeleteResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :delete_scanning_rule,
@@ -349,7 +349,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'SensitiveDataScannerGetConfigResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_scanning_groups,
@@ -409,7 +409,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'SensitiveDataScannerStandardPatternsResponseData'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_standard_patterns,
@@ -476,7 +476,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'SensitiveDataScannerReorderGroupsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :reorder_scanning_groups,
@@ -551,7 +551,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'SensitiveDataScannerGroupUpdateResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :update_scanning_group,
@@ -626,7 +626,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'SensitiveDataScannerRuleUpdateResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :update_scanning_rule,
