@@ -36,9 +36,11 @@ module DatadogAPIClient::V2
     # Create a retention filter to index spans in your organization.
     # Returns the retention filter definition when the request is successful.
     #
+    # Default filters with types spans-errors-sampling-processor and spans-appsec-sampling-processor cannot be created.
+    #
     # @param body [RetentionFilterCreateRequest] The definition of the new retention filter.
     # @param opts [Hash] the optional parameters
-    # @return [Array<(RetentionFilterResponse, Integer, Hash)>] RetentionFilterResponse data, response status code and response headers
+    # @return [Array<(RetentionFilterCreateResponse, Integer, Hash)>] RetentionFilterCreateResponse data, response status code and response headers
     def create_apm_retention_filter_with_http_info(body, opts = {})
 
       if @api_client.config.debugging
@@ -68,7 +70,7 @@ module DatadogAPIClient::V2
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'RetentionFilterResponse'
+      return_type = opts[:debug_return_type] || 'RetentionFilterCreateResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
@@ -102,6 +104,8 @@ module DatadogAPIClient::V2
     # Delete a retention filter.
     #
     # Delete a specific retention filter from your organization.
+    #
+    # Default filters with types spans-errors-sampling-processor and spans-appsec-sampling-processor cannot be deleted.
     #
     # @param filter_id [String] The ID of the retention filter.
     # @param opts [Hash] the optional parameters
@@ -359,6 +363,8 @@ module DatadogAPIClient::V2
     # Update a retention filter.
     #
     # Update a retention filter from your organization.
+    #
+    # Default filters (filters with types spans-errors-sampling-processor and spans-appsec-sampling-processor) cannot be renamed or removed.
     #
     # @param filter_id [String] The ID of the retention filter.
     # @param body [RetentionFilterUpdateRequest] The updated definition of the retention filter.

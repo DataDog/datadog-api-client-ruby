@@ -105,6 +105,8 @@ module DatadogAPIClient::V2
     # [`/historical_cost`](https://docs.datadoghq.com/api/latest/usage-metering/#get-historical-cost-across-your-account)
     # instead.
     #
+    # This endpoint is only accessible for [parent-level organizations](https://docs.datadoghq.com/account_management/multi_organization/).
+    #
     # @deprecated This API is deprecated.
     #
     # @param start_month [Time] Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for cost beginning this month.
@@ -179,6 +181,8 @@ module DatadogAPIClient::V2
     # and is delayed by up to 72 hours from when it was incurred.
     # To access historical costs prior to this, use the `/historical_cost` endpoint.
     #
+    # This endpoint is only accessible for [parent-level organizations](https://docs.datadoghq.com/account_management/multi_organization/).
+    #
     # @param opts [Hash] the optional parameters
     # @option opts [String] :view String to specify whether cost is broken down at a parent-org level or at the sub-org level. Available views are `summary` and `sub-org`. Defaults to `summary`.
     # @option opts [Time] :start_month Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for cost beginning this month. Either start_month or start_date should be specified, but not both. (start_month cannot go beyond two months in the past). Provide an `end_month` to view month-over-month cost.
@@ -249,6 +253,8 @@ module DatadogAPIClient::V2
     #
     # Get historical cost across multi-org and single root-org accounts.
     # Cost data for a given month becomes available no later than the 16th of the following month.
+    #
+    # This endpoint is only accessible for [parent-level organizations](https://docs.datadoghq.com/account_management/multi_organization/).
     #
     # @param start_month [Time] Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for cost beginning this month.
     # @param opts [Hash] the optional parameters
@@ -423,6 +429,8 @@ module DatadogAPIClient::V2
     # END
     # ```
     #
+    # This endpoint is only accessible for [parent-level organizations](https://docs.datadoghq.com/account_management/multi_organization/).
+    #
     # @param start_month [Time] Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for cost beginning in this month.
     # @param end_month [Time] Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for cost ending this month.
     # @param fields [String] Comma-separated list specifying cost types (e.g., `<billing_dimension>_on_demand_cost`, `<billing_dimension>_committed_cost`, `<billing_dimension>_total_cost`) and the proportions (`<billing_dimension>_percentage_in_org`, `<billing_dimension>_percentage_in_account`). Use `*` to retrieve all fields. Example: `infra_host_on_demand_cost,infra_host_percentage_in_account` To obtain the complete list of active billing dimensions that can be used to replace `<billing_dimension>` in the field names, make a request to the [Get active billing dimensions API](https://docs.datadoghq.com/api/latest/usage-metering/#get-active-billing-dimensions-for-cost-attribution).
@@ -521,7 +529,8 @@ module DatadogAPIClient::V2
     #
     # Get projected cost across multi-org and single root-org accounts.
     # Projected cost data is only available for the current month and becomes available around the 12th of the month.
-    # This endpoint requires the usage_read authorization scope.
+    #
+    # This endpoint is only accessible for [parent-level organizations](https://docs.datadoghq.com/account_management/multi_organization/).
     #
     # @param opts [Hash] the optional parameters
     # @option opts [String] :view String to specify whether cost is broken down at a parent-org level or at the sub-org level. Available views are `summary` and `sub-org`. Defaults to `summary`.

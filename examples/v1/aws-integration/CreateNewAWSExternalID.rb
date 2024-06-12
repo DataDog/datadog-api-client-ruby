@@ -13,6 +13,7 @@ body = DatadogAPIClient::V1::AWSAccount.new({
     "us-east-1",
     "us-west-2",
   ],
+  extended_resource_collection_enabled: true,
   filter_tags: [
     "$KEY:$VALUE",
   ],

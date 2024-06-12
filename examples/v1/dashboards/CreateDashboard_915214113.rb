@@ -25,10 +25,6 @@ body = DatadogAPIClient::V1::Dashboard.new({
             formulas: [
               DatadogAPIClient::V1::WidgetFormula.new({
                 formula: "query1",
-                limit: DatadogAPIClient::V1::WidgetFormulaLimit.new({
-                  count: 250,
-                  order: DatadogAPIClient::V1::QuerySortOrder::DESC,
-                }),
               }),
             ],
             queries: [
@@ -56,6 +52,16 @@ body = DatadogAPIClient::V1::Dashboard.new({
                 ],
               }),
             ],
+            sort: DatadogAPIClient::V1::WidgetSortBy.new({
+              count: 250,
+              order_by: [
+                DatadogAPIClient::V1::WidgetFormulaSort.new({
+                  type: DatadogAPIClient::V1::FormulaType::FORMULA,
+                  index: 0,
+                  order: DatadogAPIClient::V1::WidgetSort::DESCENDING,
+                }),
+              ],
+            }),
             response_format: DatadogAPIClient::V1::FormulaAndFunctionResponseFormat::SCALAR,
           }),
         ],

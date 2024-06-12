@@ -54,6 +54,7 @@ module DatadogAPIClient::V1
     ESTIMATED_RUM_SESSIONS_USAGE = "estimated_rum_sessions_usage".freeze
     FARGATE_USAGE = "fargate_usage".freeze
     FUNCTIONS_USAGE = "functions_usage".freeze
+    INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_USAGE = "incident_management_monthly_active_users_usage".freeze
     INDEXED_SPANS_USAGE = "indexed_spans_usage".freeze
     INFRA_HOST_USAGE = "infra_host_usage".freeze
     INGESTED_LOGS_BYTES_USAGE = "ingested_logs_bytes_usage".freeze
@@ -62,6 +63,7 @@ module DatadogAPIClient::V1
     LAMBDA_TRACED_INVOCATIONS_USAGE = "lambda_traced_invocations_usage".freeze
     LOGS_INDEXED_15DAY_USAGE = "logs_indexed_15day_usage".freeze
     LOGS_INDEXED_180DAY_USAGE = "logs_indexed_180day_usage".freeze
+    LOGS_INDEXED_1DAY_USAGE = "logs_indexed_1day_usage".freeze
     LOGS_INDEXED_30DAY_USAGE = "logs_indexed_30day_usage".freeze
     LOGS_INDEXED_360DAY_USAGE = "logs_indexed_360day_usage".freeze
     LOGS_INDEXED_3DAY_USAGE = "logs_indexed_3day_usage".freeze
@@ -75,6 +77,7 @@ module DatadogAPIClient::V1
     NPM_HOST_USAGE = "npm_host_usage".freeze
     OBS_PIPELINE_BYTES_USAGE = "obs_pipeline_bytes_usage".freeze
     OBS_PIPELINE_VCPU_USAGE = "obs_pipelines_vcpu_usage".freeze
+    ONLINE_ARCHIVE_USAGE = "online_archive_usage".freeze
     PROFILED_CONTAINER_USAGE = "profiled_container_usage".freeze
     PROFILED_FARGATE_USAGE = "profiled_fargate_usage".freeze
     PROFILED_HOST_USAGE = "profiled_host_usage".freeze

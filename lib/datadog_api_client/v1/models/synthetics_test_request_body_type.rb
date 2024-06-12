@@ -27,5 +27,7 @@ module DatadogAPIClient::V1
     TEXT_HTML = "text/html".freeze
     APPLICATION_X_WWW_FORM_URLENCODED = "application/x-www-form-urlencoded".freeze
     GRAPHQL = "graphql".freeze
+    APPLICATION_OCTET_STREAM = "application/octet-stream".freeze
+    MULTIPART_FORM_DATA = "multipart/form-data".freeze
   end
 end

@@ -881,6 +881,11 @@ ScenariosModelMappings = {
             "app_key_id" => "String",
             "body" => "ApplicationKeyUpdateRequest",
     },
+    "v2.ListAPIs" => {
+            "query" => "String",
+            "page_limit" => "Integer",
+            "page_offset" => "Integer",
+    },
     "v2.DeleteOpenAPI" => {
             "id" => "UUID",
     },
@@ -955,7 +960,7 @@ ScenariosModelMappings = {
     },
     "v2.SearchCases" => {
             "page_size" => "Integer",
-            "page_offset" => "Integer",
+            "page_number" => "Integer",
             "sort_field" => "CaseSortableField",
             "filter" => "String",
             "sort_asc" => "Boolean",
@@ -1624,8 +1629,11 @@ ScenariosModelMappings = {
     "v2.CreateSecurityMonitoringRule" => {
             "body" => "SecurityMonitoringRuleCreatePayload",
     },
+    "v2.TestSecurityMonitoringRule" => {
+            "body" => "SecurityMonitoringRuleTestRequest",
+    },
     "v2.ValidateSecurityMonitoringRule" => {
-            "body" => "SecurityMonitoringRuleCreatePayload",
+            "body" => "SecurityMonitoringRuleValidatePayload",
     },
     "v2.DeleteSecurityMonitoringRule" => {
             "rule_id" => "String",
@@ -1636,6 +1644,10 @@ ScenariosModelMappings = {
     "v2.UpdateSecurityMonitoringRule" => {
             "rule_id" => "String",
             "body" => "SecurityMonitoringRuleUpdatePayload",
+    },
+    "v2.TestExistingSecurityMonitoringRule" => {
+            "rule_id" => "String",
+            "body" => "SecurityMonitoringRuleTestRequest",
     },
     "v2.ListSecurityMonitoringSignals" => {
             "filter_query" => "String",
@@ -1875,6 +1887,15 @@ ScenariosModelMappings = {
     "v2.GetServiceDefinition" => {
             "service_name" => "String",
             "schema_version" => "ServiceDefinitionSchemaVersions",
+    },
+    "v2.CreateSLOReportJob" => {
+            "body" => "SloReportCreateRequest",
+    },
+    "v2.GetSLOReport" => {
+            "report_id" => "String",
+    },
+    "v2.GetSLOReportJobStatus" => {
+            "report_id" => "String",
     },
     "v2.AggregateSpans" => {
             "body" => "SpansAggregateRequest",

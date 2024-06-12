@@ -1,0 +1,26 @@
+http_interactions:
+- recorded_at: Thu, 18 Apr 2024 20:09:43 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"from_ts":1690901870,"interval":"bad-interval","query":"slo_type:metric
+        \"SLO Reporting Test\"","to_ts":1706803070}}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/slo/report
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"title":"Invalid Argument","detail":"bad-interval is not
+        a valid interval"}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 400
+      message: Bad Request
+recorded_with: VCR 6.0.0

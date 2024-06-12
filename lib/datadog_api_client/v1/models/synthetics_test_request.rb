@@ -54,6 +54,9 @@ module DatadogAPIClient::V1
     # DNS server port to use for DNS tests.
     attr_reader :dns_server_port
 
+    # Files to be used as part of the request in the test.
+    attr_accessor :files
+
     # Specifies whether or not the request follows redirects.
     attr_accessor :follow_redirects
 
@@ -125,6 +128,7 @@ module DatadogAPIClient::V1
         :'compressed_proto_file' => :'compressedProtoFile',
         :'dns_server' => :'dnsServer',
         :'dns_server_port' => :'dnsServerPort',
+        :'files' => :'files',
         :'follow_redirects' => :'follow_redirects',
         :'headers' => :'headers',
         :'host' => :'host',
@@ -161,6 +165,7 @@ module DatadogAPIClient::V1
         :'compressed_proto_file' => :'String',
         :'dns_server' => :'String',
         :'dns_server_port' => :'Integer',
+        :'files' => :'Array<SyntheticsTestRequestBodyFile>',
         :'follow_redirects' => :'Boolean',
         :'headers' => :'Hash<String, String>',
         :'host' => :'String',
@@ -242,6 +247,12 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'dns_server_port')
         self.dns_server_port = attributes[:'dns_server_port']
+      end
+
+      if attributes.key?(:'files')
+        if (value = attributes[:'files']).is_a?(Array)
+          self.files = value
+        end
       end
 
       if attributes.key?(:'follow_redirects')
@@ -371,6 +382,7 @@ module DatadogAPIClient::V1
           compressed_proto_file == o.compressed_proto_file &&
           dns_server == o.dns_server &&
           dns_server_port == o.dns_server_port &&
+          files == o.files &&
           follow_redirects == o.follow_redirects &&
           headers == o.headers &&
           host == o.host &&
@@ -395,7 +407,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [allow_insecure, basic_auth, body, body_type, call_type, certificate, certificate_domains, compressed_json_descriptor, compressed_proto_file, dns_server, dns_server_port, follow_redirects, headers, host, http_version, message, metadata, method, no_saving_response_body, number_of_packets, persist_cookies, port, proxy, query, servername, service, should_track_hops, timeout, url].hash
+      [allow_insecure, basic_auth, body, body_type, call_type, certificate, certificate_domains, compressed_json_descriptor, compressed_proto_file, dns_server, dns_server_port, files, follow_redirects, headers, host, http_version, message, metadata, method, no_saving_response_body, number_of_packets, persist_cookies, port, proxy, query, servername, service, should_track_hops, timeout, url].hash
     end
   end
 end

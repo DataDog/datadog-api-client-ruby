@@ -1,0 +1,22 @@
+http_interactions:
+- recorded_at: Tue, 23 Apr 2024 17:57:47 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+    method: GET
+    uri: https://api.datadoghq.com/api/v2/remote_config/products/cws/agent_rules/abc-123-xyz
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"title":"failed to get rule"}]}
+
+        '
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 404
+      message: Not Found
+recorded_with: VCR 6.0.0

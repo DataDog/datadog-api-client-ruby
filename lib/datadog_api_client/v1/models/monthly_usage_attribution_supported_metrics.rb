@@ -75,6 +75,8 @@ module DatadogAPIClient::V1
     FARGATE_PERCENTAGE = "fargate_percentage".freeze
     FUNCTIONS_USAGE = "functions_usage".freeze
     FUNCTIONS_PERCENTAGE = "functions_percentage".freeze
+    INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_USAGE = "incident_management_monthly_active_users_usage".freeze
+    INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_PERCENTAGE = "incident_management_monthly_active_users_percentage".freeze
     INFRA_HOST_USAGE = "infra_host_usage".freeze
     INFRA_HOST_PERCENTAGE = "infra_host_percentage".freeze
     INVOCATIONS_USAGE = "invocations_usage".freeze
@@ -91,6 +93,8 @@ module DatadogAPIClient::V1
     OBS_PIPELINE_BYTES_PERCENTAGE = "obs_pipeline_bytes_percentage".freeze
     OBS_PIPELINES_VCPU_USAGE = "obs_pipelines_vcpu_usage".freeze
     OBS_PIPELINES_VCPU_PERCENTAGE = "obs_pipelines_vcpu_percentage".freeze
+    ONLINE_ARCHIVE_USAGE = "online_archive_usage".freeze
+    ONLINE_ARCHIVE_PERCENTAGE = "online_archive_percentage".freeze
     PROFILED_CONTAINER_USAGE = "profiled_container_usage".freeze
     PROFILED_CONTAINER_PERCENTAGE = "profiled_container_percentage".freeze
     PROFILED_FARGATE_USAGE = "profiled_fargate_usage".freeze
@@ -139,6 +143,8 @@ module DatadogAPIClient::V1
     LOGS_INDEXED_7DAY_PERCENTAGE = "logs_indexed_7day_percentage".freeze
     LOGS_INDEXED_3DAY_USAGE = "logs_indexed_3day_usage".freeze
     LOGS_INDEXED_3DAY_PERCENTAGE = "logs_indexed_3day_percentage".freeze
+    LOGS_INDEXED_1DAY_USAGE = "logs_indexed_1day_usage".freeze
+    LOGS_INDEXED_1DAY_PERCENTAGE = "logs_indexed_1day_percentage".freeze
     RUM_REPLAY_SESSIONS_USAGE = "rum_replay_sessions_usage".freeze
     RUM_REPLAY_SESSIONS_PERCENTAGE = "rum_replay_sessions_percentage".freeze
     RUM_BROWSER_MOBILE_SESSIONS_USAGE = "rum_browser_mobile_sessions_usage".freeze

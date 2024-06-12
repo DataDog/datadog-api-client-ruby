@@ -10,6 +10,10 @@ body = DatadogAPIClient::V2::CustomDestinationUpdateRequest.new({
   data: DatadogAPIClient::V2::CustomDestinationUpdateRequestDefinition.new({
     attributes: DatadogAPIClient::V2::CustomDestinationUpdateRequestAttributes.new({
       name: "Nginx logs (Updated)",
+      query: "source:nginx",
+      enabled: false,
+      forward_tags: false,
+      forward_tags_restriction_list_type: DatadogAPIClient::V2::CustomDestinationAttributeTagsRestrictionListType::BLOCK_LIST,
     }),
     type: DatadogAPIClient::V2::CustomDestinationType::CUSTOM_DESTINATION,
     id: CUSTOM_DESTINATION_DATA_ID,

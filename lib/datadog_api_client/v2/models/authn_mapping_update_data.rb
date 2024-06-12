@@ -27,7 +27,7 @@ module DatadogAPIClient::V2
     # ID of the AuthN Mapping.
     attr_reader :id
 
-    # Relationship of AuthN Mapping update object to Role.
+    # Relationship of AuthN Mapping update object to a Role or Team.
     attr_accessor :relationships
 
     # AuthN Mappings resource type.

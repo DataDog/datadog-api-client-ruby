@@ -1,0 +1,20 @@
+http_interactions:
+- recorded_at: Thu, 18 Apr 2024 20:09:44 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+    method: GET
+    uri: https://api.datadoghq.com/api/v2/slo/report/2b468c54-f2a7-11ee-b0b4-ffe56bb6ad43/status
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"title":"Not Found","detail":"report ID not found: 2b468c54-f2a7-11ee-b0b4-ffe56bb6ad43"}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 404
+      message: Not Found
+recorded_with: VCR 6.0.0

@@ -23,7 +23,7 @@ body = DatadogAPIClient::V2::TimeseriesFormulaQueryRequest.new({
       queries: [
         DatadogAPIClient::V2::MetricsTimeseriesQuery.new({
           data_source: DatadogAPIClient::V2::MetricsDataSource::METRICS,
-          query: "avg:system.cpu.user{*}",
+          query: "avg:datadog.estimated_usage.metrics.custom{*}",
           name: "a",
         }),
       ],

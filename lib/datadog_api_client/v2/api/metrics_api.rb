@@ -375,7 +375,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'MetricEstimateResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :estimate_metrics_output_series,
@@ -405,7 +405,7 @@ module DatadogAPIClient::V2
 
     # List active tags and aggregations.
     #
-    # List tags and aggregations that are actively queried on dashboards and monitors for a given metric name.
+    # List tags and aggregations that are actively queried on dashboards, notebooks, monitors, and the Metrics Explorer for a given metric name.
     #
     # @param metric_name [String] The name of the metric.
     # @param opts [Hash] the optional parameters
@@ -442,7 +442,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'MetricSuggestedTagsAndAggregationsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :list_active_metric_configurations,
@@ -782,7 +782,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'MetricVolumesResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :list_volumes_by_metric_name,

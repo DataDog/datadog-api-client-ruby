@@ -33,10 +33,13 @@ module DatadogAPIClient::V2
     # User ID of the user who created the rule.
     attr_accessor :creation_author_id
 
+    # Default Tags for default rules (included in tags)
+    attr_accessor :default_tags
+
     # When the rule will be deprecated, timestamp in milliseconds.
     attr_accessor :deprecation_date
 
-    # Additional queries to filter matched events before they are processed.
+    # Additional queries to filter matched events before they are processed. This field is deprecated for log detection, signal correlation, and workload security rules.
     attr_accessor :filters
 
     # Whether the notifications include the triggering group-by values in their title.
@@ -69,7 +72,7 @@ module DatadogAPIClient::V2
     # Tags for generated signals.
     attr_accessor :tags
 
-    # Cases for generating signals from third party rules. Only available for third party rules.
+    # Cases for generating signals from third-party rules. Only available for third-party rules.
     attr_accessor :third_party_cases
 
     # The rule type.
@@ -89,6 +92,7 @@ module DatadogAPIClient::V2
         :'compliance_signal_options' => :'complianceSignalOptions',
         :'created_at' => :'createdAt',
         :'creation_author_id' => :'creationAuthorId',
+        :'default_tags' => :'defaultTags',
         :'deprecation_date' => :'deprecationDate',
         :'filters' => :'filters',
         :'has_extended_title' => :'hasExtendedTitle',
@@ -116,6 +120,7 @@ module DatadogAPIClient::V2
         :'compliance_signal_options' => :'CloudConfigurationRuleComplianceSignalOptions',
         :'created_at' => :'Integer',
         :'creation_author_id' => :'Integer',
+        :'default_tags' => :'Array<String>',
         :'deprecation_date' => :'Integer',
         :'filters' => :'Array<SecurityMonitoringFilter>',
         :'has_extended_title' => :'Boolean',
@@ -167,6 +172,12 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'creation_author_id')
         self.creation_author_id = attributes[:'creation_author_id']
+      end
+
+      if attributes.key?(:'default_tags')
+        if (value = attributes[:'default_tags']).is_a?(Array)
+          self.default_tags = value
+        end
       end
 
       if attributes.key?(:'deprecation_date')
@@ -252,6 +263,7 @@ module DatadogAPIClient::V2
           compliance_signal_options == o.compliance_signal_options &&
           created_at == o.created_at &&
           creation_author_id == o.creation_author_id &&
+          default_tags == o.default_tags &&
           deprecation_date == o.deprecation_date &&
           filters == o.filters &&
           has_extended_title == o.has_extended_title &&
@@ -274,7 +286,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [cases, compliance_signal_options, created_at, creation_author_id, deprecation_date, filters, has_extended_title, id, is_default, is_deleted, is_enabled, message, name, options, queries, tags, third_party_cases, type, update_author_id, version].hash
+      [cases, compliance_signal_options, created_at, creation_author_id, default_tags, deprecation_date, filters, has_extended_title, id, is_default, is_deleted, is_enabled, message, name, options, queries, tags, third_party_cases, type, update_author_id, version].hash
     end
   end
 end

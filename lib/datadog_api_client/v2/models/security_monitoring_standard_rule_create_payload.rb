@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # Cases for generating signals.
     attr_reader :cases
 
-    # Additional queries to filter matched events before they are processed.
+    # Additional queries to filter matched events before they are processed. This field is deprecated for log detection, signal correlation, and workload security rules.
     attr_accessor :filters
 
     # Whether the notifications include the triggering group-by values in their title.
@@ -48,7 +48,7 @@ module DatadogAPIClient::V2
     # Tags for generated signals.
     attr_accessor :tags
 
-    # Cases for generating signals from third party rules. Only available for third party rules.
+    # Cases for generating signals from third-party rules. Only available for third-party rules.
     attr_accessor :third_party_cases
 
     # The rule type.

@@ -30,6 +30,9 @@ module DatadogAPIClient::V2
     # The SECL expression of the Agent rule.
     attr_reader :expression
 
+    # The platforms the Agent rule is supported on.
+    attr_accessor :filters
+
     # The name of the Agent rule.
     attr_reader :name
 
@@ -40,6 +43,7 @@ module DatadogAPIClient::V2
         :'description' => :'description',
         :'enabled' => :'enabled',
         :'expression' => :'expression',
+        :'filters' => :'filters',
         :'name' => :'name'
       }
     end
@@ -51,6 +55,7 @@ module DatadogAPIClient::V2
         :'description' => :'String',
         :'enabled' => :'Boolean',
         :'expression' => :'String',
+        :'filters' => :'Array<String>',
         :'name' => :'String'
       }
     end
@@ -81,6 +86,12 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'expression')
         self.expression = attributes[:'expression']
+      end
+
+      if attributes.key?(:'filters')
+        if (value = attributes[:'filters']).is_a?(Array)
+          self.filters = value
+        end
       end
 
       if attributes.key?(:'name')
@@ -126,6 +137,7 @@ module DatadogAPIClient::V2
           description == o.description &&
           enabled == o.enabled &&
           expression == o.expression &&
+          filters == o.filters &&
           name == o.name
     end
 
@@ -133,7 +145,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [description, enabled, expression, name].hash
+      [description, enabled, expression, filters, name].hash
     end
   end
 end

@@ -27,6 +27,14 @@ body = DatadogAPIClient::V1::SyntheticsAPITest.new({
         }),
         type: DatadogAPIClient::V1::SyntheticsAssertionType::BODY,
       }),
+      DatadogAPIClient::V1::SyntheticsAssertionJSONSchemaTarget.new({
+        operator: DatadogAPIClient::V1::SyntheticsAssertionJSONSchemaOperator::VALIDATES_JSON_SCHEMA,
+        target: DatadogAPIClient::V1::SyntheticsAssertionJSONSchemaTargetTarget.new({
+          meta_schema: DatadogAPIClient::V1::SyntheticsAssertionJSONSchemaMetaSchema::DRAFT_07,
+          json_schema: '{"type": "object", "properties":{"slideshow":{"type":"object"}}}',
+        }),
+        type: DatadogAPIClient::V1::SyntheticsAssertionType::BODY,
+      }),
       DatadogAPIClient::V1::SyntheticsAssertionXPathTarget.new({
         operator: DatadogAPIClient::V1::SyntheticsAssertionXPathOperator::VALIDATES_X_PATH,
         target: DatadogAPIClient::V1::SyntheticsAssertionXPathTargetTarget.new({
@@ -35,6 +43,11 @@ body = DatadogAPIClient::V1::SyntheticsAPITest.new({
           operator: "contains",
         }),
         type: DatadogAPIClient::V1::SyntheticsAssertionType::BODY,
+      }),
+      DatadogAPIClient::V1::SyntheticsAssertionBodyHashTarget.new({
+        operator: DatadogAPIClient::V1::SyntheticsAssertionBodyHashOperator::MD5,
+        target: "a",
+        type: DatadogAPIClient::V1::SyntheticsAssertionBodyHashType::BODY_HASH,
       }),
     ],
     config_variables: [
@@ -45,6 +58,7 @@ body = DatadogAPIClient::V1::SyntheticsAPITest.new({
         type: DatadogAPIClient::V1::SyntheticsConfigVariableType::TEXT,
       }),
     ],
+    variables_from_script: 'dd.variable.set("FOO", "foo")',
     request: DatadogAPIClient::V1::SyntheticsTestRequest.new({
       certificate: DatadogAPIClient::V1::SyntheticsTestRequestCertificate.new({
         cert: DatadogAPIClient::V1::SyntheticsTestRequestCertificateItem.new({
