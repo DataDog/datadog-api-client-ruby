@@ -27,6 +27,16 @@ body = DatadogAPIClient::V1::SyntheticsAPITest.new({
         }),
         type: DatadogAPIClient::V1::SyntheticsAssertionType::BODY,
       }),
+      DatadogAPIClient::V1::SyntheticsAssertionJSONPathTarget.new({
+        operator: DatadogAPIClient::V1::SyntheticsAssertionJSONPathOperator::VALIDATES_JSON_PATH,
+        target: DatadogAPIClient::V1::SyntheticsAssertionJSONPathTargetTarget.new({
+          elements_operator: "atLeastOneElementMatches",
+          json_path: "topKey",
+          operator: "isNot",
+          target_value: "0",
+        }),
+        type: DatadogAPIClient::V1::SyntheticsAssertionType::BODY,
+      }),
       DatadogAPIClient::V1::SyntheticsAssertionJSONSchemaTarget.new({
         operator: DatadogAPIClient::V1::SyntheticsAssertionJSONSchemaOperator::VALIDATES_JSON_SCHEMA,
         target: DatadogAPIClient::V1::SyntheticsAssertionJSONSchemaTargetTarget.new({
