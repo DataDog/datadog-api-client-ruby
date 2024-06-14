@@ -21,6 +21,9 @@ module DatadogAPIClient::V1
   class SyntheticsAssertionJSONPathTargetTarget
     include BaseGenericModel
 
+    # The element from the list of results to assert on.  To choose from the first element in the list `firstElementMatches`, every element in the list `everyElementMatches`, at least one element in the list `atLeastOneElementMatches` or the serialized value of the list `serializationMatches`.
+    attr_accessor :elements_operator
+
     # The JSON path to assert.
     attr_accessor :json_path
 
@@ -34,6 +37,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.attribute_map
       {
+        :'elements_operator' => :'elementsOperator',
         :'json_path' => :'jsonPath',
         :'operator' => :'operator',
         :'target_value' => :'targetValue'
@@ -44,6 +48,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
+        :'elements_operator' => :'String',
         :'json_path' => :'String',
         :'operator' => :'String',
         :'target_value' => :'Object'
@@ -66,6 +71,10 @@ module DatadogAPIClient::V1
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'elements_operator')
+        self.elements_operator = attributes[:'elements_operator']
+      end
+
       if attributes.key?(:'json_path')
         self.json_path = attributes[:'json_path']
       end
@@ -85,6 +94,7 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          elements_operator == o.elements_operator &&
           json_path == o.json_path &&
           operator == o.operator &&
           target_value == o.target_value
@@ -94,7 +104,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [json_path, operator, target_value].hash
+      [elements_operator, json_path, operator, target_value].hash
     end
   end
 end
