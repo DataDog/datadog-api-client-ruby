@@ -43,8 +43,16 @@ module DatadogAPIClient::V1
     # Filter for logs.
     attr_reader :filter
 
-    # The number of days before logs are deleted from this index. Available values depend on
-    # retention plans specified in your organization's contract/subscriptions.
+    # The number of days logs are kept in Flex Logs (inclusive of Indexing) before they are deleted.
+    # The values available are 30, 60, 90, 180, 360, and 450 days.
+    #
+    # **Note:** Changing the retention for an index adjusts the length of retention for all Flex logs
+    # already in this index. It may also affect billing.
+    # If using Flex Starter, then only 180, 360, and 450 days options are available.
+    attr_accessor :num_flex_logs_retention_days
+
+    # The number of days before logs are kept in Standard Indexing before they are either deleted or retained in Flex Logs.
+    # Available values depend on retention plans specified in your organization's contract / subscriptions.
     #
     # **Note:** Changing the retention for an index adjusts the length of retention for all logs
     # already in this index. It may also affect billing.
@@ -60,6 +68,7 @@ module DatadogAPIClient::V1
         :'disable_daily_limit' => :'disable_daily_limit',
         :'exclusion_filters' => :'exclusion_filters',
         :'filter' => :'filter',
+        :'num_flex_logs_retention_days' => :'num_flex_logs_retention_days',
         :'num_retention_days' => :'num_retention_days'
       }
     end
@@ -74,6 +83,7 @@ module DatadogAPIClient::V1
         :'disable_daily_limit' => :'Boolean',
         :'exclusion_filters' => :'Array<LogsExclusion>',
         :'filter' => :'LogsFilter',
+        :'num_flex_logs_retention_days' => :'Integer',
         :'num_retention_days' => :'Integer'
       }
     end
@@ -118,6 +128,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'filter')
         self.filter = attributes[:'filter']
+      end
+
+      if attributes.key?(:'num_flex_logs_retention_days')
+        self.num_flex_logs_retention_days = attributes[:'num_flex_logs_retention_days']
       end
 
       if attributes.key?(:'num_retention_days')
@@ -170,6 +184,7 @@ module DatadogAPIClient::V1
           disable_daily_limit == o.disable_daily_limit &&
           exclusion_filters == o.exclusion_filters &&
           filter == o.filter &&
+          num_flex_logs_retention_days == o.num_flex_logs_retention_days &&
           num_retention_days == o.num_retention_days
     end
 
@@ -177,7 +192,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [daily_limit, daily_limit_reset, daily_limit_warning_threshold_percentage, disable_daily_limit, exclusion_filters, filter, num_retention_days].hash
+      [daily_limit, daily_limit_reset, daily_limit_warning_threshold_percentage, disable_daily_limit, exclusion_filters, filter, num_flex_logs_retention_days, num_retention_days].hash
     end
   end
 end
