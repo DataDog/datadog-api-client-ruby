@@ -45,8 +45,15 @@ module DatadogAPIClient::V1
     # The name of the index.
     attr_reader :name
 
-    # The number of days before logs are deleted from this index. Available values depend on
-    # retention plans specified in your organization's contract/subscriptions.
+    # The number of days logs are kept in Flex Logs (inclusive of Indexing) before they are deleted.
+    # The values available are 30, 60, 90, 180, 360, and 450 days.
+    #
+    # **Note:**: If using Flex Starter, then only 180, 360, and 450 days options are available.
+    # Flex Logs must be enabled on the account to specify this value.
+    attr_accessor :num_flex_logs_retention_days
+
+    # The number of days logs are kept in Standard Indexing before they are either deleted or retained in Flex Logs.
+    # Available values depend on retention plans specified in your organization's contract / subscriptions.
     attr_accessor :num_retention_days
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -60,6 +67,7 @@ module DatadogAPIClient::V1
         :'filter' => :'filter',
         :'is_rate_limited' => :'is_rate_limited',
         :'name' => :'name',
+        :'num_flex_logs_retention_days' => :'num_flex_logs_retention_days',
         :'num_retention_days' => :'num_retention_days'
       }
     end
@@ -75,6 +83,7 @@ module DatadogAPIClient::V1
         :'filter' => :'LogsFilter',
         :'is_rate_limited' => :'Boolean',
         :'name' => :'String',
+        :'num_flex_logs_retention_days' => :'Integer',
         :'num_retention_days' => :'Integer'
       }
     end
@@ -123,6 +132,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'num_flex_logs_retention_days')
+        self.num_flex_logs_retention_days = attributes[:'num_flex_logs_retention_days']
       end
 
       if attributes.key?(:'num_retention_days')
@@ -187,6 +200,7 @@ module DatadogAPIClient::V1
           filter == o.filter &&
           is_rate_limited == o.is_rate_limited &&
           name == o.name &&
+          num_flex_logs_retention_days == o.num_flex_logs_retention_days &&
           num_retention_days == o.num_retention_days
     end
 
@@ -194,7 +208,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [daily_limit, daily_limit_reset, daily_limit_warning_threshold_percentage, exclusion_filters, filter, is_rate_limited, name, num_retention_days].hash
+      [daily_limit, daily_limit_reset, daily_limit_warning_threshold_percentage, exclusion_filters, filter, is_rate_limited, name, num_flex_logs_retention_days, num_retention_days].hash
     end
   end
 end
