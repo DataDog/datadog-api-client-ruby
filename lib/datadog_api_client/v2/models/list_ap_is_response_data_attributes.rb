@@ -17,22 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Data envelope for `ListAPIsResponse`.
-  class ListAPIsResponseData
+  # Attributes for `ListAPIsResponseData`.
+  class ListAPIsResponseDataAttributes
     include BaseGenericModel
 
-    # Attributes for `ListAPIsResponseData`.
-    attr_accessor :attributes
-
-    # API identifier.
-    attr_accessor :id
+    # API name.
+    attr_accessor :name
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'attributes' => :'attributes',
-        :'id' => :'id'
+        :'name' => :'name'
       }
     end
 
@@ -40,8 +36,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'ListAPIsResponseDataAttributes',
-        :'id' => :'UUID'
+        :'name' => :'String'
       }
     end
 
@@ -50,23 +45,19 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ListAPIsResponseData` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ListAPIsResponseDataAttributes` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::ListAPIsResponseData`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::ListAPIsResponseDataAttributes`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'attributes')
-        self.attributes = attributes[:'attributes']
-      end
-
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
     end
 
@@ -76,15 +67,14 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          attributes == o.attributes &&
-          id == o.id
+          name == o.name
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, id].hash
+      [name].hash
     end
   end
 end
