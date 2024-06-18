@@ -23,6 +23,203 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
+    # Get a specific Org Config value.
+    #
+    # @see #get_org_config_with_http_info
+    def get_org_config(org_config_name, opts = {})
+      data, _status_code, _headers = get_org_config_with_http_info(org_config_name, opts)
+      data
+    end
+
+    # Get a specific Org Config value.
+    #
+    # Return the name, description, and value of a specific Org Config.
+    #
+    # @param org_config_name [String] The name of an Org Config.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(OrgConfigGetResponse, Integer, Hash)>] OrgConfigGetResponse data, response status code and response headers
+    def get_org_config_with_http_info(org_config_name, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrganizationsAPI.get_org_config ...'
+      end
+      # verify the required parameter 'org_config_name' is set
+      if @api_client.config.client_side_validation && org_config_name.nil?
+        fail ArgumentError, "Missing the required parameter 'org_config_name' when calling OrganizationsAPI.get_org_config"
+      end
+      # resource path
+      local_var_path = '/api/v2/org_configs/{org_config_name}'.sub('{org_config_name}', CGI.escape(org_config_name.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'OrgConfigGetResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_org_config,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrganizationsAPI#get_org_config\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List Org Configs.
+    #
+    # @see #list_org_configs_with_http_info
+    def list_org_configs(opts = {})
+      data, _status_code, _headers = list_org_configs_with_http_info(opts)
+      data
+    end
+
+    # List Org Configs.
+    #
+    # Returns all Org Configs (name, description, and value).
+    #
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(OrgConfigListResponse, Integer, Hash)>] OrgConfigListResponse data, response status code and response headers
+    def list_org_configs_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrganizationsAPI.list_org_configs ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/org_configs'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'OrgConfigListResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :list_org_configs,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrganizationsAPI#list_org_configs\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update a specific Org Config.
+    #
+    # @see #update_org_config_with_http_info
+    def update_org_config(org_config_name, body, opts = {})
+      data, _status_code, _headers = update_org_config_with_http_info(org_config_name, body, opts)
+      data
+    end
+
+    # Update a specific Org Config.
+    #
+    # Update the value of a specific Org Config.
+    #
+    # @param org_config_name [String] The name of an Org Config.
+    # @param body [OrgConfigWriteRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(OrgConfigGetResponse, Integer, Hash)>] OrgConfigGetResponse data, response status code and response headers
+    def update_org_config_with_http_info(org_config_name, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrganizationsAPI.update_org_config ...'
+      end
+      # verify the required parameter 'org_config_name' is set
+      if @api_client.config.client_side_validation && org_config_name.nil?
+        fail ArgumentError, "Missing the required parameter 'org_config_name' when calling OrganizationsAPI.update_org_config"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling OrganizationsAPI.update_org_config"
+      end
+      # resource path
+      local_var_path = '/api/v2/org_configs/{org_config_name}'.sub('{org_config_name}', CGI.escape(org_config_name.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'OrgConfigGetResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_org_config,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrganizationsAPI#update_org_config\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Upload IdP metadata.
     #
     # @see #upload_idp_metadata_with_http_info
