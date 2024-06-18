@@ -1491,6 +1491,7 @@ module DatadogAPIClient
           "v2.jsonapi_error_response" => "JSONAPIErrorResponse",
           "v2.list_ap_is_response" => "ListAPIsResponse",
           "v2.list_ap_is_response_data" => "ListAPIsResponseData",
+          "v2.list_ap_is_response_data_attributes" => "ListAPIsResponseDataAttributes",
           "v2.list_ap_is_response_meta" => "ListAPIsResponseMeta",
           "v2.list_ap_is_response_meta_pagination" => "ListAPIsResponseMetaPagination",
           "v2.list_application_keys_response" => "ListApplicationKeysResponse",
