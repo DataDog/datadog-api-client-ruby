@@ -1,0 +1,25 @@
+http_interactions:
+- recorded_at: Wed, 12 Jun 2024 14:43:54 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"value":"not-a-boolean"},"type":"org_configs"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: PATCH
+    uri: https://api.datadoghq.com/api/v2/org_configs/custom_roles
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":["The value provided for parameter ''OrgConfig: not-a-boolean''
+        is invalid"]}'
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 400
+      message: Bad Request
+recorded_with: VCR 6.0.0

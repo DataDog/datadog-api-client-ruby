@@ -1525,6 +1525,16 @@ ScenariosModelMappings = {
             "policy_id" => "String",
             "body" => "MonitorConfigPolicyEditRequest",
     },
+    "v2.GetOrgConfig" => {
+            "org_config_name" => "String",
+    },
+    "v2.UpdateOrgConfig" => {
+            "org_config_name" => "String",
+            "body" => "OrgConfigWriteRequest",
+    },
+    "v2.UploadIdPMetadata" => {
+            "idp_file" => "File",
+    },
     "v2.ListRoles" => {
             "page_size" => "Integer",
             "page_number" => "Integer",
@@ -1762,9 +1772,6 @@ ScenariosModelMappings = {
     },
     "v2.SearchRUMEvents" => {
             "body" => "RUMSearchEventsRequest",
-    },
-    "v2.UploadIdPMetadata" => {
-            "idp_file" => "File",
     },
     "v2.ListScorecardOutcomes" => {
             "page_size" => "Integer",
