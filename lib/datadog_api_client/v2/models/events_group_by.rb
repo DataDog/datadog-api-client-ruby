@@ -24,7 +24,8 @@ module DatadogAPIClient::V2
     # The facet by which to split groups.
     attr_reader :facet
 
-    # The maximum number of groups to return.
+    # The maximum buckets to return for this group by. Note: at most 10000 buckets are allowed.
+    # If grouping by multiple facets, the product of limits must not exceed 10000.
     attr_reader :limit
 
     # The dimension by which to sort a query's results.
@@ -84,7 +85,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @facet.nil?
-      return false if !@limit.nil? && @limit > 2147483647
+      return false if !@limit.nil? && @limit > 10000
       true
     end
 
@@ -102,8 +103,8 @@ module DatadogAPIClient::V2
     # @param limit [Object] Object to be assigned
     # @!visibility private
     def limit=(limit)
-      if !limit.nil? && limit > 2147483647
-        fail ArgumentError, 'invalid value for "limit", must be smaller than or equal to 2147483647.'
+      if !limit.nil? && limit > 10000
+        fail ArgumentError, 'invalid value for "limit", must be smaller than or equal to 10000.'
       end
       @limit = limit
     end
