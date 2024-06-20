@@ -60,6 +60,7 @@ ScenariosModelMappings = {
     },
     "v1.GetUsageBillableSummary" => {
             "month" => "Time",
+            "include_connected_accounts" => "Boolean",
     },
     "v1.GetUsageCIApp" => {
             "start_hr" => "Time",
@@ -1096,6 +1097,7 @@ ScenariosModelMappings = {
             "end_month" => "Time",
             "start_date" => "Time",
             "end_date" => "Time",
+            "include_connected_accounts" => "Boolean",
     },
     "v2.GetHistoricalCostByOrg" => {
             "view" => "String",
