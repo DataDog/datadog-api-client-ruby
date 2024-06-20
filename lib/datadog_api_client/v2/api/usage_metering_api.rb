@@ -189,6 +189,7 @@ module DatadogAPIClient::V2
     # @option opts [Time] :end_month Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for cost ending this month.
     # @option opts [Time] :start_date Datetime in ISO-8601 format, UTC, precise to day: `[YYYY-MM-DD]` for cost beginning this day. Either start_month or start_date should be specified, but not both. (start_date cannot go beyond two months in the past). Provide an `end_date` to view day-over-day cumulative cost.
     # @option opts [Time] :end_date Datetime in ISO-8601 format, UTC, precise to day: `[YYYY-MM-DD]` for cost ending this day.
+    # @option opts [Boolean] :include_connected_accounts Boolean to specify whether to include accounts connected to the current account as partner customers in the Datadog partner network program. Defaults to `false`. 
     # @return [Array<(CostByOrgResponse, Integer, Hash)>] CostByOrgResponse data, response status code and response headers
     def get_estimated_cost_by_org_with_http_info(opts = {})
 
@@ -205,6 +206,7 @@ module DatadogAPIClient::V2
       query_params[:'end_month'] = opts[:'end_month'] if !opts[:'end_month'].nil?
       query_params[:'start_date'] = opts[:'start_date'] if !opts[:'start_date'].nil?
       query_params[:'end_date'] = opts[:'end_date'] if !opts[:'end_date'].nil?
+      query_params[:'include_connected_accounts'] = opts[:'include_connected_accounts'] if !opts[:'include_connected_accounts'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
