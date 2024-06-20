@@ -311,7 +311,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#list_ap_is-instance_method" title="#list_ap_is (instance method)">#<strong>list_ap_is</strong>(opts = {})  &#x21d2; Object </a>
+      <a href="#list_apis-instance_method" title="#list_apis (instance method)">#<strong>list_apis</strong>(opts = {})  &#x21d2; Object </a>
     
 
     
@@ -334,7 +334,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#list_ap_is_with_http_info-instance_method" title="#list_ap_is_with_http_info (instance method)">#<strong>list_ap_is_with_http_info</strong>(opts = {})  &#x21d2; Array&lt;(ListAPIsResponse, Integer, Hash)&gt; </a>
+      <a href="#list_apis_with_http_info-instance_method" title="#list_apis_with_http_info (instance method)">#<strong>list_apis_with_http_info</strong>(opts = {})  &#x21d2; Array&lt;(ListAPIsResponse, Integer, Hash)&gt; </a>
     
 
     
@@ -1252,9 +1252,9 @@ It returns the created API ID.</p>
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="list_ap_is-instance_method">
+  <h3 class="signature " id="list_apis-instance_method">
   
-    #<strong>list_ap_is</strong>(opts = {})  &#x21d2; <tt>Object</tt> 
+    #<strong>list_apis</strong>(opts = {})  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -1273,7 +1273,7 @@ It returns the created API ID.</p>
   <p class="tag_title">See Also:</p>
   <ul class="see">
     
-      <li><span class='object_link'><a href="#list_ap_is_with_http_info-instance_method" title="DatadogAPIClient::V2::APIManagementAPI#list_ap_is_with_http_info (method)">#list_ap_is_with_http_info</a></span></li>
+      <li><span class='object_link'><a href="#list_apis_with_http_info-instance_method" title="DatadogAPIClient::V2::APIManagementAPI#list_apis_with_http_info (method)">#list_apis_with_http_info</a></span></li>
     
   </ul>
 
@@ -1291,8 +1291,8 @@ It returns the created API ID.</p>
     <td>
       <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/api_management_api.rb', line 245</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_list_ap_is'>list_ap_is</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_list_ap_is_with_http_info'>list_ap_is_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_list_apis'>list_apis</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_list_apis_with_http_info'>list_apis_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1301,9 +1301,9 @@ It returns the created API ID.</p>
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="list_ap_is_with_http_info-instance_method">
+  <h3 class="signature " id="list_apis_with_http_info-instance_method">
   
-    #<strong>list_ap_is_with_http_info</strong>(opts = {})  &#x21d2; <tt>Array&lt;(<span class='object_link'><a href="ListAPIsResponse.html" title="DatadogAPIClient::V2::ListAPIsResponse (class)">ListAPIsResponse</a></span>, Integer, Hash)&gt;</tt> 
+    #<strong>list_apis_with_http_info</strong>(opts = {})  &#x21d2; <tt>Array&lt;(<span class='object_link'><a href="ListAPIsResponse.html" title="DatadogAPIClient::V2::ListAPIsResponse (class)">ListAPIsResponse</a></span>, Integer, Hash)&gt;</tt> 
   
 
   
@@ -1474,22 +1474,22 @@ It returns the created API ID.</p>
     <td>
       <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/api_management_api.rb', line 259</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_list_ap_is_with_http_info'>list_ap_is_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_unstable_enabled'>unstable_enabled</span> <span class='op'>=</span> <span class='ivar'>@api_client</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_unstable_operations'>unstable_operations</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>v2.list_ap_is</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='rbracket'>]</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_list_apis_with_http_info'>list_apis_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_unstable_enabled'>unstable_enabled</span> <span class='op'>=</span> <span class='ivar'>@api_client</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_unstable_operations'>unstable_operations</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>v2.list_apis</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='rbracket'>]</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_unstable_enabled'>unstable_enabled</span>
-    <span class='ivar'>@api_client</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_logger'>logger</span><span class='period'>.</span><span class='id identifier rubyid_warn'>warn</span> <span class='id identifier rubyid_format'>format</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Using unstable operation &#39;%s&#39;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>v2.list_ap_is</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='ivar'>@api_client</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_logger'>logger</span><span class='period'>.</span><span class='id identifier rubyid_warn'>warn</span> <span class='id identifier rubyid_format'>format</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Using unstable operation &#39;%s&#39;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>v2.list_apis</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='kw'>else</span>
-    <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="../../DatadogAPIClient.html" title="DatadogAPIClient (module)">DatadogAPIClient</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../APIError.html" title="DatadogAPIClient::APIError (class)">APIError</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../APIError.html#initialize-instance_method" title="DatadogAPIClient::APIError#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>message:</span> <span class='id identifier rubyid_format'>format</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Unstable operation &#39;%s&#39; is disabled</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>v2.list_ap_is</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="../../DatadogAPIClient.html" title="DatadogAPIClient (module)">DatadogAPIClient</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../APIError.html" title="DatadogAPIClient::APIError (class)">APIError</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../APIError.html#initialize-instance_method" title="DatadogAPIClient::APIError#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>message:</span> <span class='id identifier rubyid_format'>format</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Unstable operation &#39;%s&#39; is disabled</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>v2.list_apis</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 
   <span class='kw'>if</span> <span class='ivar'>@api_client</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_debugging'>debugging</span>
-    <span class='ivar'>@api_client</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_logger'>logger</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Calling API: APIManagementAPI.list_ap_is ...</span><span class='tstring_end'>&#39;</span></span>
+    <span class='ivar'>@api_client</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_logger'>logger</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Calling API: APIManagementAPI.list_apis ...</span><span class='tstring_end'>&#39;</span></span>
   <span class='kw'>end</span>
   <span class='kw'>if</span> <span class='ivar'>@api_client</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_client_side_validation'>client_side_validation</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;page_limit&#39;</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;page_limit&#39;</span><span class='rbracket'>]</span> <span class='op'>&lt;</span> <span class='int'>1</span>
-    <span class='id identifier rubyid_fail'>fail</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>invalid value for &quot;opts[:&quot;page_limit&quot;]&quot; when calling APIManagementAPI.list_ap_is, must be greater than or equal to 1.</span><span class='tstring_end'>&#39;</span></span>
+    <span class='id identifier rubyid_fail'>fail</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>invalid value for &quot;opts[:&quot;page_limit&quot;]&quot; when calling APIManagementAPI.list_apis, must be greater than or equal to 1.</span><span class='tstring_end'>&#39;</span></span>
   <span class='kw'>end</span>
   <span class='kw'>if</span> <span class='ivar'>@api_client</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_client_side_validation'>client_side_validation</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;page_offset&#39;</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;page_offset&#39;</span><span class='rbracket'>]</span> <span class='op'>&lt;</span> <span class='int'>0</span>
-    <span class='id identifier rubyid_fail'>fail</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>invalid value for &quot;opts[:&quot;page_offset&quot;]&quot; when calling APIManagementAPI.list_ap_is, must be greater than or equal to 0.</span><span class='tstring_end'>&#39;</span></span>
+    <span class='id identifier rubyid_fail'>fail</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>invalid value for &quot;opts[:&quot;page_offset&quot;]&quot; when calling APIManagementAPI.list_apis, must be greater than or equal to 0.</span><span class='tstring_end'>&#39;</span></span>
   <span class='kw'>end</span>
   <span class='comment'># resource path
 </span>  <span class='id identifier rubyid_local_var_path'>local_var_path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/api/v2/apicatalog/api</span><span class='tstring_end'>&#39;</span></span>
@@ -1518,7 +1518,7 @@ It returns the created API ID.</p>
 </span>  <span class='id identifier rubyid_auth_names'>auth_names</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:debug_auth_names</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='lbracket'>[</span><span class='symbol'>:apiKeyAuth</span><span class='comma'>,</span> <span class='symbol'>:appKeyAuth</span><span class='rbracket'>]</span>
 
   <span class='id identifier rubyid_new_options'>new_options</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span>
-    <span class='symbol'>:operation</span> <span class='op'>=&gt;</span> <span class='symbol'>:list_ap_is</span><span class='comma'>,</span>
+    <span class='symbol'>:operation</span> <span class='op'>=&gt;</span> <span class='symbol'>:list_apis</span><span class='comma'>,</span>
     <span class='symbol'>:header_params</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_header_params'>header_params</span><span class='comma'>,</span>
     <span class='symbol'>:query_params</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_query_params'>query_params</span><span class='comma'>,</span>
     <span class='symbol'>:form_params</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_form_params'>form_params</span><span class='comma'>,</span>
@@ -1530,7 +1530,7 @@ It returns the created API ID.</p>
 
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid_status_code'>status_code</span><span class='comma'>,</span> <span class='id identifier rubyid_headers'>headers</span> <span class='op'>=</span> <span class='ivar'>@api_client</span><span class='period'>.</span><span class='id identifier rubyid_call_api'>call_api</span><span class='lparen'>(</span><span class='const'>Net</span><span class='op'>::</span><span class='const'>HTTP</span><span class='op'>::</span><span class='const'>Get</span><span class='comma'>,</span> <span class='id identifier rubyid_local_var_path'>local_var_path</span><span class='comma'>,</span> <span class='id identifier rubyid_new_options'>new_options</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='ivar'>@api_client</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_debugging'>debugging</span>
-    <span class='ivar'>@api_client</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_logger'>logger</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>API called: APIManagementAPI#list_ap_is\nData: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_data'>data</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span><span class='embexpr_end'>}</span><span class='tstring_content'>\nStatus code: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_status_code'>status_code</span><span class='embexpr_end'>}</span><span class='tstring_content'>\nHeaders: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_headers'>headers</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+    <span class='ivar'>@api_client</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_logger'>logger</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>API called: APIManagementAPI#list_apis\nData: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_data'>data</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span><span class='embexpr_end'>}</span><span class='tstring_content'>\nStatus code: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_status_code'>status_code</span><span class='embexpr_end'>}</span><span class='tstring_content'>\nHeaders: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_headers'>headers</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
   <span class='kw'>end</span>
   <span class='kw'>return</span> <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid_status_code'>status_code</span><span class='comma'>,</span> <span class='id identifier rubyid_headers'>headers</span>
 <span class='kw'>end</span></pre>
@@ -1822,7 +1822,7 @@ The ID is returned by the create API, or can be found in the URL in the API cata
 </div>
 
       <div id="footer">
-  Generated on Wed Jun 19 11:00:05 2024 by
+  Generated on Thu Jun 20 17:47:46 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.36 (ruby-2.7.8).
 </div>
