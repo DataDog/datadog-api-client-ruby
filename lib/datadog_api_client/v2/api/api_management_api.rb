@@ -241,9 +241,9 @@ module DatadogAPIClient::V2
 
     # List APIs.
     #
-    # @see #list_ap_is_with_http_info
-    def list_ap_is(opts = {})
-      data, _status_code, _headers = list_ap_is_with_http_info(opts)
+    # @see #list_apis_with_http_info
+    def list_apis(opts = {})
+      data, _status_code, _headers = list_apis_with_http_info(opts)
       data
     end
 
@@ -256,22 +256,22 @@ module DatadogAPIClient::V2
     # @option opts [Integer] :page_limit Number of items per page.
     # @option opts [Integer] :page_offset Offset for pagination.
     # @return [Array<(ListAPIsResponse, Integer, Hash)>] ListAPIsResponse data, response status code and response headers
-    def list_ap_is_with_http_info(opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.list_ap_is".to_sym]
+    def list_apis_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_apis".to_sym]
       if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_ap_is")
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_apis")
       else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_ap_is"))
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_apis"))
       end
 
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: APIManagementAPI.list_ap_is ...'
+        @api_client.config.logger.debug 'Calling API: APIManagementAPI.list_apis ...'
       end
       if @api_client.config.client_side_validation && !opts[:'page_limit'].nil? && opts[:'page_limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling APIManagementAPI.list_ap_is, must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling APIManagementAPI.list_apis, must be greater than or equal to 1.'
       end
       if @api_client.config.client_side_validation && !opts[:'page_offset'].nil? && opts[:'page_offset'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"page_offset"]" when calling APIManagementAPI.list_ap_is, must be greater than or equal to 0.'
+        fail ArgumentError, 'invalid value for "opts[:"page_offset"]" when calling APIManagementAPI.list_apis, must be greater than or equal to 0.'
       end
       # resource path
       local_var_path = '/api/v2/apicatalog/api'
@@ -300,7 +300,7 @@ module DatadogAPIClient::V2
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
-        :operation => :list_ap_is,
+        :operation => :list_apis,
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -312,7 +312,7 @@ module DatadogAPIClient::V2
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: APIManagementAPI#list_ap_is\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: APIManagementAPI#list_apis\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

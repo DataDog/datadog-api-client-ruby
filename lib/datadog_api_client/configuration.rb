@@ -192,7 +192,7 @@ module DatadogAPIClient
             "v2.create_open_api": false,
             "v2.delete_open_api": false,
             "v2.get_open_api": false,
-            "v2.list_ap_is": false,
+            "v2.list_apis": false,
             "v2.update_open_api": false,
             "v2.get_active_billing_dimensions": false,
             "v2.get_monthly_cost_attribution": false,
