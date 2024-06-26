@@ -1639,6 +1639,9 @@ ScenariosModelMappings = {
     "v2.CreateSecurityMonitoringRule" => {
             "body" => "SecurityMonitoringRuleCreatePayload",
     },
+    "v2.ConvertSecurityMonitoringRuleFromJSONToTerraform" => {
+            "body" => "SecurityMonitoringRuleConvertPayload",
+    },
     "v2.TestSecurityMonitoringRule" => {
             "body" => "SecurityMonitoringRuleTestRequest",
     },
@@ -1654,6 +1657,9 @@ ScenariosModelMappings = {
     "v2.UpdateSecurityMonitoringRule" => {
             "rule_id" => "String",
             "body" => "SecurityMonitoringRuleUpdatePayload",
+    },
+    "v2.ConvertExistingSecurityMonitoringRule" => {
+            "rule_id" => "String",
     },
     "v2.TestExistingSecurityMonitoringRule" => {
             "rule_id" => "String",
