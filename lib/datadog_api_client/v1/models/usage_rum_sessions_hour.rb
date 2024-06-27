@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Number of RUM Sessions recorded for each hour for a given organization.
+  # Number of RUM sessions recorded for each hour for a given organization.
   class UsageRumSessionsHour
     include BaseGenericModel
 
@@ -30,22 +30,22 @@ module DatadogAPIClient::V1
     # The organization public ID.
     attr_accessor :public_id
 
-    # Contains the number of RUM Replay Sessions (data available beginning November 1, 2021).
+    # Contains the number of RUM Session Replay counts (data available beginning November 1, 2021).
     attr_accessor :replay_session_count
 
-    # Contains the number of browser RUM Lite Sessions.
+    # Contains the number of browser RUM lite Sessions.
     attr_accessor :session_count
 
-    # Contains the number of mobile RUM Sessions on Android (data available beginning December 1, 2020).
+    # Contains the number of mobile RUM sessions on Android (data available beginning December 1, 2020).
     attr_accessor :session_count_android
 
-    # Contains the number of mobile RUM Sessions on Flutter (data available beginning March 1, 2023).
+    # Contains the number of mobile RUM sessions on Flutter (data available beginning March 1, 2023).
     attr_accessor :session_count_flutter
 
-    # Contains the number of mobile RUM Sessions on iOS (data available beginning December 1, 2020).
+    # Contains the number of mobile RUM sessions on iOS (data available beginning December 1, 2020).
     attr_accessor :session_count_ios
 
-    # Contains the number of mobile RUM Sessions on React Native (data available beginning May 1, 2022).
+    # Contains the number of mobile RUM sessions on React Native (data available beginning May 1, 2022).
     attr_accessor :session_count_reactnative
 
     # Attribute mapping from ruby-style variable name to JSON key.
