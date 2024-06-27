@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Response containing the number of RUM Sessions for each hour for a given organization.
+  # Response containing the number of RUM sessions for each hour for a given organization.
   class UsageRumSessionsResponse
     include BaseGenericModel
 
-    # Get hourly usage for RUM Sessions.
+    # Get hourly usage for RUM sessions.
     attr_accessor :usage
 
     # Attribute mapping from ruby-style variable name to JSON key.

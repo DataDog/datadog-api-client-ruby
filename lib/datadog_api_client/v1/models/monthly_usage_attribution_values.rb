@@ -375,10 +375,10 @@ module DatadogAPIClient::V1
     # The total RUM Browser and Mobile usage by tag(s).
     attr_accessor :rum_browser_mobile_sessions_usage
 
-    # The percentage of RUM Replay Sessions usage by tag(s).
+    # The percentage of RUM Session Replay usage by tag(s).
     attr_accessor :rum_replay_sessions_percentage
 
-    # The total RUM Replay Sessions usage by tag(s).
+    # The total RUM Session Replay usage by tag(s).
     attr_accessor :rum_replay_sessions_usage
 
     # The percentage of Sensitive Data Scanner usage by tag(s).
