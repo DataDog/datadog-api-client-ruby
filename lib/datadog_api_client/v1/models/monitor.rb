@@ -55,7 +55,7 @@ module DatadogAPIClient::V1
     attr_accessor :overall_state
 
     # Integer from 1 (high) to 5 (low) indicating alert severity.
-    attr_reader :priority
+    attr_accessor :priority
 
     # The monitor query.
     attr_reader :query
@@ -225,24 +225,9 @@ module DatadogAPIClient::V1
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if !@priority.nil? && @priority > 5
-      return false if !@priority.nil? && @priority < 1
       return false if @query.nil?
       return false if @type.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param priority [Object] Object to be assigned
-    # @!visibility private
-    def priority=(priority)
-      if !priority.nil? && priority > 5
-        fail ArgumentError, 'invalid value for "priority", must be smaller than or equal to 5.'
-      end
-      if !priority.nil? && priority < 1
-        fail ArgumentError, 'invalid value for "priority", must be greater than or equal to 1.'
-      end
-      @priority = priority
     end
 
     # Custom attribute writer method with validation
