@@ -9,6 +9,7 @@ MONITOR_NAME = ENV["MONITOR_NAME"]
 
 body = DatadogAPIClient::V1::MonitorUpdateRequest.new({
   name: "My monitor-updated",
+  priority: nil,
   options: DatadogAPIClient::V1::MonitorOptions.new({
     evaluation_delay: nil,
     new_group_delay: 600,
