@@ -53,6 +53,7 @@ module DatadogAPIClient
           "v1.aws_tag_filter_delete_request" => "AWSTagFilterDeleteRequest",
           "v1.aws_tag_filter_list_response" => "AWSTagFilterListResponse",
           "v1.azure_account" => "AzureAccount",
+          "v1.azure_account_metrics_config" => "AzureAccountMetricsConfig",
           "v1.cancel_downtimes_by_scope_request" => "CancelDowntimesByScopeRequest",
           "v1.canceled_downtimes_ids" => "CanceledDowntimesIds",
           "v1.change_widget_definition" => "ChangeWidgetDefinition",
