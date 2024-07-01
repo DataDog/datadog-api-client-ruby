@@ -24,6 +24,9 @@ module DatadogAPIClient::V1
     # Additional filters applied to the SLO query.
     attr_accessor :additional_query_filters
 
+    # The source organization UUID for cross organization queries. Feature in Private Beta.
+    attr_reader :cross_org_uuids
+
     # Data source for SLO measures queries.
     attr_reader :data_source
 
@@ -47,6 +50,7 @@ module DatadogAPIClient::V1
     def self.attribute_map
       {
         :'additional_query_filters' => :'additional_query_filters',
+        :'cross_org_uuids' => :'cross_org_uuids',
         :'data_source' => :'data_source',
         :'group_mode' => :'group_mode',
         :'measure' => :'measure',
@@ -61,6 +65,7 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'additional_query_filters' => :'String',
+        :'cross_org_uuids' => :'Array<String>',
         :'data_source' => :'FormulaAndFunctionSLODataSource',
         :'group_mode' => :'FormulaAndFunctionSLOGroupMode',
         :'measure' => :'FormulaAndFunctionSLOMeasure',
@@ -88,6 +93,12 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'additional_query_filters')
         self.additional_query_filters = attributes[:'additional_query_filters']
+      end
+
+      if attributes.key?(:'cross_org_uuids')
+        if (value = attributes[:'cross_org_uuids']).is_a?(Array)
+          self.cross_org_uuids = value
+        end
       end
 
       if attributes.key?(:'data_source')
@@ -119,10 +130,21 @@ module DatadogAPIClient::V1
     # @return true if the model is valid
     # @!visibility private
     def valid?
+      return false if !@cross_org_uuids.nil? && @cross_org_uuids.length > 1
       return false if @data_source.nil?
       return false if @measure.nil?
       return false if @slo_id.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param cross_org_uuids [Object] Object to be assigned
+    # @!visibility private
+    def cross_org_uuids=(cross_org_uuids)
+      if !cross_org_uuids.nil? && cross_org_uuids.length > 1
+        fail ArgumentError, 'invalid value for "cross_org_uuids", number of items must be less than or equal to 1.'
+      end
+      @cross_org_uuids = cross_org_uuids
     end
 
     # Custom attribute writer method with validation
@@ -162,6 +184,7 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           additional_query_filters == o.additional_query_filters &&
+          cross_org_uuids == o.cross_org_uuids &&
           data_source == o.data_source &&
           group_mode == o.group_mode &&
           measure == o.measure &&
@@ -174,7 +197,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [additional_query_filters, data_source, group_mode, measure, name, slo_id, slo_query_type].hash
+      [additional_query_filters, cross_org_uuids, data_source, group_mode, measure, name, slo_id, slo_query_type].hash
     end
   end
 end
