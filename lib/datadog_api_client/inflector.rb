@@ -2400,6 +2400,7 @@ module DatadogAPIClient
         "v2.logs_metrics_api" => "LogsMetricsAPI",
         "v2.metrics_api" => "MetricsAPI",
         "v2.monitors_api" => "MonitorsAPI",
+        "v2.network_device_monitoring_api" => "NetworkDeviceMonitoringAPI",
         "v2.okta_integration_api" => "OktaIntegrationAPI",
         "v2.opsgenie_integration_api" => "OpsgenieIntegrationAPI",
         "v2.organizations_api" => "OrganizationsAPI",
