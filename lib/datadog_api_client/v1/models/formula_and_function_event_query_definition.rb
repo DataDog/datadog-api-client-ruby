@@ -24,6 +24,9 @@ module DatadogAPIClient::V1
     # Compute options.
     attr_reader :compute
 
+    # The source organization UUID for cross organization queries. Feature in Private Beta.
+    attr_reader :cross_org_uuids
+
     # Data source for event platform-based queries.
     attr_reader :data_source
 
@@ -47,6 +50,7 @@ module DatadogAPIClient::V1
     def self.attribute_map
       {
         :'compute' => :'compute',
+        :'cross_org_uuids' => :'cross_org_uuids',
         :'data_source' => :'data_source',
         :'group_by' => :'group_by',
         :'indexes' => :'indexes',
@@ -61,6 +65,7 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'compute' => :'FormulaAndFunctionEventQueryDefinitionCompute',
+        :'cross_org_uuids' => :'Array<String>',
         :'data_source' => :'FormulaAndFunctionEventsDataSource',
         :'group_by' => :'Array<FormulaAndFunctionEventQueryGroupBy>',
         :'indexes' => :'Array<String>',
@@ -88,6 +93,12 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'compute')
         self.compute = attributes[:'compute']
+      end
+
+      if attributes.key?(:'cross_org_uuids')
+        if (value = attributes[:'cross_org_uuids']).is_a?(Array)
+          self.cross_org_uuids = value
+        end
       end
 
       if attributes.key?(:'data_source')
@@ -124,6 +135,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def valid?
       return false if @compute.nil?
+      return false if !@cross_org_uuids.nil? && @cross_org_uuids.length > 1
       return false if @data_source.nil?
       return false if @name.nil?
       true
@@ -137,6 +149,16 @@ module DatadogAPIClient::V1
         fail ArgumentError, 'invalid value for "compute", compute cannot be nil.'
       end
       @compute = compute
+    end
+
+    # Custom attribute writer method with validation
+    # @param cross_org_uuids [Object] Object to be assigned
+    # @!visibility private
+    def cross_org_uuids=(cross_org_uuids)
+      if !cross_org_uuids.nil? && cross_org_uuids.length > 1
+        fail ArgumentError, 'invalid value for "cross_org_uuids", number of items must be less than or equal to 1.'
+      end
+      @cross_org_uuids = cross_org_uuids
     end
 
     # Custom attribute writer method with validation
@@ -166,6 +188,7 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           compute == o.compute &&
+          cross_org_uuids == o.cross_org_uuids &&
           data_source == o.data_source &&
           group_by == o.group_by &&
           indexes == o.indexes &&
@@ -178,7 +201,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [compute, data_source, group_by, indexes, name, search, storage].hash
+      [compute, cross_org_uuids, data_source, group_by, indexes, name, search, storage].hash
     end
   end
 end
