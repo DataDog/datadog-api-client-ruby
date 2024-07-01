@@ -17,190 +17,47 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # The steps used in a Synthetic multistep API test.
-  class SyntheticsAPIStep
-    include BaseGenericModel
+  # The steps used in a Synthetic multi-step API test.
+  module SyntheticsAPIStep
+    class << self
+      include BaseOneOfModel
+      include BaseOneOfModelNoDiscriminator
 
-    # Determines whether or not to continue with test if this step fails.
-    attr_accessor :allow_failure
-
-    # Array of assertions used for the test.
-    attr_reader :assertions
-
-    # Array of values to parse and save as variables from the response.
-    attr_accessor :extracted_values
-
-    # Determines whether or not to consider the entire test as failed if this step fails.
-    # Can be used only if `allowFailure` is `true`.
-    attr_accessor :is_critical
-
-    # The name of the step.
-    attr_reader :name
-
-    # Object describing the Synthetic test request.
-    attr_reader :request
-
-    # Object describing the retry strategy to apply to a Synthetic test.
-    attr_accessor :_retry
-
-    # The subtype of the Synthetic multistep API test step, currently only supporting `http`.
-    attr_reader :subtype
-
-    # Attribute mapping from ruby-style variable name to JSON key.
-    # @!visibility private
-    def self.attribute_map
-      {
-        :'allow_failure' => :'allowFailure',
-        :'assertions' => :'assertions',
-        :'extracted_values' => :'extractedValues',
-        :'is_critical' => :'isCritical',
-        :'name' => :'name',
-        :'request' => :'request',
-        :'_retry' => :'retry',
-        :'subtype' => :'subtype'
-      }
-    end
-
-    # Attribute type mapping.
-    # @!visibility private
-    def self.openapi_types
-      {
-        :'allow_failure' => :'Boolean',
-        :'assertions' => :'Array<SyntheticsAssertion>',
-        :'extracted_values' => :'Array<SyntheticsParsingOptions>',
-        :'is_critical' => :'Boolean',
-        :'name' => :'String',
-        :'request' => :'SyntheticsTestRequest',
-        :'_retry' => :'SyntheticsTestOptionsRetry',
-        :'subtype' => :'SyntheticsAPIStepSubtype'
-      }
-    end
-
-    # Initializes the object
-    # @param attributes [Hash] Model attributes in the form of hash
-    # @!visibility private
-    def initialize(attributes = {})
-      if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SyntheticsAPIStep` initialize method"
+      # List of class defined in oneOf (OpenAPI v3)
+      def openapi_one_of
+        [
+          :'SyntheticsAPITestStep',
+          :'SyntheticsAPIWaitStep'
+        ]
       end
-
-      # check to see if the attribute exists and convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h|
-        if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::SyntheticsAPIStep`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+      # Builds the object
+      # @param data [Mixed] Data to be matched against the list of oneOf items
+      # @return [Object] Returns the model or the data itself
+      def build(data)
+        # Go through the list of oneOf items and attempt to identify the appropriate one.
+        # Note:
+        # - We do not attempt to check whether exactly one item matches.
+        # - No advanced validation of types in some cases (e.g. "x: { type: string }" will happily match { x: 123 })
+        #   due to the way the deserialization is made in the base_object template (it just casts without verifying).
+        # - TODO: scalar values are de facto behaving as if they were nullable.
+        # - TODO: logging when debugging is set.
+        openapi_one_of.each do |klass|
+          begin
+            next if klass == :AnyType # "nullable: true"
+            typed_data = find_and_cast_into_type(klass, data)
+            next if typed_data.respond_to?(:_unparsed) && typed_data._unparsed
+            return typed_data if typed_data
+          rescue # rescue all errors so we keep iterating even if the current item lookup raises
+          end
         end
-        h[k.to_sym] = v
-      }
 
-      if attributes.key?(:'allow_failure')
-        self.allow_failure = attributes[:'allow_failure']
-      end
-
-      if attributes.key?(:'assertions')
-        if (value = attributes[:'assertions']).is_a?(Array)
-          self.assertions = value
+        if openapi_one_of.include?(:AnyType)
+          data
+        else
+          self._unparsed = true
+          DatadogAPIClient::UnparsedObject.new(data)
         end
       end
-
-      if attributes.key?(:'extracted_values')
-        if (value = attributes[:'extracted_values']).is_a?(Array)
-          self.extracted_values = value
-        end
-      end
-
-      if attributes.key?(:'is_critical')
-        self.is_critical = attributes[:'is_critical']
-      end
-
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.key?(:'request')
-        self.request = attributes[:'request']
-      end
-
-      if attributes.key?(:'_retry')
-        self._retry = attributes[:'_retry']
-      end
-
-      if attributes.key?(:'subtype')
-        self.subtype = attributes[:'subtype']
-      end
-    end
-
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    # @!visibility private
-    def valid?
-      return false if @assertions.nil?
-      return false if @name.nil?
-      return false if @request.nil?
-      return false if @subtype.nil?
-      true
-    end
-
-    # Custom attribute writer method with validation
-    # @param assertions [Object] Object to be assigned
-    # @!visibility private
-    def assertions=(assertions)
-      if assertions.nil?
-        fail ArgumentError, 'invalid value for "assertions", assertions cannot be nil.'
-      end
-      @assertions = assertions
-    end
-
-    # Custom attribute writer method with validation
-    # @param name [Object] Object to be assigned
-    # @!visibility private
-    def name=(name)
-      if name.nil?
-        fail ArgumentError, 'invalid value for "name", name cannot be nil.'
-      end
-      @name = name
-    end
-
-    # Custom attribute writer method with validation
-    # @param request [Object] Object to be assigned
-    # @!visibility private
-    def request=(request)
-      if request.nil?
-        fail ArgumentError, 'invalid value for "request", request cannot be nil.'
-      end
-      @request = request
-    end
-
-    # Custom attribute writer method with validation
-    # @param subtype [Object] Object to be assigned
-    # @!visibility private
-    def subtype=(subtype)
-      if subtype.nil?
-        fail ArgumentError, 'invalid value for "subtype", subtype cannot be nil.'
-      end
-      @subtype = subtype
-    end
-
-    # Checks equality by comparing each attribute.
-    # @param o [Object] Object to be compared
-    # @!visibility private
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          allow_failure == o.allow_failure &&
-          assertions == o.assertions &&
-          extracted_values == o.extracted_values &&
-          is_critical == o.is_critical &&
-          name == o.name &&
-          request == o.request &&
-          _retry == o._retry &&
-          subtype == o.subtype
-    end
-
-    # Calculates hash code according to all attributes.
-    # @return [Integer] Hash code
-    # @!visibility private
-    def hash
-      [allow_failure, assertions, extracted_values, is_critical, name, request, _retry, subtype].hash
     end
   end
 end
