@@ -150,6 +150,34 @@
       <li class="public ">
   <span class="summary_signature">
     
+      <a href="#cross_org_uuids-instance_method" title="#cross_org_uuids (instance method)">#<strong>cross_org_uuids</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The source organization UUID for cross organization queries.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#data_source-instance_method" title="#data_source (instance method)">#<strong>data_source</strong>  &#x21d2; Object </a>
     
 
@@ -752,6 +780,48 @@
 </div>
     
       
+      <span id="cross_org_uuids=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="cross_org_uuids-instance_method">
+  
+    #<strong>cross_org_uuids</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>The source organization UUID for cross organization queries. Feature in Private Beta.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+25
+26
+27</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/formula_and_function_apm_resource_stats_query_definition.rb', line 25</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_cross_org_uuids'>cross_org_uuids</span>
+  <span class='ivar'>@cross_org_uuids</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
       <span id="data_source=-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="data_source-instance_method">
@@ -778,12 +848,12 @@
       <pre class="lines">
 
 
-25
-26
-27</pre>
+28
+29
+30</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/formula_and_function_apm_resource_stats_query_definition.rb', line 25</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/formula_and_function_apm_resource_stats_query_definition.rb', line 28</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_data_source'>data_source</span>
   <span class='ivar'>@data_source</span>
@@ -1156,12 +1226,12 @@
       <pre class="lines">
 
 
-52
-53
-54</pre>
+55
+56
+57</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/formula_and_function_apm_resource_stats_query_definition.rb', line 52</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/formula_and_function_apm_resource_stats_query_definition.rb', line 55</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_stat'>stat</span>
   <span class='ivar'>@stat</span>
@@ -2093,7 +2163,7 @@ For object, use to_hash. Otherwise, just return the value</p>
 </div>
 
       <div id="footer">
-  Generated on Mon Jul  1 17:49:15 2024 by
+  Generated on Mon Jul  1 17:54:40 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.36 (ruby-2.7.8).
 </div>
