@@ -17,8 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # The subtype of the Synthetic multistep API test step, currently only supporting `http`.
-  class SyntheticsAPIStepSubtype
+  # The subtype of the Synthetic multi-step API test step.
+  class SyntheticsAPITestStepSubtype
     include BaseEnumModel
 
     HTTP = "http".freeze

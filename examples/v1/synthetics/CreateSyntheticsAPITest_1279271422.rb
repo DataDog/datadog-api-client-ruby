@@ -14,7 +14,7 @@ body = DatadogAPIClient::V1::SyntheticsAPITest.new({
       }),
     ],
     steps: [
-      DatadogAPIClient::V1::SyntheticsAPIStep.new({
+      DatadogAPIClient::V1::SyntheticsAPITestStep.new({
         allow_failure: true,
         assertions: [
           DatadogAPIClient::V1::SyntheticsAssertionTarget.new({
@@ -46,11 +46,16 @@ body = DatadogAPIClient::V1::SyntheticsAPITest.new({
           count: 5,
           interval: 1000,
         }),
-        subtype: DatadogAPIClient::V1::SyntheticsAPIStepSubtype::HTTP,
+        subtype: DatadogAPIClient::V1::SyntheticsAPITestStepSubtype::HTTP,
       }),
-      DatadogAPIClient::V1::SyntheticsAPIStep.new({
+      DatadogAPIClient::V1::SyntheticsAPIWaitStep.new({
+        name: "Wait",
+        subtype: DatadogAPIClient::V1::SyntheticsAPIWaitStepSubtype::WAIT,
+        value: 1,
+      }),
+      DatadogAPIClient::V1::SyntheticsAPITestStep.new({
         name: "GRPC CALL",
-        subtype: DatadogAPIClient::V1::SyntheticsAPIStepSubtype::GRPC,
+        subtype: DatadogAPIClient::V1::SyntheticsAPITestStepSubtype::GRPC,
         extracted_values: [],
         allow_failure: false,
         is_critical: true,
