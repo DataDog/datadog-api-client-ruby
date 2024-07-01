@@ -52,6 +52,12 @@ module DatadogAPIClient::V1
     # Only hosts that match one of the defined tags are imported into Datadog.
     attr_accessor :host_filters
 
+    # Dictionary containing the key `excluded_resource_providers` which has to be a list of Microsoft Azure Resource Provider names.
+    # This feature is currently being beta tested.
+    # In order to enable all resource providers for metric collection, pass:
+    # `metrics_config: {"excluded_resource_providers": []}` (i.e., an empty list for `excluded_resource_providers`).
+    attr_accessor :metrics_config
+
     # Your New Azure web application ID.
     attr_accessor :new_client_id
 
@@ -77,6 +83,7 @@ module DatadogAPIClient::V1
         :'custom_metrics_enabled' => :'custom_metrics_enabled',
         :'errors' => :'errors',
         :'host_filters' => :'host_filters',
+        :'metrics_config' => :'metrics_config',
         :'new_client_id' => :'new_client_id',
         :'new_tenant_name' => :'new_tenant_name',
         :'resource_collection_enabled' => :'resource_collection_enabled',
@@ -97,6 +104,7 @@ module DatadogAPIClient::V1
         :'custom_metrics_enabled' => :'Boolean',
         :'errors' => :'Array<String>',
         :'host_filters' => :'String',
+        :'metrics_config' => :'AzureAccountMetricsConfig',
         :'new_client_id' => :'String',
         :'new_tenant_name' => :'String',
         :'resource_collection_enabled' => :'Boolean',
@@ -158,6 +166,10 @@ module DatadogAPIClient::V1
         self.host_filters = attributes[:'host_filters']
       end
 
+      if attributes.key?(:'metrics_config')
+        self.metrics_config = attributes[:'metrics_config']
+      end
+
       if attributes.key?(:'new_client_id')
         self.new_client_id = attributes[:'new_client_id']
       end
@@ -190,6 +202,7 @@ module DatadogAPIClient::V1
           custom_metrics_enabled == o.custom_metrics_enabled &&
           errors == o.errors &&
           host_filters == o.host_filters &&
+          metrics_config == o.metrics_config &&
           new_client_id == o.new_client_id &&
           new_tenant_name == o.new_tenant_name &&
           resource_collection_enabled == o.resource_collection_enabled &&
@@ -200,7 +213,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [app_service_plan_filters, automute, client_id, client_secret, container_app_filters, cspm_enabled, custom_metrics_enabled, errors, host_filters, new_client_id, new_tenant_name, resource_collection_enabled, tenant_name].hash
+      [app_service_plan_filters, automute, client_id, client_secret, container_app_filters, cspm_enabled, custom_metrics_enabled, errors, host_filters, metrics_config, new_client_id, new_tenant_name, resource_collection_enabled, tenant_name].hash
     end
   end
 end
