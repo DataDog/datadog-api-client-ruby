@@ -22,6 +22,10 @@ module DatadogAPIClient::V1
   class SyntheticsDeleteTestsPayload
     include BaseGenericModel
 
+    # Delete the Synthetic test even if it's referenced by other resources
+    # (for example, SLOs and composite monitors).
+    attr_accessor :force_delete_dependencies
+
     # An array of Synthetic test IDs you want to delete.
     attr_accessor :public_ids
 
@@ -29,6 +33,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.attribute_map
       {
+        :'force_delete_dependencies' => :'force_delete_dependencies',
         :'public_ids' => :'public_ids'
       }
     end
@@ -37,6 +42,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
+        :'force_delete_dependencies' => :'Boolean',
         :'public_ids' => :'Array<String>'
       }
     end
@@ -57,6 +63,10 @@ module DatadogAPIClient::V1
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'force_delete_dependencies')
+        self.force_delete_dependencies = attributes[:'force_delete_dependencies']
+      end
+
       if attributes.key?(:'public_ids')
         if (value = attributes[:'public_ids']).is_a?(Array)
           self.public_ids = value
@@ -70,6 +80,7 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          force_delete_dependencies == o.force_delete_dependencies &&
           public_ids == o.public_ids
     end
 
@@ -77,7 +88,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [public_ids].hash
+      [force_delete_dependencies, public_ids].hash
     end
   end
 end
