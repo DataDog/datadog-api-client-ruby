@@ -29,5 +29,6 @@ module DatadogAPIClient::V1
     LOGS = "logs".freeze
     SPANS = "spans".freeze
     DATABASE_QUERIES = "database_queries".freeze
+    NETWORK_PERFORMANCE_QUERIES = "network_performance_queries".freeze
   end
 end
