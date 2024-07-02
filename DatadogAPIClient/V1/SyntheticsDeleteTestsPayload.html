@@ -153,6 +153,32 @@ to delete.</p>
       <li class="public ">
   <span class="summary_signature">
     
+      <a href="#force_delete_dependencies-instance_method" title="#force_delete_dependencies (instance method)">#<strong>force_delete_dependencies</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Delete the Synthetic test even if it&#39;s referenced by other resources (for example, SLOs and composite monitors).</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#public_ids-instance_method" title="#public_ids (instance method)">#<strong>public_ids</strong>  &#x21d2; Object </a>
     
 
@@ -527,6 +553,49 @@ to delete.</p>
 
 <span class='kw'>def</span> <span class='id identifier rubyid__unparsed'>_unparsed</span>
   <span class='ivar'>@_unparsed</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="force_delete_dependencies=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="force_delete_dependencies-instance_method">
+  
+    #<strong>force_delete_dependencies</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Delete the Synthetic test even if it&#39;s referenced by other resources
+(for example, SLOs and composite monitors).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+27
+28
+29</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/synthetics_delete_tests_payload.rb', line 27</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_force_delete_dependencies'>force_delete_dependencies</span>
+  <span class='ivar'>@force_delete_dependencies</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1514,7 +1583,7 @@ For object, use to_hash. Otherwise, just return the value</p>
 </div>
 
       <div id="footer">
-  Generated on Tue Jul  2 18:49:42 2024 by
+  Generated on Tue Jul  2 19:33:24 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.36 (ruby-2.7.8).
 </div>
