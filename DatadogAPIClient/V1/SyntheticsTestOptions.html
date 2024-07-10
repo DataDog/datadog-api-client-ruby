@@ -358,6 +358,58 @@
       <li class="public ">
   <span class="summary_signature">
     
+      <a href="#enable_profiling-instance_method" title="#enable_profiling (instance method)">#<strong>enable_profiling</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Enable profiling for browser tests.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#enable_security_testing-instance_method" title="#enable_security_testing (instance method)">#<strong>enable_security_testing</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Enable security testing for browser tests.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#follow_redirects-instance_method" title="#follow_redirects (instance method)">#<strong>follow_redirects</strong>  &#x21d2; Object </a>
     
 
@@ -1042,12 +1094,12 @@
       <pre class="lines">
 
 
-82
-83
-84</pre>
+88
+89
+90</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/synthetics_test_options.rb', line 82</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/synthetics_test_options.rb', line 88</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid__retry'>_retry</span>
   <span class='ivar'>@_retry</span>
@@ -1395,6 +1447,90 @@ certificates.</p>
 </div>
     
       
+      <span id="enable_profiling=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="enable_profiling-instance_method">
+  
+    #<strong>enable_profiling</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Enable profiling for browser tests.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+47
+48
+49</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/synthetics_test_options.rb', line 47</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_enable_profiling'>enable_profiling</span>
+  <span class='ivar'>@enable_profiling</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="enable_security_testing=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="enable_security_testing-instance_method">
+  
+    #<strong>enable_security_testing</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Enable security testing for browser tests. Security testing is not available anymore. This field is deprecated and won&#39;t be used.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+50
+51
+52</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/synthetics_test_options.rb', line 50</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_enable_security_testing'>enable_security_testing</span>
+  <span class='ivar'>@enable_security_testing</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
       <span id="follow_redirects=-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="follow_redirects-instance_method">
@@ -1463,12 +1599,12 @@ certificates.</p>
       <pre class="lines">
 
 
-50
-51
-52</pre>
+56
+57
+58</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/synthetics_test_options.rb', line 50</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/synthetics_test_options.rb', line 56</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_http_version'>http_version</span>
   <span class='ivar'>@http_version</span>
@@ -1505,12 +1641,12 @@ certificates.</p>
       <pre class="lines">
 
 
-53
-54
-55</pre>
+59
+60
+61</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/synthetics_test_options.rb', line 53</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/synthetics_test_options.rb', line 59</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_ignore_server_certificate_error'>ignore_server_certificate_error</span>
   <span class='ivar'>@ignore_server_certificate_error</span>
@@ -1547,12 +1683,12 @@ certificates.</p>
       <pre class="lines">
 
 
-56
-57
-58</pre>
+62
+63
+64</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/synthetics_test_options.rb', line 56</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/synthetics_test_options.rb', line 62</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initial_navigation_timeout'>initial_navigation_timeout</span>
   <span class='ivar'>@initial_navigation_timeout</span>
@@ -1717,12 +1853,12 @@ an alert.</p>
       <pre class="lines">
 
 
-70
-71
-72</pre>
+76
+77
+78</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/synthetics_test_options.rb', line 70</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/synthetics_test_options.rb', line 76</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_monitor_options'>monitor_options</span>
   <span class='ivar'>@monitor_options</span>
@@ -1843,12 +1979,12 @@ an alert.</p>
       <pre class="lines">
 
 
-79
-80
-81</pre>
+85
+86
+87</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/synthetics_test_options.rb', line 79</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/synthetics_test_options.rb', line 85</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_restricted_roles'>restricted_roles</span>
   <span class='ivar'>@restricted_roles</span>
@@ -1895,12 +2031,12 @@ RUM data is collected using the specified application.</p>
       <pre class="lines">
 
 
-95
-96
-97</pre>
+101
+102
+103</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/synthetics_test_options.rb', line 95</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/synthetics_test_options.rb', line 101</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rum_settings'>rum_settings</span>
   <span class='ivar'>@rum_settings</span>
@@ -1937,12 +2073,12 @@ RUM data is collected using the specified application.</p>
       <pre class="lines">
 
 
-98
-99
-100</pre>
+104
+105
+106</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/synthetics_test_options.rb', line 98</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/synthetics_test_options.rb', line 104</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_scheduling'>scheduling</span>
   <span class='ivar'>@scheduling</span>
@@ -2908,7 +3044,7 @@ For object, use to_hash. Otherwise, just return the value</p>
 </div>
 
       <div id="footer">
-  Generated on Wed Jul 10 14:59:03 2024 by
+  Generated on Wed Jul 10 19:36:28 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.36 (ruby-2.7.8).
 </div>
