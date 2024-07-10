@@ -51,6 +51,8 @@ body = DatadogAPIClient::V1::SyntheticsBrowserTest.new({
       interval: 10,
     }),
     tick_every: 300,
+    enable_profiling: true,
+    enable_security_testing: true,
   }),
   tags: [
     "testing:browser",
