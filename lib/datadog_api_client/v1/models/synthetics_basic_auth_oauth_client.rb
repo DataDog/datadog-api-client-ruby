@@ -43,7 +43,7 @@ module DatadogAPIClient::V1
     attr_reader :token_api_authentication
 
     # The type of basic authentication to use when performing the test.
-    attr_accessor :type
+    attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -132,6 +132,7 @@ module DatadogAPIClient::V1
       return false if @client_id.nil?
       return false if @client_secret.nil?
       return false if @token_api_authentication.nil?
+      return false if @type.nil?
       true
     end
 
@@ -173,6 +174,16 @@ module DatadogAPIClient::V1
         fail ArgumentError, 'invalid value for "token_api_authentication", token_api_authentication cannot be nil.'
       end
       @token_api_authentication = token_api_authentication
+    end
+
+    # Custom attribute writer method with validation
+    # @param type [Object] Object to be assigned
+    # @!visibility private
+    def type=(type)
+      if type.nil?
+        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+      end
+      @type = type
     end
 
     # Checks equality by comparing each attribute.
