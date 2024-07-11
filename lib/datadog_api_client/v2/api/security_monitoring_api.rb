@@ -23,6 +23,152 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
+    # Convert an existing rule from JSON to Terraform.
+    #
+    # @see #convert_existing_security_monitoring_rule_with_http_info
+    def convert_existing_security_monitoring_rule(rule_id, opts = {})
+      data, _status_code, _headers = convert_existing_security_monitoring_rule_with_http_info(rule_id, opts)
+      data
+    end
+
+    # Convert an existing rule from JSON to Terraform.
+    #
+    # Convert an existing rule from JSON to Terraform for datadog provider
+    # resource datadog_security_monitoring_rule.
+    #
+    # @param rule_id [String] The ID of the rule.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SecurityMonitoringRuleConvertResponse, Integer, Hash)>] SecurityMonitoringRuleConvertResponse data, response status code and response headers
+    def convert_existing_security_monitoring_rule_with_http_info(rule_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.convert_existing_security_monitoring_rule".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.convert_existing_security_monitoring_rule")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.convert_existing_security_monitoring_rule"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.convert_existing_security_monitoring_rule ...'
+      end
+      # verify the required parameter 'rule_id' is set
+      if @api_client.config.client_side_validation && rule_id.nil?
+        fail ArgumentError, "Missing the required parameter 'rule_id' when calling SecurityMonitoringAPI.convert_existing_security_monitoring_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/rules/{rule_id}/convert'.sub('{rule_id}', CGI.escape(rule_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityMonitoringRuleConvertResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :convert_existing_security_monitoring_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#convert_existing_security_monitoring_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Convert a rule from JSON to Terraform.
+    #
+    # @see #convert_security_monitoring_rule_from_json_to_terraform_with_http_info
+    def convert_security_monitoring_rule_from_json_to_terraform(body, opts = {})
+      data, _status_code, _headers = convert_security_monitoring_rule_from_json_to_terraform_with_http_info(body, opts)
+      data
+    end
+
+    # Convert a rule from JSON to Terraform.
+    #
+    # Convert a rule that doesn't (yet) exist from JSON to Terraform for datadog provider
+    # resource datadog_security_monitoring_rule.
+    #
+    # @param body [SecurityMonitoringRuleConvertPayload] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SecurityMonitoringRuleConvertResponse, Integer, Hash)>] SecurityMonitoringRuleConvertResponse data, response status code and response headers
+    def convert_security_monitoring_rule_from_json_to_terraform_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.convert_security_monitoring_rule_from_json_to_terraform".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.convert_security_monitoring_rule_from_json_to_terraform")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.convert_security_monitoring_rule_from_json_to_terraform"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.convert_security_monitoring_rule_from_json_to_terraform ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.convert_security_monitoring_rule_from_json_to_terraform"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/rules/convert'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityMonitoringRuleConvertResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :convert_security_monitoring_rule_from_json_to_terraform,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#convert_security_monitoring_rule_from_json_to_terraform\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create a security filter.
     #
     # @see #create_security_filter_with_http_info
