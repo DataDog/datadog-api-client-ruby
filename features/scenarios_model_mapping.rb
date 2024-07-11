@@ -1579,7 +1579,6 @@ ScenariosModelMappings = {
             "page_size" => "Integer",
             "page_number" => "Integer",
             "sort" => "String",
-            "filter" => "String",
     },
     "v2.AddUserToRole" => {
             "role_id" => "String",

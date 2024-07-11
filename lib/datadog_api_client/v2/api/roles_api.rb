@@ -652,7 +652,6 @@ module DatadogAPIClient::V2
     # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 100.
     # @option opts [Integer] :page_number Specific page number to return.
     # @option opts [String] :sort User attribute to order results by. Sort order is **ascending** by default. Sort order is **descending** if the field is prefixed by a negative sign, for example `sort=-name`. Options: `name`, `email`, `status`.
-    # @option opts [String] :filter Filter all users by the given string. Defaults to no filtering.
     # @return [Array<(UsersResponse, Integer, Hash)>] UsersResponse data, response status code and response headers
     def list_role_users_with_http_info(role_id, opts = {})
 
@@ -671,7 +670,6 @@ module DatadogAPIClient::V2
       query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
       query_params[:'page[number]'] = opts[:'page_number'] if !opts[:'page_number'].nil?
       query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
-      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
