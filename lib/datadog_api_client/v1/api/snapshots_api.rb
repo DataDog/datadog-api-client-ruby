@@ -26,8 +26,8 @@ module DatadogAPIClient::V1
     # Take graph snapshots.
     #
     # @see #get_graph_snapshot_with_http_info
-    def get_graph_snapshot(start, _end, opts = {})
-      data, _status_code, _headers = get_graph_snapshot_with_http_info(start, _end, opts)
+    def get_graph_snapshot(metric_query, start, _end, opts = {})
+      data, _status_code, _headers = get_graph_snapshot_with_http_info(metric_query, start, _end, opts)
       data
     end
 
@@ -36,20 +36,24 @@ module DatadogAPIClient::V1
     # Take graph snapshots.
     # **Note**: When a snapshot is created, there is some delay before it is available.
     #
+    # @param metric_query [String] The metric query. Either `metric_query` or `graph_def` is required.
     # @param start [Integer] The POSIX timestamp of the start of the query in seconds.
     # @param _end [Integer] The POSIX timestamp of the end of the query in seconds.
     # @param opts [Hash] the optional parameters
-    # @option opts [String] :metric_query The metric query.
     # @option opts [String] :event_query A query that adds event bands to the graph.
     # @option opts [String] :graph_def A JSON document defining the graph. `graph_def` can be used instead of `metric_query`. The JSON document uses the [grammar defined here](https://docs.datadoghq.com/graphing/graphing_json/#grammar) and should be formatted to a single line then URL encoded.
     # @option opts [String] :title A title for the graph. If no title is specified, the graph does not have a title.
     # @option opts [Integer] :height The height of the graph. If no height is specified, the graph's original height is used.
     # @option opts [Integer] :width The width of the graph. If no width is specified, the graph's original width is used.
     # @return [Array<(GraphSnapshot, Integer, Hash)>] GraphSnapshot data, response status code and response headers
-    def get_graph_snapshot_with_http_info(start, _end, opts = {})
+    def get_graph_snapshot_with_http_info(metric_query, start, _end, opts = {})
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SnapshotsAPI.get_graph_snapshot ...'
+      end
+      # verify the required parameter 'metric_query' is set
+      if @api_client.config.client_side_validation && metric_query.nil?
+        fail ArgumentError, "Missing the required parameter 'metric_query' when calling SnapshotsAPI.get_graph_snapshot"
       end
       # verify the required parameter 'start' is set
       if @api_client.config.client_side_validation && start.nil?
@@ -64,9 +68,9 @@ module DatadogAPIClient::V1
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'metric_query'] = metric_query
       query_params[:'start'] = start
       query_params[:'end'] = _end
-      query_params[:'metric_query'] = opts[:'metric_query'] if !opts[:'metric_query'].nil?
       query_params[:'event_query'] = opts[:'event_query'] if !opts[:'event_query'].nil?
       query_params[:'graph_def'] = opts[:'graph_def'] if !opts[:'graph_def'].nil?
       query_params[:'title'] = opts[:'title'] if !opts[:'title'].nil?
