@@ -21,6 +21,12 @@ module DatadogAPIClient::V1
   class UsageBillableSummaryHour
     include BaseGenericModel
 
+    # The account name.
+    attr_accessor :account_name
+
+    # The account public ID.
+    attr_accessor :account_public_id
+
     # The billing plan.
     attr_accessor :billing_plan
 
@@ -52,6 +58,8 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.attribute_map
       {
+        :'account_name' => :'account_name',
+        :'account_public_id' => :'account_public_id',
         :'billing_plan' => :'billing_plan',
         :'end_date' => :'end_date',
         :'num_orgs' => :'num_orgs',
@@ -68,6 +76,8 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
+        :'account_name' => :'String',
+        :'account_public_id' => :'String',
         :'billing_plan' => :'String',
         :'end_date' => :'Time',
         :'num_orgs' => :'Integer',
@@ -95,6 +105,14 @@ module DatadogAPIClient::V1
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'account_name')
+        self.account_name = attributes[:'account_name']
+      end
+
+      if attributes.key?(:'account_public_id')
+        self.account_public_id = attributes[:'account_public_id']
+      end
 
       if attributes.key?(:'billing_plan')
         self.billing_plan = attributes[:'billing_plan']
@@ -139,6 +157,8 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          account_name == o.account_name &&
+          account_public_id == o.account_public_id &&
           billing_plan == o.billing_plan &&
           end_date == o.end_date &&
           num_orgs == o.num_orgs &&
@@ -154,7 +174,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [billing_plan, end_date, num_orgs, org_name, public_id, ratio_in_month, region, start_date, usage].hash
+      [account_name, account_public_id, billing_plan, end_date, num_orgs, org_name, public_id, ratio_in_month, region, start_date, usage].hash
     end
   end
 end

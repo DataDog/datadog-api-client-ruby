@@ -839,6 +839,7 @@ module DatadogAPIClient::V1
     #
     # @param opts [Hash] the optional parameters
     # @option opts [Time] :month Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage starting this month.
+    # @option opts [Boolean] :include_connected_accounts Boolean to specify whether to include accounts connected to the current account as partner customers in the Datadog partner network program. Defaults to `false`. 
     # @return [Array<(UsageBillableSummaryResponse, Integer, Hash)>] UsageBillableSummaryResponse data, response status code and response headers
     def get_usage_billable_summary_with_http_info(opts = {})
 
@@ -851,6 +852,7 @@ module DatadogAPIClient::V1
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'month'] = opts[:'month'] if !opts[:'month'].nil?
+      query_params[:'include_connected_accounts'] = opts[:'include_connected_accounts'] if !opts[:'include_connected_accounts'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
