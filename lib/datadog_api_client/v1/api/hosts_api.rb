@@ -105,7 +105,7 @@ module DatadogAPIClient::V1
     # @option opts [String] :filter String to filter search results.
     # @option opts [String] :sort_field Sort hosts by this field.
     # @option opts [String] :sort_dir Direction of sort. Options include `asc` and `desc`.
-    # @option opts [Integer] :start Host result to start search from.
+    # @option opts [Integer] :start Specify the starting point for the host search results. For example, if you set `count` to 100 and the first 100 results have already been returned, you can set `start` to `101` to get the next 100 results.
     # @option opts [Integer] :count Number of hosts to return. Max 1000.
     # @option opts [Integer] :from Number of seconds since UNIX epoch from which you want to search your hosts.
     # @option opts [Boolean] :include_muted_hosts_data Include information on the muted status of hosts and when the mute expires.

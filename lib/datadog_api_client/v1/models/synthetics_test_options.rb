@@ -43,6 +43,12 @@ module DatadogAPIClient::V1
     # Disable Content Security Policy for browser tests.
     attr_accessor :disable_csp
 
+    # Enable profiling for browser tests.
+    attr_accessor :enable_profiling
+
+    # Enable security testing for browser tests. Security testing is not available anymore. This field is deprecated and won't be used.
+    attr_accessor :enable_security_testing
+
     # For API HTTP test, whether or not the test should follow redirects.
     attr_accessor :follow_redirects
 
@@ -111,6 +117,8 @@ module DatadogAPIClient::V1
         :'device_ids' => :'device_ids',
         :'disable_cors' => :'disableCors',
         :'disable_csp' => :'disableCsp',
+        :'enable_profiling' => :'enableProfiling',
+        :'enable_security_testing' => :'enableSecurityTesting',
         :'follow_redirects' => :'follow_redirects',
         :'http_version' => :'httpVersion',
         :'ignore_server_certificate_error' => :'ignoreServerCertificateError',
@@ -140,6 +148,8 @@ module DatadogAPIClient::V1
         :'device_ids' => :'Array<SyntheticsDeviceID>',
         :'disable_cors' => :'Boolean',
         :'disable_csp' => :'Boolean',
+        :'enable_profiling' => :'Boolean',
+        :'enable_security_testing' => :'Boolean',
         :'follow_redirects' => :'Boolean',
         :'http_version' => :'SyntheticsTestOptionsHTTPVersion',
         :'ignore_server_certificate_error' => :'Boolean',
@@ -202,6 +212,14 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'disable_csp')
         self.disable_csp = attributes[:'disable_csp']
+      end
+
+      if attributes.key?(:'enable_profiling')
+        self.enable_profiling = attributes[:'enable_profiling']
+      end
+
+      if attributes.key?(:'enable_security_testing')
+        self.enable_security_testing = attributes[:'enable_security_testing']
       end
 
       if attributes.key?(:'follow_redirects')
@@ -317,6 +335,8 @@ module DatadogAPIClient::V1
           device_ids == o.device_ids &&
           disable_cors == o.disable_cors &&
           disable_csp == o.disable_csp &&
+          enable_profiling == o.enable_profiling &&
+          enable_security_testing == o.enable_security_testing &&
           follow_redirects == o.follow_redirects &&
           http_version == o.http_version &&
           ignore_server_certificate_error == o.ignore_server_certificate_error &&
@@ -338,7 +358,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [accept_self_signed, allow_insecure, check_certificate_revocation, ci, device_ids, disable_cors, disable_csp, follow_redirects, http_version, ignore_server_certificate_error, initial_navigation_timeout, min_failure_duration, min_location_failed, monitor_name, monitor_options, monitor_priority, no_screenshot, restricted_roles, _retry, rum_settings, scheduling, tick_every].hash
+      [accept_self_signed, allow_insecure, check_certificate_revocation, ci, device_ids, disable_cors, disable_csp, enable_profiling, enable_security_testing, follow_redirects, http_version, ignore_server_certificate_error, initial_navigation_timeout, min_failure_duration, min_location_failed, monitor_name, monitor_options, monitor_priority, no_screenshot, restricted_roles, _retry, rum_settings, scheduling, tick_every].hash
     end
   end
 end

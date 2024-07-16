@@ -1968,6 +1968,8 @@ module DatadogAPIClient
           "v2.security_monitoring_list_rules_response" => "SecurityMonitoringListRulesResponse",
           "v2.security_monitoring_rule_case" => "SecurityMonitoringRuleCase",
           "v2.security_monitoring_rule_case_create" => "SecurityMonitoringRuleCaseCreate",
+          "v2.security_monitoring_rule_convert_payload" => "SecurityMonitoringRuleConvertPayload",
+          "v2.security_monitoring_rule_convert_response" => "SecurityMonitoringRuleConvertResponse",
           "v2.security_monitoring_rule_create_payload" => "SecurityMonitoringRuleCreatePayload",
           "v2.security_monitoring_rule_detection_method" => "SecurityMonitoringRuleDetectionMethod",
           "v2.security_monitoring_rule_evaluation_window" => "SecurityMonitoringRuleEvaluationWindow",

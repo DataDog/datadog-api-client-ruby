@@ -60,6 +60,7 @@ ScenariosModelMappings = {
     },
     "v1.GetUsageBillableSummary" => {
             "month" => "Time",
+            "include_connected_accounts" => "Boolean",
     },
     "v1.GetUsageCIApp" => {
             "start_hr" => "Time",
@@ -1096,6 +1097,7 @@ ScenariosModelMappings = {
             "end_month" => "Time",
             "start_date" => "Time",
             "end_date" => "Time",
+            "include_connected_accounts" => "Boolean",
     },
     "v2.GetHistoricalCostByOrg" => {
             "view" => "String",
@@ -1639,6 +1641,9 @@ ScenariosModelMappings = {
     "v2.CreateSecurityMonitoringRule" => {
             "body" => "SecurityMonitoringRuleCreatePayload",
     },
+    "v2.ConvertSecurityMonitoringRuleFromJSONToTerraform" => {
+            "body" => "SecurityMonitoringRuleConvertPayload",
+    },
     "v2.TestSecurityMonitoringRule" => {
             "body" => "SecurityMonitoringRuleTestRequest",
     },
@@ -1654,6 +1659,9 @@ ScenariosModelMappings = {
     "v2.UpdateSecurityMonitoringRule" => {
             "rule_id" => "String",
             "body" => "SecurityMonitoringRuleUpdatePayload",
+    },
+    "v2.ConvertExistingSecurityMonitoringRule" => {
+            "rule_id" => "String",
     },
     "v2.TestExistingSecurityMonitoringRule" => {
             "rule_id" => "String",
