@@ -5628,6 +5628,18 @@ Get Usage Attribution.</p>
           
         </li>
       
+        <li>
+          <span class="name">:include_connected_accounts</span>
+          <span class="type">(<tt>Boolean</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Boolean to specify whether to include accounts connected to the current account as partner customers in the Datadog partner network program. Defaults to <code>false</code>.</p>
+</div>
+          
+        </li>
+      
     </ul>
   
 
@@ -5804,13 +5816,13 @@ Get Usage Attribution.</p>
       <pre class="lines">
 
 
-893
-894
 895
-896</pre>
+896
+897
+898</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/api/usage_metering_api.rb', line 893</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/api/usage_metering_api.rb', line 895</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_usage_ci_app'>get_usage_ci_app</span><span class='lparen'>(</span><span class='id identifier rubyid_start_hr'>start_hr</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_get_usage_ci_app_with_http_info'>get_usage_ci_app_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_start_hr'>start_hr</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -5927,8 +5939,6 @@ Get Usage Attribution.</p>
       <pre class="lines">
 
 
-909
-910
 911
 912
 913
@@ -5978,10 +5988,12 @@ Get Usage Attribution.</p>
 957
 958
 959
-960</pre>
+960
+961
+962</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/api/usage_metering_api.rb', line 909</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/api/usage_metering_api.rb', line 911</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_usage_ci_app_with_http_info'>get_usage_ci_app_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_start_hr'>start_hr</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_warn'>warn</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>[DEPRECATION] `GetUsageCIApp` is deprecated.</span><span class='tstring_end'>&quot;</span></span>
@@ -9749,13 +9761,13 @@ Get Usage Attribution.</p>
       <pre class="lines">
 
 
-1899
-1900
 1901
-1902</pre>
+1902
+1903
+1904</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/api/usage_metering_api.rb', line 1899</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/api/usage_metering_api.rb', line 1901</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_usage_online_archive'>get_usage_online_archive</span><span class='lparen'>(</span><span class='id identifier rubyid_start_hr'>start_hr</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_get_usage_online_archive_with_http_info'>get_usage_online_archive_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_start_hr'>start_hr</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -9872,8 +9884,6 @@ Get Usage Attribution.</p>
       <pre class="lines">
 
 
-1915
-1916
 1917
 1918
 1919
@@ -9923,10 +9933,12 @@ Get Usage Attribution.</p>
 1963
 1964
 1965
-1966</pre>
+1966
+1967
+1968</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/api/usage_metering_api.rb', line 1915</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/api/usage_metering_api.rb', line 1917</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_usage_online_archive_with_http_info'>get_usage_online_archive_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_start_hr'>start_hr</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_warn'>warn</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>[DEPRECATION] `GetUsageOnlineArchive` is deprecated.</span><span class='tstring_end'>&quot;</span></span>
@@ -13161,7 +13173,7 @@ Get Usage Attribution.</p>
 </div>
 
       <div id="footer">
-  Generated on Thu Jul 11 17:44:38 2024 by
+  Generated on Tue Jul 16 12:42:55 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.36 (ruby-2.7.8).
 </div>
