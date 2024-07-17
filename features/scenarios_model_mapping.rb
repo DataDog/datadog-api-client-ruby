@@ -1527,6 +1527,18 @@ ScenariosModelMappings = {
             "policy_id" => "String",
             "body" => "MonitorConfigPolicyEditRequest",
     },
+    "v2.ListDevices" => {
+            "page_number" => "Integer",
+            "page_size" => "Integer",
+            "sort" => "String",
+            "filter_tag" => "String",
+    },
+    "v2.GetDevice" => {
+            "device_id" => "String",
+    },
+    "v2.GetInterfaces" => {
+            "device_id" => "String",
+    },
     "v2.GetOrgConfig" => {
             "org_config_name" => "String",
     },
