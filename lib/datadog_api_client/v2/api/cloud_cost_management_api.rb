@@ -359,10 +359,13 @@ module DatadogAPIClient::V2
     #
     # List the AWS accounts in an organization by calling 'organizations:ListAccounts' from the specified management account.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param filter_management_account_id [String] The ID of the management account to filter by.
     # @param opts [Hash] the optional parameters
     # @return [Array<(AWSRelatedAccountsResponse, Integer, Hash)>] AWSRelatedAccountsResponse data, response status code and response headers
     def list_aws_related_accounts_with_http_info(filter_management_account_id, opts = {})
+      warn "[DEPRECATION] `ListAWSRelatedAccounts` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.list_aws_related_accounts ...'
