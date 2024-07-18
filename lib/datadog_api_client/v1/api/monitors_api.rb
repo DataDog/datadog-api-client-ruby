@@ -109,7 +109,6 @@ module DatadogAPIClient::V1
     # - APM: `query alert` or `trace-analytics alert`
     # - composite: `composite`
     # - custom: `service check`
-    # - event: `event alert`
     # - forecast: `query alert`
     # - host: `service check`
     # - integration: `query alert` or `service check`
