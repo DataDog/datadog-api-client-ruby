@@ -919,6 +919,7 @@ module DatadogAPIClient
           "v2.authn_mapping_relationships" => "AuthNMappingRelationships",
           "v2.authn_mapping_relationship_to_role" => "AuthNMappingRelationshipToRole",
           "v2.authn_mapping_relationship_to_team" => "AuthNMappingRelationshipToTeam",
+          "v2.authn_mapping_resource_type" => "AuthNMappingResourceType",
           "v2.authn_mapping_response" => "AuthNMappingResponse",
           "v2.authn_mappings_response" => "AuthNMappingsResponse",
           "v2.authn_mappings_sort" => "AuthNMappingsSort",
