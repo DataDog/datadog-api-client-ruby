@@ -1109,6 +1109,7 @@ ScenariosModelMappings = {
             "filter_timestamp_end" => "Time",
             "filter_product_families" => "String",
             "filter_include_descendants" => "Boolean",
+            "filter_include_connected_accounts" => "Boolean",
             "filter_include_breakdown" => "Boolean",
             "filter_versions" => "String",
             "page_limit" => "Integer",

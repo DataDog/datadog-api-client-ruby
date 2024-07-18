@@ -21,6 +21,12 @@ module DatadogAPIClient::V2
   class HourlyUsageAttributes
     include BaseGenericModel
 
+    # The account name.
+    attr_accessor :account_name
+
+    # The account public ID.
+    attr_accessor :account_public_id
+
     # List of the measured usage values for the product family for the org for the time period.
     attr_accessor :measurements
 
@@ -43,6 +49,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'account_name' => :'account_name',
+        :'account_public_id' => :'account_public_id',
         :'measurements' => :'measurements',
         :'org_name' => :'org_name',
         :'product_family' => :'product_family',
@@ -56,6 +64,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'account_name' => :'String',
+        :'account_public_id' => :'String',
         :'measurements' => :'Array<HourlyUsageMeasurement>',
         :'org_name' => :'String',
         :'product_family' => :'String',
@@ -80,6 +90,14 @@ module DatadogAPIClient::V2
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'account_name')
+        self.account_name = attributes[:'account_name']
+      end
+
+      if attributes.key?(:'account_public_id')
+        self.account_public_id = attributes[:'account_public_id']
+      end
 
       if attributes.key?(:'measurements')
         if (value = attributes[:'measurements']).is_a?(Array)
@@ -114,6 +132,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          account_name == o.account_name &&
+          account_public_id == o.account_public_id &&
           measurements == o.measurements &&
           org_name == o.org_name &&
           product_family == o.product_family &&
@@ -126,7 +146,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [measurements, org_name, product_family, public_id, region, timestamp].hash
+      [account_name, account_public_id, measurements, org_name, product_family, public_id, region, timestamp].hash
     end
   end
 end
