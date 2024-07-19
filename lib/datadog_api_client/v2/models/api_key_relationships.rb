@@ -41,8 +41,16 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'created_by' => :'RelationshipToUser',
-        :'modified_by' => :'RelationshipToUser'
+        :'modified_by' => :'NullableRelationshipToUser'
       }
+    end
+
+    # List of attributes with nullable: true
+    # @!visibility private
+    def self.openapi_nullable
+      Set.new([
+        :'modified_by',
+      ])
     end
 
     # Initializes the object
