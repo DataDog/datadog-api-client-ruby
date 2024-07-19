@@ -1,9 +1,6 @@
 # Convert a rule from JSON to Terraform returns "OK" response
 
 require "datadog_api_client"
-DatadogAPIClient.configure do |config|
-  config.unstable_operations["v2.convert_security_monitoring_rule_from_json_to_terraform".to_sym] = true
-end
 api_instance = DatadogAPIClient::V2::SecurityMonitoringAPI.new
 
 body = DatadogAPIClient::V2::SecurityMonitoringStandardRulePayload.new({
