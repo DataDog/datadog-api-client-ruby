@@ -40,12 +40,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(SecurityMonitoringRuleConvertResponse, Integer, Hash)>] SecurityMonitoringRuleConvertResponse data, response status code and response headers
     def convert_existing_security_monitoring_rule_with_http_info(rule_id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.convert_existing_security_monitoring_rule".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.convert_existing_security_monitoring_rule")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.convert_existing_security_monitoring_rule"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.convert_existing_security_monitoring_rule ...'
@@ -112,12 +106,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(SecurityMonitoringRuleConvertResponse, Integer, Hash)>] SecurityMonitoringRuleConvertResponse data, response status code and response headers
     def convert_security_monitoring_rule_from_json_to_terraform_with_http_info(body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.convert_security_monitoring_rule_from_json_to_terraform".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.convert_security_monitoring_rule_from_json_to_terraform")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.convert_security_monitoring_rule_from_json_to_terraform"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.convert_security_monitoring_rule_from_json_to_terraform ...'

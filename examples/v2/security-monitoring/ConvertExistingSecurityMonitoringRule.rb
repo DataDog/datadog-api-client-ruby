@@ -1,9 +1,6 @@
 # Convert an existing rule from JSON to Terraform returns "OK" response
 
 require "datadog_api_client"
-DatadogAPIClient.configure do |config|
-  config.unstable_operations["v2.convert_existing_security_monitoring_rule".to_sym] = true
-end
 api_instance = DatadogAPIClient::V2::SecurityMonitoringAPI.new
 
 # there is a valid "security_rule" in the system
