@@ -237,6 +237,7 @@ module DatadogAPIClient::V2
     # @option opts [Integer] :page_number Specific page number to return.
     # @option opts [AuthNMappingsSort] :sort Sort AuthN Mappings depending on the given field.
     # @option opts [String] :filter Filter all mappings by the given string.
+    # @option opts [AuthNMappingResourceType] :resource_type Filter by mapping resource type. Defaults to "role" if not specified.
     # @return [Array<(AuthNMappingsResponse, Integer, Hash)>] AuthNMappingsResponse data, response status code and response headers
     def list_authn_mappings_with_http_info(opts = {})
 
@@ -247,6 +248,10 @@ module DatadogAPIClient::V2
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
         fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
       end
+      allowable_values = ['role', 'team']
+      if @api_client.config.client_side_validation && opts[:'resource_type'] && !allowable_values.include?(opts[:'resource_type'])
+        fail ArgumentError, "invalid value for \"resource_type\", must be one of #{allowable_values}"
+      end
       # resource path
       local_var_path = '/api/v2/authn_mappings'
 
@@ -256,6 +261,7 @@ module DatadogAPIClient::V2
       query_params[:'page[number]'] = opts[:'page_number'] if !opts[:'page_number'].nil?
       query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
       query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'resource_type'] = opts[:'resource_type'] if !opts[:'resource_type'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
