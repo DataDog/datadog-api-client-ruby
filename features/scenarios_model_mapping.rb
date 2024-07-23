@@ -170,6 +170,7 @@ ScenariosModelMappings = {
             "start_month" => "Time",
             "end_month" => "Time",
             "include_org_details" => "Boolean",
+            "include_connected_accounts" => "Boolean",
     },
     "v1.GetUsageSynthetics" => {
             "start_hr" => "Time",

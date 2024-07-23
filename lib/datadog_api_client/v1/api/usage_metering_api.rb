@@ -2347,6 +2347,7 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @option opts [Time] :end_month Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage ending this month.
     # @option opts [Boolean] :include_org_details Include usage summaries for each sub-org.
+    # @option opts [Boolean] :include_connected_accounts Boolean to specify whether to include accounts connected to the current account as partner customers in the Datadog partner network program. Defaults to `false`. 
     # @return [Array<(UsageSummaryResponse, Integer, Hash)>] UsageSummaryResponse data, response status code and response headers
     def get_usage_summary_with_http_info(start_month, opts = {})
 
@@ -2365,6 +2366,7 @@ module DatadogAPIClient::V1
       query_params[:'start_month'] = start_month
       query_params[:'end_month'] = opts[:'end_month'] if !opts[:'end_month'].nil?
       query_params[:'include_org_details'] = opts[:'include_org_details'] if !opts[:'include_org_details'].nil?
+      query_params[:'include_connected_accounts'] = opts[:'include_connected_accounts'] if !opts[:'include_connected_accounts'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
