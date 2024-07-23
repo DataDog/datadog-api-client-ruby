@@ -262,6 +262,7 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @option opts [String] :view String to specify whether cost is broken down at a parent-org level or at the sub-org level. Available views are `summary` and `sub-org`.  Defaults to `summary`.
     # @option opts [Time] :end_month Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for cost ending this month.
+    # @option opts [Boolean] :include_connected_accounts Boolean to specify whether to include accounts connected to the current account as partner customers in the Datadog partner network program. Defaults to `false`. 
     # @return [Array<(CostByOrgResponse, Integer, Hash)>] CostByOrgResponse data, response status code and response headers
     def get_historical_cost_by_org_with_http_info(start_month, opts = {})
 
@@ -280,6 +281,7 @@ module DatadogAPIClient::V2
       query_params[:'start_month'] = start_month
       query_params[:'view'] = opts[:'view'] if !opts[:'view'].nil?
       query_params[:'end_month'] = opts[:'end_month'] if !opts[:'end_month'].nil?
+      query_params[:'include_connected_accounts'] = opts[:'include_connected_accounts'] if !opts[:'include_connected_accounts'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -538,6 +540,7 @@ module DatadogAPIClient::V2
     #
     # @param opts [Hash] the optional parameters
     # @option opts [String] :view String to specify whether cost is broken down at a parent-org level or at the sub-org level. Available views are `summary` and `sub-org`. Defaults to `summary`.
+    # @option opts [Boolean] :include_connected_accounts Boolean to specify whether to include accounts connected to the current account as partner customers in the Datadog partner network program. Defaults to `false`. 
     # @return [Array<(ProjectedCostResponse, Integer, Hash)>] ProjectedCostResponse data, response status code and response headers
     def get_projected_cost_with_http_info(opts = {})
 
@@ -550,6 +553,7 @@ module DatadogAPIClient::V2
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'view'] = opts[:'view'] if !opts[:'view'].nil?
+      query_params[:'include_connected_accounts'] = opts[:'include_connected_accounts'] if !opts[:'include_connected_accounts'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

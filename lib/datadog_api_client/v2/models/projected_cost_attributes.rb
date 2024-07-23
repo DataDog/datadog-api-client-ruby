@@ -21,6 +21,12 @@ module DatadogAPIClient::V2
   class ProjectedCostAttributes
     include BaseGenericModel
 
+    # The account name.
+    attr_accessor :account_name
+
+    # The account public ID.
+    attr_accessor :account_public_id
+
     # List of charges data reported for the requested month.
     attr_accessor :charges
 
@@ -43,6 +49,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'account_name' => :'account_name',
+        :'account_public_id' => :'account_public_id',
         :'charges' => :'charges',
         :'date' => :'date',
         :'org_name' => :'org_name',
@@ -56,6 +64,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'account_name' => :'String',
+        :'account_public_id' => :'String',
         :'charges' => :'Array<ChargebackBreakdown>',
         :'date' => :'Time',
         :'org_name' => :'String',
@@ -80,6 +90,14 @@ module DatadogAPIClient::V2
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'account_name')
+        self.account_name = attributes[:'account_name']
+      end
+
+      if attributes.key?(:'account_public_id')
+        self.account_public_id = attributes[:'account_public_id']
+      end
 
       if attributes.key?(:'charges')
         if (value = attributes[:'charges']).is_a?(Array)
@@ -114,6 +132,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          account_name == o.account_name &&
+          account_public_id == o.account_public_id &&
           charges == o.charges &&
           date == o.date &&
           org_name == o.org_name &&
@@ -126,7 +146,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [charges, date, org_name, projected_total_cost, public_id, region].hash
+      [account_name, account_public_id, charges, date, org_name, projected_total_cost, public_id, region].hash
     end
   end
 end

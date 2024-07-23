@@ -1105,6 +1105,7 @@ ScenariosModelMappings = {
             "view" => "String",
             "start_month" => "Time",
             "end_month" => "Time",
+            "include_connected_accounts" => "Boolean",
     },
     "v2.GetHourlyUsage" => {
             "filter_timestamp_start" => "Time",
@@ -1127,6 +1128,7 @@ ScenariosModelMappings = {
     },
     "v2.GetProjectedCost" => {
             "view" => "String",
+            "include_connected_accounts" => "Boolean",
     },
     "v2.DeleteDashboardListItems" => {
             "dashboard_list_id" => "Integer",
