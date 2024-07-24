@@ -24,15 +24,11 @@ module DatadogAPIClient::V2
     # Datadog application key.
     attr_accessor :data
 
-    # Array of objects related to the application key.
-    attr_accessor :included
-
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data',
-        :'included' => :'included'
+        :'data' => :'data'
       }
     end
 
@@ -40,8 +36,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'FullApplicationKey',
-        :'included' => :'Array<ApplicationKeyResponseIncludedItem>'
+        :'data' => :'FullApplicationKey'
       }
     end
 
@@ -64,12 +59,6 @@ module DatadogAPIClient::V2
       if attributes.key?(:'data')
         self.data = attributes[:'data']
       end
-
-      if attributes.key?(:'included')
-        if (value = attributes[:'included']).is_a?(Array)
-          self.included = value
-        end
-      end
     end
 
     # Checks equality by comparing each attribute.
@@ -78,15 +67,14 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data &&
-          included == o.included
+          data == o.data
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, included].hash
+      [data].hash
     end
   end
 end
