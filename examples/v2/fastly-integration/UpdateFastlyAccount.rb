@@ -10,6 +10,7 @@ body = DatadogAPIClient::V2::FastlyAccountUpdateRequest.new({
   data: DatadogAPIClient::V2::FastlyAccountUpdateRequestData.new({
     attributes: DatadogAPIClient::V2::FastlyAccountUpdateRequestAttributes.new({
       api_key: "update-secret",
+      name: "test-name",
     }),
     type: DatadogAPIClient::V2::FastlyAccountType::FASTLY_ACCOUNTS,
   }),
