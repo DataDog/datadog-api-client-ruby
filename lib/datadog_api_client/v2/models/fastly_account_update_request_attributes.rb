@@ -22,13 +22,17 @@ module DatadogAPIClient::V2
     include BaseGenericModel
 
     # The API key of the Fastly account.
-    attr_accessor :api_key
+    attr_reader :api_key
+
+    # The name of the Fastly account.
+    attr_reader :name
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'api_key' => :'api_key'
+        :'api_key' => :'api_key',
+        :'name' => :'name'
       }
     end
 
@@ -36,7 +40,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'api_key' => :'String'
+        :'api_key' => :'String',
+        :'name' => :'String'
       }
     end
 
@@ -59,6 +64,39 @@ module DatadogAPIClient::V2
       if attributes.key?(:'api_key')
         self.api_key = attributes[:'api_key']
       end
+
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
+      end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @api_key.nil?
+      return false if @name.nil?
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param api_key [Object] Object to be assigned
+    # @!visibility private
+    def api_key=(api_key)
+      if api_key.nil?
+        fail ArgumentError, 'invalid value for "api_key", api_key cannot be nil.'
+      end
+      @api_key = api_key
+    end
+
+    # Custom attribute writer method with validation
+    # @param name [Object] Object to be assigned
+    # @!visibility private
+    def name=(name)
+      if name.nil?
+        fail ArgumentError, 'invalid value for "name", name cannot be nil.'
+      end
+      @name = name
     end
 
     # Checks equality by comparing each attribute.
@@ -67,14 +105,15 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          api_key == o.api_key
+          api_key == o.api_key &&
+          name == o.name
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [api_key].hash
+      [api_key, name].hash
     end
   end
 end

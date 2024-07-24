@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class FastlyAccounResponseAttributes
     include BaseGenericModel
 
+    # The API key for the Fastly account.
+    attr_reader :api_key
+
     # The name of the Fastly account.
     attr_reader :name
 
@@ -31,6 +34,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'api_key' => :'api_key',
         :'name' => :'name',
         :'services' => :'services'
       }
@@ -40,6 +44,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'api_key' => :'String',
         :'name' => :'String',
         :'services' => :'Array<FastlyService>'
       }
@@ -61,6 +66,10 @@ module DatadogAPIClient::V2
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'api_key')
+        self.api_key = attributes[:'api_key']
+      end
+
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
@@ -76,8 +85,19 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
+      return false if @api_key.nil?
       return false if @name.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param api_key [Object] Object to be assigned
+    # @!visibility private
+    def api_key=(api_key)
+      if api_key.nil?
+        fail ArgumentError, 'invalid value for "api_key", api_key cannot be nil.'
+      end
+      @api_key = api_key
     end
 
     # Custom attribute writer method with validation
@@ -96,6 +116,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          api_key == o.api_key &&
           name == o.name &&
           services == o.services
     end
@@ -104,7 +125,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [name, services].hash
+      [api_key, name, services].hash
     end
   end
 end
