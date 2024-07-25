@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Wed, 28 Feb 2024 20:25:59 GMT
+- recorded_at: Thu, 25 Jul 2024 18:47:35 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"app_service_plan_filters":"key:value,filter:example","automute":true,"client_id":"17091519-0000-0000-0000-170915195900","client_secret":"testingx./Sw*g/Y33t..R1cH+hScMDt","container_app_filters":"key:value,filter:example","cspm_enabled":true,"custom_metrics_enabled":true,"errors":["*"],"host_filters":"key:value,filter:example","new_client_id":"17091519-0000-0000-0000-170915195900","new_tenant_name":"17091519-0000-0000-0000-170915195900","resource_collection_enabled":true,"tenant_name":"17091519-0000-0000-0000-170915195900"}'
+      string: '{"app_service_plan_filters":"key:value,filter:example","automute":true,"client_id":"17219332-0000-0000-0000-172193325500","client_secret":"TestingRh2nx664kUy5dIApvM54T4AtO","container_app_filters":"key:value,filter:example","cspm_enabled":true,"custom_metrics_enabled":true,"errors":["*"],"host_filters":"key:value,filter:example","new_client_id":"17219332-0000-0000-0000-172193325500","new_tenant_name":"17219332-0000-0000-0000-172193325500","resource_collection_enabled":true,"tenant_name":"17219332-0000-0000-0000-172193325500"}'
     headers:
       Accept:
       - application/json
@@ -23,11 +23,11 @@ http_interactions:
     status:
       code: 200
       message: OK
-- recorded_at: Wed, 28 Feb 2024 20:25:59 GMT
+- recorded_at: Thu, 25 Jul 2024 18:47:35 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"client_id":"17091519-0000-0000-0000-170915195900","tenant_name":"17091519-0000-0000-0000-170915195900"}'
+      string: '{"client_id":"17219332-0000-0000-0000-172193325500","tenant_name":"17219332-0000-0000-0000-172193325500"}'
     headers:
       Accept:
       - application/json
