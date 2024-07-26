@@ -3166,6 +3166,32 @@
       <li class="public ">
   <span class="summary_signature">
     
+      <a href="#siem_analyzed_logs_add_on_count_sum-instance_method" title="#siem_analyzed_logs_add_on_count_sum (instance method)">#<strong>siem_analyzed_logs_add_on_count_sum</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Shows the sum of all log events analyzed by Cloud SIEM over all hours in the current date for the given org.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#synthetics_browser_check_calls_count_sum-instance_method" title="#synthetics_browser_check_calls_count_sum (instance method)">#<strong>synthetics_browser_check_calls_count_sum</strong>  &#x21d2; Object </a>
     
 
@@ -8653,6 +8679,48 @@
 </div>
     
       
+      <span id="siem_analyzed_logs_add_on_count_sum=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="siem_analyzed_logs_add_on_count_sum-instance_method">
+  
+    #<strong>siem_analyzed_logs_add_on_count_sum</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Shows the sum of all log events analyzed by Cloud SIEM over all hours in the current date for the given org.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+373
+374
+375</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date.rb', line 373</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_siem_analyzed_logs_add_on_count_sum'>siem_analyzed_logs_add_on_count_sum</span>
+  <span class='ivar'>@siem_analyzed_logs_add_on_count_sum</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
       <span id="synthetics_browser_check_calls_count_sum=-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="synthetics_browser_check_calls_count_sum-instance_method">
@@ -8763,12 +8831,12 @@
       <pre class="lines">
 
 
-379
-380
-381</pre>
+382
+383
+384</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date.rb', line 379</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date.rb', line 382</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_synthetics_mobile_test_runs_sum'>synthetics_mobile_test_runs_sum</span>
   <span class='ivar'>@synthetics_mobile_test_runs_sum</span>
@@ -8805,12 +8873,12 @@
       <pre class="lines">
 
 
-382
-383
-384</pre>
+385
+386
+387</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date.rb', line 382</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date.rb', line 385</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_synthetics_parallel_testing_max_slots_hwm'>synthetics_parallel_testing_max_slots_hwm</span>
   <span class='ivar'>@synthetics_parallel_testing_max_slots_hwm</span>
@@ -8931,12 +8999,12 @@
       <pre class="lines">
 
 
-391
-392
-393</pre>
+394
+395
+396</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date.rb', line 391</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date.rb', line 394</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_universal_service_monitoring_host_top99p'>universal_service_monitoring_host_top99p</span>
   <span class='ivar'>@universal_service_monitoring_host_top99p</span>
@@ -9015,12 +9083,12 @@
       <pre class="lines">
 
 
-397
-398
-399</pre>
+400
+401
+402</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date.rb', line 397</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date.rb', line 400</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_vuln_management_host_count_top99p'>vuln_management_host_count_top99p</span>
   <span class='ivar'>@vuln_management_host_count_top99p</span>
@@ -9057,12 +9125,12 @@
       <pre class="lines">
 
 
-400
-401
-402</pre>
+403
+404
+405</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date.rb', line 400</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date.rb', line 403</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_workflow_executions_usage_sum'>workflow_executions_usage_sum</span>
   <span class='ivar'>@workflow_executions_usage_sum</span>
@@ -10011,7 +10079,7 @@ For object, use to_hash. Otherwise, just return the value</p>
 </div>
 
       <div id="footer">
-  Generated on Fri Jul 26 18:28:00 2024 by
+  Generated on Fri Jul 26 19:05:56 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.36 (ruby-2.7.8).
 </div>
