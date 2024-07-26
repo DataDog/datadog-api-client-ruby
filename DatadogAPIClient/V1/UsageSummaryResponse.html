@@ -3192,6 +3192,58 @@
       <li class="public ">
   <span class="summary_signature">
     
+      <a href="#sca_fargate_count_avg_sum-instance_method" title="#sca_fargate_count_avg_sum (instance method)">#<strong>sca_fargate_count_avg_sum</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Shows the average of all Software Composition Analysis Fargate tasks over all hours in the current months for all organizations.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#sca_fargate_count_hwm_sum-instance_method" title="#sca_fargate_count_hwm_sum (instance method)">#<strong>sca_fargate_count_hwm_sum</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Shows the sum of the high-water marks of all Software Composition Analysis Fargate tasks over all hours in the current months for all organizations.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#sds_apm_scanned_bytes_sum-instance_method" title="#sds_apm_scanned_bytes_sum (instance method)">#<strong>sds_apm_scanned_bytes_sum</strong>  &#x21d2; Object </a>
     
 
@@ -9007,6 +9059,90 @@
 </div>
     
       
+      <span id="sca_fargate_count_avg_sum=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="sca_fargate_count_avg_sum-instance_method">
+  
+    #<strong>sca_fargate_count_avg_sum</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Shows the average of all Software Composition Analysis Fargate tasks over all hours in the current months for all organizations.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+376
+377
+378</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 376</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_sca_fargate_count_avg_sum'>sca_fargate_count_avg_sum</span>
+  <span class='ivar'>@sca_fargate_count_avg_sum</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="sca_fargate_count_hwm_sum=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="sca_fargate_count_hwm_sum-instance_method">
+  
+    #<strong>sca_fargate_count_hwm_sum</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Shows the sum of the high-water marks of all Software Composition Analysis Fargate tasks over all hours in the current months for all organizations.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+379
+380
+381</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 379</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_sca_fargate_count_hwm_sum'>sca_fargate_count_hwm_sum</span>
+  <span class='ivar'>@sca_fargate_count_hwm_sum</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
       <span id="sds_apm_scanned_bytes_sum=-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="sds_apm_scanned_bytes_sum-instance_method">
@@ -9033,12 +9169,12 @@
       <pre class="lines">
 
 
-376
-377
-378</pre>
+382
+383
+384</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 376</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 382</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_sds_apm_scanned_bytes_sum'>sds_apm_scanned_bytes_sum</span>
   <span class='ivar'>@sds_apm_scanned_bytes_sum</span>
@@ -9075,12 +9211,12 @@
       <pre class="lines">
 
 
-379
-380
-381</pre>
+385
+386
+387</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 379</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 385</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_sds_events_scanned_bytes_sum'>sds_events_scanned_bytes_sum</span>
   <span class='ivar'>@sds_events_scanned_bytes_sum</span>
@@ -9159,12 +9295,12 @@
       <pre class="lines">
 
 
-385
-386
-387</pre>
+391
+392
+393</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 385</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 391</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_sds_rum_scanned_bytes_sum'>sds_rum_scanned_bytes_sum</span>
   <span class='ivar'>@sds_rum_scanned_bytes_sum</span>
@@ -9243,12 +9379,12 @@
       <pre class="lines">
 
 
-391
-392
-393</pre>
+397
+398
+399</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 391</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 397</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_serverless_apps_azure_count_avg_sum'>serverless_apps_azure_count_avg_sum</span>
   <span class='ivar'>@serverless_apps_azure_count_avg_sum</span>
@@ -9285,12 +9421,12 @@
       <pre class="lines">
 
 
-394
-395
-396</pre>
+400
+401
+402</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 394</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 400</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_serverless_apps_google_count_avg_sum'>serverless_apps_google_count_avg_sum</span>
   <span class='ivar'>@serverless_apps_google_count_avg_sum</span>
@@ -9327,12 +9463,12 @@
       <pre class="lines">
 
 
-397
-398
-399</pre>
+403
+404
+405</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 397</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 403</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_serverless_apps_total_count_avg_sum'>serverless_apps_total_count_avg_sum</span>
   <span class='ivar'>@serverless_apps_total_count_avg_sum</span>
@@ -9369,12 +9505,12 @@
       <pre class="lines">
 
 
-400
-401
-402</pre>
+406
+407
+408</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 400</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 406</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_siem_analyzed_logs_add_on_count_agg_sum'>siem_analyzed_logs_add_on_count_agg_sum</span>
   <span class='ivar'>@siem_analyzed_logs_add_on_count_agg_sum</span>
@@ -9537,12 +9673,12 @@
       <pre class="lines">
 
 
-412
-413
-414</pre>
+418
+419
+420</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 412</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 418</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_synthetics_mobile_test_runs_agg_sum'>synthetics_mobile_test_runs_agg_sum</span>
   <span class='ivar'>@synthetics_mobile_test_runs_agg_sum</span>
@@ -9579,12 +9715,12 @@
       <pre class="lines">
 
 
-415
-416
-417</pre>
+421
+422
+423</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 415</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 421</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_synthetics_parallel_testing_max_slots_hwm_sum'>synthetics_parallel_testing_max_slots_hwm_sum</span>
   <span class='ivar'>@synthetics_parallel_testing_max_slots_hwm_sum</span>
@@ -9705,12 +9841,12 @@
       <pre class="lines">
 
 
-424
-425
-426</pre>
+430
+431
+432</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 424</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 430</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_universal_service_monitoring_host_top99p_sum'>universal_service_monitoring_host_top99p_sum</span>
   <span class='ivar'>@universal_service_monitoring_host_top99p_sum</span>
@@ -9831,12 +9967,12 @@
       <pre class="lines">
 
 
-433
-434
-435</pre>
+439
+440
+441</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 433</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 439</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_vuln_management_host_count_top99p_sum'>vuln_management_host_count_top99p_sum</span>
   <span class='ivar'>@vuln_management_host_count_top99p_sum</span>
@@ -9873,12 +10009,12 @@
       <pre class="lines">
 
 
-436
-437
-438</pre>
+442
+443
+444</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 436</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 442</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_workflow_executions_usage_agg_sum'>workflow_executions_usage_agg_sum</span>
   <span class='ivar'>@workflow_executions_usage_agg_sum</span>
@@ -10827,7 +10963,7 @@ For object, use to_hash. Otherwise, just return the value</p>
 </div>
 
       <div id="footer">
-  Generated on Fri Jul 26 19:06:05 2024 by
+  Generated on Fri Jul 26 19:37:12 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.36 (ruby-2.7.8).
 </div>
