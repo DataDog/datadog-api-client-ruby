@@ -157,6 +157,8 @@ module DatadogAPIClient::V1
     SIEM_INGESTED_BYTES_PERCENTAGE = "siem_ingested_bytes_percentage".freeze
     WORKFLOW_EXECUTIONS_USAGE = "workflow_executions_usage".freeze
     WORKFLOW_EXECUTIONS_PERCENTAGE = "workflow_executions_percentage".freeze
+    SCA_FARGATE_USAGE = "sca_fargate_usage".freeze
+    SCA_FARGATE_PERCENTAGE = "sca_fargate_percentage".freeze
     ALL = "*".freeze
   end
 end
