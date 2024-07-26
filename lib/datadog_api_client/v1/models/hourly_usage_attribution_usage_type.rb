@@ -85,6 +85,7 @@ module DatadogAPIClient::V1
     RUM_REPLAY_SESSIONS_USAGE = "rum_replay_sessions_usage".freeze
     SDS_SCANNED_BYTES_USAGE = "sds_scanned_bytes_usage".freeze
     SERVERLESS_APPS_USAGE = "serverless_apps_usage".freeze
+    SIEM_ANALYZED_LOGS_ADD_ON_USAGE = "siem_analyzed_logs_add_on_usage".freeze
     SIEM_INGESTED_BYTES_USAGE = "siem_ingested_bytes_usage".freeze
     SNMP_USAGE = "snmp_usage".freeze
     UNIVERSAL_SERVICE_MONITORING_USAGE = "universal_service_monitoring_usage".freeze

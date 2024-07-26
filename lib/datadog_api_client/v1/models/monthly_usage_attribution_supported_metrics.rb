@@ -151,6 +151,8 @@ module DatadogAPIClient::V1
     RUM_BROWSER_MOBILE_SESSIONS_PERCENTAGE = "rum_browser_mobile_sessions_percentage".freeze
     INGESTED_SPANS_BYTES_USAGE = "ingested_spans_bytes_usage".freeze
     INGESTED_SPANS_BYTES_PERCENTAGE = "ingested_spans_bytes_percentage".freeze
+    SIEM_ANALYZED_LOGS_ADD_ON_USAGE = "siem_analyzed_logs_add_on_usage".freeze
+    SIEM_ANALYZED_LOGS_ADD_ON_PERCENTAGE = "siem_analyzed_logs_add_on_percentage".freeze
     SIEM_INGESTED_BYTES_USAGE = "siem_ingested_bytes_usage".freeze
     SIEM_INGESTED_BYTES_PERCENTAGE = "siem_ingested_bytes_percentage".freeze
     WORKFLOW_EXECUTIONS_USAGE = "workflow_executions_usage".freeze
