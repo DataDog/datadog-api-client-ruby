@@ -1075,6 +1075,15 @@ ScenariosModelMappings = {
             "cloud_account_id" => "String",
             "body" => "AzureUCConfigPatchRequest",
     },
+    "v2.UploadCustomCostsFile" => {
+            "body" => "Array<CustomCostsFileLineItem>",
+    },
+    "v2.DeleteCustomCostsFile" => {
+            "file_id" => "String",
+    },
+    "v2.GetCustomCostsFile" => {
+            "file_id" => "String",
+    },
     "v2.GetMonthlyCostAttribution" => {
             "start_month" => "Time",
             "end_month" => "Time",

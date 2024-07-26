@@ -287,6 +287,71 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Delete Custom Costs file.
+    #
+    # @see #delete_custom_costs_file_with_http_info
+    def delete_custom_costs_file(file_id, opts = {})
+      delete_custom_costs_file_with_http_info(file_id, opts)
+      nil
+    end
+
+    # Delete Custom Costs file.
+    #
+    # Delete the specified Custom Costs file.
+    #
+    # @param file_id [String] File ID.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_custom_costs_file_with_http_info(file_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.delete_custom_costs_file ...'
+      end
+      # verify the required parameter 'file_id' is set
+      if @api_client.config.client_side_validation && file_id.nil?
+        fail ArgumentError, "Missing the required parameter 'file_id' when calling CloudCostManagementAPI.delete_custom_costs_file"
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/custom_costs/{file_id}'.sub('{file_id}', CGI.escape(file_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_custom_costs_file,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#delete_custom_costs_file\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Cloud Cost Enabled.
     #
     # @see #get_cloud_cost_activity_with_http_info
@@ -343,6 +408,71 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CloudCostManagementAPI#get_cloud_cost_activity\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get Custom Costs file.
+    #
+    # @see #get_custom_costs_file_with_http_info
+    def get_custom_costs_file(file_id, opts = {})
+      data, _status_code, _headers = get_custom_costs_file_with_http_info(file_id, opts)
+      data
+    end
+
+    # Get Custom Costs file.
+    #
+    # Fetch the specified Custom Costs file.
+    #
+    # @param file_id [String] File ID.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(CustomCostsFileGetResponse, Integer, Hash)>] CustomCostsFileGetResponse data, response status code and response headers
+    def get_custom_costs_file_with_http_info(file_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.get_custom_costs_file ...'
+      end
+      # verify the required parameter 'file_id' is set
+      if @api_client.config.client_side_validation && file_id.nil?
+        fail ArgumentError, "Missing the required parameter 'file_id' when calling CloudCostManagementAPI.get_custom_costs_file"
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/custom_costs/{file_id}'.sub('{file_id}', CGI.escape(file_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CustomCostsFileGetResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_custom_costs_file,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#get_custom_costs_file\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -536,6 +666,66 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # List Custom Costs files.
+    #
+    # @see #list_custom_costs_files_with_http_info
+    def list_custom_costs_files(opts = {})
+      data, _status_code, _headers = list_custom_costs_files_with_http_info(opts)
+      data
+    end
+
+    # List Custom Costs files.
+    #
+    # List the Custom Costs files.
+    #
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(CustomCostsFileListResponse, Integer, Hash)>] CustomCostsFileListResponse data, response status code and response headers
+    def list_custom_costs_files_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.list_custom_costs_files ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/custom_costs'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CustomCostsFileListResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_custom_costs_files,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#list_custom_costs_files\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Update Cloud Cost Management AWS CUR config.
     #
     # @see #update_cost_awscur_config_with_http_info
@@ -676,6 +866,73 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CloudCostManagementAPI#update_cost_azure_uc_configs\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Upload Custom Costs file.
+    #
+    # @see #upload_custom_costs_file_with_http_info
+    def upload_custom_costs_file(body, opts = {})
+      data, _status_code, _headers = upload_custom_costs_file_with_http_info(body, opts)
+      data
+    end
+
+    # Upload Custom Costs file.
+    #
+    # Upload a Custom Costs file.
+    #
+    # @param body [Array<CustomCostsFileLineItem>] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(CustomCostsFileUploadResponse, Integer, Hash)>] CustomCostsFileUploadResponse data, response status code and response headers
+    def upload_custom_costs_file_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.upload_custom_costs_file ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CloudCostManagementAPI.upload_custom_costs_file"
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/custom_costs'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CustomCostsFileUploadResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :upload_custom_costs_file,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#upload_custom_costs_file\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
