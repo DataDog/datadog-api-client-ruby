@@ -83,6 +83,7 @@ module DatadogAPIClient::V1
     PROFILED_HOST_USAGE = "profiled_host_usage".freeze
     RUM_BROWSER_MOBILE_SESSIONS_USAGE = "rum_browser_mobile_sessions_usage".freeze
     RUM_REPLAY_SESSIONS_USAGE = "rum_replay_sessions_usage".freeze
+    SCA_FARGATE_USAGE = "sca_fargate_usage".freeze
     SDS_SCANNED_BYTES_USAGE = "sds_scanned_bytes_usage".freeze
     SERVERLESS_APPS_USAGE = "serverless_apps_usage".freeze
     SIEM_ANALYZED_LOGS_ADD_ON_USAGE = "siem_analyzed_logs_add_on_usage".freeze
