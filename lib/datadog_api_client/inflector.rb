@@ -2371,6 +2371,19 @@ module DatadogAPIClient
           "v2.user_update_data" => "UserUpdateData",
           "v2.user_update_request" => "UserUpdateRequest",
           "v2.widget_live_span" => "WidgetLiveSpan",
+          "v2.workflow_instance_create_meta" => "WorkflowInstanceCreateMeta",
+          "v2.workflow_instance_create_request" => "WorkflowInstanceCreateRequest",
+          "v2.workflow_instance_create_response" => "WorkflowInstanceCreateResponse",
+          "v2.workflow_instance_create_response_data" => "WorkflowInstanceCreateResponseData",
+          "v2.workflow_instance_list_item" => "WorkflowInstanceListItem",
+          "v2.workflow_list_instances_response" => "WorkflowListInstancesResponse",
+          "v2.workflow_list_instances_response_meta" => "WorkflowListInstancesResponseMeta",
+          "v2.workflow_list_instances_response_meta_page" => "WorkflowListInstancesResponseMetaPage",
+          "v2.worklflow_cancel_instance_response" => "WorklflowCancelInstanceResponse",
+          "v2.worklflow_cancel_instance_response_data" => "WorklflowCancelInstanceResponseData",
+          "v2.worklflow_get_instance_response" => "WorklflowGetInstanceResponse",
+          "v2.worklflow_get_instance_response_data" => "WorklflowGetInstanceResponseData",
+          "v2.worklflow_get_instance_response_data_attributes" => "WorklflowGetInstanceResponseDataAttributes",
         # APIs
         "v1.authentication_api" => "AuthenticationAPI",
         "v1.aws_integration_api" => "AWSIntegrationAPI",
@@ -2453,7 +2466,8 @@ module DatadogAPIClient
         "v2.synthetics_api" => "SyntheticsAPI",
         "v2.teams_api" => "TeamsAPI",
         "v2.usage_metering_api" => "UsageMeteringAPI",
-        "v2.users_api" => "UsersAPI"
+        "v2.users_api" => "UsersAPI",
+        "v2.workflow_automation_api" => "WorkflowAutomationAPI"
         }
     end
   end
