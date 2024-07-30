@@ -907,7 +907,7 @@ The decrement is applied when the environment tag of the signal starts with <cod
 </h3><div class="docstring">
   <div class="discussion">
     <p>A time window is specified to match when at least one of the cases matches true. This is a sliding window
-and evaluates in real time.</p>
+and evaluates in real time. For third party rules, it should equal max signal duration.</p>
 
 
   </div>
@@ -1034,7 +1034,7 @@ and evaluates in real time.</p>
 </h3><div class="docstring">
   <div class="discussion">
     <p>Once a signal is generated, the signal will remain “open” if a case is matched at least once within
-this keep alive window.</p>
+this keep alive window. For third party rules, it should equal max signal duration.</p>
 
 
   </div>
@@ -2129,7 +2129,7 @@ For object, use to_hash. Otherwise, just return the value</p>
 </div>
 
       <div id="footer">
-  Generated on Fri Jul 26 19:37:33 2024 by
+  Generated on Tue Jul 30 18:47:49 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.36 (ruby-2.7.8).
 </div>
