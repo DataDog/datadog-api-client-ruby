@@ -25,7 +25,7 @@ module DatadogAPIClient::V2
     attr_accessor :attributes
 
     # ID of the permission.
-    attr_accessor :id
+    attr_reader :id
 
     # Permissions resource type.
     attr_reader :type
@@ -83,8 +83,19 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
+      return false if @id.nil?
       return false if @type.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param id [Object] Object to be assigned
+    # @!visibility private
+    def id=(id)
+      if id.nil?
+        fail ArgumentError, 'invalid value for "id", id cannot be nil.'
+      end
+      @id = id
     end
 
     # Custom attribute writer method with validation
