@@ -1,0 +1,23 @@
+http_interactions:
+- recorded_at: Wed, 24 Jul 2024 18:39:57 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+    method: PUT
+    uri: https://api.datadoghq.com/api/v2/workflows/0233a3b7-b7ba-425e-a8cc-375ca2020b5b/instances/e0c64dc8-f946-4ae8-8d79-54569031ce67/cancel
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"code":"INSTANCE_NOT_FOUND","detail":"instance e0c64dc8-f946-4ae8-8d79-54569031ce67
+        not found"}]}
+
+        '
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 404
+      message: Not Found
+recorded_with: VCR 6.0.0
