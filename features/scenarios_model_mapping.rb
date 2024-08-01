@@ -1840,6 +1840,10 @@ ScenariosModelMappings = {
     "v2.DeleteScorecardRule" => {
             "rule_id" => "String",
     },
+    "v2.UpdateScorecardRule" => {
+            "rule_id" => "String",
+            "body" => "UpdateRuleRequest",
+    },
     "v2.ReorderScanningGroups" => {
             "body" => "SensitiveDataScannerConfigRequest",
     },
