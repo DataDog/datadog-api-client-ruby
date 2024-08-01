@@ -17,8 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Synthetic global variable.
-  class SyntheticsGlobalVariable
+  # Details of the global variable to create.
+  class SyntheticsGlobalVariableRequest
     include BaseGenericModel
 
     # Attributes of the global variable.
@@ -49,7 +49,7 @@ module DatadogAPIClient::V1
     attr_reader :tags
 
     # Value of the global variable.
-    attr_reader :value
+    attr_accessor :value
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -90,13 +90,13 @@ module DatadogAPIClient::V1
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SyntheticsGlobalVariable` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SyntheticsGlobalVariableRequest` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::SyntheticsGlobalVariable`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::SyntheticsGlobalVariableRequest`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
@@ -151,7 +151,6 @@ module DatadogAPIClient::V1
       return false if @description.nil?
       return false if @name.nil?
       return false if @tags.nil?
-      return false if @value.nil?
       true
     end
 
@@ -183,16 +182,6 @@ module DatadogAPIClient::V1
         fail ArgumentError, 'invalid value for "tags", tags cannot be nil.'
       end
       @tags = tags
-    end
-
-    # Custom attribute writer method with validation
-    # @param value [Object] Object to be assigned
-    # @!visibility private
-    def value=(value)
-      if value.nil?
-        fail ArgumentError, 'invalid value for "value", value cannot be nil.'
-      end
-      @value = value
     end
 
     # Checks equality by comparing each attribute.
