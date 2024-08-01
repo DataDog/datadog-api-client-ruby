@@ -768,7 +768,7 @@ ScenariosModelMappings = {
             "body" => "SyntheticsUpdateTestPauseStatusPayload",
     },
     "v1.CreateGlobalVariable" => {
-            "body" => "SyntheticsGlobalVariable",
+            "body" => "SyntheticsGlobalVariableRequest",
     },
     "v1.DeleteGlobalVariable" => {
             "variable_id" => "String",

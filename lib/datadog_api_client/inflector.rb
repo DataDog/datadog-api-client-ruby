@@ -625,6 +625,7 @@ module DatadogAPIClient
           "v1.synthetics_global_variable_parser_type" => "SyntheticsGlobalVariableParserType",
           "v1.synthetics_global_variable_parse_test_options" => "SyntheticsGlobalVariableParseTestOptions",
           "v1.synthetics_global_variable_parse_test_options_type" => "SyntheticsGlobalVariableParseTestOptionsType",
+          "v1.synthetics_global_variable_request" => "SyntheticsGlobalVariableRequest",
           "v1.synthetics_global_variable_totp_parameters" => "SyntheticsGlobalVariableTOTPParameters",
           "v1.synthetics_global_variable_value" => "SyntheticsGlobalVariableValue",
           "v1.synthetics_list_global_variables_response" => "SyntheticsListGlobalVariablesResponse",
