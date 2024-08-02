@@ -24,15 +24,11 @@ module DatadogAPIClient::V2
     # Relationship to multiple permissions objects.
     attr_accessor :permissions
 
-    # Relationship to users.
-    attr_accessor :users
-
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'permissions' => :'permissions',
-        :'users' => :'users'
+        :'permissions' => :'permissions'
       }
     end
 
@@ -40,8 +36,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'permissions' => :'RelationshipToPermissions',
-        :'users' => :'RelationshipToUsers'
+        :'permissions' => :'RelationshipToPermissions'
       }
     end
 
@@ -64,10 +59,6 @@ module DatadogAPIClient::V2
       if attributes.key?(:'permissions')
         self.permissions = attributes[:'permissions']
       end
-
-      if attributes.key?(:'users')
-        self.users = attributes[:'users']
-      end
     end
 
     # Checks equality by comparing each attribute.
@@ -76,15 +67,14 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          permissions == o.permissions &&
-          users == o.users
+          permissions == o.permissions
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [permissions, users].hash
+      [permissions].hash
     end
   end
 end

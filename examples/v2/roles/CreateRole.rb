@@ -16,9 +16,6 @@ body = DatadogAPIClient::V2::RoleCreateRequest.new({
           }),
         ],
       }),
-      users: DatadogAPIClient::V2::RelationshipToUsers.new({
-        data: [],
-      }),
     }),
     type: DatadogAPIClient::V2::RolesType::ROLES,
   }),
