@@ -33,7 +33,7 @@ module DatadogAPIClient::V2
 
     # Cancel a workflow instance.
     #
-    # Cancels a specific execution of a given workflow. This API requires an application key scoped with the workflows_run permission.
+    # Cancels a specific execution of a given workflow.
     #
     # @param workflow_id [String] The ID of the workflow.
     # @param instance_id [String] The ID of the workflow instance.
@@ -103,7 +103,7 @@ module DatadogAPIClient::V2
 
     # Execute a workflow.
     #
-    # Execute the given workflow. This API requires an application key scoped with the workflows_run permission.
+    # Execute the given workflow
     #
     # @param workflow_id [String] The ID of the workflow.
     # @param body [WorkflowInstanceCreateRequest] 
@@ -175,7 +175,7 @@ module DatadogAPIClient::V2
 
     # Get a workflow instance.
     #
-    # Get a specific execution of a given workflow. This API requires an application key scoped with the workflows_read permission.
+    # Get a specific execution of a given workflow.
     #
     # @param workflow_id [String] The ID of the workflow.
     # @param instance_id [String] The ID of the workflow instance.
@@ -245,7 +245,7 @@ module DatadogAPIClient::V2
 
     # List workflow instances.
     #
-    # List all instances of a given workflow. This API requires an application key scoped with the workflows_read permission.
+    # List all instances of a given workflow.
     #
     # @param workflow_id [String] The ID of the workflow.
     # @param opts [Hash] the optional parameters
@@ -284,7 +284,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'WorkflowListInstancesResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_workflow_instances,
