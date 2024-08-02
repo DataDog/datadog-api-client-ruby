@@ -12,6 +12,7 @@ body = DatadogAPIClient::V2::RoleCreateRequest.new({
       permissions: DatadogAPIClient::V2::RelationshipToPermissions.new({
         data: [
           DatadogAPIClient::V2::RelationshipToPermissionData.new({
+            id: "219",
             type: DatadogAPIClient::V2::PermissionsType::PERMISSIONS,
           }),
         ],
