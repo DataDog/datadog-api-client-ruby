@@ -30,13 +30,17 @@ module DatadogAPIClient::V2
     # Name of the role.
     attr_accessor :name
 
+    # The user count.
+    attr_reader :user_count
+
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
         :'created_at' => :'created_at',
         :'modified_at' => :'modified_at',
-        :'name' => :'name'
+        :'name' => :'name',
+        :'user_count' => :'user_count'
       }
     end
 
@@ -46,7 +50,8 @@ module DatadogAPIClient::V2
       {
         :'created_at' => :'Time',
         :'modified_at' => :'Time',
-        :'name' => :'String'
+        :'name' => :'String',
+        :'user_count' => :'Integer'
       }
     end
 
@@ -77,6 +82,28 @@ module DatadogAPIClient::V2
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
+
+      if attributes.key?(:'user_count')
+        self.user_count = attributes[:'user_count']
+      end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if !@user_count.nil? && @user_count > 2147483647
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param user_count [Object] Object to be assigned
+    # @!visibility private
+    def user_count=(user_count)
+      if !user_count.nil? && user_count > 2147483647
+        fail ArgumentError, 'invalid value for "user_count", must be smaller than or equal to 2147483647.'
+      end
+      @user_count = user_count
     end
 
     # Checks equality by comparing each attribute.
@@ -87,14 +114,15 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           created_at == o.created_at &&
           modified_at == o.modified_at &&
-          name == o.name
+          name == o.name &&
+          user_count == o.user_count
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created_at, modified_at, name].hash
+      [created_at, modified_at, name, user_count].hash
     end
   end
 end
