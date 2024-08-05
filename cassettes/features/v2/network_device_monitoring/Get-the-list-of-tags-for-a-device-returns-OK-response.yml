@@ -1,0 +1,20 @@
+http_interactions:
+- recorded_at: Tue, 30 Jul 2024 13:27:40 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+    method: GET
+    uri: https://api.datadoghq.com/api/v2/ndm/tags/devices/default_device
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"default_device","type":"tags","attributes":{"tags":["tag:test","tag:testbis"]}}}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 200
+      message: OK
+recorded_with: VCR 6.0.0

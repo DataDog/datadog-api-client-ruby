@@ -1553,6 +1553,13 @@ ScenariosModelMappings = {
     "v2.GetInterfaces" => {
             "device_id" => "String",
     },
+    "v2.ListDeviceUserTags" => {
+            "device_id" => "String",
+    },
+    "v2.UpdateDeviceUserTags" => {
+            "device_id" => "String",
+            "body" => "ListTagsResponse",
+    },
     "v2.GetOrgConfig" => {
             "org_config_name" => "String",
     },
