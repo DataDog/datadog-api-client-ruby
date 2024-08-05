@@ -1,0 +1,24 @@
+http_interactions:
+- recorded_at: Mon, 29 Jul 2024 13:20:37 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"tags":["tag:test","tag:testbis"]},"id":"default_device","type":"tags"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: PATCH
+    uri: https://api.datadoghq.com/api/v2/ndm/tags/devices/default_device
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"default_device","type":"tags","attributes":{"tags":["tag:test","tag:testbis"]}}}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 200
+      message: OK
+recorded_with: VCR 6.0.0
