@@ -31,7 +31,8 @@ module DatadogAPIClient::V1
           :'SyntheticsAssertionBodyHashTarget',
           :'SyntheticsAssertionJSONPathTarget',
           :'SyntheticsAssertionJSONSchemaTarget',
-          :'SyntheticsAssertionXPathTarget'
+          :'SyntheticsAssertionXPathTarget',
+          :'SyntheticsAssertionJavascript'
         ]
       end
       # Builds the object

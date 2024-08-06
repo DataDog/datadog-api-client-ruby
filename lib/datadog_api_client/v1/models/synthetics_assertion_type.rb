@@ -40,5 +40,6 @@ module DatadogAPIClient::V1
     GRPC_METADATA = "grpcMetadata".freeze
     GRPC_PROTO = "grpcProto".freeze
     CONNECTION = "connection".freeze
+    JAVASCRIPT = "javascript".freeze
   end
 end
