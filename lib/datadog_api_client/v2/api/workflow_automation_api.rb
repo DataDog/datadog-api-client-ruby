@@ -215,7 +215,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'WorklflowGetInstanceResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_workflow_instance,
