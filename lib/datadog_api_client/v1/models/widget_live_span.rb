@@ -36,6 +36,7 @@ module DatadogAPIClient::V1
     PAST_SIX_MONTHS = "6mo".freeze
     WEEK_TO_DATE = "week_to_date".freeze
     MONTH_TO_DATE = "month_to_date".freeze
+    LAST_MONTH = "last_month".freeze
     PAST_ONE_YEAR = "1y".freeze
     ALERT = "alert".freeze
   end
