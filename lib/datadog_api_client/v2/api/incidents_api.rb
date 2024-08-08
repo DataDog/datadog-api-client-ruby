@@ -874,6 +874,12 @@ module DatadogAPIClient::V2
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: IncidentsAPI.list_incidents ...'
       end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] > 9223372036854775807
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling IncidentsAPI.list_incidents, must be smaller than or equal to 9223372036854775807.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling IncidentsAPI.list_incidents, must be greater than or equal to 1.'
+      end
       # resource path
       local_var_path = '/api/v2/incidents'
 
@@ -1051,6 +1057,12 @@ module DatadogAPIClient::V2
       allowable_values = ['created', '-created']
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
         fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] > 9223372036854775807
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling IncidentsAPI.search_incidents, must be smaller than or equal to 9223372036854775807.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling IncidentsAPI.search_incidents, must be greater than or equal to 1.'
       end
       # resource path
       local_var_path = '/api/v2/incidents/search'

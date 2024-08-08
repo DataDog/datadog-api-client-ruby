@@ -248,6 +248,15 @@ module DatadogAPIClient::V2
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ServiceDefinitionAPI.list_service_definitions ...'
       end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] > 9223372036854775807
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling ServiceDefinitionAPI.list_service_definitions, must be smaller than or equal to 9223372036854775807.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling ServiceDefinitionAPI.list_service_definitions, must be greater than or equal to 1.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_number'].nil? && opts[:'page_number'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"page_number"]" when calling ServiceDefinitionAPI.list_service_definitions, must be greater than or equal to 0.'
+      end
       allowable_values = ['v1', 'v2', 'v2.1', 'v2.2']
       if @api_client.config.client_side_validation && opts[:'schema_version'] && !allowable_values.include?(opts[:'schema_version'])
         fail ArgumentError, "invalid value for \"schema_version\", must be one of #{allowable_values}"

@@ -27,20 +27,26 @@ module DatadogAPIClient::V2
     # Banner selection for the team
     attr_accessor :banner
 
-    # An identifier for the color representing the team
-    attr_reader :color
-
     # Free-form markdown description/content for the team's homepage
     attr_accessor :description
 
     # The team's identifier
     attr_reader :handle
 
+    # The TeamUpdateAttributes handles.
+    attr_accessor :handles
+
     # Collection of hidden modules for the team
     attr_accessor :hidden_modules
 
+    # The number of links belonging to the team
+    attr_reader :link_count
+
     # The name of the team
     attr_reader :name
+
+    # A brief summary of the team
+    attr_accessor :summary
 
     # Collection of visible modules for the team
     attr_accessor :visible_modules
@@ -51,11 +57,13 @@ module DatadogAPIClient::V2
       {
         :'avatar' => :'avatar',
         :'banner' => :'banner',
-        :'color' => :'color',
         :'description' => :'description',
         :'handle' => :'handle',
+        :'handles' => :'handles',
         :'hidden_modules' => :'hidden_modules',
+        :'link_count' => :'link_count',
         :'name' => :'name',
+        :'summary' => :'summary',
         :'visible_modules' => :'visible_modules'
       }
     end
@@ -66,11 +74,13 @@ module DatadogAPIClient::V2
       {
         :'avatar' => :'String',
         :'banner' => :'Integer',
-        :'color' => :'Integer',
         :'description' => :'String',
         :'handle' => :'String',
+        :'handles' => :'String',
         :'hidden_modules' => :'Array<String>',
+        :'link_count' => :'Integer',
         :'name' => :'String',
+        :'summary' => :'String',
         :'visible_modules' => :'Array<String>'
       }
     end
@@ -108,10 +118,6 @@ module DatadogAPIClient::V2
         self.banner = attributes[:'banner']
       end
 
-      if attributes.key?(:'color')
-        self.color = attributes[:'color']
-      end
-
       if attributes.key?(:'description')
         self.description = attributes[:'description']
       end
@@ -120,14 +126,26 @@ module DatadogAPIClient::V2
         self.handle = attributes[:'handle']
       end
 
+      if attributes.key?(:'handles')
+        self.handles = attributes[:'handles']
+      end
+
       if attributes.key?(:'hidden_modules')
         if (value = attributes[:'hidden_modules']).is_a?(Array)
           self.hidden_modules = value
         end
       end
 
+      if attributes.key?(:'link_count')
+        self.link_count = attributes[:'link_count']
+      end
+
       if attributes.key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'summary')
+        self.summary = attributes[:'summary']
       end
 
       if attributes.key?(:'visible_modules')
@@ -141,26 +159,12 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if !@color.nil? && @color > 13
-      return false if !@color.nil? && @color < 0
       return false if @handle.nil?
       return false if @handle.to_s.length > 195
+      return false if !@link_count.nil? && @link_count > 2147483647
       return false if @name.nil?
       return false if @name.to_s.length > 200
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param color [Object] Object to be assigned
-    # @!visibility private
-    def color=(color)
-      if !color.nil? && color > 13
-        fail ArgumentError, 'invalid value for "color", must be smaller than or equal to 13.'
-      end
-      if !color.nil? && color < 0
-        fail ArgumentError, 'invalid value for "color", must be greater than or equal to 0.'
-      end
-      @color = color
     end
 
     # Custom attribute writer method with validation
@@ -174,6 +178,16 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "handle", the character length must be smaller than or equal to 195.'
       end
       @handle = handle
+    end
+
+    # Custom attribute writer method with validation
+    # @param link_count [Object] Object to be assigned
+    # @!visibility private
+    def link_count=(link_count)
+      if !link_count.nil? && link_count > 2147483647
+        fail ArgumentError, 'invalid value for "link_count", must be smaller than or equal to 2147483647.'
+      end
+      @link_count = link_count
     end
 
     # Custom attribute writer method with validation
@@ -197,11 +211,13 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           avatar == o.avatar &&
           banner == o.banner &&
-          color == o.color &&
           description == o.description &&
           handle == o.handle &&
+          handles == o.handles &&
           hidden_modules == o.hidden_modules &&
+          link_count == o.link_count &&
           name == o.name &&
+          summary == o.summary &&
           visible_modules == o.visible_modules
     end
 
@@ -209,7 +225,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [avatar, banner, color, description, handle, hidden_modules, name, visible_modules].hash
+      [avatar, banner, description, handle, handles, hidden_modules, link_count, name, summary, visible_modules].hash
     end
   end
 end

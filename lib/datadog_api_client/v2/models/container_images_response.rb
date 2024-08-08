@@ -24,19 +24,11 @@ module DatadogAPIClient::V2
     # Array of Container Image objects.
     attr_accessor :data
 
-    # Pagination links.
-    attr_accessor :links
-
-    # Response metadata object.
-    attr_accessor :meta
-
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data',
-        :'links' => :'links',
-        :'meta' => :'meta'
+        :'data' => :'data'
       }
     end
 
@@ -44,9 +36,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'Array<ContainerImageItem>',
-        :'links' => :'ContainerImagesResponseLinks',
-        :'meta' => :'ContainerImageMeta'
+        :'data' => :'Array<ContainerImageItem>'
       }
     end
 
@@ -71,14 +61,6 @@ module DatadogAPIClient::V2
           self.data = value
         end
       end
-
-      if attributes.key?(:'links')
-        self.links = attributes[:'links']
-      end
-
-      if attributes.key?(:'meta')
-        self.meta = attributes[:'meta']
-      end
     end
 
     # Checks equality by comparing each attribute.
@@ -87,16 +69,14 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data &&
-          links == o.links &&
-          meta == o.meta
+          data == o.data
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, links, meta].hash
+      [data].hash
     end
   end
 end

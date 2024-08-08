@@ -21,9 +21,6 @@ module DatadogAPIClient::V2
   class UserTeamRelationships
     include BaseGenericModel
 
-    # Relationship between team membership and team
-    attr_accessor :team
-
     # Relationship between team membership and user
     attr_accessor :user
 
@@ -31,7 +28,6 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'team' => :'team',
         :'user' => :'user'
       }
     end
@@ -40,7 +36,6 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'team' => :'RelationshipToUserTeamTeam',
         :'user' => :'RelationshipToUserTeamUser'
       }
     end
@@ -61,10 +56,6 @@ module DatadogAPIClient::V2
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'team')
-        self.team = attributes[:'team']
-      end
-
       if attributes.key?(:'user')
         self.user = attributes[:'user']
       end
@@ -76,7 +67,6 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          team == o.team &&
           user == o.user
     end
 
@@ -84,7 +74,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [team, user].hash
+      [user].hash
     end
   end
 end

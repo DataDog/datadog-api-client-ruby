@@ -48,11 +48,37 @@ module DatadogAPIClient::V2
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ProcessesAPI.list_processes ...'
       end
+      if @api_client.config.client_side_validation && !opts[:'search'].nil? && opts[:'search'].to_s.length > 1024
+        fail ArgumentError, 'invalid value for "opts[:"search"]" when calling ProcessesAPI.list_processes, the character length must be smaller than or equal to 1024.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'search'].nil? && opts[:'search'].to_s.length < 1
+        fail ArgumentError, 'invalid value for "opts[:"search"]" when calling ProcessesAPI.list_processes, the character length must be great than or equal to 1.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'tags'].nil? && opts[:'tags'].to_s.length > 1024
+        fail ArgumentError, 'invalid value for "opts[:"tags"]" when calling ProcessesAPI.list_processes, the character length must be smaller than or equal to 1024.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'tags'].nil? && opts[:'tags'].to_s.length < 1
+        fail ArgumentError, 'invalid value for "opts[:"tags"]" when calling ProcessesAPI.list_processes, the character length must be great than or equal to 1.'
+      end
+      pattern = Regexp.new("^[A-Za-z][A-Za-z0-9_\-:./]*[A-Za-z0-9_\-./](,[A-Za-z][A-Za-z0-9_\-:./]*[A-Za-z0-9_\-./])*$")
+      if @api_client.config.client_side_validation && !opts[:'tags'].nil? && opts[:'tags'] !~ pattern
+        fail ArgumentError, "invalid value for 'opts[:\"tags\"]' when calling ProcessesAPI.list_processes, must conform to the pattern #{pattern}."
+      end
       if @api_client.config.client_side_validation && !opts[:'page_limit'].nil? && opts[:'page_limit'] > 10000
         fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling ProcessesAPI.list_processes, must be smaller than or equal to 10000.'
       end
       if @api_client.config.client_side_validation && !opts[:'page_limit'].nil? && opts[:'page_limit'] < 1
         fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling ProcessesAPI.list_processes, must be greater than or equal to 1.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_cursor'].nil? && opts[:'page_cursor'].to_s.length > 56
+        fail ArgumentError, 'invalid value for "opts[:"page_cursor"]" when calling ProcessesAPI.list_processes, the character length must be smaller than or equal to 56.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_cursor'].nil? && opts[:'page_cursor'].to_s.length < 56
+        fail ArgumentError, 'invalid value for "opts[:"page_cursor"]" when calling ProcessesAPI.list_processes, the character length must be great than or equal to 56.'
+      end
+      pattern = Regexp.new("^[A-Fa-f0-9]+$")
+      if @api_client.config.client_side_validation && !opts[:'page_cursor'].nil? && opts[:'page_cursor'] !~ pattern
+        fail ArgumentError, "invalid value for 'opts[:\"page_cursor\"]' when calling ProcessesAPI.list_processes, must conform to the pattern #{pattern}."
       end
       # resource path
       local_var_path = '/api/v2/processes'

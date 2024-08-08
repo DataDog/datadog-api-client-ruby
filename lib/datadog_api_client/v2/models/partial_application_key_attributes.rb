@@ -48,7 +48,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'created_at' => :'String',
+        :'created_at' => :'Time',
         :'last4' => :'String',
         :'name' => :'String',
         :'scopes' => :'Array<String>'

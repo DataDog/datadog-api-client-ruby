@@ -24,15 +24,11 @@ module DatadogAPIClient::V2
     # Array of process summary objects.
     attr_accessor :data
 
-    # Response metadata object.
-    attr_accessor :meta
-
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data',
-        :'meta' => :'meta'
+        :'data' => :'data'
       }
     end
 
@@ -40,8 +36,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'Array<ProcessSummary>',
-        :'meta' => :'ProcessSummariesMeta'
+        :'data' => :'Array<ProcessSummary>'
       }
     end
 
@@ -66,10 +61,6 @@ module DatadogAPIClient::V2
           self.data = value
         end
       end
-
-      if attributes.key?(:'meta')
-        self.meta = attributes[:'meta']
-      end
     end
 
     # Checks equality by comparing each attribute.
@@ -78,15 +69,14 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data &&
-          meta == o.meta
+          data == o.data
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, meta].hash
+      [data].hash
     end
   end
 end

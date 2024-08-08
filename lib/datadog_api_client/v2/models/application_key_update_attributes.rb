@@ -21,6 +21,12 @@ module DatadogAPIClient::V2
   class ApplicationKeyUpdateAttributes
     include BaseGenericModel
 
+    # The ApplicationKeyUpdateAttributes created_at.
+    attr_accessor :created_at
+
+    # The ApplicationKeyUpdateAttributes last4.
+    attr_accessor :last4
+
     # Name of the application key.
     attr_accessor :name
 
@@ -31,6 +37,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'created_at' => :'created_at',
+        :'last4' => :'last4',
         :'name' => :'name',
         :'scopes' => :'scopes'
       }
@@ -40,6 +48,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'created_at' => :'Time',
+        :'last4' => :'String',
         :'name' => :'String',
         :'scopes' => :'Array<String>'
       }
@@ -69,6 +79,14 @@ module DatadogAPIClient::V2
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'created_at')
+        self.created_at = attributes[:'created_at']
+      end
+
+      if attributes.key?(:'last4')
+        self.last4 = attributes[:'last4']
+      end
+
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
@@ -86,6 +104,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          created_at == o.created_at &&
+          last4 == o.last4 &&
           name == o.name &&
           scopes == o.scopes
     end
@@ -94,7 +114,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [name, scopes].hash
+      [created_at, last4, name, scopes].hash
     end
   end
 end

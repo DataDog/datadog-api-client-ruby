@@ -21,20 +21,62 @@ module DatadogAPIClient::V2
   class IncidentCreateAttributes
     include BaseGenericModel
 
+    # The IncidentCreateAttributes additional_notifications.
+    attr_accessor :additional_notifications
+
+    # The IncidentCreateAttributes archived.
+    attr_accessor :archived
+
+    # The IncidentCreateAttributes case_id.
+    attr_reader :case_id
+
+    # The IncidentCreateAttributes creation_idempotency_key.
+    attr_accessor :creation_idempotency_key
+
+    # The IncidentCreateAttributes customer_impact_end.
+    attr_accessor :customer_impact_end
+
     # Required if `customer_impacted:"true"`. A summary of the impact customers experienced during the incident.
     attr_accessor :customer_impact_scope
+
+    # The IncidentCreateAttributes customer_impact_start.
+    attr_accessor :customer_impact_start
 
     # A flag indicating whether the incident caused customer impact.
     attr_reader :customer_impacted
 
+    # The IncidentCreateAttributes detected.
+    attr_accessor :detected
+
+    # The IncidentCreateAttributes duration.
+    attr_reader :duration
+
     # A condensed view of the user-defined fields for which to create initial selections.
     attr_accessor :fields
+
+    # The IncidentCreateAttributes incident_type_uuid.
+    attr_accessor :incident_type_uuid
 
     # An array of initial timeline cells to be placed at the beginning of the incident timeline.
     attr_accessor :initial_cells
 
     # Notification handles that will be notified of the incident at creation.
     attr_accessor :notification_handles
+
+    # The IncidentCreateAttributes public_id.
+    attr_reader :public_id
+
+    # The IncidentCreateAttributes resolved.
+    attr_accessor :resolved
+
+    # The IncidentCreateAttributes severity.
+    attr_accessor :severity
+
+    # The IncidentCreateAttributes state.
+    attr_accessor :state
+
+    # The IncidentCreateAttributes time_to_resolve.
+    attr_reader :time_to_resolve
 
     # The title of the incident, which summarizes what happened.
     attr_reader :title
@@ -43,11 +85,25 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'additional_notifications' => :'additional_notifications',
+        :'archived' => :'archived',
+        :'case_id' => :'case_id',
+        :'creation_idempotency_key' => :'creation_idempotency_key',
+        :'customer_impact_end' => :'customer_impact_end',
         :'customer_impact_scope' => :'customer_impact_scope',
+        :'customer_impact_start' => :'customer_impact_start',
         :'customer_impacted' => :'customer_impacted',
+        :'detected' => :'detected',
+        :'duration' => :'duration',
         :'fields' => :'fields',
+        :'incident_type_uuid' => :'incident_type_uuid',
         :'initial_cells' => :'initial_cells',
         :'notification_handles' => :'notification_handles',
+        :'public_id' => :'public_id',
+        :'resolved' => :'resolved',
+        :'severity' => :'severity',
+        :'state' => :'state',
+        :'time_to_resolve' => :'time_to_resolve',
         :'title' => :'title'
       }
     end
@@ -56,13 +112,48 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'additional_notifications' => :'String',
+        :'archived' => :'Time',
+        :'case_id' => :'Integer',
+        :'creation_idempotency_key' => :'String',
+        :'customer_impact_end' => :'Time',
         :'customer_impact_scope' => :'String',
+        :'customer_impact_start' => :'Time',
         :'customer_impacted' => :'Boolean',
+        :'detected' => :'Time',
+        :'duration' => :'Integer',
         :'fields' => :'Hash<String, IncidentFieldAttributes>',
+        :'incident_type_uuid' => :'String',
         :'initial_cells' => :'Array<IncidentTimelineCellCreateAttributes>',
         :'notification_handles' => :'Array<IncidentNotificationHandle>',
+        :'public_id' => :'Integer',
+        :'resolved' => :'Time',
+        :'severity' => :'String',
+        :'state' => :'String',
+        :'time_to_resolve' => :'Integer',
         :'title' => :'String'
       }
+    end
+
+    # List of attributes with nullable: true
+    # @!visibility private
+    def self.openapi_nullable
+      Set.new([
+        :'additional_notifications',
+        :'archived',
+        :'case_id',
+        :'creation_idempotency_key',
+        :'customer_impact_end',
+        :'customer_impact_start',
+        :'detected',
+        :'duration',
+        :'incident_type_uuid',
+        :'public_id',
+        :'resolved',
+        :'severity',
+        :'state',
+        :'time_to_resolve',
+      ])
     end
 
     # Initializes the object
@@ -81,16 +172,52 @@ module DatadogAPIClient::V2
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'additional_notifications')
+        self.additional_notifications = attributes[:'additional_notifications']
+      end
+
+      if attributes.key?(:'archived')
+        self.archived = attributes[:'archived']
+      end
+
+      if attributes.key?(:'case_id')
+        self.case_id = attributes[:'case_id']
+      end
+
+      if attributes.key?(:'creation_idempotency_key')
+        self.creation_idempotency_key = attributes[:'creation_idempotency_key']
+      end
+
+      if attributes.key?(:'customer_impact_end')
+        self.customer_impact_end = attributes[:'customer_impact_end']
+      end
+
       if attributes.key?(:'customer_impact_scope')
         self.customer_impact_scope = attributes[:'customer_impact_scope']
+      end
+
+      if attributes.key?(:'customer_impact_start')
+        self.customer_impact_start = attributes[:'customer_impact_start']
       end
 
       if attributes.key?(:'customer_impacted')
         self.customer_impacted = attributes[:'customer_impacted']
       end
 
+      if attributes.key?(:'detected')
+        self.detected = attributes[:'detected']
+      end
+
+      if attributes.key?(:'duration')
+        self.duration = attributes[:'duration']
+      end
+
       if attributes.key?(:'fields')
         self.fields = attributes[:'fields']
+      end
+
+      if attributes.key?(:'incident_type_uuid')
+        self.incident_type_uuid = attributes[:'incident_type_uuid']
       end
 
       if attributes.key?(:'initial_cells')
@@ -105,6 +232,26 @@ module DatadogAPIClient::V2
         end
       end
 
+      if attributes.key?(:'public_id')
+        self.public_id = attributes[:'public_id']
+      end
+
+      if attributes.key?(:'resolved')
+        self.resolved = attributes[:'resolved']
+      end
+
+      if attributes.key?(:'severity')
+        self.severity = attributes[:'severity']
+      end
+
+      if attributes.key?(:'state')
+        self.state = attributes[:'state']
+      end
+
+      if attributes.key?(:'time_to_resolve')
+        self.time_to_resolve = attributes[:'time_to_resolve']
+      end
+
       if attributes.key?(:'title')
         self.title = attributes[:'title']
       end
@@ -114,9 +261,27 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
+      return false if !@case_id.nil? && @case_id > 2147483647
+      return false if !@case_id.nil? && @case_id < 0
       return false if @customer_impacted.nil?
+      return false if !@duration.nil? && @duration > 2147483647
+      return false if !@public_id.nil? && @public_id > 2147483647
+      return false if !@time_to_resolve.nil? && @time_to_resolve > 2147483647
       return false if @title.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param case_id [Object] Object to be assigned
+    # @!visibility private
+    def case_id=(case_id)
+      if !case_id.nil? && case_id > 2147483647
+        fail ArgumentError, 'invalid value for "case_id", must be smaller than or equal to 2147483647.'
+      end
+      if !case_id.nil? && case_id < 0
+        fail ArgumentError, 'invalid value for "case_id", must be greater than or equal to 0.'
+      end
+      @case_id = case_id
     end
 
     # Custom attribute writer method with validation
@@ -127,6 +292,36 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "customer_impacted", customer_impacted cannot be nil.'
       end
       @customer_impacted = customer_impacted
+    end
+
+    # Custom attribute writer method with validation
+    # @param duration [Object] Object to be assigned
+    # @!visibility private
+    def duration=(duration)
+      if !duration.nil? && duration > 2147483647
+        fail ArgumentError, 'invalid value for "duration", must be smaller than or equal to 2147483647.'
+      end
+      @duration = duration
+    end
+
+    # Custom attribute writer method with validation
+    # @param public_id [Object] Object to be assigned
+    # @!visibility private
+    def public_id=(public_id)
+      if !public_id.nil? && public_id > 2147483647
+        fail ArgumentError, 'invalid value for "public_id", must be smaller than or equal to 2147483647.'
+      end
+      @public_id = public_id
+    end
+
+    # Custom attribute writer method with validation
+    # @param time_to_resolve [Object] Object to be assigned
+    # @!visibility private
+    def time_to_resolve=(time_to_resolve)
+      if !time_to_resolve.nil? && time_to_resolve > 2147483647
+        fail ArgumentError, 'invalid value for "time_to_resolve", must be smaller than or equal to 2147483647.'
+      end
+      @time_to_resolve = time_to_resolve
     end
 
     # Custom attribute writer method with validation
@@ -145,11 +340,25 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          additional_notifications == o.additional_notifications &&
+          archived == o.archived &&
+          case_id == o.case_id &&
+          creation_idempotency_key == o.creation_idempotency_key &&
+          customer_impact_end == o.customer_impact_end &&
           customer_impact_scope == o.customer_impact_scope &&
+          customer_impact_start == o.customer_impact_start &&
           customer_impacted == o.customer_impacted &&
+          detected == o.detected &&
+          duration == o.duration &&
           fields == o.fields &&
+          incident_type_uuid == o.incident_type_uuid &&
           initial_cells == o.initial_cells &&
           notification_handles == o.notification_handles &&
+          public_id == o.public_id &&
+          resolved == o.resolved &&
+          severity == o.severity &&
+          state == o.state &&
+          time_to_resolve == o.time_to_resolve &&
           title == o.title
     end
 
@@ -157,7 +366,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [customer_impact_scope, customer_impacted, fields, initial_cells, notification_handles, title].hash
+      [additional_notifications, archived, case_id, creation_idempotency_key, customer_impact_end, customer_impact_scope, customer_impact_start, customer_impacted, detected, duration, fields, incident_type_uuid, initial_cells, notification_handles, public_id, resolved, severity, state, time_to_resolve, title].hash
     end
   end
 end

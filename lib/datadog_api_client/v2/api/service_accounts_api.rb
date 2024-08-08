@@ -320,8 +320,9 @@ module DatadogAPIClient::V2
     # @option opts [Integer] :page_number Specific page number to return.
     # @option opts [ApplicationKeysSort] :sort Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign.
     # @option opts [String] :filter Filter application keys by the specified string.
-    # @option opts [String] :filter_created_at_start Only include application keys created on or after the specified date.
-    # @option opts [String] :filter_created_at_end Only include application keys created on or before the specified date.
+    # @option opts [Time] :filter_created_at_start Only include application keys created on or after the specified date.
+    # @option opts [Time] :filter_created_at_end Only include application keys created on or before the specified date.
+    # @option opts [Array<ListServiceAccountApplicationKeysInclude>] :include service account id
     # @return [Array<(ListApplicationKeysResponse, Integer, Hash)>] ListApplicationKeysResponse data, response status code and response headers
     def list_service_account_application_keys_with_http_info(service_account_id, opts = {})
 
@@ -331,6 +332,15 @@ module DatadogAPIClient::V2
       # verify the required parameter 'service_account_id' is set
       if @api_client.config.client_side_validation && service_account_id.nil?
         fail ArgumentError, "Missing the required parameter 'service_account_id' when calling ServiceAccountsAPI.list_service_account_application_keys"
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] > 9223372036854775807
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling ServiceAccountsAPI.list_service_account_application_keys, must be smaller than or equal to 9223372036854775807.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling ServiceAccountsAPI.list_service_account_application_keys, must be greater than or equal to 1.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_number'].nil? && opts[:'page_number'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"page_number"]" when calling ServiceAccountsAPI.list_service_account_application_keys, must be greater than or equal to 0.'
       end
       allowable_values = ['created_at', '-created_at', 'last4', '-last4', 'name', '-name']
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
@@ -347,6 +357,7 @@ module DatadogAPIClient::V2
       query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
       query_params[:'filter[created_at][start]'] = opts[:'filter_created_at_start'] if !opts[:'filter_created_at_start'].nil?
       query_params[:'filter[created_at][end]'] = opts[:'filter_created_at_end'] if !opts[:'filter_created_at_end'].nil?
+      query_params[:'include'] = @api_client.build_collection_param(opts[:'include'], :multi) if !opts[:'include'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

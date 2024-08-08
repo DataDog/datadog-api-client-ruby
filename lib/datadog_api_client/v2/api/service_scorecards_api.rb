@@ -275,6 +275,12 @@ module DatadogAPIClient::V2
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ServiceScorecardsAPI.list_scorecard_outcomes ...'
       end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] > 9223372036854775807
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling ServiceScorecardsAPI.list_scorecard_outcomes, must be smaller than or equal to 9223372036854775807.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling ServiceScorecardsAPI.list_scorecard_outcomes, must be greater than or equal to 1.'
+      end
       # resource path
       local_var_path = '/api/v2/scorecard/outcomes'
 
@@ -381,6 +387,12 @@ module DatadogAPIClient::V2
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ServiceScorecardsAPI.list_scorecard_rules ...'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] > 9223372036854775807
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling ServiceScorecardsAPI.list_scorecard_rules, must be smaller than or equal to 9223372036854775807.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling ServiceScorecardsAPI.list_scorecard_rules, must be greater than or equal to 1.'
       end
       # resource path
       local_var_path = '/api/v2/scorecard/rules'

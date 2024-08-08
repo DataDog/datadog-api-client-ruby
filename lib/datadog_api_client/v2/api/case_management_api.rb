@@ -580,6 +580,15 @@ module DatadogAPIClient::V2
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CaseManagementAPI.search_cases ...'
       end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] > 9223372036854775807
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling CaseManagementAPI.search_cases, must be smaller than or equal to 9223372036854775807.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling CaseManagementAPI.search_cases, must be greater than or equal to 1.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_number'].nil? && opts[:'page_number'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"page_number"]" when calling CaseManagementAPI.search_cases, must be greater than or equal to 0.'
+      end
       allowable_values = ['created_at', 'priority', 'status']
       if @api_client.config.client_side_validation && opts[:'sort_field'] && !allowable_values.include?(opts[:'sort_field'])
         fail ArgumentError, "invalid value for \"sort_field\", must be one of #{allowable_values}"

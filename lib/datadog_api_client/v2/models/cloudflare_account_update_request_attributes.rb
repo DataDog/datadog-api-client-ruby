@@ -27,6 +27,9 @@ module DatadogAPIClient::V2
     # The email associated with the Cloudflare account. If an API key is provided (and not a token), this field is also required.
     attr_accessor :email
 
+    # The CloudflareAccountUpdateRequestAttributes name.
+    attr_accessor :name
+
     # An allowlist of resources to restrict pulling metrics for.
     attr_accessor :resources
 
@@ -39,6 +42,7 @@ module DatadogAPIClient::V2
       {
         :'api_key' => :'api_key',
         :'email' => :'email',
+        :'name' => :'name',
         :'resources' => :'resources',
         :'zones' => :'zones'
       }
@@ -50,6 +54,7 @@ module DatadogAPIClient::V2
       {
         :'api_key' => :'String',
         :'email' => :'String',
+        :'name' => :'String',
         :'resources' => :'Array<String>',
         :'zones' => :'Array<String>'
       }
@@ -77,6 +82,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'email')
         self.email = attributes[:'email']
+      end
+
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
 
       if attributes.key?(:'resources')
@@ -118,6 +127,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           api_key == o.api_key &&
           email == o.email &&
+          name == o.name &&
           resources == o.resources &&
           zones == o.zones
     end
@@ -126,7 +136,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [api_key, email, resources, zones].hash
+      [api_key, email, name, resources, zones].hash
     end
   end
 end

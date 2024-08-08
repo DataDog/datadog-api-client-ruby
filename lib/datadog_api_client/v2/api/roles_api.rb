@@ -585,6 +585,15 @@ module DatadogAPIClient::V2
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RolesAPI.list_roles ...'
       end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] > 9223372036854775807
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling RolesAPI.list_roles, must be smaller than or equal to 9223372036854775807.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling RolesAPI.list_roles, must be greater than or equal to 1.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_number'].nil? && opts[:'page_number'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"page_number"]" when calling RolesAPI.list_roles, must be greater than or equal to 0.'
+      end
       allowable_values = ['name', '-name', 'modified_at', '-modified_at', 'user_count', '-user_count']
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
         fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
@@ -662,6 +671,15 @@ module DatadogAPIClient::V2
       # verify the required parameter 'role_id' is set
       if @api_client.config.client_side_validation && role_id.nil?
         fail ArgumentError, "Missing the required parameter 'role_id' when calling RolesAPI.list_role_users"
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] > 9223372036854775807
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling RolesAPI.list_role_users, must be smaller than or equal to 9223372036854775807.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling RolesAPI.list_role_users, must be greater than or equal to 1.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_number'].nil? && opts[:'page_number'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"page_number"]" when calling RolesAPI.list_role_users, must be greater than or equal to 0.'
       end
       # resource path
       local_var_path = '/api/v2/roles/{role_id}/users'.sub('{role_id}', CGI.escape(role_id.to_s).gsub('%2F', '/'))

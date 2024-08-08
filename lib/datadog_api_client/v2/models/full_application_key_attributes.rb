@@ -24,9 +24,6 @@ module DatadogAPIClient::V2
     # Creation date of the application key.
     attr_accessor :created_at
 
-    # The application key.
-    attr_accessor :key
-
     # The last four characters of the application key.
     attr_reader :last4
 
@@ -41,7 +38,6 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'created_at' => :'created_at',
-        :'key' => :'key',
         :'last4' => :'last4',
         :'name' => :'name',
         :'scopes' => :'scopes'
@@ -52,8 +48,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'created_at' => :'String',
-        :'key' => :'String',
+        :'created_at' => :'Time',
         :'last4' => :'String',
         :'name' => :'String',
         :'scopes' => :'Array<String>'
@@ -86,10 +81,6 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'created_at')
         self.created_at = attributes[:'created_at']
-      end
-
-      if attributes.key?(:'key')
-        self.key = attributes[:'key']
       end
 
       if attributes.key?(:'last4')
@@ -136,7 +127,6 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           created_at == o.created_at &&
-          key == o.key &&
           last4 == o.last4 &&
           name == o.name &&
           scopes == o.scopes
@@ -146,7 +136,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created_at, key, last4, name, scopes].hash
+      [created_at, last4, name, scopes].hash
     end
   end
 end

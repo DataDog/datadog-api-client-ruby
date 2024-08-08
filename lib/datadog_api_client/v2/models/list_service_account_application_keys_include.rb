@@ -17,10 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # User team team type
-  class UserTeamTeamType
+  # The definition of ListServiceAccountApplicationKeysInclude object.
+  class ListServiceAccountApplicationKeysInclude
     include BaseEnumModel
 
-    TEAM = "team".freeze
+    LEAK_INFORMATION = "leak_information".freeze
+    OWNED_BY = "owned_by".freeze
   end
 end

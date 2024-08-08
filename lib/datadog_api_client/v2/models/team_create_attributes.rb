@@ -33,11 +33,20 @@ module DatadogAPIClient::V2
     # The team's identifier
     attr_reader :handle
 
+    # The TeamCreateAttributes handles.
+    attr_accessor :handles
+
     # Collection of hidden modules for the team
     attr_accessor :hidden_modules
 
+    # The number of links belonging to the team
+    attr_reader :link_count
+
     # The name of the team
     attr_reader :name
+
+    # A brief summary of the team
+    attr_accessor :summary
 
     # Collection of visible modules for the team
     attr_accessor :visible_modules
@@ -50,8 +59,11 @@ module DatadogAPIClient::V2
         :'banner' => :'banner',
         :'description' => :'description',
         :'handle' => :'handle',
+        :'handles' => :'handles',
         :'hidden_modules' => :'hidden_modules',
+        :'link_count' => :'link_count',
         :'name' => :'name',
+        :'summary' => :'summary',
         :'visible_modules' => :'visible_modules'
       }
     end
@@ -64,8 +76,11 @@ module DatadogAPIClient::V2
         :'banner' => :'Integer',
         :'description' => :'String',
         :'handle' => :'String',
+        :'handles' => :'String',
         :'hidden_modules' => :'Array<String>',
+        :'link_count' => :'Integer',
         :'name' => :'String',
+        :'summary' => :'String',
         :'visible_modules' => :'Array<String>'
       }
     end
@@ -111,14 +126,26 @@ module DatadogAPIClient::V2
         self.handle = attributes[:'handle']
       end
 
+      if attributes.key?(:'handles')
+        self.handles = attributes[:'handles']
+      end
+
       if attributes.key?(:'hidden_modules')
         if (value = attributes[:'hidden_modules']).is_a?(Array)
           self.hidden_modules = value
         end
       end
 
+      if attributes.key?(:'link_count')
+        self.link_count = attributes[:'link_count']
+      end
+
       if attributes.key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'summary')
+        self.summary = attributes[:'summary']
       end
 
       if attributes.key?(:'visible_modules')
@@ -134,6 +161,7 @@ module DatadogAPIClient::V2
     def valid?
       return false if @handle.nil?
       return false if @handle.to_s.length > 195
+      return false if !@link_count.nil? && @link_count > 2147483647
       return false if @name.nil?
       return false if @name.to_s.length > 200
       true
@@ -150,6 +178,16 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "handle", the character length must be smaller than or equal to 195.'
       end
       @handle = handle
+    end
+
+    # Custom attribute writer method with validation
+    # @param link_count [Object] Object to be assigned
+    # @!visibility private
+    def link_count=(link_count)
+      if !link_count.nil? && link_count > 2147483647
+        fail ArgumentError, 'invalid value for "link_count", must be smaller than or equal to 2147483647.'
+      end
+      @link_count = link_count
     end
 
     # Custom attribute writer method with validation
@@ -175,8 +213,11 @@ module DatadogAPIClient::V2
           banner == o.banner &&
           description == o.description &&
           handle == o.handle &&
+          handles == o.handles &&
           hidden_modules == o.hidden_modules &&
+          link_count == o.link_count &&
           name == o.name &&
+          summary == o.summary &&
           visible_modules == o.visible_modules
     end
 
@@ -184,7 +225,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [avatar, banner, description, handle, hidden_modules, name, visible_modules].hash
+      [avatar, banner, description, handle, handles, hidden_modules, link_count, name, summary, visible_modules].hash
     end
   end
 end
