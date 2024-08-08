@@ -954,9 +954,10 @@
 <li>Powerpacks: <code>powerpack</code></li>
 <li>Security Rules: <code>security-rule</code></li>
 <li>Service Level Objectives: <code>slo</code></li>
-<li>Synthetic Global Variable: <code>synthetic-global-variable</code></li>
-<li>Synthetic Test: <code>synthetic-test</code></li>
-<li>Synthetic Private Location: <code>synthetic-private-location</code></li>
+<li>Synthetic Global Variables: <code>synthetic-global-variable</code></li>
+<li>Synthetic Tests: <code>synthetic-test</code></li>
+<li>Synthetic Private Locations: <code>synthetic-private-location</code></li>
+<li>Monitors: <code>monitor</code></li>
 </ul>
 
 <h4 id="supported-relations-for-resources">Supported relations for resources</h4>
@@ -988,15 +989,19 @@
 <td><code>viewer</code>, <code>editor</code></td>
 </tr>
 <tr>
-<td>Synthetic Global Variable</td>
+<td>Synthetic Global Variables</td>
 <td><code>viewer</code>, <code>editor</code></td>
 </tr>
 <tr>
-<td>Synthetic Test</td>
+<td>Synthetic Tests</td>
 <td><code>viewer</code>, <code>editor</code></td>
 </tr>
 <tr>
-<td>Synthetic Private Location</td>
+<td>Synthetic Private Locations</td>
+<td><code>viewer</code>, <code>editor</code></td>
+</tr>
+<tr>
+<td>Monitors</td>
 <td><code>viewer</code>, <code>editor</code></td>
 </tr>
 </tbody></table>
@@ -1081,8 +1086,6 @@
       <pre class="lines">
 
 
-195
-196
 197
 198
 199
@@ -1135,10 +1138,12 @@
 246
 247
 248
-249</pre>
+249
+250
+251</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/restriction_policies_api.rb', line 195</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/restriction_policies_api.rb', line 197</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update_restriction_policy_with_http_info'>update_restriction_policy_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_resource_id'>resource_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -1205,7 +1210,7 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Aug  8 17:55:00 2024 by
+  Generated on Thu Aug  8 20:51:27 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.36 (ruby-2.7.8).
 </div>
