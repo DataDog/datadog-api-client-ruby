@@ -172,21 +172,23 @@ module DatadogAPIClient::V2
     # - Powerpacks: `powerpack`
     # - Security Rules: `security-rule`
     # - Service Level Objectives: `slo`
-    # - Synthetic Global Variable: `synthetic-global-variable`
-    # - Synthetic Test: `synthetic-test`
-    # - Synthetic Private Location: `synthetic-private-location`
+    # - Synthetic Global Variables: `synthetic-global-variable`
+    # - Synthetic Tests: `synthetic-test`
+    # - Synthetic Private Locations: `synthetic-private-location`
+    # - Monitors: `monitor`
     #
     # #### Supported relations for resources
-    # Resource Type              | Supported Relations
-    # ---------------------------|--------------------------
-    # Dashboards                 | `viewer`, `editor`
-    # Notebooks                  | `viewer`, `editor`
-    # Powerpacks                 | `viewer`, `editor`
-    # Security Rules             | `viewer`, `editor`
-    # Service Level Objectives   | `viewer`, `editor`
-    # Synthetic Global Variable  | `viewer`, `editor`
-    # Synthetic Test             | `viewer`, `editor`
-    # Synthetic Private Location | `viewer`, `editor`
+    # Resource Type               | Supported Relations
+    # ----------------------------|--------------------------
+    # Dashboards                  | `viewer`, `editor`
+    # Notebooks                   | `viewer`, `editor`
+    # Powerpacks                  | `viewer`, `editor`
+    # Security Rules              | `viewer`, `editor`
+    # Service Level Objectives    | `viewer`, `editor`
+    # Synthetic Global Variables  | `viewer`, `editor`
+    # Synthetic Tests             | `viewer`, `editor`
+    # Synthetic Private Locations | `viewer`, `editor`
+    # Monitors                    | `viewer`, `editor`
     #
     # @param resource_id [String] Identifier, formatted as `type:id`. Supported types: `connection`, `dashboard`, `notebook`, `security-rule`, `slo`.
     # @param body [RestrictionPolicyUpdateRequest] Restriction policy payload
