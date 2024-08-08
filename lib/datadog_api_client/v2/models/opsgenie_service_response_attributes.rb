@@ -25,7 +25,10 @@ module DatadogAPIClient::V2
     attr_accessor :custom_url
 
     # The name for the Opsgenie service.
-    attr_accessor :name
+    attr_reader :name
+
+    # The OpsgenieServiceResponseAttributes opsgenie_api_key.
+    attr_accessor :opsgenie_api_key
 
     # The region for the Opsgenie service.
     attr_accessor :region
@@ -36,6 +39,7 @@ module DatadogAPIClient::V2
       {
         :'custom_url' => :'custom_url',
         :'name' => :'name',
+        :'opsgenie_api_key' => :'opsgenie_api_key',
         :'region' => :'region'
       }
     end
@@ -46,6 +50,7 @@ module DatadogAPIClient::V2
       {
         :'custom_url' => :'String',
         :'name' => :'String',
+        :'opsgenie_api_key' => :'String',
         :'region' => :'OpsgenieServiceRegionType'
       }
     end
@@ -82,9 +87,31 @@ module DatadogAPIClient::V2
         self.name = attributes[:'name']
       end
 
+      if attributes.key?(:'opsgenie_api_key')
+        self.opsgenie_api_key = attributes[:'opsgenie_api_key']
+      end
+
       if attributes.key?(:'region')
         self.region = attributes[:'region']
       end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if !@name.nil? && @name.to_s.length > 100
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param name [Object] Object to be assigned
+    # @!visibility private
+    def name=(name)
+      if !name.nil? && name.to_s.length > 100
+        fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 100.'
+      end
+      @name = name
     end
 
     # Checks equality by comparing each attribute.
@@ -95,6 +122,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           custom_url == o.custom_url &&
           name == o.name &&
+          opsgenie_api_key == o.opsgenie_api_key &&
           region == o.region
     end
 
@@ -102,7 +130,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [custom_url, name, region].hash
+      [custom_url, name, opsgenie_api_key, region].hash
     end
   end
 end

@@ -21,14 +21,10 @@ module DatadogAPIClient::V2
   class ApplicationKeyRelationships
     include BaseGenericModel
 
-    # Relationship to user.
-    attr_accessor :owned_by
-
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'owned_by' => :'owned_by'
       }
     end
 
@@ -36,7 +32,6 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'owned_by' => :'RelationshipToUser'
       }
     end
 
@@ -55,10 +50,6 @@ module DatadogAPIClient::V2
         end
         h[k.to_sym] = v
       }
-
-      if attributes.key?(:'owned_by')
-        self.owned_by = attributes[:'owned_by']
-      end
     end
 
     # Checks equality by comparing each attribute.
@@ -67,14 +58,13 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          owned_by == o.owned_by
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [owned_by].hash
+      [].hash
     end
   end
 end

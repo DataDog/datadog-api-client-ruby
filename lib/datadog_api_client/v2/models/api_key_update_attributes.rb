@@ -21,14 +21,22 @@ module DatadogAPIClient::V2
   class APIKeyUpdateAttributes
     include BaseGenericModel
 
+    # The APIKeyUpdateAttributes category.
+    attr_accessor :category
+
     # Name of the API key.
     attr_reader :name
+
+    # The APIKeyUpdateAttributes remote_config_read_enabled.
+    attr_accessor :remote_config_read_enabled
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'name' => :'name'
+        :'category' => :'category',
+        :'name' => :'name',
+        :'remote_config_read_enabled' => :'remote_config_read_enabled'
       }
     end
 
@@ -36,7 +44,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'name' => :'String'
+        :'category' => :'String',
+        :'name' => :'String',
+        :'remote_config_read_enabled' => :'Boolean'
       }
     end
 
@@ -56,8 +66,16 @@ module DatadogAPIClient::V2
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'category')
+        self.category = attributes[:'category']
+      end
+
       if attributes.key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'remote_config_read_enabled')
+        self.remote_config_read_enabled = attributes[:'remote_config_read_enabled']
       end
     end
 
@@ -85,14 +103,16 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          name == o.name
+          category == o.category &&
+          name == o.name &&
+          remote_config_read_enabled == o.remote_config_read_enabled
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [name].hash
+      [category, name, remote_config_read_enabled].hash
     end
   end
 end

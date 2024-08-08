@@ -36,6 +36,9 @@ module DatadogAPIClient::V2
     # The team's identifier
     attr_reader :handle
 
+    # The TeamAttributes handles.
+    attr_accessor :handles
+
     # Collection of hidden modules for the team
     attr_accessor :hidden_modules
 
@@ -66,6 +69,7 @@ module DatadogAPIClient::V2
         :'created_at' => :'created_at',
         :'description' => :'description',
         :'handle' => :'handle',
+        :'handles' => :'handles',
         :'hidden_modules' => :'hidden_modules',
         :'link_count' => :'link_count',
         :'modified_at' => :'modified_at',
@@ -85,6 +89,7 @@ module DatadogAPIClient::V2
         :'created_at' => :'Time',
         :'description' => :'String',
         :'handle' => :'String',
+        :'handles' => :'String',
         :'hidden_modules' => :'Array<String>',
         :'link_count' => :'Integer',
         :'modified_at' => :'Time',
@@ -140,6 +145,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'handle')
         self.handle = attributes[:'handle']
+      end
+
+      if attributes.key?(:'handles')
+        self.handles = attributes[:'handles']
       end
 
       if attributes.key?(:'hidden_modules')
@@ -256,6 +265,7 @@ module DatadogAPIClient::V2
           created_at == o.created_at &&
           description == o.description &&
           handle == o.handle &&
+          handles == o.handles &&
           hidden_modules == o.hidden_modules &&
           link_count == o.link_count &&
           modified_at == o.modified_at &&
@@ -269,7 +279,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [avatar, banner, created_at, description, handle, hidden_modules, link_count, modified_at, name, summary, user_count, visible_modules].hash
+      [avatar, banner, created_at, description, handle, handles, hidden_modules, link_count, modified_at, name, summary, user_count, visible_modules].hash
     end
   end
 end

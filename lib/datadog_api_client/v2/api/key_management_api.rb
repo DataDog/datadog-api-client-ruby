@@ -434,6 +434,7 @@ module DatadogAPIClient::V2
     # @param app_key_id [String] The ID of the application key.
     # @param opts [Hash] the optional parameters
     # @option opts [String] :include Resource path for related resources to include in the response. Only `owned_by` is supported.
+    # @option opts [Boolean] :hide_key app key id
     # @return [Array<(ApplicationKeyResponse, Integer, Hash)>] ApplicationKeyResponse data, response status code and response headers
     def get_application_key_with_http_info(app_key_id, opts = {})
 
@@ -450,6 +451,7 @@ module DatadogAPIClient::V2
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
+      query_params[:'hide_key'] = opts[:'hide_key'] if !opts[:'hide_key'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -568,10 +570,10 @@ module DatadogAPIClient::V2
     # @option opts [Integer] :page_number Specific page number to return.
     # @option opts [APIKeysSort] :sort API key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign.
     # @option opts [String] :filter Filter API keys by the specified string.
-    # @option opts [String] :filter_created_at_start Only include API keys created on or after the specified date.
-    # @option opts [String] :filter_created_at_end Only include API keys created on or before the specified date.
-    # @option opts [String] :filter_modified_at_start Only include API keys modified on or after the specified date.
-    # @option opts [String] :filter_modified_at_end Only include API keys modified on or before the specified date.
+    # @option opts [Time] :filter_created_at_start Only include API keys created on or after the specified date.
+    # @option opts [Time] :filter_created_at_end Only include API keys created on or before the specified date.
+    # @option opts [Time] :filter_modified_at_start Only include API keys modified on or after the specified date.
+    # @option opts [Time] :filter_modified_at_end Only include API keys modified on or before the specified date.
     # @option opts [String] :include Comma separated list of resource paths for related resources to include in the response. Supported resource paths are `created_by` and `modified_by`.
     # @option opts [Boolean] :filter_remote_config_read_enabled Filter API keys by remote config read enabled status.
     # @option opts [String] :filter_category Filter API keys by category.
@@ -580,6 +582,15 @@ module DatadogAPIClient::V2
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: KeyManagementAPI.list_api_keys ...'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] > 9223372036854775807
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling KeyManagementAPI.list_api_keys, must be smaller than or equal to 9223372036854775807.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling KeyManagementAPI.list_api_keys, must be greater than or equal to 1.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_number'].nil? && opts[:'page_number'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"page_number"]" when calling KeyManagementAPI.list_api_keys, must be greater than or equal to 0.'
       end
       allowable_values = ['created_at', '-created_at', 'last4', '-last4', 'modified_at', '-modified_at', 'name', '-name']
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
@@ -654,14 +665,23 @@ module DatadogAPIClient::V2
     # @option opts [Integer] :page_number Specific page number to return.
     # @option opts [ApplicationKeysSort] :sort Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign.
     # @option opts [String] :filter Filter application keys by the specified string.
-    # @option opts [String] :filter_created_at_start Only include application keys created on or after the specified date.
-    # @option opts [String] :filter_created_at_end Only include application keys created on or before the specified date.
+    # @option opts [Time] :filter_created_at_start Only include application keys created on or after the specified date.
+    # @option opts [Time] :filter_created_at_end Only include application keys created on or before the specified date.
     # @option opts [String] :include Resource path for related resources to include in the response. Only `owned_by` is supported.
     # @return [Array<(ListApplicationKeysResponse, Integer, Hash)>] ListApplicationKeysResponse data, response status code and response headers
     def list_application_keys_with_http_info(opts = {})
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: KeyManagementAPI.list_application_keys ...'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] > 9223372036854775807
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling KeyManagementAPI.list_application_keys, must be smaller than or equal to 9223372036854775807.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling KeyManagementAPI.list_application_keys, must be greater than or equal to 1.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_number'].nil? && opts[:'page_number'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"page_number"]" when calling KeyManagementAPI.list_application_keys, must be greater than or equal to 0.'
       end
       allowable_values = ['created_at', '-created_at', 'last4', '-last4', 'name', '-name']
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
@@ -732,14 +752,23 @@ module DatadogAPIClient::V2
     # @option opts [Integer] :page_number Specific page number to return.
     # @option opts [ApplicationKeysSort] :sort Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign.
     # @option opts [String] :filter Filter application keys by the specified string.
-    # @option opts [String] :filter_created_at_start Only include application keys created on or after the specified date.
-    # @option opts [String] :filter_created_at_end Only include application keys created on or before the specified date.
+    # @option opts [Time] :filter_created_at_start Only include application keys created on or after the specified date.
+    # @option opts [Time] :filter_created_at_end Only include application keys created on or before the specified date.
     # @option opts [String] :include Resource path for related resources to include in the response. Only `owned_by` is supported.
     # @return [Array<(ListApplicationKeysResponse, Integer, Hash)>] ListApplicationKeysResponse data, response status code and response headers
     def list_current_user_application_keys_with_http_info(opts = {})
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: KeyManagementAPI.list_current_user_application_keys ...'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] > 9223372036854775807
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling KeyManagementAPI.list_current_user_application_keys, must be smaller than or equal to 9223372036854775807.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling KeyManagementAPI.list_current_user_application_keys, must be greater than or equal to 1.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_number'].nil? && opts[:'page_number'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"page_number"]" when calling KeyManagementAPI.list_current_user_application_keys, must be greater than or equal to 0.'
       end
       allowable_values = ['created_at', '-created_at', 'last4', '-last4', 'name', '-name']
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])

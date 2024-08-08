@@ -261,6 +261,15 @@ module DatadogAPIClient::V2
       if @api_client.config.client_side_validation && workflow_id.nil?
         fail ArgumentError, "Missing the required parameter 'workflow_id' when calling WorkflowAutomationAPI.list_workflow_instances"
       end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] > 9223372036854775807
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling WorkflowAutomationAPI.list_workflow_instances, must be smaller than or equal to 9223372036854775807.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling WorkflowAutomationAPI.list_workflow_instances, must be greater than or equal to 1.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_number'].nil? && opts[:'page_number'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"page_number"]" when calling WorkflowAutomationAPI.list_workflow_instances, must be greater than or equal to 0.'
+      end
       # resource path
       local_var_path = '/api/v2/workflows/{workflow_id}/instances'.sub('{workflow_id}', CGI.escape(workflow_id.to_s).gsub('%2F', '/'))
 

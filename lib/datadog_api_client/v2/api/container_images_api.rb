@@ -47,11 +47,48 @@ module DatadogAPIClient::V2
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ContainerImagesAPI.list_container_images ...'
       end
+      if @api_client.config.client_side_validation && !opts[:'filter_tags'].nil? && opts[:'filter_tags'].to_s.length > 1024
+        fail ArgumentError, 'invalid value for "opts[:"filter_tags"]" when calling ContainerImagesAPI.list_container_images, the character length must be smaller than or equal to 1024.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'filter_tags'].nil? && opts[:'filter_tags'].to_s.length < 1
+        fail ArgumentError, 'invalid value for "opts[:"filter_tags"]" when calling ContainerImagesAPI.list_container_images, the character length must be great than or equal to 1.'
+      end
+      pattern = Regexp.new("^[A-Za-z][A-Za-z0-9_\-:./]*[A-Za-z0-9_\-./](,[A-Za-z][A-Za-z0-9_\-:./]*[A-Za-z0-9_\-./])*$")
+      if @api_client.config.client_side_validation && !opts[:'filter_tags'].nil? && opts[:'filter_tags'] !~ pattern
+        fail ArgumentError, "invalid value for 'opts[:\"filter_tags\"]' when calling ContainerImagesAPI.list_container_images, must conform to the pattern #{pattern}."
+      end
+      if @api_client.config.client_side_validation && !opts[:'group_by'].nil? && opts[:'group_by'].to_s.length > 1024
+        fail ArgumentError, 'invalid value for "opts[:"group_by"]" when calling ContainerImagesAPI.list_container_images, the character length must be smaller than or equal to 1024.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'group_by'].nil? && opts[:'group_by'].to_s.length < 1
+        fail ArgumentError, 'invalid value for "opts[:"group_by"]" when calling ContainerImagesAPI.list_container_images, the character length must be great than or equal to 1.'
+      end
+      pattern = Regexp.new("^[A-Za-z][A-Za-z0-9_\-:./]*[A-Za-z0-9_\-./](,[A-Za-z][A-Za-z0-9_\-:./]*[A-Za-z0-9_\-./])*$")
+      if @api_client.config.client_side_validation && !opts[:'group_by'].nil? && opts[:'group_by'] !~ pattern
+        fail ArgumentError, "invalid value for 'opts[:\"group_by\"]' when calling ContainerImagesAPI.list_container_images, must conform to the pattern #{pattern}."
+      end
+      if @api_client.config.client_side_validation && !opts[:'sort'].nil? && opts[:'sort'].to_s.length > 1024
+        fail ArgumentError, 'invalid value for "opts[:"sort"]" when calling ContainerImagesAPI.list_container_images, the character length must be smaller than or equal to 1024.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'sort'].nil? && opts[:'sort'].to_s.length < 1
+        fail ArgumentError, 'invalid value for "opts[:"sort"]" when calling ContainerImagesAPI.list_container_images, the character length must be great than or equal to 1.'
+      end
       if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] > 10000
         fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling ContainerImagesAPI.list_container_images, must be smaller than or equal to 10000.'
       end
       if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] < 1
         fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling ContainerImagesAPI.list_container_images, must be greater than or equal to 1.'
+      end
+      pattern = Regexp.new("^[0-9]+$")
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] !~ pattern
+        fail ArgumentError, "invalid value for 'opts[:\"page_size\"]' when calling ContainerImagesAPI.list_container_images, must conform to the pattern #{pattern}."
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_cursor'].nil? && opts[:'page_cursor'].to_s.length < 0
+        fail ArgumentError, 'invalid value for "opts[:"page_cursor"]" when calling ContainerImagesAPI.list_container_images, the character length must be great than or equal to 0.'
+      end
+      pattern = Regexp.new("^[A-Za-z0-9+/=]+$")
+      if @api_client.config.client_side_validation && !opts[:'page_cursor'].nil? && opts[:'page_cursor'] !~ pattern
+        fail ArgumentError, "invalid value for 'opts[:\"page_cursor\"]' when calling ContainerImagesAPI.list_container_images, must conform to the pattern #{pattern}."
       end
       # resource path
       local_var_path = '/api/v2/container_images'

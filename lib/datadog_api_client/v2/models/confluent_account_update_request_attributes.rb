@@ -27,6 +27,9 @@ module DatadogAPIClient::V2
     # The API secret associated with your Confluent account.
     attr_reader :api_secret
 
+    # The ConfluentAccountUpdateRequestAttributes resources.
+    attr_accessor :resources
+
     # A list of strings representing tags. Can be a single key, or key-value pairs separated by a colon.
     attr_accessor :tags
 
@@ -36,6 +39,7 @@ module DatadogAPIClient::V2
       {
         :'api_key' => :'api_key',
         :'api_secret' => :'api_secret',
+        :'resources' => :'resources',
         :'tags' => :'tags'
       }
     end
@@ -46,6 +50,7 @@ module DatadogAPIClient::V2
       {
         :'api_key' => :'String',
         :'api_secret' => :'String',
+        :'resources' => :'String',
         :'tags' => :'Array<String>'
       }
     end
@@ -72,6 +77,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'api_secret')
         self.api_secret = attributes[:'api_secret']
+      end
+
+      if attributes.key?(:'resources')
+        self.resources = attributes[:'resources']
       end
 
       if attributes.key?(:'tags')
@@ -118,6 +127,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           api_key == o.api_key &&
           api_secret == o.api_secret &&
+          resources == o.resources &&
           tags == o.tags
     end
 
@@ -125,7 +135,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [api_key, api_secret, tags].hash
+      [api_key, api_secret, resources, tags].hash
     end
   end
 end

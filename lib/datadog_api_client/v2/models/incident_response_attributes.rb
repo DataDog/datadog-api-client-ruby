@@ -21,14 +21,23 @@ module DatadogAPIClient::V2
   class IncidentResponseAttributes
     include BaseGenericModel
 
+    # The IncidentResponseAttributes additional_notifications.
+    attr_accessor :additional_notifications
+
     # Timestamp of when the incident was archived.
     attr_accessor :archived
 
     # The incident case id.
-    attr_accessor :case_id
+    attr_reader :case_id
 
     # Timestamp when the incident was created.
     attr_accessor :created
+
+    # The IncidentResponseAttributes created_by_uuid.
+    attr_accessor :created_by_uuid
+
+    # The IncidentResponseAttributes creation_idempotency_key.
+    attr_accessor :creation_idempotency_key
 
     # Length of the incident's customer impact in seconds.
     # Equals the difference between `customer_impact_start` and `customer_impact_end`.
@@ -49,8 +58,17 @@ module DatadogAPIClient::V2
     # Timestamp when the incident was detected.
     attr_accessor :detected
 
+    # The IncidentResponseAttributes duration.
+    attr_reader :duration
+
     # A condensed view of the user-defined fields attached to incidents.
     attr_accessor :fields
+
+    # The IncidentResponseAttributes incident_type_uuid.
+    attr_accessor :incident_type_uuid
+
+    # The IncidentResponseAttributes last_modified_by_uuid.
+    attr_accessor :last_modified_by_uuid
 
     # Timestamp when the incident was last modified.
     attr_accessor :modified
@@ -96,16 +114,22 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'additional_notifications' => :'additional_notifications',
         :'archived' => :'archived',
         :'case_id' => :'case_id',
         :'created' => :'created',
+        :'created_by_uuid' => :'created_by_uuid',
+        :'creation_idempotency_key' => :'creation_idempotency_key',
         :'customer_impact_duration' => :'customer_impact_duration',
         :'customer_impact_end' => :'customer_impact_end',
         :'customer_impact_scope' => :'customer_impact_scope',
         :'customer_impact_start' => :'customer_impact_start',
         :'customer_impacted' => :'customer_impacted',
         :'detected' => :'detected',
+        :'duration' => :'duration',
         :'fields' => :'fields',
+        :'incident_type_uuid' => :'incident_type_uuid',
+        :'last_modified_by_uuid' => :'last_modified_by_uuid',
         :'modified' => :'modified',
         :'non_datadog_creator' => :'non_datadog_creator',
         :'notification_handles' => :'notification_handles',
@@ -126,16 +150,22 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'additional_notifications' => :'String',
         :'archived' => :'Time',
         :'case_id' => :'Integer',
         :'created' => :'Time',
+        :'created_by_uuid' => :'String',
+        :'creation_idempotency_key' => :'String',
         :'customer_impact_duration' => :'Integer',
         :'customer_impact_end' => :'Time',
         :'customer_impact_scope' => :'String',
         :'customer_impact_start' => :'Time',
         :'customer_impacted' => :'Boolean',
         :'detected' => :'Time',
+        :'duration' => :'Integer',
         :'fields' => :'Hash<String, IncidentFieldAttributes>',
+        :'incident_type_uuid' => :'String',
+        :'last_modified_by_uuid' => :'String',
         :'modified' => :'Time',
         :'non_datadog_creator' => :'IncidentNonDatadogCreator',
         :'notification_handles' => :'Array<IncidentNotificationHandle>',
@@ -156,12 +186,18 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_nullable
       Set.new([
+        :'additional_notifications',
         :'archived',
         :'case_id',
+        :'created_by_uuid',
+        :'creation_idempotency_key',
         :'customer_impact_end',
         :'customer_impact_scope',
         :'customer_impact_start',
         :'detected',
+        :'duration',
+        :'incident_type_uuid',
+        :'last_modified_by_uuid',
         :'non_datadog_creator',
         :'notification_handles',
         :'resolved',
@@ -186,6 +222,10 @@ module DatadogAPIClient::V2
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'additional_notifications')
+        self.additional_notifications = attributes[:'additional_notifications']
+      end
+
       if attributes.key?(:'archived')
         self.archived = attributes[:'archived']
       end
@@ -196,6 +236,14 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'created')
         self.created = attributes[:'created']
+      end
+
+      if attributes.key?(:'created_by_uuid')
+        self.created_by_uuid = attributes[:'created_by_uuid']
+      end
+
+      if attributes.key?(:'creation_idempotency_key')
+        self.creation_idempotency_key = attributes[:'creation_idempotency_key']
       end
 
       if attributes.key?(:'customer_impact_duration')
@@ -222,8 +270,20 @@ module DatadogAPIClient::V2
         self.detected = attributes[:'detected']
       end
 
+      if attributes.key?(:'duration')
+        self.duration = attributes[:'duration']
+      end
+
       if attributes.key?(:'fields')
         self.fields = attributes[:'fields']
+      end
+
+      if attributes.key?(:'incident_type_uuid')
+        self.incident_type_uuid = attributes[:'incident_type_uuid']
+      end
+
+      if attributes.key?(:'last_modified_by_uuid')
+        self.last_modified_by_uuid = attributes[:'last_modified_by_uuid']
       end
 
       if attributes.key?(:'modified')
@@ -285,8 +345,30 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
+      return false if !@case_id.nil? && @case_id < 0
+      return false if !@duration.nil? && @duration > 2147483647
       return false if @title.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param case_id [Object] Object to be assigned
+    # @!visibility private
+    def case_id=(case_id)
+      if !case_id.nil? && case_id < 0
+        fail ArgumentError, 'invalid value for "case_id", must be greater than or equal to 0.'
+      end
+      @case_id = case_id
+    end
+
+    # Custom attribute writer method with validation
+    # @param duration [Object] Object to be assigned
+    # @!visibility private
+    def duration=(duration)
+      if !duration.nil? && duration > 2147483647
+        fail ArgumentError, 'invalid value for "duration", must be smaller than or equal to 2147483647.'
+      end
+      @duration = duration
     end
 
     # Custom attribute writer method with validation
@@ -305,16 +387,22 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          additional_notifications == o.additional_notifications &&
           archived == o.archived &&
           case_id == o.case_id &&
           created == o.created &&
+          created_by_uuid == o.created_by_uuid &&
+          creation_idempotency_key == o.creation_idempotency_key &&
           customer_impact_duration == o.customer_impact_duration &&
           customer_impact_end == o.customer_impact_end &&
           customer_impact_scope == o.customer_impact_scope &&
           customer_impact_start == o.customer_impact_start &&
           customer_impacted == o.customer_impacted &&
           detected == o.detected &&
+          duration == o.duration &&
           fields == o.fields &&
+          incident_type_uuid == o.incident_type_uuid &&
+          last_modified_by_uuid == o.last_modified_by_uuid &&
           modified == o.modified &&
           non_datadog_creator == o.non_datadog_creator &&
           notification_handles == o.notification_handles &&
@@ -334,7 +422,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [archived, case_id, created, customer_impact_duration, customer_impact_end, customer_impact_scope, customer_impact_start, customer_impacted, detected, fields, modified, non_datadog_creator, notification_handles, public_id, resolved, severity, state, time_to_detect, time_to_internal_response, time_to_repair, time_to_resolve, title, visibility].hash
+      [additional_notifications, archived, case_id, created, created_by_uuid, creation_idempotency_key, customer_impact_duration, customer_impact_end, customer_impact_scope, customer_impact_start, customer_impacted, detected, duration, fields, incident_type_uuid, last_modified_by_uuid, modified, non_datadog_creator, notification_handles, public_id, resolved, severity, state, time_to_detect, time_to_internal_response, time_to_repair, time_to_resolve, title, visibility].hash
     end
   end
 end

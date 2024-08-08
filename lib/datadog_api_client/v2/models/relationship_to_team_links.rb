@@ -24,15 +24,11 @@ module DatadogAPIClient::V2
     # Related team links
     attr_accessor :data
 
-    # Links attributes.
-    attr_accessor :links
-
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data',
-        :'links' => :'links'
+        :'data' => :'data'
       }
     end
 
@@ -40,8 +36,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'Array<RelationshipToTeamLinkData>',
-        :'links' => :'TeamRelationshipsLinks'
+        :'data' => :'Array<RelationshipToTeamLinkData>'
       }
     end
 
@@ -66,10 +61,6 @@ module DatadogAPIClient::V2
           self.data = value
         end
       end
-
-      if attributes.key?(:'links')
-        self.links = attributes[:'links']
-      end
     end
 
     # Checks equality by comparing each attribute.
@@ -78,15 +69,14 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data &&
-          links == o.links
+          data == o.data
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, links].hash
+      [data].hash
     end
   end
 end

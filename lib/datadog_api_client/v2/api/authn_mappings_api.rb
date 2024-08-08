@@ -238,11 +238,21 @@ module DatadogAPIClient::V2
     # @option opts [AuthNMappingsSort] :sort Sort AuthN Mappings depending on the given field.
     # @option opts [String] :filter Filter all mappings by the given string.
     # @option opts [AuthNMappingResourceType] :resource_type Filter by mapping resource type. Defaults to "role" if not specified.
+    # @option opts [Array<String>] :include include mapping
     # @return [Array<(AuthNMappingsResponse, Integer, Hash)>] AuthNMappingsResponse data, response status code and response headers
     def list_authn_mappings_with_http_info(opts = {})
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AuthNMappingsAPI.list_authn_mappings ...'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] > 9223372036854775807
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling AuthNMappingsAPI.list_authn_mappings, must be smaller than or equal to 9223372036854775807.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling AuthNMappingsAPI.list_authn_mappings, must be greater than or equal to 1.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_number'].nil? && opts[:'page_number'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"page_number"]" when calling AuthNMappingsAPI.list_authn_mappings, must be greater than or equal to 0.'
       end
       allowable_values = ['created_at', '-created_at', 'role_id', '-role_id', 'saml_assertion_attribute_id', '-saml_assertion_attribute_id', 'role.name', '-role.name', 'saml_assertion_attribute.attribute_key', '-saml_assertion_attribute.attribute_key', 'saml_assertion_attribute.attribute_value', '-saml_assertion_attribute.attribute_value']
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
@@ -262,6 +272,7 @@ module DatadogAPIClient::V2
       query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
       query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
       query_params[:'resource_type'] = opts[:'resource_type'] if !opts[:'resource_type'].nil?
+      query_params[:'include'] = @api_client.build_collection_param(opts[:'include'], :multi) if !opts[:'include'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

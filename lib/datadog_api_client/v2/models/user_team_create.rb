@@ -24,6 +24,9 @@ module DatadogAPIClient::V2
     # Team membership attributes
     attr_accessor :attributes
 
+    # ID of user team
+    attr_accessor :id
+
     # Relationship between membership and a user
     attr_accessor :relationships
 
@@ -35,6 +38,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'attributes' => :'attributes',
+        :'id' => :'id',
         :'relationships' => :'relationships',
         :'type' => :'type'
       }
@@ -45,6 +49,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'attributes' => :'UserTeamAttributes',
+        :'id' => :'String',
         :'relationships' => :'UserTeamRelationships',
         :'type' => :'UserTeamType'
       }
@@ -68,6 +73,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'attributes')
         self.attributes = attributes[:'attributes']
+      end
+
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
       end
 
       if attributes.key?(:'relationships')
@@ -104,6 +113,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           attributes == o.attributes &&
+          id == o.id &&
           relationships == o.relationships &&
           type == o.type
     end
@@ -112,7 +122,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, relationships, type].hash
+      [attributes, id, relationships, type].hash
     end
   end
 end
