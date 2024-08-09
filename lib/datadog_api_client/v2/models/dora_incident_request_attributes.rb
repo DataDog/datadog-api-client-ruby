@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # Environment name that was impacted by the incident.
     attr_accessor :env
 
-    # Unix timestamp in nanoseconds when the incident finished. It should not be older than 1 hour.
+    # Unix timestamp when the incident finished. It must be in nanoseconds, milliseconds, or seconds, and it should not be older than 1 hour.
     attr_accessor :finished_at
 
     # Git info for DORA Metrics events.
@@ -42,7 +42,7 @@ module DatadogAPIClient::V2
     # Incident severity.
     attr_accessor :severity
 
-    # Unix timestamp in nanoseconds when the incident started.
+    # Unix timestamp when the incident started. It must be in nanoseconds, milliseconds, or seconds.
     attr_reader :started_at
 
     # Name of the team owning the services impacted. If possible, use team handles registered in Datadog. Required when the services field is not provided.
