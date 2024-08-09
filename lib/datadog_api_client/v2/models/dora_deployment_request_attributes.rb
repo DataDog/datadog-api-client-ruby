@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # Environment name to where the service was deployed.
     attr_accessor :env
 
-    # Unix timestamp in nanoseconds when the deployment finished. It should not be older than 1 hour.
+    # Unix timestamp when the deployment finished. It must be in nanoseconds, milliseconds, or seconds, and it should not be older than 1 hour.
     attr_reader :finished_at
 
     # Git info for DORA Metrics events.
@@ -36,7 +36,7 @@ module DatadogAPIClient::V2
     # Service name from a service available in the Service Catalog.
     attr_reader :service
 
-    # Unix timestamp in nanoseconds when the deployment started.
+    # Unix timestamp when the deployment started. It must be in nanoseconds, milliseconds, or seconds.
     attr_reader :started_at
 
     # Version to correlate with [APM Deployment Tracking](https://docs.datadoghq.com/tracing/services/deployment_tracking/).
