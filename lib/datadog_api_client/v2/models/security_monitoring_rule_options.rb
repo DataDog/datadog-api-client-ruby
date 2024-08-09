@@ -35,7 +35,7 @@ module DatadogAPIClient::V2
     attr_accessor :detection_method
 
     # A time window is specified to match when at least one of the cases matches true. This is a sliding window
-    # and evaluates in real time. For third party rules, it should equal max signal duration.
+    # and evaluates in real time. For third party rules, this field is not used.
     attr_accessor :evaluation_window
 
     # Hardcoded evaluator type.
@@ -45,7 +45,7 @@ module DatadogAPIClient::V2
     attr_accessor :impossible_travel_options
 
     # Once a signal is generated, the signal will remain “open” if a case is matched at least once within
-    # this keep alive window. For third party rules, it should equal max signal duration.
+    # this keep alive window. For third party rules, this field is not used.
     attr_accessor :keep_alive
 
     # A signal will “close” regardless of the query being matched once the time exceeds the maximum duration.
