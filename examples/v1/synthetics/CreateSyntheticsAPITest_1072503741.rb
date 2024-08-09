@@ -14,7 +14,7 @@ body = DatadogAPIClient::V1::SyntheticsAPITest.new({
     ],
     request: DatadogAPIClient::V1::SyntheticsTestRequest.new({
       host: "datadoghq.com",
-      port: 443,
+      port: "443",
     }),
   }),
   locations: [
