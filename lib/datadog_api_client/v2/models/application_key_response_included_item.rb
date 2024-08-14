@@ -27,7 +27,8 @@ module DatadogAPIClient::V2
       def openapi_one_of
         [
           :'User',
-          :'Role'
+          :'Role',
+          :'LeakedKey'
         ]
       end
       # Builds the object

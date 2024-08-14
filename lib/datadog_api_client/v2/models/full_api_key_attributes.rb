@@ -61,10 +61,10 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'category' => :'String',
-        :'created_at' => :'String',
+        :'created_at' => :'Time',
         :'key' => :'String',
         :'last4' => :'String',
-        :'modified_at' => :'String',
+        :'modified_at' => :'Time',
         :'name' => :'String',
         :'remote_config_read_enabled' => :'Boolean'
       }
