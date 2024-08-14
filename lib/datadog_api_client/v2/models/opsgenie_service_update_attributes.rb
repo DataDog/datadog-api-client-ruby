@@ -25,7 +25,7 @@ module DatadogAPIClient::V2
     attr_accessor :custom_url
 
     # The name for the Opsgenie service.
-    attr_accessor :name
+    attr_reader :name
 
     # The Opsgenie API key for your Opsgenie service.
     attr_accessor :opsgenie_api_key
@@ -94,6 +94,24 @@ module DatadogAPIClient::V2
       if attributes.key?(:'region')
         self.region = attributes[:'region']
       end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if !@name.nil? && @name.to_s.length > 100
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param name [Object] Object to be assigned
+    # @!visibility private
+    def name=(name)
+      if !name.nil? && name.to_s.length > 100
+        fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 100.'
+      end
+      @name = name
     end
 
     # Checks equality by comparing each attribute.
