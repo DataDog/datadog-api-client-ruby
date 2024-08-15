@@ -17,26 +17,22 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes used to update an API Key.
-  class APIKeyUpdateAttributes
+  # The definition of LeakedKeyAttributes object.
+  class LeakedKeyAttributes
     include BaseGenericModel
 
-    # The APIKeyUpdateAttributes category.
-    attr_accessor :category
+    # The LeakedKeyAttributes date.
+    attr_reader :date
 
-    # Name of the API key.
-    attr_reader :name
-
-    # The APIKeyUpdateAttributes remote_config_read_enabled.
-    attr_accessor :remote_config_read_enabled
+    # The LeakedKeyAttributes leak_source.
+    attr_accessor :leak_source
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'category' => :'category',
-        :'name' => :'name',
-        :'remote_config_read_enabled' => :'remote_config_read_enabled'
+        :'date' => :'date',
+        :'leak_source' => :'leak_source'
       }
     end
 
@@ -44,9 +40,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'category' => :'String',
-        :'name' => :'String',
-        :'remote_config_read_enabled' => :'Boolean'
+        :'date' => :'Time',
+        :'leak_source' => :'String'
       }
     end
 
@@ -55,27 +50,23 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::APIKeyUpdateAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::LeakedKeyAttributes` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::APIKeyUpdateAttributes`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::LeakedKeyAttributes`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'category')
-        self.category = attributes[:'category']
+      if attributes.key?(:'date')
+        self.date = attributes[:'date']
       end
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.key?(:'remote_config_read_enabled')
-        self.remote_config_read_enabled = attributes[:'remote_config_read_enabled']
+      if attributes.key?(:'leak_source')
+        self.leak_source = attributes[:'leak_source']
       end
     end
 
@@ -83,18 +74,18 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @name.nil?
+      return false if @date.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param name [Object] Object to be assigned
+    # @param date [Object] Object to be assigned
     # @!visibility private
-    def name=(name)
-      if name.nil?
-        fail ArgumentError, 'invalid value for "name", name cannot be nil.'
+    def date=(date)
+      if date.nil?
+        fail ArgumentError, 'invalid value for "date", date cannot be nil.'
       end
-      @name = name
+      @date = date
     end
 
     # Checks equality by comparing each attribute.
@@ -103,16 +94,15 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          category == o.category &&
-          name == o.name &&
-          remote_config_read_enabled == o.remote_config_read_enabled
+          date == o.date &&
+          leak_source == o.leak_source
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [category, name, remote_config_read_enabled].hash
+      [date, leak_source].hash
     end
   end
 end
