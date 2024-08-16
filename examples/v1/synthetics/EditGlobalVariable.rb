@@ -3,7 +3,7 @@
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::SyntheticsAPI.new
 
-body = DatadogAPIClient::V1::SyntheticsGlobalVariable.new({
+body = DatadogAPIClient::V1::SyntheticsGlobalVariableRequest.new({
   attributes: DatadogAPIClient::V1::SyntheticsGlobalVariableAttributes.new({
     restricted_roles: [
       "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
