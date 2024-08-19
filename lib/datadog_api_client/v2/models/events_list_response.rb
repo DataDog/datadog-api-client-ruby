@@ -30,6 +30,8 @@ module DatadogAPIClient::V2
     # The metadata associated with a request.
     attr_accessor :meta
 
+    attr_accessor :additional_properties
+
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
@@ -58,12 +60,14 @@ module DatadogAPIClient::V2
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::EventsListResponse` initialize method"
       end
 
+      self.additional_properties = {}
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::EventsListResponse`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          self.additional_properties[k.to_sym] = v
+        else
+          h[k.to_sym] = v
         end
-        h[k.to_sym] = v
       }
 
       if attributes.key?(:'data')
@@ -81,6 +85,26 @@ module DatadogAPIClient::V2
       end
     end
 
+    # Returns the object in the form of hash, with additionalProperties support.
+    # @return [Hash] Returns the object in the form of hash
+    # @!visibility private
+    def to_hash
+      hash = {}
+      self.class.attribute_map.each_pair do |attr, param|
+        value = self.send(attr)
+        if value.nil?
+          is_nullable = self.class.openapi_nullable.include?(attr)
+          next if !is_nullable || (is_nullable && !instance_variable_defined?(:"@#{attr}"))
+        end
+
+        hash[param] = _to_hash(value)
+      end
+      self.additional_properties.each_pair do |attr, value|
+        hash[attr] = value
+      end
+      hash
+    end
+
     # Checks equality by comparing each attribute.
     # @param o [Object] Object to be compared
     # @!visibility private
@@ -90,6 +114,7 @@ module DatadogAPIClient::V2
           data == o.data &&
           links == o.links &&
           meta == o.meta
+          additional_properties == o.additional_properties
     end
 
     # Calculates hash code according to all attributes.
