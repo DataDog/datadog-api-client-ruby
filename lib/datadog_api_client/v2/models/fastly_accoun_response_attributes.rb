@@ -21,9 +21,6 @@ module DatadogAPIClient::V2
   class FastlyAccounResponseAttributes
     include BaseGenericModel
 
-    # The FastlyAccounResponseAttributes api_key.
-    attr_accessor :api_key
-
     # The name of the Fastly account.
     attr_reader :name
 
@@ -36,7 +33,6 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'api_key' => :'api_key',
         :'name' => :'name',
         :'services' => :'services'
       }
@@ -46,7 +42,6 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'api_key' => :'String',
         :'name' => :'String',
         :'services' => :'Array<FastlyService>'
       }
@@ -69,10 +64,6 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
-
-      if attributes.key?(:'api_key')
-        self.api_key = attributes[:'api_key']
-      end
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
@@ -129,7 +120,6 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          api_key == o.api_key &&
           name == o.name &&
           services == o.services
           additional_properties == o.additional_properties
@@ -139,7 +129,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [api_key, name, services].hash
+      [name, services].hash
     end
   end
 end

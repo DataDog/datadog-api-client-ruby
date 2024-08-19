@@ -768,7 +768,7 @@ ScenariosModelMappings = {
             "body" => "SyntheticsUpdateTestPauseStatusPayload",
     },
     "v1.CreateGlobalVariable" => {
-            "body" => "SyntheticsGlobalVariable",
+            "body" => "SyntheticsGlobalVariableRequest",
     },
     "v1.DeleteGlobalVariable" => {
             "variable_id" => "String",
@@ -778,7 +778,7 @@ ScenariosModelMappings = {
     },
     "v1.EditGlobalVariable" => {
             "variable_id" => "String",
-            "body" => "SyntheticsGlobalVariable",
+            "body" => "SyntheticsGlobalVariableRequest",
     },
     "v1.ListHostTags" => {
             "source" => "String",

@@ -35,7 +35,7 @@ module DatadogAPIClient::V1
     #
     # Create a Synthetic global variable.
     #
-    # @param body [SyntheticsGlobalVariable] Details of the global variable to create.
+    # @param body [SyntheticsGlobalVariableRequest] Details of the global variable to create.
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsGlobalVariable, Integer, Hash)>] SyntheticsGlobalVariable data, response status code and response headers
     def create_global_variable_with_http_info(body, opts = {})
@@ -501,7 +501,7 @@ module DatadogAPIClient::V1
     # Edit a Synthetic global variable.
     #
     # @param variable_id [String] The ID of the global variable.
-    # @param body [SyntheticsGlobalVariable] Details of the global variable to update.
+    # @param body [SyntheticsGlobalVariableRequest] Details of the global variable to update.
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsGlobalVariable, Integer, Hash)>] SyntheticsGlobalVariable data, response status code and response headers
     def edit_global_variable_with_http_info(variable_id, body, opts = {})
