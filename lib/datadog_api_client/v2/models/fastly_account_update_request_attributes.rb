@@ -24,15 +24,11 @@ module DatadogAPIClient::V2
     # The API key of the Fastly account.
     attr_accessor :api_key
 
-    # The FastlyAccountUpdateRequestAttributes name.
-    attr_accessor :name
-
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'api_key' => :'api_key',
-        :'name' => :'name'
+        :'api_key' => :'api_key'
       }
     end
 
@@ -40,8 +36,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'api_key' => :'String',
-        :'name' => :'String'
+        :'api_key' => :'String'
       }
     end
 
@@ -64,10 +59,6 @@ module DatadogAPIClient::V2
       if attributes.key?(:'api_key')
         self.api_key = attributes[:'api_key']
       end
-
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
-      end
     end
 
     # Checks equality by comparing each attribute.
@@ -76,15 +67,14 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          api_key == o.api_key &&
-          name == o.name
+          api_key == o.api_key
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [api_key, name].hash
+      [api_key].hash
     end
   end
 end
