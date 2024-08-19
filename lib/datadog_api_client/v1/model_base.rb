@@ -57,6 +57,11 @@ module DatadogAPIClient::V1
     # @!visibility private
     def build_from_hash(attributes)
       return nil unless attributes.is_a?(Hash)
+      unless self.respond_to?(:additional_properties)
+        unless attributes.keys.all? { |key| self.class.openapi_types.key?(key) }
+          return nil
+        end
+      end
       self.class.openapi_types.each_pair do |key, type|
         if attributes.key?(self.class.attribute_map[key]) && attributes[self.class.attribute_map[key]].nil? && self.class.openapi_nullable.include?(key)
           self.send("#{key}=", nil)
