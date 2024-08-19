@@ -85,8 +85,6 @@ module DatadogAPIClient::V2
     def valid?
       return false if @attributes.nil?
       return false if @id.nil?
-      return false if @id.to_s.length > 100
-      return false if @id.to_s.length < 1
       return false if @type.nil?
       true
     end
@@ -107,12 +105,6 @@ module DatadogAPIClient::V2
     def id=(id)
       if id.nil?
         fail ArgumentError, 'invalid value for "id", id cannot be nil.'
-      end
-      if id.to_s.length > 100
-        fail ArgumentError, 'invalid value for "id", the character length must be smaller than or equal to 100.'
-      end
-      if id.to_s.length < 1
-        fail ArgumentError, 'invalid value for "id", the character length must be great than or equal to 1.'
       end
       @id = id
     end
