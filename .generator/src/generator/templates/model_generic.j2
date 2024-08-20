@@ -23,7 +23,8 @@
     attr_accessor :{{ attr|attribute_name }}
     {%- endif %}
 {%- endfor %}
-{%- if model.get("additionalProperties") %}
+{%- set additionalProperties = model.get("additionalProperties") %}
+{%- if additionalProperties is not false %}
 
     attr_accessor :additional_properties
 {%- endif %}
@@ -71,13 +72,13 @@
         fail ArgumentError, "The input argument (attributes) must be a hash in `{{ module_name }}::{{ version|upper }}::{{ name }}` initialize method"
       end
 {# preserve blank line #}
-{%- if model.get("additionalProperties") %}
+{%- if additionalProperties is not false %}
       self.additional_properties = {}
 {%- endif %}
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-{%- if model.get("additionalProperties") %}
+{%- if additionalProperties is not false %}
           self.additional_properties[k.to_sym] = v
         else
           h[k.to_sym] = v
@@ -240,7 +241,7 @@
     end
     {%- endif %}
 {%- endfor %}
-{%- if model.get("additionalProperties") %}
+{%- if additionalProperties is not false %}
 
     # Returns the object in the form of hash, with additionalProperties support.
     # @return [Hash] Returns the object in the form of hash
@@ -272,7 +273,7 @@
 {%- for attr in model.properties %}
           {{ attr|attribute_name }} == o.{{ attr|attribute_name }}{% if not loop.last or model.get("additionalProperties") %} &&{% endif %}
 {%- endfor %}
-{%- if model.get("additionalProperties") %}
+{%- if additionalProperties is not false %}
           additional_properties == o.additional_properties
 {%- endif %}
     end
