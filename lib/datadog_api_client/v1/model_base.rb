@@ -35,7 +35,7 @@ module DatadogAPIClient::V1
     end
 
     def self.included(base)
-        base.extend(ClassMethods)
+      base.extend(ClassMethods)
     end
   end
 
@@ -59,7 +59,7 @@ module DatadogAPIClient::V1
       return nil unless attributes.is_a?(Hash)
       unless self.respond_to?(:additional_properties)
         unless attributes.keys.all? { |key| self.class.openapi_types.key?(key) }
-          return nil
+          raise SchemaMismatchError, "Additional properties are not allowed"
         end
       end
       self.class.openapi_types.each_pair do |key, type|
@@ -102,7 +102,7 @@ module DatadogAPIClient::V1
       return nil if value == nil
       case type.to_sym
       when :Time
-      Time.parse(value)
+        Time.parse(value)
       when :Date
         Date.parse(value)
       when :String
@@ -180,7 +180,7 @@ module DatadogAPIClient::V1
 
     # Outputs non-array value in the form of hash
     # For object, use to_hash. Otherwise, just return the value
-     # @param value [Object] Any valid value
+    # @param value [Object] Any valid value
     # @return [Hash] Returns the value in the form of hash
     # @!visibility private
     def _to_hash(value)
@@ -221,7 +221,7 @@ module DatadogAPIClient::V1
     end
 
     def self.included(base)
-        base.extend(ClassMethods)
+      base.extend(ClassMethods)
     end
   end
 
@@ -230,7 +230,6 @@ module DatadogAPIClient::V1
   end
 
   module BaseOneOfModelNoDiscriminator
-
     private
 
     SchemaMismatchError = Class.new(StandardError)
