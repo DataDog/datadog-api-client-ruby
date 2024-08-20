@@ -59,7 +59,7 @@ module DatadogAPIClient::V2
       return nil unless attributes.is_a?(Hash)
       unless self.respond_to?(:additional_properties)
         unless attributes.keys.all? { |key| self.class.openapi_types.key?(key) }
-          return nil
+          raise SchemaMismatchError, "Additional properties are not allowed"
         end
       end
       self.class.openapi_types.each_pair do |key, type|
