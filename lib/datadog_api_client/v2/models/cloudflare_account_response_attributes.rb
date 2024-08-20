@@ -21,9 +21,6 @@ module DatadogAPIClient::V2
   class CloudflareAccountResponseAttributes
     include BaseGenericModel
 
-    # The CloudflareAccountResponseAttributes api_key.
-    attr_accessor :api_key
-
     # The email associated with the Cloudflare account.
     attr_accessor :email
 
@@ -42,7 +39,6 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'api_key' => :'api_key',
         :'email' => :'email',
         :'name' => :'name',
         :'resources' => :'resources',
@@ -54,7 +50,6 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'api_key' => :'String',
         :'email' => :'String',
         :'name' => :'String',
         :'resources' => :'Array<String>',
@@ -79,10 +74,6 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
-
-      if attributes.key?(:'api_key')
-        self.api_key = attributes[:'api_key']
-      end
 
       if attributes.key?(:'email')
         self.email = attributes[:'email']
@@ -149,7 +140,6 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          api_key == o.api_key &&
           email == o.email &&
           name == o.name &&
           resources == o.resources &&
@@ -161,7 +151,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [api_key, email, name, resources, zones].hash
+      [email, name, resources, zones].hash
     end
   end
 end

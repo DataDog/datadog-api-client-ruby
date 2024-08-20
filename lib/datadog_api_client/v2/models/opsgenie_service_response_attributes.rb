@@ -25,10 +25,7 @@ module DatadogAPIClient::V2
     attr_accessor :custom_url
 
     # The name for the Opsgenie service.
-    attr_reader :name
-
-    # The OpsgenieServiceResponseAttributes opsgenie_api_key.
-    attr_accessor :opsgenie_api_key
+    attr_accessor :name
 
     # The region for the Opsgenie service.
     attr_accessor :region
@@ -41,7 +38,6 @@ module DatadogAPIClient::V2
       {
         :'custom_url' => :'custom_url',
         :'name' => :'name',
-        :'opsgenie_api_key' => :'opsgenie_api_key',
         :'region' => :'region'
       }
     end
@@ -52,7 +48,6 @@ module DatadogAPIClient::V2
       {
         :'custom_url' => :'String',
         :'name' => :'String',
-        :'opsgenie_api_key' => :'String',
         :'region' => :'OpsgenieServiceRegionType'
       }
     end
@@ -89,10 +84,6 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
-      end
-
-      if attributes.key?(:'opsgenie_api_key')
-        self.opsgenie_api_key = attributes[:'opsgenie_api_key']
       end
 
       if attributes.key?(:'region')
@@ -146,7 +137,6 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           custom_url == o.custom_url &&
           name == o.name &&
-          opsgenie_api_key == o.opsgenie_api_key &&
           region == o.region
           additional_properties == o.additional_properties
     end
@@ -155,7 +145,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [custom_url, name, opsgenie_api_key, region].hash
+      [custom_url, name, region].hash
     end
   end
 end

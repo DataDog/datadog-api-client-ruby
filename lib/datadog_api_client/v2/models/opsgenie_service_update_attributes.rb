@@ -25,7 +25,7 @@ module DatadogAPIClient::V2
     attr_accessor :custom_url
 
     # The name for the Opsgenie service.
-    attr_reader :name
+    attr_accessor :name
 
     # The Opsgenie API key for your Opsgenie service.
     attr_accessor :opsgenie_api_key
@@ -137,7 +137,7 @@ module DatadogAPIClient::V2
       end
       hash
     end
-
+    
     # Checks equality by comparing each attribute.
     # @param o [Object] Object to be compared
     # @!visibility private
