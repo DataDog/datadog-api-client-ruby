@@ -59,7 +59,7 @@ module DatadogAPIClient::V1
       return nil unless attributes.is_a?(Hash)
       unless self.respond_to?(:additional_properties)
         unless attributes.keys.all? { |key| self.class.openapi_types.key?(key) }
-          return nil
+          raise SchemaMismatchError, "Additional properties are not allowed"
         end
       end
       self.class.openapi_types.each_pair do |key, type|
@@ -161,7 +161,7 @@ module DatadogAPIClient::V1
       to_hash
     end
 
-    # Returns the object in the form of hash
+    # Returns the object in the form of hash, with additionalProperties support.
     # @return [Hash] Returns the object in the form of hash
     # @!visibility private
     def to_hash
@@ -174,6 +174,9 @@ module DatadogAPIClient::V1
         end
 
         hash[param] = _to_hash(value)
+      end
+      self.additional_properties.each_pair do |attr, value|
+        hash[attr] = value
       end
       hash
     end
