@@ -33,7 +33,7 @@ module DatadogAPIClient::V2
     # Deployment ID.
     attr_accessor :id
 
-    # Service name from a service available in the Service Catalog.
+    # Service name.
     attr_reader :service
 
     # Unix timestamp when the deployment started. It must be in nanoseconds, milliseconds, or seconds.
