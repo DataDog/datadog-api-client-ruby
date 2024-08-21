@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes related to the dashboard, including title and popularity.
+  # Attributes related to the dashboard, including title, popularity, and url.
   class MetricDashboardAttributes
     include BaseGenericModel
 
@@ -27,6 +27,9 @@ module DatadogAPIClient::V2
     # Title of the asset.
     attr_accessor :title
 
+    # URL path of the asset.
+    attr_accessor :url
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -34,7 +37,8 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'popularity' => :'popularity',
-        :'title' => :'title'
+        :'title' => :'title',
+        :'url' => :'url'
       }
     end
 
@@ -43,7 +47,8 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'popularity' => :'Float',
-        :'title' => :'String'
+        :'title' => :'String',
+        :'url' => :'String'
       }
     end
 
@@ -71,6 +76,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'title')
         self.title = attributes[:'title']
+      end
+
+      if attributes.key?(:'url')
+        self.url = attributes[:'url']
       end
     end
 
@@ -123,7 +132,8 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           popularity == o.popularity &&
-          title == o.title
+          title == o.title &&
+          url == o.url
           additional_properties == o.additional_properties
     end
 
@@ -131,7 +141,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [popularity, title].hash
+      [popularity, title, url].hash
     end
   end
 end
