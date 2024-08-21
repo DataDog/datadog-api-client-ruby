@@ -33,6 +33,9 @@ module DatadogAPIClient::V2
     # A description for the suppression rule.
     attr_accessor :description
 
+    # Whether the suppression rule is editable.
+    attr_accessor :editable
+
     # Whether the suppression rule is enabled.
     attr_accessor :enabled
 
@@ -67,6 +70,7 @@ module DatadogAPIClient::V2
         :'creator' => :'creator',
         :'data_exclusion_query' => :'data_exclusion_query',
         :'description' => :'description',
+        :'editable' => :'editable',
         :'enabled' => :'enabled',
         :'expiration_date' => :'expiration_date',
         :'name' => :'name',
@@ -86,6 +90,7 @@ module DatadogAPIClient::V2
         :'creator' => :'SecurityMonitoringUser',
         :'data_exclusion_query' => :'String',
         :'description' => :'String',
+        :'editable' => :'Boolean',
         :'enabled' => :'Boolean',
         :'expiration_date' => :'Integer',
         :'name' => :'String',
@@ -129,6 +134,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'description')
         self.description = attributes[:'description']
+      end
+
+      if attributes.key?(:'editable')
+        self.editable = attributes[:'editable']
       end
 
       if attributes.key?(:'enabled')
@@ -212,6 +221,7 @@ module DatadogAPIClient::V2
           creator == o.creator &&
           data_exclusion_query == o.data_exclusion_query &&
           description == o.description &&
+          editable == o.editable &&
           enabled == o.enabled &&
           expiration_date == o.expiration_date &&
           name == o.name &&
@@ -227,7 +237,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [creation_date, creator, data_exclusion_query, description, enabled, expiration_date, name, rule_query, suppression_query, update_date, updater, version].hash
+      [creation_date, creator, data_exclusion_query, description, editable, enabled, expiration_date, name, rule_query, suppression_query, update_date, updater, version].hash
     end
   end
 end
