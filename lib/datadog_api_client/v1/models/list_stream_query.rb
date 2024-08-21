@@ -30,7 +30,7 @@ module DatadogAPIClient::V1
     # Size to use to display an event.
     attr_accessor :event_size
 
-    # Group by configuration for the List Stream Widget. Group by can be used only with logs_pattern_stream (up to 3 items) or logs_transaction_stream (one group by item is required) list stream source.
+    # Group by configuration for the List Stream Widget. Group by can be used only with logs_pattern_stream (up to 4 items) or logs_transaction_stream (one group by item is required) list stream source.
     attr_reader :group_by
 
     # List of indexes.
@@ -141,7 +141,7 @@ module DatadogAPIClient::V1
       return false if !@compute.nil? && @compute.length > 5
       return false if !@compute.nil? && @compute.length < 1
       return false if @data_source.nil?
-      return false if !@group_by.nil? && @group_by.length > 3
+      return false if !@group_by.nil? && @group_by.length > 4
       return false if @query_string.nil?
       true
     end
@@ -173,8 +173,8 @@ module DatadogAPIClient::V1
     # @param group_by [Object] Object to be assigned
     # @!visibility private
     def group_by=(group_by)
-      if !group_by.nil? && group_by.length > 3
-        fail ArgumentError, 'invalid value for "group_by", number of items must be less than or equal to 3.'
+      if !group_by.nil? && group_by.length > 4
+        fail ArgumentError, 'invalid value for "group_by", number of items must be less than or equal to 4.'
       end
       @group_by = group_by
     end
