@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class MetricDashboardAsset
     include BaseGenericModel
 
-    # Attributes related to the dashboard, including title and popularity.
+    # Attributes related to the dashboard, including title, popularity, and url.
     attr_accessor :attributes
 
     # The related dashboard's ID.
