@@ -35,7 +35,7 @@ module DatadogAPIClient::V2
     #
     # Deletes the restriction policy associated with a specified resource.
     #
-    # @param resource_id [String] Identifier, formatted as `type:id`. Supported types: `connection`, `dashboard`, `notebook`, `security-rule`, `slo`.
+    # @param resource_id [String] Identifier, formatted as `type:id`. Supported types: `connection`, `dashboard`, `notebook`, `security-rule`, `slo`, `suppression-rule`.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_restriction_policy_with_http_info(resource_id, opts = {})
@@ -100,7 +100,7 @@ module DatadogAPIClient::V2
     #
     # Retrieves the restriction policy associated with a specified resource.
     #
-    # @param resource_id [String] Identifier, formatted as `type:id`. Supported types: `connection`, `dashboard`, `notebook`, `security-rule`, `slo`.
+    # @param resource_id [String] Identifier, formatted as `type:id`. Supported types: `connection`, `dashboard`, `notebook`, `security-rule`, `slo`, `suppression-rule`.
     # @param opts [Hash] the optional parameters
     # @return [Array<(RestrictionPolicyResponse, Integer, Hash)>] RestrictionPolicyResponse data, response status code and response headers
     def get_restriction_policy_with_http_info(resource_id, opts = {})
@@ -176,6 +176,7 @@ module DatadogAPIClient::V2
     # - Synthetic Tests: `synthetics-test`
     # - Synthetic Private Locations: `synthetics-private-location`
     # - Monitors: `monitor`
+    # - Suppression Rules: `suppression-rule`
     #
     # #### Supported relations for resources
     # Resource Type               | Supported Relations
@@ -189,8 +190,9 @@ module DatadogAPIClient::V2
     # Synthetic Tests             | `viewer`, `editor`
     # Synthetic Private Locations | `viewer`, `editor`
     # Monitors                    | `viewer`, `editor`
+    # Suppression Rules        | `viewer`, `editor`
     #
-    # @param resource_id [String] Identifier, formatted as `type:id`. Supported types: `connection`, `dashboard`, `notebook`, `security-rule`, `slo`.
+    # @param resource_id [String] Identifier, formatted as `type:id`. Supported types: `connection`, `dashboard`, `notebook`, `security-rule`, `slo`, `suppression-rule`.
     # @param body [RestrictionPolicyUpdateRequest] Restriction policy payload
     # @param opts [Hash] the optional parameters
     # @return [Array<(RestrictionPolicyResponse, Integer, Hash)>] RestrictionPolicyResponse data, response status code and response headers
