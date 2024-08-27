@@ -43,11 +43,18 @@ module DatadogAPIClient::V1
     # Filter for logs.
     attr_reader :filter
 
-    # The number of days before logs are deleted from this index. Available values depend on
-    # retention plans specified in your organization's contract/subscriptions.
+    # The total number of days logs are stored in Standard and Flex Tier before being deleted from the index.
+    # If Standard Tier is enabled on this index, logs are first retained in Standard Tier for the number of days specified through `num_retention_days`,
+    # and then stored in Flex Tier until the number of days specified in `num_flex_logs_retention_days` is reached.
+    # The available values depend on retention plans specified in your organization's contract/subscriptions.
     #
-    # **Note:** Changing the retention for an index adjusts the length of retention for all logs
-    # already in this index. It may also affect billing.
+    # **Note**: Changing this value affects all logs already in this index. It may also affect billing.
+    attr_accessor :num_flex_logs_retention_days
+
+    # The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
+    # The available values depend on retention plans specified in your organization's contract/subscriptions.
+    #
+    # **Note**: Changing this value affects all logs already in this index. It may also affect billing.
     attr_accessor :num_retention_days
 
     attr_accessor :additional_properties
@@ -62,6 +69,7 @@ module DatadogAPIClient::V1
         :'disable_daily_limit' => :'disable_daily_limit',
         :'exclusion_filters' => :'exclusion_filters',
         :'filter' => :'filter',
+        :'num_flex_logs_retention_days' => :'num_flex_logs_retention_days',
         :'num_retention_days' => :'num_retention_days'
       }
     end
@@ -76,6 +84,7 @@ module DatadogAPIClient::V1
         :'disable_daily_limit' => :'Boolean',
         :'exclusion_filters' => :'Array<LogsExclusion>',
         :'filter' => :'LogsFilter',
+        :'num_flex_logs_retention_days' => :'Integer',
         :'num_retention_days' => :'Integer'
       }
     end
@@ -122,6 +131,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'filter')
         self.filter = attributes[:'filter']
+      end
+
+      if attributes.key?(:'num_flex_logs_retention_days')
+        self.num_flex_logs_retention_days = attributes[:'num_flex_logs_retention_days']
       end
 
       if attributes.key?(:'num_retention_days')
@@ -194,6 +207,7 @@ module DatadogAPIClient::V1
           disable_daily_limit == o.disable_daily_limit &&
           exclusion_filters == o.exclusion_filters &&
           filter == o.filter &&
+          num_flex_logs_retention_days == o.num_flex_logs_retention_days &&
           num_retention_days == o.num_retention_days
           additional_properties == o.additional_properties
     end
@@ -202,7 +216,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [daily_limit, daily_limit_reset, daily_limit_warning_threshold_percentage, disable_daily_limit, exclusion_filters, filter, num_retention_days].hash
+      [daily_limit, daily_limit_reset, daily_limit_warning_threshold_percentage, disable_daily_limit, exclusion_filters, filter, num_flex_logs_retention_days, num_retention_days].hash
     end
   end
 end

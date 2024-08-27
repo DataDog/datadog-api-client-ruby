@@ -23,6 +23,7 @@ body = DatadogAPIClient::V1::LogsIndexUpdateRequest.new({
   filter: DatadogAPIClient::V1::LogsFilter.new({
     query: "source:python",
   }),
+  num_flex_logs_retention_days: 360,
   num_retention_days: 15,
 })
 p api_instance.update_logs_index("name", body)
