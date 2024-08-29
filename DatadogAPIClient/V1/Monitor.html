@@ -1508,7 +1508,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>A list of unique role identifiers to define which roles are allowed to edit the monitor. The unique identifiers for all roles can be pulled from the <a href="https://docs.datadoghq.com/api/latest/roles/#list-roles">Roles API</a> and are located in the <code>data.id</code> field. Editing a monitor includes any updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. <code>restricted_roles</code> is the successor of <code>locked</code>. For more information about <code>locked</code> and <code>restricted_roles</code>, see the <a href="https://docs.datadoghq.com/monitors/guide/monitor_api_options/#permissions-options">monitor options docs</a>.</p>
+    <p>A list of unique role identifiers to define which roles are allowed to edit the monitor. The unique identifiers for all roles can be pulled from the <a href="https://docs.datadoghq.com/api/latest/roles/#list-roles">Roles API</a> and are located in the <code>data.id</code> field. Editing a monitor includes any updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. You can use the <a href="https://docs.datadoghq.com/api/latest/restriction-policies/">Restriction Policies API</a> to manage write authorization for individual monitors by teams and users, in addition to roles.</p>
 
 
   </div>
@@ -2458,7 +2458,7 @@ For object, use to_hash. Otherwise, just return the value</p>
 </div>
 
       <div id="footer">
-  Generated on Tue Aug 27 13:32:52 2024 by
+  Generated on Thu Aug 29 13:32:02 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.36 (ruby-2.7.8).
 </div>
