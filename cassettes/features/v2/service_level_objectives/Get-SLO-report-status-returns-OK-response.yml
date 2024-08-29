@@ -1,10 +1,10 @@
 http_interactions:
-- recorded_at: Thu, 18 Apr 2024 20:09:44 GMT
+- recorded_at: Thu, 29 Aug 2024 19:53:51 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"from_ts":1711656584,"interval":"monthly","query":"slo_type:metric
-        \"SLO Reporting Test\"","to_ts":1713470984}}}'
+      string: '{"data":{"attributes":{"from_ts":1723146831,"interval":"monthly","query":"slo_type:metric
+        \"SLO Reporting Test\"","to_ts":1724961231}}}'
     headers:
       Accept:
       - application/json
@@ -15,25 +15,25 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"990d70d6-fdbf-11ee-99ae-1f9640631fbf","type":"report_id"}}'
+      string: '{"data":{"id":"6a25239c-6640-11ef-943f-83644ac57ee3","type":"report_id"}}'
     headers:
       Content-Type:
       - application/vnd.api+json
     status:
       code: 200
       message: OK
-- recorded_at: Thu, 18 Apr 2024 20:09:44 GMT
+- recorded_at: Thu, 29 Aug 2024 19:53:51 GMT
   request:
     body: null
     headers:
       Accept:
       - application/json
     method: GET
-    uri: https://api.datadoghq.com/api/v2/slo/report/990d70d6-fdbf-11ee-99ae-1f9640631fbf/status
+    uri: https://api.datadoghq.com/api/v2/slo/report/6a25239c-6640-11ef-943f-83644ac57ee3/status
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"990d70d6-fdbf-11ee-99ae-1f9640631fbf","type":"report_id","attributes":{"status":"in_progress"}}}'
+      string: '{"data":{"id":"6a25239c-6640-11ef-943f-83644ac57ee3","type":"report_id","attributes":{"status":"in_progress"}}}'
     headers:
       Content-Type:
       - application/vnd.api+json
