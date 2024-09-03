@@ -21,7 +21,7 @@ module DatadogAPIClient::V1
   class SyntheticsParsingOptions
     include BaseGenericModel
 
-    # When type is `http_header`, name of the header to use to extract the value.
+    # When type is `http_header` or `grpc_metadata`, name of the header or metadatum to extract.
     attr_accessor :field
 
     # Name of the variable to extract.
@@ -33,7 +33,7 @@ module DatadogAPIClient::V1
     # Determines whether or not the extracted value will be obfuscated.
     attr_accessor :secure
 
-    # Property of the Synthetic Test Response to use for a Synthetic global variable.
+    # Property of the Synthetic Test Response to extract into a local variable.
     attr_accessor :type
 
     attr_accessor :additional_properties
@@ -58,7 +58,7 @@ module DatadogAPIClient::V1
         :'name' => :'String',
         :'parser' => :'SyntheticsVariableParser',
         :'secure' => :'Boolean',
-        :'type' => :'SyntheticsGlobalVariableParseTestOptionsType'
+        :'type' => :'SyntheticsLocalVariableParsingOptionsType'
       }
     end
 
