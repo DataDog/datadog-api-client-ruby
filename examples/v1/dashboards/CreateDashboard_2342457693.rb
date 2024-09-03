@@ -18,7 +18,7 @@ body = DatadogAPIClient::V1::Dashboard.new({
         title: "",
         title_size: "16",
         title_align: DatadogAPIClient::V1::WidgetTextAlign::LEFT,
-        time: DatadogAPIClient::V1::WidgetTime.new({}),
+        time: DatadogAPIClient::V1::WidgetLegacyLiveSpan.new({}),
         type: DatadogAPIClient::V1::ScatterPlotWidgetDefinitionType::SCATTERPLOT,
         requests: DatadogAPIClient::V1::ScatterPlotWidgetDefinitionRequests.new({
           table: DatadogAPIClient::V1::ScatterplotTableRequest.new({

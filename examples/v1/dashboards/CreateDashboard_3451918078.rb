@@ -1,10 +1,10 @@
-# Create a new timeseries widget with ci_pipelines data source
+# Create a new timeseries widget with new fixed span time format
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::DashboardsAPI.new
 
 body = DatadogAPIClient::V1::Dashboard.new({
-  title: "Example-Dashboard with ci_pipelines datasource",
+  title: "Example-Dashboard with new fixed span time",
   widgets: [
     DatadogAPIClient::V1::Widget.new({
       definition: DatadogAPIClient::V1::TimeseriesWidgetDefinition.new({
@@ -18,7 +18,11 @@ body = DatadogAPIClient::V1::Dashboard.new({
           DatadogAPIClient::V1::TimeseriesWidgetLegendColumn::VALUE,
           DatadogAPIClient::V1::TimeseriesWidgetLegendColumn::SUM,
         ],
-        time: DatadogAPIClient::V1::WidgetLegacyLiveSpan.new({}),
+        time: DatadogAPIClient::V1::WidgetNewFixedSpan.new({
+          type: DatadogAPIClient::V1::WidgetNewFixedSpanType::FIXED,
+          from: 1712080128,
+          to: 1712083128,
+        }),
         type: DatadogAPIClient::V1::TimeseriesWidgetDefinitionType::TIMESERIES,
         requests: [
           DatadogAPIClient::V1::TimeseriesWidgetRequest.new({

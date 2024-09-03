@@ -18,7 +18,7 @@ body = DatadogAPIClient::V1::Dashboard.new({
         title: "",
         title_size: "16",
         title_align: DatadogAPIClient::V1::WidgetTextAlign::LEFT,
-        time: DatadogAPIClient::V1::WidgetTime.new({}),
+        time: DatadogAPIClient::V1::WidgetLegacyLiveSpan.new({}),
         style: DatadogAPIClient::V1::ToplistWidgetStyle.new({
           display: DatadogAPIClient::V1::ToplistWidgetStacked.new({
             type: DatadogAPIClient::V1::ToplistWidgetStackedType::STACKED,
