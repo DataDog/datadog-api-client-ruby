@@ -30,7 +30,7 @@ module DatadogAPIClient::V1
     # Details of the parser to use for the global variable.
     attr_accessor :parser
 
-    # Property of the Synthetic Test Response to use for a Synthetic global variable.
+    # Type of value to extract from a test for a Synthetic global variable.
     attr_reader :type
 
     attr_accessor :additional_properties
