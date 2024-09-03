@@ -13,7 +13,7 @@ body = DatadogAPIClient::V1::Dashboard.new({
         title: "",
         title_align: DatadogAPIClient::V1::WidgetTextAlign::LEFT,
         precision: 2,
-        time: DatadogAPIClient::V1::WidgetTime.new({}),
+        time: DatadogAPIClient::V1::WidgetLegacyLiveSpan.new({}),
         autoscale: true,
         requests: [
           DatadogAPIClient::V1::QueryValueWidgetRequest.new({

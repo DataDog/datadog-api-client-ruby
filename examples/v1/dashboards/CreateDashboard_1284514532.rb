@@ -35,7 +35,7 @@ body = DatadogAPIClient::V1::Dashboard.new({
             display_type: DatadogAPIClient::V1::WidgetDisplayType::BARS,
           }),
         ],
-        time: DatadogAPIClient::V1::WidgetTime.new({
+        time: DatadogAPIClient::V1::WidgetLegacyLiveSpan.new({
           live_span: DatadogAPIClient::V1::WidgetLiveSpan::WEEK_TO_DATE,
         }),
       }),
