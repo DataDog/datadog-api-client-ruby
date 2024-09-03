@@ -630,6 +630,7 @@ module DatadogAPIClient
           "v1.synthetics_global_variable_value" => "SyntheticsGlobalVariableValue",
           "v1.synthetics_list_global_variables_response" => "SyntheticsListGlobalVariablesResponse",
           "v1.synthetics_list_tests_response" => "SyntheticsListTestsResponse",
+          "v1.synthetics_local_variable_parsing_options_type" => "SyntheticsLocalVariableParsingOptionsType",
           "v1.synthetics_location" => "SyntheticsLocation",
           "v1.synthetics_locations" => "SyntheticsLocations",
           "v1.synthetics_parsing_options" => "SyntheticsParsingOptions",

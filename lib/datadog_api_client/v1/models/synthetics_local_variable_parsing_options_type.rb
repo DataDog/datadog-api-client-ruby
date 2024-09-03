@@ -17,13 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Type of value to extract from a test for a Synthetic global variable.
-  class SyntheticsGlobalVariableParseTestOptionsType
+  # Property of the Synthetic Test Response to extract into a local variable.
+  class SyntheticsLocalVariableParsingOptionsType
     include BaseEnumModel
 
+    GRPC_MESSAGE = "grpc_message".freeze
+    GRPC_METADATA = "grpc_metadata".freeze
     HTTP_BODY = "http_body".freeze
     HTTP_HEADER = "http_header".freeze
     HTTP_STATUS_CODE = "http_status_code".freeze
-    LOCAL_VARIABLE = "local_variable".freeze
   end
 end
