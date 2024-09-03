@@ -40,8 +40,8 @@ module DatadogAPIClient::V2
     #
     # @param opts [Hash] the optional parameters
     # @option opts [String] :filter_query Search query following events syntax.
-    # @option opts [String] :filter_from Minimum timestamp for requested events.
-    # @option opts [String] :filter_to Maximum timestamp for requested events.
+    # @option opts [String] :filter_from Minimum timestamp for requested events, in milliseconds.
+    # @option opts [String] :filter_to Maximum timestamp for requested events, in milliseconds.
     # @option opts [EventsSort] :sort Order of events in results.
     # @option opts [String] :page_cursor List following results with a cursor provided in the previous query.
     # @option opts [Integer] :page_limit Maximum number of events in the response.
