@@ -1007,6 +1007,24 @@ ScenariosModelMappings = {
             "case_id" => "String",
             "body" => "CaseEmptyRequest",
     },
+    "v2.ListCatalogEntity" => {
+            "page_offset" => "Integer",
+            "page_limit" => "Integer",
+            "fitler_id" => "String",
+            "fitler_ref" => "String",
+            "fitler_name" => "String",
+            "fitler_kind" => "String",
+            "fitler_owner" => "String",
+            "fitler_relation_type" => "RelationType",
+            "fitler_exclude_snapshot" => "String",
+            "include" => "IncludeType",
+    },
+    "v2.UpsertCatalogEntity" => {
+            "body" => "UpsertCatalogEntityRequest",
+    },
+    "v2.DeleteCatalogEntity" => {
+            "entity_id" => "String",
+    },
     "v2.CreateCIAppPipelineEvent" => {
             "body" => "CIAppCreatePipelineEventRequest",
     },
