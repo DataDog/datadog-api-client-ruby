@@ -25,7 +25,7 @@ body = DatadogAPIClient::V2::SecurityMonitoringStandardRuleCreatePayload.new({
   options: DatadogAPIClient::V2::SecurityMonitoringRuleOptions.new({
     detection_method: DatadogAPIClient::V2::SecurityMonitoringRuleDetectionMethod::THIRD_PARTY,
     keep_alive: DatadogAPIClient::V2::SecurityMonitoringRuleKeepAlive::ZERO_MINUTES,
-    max_signal_duration: DatadogAPIClient::V2::SecurityMonitoringRuleMaxSignalDuration::ZERO_MINUTES,
+    max_signal_duration: DatadogAPIClient::V2::SecurityMonitoringRuleMaxSignalDuration::TEN_MINUTES,
     third_party_rule_options: DatadogAPIClient::V2::SecurityMonitoringRuleThirdPartyOptions.new({
       default_status: DatadogAPIClient::V2::SecurityMonitoringRuleSeverity::INFO,
       root_queries: [
