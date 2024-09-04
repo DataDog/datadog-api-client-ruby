@@ -1,5 +1,30 @@
 # CHANGELOG
 
+## 2.26.0 / 2024-09-04
+
+### Fixed
+* Add `is_totp` and `is_fido` to Synthetic global variables by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1910
+### Added
+* Enable automerging for cloudflare routes. by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1953
+* Enable automerging for Fastly routes. by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1954
+* Enable automerging for opsgenie routes. by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1955
+* Enable auto-merging for keys routes. by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1956
+* Allow 4 group-bys for pattern viz by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1963
+* add url attribute to metrics assets v2 api by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1965
+* Add editable field to suppression rule by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1874
+* Add `num_flex_logs_retention_days` field to logs_indexes api spec by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1967
+* Software catalog openapi spec by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1962
+### Changed
+* enable additionalProperties by default and check when false by @amaskara-dd in https://github.com/DataDog/datadog-api-client-ruby/pull/1959
+* allow variables in port by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1940
+* Fix VFTs and extracted local variables enum types by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1928
+* Extend Widget time schema with support for new fixed_span and live_span object by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1951
+### Deprecated
+* mark groupby_simple_monitor as deprecated by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1981
+
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-ruby/compare/v2.25.0...v2.26.0
+
 ## 2.25.0 / 2024-08-12
 
 ### Fixed
