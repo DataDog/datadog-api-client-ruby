@@ -50,7 +50,7 @@ module DatadogAPIClient::V1
     # This option is only available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
     attr_accessor :group_retention_duration
 
-    # Whether the log alert monitor triggers a single alert or multiple alerts when any group breaches a threshold.
+    # Whether the log alert monitor triggers a single alert or multiple alerts when any group breaches a threshold. Use `notify_by` instead.
     attr_accessor :groupby_simple_monitor
 
     # A Boolean indicating whether notifications from this monitor automatically inserts its triggering tags into the title.
