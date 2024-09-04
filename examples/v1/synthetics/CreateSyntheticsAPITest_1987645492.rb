@@ -59,6 +59,10 @@ body = DatadogAPIClient::V1::SyntheticsAPITest.new({
         target: "a",
         type: DatadogAPIClient::V1::SyntheticsAssertionBodyHashType::BODY_HASH,
       }),
+      DatadogAPIClient::V1::SyntheticsAssertionJavascript.new({
+        code: "const hello = 'world';",
+        type: DatadogAPIClient::V1::SyntheticsAssertionJavascriptType::JAVASCRIPT,
+      }),
     ],
     config_variables: [
       DatadogAPIClient::V1::SyntheticsConfigVariable.new({

@@ -555,6 +555,8 @@ module DatadogAPIClient
           "v1.synthetics_assertion_body_hash_operator" => "SyntheticsAssertionBodyHashOperator",
           "v1.synthetics_assertion_body_hash_target" => "SyntheticsAssertionBodyHashTarget",
           "v1.synthetics_assertion_body_hash_type" => "SyntheticsAssertionBodyHashType",
+          "v1.synthetics_assertion_javascript" => "SyntheticsAssertionJavascript",
+          "v1.synthetics_assertion_javascript_type" => "SyntheticsAssertionJavascriptType",
           "v1.synthetics_assertion_json_path_operator" => "SyntheticsAssertionJSONPathOperator",
           "v1.synthetics_assertion_json_path_target" => "SyntheticsAssertionJSONPathTarget",
           "v1.synthetics_assertion_json_path_target_target" => "SyntheticsAssertionJSONPathTargetTarget",
