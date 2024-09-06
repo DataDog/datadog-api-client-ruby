@@ -25,6 +25,7 @@ body = DatadogAPIClient::V1::Dashboard.new({
             legend: DatadogAPIClient::V1::ToplistWidgetLegend::INLINE,
           }),
           scaling: DatadogAPIClient::V1::ToplistWidgetScaling::RELATIVE,
+          palette: "dog_classic",
         }),
         type: DatadogAPIClient::V1::ToplistWidgetDefinitionType::TOPLIST,
         requests: [
