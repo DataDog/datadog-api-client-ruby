@@ -3,7 +3,7 @@ require 'zeitwerk'
 module DatadogAPIClient
   class DatadogAPIClientInflector < Zeitwerk::Inflector
     def camelize(basename, abspath)
-      model_name = "#{abspath.scan(/v[0-9]/).last}.#{basename}"
+      model_name = "#{abspath.match(/datadog_api_client\/(v[0-9])\//)&.captures&.first}.#{basename}"
       overrides[model_name] || basename.split('_').each(&:capitalize!).join
     end
 
