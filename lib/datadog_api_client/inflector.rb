@@ -676,6 +676,7 @@ module DatadogAPIClient
           "v1.synthetics_test_request_body_type" => "SyntheticsTestRequestBodyType",
           "v1.synthetics_test_request_certificate" => "SyntheticsTestRequestCertificate",
           "v1.synthetics_test_request_certificate_item" => "SyntheticsTestRequestCertificateItem",
+          "v1.synthetics_test_request_port" => "SyntheticsTestRequestPort",
           "v1.synthetics_test_request_proxy" => "SyntheticsTestRequestProxy",
           "v1.synthetics_timing" => "SyntheticsTiming",
           "v1.synthetics_trigger_body" => "SyntheticsTriggerBody",

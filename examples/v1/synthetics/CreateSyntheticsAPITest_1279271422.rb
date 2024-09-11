@@ -72,7 +72,7 @@ body = DatadogAPIClient::V1::SyntheticsAPITest.new({
         ],
         request: DatadogAPIClient::V1::SyntheticsTestRequest.new({
           host: "grpcbin.test.k6.io",
-          port: "9000",
+          port: 9000,
           service: "grpcbin.GRPCBin",
           method: "Index",
           message: "{}",
