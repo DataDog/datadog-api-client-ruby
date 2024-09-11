@@ -81,6 +81,9 @@ module DatadogAPIClient::V1
     # The controls for sorting the widget.
     attr_accessor :sort
 
+    # List of text formats for columns produced by tags.
+    attr_accessor :text_formats
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -106,7 +109,8 @@ module DatadogAPIClient::V1
         :'response_format' => :'response_format',
         :'rum_query' => :'rum_query',
         :'security_query' => :'security_query',
-        :'sort' => :'sort'
+        :'sort' => :'sort',
+        :'text_formats' => :'text_formats'
       }
     end
 
@@ -133,7 +137,8 @@ module DatadogAPIClient::V1
         :'response_format' => :'FormulaAndFunctionResponseFormat',
         :'rum_query' => :'LogQueryDefinition',
         :'security_query' => :'LogQueryDefinition',
-        :'sort' => :'WidgetSortBy'
+        :'sort' => :'WidgetSortBy',
+        :'text_formats' => :'Array<Array<TableWidgetTextFormatRule>>'
       }
     end
 
@@ -242,6 +247,12 @@ module DatadogAPIClient::V1
       if attributes.key?(:'sort')
         self.sort = attributes[:'sort']
       end
+
+      if attributes.key?(:'text_formats')
+        if (value = attributes[:'text_formats']).is_a?(Array)
+          self.text_formats = value
+        end
+      end
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -289,7 +300,8 @@ module DatadogAPIClient::V1
           response_format == o.response_format &&
           rum_query == o.rum_query &&
           security_query == o.security_query &&
-          sort == o.sort
+          sort == o.sort &&
+          text_formats == o.text_formats
           additional_properties == o.additional_properties
     end
 
@@ -297,7 +309,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [aggregator, _alias, apm_query, apm_stats_query, cell_display_mode, conditional_formats, event_query, formulas, limit, log_query, network_query, order, process_query, profile_metrics_query, q, queries, response_format, rum_query, security_query, sort].hash
+      [aggregator, _alias, apm_query, apm_stats_query, cell_display_mode, conditional_formats, event_query, formulas, limit, log_query, network_query, order, process_query, profile_metrics_query, q, queries, response_format, rum_query, security_query, sort, text_formats].hash
     end
   end
 end
