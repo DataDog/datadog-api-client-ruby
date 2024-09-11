@@ -1,5 +1,16 @@
 # CHANGELOG
 
+## 2.26.1 / 2024-09-11
+
+### Fixed
+* Handle models with `v[0-9]` in name when loading them by @skarimo in https://github.com/DataDog/datadog-api-client-ruby/pull/2002
+### Added
+* Add new synthetics HTTP javascript assertion by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1939
+* Dashboards - Toplist widget style - Add palette by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1992
+
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-ruby/compare/v2.26.0...v2.26.1
+
 ## 2.26.0 / 2024-09-04
 
 ### Fixed
