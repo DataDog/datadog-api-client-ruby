@@ -3,7 +3,7 @@ require 'zeitwerk'
 module DatadogAPIClient
   class DatadogAPIClientInflector < Zeitwerk::Inflector
     def camelize(basename, abspath)
-      model_name = "#{abspath.scan(/v[0-9]/).last}.#{basename}"
+      model_name = "#{abspath.match(/datadog_api_client\/(v[0-9])\//)&.captures&.first}.#{basename}"
       overrides[model_name] || basename.split('_').each(&:capitalize!).join
     end
 
@@ -676,6 +676,7 @@ module DatadogAPIClient
           "v1.synthetics_test_request_body_type" => "SyntheticsTestRequestBodyType",
           "v1.synthetics_test_request_certificate" => "SyntheticsTestRequestCertificate",
           "v1.synthetics_test_request_certificate_item" => "SyntheticsTestRequestCertificateItem",
+          "v1.synthetics_test_request_port" => "SyntheticsTestRequestPort",
           "v1.synthetics_test_request_proxy" => "SyntheticsTestRequestProxy",
           "v1.synthetics_timing" => "SyntheticsTiming",
           "v1.synthetics_trigger_body" => "SyntheticsTriggerBody",

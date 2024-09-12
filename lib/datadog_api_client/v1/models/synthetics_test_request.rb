@@ -178,7 +178,7 @@ module DatadogAPIClient::V1
         :'no_saving_response_body' => :'Boolean',
         :'number_of_packets' => :'Integer',
         :'persist_cookies' => :'Boolean',
-        :'port' => :'String',
+        :'port' => :'SyntheticsTestRequestPort',
         :'proxy' => :'SyntheticsTestRequestProxy',
         :'query' => :'Object',
         :'servername' => :'String',

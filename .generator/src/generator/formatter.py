@@ -251,7 +251,7 @@ def format_data_with_schema(
                     return str(x)
 
                 def format_string(x):
-                    if isinstance(x, bool):
+                    if isinstance(x, (bool, int, float)):
                         raise TypeError(f"{x} is not supported type {schema}")
                     if schema.get("format") == "binary":
                         return open_file(x)

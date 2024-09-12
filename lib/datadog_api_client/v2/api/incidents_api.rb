@@ -755,7 +755,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'IncidentAttachmentsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :list_incident_attachments,
