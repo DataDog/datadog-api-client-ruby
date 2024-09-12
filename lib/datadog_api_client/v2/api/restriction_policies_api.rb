@@ -68,7 +68,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :delete_restriction_policy,
@@ -133,7 +133,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'RestrictionPolicyResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_restriction_policy,
@@ -230,7 +230,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'RestrictionPolicyResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :update_restriction_policy,
