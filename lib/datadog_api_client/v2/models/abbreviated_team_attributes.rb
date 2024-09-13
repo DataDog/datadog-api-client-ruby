@@ -17,8 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Team update attributes
-  class TeamUpdateAttributes
+  # The definition of `AbbreviatedTeamAttributes` object.
+  class AbbreviatedTeamAttributes
     include BaseGenericModel
 
     # Unicode representation of the avatar for the team, limited to a single grapheme
@@ -27,20 +27,20 @@ module DatadogAPIClient::V2
     # Banner selection for the team
     attr_accessor :banner
 
-    # Free-form markdown description/content for the team's homepage
-    attr_accessor :description
-
     # The team's identifier
     attr_reader :handle
 
-    # Collection of hidden modules for the team
-    attr_accessor :hidden_modules
+    # The `AbbreviatedTeamAttributes` `handles`.
+    attr_accessor :handles
+
+    # The `AbbreviatedTeamAttributes` `is_open_membership`.
+    attr_accessor :is_open_membership
 
     # The name of the team
     attr_reader :name
 
-    # Collection of visible modules for the team
-    attr_accessor :visible_modules
+    # A brief summary of the team
+    attr_accessor :summary
 
     attr_accessor :additional_properties
 
@@ -50,11 +50,11 @@ module DatadogAPIClient::V2
       {
         :'avatar' => :'avatar',
         :'banner' => :'banner',
-        :'description' => :'description',
         :'handle' => :'handle',
-        :'hidden_modules' => :'hidden_modules',
+        :'handles' => :'handles',
+        :'is_open_membership' => :'is_open_membership',
         :'name' => :'name',
-        :'visible_modules' => :'visible_modules'
+        :'summary' => :'summary'
       }
     end
 
@@ -64,11 +64,11 @@ module DatadogAPIClient::V2
       {
         :'avatar' => :'String',
         :'banner' => :'Integer',
-        :'description' => :'String',
         :'handle' => :'String',
-        :'hidden_modules' => :'Array<String>',
+        :'handles' => :'String',
+        :'is_open_membership' => :'Boolean',
         :'name' => :'String',
-        :'visible_modules' => :'Array<String>'
+        :'summary' => :'String'
       }
     end
 
@@ -77,7 +77,6 @@ module DatadogAPIClient::V2
     def self.openapi_nullable
       Set.new([
         :'avatar',
-        :'banner',
       ])
     end
 
@@ -86,7 +85,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TeamUpdateAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::AbbreviatedTeamAttributes` initialize method"
       end
 
       self.additional_properties = {}
@@ -107,28 +106,24 @@ module DatadogAPIClient::V2
         self.banner = attributes[:'banner']
       end
 
-      if attributes.key?(:'description')
-        self.description = attributes[:'description']
-      end
-
       if attributes.key?(:'handle')
         self.handle = attributes[:'handle']
       end
 
-      if attributes.key?(:'hidden_modules')
-        if (value = attributes[:'hidden_modules']).is_a?(Array)
-          self.hidden_modules = value
-        end
+      if attributes.key?(:'handles')
+        self.handles = attributes[:'handles']
+      end
+
+      if attributes.key?(:'is_open_membership')
+        self.is_open_membership = attributes[:'is_open_membership']
       end
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
 
-      if attributes.key?(:'visible_modules')
-        if (value = attributes[:'visible_modules']).is_a?(Array)
-          self.visible_modules = value
-        end
+      if attributes.key?(:'summary')
+        self.summary = attributes[:'summary']
       end
     end
 
@@ -137,9 +132,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @handle.nil?
-      return false if @handle.to_s.length > 195
       return false if @name.nil?
-      return false if @name.to_s.length > 200
       true
     end
 
@@ -150,9 +143,6 @@ module DatadogAPIClient::V2
       if handle.nil?
         fail ArgumentError, 'invalid value for "handle", handle cannot be nil.'
       end
-      if handle.to_s.length > 195
-        fail ArgumentError, 'invalid value for "handle", the character length must be smaller than or equal to 195.'
-      end
       @handle = handle
     end
 
@@ -162,9 +152,6 @@ module DatadogAPIClient::V2
     def name=(name)
       if name.nil?
         fail ArgumentError, 'invalid value for "name", name cannot be nil.'
-      end
-      if name.to_s.length > 200
-        fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 200.'
       end
       @name = name
     end
@@ -197,11 +184,11 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           avatar == o.avatar &&
           banner == o.banner &&
-          description == o.description &&
           handle == o.handle &&
-          hidden_modules == o.hidden_modules &&
+          handles == o.handles &&
+          is_open_membership == o.is_open_membership &&
           name == o.name &&
-          visible_modules == o.visible_modules
+          summary == o.summary
           additional_properties == o.additional_properties
     end
 
@@ -209,7 +196,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [avatar, banner, description, handle, hidden_modules, name, visible_modules].hash
+      [avatar, banner, handle, handles, is_open_membership, name, summary].hash
     end
   end
 end
