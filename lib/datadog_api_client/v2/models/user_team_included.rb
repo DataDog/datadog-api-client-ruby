@@ -27,7 +27,9 @@ module DatadogAPIClient::V2
       def openapi_one_of
         [
           :'User',
-          :'Team'
+          :'Team',
+          :'AbbreviatedTeam',
+          :'UserTeamUser'
         ]
       end
       # Builds the object
