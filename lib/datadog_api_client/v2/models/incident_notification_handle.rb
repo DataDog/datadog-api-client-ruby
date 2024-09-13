@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # The name of the notified handle.
     attr_accessor :display_name
 
-    # The email address used for the notification.
+    # The handle used for the notification. This includes an email address, Slack channel, or workflow.
     attr_accessor :handle
 
     attr_accessor :additional_properties
