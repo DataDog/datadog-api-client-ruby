@@ -9,7 +9,7 @@ body = DatadogAPIClient::V1::DistributionPointsPayload.new({
       metric: "system.load.1.dist",
       points: [
         [
-          Time.now,
+          Time.now.to_f,
           [
             1.0,
             2.0,
