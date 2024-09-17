@@ -17,15 +17,27 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A notification handle that will be notified at incident creation.
-  class IncidentNotificationHandle
+  # The definition of `UserTeamUserAttributes` object.
+  class UserTeamUserAttributes
     include BaseGenericModel
 
-    # The name of the notified handle.
-    attr_accessor :display_name
+    # The `UserTeamUserAttributes` `disabled`.
+    attr_accessor :disabled
 
-    # The handle used for the notification. This includes an email address, Slack channel, or workflow.
+    # The `UserTeamUserAttributes` `email`.
+    attr_accessor :email
+
+    # The `UserTeamUserAttributes` `handle`.
     attr_accessor :handle
+
+    # The `UserTeamUserAttributes` `icon`.
+    attr_accessor :icon
+
+    # The `UserTeamUserAttributes` `name`.
+    attr_accessor :name
+
+    # The `UserTeamUserAttributes` `service_account`.
+    attr_accessor :service_account
 
     attr_accessor :additional_properties
 
@@ -33,8 +45,12 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'display_name' => :'display_name',
-        :'handle' => :'handle'
+        :'disabled' => :'disabled',
+        :'email' => :'email',
+        :'handle' => :'handle',
+        :'icon' => :'icon',
+        :'name' => :'name',
+        :'service_account' => :'service_account'
       }
     end
 
@@ -42,9 +58,21 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'display_name' => :'String',
-        :'handle' => :'String'
+        :'disabled' => :'Boolean',
+        :'email' => :'String',
+        :'handle' => :'String',
+        :'icon' => :'String',
+        :'name' => :'String',
+        :'service_account' => :'Boolean'
       }
+    end
+
+    # List of attributes with nullable: true
+    # @!visibility private
+    def self.openapi_nullable
+      Set.new([
+        :'name',
+      ])
     end
 
     # Initializes the object
@@ -52,7 +80,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::IncidentNotificationHandle` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::UserTeamUserAttributes` initialize method"
       end
 
       self.additional_properties = {}
@@ -65,12 +93,28 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'display_name')
-        self.display_name = attributes[:'display_name']
+      if attributes.key?(:'disabled')
+        self.disabled = attributes[:'disabled']
+      end
+
+      if attributes.key?(:'email')
+        self.email = attributes[:'email']
       end
 
       if attributes.key?(:'handle')
         self.handle = attributes[:'handle']
+      end
+
+      if attributes.key?(:'icon')
+        self.icon = attributes[:'icon']
+      end
+
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'service_account')
+        self.service_account = attributes[:'service_account']
       end
     end
 
@@ -100,8 +144,12 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          display_name == o.display_name &&
-          handle == o.handle
+          disabled == o.disabled &&
+          email == o.email &&
+          handle == o.handle &&
+          icon == o.icon &&
+          name == o.name &&
+          service_account == o.service_account
           additional_properties == o.additional_properties
     end
 
@@ -109,7 +157,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [display_name, handle].hash
+      [disabled, email, handle, icon, name, service_account].hash
     end
   end
 end
