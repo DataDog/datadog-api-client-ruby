@@ -21,11 +21,17 @@ module DatadogAPIClient::V2
   class PowerpackTemplateVariable
     include BaseGenericModel
 
+    # The list of values that the template variable drop-down is limited to.
+    attr_accessor :available_values
+
     # One or many template variable default values within the saved view, which are unioned together using `OR` if more than one is specified.
     attr_accessor :defaults
 
     # The name of the variable.
     attr_reader :name
+
+    # The tag prefix associated with the variable. Only tags with this prefix appear in the variable drop-down.
+    attr_accessor :prefix
 
     attr_accessor :additional_properties
 
@@ -33,8 +39,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'available_values' => :'available_values',
         :'defaults' => :'defaults',
-        :'name' => :'name'
+        :'name' => :'name',
+        :'prefix' => :'prefix'
       }
     end
 
@@ -42,9 +50,20 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'available_values' => :'Array<String>',
         :'defaults' => :'Array<String>',
-        :'name' => :'String'
+        :'name' => :'String',
+        :'prefix' => :'String'
       }
+    end
+
+    # List of attributes with nullable: true
+    # @!visibility private
+    def self.openapi_nullable
+      Set.new([
+        :'available_values',
+        :'prefix',
+      ])
     end
 
     # Initializes the object
@@ -65,6 +84,12 @@ module DatadogAPIClient::V2
         end
       }
 
+      if attributes.key?(:'available_values')
+        if (value = attributes[:'available_values']).is_a?(Array)
+          self.available_values = value
+        end
+      end
+
       if attributes.key?(:'defaults')
         if (value = attributes[:'defaults']).is_a?(Array)
           self.defaults = value
@@ -73,6 +98,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'prefix')
+        self.prefix = attributes[:'prefix']
       end
     end
 
@@ -120,8 +149,10 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          available_values == o.available_values &&
           defaults == o.defaults &&
-          name == o.name
+          name == o.name &&
+          prefix == o.prefix
           additional_properties == o.additional_properties
     end
 
@@ -129,7 +160,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [defaults, name].hash
+      [available_values, defaults, name, prefix].hash
     end
   end
 end
