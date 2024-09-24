@@ -17,18 +17,24 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Response object that includes metrics and metric tag configurations.
-  class MetricsAndMetricTagConfigurationsResponse
+  # Pagination links. Only present if pagination query parameters were provided.
+  class MetricsListResponseLinks
     include BaseGenericModel
 
-    # Array of metrics and metric tag configurations.
-    attr_accessor :data
+    # Link to the first page.
+    attr_accessor :first
 
-    # Pagination links. Only present if pagination query parameters were provided.
-    attr_accessor :links
+    # Link to the last page.
+    attr_accessor :last
 
-    # Response metadata object.
-    attr_accessor :meta
+    # Link to the next page.
+    attr_accessor :_next
+
+    # Link to previous page.
+    attr_accessor :prev
+
+    # Link to current page.
+    attr_accessor :_self
 
     attr_accessor :additional_properties
 
@@ -36,9 +42,11 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data',
-        :'links' => :'links',
-        :'meta' => :'meta'
+        :'first' => :'first',
+        :'last' => :'last',
+        :'_next' => :'next',
+        :'prev' => :'prev',
+        :'_self' => :'self'
       }
     end
 
@@ -46,10 +54,22 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'Array<MetricsAndMetricTagConfigurations>',
-        :'links' => :'MetricsListResponseLinks',
-        :'meta' => :'MetricPaginationMeta'
+        :'first' => :'String',
+        :'last' => :'String',
+        :'_next' => :'String',
+        :'prev' => :'String',
+        :'_self' => :'String'
       }
+    end
+
+    # List of attributes with nullable: true
+    # @!visibility private
+    def self.openapi_nullable
+      Set.new([
+        :'last',
+        :'_next',
+        :'prev',
+      ])
     end
 
     # Initializes the object
@@ -57,7 +77,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::MetricsAndMetricTagConfigurationsResponse` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::MetricsListResponseLinks` initialize method"
       end
 
       self.additional_properties = {}
@@ -70,18 +90,24 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'data')
-        if (value = attributes[:'data']).is_a?(Array)
-          self.data = value
-        end
+      if attributes.key?(:'first')
+        self.first = attributes[:'first']
       end
 
-      if attributes.key?(:'links')
-        self.links = attributes[:'links']
+      if attributes.key?(:'last')
+        self.last = attributes[:'last']
       end
 
-      if attributes.key?(:'meta')
-        self.meta = attributes[:'meta']
+      if attributes.key?(:'_next')
+        self._next = attributes[:'_next']
+      end
+
+      if attributes.key?(:'prev')
+        self.prev = attributes[:'prev']
+      end
+
+      if attributes.key?(:'_self')
+        self._self = attributes[:'_self']
       end
     end
 
@@ -111,9 +137,11 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data &&
-          links == o.links &&
-          meta == o.meta
+          first == o.first &&
+          last == o.last &&
+          _next == o._next &&
+          prev == o.prev &&
+          _self == o._self
           additional_properties == o.additional_properties
     end
 
@@ -121,7 +149,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, links, meta].hash
+      [first, last, _next, prev, _self].hash
     end
   end
 end

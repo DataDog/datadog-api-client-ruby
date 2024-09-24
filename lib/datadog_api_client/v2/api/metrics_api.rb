@@ -603,6 +603,9 @@ module DatadogAPIClient::V2
     # Get a list of metrics.
     #
     # Returns all metrics that can be configured in the Metrics Summary page or with Metrics without Limits™ (matching additional filters if specified).
+    # Optionally, paginate by using the page[cursor] and/or page[size] query parameters.
+    # To fetch the first page, pass in a query parameter with either a valid page[size] or an empty cursor like "page[cursor]=". To fetch the next page, pass in the next_cursor value from the response as the new page[cursor] value.
+    # Once the meta.pagination.next_cursor value is null, all pages have been retrieved.
     #
     # @param opts [Hash] the optional parameters
     # @option opts [Boolean] :filter_configured Filter custom metrics that have configured tags.
@@ -612,6 +615,8 @@ module DatadogAPIClient::V2
     # @option opts [Boolean] :filter_queried (Beta) Filter custom metrics that have or have not been queried in the specified window[seconds]. If no window is provided or the window is less than 2 hours, a default of 2 hours will be applied.
     # @option opts [String] :filter_tags Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions. Can only be combined with the filter[queried] filter.
     # @option opts [Integer] :window_seconds The number of seconds of look back (from now) to apply to a filter[tag] or filter[queried] query. Default value is 3600 (1 hour), maximum value is 2,592,000 (30 days).
+    # @option opts [Integer] :page_size Maximum number of results returned.
+    # @option opts [String] :page_cursor String to query the next page of results. This key is provided with each valid response from the API in `meta.pagination.next_cursor`. Once the meta.pagination.next_cursor key is null, all pages have been retrieved.
     # @return [Array<(MetricsAndMetricTagConfigurationsResponse, Integer, Hash)>] MetricsAndMetricTagConfigurationsResponse data, response status code and response headers
     def list_tag_configurations_with_http_info(opts = {})
 
@@ -621,6 +626,12 @@ module DatadogAPIClient::V2
       allowable_values = ['gauge', 'count', 'rate', 'distribution']
       if @api_client.config.client_side_validation && opts[:'filter_metric_type'] && !allowable_values.include?(opts[:'filter_metric_type'])
         fail ArgumentError, "invalid value for \"filter_metric_type\", must be one of #{allowable_values}"
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] > 10000
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling MetricsAPI.list_tag_configurations, must be smaller than or equal to 10000.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling MetricsAPI.list_tag_configurations, must be greater than or equal to 1.'
       end
       # resource path
       local_var_path = '/api/v2/metrics'
@@ -634,6 +645,8 @@ module DatadogAPIClient::V2
       query_params[:'filter[queried]'] = opts[:'filter_queried'] if !opts[:'filter_queried'].nil?
       query_params[:'filter[tags]'] = opts[:'filter_tags'] if !opts[:'filter_tags'].nil?
       query_params[:'window[seconds]'] = opts[:'window_seconds'] if !opts[:'window_seconds'].nil?
+      query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+      query_params[:'page[cursor]'] = opts[:'page_cursor'] if !opts[:'page_cursor'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -668,6 +681,27 @@ module DatadogAPIClient::V2
         @api_client.config.logger.debug "API called: MetricsAPI#list_tag_configurations\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
+    end
+
+    # Get a list of metrics.
+    #
+    # Provide a paginated version of {#list_tag_configurations}, returning all items.
+    #
+    # To use it you need to use a block: list_tag_configurations_with_pagination { |item| p item }
+    #
+    # @yield [MetricsAndMetricTagConfigurations] Paginated items
+    def list_tag_configurations_with_pagination(opts = {})
+        api_version = "V2"
+        page_size = @api_client.get_attribute_from_path(opts, "page_size", 10000)
+        @api_client.set_attribute_from_path(api_version, opts, "page_size", Integer, page_size)
+        while true do
+            response = list_tag_configurations(opts)
+            @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
+            if @api_client.get_attribute_from_path(response, "data").length < page_size
+              break
+            end
+            @api_client.set_attribute_from_path(api_version, opts, "page_cursor", String, @api_client.get_attribute_from_path(response, "meta.pagination.next_cursor"))
+        end
     end
 
     # List tags by metric name.

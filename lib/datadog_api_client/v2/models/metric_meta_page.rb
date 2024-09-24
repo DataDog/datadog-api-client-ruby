@@ -17,18 +17,21 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Response object that includes metrics and metric tag configurations.
-  class MetricsAndMetricTagConfigurationsResponse
+  # Paging attributes. Only present if pagination query parameters were provided.
+  class MetricMetaPage
     include BaseGenericModel
 
-    # Array of metrics and metric tag configurations.
-    attr_accessor :data
+    # The cursor used to get the current results, if any.
+    attr_accessor :cursor
 
-    # Pagination links. Only present if pagination query parameters were provided.
-    attr_accessor :links
+    # Number of results returned
+    attr_reader :limit
 
-    # Response metadata object.
-    attr_accessor :meta
+    # The cursor used to get the next results, if any.
+    attr_accessor :next_cursor
+
+    # Type of Metric pagination.
+    attr_accessor :type
 
     attr_accessor :additional_properties
 
@@ -36,9 +39,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data',
-        :'links' => :'links',
-        :'meta' => :'meta'
+        :'cursor' => :'cursor',
+        :'limit' => :'limit',
+        :'next_cursor' => :'next_cursor',
+        :'type' => :'type'
       }
     end
 
@@ -46,10 +50,19 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'Array<MetricsAndMetricTagConfigurations>',
-        :'links' => :'MetricsListResponseLinks',
-        :'meta' => :'MetricPaginationMeta'
+        :'cursor' => :'String',
+        :'limit' => :'Integer',
+        :'next_cursor' => :'String',
+        :'type' => :'MetricMetaPageType'
       }
+    end
+
+    # List of attributes with nullable: true
+    # @!visibility private
+    def self.openapi_nullable
+      Set.new([
+        :'next_cursor',
+      ])
     end
 
     # Initializes the object
@@ -57,7 +70,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::MetricsAndMetricTagConfigurationsResponse` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::MetricMetaPage` initialize method"
       end
 
       self.additional_properties = {}
@@ -70,19 +83,43 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'data')
-        if (value = attributes[:'data']).is_a?(Array)
-          self.data = value
-        end
+      if attributes.key?(:'cursor')
+        self.cursor = attributes[:'cursor']
       end
 
-      if attributes.key?(:'links')
-        self.links = attributes[:'links']
+      if attributes.key?(:'limit')
+        self.limit = attributes[:'limit']
       end
 
-      if attributes.key?(:'meta')
-        self.meta = attributes[:'meta']
+      if attributes.key?(:'next_cursor')
+        self.next_cursor = attributes[:'next_cursor']
       end
+
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
+      end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if !@limit.nil? && @limit > 20000
+      return false if !@limit.nil? && @limit < 0
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param limit [Object] Object to be assigned
+    # @!visibility private
+    def limit=(limit)
+      if !limit.nil? && limit > 20000
+        fail ArgumentError, 'invalid value for "limit", must be smaller than or equal to 20000.'
+      end
+      if !limit.nil? && limit < 0
+        fail ArgumentError, 'invalid value for "limit", must be greater than or equal to 0.'
+      end
+      @limit = limit
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -111,9 +148,10 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data &&
-          links == o.links &&
-          meta == o.meta
+          cursor == o.cursor &&
+          limit == o.limit &&
+          next_cursor == o.next_cursor &&
+          type == o.type
           additional_properties == o.additional_properties
     end
 
@@ -121,7 +159,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, links, meta].hash
+      [cursor, limit, next_cursor, type].hash
     end
   end
 end

@@ -1494,6 +1494,8 @@ ScenariosModelMappings = {
             "filter_queried" => "Boolean",
             "filter_tags" => "String",
             "window_seconds" => "Integer",
+            "page_size" => "Integer",
+            "page_cursor" => "String",
     },
     "v2.DeleteBulkTagsMetricsConfiguration" => {
             "body" => "MetricBulkTagConfigDeleteRequest",
