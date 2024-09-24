@@ -28,7 +28,9 @@ module DatadogAPIClient::V2
         [
           :'Organization',
           :'Permission',
-          :'Role'
+          :'Role',
+          :'UserOverrideIdentityProvider',
+          :'UserOrgsSerializable'
         ]
       end
       # Builds the object
