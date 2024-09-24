@@ -17,24 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes of a user invitation.
-  class UserInvitationDataAttributes
+  # The definition of `UserOverrideIdentityProvider` object.
+  class UserOverrideIdentityProvider
     include BaseGenericModel
 
-    # Creation time of the user invitation.
-    attr_accessor :created_at
+    # The definition of `UserOverrideIdentityProviderAttributes` object.
+    attr_accessor :attributes
 
-    # Time of invitation expiration.
-    attr_accessor :expires_at
+    # The `UserOverrideIdentityProvider` `id`.
+    attr_accessor :id
 
-    # Type of invitation.
-    attr_accessor :invite_type
-
-    # The `UserInvitationDataAttributes` `login_method`.
-    attr_accessor :login_method
-
-    # UUID of the user invitation.
-    attr_accessor :uuid
+    # The definition of `UserOverrideIdentityProviderType` object.
+    attr_reader :type
 
     attr_accessor :additional_properties
 
@@ -42,11 +36,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'created_at' => :'created_at',
-        :'expires_at' => :'expires_at',
-        :'invite_type' => :'invite_type',
-        :'login_method' => :'login_method',
-        :'uuid' => :'uuid'
+        :'attributes' => :'attributes',
+        :'id' => :'id',
+        :'type' => :'type'
       }
     end
 
@@ -54,20 +46,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'created_at' => :'Time',
-        :'expires_at' => :'Time',
-        :'invite_type' => :'String',
-        :'login_method' => :'String',
-        :'uuid' => :'String'
+        :'attributes' => :'UserOverrideIdentityProviderAttributes',
+        :'id' => :'String',
+        :'type' => :'UserOverrideIdentityProviderType'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-        :'login_method',
-      ])
     end
 
     # Initializes the object
@@ -75,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::UserInvitationDataAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::UserOverrideIdentityProvider` initialize method"
       end
 
       self.additional_properties = {}
@@ -88,25 +70,35 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'created_at')
-        self.created_at = attributes[:'created_at']
+      if attributes.key?(:'attributes')
+        self.attributes = attributes[:'attributes']
       end
 
-      if attributes.key?(:'expires_at')
-        self.expires_at = attributes[:'expires_at']
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
       end
 
-      if attributes.key?(:'invite_type')
-        self.invite_type = attributes[:'invite_type']
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
       end
+    end
 
-      if attributes.key?(:'login_method')
-        self.login_method = attributes[:'login_method']
-      end
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @type.nil?
+      true
+    end
 
-      if attributes.key?(:'uuid')
-        self.uuid = attributes[:'uuid']
+    # Custom attribute writer method with validation
+    # @param type [Object] Object to be assigned
+    # @!visibility private
+    def type=(type)
+      if type.nil?
+        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
       end
+      @type = type
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -135,11 +127,9 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          created_at == o.created_at &&
-          expires_at == o.expires_at &&
-          invite_type == o.invite_type &&
-          login_method == o.login_method &&
-          uuid == o.uuid
+          attributes == o.attributes &&
+          id == o.id &&
+          type == o.type
           additional_properties == o.additional_properties
     end
 
@@ -147,7 +137,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created_at, expires_at, invite_type, login_method, uuid].hash
+      [attributes, id, type].hash
     end
   end
 end

@@ -17,24 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes of a user invitation.
-  class UserInvitationDataAttributes
+  # The definition of `UserOverrideIdentityProviderAttributes` object.
+  class UserOverrideIdentityProviderAttributes
     include BaseGenericModel
 
-    # Creation time of the user invitation.
-    attr_accessor :created_at
-
-    # Time of invitation expiration.
-    attr_accessor :expires_at
-
-    # Type of invitation.
-    attr_accessor :invite_type
-
-    # The `UserInvitationDataAttributes` `login_method`.
-    attr_accessor :login_method
-
-    # UUID of the user invitation.
-    attr_accessor :uuid
+    # The `UserOverrideIdentityProviderAttributes` `authentication_method`.
+    attr_accessor :authentication_method
 
     attr_accessor :additional_properties
 
@@ -42,11 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'created_at' => :'created_at',
-        :'expires_at' => :'expires_at',
-        :'invite_type' => :'invite_type',
-        :'login_method' => :'login_method',
-        :'uuid' => :'uuid'
+        :'authentication_method' => :'authentication_method'
       }
     end
 
@@ -54,20 +38,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'created_at' => :'Time',
-        :'expires_at' => :'Time',
-        :'invite_type' => :'String',
-        :'login_method' => :'String',
-        :'uuid' => :'String'
+        :'authentication_method' => :'String'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-        :'login_method',
-      ])
     end
 
     # Initializes the object
@@ -75,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::UserInvitationDataAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::UserOverrideIdentityProviderAttributes` initialize method"
       end
 
       self.additional_properties = {}
@@ -88,24 +60,8 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'created_at')
-        self.created_at = attributes[:'created_at']
-      end
-
-      if attributes.key?(:'expires_at')
-        self.expires_at = attributes[:'expires_at']
-      end
-
-      if attributes.key?(:'invite_type')
-        self.invite_type = attributes[:'invite_type']
-      end
-
-      if attributes.key?(:'login_method')
-        self.login_method = attributes[:'login_method']
-      end
-
-      if attributes.key?(:'uuid')
-        self.uuid = attributes[:'uuid']
+      if attributes.key?(:'authentication_method')
+        self.authentication_method = attributes[:'authentication_method']
       end
     end
 
@@ -135,11 +91,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          created_at == o.created_at &&
-          expires_at == o.expires_at &&
-          invite_type == o.invite_type &&
-          login_method == o.login_method &&
-          uuid == o.uuid
+          authentication_method == o.authentication_method
           additional_properties == o.additional_properties
     end
 
@@ -147,7 +99,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created_at, expires_at, invite_type, login_method, uuid].hash
+      [authentication_method].hash
     end
   end
 end

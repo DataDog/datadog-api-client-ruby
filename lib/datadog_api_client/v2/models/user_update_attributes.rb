@@ -21,14 +21,32 @@ module DatadogAPIClient::V2
   class UserUpdateAttributes
     include BaseGenericModel
 
+    # The `UserUpdateAttributes` `created_at`.
+    attr_accessor :created_at
+
     # If the user is enabled or disabled.
     attr_accessor :disabled
 
     # The email of the user.
     attr_accessor :email
 
+    # The `UserUpdateAttributes` `handle`.
+    attr_accessor :handle
+
+    # The `UserUpdateAttributes` `modified_at`.
+    attr_accessor :modified_at
+
     # The name of the user.
     attr_accessor :name
+
+    # The `UserUpdateAttributes` `service_account`.
+    attr_accessor :service_account
+
+    # The `UserUpdateAttributes` `title`.
+    attr_accessor :title
+
+    # The `UserUpdateAttributes` `verified`.
+    attr_accessor :verified
 
     attr_accessor :additional_properties
 
@@ -36,9 +54,15 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'created_at' => :'created_at',
         :'disabled' => :'disabled',
         :'email' => :'email',
-        :'name' => :'name'
+        :'handle' => :'handle',
+        :'modified_at' => :'modified_at',
+        :'name' => :'name',
+        :'service_account' => :'service_account',
+        :'title' => :'title',
+        :'verified' => :'verified'
       }
     end
 
@@ -46,10 +70,24 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'created_at' => :'Time',
         :'disabled' => :'Boolean',
         :'email' => :'String',
-        :'name' => :'String'
+        :'handle' => :'String',
+        :'modified_at' => :'Time',
+        :'name' => :'String',
+        :'service_account' => :'Boolean',
+        :'title' => :'String',
+        :'verified' => :'Boolean'
       }
+    end
+
+    # List of attributes with nullable: true
+    # @!visibility private
+    def self.openapi_nullable
+      Set.new([
+        :'title',
+      ])
     end
 
     # Initializes the object
@@ -70,6 +108,10 @@ module DatadogAPIClient::V2
         end
       }
 
+      if attributes.key?(:'created_at')
+        self.created_at = attributes[:'created_at']
+      end
+
       if attributes.key?(:'disabled')
         self.disabled = attributes[:'disabled']
       end
@@ -78,8 +120,28 @@ module DatadogAPIClient::V2
         self.email = attributes[:'email']
       end
 
+      if attributes.key?(:'handle')
+        self.handle = attributes[:'handle']
+      end
+
+      if attributes.key?(:'modified_at')
+        self.modified_at = attributes[:'modified_at']
+      end
+
       if attributes.key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'service_account')
+        self.service_account = attributes[:'service_account']
+      end
+
+      if attributes.key?(:'title')
+        self.title = attributes[:'title']
+      end
+
+      if attributes.key?(:'verified')
+        self.verified = attributes[:'verified']
       end
     end
 
@@ -109,9 +171,15 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          created_at == o.created_at &&
           disabled == o.disabled &&
           email == o.email &&
-          name == o.name
+          handle == o.handle &&
+          modified_at == o.modified_at &&
+          name == o.name &&
+          service_account == o.service_account &&
+          title == o.title &&
+          verified == o.verified
           additional_properties == o.additional_properties
     end
 
@@ -119,7 +187,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [disabled, email, name].hash
+      [created_at, disabled, email, handle, modified_at, name, service_account, title, verified].hash
     end
   end
 end

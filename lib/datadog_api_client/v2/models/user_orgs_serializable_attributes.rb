@@ -17,35 +17,26 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes of the created user.
-  class UserCreateAttributes
+  # The definition of `UserOrgsSerializableAttributes` object.
+  class UserOrgsSerializableAttributes
     include BaseGenericModel
 
-    # The `UserCreateAttributes` `created_at`.
-    attr_accessor :created_at
-
-    # The `UserCreateAttributes` `disabled`.
+    # The `UserOrgsSerializableAttributes` `disabled`.
     attr_accessor :disabled
 
-    # The email of the user.
-    attr_reader :email
+    # The `UserOrgsSerializableAttributes` `email`.
+    attr_accessor :email
 
-    # The `UserCreateAttributes` `handle`.
-    attr_accessor :handle
-
-    # The `UserCreateAttributes` `modified_at`.
-    attr_accessor :modified_at
-
-    # The name of the user.
+    # The `UserOrgsSerializableAttributes` `name`.
     attr_accessor :name
 
-    # The `UserCreateAttributes` `service_account`.
-    attr_accessor :service_account
+    # The `UserOrgsSerializableAttributes` `org_id`.
+    attr_accessor :org_id
 
-    # The title of the user.
+    # The `UserOrgsSerializableAttributes` `title`.
     attr_accessor :title
 
-    # The `UserCreateAttributes` `verified`.
+    # The `UserOrgsSerializableAttributes` `verified`.
     attr_accessor :verified
 
     attr_accessor :additional_properties
@@ -54,13 +45,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'created_at' => :'created_at',
         :'disabled' => :'disabled',
         :'email' => :'email',
-        :'handle' => :'handle',
-        :'modified_at' => :'modified_at',
         :'name' => :'name',
-        :'service_account' => :'service_account',
+        :'org_id' => :'org_id',
         :'title' => :'title',
         :'verified' => :'verified'
       }
@@ -70,13 +58,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'created_at' => :'Time',
         :'disabled' => :'Boolean',
         :'email' => :'String',
-        :'handle' => :'String',
-        :'modified_at' => :'Time',
         :'name' => :'String',
-        :'service_account' => :'Boolean',
+        :'org_id' => :'String',
         :'title' => :'String',
         :'verified' => :'Boolean'
       }
@@ -87,7 +72,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::UserCreateAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::UserOrgsSerializableAttributes` initialize method"
       end
 
       self.additional_properties = {}
@@ -100,10 +85,6 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'created_at')
-        self.created_at = attributes[:'created_at']
-      end
-
       if attributes.key?(:'disabled')
         self.disabled = attributes[:'disabled']
       end
@@ -112,20 +93,12 @@ module DatadogAPIClient::V2
         self.email = attributes[:'email']
       end
 
-      if attributes.key?(:'handle')
-        self.handle = attributes[:'handle']
-      end
-
-      if attributes.key?(:'modified_at')
-        self.modified_at = attributes[:'modified_at']
-      end
-
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
 
-      if attributes.key?(:'service_account')
-        self.service_account = attributes[:'service_account']
+      if attributes.key?(:'org_id')
+        self.org_id = attributes[:'org_id']
       end
 
       if attributes.key?(:'title')
@@ -135,24 +108,6 @@ module DatadogAPIClient::V2
       if attributes.key?(:'verified')
         self.verified = attributes[:'verified']
       end
-    end
-
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    # @!visibility private
-    def valid?
-      return false if @email.nil?
-      true
-    end
-
-    # Custom attribute writer method with validation
-    # @param email [Object] Object to be assigned
-    # @!visibility private
-    def email=(email)
-      if email.nil?
-        fail ArgumentError, 'invalid value for "email", email cannot be nil.'
-      end
-      @email = email
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -181,13 +136,10 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          created_at == o.created_at &&
           disabled == o.disabled &&
           email == o.email &&
-          handle == o.handle &&
-          modified_at == o.modified_at &&
           name == o.name &&
-          service_account == o.service_account &&
+          org_id == o.org_id &&
           title == o.title &&
           verified == o.verified
           additional_properties == o.additional_properties
@@ -197,7 +149,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created_at, disabled, email, handle, modified_at, name, service_account, title, verified].hash
+      [disabled, email, name, org_id, title, verified].hash
     end
   end
 end
