@@ -312,6 +312,32 @@
       <li class="public ">
   <span class="summary_signature">
     
+      <a href="#team-instance_method" title="#team (instance method)">#<strong>team</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Name of the team owning the deployed service.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#version-instance_method" title="#version (instance method)">#<strong>version</strong>  &#x21d2; Object </a>
     
 
@@ -382,12 +408,12 @@
       <pre class="lines">
 
 
-45
-46
-47</pre>
+48
+49
+50</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/dora_deployment_request_attributes.rb', line 45</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/dora_deployment_request_attributes.rb', line 48</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_additional_properties'>additional_properties</span>
   <span class='ivar'>@additional_properties</span>
@@ -650,6 +676,48 @@
 </div>
     
       
+      <span id="team=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="team-instance_method">
+  
+    #<strong>team</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Name of the team owning the deployed service. If not provided, this is automatically populated with the team associated with the service in the Service Catalog.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+43
+44
+45</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/dora_deployment_request_attributes.rb', line 43</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_team'>team</span>
+  <span class='ivar'>@team</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
       <span id="version=-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="version-instance_method">
@@ -676,12 +744,12 @@
       <pre class="lines">
 
 
-43
-44
-45</pre>
+46
+47
+48</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/dora_deployment_request_attributes.rb', line 43</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/dora_deployment_request_attributes.rb', line 46</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_version'>version</span>
   <span class='ivar'>@version</span>
@@ -697,7 +765,7 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Sep 24 18:56:18 2024 by
+  Generated on Wed Sep 25 18:35:59 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>
