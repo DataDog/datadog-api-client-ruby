@@ -39,6 +39,9 @@ module DatadogAPIClient::V2
     # Unix timestamp when the deployment started. It must be in nanoseconds, milliseconds, or seconds.
     attr_reader :started_at
 
+    # Name of the team owning the deployed service. If not provided, this is automatically populated with the team associated with the service in the Service Catalog.
+    attr_accessor :team
+
     # Version to correlate with [APM Deployment Tracking](https://docs.datadoghq.com/tracing/services/deployment_tracking/).
     attr_accessor :version
 
@@ -54,6 +57,7 @@ module DatadogAPIClient::V2
         :'id' => :'id',
         :'service' => :'service',
         :'started_at' => :'started_at',
+        :'team' => :'team',
         :'version' => :'version'
       }
     end
@@ -68,6 +72,7 @@ module DatadogAPIClient::V2
         :'id' => :'String',
         :'service' => :'String',
         :'started_at' => :'Integer',
+        :'team' => :'String',
         :'version' => :'String'
       }
     end
@@ -112,6 +117,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'started_at')
         self.started_at = attributes[:'started_at']
+      end
+
+      if attributes.key?(:'team')
+        self.team = attributes[:'team']
       end
 
       if attributes.key?(:'version')
@@ -191,6 +200,7 @@ module DatadogAPIClient::V2
           id == o.id &&
           service == o.service &&
           started_at == o.started_at &&
+          team == o.team &&
           version == o.version
           additional_properties == o.additional_properties
     end
@@ -199,7 +209,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [env, finished_at, git, id, service, started_at, version].hash
+      [env, finished_at, git, id, service, started_at, team, version].hash
     end
   end
 end
