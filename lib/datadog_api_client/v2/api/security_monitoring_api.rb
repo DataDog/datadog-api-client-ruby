@@ -1157,6 +1157,7 @@ module DatadogAPIClient::V2
     # @option opts [Integer] :page_limit Limit the number of findings returned. Must be <= 1000.
     # @option opts [Integer] :snapshot_timestamp Return findings for a given snapshot of time (Unix ms).
     # @option opts [String] :page_cursor Return the next page of findings pointed to by the cursor.
+    # @option opts [Array<FindingDetectionType>] :filter_detection_type Return findings that match the selected detection types (repeatable).
     # @option opts [String] :filter_tags Return findings that have these associated tags (repeatable).
     # @option opts [String] :filter_evaluation_changed_at Return findings that have changed from pass to fail or vice versa on a specified date (Unix ms) or date range (using comparison operators).
     # @option opts [Boolean] :filter_muted Set to `true` to return findings that are muted. Set to `false` to return unmuted findings.
@@ -1203,6 +1204,7 @@ module DatadogAPIClient::V2
       query_params[:'page[limit]'] = opts[:'page_limit'] if !opts[:'page_limit'].nil?
       query_params[:'snapshot_timestamp'] = opts[:'snapshot_timestamp'] if !opts[:'snapshot_timestamp'].nil?
       query_params[:'page[cursor]'] = opts[:'page_cursor'] if !opts[:'page_cursor'].nil?
+      query_params[:'filter[detection_type]'] = @api_client.build_collection_param(opts[:'filter_detection_type'], :multi) if !opts[:'filter_detection_type'].nil?
       query_params[:'filter[tags]'] = opts[:'filter_tags'] if !opts[:'filter_tags'].nil?
       query_params[:'filter[evaluation_changed_at]'] = opts[:'filter_evaluation_changed_at'] if !opts[:'filter_evaluation_changed_at'].nil?
       query_params[:'filter[muted]'] = opts[:'filter_muted'] if !opts[:'filter_muted'].nil?
