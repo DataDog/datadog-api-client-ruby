@@ -1409,6 +1409,7 @@ module DatadogAPIClient
           "v2.fastly_service_type" => "FastlyServiceType",
           "v2.finding" => "Finding",
           "v2.finding_attributes" => "FindingAttributes",
+          "v2.finding_detection_type" => "FindingDetectionType",
           "v2.finding_evaluation" => "FindingEvaluation",
           "v2.finding_mute" => "FindingMute",
           "v2.finding_mute_reason" => "FindingMuteReason",

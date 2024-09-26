@@ -1642,6 +1642,7 @@ ScenariosModelMappings = {
             "page_limit" => "Integer",
             "snapshot_timestamp" => "Integer",
             "page_cursor" => "String",
+            "filter_detection_type" => "Array<FindingDetectionType>",
             "filter_tags" => "String",
             "filter_evaluation_changed_at" => "String",
             "filter_muted" => "Boolean",
