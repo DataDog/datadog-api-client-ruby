@@ -1767,6 +1767,7 @@ module DatadogAPIClient
           "v2.metric_tag_configuration_create_attributes" => "MetricTagConfigurationCreateAttributes",
           "v2.metric_tag_configuration_create_data" => "MetricTagConfigurationCreateData",
           "v2.metric_tag_configuration_create_request" => "MetricTagConfigurationCreateRequest",
+          "v2.metric_tag_configuration_metric_type_category" => "MetricTagConfigurationMetricTypeCategory",
           "v2.metric_tag_configuration_metric_types" => "MetricTagConfigurationMetricTypes",
           "v2.metric_tag_configuration_response" => "MetricTagConfigurationResponse",
           "v2.metric_tag_configuration_type" => "MetricTagConfigurationType",

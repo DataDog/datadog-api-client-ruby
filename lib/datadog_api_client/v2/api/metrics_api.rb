@@ -607,7 +607,7 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @option opts [Boolean] :filter_configured Filter custom metrics that have configured tags.
     # @option opts [String] :filter_tags_configured Filter tag configurations by configured tags.
-    # @option opts [MetricTagConfigurationMetricTypes] :filter_metric_type Filter metrics by metric type.
+    # @option opts [MetricTagConfigurationMetricTypeCategory] :filter_metric_type Filter metrics by metric type.
     # @option opts [Boolean] :filter_include_percentiles Filter distributions with additional percentile aggregations enabled or disabled.
     # @option opts [Boolean] :filter_queried (Beta) Filter custom metrics that have or have not been queried in the specified window[seconds]. If no window is provided or the window is less than 2 hours, a default of 2 hours will be applied.
     # @option opts [String] :filter_tags Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions. Can only be combined with the filter[queried] filter.
@@ -618,7 +618,7 @@ module DatadogAPIClient::V2
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MetricsAPI.list_tag_configurations ...'
       end
-      allowable_values = ['gauge', 'count', 'rate', 'distribution']
+      allowable_values = ['non_distribution', 'distribution']
       if @api_client.config.client_side_validation && opts[:'filter_metric_type'] && !allowable_values.include?(opts[:'filter_metric_type'])
         fail ArgumentError, "invalid value for \"filter_metric_type\", must be one of #{allowable_values}"
       end
