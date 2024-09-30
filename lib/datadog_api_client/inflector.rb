@@ -2079,6 +2079,7 @@ module DatadogAPIClient
           "v2.security_monitoring_filter" => "SecurityMonitoringFilter",
           "v2.security_monitoring_filter_action" => "SecurityMonitoringFilterAction",
           "v2.security_monitoring_list_rules_response" => "SecurityMonitoringListRulesResponse",
+          "v2.security_monitoring_reference_table" => "SecurityMonitoringReferenceTable",
           "v2.security_monitoring_rule_case" => "SecurityMonitoringRuleCase",
           "v2.security_monitoring_rule_case_create" => "SecurityMonitoringRuleCaseCreate",
           "v2.security_monitoring_rule_convert_payload" => "SecurityMonitoringRuleConvertPayload",
