@@ -48,9 +48,6 @@ module DatadogAPIClient::V2
     # Queries for selecting logs which are part of the rule.
     attr_accessor :queries
 
-    # Reference tables for the rule.
-    attr_accessor :reference_tables
-
     # Tags for generated signals.
     attr_accessor :tags
 
@@ -75,7 +72,6 @@ module DatadogAPIClient::V2
         :'name' => :'name',
         :'options' => :'options',
         :'queries' => :'queries',
-        :'reference_tables' => :'referenceTables',
         :'tags' => :'tags',
         :'third_party_cases' => :'thirdPartyCases',
         :'version' => :'version'
@@ -95,7 +91,6 @@ module DatadogAPIClient::V2
         :'name' => :'String',
         :'options' => :'SecurityMonitoringRuleOptions',
         :'queries' => :'Array<SecurityMonitoringRuleQuery>',
-        :'reference_tables' => :'Array<SecurityMonitoringReferenceTable>',
         :'tags' => :'Array<String>',
         :'third_party_cases' => :'Array<SecurityMonitoringThirdPartyRuleCase>',
         :'version' => :'Integer'
@@ -159,12 +154,6 @@ module DatadogAPIClient::V2
       if attributes.key?(:'queries')
         if (value = attributes[:'queries']).is_a?(Array)
           self.queries = value
-        end
-      end
-
-      if attributes.key?(:'reference_tables')
-        if (value = attributes[:'reference_tables']).is_a?(Array)
-          self.reference_tables = value
         end
       end
 
@@ -238,7 +227,6 @@ module DatadogAPIClient::V2
           name == o.name &&
           options == o.options &&
           queries == o.queries &&
-          reference_tables == o.reference_tables &&
           tags == o.tags &&
           third_party_cases == o.third_party_cases &&
           version == o.version
@@ -249,7 +237,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [cases, compliance_signal_options, filters, has_extended_title, is_enabled, message, name, options, queries, reference_tables, tags, third_party_cases, version].hash
+      [cases, compliance_signal_options, filters, has_extended_title, is_enabled, message, name, options, queries, tags, third_party_cases, version].hash
     end
   end
 end

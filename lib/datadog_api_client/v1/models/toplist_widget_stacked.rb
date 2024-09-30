@@ -22,7 +22,7 @@ module DatadogAPIClient::V1
     include BaseGenericModel
 
     # Top list widget stacked legend behavior.
-    attr_reader :legend
+    attr_accessor :legend
 
     # Top list widget stacked display type.
     attr_reader :type
@@ -78,19 +78,8 @@ module DatadogAPIClient::V1
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @legend.nil?
       return false if @type.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param legend [Object] Object to be assigned
-    # @!visibility private
-    def legend=(legend)
-      if legend.nil?
-        fail ArgumentError, 'invalid value for "legend", legend cannot be nil.'
-      end
-      @legend = legend
     end
 
     # Custom attribute writer method with validation
