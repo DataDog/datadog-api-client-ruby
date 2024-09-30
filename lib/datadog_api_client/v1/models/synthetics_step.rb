@@ -36,6 +36,9 @@ module DatadogAPIClient::V1
     # The parameters of the step.
     attr_accessor :params
 
+    # The public ID of the step.
+    attr_accessor :public_id
+
     # The time before declaring a step failed.
     attr_accessor :timeout
 
@@ -53,6 +56,7 @@ module DatadogAPIClient::V1
         :'name' => :'name',
         :'no_screenshot' => :'noScreenshot',
         :'params' => :'params',
+        :'public_id' => :'public_id',
         :'timeout' => :'timeout',
         :'type' => :'type'
       }
@@ -67,6 +71,7 @@ module DatadogAPIClient::V1
         :'name' => :'String',
         :'no_screenshot' => :'Boolean',
         :'params' => :'Object',
+        :'public_id' => :'String',
         :'timeout' => :'Integer',
         :'type' => :'SyntheticsStepType'
       }
@@ -110,6 +115,10 @@ module DatadogAPIClient::V1
         self.params = attributes[:'params']
       end
 
+      if attributes.key?(:'public_id')
+        self.public_id = attributes[:'public_id']
+      end
+
       if attributes.key?(:'timeout')
         self.timeout = attributes[:'timeout']
       end
@@ -150,6 +159,7 @@ module DatadogAPIClient::V1
           name == o.name &&
           no_screenshot == o.no_screenshot &&
           params == o.params &&
+          public_id == o.public_id &&
           timeout == o.timeout &&
           type == o.type
           additional_properties == o.additional_properties
@@ -159,7 +169,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [allow_failure, is_critical, name, no_screenshot, params, timeout, type].hash
+      [allow_failure, is_critical, name, no_screenshot, params, public_id, timeout, type].hash
     end
   end
 end
