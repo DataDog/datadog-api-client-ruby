@@ -32,14 +32,5 @@ body = DatadogAPIClient::V2::SecurityMonitoringStandardRuleCreatePayload.new({
   tags: [],
   is_enabled: true,
   type: DatadogAPIClient::V2::SecurityMonitoringRuleTypeCreate::LOG_DETECTION,
-  reference_tables: [
-    DatadogAPIClient::V2::SecurityMonitoringReferenceTable.new({
-      table_name: "synthetics_test_reference_table_dont_delete",
-      column_name: "value",
-      log_field_path: "testtag",
-      check_presence: true,
-      rule_query_name: "a",
-    }),
-  ],
 })
 p api_instance.create_security_monitoring_rule(body)
