@@ -17,8 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # User team team type
-  class UserTeamTeamType
+  # The definition of `AbbreviatedTeamType` object.
+  class AbbreviatedTeamType
     include BaseEnumModel
 
     TEAM = "team".freeze

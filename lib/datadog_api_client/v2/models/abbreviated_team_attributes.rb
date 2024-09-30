@@ -17,15 +17,30 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The team associated with the membership
-  class RelationshipToUserTeamTeamData
+  # The definition of `AbbreviatedTeamAttributes` object.
+  class AbbreviatedTeamAttributes
     include BaseGenericModel
 
-    # The ID of the team associated with the membership
-    attr_reader :id
+    # Unicode representation of the avatar for the team, limited to a single grapheme
+    attr_accessor :avatar
 
-    # User team team type
-    attr_reader :type
+    # Banner selection for the team
+    attr_accessor :banner
+
+    # The team's identifier
+    attr_reader :handle
+
+    # The `AbbreviatedTeamAttributes` `handles`.
+    attr_accessor :handles
+
+    # The `AbbreviatedTeamAttributes` `is_open_membership`.
+    attr_accessor :is_open_membership
+
+    # The name of the team
+    attr_reader :name
+
+    # A brief summary of the team
+    attr_accessor :summary
 
     attr_accessor :additional_properties
 
@@ -33,8 +48,13 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'id' => :'id',
-        :'type' => :'type'
+        :'avatar' => :'avatar',
+        :'banner' => :'banner',
+        :'handle' => :'handle',
+        :'handles' => :'handles',
+        :'is_open_membership' => :'is_open_membership',
+        :'name' => :'name',
+        :'summary' => :'summary'
       }
     end
 
@@ -42,9 +62,22 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'id' => :'String',
-        :'type' => :'UserTeamTeamType'
+        :'avatar' => :'String',
+        :'banner' => :'Integer',
+        :'handle' => :'String',
+        :'handles' => :'String',
+        :'is_open_membership' => :'Boolean',
+        :'name' => :'String',
+        :'summary' => :'String'
       }
+    end
+
+    # List of attributes with nullable: true
+    # @!visibility private
+    def self.openapi_nullable
+      Set.new([
+        :'avatar',
+      ])
     end
 
     # Initializes the object
@@ -52,7 +85,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RelationshipToUserTeamTeamData` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::AbbreviatedTeamAttributes` initialize method"
       end
 
       self.additional_properties = {}
@@ -65,12 +98,32 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.key?(:'avatar')
+        self.avatar = attributes[:'avatar']
       end
 
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
+      if attributes.key?(:'banner')
+        self.banner = attributes[:'banner']
+      end
+
+      if attributes.key?(:'handle')
+        self.handle = attributes[:'handle']
+      end
+
+      if attributes.key?(:'handles')
+        self.handles = attributes[:'handles']
+      end
+
+      if attributes.key?(:'is_open_membership')
+        self.is_open_membership = attributes[:'is_open_membership']
+      end
+
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'summary')
+        self.summary = attributes[:'summary']
       end
     end
 
@@ -78,29 +131,29 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @id.nil?
-      return false if @type.nil?
+      return false if @handle.nil?
+      return false if @name.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param id [Object] Object to be assigned
+    # @param handle [Object] Object to be assigned
     # @!visibility private
-    def id=(id)
-      if id.nil?
-        fail ArgumentError, 'invalid value for "id", id cannot be nil.'
+    def handle=(handle)
+      if handle.nil?
+        fail ArgumentError, 'invalid value for "handle", handle cannot be nil.'
       end
-      @id = id
+      @handle = handle
     end
 
     # Custom attribute writer method with validation
-    # @param type [Object] Object to be assigned
+    # @param name [Object] Object to be assigned
     # @!visibility private
-    def type=(type)
-      if type.nil?
-        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+    def name=(name)
+      if name.nil?
+        fail ArgumentError, 'invalid value for "name", name cannot be nil.'
       end
-      @type = type
+      @name = name
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -129,8 +182,13 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
-          type == o.type
+          avatar == o.avatar &&
+          banner == o.banner &&
+          handle == o.handle &&
+          handles == o.handles &&
+          is_open_membership == o.is_open_membership &&
+          name == o.name &&
+          summary == o.summary
           additional_properties == o.additional_properties
     end
 
@@ -138,7 +196,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [id, type].hash
+      [avatar, banner, handle, handles, is_open_membership, name, summary].hash
     end
   end
 end
