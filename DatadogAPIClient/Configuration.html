@@ -3736,7 +3736,7 @@ Default to true.</p>
   <span class='lbrace'>{</span>
     <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>v1.get_ip_ranges</span><span class='label_end'>&quot;:</span> <span class='lbracket'>[</span>
       <span class='lbrace'>{</span>
-        <span class='label'>url:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>https://{subdomain}.{site}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+        <span class='label'>url:</span> <span class='op'>+</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>https://{subdomain}.{site}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
         <span class='label'>description:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>No description provided</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
         <span class='label'>variables:</span> <span class='lbrace'>{</span>
           <span class='label'>site:</span> <span class='lbrace'>{</span>
@@ -3758,7 +3758,7 @@ Default to true.</p>
         <span class='rbrace'>}</span>
       <span class='rbrace'>}</span><span class='comma'>,</span>
       <span class='lbrace'>{</span>
-        <span class='label'>url:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>{protocol}://{name}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+        <span class='label'>url:</span> <span class='op'>+</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>{protocol}://{name}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
         <span class='label'>description:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>No description provided</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
         <span class='label'>variables:</span> <span class='lbrace'>{</span>
           <span class='label'>name:</span> <span class='lbrace'>{</span>
@@ -3772,7 +3772,7 @@ Default to true.</p>
         <span class='rbrace'>}</span>
       <span class='rbrace'>}</span><span class='comma'>,</span>
       <span class='lbrace'>{</span>
-        <span class='label'>url:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>https://{subdomain}.datadoghq.com</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+        <span class='label'>url:</span> <span class='op'>+</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>https://{subdomain}.datadoghq.com</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
         <span class='label'>description:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>No description provided</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
         <span class='label'>variables:</span> <span class='lbrace'>{</span>
           <span class='label'>subdomain:</span> <span class='lbrace'>{</span>
@@ -3780,11 +3780,11 @@ Default to true.</p>
             <span class='label'>default_value:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ip-ranges</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
           <span class='rbrace'>}</span>
         <span class='rbrace'>}</span>
-      <span class='rbrace'>}</span>  
+      <span class='rbrace'>}</span>
     <span class='rbracket'>]</span><span class='comma'>,</span>
     <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>v1.submit_log</span><span class='label_end'>&quot;:</span> <span class='lbracket'>[</span>
       <span class='lbrace'>{</span>
-        <span class='label'>url:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>https://{subdomain}.{site}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+        <span class='label'>url:</span> <span class='op'>+</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>https://{subdomain}.{site}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
         <span class='label'>description:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>No description provided</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
         <span class='label'>variables:</span> <span class='lbrace'>{</span>
           <span class='label'>site:</span> <span class='lbrace'>{</span>
@@ -3806,7 +3806,7 @@ Default to true.</p>
         <span class='rbrace'>}</span>
       <span class='rbrace'>}</span><span class='comma'>,</span>
       <span class='lbrace'>{</span>
-        <span class='label'>url:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>{protocol}://{name}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+        <span class='label'>url:</span> <span class='op'>+</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>{protocol}://{name}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
         <span class='label'>description:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>No description provided</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
         <span class='label'>variables:</span> <span class='lbrace'>{</span>
           <span class='label'>name:</span> <span class='lbrace'>{</span>
@@ -3820,7 +3820,7 @@ Default to true.</p>
         <span class='rbrace'>}</span>
       <span class='rbrace'>}</span><span class='comma'>,</span>
       <span class='lbrace'>{</span>
-        <span class='label'>url:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>https://{subdomain}.{site}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+        <span class='label'>url:</span> <span class='op'>+</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>https://{subdomain}.{site}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
         <span class='label'>description:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>No description provided</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
         <span class='label'>variables:</span> <span class='lbrace'>{</span>
           <span class='label'>site:</span> <span class='lbrace'>{</span>
@@ -3832,11 +3832,11 @@ Default to true.</p>
             <span class='label'>default_value:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>http-intake.logs</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
           <span class='rbrace'>}</span>
         <span class='rbrace'>}</span>
-      <span class='rbrace'>}</span>  
+      <span class='rbrace'>}</span>
     <span class='rbracket'>]</span><span class='comma'>,</span>
     <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>v2.submit_log</span><span class='label_end'>&quot;:</span> <span class='lbracket'>[</span>
       <span class='lbrace'>{</span>
-        <span class='label'>url:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>https://{subdomain}.{site}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+        <span class='label'>url:</span> <span class='op'>+</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>https://{subdomain}.{site}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
         <span class='label'>description:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>No description provided</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
         <span class='label'>variables:</span> <span class='lbrace'>{</span>
           <span class='label'>site:</span> <span class='lbrace'>{</span>
@@ -3858,7 +3858,7 @@ Default to true.</p>
         <span class='rbrace'>}</span>
       <span class='rbrace'>}</span><span class='comma'>,</span>
       <span class='lbrace'>{</span>
-        <span class='label'>url:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>{protocol}://{name}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+        <span class='label'>url:</span> <span class='op'>+</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>{protocol}://{name}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
         <span class='label'>description:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>No description provided</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
         <span class='label'>variables:</span> <span class='lbrace'>{</span>
           <span class='label'>name:</span> <span class='lbrace'>{</span>
@@ -3872,7 +3872,7 @@ Default to true.</p>
         <span class='rbrace'>}</span>
       <span class='rbrace'>}</span><span class='comma'>,</span>
       <span class='lbrace'>{</span>
-        <span class='label'>url:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>https://{subdomain}.{site}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+        <span class='label'>url:</span> <span class='op'>+</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>https://{subdomain}.{site}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
         <span class='label'>description:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>No description provided</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
         <span class='label'>variables:</span> <span class='lbrace'>{</span>
           <span class='label'>site:</span> <span class='lbrace'>{</span>
@@ -3884,7 +3884,7 @@ Default to true.</p>
             <span class='label'>default_value:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>http-intake.logs</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
           <span class='rbrace'>}</span>
         <span class='rbrace'>}</span>
-      <span class='rbrace'>}</span>  
+      <span class='rbrace'>}</span>
     <span class='rbracket'>]</span><span class='comma'>,</span>
   <span class='rbrace'>}</span>
 <span class='kw'>end</span></pre>
@@ -3979,7 +3979,7 @@ Default to true.</p>
 <span class='kw'>def</span> <span class='id identifier rubyid_server_settings'>server_settings</span>
   <span class='lbracket'>[</span>
     <span class='lbrace'>{</span>
-      <span class='label'>url:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>https://{subdomain}.{site}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+      <span class='label'>url:</span> <span class='op'>+</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>https://{subdomain}.{site}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
       <span class='label'>description:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>No description provided</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
       <span class='label'>variables:</span> <span class='lbrace'>{</span>
         <span class='label'>site:</span> <span class='lbrace'>{</span>
@@ -4001,7 +4001,7 @@ Default to true.</p>
       <span class='rbrace'>}</span>
     <span class='rbrace'>}</span><span class='comma'>,</span>
     <span class='lbrace'>{</span>
-      <span class='label'>url:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>{protocol}://{name}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+      <span class='label'>url:</span> <span class='op'>+</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>{protocol}://{name}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
       <span class='label'>description:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>No description provided</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
       <span class='label'>variables:</span> <span class='lbrace'>{</span>
         <span class='label'>name:</span> <span class='lbrace'>{</span>
@@ -4015,7 +4015,7 @@ Default to true.</p>
       <span class='rbrace'>}</span>
     <span class='rbrace'>}</span><span class='comma'>,</span>
     <span class='lbrace'>{</span>
-      <span class='label'>url:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>https://{subdomain}.{site}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+      <span class='label'>url:</span> <span class='op'>+</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>https://{subdomain}.{site}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
       <span class='label'>description:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>No description provided</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
       <span class='label'>variables:</span> <span class='lbrace'>{</span>
         <span class='label'>site:</span> <span class='lbrace'>{</span>
@@ -4168,7 +4168,7 @@ Default to true.</p>
 </div>
 
       <div id="footer">
-  Generated on Tue Oct  1 16:54:26 2024 by
+  Generated on Tue Oct  1 19:13:44 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>
