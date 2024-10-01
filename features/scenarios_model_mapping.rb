@@ -1304,6 +1304,30 @@ ScenariosModelMappings = {
     "v2.MakeGCPSTSDelegate" => {
             "body" => "Object",
     },
+    "v2.GetChannelByName" => {
+            "tenant_name" => "String",
+            "team_name" => "String",
+            "channel_name" => "String",
+    },
+    "v2.ListApiHandles" => {
+            "tenant_id" => "String",
+    },
+    "v2.CreateApiHandle" => {
+            "body" => "MicrosoftTeamsCreateApiHandleRequest",
+    },
+    "v2.GetApiHandleByName" => {
+            "handle_name" => "String",
+    },
+    "v2.DeleteApiHandle" => {
+            "handle_id" => "String",
+    },
+    "v2.GetApiHandle" => {
+            "handle_id" => "String",
+    },
+    "v2.UpdateApiHandle" => {
+            "handle_id" => "String",
+            "body" => "MicrosoftTeamsUpdateApiHandleRequest",
+    },
     "v2.CreateOpsgenieService" => {
             "body" => "OpsgenieServiceCreateRequest",
     },
