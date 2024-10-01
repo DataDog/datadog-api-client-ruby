@@ -24,6 +24,9 @@ module DatadogAPIClient::V1
     # Top list widget display options.
     attr_accessor :display
 
+    # Color palette to apply to the widget.
+    attr_accessor :palette
+
     # Top list widget scaling definition.
     attr_accessor :scaling
 
@@ -34,6 +37,7 @@ module DatadogAPIClient::V1
     def self.attribute_map
       {
         :'display' => :'display',
+        :'palette' => :'palette',
         :'scaling' => :'scaling'
       }
     end
@@ -43,6 +47,7 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'display' => :'ToplistWidgetDisplay',
+        :'palette' => :'String',
         :'scaling' => :'ToplistWidgetScaling'
       }
     end
@@ -67,6 +72,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'display')
         self.display = attributes[:'display']
+      end
+
+      if attributes.key?(:'palette')
+        self.palette = attributes[:'palette']
       end
 
       if attributes.key?(:'scaling')
@@ -101,6 +110,7 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           display == o.display &&
+          palette == o.palette &&
           scaling == o.scaling
           additional_properties == o.additional_properties
     end
@@ -109,7 +119,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [display, scaling].hash
+      [display, palette, scaling].hash
     end
   end
 end

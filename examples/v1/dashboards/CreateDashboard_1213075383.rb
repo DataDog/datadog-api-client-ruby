@@ -18,13 +18,14 @@ body = DatadogAPIClient::V1::Dashboard.new({
         title: "",
         title_size: "16",
         title_align: DatadogAPIClient::V1::WidgetTextAlign::LEFT,
-        time: DatadogAPIClient::V1::WidgetTime.new({}),
+        time: DatadogAPIClient::V1::WidgetLegacyLiveSpan.new({}),
         style: DatadogAPIClient::V1::ToplistWidgetStyle.new({
           display: DatadogAPIClient::V1::ToplistWidgetStacked.new({
             type: DatadogAPIClient::V1::ToplistWidgetStackedType::STACKED,
             legend: DatadogAPIClient::V1::ToplistWidgetLegend::INLINE,
           }),
           scaling: DatadogAPIClient::V1::ToplistWidgetScaling::RELATIVE,
+          palette: "dog_classic",
         }),
         type: DatadogAPIClient::V1::ToplistWidgetDefinitionType::TOPLIST,
         requests: [

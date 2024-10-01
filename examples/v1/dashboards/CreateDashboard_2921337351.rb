@@ -16,7 +16,7 @@ body = DatadogAPIClient::V1::Dashboard.new({
       }),
       definition: DatadogAPIClient::V1::ServiceSummaryWidgetDefinition.new({
         title: "Service Summary",
-        time: DatadogAPIClient::V1::WidgetTime.new({}),
+        time: DatadogAPIClient::V1::WidgetLegacyLiveSpan.new({}),
         type: DatadogAPIClient::V1::ServiceSummaryWidgetDefinitionType::TRACE_SERVICE,
         env: "none",
         service: "",

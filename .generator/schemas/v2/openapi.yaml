@@ -202,6 +202,14 @@ components:
       required: true
       schema:
         type: string
+    EntityID:
+      description: UUID or Entity Ref
+      in: path
+      name: entity_id
+      required: true
+      schema:
+        example: service:myservice
+        type: string
     FastlyAccountID:
       description: Fastly Account id.
       in: path
@@ -223,6 +231,61 @@ components:
       required: true
       schema:
         type: string
+    FilterByExcludeSnapshot:
+      description: Filter entities by excluding snapshotted entities
+      in: query
+      name: fitler[exclude_snapshot]
+      required: false
+      schema:
+        type: string
+    FilterByID:
+      description: Filter entities by UUID
+      explode: true
+      in: query
+      name: fitler[id]
+      required: false
+      schema:
+        type: string
+    FilterByKind:
+      description: Filter entities by kind
+      explode: true
+      in: query
+      name: fitler[kind]
+      required: false
+      schema:
+        type: string
+    FilterByName:
+      description: Filter entities by name
+      explode: true
+      in: query
+      name: fitler[name]
+      required: false
+      schema:
+        type: string
+    FilterByOwner:
+      description: Filter entities by owner
+      explode: true
+      in: query
+      name: fitler[owner]
+      required: false
+      schema:
+        type: string
+    FilterByRef:
+      description: Filter entities by reference
+      explode: true
+      in: query
+      name: fitler[ref]
+      required: false
+      schema:
+        type: string
+    FilterByRelationType:
+      description: Filter entities by relation type
+      explode: true
+      in: query
+      name: fitler[relation][type]
+      required: false
+      schema:
+        $ref: '#/components/schemas/RelationType'
     GCPSTSServiceAccountID:
       description: Your GCP STS enabled service account's unique ID.
       in: path
@@ -358,6 +421,14 @@ components:
       required: true
       schema:
         type: string
+    Include:
+      description: include relationship data
+      explode: true
+      in: query
+      name: include
+      required: false
+      schema:
+        $ref: '#/components/schemas/IncludeType'
     InstanceId:
       description: The ID of the workflow instance.
       in: path
@@ -377,6 +448,48 @@ components:
       example: dist.http.endpoint.request
       in: path
       name: metric_name
+      required: true
+      schema:
+        type: string
+    MicrosoftTeamsChannelNamePathParameter:
+      description: Your channel name.
+      in: path
+      name: channel_name
+      required: true
+      schema:
+        type: string
+    MicrosoftTeamsHandleIDPathParameter:
+      description: Your handle id.
+      in: path
+      name: handle_id
+      required: true
+      schema:
+        type: string
+    MicrosoftTeamsHandleNamePathParameter:
+      description: Your handle name.
+      in: path
+      name: handle_name
+      required: true
+      schema:
+        type: string
+    MicrosoftTeamsTeamNamePathParameter:
+      description: Your team name.
+      in: path
+      name: team_name
+      required: true
+      schema:
+        type: string
+    MicrosoftTeamsTenantIDQueryParameter:
+      description: Your tenant id.
+      in: query
+      name: tenant_id
+      required: false
+      schema:
+        type: string
+    MicrosoftTeamsTenantNamePathParameter:
+      description: Your tenant name.
+      in: path
+      name: tenant_name
       required: true
       schema:
         type: string
@@ -620,6 +733,12 @@ components:
           schema:
             $ref: '#/components/schemas/APIErrorResponse'
       description: Not Found
+    PreconditionFailedResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/APIErrorResponse'
+      description: Failed Precondition
     SpansBadRequestResponse:
       content:
         application/json:
@@ -662,6 +781,8 @@ components:
       properties:
         errors:
           description: A list of errors.
+          example:
+          - Bad Request
           items:
             description: A list of items.
             example: Bad Request
@@ -2382,7 +2503,6 @@ components:
         author_email:
           description: The commit author email.
           example: author@example.com
-          format: email
           type: string
         author_name:
           description: The commit author name.
@@ -2407,7 +2527,6 @@ components:
         committer_email:
           description: The committer email.
           example: committer@example.com
-          format: email
           nullable: true
           type: string
         committer_name:
@@ -6421,7 +6540,7 @@ components:
           description: Deployment ID.
           type: string
         service:
-          description: Service name from a service available in the Service Catalog.
+          description: Service name.
           example: shopist
           type: string
         started_at:
@@ -6430,6 +6549,12 @@ components:
           example: 1693491974000000000
           format: int64
           type: integer
+        team:
+          description: Name of the team owning the deployed service. If not provided,
+            this is automatically populated with the team associated with the service
+            in the Service Catalog.
+          example: backend
+          type: string
         version:
           description: Version to correlate with [APM Deployment Tracking](https://docs.datadoghq.com/tracing/services/deployment_tracking/).
           example: v1.12.07
@@ -7551,6 +7676,814 @@ components:
       - type
       - attributes
       type: object
+    EntityAttributes:
+      description: Entity attributes.
+      properties:
+        apiVersion:
+          description: The api version.
+          type: string
+        description:
+          description: The description.
+          type: string
+        displayName:
+          description: The display name.
+          type: string
+        kind:
+          description: The kind.
+          type: string
+        name:
+          description: The name.
+          type: string
+        namespace:
+          description: The namespace.
+          type: string
+        owner:
+          description: The owner.
+          type: string
+        tags:
+          description: The tags.
+          items:
+            type: string
+          type: array
+      type: object
+    EntityData:
+      description: Entity data.
+      properties:
+        attributes:
+          $ref: '#/components/schemas/EntityAttributes'
+        id:
+          description: Entity id.
+          type: string
+        meta:
+          $ref: '#/components/schemas/EntityMeta'
+        relationships:
+          $ref: '#/components/schemas/EntityRelationships'
+        type:
+          description: Entity.
+          type: string
+      type: object
+    EntityMeta:
+      description: Entity metadata.
+      properties:
+        createdAt:
+          description: The creation time.
+          type: string
+        ingestionSource:
+          description: The ingestion source.
+          type: string
+        modifiedAt:
+          description: The modification time.
+          type: string
+        origin:
+          description: The origin.
+          type: string
+      type: object
+    EntityRaw:
+      description: Entity definition in raw JSON/YAML representation.
+      example: "apiVersion: v3\nkind: service\nmetadata:\n  name: myservice\n"
+      type: string
+    EntityRelationships:
+      description: Entity relationships.
+      properties:
+        incidents:
+          $ref: '#/components/schemas/EntityToIncidents'
+        oncall:
+          $ref: '#/components/schemas/EntityToOncalls'
+        rawSchema:
+          $ref: '#/components/schemas/EntityToRawSchema'
+        relatedEntities:
+          $ref: '#/components/schemas/EntityToRelatedEntities'
+        schema:
+          $ref: '#/components/schemas/EntityToSchema'
+      type: object
+    EntityResponseData:
+      description: List of entity data.
+      items:
+        $ref: '#/components/schemas/EntityData'
+      type: array
+    EntityResponseIncludedIncident:
+      description: Included incident.
+      properties:
+        attributes:
+          $ref: '#/components/schemas/EntityResponseIncludedRelatedIncidentAttributes'
+        id:
+          description: Incident id.
+          type: string
+        type:
+          description: Incident description.
+          type: string
+      type: object
+    EntityResponseIncludedOncall:
+      description: Included oncall.
+      properties:
+        attributes:
+          $ref: '#/components/schemas/EntityResponseIncludedRelatedOncallAttributes'
+        id:
+          description: Oncall ID.
+          type: string
+        type:
+          description: Oncall type.
+          type: string
+      type: object
+    EntityResponseIncludedRawSchema:
+      description: Included raw schema.
+      properties:
+        attributes:
+          $ref: '#/components/schemas/EntityResponseIncludedRawSchemaAttributes'
+        id:
+          description: Raw schema id.
+          type: string
+        type:
+          description: Raw schema type.
+          type: string
+      type: object
+    EntityResponseIncludedRawSchemaAttributes:
+      description: Included raw schema attributes.
+      properties:
+        rawSchema:
+          description: Schema from user input in base64 encoding.
+          type: string
+      type: object
+    EntityResponseIncludedRelatedEntity:
+      description: Included related entity.
+      properties:
+        attributes:
+          $ref: '#/components/schemas/EntityResponseIncludedRelatedEntityAttributes'
+        id:
+          description: Entity UUID.
+          type: string
+        meta:
+          $ref: '#/components/schemas/EntityResponseIncludedRelatedEntityMeta'
+        type:
+          description: Related entity.
+          type: string
+      type: object
+    EntityResponseIncludedRelatedEntityAttributes:
+      description: Related entity attributes.
+      properties:
+        kind:
+          description: Entity kind.
+          type: string
+        name:
+          description: Entity name.
+          type: string
+        namespace:
+          description: Entity namespace.
+          type: string
+        type:
+          description: Entity relation type to the associated entity.
+          type: string
+      type: object
+    EntityResponseIncludedRelatedEntityMeta:
+      description: Included related entity meta.
+      properties:
+        createdAt:
+          description: Entity creation time.
+          format: date-time
+          type: string
+        defined_by:
+          description: Entity relation defined by.
+          type: string
+        modifiedAt:
+          description: Entity modification time.
+          format: date-time
+          type: string
+        source:
+          description: Entity relation source.
+          type: string
+      type: object
+    EntityResponseIncludedRelatedIncidentAttributes:
+      description: Incident attributes.
+      properties:
+        createdAt:
+          description: Incident creation time.
+          format: date-time
+          type: string
+        htmlURL:
+          description: Incident URL.
+          type: string
+        provider:
+          description: Incident provider.
+          type: string
+        status:
+          description: Incident status.
+          type: string
+        title:
+          description: Incident title.
+          type: string
+      type: object
+    EntityResponseIncludedRelatedOncallAttributes:
+      description: Included related oncall attributes.
+      properties:
+        escalations:
+          $ref: '#/components/schemas/EntityResponseIncludedRelatedOncallEscalations'
+        provider:
+          description: Oncall provider.
+          type: string
+      type: object
+    EntityResponseIncludedRelatedOncallEscalationItem:
+      description: Oncall escalation
+      properties:
+        email:
+          description: Oncall email.
+          type: string
+        escalationLevel:
+          description: Oncall level.
+          format: int64
+          type: integer
+        name:
+          description: Oncall name.
+          type: string
+      type: object
+    EntityResponseIncludedRelatedOncallEscalations:
+      description: Oncall escalations
+      items:
+        $ref: '#/components/schemas/EntityResponseIncludedRelatedOncallEscalationItem'
+      type: array
+    EntityResponseIncludedSchema:
+      description: Included detail entity schema.
+      properties:
+        attributes:
+          $ref: '#/components/schemas/EntityResponseIncludedSchemaAttributes'
+        id:
+          description: Entity id.
+          type: string
+        type:
+          description: Schema type.
+          type: string
+      type: object
+    EntityResponseIncludedSchemaAttributes:
+      description: Included schema.
+      properties:
+        schema:
+          $ref: '#/components/schemas/EntityV3'
+      type: object
+    EntityResponseMeta:
+      description: Entity metadata.
+      properties:
+        count:
+          description: Total entities count.
+          format: int64
+          type: integer
+        includeCount:
+          description: Total included data count.
+          format: int64
+          type: integer
+      type: object
+    EntityToIncidents:
+      description: Entity to incidents relationship.
+      properties:
+        data:
+          $ref: '#/components/schemas/RelationshipArray'
+      type: object
+    EntityToOncalls:
+      description: Entity to oncalls relationship.
+      properties:
+        data:
+          $ref: '#/components/schemas/RelationshipArray'
+      type: object
+    EntityToRawSchema:
+      description: Entity to raw schema relationship.
+      properties:
+        data:
+          $ref: '#/components/schemas/RelationshipItem'
+      type: object
+    EntityToRelatedEntities:
+      description: Entity to related entities relationship.
+      properties:
+        data:
+          $ref: '#/components/schemas/RelationshipArray'
+      type: object
+    EntityToSchema:
+      description: Entity to detail schema relationship.
+      properties:
+        data:
+          $ref: '#/components/schemas/RelationshipItem'
+      type: object
+    EntityV3:
+      description: Entity schema v3.
+      oneOf:
+      - $ref: '#/components/schemas/EntityV3Service'
+      - $ref: '#/components/schemas/EntityV3Datastore'
+      - $ref: '#/components/schemas/EntityV3Queue'
+      - $ref: '#/components/schemas/EntityV3System'
+    EntityV3APIVersion:
+      description: The schema version of entity type. The field is known as schema-version
+        in the previous version
+      enum:
+      - v3
+      example: v3
+      type: string
+      x-enum-varnames:
+      - V3
+    EntityV3DatadogCodeLocationItem:
+      additionalProperties: false
+      description: code location item.
+      properties:
+        paths:
+          description: The paths (glob) to the source code of the service
+          items:
+            type: string
+          type: array
+        repositoryURL:
+          description: The repository path of the source code of the entity
+          pattern: url
+          type: string
+      type: object
+    EntityV3DatadogCodeLocations:
+      additionalProperties: false
+      description: Schema for mapping source code locations to an entity
+      items:
+        $ref: '#/components/schemas/EntityV3DatadogCodeLocationItem'
+      type: array
+    EntityV3DatadogEventItem:
+      additionalProperties: false
+      description: Events association item.
+      properties:
+        name:
+          description: The name of the query
+          type: string
+        query:
+          description: The query to run
+          type: string
+      type: object
+    EntityV3DatadogEvents:
+      additionalProperties: false
+      description: Events associations
+      items:
+        $ref: '#/components/schemas/EntityV3DatadogEventItem'
+      type: array
+    EntityV3DatadogIntegrationOpsgenie:
+      additionalProperties: false
+      description: An Opsgenie integration schema
+      properties:
+        region:
+          description: The region for the Opsgenie integration.
+          minLength: 1
+          type: string
+        serviceURL:
+          description: The service url for the Opsgenie integration.
+          example: https://www.opsgenie.com/service/shopping-cart
+          minLength: 1
+          type: string
+      required:
+      - serviceURL
+      type: object
+    EntityV3DatadogIntegrationPagerduty:
+      additionalProperties: false
+      description: An PagerDuty integration schema
+      properties:
+        serviceURL:
+          description: The service url for the PagerDuty integration.
+          example: https://www.pagerduty.com/service-directory/Pshopping-cart
+          minLength: 1
+          type: string
+      required:
+      - serviceURL
+      type: object
+    EntityV3DatadogLogItem:
+      additionalProperties: false
+      description: log association item.
+      properties:
+        name:
+          description: The name of the query
+          type: string
+        query:
+          description: The query to run
+          type: string
+      type: object
+    EntityV3DatadogLogs:
+      additionalProperties: false
+      description: Logs association
+      items:
+        $ref: '#/components/schemas/EntityV3DatadogLogItem'
+      type: array
+    EntityV3DatadogPerformance:
+      additionalProperties: false
+      description: Performance stats association
+      properties:
+        tags:
+          description: A list of APM entity tags that associates the APM Stats data
+            with the entity
+          items:
+            type: string
+          type: array
+      type: object
+    EntityV3DatadogPipelines:
+      additionalProperties: false
+      description: CI Pipelines association
+      properties:
+        fingerprints:
+          description: A list of CI Fingerprints that associate CI Pipelines with
+            the entity
+          items:
+            type: string
+          type: array
+      type: object
+    EntityV3Datastore:
+      additionalProperties: false
+      description: Schema for datastore entities
+      properties:
+        apiVersion:
+          $ref: '#/components/schemas/EntityV3APIVersion'
+        datadog:
+          $ref: '#/components/schemas/EntityV3DatastoreDatadog'
+        extensions:
+          additionalProperties: {}
+          description: Custom extensions. This is the free-formed field to send client
+            side metadata. No Datadog features are affected by this field.
+          type: object
+        integrations:
+          $ref: '#/components/schemas/EntityV3Integrations'
+        kind:
+          $ref: '#/components/schemas/EntityV3DatastoreKind'
+        metadata:
+          $ref: '#/components/schemas/EntityV3Metadata'
+        spec:
+          $ref: '#/components/schemas/EntityV3DatastoreSpec'
+      required:
+      - apiVersion
+      - kind
+      - metadata
+      type: object
+    EntityV3DatastoreDatadog:
+      additionalProperties: false
+      description: Datadog product integrations for the datastore entity
+      properties:
+        events:
+          $ref: '#/components/schemas/EntityV3DatadogEvents'
+        logs:
+          $ref: '#/components/schemas/EntityV3DatadogLogs'
+        performanceData:
+          $ref: '#/components/schemas/EntityV3DatadogPerformance'
+      type: object
+    EntityV3DatastoreKind:
+      description: The definition of Entity V3 Datastore Kind object.
+      enum:
+      - datastore
+      example: datastore
+      type: string
+      x-enum-varnames:
+      - DATASTORE
+    EntityV3DatastoreSpec:
+      additionalProperties: false
+      description: The definition of Entity V3 Datastore Spec object.
+      properties:
+        lifecycle:
+          description: The lifecycle state of the datastore.
+          minLength: 1
+          type: string
+        tier:
+          description: The importance of the datastore
+          minLength: 1
+          type: string
+        type:
+          description: The type of datastore
+          type: string
+      type: object
+    EntityV3Integrations:
+      additionalProperties: false
+      description: A base schema for defining third party integrations
+      properties:
+        opsgenie:
+          $ref: '#/components/schemas/EntityV3DatadogIntegrationOpsgenie'
+        pagerduty:
+          $ref: '#/components/schemas/EntityV3DatadogIntegrationPagerduty'
+      type: object
+    EntityV3Metadata:
+      additionalProperties: false
+      description: The definition of Entity V3 Metadata object.
+      properties:
+        additionalOwners:
+          additionalProperties: false
+          description: The additional owners of the entity, usually a team
+          items:
+            $ref: '#/components/schemas/EntityV3MetadataAdditionalOwnersItems'
+          type: array
+        contacts:
+          additionalProperties: false
+          description: A list of contacts for the entity
+          items:
+            $ref: '#/components/schemas/EntityV3MetadataContactsItems'
+          type: array
+        description:
+          description: Short description of the entity. The UI can leverage the description
+            for display
+          type: string
+        displayName:
+          description: User friendly name of the entity. The UI can leverage the display
+            name for display
+          type: string
+        id:
+          description: A read-only globally unique identifier for the entity generated
+            by Datadog.  User supplied values are ignored.
+          example: 4b163705-23c0-4573-b2fb-f6cea2163fcb
+          minLength: 1
+          type: string
+        inheritFrom:
+          description: The entity reference from which to inherit metadata
+          example: application:default/myapp
+          type: string
+        links:
+          additionalProperties: false
+          description: A list of links for the entity
+          items:
+            $ref: '#/components/schemas/EntityV3MetadataLinksItems'
+          type: array
+        managed:
+          additionalProperties: {}
+          description: A read-only set of Datadog managed attributes generated by
+            Datadog.  User supplied values are ignored.
+          type: object
+        name:
+          description: 'Unique name given to an entity under the kind/namespace '
+          example: myService
+          minLength: 1
+          type: string
+        namespace:
+          description: Namespace is a part of unique identifier. It has a default
+            value of 'default'
+          example: default
+          minLength: 1
+          type: string
+        owner:
+          $ref: '#/components/schemas/EntityV3MetadataOwner'
+        tags:
+          description: A set of custom tags
+          example:
+          - this:tag
+          - that:tag
+          items:
+            type: string
+          type: array
+      required:
+      - name
+      type: object
+    EntityV3MetadataAdditionalOwnersItems:
+      description: The definition of Entity V3 Metadata Additional Owners Items object.
+      properties:
+        name:
+          description: Team name
+          example: ''
+          type: string
+        type:
+          description: Team type
+          type: string
+      required:
+      - name
+    EntityV3MetadataContactsItems:
+      additionalProperties: false
+      description: The definition of Entity V3 Metadata Contacts Items object.
+      properties:
+        contact:
+          description: Contact value
+          example: https://slack/
+          type: string
+        name:
+          description: Contact name
+          minLength: 2
+          type: string
+        type:
+          description: Contact type.
+          example: slack
+          type: string
+      required:
+      - type
+      - contact
+      type: object
+    EntityV3MetadataLinksItems:
+      additionalProperties: false
+      description: The definition of Entity V3 Metadata Links Items object.
+      properties:
+        name:
+          description: Link name
+          example: mylink
+          type: string
+        provider:
+          description: Link provider.
+          type: string
+        type:
+          default: other
+          description: Link type.
+          example: link
+          type: string
+        url:
+          description: Link url
+          example: https://mylink
+          type: string
+      required:
+      - name
+      - type
+      - url
+      type: object
+    EntityV3MetadataOwner:
+      additionalProperties: false
+      description: The owner of the entity, usually a team
+      properties:
+        name:
+          description: Team name
+          type: string
+    EntityV3Queue:
+      additionalProperties: false
+      description: Schema for queue entities
+      properties:
+        apiVersion:
+          $ref: '#/components/schemas/EntityV3APIVersion'
+        datadog:
+          $ref: '#/components/schemas/EntityV3QueueDatadog'
+        extensions:
+          additionalProperties: {}
+          description: Custom extensions. This is the free-formed field to send client
+            side metadata. No Datadog features are affected by this field.
+          type: object
+        integrations:
+          $ref: '#/components/schemas/EntityV3Integrations'
+        kind:
+          $ref: '#/components/schemas/EntityV3QueueKind'
+        metadata:
+          $ref: '#/components/schemas/EntityV3Metadata'
+        spec:
+          $ref: '#/components/schemas/EntityV3QueueSpec'
+      required:
+      - apiVersion
+      - kind
+      - metadata
+      type: object
+    EntityV3QueueDatadog:
+      additionalProperties: false
+      description: Datadog product integrations for the datastore entity
+      properties:
+        events:
+          $ref: '#/components/schemas/EntityV3DatadogEvents'
+        logs:
+          $ref: '#/components/schemas/EntityV3DatadogLogs'
+        performanceData:
+          $ref: '#/components/schemas/EntityV3DatadogPerformance'
+      type: object
+    EntityV3QueueKind:
+      description: The definition of Entity V3 Queue Kind object.
+      enum:
+      - queue
+      example: queue
+      type: string
+      x-enum-varnames:
+      - QUEUE
+    EntityV3QueueSpec:
+      additionalProperties: false
+      description: The definition of Entity V3 Queue Spec object.
+      properties:
+        lifecycle:
+          description: The lifecycle state of the queue.
+          minLength: 1
+          type: string
+        tier:
+          description: The importance of the queue
+          minLength: 1
+          type: string
+        type:
+          description: The type of queue
+          type: string
+      type: object
+    EntityV3Service:
+      additionalProperties: false
+      description: Schema for service entities
+      properties:
+        apiVersion:
+          $ref: '#/components/schemas/EntityV3APIVersion'
+        datadog:
+          $ref: '#/components/schemas/EntityV3ServiceDatadog'
+        extensions:
+          additionalProperties: {}
+          description: Custom extensions. This is the free-formed field to send client
+            side metadata. No Datadog features are affected by this field.
+          type: object
+        integrations:
+          $ref: '#/components/schemas/EntityV3Integrations'
+        kind:
+          $ref: '#/components/schemas/EntityV3ServiceKind'
+        metadata:
+          $ref: '#/components/schemas/EntityV3Metadata'
+        spec:
+          $ref: '#/components/schemas/EntityV3ServiceSpec'
+      required:
+      - apiVersion
+      - kind
+      - metadata
+      type: object
+    EntityV3ServiceDatadog:
+      additionalProperties: false
+      description: Datadog product integrations for the service entity
+      properties:
+        codeLocations:
+          $ref: '#/components/schemas/EntityV3DatadogCodeLocations'
+        events:
+          $ref: '#/components/schemas/EntityV3DatadogEvents'
+        logs:
+          $ref: '#/components/schemas/EntityV3DatadogLogs'
+        performanceData:
+          $ref: '#/components/schemas/EntityV3DatadogPerformance'
+        pipelines:
+          $ref: '#/components/schemas/EntityV3DatadogPipelines'
+      type: object
+    EntityV3ServiceKind:
+      description: The definition of Entity V3 Service Kind object.
+      enum:
+      - service
+      example: service
+      type: string
+      x-enum-varnames:
+      - SERVICE
+    EntityV3ServiceSpec:
+      additionalProperties: false
+      description: The definition of Entity V3 Service Spec object.
+      properties:
+        dependsOn:
+          description: A list of components the service depends on
+          items:
+            type: string
+          type: array
+        languages:
+          description: The service's programming language.
+          items:
+            type: string
+          type: array
+        lifecycle:
+          description: The lifecycle state of the component.
+          minLength: 1
+          type: string
+        tier:
+          description: The importance of the component
+          minLength: 1
+          type: string
+        type:
+          description: The type of service
+          type: string
+      type: object
+    EntityV3System:
+      additionalProperties: false
+      description: Schema for system entities
+      properties:
+        apiVersion:
+          $ref: '#/components/schemas/EntityV3APIVersion'
+        datadog:
+          $ref: '#/components/schemas/EntityV3SystemDatadog'
+        extensions:
+          additionalProperties: {}
+          description: Custom extensions. This is the free-formed field to send client
+            side metadata. No Datadog features are affected by this field.
+          type: object
+        integrations:
+          $ref: '#/components/schemas/EntityV3Integrations'
+        kind:
+          $ref: '#/components/schemas/EntityV3SystemKind'
+        metadata:
+          $ref: '#/components/schemas/EntityV3Metadata'
+        spec:
+          $ref: '#/components/schemas/EntityV3SystemSpec'
+      required:
+      - apiVersion
+      - kind
+      - metadata
+      type: object
+    EntityV3SystemDatadog:
+      additionalProperties: false
+      description: Datadog product integrations for the service entity
+      properties:
+        events:
+          $ref: '#/components/schemas/EntityV3DatadogEvents'
+        logs:
+          $ref: '#/components/schemas/EntityV3DatadogLogs'
+        performanceData:
+          $ref: '#/components/schemas/EntityV3DatadogPerformance'
+        pipelines:
+          $ref: '#/components/schemas/EntityV3DatadogPipelines'
+      type: object
+    EntityV3SystemKind:
+      description: The definition of Entity V3 System Kind object.
+      enum:
+      - system
+      example: system
+      type: string
+      x-enum-varnames:
+      - SYSTEM
+    EntityV3SystemSpec:
+      additionalProperties: false
+      description: The definition of Entity V3 System Spec object.
+      properties:
+        components:
+          description: A list of components belongs to the system.
+          items:
+            type: string
+          type: array
+        lifecycle:
+          description: The lifecycle state of the component.
+          minLength: 1
+          type: string
+        tier:
+          description: An entity reference to the owner of the component.
+          minLength: 1
+          type: string
+      type: object
     Event:
       description: The metadata associated with a request.
       properties:
@@ -8263,7 +9196,7 @@ components:
         data:
           description: The JSON:API data schema.
           items:
-            $ref: '#/components/schemas/FastlyServiceResponse'
+            $ref: '#/components/schemas/FastlyServiceData'
           type: array
       type: object
     Finding:
@@ -9402,6 +10335,19 @@ components:
             were created or updated by the request are
 
             returned.'
+          example:
+          - attributes:
+              attachment:
+                documentUrl: ''
+                title: Postmortem IR-123
+              attachment_type: postmortem
+            id: 00000000-abcd-0002-0000-000000000000
+            relationships:
+              last_modified_by_user:
+                data:
+                  id: 00000000-0000-0000-cccc-000000000000
+                  type: users
+            type: incident_attachments
           items:
             $ref: '#/components/schemas/IncidentAttachmentData'
           type: array
@@ -9433,6 +10379,19 @@ components:
       properties:
         data:
           description: An array of incident attachments.
+          example:
+          - attributes:
+              attachment:
+                documentUrl: ''
+                title: Postmortem IR-123
+              attachment_type: postmortem
+            id: 00000000-abcd-0002-0000-000000000000
+            relationships:
+              last_modified_by_user:
+                data:
+                  id: 00000000-0000-0000-cccc-000000000000
+                  type: users
+            type: incident_attachments
           items:
             $ref: '#/components/schemas/IncidentAttachmentData'
           type: array
@@ -9479,6 +10438,13 @@ components:
         notification_handles:
           description: Notification handles that will be notified of the incident
             at creation.
+          example:
+          - display_name: Jane Doe
+            handle: '@user@email.com'
+          - display_name: Slack Channel
+            handle: '@slack-channel'
+          - display_name: Incident Workflow
+            handle: '@workflow-from-incident'
           items:
             $ref: '#/components/schemas/IncidentNotificationHandle'
           type: array
@@ -9526,8 +10492,6 @@ components:
       oneOf:
       - $ref: '#/components/schemas/IncidentFieldAttributesSingleValue'
       - $ref: '#/components/schemas/IncidentFieldAttributesMultipleValue'
-      required:
-      - type
     IncidentFieldAttributesMultipleValue:
       description: A field with potentially multiple values selected.
       properties:
@@ -9767,7 +10731,8 @@ components:
           example: Jane Doe
           type: string
         handle:
-          description: The email address used for the notification.
+          description: The handle used for the notification. This includes an email
+            address, Slack channel, or workflow.
           example: '@test.user@test.com'
           type: string
       type: object
@@ -9880,6 +10845,13 @@ components:
         notification_handles:
           description: Notification handles that will be notified of the incident
             during update.
+          example:
+          - display_name: Jane Doe
+            handle: '@user@email.com'
+          - display_name: Slack Channel
+            handle: '@slack-channel'
+          - display_name: Incident Workflow
+            handle: '@workflow-from-incident'
           items:
             $ref: '#/components/schemas/IncidentNotificationHandle'
           nullable: true
@@ -10644,6 +11616,8 @@ components:
       - $ref: '#/components/schemas/IncidentTodoAnonymousAssignee'
     IncidentTodoAssigneeArray:
       description: Array of todo assignees.
+      example:
+      - '@test.user@test.com'
       items:
         $ref: '#/components/schemas/IncidentTodoAssignee'
       type: array
@@ -10845,6 +11819,13 @@ components:
         notification_handles:
           description: Notification handles that will be notified of the incident
             during update.
+          example:
+          - display_name: Jane Doe
+            handle: '@user@email.com'
+          - display_name: Slack Channel
+            handle: '@slack-channel'
+          - display_name: Incident Workflow
+            handle: '@workflow-from-incident'
           items:
             $ref: '#/components/schemas/IncidentNotificationHandle'
           type: array
@@ -11004,6 +11985,21 @@ components:
       required:
       - data
       type: object
+    IncludeType:
+      description: supported include types.
+      enum:
+      - schema
+      - raw_schema
+      - oncall
+      - incident
+      - relation
+      type: string
+      x-enum-varnames:
+      - SCHEMA
+      - RAW_SCHEMA
+      - ONCALL
+      - INCIDENT
+      - RELATION
     IntakePayloadAccepted:
       description: The payload accepted for intake.
       properties:
@@ -11296,6 +12292,44 @@ components:
           type: array
         meta:
           $ref: '#/components/schemas/DowntimeMeta'
+      type: object
+    ListEntityCatalogResponse:
+      description: List entity response.
+      properties:
+        data:
+          $ref: '#/components/schemas/EntityResponseData'
+        included:
+          $ref: '#/components/schemas/ListEntityCatalogResponseIncluded'
+        links:
+          $ref: '#/components/schemas/ListEntityCatalogResponseLinks'
+        meta:
+          $ref: '#/components/schemas/EntityResponseMeta'
+      type: object
+    ListEntityCatalogResponseIncluded:
+      description: List entity response included.
+      items:
+        $ref: '#/components/schemas/ListEntityCatalogResponseIncludedItem'
+      type: array
+    ListEntityCatalogResponseIncludedItem:
+      description: List entity response included item.
+      oneOf:
+      - $ref: '#/components/schemas/EntityResponseIncludedSchema'
+      - $ref: '#/components/schemas/EntityResponseIncludedRawSchema'
+      - $ref: '#/components/schemas/EntityResponseIncludedRelatedEntity'
+      - $ref: '#/components/schemas/EntityResponseIncludedOncall'
+      - $ref: '#/components/schemas/EntityResponseIncludedIncident'
+    ListEntityCatalogResponseLinks:
+      description: List entity response links.
+      properties:
+        next:
+          description: next link.
+          type: string
+        previous:
+          description: previous link.
+          type: string
+        self:
+          description: current link.
+          type: string
       type: object
     ListFindingsData:
       description: Array of findings.
@@ -11800,9 +12834,6 @@ components:
       - $ref: '#/components/schemas/LogsArchiveDestinationAzure'
       - $ref: '#/components/schemas/LogsArchiveDestinationGCS'
       - $ref: '#/components/schemas/LogsArchiveDestinationS3'
-      required:
-      - type
-      - integration
     LogsArchiveDefinition:
       description: The definition of an archive.
       properties:
@@ -11829,9 +12860,6 @@ components:
       - $ref: '#/components/schemas/LogsArchiveDestinationAzure'
       - $ref: '#/components/schemas/LogsArchiveDestinationGCS'
       - $ref: '#/components/schemas/LogsArchiveDestinationS3'
-      required:
-      - type
-      - integration
       type: object
     LogsArchiveDestinationAzure:
       description: The Azure archive destination.
@@ -12627,10 +13655,13 @@ components:
       readOnly: true
       type: object
     MetricAssetAttributes:
-      description: Assets where only included attribute is its title
+      description: Assets related to the object, including title and url.
       properties:
         title:
           description: Title of the asset.
+          type: string
+        url:
+          description: URL path of the asset.
           type: string
       type: object
     MetricAssetDashboardRelationship:
@@ -12839,7 +13870,6 @@ components:
       - bob@example.com
       items:
         description: An email address.
-        format: email
         type: string
       type: array
     MetricBulkTagConfigNamePrefix:
@@ -12957,8 +13987,8 @@ components:
         - time: sum, space: sum
 
 
-        Can only be applied to metrics that have a `metric_type` of `count`, `rate`,
-        or `gauge`.'
+        Can only be applied to non_distribution metrics that have a `metric_type`
+        of `count`, `rate`, or `gauge`.'
       example:
       - space: sum
         time: sum
@@ -13011,7 +14041,8 @@ components:
       - type
       type: object
     MetricDashboardAttributes:
-      description: Attributes related to the dashboard, including title and popularity.
+      description: Attributes related to the dashboard, including title, popularity,
+        and url.
       properties:
         popularity:
           description: Value from 0 to 5 that ranks popularity of the dashboard.
@@ -13021,6 +14052,9 @@ components:
           type: number
         title:
           description: Title of the asset.
+          type: string
+        url:
+          description: URL path of the asset.
           type: string
       type: object
     MetricDashboardID:
@@ -13349,6 +14383,9 @@ components:
             timestamp and a scalar value (cannot be a string). Timestamps should be
             in POSIX time in seconds, and cannot be more than ten minutes in the future
             or more than one hour in the past.
+          example:
+          - timestamp: 1575317847
+            value: 0.5
           items:
             $ref: '#/components/schemas/MetricPoint'
           type: array
@@ -13559,6 +14596,17 @@ components:
       required:
       - data
       type: object
+    MetricTagConfigurationMetricTypeCategory:
+      default: distribution
+      description: The metric's type category.
+      enum:
+      - non_distribution
+      - distribution
+      example: distribution
+      type: string
+      x-enum-varnames:
+      - NON_DISTRIBUTION
+      - DISTRIBUTION
     MetricTagConfigurationMetricTypes:
       default: gauge
       description: The metric's type.
@@ -13760,6 +14808,276 @@ components:
       required:
       - data_source
       - query
+      type: object
+    MicrosoftTeamsApiHandleAttributes:
+      description: Handle attributes.
+      properties:
+        channel_id:
+          description: Channel id.
+          example: fake-channel-id
+          maxLength: 255
+          type: string
+        name:
+          description: Handle name.
+          example: fake-handle-name
+          maxLength: 255
+          type: string
+        team_id:
+          description: Team id.
+          example: 00000000-0000-0000-0000-000000000000
+          maxLength: 255
+          type: string
+        tenant_id:
+          description: Tenant id.
+          example: 00000000-0000-0000-0000-000000000001
+          maxLength: 255
+          type: string
+      type: object
+    MicrosoftTeamsApiHandleInfoResponse:
+      description: Response of a handle.
+      properties:
+        data:
+          $ref: '#/components/schemas/MicrosoftTeamsApiHandleInfoResponseData'
+      type: object
+    MicrosoftTeamsApiHandleInfoResponseAttributes:
+      description: Handle attributes.
+      properties:
+        channel_id:
+          description: Channel id.
+          example: fake-channel-id
+          maxLength: 255
+          type: string
+        channel_name:
+          description: Channel name.
+          example: fake-channel-name
+          maxLength: 255
+          type: string
+        name:
+          description: Handle name.
+          example: fake-handle-name
+          maxLength: 255
+          type: string
+        team_id:
+          description: Team id.
+          example: 00000000-0000-0000-0000-000000000000
+          maxLength: 255
+          type: string
+        team_name:
+          description: Team name.
+          example: fake-team-name
+          maxLength: 255
+          type: string
+        tenant_id:
+          description: Tenant id.
+          example: 00000000-0000-0000-0000-000000000001
+          maxLength: 255
+          type: string
+        tenant_name:
+          description: Tenant name.
+          example: fake-tenant-name
+          maxLength: 255
+          type: string
+      type: object
+    MicrosoftTeamsApiHandleInfoResponseData:
+      description: Handle data from a response.
+      properties:
+        attributes:
+          $ref: '#/components/schemas/MicrosoftTeamsApiHandleInfoResponseAttributes'
+        id:
+          description: The ID of the handle.
+          example: 596da4af-0563-4097-90ff-07230c3f9db3
+          maxLength: 100
+          minLength: 1
+          type: string
+        type:
+          $ref: '#/components/schemas/MicrosoftTeamsApiHandleInfoType'
+      type: object
+    MicrosoftTeamsApiHandleInfoType:
+      default: ms-teams-handle-info
+      description: Handle resource type.
+      enum:
+      - ms-teams-handle-info
+      example: ms-teams-handle-info
+      type: string
+      x-enum-varnames:
+      - MS_TEAMS_HANDLE_INFO
+    MicrosoftTeamsApiHandleRequestAttributes:
+      description: Handle attributes.
+      properties:
+        channel_id:
+          description: Channel id.
+          example: fake-channel-id
+          maxLength: 255
+          type: string
+        name:
+          description: Handle name.
+          example: fake-handle-name
+          maxLength: 255
+          type: string
+        team_id:
+          description: Team id.
+          example: 00000000-0000-0000-0000-000000000000
+          maxLength: 255
+          type: string
+        tenant_id:
+          description: Tenant id.
+          example: 00000000-0000-0000-0000-000000000001
+          maxLength: 255
+          type: string
+      required:
+      - name
+      - channel_id
+      - team_id
+      - tenant_id
+      type: object
+    MicrosoftTeamsApiHandleRequestData:
+      description: Handle data from a response.
+      properties:
+        attributes:
+          $ref: '#/components/schemas/MicrosoftTeamsApiHandleRequestAttributes'
+        type:
+          $ref: '#/components/schemas/MicrosoftTeamsApiHandleType'
+      required:
+      - type
+      - attributes
+      type: object
+    MicrosoftTeamsApiHandleResponseData:
+      description: Handle data from a response.
+      properties:
+        attributes:
+          $ref: '#/components/schemas/MicrosoftTeamsApiHandleAttributes'
+        id:
+          description: The ID of the handle.
+          example: 596da4af-0563-4097-90ff-07230c3f9db3
+          maxLength: 100
+          minLength: 1
+          type: string
+        type:
+          $ref: '#/components/schemas/MicrosoftTeamsApiHandleType'
+      type: object
+    MicrosoftTeamsApiHandleType:
+      default: handle
+      description: Specifies the handle resource type.
+      enum:
+      - handle
+      example: handle
+      type: string
+      x-enum-varnames:
+      - HANDLE
+    MicrosoftTeamsApiHandlesResponse:
+      description: Response with a list of handles.
+      properties:
+        data:
+          description: An array of handles.
+          example:
+          - attributes:
+              channelId: 19:b41k24b14bn1nwffkernfkwrnfneubgkr@thread.tacv2
+              channelName: General
+              name: general-handle
+              teamId: 00000000-0000-0000-0000-000000000000
+              teamName: Example Team
+              tenantId: 00000000-0000-0000-0000-000000000001
+              tenantName: Company, Inc.
+            id: 596da4af-0563-4097-90ff-07230c3f9db3
+            type: ms-teams-handle-info
+          - attributes:
+              channelId: 19:b41k24b14bn1nwffkernfkwrnfneubgk1@thread.tacv2
+              channelName: General2
+              name: general-handle-2
+              teamId: 00000000-0000-0000-0000-000000000002
+              teamName: Example Team 2
+              tenantId: 00000000-0000-0000-0000-000000000003
+              tenantName: Company, Inc.
+            id: 596da4af-0563-4097-90ff-07230c3f9db4
+            type: ms-teams-handle-info
+          items:
+            $ref: '#/components/schemas/MicrosoftTeamsApiHandleInfoResponseData'
+          type: array
+      required:
+      - data
+      type: object
+    MicrosoftTeamsChannelInfoResponseAttributes:
+      description: Channel attributes.
+      properties:
+        is_primary:
+          description: Indicates if this is the primary channel.
+          example: true
+          maxLength: 255
+          type: boolean
+        team_id:
+          description: Team id.
+          example: 00000000-0000-0000-0000-000000000000
+          maxLength: 255
+          type: string
+        tenant_id:
+          description: Tenant id.
+          example: 00000000-0000-0000-0000-000000000001
+          maxLength: 255
+          type: string
+      type: object
+    MicrosoftTeamsChannelInfoResponseData:
+      description: Channel data from a response.
+      properties:
+        attributes:
+          $ref: '#/components/schemas/MicrosoftTeamsChannelInfoResponseAttributes'
+        id:
+          description: The ID of the channel.
+          example: 19:b41k24b14bn1nwffkernfkwrnfneubgkr@thread.tacv2
+          maxLength: 255
+          minLength: 1
+          type: string
+        type:
+          $ref: '#/components/schemas/MicrosoftTeamsChannelInfoType'
+      type: object
+    MicrosoftTeamsChannelInfoType:
+      default: ms-teams-channel-info
+      description: Channel info resource type.
+      enum:
+      - ms-teams-channel-info
+      example: ms-teams-channel-info
+      type: string
+      x-enum-varnames:
+      - MS_TEAMS_CHANNEL_INFO
+    MicrosoftTeamsCreateApiHandleRequest:
+      description: Create handle request.
+      properties:
+        data:
+          $ref: '#/components/schemas/MicrosoftTeamsApiHandleRequestData'
+      required:
+      - data
+      type: object
+    MicrosoftTeamsCreateApiHandleResponse:
+      description: Response of a handle.
+      properties:
+        data:
+          $ref: '#/components/schemas/MicrosoftTeamsApiHandleResponseData'
+      required:
+      - data
+      type: object
+    MicrosoftTeamsGetChannelByNameResponse:
+      description: Response with channel, team, and tenant ID information.
+      properties:
+        data:
+          $ref: '#/components/schemas/MicrosoftTeamsChannelInfoResponseData'
+      type: object
+    MicrosoftTeamsUpdateApiHandleRequest:
+      description: Update handle request.
+      properties:
+        data:
+          $ref: '#/components/schemas/MicrosoftTeamsUpdateApiHandleRequestData'
+      required:
+      - data
+      type: object
+    MicrosoftTeamsUpdateApiHandleRequestData:
+      description: Handle data from a response.
+      properties:
+        attributes:
+          $ref: '#/components/schemas/MicrosoftTeamsApiHandleAttributes'
+        type:
+          $ref: '#/components/schemas/MicrosoftTeamsApiHandleType'
+      required:
+      - type
+      - attributes
       type: object
     MonitorConfigPolicyAttributeCreateRequest:
       description: Policy and policy type for a monitor configuration policy.
@@ -14351,7 +15669,6 @@ components:
         custom_url:
           description: The custom URL for a custom region.
           example: https://example.com
-          format: url
           type: string
         name:
           description: The name for the Opsgenie service.
@@ -14414,7 +15731,6 @@ components:
         custom_url:
           description: The custom URL for a custom region.
           example: null
-          format: url
           nullable: true
           type: string
         name:
@@ -14458,7 +15774,6 @@ components:
         custom_url:
           description: The custom URL for a custom region.
           example: https://example.com
-          format: url
           nullable: true
           type: string
         name:
@@ -15259,6 +16574,18 @@ components:
     PowerpackTemplateVariable:
       description: Powerpack template variables.
       properties:
+        available_values:
+          description: The list of values that the template variable drop-down is
+            limited to.
+          example:
+          - my-host
+          - host1
+          - host2
+          items:
+            description: Template variable value.
+            type: string
+          nullable: true
+          type: array
         defaults:
           description: One or many template variable default values within the saved
             view, which are unioned together using `OR` if more than one is specified.
@@ -15270,6 +16597,12 @@ components:
         name:
           description: The name of the variable.
           example: datacenter
+          type: string
+        prefix:
+          description: The tag prefix associated with the variable. Only tags with
+            this prefix appear in the variable drop-down.
+          example: host
+          nullable: true
           type: string
       required:
       - name
@@ -16371,6 +17704,46 @@ components:
           description: A short human-readable summary of the warning.
           example: One or several indexes are missing or invalid, results hold data
             from the other indexes
+          type: string
+      type: object
+    RelationType:
+      description: supported relation types
+      enum:
+      - RelationTypeOwns
+      - RelationTypeOwnedBy
+      - RelationTypeDependsOn
+      - RelationTypeDependencyOf
+      - RelationTypePartsOf
+      - RelationTypeHasPart
+      - RelationTypeOtherOwns
+      - RelationTypeOtherOwnedBy
+      - RelationTypeImplementedBy
+      - RelationTypeImplements
+      type: string
+      x-enum-varnames:
+      - RELATIONTYPEOWNS
+      - RELATIONTYPEOWNEDBY
+      - RELATIONTYPEDEPENDSON
+      - RELATIONTYPEDEPENDENCYOF
+      - RELATIONTYPEPARTSOF
+      - RELATIONTYPEHASPART
+      - RELATIONTYPEOTHEROWNS
+      - RELATIONTYPEOTHEROWNEDBY
+      - RELATIONTYPEIMPLEMENTEDBY
+      - RELATIONTYPEIMPLEMENTS
+    RelationshipArray:
+      description: Relationships.
+      items:
+        $ref: '#/components/schemas/RelationshipItem'
+      type: array
+    RelationshipItem:
+      description: Relationship entry.
+      properties:
+        id:
+          description: Associated data id.
+          type: string
+        type:
+          description: Relationship type.
           type: string
       type: object
     RelationshipToIncidentAttachment:
@@ -17700,6 +19073,10 @@ components:
       type: object
     ScalarFormulaRequestQueries:
       description: List of queries to be run and used as inputs to the formulas.
+      example:
+      - aggregator: avg
+        data_source: metrics
+        query: avg:system.cpu.user{*} by {env}
       items:
         $ref: '#/components/schemas/ScalarQuery'
       type: array
@@ -18029,6 +19406,25 @@ components:
           type: array
         meta:
           $ref: '#/components/schemas/ResponseMetaAttributes'
+      type: object
+    SecurityMonitoringReferenceTable:
+      description: Reference table for the rule.
+      properties:
+        checkPresence:
+          description: Whether to include or exclude the matched values.
+          type: boolean
+        columnName:
+          description: The name of the column in the reference table.
+          type: string
+        logFieldPath:
+          description: The field in the log to match against the reference table.
+          type: string
+        ruleQueryName:
+          description: The name of the rule query to apply the reference table to.
+          type: string
+        tableName:
+          description: The name of the reference table.
+          type: string
       type: object
     SecurityMonitoringRuleCase:
       description: Case when signal is generated.
@@ -18535,6 +19931,11 @@ components:
           items:
             $ref: '#/components/schemas/SecurityMonitoringRuleQuery'
           type: array
+        referenceTables:
+          description: Reference tables for the rule.
+          items:
+            $ref: '#/components/schemas/SecurityMonitoringReferenceTable'
+          type: array
         tags:
           description: Tags for generated signals.
           items:
@@ -18658,6 +20059,8 @@ components:
       type: object
     SecurityMonitoringSignalIncidentIds:
       description: Array of incidents that are associated with this signal.
+      example:
+      - 2066
       items:
         description: Public ID attribute of the incident that is associated with the
           signal.
@@ -19237,6 +20640,11 @@ components:
           items:
             $ref: '#/components/schemas/SecurityMonitoringStandardRuleQuery'
           type: array
+        referenceTables:
+          description: Reference tables for the rule.
+          items:
+            $ref: '#/components/schemas/SecurityMonitoringReferenceTable'
+          type: array
         tags:
           description: Tags for generated signals.
           example:
@@ -19303,6 +20711,11 @@ components:
           example: []
           items:
             $ref: '#/components/schemas/SecurityMonitoringStandardRuleQuery'
+          type: array
+        referenceTables:
+          description: Reference tables for the rule.
+          items:
+            $ref: '#/components/schemas/SecurityMonitoringReferenceTable'
           type: array
         tags:
           description: Tags for generated signals.
@@ -19444,6 +20857,11 @@ components:
           items:
             $ref: '#/components/schemas/SecurityMonitoringStandardRuleQuery'
           type: array
+        referenceTables:
+          description: Reference tables for the rule.
+          items:
+            $ref: '#/components/schemas/SecurityMonitoringReferenceTable'
+          type: array
         tags:
           description: Tags for generated signals.
           items:
@@ -19508,6 +20926,11 @@ components:
           items:
             $ref: '#/components/schemas/SecurityMonitoringStandardRuleQuery'
           type: array
+        referenceTables:
+          description: Reference tables for the rule.
+          items:
+            $ref: '#/components/schemas/SecurityMonitoringReferenceTable'
+          type: array
         tags:
           description: Tags for generated signals.
           example:
@@ -19565,6 +20988,10 @@ components:
           description: A description for the suppression rule.
           example: This rule suppresses low-severity signals in staging environments.
           type: string
+        editable:
+          description: Whether the suppression rule is editable.
+          example: true
+          type: boolean
         enabled:
           description: Whether the suppression rule is enabled.
           example: true
@@ -20717,7 +22144,6 @@ components:
         email:
           description: "Service owner\u2019s email."
           example: contact@datadoghq.com
-          format: email
           type: string
         slack:
           description: "Service owner\u2019s Slack channel."
@@ -20978,7 +22404,6 @@ components:
         contact:
           description: Contact value.
           example: contact@datadoghq.com
-          format: email
           type: string
         name:
           description: Contact email.
@@ -21339,7 +22764,6 @@ components:
         contact:
           description: Contact value.
           example: contact@datadoghq.com
-          format: email
           type: string
         name:
           description: Contact email.
@@ -22723,7 +24147,6 @@ components:
         url:
           description: The URL for the link
           example: https://example.com
-          format: url
           type: string
       required:
       - label
@@ -22942,12 +24365,6 @@ components:
           description: Banner selection for the team
           format: int64
           nullable: true
-          type: integer
-        color:
-          description: An identifier for the color representing the team
-          format: int32
-          maximum: 13
-          minimum: 0
           type: integer
         description:
           description: Free-form markdown description/content for the team's homepage
@@ -23176,6 +24593,9 @@ components:
       type: object
     TimeseriesFormulaRequestQueries:
       description: List of queries to be run and used as inputs to the formulas.
+      example:
+      - data_source: metrics
+        query: avg:system.cpu.user{*} by {env}
       items:
         $ref: '#/components/schemas/TimeseriesQuery'
       type: array
@@ -23366,6 +24786,30 @@ components:
         type:
           $ref: '#/components/schemas/RuleType'
       type: object
+    UpsertCatalogEntityRequest:
+      description: Create / Update entity request.
+      oneOf:
+      - $ref: '#/components/schemas/EntityV3'
+      - $ref: '#/components/schemas/EntityRaw'
+    UpsertCatalogEntityResponse:
+      description: Upsert entity response.
+      properties:
+        data:
+          $ref: '#/components/schemas/EntityResponseData'
+        included:
+          $ref: '#/components/schemas/UpsertCatalogEntityResponseIncluded'
+        meta:
+          $ref: '#/components/schemas/EntityResponseMeta'
+      type: object
+    UpsertCatalogEntityResponseIncluded:
+      description: Upsert entity response included.
+      items:
+        $ref: '#/components/schemas/UpsertCatalogEntityResponseIncludedItem'
+      type: array
+    UpsertCatalogEntityResponseIncludedItem:
+      description: Upsert entity response included item.
+      oneOf:
+      - $ref: '#/components/schemas/EntityResponseIncludedSchema'
     UsageApplicationSecurityMonitoringResponse:
       description: Application Security Monitoring usage response.
       properties:
@@ -24144,6 +25588,8 @@ components:
             security_monitoring_signals_read: View Security Signals.
             security_monitoring_suppressions_read: Read Rule Suppressions.
             security_monitoring_suppressions_write: Write Rule Suppressions.
+            security_pipelines_read: View Security Pipelines.
+            security_pipelines_write: Create, edit, and delete CSM Security Pipelines.
             slos_corrections: Apply, edit, and delete SLO status corrections. A user
               with this permission can make status corrections, even if they do not
               have permission to edit those SLOs.
@@ -24237,6 +25683,10 @@ paths:
       summary: Get all API keys
       tags:
       - Key Management
+      x-permission:
+        operator: OR
+        permissions:
+        - api_keys_read
     post:
       description: Create an API key.
       operationId: CreateAPIKey
@@ -24271,6 +25721,10 @@ paths:
       tags:
       - Key Management
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - api_keys_write
   /api/v2/api_keys/{api_key_id}:
     delete:
       description: Delete an API key.
@@ -24297,6 +25751,10 @@ paths:
       summary: Delete an API key
       tags:
       - Key Management
+      x-permission:
+        operator: OR
+        permissions:
+        - api_keys_delete
     get:
       description: Get an API key.
       operationId: GetAPIKey
@@ -24327,6 +25785,10 @@ paths:
       summary: Get API key
       tags:
       - Key Management
+      x-permission:
+        operator: OR
+        permissions:
+        - api_keys_read
     patch:
       description: Update an API key.
       operationId: UpdateAPIKey
@@ -24369,6 +25831,10 @@ paths:
       tags:
       - Key Management
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - api_keys_write
   /api/v2/apicatalog/api:
     get:
       description: List APIs and their IDs.
@@ -24657,6 +26123,10 @@ paths:
       summary: Get all span-based metrics
       tags:
       - Spans Metrics
+      x-permission:
+        operator: OR
+        permissions:
+        - apm_read
     post:
       description: 'Create a metric based on your ingested spans in your organization.
 
@@ -24689,6 +26159,10 @@ paths:
       tags:
       - Spans Metrics
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - apm_generate_metrics
   /api/v2/apm/config/metrics/{metric_id}:
     delete:
       description: Delete a specific span-based metric from your organization.
@@ -24707,6 +26181,10 @@ paths:
       summary: Delete a span-based metric
       tags:
       - Spans Metrics
+      x-permission:
+        operator: OR
+        permissions:
+        - apm_generate_metrics
     get:
       description: Get a specific span-based metric from your organization.
       operationId: GetSpansMetric
@@ -24728,6 +26206,10 @@ paths:
       summary: Get a span-based metric
       tags:
       - Spans Metrics
+      x-permission:
+        operator: OR
+        permissions:
+        - apm_read
     patch:
       description: 'Update a specific span-based metric from your organization.
 
@@ -24762,6 +26244,10 @@ paths:
       tags:
       - Spans Metrics
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - apm_generate_metrics
   /api/v2/apm/config/retention-filters:
     get:
       description: Get the list of APM retention filters.
@@ -24780,6 +26266,11 @@ paths:
       summary: List all APM retention filters
       tags:
       - APM Retention Filters
+      x-permission:
+        operator: OR
+        permissions:
+        - apm_retention_filter_read
+        - apm_pipelines_read
     post:
       description: 'Create a retention filter to index spans in your organization.
 
@@ -24815,6 +26306,11 @@ paths:
       tags:
       - APM Retention Filters
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - apm_retention_filter_write
+        - apm_pipelines_write
   /api/v2/apm/config/retention-filters-execution-order:
     put:
       description: Re-order the execution order of retention filters.
@@ -24839,6 +26335,11 @@ paths:
       tags:
       - APM Retention Filters
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - apm_retention_filter_write
+        - apm_pipelines_write
   /api/v2/apm/config/retention-filters/{filter_id}:
     delete:
       description: 'Delete a specific retention filter from your organization.
@@ -24861,6 +26362,11 @@ paths:
       summary: Delete a retention filter
       tags:
       - APM Retention Filters
+      x-permission:
+        operator: OR
+        permissions:
+        - apm_retention_filter_write
+        - apm_pipelines_write
     get:
       description: Get an APM retention filter.
       operationId: GetApmRetentionFilter
@@ -24882,6 +26388,11 @@ paths:
       summary: Get a given APM retention filter
       tags:
       - APM Retention Filters
+      x-permission:
+        operator: OR
+        permissions:
+        - apm_retention_filter_read
+        - apm_pipelines_read
     put:
       description: 'Update a retention filter from your organization.
 
@@ -24917,6 +26428,11 @@ paths:
       tags:
       - APM Retention Filters
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - apm_retention_filter_write
+        - apm_pipelines_write
   /api/v2/application_keys:
     get:
       description: List all application keys available for your org
@@ -24959,6 +26475,10 @@ paths:
       summary: Get all application keys
       tags:
       - Key Management
+      x-permission:
+        operator: OR
+        permissions:
+        - org_app_keys_read
   /api/v2/application_keys/{app_key_id}:
     delete:
       description: Delete an application key
@@ -24986,6 +26506,10 @@ paths:
       tags:
       - Key Management
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - org_app_keys_write
     get:
       description: Get an application key for your org.
       operationId: GetApplicationKey
@@ -25022,6 +26546,10 @@ paths:
       summary: Get an application key
       tags:
       - Key Management
+      x-permission:
+        operator: OR
+        permissions:
+        - org_app_keys_read
     patch:
       description: Edit an application key
       operationId: UpdateApplicationKey
@@ -25064,6 +26592,10 @@ paths:
       tags:
       - Key Management
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - org_app_keys_write
   /api/v2/audit/events:
     get:
       description: 'List endpoint returns events that match a Audit Logs search query.
@@ -25145,6 +26677,10 @@ paths:
         cursorPath: meta.page.after
         limitParam: page[limit]
         resultsPath: data
+      x-permission:
+        operator: OR
+        permissions:
+        - audit_logs_read
   /api/v2/audit/events/search:
     post:
       description: 'List endpoint returns Audit Logs events that match an Audit search
@@ -25186,6 +26722,10 @@ paths:
         cursorPath: meta.page.after
         limitParam: body.page.limit
         resultsPath: data
+      x-permission:
+        operator: OR
+        permissions:
+        - audit_logs_read
   /api/v2/authn_mappings:
     get:
       description: List all AuthN Mappings in the org.
@@ -25228,6 +26768,9 @@ paths:
       summary: List all AuthN Mappings
       tags:
       - AuthN Mappings
+      x-permission:
+        operator: OPEN
+        permissions: []
     post:
       description: Create an AuthN Mapping.
       operationId: CreateAuthNMapping
@@ -25268,6 +26811,10 @@ paths:
       tags:
       - AuthN Mappings
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - user_access_manage
   /api/v2/authn_mappings/{authn_mapping_id}:
     delete:
       description: Delete an AuthN Mapping specified by AuthN Mapping UUID.
@@ -25291,14 +26838,13 @@ paths:
           description: Not Found
         '429':
           $ref: '#/components/responses/TooManyRequestsResponse'
-      security:
-      - apiKeyAuth: []
-        appKeyAuth: []
-      - AuthZ:
-        - user_access_manage
       summary: Delete an AuthN Mapping
       tags:
       - AuthN Mappings
+      x-permission:
+        operator: OR
+        permissions:
+        - user_access_manage
     get:
       description: Get an AuthN Mapping specified by the AuthN Mapping UUID.
       operationId: GetAuthNMapping
@@ -25325,13 +26871,12 @@ paths:
           description: Not Found
         '429':
           $ref: '#/components/responses/TooManyRequestsResponse'
-      security:
-      - apiKeyAuth: []
-        appKeyAuth: []
-      - AuthZ: []
       summary: Get an AuthN Mapping by UUID
       tags:
       - AuthN Mappings
+      x-permission:
+        operator: OPEN
+        permissions: []
     patch:
       description: Edit an AuthN Mapping.
       operationId: UpdateAuthNMapping
@@ -25382,15 +26927,14 @@ paths:
           description: Unprocessable Entity
         '429':
           $ref: '#/components/responses/TooManyRequestsResponse'
-      security:
-      - apiKeyAuth: []
-        appKeyAuth: []
-      - AuthZ:
-        - user_access_manage
       summary: Edit an AuthN Mapping
       tags:
       - AuthN Mappings
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - user_access_manage
   /api/v2/cases:
     get:
       description: Search cases.
@@ -25857,6 +27401,109 @@ paths:
       summary: Unassign case
       tags:
       - Case Management
+  /api/v2/catalog/entity:
+    get:
+      description: Get a list of entities from Software Catalog.
+      operationId: ListCatalogEntity
+      parameters:
+      - $ref: '#/components/parameters/PageOffset'
+      - description: Maximum number of entities in the response.
+        example: 100
+        in: query
+        name: page[limit]
+        required: false
+        schema:
+          default: 100
+          format: int64
+          type: integer
+      - $ref: '#/components/parameters/FilterByID'
+      - $ref: '#/components/parameters/FilterByRef'
+      - $ref: '#/components/parameters/FilterByName'
+      - $ref: '#/components/parameters/FilterByKind'
+      - $ref: '#/components/parameters/FilterByOwner'
+      - $ref: '#/components/parameters/FilterByRelationType'
+      - $ref: '#/components/parameters/FilterByExcludeSnapshot'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListEntityCatalogResponse'
+          description: OK
+        '403':
+          $ref: '#/components/responses/ForbiddenResponse'
+        '429':
+          $ref: '#/components/responses/TooManyRequestsResponse'
+      security:
+      - apiKeyAuth: []
+        appKeyAuth: []
+      - AuthZ:
+        - apm_service_catalog_read
+      summary: Get a list of entities
+      tags:
+      - Software Catalog
+      x-pagination:
+        limitParam: page[limit]
+        pageParam: page[offset]
+        resultsPath: data
+    post:
+      description: Create or update entities in Software Catalog.
+      operationId: UpsertCatalogEntity
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpsertCatalogEntityRequest'
+        description: Entity YAML/JSON.
+        required: true
+      responses:
+        '202':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpsertCatalogEntityResponse'
+          description: ACCEPTED
+        '400':
+          $ref: '#/components/responses/BadRequestResponse'
+        '403':
+          $ref: '#/components/responses/ForbiddenResponse'
+        '429':
+          $ref: '#/components/responses/TooManyRequestsResponse'
+      security:
+      - apiKeyAuth: []
+        appKeyAuth: []
+      - AuthZ:
+        - apm_service_catalog_write
+      summary: Create or update entities
+      tags:
+      - Software Catalog
+      x-codegen-request-body-name: body
+  /api/v2/catalog/entity/{entity_id}:
+    delete:
+      description: Delete a single entity in Software Catalog.
+      operationId: DeleteCatalogEntity
+      parameters:
+      - $ref: '#/components/parameters/EntityID'
+      responses:
+        '204':
+          description: OK
+        '400':
+          $ref: '#/components/responses/BadRequestResponse'
+        '403':
+          $ref: '#/components/responses/ForbiddenResponse'
+        '404':
+          $ref: '#/components/responses/NotFoundResponse'
+        '429':
+          $ref: '#/components/responses/TooManyRequestsResponse'
+      security:
+      - apiKeyAuth: []
+        appKeyAuth: []
+      - AuthZ:
+        - apm_service_catalog_write
+      summary: Delete a single entity
+      tags:
+      - Software Catalog
   /api/v2/ci/pipeline:
     post:
       description: 'Send your pipeline event to your Datadog platform over HTTP. For
@@ -25967,6 +27614,10 @@ paths:
       tags:
       - CI Visibility Pipelines
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - ci_visibility_read
   /api/v2/ci/pipelines/events:
     get:
       description: 'List endpoint returns CI Visibility pipeline events that match
@@ -26051,6 +27702,10 @@ paths:
         cursorPath: meta.page.after
         limitParam: page[limit]
         resultsPath: data
+      x-permission:
+        operator: OR
+        permissions:
+        - ci_visibility_read
   /api/v2/ci/pipelines/events/search:
     post:
       description: 'List endpoint returns CI Visibility pipeline events that match
@@ -26094,6 +27749,10 @@ paths:
         cursorPath: meta.page.after
         limitParam: body.page.limit
         resultsPath: data
+      x-permission:
+        operator: OR
+        permissions:
+        - ci_visibility_read
   /api/v2/ci/tests/analytics/aggregate:
     post:
       description: The API endpoint to aggregate CI Visibility test events into buckets
@@ -26127,6 +27786,10 @@ paths:
       tags:
       - CI Visibility Tests
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - ci_visibility_read
   /api/v2/ci/tests/events:
     get:
       description: 'List endpoint returns CI Visibility test events that match a [search
@@ -26211,6 +27874,10 @@ paths:
         cursorPath: meta.page.after
         limitParam: page[limit]
         resultsPath: data
+      x-permission:
+        operator: OR
+        permissions:
+        - ci_visibility_read
   /api/v2/ci/tests/events/search:
     post:
       description: 'List endpoint returns CI Visibility test events that match a [search
@@ -26254,6 +27921,10 @@ paths:
         cursorPath: meta.page.after
         limitParam: body.page.limit
         resultsPath: data
+      x-permission:
+        operator: OR
+        permissions:
+        - ci_visibility_read
   /api/v2/container_images:
     get:
       description: Get all Container Images for your organization.
@@ -26331,6 +28002,9 @@ paths:
         cursorPath: meta.pagination.next_cursor
         limitParam: page[size]
         resultsPath: data
+      x-permission:
+        operator: OPEN
+        permissions: []
   /api/v2/containers:
     get:
       description: Get all containers for your organization.
@@ -26408,6 +28082,9 @@ paths:
         cursorPath: meta.pagination.next_cursor
         limitParam: page[size]
         resultsPath: data
+      x-permission:
+        operator: OPEN
+        permissions: []
   /api/v2/cost/aws_cur_config:
     get:
       description: List the AWS CUR configs.
@@ -26435,6 +28112,10 @@ paths:
       summary: List Cloud Cost Management AWS CUR configs
       tags:
       - Cloud Cost Management
+      x-permission:
+        operator: OR
+        permissions:
+        - cloud_cost_management_read
     post:
       description: Create a Cloud Cost Management account for an AWS CUR config.
       operationId: CreateCostAWSCURConfig
@@ -26473,6 +28154,10 @@ paths:
       summary: Create Cloud Cost Management AWS CUR config
       tags:
       - Cloud Cost Management
+      x-permission:
+        operator: OR
+        permissions:
+        - cloud_cost_management_write
   /api/v2/cost/aws_cur_config/{cloud_account_id}:
     delete:
       description: Archive a Cloud Cost Management Account.
@@ -26504,6 +28189,10 @@ paths:
       summary: Delete Cloud Cost Management AWS CUR config
       tags:
       - Cloud Cost Management
+      x-permission:
+        operator: OR
+        permissions:
+        - cloud_cost_management_write
     patch:
       description: Update the status of an AWS CUR config (active/archived).
       operationId: UpdateCostAWSCURConfig
@@ -26538,6 +28227,10 @@ paths:
       summary: Update Cloud Cost Management AWS CUR config
       tags:
       - Cloud Cost Management
+      x-permission:
+        operator: OR
+        permissions:
+        - cloud_cost_management_write
   /api/v2/cost/aws_related_accounts:
     get:
       deprecated: true
@@ -26581,6 +28274,10 @@ paths:
       summary: List related AWS accounts
       tags:
       - Cloud Cost Management
+      x-permission:
+        operator: OR
+        permissions:
+        - cloud_cost_management_read
   /api/v2/cost/azure_uc_config:
     get:
       description: List the Azure configs.
@@ -26608,6 +28305,10 @@ paths:
       summary: List Cloud Cost Management Azure configs
       tags:
       - Cloud Cost Management
+      x-permission:
+        operator: OR
+        permissions:
+        - cloud_cost_management_read
     post:
       description: Create a Cloud Cost Management account for an Azure config.
       operationId: CreateCostAzureUCConfigs
@@ -26646,6 +28347,10 @@ paths:
       summary: Create Cloud Cost Management Azure configs
       tags:
       - Cloud Cost Management
+      x-permission:
+        operator: OR
+        permissions:
+        - cloud_cost_management_write
   /api/v2/cost/azure_uc_config/{cloud_account_id}:
     delete:
       description: Archive a Cloud Cost Management Account.
@@ -26677,6 +28382,10 @@ paths:
       summary: Delete Cloud Cost Management Azure config
       tags:
       - Cloud Cost Management
+      x-permission:
+        operator: OR
+        permissions:
+        - cloud_cost_management_write
     patch:
       description: Update the status of an  Azure config (active/archived).
       operationId: UpdateCostAzureUCConfigs
@@ -26717,6 +28426,10 @@ paths:
       summary: Update Cloud Cost Management Azure config
       tags:
       - Cloud Cost Management
+      x-permission:
+        operator: OR
+        permissions:
+        - cloud_cost_management_write
   /api/v2/cost/custom_costs:
     get:
       description: List the Custom Costs files.
@@ -26856,6 +28569,10 @@ paths:
       summary: Cloud Cost Enabled
       tags:
       - Cloud Cost Management
+      x-permission:
+        operator: OR
+        permissions:
+        - cloud_cost_management_read
   /api/v2/cost_by_tag/active_billing_dimensions:
     get:
       description: Get active billing dimensions for cost attribution. Cost data for
@@ -26894,6 +28611,10 @@ paths:
       summary: Get active billing dimensions for cost attribution
       tags:
       - Usage Metering
+      x-permission:
+        operator: OR
+        permissions:
+        - usage_read
       x-unstable: '**Note**: This endpoint is in public beta.
 
         If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
@@ -27017,6 +28738,10 @@ paths:
       summary: Get Monthly Cost Attribution
       tags:
       - Usage Metering
+      x-permission:
+        operator: OR
+        permissions:
+        - usage_read
       x-unstable: '**Note**: This endpoint is in public beta.
 
         If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
@@ -27062,6 +28787,10 @@ paths:
       summary: Get all application keys owned by current user
       tags:
       - Key Management
+      x-permission:
+        operator: OR
+        permissions:
+        - user_app_keys
     post:
       description: Create an application key for current user
       operationId: CreateCurrentUserApplicationKey
@@ -27096,6 +28825,10 @@ paths:
       tags:
       - Key Management
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - user_app_keys
   /api/v2/current_user/application_keys/{app_key_id}:
     delete:
       description: Delete an application key owned by current user
@@ -27122,6 +28855,10 @@ paths:
       summary: Delete an application key owned by current user
       tags:
       - Key Management
+      x-permission:
+        operator: OR
+        permissions:
+        - user_app_keys
     get:
       description: Get an application key owned by current user
       operationId: GetCurrentUserApplicationKey
@@ -27151,6 +28888,10 @@ paths:
       summary: Get one application key owned by current user
       tags:
       - Key Management
+      x-permission:
+        operator: OR
+        permissions:
+        - user_app_keys
     patch:
       description: Edit an application key owned by current user
       operationId: UpdateCurrentUserApplicationKey
@@ -27193,6 +28934,10 @@ paths:
       tags:
       - Key Management
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - user_app_keys
   /api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards:
     delete:
       description: Delete dashboards from an existing dashboard list.
@@ -27283,6 +29028,10 @@ paths:
       summary: Get items of a Dashboard List
       tags:
       - Dashboard Lists
+      x-permission:
+        operator: OR
+        permissions:
+        - dashboards_read
     post:
       description: Add dashboards to an existing dashboard list.
       operationId: CreateDashboardListItems
@@ -27541,6 +29290,10 @@ paths:
         limitParam: page[limit]
         pageOffsetParam: page[offset]
         resultsPath: data
+      x-permission:
+        operator: OR
+        permissions:
+        - monitors_downtime
     post:
       description: Schedule a downtime.
       operationId: CreateDowntime
@@ -27581,6 +29334,10 @@ paths:
       tags:
       - Downtimes
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - monitors_downtime
   /api/v2/downtime/{downtime_id}:
     delete:
       description: Cancel a downtime.
@@ -27618,6 +29375,10 @@ paths:
       summary: Cancel a downtime
       tags:
       - Downtimes
+      x-permission:
+        operator: OR
+        permissions:
+        - monitors_downtime
     get:
       description: Get downtime detail by `downtime_id`.
       operationId: GetDowntime
@@ -27674,6 +29435,10 @@ paths:
       summary: Get a downtime
       tags:
       - Downtimes
+      x-permission:
+        operator: OR
+        permissions:
+        - monitors_downtime
     patch:
       description: Update a downtime by `downtime_id`.
       operationId: UpdateDowntime
@@ -27728,6 +29493,10 @@ paths:
       tags:
       - Downtimes
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - monitors_downtime
   /api/v2/events:
     get:
       description: 'List endpoint returns events that match an events search query.
@@ -27744,13 +29513,13 @@ paths:
         required: false
         schema:
           type: string
-      - description: Minimum timestamp for requested events.
+      - description: Minimum timestamp for requested events, in milliseconds.
         in: query
         name: filter[from]
         required: false
         schema:
           type: string
-      - description: Maximum timestamp for requested events.
+      - description: Maximum timestamp for requested events, in milliseconds.
         in: query
         name: filter[to]
         required: false
@@ -27806,6 +29575,10 @@ paths:
         cursorPath: meta.page.after
         limitParam: page[limit]
         resultsPath: data
+      x-permission:
+        operator: OR
+        permissions:
+        - events_read
   /api/v2/events/search:
     post:
       description: 'List endpoint returns events that match an events search query.
@@ -27843,6 +29616,10 @@ paths:
         cursorPath: meta.page.after
         limitParam: body.page.limit
         resultsPath: data
+      x-permission:
+        operator: OR
+        permissions:
+        - events_read
   /api/v2/incidents:
     get:
       description: Get all incidents for the user's organization.
@@ -27880,6 +29657,10 @@ paths:
         limitParam: page[size]
         pageOffsetParam: page[offset]
         resultsPath: data
+      x-permission:
+        operator: OR
+        permissions:
+        - incident_read
       x-unstable: '**Note**: This endpoint is in public beta.
 
         If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
@@ -27919,6 +29700,10 @@ paths:
       tags:
       - Incidents
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - incident_write
       x-unstable: '**Note**: This endpoint is in public beta.
 
         If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
@@ -27961,6 +29746,10 @@ paths:
         limitParam: page[size]
         pageOffsetParam: page[offset]
         resultsPath: data.attributes.incidents
+      x-permission:
+        operator: OR
+        permissions:
+        - incident_read
       x-unstable: '**Note**: This endpoint is in public beta.
 
         If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
@@ -27991,6 +29780,10 @@ paths:
       summary: Delete an existing incident
       tags:
       - Incidents
+      x-permission:
+        operator: OR
+        permissions:
+        - incident_write
       x-unstable: '**Note**: This endpoint is in public beta.
 
         If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
@@ -28025,6 +29818,10 @@ paths:
       summary: Get the details of an incident
       tags:
       - Incidents
+      x-permission:
+        operator: OR
+        permissions:
+        - incident_read
       x-unstable: '**Note**: This endpoint is in public beta.
 
         If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
@@ -28068,6 +29865,10 @@ paths:
       tags:
       - Incidents
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - incident_write
       x-unstable: '**Note**: This endpoint is in public beta.
 
         If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
@@ -28096,14 +29897,13 @@ paths:
           $ref: '#/components/responses/NotFoundResponse'
         '429':
           $ref: '#/components/responses/TooManyRequestsResponse'
-      security:
-      - apiKeyAuth: []
-        appKeyAuth: []
-      - AuthZ:
-        - incident_read
       summary: Get a list of attachments
       tags:
       - Incidents
+      x-permission:
+        operator: OR
+        permissions:
+        - incident_read
       x-unstable: '**Note**: This endpoint is in public beta.
 
         If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
@@ -28142,6 +29942,10 @@ paths:
       tags:
       - Incidents
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - incident_write
       x-unstable: '**Note**: This endpoint is in public beta.
 
         If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
@@ -28176,6 +29980,10 @@ paths:
       summary: Get a list of an incident's integration metadata
       tags:
       - Incidents
+      x-permission:
+        operator: OR
+        permissions:
+        - incident_read
       x-unstable: '**Note**: This endpoint is in public beta.
 
         If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
@@ -28217,6 +30025,10 @@ paths:
       tags:
       - Incidents
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - incident_write
       x-unstable: '**Note**: This endpoint is in public beta.
 
         If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
@@ -28359,6 +30171,10 @@ paths:
       summary: Get a list of an incident's todos
       tags:
       - Incidents
+      x-permission:
+        operator: OR
+        permissions:
+        - incident_read
       x-unstable: '**Note**: This endpoint is in public beta.
 
         If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
@@ -28400,6 +30216,10 @@ paths:
       tags:
       - Incidents
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - incident_write
       x-unstable: '**Note**: This endpoint is in public beta.
 
         If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
@@ -28431,6 +30251,10 @@ paths:
       summary: Delete an incident todo
       tags:
       - Incidents
+      x-permission:
+        operator: OR
+        permissions:
+        - incident_write
       x-unstable: '**Note**: This endpoint is in public beta.
 
         If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
@@ -28465,6 +30289,10 @@ paths:
       summary: Get incident todo details
       tags:
       - Incidents
+      x-permission:
+        operator: OR
+        permissions:
+        - incident_read
       x-unstable: '**Note**: This endpoint is in public beta.
 
         If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
@@ -28507,6 +30335,10 @@ paths:
       tags:
       - Incidents
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - incident_write
       x-unstable: '**Note**: This endpoint is in public beta.
 
         If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
@@ -28531,6 +30363,10 @@ paths:
       summary: List all GCP STS-enabled service accounts
       tags:
       - GCP Integration
+      x-permission:
+        operator: OR
+        permissions:
+        - gcp_configuration_read
     post:
       description: Create a new entry within Datadog for your STS enabled service
         account.
@@ -28562,6 +30398,10 @@ paths:
       tags:
       - GCP Integration
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - gcp_configurations_manage
   /api/v2/integration/gcp/accounts/{account_id}:
     delete:
       description: Delete an STS enabled GCP account from within Datadog.
@@ -28580,6 +30420,10 @@ paths:
       summary: Delete an STS enabled GCP Account
       tags:
       - GCP Integration
+      x-permission:
+        operator: OR
+        permissions:
+        - gcp_configurations_manage
     patch:
       description: Update an STS enabled service account.
       operationId: UpdateGCPSTSAccount
@@ -28610,6 +30454,10 @@ paths:
       tags:
       - GCP Integration
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - gcp_configuration_edit
   /api/v2/integration/gcp/sts_delegate:
     get:
       description: List your Datadog-GCP STS delegate account configured in your Datadog
@@ -28630,6 +30478,10 @@ paths:
       tags:
       - GCP Integration
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - gcp_configuration_read
     post:
       description: Create a Datadog GCP principal.
       operationId: MakeGCPSTSDelegate
@@ -28658,6 +30510,204 @@ paths:
       tags:
       - GCP Integration
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - gcp_configuration_edit
+  /api/v2/integration/ms-teams/configuration/channel/{tenant_name}/{team_name}/{channel_name}:
+    get:
+      description: Get the tenant, team, and channel ID of a channel in the Datadog
+        Microsoft Teams integration.
+      operationId: GetChannelByName
+      parameters:
+      - $ref: '#/components/parameters/MicrosoftTeamsTenantNamePathParameter'
+      - $ref: '#/components/parameters/MicrosoftTeamsTeamNamePathParameter'
+      - $ref: '#/components/parameters/MicrosoftTeamsChannelNamePathParameter'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MicrosoftTeamsGetChannelByNameResponse'
+          description: OK
+        '400':
+          $ref: '#/components/responses/BadRequestResponse'
+        '403':
+          $ref: '#/components/responses/ForbiddenResponse'
+        '404':
+          $ref: '#/components/responses/NotFoundResponse'
+        '429':
+          $ref: '#/components/responses/TooManyRequestsResponse'
+      summary: Get channel information by name
+      tags:
+      - Microsoft Teams Integration
+  /api/v2/integration/ms-teams/configuration/tenant-based-handles:
+    get:
+      description: Get a list of all handles from the Datadog Microsoft Teams integration.
+      operationId: ListApiHandles
+      parameters:
+      - $ref: '#/components/parameters/MicrosoftTeamsTenantIDQueryParameter'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MicrosoftTeamsApiHandlesResponse'
+          description: OK
+        '400':
+          $ref: '#/components/responses/BadRequestResponse'
+        '403':
+          $ref: '#/components/responses/ForbiddenResponse'
+        '404':
+          $ref: '#/components/responses/NotFoundResponse'
+        '412':
+          $ref: '#/components/responses/PreconditionFailedResponse'
+        '429':
+          $ref: '#/components/responses/TooManyRequestsResponse'
+      summary: Get all handles
+      tags:
+      - Microsoft Teams Integration
+    post:
+      description: Create a handle in the Datadog Microsoft Teams integration.
+      operationId: CreateApiHandle
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MicrosoftTeamsCreateApiHandleRequest'
+        description: Handle payload.
+        required: true
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MicrosoftTeamsCreateApiHandleResponse'
+          description: CREATED
+        '400':
+          $ref: '#/components/responses/BadRequestResponse'
+        '403':
+          $ref: '#/components/responses/ForbiddenResponse'
+        '404':
+          $ref: '#/components/responses/NotFoundResponse'
+        '409':
+          $ref: '#/components/responses/ConflictResponse'
+        '412':
+          $ref: '#/components/responses/PreconditionFailedResponse'
+        '429':
+          $ref: '#/components/responses/TooManyRequestsResponse'
+      summary: Create handle
+      tags:
+      - Microsoft Teams Integration
+      x-codegen-request-body-name: body
+  /api/v2/integration/ms-teams/configuration/tenant-based-handles/name/{handle_name}:
+    get:
+      description: Get the tenant, team, and channel information of a handle by name
+        from the Datadog Microsoft Teams integration.
+      operationId: GetApiHandleByName
+      parameters:
+      - $ref: '#/components/parameters/MicrosoftTeamsHandleNamePathParameter'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MicrosoftTeamsApiHandleInfoResponse'
+          description: OK
+        '400':
+          $ref: '#/components/responses/BadRequestResponse'
+        '403':
+          $ref: '#/components/responses/ForbiddenResponse'
+        '404':
+          $ref: '#/components/responses/NotFoundResponse'
+        '412':
+          $ref: '#/components/responses/PreconditionFailedResponse'
+        '429':
+          $ref: '#/components/responses/TooManyRequestsResponse'
+      summary: Get handle information by name
+      tags:
+      - Microsoft Teams Integration
+  /api/v2/integration/ms-teams/configuration/tenant-based-handles/{handle_id}:
+    delete:
+      description: Delete a handle from the Datadog Microsoft Teams integration.
+      operationId: DeleteApiHandle
+      parameters:
+      - $ref: '#/components/parameters/MicrosoftTeamsHandleIDPathParameter'
+      responses:
+        '204':
+          description: OK
+        '400':
+          $ref: '#/components/responses/BadRequestResponse'
+        '403':
+          $ref: '#/components/responses/ForbiddenResponse'
+        '412':
+          $ref: '#/components/responses/PreconditionFailedResponse'
+        '429':
+          $ref: '#/components/responses/TooManyRequestsResponse'
+      summary: Delete handle
+      tags:
+      - Microsoft Teams Integration
+    get:
+      description: Get the tenant, team, and channel information of a handle from
+        the Datadog Microsoft Teams integration.
+      operationId: GetApiHandle
+      parameters:
+      - $ref: '#/components/parameters/MicrosoftTeamsHandleIDPathParameter'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MicrosoftTeamsApiHandleInfoResponse'
+          description: OK
+        '400':
+          $ref: '#/components/responses/BadRequestResponse'
+        '403':
+          $ref: '#/components/responses/ForbiddenResponse'
+        '404':
+          $ref: '#/components/responses/NotFoundResponse'
+        '412':
+          $ref: '#/components/responses/PreconditionFailedResponse'
+        '429':
+          $ref: '#/components/responses/TooManyRequestsResponse'
+      summary: Get handle information
+      tags:
+      - Microsoft Teams Integration
+    patch:
+      description: Update a handle from the Datadog Microsoft Teams integration.
+      operationId: UpdateApiHandle
+      parameters:
+      - $ref: '#/components/parameters/MicrosoftTeamsHandleIDPathParameter'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MicrosoftTeamsUpdateApiHandleRequest'
+        description: Opsgenie service payload.
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MicrosoftTeamsApiHandleInfoResponse'
+          description: OK
+        '400':
+          $ref: '#/components/responses/BadRequestResponse'
+        '403':
+          $ref: '#/components/responses/ForbiddenResponse'
+        '404':
+          $ref: '#/components/responses/NotFoundResponse'
+        '409':
+          $ref: '#/components/responses/ConflictResponse'
+        '412':
+          $ref: '#/components/responses/PreconditionFailedResponse'
+        '429':
+          $ref: '#/components/responses/TooManyRequestsResponse'
+      summary: Update handle
+      tags:
+      - Microsoft Teams Integration
+      x-codegen-request-body-name: body
   /api/v2/integration/opsgenie/services:
     get:
       description: Get a list of all services from the Datadog Opsgenie integration.
@@ -28676,6 +30726,10 @@ paths:
       summary: Get all service objects
       tags:
       - Opsgenie Integration
+      x-permission:
+        operator: OR
+        permissions:
+        - integrations_read
     post:
       description: Create a new service object in the Opsgenie integration.
       operationId: CreateOpsgenieService
@@ -28705,6 +30759,10 @@ paths:
       tags:
       - Opsgenie Integration
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - manage_integrations
   /api/v2/integration/opsgenie/services/{integration_service_id}:
     delete:
       description: Delete a single service object in the Datadog Opsgenie integration.
@@ -28725,6 +30783,10 @@ paths:
       summary: Delete a single service object
       tags:
       - Opsgenie Integration
+      x-permission:
+        operator: OR
+        permissions:
+        - manage_integrations
     get:
       description: Get a single service from the Datadog Opsgenie integration.
       operationId: GetOpsgenieService
@@ -28750,6 +30812,10 @@ paths:
       summary: Get a single service object
       tags:
       - Opsgenie Integration
+      x-permission:
+        operator: OR
+        permissions:
+        - integrations_read
     patch:
       description: Update a single service object in the Datadog Opsgenie integration.
       operationId: UpdateOpsgenieService
@@ -28783,6 +30849,10 @@ paths:
       tags:
       - Opsgenie Integration
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - manage_integrations
   /api/v2/integrations/cloudflare/accounts:
     get:
       description: List Cloudflare accounts.
@@ -28805,6 +30875,10 @@ paths:
       summary: List Cloudflare accounts
       tags:
       - Cloudflare Integration
+      x-permission:
+        operator: OR
+        permissions:
+        - integrations_read
     post:
       description: Create a Cloudflare account.
       operationId: CreateCloudflareAccount
@@ -28833,6 +30907,10 @@ paths:
       tags:
       - Cloudflare Integration
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - manage_integrations
   /api/v2/integrations/cloudflare/accounts/{account_id}:
     delete:
       description: Delete a Cloudflare account.
@@ -28858,6 +30936,10 @@ paths:
       summary: Delete Cloudflare account
       tags:
       - Cloudflare Integration
+      x-permission:
+        operator: OR
+        permissions:
+        - manage_integrations
     get:
       description: Get a Cloudflare account.
       operationId: GetCloudflareAccount
@@ -28886,6 +30968,10 @@ paths:
       summary: Get Cloudflare account
       tags:
       - Cloudflare Integration
+      x-permission:
+        operator: OR
+        permissions:
+        - integrations_read
     patch:
       description: Update a Cloudflare account.
       operationId: UpdateCloudflareAccount
@@ -28921,6 +31007,10 @@ paths:
       tags:
       - Cloudflare Integration
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - manage_integrations
   /api/v2/integrations/confluent-cloud/accounts:
     get:
       description: List Confluent accounts.
@@ -28943,6 +31033,10 @@ paths:
       summary: List Confluent accounts
       tags:
       - Confluent Cloud
+      x-permission:
+        operator: OR
+        permissions:
+        - integrations_read
     post:
       description: Create a Confluent account.
       operationId: CreateConfluentAccount
@@ -28972,6 +31066,10 @@ paths:
       tags:
       - Confluent Cloud
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - manage_integrations
   /api/v2/integrations/confluent-cloud/accounts/{account_id}:
     delete:
       description: Delete a Confluent account with the provided account ID.
@@ -28992,6 +31090,10 @@ paths:
       summary: Delete Confluent account
       tags:
       - Confluent Cloud
+      x-permission:
+        operator: OR
+        permissions:
+        - manage_integrations
     get:
       description: Get the Confluent account with the provided account ID.
       operationId: GetConfluentAccount
@@ -29015,6 +31117,10 @@ paths:
       summary: Get Confluent account
       tags:
       - Confluent Cloud
+      x-permission:
+        operator: OR
+        permissions:
+        - integrations_read
     patch:
       description: Update the Confluent account with the provided account ID.
       operationId: UpdateConfluentAccount
@@ -29046,6 +31152,10 @@ paths:
       tags:
       - Confluent Cloud
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - manage_integrations
   /api/v2/integrations/confluent-cloud/accounts/{account_id}/resources:
     get:
       description: Get a Confluent resource for the account associated with the provided
@@ -29071,6 +31181,10 @@ paths:
       summary: List Confluent Account resources
       tags:
       - Confluent Cloud
+      x-permission:
+        operator: OR
+        permissions:
+        - integrations_read
     post:
       description: Create a Confluent resource for the account associated with the
         provided ID.
@@ -29103,6 +31217,10 @@ paths:
       tags:
       - Confluent Cloud
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - manage_integrations
   /api/v2/integrations/confluent-cloud/accounts/{account_id}/resources/{resource_id}:
     delete:
       description: Delete a Confluent resource with the provided resource id for the
@@ -29125,6 +31243,10 @@ paths:
       summary: Delete resource from Confluent account
       tags:
       - Confluent Cloud
+      x-permission:
+        operator: OR
+        permissions:
+        - manage_integrations
     get:
       description: Get a Confluent resource with the provided resource id for the
         account associated with the provided account ID.
@@ -29150,6 +31272,10 @@ paths:
       summary: Get resource from Confluent account
       tags:
       - Confluent Cloud
+      x-permission:
+        operator: OR
+        permissions:
+        - integrations_read
     patch:
       description: Update a Confluent resource with the provided resource id for the
         account associated with the provided account ID.
@@ -29183,6 +31309,10 @@ paths:
       tags:
       - Confluent Cloud
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - manage_integrations
   /api/v2/integrations/fastly/accounts:
     get:
       description: List Fastly accounts.
@@ -29205,6 +31335,10 @@ paths:
       summary: List Fastly accounts
       tags:
       - Fastly Integration
+      x-permission:
+        operator: OR
+        permissions:
+        - integrations_read
     post:
       description: Create a Fastly account.
       operationId: CreateFastlyAccount
@@ -29233,6 +31367,10 @@ paths:
       tags:
       - Fastly Integration
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - manage_integrations
   /api/v2/integrations/fastly/accounts/{account_id}:
     delete:
       description: Delete a Fastly account.
@@ -29253,6 +31391,10 @@ paths:
       summary: Delete Fastly account
       tags:
       - Fastly Integration
+      x-permission:
+        operator: OR
+        permissions:
+        - manage_integrations
     get:
       description: Get a Fastly account.
       operationId: GetFastlyAccount
@@ -29276,6 +31418,10 @@ paths:
       summary: Get Fastly account
       tags:
       - Fastly Integration
+      x-permission:
+        operator: OR
+        permissions:
+        - integrations_read
     patch:
       description: Update a Fastly account.
       operationId: UpdateFastlyAccount
@@ -29306,6 +31452,10 @@ paths:
       tags:
       - Fastly Integration
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - manage_integrations
   /api/v2/integrations/fastly/accounts/{account_id}/services:
     get:
       description: List Fastly services for an account.
@@ -29330,6 +31480,10 @@ paths:
       summary: List Fastly services
       tags:
       - Fastly Integration
+      x-permission:
+        operator: OR
+        permissions:
+        - integrations_read
     post:
       description: Create a Fastly service for an account.
       operationId: CreateFastlyService
@@ -29360,6 +31514,10 @@ paths:
       tags:
       - Fastly Integration
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - manage_integrations
   /api/v2/integrations/fastly/accounts/{account_id}/services/{service_id}:
     delete:
       description: Delete a Fastly service for an account.
@@ -29381,6 +31539,10 @@ paths:
       summary: Delete Fastly service
       tags:
       - Fastly Integration
+      x-permission:
+        operator: OR
+        permissions:
+        - manage_integrations
     get:
       description: Get a Fastly service for an account.
       operationId: GetFastlyService
@@ -29405,6 +31567,10 @@ paths:
       summary: Get Fastly service
       tags:
       - Fastly Integration
+      x-permission:
+        operator: OR
+        permissions:
+        - integrations_read
     patch:
       description: Update a Fastly service for an account.
       operationId: UpdateFastlyService
@@ -29436,6 +31602,10 @@ paths:
       tags:
       - Fastly Integration
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - manage_integrations
   /api/v2/integrations/okta/accounts:
     get:
       description: List Okta accounts.
@@ -29458,6 +31628,10 @@ paths:
       summary: List Okta accounts
       tags:
       - Okta Integration
+      x-permission:
+        operator: OR
+        permissions:
+        - integrations_read
     post:
       description: Create an Okta account.
       operationId: CreateOktaAccount
@@ -29486,6 +31660,10 @@ paths:
       tags:
       - Okta Integration
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - manage_integrations
   /api/v2/integrations/okta/accounts/{account_id}:
     delete:
       description: Delete an Okta account.
@@ -29511,6 +31689,10 @@ paths:
       summary: Delete Okta account
       tags:
       - Okta Integration
+      x-permission:
+        operator: OR
+        permissions:
+        - manage_integrations
     get:
       description: Get an Okta account.
       operationId: GetOktaAccount
@@ -29539,6 +31721,10 @@ paths:
       summary: Get Okta account
       tags:
       - Okta Integration
+      x-permission:
+        operator: OR
+        permissions:
+        - integrations_read
     patch:
       description: Update an Okta account.
       operationId: UpdateOktaAccount
@@ -29574,6 +31760,10 @@ paths:
       tags:
       - Okta Integration
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - manage_integrations
   /api/v2/ip_allowlist:
     get:
       description: Returns the IP allowlist and its enabled or disabled state.
@@ -29599,6 +31789,10 @@ paths:
       summary: Get IP Allowlist
       tags:
       - IP Allowlist
+      x-permission:
+        operator: OR
+        permissions:
+        - org_management
     patch:
       description: Edit the entries in the IP allowlist, and enable or disable it.
       operationId: UpdateIPAllowlist
@@ -29632,6 +31826,10 @@ paths:
       tags:
       - IP Allowlist
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - org_management
   /api/v2/logs:
     post:
       description: 'Send your logs to your Datadog platform over HTTP. Limits per
@@ -29887,6 +32085,10 @@ paths:
       tags:
       - Logs
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - logs_read_data
   /api/v2/logs/config/archive-order:
     get:
       description: 'Get the current order of your archives.
@@ -29911,6 +32113,9 @@ paths:
       summary: Get archive order
       tags:
       - Logs Archives
+      x-permission:
+        operator: OPEN
+        permissions: []
     put:
       description: 'Update the order of your archives. Since logs are processed sequentially,
         reordering an archive may change
@@ -29961,6 +32166,10 @@ paths:
       tags:
       - Logs Archives
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - logs_write_archives
   /api/v2/logs/config/archives:
     get:
       description: Get the list of configured logs archives with their definitions.
@@ -29983,6 +32192,10 @@ paths:
       summary: Get all archives
       tags:
       - Logs Archives
+      x-permission:
+        operator: OR
+        permissions:
+        - logs_read_archives
     post:
       description: Create an archive in your organization.
       operationId: CreateLogsArchive
@@ -30018,6 +32231,10 @@ paths:
       tags:
       - Logs Archives
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - logs_write_archives
   /api/v2/logs/config/archives/{archive_id}:
     delete:
       description: Delete a given archive from your organization.
@@ -30050,6 +32267,10 @@ paths:
       summary: Delete an archive
       tags:
       - Logs Archives
+      x-permission:
+        operator: OR
+        permissions:
+        - logs_write_archives
     get:
       description: Get a specific archive from your organization.
       operationId: GetLogsArchive
@@ -30085,6 +32306,10 @@ paths:
       summary: Get an archive
       tags:
       - Logs Archives
+      x-permission:
+        operator: OR
+        permissions:
+        - logs_read_archives
     put:
       description: 'Update a given archive configuration.
 
@@ -30133,6 +32358,10 @@ paths:
       tags:
       - Logs Archives
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - logs_write_archives
   /api/v2/logs/config/archives/{archive_id}/readers:
     delete:
       description: Removes a role from an archive. ([Roles API](https://docs.datadoghq.com/api/v2/roles/))
@@ -30172,6 +32401,10 @@ paths:
       tags:
       - Logs Archives
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - logs_write_archives
     get:
       description: Returns all read roles a given archive is restricted to.
       operationId: ListArchiveReadRoles
@@ -30208,6 +32441,9 @@ paths:
       tags:
       - Logs Archives
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OPEN
+        permissions: []
     post:
       description: Adds a read role to an archive. ([Roles API](https://docs.datadoghq.com/api/v2/roles/))
       operationId: AddReadRoleToArchive
@@ -30246,6 +32482,10 @@ paths:
       tags:
       - Logs Archives
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - logs_write_archives
   /api/v2/logs/config/custom-destinations:
     get:
       description: Get the list of configured custom destinations in your organization
@@ -30269,6 +32509,10 @@ paths:
       summary: Get all custom destinations
       tags:
       - Logs Custom Destinations
+      x-permission:
+        operator: OR
+        permissions:
+        - logs_read_data
     post:
       description: Create a custom destination in your organization.
       operationId: CreateLogsCustomDestination
@@ -30298,6 +32542,10 @@ paths:
       tags:
       - Logs Custom Destinations
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - logs_write_forwarding_rules
   /api/v2/logs/config/custom-destinations/{custom_destination_id}:
     delete:
       description: Delete a specific custom destination in your organization.
@@ -30318,6 +32566,10 @@ paths:
       summary: Delete a custom destination
       tags:
       - Logs Custom Destinations
+      x-permission:
+        operator: OR
+        permissions:
+        - logs_write_forwarding_rules
     get:
       description: Get a specific custom destination in your organization.
       operationId: GetLogsCustomDestination
@@ -30341,6 +32593,10 @@ paths:
       summary: Get a custom destination
       tags:
       - Logs Custom Destinations
+      x-permission:
+        operator: OR
+        permissions:
+        - logs_read_data
     patch:
       description: Update the given fields of a specific custom destination in your
         organization.
@@ -30375,6 +32631,10 @@ paths:
       tags:
       - Logs Custom Destinations
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - logs_write_forwarding_rules
   /api/v2/logs/config/metrics:
     get:
       description: Get the list of configured log-based metrics with their definitions.
@@ -30393,6 +32653,9 @@ paths:
       summary: Get all log-based metrics
       tags:
       - Logs Metrics
+      x-permission:
+        operator: OPEN
+        permissions: []
     post:
       description: 'Create a metric based on your ingested logs in your organization.
 
@@ -30425,6 +32688,10 @@ paths:
       tags:
       - Logs Metrics
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - logs_generate_metrics
   /api/v2/logs/config/metrics/{metric_id}:
     delete:
       description: Delete a specific log-based metric from your organization.
@@ -30443,6 +32710,10 @@ paths:
       summary: Delete a log-based metric
       tags:
       - Logs Metrics
+      x-permission:
+        operator: OR
+        permissions:
+        - logs_generate_metrics
     get:
       description: Get a specific log-based metric from your organization.
       operationId: GetLogsMetric
@@ -30464,6 +32735,9 @@ paths:
       summary: Get a log-based metric
       tags:
       - Logs Metrics
+      x-permission:
+        operator: OPEN
+        permissions: []
     patch:
       description: 'Update a specific log-based metric from your organization.
 
@@ -30498,6 +32772,10 @@ paths:
       tags:
       - Logs Metrics
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - logs_generate_metrics
   /api/v2/logs/events:
     get:
       description: 'List endpoint returns logs that match a log search query.
@@ -30610,6 +32888,10 @@ paths:
         cursorPath: meta.page.after
         limitParam: page[limit]
         resultsPath: data
+      x-permission:
+        operator: OR
+        permissions:
+        - logs_read_data
   /api/v2/logs/events/search:
     post:
       description: 'List endpoint returns logs that match a log search query.
@@ -30659,6 +32941,10 @@ paths:
         cursorPath: meta.page.after
         limitParam: body.page.limit
         resultsPath: data
+      x-permission:
+        operator: OR
+        permissions:
+        - logs_read_data
   /api/v2/metrics:
     get:
       description: "Returns all metrics that can be configured in the Metrics Summary
@@ -30686,7 +32972,7 @@ paths:
         name: filter[metric_type]
         required: false
         schema:
-          $ref: '#/components/schemas/MetricTagConfigurationMetricTypes'
+          $ref: '#/components/schemas/MetricTagConfigurationMetricTypeCategory'
       - description: 'Filter distributions with additional percentile
 
           aggregations enabled or disabled.'
@@ -30761,6 +33047,10 @@ paths:
       summary: Get a list of metrics
       tags:
       - Metrics
+      x-permission:
+        operator: OR
+        permissions:
+        - metrics_read
   /api/v2/metrics/config/bulk-tags:
     delete:
       description: 'Delete all custom lists of queryable tag keys for a set of existing
@@ -30815,6 +33105,10 @@ paths:
       tags:
       - Metrics
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - metric_tags_write
     post:
       description: 'Create and define a list of queryable tag keys for a set of existing
         count, gauge, rate, and distribution metrics.
@@ -30878,6 +33172,10 @@ paths:
       tags:
       - Metrics
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - metric_tags_write
   /api/v2/metrics/{metric_name}/active-configurations:
     get:
       description: List tags and aggregations that are actively queried on dashboards,
@@ -30930,6 +33228,10 @@ paths:
       summary: List active tags and aggregations
       tags:
       - Metrics
+      x-permission:
+        operator: OR
+        permissions:
+        - metrics_read
   /api/v2/metrics/{metric_name}/all-tags:
     get:
       description: View indexed tag key-value pairs for a given metric name.
@@ -30975,6 +33277,10 @@ paths:
       summary: List tags by metric name
       tags:
       - Metrics
+      x-permission:
+        operator: OR
+        permissions:
+        - metrics_read
   /api/v2/metrics/{metric_name}/assets:
     get:
       description: Returns dashboards, monitors, notebooks, and SLOs that a metric
@@ -31036,8 +33342,7 @@ paths:
         schema:
           type: string
       - description: The number of hours of look back (from now) to estimate cardinality
-          with. Estimates are based on historical data, and unspecified fields default
-          to the minimum 49 hours.
+          with. If unspecified, it defaults to 0 hours.
         example: 49
         in: query
         name: filter[hours_ago]
@@ -31066,7 +33371,7 @@ paths:
         schema:
           type: boolean
       - description: A window, in hours, from the look back to estimate cardinality
-          with.
+          with. The minimum and default is 1 hour.
         example: 6
         in: query
         name: filter[timespan_h]
@@ -31109,6 +33414,9 @@ paths:
       summary: Tag Configuration Cardinality Estimator
       tags:
       - Metrics
+      x-permission:
+        operator: OPEN
+        permissions: []
   /api/v2/metrics/{metric_name}/tags:
     delete:
       description: 'Deletes a metric''s tag configuration. Can only be used with application
@@ -31141,6 +33449,10 @@ paths:
       summary: Delete a tag configuration
       tags:
       - Metrics
+      x-permission:
+        operator: OR
+        permissions:
+        - metric_tags_write
     get:
       description: Returns the tag configuration for the given metric name.
       operationId: ListTagConfigurationByName
@@ -31179,6 +33491,10 @@ paths:
       summary: List tag configuration by name
       tags:
       - Metrics
+      x-permission:
+        operator: OR
+        permissions:
+        - metrics_read
     patch:
       description: 'Update the tag configuration of a metric or percentile aggregations
         of a distribution metric or custom aggregations
@@ -31237,6 +33553,10 @@ paths:
       tags:
       - Metrics
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - metric_tags_write
     post:
       description: 'Create and define a list of queryable tag keys for an existing
         count/gauge/rate/distribution metric.
@@ -31296,6 +33616,10 @@ paths:
       tags:
       - Metrics
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - metric_tags_write
   /api/v2/metrics/{metric_name}/volumes:
     get:
       description: 'View distinct metrics volumes for the given metric name.
@@ -31340,6 +33664,9 @@ paths:
       summary: List distinct metric volumes by metric name
       tags:
       - Metrics
+      x-permission:
+        operator: OPEN
+        permissions: []
   /api/v2/monitor/policy:
     get:
       description: Get all monitor configuration policies.
@@ -31367,6 +33694,10 @@ paths:
       summary: Get all monitor configuration policies
       tags:
       - Monitors
+      x-permission:
+        operator: OR
+        permissions:
+        - monitors_read
     post:
       description: Create a monitor configuration policy.
       operationId: CreateMonitorConfigPolicy
@@ -31402,6 +33733,10 @@ paths:
       tags:
       - Monitors
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - monitor_config_policy_write
   /api/v2/monitor/policy/{policy_id}:
     delete:
       description: Delete a monitor configuration policy.
@@ -31440,6 +33775,10 @@ paths:
       summary: Delete a monitor configuration policy
       tags:
       - Monitors
+      x-permission:
+        operator: OR
+        permissions:
+        - monitor_config_policy_write
     get:
       description: Get a monitor configuration policy by `policy_id`.
       operationId: GetMonitorConfigPolicy
@@ -31480,6 +33819,10 @@ paths:
       summary: Get a monitor configuration policy
       tags:
       - Monitors
+      x-permission:
+        operator: OR
+        permissions:
+        - monitors_read
     patch:
       description: Edit a monitor configuration policy.
       operationId: UpdateMonitorConfigPolicy
@@ -31529,6 +33872,10 @@ paths:
       tags:
       - Monitors
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - monitor_config_policy_write
   /api/v2/monitor/{monitor_id}/downtime_matches:
     get:
       description: Get all active downtimes for the specified monitor.
@@ -31579,6 +33926,10 @@ paths:
         limitParam: page[limit]
         pageOffsetParam: page[offset]
         resultsPath: data
+      x-permission:
+        operator: OR
+        permissions:
+        - monitors_downtime
   /api/v2/ndm/devices:
     get:
       description: Get the list of devices.
@@ -31764,12 +34115,12 @@ paths:
           $ref: '#/components/responses/ForbiddenResponse'
         '429':
           $ref: '#/components/responses/TooManyRequestsResponse'
-      security:
-      - apiKeyAuth: []
-        appKeyAuth: []
       summary: List Org Configs
       tags:
       - Organizations
+      x-permission:
+        operator: OPEN
+        permissions: []
   /api/v2/org_configs/{org_config_name}:
     get:
       description: Return the name, description, and value of a specific Org Config.
@@ -31793,12 +34144,12 @@ paths:
           $ref: '#/components/responses/NotFoundResponse'
         '429':
           $ref: '#/components/responses/TooManyRequestsResponse'
-      security:
-      - apiKeyAuth: []
-        appKeyAuth: []
       summary: Get a specific Org Config value
       tags:
       - Organizations
+      x-permission:
+        operator: OPEN
+        permissions: []
     patch:
       description: Update the value of a specific Org Config.
       operationId: UpdateOrgConfig
@@ -31830,6 +34181,10 @@ paths:
       summary: Update a specific Org Config
       tags:
       - Organizations
+      x-permission:
+        operator: OR
+        permissions:
+        - org_management
   /api/v2/permissions:
     get:
       description: Returns a list of all permissions, including name, description,
@@ -32140,6 +34495,10 @@ paths:
         limitParam: page[limit]
         pageOffsetParam: page[offset]
         resultsPath: data
+      x-permission:
+        operator: OR
+        permissions:
+        - dashboards_read
     post:
       description: Create a powerpack.
       operationId: CreatePowerpack
@@ -32174,6 +34533,10 @@ paths:
       tags:
       - Powerpack
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - dashboards_write
   /api/v2/powerpacks/{powerpack_id}:
     delete:
       description: Delete a powerpack.
@@ -32204,6 +34567,10 @@ paths:
       summary: Delete a powerpack
       tags:
       - Powerpack
+      x-permission:
+        operator: OR
+        permissions:
+        - dashboards_write
     get:
       description: Get a powerpack.
       operationId: GetPowerpack
@@ -32237,6 +34604,10 @@ paths:
       summary: Get a Powerpack
       tags:
       - Powerpack
+      x-permission:
+        operator: OR
+        permissions:
+        - dashboards_read
     patch:
       description: Update a powerpack.
       operationId: UpdatePowerpack
@@ -32284,6 +34655,10 @@ paths:
       tags:
       - Powerpack
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - dashboards_write
   /api/v2/processes:
     get:
       description: Get all processes for your organization.
@@ -32379,6 +34754,9 @@ paths:
         cursorPath: meta.page.after
         limitParam: page[limit]
         resultsPath: data
+      x-permission:
+        operator: OPEN
+        permissions: []
   /api/v2/query/scalar:
     post:
       description: 'Query scalar values (as seen on Query Value, Table, and Toplist
@@ -32418,6 +34796,10 @@ paths:
       tags:
       - Metrics
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - timeseries_query
       x-unstable: '**Note**: This endpoint is GA for Metrics, Real User Monitoring
         (RUM), Cloud Cost Management, and Log Management data sources.
 
@@ -32460,6 +34842,10 @@ paths:
       tags:
       - Metrics
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - timeseries_query
       x-unstable: '**Note**: This endpoint is GA for Metrics, Real User Monitoring
         (RUM), Cloud Cost Management, and Log Management data sources.
 
@@ -32632,9 +35018,13 @@ paths:
       security:
       - apiKeyAuth: []
         appKeyAuth: []
+      - AuthZ: []
       summary: Delete a restriction policy
       tags:
       - Restriction Policies
+      x-permission:
+        operator: OPEN
+        permissions: []
     get:
       description: Retrieves the restriction policy associated with a specified resource.
       operationId: GetRestrictionPolicy
@@ -32656,9 +35046,13 @@ paths:
       security:
       - apiKeyAuth: []
         appKeyAuth: []
+      - AuthZ: []
       summary: Get a restriction policy
       tags:
       - Restriction Policies
+      x-permission:
+        operator: OPEN
+        permissions: []
     post:
       description: 'Updates the restriction policy associated with a resource.
 
@@ -32735,10 +35129,14 @@ paths:
       security:
       - apiKeyAuth: []
         appKeyAuth: []
+      - AuthZ: []
       summary: Update a restriction policy
       tags:
       - Restriction Policies
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OPEN
+        permissions: []
   /api/v2/roles:
     get:
       description: Returns all roles, including their names and their unique identifiers.
@@ -32793,6 +35191,10 @@ paths:
       summary: List roles
       tags:
       - Roles
+      x-permission:
+        operator: OR
+        permissions:
+        - user_access_read
     post:
       description: Create a new role for your organization.
       operationId: CreateRole
@@ -32832,6 +35234,10 @@ paths:
       tags:
       - Roles
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - user_access_manage
   /api/v2/roles/{role_id}:
     delete:
       description: Disables a role.
@@ -32953,6 +35359,10 @@ paths:
       tags:
       - Roles
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - user_access_manage
   /api/v2/roles/{role_id}/clone:
     post:
       description: Clone an existing role
@@ -33007,6 +35417,10 @@ paths:
       tags:
       - Roles
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - user_access_manage
   /api/v2/roles/{role_id}/permissions:
     delete:
       description: Removes a permission from a role.
@@ -33055,6 +35469,10 @@ paths:
       tags:
       - Roles
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - user_access_manage
     get:
       description: Returns a list of all permissions for a single role.
       operationId: ListRolePermissions
@@ -33137,6 +35555,10 @@ paths:
       tags:
       - Roles
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - user_access_manage
   /api/v2/roles/{role_id}/users:
     delete:
       description: Removes a user from a role.
@@ -33185,6 +35607,10 @@ paths:
       tags:
       - Roles
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - user_access_manage
     get:
       description: Gets all users of a role.
       operationId: ListRoleUsers
@@ -33286,6 +35712,10 @@ paths:
       tags:
       - Roles
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - user_access_manage
   /api/v2/rum/analytics/aggregate:
     post:
       description: The API endpoint to aggregate RUM events into buckets of computed
@@ -33318,6 +35748,9 @@ paths:
       tags:
       - RUM
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OPEN
+        permissions: []
   /api/v2/rum/applications:
     get:
       description: List all the RUM applications in your organization.
@@ -33336,6 +35769,10 @@ paths:
       summary: List all the RUM applications
       tags:
       - RUM
+      x-permission:
+        operator: OR
+        permissions:
+        - rum_apps_read
     post:
       description: Create a new RUM application in your organization.
       operationId: CreateRUMApplication
@@ -33360,6 +35797,10 @@ paths:
       tags:
       - RUM
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - rum_apps_write
   /api/v2/rum/applications/{id}:
     delete:
       description: Delete an existing RUM application in your organization.
@@ -33381,6 +35822,10 @@ paths:
       summary: Delete a RUM application
       tags:
       - RUM
+      x-permission:
+        operator: OR
+        permissions:
+        - rum_apps_write
     get:
       description: Get the RUM application with given ID in your organization.
       operationId: GetRUMApplication
@@ -33405,6 +35850,10 @@ paths:
       summary: Get a RUM application
       tags:
       - RUM
+      x-permission:
+        operator: OR
+        permissions:
+        - rum_apps_read
     patch:
       description: Update the RUM application with given ID in your organization.
       operationId: UpdateRUMApplication
@@ -33444,6 +35893,10 @@ paths:
       tags:
       - RUM
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - rum_apps_write
   /api/v2/rum/events:
     get:
       description: 'List endpoint returns events that match a RUM search query.
@@ -33529,6 +35982,9 @@ paths:
         cursorPath: meta.page.after
         limitParam: page[limit]
         resultsPath: data
+      x-permission:
+        operator: OPEN
+        permissions: []
   /api/v2/rum/events/search:
     post:
       description: 'List endpoint returns RUM events that match a RUM search query.
@@ -33573,6 +36029,9 @@ paths:
         cursorPath: meta.page.after
         limitParam: body.page.limit
         resultsPath: data
+      x-permission:
+        operator: OPEN
+        permissions: []
   /api/v2/saml_configurations/idp_metadata:
     post:
       description: 'Endpoint for uploading IdP metadata for SAML setup.
@@ -33607,6 +36066,10 @@ paths:
       tags:
       - Organizations
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - org_management
   /api/v2/scorecard/outcomes:
     get:
       description: Fetches all rule outcomes.
@@ -33951,6 +36414,10 @@ paths:
       summary: Get the latest Cloud Workload Security policy
       tags:
       - CSM Threats
+      x-permission:
+        operator: OR
+        permissions:
+        - security_monitoring_cws_agent_rules_read
   /api/v2/security_monitoring/cloud_workload_security/agent_rules:
     get:
       description: Get the list of Agent rules.
@@ -33969,6 +36436,10 @@ paths:
       summary: Get all Cloud Workload Security Agent rules
       tags:
       - CSM Threats
+      x-permission:
+        operator: OR
+        permissions:
+        - security_monitoring_cws_agent_rules_read
     post:
       description: Create a new Agent rule with the given parameters.
       operationId: CreateCloudWorkloadSecurityAgentRule
@@ -33998,6 +36469,10 @@ paths:
       tags:
       - CSM Threats
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - security_monitoring_cws_agent_rules_write
   /api/v2/security_monitoring/cloud_workload_security/agent_rules/{agent_rule_id}:
     delete:
       description: Delete a specific Agent rule.
@@ -34016,6 +36491,10 @@ paths:
       summary: Delete a Cloud Workload Security Agent rule
       tags:
       - CSM Threats
+      x-permission:
+        operator: OR
+        permissions:
+        - security_monitoring_cws_agent_rules_write
     get:
       description: Get the details of a specific Agent rule.
       operationId: GetCloudWorkloadSecurityAgentRule
@@ -34037,6 +36516,10 @@ paths:
       summary: Get a Cloud Workload Security Agent rule
       tags:
       - CSM Threats
+      x-permission:
+        operator: OR
+        permissions:
+        - security_monitoring_cws_agent_rules_read
     patch:
       description: 'Update a specific Agent rule.
 
@@ -34072,6 +36555,10 @@ paths:
       tags:
       - CSM Threats
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - security_monitoring_cws_agent_rules_write
   /api/v2/security_monitoring/configuration/security_filters:
     get:
       description: Get the list of configured security filters with their definitions.
@@ -34095,6 +36582,10 @@ paths:
       summary: Get all security filters
       tags:
       - Security Monitoring
+      x-permission:
+        operator: OR
+        permissions:
+        - security_monitoring_filters_read
     post:
       description: 'Create a security filter.
 
@@ -34134,6 +36625,10 @@ paths:
       tags:
       - Security Monitoring
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - security_monitoring_filters_write
   /api/v2/security_monitoring/configuration/security_filters/{security_filter_id}:
     delete:
       description: Delete a specific security filter.
@@ -34157,6 +36652,10 @@ paths:
       summary: Delete a security filter
       tags:
       - Security Monitoring
+      x-permission:
+        operator: OR
+        permissions:
+        - security_monitoring_filters_write
     get:
       description: 'Get the details of a specific security filter.
 
@@ -34188,6 +36687,10 @@ paths:
       summary: Get a security filter
       tags:
       - Security Monitoring
+      x-permission:
+        operator: OR
+        permissions:
+        - security_monitoring_filters_read
     patch:
       description: 'Update a specific security filter.
 
@@ -34228,6 +36731,10 @@ paths:
       tags:
       - Security Monitoring
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - security_monitoring_filters_write
   /api/v2/security_monitoring/configuration/suppressions:
     get:
       description: Get the list of all suppression rules.
@@ -34397,6 +36904,10 @@ paths:
       summary: List rules
       tags:
       - Security Monitoring
+      x-permission:
+        operator: OR
+        permissions:
+        - security_monitoring_rules_read
     post:
       description: Create a detection rule.
       operationId: CreateSecurityMonitoringRule
@@ -34428,6 +36939,10 @@ paths:
       tags:
       - Security Monitoring
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - security_monitoring_rules_write
   /api/v2/security_monitoring/rules/convert:
     post:
       description: 'Convert a rule that doesn''t (yet) exist from JSON to Terraform
@@ -34467,6 +36982,10 @@ paths:
       tags:
       - Security Monitoring
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - security_monitoring_rules_write
   /api/v2/security_monitoring/rules/test:
     post:
       description: Test a rule.
@@ -34503,6 +37022,10 @@ paths:
       tags:
       - Security Monitoring
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - security_monitoring_rules_write
   /api/v2/security_monitoring/rules/validation:
     post:
       description: Validate a detection rule.
@@ -34531,6 +37054,10 @@ paths:
       tags:
       - Security Monitoring
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - security_monitoring_rules_write
   /api/v2/security_monitoring/rules/{rule_id}:
     delete:
       description: Delete an existing rule. Default rules cannot be deleted.
@@ -34554,6 +37081,10 @@ paths:
       summary: Delete an existing rule
       tags:
       - Security Monitoring
+      x-permission:
+        operator: OR
+        permissions:
+        - security_monitoring_rules_write
     get:
       description: Get a rule's details.
       operationId: GetSecurityMonitoringRule
@@ -34578,6 +37109,10 @@ paths:
       summary: Get a rule's details
       tags:
       - Security Monitoring
+      x-permission:
+        operator: OR
+        permissions:
+        - security_monitoring_rules_read
     put:
       description: 'Update an existing rule. When updating `cases`, `queries` or `options`,
         the whole field
@@ -34624,6 +37159,10 @@ paths:
       tags:
       - Security Monitoring
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - security_monitoring_rules_write
   /api/v2/security_monitoring/rules/{rule_id}/convert:
     get:
       description: 'Convert an existing rule from JSON to Terraform for datadog provider
@@ -34655,6 +37194,10 @@ paths:
       summary: Convert an existing rule from JSON to Terraform
       tags:
       - Security Monitoring
+      x-permission:
+        operator: OR
+        permissions:
+        - security_monitoring_rules_read
   /api/v2/security_monitoring/rules/{rule_id}/test:
     post:
       description: Test an existing rule.
@@ -34693,6 +37236,10 @@ paths:
       tags:
       - Security Monitoring
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - security_monitoring_rules_write
   /api/v2/security_monitoring/signals:
     get:
       description: 'The list endpoint returns security signals that match a search
@@ -34776,6 +37323,10 @@ paths:
         cursorPath: meta.page.after
         limitParam: page[limit]
         resultsPath: data
+      x-permission:
+        operator: OR
+        permissions:
+        - security_monitoring_signals_read
   /api/v2/security_monitoring/signals/search:
     post:
       description: 'Returns security signals that match a search query.
@@ -34817,6 +37368,10 @@ paths:
         cursorPath: meta.page.after
         limitParam: body.page.limit
         resultsPath: data
+      x-permission:
+        operator: OR
+        permissions:
+        - security_monitoring_signals_read
   /api/v2/security_monitoring/signals/{signal_id}:
     get:
       description: Get a signal's details.
@@ -34842,6 +37397,10 @@ paths:
       summary: Get a signal's details
       tags:
       - Security Monitoring
+      x-permission:
+        operator: OR
+        permissions:
+        - security_monitoring_signals_read
   /api/v2/security_monitoring/signals/{signal_id}/assignee:
     patch:
       description: Modify the triage assignee of a security signal.
@@ -34886,6 +37445,10 @@ paths:
       tags:
       - Security Monitoring
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - security_monitoring_signals_write
   /api/v2/security_monitoring/signals/{signal_id}/incidents:
     patch:
       description: Change the related incidents for a security signal.
@@ -34930,6 +37493,10 @@ paths:
       tags:
       - Security Monitoring
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - security_monitoring_signals_write
   /api/v2/security_monitoring/signals/{signal_id}/state:
     patch:
       description: Change the triage state of a security signal.
@@ -34974,6 +37541,10 @@ paths:
       tags:
       - Security Monitoring
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - security_monitoring_signals_write
   /api/v2/sensitive-data-scanner/config:
     get:
       description: List all the Scanning groups in your organization.
@@ -35002,6 +37573,10 @@ paths:
       summary: List Scanning Groups
       tags:
       - Sensitive Data Scanner
+      x-permission:
+        operator: OR
+        permissions:
+        - data_scanner_read
     patch:
       description: Reorder the list of groups.
       operationId: ReorderScanningGroups
@@ -35036,6 +37611,10 @@ paths:
       tags:
       - Sensitive Data Scanner
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - data_scanner_write
   /api/v2/sensitive-data-scanner/config/groups:
     post:
       description: 'Create a scanning group.
@@ -35080,6 +37659,10 @@ paths:
       tags:
       - Sensitive Data Scanner
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - data_scanner_write
   /api/v2/sensitive-data-scanner/config/groups/{group_id}:
     delete:
       description: Delete a given group.
@@ -35119,6 +37702,10 @@ paths:
       tags:
       - Sensitive Data Scanner
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - data_scanner_write
     patch:
       description: 'Update a group, including the order of the rules.
 
@@ -35165,6 +37752,10 @@ paths:
       tags:
       - Sensitive Data Scanner
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - data_scanner_write
   /api/v2/sensitive-data-scanner/config/rules:
     post:
       description: 'Create a scanning rule in a sensitive data scanner group, ordered
@@ -35210,6 +37801,10 @@ paths:
       tags:
       - Sensitive Data Scanner
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - data_scanner_write
   /api/v2/sensitive-data-scanner/config/rules/{rule_id}:
     delete:
       description: Delete a given rule.
@@ -35249,6 +37844,10 @@ paths:
       tags:
       - Sensitive Data Scanner
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - data_scanner_write
     patch:
       description: 'Update a scanning rule.
 
@@ -35294,6 +37893,10 @@ paths:
       tags:
       - Sensitive Data Scanner
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - data_scanner_write
   /api/v2/sensitive-data-scanner/config/standard-patterns:
     get:
       description: Returns all standard patterns.
@@ -35322,6 +37925,10 @@ paths:
       summary: List standard patterns
       tags:
       - Sensitive Data Scanner
+      x-permission:
+        operator: OR
+        permissions:
+        - data_scanner_read
   /api/v2/series:
     post:
       description: "The metrics end-point allows you to post time-series data that
@@ -35428,6 +38035,10 @@ paths:
       tags:
       - Service Accounts
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - service_account_write
   /api/v2/service_accounts/{service_account_id}/application_keys:
     get:
       description: List all application keys available for this service account.
@@ -35470,6 +38081,10 @@ paths:
       summary: List application keys for this service account
       tags:
       - Service Accounts
+      x-permission:
+        operator: OR
+        permissions:
+        - service_account_write
     post:
       description: Create an application key for this service account.
       operationId: CreateServiceAccountApplicationKey
@@ -35506,6 +38121,10 @@ paths:
       tags:
       - Service Accounts
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - service_account_write
   /api/v2/service_accounts/{service_account_id}/application_keys/{app_key_id}:
     delete:
       description: Delete an application key owned by this service account.
@@ -35533,6 +38152,10 @@ paths:
       summary: Delete an application key for this service account
       tags:
       - Service Accounts
+      x-permission:
+        operator: OR
+        permissions:
+        - service_account_write
     get:
       description: Get an application key owned by this service account.
       operationId: GetServiceAccountApplicationKey
@@ -35563,6 +38186,10 @@ paths:
       summary: Get one application key for this service account
       tags:
       - Service Accounts
+      x-permission:
+        operator: OR
+        permissions:
+        - service_account_write
     patch:
       description: Edit an application key owned by this service account.
       operationId: UpdateServiceAccountApplicationKey
@@ -35606,6 +38233,10 @@ paths:
       tags:
       - Service Accounts
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - service_account_write
   /api/v2/services:
     get:
       deprecated: true
@@ -35643,6 +38274,10 @@ paths:
       summary: Get a list of all incident services
       tags:
       - Incident Services
+      x-permission:
+        operator: OR
+        permissions:
+        - incident_read
       x-unstable: '**Note**: This endpoint is deprecated.'
     post:
       deprecated: true
@@ -35681,6 +38316,10 @@ paths:
       tags:
       - Incident Services
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - incident_settings_write
       x-unstable: '**Note**: This endpoint is deprecated.'
   /api/v2/services/definitions:
     get:
@@ -35714,6 +38353,10 @@ paths:
         limitParam: page[size]
         pageParam: page[number]
         resultsPath: data
+      x-permission:
+        operator: OR
+        permissions:
+        - apm_service_catalog_read
     post:
       description: Create or update service definition in the Datadog Service Catalog.
       operationId: CreateOrUpdateServiceDefinitions
@@ -35748,6 +38391,10 @@ paths:
       tags:
       - Service Definition
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - apm_service_catalog_write
   /api/v2/services/definitions/{service_name}:
     delete:
       description: Delete a single service definition in the Datadog Service Catalog.
@@ -35773,6 +38420,10 @@ paths:
       summary: Delete a single service definition
       tags:
       - Service Definition
+      x-permission:
+        operator: OR
+        permissions:
+        - apm_service_catalog_write
     get:
       description: Get a single service definition from the Datadog Service Catalog.
       operationId: GetServiceDefinition
@@ -35804,6 +38455,10 @@ paths:
       summary: Get a single service definition
       tags:
       - Service Definition
+      x-permission:
+        operator: OR
+        permissions:
+        - apm_service_catalog_read
   /api/v2/services/{service_id}:
     delete:
       deprecated: true
@@ -35832,6 +38487,10 @@ paths:
       summary: Delete an existing incident service
       tags:
       - Incident Services
+      x-permission:
+        operator: OR
+        permissions:
+        - incident_settings_write
       x-unstable: '**Note**: This endpoint is deprecated.'
     get:
       deprecated: true
@@ -35868,6 +38527,10 @@ paths:
       summary: Get details of an incident service
       tags:
       - Incident Services
+      x-permission:
+        operator: OR
+        permissions:
+        - incident_read
       x-unstable: '**Note**: This endpoint is deprecated.'
     patch:
       deprecated: true
@@ -35909,6 +38572,10 @@ paths:
       tags:
       - Incident Services
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - incident_settings_write
       x-unstable: '**Note**: This endpoint is deprecated.'
   /api/v2/slo/report:
     post:
@@ -36088,6 +38755,10 @@ paths:
       tags:
       - Spans
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - apm_read
   /api/v2/spans/events:
     get:
       description: 'List endpoint returns spans that match a span search query.
@@ -36243,6 +38914,10 @@ paths:
       summary: Get the on-demand concurrency cap
       tags:
       - Synthetics
+      x-permission:
+        operator: OR
+        permissions:
+        - billing_read
     post:
       description: Save new value for on-demand concurrency cap.
       operationId: SetOnDemandConcurrencyCap
@@ -36266,6 +38941,10 @@ paths:
       tags:
       - Synthetics
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - billing_edit
   /api/v2/team:
     get:
       description: 'Get all teams.
@@ -36336,6 +39015,10 @@ paths:
         limitParam: page[size]
         pageParam: page[number]
         resultsPath: data
+      x-permission:
+        operator: OR
+        permissions:
+        - teams_read
     post:
       description: 'Create a new team.
 
@@ -36374,6 +39057,11 @@ paths:
       tags:
       - Teams
       x-codegen-request-body-name: body
+      x-permission:
+        operator: AND
+        permissions:
+        - teams_read
+        - teams_manage
   /api/v2/team/{team_id}:
     delete:
       description: Remove a team using the team's `id`.
@@ -36407,6 +39095,11 @@ paths:
       summary: Remove a team
       tags:
       - Teams
+      x-permission:
+        operator: AND
+        permissions:
+        - teams_read
+        - teams_manage
     get:
       description: Get a single team using the team's `id`.
       operationId: GetTeam
@@ -36442,6 +39135,10 @@ paths:
       summary: Get a team
       tags:
       - Teams
+      x-permission:
+        operator: OR
+        permissions:
+        - teams_read
     patch:
       description: 'Update a team using the team''s `id`.
 
@@ -36500,6 +39197,10 @@ paths:
       tags:
       - Teams
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - teams_read
   /api/v2/team/{team_id}/links:
     get:
       description: Get all links for a given team.
@@ -36536,6 +39237,10 @@ paths:
       summary: Get links for a team
       tags:
       - Teams
+      x-permission:
+        operator: OR
+        permissions:
+        - teams_read
     post:
       description: Add a new link to a team.
       operationId: CreateTeamLink
@@ -36584,6 +39289,10 @@ paths:
       tags:
       - Teams
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - teams_read
   /api/v2/team/{team_id}/links/{link_id}:
     delete:
       description: Remove a link from a team.
@@ -36622,6 +39331,10 @@ paths:
       summary: Remove a team link
       tags:
       - Teams
+      x-permission:
+        operator: OR
+        permissions:
+        - teams_read
     get:
       description: Get a single link for a team.
       operationId: GetTeamLink
@@ -36663,6 +39376,10 @@ paths:
       summary: Get a team link
       tags:
       - Teams
+      x-permission:
+        operator: OR
+        permissions:
+        - teams_read
     patch:
       description: Update a team link.
       operationId: UpdateTeamLink
@@ -36711,6 +39428,10 @@ paths:
       tags:
       - Teams
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - teams_read
   /api/v2/team/{team_id}/memberships:
     get:
       description: Get a paginated list of members for a team
@@ -36765,6 +39486,10 @@ paths:
         limitParam: page[size]
         pageParam: page[number]
         resultsPath: data
+      x-permission:
+        operator: OR
+        permissions:
+        - teams_read
     post:
       description: Add a user to a team.
       operationId: CreateTeamMembership
@@ -36813,6 +39538,10 @@ paths:
       tags:
       - Teams
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - teams_read
   /api/v2/team/{team_id}/memberships/{user_id}:
     delete:
       description: Remove a user from a team.
@@ -36851,6 +39580,10 @@ paths:
       summary: Remove a user from a team
       tags:
       - Teams
+      x-permission:
+        operator: OR
+        permissions:
+        - teams_read
     patch:
       description: Update a user's membership attributes on a team.
       operationId: UpdateTeamMembership
@@ -36899,6 +39632,10 @@ paths:
       tags:
       - Teams
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - teams_read
   /api/v2/team/{team_id}/permission-settings:
     get:
       description: Get all permission settings for a given team.
@@ -36935,6 +39672,10 @@ paths:
       summary: Get permission settings for a team
       tags:
       - Teams
+      x-permission:
+        operator: OR
+        permissions:
+        - teams_read
   /api/v2/team/{team_id}/permission-settings/{action}:
     put:
       description: Update a team permission setting for a given team.
@@ -36984,6 +39725,10 @@ paths:
       tags:
       - Teams
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - teams_read
   /api/v2/teams:
     get:
       deprecated: true
@@ -37021,6 +39766,10 @@ paths:
       summary: Get a list of all incident teams
       tags:
       - Incident Teams
+      x-permission:
+        operator: OR
+        permissions:
+        - incident_read
       x-unstable: '**Note**: This endpoint is deprecated. See the [Teams API endpoints](https://docs.datadoghq.com/api/latest/teams/).'
     post:
       deprecated: true
@@ -37059,6 +39808,10 @@ paths:
       tags:
       - Incident Teams
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - incident_settings_write
       x-unstable: '**Note**: This endpoint is deprecated. See the [Teams API endpoints](https://docs.datadoghq.com/api/latest/teams/).'
   /api/v2/teams/{team_id}:
     delete:
@@ -37088,6 +39841,10 @@ paths:
       summary: Delete an existing incident team
       tags:
       - Incident Teams
+      x-permission:
+        operator: OR
+        permissions:
+        - incident_settings_write
       x-unstable: '**Note**: This endpoint is deprecated. See the [Teams API endpoints](https://docs.datadoghq.com/api/latest/teams/).'
     get:
       deprecated: true
@@ -37124,6 +39881,10 @@ paths:
       summary: Get details of an incident team
       tags:
       - Incident Teams
+      x-permission:
+        operator: OR
+        permissions:
+        - incident_read
       x-unstable: '**Note**: This endpoint is deprecated. See the [Teams API endpoints](https://docs.datadoghq.com/api/latest/teams/).'
     patch:
       deprecated: true
@@ -37165,6 +39926,10 @@ paths:
       tags:
       - Incident Teams
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - incident_settings_write
       x-unstable: '**Note**: This endpoint is deprecated. See the [Teams API endpoints](https://docs.datadoghq.com/api/latest/teams/).'
   /api/v2/usage/application_security:
     get:
@@ -37226,6 +39991,10 @@ paths:
       summary: Get hourly usage for application security
       tags:
       - Usage Metering
+      x-permission:
+        operator: OR
+        permissions:
+        - usage_read
   /api/v2/usage/cost_by_org:
     get:
       deprecated: true
@@ -37293,6 +40062,10 @@ paths:
       summary: Get cost across multi-org account
       tags:
       - Usage Metering
+      x-permission:
+        operator: OR
+        permissions:
+        - usage_read
   /api/v2/usage/estimated_cost:
     get:
       description: 'Get estimated cost across multi-org and single root-org accounts.
@@ -37393,6 +40166,10 @@ paths:
       summary: Get estimated cost across your account
       tags:
       - Usage Metering
+      x-permission:
+        operator: OR
+        permissions:
+        - usage_read
   /api/v2/usage/historical_cost:
     get:
       description: 'Get historical cost across multi-org and single root-org accounts.
@@ -37470,6 +40247,10 @@ paths:
       summary: Get historical cost across your account
       tags:
       - Usage Metering
+      x-permission:
+        operator: OR
+        permissions:
+        - usage_read
   /api/v2/usage/hourly_usage:
     get:
       description: Get hourly usage by product family.
@@ -37495,6 +40276,7 @@ paths:
           families are `all`, `analyzed_logs`,
 
           `application_security`, `audit_trail`, `serverless`, `ci_app`, `cloud_cost_management`,
+          `cloud_siem`,
 
           `csm_container_enterprise`, `csm_host_enterprise`, `cspm`, `custom_events`,
           `cws`, `dbm`, `error_tracking`,
@@ -37502,14 +40284,16 @@ paths:
           `fargate`, `infra_hosts`, `incident_management`, `indexed_logs`, `indexed_spans`,
           `ingested_spans`, `iot`,
 
-          `lambda_traced_invocations`, `logs`, `network_flows`, `network_hosts`, `netflow_monitoring`,
+          `lambda_traced_invocations`, `logs`, `network_flows`, `network_hosts`, `network_monitoring`,
           `observability_pipelines`,
 
           `online_archive`, `profiling`, `rum`, `rum_browser_sessions`, `rum_mobile_sessions`,
           `sds`, `snmp`,
 
           `synthetics_api`, `synthetics_browser`, `synthetics_mobile`, `synthetics_parallel_testing`,
-          and `timeseries`.
+          `timeseries`, `vuln_management`,
+
+          and `workflow_executions`.
 
           The following product family has been **deprecated**: `audit_logs`.'
         in: query
@@ -37604,6 +40388,10 @@ paths:
       summary: Get hourly usage by product family
       tags:
       - Usage Metering
+      x-permission:
+        operator: OR
+        permissions:
+        - usage_read
   /api/v2/usage/lambda_traced_invocations:
     get:
       deprecated: true
@@ -37664,6 +40452,10 @@ paths:
       summary: Get hourly usage for Lambda traced invocations
       tags:
       - Usage Metering
+      x-permission:
+        operator: OR
+        permissions:
+        - usage_read
   /api/v2/usage/observability_pipelines:
     get:
       deprecated: true
@@ -37724,6 +40516,10 @@ paths:
       summary: Get hourly usage for observability pipelines
       tags:
       - Usage Metering
+      x-permission:
+        operator: OR
+        permissions:
+        - usage_read
   /api/v2/usage/projected_cost:
     get:
       description: 'Get projected cost across multi-org and single root-org accounts.
@@ -37785,6 +40581,10 @@ paths:
       summary: Get projected cost across your account
       tags:
       - Usage Metering
+      x-permission:
+        operator: OR
+        permissions:
+        - usage_read
   /api/v2/user_invitations:
     post:
       description: Sends emails to one or more users inviting them to join the organization.
@@ -37825,6 +40625,10 @@ paths:
       tags:
       - Users
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - user_access_invite
   /api/v2/user_invitations/{user_invitation_uuid}:
     get:
       description: Returns a single user invitation by its UUID.
@@ -37867,6 +40671,10 @@ paths:
       tags:
       - Users
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - user_access_invite
   /api/v2/users:
     get:
       description: 'Get the list of all users in the organization. This list includes
@@ -37948,6 +40756,10 @@ paths:
         limitParam: page[size]
         pageParam: page[number]
         resultsPath: data
+      x-permission:
+        operator: OR
+        permissions:
+        - user_access_read
     post:
       description: Create a user for your organization.
       operationId: CreateUser
@@ -37987,6 +40799,10 @@ paths:
       tags:
       - Users
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - user_access_invite
   /api/v2/users/{user_id}:
     delete:
       description: 'Disable a user. Can only be used with an application key belonging
@@ -38021,6 +40837,11 @@ paths:
       tags:
       - Users
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - user_access_manage
+        - service_account_write
     get:
       description: "Get a user in the organization specified by the user\u2019s `user_id`."
       operationId: GetUser
@@ -38056,6 +40877,10 @@ paths:
       tags:
       - Users
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - user_access_read
     patch:
       description: 'Edit a user. Can only be used with an application key belonging
 
@@ -38111,6 +40936,11 @@ paths:
       tags:
       - Users
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - user_access_manage
+        - service_account_write
   /api/v2/users/{user_id}/orgs:
     get:
       description: 'Get a user organization. Returns the user information and all
@@ -38149,6 +40979,9 @@ paths:
       tags:
       - Users
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OPEN
+        permissions: []
   /api/v2/users/{user_id}/permissions:
     get:
       description: "Get a user permission set. Returns a list of the user\u2019s permissions\ngranted
@@ -38186,6 +41019,10 @@ paths:
       tags:
       - Users
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - user_access_read
   /api/v2/users/{user_uuid}/memberships:
     get:
       description: Get a list of memberships for a user
@@ -38220,6 +41057,10 @@ paths:
       summary: Get user memberships
       tags:
       - Teams
+      x-permission:
+        operator: OR
+        permissions:
+        - teams_read
   /api/v2/workflows/{workflow_id}/instances:
     get:
       description: List all instances of a given workflow. This API requires an application
@@ -38250,6 +41091,10 @@ paths:
       summary: List workflow instances
       tags:
       - Workflow Automation
+      x-permission:
+        operator: OR
+        permissions:
+        - workflows_read
     post:
       description: Execute the given workflow. This API requires an application key
         scoped with the workflows_run permission.
@@ -38279,6 +41124,10 @@ paths:
       tags:
       - Workflow Automation
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - workflows_run
   /api/v2/workflows/{workflow_id}/instances/{instance_id}:
     get:
       description: Get a specific execution of a given workflow. This API requires
@@ -38310,6 +41159,10 @@ paths:
       summary: Get a workflow instance
       tags:
       - Workflow Automation
+      x-permission:
+        operator: OR
+        permissions:
+        - workflows_read
   /api/v2/workflows/{workflow_id}/instances/{instance_id}/cancel:
     put:
       description: Cancels a specific execution of a given workflow. This API requires
@@ -38336,6 +41189,10 @@ paths:
       summary: Cancel a workflow instance
       tags:
       - Workflow Automation
+      x-permission:
+        operator: OR
+        permissions:
+        - workflows_run
 security:
 - apiKeyAuth: []
   appKeyAuth: []
@@ -38408,8 +41265,10 @@ tags:
     for more information.
   name: Case Management
 - description: The Cloud Cost Management API allows you to set up, edit, and delete
-    Cloud Cost Management accounts for AWS and Azure. See the [Cloud Cost Management
-    page](https://docs.datadoghq.com/cloud_cost_management/) for more information.
+    Cloud Cost Management accounts for AWS and Azure. You can query your cost data
+    by using the [Metrics endpoint](https://docs.datadoghq.com/api/latest/metrics/#query-timeseries-data-across-multiple-products)
+    and the `cloud_cost` data source. For more information, see the [Cloud Cost Management
+    documentation](https://docs.datadoghq.com/cloud_cost_management/).
   name: Cloud Cost Management
 - description: Manage your Datadog Cloudflare integration directly through the Datadog
     API. See the [Cloudflare integration page](https://docs.datadoghq.com/integrations/cloudflare/)
@@ -38543,6 +41402,15 @@ tags:
     Tags for Metrics` permission.\n\nSee the [Metrics page](https://docs.datadoghq.com/metrics/)
     for more information."
   name: Metrics
+- description: 'Configure your [Datadog Microsoft Teams integration](https://docs.datadoghq.com/integrations/microsoft_teams/)
+
+    directly through the Datadog API. Note: These endpoints do not support legacy
+    connector handles.'
+  externalDocs:
+    description: For more information about the Datadog Microsoft Teams integration,
+      see the integration page.
+    url: https://docs.datadoghq.com/integrations/microsoft_teams/
+  name: Microsoft Teams Integration
 - description: '[Monitors](https://docs.datadoghq.com/monitors) allow you to watch
     a metric or check that you care about and
 
@@ -38663,6 +41531,10 @@ tags:
     This feature is currently in BETA. If you have any feedback, contact [Datadog
     support](https://docs.datadoghq.com/help/).'
   name: Service Scorecards
+- description: API to create, update, retrieve and delete Software Catalog entities.
+  externalDocs:
+    url: https://docs.datadoghq.com/service_catalog/service_definitions#metadata-schema-v30-beta
+  name: Software Catalog
 - description: Search and aggregate your spans from your Datadog platform over HTTP.
   name: Spans
 - description: Manage configuration of [span-based metrics](https://app.datadoghq.com/apm/traces/generate-metrics)

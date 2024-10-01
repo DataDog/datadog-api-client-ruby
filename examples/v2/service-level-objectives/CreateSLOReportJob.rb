@@ -9,8 +9,8 @@ api_instance = DatadogAPIClient::V2::ServiceLevelObjectivesAPI.new
 body = DatadogAPIClient::V2::SloReportCreateRequest.new({
   data: DatadogAPIClient::V2::SloReportCreateRequestData.new({
     attributes: DatadogAPIClient::V2::SloReportCreateRequestAttributes.new({
-      from_ts: 1690901870,
-      to_ts: 1706803070,
+      from_ts: (Time.now + -40 * 86400).to_i,
+      to_ts: Time.now.to_i,
       query: 'slo_type:metric "SLO Reporting Test"',
       interval: DatadogAPIClient::V2::SLOReportInterval::MONTHLY,
       timezone: "America/New_York",

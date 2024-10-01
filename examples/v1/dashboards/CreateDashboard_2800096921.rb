@@ -18,7 +18,7 @@ body = DatadogAPIClient::V1::Dashboard.new({
           DatadogAPIClient::V1::TimeseriesWidgetLegendColumn::VALUE,
           DatadogAPIClient::V1::TimeseriesWidgetLegendColumn::SUM,
         ],
-        time: DatadogAPIClient::V1::WidgetTime.new({}),
+        time: DatadogAPIClient::V1::WidgetLegacyLiveSpan.new({}),
         type: DatadogAPIClient::V1::TimeseriesWidgetDefinitionType::TIMESERIES,
         requests: [
           DatadogAPIClient::V1::TimeseriesWidgetRequest.new({

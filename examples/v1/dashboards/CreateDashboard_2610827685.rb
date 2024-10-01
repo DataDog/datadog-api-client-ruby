@@ -18,7 +18,7 @@ body = DatadogAPIClient::V1::Dashboard.new({
         title: "Run workflow title",
         title_size: "16",
         title_align: DatadogAPIClient::V1::WidgetTextAlign::LEFT,
-        time: DatadogAPIClient::V1::WidgetTime.new({}),
+        time: DatadogAPIClient::V1::WidgetLegacyLiveSpan.new({}),
         type: DatadogAPIClient::V1::RunWorkflowWidgetDefinitionType::RUN_WORKFLOW,
         workflow_id: "2e055f16-8b6a-4cdd-b452-17a34c44b160",
         inputs: [

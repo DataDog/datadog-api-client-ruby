@@ -1,5 +1,41 @@
 # CHANGELOG
 
+## 2.26.1 / 2024-09-11
+
+### Fixed
+* Handle models with `v[0-9]` in name when loading them by @skarimo in https://github.com/DataDog/datadog-api-client-ruby/pull/2002
+### Added
+* Add new synthetics HTTP javascript assertion by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1939
+* Dashboards - Toplist widget style - Add palette by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1992
+
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-ruby/compare/v2.26.0...v2.26.1
+
+## 2.26.0 / 2024-09-04
+
+### Fixed
+* Add `is_totp` and `is_fido` to Synthetic global variables by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1910
+### Added
+* Add `api_key` and `name` to `CloudflareAccountResponseAttributes`. by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1953
+* Add `api_key` and `name` to `FastlyAccountUpdateRequestAttributes`. by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1954
+* Add `opsgenie_api_key` to `OpsgenieServiceResponseAttributes`. by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1955
+* Add `category` and `remote_config_read_enabled` to `APIKeyCreateAttributes`, and add `LeakedKey`. by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1956
+* Allow 4 group-bys for pattern viz by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1963
+* add url attribute to metrics assets v2 api by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1965
+* Add editable field to suppression rule by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1874
+* Add `num_flex_logs_retention_days` field to logs_indexes api spec by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1967
+* Software catalog openapi spec by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1962
+### Changed
+* enable additionalProperties by default and check when false by @amaskara-dd in https://github.com/DataDog/datadog-api-client-ruby/pull/1959
+* allow variables in port by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1940
+* Fix VFTs and extracted local variables enum types by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1928
+* Changed Widget time schema to add support for new fixed_span and live_span object by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1951
+### Deprecated
+* mark groupby_simple_monitor as deprecated by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1981
+
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-ruby/compare/v2.25.0...v2.26.0
+
 ## 2.25.0 / 2024-08-12
 
 ### Fixed

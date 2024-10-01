@@ -52,7 +52,7 @@ module DatadogAPIClient::V1
     attr_accessor :dns_server
 
     # DNS server port to use for DNS tests.
-    attr_reader :dns_server_port
+    attr_accessor :dns_server_port
 
     # Files to be used as part of the request in the test.
     attr_accessor :files
@@ -166,7 +166,7 @@ module DatadogAPIClient::V1
         :'compressed_json_descriptor' => :'String',
         :'compressed_proto_file' => :'String',
         :'dns_server' => :'String',
-        :'dns_server_port' => :'Integer',
+        :'dns_server_port' => :'String',
         :'files' => :'Array<SyntheticsTestRequestBodyFile>',
         :'follow_redirects' => :'Boolean',
         :'headers' => :'Hash<String, String>',
@@ -178,7 +178,7 @@ module DatadogAPIClient::V1
         :'no_saving_response_body' => :'Boolean',
         :'number_of_packets' => :'Integer',
         :'persist_cookies' => :'Boolean',
-        :'port' => :'Integer',
+        :'port' => :'SyntheticsTestRequestPort',
         :'proxy' => :'SyntheticsTestRequestProxy',
         :'query' => :'Object',
         :'servername' => :'String',
@@ -336,24 +336,9 @@ module DatadogAPIClient::V1
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if !@dns_server_port.nil? && @dns_server_port > 65535
-      return false if !@dns_server_port.nil? && @dns_server_port < 1
       return false if !@number_of_packets.nil? && @number_of_packets > 10
       return false if !@number_of_packets.nil? && @number_of_packets < 0
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param dns_server_port [Object] Object to be assigned
-    # @!visibility private
-    def dns_server_port=(dns_server_port)
-      if !dns_server_port.nil? && dns_server_port > 65535
-        fail ArgumentError, 'invalid value for "dns_server_port", must be smaller than or equal to 65535.'
-      end
-      if !dns_server_port.nil? && dns_server_port < 1
-        fail ArgumentError, 'invalid value for "dns_server_port", must be greater than or equal to 1.'
-      end
-      @dns_server_port = dns_server_port
     end
 
     # Custom attribute writer method with validation

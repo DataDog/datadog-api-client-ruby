@@ -17,12 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Assets where only included attribute is its title
+  # Assets related to the object, including title and url.
   class MetricAssetAttributes
     include BaseGenericModel
 
     # Title of the asset.
     attr_accessor :title
+
+    # URL path of the asset.
+    attr_accessor :url
 
     attr_accessor :additional_properties
 
@@ -30,7 +33,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'title' => :'title'
+        :'title' => :'title',
+        :'url' => :'url'
       }
     end
 
@@ -38,7 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'title' => :'String'
+        :'title' => :'String',
+        :'url' => :'String'
       }
     end
 
@@ -62,6 +67,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'title')
         self.title = attributes[:'title']
+      end
+
+      if attributes.key?(:'url')
+        self.url = attributes[:'url']
       end
     end
 
@@ -91,7 +100,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          title == o.title
+          title == o.title &&
+          url == o.url
           additional_properties == o.additional_properties
     end
 
@@ -99,7 +109,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [title].hash
+      [title, url].hash
     end
   end
 end

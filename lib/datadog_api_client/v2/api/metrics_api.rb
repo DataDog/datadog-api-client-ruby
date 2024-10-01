@@ -323,10 +323,10 @@ module DatadogAPIClient::V2
     # @param metric_name [String] The name of the metric.
     # @param opts [Hash] the optional parameters
     # @option opts [String] :filter_groups Filtered tag keys that the metric is configured to query with.
-    # @option opts [Integer] :filter_hours_ago The number of hours of look back (from now) to estimate cardinality with. Estimates are based on historical data, and unspecified fields default to the minimum 49 hours.
+    # @option opts [Integer] :filter_hours_ago The number of hours of look back (from now) to estimate cardinality with. If unspecified, it defaults to 0 hours.
     # @option opts [Integer] :filter_num_aggregations The number of aggregations that a `count`, `rate`, or `gauge` metric is configured to use. Max number of aggregation combos is 9.
     # @option opts [Boolean] :filter_pct A boolean, for distribution metrics only, to estimate cardinality if the metric includes additional percentile aggregators.
-    # @option opts [Integer] :filter_timespan_h A window, in hours, from the look back to estimate cardinality with.
+    # @option opts [Integer] :filter_timespan_h A window, in hours, from the look back to estimate cardinality with. The minimum and default is 1 hour.
     # @return [Array<(MetricEstimateResponse, Integer, Hash)>] MetricEstimateResponse data, response status code and response headers
     def estimate_metrics_output_series_with_http_info(metric_name, opts = {})
 
@@ -607,7 +607,7 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @option opts [Boolean] :filter_configured Filter custom metrics that have configured tags.
     # @option opts [String] :filter_tags_configured Filter tag configurations by configured tags.
-    # @option opts [MetricTagConfigurationMetricTypes] :filter_metric_type Filter metrics by metric type.
+    # @option opts [MetricTagConfigurationMetricTypeCategory] :filter_metric_type Filter metrics by metric type.
     # @option opts [Boolean] :filter_include_percentiles Filter distributions with additional percentile aggregations enabled or disabled.
     # @option opts [Boolean] :filter_queried (Beta) Filter custom metrics that have or have not been queried in the specified window[seconds]. If no window is provided or the window is less than 2 hours, a default of 2 hours will be applied.
     # @option opts [String] :filter_tags Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions. Can only be combined with the filter[queried] filter.
@@ -618,7 +618,7 @@ module DatadogAPIClient::V2
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MetricsAPI.list_tag_configurations ...'
       end
-      allowable_values = ['gauge', 'count', 'rate', 'distribution']
+      allowable_values = ['non_distribution', 'distribution']
       if @api_client.config.client_side_validation && opts[:'filter_metric_type'] && !allowable_values.include?(opts[:'filter_metric_type'])
         fail ArgumentError, "invalid value for \"filter_metric_type\", must be one of #{allowable_values}"
       end

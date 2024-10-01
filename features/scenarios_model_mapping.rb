@@ -1007,6 +1007,24 @@ ScenariosModelMappings = {
             "case_id" => "String",
             "body" => "CaseEmptyRequest",
     },
+    "v2.ListCatalogEntity" => {
+            "page_offset" => "Integer",
+            "page_limit" => "Integer",
+            "fitler_id" => "String",
+            "fitler_ref" => "String",
+            "fitler_name" => "String",
+            "fitler_kind" => "String",
+            "fitler_owner" => "String",
+            "fitler_relation_type" => "RelationType",
+            "fitler_exclude_snapshot" => "String",
+            "include" => "IncludeType",
+    },
+    "v2.UpsertCatalogEntity" => {
+            "body" => "UpsertCatalogEntityRequest",
+    },
+    "v2.DeleteCatalogEntity" => {
+            "entity_id" => "String",
+    },
     "v2.CreateCIAppPipelineEvent" => {
             "body" => "CIAppCreatePipelineEventRequest",
     },
@@ -1286,6 +1304,30 @@ ScenariosModelMappings = {
     "v2.MakeGCPSTSDelegate" => {
             "body" => "Object",
     },
+    "v2.GetChannelByName" => {
+            "tenant_name" => "String",
+            "team_name" => "String",
+            "channel_name" => "String",
+    },
+    "v2.ListApiHandles" => {
+            "tenant_id" => "String",
+    },
+    "v2.CreateApiHandle" => {
+            "body" => "MicrosoftTeamsCreateApiHandleRequest",
+    },
+    "v2.GetApiHandleByName" => {
+            "handle_name" => "String",
+    },
+    "v2.DeleteApiHandle" => {
+            "handle_id" => "String",
+    },
+    "v2.GetApiHandle" => {
+            "handle_id" => "String",
+    },
+    "v2.UpdateApiHandle" => {
+            "handle_id" => "String",
+            "body" => "MicrosoftTeamsUpdateApiHandleRequest",
+    },
     "v2.CreateOpsgenieService" => {
             "body" => "OpsgenieServiceCreateRequest",
     },
@@ -1471,7 +1513,7 @@ ScenariosModelMappings = {
     "v2.ListTagConfigurations" => {
             "filter_configured" => "Boolean",
             "filter_tags_configured" => "String",
-            "filter_metric_type" => "MetricTagConfigurationMetricTypes",
+            "filter_metric_type" => "MetricTagConfigurationMetricTypeCategory",
             "filter_include_percentiles" => "Boolean",
             "filter_queried" => "Boolean",
             "filter_tags" => "String",
