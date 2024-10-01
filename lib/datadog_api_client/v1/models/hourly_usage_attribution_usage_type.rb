@@ -43,6 +43,7 @@ module DatadogAPIClient::V1
     CUSTOM_TIMESERIES_USAGE = "custom_timeseries_usage".freeze
     CWS_CONTAINERS_USAGE = "cws_containers_usage".freeze
     CWS_HOSTS_USAGE = "cws_hosts_usage".freeze
+    DATA_JOBS_MONITORING_USAGE = "data_jobs_monitoring_usage".freeze
     DBM_HOSTS_USAGE = "dbm_hosts_usage".freeze
     DBM_QUERIES_USAGE = "dbm_queries_usage".freeze
     ERROR_TRACKING_USAGE = "error_tracking_usage".freeze
