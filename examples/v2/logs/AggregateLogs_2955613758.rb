@@ -29,7 +29,6 @@ body = DatadogAPIClient::V2::LogsAggregateRequest.new({
         aggregation: DatadogAPIClient::V2::LogsAggregationFunction::PERCENTILE_90,
         metric: "@duration",
       }),
-      total: "recall",
     }),
   ],
 })
