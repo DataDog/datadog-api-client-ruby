@@ -17,12 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Type of the configuration variable.
-  class SyntheticsConfigVariableType
+  # Reference type for the mobile application for a mobile synthetics test.
+  class SyntheticsMobileTestsMobileApplicationReferenceType
     include BaseEnumModel
 
-    GLOBAL = "global".freeze
-    TEXT = "text".freeze
-    EMAIL = "email".freeze
+    LATEST = "latest".freeze
+    VERSION = "version".freeze
   end
 end

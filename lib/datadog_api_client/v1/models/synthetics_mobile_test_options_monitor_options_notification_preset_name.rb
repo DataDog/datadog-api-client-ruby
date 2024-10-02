@@ -17,12 +17,13 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Type of the configuration variable.
-  class SyntheticsConfigVariableType
+  # The definition of `SyntheticsMobileTestOptionsMonitorOptionsNotificationPresetName` object.
+  class SyntheticsMobileTestOptionsMonitorOptionsNotificationPresetName
     include BaseEnumModel
 
-    GLOBAL = "global".freeze
-    TEXT = "text".freeze
-    EMAIL = "email".freeze
+    SHOW_ALL = "show_all".freeze
+    HIDE_ALL = "hide_all".freeze
+    HIDE_QUERY = "hide_query".freeze
+    HIDE_HANDLES = "hide_handles".freeze
   end
 end
