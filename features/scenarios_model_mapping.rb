@@ -756,6 +756,9 @@ ScenariosModelMappings = {
     "v1.TriggerCITests" => {
             "body" => "SyntheticsCITestBody",
     },
+    "v1.FetchUptimes" => {
+            "body" => "SyntheticsFetchUptimesPayload",
+    },
     "v1.GetTest" => {
             "public_id" => "String",
     },

@@ -1,0 +1,25 @@
+http_interactions:
+- recorded_at: Wed, 02 Oct 2024 14:22:00 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"from_ts":0,"public_ids":[],"to_ts":0}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v1/synthetics/tests/uptimes
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":["Minimum number of elements in parameter ''public_ids''
+        should be 1"]}'
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 400
+      message: Bad Request
+recorded_with: VCR 6.0.0
