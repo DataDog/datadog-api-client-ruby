@@ -17,12 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Type of the configuration variable.
-  class SyntheticsConfigVariableType
+  # The definition of `SyntheticsMobileTestBindingItemsRole` object.
+  class SyntheticsMobileTestBindingItemsRole
     include BaseEnumModel
 
-    GLOBAL = "global".freeze
-    TEXT = "text".freeze
-    EMAIL = "email".freeze
+    EDITOR = "editor".freeze
+    VIEWER = "viewer".freeze
   end
 end

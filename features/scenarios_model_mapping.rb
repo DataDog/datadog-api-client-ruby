@@ -740,6 +740,16 @@ ScenariosModelMappings = {
     "v1.DeleteTests" => {
             "body" => "SyntheticsDeleteTestsPayload",
     },
+    "v1.CreateSyntheticsMobileTest" => {
+            "body" => "SyntheticsMobileTest",
+    },
+    "v1.GetMobileTest" => {
+            "public_id" => "String",
+    },
+    "v1.UpdateMobileTest" => {
+            "public_id" => "String",
+            "body" => "SyntheticsMobileTest",
+    },
     "v1.TriggerTests" => {
             "body" => "SyntheticsTriggerBody",
     },
