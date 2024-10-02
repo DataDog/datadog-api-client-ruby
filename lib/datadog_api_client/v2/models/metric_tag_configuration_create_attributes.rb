@@ -36,7 +36,7 @@ module DatadogAPIClient::V2
     # - time: sum, space: avg
     # - time: sum, space: sum
     #
-    # Can only be applied to metrics that have a `metric_type` of `count`, `rate`, or `gauge`.
+    # Can only be applied to non_distribution metrics that have a `metric_type` of `count`, `rate`, or `gauge`.
     attr_accessor :aggregations
 
     # When set to true, the configuration will exclude the configured tags and include any other submitted tags.
