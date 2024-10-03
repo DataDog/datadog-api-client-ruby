@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Create handle request.
-  class MicrosoftTeamsCreateApiHandleRequest
+  # Response with a list of tenant-based handles.
+  class MicrosoftTeamsTenantBasedHandlesResponse
     include BaseGenericModel
 
-    # Handle data from a response.
+    # An array of tenant-based handles.
     attr_reader :data
 
     attr_accessor :additional_properties
@@ -38,7 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'MicrosoftTeamsApiHandleRequestData'
+        :'data' => :'Array<MicrosoftTeamsTenantBasedHandleInfoResponseData>'
       }
     end
 
@@ -47,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::MicrosoftTeamsCreateApiHandleRequest` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::MicrosoftTeamsTenantBasedHandlesResponse` initialize method"
       end
 
       self.additional_properties = {}
@@ -61,7 +61,9 @@ module DatadogAPIClient::V2
       }
 
       if attributes.key?(:'data')
-        self.data = attributes[:'data']
+        if (value = attributes[:'data']).is_a?(Array)
+          self.data = value
+        end
       end
     end
 

@@ -17,10 +17,10 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Handle resource type.
-  class MicrosoftTeamsApiHandleInfoType
+  # Tenant-based handle resource type.
+  class MicrosoftTeamsTenantBasedHandleInfoType
     include BaseEnumModel
 
-    MS_TEAMS_HANDLE_INFO = "ms-teams-handle-info".freeze
+    MS_TEAMS_TENANT_BASED_HANDLE_INFO = "ms-teams-tenant-based-handle-info".freeze
   end
 end
