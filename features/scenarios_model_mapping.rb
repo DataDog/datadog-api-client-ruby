@@ -1322,22 +1322,24 @@ ScenariosModelMappings = {
             "team_name" => "String",
             "channel_name" => "String",
     },
-    "v2.ListTenantBasedHandles" => {
+    "v2.ListApiHandles" => {
             "tenant_id" => "String",
-            "name" => "String",
     },
-    "v2.CreateTenantBasedHandle" => {
-            "body" => "MicrosoftTeamsCreateTenantBasedHandleRequest",
+    "v2.CreateApiHandle" => {
+            "body" => "MicrosoftTeamsCreateApiHandleRequest",
     },
-    "v2.DeleteTenantBasedHandle" => {
+    "v2.GetApiHandleByName" => {
+            "handle_name" => "String",
+    },
+    "v2.DeleteApiHandle" => {
             "handle_id" => "String",
     },
-    "v2.GetTenantBasedHandle" => {
+    "v2.GetApiHandle" => {
             "handle_id" => "String",
     },
-    "v2.UpdateTenantBasedHandle" => {
+    "v2.UpdateApiHandle" => {
             "handle_id" => "String",
-            "body" => "MicrosoftTeamsUpdateTenantBasedHandleRequest",
+            "body" => "MicrosoftTeamsUpdateApiHandleRequest",
     },
     "v2.CreateOpsgenieService" => {
             "body" => "OpsgenieServiceCreateRequest",
@@ -1677,6 +1679,7 @@ ScenariosModelMappings = {
             "page_limit" => "Integer",
             "snapshot_timestamp" => "Integer",
             "page_cursor" => "String",
+            "filter_detection_type" => "Array<FindingDetectionType>",
             "filter_tags" => "String",
             "filter_evaluation_changed_at" => "String",
             "filter_muted" => "Boolean",
