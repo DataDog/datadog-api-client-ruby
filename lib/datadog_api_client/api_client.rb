@@ -194,7 +194,8 @@ module DatadogAPIClient
         :http_proxyaddr => @config.http_proxyaddr,
         :http_proxyport => @config.http_proxyport,
         :http_proxyuser => @config.http_proxyuser,
-        :http_proxypass => @config.http_proxypass
+        :http_proxypass => @config.http_proxypass,
+        :query_string_normalizer => HTTParty::Request::NON_RAILS_QUERY_STRING_NORMALIZER
       }
 
       req_opts[:pem] = File.read(@config.cert_file) if @config.cert_file
