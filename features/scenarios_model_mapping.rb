@@ -740,11 +740,24 @@ ScenariosModelMappings = {
     "v1.DeleteTests" => {
             "body" => "SyntheticsDeleteTestsPayload",
     },
+    "v1.CreateSyntheticsMobileTest" => {
+            "body" => "SyntheticsMobileTest",
+    },
+    "v1.GetMobileTest" => {
+            "public_id" => "String",
+    },
+    "v1.UpdateMobileTest" => {
+            "public_id" => "String",
+            "body" => "SyntheticsMobileTest",
+    },
     "v1.TriggerTests" => {
             "body" => "SyntheticsTriggerBody",
     },
     "v1.TriggerCITests" => {
             "body" => "SyntheticsCITestBody",
+    },
+    "v1.FetchUptimes" => {
+            "body" => "SyntheticsFetchUptimesPayload",
     },
     "v1.GetTest" => {
             "public_id" => "String",
@@ -1303,6 +1316,28 @@ ScenariosModelMappings = {
     },
     "v2.MakeGCPSTSDelegate" => {
             "body" => "Object",
+    },
+    "v2.GetChannelByName" => {
+            "tenant_name" => "String",
+            "team_name" => "String",
+            "channel_name" => "String",
+    },
+    "v2.ListTenantBasedHandles" => {
+            "tenant_id" => "String",
+            "name" => "String",
+    },
+    "v2.CreateTenantBasedHandle" => {
+            "body" => "MicrosoftTeamsCreateTenantBasedHandleRequest",
+    },
+    "v2.DeleteTenantBasedHandle" => {
+            "handle_id" => "String",
+    },
+    "v2.GetTenantBasedHandle" => {
+            "handle_id" => "String",
+    },
+    "v2.UpdateTenantBasedHandle" => {
+            "handle_id" => "String",
+            "body" => "MicrosoftTeamsUpdateTenantBasedHandleRequest",
     },
     "v2.CreateOpsgenieService" => {
             "body" => "OpsgenieServiceCreateRequest",

@@ -8,6 +8,10 @@ class Object
     result = self
     dotted_path.split('.').each do |dot_part|
       dot_part.split('[').each do |part|
+        if part == ''
+          next
+        end
+
         if part.include?(']')
           index = part.to_i
           result = result[index]

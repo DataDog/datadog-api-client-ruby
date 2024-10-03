@@ -788,6 +788,49 @@
       "type": "idempotent"
     }
   },
+  "GetChannelByName": {
+    "tag": "Microsoft Teams Integration",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "ListTenantBasedHandles": {
+    "tag": "Microsoft Teams Integration",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "CreateTenantBasedHandle": {
+    "tag": "Microsoft Teams Integration",
+    "undo": {
+      "operationId": "DeleteTenantBasedHandle",
+      "parameters": [
+        {
+          "name": "handle_id",
+          "source": "data.id"
+        }
+      ],
+      "type": "unsafe"
+    }
+  },
+  "DeleteTenantBasedHandle": {
+    "tag": "Microsoft Teams Integration",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
+  "GetTenantBasedHandle": {
+    "tag": "Microsoft Teams Integration",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "UpdateTenantBasedHandle": {
+    "tag": "Microsoft Teams Integration",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
   "ListOpsgenieServices": {
     "tag": "Opsgenie Integration",
     "undo": {

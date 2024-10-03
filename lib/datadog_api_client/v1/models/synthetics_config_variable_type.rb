@@ -23,5 +23,6 @@ module DatadogAPIClient::V1
 
     GLOBAL = "global".freeze
     TEXT = "text".freeze
+    EMAIL = "email".freeze
   end
 end

@@ -291,6 +291,73 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
+    # Create a mobile test.
+    #
+    # @see #create_synthetics_mobile_test_with_http_info
+    def create_synthetics_mobile_test(body, opts = {})
+      data, _status_code, _headers = create_synthetics_mobile_test_with_http_info(body, opts)
+      data
+    end
+
+    # Create a mobile test.
+    #
+    # Create a Synthetic mobile test.
+    #
+    # @param body [SyntheticsMobileTest] Details of the test to create.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SyntheticsMobileTest, Integer, Hash)>] SyntheticsMobileTest data, response status code and response headers
+    def create_synthetics_mobile_test_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsAPI.create_synthetics_mobile_test ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SyntheticsAPI.create_synthetics_mobile_test"
+      end
+      # resource path
+      local_var_path = '/api/v1/synthetics/tests/mobile'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SyntheticsMobileTest'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_synthetics_mobile_test,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V1"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SyntheticsAPI#create_synthetics_mobile_test\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Delete a global variable.
     #
     # @see #delete_global_variable_with_http_info
@@ -556,6 +623,73 @@ module DatadogAPIClient::V1
       data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SyntheticsAPI#edit_global_variable\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Fetch uptime for multiple tests.
+    #
+    # @see #fetch_uptimes_with_http_info
+    def fetch_uptimes(body, opts = {})
+      data, _status_code, _headers = fetch_uptimes_with_http_info(body, opts)
+      data
+    end
+
+    # Fetch uptime for multiple tests.
+    #
+    # Fetch uptime for multiple Synthetic tests by ID.
+    #
+    # @param body [SyntheticsFetchUptimesPayload] Public ID list of the Synthetic tests and timeframe.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(Array<SyntheticsTestUptime>, Integer, Hash)>] Array<SyntheticsTestUptime> data, response status code and response headers
+    def fetch_uptimes_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsAPI.fetch_uptimes ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SyntheticsAPI.fetch_uptimes"
+      end
+      # resource path
+      local_var_path = '/api/v1/synthetics/tests/uptimes'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'Array<SyntheticsTestUptime>'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :fetch_uptimes,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V1"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SyntheticsAPI#fetch_uptimes\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1035,6 +1169,72 @@ module DatadogAPIClient::V1
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SyntheticsAPI#get_global_variable\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get a Mobile test.
+    #
+    # @see #get_mobile_test_with_http_info
+    def get_mobile_test(public_id, opts = {})
+      data, _status_code, _headers = get_mobile_test_with_http_info(public_id, opts)
+      data
+    end
+
+    # Get a Mobile test.
+    #
+    # Get the detailed configuration associated with
+    # a Synthetic Mobile test.
+    #
+    # @param public_id [String] The public ID of the test to get details from.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SyntheticsMobileTest, Integer, Hash)>] SyntheticsMobileTest data, response status code and response headers
+    def get_mobile_test_with_http_info(public_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsAPI.get_mobile_test ...'
+      end
+      # verify the required parameter 'public_id' is set
+      if @api_client.config.client_side_validation && public_id.nil?
+        fail ArgumentError, "Missing the required parameter 'public_id' when calling SyntheticsAPI.get_mobile_test"
+      end
+      # resource path
+      local_var_path = '/api/v1/synthetics/tests/mobile/{public_id}'.sub('{public_id}', CGI.escape(public_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SyntheticsMobileTest'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_mobile_test,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V1"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SyntheticsAPI#get_mobile_test\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1847,6 +2047,78 @@ module DatadogAPIClient::V1
       data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SyntheticsAPI#update_browser_test\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Edit a Mobile test.
+    #
+    # @see #update_mobile_test_with_http_info
+    def update_mobile_test(public_id, body, opts = {})
+      data, _status_code, _headers = update_mobile_test_with_http_info(public_id, body, opts)
+      data
+    end
+
+    # Edit a Mobile test.
+    #
+    # Edit the configuration of a Synthetic Mobile test.
+    #
+    # @param public_id [String] The public ID of the test to get details from.
+    # @param body [SyntheticsMobileTest] New test details to be saved.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SyntheticsMobileTest, Integer, Hash)>] SyntheticsMobileTest data, response status code and response headers
+    def update_mobile_test_with_http_info(public_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsAPI.update_mobile_test ...'
+      end
+      # verify the required parameter 'public_id' is set
+      if @api_client.config.client_side_validation && public_id.nil?
+        fail ArgumentError, "Missing the required parameter 'public_id' when calling SyntheticsAPI.update_mobile_test"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SyntheticsAPI.update_mobile_test"
+      end
+      # resource path
+      local_var_path = '/api/v1/synthetics/tests/mobile/{public_id}'.sub('{public_id}', CGI.escape(public_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SyntheticsMobileTest'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_mobile_test,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V1"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SyntheticsAPI#update_mobile_test\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

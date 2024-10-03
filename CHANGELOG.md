@@ -1,5 +1,32 @@
 # CHANGELOG
 
+## 2.27.1 / 2024-10-02
+
+### Fixed
+* change schema used in FastlyServicesResponse by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/2020
+* Update configuration for frozen-string-literal by @HParker in https://github.com/DataDog/datadog-api-client-ruby/pull/1971
+### Added
+* Allow Table Widget requests to specify text replace formatting in dashboards by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1993
+* Add documentation for Data Jobs Monitoring summary keys by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1997
+* Update estimate docs with realtime changes by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/2024
+* Ensure clients can handle empty oneOf objects by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/2022
+* Add referenceTables field to security monitoring endpoints by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/2017
+* Add UA documentation for new DJM usage_type by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/2018
+* Add v2 endpoints for MS Teams Integration by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/2026
+* Add documention for OCI Integration by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/2033
+* Add schema for mobile test by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/2010
+* Add Synthetics endpoint to fetch uptimes in API spec by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1984
+### Changed
+* Split the synthetics request port field into a oneOf by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/2005
+* Remove unused field `color` in `TeamUpdateAttributes` by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1998
+* Powerpack add support for prefix and available values by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/2011
+* Update v2 metrics list endpoint filter by metric type to use metric type category by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/2025
+
+## New Contributors
+* @HParker made their first contribution in https://github.com/DataDog/datadog-api-client-ruby/pull/1971
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-ruby/compare/v2.26.1...v2.27.1
+
 ## 2.26.1 / 2024-09-11
 
 ### Fixed
