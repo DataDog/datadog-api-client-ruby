@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Handle attributes.
-  class MicrosoftTeamsApiHandleRequestAttributes
+  # Tenant-based handle attributes.
+  class MicrosoftTeamsTenantBasedHandleRequestAttributes
     include BaseGenericModel
 
     # Channel id.
     attr_reader :channel_id
 
-    # Handle name.
+    # Tenant-based handle name.
     attr_reader :name
 
     # Team id.
@@ -62,7 +62,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::MicrosoftTeamsApiHandleRequestAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::MicrosoftTeamsTenantBasedHandleRequestAttributes` initialize method"
       end
 
       self.additional_properties = {}

@@ -23,29 +23,29 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
-    # Create handle.
+    # Create tenant-based handle.
     #
-    # @see #create_api_handle_with_http_info
-    def create_api_handle(body, opts = {})
-      data, _status_code, _headers = create_api_handle_with_http_info(body, opts)
+    # @see #create_tenant_based_handle_with_http_info
+    def create_tenant_based_handle(body, opts = {})
+      data, _status_code, _headers = create_tenant_based_handle_with_http_info(body, opts)
       data
     end
 
-    # Create handle.
+    # Create tenant-based handle.
     #
-    # Create a handle in the Datadog Microsoft Teams integration.
+    # Create a tenant-based handle in the Datadog Microsoft Teams integration.
     #
-    # @param body [MicrosoftTeamsCreateApiHandleRequest] Handle payload.
+    # @param body [MicrosoftTeamsCreateTenantBasedHandleRequest] Tenant-based handle payload.
     # @param opts [Hash] the optional parameters
-    # @return [Array<(MicrosoftTeamsCreateApiHandleResponse, Integer, Hash)>] MicrosoftTeamsCreateApiHandleResponse data, response status code and response headers
-    def create_api_handle_with_http_info(body, opts = {})
+    # @return [Array<(MicrosoftTeamsTenantBasedHandleResponse, Integer, Hash)>] MicrosoftTeamsTenantBasedHandleResponse data, response status code and response headers
+    def create_tenant_based_handle_with_http_info(body, opts = {})
 
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MicrosoftTeamsIntegrationAPI.create_api_handle ...'
+        @api_client.config.logger.debug 'Calling API: MicrosoftTeamsIntegrationAPI.create_tenant_based_handle ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling MicrosoftTeamsIntegrationAPI.create_api_handle"
+        fail ArgumentError, "Missing the required parameter 'body' when calling MicrosoftTeamsIntegrationAPI.create_tenant_based_handle"
       end
       # resource path
       local_var_path = '/api/v2/integration/ms-teams/configuration/tenant-based-handles'
@@ -67,13 +67,13 @@ module DatadogAPIClient::V2
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MicrosoftTeamsCreateApiHandleResponse'
+      return_type = opts[:debug_return_type] || 'MicrosoftTeamsTenantBasedHandleResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
-        :operation => :create_api_handle,
+        :operation => :create_tenant_based_handle,
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -85,34 +85,34 @@ module DatadogAPIClient::V2
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MicrosoftTeamsIntegrationAPI#create_api_handle\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: MicrosoftTeamsIntegrationAPI#create_tenant_based_handle\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
 
-    # Delete handle.
+    # Delete tenant-based handle.
     #
-    # @see #delete_api_handle_with_http_info
-    def delete_api_handle(handle_id, opts = {})
-      delete_api_handle_with_http_info(handle_id, opts)
+    # @see #delete_tenant_based_handle_with_http_info
+    def delete_tenant_based_handle(handle_id, opts = {})
+      delete_tenant_based_handle_with_http_info(handle_id, opts)
       nil
     end
 
-    # Delete handle.
+    # Delete tenant-based handle.
     #
-    # Delete a handle from the Datadog Microsoft Teams integration.
+    # Delete a tenant-based handle from the Datadog Microsoft Teams integration.
     #
-    # @param handle_id [String] Your handle id.
+    # @param handle_id [String] Your tenant-based handle id.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def delete_api_handle_with_http_info(handle_id, opts = {})
+    def delete_tenant_based_handle_with_http_info(handle_id, opts = {})
 
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MicrosoftTeamsIntegrationAPI.delete_api_handle ...'
+        @api_client.config.logger.debug 'Calling API: MicrosoftTeamsIntegrationAPI.delete_tenant_based_handle ...'
       end
       # verify the required parameter 'handle_id' is set
       if @api_client.config.client_side_validation && handle_id.nil?
-        fail ArgumentError, "Missing the required parameter 'handle_id' when calling MicrosoftTeamsIntegrationAPI.delete_api_handle"
+        fail ArgumentError, "Missing the required parameter 'handle_id' when calling MicrosoftTeamsIntegrationAPI.delete_tenant_based_handle"
       end
       # resource path
       local_var_path = '/api/v2/integration/ms-teams/configuration/tenant-based-handles/{handle_id}'.sub('{handle_id}', CGI.escape(handle_id.to_s).gsub('%2F', '/'))
@@ -138,7 +138,7 @@ module DatadogAPIClient::V2
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
-        :operation => :delete_api_handle,
+        :operation => :delete_tenant_based_handle,
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -150,137 +150,7 @@ module DatadogAPIClient::V2
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MicrosoftTeamsIntegrationAPI#delete_api_handle\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Get handle information.
-    #
-    # @see #get_api_handle_with_http_info
-    def get_api_handle(handle_id, opts = {})
-      data, _status_code, _headers = get_api_handle_with_http_info(handle_id, opts)
-      data
-    end
-
-    # Get handle information.
-    #
-    # Get the tenant, team, and channel information of a handle from the Datadog Microsoft Teams integration.
-    #
-    # @param handle_id [String] Your handle id.
-    # @param opts [Hash] the optional parameters
-    # @return [Array<(MicrosoftTeamsApiHandleInfoResponse, Integer, Hash)>] MicrosoftTeamsApiHandleInfoResponse data, response status code and response headers
-    def get_api_handle_with_http_info(handle_id, opts = {})
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MicrosoftTeamsIntegrationAPI.get_api_handle ...'
-      end
-      # verify the required parameter 'handle_id' is set
-      if @api_client.config.client_side_validation && handle_id.nil?
-        fail ArgumentError, "Missing the required parameter 'handle_id' when calling MicrosoftTeamsIntegrationAPI.get_api_handle"
-      end
-      # resource path
-      local_var_path = '/api/v2/integration/ms-teams/configuration/tenant-based-handles/{handle_id}'.sub('{handle_id}', CGI.escape(handle_id.to_s).gsub('%2F', '/'))
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'MicrosoftTeamsApiHandleInfoResponse'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
-
-      new_options = opts.merge(
-        :operation => :get_api_handle,
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type,
-        :api_version => "V2"
-      )
-
-      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MicrosoftTeamsIntegrationAPI#get_api_handle\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Get handle information by name.
-    #
-    # @see #get_api_handle_by_name_with_http_info
-    def get_api_handle_by_name(handle_name, opts = {})
-      data, _status_code, _headers = get_api_handle_by_name_with_http_info(handle_name, opts)
-      data
-    end
-
-    # Get handle information by name.
-    #
-    # Get the tenant, team, and channel information of a handle by name from the Datadog Microsoft Teams integration.
-    #
-    # @param handle_name [String] Your handle name.
-    # @param opts [Hash] the optional parameters
-    # @return [Array<(MicrosoftTeamsApiHandleInfoResponse, Integer, Hash)>] MicrosoftTeamsApiHandleInfoResponse data, response status code and response headers
-    def get_api_handle_by_name_with_http_info(handle_name, opts = {})
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MicrosoftTeamsIntegrationAPI.get_api_handle_by_name ...'
-      end
-      # verify the required parameter 'handle_name' is set
-      if @api_client.config.client_side_validation && handle_name.nil?
-        fail ArgumentError, "Missing the required parameter 'handle_name' when calling MicrosoftTeamsIntegrationAPI.get_api_handle_by_name"
-      end
-      # resource path
-      local_var_path = '/api/v2/integration/ms-teams/configuration/tenant-based-handles/name/{handle_name}'.sub('{handle_name}', CGI.escape(handle_name.to_s).gsub('%2F', '/'))
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'MicrosoftTeamsApiHandleInfoResponse'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
-
-      new_options = opts.merge(
-        :operation => :get_api_handle_by_name,
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type,
-        :api_version => "V2"
-      )
-
-      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MicrosoftTeamsIntegrationAPI#get_api_handle_by_name\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: MicrosoftTeamsIntegrationAPI#delete_tenant_based_handle\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -360,32 +230,35 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Get all handles.
+    # Get tenant-based handle information.
     #
-    # @see #list_api_handles_with_http_info
-    def list_api_handles(opts = {})
-      data, _status_code, _headers = list_api_handles_with_http_info(opts)
+    # @see #get_tenant_based_handle_with_http_info
+    def get_tenant_based_handle(handle_id, opts = {})
+      data, _status_code, _headers = get_tenant_based_handle_with_http_info(handle_id, opts)
       data
     end
 
-    # Get all handles.
+    # Get tenant-based handle information.
     #
-    # Get a list of all handles from the Datadog Microsoft Teams integration.
+    # Get the tenant, team, and channel information of a tenant-based handle from the Datadog Microsoft Teams integration.
     #
+    # @param handle_id [String] Your tenant-based handle id.
     # @param opts [Hash] the optional parameters
-    # @option opts [String] :tenant_id Your tenant id.
-    # @return [Array<(MicrosoftTeamsApiHandlesResponse, Integer, Hash)>] MicrosoftTeamsApiHandlesResponse data, response status code and response headers
-    def list_api_handles_with_http_info(opts = {})
+    # @return [Array<(MicrosoftTeamsTenantBasedHandleResponse, Integer, Hash)>] MicrosoftTeamsTenantBasedHandleResponse data, response status code and response headers
+    def get_tenant_based_handle_with_http_info(handle_id, opts = {})
 
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MicrosoftTeamsIntegrationAPI.list_api_handles ...'
+        @api_client.config.logger.debug 'Calling API: MicrosoftTeamsIntegrationAPI.get_tenant_based_handle ...'
+      end
+      # verify the required parameter 'handle_id' is set
+      if @api_client.config.client_side_validation && handle_id.nil?
+        fail ArgumentError, "Missing the required parameter 'handle_id' when calling MicrosoftTeamsIntegrationAPI.get_tenant_based_handle"
       end
       # resource path
-      local_var_path = '/api/v2/integration/ms-teams/configuration/tenant-based-handles'
+      local_var_path = '/api/v2/integration/ms-teams/configuration/tenant-based-handles/{handle_id}'.sub('{handle_id}', CGI.escape(handle_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
-      query_params[:'tenant_id'] = opts[:'tenant_id'] if !opts[:'tenant_id'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -399,13 +272,13 @@ module DatadogAPIClient::V2
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MicrosoftTeamsApiHandlesResponse'
+      return_type = opts[:debug_return_type] || 'MicrosoftTeamsTenantBasedHandleResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
-        :operation => :list_api_handles,
+        :operation => :get_tenant_based_handle,
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -417,39 +290,103 @@ module DatadogAPIClient::V2
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MicrosoftTeamsIntegrationAPI#list_api_handles\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: MicrosoftTeamsIntegrationAPI#get_tenant_based_handle\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
 
-    # Update handle.
+    # Get all tenant-based handles.
     #
-    # @see #update_api_handle_with_http_info
-    def update_api_handle(handle_id, body, opts = {})
-      data, _status_code, _headers = update_api_handle_with_http_info(handle_id, body, opts)
+    # @see #list_tenant_based_handles_with_http_info
+    def list_tenant_based_handles(opts = {})
+      data, _status_code, _headers = list_tenant_based_handles_with_http_info(opts)
       data
     end
 
-    # Update handle.
+    # Get all tenant-based handles.
     #
-    # Update a handle from the Datadog Microsoft Teams integration.
+    # Get a list of all tenant-based handles from the Datadog Microsoft Teams integration.
     #
-    # @param handle_id [String] Your handle id.
-    # @param body [MicrosoftTeamsUpdateApiHandleRequest] Opsgenie service payload.
     # @param opts [Hash] the optional parameters
-    # @return [Array<(MicrosoftTeamsApiHandleInfoResponse, Integer, Hash)>] MicrosoftTeamsApiHandleInfoResponse data, response status code and response headers
-    def update_api_handle_with_http_info(handle_id, body, opts = {})
+    # @option opts [String] :tenant_id Your tenant id.
+    # @option opts [String] :name Your tenant-based handle name.
+    # @return [Array<(MicrosoftTeamsTenantBasedHandlesResponse, Integer, Hash)>] MicrosoftTeamsTenantBasedHandlesResponse data, response status code and response headers
+    def list_tenant_based_handles_with_http_info(opts = {})
 
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MicrosoftTeamsIntegrationAPI.update_api_handle ...'
+        @api_client.config.logger.debug 'Calling API: MicrosoftTeamsIntegrationAPI.list_tenant_based_handles ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/integration/ms-teams/configuration/tenant-based-handles'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'tenant_id'] = opts[:'tenant_id'] if !opts[:'tenant_id'].nil?
+      query_params[:'name'] = opts[:'name'] if !opts[:'name'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MicrosoftTeamsTenantBasedHandlesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :list_tenant_based_handles,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MicrosoftTeamsIntegrationAPI#list_tenant_based_handles\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update tenant-based handle.
+    #
+    # @see #update_tenant_based_handle_with_http_info
+    def update_tenant_based_handle(handle_id, body, opts = {})
+      data, _status_code, _headers = update_tenant_based_handle_with_http_info(handle_id, body, opts)
+      data
+    end
+
+    # Update tenant-based handle.
+    #
+    # Update a tenant-based handle from the Datadog Microsoft Teams integration.
+    #
+    # @param handle_id [String] Your tenant-based handle id.
+    # @param body [MicrosoftTeamsUpdateTenantBasedHandleRequest] Tenant-based handle payload.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(MicrosoftTeamsTenantBasedHandleResponse, Integer, Hash)>] MicrosoftTeamsTenantBasedHandleResponse data, response status code and response headers
+    def update_tenant_based_handle_with_http_info(handle_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MicrosoftTeamsIntegrationAPI.update_tenant_based_handle ...'
       end
       # verify the required parameter 'handle_id' is set
       if @api_client.config.client_side_validation && handle_id.nil?
-        fail ArgumentError, "Missing the required parameter 'handle_id' when calling MicrosoftTeamsIntegrationAPI.update_api_handle"
+        fail ArgumentError, "Missing the required parameter 'handle_id' when calling MicrosoftTeamsIntegrationAPI.update_tenant_based_handle"
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling MicrosoftTeamsIntegrationAPI.update_api_handle"
+        fail ArgumentError, "Missing the required parameter 'body' when calling MicrosoftTeamsIntegrationAPI.update_tenant_based_handle"
       end
       # resource path
       local_var_path = '/api/v2/integration/ms-teams/configuration/tenant-based-handles/{handle_id}'.sub('{handle_id}', CGI.escape(handle_id.to_s).gsub('%2F', '/'))
@@ -471,13 +408,13 @@ module DatadogAPIClient::V2
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MicrosoftTeamsApiHandleInfoResponse'
+      return_type = opts[:debug_return_type] || 'MicrosoftTeamsTenantBasedHandleResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
-        :operation => :update_api_handle,
+        :operation => :update_tenant_based_handle,
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -489,7 +426,7 @@ module DatadogAPIClient::V2
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MicrosoftTeamsIntegrationAPI#update_api_handle\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: MicrosoftTeamsIntegrationAPI#update_tenant_based_handle\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

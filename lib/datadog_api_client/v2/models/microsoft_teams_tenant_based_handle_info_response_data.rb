@@ -17,15 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Handle data from a response.
-  class MicrosoftTeamsApiHandleRequestData
+  # Tenant-based handle data from a response.
+  class MicrosoftTeamsTenantBasedHandleInfoResponseData
     include BaseGenericModel
 
-    # Handle attributes.
-    attr_reader :attributes
+    # Tenant-based handle attributes.
+    attr_accessor :attributes
 
-    # Specifies the handle resource type.
-    attr_reader :type
+    # The ID of the tenant-based handle.
+    attr_reader :id
+
+    # Tenant-based handle resource type.
+    attr_accessor :type
 
     attr_accessor :additional_properties
 
@@ -34,6 +37,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'attributes' => :'attributes',
+        :'id' => :'id',
         :'type' => :'type'
       }
     end
@@ -42,8 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'MicrosoftTeamsApiHandleRequestAttributes',
-        :'type' => :'MicrosoftTeamsApiHandleType'
+        :'attributes' => :'MicrosoftTeamsTenantBasedHandleInfoResponseAttributes',
+        :'id' => :'String',
+        :'type' => :'MicrosoftTeamsTenantBasedHandleInfoType'
       }
     end
 
@@ -52,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::MicrosoftTeamsApiHandleRequestData` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::MicrosoftTeamsTenantBasedHandleInfoResponseData` initialize method"
       end
 
       self.additional_properties = {}
@@ -69,6 +74,10 @@ module DatadogAPIClient::V2
         self.attributes = attributes[:'attributes']
       end
 
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
+      end
+
       if attributes.key?(:'type')
         self.type = attributes[:'type']
       end
@@ -78,29 +87,22 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @attributes.nil?
-      return false if @type.nil?
+      return false if !@id.nil? && @id.to_s.length > 100
+      return false if !@id.nil? && @id.to_s.length < 1
       true
     end
 
     # Custom attribute writer method with validation
-    # @param attributes [Object] Object to be assigned
+    # @param id [Object] Object to be assigned
     # @!visibility private
-    def attributes=(attributes)
-      if attributes.nil?
-        fail ArgumentError, 'invalid value for "attributes", attributes cannot be nil.'
+    def id=(id)
+      if !id.nil? && id.to_s.length > 100
+        fail ArgumentError, 'invalid value for "id", the character length must be smaller than or equal to 100.'
       end
-      @attributes = attributes
-    end
-
-    # Custom attribute writer method with validation
-    # @param type [Object] Object to be assigned
-    # @!visibility private
-    def type=(type)
-      if type.nil?
-        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+      if !id.nil? && id.to_s.length < 1
+        fail ArgumentError, 'invalid value for "id", the character length must be great than or equal to 1.'
       end
-      @type = type
+      @id = id
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -130,6 +132,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           attributes == o.attributes &&
+          id == o.id &&
           type == o.type
           additional_properties == o.additional_properties
     end
@@ -138,7 +141,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, type].hash
+      [attributes, id, type].hash
     end
   end
 end

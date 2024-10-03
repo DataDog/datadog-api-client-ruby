@@ -1322,24 +1322,22 @@ ScenariosModelMappings = {
             "team_name" => "String",
             "channel_name" => "String",
     },
-    "v2.ListApiHandles" => {
+    "v2.ListTenantBasedHandles" => {
             "tenant_id" => "String",
+            "name" => "String",
     },
-    "v2.CreateApiHandle" => {
-            "body" => "MicrosoftTeamsCreateApiHandleRequest",
+    "v2.CreateTenantBasedHandle" => {
+            "body" => "MicrosoftTeamsCreateTenantBasedHandleRequest",
     },
-    "v2.GetApiHandleByName" => {
-            "handle_name" => "String",
-    },
-    "v2.DeleteApiHandle" => {
+    "v2.DeleteTenantBasedHandle" => {
             "handle_id" => "String",
     },
-    "v2.GetApiHandle" => {
+    "v2.GetTenantBasedHandle" => {
             "handle_id" => "String",
     },
-    "v2.UpdateApiHandle" => {
+    "v2.UpdateTenantBasedHandle" => {
             "handle_id" => "String",
-            "body" => "MicrosoftTeamsUpdateApiHandleRequest",
+            "body" => "MicrosoftTeamsUpdateTenantBasedHandleRequest",
     },
     "v2.CreateOpsgenieService" => {
             "body" => "OpsgenieServiceCreateRequest",
