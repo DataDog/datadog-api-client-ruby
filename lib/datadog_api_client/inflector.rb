@@ -1591,6 +1591,8 @@ module DatadogAPIClient
           "v2.incident_update_data" => "IncidentUpdateData",
           "v2.incident_update_relationships" => "IncidentUpdateRelationships",
           "v2.incident_update_request" => "IncidentUpdateRequest",
+          "v2.incident_user_attributes" => "IncidentUserAttributes",
+          "v2.incident_user_data" => "IncidentUserData",
           "v2.incident_user_defined_field_type" => "IncidentUserDefinedFieldType",
           "v2.include_type" => "IncludeType",
           "v2.intake_payload_accepted" => "IntakePayloadAccepted",
