@@ -6,6 +6,7 @@ require 'digest'
 require_relative '../scenarios_model_mapping'
 
 SLEEP_AFTER_REQUEST = ENV.has_key?("SLEEP_AFTER_REQUEST") ? ENV["SLEEP_AFTER_REQUEST"].to_i : 0
+WebMock::Config.instance.query_values_notation = :flat_array
 
 module APIWorld
   def api
@@ -100,7 +101,7 @@ module APIWorld
         return ret.rfc3339(3) if iso
         return ret.to_i
       end
-      return nil
+      nil
     }
   end
 
@@ -221,7 +222,7 @@ module APIWorld
   def model_builder(param, obj)
     model = ScenariosModelMappings["v#{@api_version}.#{@operation_id}"][param]
     if model == 'File'
-       return File.open(File.join(__dir__, "..", "v" + @api_version, obj))
+      return File.open(File.join(__dir__, "..", "v" + @api_version, obj))
     end
     @api_client.convert_to_type(obj, model, "V#{@api_version}")
   end
