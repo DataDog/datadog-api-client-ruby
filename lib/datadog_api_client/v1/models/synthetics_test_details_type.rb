@@ -23,5 +23,6 @@ module DatadogAPIClient::V1
 
     API = "api".freeze
     BROWSER = "browser".freeze
+    MOBILE = "mobile".freeze
   end
 end
