@@ -31,10 +31,10 @@ module DatadogAPIClient::V1
     # The width of the widget. Should be a non-negative integer.
     attr_reader :width
 
-    # The position of the widget on the x (horizontal) axis. Should be a non-negative integer.
+    # The position of the widget on the x (horizontal) axis. Should be a non-negative number.
     attr_reader :x
 
-    # The position of the widget on the y (vertical) axis. Should be a non-negative integer.
+    # The position of the widget on the y (vertical) axis. Should be a non-negative number.
     attr_reader :y
 
     attr_accessor :additional_properties
@@ -58,8 +58,8 @@ module DatadogAPIClient::V1
         :'height' => :'Integer',
         :'is_column_break' => :'Boolean',
         :'width' => :'Integer',
-        :'x' => :'Integer',
-        :'y' => :'Integer'
+        :'x' => :'Float',
+        :'y' => :'Float'
       }
     end
 
