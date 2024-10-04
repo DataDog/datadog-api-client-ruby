@@ -1841,6 +1841,8 @@ module DatadogAPIClient
           "v2.monthly_cost_attribution_meta" => "MonthlyCostAttributionMeta",
           "v2.monthly_cost_attribution_pagination" => "MonthlyCostAttributionPagination",
           "v2.monthly_cost_attribution_response" => "MonthlyCostAttributionResponse",
+          "v2.ms_teams_integration_metadata" => "MSTeamsIntegrationMetadata",
+          "v2.ms_teams_integration_metadata_teams_item" => "MSTeamsIntegrationMetadataTeamsItem",
           "v2.nullable_relationship_to_user" => "NullableRelationshipToUser",
           "v2.nullable_relationship_to_user_data" => "NullableRelationshipToUserData",
           "v2.nullable_user_relationship" => "NullableUserRelationship",
