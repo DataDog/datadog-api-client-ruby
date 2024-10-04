@@ -636,7 +636,6 @@ module DatadogAPIClient
           "v1.synthetics_local_variable_parsing_options_type" => "SyntheticsLocalVariableParsingOptionsType",
           "v1.synthetics_location" => "SyntheticsLocation",
           "v1.synthetics_locations" => "SyntheticsLocations",
-          "v1.synthetics_mobile_device_id" => "SyntheticsMobileDeviceID",
           "v1.synthetics_mobile_step" => "SyntheticsMobileStep",
           "v1.synthetics_mobile_step_type" => "SyntheticsMobileStepType",
           "v1.synthetics_mobile_test" => "SyntheticsMobileTest",

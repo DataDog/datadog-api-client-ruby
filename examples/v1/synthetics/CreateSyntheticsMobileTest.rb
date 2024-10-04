@@ -13,7 +13,7 @@ body = DatadogAPIClient::V1::SyntheticsMobileTest.new({
   message: "",
   options: DatadogAPIClient::V1::SyntheticsMobileTestOptions.new({
     device_ids: [
-      DatadogAPIClient::V1::SyntheticsMobileDeviceID::SYNTHETICS_MOBILE_DEVICE_IPHONE_15_IOS_17,
+      "synthetics:mobile:device:iphone_15_ios_17",
     ],
     mobile_application: DatadogAPIClient::V1::SyntheticsMobileTestsMobileApplication.new({
       application_id: "ab0e0aed-536d-411a-9a99-5428c27d8f8e",
