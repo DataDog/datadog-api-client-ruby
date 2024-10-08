@@ -1804,6 +1804,19 @@ ScenariosModelMappings = {
             "page_limit" => "Integer",
             "page_cursor" => "String",
     },
+    "v2.CreateASMExclusionFilter" => {
+            "body" => "ASMExclusionFilterCreateRequest",
+    },
+    "v2.DeleteASMExclusionFilter" => {
+            "exclusion_filter_id" => "String",
+    },
+    "v2.GetASMExclusionFilters" => {
+            "exclusion_filter_id" => "String",
+    },
+    "v2.UpdateASMExclusionFilter" => {
+            "exclusion_filter_id" => "String",
+            "body" => "ASMExclusionFilterUpdateRequest",
+    },
     "v2.CreateCSMThreatsAgentRule" => {
             "body" => "CloudWorkloadSecurityAgentRuleCreateRequest",
     },
