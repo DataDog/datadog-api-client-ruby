@@ -15,6 +15,7 @@ body = DatadogAPIClient::V1::GCPAccount.new({
   ],
   is_cspm_enabled: true,
   is_security_command_center_enabled: true,
+  is_resource_change_collection_enabled: true,
   private_key: "private_key",
   private_key_id: "123456789abcdefghi123456789abcdefghijklm",
   project_id: "datadog-apitest",

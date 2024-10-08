@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Wed, 20 Dec 2023 13:20:18 GMT
+- recorded_at: Mon, 07 Oct 2024 20:30:09 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"auth_provider_x509_cert_url":"https://www.googleapis.com/oauth2/v1/certs","auth_uri":"https://accounts.google.com/o/oauth2/auth","client_email":"40c7bfeef7b52e04@example.com","client_id":"170307841817030784180","client_x509_cert_url":"https://www.googleapis.com/robot/v1/metadata/x509/$CLIENT_EMAIL","host_filters":"key:value,filter:example","is_cspm_enabled":true,"is_security_command_center_enabled":true,"private_key":"private_key","private_key_id":"123456789abcdefghi123456789abcdefghijklm","project_id":"datadog-apitest","resource_collection_enabled":true,"token_uri":"https://accounts.google.com/o/oauth2/token","type":"service_account"}'
+      string: '{"auth_provider_x509_cert_url":"https://www.googleapis.com/oauth2/v1/certs","auth_uri":"https://accounts.google.com/o/oauth2/auth","client_email":"8c747ddd32fcd610@example.com","client_id":"172833300917283330090","client_x509_cert_url":"https://www.googleapis.com/robot/v1/metadata/x509/$CLIENT_EMAIL","host_filters":"key:value,filter:example","is_cspm_enabled":true,"is_resource_change_collection_enabled":true,"is_security_command_center_enabled":true,"private_key":"private_key","private_key_id":"123456789abcdefghi123456789abcdefghijklm","project_id":"datadog-apitest","resource_collection_enabled":true,"token_uri":"https://accounts.google.com/o/oauth2/token","type":"service_account"}'
     headers:
       Accept:
       - application/json
@@ -23,11 +23,11 @@ http_interactions:
     status:
       code: 200
       message: OK
-- recorded_at: Wed, 20 Dec 2023 13:20:18 GMT
+- recorded_at: Mon, 07 Oct 2024 20:30:09 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"client_email":"40c7bfeef7b52e04@example.com","client_id":"170307841817030784180","project_id":"datadog-apitest"}'
+      string: '{"client_email":"8c747ddd32fcd610@example.com","client_id":"172833300917283330090","project_id":"datadog-apitest"}'
     headers:
       Accept:
       - application/json
@@ -47,11 +47,11 @@ http_interactions:
     status:
       code: 200
       message: OK
-- recorded_at: Wed, 20 Dec 2023 13:20:18 GMT
+- recorded_at: Mon, 07 Oct 2024 20:30:09 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"client_email":"40c7bfeef7b52e04@example.com","client_id":"170307841817030784180","project_id":"datadog-apitest"}'
+      string: '{"client_email":"8c747ddd32fcd610@example.com","client_id":"172833300917283330090","project_id":"datadog-apitest"}'
     headers:
       Accept:
       - application/json
