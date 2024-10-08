@@ -436,6 +436,32 @@
       <li class="public ">
   <span class="summary_signature">
     
+      <a href="#is_resource_change_collection_enabled-instance_method" title="#is_resource_change_collection_enabled (instance method)">#<strong>is_resource_change_collection_enabled</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>When enabled, Datadog scans for all resource change data in your Google Cloud environment.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#is_security_command_center_enabled-instance_method" title="#is_security_command_center_enabled (instance method)">#<strong>is_security_command_center_enabled</strong>  &#x21d2; Object </a>
     
 
@@ -976,12 +1002,12 @@
       <pre class="lines">
 
 
-78
-79
-80</pre>
+81
+82
+83</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/gcp_account.rb', line 78</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/gcp_account.rb', line 81</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_additional_properties'>additional_properties</span>
   <span class='ivar'>@additional_properties</span>
@@ -1415,6 +1441,48 @@ Only hosts that match one of the defined tags are imported into Datadog.</p>
 </div>
     
       
+      <span id="is_resource_change_collection_enabled=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="is_resource_change_collection_enabled-instance_method">
+  
+    #<strong>is_resource_change_collection_enabled</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>When enabled, Datadog scans for all resource change data in your Google Cloud environment.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+58
+59
+60</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/gcp_account.rb', line 58</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_is_resource_change_collection_enabled'>is_resource_change_collection_enabled</span>
+  <span class='ivar'>@is_resource_change_collection_enabled</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
       <span id="is_security_command_center_enabled=-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="is_security_command_center_enabled-instance_method">
@@ -1441,12 +1509,12 @@ Only hosts that match one of the defined tags are imported into Datadog.</p>
       <pre class="lines">
 
 
-58
-59
-60</pre>
+61
+62
+63</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/gcp_account.rb', line 58</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/gcp_account.rb', line 61</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_is_security_command_center_enabled'>is_security_command_center_enabled</span>
   <span class='ivar'>@is_security_command_center_enabled</span>
@@ -1609,12 +1677,12 @@ Only hosts that match one of the defined tags are imported into Datadog.</p>
       <pre class="lines">
 
 
-70
-71
-72</pre>
+73
+74
+75</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/gcp_account.rb', line 70</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/gcp_account.rb', line 73</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_resource_collection_enabled'>resource_collection_enabled</span>
   <span class='ivar'>@resource_collection_enabled</span>
@@ -2570,7 +2638,7 @@ For object, use to_hash. Otherwise, just return the value</p>
 </div>
 
       <div id="footer">
-  Generated on Mon Oct  7 15:24:58 2024 by
+  Generated on Tue Oct  8 13:34:09 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>
