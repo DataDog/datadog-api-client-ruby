@@ -33,5 +33,6 @@ module DatadogAPIClient::V1
     LOGS_TRANSACTION_STREAM = "logs_transaction_stream".freeze
     EVENT_STREAM = "event_stream".freeze
     RUM_STREAM = "rum_stream".freeze
+    LLM_OBSERVABILITY_STREAM = "llm_observability_stream".freeze
   end
 end
