@@ -48,6 +48,9 @@ module DatadogAPIClient::V2
     # The tags associated with this finding.
     attr_accessor :tags
 
+    # The vulnerability type of the finding.
+    attr_accessor :vulnerability_type
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -62,7 +65,8 @@ module DatadogAPIClient::V2
         :'resource_type' => :'resource_type',
         :'rule' => :'rule',
         :'status' => :'status',
-        :'tags' => :'tags'
+        :'tags' => :'tags',
+        :'vulnerability_type' => :'vulnerability_type'
       }
     end
 
@@ -78,7 +82,8 @@ module DatadogAPIClient::V2
         :'resource_type' => :'String',
         :'rule' => :'FindingRule',
         :'status' => :'FindingStatus',
-        :'tags' => :'Array<String>'
+        :'tags' => :'Array<String>',
+        :'vulnerability_type' => :'FindingVulnerabilityType'
       }
     end
 
@@ -136,6 +141,10 @@ module DatadogAPIClient::V2
         if (value = attributes[:'tags']).is_a?(Array)
           self.tags = value
         end
+      end
+
+      if attributes.key?(:'vulnerability_type')
+        self.vulnerability_type = attributes[:'vulnerability_type']
       end
     end
 
@@ -202,7 +211,8 @@ module DatadogAPIClient::V2
           resource_type == o.resource_type &&
           rule == o.rule &&
           status == o.status &&
-          tags == o.tags
+          tags == o.tags &&
+          vulnerability_type == o.vulnerability_type
           additional_properties == o.additional_properties
     end
 
@@ -210,7 +220,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [evaluation, evaluation_changed_at, mute, resource, resource_discovery_date, resource_type, rule, status, tags].hash
+      [evaluation, evaluation_changed_at, mute, resource, resource_discovery_date, resource_type, rule, status, tags, vulnerability_type].hash
     end
   end
 end

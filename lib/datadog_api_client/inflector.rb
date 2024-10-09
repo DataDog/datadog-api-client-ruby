@@ -1434,6 +1434,7 @@ module DatadogAPIClient
           "v2.finding_rule" => "FindingRule",
           "v2.finding_status" => "FindingStatus",
           "v2.finding_type" => "FindingType",
+          "v2.finding_vulnerability_type" => "FindingVulnerabilityType",
           "v2.formula_limit" => "FormulaLimit",
           "v2.full_api_key" => "FullAPIKey",
           "v2.full_api_key_attributes" => "FullAPIKeyAttributes",
