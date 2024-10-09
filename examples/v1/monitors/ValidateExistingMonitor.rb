@@ -20,7 +20,6 @@ body = DatadogAPIClient::V1::Monitor.new({
     enable_logs_sample: true,
     escalation_message: "the situation has escalated",
     evaluation_delay: 700,
-    groupby_simple_monitor: true,
     include_tags: true,
     locked: false,
     new_host_delay: 600,
