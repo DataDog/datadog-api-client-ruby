@@ -1686,6 +1686,7 @@ ScenariosModelMappings = {
             "filter_discovery_timestamp" => "String",
             "filter_evaluation" => "FindingEvaluation",
             "filter_status" => "FindingStatus",
+            "filter_vulnerability_type" => "Array<FindingVulnerabilityType>",
     },
     "v2.MuteFindings" => {
             "body" => "BulkMuteFindingsRequest",

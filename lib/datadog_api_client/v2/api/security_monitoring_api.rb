@@ -1166,6 +1166,7 @@ module DatadogAPIClient::V2
     # @option opts [String] :filter_discovery_timestamp Return findings that were found on a specified date (Unix ms) or date range (using comparison operators).
     # @option opts [FindingEvaluation] :filter_evaluation Return only `pass` or `fail` findings.
     # @option opts [FindingStatus] :filter_status Return only findings with the specified status.
+    # @option opts [Array<FindingVulnerabilityType>] :filter_vulnerability_type Return findings that match the selected vulnerability types (repeatable).
     # @return [Array<(ListFindingsResponse, Integer, Hash)>] ListFindingsResponse data, response status code and response headers
     def list_findings_with_http_info(opts = {})
       unstable_enabled = @api_client.config.unstable_operations["v2.list_findings".to_sym]
@@ -1212,6 +1213,7 @@ module DatadogAPIClient::V2
       query_params[:'filter[discovery_timestamp]'] = opts[:'filter_discovery_timestamp'] if !opts[:'filter_discovery_timestamp'].nil?
       query_params[:'filter[evaluation]'] = opts[:'filter_evaluation'] if !opts[:'filter_evaluation'].nil?
       query_params[:'filter[status]'] = opts[:'filter_status'] if !opts[:'filter_status'].nil?
+      query_params[:'filter[vulnerability_type]'] = @api_client.build_collection_param(opts[:'filter_vulnerability_type'], :multi) if !opts[:'filter_vulnerability_type'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
