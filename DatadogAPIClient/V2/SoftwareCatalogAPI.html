@@ -512,7 +512,7 @@
       
       
         &mdash;
-        <div class='inline'><p>UUID or Entity Ref</p>
+        <div class='inline'><p>UUID or Entity Ref.</p>
 </div>
       
     </li>
@@ -788,19 +788,19 @@
         </li>
       
         <li>
-          <span class="name">:fitler_id</span>
+          <span class="name">:filter_id</span>
           <span class="type">(<tt>String</tt>)</span>
           <span class="default">
             
           </span>
           
-            &mdash; <div class='inline'><p>Filter entities by UUID</p>
+            &mdash; <div class='inline'><p>Filter entities by UUID.</p>
 </div>
           
         </li>
       
         <li>
-          <span class="name">:fitler_ref</span>
+          <span class="name">:filter_ref</span>
           <span class="type">(<tt>String</tt>)</span>
           <span class="default">
             
@@ -812,61 +812,61 @@
         </li>
       
         <li>
-          <span class="name">:fitler_name</span>
+          <span class="name">:filter_name</span>
           <span class="type">(<tt>String</tt>)</span>
           <span class="default">
             
           </span>
           
-            &mdash; <div class='inline'><p>Filter entities by name</p>
+            &mdash; <div class='inline'><p>Filter entities by name.</p>
 </div>
           
         </li>
       
         <li>
-          <span class="name">:fitler_kind</span>
+          <span class="name">:filter_kind</span>
           <span class="type">(<tt>String</tt>)</span>
           <span class="default">
             
           </span>
           
-            &mdash; <div class='inline'><p>Filter entities by kind</p>
+            &mdash; <div class='inline'><p>Filter entities by kind.</p>
 </div>
           
         </li>
       
         <li>
-          <span class="name">:fitler_owner</span>
+          <span class="name">:filter_owner</span>
           <span class="type">(<tt>String</tt>)</span>
           <span class="default">
             
           </span>
           
-            &mdash; <div class='inline'><p>Filter entities by owner</p>
+            &mdash; <div class='inline'><p>Filter entities by owner.</p>
 </div>
           
         </li>
       
         <li>
-          <span class="name">:fitler_relation_type</span>
+          <span class="name">:filter_relation_type</span>
           <span class="type">(<tt><span class='object_link'><a href="RelationType.html" title="DatadogAPIClient::V2::RelationType (class)">RelationType</a></span></tt>)</span>
           <span class="default">
             
           </span>
           
-            &mdash; <div class='inline'><p>Filter entities by relation type</p>
+            &mdash; <div class='inline'><p>Filter entities by relation type.</p>
 </div>
           
         </li>
       
         <li>
-          <span class="name">:fitler_exclude_snapshot</span>
+          <span class="name">:filter_exclude_snapshot</span>
           <span class="type">(<tt>String</tt>)</span>
           <span class="default">
             
           </span>
           
-            &mdash; <div class='inline'><p>Filter entities by excluding snapshotted entities</p>
+            &mdash; <div class='inline'><p>Filter entities by excluding snapshotted entities.</p>
 </div>
           
         </li>
@@ -878,7 +878,7 @@
             
           </span>
           
-            &mdash; <div class='inline'><p>include relationship data</p>
+            &mdash; <div class='inline'><p>Include relationship data.</p>
 </div>
           
         </li>
@@ -983,8 +983,8 @@
     <span class='ivar'>@api_client</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_logger'>logger</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Calling API: SoftwareCatalogAPI.list_catalog_entity ...</span><span class='tstring_end'>&#39;</span></span>
   <span class='kw'>end</span>
   <span class='id identifier rubyid_allowable_values'>allowable_values</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>RelationTypeOwns</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>RelationTypeOwnedBy</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>RelationTypeDependsOn</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>RelationTypeDependencyOf</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>RelationTypePartsOf</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>RelationTypeHasPart</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>RelationTypeOtherOwns</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>RelationTypeOtherOwnedBy</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>RelationTypeImplementedBy</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>RelationTypeImplements</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
-  <span class='kw'>if</span> <span class='ivar'>@api_client</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_client_side_validation'>client_side_validation</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;fitler_relation_type&#39;</span><span class='rbracket'>]</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='id identifier rubyid_allowable_values'>allowable_values</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;fitler_relation_type&#39;</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_fail'>fail</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>invalid value for \&quot;fitler_relation_type\&quot;, must be one of </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_allowable_values'>allowable_values</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>if</span> <span class='ivar'>@api_client</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_client_side_validation'>client_side_validation</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;filter_relation_type&#39;</span><span class='rbracket'>]</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='id identifier rubyid_allowable_values'>allowable_values</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;filter_relation_type&#39;</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_fail'>fail</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>invalid value for \&quot;filter_relation_type\&quot;, must be one of </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_allowable_values'>allowable_values</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
   <span class='kw'>end</span>
   <span class='id identifier rubyid_allowable_values'>allowable_values</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>schema</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>raw_schema</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>oncall</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>incident</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>relation</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
   <span class='kw'>if</span> <span class='ivar'>@api_client</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_client_side_validation'>client_side_validation</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;include&#39;</span><span class='rbracket'>]</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='id identifier rubyid_allowable_values'>allowable_values</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;include&#39;</span><span class='rbracket'>]</span><span class='rparen'>)</span>
@@ -997,13 +997,13 @@
 </span>  <span class='id identifier rubyid_query_params'>query_params</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:query_params</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
   <span class='id identifier rubyid_query_params'>query_params</span><span class='lbracket'>[</span><span class='symbol'>:&#39;page[offset]&#39;</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;page_offset&#39;</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='op'>!</span><span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;page_offset&#39;</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
   <span class='id identifier rubyid_query_params'>query_params</span><span class='lbracket'>[</span><span class='symbol'>:&#39;page[limit]&#39;</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;page_limit&#39;</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='op'>!</span><span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;page_limit&#39;</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-  <span class='id identifier rubyid_query_params'>query_params</span><span class='lbracket'>[</span><span class='symbol'>:&#39;fitler[id]&#39;</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;fitler_id&#39;</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='op'>!</span><span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;fitler_id&#39;</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-  <span class='id identifier rubyid_query_params'>query_params</span><span class='lbracket'>[</span><span class='symbol'>:&#39;fitler[ref]&#39;</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;fitler_ref&#39;</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='op'>!</span><span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;fitler_ref&#39;</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-  <span class='id identifier rubyid_query_params'>query_params</span><span class='lbracket'>[</span><span class='symbol'>:&#39;fitler[name]&#39;</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;fitler_name&#39;</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='op'>!</span><span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;fitler_name&#39;</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-  <span class='id identifier rubyid_query_params'>query_params</span><span class='lbracket'>[</span><span class='symbol'>:&#39;fitler[kind]&#39;</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;fitler_kind&#39;</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='op'>!</span><span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;fitler_kind&#39;</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-  <span class='id identifier rubyid_query_params'>query_params</span><span class='lbracket'>[</span><span class='symbol'>:&#39;fitler[owner]&#39;</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;fitler_owner&#39;</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='op'>!</span><span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;fitler_owner&#39;</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-  <span class='id identifier rubyid_query_params'>query_params</span><span class='lbracket'>[</span><span class='symbol'>:&#39;fitler[relation][type]&#39;</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;fitler_relation_type&#39;</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='op'>!</span><span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;fitler_relation_type&#39;</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-  <span class='id identifier rubyid_query_params'>query_params</span><span class='lbracket'>[</span><span class='symbol'>:&#39;fitler[exclude_snapshot]&#39;</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;fitler_exclude_snapshot&#39;</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='op'>!</span><span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;fitler_exclude_snapshot&#39;</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+  <span class='id identifier rubyid_query_params'>query_params</span><span class='lbracket'>[</span><span class='symbol'>:&#39;filter[id]&#39;</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;filter_id&#39;</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='op'>!</span><span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;filter_id&#39;</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+  <span class='id identifier rubyid_query_params'>query_params</span><span class='lbracket'>[</span><span class='symbol'>:&#39;filter[ref]&#39;</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;filter_ref&#39;</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='op'>!</span><span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;filter_ref&#39;</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+  <span class='id identifier rubyid_query_params'>query_params</span><span class='lbracket'>[</span><span class='symbol'>:&#39;filter[name]&#39;</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;filter_name&#39;</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='op'>!</span><span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;filter_name&#39;</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+  <span class='id identifier rubyid_query_params'>query_params</span><span class='lbracket'>[</span><span class='symbol'>:&#39;filter[kind]&#39;</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;filter_kind&#39;</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='op'>!</span><span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;filter_kind&#39;</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+  <span class='id identifier rubyid_query_params'>query_params</span><span class='lbracket'>[</span><span class='symbol'>:&#39;filter[owner]&#39;</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;filter_owner&#39;</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='op'>!</span><span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;filter_owner&#39;</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+  <span class='id identifier rubyid_query_params'>query_params</span><span class='lbracket'>[</span><span class='symbol'>:&#39;filter[relation][type]&#39;</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;filter_relation_type&#39;</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='op'>!</span><span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;filter_relation_type&#39;</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+  <span class='id identifier rubyid_query_params'>query_params</span><span class='lbracket'>[</span><span class='symbol'>:&#39;filter[exclude_snapshot]&#39;</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;filter_exclude_snapshot&#39;</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='op'>!</span><span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;filter_exclude_snapshot&#39;</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
   <span class='id identifier rubyid_query_params'>query_params</span><span class='lbracket'>[</span><span class='symbol'>:&#39;include&#39;</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;include&#39;</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='op'>!</span><span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;include&#39;</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
 
   <span class='comment'># header parameters
@@ -1209,7 +1209,7 @@
       
       
         &mdash;
-        <div class='inline'><p>Entity YAML/JSON.</p>
+        <div class='inline'><p>Entity YAML or JSON.</p>
 </div>
       
     </li>
@@ -1373,7 +1373,7 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Oct 10 17:33:12 2024 by
+  Generated on Thu Oct 10 19:40:05 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>
