@@ -59,6 +59,8 @@ module DatadogAPIClient::V1
     CWS_HOSTS_USAGE = "cws_hosts_usage".freeze
     DATA_JOBS_MONITORING_USAGE = "data_jobs_monitoring_usage".freeze
     DATA_JOBS_MONITORING_PERCENTAGE = "data_jobs_monitoring_percentage".freeze
+    DATA_STREAM_MONITORING_USAGE = "data_stream_monitoring_usage".freeze
+    DATA_STREAM_MONITORING_PERCENTAGE = "data_stream_monitoring_percentage".freeze
     DBM_HOSTS_PERCENTAGE = "dbm_hosts_percentage".freeze
     DBM_HOSTS_USAGE = "dbm_hosts_usage".freeze
     DBM_QUERIES_PERCENTAGE = "dbm_queries_percentage".freeze
