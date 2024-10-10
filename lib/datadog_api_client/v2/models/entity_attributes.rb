@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class EntityAttributes
     include BaseGenericModel
 
-    # The api version.
+    # The API version.
     attr_accessor :api_version
 
     # The description.

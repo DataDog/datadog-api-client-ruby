@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The schema version of entity type. The field is known as schema-version in the previous version
+  # The schema version of entity type. The field is known as schema-version in the previous version.
   class EntityV3APIVersion
     include BaseEnumModel
 

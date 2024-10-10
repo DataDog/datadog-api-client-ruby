@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Create / Update entity request.
+  # Create or update entity request.
   module UpsertCatalogEntityRequest
     class << self
       include BaseOneOfModel

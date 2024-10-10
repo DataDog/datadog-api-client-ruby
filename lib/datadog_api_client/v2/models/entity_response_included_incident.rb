@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # Incident attributes.
     attr_accessor :attributes
 
-    # Incident id.
+    # Incident ID.
     attr_accessor :id
 
     # Incident description.

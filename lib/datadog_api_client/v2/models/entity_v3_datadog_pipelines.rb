@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # CI Pipelines association
+  # CI Pipelines association.
   class EntityV3DatadogPipelines
     include BaseGenericModel
 
-    # A list of CI Fingerprints that associate CI Pipelines with the entity
+    # A list of CI Fingerprints that associate CI Pipelines with the entity.
     attr_accessor :fingerprints
 
     # Attribute mapping from ruby-style variable name to JSON key.

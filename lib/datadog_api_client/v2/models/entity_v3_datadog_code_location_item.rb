@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # code location item.
+  # Code location item.
   class EntityV3DatadogCodeLocationItem
     include BaseGenericModel
 
-    # The paths (glob) to the source code of the service
+    # The paths (glob) to the source code of the service.
     attr_accessor :paths
 
-    # The repository path of the source code of the entity
+    # The repository path of the source code of the entity.
     attr_reader :repository_url
 
     # Attribute mapping from ruby-style variable name to JSON key.

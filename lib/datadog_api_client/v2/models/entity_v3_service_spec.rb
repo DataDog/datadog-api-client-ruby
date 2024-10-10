@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class EntityV3ServiceSpec
     include BaseGenericModel
 
-    # A list of components the service depends on
+    # A list of components the service depends on.
     attr_accessor :depends_on
 
     # The service's programming language.
@@ -30,10 +30,10 @@ module DatadogAPIClient::V2
     # The lifecycle state of the component.
     attr_reader :lifecycle
 
-    # The importance of the component
+    # The importance of the component.
     attr_reader :tier
 
-    # The type of service
+    # The type of service.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

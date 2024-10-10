@@ -21,10 +21,10 @@ module DatadogAPIClient::V2
   class EntityV3MetadataContactsItems
     include BaseGenericModel
 
-    # Contact value
+    # Contact value.
     attr_reader :contact
 
-    # Contact name
+    # Contact name.
     attr_reader :name
 
     # Contact type.

@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The owner of the entity, usually a team
+  # The owner of the entity, usually a team.
   class EntityV3MetadataOwner
     include BaseGenericModel
 
-    # Team name
+    # Team name.
     attr_accessor :name
 
     # Attribute mapping from ruby-style variable name to JSON key.

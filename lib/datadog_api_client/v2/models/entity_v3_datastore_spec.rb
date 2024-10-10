@@ -24,10 +24,10 @@ module DatadogAPIClient::V2
     # The lifecycle state of the datastore.
     attr_reader :lifecycle
 
-    # The importance of the datastore
+    # The importance of the datastore.
     attr_reader :tier
 
-    # The type of datastore
+    # The type of datastore.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
