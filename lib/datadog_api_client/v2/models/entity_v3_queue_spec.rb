@@ -24,10 +24,10 @@ module DatadogAPIClient::V2
     # The lifecycle state of the queue.
     attr_reader :lifecycle
 
-    # The importance of the queue
+    # The importance of the queue.
     attr_reader :tier
 
-    # The type of queue
+    # The type of queue.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

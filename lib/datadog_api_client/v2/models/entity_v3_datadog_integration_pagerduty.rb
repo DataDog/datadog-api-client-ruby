@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # An PagerDuty integration schema
+  # A PagerDuty integration schema.
   class EntityV3DatadogIntegrationPagerduty
     include BaseGenericModel
 
-    # The service url for the PagerDuty integration.
+    # The service URL for the PagerDuty integration.
     attr_reader :service_url
 
     # Attribute mapping from ruby-style variable name to JSON key.

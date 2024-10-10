@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class RelationshipItem
     include BaseGenericModel
 
-    # Associated data id.
+    # Associated data ID.
     attr_accessor :id
 
     # Relationship type.

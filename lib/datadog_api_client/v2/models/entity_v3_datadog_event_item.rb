@@ -21,10 +21,10 @@ module DatadogAPIClient::V2
   class EntityV3DatadogEventItem
     include BaseGenericModel
 
-    # The name of the query
+    # The name of the query.
     attr_accessor :name
 
-    # The query to run
+    # The query to run.
     attr_accessor :query
 
     # Attribute mapping from ruby-style variable name to JSON key.

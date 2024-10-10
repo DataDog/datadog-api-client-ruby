@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class EntityV3MetadataLinksItems
     include BaseGenericModel
 
-    # Link name
+    # Link name.
     attr_reader :name
 
     # Link provider.
@@ -30,7 +30,7 @@ module DatadogAPIClient::V2
     # Link type.
     attr_reader :type
 
-    # Link url
+    # Link URL.
     attr_reader :url
 
     # Attribute mapping from ruby-style variable name to JSON key.

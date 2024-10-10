@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # supported relation types
+  # Supported relation types.
   class RelationType
     include BaseEnumModel
 

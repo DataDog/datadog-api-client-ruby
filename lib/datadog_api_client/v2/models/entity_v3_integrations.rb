@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A base schema for defining third party integrations
+  # A base schema for defining third-party integrations.
   class EntityV3Integrations
     include BaseGenericModel
 
-    # An Opsgenie integration schema
+    # An Opsgenie integration schema.
     attr_accessor :opsgenie
 
-    # An PagerDuty integration schema
+    # A PagerDuty integration schema.
     attr_accessor :pagerduty
 
     # Attribute mapping from ruby-style variable name to JSON key.

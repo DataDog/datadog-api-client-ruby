@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # supported include types.
+  # Supported include types.
   class IncludeType
     include BaseEnumModel
 

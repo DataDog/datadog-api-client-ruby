@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # Included schema.
     attr_accessor :attributes
 
-    # Entity id.
+    # Entity ID.
     attr_accessor :id
 
     # Schema type.
