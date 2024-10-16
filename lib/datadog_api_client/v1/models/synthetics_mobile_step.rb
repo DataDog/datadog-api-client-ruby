@@ -36,7 +36,7 @@ module DatadogAPIClient::V1
     # A boolean set to not take a screenshot for the step.
     attr_accessor :no_screenshot
 
-    # The parameters of the mobile step.
+    # The parameters of a mobile step.
     attr_accessor :params
 
     # The public ID of the step.
@@ -75,7 +75,7 @@ module DatadogAPIClient::V1
         :'is_critical' => :'Boolean',
         :'name' => :'String',
         :'no_screenshot' => :'Boolean',
-        :'params' => :'Object',
+        :'params' => :'SyntheticsMobileStepParams',
         :'public_id' => :'String',
         :'timeout' => :'Integer',
         :'type' => :'SyntheticsMobileStepType'

@@ -17,15 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Objects describing the binding used for a mobile test.
-  class SyntheticsMobileTestBinding
+  # The definition of `SyntheticsMobileStepParamsPosition` object.
+  class SyntheticsMobileStepParamsPosition
     include BaseGenericModel
 
-    # List of principals for a mobile test binding.
-    attr_accessor :principals
-
-    # The definition of `SyntheticsMobileTestBindingRelation` object.
-    attr_accessor :relation
+    # The `position` `positions`.
+    attr_accessor :positions
 
     attr_accessor :additional_properties
 
@@ -33,8 +30,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.attribute_map
       {
-        :'principals' => :'principals',
-        :'relation' => :'relation'
+        :'positions' => :'positions'
       }
     end
 
@@ -42,8 +38,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
-        :'principals' => :'Array<String>',
-        :'relation' => :'SyntheticsMobileTestBindingRelation'
+        :'positions' => :'Array<SyntheticsMobileStepParamsPositionPositionsItems>'
       }
     end
 
@@ -52,7 +47,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SyntheticsMobileTestBinding` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SyntheticsMobileStepParamsPosition` initialize method"
       end
 
       self.additional_properties = {}
@@ -65,14 +60,10 @@ module DatadogAPIClient::V1
         end
       }
 
-      if attributes.key?(:'principals')
-        if (value = attributes[:'principals']).is_a?(Array)
-          self.principals = value
+      if attributes.key?(:'positions')
+        if (value = attributes[:'positions']).is_a?(Array)
+          self.positions = value
         end
-      end
-
-      if attributes.key?(:'relation')
-        self.relation = attributes[:'relation']
       end
     end
 
@@ -102,8 +93,7 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          principals == o.principals &&
-          relation == o.relation
+          positions == o.positions
           additional_properties == o.additional_properties
     end
 
@@ -111,7 +101,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [principals, relation].hash
+      [positions].hash
     end
   end
 end

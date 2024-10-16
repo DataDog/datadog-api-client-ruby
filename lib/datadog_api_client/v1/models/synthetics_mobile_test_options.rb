@@ -105,7 +105,7 @@ module DatadogAPIClient::V1
       {
         :'allow_application_crash' => :'Boolean',
         :'bindings' => :'Array<SyntheticsMobileTestBinding>',
-        :'ci' => :'SyntheticsMobileTestCiOptions',
+        :'ci' => :'SyntheticsTestCiOptions',
         :'default_step_timeout' => :'Integer',
         :'device_ids' => :'Array<String>',
         :'disable_auto_accept_alert' => :'Boolean',
