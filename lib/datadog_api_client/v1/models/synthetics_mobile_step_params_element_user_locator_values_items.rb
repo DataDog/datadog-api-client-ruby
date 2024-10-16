@@ -17,12 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Name of the property.
-  class SyntheticsMobileTestInitialApplicationArgumentsPropertyNames
+  # The definition of `SyntheticsMobileStepParamsElementUserLocatorValuesItems` object.
+  class SyntheticsMobileStepParamsElementUserLocatorValuesItems
     include BaseGenericModel
 
-    # The `propertyNames` `pattern`.
-    attr_accessor :pattern
+    # The definition of `SyntheticsMobileStepParamsElementUserLocatorValuesItemsType` object.
+    attr_accessor :type
+
+    # The `SyntheticsMobileStepParamsElementUserLocatorValuesItems` `value`.
+    attr_accessor :value
 
     attr_accessor :additional_properties
 
@@ -30,7 +33,8 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.attribute_map
       {
-        :'pattern' => :'pattern'
+        :'type' => :'type',
+        :'value' => :'value'
       }
     end
 
@@ -38,7 +42,8 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
-        :'pattern' => :'String'
+        :'type' => :'SyntheticsMobileStepParamsElementUserLocatorValuesItemsType',
+        :'value' => :'String'
       }
     end
 
@@ -47,7 +52,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SyntheticsMobileTestInitialApplicationArgumentsPropertyNames` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SyntheticsMobileStepParamsElementUserLocatorValuesItems` initialize method"
       end
 
       self.additional_properties = {}
@@ -60,8 +65,12 @@ module DatadogAPIClient::V1
         end
       }
 
-      if attributes.key?(:'pattern')
-        self.pattern = attributes[:'pattern']
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
+      end
+
+      if attributes.key?(:'value')
+        self.value = attributes[:'value']
       end
     end
 
@@ -91,7 +100,8 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          pattern == o.pattern
+          type == o.type &&
+          value == o.value
           additional_properties == o.additional_properties
     end
 
@@ -99,7 +109,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [pattern].hash
+      [type, value].hash
     end
   end
 end

@@ -17,15 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Objects describing the binding used for a mobile test.
-  class SyntheticsMobileTestBinding
+  # The definition of `SyntheticsMobileStepParamsVariable` object.
+  class SyntheticsMobileStepParamsVariable
     include BaseGenericModel
 
-    # List of principals for a mobile test binding.
-    attr_accessor :principals
+    # The `variable` `example`.
+    attr_accessor :example
 
-    # The definition of `SyntheticsMobileTestBindingRelation` object.
-    attr_accessor :relation
+    # The `variable` `name`.
+    attr_accessor :name
 
     attr_accessor :additional_properties
 
@@ -33,8 +33,8 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.attribute_map
       {
-        :'principals' => :'principals',
-        :'relation' => :'relation'
+        :'example' => :'example',
+        :'name' => :'name'
       }
     end
 
@@ -42,8 +42,8 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
-        :'principals' => :'Array<String>',
-        :'relation' => :'SyntheticsMobileTestBindingRelation'
+        :'example' => :'String',
+        :'name' => :'String'
       }
     end
 
@@ -52,7 +52,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SyntheticsMobileTestBinding` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SyntheticsMobileStepParamsVariable` initialize method"
       end
 
       self.additional_properties = {}
@@ -65,14 +65,12 @@ module DatadogAPIClient::V1
         end
       }
 
-      if attributes.key?(:'principals')
-        if (value = attributes[:'principals']).is_a?(Array)
-          self.principals = value
-        end
+      if attributes.key?(:'example')
+        self.example = attributes[:'example']
       end
 
-      if attributes.key?(:'relation')
-        self.relation = attributes[:'relation']
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
     end
 
@@ -102,8 +100,8 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          principals == o.principals &&
-          relation == o.relation
+          example == o.example &&
+          name == o.name
           additional_properties == o.additional_properties
     end
 
@@ -111,7 +109,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [principals, relation].hash
+      [example, name].hash
     end
   end
 end
