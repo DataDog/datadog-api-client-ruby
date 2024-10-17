@@ -21,6 +21,9 @@ module DatadogAPIClient::V1
   class SyntheticsStepDetail
     include BaseGenericModel
 
+    # Whether or not the step was allowed to fail.
+    attr_accessor :allow_failure
+
     # Array of errors collected for a browser test.
     attr_accessor :browser_errors
 
@@ -35,6 +38,9 @@ module DatadogAPIClient::V1
 
     # Error returned by the test.
     attr_accessor :error
+
+    # The browser test failure details.
+    attr_accessor :failure
 
     # Navigate between different tabs for your browser test.
     attr_accessor :playing_tab
@@ -79,11 +85,13 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.attribute_map
       {
+        :'allow_failure' => :'allowFailure',
         :'browser_errors' => :'browserErrors',
         :'check_type' => :'checkType',
         :'description' => :'description',
         :'duration' => :'duration',
         :'error' => :'error',
+        :'failure' => :'failure',
         :'playing_tab' => :'playingTab',
         :'screenshot_bucket_key' => :'screenshotBucketKey',
         :'skipped' => :'skipped',
@@ -103,11 +111,13 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
+        :'allow_failure' => :'Boolean',
         :'browser_errors' => :'Array<SyntheticsBrowserError>',
         :'check_type' => :'SyntheticsCheckType',
         :'description' => :'String',
         :'duration' => :'Float',
         :'error' => :'String',
+        :'failure' => :'SyntheticsBrowserTestResultFailure',
         :'playing_tab' => :'SyntheticsPlayingTab',
         :'screenshot_bucket_key' => :'Boolean',
         :'skipped' => :'Boolean',
@@ -141,6 +151,10 @@ module DatadogAPIClient::V1
         end
       }
 
+      if attributes.key?(:'allow_failure')
+        self.allow_failure = attributes[:'allow_failure']
+      end
+
       if attributes.key?(:'browser_errors')
         if (value = attributes[:'browser_errors']).is_a?(Array)
           self.browser_errors = value
@@ -161,6 +175,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'error')
         self.error = attributes[:'error']
+      end
+
+      if attributes.key?(:'failure')
+        self.failure = attributes[:'failure']
       end
 
       if attributes.key?(:'playing_tab')
@@ -244,11 +262,13 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          allow_failure == o.allow_failure &&
           browser_errors == o.browser_errors &&
           check_type == o.check_type &&
           description == o.description &&
           duration == o.duration &&
           error == o.error &&
+          failure == o.failure &&
           playing_tab == o.playing_tab &&
           screenshot_bucket_key == o.screenshot_bucket_key &&
           skipped == o.skipped &&
@@ -268,7 +288,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [browser_errors, check_type, description, duration, error, playing_tab, screenshot_bucket_key, skipped, snapshot_bucket_key, step_id, sub_test_step_details, time_to_interactive, type, url, value, vitals_metrics, warnings].hash
+      [allow_failure, browser_errors, check_type, description, duration, error, failure, playing_tab, screenshot_bucket_key, skipped, snapshot_bucket_key, step_id, sub_test_step_details, time_to_interactive, type, url, value, vitals_metrics, warnings].hash
     end
   end
 end
