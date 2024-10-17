@@ -1805,6 +1805,19 @@ ScenariosModelMappings = {
             "page_limit" => "Integer",
             "page_cursor" => "String",
     },
+    "v2.CreateApplicationSecurityExclusionFilter" => {
+            "body" => "ApplicationSecurityExclusionFilterCreateRequest",
+    },
+    "v2.DeleteApplicationSecurityExclusionFilter" => {
+            "exclusion_filter_id" => "String",
+    },
+    "v2.GetApplicationSecurityExclusionFilters" => {
+            "exclusion_filter_id" => "String",
+    },
+    "v2.UpdateApplicationSecurityExclusionFilter" => {
+            "exclusion_filter_id" => "String",
+            "body" => "ApplicationSecurityExclusionFilterUpdateRequest",
+    },
     "v2.CreateCSMThreatsAgentRule" => {
             "body" => "CloudWorkloadSecurityAgentRuleCreateRequest",
     },
