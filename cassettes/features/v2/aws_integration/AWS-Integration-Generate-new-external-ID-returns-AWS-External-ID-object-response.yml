@@ -1,0 +1,20 @@
+http_interactions:
+- recorded_at: Thu, 17 Oct 2024 21:45:39 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/integration/aws/generate_new_external_id
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"generate_new_external_id","type":"generate_new_external_id","attributes":{"external_id":"113769ad003e4dd885e9dbc12aff7ae7"}}}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 200
+      message: OK
+recorded_with: VCR 6.0.0
