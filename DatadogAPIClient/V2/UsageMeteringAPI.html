@@ -378,7 +378,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#get_monthly_cost_attribution-instance_method" title="#get_monthly_cost_attribution (instance method)">#<strong>get_monthly_cost_attribution</strong>(start_month, end_month, fields, opts = {})  &#x21d2; Object </a>
+      <a href="#get_monthly_cost_attribution-instance_method" title="#get_monthly_cost_attribution (instance method)">#<strong>get_monthly_cost_attribution</strong>(start_month, fields, opts = {})  &#x21d2; Object </a>
     
 
     
@@ -401,7 +401,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#get_monthly_cost_attribution_with_http_info-instance_method" title="#get_monthly_cost_attribution_with_http_info (instance method)">#<strong>get_monthly_cost_attribution_with_http_info</strong>(start_month, end_month, fields, opts = {})  &#x21d2; Array&lt;(MonthlyCostAttributionResponse, Integer, Hash)&gt; </a>
+      <a href="#get_monthly_cost_attribution_with_http_info-instance_method" title="#get_monthly_cost_attribution_with_http_info (instance method)">#<strong>get_monthly_cost_attribution_with_http_info</strong>(start_month, fields, opts = {})  &#x21d2; Array&lt;(MonthlyCostAttributionResponse, Integer, Hash)&gt; </a>
     
 
     
@@ -2222,7 +2222,7 @@ Cost data for a given month becomes available no later than the 16th of the foll
       <div class="method_details ">
   <h3 class="signature " id="get_monthly_cost_attribution-instance_method">
   
-    #<strong>get_monthly_cost_attribution</strong>(start_month, end_month, fields, opts = {})  &#x21d2; <tt>Object</tt> 
+    #<strong>get_monthly_cost_attribution</strong>(start_month, fields, opts = {})  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -2259,8 +2259,8 @@ Cost data for a given month becomes available no later than the 16th of the foll
     <td>
       <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/usage_metering_api.rb', line 416</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_get_monthly_cost_attribution'>get_monthly_cost_attribution</span><span class='lparen'>(</span><span class='id identifier rubyid_start_month'>start_month</span><span class='comma'>,</span> <span class='id identifier rubyid_end_month'>end_month</span><span class='comma'>,</span> <span class='id identifier rubyid_fields'>fields</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_get_monthly_cost_attribution_with_http_info'>get_monthly_cost_attribution_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_start_month'>start_month</span><span class='comma'>,</span> <span class='id identifier rubyid_end_month'>end_month</span><span class='comma'>,</span> <span class='id identifier rubyid_fields'>fields</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_get_monthly_cost_attribution'>get_monthly_cost_attribution</span><span class='lparen'>(</span><span class='id identifier rubyid_start_month'>start_month</span><span class='comma'>,</span> <span class='id identifier rubyid_fields'>fields</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_get_monthly_cost_attribution_with_http_info'>get_monthly_cost_attribution_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_start_month'>start_month</span><span class='comma'>,</span> <span class='id identifier rubyid_fields'>fields</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -2271,7 +2271,7 @@ Cost data for a given month becomes available no later than the 16th of the foll
       <div class="method_details ">
   <h3 class="signature " id="get_monthly_cost_attribution_with_http_info-instance_method">
   
-    #<strong>get_monthly_cost_attribution_with_http_info</strong>(start_month, end_month, fields, opts = {})  &#x21d2; <tt>Array&lt;(<span class='object_link'><a href="MonthlyCostAttributionResponse.html" title="DatadogAPIClient::V2::MonthlyCostAttributionResponse (class)">MonthlyCostAttributionResponse</a></span>, Integer, Hash)&gt;</tt> 
+    #<strong>get_monthly_cost_attribution_with_http_info</strong>(start_month, fields, opts = {})  &#x21d2; <tt>Array&lt;(<span class='object_link'><a href="MonthlyCostAttributionResponse.html" title="DatadogAPIClient::V2::MonthlyCostAttributionResponse (class)">MonthlyCostAttributionResponse</a></span>, Integer, Hash)&gt;</tt> 
   
 
   
@@ -2322,21 +2322,6 @@ END
   
     <li>
       
-        <span class='name'>end_month</span>
-      
-      
-        <span class='type'>(<tt>Time</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><p>Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code> for cost ending this month.</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
         <span class='name'>fields</span>
       
       
@@ -2376,10 +2361,20 @@ END
     
     
     
-    
-    
     <p class="tag_title">Options Hash (<tt>opts</tt>):</p>
     <ul class="option">
+      
+        <li>
+          <span class="name">:end_month</span>
+          <span class="type">(<tt>Time</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code> for cost ending this month.</p>
+</div>
+          
+        </li>
       
         <li>
           <span class="name">:sort_direction</span>
@@ -2538,16 +2533,12 @@ END
 517
 518
 519
-520
-521
-522
-523
-524</pre>
+520</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/usage_metering_api.rb', line 450</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_get_monthly_cost_attribution_with_http_info'>get_monthly_cost_attribution_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_start_month'>start_month</span><span class='comma'>,</span> <span class='id identifier rubyid_end_month'>end_month</span><span class='comma'>,</span> <span class='id identifier rubyid_fields'>fields</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_get_monthly_cost_attribution_with_http_info'>get_monthly_cost_attribution_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_start_month'>start_month</span><span class='comma'>,</span> <span class='id identifier rubyid_fields'>fields</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_unstable_enabled'>unstable_enabled</span> <span class='op'>=</span> <span class='ivar'>@api_client</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_unstable_operations'>unstable_operations</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>v2.get_monthly_cost_attribution</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='rbracket'>]</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_unstable_enabled'>unstable_enabled</span>
     <span class='ivar'>@api_client</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_logger'>logger</span><span class='period'>.</span><span class='id identifier rubyid_warn'>warn</span> <span class='id identifier rubyid_format'>format</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Using unstable operation &#39;%s&#39;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>v2.get_monthly_cost_attribution</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
@@ -2561,10 +2552,6 @@ END
   <span class='comment'># verify the required parameter &#39;start_month&#39; is set
 </span>  <span class='kw'>if</span> <span class='ivar'>@api_client</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_client_side_validation'>client_side_validation</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_start_month'>start_month</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
     <span class='id identifier rubyid_fail'>fail</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Missing the required parameter &#39;start_month&#39; when calling UsageMeteringAPI.get_monthly_cost_attribution</span><span class='tstring_end'>&quot;</span></span>
-  <span class='kw'>end</span>
-  <span class='comment'># verify the required parameter &#39;end_month&#39; is set
-</span>  <span class='kw'>if</span> <span class='ivar'>@api_client</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_client_side_validation'>client_side_validation</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_end_month'>end_month</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-    <span class='id identifier rubyid_fail'>fail</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Missing the required parameter &#39;end_month&#39; when calling UsageMeteringAPI.get_monthly_cost_attribution</span><span class='tstring_end'>&quot;</span></span>
   <span class='kw'>end</span>
   <span class='comment'># verify the required parameter &#39;fields&#39; is set
 </span>  <span class='kw'>if</span> <span class='ivar'>@api_client</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_client_side_validation'>client_side_validation</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_fields'>fields</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
@@ -2580,8 +2567,8 @@ END
   <span class='comment'># query parameters
 </span>  <span class='id identifier rubyid_query_params'>query_params</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:query_params</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
   <span class='id identifier rubyid_query_params'>query_params</span><span class='lbracket'>[</span><span class='symbol'>:&#39;start_month&#39;</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_start_month'>start_month</span>
-  <span class='id identifier rubyid_query_params'>query_params</span><span class='lbracket'>[</span><span class='symbol'>:&#39;end_month&#39;</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_end_month'>end_month</span>
   <span class='id identifier rubyid_query_params'>query_params</span><span class='lbracket'>[</span><span class='symbol'>:&#39;fields&#39;</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_fields'>fields</span>
+  <span class='id identifier rubyid_query_params'>query_params</span><span class='lbracket'>[</span><span class='symbol'>:&#39;end_month&#39;</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;end_month&#39;</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='op'>!</span><span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;end_month&#39;</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
   <span class='id identifier rubyid_query_params'>query_params</span><span class='lbracket'>[</span><span class='symbol'>:&#39;sort_direction&#39;</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;sort_direction&#39;</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='op'>!</span><span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;sort_direction&#39;</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
   <span class='id identifier rubyid_query_params'>query_params</span><span class='lbracket'>[</span><span class='symbol'>:&#39;sort_name&#39;</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;sort_name&#39;</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='op'>!</span><span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;sort_name&#39;</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
   <span class='id identifier rubyid_query_params'>query_params</span><span class='lbracket'>[</span><span class='symbol'>:&#39;tag_breakdown_keys&#39;</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;tag_breakdown_keys&#39;</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='op'>!</span><span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;tag_breakdown_keys&#39;</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
@@ -2659,13 +2646,13 @@ END
       <pre class="lines">
 
 
-529
-530
-531
-532</pre>
+525
+526
+527
+528</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/usage_metering_api.rb', line 529</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/usage_metering_api.rb', line 525</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_projected_cost'>get_projected_cost</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_get_projected_cost_with_http_info'>get_projected_cost_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -2777,6 +2764,10 @@ Projected cost data is only available for the current month and becomes availabl
       <pre class="lines">
 
 
+541
+542
+543
+544
 545
 546
 547
@@ -2819,14 +2810,10 @@ Projected cost data is only available for the current month and becomes availabl
 584
 585
 586
-587
-588
-589
-590
-591</pre>
+587</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/usage_metering_api.rb', line 545</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/usage_metering_api.rb', line 541</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_projected_cost_with_http_info'>get_projected_cost_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -2912,13 +2899,13 @@ Projected cost data is only available for the current month and becomes availabl
       <pre class="lines">
 
 
-596
-597
-598
-599</pre>
+592
+593
+594
+595</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/usage_metering_api.rb', line 596</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/usage_metering_api.rb', line 592</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_usage_application_security_monitoring'>get_usage_application_security_monitoring</span><span class='lparen'>(</span><span class='id identifier rubyid_start_hr'>start_hr</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_get_usage_application_security_monitoring_with_http_info'>get_usage_application_security_monitoring_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_start_hr'>start_hr</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -3035,6 +3022,10 @@ Projected cost data is only available for the current month and becomes availabl
       <pre class="lines">
 
 
+608
+609
+610
+611
 612
 613
 614
@@ -3082,14 +3073,10 @@ Projected cost data is only available for the current month and becomes availabl
 656
 657
 658
-659
-660
-661
-662
-663</pre>
+659</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/usage_metering_api.rb', line 612</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/usage_metering_api.rb', line 608</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_usage_application_security_monitoring_with_http_info'>get_usage_application_security_monitoring_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_start_hr'>start_hr</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_warn'>warn</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>[DEPRECATION] `GetUsageApplicationSecurityMonitoring` is deprecated.</span><span class='tstring_end'>&quot;</span></span>
@@ -3180,13 +3167,13 @@ Projected cost data is only available for the current month and becomes availabl
       <pre class="lines">
 
 
-668
-669
-670
-671</pre>
+664
+665
+666
+667</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/usage_metering_api.rb', line 668</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/usage_metering_api.rb', line 664</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_usage_lambda_traced_invocations'>get_usage_lambda_traced_invocations</span><span class='lparen'>(</span><span class='id identifier rubyid_start_hr'>start_hr</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_get_usage_lambda_traced_invocations_with_http_info'>get_usage_lambda_traced_invocations_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_start_hr'>start_hr</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -3303,6 +3290,10 @@ Projected cost data is only available for the current month and becomes availabl
       <pre class="lines">
 
 
+680
+681
+682
+683
 684
 685
 686
@@ -3350,14 +3341,10 @@ Projected cost data is only available for the current month and becomes availabl
 728
 729
 730
-731
-732
-733
-734
-735</pre>
+731</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/usage_metering_api.rb', line 684</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/usage_metering_api.rb', line 680</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_usage_lambda_traced_invocations_with_http_info'>get_usage_lambda_traced_invocations_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_start_hr'>start_hr</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_warn'>warn</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>[DEPRECATION] `GetUsageLambdaTracedInvocations` is deprecated.</span><span class='tstring_end'>&quot;</span></span>
@@ -3448,13 +3435,13 @@ Projected cost data is only available for the current month and becomes availabl
       <pre class="lines">
 
 
-740
-741
-742
-743</pre>
+736
+737
+738
+739</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/usage_metering_api.rb', line 740</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/usage_metering_api.rb', line 736</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_usage_observability_pipelines'>get_usage_observability_pipelines</span><span class='lparen'>(</span><span class='id identifier rubyid_start_hr'>start_hr</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_get_usage_observability_pipelines_with_http_info'>get_usage_observability_pipelines_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_start_hr'>start_hr</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -3571,6 +3558,10 @@ Projected cost data is only available for the current month and becomes availabl
       <pre class="lines">
 
 
+752
+753
+754
+755
 756
 757
 758
@@ -3618,14 +3609,10 @@ Projected cost data is only available for the current month and becomes availabl
 800
 801
 802
-803
-804
-805
-806
-807</pre>
+803</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/usage_metering_api.rb', line 756</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/usage_metering_api.rb', line 752</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_usage_observability_pipelines_with_http_info'>get_usage_observability_pipelines_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_start_hr'>start_hr</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_warn'>warn</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>[DEPRECATION] `GetUsageObservabilityPipelines` is deprecated.</span><span class='tstring_end'>&quot;</span></span>
@@ -3689,7 +3676,7 @@ Projected cost data is only available for the current month and becomes availabl
 </div>
 
       <div id="footer">
-  Generated on Thu Oct 10 21:29:33 2024 by
+  Generated on Thu Oct 17 13:59:19 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>
