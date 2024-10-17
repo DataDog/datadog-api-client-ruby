@@ -198,6 +198,7 @@ module DatadogAPIClient
             "v2.get_monthly_cost_attribution": false,
             "v2.create_dora_deployment": false,
             "v2.create_dora_incident": false,
+            "v2.create_event": false,
             "v2.create_incident": false,
             "v2.create_incident_integration": false,
             "v2.create_incident_todo": false,
