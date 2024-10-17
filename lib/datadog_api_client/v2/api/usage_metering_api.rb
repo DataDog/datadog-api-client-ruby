@@ -413,8 +413,8 @@ module DatadogAPIClient::V2
     # Get Monthly Cost Attribution.
     #
     # @see #get_monthly_cost_attribution_with_http_info
-    def get_monthly_cost_attribution(start_month, end_month, fields, opts = {})
-      data, _status_code, _headers = get_monthly_cost_attribution_with_http_info(start_month, end_month, fields, opts)
+    def get_monthly_cost_attribution(start_month, fields, opts = {})
+      data, _status_code, _headers = get_monthly_cost_attribution_with_http_info(start_month, fields, opts)
       data
     end
 
@@ -438,16 +438,16 @@ module DatadogAPIClient::V2
     # This endpoint is only accessible for [parent-level organizations](https://docs.datadoghq.com/account_management/multi_organization/).
     #
     # @param start_month [Time] Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for cost beginning in this month.
-    # @param end_month [Time] Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for cost ending this month.
     # @param fields [String] Comma-separated list specifying cost types (e.g., `<billing_dimension>_on_demand_cost`, `<billing_dimension>_committed_cost`, `<billing_dimension>_total_cost`) and the proportions (`<billing_dimension>_percentage_in_org`, `<billing_dimension>_percentage_in_account`). Use `*` to retrieve all fields. Example: `infra_host_on_demand_cost,infra_host_percentage_in_account` To obtain the complete list of active billing dimensions that can be used to replace `<billing_dimension>` in the field names, make a request to the [Get active billing dimensions API](https://docs.datadoghq.com/api/latest/usage-metering/#get-active-billing-dimensions-for-cost-attribution).
     # @param opts [Hash] the optional parameters
+    # @option opts [Time] :end_month Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for cost ending this month.
     # @option opts [SortDirection] :sort_direction The direction to sort by: `[desc, asc]`.
     # @option opts [String] :sort_name The billing dimension to sort by. Always sorted by total cost. Example: `infra_host`.
     # @option opts [String] :tag_breakdown_keys Comma separated list of tag keys used to group cost. If no value is provided the cost will not be broken down by tags. To see which tags are available, look for the value of `tag_config_source` in the API response.
     # @option opts [String] :next_record_id List following results with a next_record_id provided in the previous query.
     # @option opts [Boolean] :include_descendants Include child org cost in the response. Defaults to `true`.
     # @return [Array<(MonthlyCostAttributionResponse, Integer, Hash)>] MonthlyCostAttributionResponse data, response status code and response headers
-    def get_monthly_cost_attribution_with_http_info(start_month, end_month, fields, opts = {})
+    def get_monthly_cost_attribution_with_http_info(start_month, fields, opts = {})
       unstable_enabled = @api_client.config.unstable_operations["v2.get_monthly_cost_attribution".to_sym]
       if unstable_enabled
         @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_monthly_cost_attribution")
@@ -461,10 +461,6 @@ module DatadogAPIClient::V2
       # verify the required parameter 'start_month' is set
       if @api_client.config.client_side_validation && start_month.nil?
         fail ArgumentError, "Missing the required parameter 'start_month' when calling UsageMeteringAPI.get_monthly_cost_attribution"
-      end
-      # verify the required parameter 'end_month' is set
-      if @api_client.config.client_side_validation && end_month.nil?
-        fail ArgumentError, "Missing the required parameter 'end_month' when calling UsageMeteringAPI.get_monthly_cost_attribution"
       end
       # verify the required parameter 'fields' is set
       if @api_client.config.client_side_validation && fields.nil?
@@ -480,8 +476,8 @@ module DatadogAPIClient::V2
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'start_month'] = start_month
-      query_params[:'end_month'] = end_month
       query_params[:'fields'] = fields
+      query_params[:'end_month'] = opts[:'end_month'] if !opts[:'end_month'].nil?
       query_params[:'sort_direction'] = opts[:'sort_direction'] if !opts[:'sort_direction'].nil?
       query_params[:'sort_name'] = opts[:'sort_name'] if !opts[:'sort_name'].nil?
       query_params[:'tag_breakdown_keys'] = opts[:'tag_breakdown_keys'] if !opts[:'tag_breakdown_keys'].nil?
