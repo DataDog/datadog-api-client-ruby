@@ -21,8 +21,11 @@ module DatadogAPIClient::V1
   class SyntheticsMobileTestBinding
     include BaseGenericModel
 
-    # Object describing the binding used for a mobile test.
-    attr_accessor :items
+    # List of principals for a mobile test binding.
+    attr_accessor :principals
+
+    # The definition of `SyntheticsMobileTestBindingRelation` object.
+    attr_accessor :relation
 
     attr_accessor :additional_properties
 
@@ -30,7 +33,8 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.attribute_map
       {
-        :'items' => :'items'
+        :'principals' => :'principals',
+        :'relation' => :'relation'
       }
     end
 
@@ -38,7 +42,8 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
-        :'items' => :'SyntheticsMobileTestBindingItems'
+        :'principals' => :'Array<String>',
+        :'relation' => :'SyntheticsMobileTestBindingRelation'
       }
     end
 
@@ -60,8 +65,14 @@ module DatadogAPIClient::V1
         end
       }
 
-      if attributes.key?(:'items')
-        self.items = attributes[:'items']
+      if attributes.key?(:'principals')
+        if (value = attributes[:'principals']).is_a?(Array)
+          self.principals = value
+        end
+      end
+
+      if attributes.key?(:'relation')
+        self.relation = attributes[:'relation']
       end
     end
 
@@ -91,7 +102,8 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          items == o.items
+          principals == o.principals &&
+          relation == o.relation
           additional_properties == o.additional_properties
     end
 
@@ -99,7 +111,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [items].hash
+      [principals, relation].hash
     end
   end
 end
