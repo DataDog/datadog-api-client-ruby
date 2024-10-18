@@ -17,12 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Initial application arguments for a mobile test.
-  class SyntheticsMobileTestInitialApplicationArguments
+  # The definition of `SyntheticsMobileStepParamsVariable` object.
+  class SyntheticsMobileStepParamsVariable
     include BaseGenericModel
 
-    # Name of the property.
-    attr_accessor :property_names
+    # The `variable` `example`.
+    attr_accessor :example
+
+    # The `variable` `name`.
+    attr_reader :name
 
     attr_accessor :additional_properties
 
@@ -30,7 +33,8 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.attribute_map
       {
-        :'property_names' => :'propertyNames'
+        :'example' => :'example',
+        :'name' => :'name'
       }
     end
 
@@ -38,7 +42,8 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
-        :'property_names' => :'SyntheticsMobileTestInitialApplicationArgumentsPropertyNames'
+        :'example' => :'String',
+        :'name' => :'String'
       }
     end
 
@@ -47,7 +52,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SyntheticsMobileTestInitialApplicationArguments` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SyntheticsMobileStepParamsVariable` initialize method"
       end
 
       self.additional_properties = {}
@@ -60,9 +65,31 @@ module DatadogAPIClient::V1
         end
       }
 
-      if attributes.key?(:'property_names')
-        self.property_names = attributes[:'property_names']
+      if attributes.key?(:'example')
+        self.example = attributes[:'example']
       end
+
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
+      end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @name.nil?
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param name [Object] Object to be assigned
+    # @!visibility private
+    def name=(name)
+      if name.nil?
+        fail ArgumentError, 'invalid value for "name", name cannot be nil.'
+      end
+      @name = name
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -91,7 +118,8 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          property_names == o.property_names
+          example == o.example &&
+          name == o.name
           additional_properties == o.additional_properties
     end
 
@@ -99,7 +127,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [property_names].hash
+      [example, name].hash
     end
   end
 end

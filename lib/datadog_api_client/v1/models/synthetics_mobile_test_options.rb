@@ -34,7 +34,7 @@ module DatadogAPIClient::V1
     attr_reader :default_step_timeout
 
     # For mobile test, array with the different device IDs used to run the test.
-    attr_accessor :device_ids
+    attr_reader :device_ids
 
     # The `SyntheticsMobileTestOptions` `disableAutoAcceptAlert`.
     attr_accessor :disable_auto_accept_alert
@@ -43,7 +43,7 @@ module DatadogAPIClient::V1
     attr_reader :min_failure_duration
 
     # Mobile application for mobile synthetics test.
-    attr_accessor :mobile_application
+    attr_reader :mobile_application
 
     # The monitor name is used for the alert title as well as for all monitor dashboard widgets and SLOs.
     attr_accessor :monitor_name
@@ -105,7 +105,7 @@ module DatadogAPIClient::V1
       {
         :'allow_application_crash' => :'Boolean',
         :'bindings' => :'Array<SyntheticsMobileTestBinding>',
-        :'ci' => :'SyntheticsMobileTestCiOptions',
+        :'ci' => :'SyntheticsTestCiOptions',
         :'default_step_timeout' => :'Integer',
         :'device_ids' => :'Array<String>',
         :'disable_auto_accept_alert' => :'Boolean',
@@ -222,12 +222,15 @@ module DatadogAPIClient::V1
     def valid?
       return false if !@default_step_timeout.nil? && @default_step_timeout > 300
       return false if !@default_step_timeout.nil? && @default_step_timeout < 1
+      return false if @device_ids.nil?
       return false if !@min_failure_duration.nil? && @min_failure_duration > 7200
       return false if !@min_failure_duration.nil? && @min_failure_duration < 0
+      return false if @mobile_application.nil?
       return false if !@monitor_priority.nil? && @monitor_priority > 5
       return false if !@monitor_priority.nil? && @monitor_priority < 1
-      return false if !@tick_every.nil? && @tick_every > 604800
-      return false if !@tick_every.nil? && @tick_every < 300
+      return false if @tick_every.nil?
+      return false if @tick_every > 604800
+      return false if @tick_every < 300
       return false if !@verbosity.nil? && @verbosity > 5
       return false if !@verbosity.nil? && @verbosity < 0
       true
@@ -247,6 +250,16 @@ module DatadogAPIClient::V1
     end
 
     # Custom attribute writer method with validation
+    # @param device_ids [Object] Object to be assigned
+    # @!visibility private
+    def device_ids=(device_ids)
+      if device_ids.nil?
+        fail ArgumentError, 'invalid value for "device_ids", device_ids cannot be nil.'
+      end
+      @device_ids = device_ids
+    end
+
+    # Custom attribute writer method with validation
     # @param min_failure_duration [Object] Object to be assigned
     # @!visibility private
     def min_failure_duration=(min_failure_duration)
@@ -257,6 +270,16 @@ module DatadogAPIClient::V1
         fail ArgumentError, 'invalid value for "min_failure_duration", must be greater than or equal to 0.'
       end
       @min_failure_duration = min_failure_duration
+    end
+
+    # Custom attribute writer method with validation
+    # @param mobile_application [Object] Object to be assigned
+    # @!visibility private
+    def mobile_application=(mobile_application)
+      if mobile_application.nil?
+        fail ArgumentError, 'invalid value for "mobile_application", mobile_application cannot be nil.'
+      end
+      @mobile_application = mobile_application
     end
 
     # Custom attribute writer method with validation
@@ -276,10 +299,13 @@ module DatadogAPIClient::V1
     # @param tick_every [Object] Object to be assigned
     # @!visibility private
     def tick_every=(tick_every)
-      if !tick_every.nil? && tick_every > 604800
+      if tick_every.nil?
+        fail ArgumentError, 'invalid value for "tick_every", tick_every cannot be nil.'
+      end
+      if tick_every > 604800
         fail ArgumentError, 'invalid value for "tick_every", must be smaller than or equal to 604800.'
       end
-      if !tick_every.nil? && tick_every < 300
+      if tick_every < 300
         fail ArgumentError, 'invalid value for "tick_every", must be greater than or equal to 300.'
       end
       @tick_every = tick_every

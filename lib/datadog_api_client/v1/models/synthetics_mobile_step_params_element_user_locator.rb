@@ -17,15 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Object describing the binding used for a mobile test.
-  class SyntheticsMobileTestBindingItems
+  # The definition of `SyntheticsMobileStepParamsElementUserLocator` object.
+  class SyntheticsMobileStepParamsElementUserLocator
     include BaseGenericModel
 
-    # List of principals for a mobile test binding.
-    attr_accessor :principals
+    # The `userLocator` `failTestOnCannotLocate`.
+    attr_accessor :fail_test_on_cannot_locate
 
-    # The definition of `SyntheticsMobileTestBindingItemsRole` object.
-    attr_accessor :role
+    # The `userLocator` `values`.
+    attr_accessor :values
 
     attr_accessor :additional_properties
 
@@ -33,8 +33,8 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.attribute_map
       {
-        :'principals' => :'principals',
-        :'role' => :'role'
+        :'fail_test_on_cannot_locate' => :'failTestOnCannotLocate',
+        :'values' => :'values'
       }
     end
 
@@ -42,8 +42,8 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
-        :'principals' => :'Array<String>',
-        :'role' => :'SyntheticsMobileTestBindingItemsRole'
+        :'fail_test_on_cannot_locate' => :'Boolean',
+        :'values' => :'Array<SyntheticsMobileStepParamsElementUserLocatorValuesItems>'
       }
     end
 
@@ -52,7 +52,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SyntheticsMobileTestBindingItems` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SyntheticsMobileStepParamsElementUserLocator` initialize method"
       end
 
       self.additional_properties = {}
@@ -65,14 +65,14 @@ module DatadogAPIClient::V1
         end
       }
 
-      if attributes.key?(:'principals')
-        if (value = attributes[:'principals']).is_a?(Array)
-          self.principals = value
-        end
+      if attributes.key?(:'fail_test_on_cannot_locate')
+        self.fail_test_on_cannot_locate = attributes[:'fail_test_on_cannot_locate']
       end
 
-      if attributes.key?(:'role')
-        self.role = attributes[:'role']
+      if attributes.key?(:'values')
+        if (value = attributes[:'values']).is_a?(Array)
+          self.values = value
+        end
       end
     end
 
@@ -102,8 +102,8 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          principals == o.principals &&
-          role == o.role
+          fail_test_on_cannot_locate == o.fail_test_on_cannot_locate &&
+          values == o.values
           additional_properties == o.additional_properties
     end
 
@@ -111,7 +111,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [principals, role].hash
+      [fail_test_on_cannot_locate, values].hash
     end
   end
 end
