@@ -21,10 +21,10 @@ module DatadogAPIClient::V2
   class EntityV3MetadataAdditionalOwnersItems
     include BaseGenericModel
 
-    # Team name
+    # Team name.
     attr_reader :name
 
-    # Team type
+    # Team type.
     attr_accessor :type
 
     attr_accessor :additional_properties

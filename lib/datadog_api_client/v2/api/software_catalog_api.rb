@@ -35,7 +35,7 @@ module DatadogAPIClient::V2
     #
     # Delete a single entity in Software Catalog.
     #
-    # @param entity_id [String] UUID or Entity Ref
+    # @param entity_id [String] UUID or Entity Ref.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_catalog_entity_with_http_info(entity_id, opts = {})
@@ -103,14 +103,14 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @option opts [Integer] :page_offset Specific offset to use as the beginning of the returned page.
     # @option opts [Integer] :page_limit Maximum number of entities in the response.
-    # @option opts [String] :fitler_id Filter entities by UUID
-    # @option opts [String] :fitler_ref Filter entities by reference
-    # @option opts [String] :fitler_name Filter entities by name
-    # @option opts [String] :fitler_kind Filter entities by kind
-    # @option opts [String] :fitler_owner Filter entities by owner
-    # @option opts [RelationType] :fitler_relation_type Filter entities by relation type
-    # @option opts [String] :fitler_exclude_snapshot Filter entities by excluding snapshotted entities
-    # @option opts [IncludeType] :include include relationship data
+    # @option opts [String] :filter_id Filter entities by UUID.
+    # @option opts [String] :filter_ref Filter entities by reference
+    # @option opts [String] :filter_name Filter entities by name.
+    # @option opts [String] :filter_kind Filter entities by kind.
+    # @option opts [String] :filter_owner Filter entities by owner.
+    # @option opts [RelationType] :filter_relation_type Filter entities by relation type.
+    # @option opts [String] :filter_exclude_snapshot Filter entities by excluding snapshotted entities.
+    # @option opts [IncludeType] :include Include relationship data.
     # @return [Array<(ListEntityCatalogResponse, Integer, Hash)>] ListEntityCatalogResponse data, response status code and response headers
     def list_catalog_entity_with_http_info(opts = {})
 
@@ -118,8 +118,8 @@ module DatadogAPIClient::V2
         @api_client.config.logger.debug 'Calling API: SoftwareCatalogAPI.list_catalog_entity ...'
       end
       allowable_values = ['RelationTypeOwns', 'RelationTypeOwnedBy', 'RelationTypeDependsOn', 'RelationTypeDependencyOf', 'RelationTypePartsOf', 'RelationTypeHasPart', 'RelationTypeOtherOwns', 'RelationTypeOtherOwnedBy', 'RelationTypeImplementedBy', 'RelationTypeImplements']
-      if @api_client.config.client_side_validation && opts[:'fitler_relation_type'] && !allowable_values.include?(opts[:'fitler_relation_type'])
-        fail ArgumentError, "invalid value for \"fitler_relation_type\", must be one of #{allowable_values}"
+      if @api_client.config.client_side_validation && opts[:'filter_relation_type'] && !allowable_values.include?(opts[:'filter_relation_type'])
+        fail ArgumentError, "invalid value for \"filter_relation_type\", must be one of #{allowable_values}"
       end
       allowable_values = ['schema', 'raw_schema', 'oncall', 'incident', 'relation']
       if @api_client.config.client_side_validation && opts[:'include'] && !allowable_values.include?(opts[:'include'])
@@ -132,13 +132,13 @@ module DatadogAPIClient::V2
       query_params = opts[:query_params] || {}
       query_params[:'page[offset]'] = opts[:'page_offset'] if !opts[:'page_offset'].nil?
       query_params[:'page[limit]'] = opts[:'page_limit'] if !opts[:'page_limit'].nil?
-      query_params[:'fitler[id]'] = opts[:'fitler_id'] if !opts[:'fitler_id'].nil?
-      query_params[:'fitler[ref]'] = opts[:'fitler_ref'] if !opts[:'fitler_ref'].nil?
-      query_params[:'fitler[name]'] = opts[:'fitler_name'] if !opts[:'fitler_name'].nil?
-      query_params[:'fitler[kind]'] = opts[:'fitler_kind'] if !opts[:'fitler_kind'].nil?
-      query_params[:'fitler[owner]'] = opts[:'fitler_owner'] if !opts[:'fitler_owner'].nil?
-      query_params[:'fitler[relation][type]'] = opts[:'fitler_relation_type'] if !opts[:'fitler_relation_type'].nil?
-      query_params[:'fitler[exclude_snapshot]'] = opts[:'fitler_exclude_snapshot'] if !opts[:'fitler_exclude_snapshot'].nil?
+      query_params[:'filter[id]'] = opts[:'filter_id'] if !opts[:'filter_id'].nil?
+      query_params[:'filter[ref]'] = opts[:'filter_ref'] if !opts[:'filter_ref'].nil?
+      query_params[:'filter[name]'] = opts[:'filter_name'] if !opts[:'filter_name'].nil?
+      query_params[:'filter[kind]'] = opts[:'filter_kind'] if !opts[:'filter_kind'].nil?
+      query_params[:'filter[owner]'] = opts[:'filter_owner'] if !opts[:'filter_owner'].nil?
+      query_params[:'filter[relation][type]'] = opts[:'filter_relation_type'] if !opts[:'filter_relation_type'].nil?
+      query_params[:'filter[exclude_snapshot]'] = opts[:'filter_exclude_snapshot'] if !opts[:'filter_exclude_snapshot'].nil?
       query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
 
       # header parameters
@@ -210,7 +210,7 @@ module DatadogAPIClient::V2
     #
     # Create or update entities in Software Catalog.
     #
-    # @param body [UpsertCatalogEntityRequest] Entity YAML/JSON.
+    # @param body [UpsertCatalogEntityRequest] Entity YAML or JSON.
     # @param opts [Hash] the optional parameters
     # @return [Array<(UpsertCatalogEntityResponse, Integer, Hash)>] UpsertCatalogEntityResponse data, response status code and response headers
     def upsert_catalog_entity_with_http_info(body, opts = {})

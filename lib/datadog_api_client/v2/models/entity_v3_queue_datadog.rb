@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Datadog product integrations for the datastore entity
+  # Datadog product integrations for the datastore entity.
   class EntityV3QueueDatadog
     include BaseGenericModel
 
-    # Events associations
+    # Events associations.
     attr_accessor :events
 
-    # Logs association
+    # Logs association.
     attr_accessor :logs
 
-    # Performance stats association
+    # Performance stats association.
     attr_accessor :performance_data
 
     # Attribute mapping from ruby-style variable name to JSON key.

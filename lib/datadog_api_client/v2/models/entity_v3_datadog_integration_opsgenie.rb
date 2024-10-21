@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # An Opsgenie integration schema
+  # An Opsgenie integration schema.
   class EntityV3DatadogIntegrationOpsgenie
     include BaseGenericModel
 
     # The region for the Opsgenie integration.
     attr_reader :region
 
-    # The service url for the Opsgenie integration.
+    # The service URL for the Opsgenie integration.
     attr_reader :service_url
 
     # Attribute mapping from ruby-style variable name to JSON key.

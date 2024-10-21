@@ -680,7 +680,7 @@ module DatadogAPIClient::V2
 
     # List tags by metric name.
     #
-    # View indexed tag key-value pairs for a given metric name.
+    # View indexed tag key-value pairs for a given metric name over the previous hour.
     #
     # @param metric_name [String] The name of the metric.
     # @param opts [Hash] the optional parameters

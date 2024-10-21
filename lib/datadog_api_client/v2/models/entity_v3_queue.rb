@@ -17,20 +17,20 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Schema for queue entities
+  # Schema for queue entities.
   class EntityV3Queue
     include BaseGenericModel
 
-    # The schema version of entity type. The field is known as schema-version in the previous version
+    # The schema version of entity type. The field is known as schema-version in the previous version.
     attr_reader :api_version
 
-    # Datadog product integrations for the datastore entity
+    # Datadog product integrations for the datastore entity.
     attr_accessor :datadog
 
-    # Custom extensions. This is the free-formed field to send client side metadata. No Datadog features are affected by this field.
+    # Custom extensions. This is the free-formed field to send client-side metadata. No Datadog features are affected by this field.
     attr_accessor :extensions
 
-    # A base schema for defining third party integrations
+    # A base schema for defining third-party integrations.
     attr_accessor :integrations
 
     # The definition of Entity V3 Queue Kind object.

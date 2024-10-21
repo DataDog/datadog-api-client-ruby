@@ -80,7 +80,7 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'config' => :'SyntheticsMobileTestConfig',
-        :'device_ids' => :'Array<SyntheticsMobileDeviceID>',
+        :'device_ids' => :'Array<String>',
         :'message' => :'String',
         :'monitor_id' => :'Integer',
         :'name' => :'String',

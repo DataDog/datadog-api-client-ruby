@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Oncall escalation
+  # Oncall escalation.
   class EntityResponseIncludedRelatedOncallEscalationItem
     include BaseGenericModel
 

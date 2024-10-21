@@ -17,18 +17,20 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A PagerDuty integration schema.
-  class EntityV3DatadogIntegrationPagerduty
+  # Incident integration metadata for the Microsoft Teams integration.
+  class MSTeamsIntegrationMetadata
     include BaseGenericModel
 
-    # The service URL for the PagerDuty integration.
-    attr_reader :service_url
+    # Array of Microsoft Teams in this integration metadata.
+    attr_reader :teams
+
+    attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'service_url' => :'serviceURL'
+        :'teams' => :'teams'
       }
     end
 
@@ -36,7 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'service_url' => :'String'
+        :'teams' => :'Array<MSTeamsIntegrationMetadataTeamsItem>'
       }
     end
 
@@ -45,19 +47,23 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::EntityV3DatadogIntegrationPagerduty` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::MSTeamsIntegrationMetadata` initialize method"
       end
 
+      self.additional_properties = {}
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::EntityV3DatadogIntegrationPagerduty`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          self.additional_properties[k.to_sym] = v
+        else
+          h[k.to_sym] = v
         end
-        h[k.to_sym] = v
       }
 
-      if attributes.key?(:'service_url')
-        self.service_url = attributes[:'service_url']
+      if attributes.key?(:'teams')
+        if (value = attributes[:'teams']).is_a?(Array)
+          self.teams = value
+        end
       end
     end
 
@@ -65,22 +71,38 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @service_url.nil?
-      return false if @service_url.to_s.length < 1
+      return false if @teams.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param service_url [Object] Object to be assigned
+    # @param teams [Object] Object to be assigned
     # @!visibility private
-    def service_url=(service_url)
-      if service_url.nil?
-        fail ArgumentError, 'invalid value for "service_url", service_url cannot be nil.'
+    def teams=(teams)
+      if teams.nil?
+        fail ArgumentError, 'invalid value for "teams", teams cannot be nil.'
       end
-      if service_url.to_s.length < 1
-        fail ArgumentError, 'invalid value for "service_url", the character length must be great than or equal to 1.'
+      @teams = teams
+    end
+
+    # Returns the object in the form of hash, with additionalProperties support.
+    # @return [Hash] Returns the object in the form of hash
+    # @!visibility private
+    def to_hash
+      hash = {}
+      self.class.attribute_map.each_pair do |attr, param|
+        value = self.send(attr)
+        if value.nil?
+          is_nullable = self.class.openapi_nullable.include?(attr)
+          next if !is_nullable || (is_nullable && !instance_variable_defined?(:"@#{attr}"))
+        end
+
+        hash[param] = _to_hash(value)
       end
-      @service_url = service_url
+      self.additional_properties.each_pair do |attr, value|
+        hash[attr] = value
+      end
+      hash
     end
 
     # Checks equality by comparing each attribute.
@@ -89,14 +111,15 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          service_url == o.service_url
+          teams == o.teams
+          additional_properties == o.additional_properties
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [service_url].hash
+      [teams].hash
     end
   end
 end

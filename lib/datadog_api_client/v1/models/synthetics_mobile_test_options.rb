@@ -107,7 +107,7 @@ module DatadogAPIClient::V1
         :'bindings' => :'Array<SyntheticsMobileTestBinding>',
         :'ci' => :'SyntheticsMobileTestCiOptions',
         :'default_step_timeout' => :'Integer',
-        :'device_ids' => :'Array<SyntheticsMobileDeviceID>',
+        :'device_ids' => :'Array<String>',
         :'disable_auto_accept_alert' => :'Boolean',
         :'min_failure_duration' => :'Integer',
         :'mobile_application' => :'SyntheticsMobileTestsMobileApplication',

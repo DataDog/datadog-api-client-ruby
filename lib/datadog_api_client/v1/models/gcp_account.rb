@@ -54,6 +54,9 @@ module DatadogAPIClient::V1
     # When enabled, Datadog will activate the Cloud Security Monitoring product for this service account. Note: This requires resource_collection_enabled to be set to true.
     attr_accessor :is_cspm_enabled
 
+    # When enabled, Datadog scans for all resource change data in your Google Cloud environment.
+    attr_accessor :is_resource_change_collection_enabled
+
     # When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account.
     attr_accessor :is_security_command_center_enabled
 
@@ -91,6 +94,7 @@ module DatadogAPIClient::V1
         :'errors' => :'errors',
         :'host_filters' => :'host_filters',
         :'is_cspm_enabled' => :'is_cspm_enabled',
+        :'is_resource_change_collection_enabled' => :'is_resource_change_collection_enabled',
         :'is_security_command_center_enabled' => :'is_security_command_center_enabled',
         :'private_key' => :'private_key',
         :'private_key_id' => :'private_key_id',
@@ -115,6 +119,7 @@ module DatadogAPIClient::V1
         :'errors' => :'Array<String>',
         :'host_filters' => :'String',
         :'is_cspm_enabled' => :'Boolean',
+        :'is_resource_change_collection_enabled' => :'Boolean',
         :'is_security_command_center_enabled' => :'Boolean',
         :'private_key' => :'String',
         :'private_key_id' => :'String',
@@ -187,6 +192,10 @@ module DatadogAPIClient::V1
         self.is_cspm_enabled = attributes[:'is_cspm_enabled']
       end
 
+      if attributes.key?(:'is_resource_change_collection_enabled')
+        self.is_resource_change_collection_enabled = attributes[:'is_resource_change_collection_enabled']
+      end
+
       if attributes.key?(:'is_security_command_center_enabled')
         self.is_security_command_center_enabled = attributes[:'is_security_command_center_enabled']
       end
@@ -252,6 +261,7 @@ module DatadogAPIClient::V1
           errors == o.errors &&
           host_filters == o.host_filters &&
           is_cspm_enabled == o.is_cspm_enabled &&
+          is_resource_change_collection_enabled == o.is_resource_change_collection_enabled &&
           is_security_command_center_enabled == o.is_security_command_center_enabled &&
           private_key == o.private_key &&
           private_key_id == o.private_key_id &&
@@ -266,7 +276,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [auth_provider_x509_cert_url, auth_uri, automute, client_email, client_id, client_x509_cert_url, cloud_run_revision_filters, errors, host_filters, is_cspm_enabled, is_security_command_center_enabled, private_key, private_key_id, project_id, resource_collection_enabled, token_uri, type].hash
+      [auth_provider_x509_cert_url, auth_uri, automute, client_email, client_id, client_x509_cert_url, cloud_run_revision_filters, errors, host_filters, is_cspm_enabled, is_resource_change_collection_enabled, is_security_command_center_enabled, private_key, private_key_id, project_id, resource_collection_enabled, token_uri, type].hash
     end
   end
 end

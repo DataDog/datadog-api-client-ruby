@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Performance stats association
+  # Performance stats association.
   class EntityV3DatadogPerformance
     include BaseGenericModel
 
-    # A list of APM entity tags that associates the APM Stats data with the entity
+    # A list of APM entity tags that associates the APM Stats data with the entity.
     attr_accessor :tags
 
     # Attribute mapping from ruby-style variable name to JSON key.
