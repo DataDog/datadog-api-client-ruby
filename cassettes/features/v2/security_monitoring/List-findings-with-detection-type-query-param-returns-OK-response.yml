@@ -1,0 +1,20 @@
+http_interactions:
+- recorded_at: Mon, 21 Oct 2024 20:05:58 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+    method: GET
+    uri: https://api.datadoghq.com/api/v2/posture_management/findings?filter%5Bvulnerability_type%5D=misconfiguration&filter%5Bvulnerability_type%5D=attack_path
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":[],"meta":{"page":{"total_filtered_count":0},"snapshot_timestamp":1729541158755}}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 200
+      message: OK
+recorded_with: VCR 6.0.0
