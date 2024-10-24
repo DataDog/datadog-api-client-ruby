@@ -25,10 +25,10 @@ module DatadogAPIClient::V1
     attr_reader :day
 
     # The hour of the day on which scheduling starts.
-    attr_accessor :from
+    attr_reader :from
 
     # The hour of the day on which scheduling ends.
-    attr_accessor :to
+    attr_reader :to
 
     attr_accessor :additional_properties
 
@@ -87,8 +87,11 @@ module DatadogAPIClient::V1
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if !@day.nil? && @day > 7
-      return false if !@day.nil? && @day < 1
+      return false if @day.nil?
+      return false if @day > 7
+      return false if @day < 1
+      return false if @from.nil?
+      return false if @to.nil?
       true
     end
 
@@ -96,13 +99,36 @@ module DatadogAPIClient::V1
     # @param day [Object] Object to be assigned
     # @!visibility private
     def day=(day)
-      if !day.nil? && day > 7
+      if day.nil?
+        fail ArgumentError, 'invalid value for "day", day cannot be nil.'
+      end
+      if day > 7
         fail ArgumentError, 'invalid value for "day", must be smaller than or equal to 7.'
       end
-      if !day.nil? && day < 1
+      if day < 1
         fail ArgumentError, 'invalid value for "day", must be greater than or equal to 1.'
       end
       @day = day
+    end
+
+    # Custom attribute writer method with validation
+    # @param from [Object] Object to be assigned
+    # @!visibility private
+    def from=(from)
+      if from.nil?
+        fail ArgumentError, 'invalid value for "from", from cannot be nil.'
+      end
+      @from = from
+    end
+
+    # Custom attribute writer method with validation
+    # @param to [Object] Object to be assigned
+    # @!visibility private
+    def to=(to)
+      if to.nil?
+        fail ArgumentError, 'invalid value for "to", to cannot be nil.'
+      end
+      @to = to
     end
 
     # Returns the object in the form of hash, with additionalProperties support.

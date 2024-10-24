@@ -17,13 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # The name of the preset for the notification for the monitor.
-  class SyntheticsMobileTestOptionsMonitorOptionsNotificationPresetName
+  # Type of the context that the element is in.
+  class SyntheticsMobileStepParamsElementContextType
     include BaseEnumModel
 
-    SHOW_ALL = "show_all".freeze
-    HIDE_ALL = "hide_all".freeze
-    HIDE_QUERY = "hide_query".freeze
-    HIDE_HANDLES = "hide_handles".freeze
+    NATIVE = "native".freeze
+    WEB = "web".freeze
   end
 end

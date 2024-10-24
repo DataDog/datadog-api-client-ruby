@@ -36,8 +36,8 @@ module DatadogAPIClient::V1
     # A boolean set to not take a screenshot for the step.
     attr_accessor :no_screenshot
 
-    # The parameters of the mobile step.
-    attr_accessor :params
+    # The parameters of a mobile step.
+    attr_reader :params
 
     # The public ID of the step.
     attr_accessor :public_id
@@ -46,7 +46,7 @@ module DatadogAPIClient::V1
     attr_accessor :timeout
 
     # Step type used in your mobile Synthetic test.
-    attr_accessor :type
+    attr_reader :type
 
     attr_accessor :additional_properties
 
@@ -75,7 +75,7 @@ module DatadogAPIClient::V1
         :'is_critical' => :'Boolean',
         :'name' => :'String',
         :'no_screenshot' => :'Boolean',
-        :'params' => :'Object',
+        :'params' => :'SyntheticsMobileStepParams',
         :'public_id' => :'String',
         :'timeout' => :'Integer',
         :'type' => :'SyntheticsMobileStepType'
@@ -141,7 +141,10 @@ module DatadogAPIClient::V1
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if !@name.nil? && @name.to_s.length > 1500
+      return false if @name.nil?
+      return false if @name.to_s.length > 1500
+      return false if @params.nil?
+      return false if @type.nil?
       true
     end
 
@@ -149,10 +152,33 @@ module DatadogAPIClient::V1
     # @param name [Object] Object to be assigned
     # @!visibility private
     def name=(name)
-      if !name.nil? && name.to_s.length > 1500
+      if name.nil?
+        fail ArgumentError, 'invalid value for "name", name cannot be nil.'
+      end
+      if name.to_s.length > 1500
         fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 1500.'
       end
       @name = name
+    end
+
+    # Custom attribute writer method with validation
+    # @param params [Object] Object to be assigned
+    # @!visibility private
+    def params=(params)
+      if params.nil?
+        fail ArgumentError, 'invalid value for "params", params cannot be nil.'
+      end
+      @params = params
+    end
+
+    # Custom attribute writer method with validation
+    # @param type [Object] Object to be assigned
+    # @!visibility private
+    def type=(type)
+      if type.nil?
+        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+      end
+      @type = type
     end
 
     # Returns the object in the form of hash, with additionalProperties support.

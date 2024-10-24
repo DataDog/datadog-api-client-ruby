@@ -25,14 +25,14 @@ module DatadogAPIClient::V1
     # Message to include in the escalation notification.
     attr_accessor :escalation_message
 
-    # The definition of `SyntheticsMobileTestOptionsMonitorOptionsNotificationPresetName` object.
+    # The name of the preset for the notification for the monitor.
     attr_accessor :notification_preset_name
 
     # Time interval before renotifying if the test is still failing
     # (in minutes).
     attr_reader :renotify_interval
 
-    # The `SyntheticsMobileTestOptionsMonitorOptions` `renotify_occurrences`.
+    # The number renotify_occurrences for the test.
     attr_accessor :renotify_occurrences
 
     attr_accessor :additional_properties

@@ -17,12 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Initial application arguments for a mobile test.
-  class SyntheticsMobileTestInitialApplicationArguments
+  # Position of the action relative to the element.
+  class SyntheticsMobileStepParamsElementRelativePosition
     include BaseGenericModel
 
-    # Name of the property.
-    attr_accessor :property_names
+    # The `relativePosition` on the `x` axis for the element.
+    attr_accessor :x
+
+    # The `relativePosition` on the `y` axis for the element.
+    attr_accessor :y
 
     attr_accessor :additional_properties
 
@@ -30,7 +33,8 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.attribute_map
       {
-        :'property_names' => :'propertyNames'
+        :'x' => :'x',
+        :'y' => :'y'
       }
     end
 
@@ -38,7 +42,8 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
-        :'property_names' => :'SyntheticsMobileTestInitialApplicationArgumentsPropertyNames'
+        :'x' => :'Integer',
+        :'y' => :'Integer'
       }
     end
 
@@ -47,7 +52,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SyntheticsMobileTestInitialApplicationArguments` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SyntheticsMobileStepParamsElementRelativePosition` initialize method"
       end
 
       self.additional_properties = {}
@@ -60,8 +65,12 @@ module DatadogAPIClient::V1
         end
       }
 
-      if attributes.key?(:'property_names')
-        self.property_names = attributes[:'property_names']
+      if attributes.key?(:'x')
+        self.x = attributes[:'x']
+      end
+
+      if attributes.key?(:'y')
+        self.y = attributes[:'y']
       end
     end
 
@@ -91,7 +100,8 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          property_names == o.property_names
+          x == o.x &&
+          y == o.y
           additional_properties == o.additional_properties
     end
 
@@ -99,7 +109,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [property_names].hash
+      [x, y].hash
     end
   end
 end
