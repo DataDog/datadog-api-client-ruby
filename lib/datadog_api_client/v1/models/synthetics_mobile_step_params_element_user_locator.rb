@@ -17,12 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # CI/CD options for a Synthetic test.
-  class SyntheticsMobileTestCiOptions
+  # UserLocator for the element.
+  class SyntheticsMobileStepParamsElementUserLocator
     include BaseGenericModel
 
-    # Execution rule for a Synthetic test.
-    attr_reader :execution_rule
+    # Flag if the the test should fail if the element can not be found.
+    attr_accessor :fail_test_on_cannot_locate
+
+    # Values of the User Locator.
+    attr_accessor :values
 
     attr_accessor :additional_properties
 
@@ -30,7 +33,8 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.attribute_map
       {
-        :'execution_rule' => :'executionRule'
+        :'fail_test_on_cannot_locate' => :'failTestOnCannotLocate',
+        :'values' => :'values'
       }
     end
 
@@ -38,7 +42,8 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
-        :'execution_rule' => :'SyntheticsTestExecutionRule'
+        :'fail_test_on_cannot_locate' => :'Boolean',
+        :'values' => :'Array<SyntheticsMobileStepParamsElementUserLocatorValuesItems>'
       }
     end
 
@@ -47,7 +52,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SyntheticsMobileTestCiOptions` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SyntheticsMobileStepParamsElementUserLocator` initialize method"
       end
 
       self.additional_properties = {}
@@ -60,27 +65,15 @@ module DatadogAPIClient::V1
         end
       }
 
-      if attributes.key?(:'execution_rule')
-        self.execution_rule = attributes[:'execution_rule']
+      if attributes.key?(:'fail_test_on_cannot_locate')
+        self.fail_test_on_cannot_locate = attributes[:'fail_test_on_cannot_locate']
       end
-    end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    # @!visibility private
-    def valid?
-      return false if @execution_rule.nil?
-      true
-    end
-
-    # Custom attribute writer method with validation
-    # @param execution_rule [Object] Object to be assigned
-    # @!visibility private
-    def execution_rule=(execution_rule)
-      if execution_rule.nil?
-        fail ArgumentError, 'invalid value for "execution_rule", execution_rule cannot be nil.'
+      if attributes.key?(:'values')
+        if (value = attributes[:'values']).is_a?(Array)
+          self.values = value
+        end
       end
-      @execution_rule = execution_rule
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -109,7 +102,8 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          execution_rule == o.execution_rule
+          fail_test_on_cannot_locate == o.fail_test_on_cannot_locate &&
+          values == o.values
           additional_properties == o.additional_properties
     end
 
@@ -117,7 +111,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [execution_rule].hash
+      [fail_test_on_cannot_locate, values].hash
     end
   end
 end

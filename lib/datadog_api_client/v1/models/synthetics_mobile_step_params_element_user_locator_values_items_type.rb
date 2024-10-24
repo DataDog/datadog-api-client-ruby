@@ -17,11 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # The definition of `SyntheticsMobileTestBindingItemsRole` object.
-  class SyntheticsMobileTestBindingItemsRole
+  # Type of a User Locator.
+  class SyntheticsMobileStepParamsElementUserLocatorValuesItemsType
     include BaseEnumModel
 
-    EDITOR = "editor".freeze
-    VIEWER = "viewer".freeze
+    ACCESSIBILITY_ID = "accessibility-id".freeze
+    ID = "id".freeze
+    IOS_PREDICATE_STRING = "ios-predicate-string".freeze
+    IOS_CLASS_CHAIN = "ios-class-chain".freeze
+    XPATH = "xpath".freeze
   end
 end

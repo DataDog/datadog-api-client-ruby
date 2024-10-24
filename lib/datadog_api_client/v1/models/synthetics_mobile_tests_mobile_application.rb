@@ -28,7 +28,7 @@ module DatadogAPIClient::V1
     attr_reader :reference_id
 
     # Reference type for the mobile application for a mobile synthetics test.
-    attr_accessor :reference_type
+    attr_reader :reference_type
 
     attr_accessor :additional_properties
 
@@ -87,8 +87,11 @@ module DatadogAPIClient::V1
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if !@application_id.nil? && @application_id.to_s.length > 1500
-      return false if !@reference_id.nil? && @reference_id.to_s.length > 1500
+      return false if @application_id.nil?
+      return false if @application_id.to_s.length > 1500
+      return false if @reference_id.nil?
+      return false if @reference_id.to_s.length > 1500
+      return false if @reference_type.nil?
       true
     end
 
@@ -96,7 +99,10 @@ module DatadogAPIClient::V1
     # @param application_id [Object] Object to be assigned
     # @!visibility private
     def application_id=(application_id)
-      if !application_id.nil? && application_id.to_s.length > 1500
+      if application_id.nil?
+        fail ArgumentError, 'invalid value for "application_id", application_id cannot be nil.'
+      end
+      if application_id.to_s.length > 1500
         fail ArgumentError, 'invalid value for "application_id", the character length must be smaller than or equal to 1500.'
       end
       @application_id = application_id
@@ -106,10 +112,23 @@ module DatadogAPIClient::V1
     # @param reference_id [Object] Object to be assigned
     # @!visibility private
     def reference_id=(reference_id)
-      if !reference_id.nil? && reference_id.to_s.length > 1500
+      if reference_id.nil?
+        fail ArgumentError, 'invalid value for "reference_id", reference_id cannot be nil.'
+      end
+      if reference_id.to_s.length > 1500
         fail ArgumentError, 'invalid value for "reference_id", the character length must be smaller than or equal to 1500.'
       end
       @reference_id = reference_id
+    end
+
+    # Custom attribute writer method with validation
+    # @param reference_type [Object] Object to be assigned
+    # @!visibility private
+    def reference_type=(reference_type)
+      if reference_type.nil?
+        fail ArgumentError, 'invalid value for "reference_type", reference_type cannot be nil.'
+      end
+      @reference_type = reference_type
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
