@@ -49,11 +49,8 @@ module DatadogAPIClient::V1
     DBM_QUERIES_USAGE = "dbm_queries_usage".freeze
     ERROR_TRACKING_USAGE = "error_tracking_usage".freeze
     ERROR_TRACKING_PERCENTAGE = "error_tracking_percentage".freeze
-    ESTIMATED_INDEXED_LOGS_USAGE = "estimated_indexed_logs_usage".freeze
     ESTIMATED_INDEXED_SPANS_USAGE = "estimated_indexed_spans_usage".freeze
-    ESTIMATED_INGESTED_LOGS_USAGE = "estimated_ingested_logs_usage".freeze
     ESTIMATED_INGESTED_SPANS_USAGE = "estimated_ingested_spans_usage".freeze
-    ESTIMATED_RUM_SESSIONS_USAGE = "estimated_rum_sessions_usage".freeze
     FARGATE_USAGE = "fargate_usage".freeze
     FUNCTIONS_USAGE = "functions_usage".freeze
     INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_USAGE = "incident_management_monthly_active_users_usage".freeze
