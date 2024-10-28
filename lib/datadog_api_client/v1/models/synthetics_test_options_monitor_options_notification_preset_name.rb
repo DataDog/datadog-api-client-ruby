@@ -17,8 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # The definition of `SyntheticsMobileTestOptionsMonitorOptionsNotificationPresetName` object.
-  class SyntheticsMobileTestOptionsMonitorOptionsNotificationPresetName
+  # The name of the preset for the notification for the monitor.
+  class SyntheticsTestOptionsMonitorOptionsNotificationPresetName
     include BaseEnumModel
 
     SHOW_ALL = "show_all".freeze
