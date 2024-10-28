@@ -30,6 +30,9 @@ module DatadogAPIClient::V2
     # A condensed view of the user-defined fields for which to create initial selections.
     attr_accessor :fields
 
+    # A unique identifier that represents an incident type. The default incident type will be used if this property is not provided.
+    attr_accessor :incident_type_uuid
+
     # An array of initial timeline cells to be placed at the beginning of the incident timeline.
     attr_accessor :initial_cells
 
@@ -48,6 +51,7 @@ module DatadogAPIClient::V2
         :'customer_impact_scope' => :'customer_impact_scope',
         :'customer_impacted' => :'customer_impacted',
         :'fields' => :'fields',
+        :'incident_type_uuid' => :'incident_type_uuid',
         :'initial_cells' => :'initial_cells',
         :'notification_handles' => :'notification_handles',
         :'title' => :'title'
@@ -61,6 +65,7 @@ module DatadogAPIClient::V2
         :'customer_impact_scope' => :'String',
         :'customer_impacted' => :'Boolean',
         :'fields' => :'Hash<String, IncidentFieldAttributes>',
+        :'incident_type_uuid' => :'String',
         :'initial_cells' => :'Array<IncidentTimelineCellCreateAttributes>',
         :'notification_handles' => :'Array<IncidentNotificationHandle>',
         :'title' => :'String'
@@ -95,6 +100,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'fields')
         self.fields = attributes[:'fields']
+      end
+
+      if attributes.key?(:'incident_type_uuid')
+        self.incident_type_uuid = attributes[:'incident_type_uuid']
       end
 
       if attributes.key?(:'initial_cells')
@@ -172,6 +181,7 @@ module DatadogAPIClient::V2
           customer_impact_scope == o.customer_impact_scope &&
           customer_impacted == o.customer_impacted &&
           fields == o.fields &&
+          incident_type_uuid == o.incident_type_uuid &&
           initial_cells == o.initial_cells &&
           notification_handles == o.notification_handles &&
           title == o.title
@@ -182,7 +192,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [customer_impact_scope, customer_impacted, fields, initial_cells, notification_handles, title].hash
+      [customer_impact_scope, customer_impacted, fields, incident_type_uuid, initial_cells, notification_handles, title].hash
     end
   end
 end
