@@ -17,15 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Object describing the binding used for a mobile test.
-  class SyntheticsMobileTestBindingItems
+  # Variable object for `extractVariable` step type.
+  class SyntheticsMobileStepParamsVariable
     include BaseGenericModel
 
-    # List of principals for a mobile test binding.
-    attr_accessor :principals
+    # An example for the variable.
+    attr_reader :example
 
-    # The definition of `SyntheticsMobileTestBindingItemsRole` object.
-    attr_accessor :role
+    # The variable name.
+    attr_reader :name
 
     attr_accessor :additional_properties
 
@@ -33,8 +33,8 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.attribute_map
       {
-        :'principals' => :'principals',
-        :'role' => :'role'
+        :'example' => :'example',
+        :'name' => :'name'
       }
     end
 
@@ -42,8 +42,8 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
-        :'principals' => :'Array<String>',
-        :'role' => :'SyntheticsMobileTestBindingItemsRole'
+        :'example' => :'String',
+        :'name' => :'String'
       }
     end
 
@@ -52,7 +52,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SyntheticsMobileTestBindingItems` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SyntheticsMobileStepParamsVariable` initialize method"
       end
 
       self.additional_properties = {}
@@ -65,15 +65,42 @@ module DatadogAPIClient::V1
         end
       }
 
-      if attributes.key?(:'principals')
-        if (value = attributes[:'principals']).is_a?(Array)
-          self.principals = value
-        end
+      if attributes.key?(:'example')
+        self.example = attributes[:'example']
       end
 
-      if attributes.key?(:'role')
-        self.role = attributes[:'role']
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @example.nil?
+      return false if @name.nil?
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param example [Object] Object to be assigned
+    # @!visibility private
+    def example=(example)
+      if example.nil?
+        fail ArgumentError, 'invalid value for "example", example cannot be nil.'
+      end
+      @example = example
+    end
+
+    # Custom attribute writer method with validation
+    # @param name [Object] Object to be assigned
+    # @!visibility private
+    def name=(name)
+      if name.nil?
+        fail ArgumentError, 'invalid value for "name", name cannot be nil.'
+      end
+      @name = name
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -102,8 +129,8 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          principals == o.principals &&
-          role == o.role
+          example == o.example &&
+          name == o.name
           additional_properties == o.additional_properties
     end
 
@@ -111,7 +138,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [principals, role].hash
+      [example, name].hash
     end
   end
 end

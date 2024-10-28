@@ -24,7 +24,7 @@ module DatadogAPIClient::V1
     # Configuration object for a Synthetic mobile test.
     attr_reader :config
 
-    # The `SyntheticsMobileTest` `device_ids`.
+    # Array with the different device IDs used to run the test.
     attr_accessor :device_ids
 
     # Notification message associated with the test.

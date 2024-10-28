@@ -17,8 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # The definition of `SyntheticsMobileTestBindingItemsRole` object.
-  class SyntheticsMobileTestBindingItemsRole
+  # The type of relation for the binding.
+  class SyntheticsTestRestrictionPolicyBindingRelation
     include BaseEnumModel
 
     EDITOR = "editor".freeze

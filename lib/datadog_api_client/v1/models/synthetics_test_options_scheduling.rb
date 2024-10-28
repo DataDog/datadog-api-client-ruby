@@ -22,10 +22,10 @@ module DatadogAPIClient::V1
     include BaseGenericModel
 
     # Array containing objects describing the scheduling pattern to apply to each day.
-    attr_accessor :timeframes
+    attr_reader :timeframes
 
     # Timezone in which the timeframe is based.
-    attr_accessor :timezone
+    attr_reader :timezone
 
     attr_accessor :additional_properties
 
@@ -74,6 +74,35 @@ module DatadogAPIClient::V1
       if attributes.key?(:'timezone')
         self.timezone = attributes[:'timezone']
       end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @timeframes.nil?
+      return false if @timezone.nil?
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param timeframes [Object] Object to be assigned
+    # @!visibility private
+    def timeframes=(timeframes)
+      if timeframes.nil?
+        fail ArgumentError, 'invalid value for "timeframes", timeframes cannot be nil.'
+      end
+      @timeframes = timeframes
+    end
+
+    # Custom attribute writer method with validation
+    # @param timezone [Object] Object to be assigned
+    # @!visibility private
+    def timezone=(timezone)
+      if timezone.nil?
+        fail ArgumentError, 'invalid value for "timezone", timezone cannot be nil.'
+      end
+      @timezone = timezone
     end
 
     # Returns the object in the form of hash, with additionalProperties support.

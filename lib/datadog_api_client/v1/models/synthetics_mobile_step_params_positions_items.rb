@@ -17,18 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Object describing a timeframe.
-  class SyntheticsTestOptionsSchedulingTimeframe
+  # A description of a single position for a `flick` step type.
+  class SyntheticsMobileStepParamsPositionsItems
     include BaseGenericModel
 
-    # Number representing the day of the week.
-    attr_reader :day
+    # The `x` position for the flick.
+    attr_accessor :x
 
-    # The hour of the day on which scheduling starts.
-    attr_reader :from
-
-    # The hour of the day on which scheduling ends.
-    attr_reader :to
+    # The `y` position for the flick.
+    attr_accessor :y
 
     attr_accessor :additional_properties
 
@@ -36,9 +33,8 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.attribute_map
       {
-        :'day' => :'day',
-        :'from' => :'from',
-        :'to' => :'to'
+        :'x' => :'x',
+        :'y' => :'y'
       }
     end
 
@@ -46,9 +42,8 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
-        :'day' => :'Integer',
-        :'from' => :'String',
-        :'to' => :'String'
+        :'x' => :'Integer',
+        :'y' => :'Integer'
       }
     end
 
@@ -57,7 +52,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SyntheticsTestOptionsSchedulingTimeframe` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SyntheticsMobileStepParamsPositionsItems` initialize method"
       end
 
       self.additional_properties = {}
@@ -70,65 +65,13 @@ module DatadogAPIClient::V1
         end
       }
 
-      if attributes.key?(:'day')
-        self.day = attributes[:'day']
+      if attributes.key?(:'x')
+        self.x = attributes[:'x']
       end
 
-      if attributes.key?(:'from')
-        self.from = attributes[:'from']
+      if attributes.key?(:'y')
+        self.y = attributes[:'y']
       end
-
-      if attributes.key?(:'to')
-        self.to = attributes[:'to']
-      end
-    end
-
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    # @!visibility private
-    def valid?
-      return false if @day.nil?
-      return false if @day > 7
-      return false if @day < 1
-      return false if @from.nil?
-      return false if @to.nil?
-      true
-    end
-
-    # Custom attribute writer method with validation
-    # @param day [Object] Object to be assigned
-    # @!visibility private
-    def day=(day)
-      if day.nil?
-        fail ArgumentError, 'invalid value for "day", day cannot be nil.'
-      end
-      if day > 7
-        fail ArgumentError, 'invalid value for "day", must be smaller than or equal to 7.'
-      end
-      if day < 1
-        fail ArgumentError, 'invalid value for "day", must be greater than or equal to 1.'
-      end
-      @day = day
-    end
-
-    # Custom attribute writer method with validation
-    # @param from [Object] Object to be assigned
-    # @!visibility private
-    def from=(from)
-      if from.nil?
-        fail ArgumentError, 'invalid value for "from", from cannot be nil.'
-      end
-      @from = from
-    end
-
-    # Custom attribute writer method with validation
-    # @param to [Object] Object to be assigned
-    # @!visibility private
-    def to=(to)
-      if to.nil?
-        fail ArgumentError, 'invalid value for "to", to cannot be nil.'
-      end
-      @to = to
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -157,9 +100,8 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          day == o.day &&
-          from == o.from &&
-          to == o.to
+          x == o.x &&
+          y == o.y
           additional_properties == o.additional_properties
     end
 
@@ -167,7 +109,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [day, from, to].hash
+      [x, y].hash
     end
   end
 end

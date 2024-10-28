@@ -22,9 +22,18 @@ module DatadogAPIClient::V1
   class SyntheticsTestOptionsMonitorOptions
     include BaseGenericModel
 
+    # Message to include in the escalation notification.
+    attr_accessor :escalation_message
+
+    # The name of the preset for the notification for the monitor.
+    attr_accessor :notification_preset_name
+
     # Time interval before renotifying if the test is still failing
     # (in minutes).
     attr_reader :renotify_interval
+
+    # The number of times to renotify if the test is still failing.
+    attr_accessor :renotify_occurrences
 
     attr_accessor :additional_properties
 
@@ -32,7 +41,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.attribute_map
       {
-        :'renotify_interval' => :'renotify_interval'
+        :'escalation_message' => :'escalation_message',
+        :'notification_preset_name' => :'notification_preset_name',
+        :'renotify_interval' => :'renotify_interval',
+        :'renotify_occurrences' => :'renotify_occurrences'
       }
     end
 
@@ -40,7 +52,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
-        :'renotify_interval' => :'Integer'
+        :'escalation_message' => :'String',
+        :'notification_preset_name' => :'SyntheticsTestOptionsMonitorOptionsNotificationPresetName',
+        :'renotify_interval' => :'Integer',
+        :'renotify_occurrences' => :'Integer'
       }
     end
 
@@ -62,8 +77,20 @@ module DatadogAPIClient::V1
         end
       }
 
+      if attributes.key?(:'escalation_message')
+        self.escalation_message = attributes[:'escalation_message']
+      end
+
+      if attributes.key?(:'notification_preset_name')
+        self.notification_preset_name = attributes[:'notification_preset_name']
+      end
+
       if attributes.key?(:'renotify_interval')
         self.renotify_interval = attributes[:'renotify_interval']
+      end
+
+      if attributes.key?(:'renotify_occurrences')
+        self.renotify_occurrences = attributes[:'renotify_occurrences']
       end
     end
 
@@ -111,7 +138,10 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          renotify_interval == o.renotify_interval
+          escalation_message == o.escalation_message &&
+          notification_preset_name == o.notification_preset_name &&
+          renotify_interval == o.renotify_interval &&
+          renotify_occurrences == o.renotify_occurrences
           additional_properties == o.additional_properties
     end
 
@@ -119,7 +149,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [renotify_interval].hash
+      [escalation_message, notification_preset_name, renotify_interval, renotify_occurrences].hash
     end
   end
 end
