@@ -179,6 +179,58 @@
       <li class="public ">
   <span class="summary_signature">
     
+      <a href="#escalation_message-instance_method" title="#escalation_message (instance method)">#<strong>escalation_message</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Message to include in the escalation notification.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#notification_preset_name-instance_method" title="#notification_preset_name (instance method)">#<strong>notification_preset_name</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The name of the preset for the notification for the monitor.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#renotify_interval-instance_method" title="#renotify_interval (instance method)">#<strong>renotify_interval</strong>  &#x21d2; Object </a>
     
 
@@ -199,6 +251,32 @@
 
   
     <span class="summary_desc"><div class='inline'><p>Time interval before renotifying if the test is still failing (in minutes).</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#renotify_occurrences-instance_method" title="#renotify_occurrences (instance method)">#<strong>renotify_occurrences</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The number of times to renotify if the test is still failing.</p>
 </div></span>
   
 </li>
@@ -542,6 +620,90 @@
       <pre class="lines">
 
 
+38
+39
+40</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/synthetics_test_options_monitor_options.rb', line 38</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_additional_properties'>additional_properties</span>
+  <span class='ivar'>@additional_properties</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="escalation_message=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="escalation_message-instance_method">
+  
+    #<strong>escalation_message</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Message to include in the escalation notification.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+26
+27
+28</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/synthetics_test_options_monitor_options.rb', line 26</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_escalation_message'>escalation_message</span>
+  <span class='ivar'>@escalation_message</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="notification_preset_name=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="notification_preset_name-instance_method">
+  
+    #<strong>notification_preset_name</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>The name of the preset for the notification for the monitor.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
 29
 30
 31</pre>
@@ -549,8 +711,8 @@
     <td>
       <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/synthetics_test_options_monitor_options.rb', line 29</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_additional_properties'>additional_properties</span>
-  <span class='ivar'>@additional_properties</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_notification_preset_name'>notification_preset_name</span>
+  <span class='ivar'>@notification_preset_name</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -594,6 +756,48 @@
 
 <span class='kw'>def</span> <span class='id identifier rubyid_renotify_interval'>renotify_interval</span>
   <span class='ivar'>@renotify_interval</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="renotify_occurrences=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="renotify_occurrences-instance_method">
+  
+    #<strong>renotify_occurrences</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>The number of times to renotify if the test is still failing.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+36
+37
+38</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/synthetics_test_options_monitor_options.rb', line 36</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_renotify_occurrences'>renotify_occurrences</span>
+  <span class='ivar'>@renotify_occurrences</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1421,7 +1625,7 @@ For object, use to_hash. Otherwise, just return the value</p>
 </div>
 
       <div id="footer">
-  Generated on Fri Oct 25 20:55:48 2024 by
+  Generated on Mon Oct 28 13:41:10 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>

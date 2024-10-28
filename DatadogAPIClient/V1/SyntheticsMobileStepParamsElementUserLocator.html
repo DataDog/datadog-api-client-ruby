@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
-  Class: DatadogAPIClient::V1::SyntheticsMobileTestBinding
+  Class: DatadogAPIClient::V1::SyntheticsMobileStepParamsElementUserLocator
   
     &mdash; datadog-api-client 2.27.1.dev.1 documentation
   
@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="../../css/common.css" type="text/css" />
 
 <script type="text/javascript">
-  pathId = "DatadogAPIClient::V1::SyntheticsMobileTestBinding";
+  pathId = "DatadogAPIClient::V1::SyntheticsMobileStepParamsElementUserLocator";
   relpath = '../../';
 </script>
 
@@ -39,7 +39,7 @@
     <a href="../../_index.html">Index (S)</a> &raquo;
     <span class='title'><span class='object_link'><a href="../../DatadogAPIClient.html" title="DatadogAPIClient (module)">DatadogAPIClient</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../V1.html" title="DatadogAPIClient::V1 (module)">V1</a></span></span>
      &raquo; 
-    <span class="title">SyntheticsMobileTestBinding</span>
+    <span class="title">SyntheticsMobileStepParamsElementUserLocator</span>
   
 </div>
 
@@ -59,7 +59,7 @@
         <div class="clear"></div>
       </div>
 
-      <div id="content"><h1>Class: DatadogAPIClient::V1::SyntheticsMobileTestBinding
+      <div id="content"><h1>Class: DatadogAPIClient::V1::SyntheticsMobileStepParamsElementUserLocator
   
   
   
@@ -74,7 +74,7 @@
         <ul class="fullTree">
           <li>Object</li>
           
-            <li class="next">DatadogAPIClient::V1::SyntheticsMobileTestBinding</li>
+            <li class="next">DatadogAPIClient::V1::SyntheticsMobileStepParamsElementUserLocator</li>
           
         </ul>
         <a href="#" class="inheritanceTree">show all</a>
@@ -99,14 +99,14 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/datadog_api_client/v1/models/synthetics_mobile_test_binding.rb</dd>
+    <dd>lib/datadog_api_client/v1/models/synthetics_mobile_step_params_element_user_locator.rb</dd>
   </dl>
   
 </div>
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>Objects describing the binding used for a mobile test.</p>
+    <p>User locator to find the element.</p>
 
 
   </div>
@@ -150,7 +150,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#items-instance_method" title="#items (instance method)">#<strong>items</strong>  &#x21d2; Object </a>
+      <a href="#fail_test_on_cannot_locate-instance_method" title="#fail_test_on_cannot_locate (instance method)">#<strong>fail_test_on_cannot_locate</strong>  &#x21d2; Object </a>
     
 
     
@@ -167,7 +167,33 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Object describing the binding used for a mobile test.</p>
+    <span class="summary_desc"><div class='inline'><p>Whether if the the test should fail if the element cannot be found.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#values-instance_method" title="#values (instance method)">#<strong>values</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Values of the user locator.</p>
 </div></span>
   
 </li>
@@ -220,12 +246,12 @@
       <pre class="lines">
 
 
-27
-28
-29</pre>
+30
+31
+32</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/synthetics_mobile_test_binding.rb', line 27</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/synthetics_mobile_step_params_element_user_locator.rb', line 30</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_additional_properties'>additional_properties</span>
   <span class='ivar'>@additional_properties</span>
@@ -236,11 +262,11 @@
 </div>
     
       
-      <span id="items=-instance_method"></span>
+      <span id="fail_test_on_cannot_locate=-instance_method"></span>
       <div class="method_details ">
-  <h3 class="signature " id="items-instance_method">
+  <h3 class="signature " id="fail_test_on_cannot_locate-instance_method">
   
-    #<strong>items</strong>  &#x21d2; <tt>Object</tt> 
+    #<strong>fail_test_on_cannot_locate</strong>  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -248,7 +274,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Object describing the binding used for a mobile test.</p>
+    <p>Whether if the the test should fail if the element cannot be found.</p>
 
 
   </div>
@@ -267,10 +293,52 @@
 27</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/synthetics_mobile_test_binding.rb', line 25</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/synthetics_mobile_step_params_element_user_locator.rb', line 25</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_items'>items</span>
-  <span class='ivar'>@items</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_fail_test_on_cannot_locate'>fail_test_on_cannot_locate</span>
+  <span class='ivar'>@fail_test_on_cannot_locate</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="values=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="values-instance_method">
+  
+    #<strong>values</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Values of the user locator.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+28
+29
+30</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/synthetics_mobile_step_params_element_user_locator.rb', line 28</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_values'>values</span>
+  <span class='ivar'>@values</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -283,7 +351,7 @@
 </div>
 
       <div id="footer">
-  Generated on Fri Oct 25 20:56:04 2024 by
+  Generated on Mon Oct 28 13:41:32 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>
