@@ -22,7 +22,7 @@ module DatadogAPIClient::V1
     include BaseGenericModel
 
     # Execution rule for a Synthetic test.
-    attr_accessor :execution_rule
+    attr_reader :execution_rule
 
     attr_accessor :additional_properties
 
@@ -63,6 +63,24 @@ module DatadogAPIClient::V1
       if attributes.key?(:'execution_rule')
         self.execution_rule = attributes[:'execution_rule']
       end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @execution_rule.nil?
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param execution_rule [Object] Object to be assigned
+    # @!visibility private
+    def execution_rule=(execution_rule)
+      if execution_rule.nil?
+        fail ArgumentError, 'invalid value for "execution_rule", execution_rule cannot be nil.'
+      end
+      @execution_rule = execution_rule
     end
 
     # Returns the object in the form of hash, with additionalProperties support.

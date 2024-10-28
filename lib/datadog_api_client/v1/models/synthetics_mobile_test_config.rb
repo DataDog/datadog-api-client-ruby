@@ -42,7 +42,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
-        :'initial_application_arguments' => :'SyntheticsMobileTestInitialApplicationArguments',
+        :'initial_application_arguments' => :'Hash<String, String>',
         :'variables' => :'Array<SyntheticsConfigVariable>'
       }
     end

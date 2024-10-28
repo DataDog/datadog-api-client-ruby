@@ -17,12 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Name of the property.
-  class SyntheticsMobileTestInitialApplicationArgumentsPropertyNames
+  # Position of the action relative to the element.
+  class SyntheticsMobileStepParamsElementRelativePosition
     include BaseGenericModel
 
-    # The `propertyNames` `pattern`.
-    attr_accessor :pattern
+    # The `relativePosition` on the `x` axis for the element.
+    attr_accessor :x
+
+    # The `relativePosition` on the `y` axis for the element.
+    attr_accessor :y
 
     attr_accessor :additional_properties
 
@@ -30,7 +33,8 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.attribute_map
       {
-        :'pattern' => :'pattern'
+        :'x' => :'x',
+        :'y' => :'y'
       }
     end
 
@@ -38,7 +42,8 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
-        :'pattern' => :'String'
+        :'x' => :'Integer',
+        :'y' => :'Integer'
       }
     end
 
@@ -47,7 +52,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SyntheticsMobileTestInitialApplicationArgumentsPropertyNames` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SyntheticsMobileStepParamsElementRelativePosition` initialize method"
       end
 
       self.additional_properties = {}
@@ -60,8 +65,12 @@ module DatadogAPIClient::V1
         end
       }
 
-      if attributes.key?(:'pattern')
-        self.pattern = attributes[:'pattern']
+      if attributes.key?(:'x')
+        self.x = attributes[:'x']
+      end
+
+      if attributes.key?(:'y')
+        self.y = attributes[:'y']
       end
     end
 
@@ -91,7 +100,8 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          pattern == o.pattern
+          x == o.x &&
+          y == o.y
           additional_properties == o.additional_properties
     end
 
@@ -99,7 +109,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [pattern].hash
+      [x, y].hash
     end
   end
 end

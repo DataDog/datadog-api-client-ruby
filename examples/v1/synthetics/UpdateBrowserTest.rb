@@ -56,7 +56,9 @@ body = DatadogAPIClient::V1::SyntheticsBrowserTest.new({
       DatadogAPIClient::V1::SyntheticsDeviceID::CHROME_LAPTOP_LARGE,
     ],
     http_version: DatadogAPIClient::V1::SyntheticsTestOptionsHTTPVersion::HTTP1,
-    monitor_options: DatadogAPIClient::V1::SyntheticsTestOptionsMonitorOptions.new({}),
+    monitor_options: DatadogAPIClient::V1::SyntheticsTestOptionsMonitorOptions.new({
+      notification_preset_name: DatadogAPIClient::V1::SyntheticsTestOptionsMonitorOptionsNotificationPresetName::SHOW_ALL,
+    }),
     restricted_roles: [
       "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     ],
