@@ -1235,6 +1235,22 @@ ScenariosModelMappings = {
     "v2.CreateIncident" => {
             "body" => "IncidentCreateRequest",
     },
+    "v2.ListIncidentTypes" => {
+            "include_deleted" => "Boolean",
+    },
+    "v2.CreateIncidentType" => {
+            "body" => "IncidentTypeCreateRequest",
+    },
+    "v2.DeleteIncidentType" => {
+            "incident_type_id" => "String",
+    },
+    "v2.GetIncidentType" => {
+            "incident_type_id" => "String",
+    },
+    "v2.UpdateIncidentType" => {
+            "incident_type_id" => "String",
+            "body" => "IncidentTypePatchRequest",
+    },
     "v2.SearchIncidents" => {
             "include" => "IncidentRelatedObject",
             "query" => "String",
