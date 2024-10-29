@@ -207,6 +207,10 @@ module {{ module_name }}::{{ version|upper }}
         :return_type => return_type,
         :api_version => "{{ version|upper }}"
       )
+      {%- set query_multi_params = operation|parameters | map(attribute=1) | selectattr("in", "equalto", "query")| map("collection_format")| select("eq", "multi") | first-%} 
+      {%- if query_multi_params %}
+      new_options[:query_string_normalizer] = HTTParty::Request::NON_RAILS_QUERY_STRING_NORMALIZER
+      {%- endif %}
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::{{ httpMethod|camel_case }}, local_var_path, new_options)
       if @api_client.config.debugging

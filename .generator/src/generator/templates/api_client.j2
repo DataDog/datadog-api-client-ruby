@@ -183,12 +183,12 @@ module {{ module_name }}
         :http_proxyaddr => @config.http_proxyaddr,
         :http_proxyport => @config.http_proxyport,
         :http_proxyuser => @config.http_proxyuser,
-        :http_proxypass => @config.http_proxypass,
-        :query_string_normalizer => HTTParty::Request::NON_RAILS_QUERY_STRING_NORMALIZER
+        :http_proxypass => @config.http_proxypass
       }
 
       req_opts[:pem] = File.read(@config.cert_file) if @config.cert_file
       req_opts[:pem_password] = File.read(@config.key_file) if @config.key_file
+      req_opts[:query_string_normalizer] = opts[:query_string_normalizer] if opts[:query_string_normalizer] 
 
       opts[:stream_body] = true if opts[:return_type] == 'File'
 
