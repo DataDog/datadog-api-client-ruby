@@ -1868,6 +1868,19 @@ ScenariosModelMappings = {
     "v2.SearchRUMEvents" => {
             "body" => "RUMSearchEventsRequest",
     },
+    "v2.CreateRumMetric" => {
+            "body" => "RumMetricCreateRequest",
+    },
+    "v2.DeleteRumMetric" => {
+            "metric_id" => "String",
+    },
+    "v2.GetRumMetric" => {
+            "metric_id" => "String",
+    },
+    "v2.UpdateRumMetric" => {
+            "metric_id" => "String",
+            "body" => "RumMetricUpdateRequest",
+    },
     "v2.ListScorecardOutcomes" => {
             "page_size" => "Integer",
             "page_offset" => "Integer",

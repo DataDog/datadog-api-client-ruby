@@ -1,0 +1,63 @@
+http_interactions:
+- recorded_at: Tue, 29 Oct 2024 07:33:31 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"compute":{"aggregation_type":"distribution","include_percentiles":true,"path":"@duration"},"event_type":"session","filter":{"query":"source:Test-Update_a_rum_based_metric_returns_Conflict_response-1730187211"},"group_by":[{"path":"@browser.name","tag_name":"browser_name"}],"uniqueness":{"when":"match"}},"id":"Test-Update_a_rum_based_metric_returns_Conflict_response-1730187211","type":"rum_metrics"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/rum/config/metrics
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"Test_Update_a_rum_based_metric_returns_Conflict_response_1730187211","type":"rum_metrics","attributes":{"compute":{"aggregation_type":"distribution","include_percentiles":true,"path":"@duration"},"event_type":"session","filter":{"query":"source:Test-Update_a_rum_based_metric_returns_Conflict_response-1730187211"},"group_by":[{"path":"@browser.name","tag_name":"browser_name"}],"uniqueness":{"when":"match"}}}}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 201
+      message: Created
+- recorded_at: Tue, 29 Oct 2024 07:33:31 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"compute":{"include_percentiles":true}},"id":"conflicting.id","type":"rum_metrics"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: PATCH
+    uri: https://api.datadoghq.com/api/v2/rum/config/metrics/Test_Update_a_rum_based_metric_returns_Conflict_response_1730187211
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"status":"409","title":"Conflict","detail":"ID provided
+        in the payload does not match the url parameter"}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 409
+      message: Conflict
+- recorded_at: Tue, 29 Oct 2024 07:33:31 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/rum/config/metrics/Test_Update_a_rum_based_metric_returns_Conflict_response_1730187211
+  response:
+    body:
+      encoding: UTF-8
+      string: ''
+    headers: {}
+    status:
+      code: 204
+      message: No Content
+recorded_with: VCR 6.0.0
