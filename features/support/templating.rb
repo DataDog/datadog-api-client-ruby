@@ -1,5 +1,6 @@
 require 'json'
 
+KEYWORDS = JSON.parse(File.read(File.join(__dir__, "..", "..", ".generator", "src", "generator", "keywords.json")))
 EDGE_CASES = JSON.parse(File.read(File.join(__dir__, "..", "..", ".generator", "src", "generator", "replacement.json")))
 REPLACED_KEYS = EDGE_CASES.keys.map { |k| Regexp.quote(k) }.join("|")
 
@@ -20,7 +21,9 @@ class Object
           when Hash
             result = result.include?(part.to_sym) ? result[part.to_sym] : result[part]
           else
-            result = result.send(part.snakecase)
+            s = part.snakecase
+            s = "_#{s}" if KEYWORDS.include? s
+            result = result.send(s)
           end
         end
       end
