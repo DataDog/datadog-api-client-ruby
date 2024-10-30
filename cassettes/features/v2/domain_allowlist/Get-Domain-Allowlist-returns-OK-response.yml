@@ -1,0 +1,22 @@
+http_interactions:
+- recorded_at: Wed, 23 Oct 2024 18:16:16 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+    method: GET
+    uri: https://api.datadoghq.com/api/v2/domain_allowlist
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"domain_allowlist","attributes":{"enabled":false,"domains":["@static-test-domain.test"]}}}
+
+        '
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+recorded_with: VCR 6.0.0
