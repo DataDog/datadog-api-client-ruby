@@ -206,6 +206,32 @@ If none are found, the match is discarded.</p>
 </li>
 
     
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#use_recommended_keywords-instance_method" title="#use_recommended_keywords (instance method)">#<strong>use_recommended_keywords</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Should the rule use the underlying standard pattern keyword configuration.</p>
+</div></span>
+  
+</li>
+
+    
   </ul>
 
 
@@ -253,12 +279,12 @@ If none are found, the match is discarded.</p>
       <pre class="lines">
 
 
-35
-36
-37</pre>
+39
+40
+41</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/sensitive_data_scanner_included_keyword_configuration.rb', line 35</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/sensitive_data_scanner_included_keyword_configuration.rb', line 39</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_additional_properties'>additional_properties</span>
   <span class='ivar'>@additional_properties</span>
@@ -354,13 +380,56 @@ The number of keywords in the list must be less than or equal to 30.</p>
 </table>
 </div>
     
+      
+      <span id="use_recommended_keywords=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="use_recommended_keywords-instance_method">
+  
+    #<strong>use_recommended_keywords</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Should the rule use the underlying standard pattern keyword configuration. If set to <code>true</code>, the rule must be tied
+to a standard pattern. If set to <code>false</code>, the specified keywords and <code>character_count</code> are applied.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+37
+38
+39</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/sensitive_data_scanner_included_keyword_configuration.rb', line 37</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_use_recommended_keywords'>use_recommended_keywords</span>
+  <span class='ivar'>@use_recommended_keywords</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
   </div>
 
 
 </div>
 
       <div id="footer">
-  Generated on Tue Oct 29 13:24:32 2024 by
+  Generated on Wed Oct 30 14:04:49 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>
