@@ -32,6 +32,10 @@ module DatadogAPIClient::V2
     # The number of keywords in the list must be less than or equal to 30.
     attr_reader :keywords
 
+    # Should the rule use the underlying standard pattern keyword configuration. If set to `true`, the rule must be tied
+    # to a standard pattern. If set to `false`, the specified keywords and `character_count` are applied.
+    attr_accessor :use_recommended_keywords
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -39,7 +43,8 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'character_count' => :'character_count',
-        :'keywords' => :'keywords'
+        :'keywords' => :'keywords',
+        :'use_recommended_keywords' => :'use_recommended_keywords'
       }
     end
 
@@ -48,7 +53,8 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'character_count' => :'Integer',
-        :'keywords' => :'Array<String>'
+        :'keywords' => :'Array<String>',
+        :'use_recommended_keywords' => :'Boolean'
       }
     end
 
@@ -78,6 +84,10 @@ module DatadogAPIClient::V2
         if (value = attributes[:'keywords']).is_a?(Array)
           self.keywords = value
         end
+      end
+
+      if attributes.key?(:'use_recommended_keywords')
+        self.use_recommended_keywords = attributes[:'use_recommended_keywords']
       end
     end
 
@@ -145,7 +155,8 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           character_count == o.character_count &&
-          keywords == o.keywords
+          keywords == o.keywords &&
+          use_recommended_keywords == o.use_recommended_keywords
           additional_properties == o.additional_properties
     end
 
@@ -153,7 +164,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [character_count, keywords].hash
+      [character_count, keywords, use_recommended_keywords].hash
     end
   end
 end
