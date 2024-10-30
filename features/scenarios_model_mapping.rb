@@ -1185,6 +1185,9 @@ ScenariosModelMappings = {
             "dashboard_list_id" => "Integer",
             "body" => "DashboardListUpdateItemsRequest",
     },
+    "v2.PatchDomainAllowlist" => {
+            "body" => "DomainAllowlistRequest",
+    },
     "v2.CreateDORADeployment" => {
             "body" => "DORADeploymentRequest",
     },

@@ -1,0 +1,26 @@
+http_interactions:
+- recorded_at: Wed, 23 Oct 2024 18:16:16 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"domains":["@static-test-domain.test"],"enabled":false},"type":"domain_allowlist"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: PATCH
+    uri: https://api.datadoghq.com/api/v2/domain_allowlist
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"domain_allowlist","attributes":{"enabled":false,"domains":["@static-test-domain.test"]}}}
+
+        '
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+recorded_with: VCR 6.0.0
