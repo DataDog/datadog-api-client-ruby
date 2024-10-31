@@ -1129,6 +1129,10 @@ ScenariosModelMappings = {
             "start_hr" => "Time",
             "end_hr" => "Time",
     },
+    "v2.GetBillingDimensionMapping" => {
+            "filter_month" => "Time",
+            "filter_view" => "String",
+    },
     "v2.GetCostByOrg" => {
             "start_month" => "Time",
             "end_month" => "Time",

@@ -89,6 +89,79 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get billing dimension mapping for usage endpoints.
+    #
+    # @see #get_billing_dimension_mapping_with_http_info
+    def get_billing_dimension_mapping(opts = {})
+      data, _status_code, _headers = get_billing_dimension_mapping_with_http_info(opts)
+      data
+    end
+
+    # Get billing dimension mapping for usage endpoints.
+    #
+    # Get a mapping of billing dimensions to the corresponding keys for the supported usage metering public API endpoints.
+    # Mapping data is updated on a monthly cadence.
+    #
+    # This endpoint is only accessible to [parent-level organizations](https://docs.datadoghq.com/account_management/multi_organization/).
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [Time] :filter_month Datetime in ISO-8601 format, UTC, and for mappings beginning this month. Defaults to the current month.
+    # @option opts [String] :filter_view String to specify whether to retrieve active billing dimension mappings for the contract or for all available mappings. Allowed views have the string `active` or `all`. Defaults to `active`.
+    # @return [Array<(BillingDimensionsMappingResponse, Integer, Hash)>] BillingDimensionsMappingResponse data, response status code and response headers
+    def get_billing_dimension_mapping_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_billing_dimension_mapping".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_billing_dimension_mapping")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_billing_dimension_mapping"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_billing_dimension_mapping ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/usage/billing_dimension_mapping'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter[month]'] = opts[:'filter_month'] if !opts[:'filter_month'].nil?
+      query_params[:'filter[view]'] = opts[:'filter_view'] if !opts[:'filter_view'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'BillingDimensionsMappingResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_billing_dimension_mapping,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: UsageMeteringAPI#get_billing_dimension_mapping\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get cost across multi-org account.
     #
     # @see #get_cost_by_org_with_http_info

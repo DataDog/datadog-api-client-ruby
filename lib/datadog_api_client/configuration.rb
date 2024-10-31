@@ -195,6 +195,7 @@ module DatadogAPIClient
             "v2.list_apis": false,
             "v2.update_open_api": false,
             "v2.get_active_billing_dimensions": false,
+            "v2.get_billing_dimension_mapping": false,
             "v2.get_monthly_cost_attribution": false,
             "v2.create_dora_deployment": false,
             "v2.create_dora_incident": false,
