@@ -34,7 +34,7 @@ module DatadogAPIClient::V1
     attr_accessor :element
 
     # Boolean to change the state of the wifi for a `toggleWiFi` step type.
-    attr_accessor :enable
+    attr_accessor :enabled
 
     # Maximum number of scrolls to do for a `scrollToElement` step type.
     attr_accessor :max_scrolls
@@ -45,7 +45,7 @@ module DatadogAPIClient::V1
     # Public ID of the test to be played as part of a `playSubTest` step type.
     attr_accessor :subtest_public_id
 
-    # Values used in the step. Used in multiple step types.
+    # Values used in the step for in multiple step types.
     attr_accessor :value
 
     # Variable object for `extractVariable` step type.
@@ -70,7 +70,7 @@ module DatadogAPIClient::V1
         :'delay' => :'delay',
         :'direction' => :'direction',
         :'element' => :'element',
-        :'enable' => :'enable',
+        :'enabled' => :'enabled',
         :'max_scrolls' => :'maxScrolls',
         :'positions' => :'positions',
         :'subtest_public_id' => :'subtestPublicId',
@@ -90,15 +90,15 @@ module DatadogAPIClient::V1
         :'delay' => :'Integer',
         :'direction' => :'SyntheticsMobileStepParamsDirection',
         :'element' => :'SyntheticsMobileStepParamsElement',
-        :'enable' => :'Boolean',
+        :'enabled' => :'Boolean',
         :'max_scrolls' => :'Integer',
         :'positions' => :'Array<SyntheticsMobileStepParamsPositionsItems>',
         :'subtest_public_id' => :'String',
-        :'value' => :'String',
+        :'value' => :'SyntheticsMobileStepParamsValue',
         :'variable' => :'SyntheticsMobileStepParamsVariable',
         :'with_enter' => :'Boolean',
-        :'x' => :'Integer',
-        :'y' => :'Integer'
+        :'x' => :'Float',
+        :'y' => :'Float'
       }
     end
 
@@ -136,8 +136,8 @@ module DatadogAPIClient::V1
         self.element = attributes[:'element']
       end
 
-      if attributes.key?(:'enable')
-        self.enable = attributes[:'enable']
+      if attributes.key?(:'enabled')
+        self.enabled = attributes[:'enabled']
       end
 
       if attributes.key?(:'max_scrolls')
@@ -227,7 +227,7 @@ module DatadogAPIClient::V1
           delay == o.delay &&
           direction == o.direction &&
           element == o.element &&
-          enable == o.enable &&
+          enabled == o.enabled &&
           max_scrolls == o.max_scrolls &&
           positions == o.positions &&
           subtest_public_id == o.subtest_public_id &&
@@ -243,7 +243,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [check, delay, direction, element, enable, max_scrolls, positions, subtest_public_id, value, variable, with_enter, x, y].hash
+      [check, delay, direction, element, enabled, max_scrolls, positions, subtest_public_id, value, variable, with_enter, x, y].hash
     end
   end
 end
