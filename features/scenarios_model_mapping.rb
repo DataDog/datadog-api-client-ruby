@@ -1093,9 +1093,6 @@ ScenariosModelMappings = {
             "cloud_account_id" => "String",
             "body" => "AwsCURConfigPatchRequest",
     },
-    "v2.ListAWSRelatedAccounts" => {
-            "filter_management_account_id" => "String",
-    },
     "v2.CreateCostAzureUCConfigs" => {
             "body" => "AzureUCConfigPostRequest",
     },
