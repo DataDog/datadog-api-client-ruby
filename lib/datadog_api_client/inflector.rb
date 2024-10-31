@@ -646,6 +646,7 @@ module DatadogAPIClient
           "v1.synthetics_mobile_step_params_element_user_locator_values_items" => "SyntheticsMobileStepParamsElementUserLocatorValuesItems",
           "v1.synthetics_mobile_step_params_element_user_locator_values_items_type" => "SyntheticsMobileStepParamsElementUserLocatorValuesItemsType",
           "v1.synthetics_mobile_step_params_positions_items" => "SyntheticsMobileStepParamsPositionsItems",
+          "v1.synthetics_mobile_step_params_value" => "SyntheticsMobileStepParamsValue",
           "v1.synthetics_mobile_step_params_variable" => "SyntheticsMobileStepParamsVariable",
           "v1.synthetics_mobile_step_type" => "SyntheticsMobileStepType",
           "v1.synthetics_mobile_test" => "SyntheticsMobileTest",
