@@ -1093,9 +1093,6 @@ ScenariosModelMappings = {
             "cloud_account_id" => "String",
             "body" => "AwsCURConfigPatchRequest",
     },
-    "v2.ListAWSRelatedAccounts" => {
-            "filter_management_account_id" => "String",
-    },
     "v2.CreateCostAzureUCConfigs" => {
             "body" => "AzureUCConfigPostRequest",
     },
@@ -1128,6 +1125,10 @@ ScenariosModelMappings = {
     "v2.GetUsageApplicationSecurityMonitoring" => {
             "start_hr" => "Time",
             "end_hr" => "Time",
+    },
+    "v2.GetBillingDimensionMapping" => {
+            "filter_month" => "Time",
+            "filter_view" => "String",
     },
     "v2.GetCostByOrg" => {
             "start_month" => "Time",
@@ -1185,6 +1186,9 @@ ScenariosModelMappings = {
             "dashboard_list_id" => "Integer",
             "body" => "DashboardListUpdateItemsRequest",
     },
+    "v2.PatchDomainAllowlist" => {
+            "body" => "DomainAllowlistRequest",
+    },
     "v2.CreateDORADeployment" => {
             "body" => "DORADeploymentRequest",
     },
@@ -1234,6 +1238,22 @@ ScenariosModelMappings = {
     },
     "v2.CreateIncident" => {
             "body" => "IncidentCreateRequest",
+    },
+    "v2.ListIncidentTypes" => {
+            "include_deleted" => "Boolean",
+    },
+    "v2.CreateIncidentType" => {
+            "body" => "IncidentTypeCreateRequest",
+    },
+    "v2.DeleteIncidentType" => {
+            "incident_type_id" => "String",
+    },
+    "v2.GetIncidentType" => {
+            "incident_type_id" => "String",
+    },
+    "v2.UpdateIncidentType" => {
+            "incident_type_id" => "String",
+            "body" => "IncidentTypePatchRequest",
     },
     "v2.SearchIncidents" => {
             "include" => "IncidentRelatedObject",
@@ -1867,6 +1887,19 @@ ScenariosModelMappings = {
     },
     "v2.SearchRUMEvents" => {
             "body" => "RUMSearchEventsRequest",
+    },
+    "v2.CreateRumMetric" => {
+            "body" => "RumMetricCreateRequest",
+    },
+    "v2.DeleteRumMetric" => {
+            "metric_id" => "String",
+    },
+    "v2.GetRumMetric" => {
+            "metric_id" => "String",
+    },
+    "v2.UpdateRumMetric" => {
+            "metric_id" => "String",
+            "body" => "RumMetricUpdateRequest",
     },
     "v2.ListScorecardOutcomes" => {
             "page_size" => "Integer",

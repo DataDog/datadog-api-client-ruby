@@ -20,10 +20,7 @@ from generator.formatter import camel_case, snake_case, untitle_case, format_par
 
 
 MODIFIED_FEATURES = {pathlib.Path(p).resolve() for p in os.getenv("BDD_MODIFIED_FEATURES", "").split(" ") if p}
-
 ROOT_PATH = pathlib.Path(__file__).parent.parent
-
-
 PATTERN_ALPHANUM = re.compile(r"[^A-Za-z0-9]+")
 
 

@@ -17,10 +17,16 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Type of AWS related account.
-  class AWSRelatedAccountType
+  # The type of RUM events to filter on.
+  class RumMetricEventType
     include BaseEnumModel
 
-    AWS_ACCOUNT = "aws_account".freeze
+    SESSION = "session".freeze
+    VIEW = "view".freeze
+    ACTION = "action".freeze
+    ERROR = "error".freeze
+    RESOURCE = "resource".freeze
+    LONG_TASK = "long_task".freeze
+    VITAL = "vital".freeze
   end
 end
