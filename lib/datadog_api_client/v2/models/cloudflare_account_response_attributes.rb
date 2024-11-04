@@ -27,7 +27,7 @@ module DatadogAPIClient::V2
     # The name of the Cloudflare account.
     attr_reader :name
 
-    # An allowlist of resources to restrict pulling metrics for including `'web', 'dns', 'lb' (load balancer), 'worker'`.
+    # An allowlist of resources, such as `web`, `dns`, `lb` (load balancer), `worker`, that restricts pulling metrics from those resources.
     attr_accessor :resources
 
     # An allowlist of zones to restrict pulling metrics for.
