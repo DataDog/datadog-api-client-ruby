@@ -364,9 +364,12 @@ module DatadogAPIClient::V2
     #
     # Get the Cloud Cost Management activity.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param opts [Hash] the optional parameters
     # @return [Array<(CloudCostActivityResponse, Integer, Hash)>] CloudCostActivityResponse data, response status code and response headers
     def get_cloud_cost_activity_with_http_info(opts = {})
+      warn "[DEPRECATION] `GetCloudCostActivity` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.get_cloud_cost_activity ...'
