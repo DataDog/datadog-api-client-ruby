@@ -51,9 +51,16 @@ VCR.configure do |c|
   c.register_request_matcher :safe_headers do |r1, r2|
     r1.headers.slice(*filtered_headers) == r2.headers.slice(*filtered_headers)
   end
+  c.register_request_matcher :ignore_query_param_ordering do |r1, r2|
+    uri1 = URI(r1.uri)
+    uri2 = URI(r2.uri)
+    query1 = CGI.parse(uri1.query || '').transform_values(&:sort)
+    query2 = CGI.parse(uri2.query || '').transform_values(&:sort)
+    query1 == query2
+  end
   c.default_cassette_options = {
     :record_on_error => false,
-    :match_requests_on => [:method, :host, :safe_path, :query, :body_as_json, :safe_headers],
+    :match_requests_on => [:method, :host, :safe_path, :ignore_query_param_ordering, :body_as_json, :safe_headers],
   }
   c.allow_http_connections_when_no_cassette = true
   RecordMode.send(ENV["RECORD"] || "false", c)

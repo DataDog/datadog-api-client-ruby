@@ -188,6 +188,7 @@ module {{ module_name }}
 
       req_opts[:pem] = File.read(@config.cert_file) if @config.cert_file
       req_opts[:pem_password] = File.read(@config.key_file) if @config.key_file
+      req_opts[:query_string_normalizer] = opts[:query_string_normalizer] if opts[:query_string_normalizer] 
 
       opts[:stream_body] = true if opts[:return_type] == 'File'
 
