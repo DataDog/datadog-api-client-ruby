@@ -4467,7 +4467,8 @@ Can be used to search for teams using the <code>filter[keyword]</code> and <code
 946
 947
 948
-949</pre>
+949
+950</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/teams_api.rb', line 894</span>
@@ -4521,6 +4522,7 @@ Can be used to search for teams using the <code>filter[keyword]</code> and <code
     <span class='symbol'>:return_type</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_return_type'>return_type</span><span class='comma'>,</span>
     <span class='symbol'>:api_version</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>V2</span><span class='tstring_end'>&quot;</span></span>
   <span class='rparen'>)</span>
+  <span class='id identifier rubyid_new_options'>new_options</span><span class='lbracket'>[</span><span class='symbol'>:query_string_normalizer</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='const'>HTTParty</span><span class='op'>::</span><span class='const'>Request</span><span class='op'>::</span><span class='const'>NON_RAILS_QUERY_STRING_NORMALIZER</span>
 
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid_status_code'>status_code</span><span class='comma'>,</span> <span class='id identifier rubyid_headers'>headers</span> <span class='op'>=</span> <span class='ivar'>@api_client</span><span class='period'>.</span><span class='id identifier rubyid_call_api'>call_api</span><span class='lparen'>(</span><span class='const'>Net</span><span class='op'>::</span><span class='const'>HTTP</span><span class='op'>::</span><span class='const'>Get</span><span class='comma'>,</span> <span class='id identifier rubyid_local_var_path'>local_var_path</span><span class='comma'>,</span> <span class='id identifier rubyid_new_options'>new_options</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='ivar'>@api_client</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_debugging'>debugging</span>
@@ -4579,7 +4581,6 @@ Can be used to search for teams using the <code>filter[keyword]</code> and <code
       <pre class="lines">
 
 
-958
 959
 960
 961
@@ -4592,10 +4593,11 @@ Can be used to search for teams using the <code>filter[keyword]</code> and <code
 968
 969
 970
-971</pre>
+971
+972</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/teams_api.rb', line 958</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/teams_api.rb', line 959</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_teams_with_pagination'>list_teams_with_pagination</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_api_version'>api_version</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>V2</span><span class='tstring_end'>&quot;</span></span>
@@ -4648,13 +4650,13 @@ Can be used to search for teams using the <code>filter[keyword]</code> and <code
       <pre class="lines">
 
 
-976
 977
 978
-979</pre>
+979
+980</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/teams_api.rb', line 976</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/teams_api.rb', line 977</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update_team'>update_team</span><span class='lparen'>(</span><span class='id identifier rubyid_team_id'>team_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_update_team_with_http_info'>update_team_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_team_id'>team_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -4697,13 +4699,13 @@ Can be used to search for teams using the <code>filter[keyword]</code> and <code
       <pre class="lines">
 
 
-1049
 1050
 1051
-1052</pre>
+1052
+1053</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/teams_api.rb', line 1049</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/teams_api.rb', line 1050</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update_team_link'>update_team_link</span><span class='lparen'>(</span><span class='id identifier rubyid_team_id'>team_id</span><span class='comma'>,</span> <span class='id identifier rubyid_link_id'>link_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_update_team_link_with_http_info'>update_team_link_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_team_id'>team_id</span><span class='comma'>,</span> <span class='id identifier rubyid_link_id'>link_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -4820,7 +4822,6 @@ Can be used to search for teams using the <code>filter[keyword]</code> and <code
       <pre class="lines">
 
 
-1063
 1064
 1065
 1066
@@ -4878,10 +4879,11 @@ Can be used to search for teams using the <code>filter[keyword]</code> and <code
 1118
 1119
 1120
-1121</pre>
+1121
+1122</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/teams_api.rb', line 1063</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/teams_api.rb', line 1064</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update_team_link_with_http_info'>update_team_link_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_team_id'>team_id</span><span class='comma'>,</span> <span class='id identifier rubyid_link_id'>link_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -4979,13 +4981,13 @@ Can be used to search for teams using the <code>filter[keyword]</code> and <code
       <pre class="lines">
 
 
-1126
 1127
 1128
-1129</pre>
+1129
+1130</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/teams_api.rb', line 1126</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/teams_api.rb', line 1127</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update_team_membership'>update_team_membership</span><span class='lparen'>(</span><span class='id identifier rubyid_team_id'>team_id</span><span class='comma'>,</span> <span class='id identifier rubyid_user_id'>user_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_update_team_membership_with_http_info'>update_team_membership_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_team_id'>team_id</span><span class='comma'>,</span> <span class='id identifier rubyid_user_id'>user_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -5102,7 +5104,6 @@ Can be used to search for teams using the <code>filter[keyword]</code> and <code
       <pre class="lines">
 
 
-1140
 1141
 1142
 1143
@@ -5160,10 +5161,11 @@ Can be used to search for teams using the <code>filter[keyword]</code> and <code
 1195
 1196
 1197
-1198</pre>
+1198
+1199</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/teams_api.rb', line 1140</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/teams_api.rb', line 1141</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update_team_membership_with_http_info'>update_team_membership_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_team_id'>team_id</span><span class='comma'>,</span> <span class='id identifier rubyid_user_id'>user_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -5261,13 +5263,13 @@ Can be used to search for teams using the <code>filter[keyword]</code> and <code
       <pre class="lines">
 
 
-1203
 1204
 1205
-1206</pre>
+1206
+1207</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/teams_api.rb', line 1203</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/teams_api.rb', line 1204</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update_team_permission_setting'>update_team_permission_setting</span><span class='lparen'>(</span><span class='id identifier rubyid_team_id'>team_id</span><span class='comma'>,</span> <span class='id identifier rubyid_action'>action</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_update_team_permission_setting_with_http_info'>update_team_permission_setting_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_team_id'>team_id</span><span class='comma'>,</span> <span class='id identifier rubyid_action'>action</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -5384,7 +5386,6 @@ Can be used to search for teams using the <code>filter[keyword]</code> and <code
       <pre class="lines">
 
 
-1217
 1218
 1219
 1220
@@ -5442,10 +5443,11 @@ Can be used to search for teams using the <code>filter[keyword]</code> and <code
 1272
 1273
 1274
-1275</pre>
+1275
+1276</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/teams_api.rb', line 1217</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/teams_api.rb', line 1218</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update_team_permission_setting_with_http_info'>update_team_permission_setting_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_team_id'>team_id</span><span class='comma'>,</span> <span class='id identifier rubyid_action'>action</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -5603,7 +5605,6 @@ If the <code>team_links</code> relationship is present, the associated links are
       <pre class="lines">
 
 
-990
 991
 992
 993
@@ -5657,10 +5658,11 @@ If the <code>team_links</code> relationship is present, the associated links are
 1041
 1042
 1043
-1044</pre>
+1044
+1045</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/teams_api.rb', line 990</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/teams_api.rb', line 991</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update_team_with_http_info'>update_team_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_team_id'>team_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -5727,7 +5729,7 @@ If the <code>team_links</code> relationship is present, the associated links are
 </div>
 
       <div id="footer">
-  Generated on Mon Nov  4 18:31:31 2024 by
+  Generated on Mon Nov  4 19:20:18 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>
