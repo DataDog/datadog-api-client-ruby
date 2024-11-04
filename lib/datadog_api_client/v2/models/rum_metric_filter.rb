@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class RumMetricFilter
     include BaseGenericModel
 
-    # The search query - following the RUM search syntax. Must include an @type facet query.
+    # The search query - following the RUM search syntax.
     attr_reader :query
 
     attr_accessor :additional_properties
