@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # When to count updatable events. "match" when the event is first seen, or "end" when the event is complete.
+  # When to count updatable events. `match` when the event is first seen, or `end` when the event is complete.
   class RumMetricUniquenessWhen
     include BaseEnumModel
 

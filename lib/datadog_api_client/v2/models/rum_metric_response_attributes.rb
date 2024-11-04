@@ -33,7 +33,7 @@ module DatadogAPIClient::V2
     # The rules for the group by.
     attr_accessor :group_by
 
-    # The rule to count updatable events. Is only set if "event_type" is "sessions" or "views".
+    # The rule to count updatable events. Is only set if `event_type` is `session` or `view`.
     attr_accessor :uniqueness
 
     attr_accessor :additional_properties

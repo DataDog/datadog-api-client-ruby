@@ -22,7 +22,7 @@ module DatadogAPIClient::V2
     include BaseGenericModel
 
     # Toggle to include or exclude percentile aggregations for distribution metrics.
-    # Only present when the `aggregation_type` is `distribution`.
+    # Only present when `aggregation_type` is `distribution`.
     attr_accessor :include_percentiles
 
     attr_accessor :additional_properties
