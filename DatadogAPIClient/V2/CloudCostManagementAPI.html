@@ -398,7 +398,7 @@
 </li>
 
       
-        <li class="public ">
+        <li class="public deprecated">
   <span class="summary_signature">
     
       <a href="#get_cloud_cost_activity_with_http_info-instance_method" title="#get_cloud_cost_activity_with_http_info (instance method)">#<strong>get_cloud_cost_activity_with_http_info</strong>(opts = {})  &#x21d2; Array&lt;(CloudCostActivityResponse, Integer, Hash)&gt; </a>
@@ -411,11 +411,11 @@
   
   
   
-  
+  <span class="deprecated note title">deprecated</span>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Cloud Cost Enabled.</p>
+    <span class="summary_desc"><strong>Deprecated.</strong> <div class='inline'><p>This API is deprecated.</p>
 </div></span>
   
 </li>
@@ -2108,7 +2108,9 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Cloud Cost Enabled.</p>
+    <div class="note deprecated"><strong>Deprecated.</strong> <div class='inline'><p>This API is deprecated.</p>
+</div></div>
+<p>Cloud Cost Enabled.</p>
 
 <p>Get the Cloud Cost Management activity.</p>
 
@@ -2162,8 +2164,6 @@
       <pre class="lines">
 
 
-369
-370
 371
 372
 373
@@ -2206,12 +2206,16 @@
 410
 411
 412
-413</pre>
+413
+414
+415
+416</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/cloud_cost_management_api.rb', line 369</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/cloud_cost_management_api.rb', line 371</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_cloud_cost_activity_with_http_info'>get_cloud_cost_activity_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_warn'>warn</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>[DEPRECATION] `GetCloudCostActivity` is deprecated.</span><span class='tstring_end'>&quot;</span></span>
 
   <span class='kw'>if</span> <span class='ivar'>@api_client</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_debugging'>debugging</span>
     <span class='ivar'>@api_client</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_logger'>logger</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Calling API: CloudCostManagementAPI.get_cloud_cost_activity ...</span><span class='tstring_end'>&#39;</span></span>
@@ -2293,13 +2297,13 @@
       <pre class="lines">
 
 
-418
-419
-420
-421</pre>
+421
+422
+423
+424</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/cloud_cost_management_api.rb', line 418</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/cloud_cost_management_api.rb', line 421</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_custom_costs_file'>get_custom_costs_file</span><span class='lparen'>(</span><span class='id identifier rubyid_file_id'>file_id</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_get_custom_costs_file_with_http_info'>get_custom_costs_file_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_file_id'>file_id</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -2390,9 +2394,6 @@
       <pre class="lines">
 
 
-430
-431
-432
 433
 434
 435
@@ -2438,10 +2439,13 @@
 475
 476
 477
-478</pre>
+478
+479
+480
+481</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/cloud_cost_management_api.rb', line 430</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/cloud_cost_management_api.rb', line 433</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_custom_costs_file_with_http_info'>get_custom_costs_file_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_file_id'>file_id</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -2529,13 +2533,13 @@
       <pre class="lines">
 
 
-483
-484
-485
-486</pre>
+486
+487
+488
+489</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/cloud_cost_management_api.rb', line 483</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/cloud_cost_management_api.rb', line 486</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_cost_awscur_configs'>list_cost_awscur_configs</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_list_cost_awscur_configs_with_http_info'>list_cost_awscur_configs_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -2611,9 +2615,6 @@
       <pre class="lines">
 
 
-494
-495
-496
 497
 498
 499
@@ -2655,10 +2656,13 @@
 535
 536
 537
-538</pre>
+538
+539
+540
+541</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/cloud_cost_management_api.rb', line 494</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/cloud_cost_management_api.rb', line 497</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_cost_awscur_configs_with_http_info'>list_cost_awscur_configs_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -2742,13 +2746,13 @@
       <pre class="lines">
 
 
-543
-544
-545
-546</pre>
+546
+547
+548
+549</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/cloud_cost_management_api.rb', line 543</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/cloud_cost_management_api.rb', line 546</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_cost_azure_uc_configs'>list_cost_azure_uc_configs</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_list_cost_azure_uc_configs_with_http_info'>list_cost_azure_uc_configs_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -2824,9 +2828,6 @@
       <pre class="lines">
 
 
-554
-555
-556
 557
 558
 559
@@ -2868,10 +2869,13 @@
 595
 596
 597
-598</pre>
+598
+599
+600
+601</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/cloud_cost_management_api.rb', line 554</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/cloud_cost_management_api.rb', line 557</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_cost_azure_uc_configs_with_http_info'>list_cost_azure_uc_configs_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -2955,13 +2959,13 @@
       <pre class="lines">
 
 
-603
-604
-605
-606</pre>
+606
+607
+608
+609</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/cloud_cost_management_api.rb', line 603</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/cloud_cost_management_api.rb', line 606</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_custom_costs_files'>list_custom_costs_files</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_list_custom_costs_files_with_http_info'>list_custom_costs_files_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -3037,9 +3041,6 @@
       <pre class="lines">
 
 
-614
-615
-616
 617
 618
 619
@@ -3081,10 +3082,13 @@
 655
 656
 657
-658</pre>
+658
+659
+660
+661</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/cloud_cost_management_api.rb', line 614</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/cloud_cost_management_api.rb', line 617</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_custom_costs_files_with_http_info'>list_custom_costs_files_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -3168,13 +3172,13 @@
       <pre class="lines">
 
 
-663
-664
-665
-666</pre>
+666
+667
+668
+669</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/cloud_cost_management_api.rb', line 663</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/cloud_cost_management_api.rb', line 666</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update_cost_awscur_config'>update_cost_awscur_config</span><span class='lparen'>(</span><span class='id identifier rubyid_cloud_account_id'>cloud_account_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_update_cost_awscur_config_with_http_info'>update_cost_awscur_config_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_cloud_account_id'>cloud_account_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -3276,9 +3280,6 @@
       <pre class="lines">
 
 
-676
-677
-678
 679
 680
 681
@@ -3330,10 +3331,13 @@
 727
 728
 729
-730</pre>
+730
+731
+732
+733</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/cloud_cost_management_api.rb', line 676</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/cloud_cost_management_api.rb', line 679</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update_cost_awscur_config_with_http_info'>update_cost_awscur_config_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_cloud_account_id'>cloud_account_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -3427,13 +3431,13 @@
       <pre class="lines">
 
 
-735
-736
-737
-738</pre>
+738
+739
+740
+741</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/cloud_cost_management_api.rb', line 735</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/cloud_cost_management_api.rb', line 738</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update_cost_azure_uc_configs'>update_cost_azure_uc_configs</span><span class='lparen'>(</span><span class='id identifier rubyid_cloud_account_id'>cloud_account_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_update_cost_azure_uc_configs_with_http_info'>update_cost_azure_uc_configs_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_cloud_account_id'>cloud_account_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -3535,9 +3539,6 @@
       <pre class="lines">
 
 
-748
-749
-750
 751
 752
 753
@@ -3589,10 +3590,13 @@
 799
 800
 801
-802</pre>
+802
+803
+804
+805</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/cloud_cost_management_api.rb', line 748</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/cloud_cost_management_api.rb', line 751</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update_cost_azure_uc_configs_with_http_info'>update_cost_azure_uc_configs_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_cloud_account_id'>cloud_account_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -3686,13 +3690,13 @@
       <pre class="lines">
 
 
-807
-808
-809
-810</pre>
+810
+811
+812
+813</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/cloud_cost_management_api.rb', line 807</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/cloud_cost_management_api.rb', line 810</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_upload_custom_costs_file'>upload_custom_costs_file</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_upload_custom_costs_file_with_http_info'>upload_custom_costs_file_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -3779,9 +3783,6 @@
       <pre class="lines">
 
 
-819
-820
-821
 822
 823
 824
@@ -3829,10 +3830,13 @@
 866
 867
 868
-869</pre>
+869
+870
+871
+872</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/cloud_cost_management_api.rb', line 819</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/cloud_cost_management_api.rb', line 822</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_upload_custom_costs_file_with_http_info'>upload_custom_costs_file_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -3895,7 +3899,7 @@
 </div>
 
       <div id="footer">
-  Generated on Mon Nov  4 19:20:24 2024 by
+  Generated on Mon Nov  4 20:34:12 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>
