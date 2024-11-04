@@ -219,7 +219,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>The path to the value the rum-based metric will aggregate on (only used if the aggregation type is a &quot;distribution&quot;).</p>
+    <span class="summary_desc"><div class='inline'><p>The path to the value the rum-based metric will aggregate on.</p>
 </div></span>
   
 </li>
@@ -272,12 +272,12 @@
       <pre class="lines">
 
 
-34
 35
-36</pre>
+36
+37</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/rum_metric_response_compute.rb', line 34</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/rum_metric_response_compute.rb', line 35</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_additional_properties'>additional_properties</span>
   <span class='ivar'>@additional_properties</span>
@@ -343,7 +343,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     <p>Toggle to include or exclude percentile aggregations for distribution metrics.
-Only present when the <code>aggregation_type</code> is <code>distribution</code>.</p>
+Only present when <code>aggregation_type</code> is <code>distribution</code>.</p>
 
 
   </div>
@@ -385,7 +385,8 @@ Only present when the <code>aggregation_type</code> is <code>distribution</code>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>The path to the value the rum-based metric will aggregate on (only used if the aggregation type is a &quot;distribution&quot;).</p>
+    <p>The path to the value the rum-based metric will aggregate on.
+Only present when <code>aggregation_type</code> is <code>distribution</code>.</p>
 
 
   </div>
@@ -399,12 +400,12 @@ Only present when the <code>aggregation_type</code> is <code>distribution</code>
       <pre class="lines">
 
 
-32
 33
-34</pre>
+34
+35</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/rum_metric_response_compute.rb', line 32</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/rum_metric_response_compute.rb', line 33</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_path'>path</span>
   <span class='ivar'>@path</span>
@@ -420,7 +421,7 @@ Only present when the <code>aggregation_type</code> is <code>distribution</code>
 </div>
 
       <div id="footer">
-  Generated on Mon Nov  4 20:34:16 2024 by
+  Generated on Mon Nov  4 21:13:23 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>
