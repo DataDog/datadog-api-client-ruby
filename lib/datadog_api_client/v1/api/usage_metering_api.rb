@@ -1671,6 +1671,7 @@ module DatadogAPIClient::V1
         :return_type => return_type,
         :api_version => "V1"
       )
+      new_options[:query_string_normalizer] = HTTParty::Request::NON_RAILS_QUERY_STRING_NORMALIZER
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
@@ -2759,6 +2760,7 @@ module DatadogAPIClient::V1
         :return_type => return_type,
         :api_version => "V1"
       )
+      new_options[:query_string_normalizer] = HTTParty::Request::NON_RAILS_QUERY_STRING_NORMALIZER
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
