@@ -27,7 +27,7 @@ module DatadogAPIClient::V1
     # List of results for the batch.
     attr_accessor :results
 
-    # Determines whether or not the batch has passed, failed, or is in progress.
+    # Determines whether the batch has passed, failed, or is in progress.
     attr_accessor :status
 
     attr_accessor :additional_properties
@@ -48,7 +48,7 @@ module DatadogAPIClient::V1
       {
         :'metadata' => :'SyntheticsCIBatchMetadata',
         :'results' => :'Array<SyntheticsBatchResult>',
-        :'status' => :'SyntheticsStatus'
+        :'status' => :'SyntheticsBatchStatus'
       }
     end
 
