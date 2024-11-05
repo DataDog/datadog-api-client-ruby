@@ -24,13 +24,19 @@ module DatadogAPIClient::V1
     # A boolean set to allow this step to fail.
     attr_accessor :allow_failure
 
+    # A boolean set to always execute this step even if the previous step failed or was skipped.
+    attr_accessor :always_execute
+
+    # A boolean set to exit the test if the step succeeds.
+    attr_accessor :exit_if_succeed
+
     # A boolean to use in addition to `allowFailure` to determine if the test should be marked as failed when the step fails.
     attr_accessor :is_critical
 
     # The name of the step.
     attr_accessor :name
 
-    # A boolean set to not take a screenshot for the step.
+    # A boolean set to skip taking a screenshot for the step.
     attr_accessor :no_screenshot
 
     # The parameters of the step.
@@ -49,6 +55,8 @@ module DatadogAPIClient::V1
     def self.attribute_map
       {
         :'allow_failure' => :'allowFailure',
+        :'always_execute' => :'alwaysExecute',
+        :'exit_if_succeed' => :'exitIfSucceed',
         :'is_critical' => :'isCritical',
         :'name' => :'name',
         :'no_screenshot' => :'noScreenshot',
@@ -63,6 +71,8 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'allow_failure' => :'Boolean',
+        :'always_execute' => :'Boolean',
+        :'exit_if_succeed' => :'Boolean',
         :'is_critical' => :'Boolean',
         :'name' => :'String',
         :'no_screenshot' => :'Boolean',
@@ -92,6 +102,14 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'allow_failure')
         self.allow_failure = attributes[:'allow_failure']
+      end
+
+      if attributes.key?(:'always_execute')
+        self.always_execute = attributes[:'always_execute']
+      end
+
+      if attributes.key?(:'exit_if_succeed')
+        self.exit_if_succeed = attributes[:'exit_if_succeed']
       end
 
       if attributes.key?(:'is_critical')
@@ -146,6 +164,8 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           allow_failure == o.allow_failure &&
+          always_execute == o.always_execute &&
+          exit_if_succeed == o.exit_if_succeed &&
           is_critical == o.is_critical &&
           name == o.name &&
           no_screenshot == o.no_screenshot &&
@@ -159,7 +179,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [allow_failure, is_critical, name, no_screenshot, params, timeout, type].hash
+      [allow_failure, always_execute, exit_if_succeed, is_critical, name, no_screenshot, params, timeout, type].hash
     end
   end
 end
