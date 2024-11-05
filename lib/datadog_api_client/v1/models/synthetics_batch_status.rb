@@ -17,12 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Determines whether or not the batch has passed, failed, or is in progress.
-  class SyntheticsStatus
+  # Determines whether the batch has passed, failed, or is in progress.
+  class SyntheticsBatchStatus
     include BaseEnumModel
 
     PASSED = "passed".freeze
-    skipped = "skipped".freeze
-    failed = "failed".freeze
+    SKIPPED = "skipped".freeze
+    FAILED = "failed".freeze
   end
 end

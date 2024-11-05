@@ -39,7 +39,7 @@ module DatadogAPIClient::V1
     # Number of times this result has been retried.
     attr_accessor :retries
 
-    # Determines whether or not the batch has passed, failed, or is in progress.
+    # Determines whether the batch has passed, failed, or is in progress.
     attr_accessor :status
 
     # Name of the test.
@@ -80,7 +80,7 @@ module DatadogAPIClient::V1
         :'location' => :'String',
         :'result_id' => :'String',
         :'retries' => :'Float',
-        :'status' => :'SyntheticsStatus',
+        :'status' => :'SyntheticsBatchStatus',
         :'test_name' => :'String',
         :'test_public_id' => :'String',
         :'test_type' => :'SyntheticsTestDetailsType'
