@@ -820,12 +820,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(ScalarFormulaQueryResponse, Integer, Hash)>] ScalarFormulaQueryResponse data, response status code and response headers
     def query_scalar_data_with_http_info(body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.query_scalar_data".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.query_scalar_data")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.query_scalar_data"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MetricsAPI.query_scalar_data ...'
@@ -894,12 +888,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(TimeseriesFormulaQueryResponse, Integer, Hash)>] TimeseriesFormulaQueryResponse data, response status code and response headers
     def query_timeseries_data_with_http_info(body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.query_timeseries_data".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.query_timeseries_data")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.query_timeseries_data"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MetricsAPI.query_timeseries_data ...'
