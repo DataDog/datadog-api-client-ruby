@@ -1454,6 +1454,7 @@ module DatadogAPIClient
           "v2.full_api_key_attributes" => "FullAPIKeyAttributes",
           "v2.full_application_key" => "FullApplicationKey",
           "v2.full_application_key_attributes" => "FullApplicationKeyAttributes",
+          "v2.gcp_metric_namespace_config" => "GCPMetricNamespaceConfig",
           "v2.gcp_service_account_meta" => "GCPServiceAccountMeta",
           "v2.gcp_service_account_type" => "GCPServiceAccountType",
           "v2.gcpsts_delegate_account" => "GCPSTSDelegateAccount",

@@ -46,6 +46,9 @@ module DatadogAPIClient::V2
     # When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account.
     attr_accessor :is_security_command_center_enabled
 
+    # Configurations for GCP metric namespaces.
+    attr_accessor :metric_namespace_configs
+
     # When enabled, Datadog scans for all resources in your GCP environment.
     attr_accessor :resource_collection_enabled
 
@@ -63,6 +66,7 @@ module DatadogAPIClient::V2
         :'is_cspm_enabled' => :'is_cspm_enabled',
         :'is_resource_change_collection_enabled' => :'is_resource_change_collection_enabled',
         :'is_security_command_center_enabled' => :'is_security_command_center_enabled',
+        :'metric_namespace_configs' => :'metric_namespace_configs',
         :'resource_collection_enabled' => :'resource_collection_enabled'
       }
     end
@@ -79,6 +83,7 @@ module DatadogAPIClient::V2
         :'is_cspm_enabled' => :'Boolean',
         :'is_resource_change_collection_enabled' => :'Boolean',
         :'is_security_command_center_enabled' => :'Boolean',
+        :'metric_namespace_configs' => :'Array<GCPMetricNamespaceConfig>',
         :'resource_collection_enabled' => :'Boolean'
       }
     end
@@ -139,6 +144,12 @@ module DatadogAPIClient::V2
         self.is_security_command_center_enabled = attributes[:'is_security_command_center_enabled']
       end
 
+      if attributes.key?(:'metric_namespace_configs')
+        if (value = attributes[:'metric_namespace_configs']).is_a?(Array)
+          self.metric_namespace_configs = value
+        end
+      end
+
       if attributes.key?(:'resource_collection_enabled')
         self.resource_collection_enabled = attributes[:'resource_collection_enabled']
       end
@@ -178,6 +189,7 @@ module DatadogAPIClient::V2
           is_cspm_enabled == o.is_cspm_enabled &&
           is_resource_change_collection_enabled == o.is_resource_change_collection_enabled &&
           is_security_command_center_enabled == o.is_security_command_center_enabled &&
+          metric_namespace_configs == o.metric_namespace_configs &&
           resource_collection_enabled == o.resource_collection_enabled
           additional_properties == o.additional_properties
     end
@@ -186,7 +198,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [account_tags, automute, client_email, cloud_run_revision_filters, host_filters, is_cspm_enabled, is_resource_change_collection_enabled, is_security_command_center_enabled, resource_collection_enabled].hash
+      [account_tags, automute, client_email, cloud_run_revision_filters, host_filters, is_cspm_enabled, is_resource_change_collection_enabled, is_security_command_center_enabled, metric_namespace_configs, resource_collection_enabled].hash
     end
   end
 end
