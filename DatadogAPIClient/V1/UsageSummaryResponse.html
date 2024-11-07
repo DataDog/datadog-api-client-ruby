@@ -1736,6 +1736,32 @@
       <li class="public ">
   <span class="summary_signature">
     
+      <a href="#error_tracking_error_events_agg_sum-instance_method" title="#error_tracking_error_events_agg_sum (instance method)">#<strong>error_tracking_error_events_agg_sum</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Shows the sum of all Error Tracking error events over all hours in the current month for all organizations.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#error_tracking_events_agg_sum-instance_method" title="#error_tracking_events_agg_sum (instance method)">#<strong>error_tracking_events_agg_sum</strong>  &#x21d2; Object </a>
     
 
@@ -1754,6 +1780,32 @@
 
   
     <span class="summary_desc"><div class='inline'><p>Shows the sum of all Error Tracking events over all hours in the current months for all organizations.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#error_tracking_rum_error_events_agg_sum-instance_method" title="#error_tracking_rum_error_events_agg_sum (instance method)">#<strong>error_tracking_rum_error_events_agg_sum</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Shows the sum of all Error Tracking RUM error events over all hours in the current month for all organizations.</p>
 </div></span>
   
 </li>
@@ -4382,12 +4434,12 @@
       <pre class="lines">
 
 
-468
-469
-470</pre>
+474
+475
+476</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 468</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 474</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_additional_properties'>additional_properties</span>
   <span class='ivar'>@additional_properties</span>
@@ -6918,6 +6970,48 @@
 </div>
     
       
+      <span id="error_tracking_error_events_agg_sum=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="error_tracking_error_events_agg_sum-instance_method">
+  
+    #<strong>error_tracking_error_events_agg_sum</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Shows the sum of all Error Tracking error events over all hours in the current month for all organizations.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+205
+206
+207</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 205</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_error_tracking_error_events_agg_sum'>error_tracking_error_events_agg_sum</span>
+  <span class='ivar'>@error_tracking_error_events_agg_sum</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
       <span id="error_tracking_events_agg_sum=-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="error_tracking_events_agg_sum-instance_method">
@@ -6944,15 +7038,57 @@
       <pre class="lines">
 
 
-205
-206
-207</pre>
+208
+209
+210</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 205</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 208</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_error_tracking_events_agg_sum'>error_tracking_events_agg_sum</span>
   <span class='ivar'>@error_tracking_events_agg_sum</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="error_tracking_rum_error_events_agg_sum=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="error_tracking_rum_error_events_agg_sum-instance_method">
+  
+    #<strong>error_tracking_rum_error_events_agg_sum</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Shows the sum of all Error Tracking RUM error events over all hours in the current month for all organizations.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+211
+212
+213</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 211</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_error_tracking_rum_error_events_agg_sum'>error_tracking_rum_error_events_agg_sum</span>
+  <span class='ivar'>@error_tracking_rum_error_events_agg_sum</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -7070,12 +7206,12 @@
       <pre class="lines">
 
 
-214
-215
-216</pre>
+220
+221
+222</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 214</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 220</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_flex_logs_compute_large_avg_sum'>flex_logs_compute_large_avg_sum</span>
   <span class='ivar'>@flex_logs_compute_large_avg_sum</span>
@@ -7112,12 +7248,12 @@
       <pre class="lines">
 
 
-217
-218
-219</pre>
+223
+224
+225</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 217</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 223</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_flex_logs_compute_medium_avg_sum'>flex_logs_compute_medium_avg_sum</span>
   <span class='ivar'>@flex_logs_compute_medium_avg_sum</span>
@@ -7154,12 +7290,12 @@
       <pre class="lines">
 
 
-220
-221
-222</pre>
+226
+227
+228</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 220</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 226</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_flex_logs_compute_small_avg_sum'>flex_logs_compute_small_avg_sum</span>
   <span class='ivar'>@flex_logs_compute_small_avg_sum</span>
@@ -7196,12 +7332,12 @@
       <pre class="lines">
 
 
-223
-224
-225</pre>
+229
+230
+231</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 223</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 229</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_flex_logs_compute_xsmall_avg_sum'>flex_logs_compute_xsmall_avg_sum</span>
   <span class='ivar'>@flex_logs_compute_xsmall_avg_sum</span>
@@ -7238,12 +7374,12 @@
       <pre class="lines">
 
 
-226
-227
-228</pre>
+232
+233
+234</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 226</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 232</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_flex_logs_starter_avg_sum'>flex_logs_starter_avg_sum</span>
   <span class='ivar'>@flex_logs_starter_avg_sum</span>
@@ -7280,12 +7416,12 @@
       <pre class="lines">
 
 
-229
-230
-231</pre>
+235
+236
+237</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 229</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 235</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_flex_logs_starter_storage_index_avg_sum'>flex_logs_starter_storage_index_avg_sum</span>
   <span class='ivar'>@flex_logs_starter_storage_index_avg_sum</span>
@@ -7322,12 +7458,12 @@
       <pre class="lines">
 
 
-232
-233
-234</pre>
+238
+239
+240</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 232</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 238</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_flex_logs_starter_storage_retention_adjustment_avg_sum'>flex_logs_starter_storage_retention_adjustment_avg_sum</span>
   <span class='ivar'>@flex_logs_starter_storage_retention_adjustment_avg_sum</span>
@@ -7364,12 +7500,12 @@
       <pre class="lines">
 
 
-235
-236
-237</pre>
+241
+242
+243</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 235</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 241</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_flex_stored_logs_avg_sum'>flex_stored_logs_avg_sum</span>
   <span class='ivar'>@flex_stored_logs_avg_sum</span>
@@ -7406,12 +7542,12 @@
       <pre class="lines">
 
 
-238
-239
-240</pre>
+244
+245
+246</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 238</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 244</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_forwarding_events_bytes_agg_sum'>forwarding_events_bytes_agg_sum</span>
   <span class='ivar'>@forwarding_events_bytes_agg_sum</span>
@@ -7910,12 +8046,12 @@
       <pre class="lines">
 
 
-274
-275
-276</pre>
+280
+281
+282</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 274</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 280</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_logs_by_retention'>logs_by_retention</span>
   <span class='ivar'>@logs_by_retention</span>
@@ -8078,12 +8214,12 @@
       <pre class="lines">
 
 
-286
-287
-288</pre>
+292
+293
+294</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 286</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 292</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_mobile_rum_session_count_flutter_agg_sum'>mobile_rum_session_count_flutter_agg_sum</span>
   <span class='ivar'>@mobile_rum_session_count_flutter_agg_sum</span>
@@ -8162,12 +8298,12 @@
       <pre class="lines">
 
 
-292
-293
-294</pre>
+298
+299
+300</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 292</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 298</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_mobile_rum_session_count_reactnative_agg_sum'>mobile_rum_session_count_reactnative_agg_sum</span>
   <span class='ivar'>@mobile_rum_session_count_reactnative_agg_sum</span>
@@ -8204,12 +8340,12 @@
       <pre class="lines">
 
 
-295
-296
-297</pre>
+301
+302
+303</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 295</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 301</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_mobile_rum_session_count_roku_agg_sum'>mobile_rum_session_count_roku_agg_sum</span>
   <span class='ivar'>@mobile_rum_session_count_roku_agg_sum</span>
@@ -8288,12 +8424,12 @@
       <pre class="lines">
 
 
-301
-302
-303</pre>
+307
+308
+309</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 301</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 307</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_ndm_netflow_events_agg_sum'>ndm_netflow_events_agg_sum</span>
   <span class='ivar'>@ndm_netflow_events_agg_sum</span>
@@ -8414,12 +8550,12 @@
       <pre class="lines">
 
 
-310
-311
-312</pre>
+316
+317
+318</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 310</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 316</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_observability_pipelines_bytes_processed_agg_sum'>observability_pipelines_bytes_processed_agg_sum</span>
   <span class='ivar'>@observability_pipelines_bytes_processed_agg_sum</span>
@@ -8456,12 +8592,12 @@
       <pre class="lines">
 
 
-313
-314
-315</pre>
+319
+320
+321</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 313</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 319</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_oci_host_agg_sum'>oci_host_agg_sum</span>
   <span class='ivar'>@oci_host_agg_sum</span>
@@ -8498,12 +8634,12 @@
       <pre class="lines">
 
 
-316
-317
-318</pre>
+322
+323
+324</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 316</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 322</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_oci_host_top99p_sum'>oci_host_top99p_sum</span>
   <span class='ivar'>@oci_host_top99p_sum</span>
@@ -8540,12 +8676,12 @@
       <pre class="lines">
 
 
-319
-320
-321</pre>
+325
+326
+327</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 319</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 325</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_online_archive_events_count_agg_sum'>online_archive_events_count_agg_sum</span>
   <span class='ivar'>@online_archive_events_count_agg_sum</span>
@@ -8582,12 +8718,12 @@
       <pre class="lines">
 
 
-322
-323
-324</pre>
+328
+329
+330</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 322</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 328</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_opentelemetry_apm_host_top99p_sum'>opentelemetry_apm_host_top99p_sum</span>
   <span class='ivar'>@opentelemetry_apm_host_top99p_sum</span>
@@ -8666,12 +8802,12 @@
       <pre class="lines">
 
 
-328
-329
-330</pre>
+334
+335
+336</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 328</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 334</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_profiling_aas_count_top99p_sum'>profiling_aas_count_top99p_sum</span>
   <span class='ivar'>@profiling_aas_count_top99p_sum</span>
@@ -8918,12 +9054,12 @@
       <pre class="lines">
 
 
-346
-347
-348</pre>
+352
+353
+354</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 346</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 352</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rum_browser_legacy_session_count_agg_sum'>rum_browser_legacy_session_count_agg_sum</span>
   <span class='ivar'>@rum_browser_legacy_session_count_agg_sum</span>
@@ -8960,12 +9096,12 @@
       <pre class="lines">
 
 
-349
-350
-351</pre>
+355
+356
+357</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 349</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 355</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rum_browser_lite_session_count_agg_sum'>rum_browser_lite_session_count_agg_sum</span>
   <span class='ivar'>@rum_browser_lite_session_count_agg_sum</span>
@@ -9002,12 +9138,12 @@
       <pre class="lines">
 
 
-352
-353
-354</pre>
+358
+359
+360</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 352</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 358</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rum_browser_replay_session_count_agg_sum'>rum_browser_replay_session_count_agg_sum</span>
   <span class='ivar'>@rum_browser_replay_session_count_agg_sum</span>
@@ -9044,12 +9180,12 @@
       <pre class="lines">
 
 
-355
-356
-357</pre>
+361
+362
+363</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 355</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 361</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rum_lite_session_count_agg_sum'>rum_lite_session_count_agg_sum</span>
   <span class='ivar'>@rum_lite_session_count_agg_sum</span>
@@ -9086,12 +9222,12 @@
       <pre class="lines">
 
 
-358
-359
-360</pre>
+364
+365
+366</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 358</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 364</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rum_mobile_legacy_session_count_android_agg_sum'>rum_mobile_legacy_session_count_android_agg_sum</span>
   <span class='ivar'>@rum_mobile_legacy_session_count_android_agg_sum</span>
@@ -9128,12 +9264,12 @@
       <pre class="lines">
 
 
-361
-362
-363</pre>
+367
+368
+369</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 361</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 367</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rum_mobile_legacy_session_count_flutter_agg_sum'>rum_mobile_legacy_session_count_flutter_agg_sum</span>
   <span class='ivar'>@rum_mobile_legacy_session_count_flutter_agg_sum</span>
@@ -9170,12 +9306,12 @@
       <pre class="lines">
 
 
-364
-365
-366</pre>
+370
+371
+372</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 364</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 370</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rum_mobile_legacy_session_count_ios_agg_sum'>rum_mobile_legacy_session_count_ios_agg_sum</span>
   <span class='ivar'>@rum_mobile_legacy_session_count_ios_agg_sum</span>
@@ -9212,12 +9348,12 @@
       <pre class="lines">
 
 
-367
-368
-369</pre>
+373
+374
+375</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 367</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 373</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rum_mobile_legacy_session_count_reactnative_agg_sum'>rum_mobile_legacy_session_count_reactnative_agg_sum</span>
   <span class='ivar'>@rum_mobile_legacy_session_count_reactnative_agg_sum</span>
@@ -9254,12 +9390,12 @@
       <pre class="lines">
 
 
-370
-371
-372</pre>
+376
+377
+378</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 370</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 376</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rum_mobile_legacy_session_count_roku_agg_sum'>rum_mobile_legacy_session_count_roku_agg_sum</span>
   <span class='ivar'>@rum_mobile_legacy_session_count_roku_agg_sum</span>
@@ -9296,12 +9432,12 @@
       <pre class="lines">
 
 
-373
-374
-375</pre>
+379
+380
+381</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 373</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 379</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rum_mobile_lite_session_count_android_agg_sum'>rum_mobile_lite_session_count_android_agg_sum</span>
   <span class='ivar'>@rum_mobile_lite_session_count_android_agg_sum</span>
@@ -9338,12 +9474,12 @@
       <pre class="lines">
 
 
-376
-377
-378</pre>
+382
+383
+384</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 376</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 382</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rum_mobile_lite_session_count_flutter_agg_sum'>rum_mobile_lite_session_count_flutter_agg_sum</span>
   <span class='ivar'>@rum_mobile_lite_session_count_flutter_agg_sum</span>
@@ -9380,12 +9516,12 @@
       <pre class="lines">
 
 
-379
-380
-381</pre>
+385
+386
+387</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 379</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 385</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rum_mobile_lite_session_count_ios_agg_sum'>rum_mobile_lite_session_count_ios_agg_sum</span>
   <span class='ivar'>@rum_mobile_lite_session_count_ios_agg_sum</span>
@@ -9422,12 +9558,12 @@
       <pre class="lines">
 
 
-382
-383
-384</pre>
+388
+389
+390</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 382</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 388</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rum_mobile_lite_session_count_reactnative_agg_sum'>rum_mobile_lite_session_count_reactnative_agg_sum</span>
   <span class='ivar'>@rum_mobile_lite_session_count_reactnative_agg_sum</span>
@@ -9464,12 +9600,12 @@
       <pre class="lines">
 
 
-385
-386
-387</pre>
+391
+392
+393</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 385</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 391</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rum_mobile_lite_session_count_roku_agg_sum'>rum_mobile_lite_session_count_roku_agg_sum</span>
   <span class='ivar'>@rum_mobile_lite_session_count_roku_agg_sum</span>
@@ -9506,12 +9642,12 @@
       <pre class="lines">
 
 
-388
-389
-390</pre>
+394
+395
+396</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 388</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 394</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rum_replay_session_count_agg_sum'>rum_replay_session_count_agg_sum</span>
   <span class='ivar'>@rum_replay_session_count_agg_sum</span>
@@ -9674,12 +9810,12 @@
       <pre class="lines">
 
 
-400
-401
-402</pre>
+406
+407
+408</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 400</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 406</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_sca_fargate_count_avg_sum'>sca_fargate_count_avg_sum</span>
   <span class='ivar'>@sca_fargate_count_avg_sum</span>
@@ -9716,12 +9852,12 @@
       <pre class="lines">
 
 
-403
-404
-405</pre>
+409
+410
+411</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 403</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 409</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_sca_fargate_count_hwm_sum'>sca_fargate_count_hwm_sum</span>
   <span class='ivar'>@sca_fargate_count_hwm_sum</span>
@@ -9758,12 +9894,12 @@
       <pre class="lines">
 
 
-406
-407
-408</pre>
+412
+413
+414</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 406</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 412</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_sds_apm_scanned_bytes_sum'>sds_apm_scanned_bytes_sum</span>
   <span class='ivar'>@sds_apm_scanned_bytes_sum</span>
@@ -9800,12 +9936,12 @@
       <pre class="lines">
 
 
-409
-410
-411</pre>
+415
+416
+417</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 409</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 415</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_sds_events_scanned_bytes_sum'>sds_events_scanned_bytes_sum</span>
   <span class='ivar'>@sds_events_scanned_bytes_sum</span>
@@ -9884,12 +10020,12 @@
       <pre class="lines">
 
 
-415
-416
-417</pre>
+421
+422
+423</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 415</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 421</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_sds_rum_scanned_bytes_sum'>sds_rum_scanned_bytes_sum</span>
   <span class='ivar'>@sds_rum_scanned_bytes_sum</span>
@@ -9968,12 +10104,12 @@
       <pre class="lines">
 
 
-421
-422
-423</pre>
+427
+428
+429</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 421</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 427</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_serverless_apps_azure_count_avg_sum'>serverless_apps_azure_count_avg_sum</span>
   <span class='ivar'>@serverless_apps_azure_count_avg_sum</span>
@@ -10010,12 +10146,12 @@
       <pre class="lines">
 
 
-424
-425
-426</pre>
+430
+431
+432</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 424</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 430</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_serverless_apps_google_count_avg_sum'>serverless_apps_google_count_avg_sum</span>
   <span class='ivar'>@serverless_apps_google_count_avg_sum</span>
@@ -10052,12 +10188,12 @@
       <pre class="lines">
 
 
-427
-428
-429</pre>
+433
+434
+435</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 427</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 433</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_serverless_apps_total_count_avg_sum'>serverless_apps_total_count_avg_sum</span>
   <span class='ivar'>@serverless_apps_total_count_avg_sum</span>
@@ -10094,12 +10230,12 @@
       <pre class="lines">
 
 
-430
-431
-432</pre>
+436
+437
+438</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 430</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 436</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_siem_analyzed_logs_add_on_count_agg_sum'>siem_analyzed_logs_add_on_count_agg_sum</span>
   <span class='ivar'>@siem_analyzed_logs_add_on_count_agg_sum</span>
@@ -10262,12 +10398,12 @@
       <pre class="lines">
 
 
-442
-443
-444</pre>
+448
+449
+450</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 442</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 448</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_synthetics_mobile_test_runs_agg_sum'>synthetics_mobile_test_runs_agg_sum</span>
   <span class='ivar'>@synthetics_mobile_test_runs_agg_sum</span>
@@ -10304,12 +10440,12 @@
       <pre class="lines">
 
 
-445
-446
-447</pre>
+451
+452
+453</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 445</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 451</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_synthetics_parallel_testing_max_slots_hwm_sum'>synthetics_parallel_testing_max_slots_hwm_sum</span>
   <span class='ivar'>@synthetics_parallel_testing_max_slots_hwm_sum</span>
@@ -10430,12 +10566,12 @@
       <pre class="lines">
 
 
-454
-455
-456</pre>
+460
+461
+462</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 454</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 460</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_universal_service_monitoring_host_top99p_sum'>universal_service_monitoring_host_top99p_sum</span>
   <span class='ivar'>@universal_service_monitoring_host_top99p_sum</span>
@@ -10556,12 +10692,12 @@
       <pre class="lines">
 
 
-463
-464
-465</pre>
+469
+470
+471</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 463</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 469</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_vuln_management_host_count_top99p_sum'>vuln_management_host_count_top99p_sum</span>
   <span class='ivar'>@vuln_management_host_count_top99p_sum</span>
@@ -10598,12 +10734,12 @@
       <pre class="lines">
 
 
-466
-467
-468</pre>
+472
+473
+474</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 466</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_response.rb', line 472</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_workflow_executions_usage_agg_sum'>workflow_executions_usage_agg_sum</span>
   <span class='ivar'>@workflow_executions_usage_agg_sum</span>
@@ -11475,7 +11611,7 @@ For object, use to_hash. Otherwise, just return the value</p>
 </div>
 
       <div id="footer">
-  Generated on Thu Nov  7 21:29:31 2024 by
+  Generated on Thu Nov  7 22:34:41 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>
