@@ -70,7 +70,7 @@ module DatadogAPIClient::V1
     # The frequency at which to run the Synthetic test (in seconds).
     attr_reader :tick_every
 
-    # The level of verbosity for the mobile test.
+    # The level of verbosity for the mobile test. This field can not be set by a user.
     attr_reader :verbosity
 
     attr_accessor :additional_properties

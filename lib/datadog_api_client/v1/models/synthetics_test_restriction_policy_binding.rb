@@ -22,7 +22,7 @@ module DatadogAPIClient::V1
     include BaseGenericModel
 
     # List of principals for a mobile test binding.
-    attr_accessor :principals
+    attr_accessor :principal
 
     # The type of relation for the binding.
     attr_accessor :relation
@@ -33,7 +33,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.attribute_map
       {
-        :'principals' => :'principals',
+        :'principal' => :'principal',
         :'relation' => :'relation'
       }
     end
@@ -42,7 +42,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
-        :'principals' => :'Array<String>',
+        :'principal' => :'Array<String>',
         :'relation' => :'SyntheticsTestRestrictionPolicyBindingRelation'
       }
     end
@@ -65,9 +65,9 @@ module DatadogAPIClient::V1
         end
       }
 
-      if attributes.key?(:'principals')
-        if (value = attributes[:'principals']).is_a?(Array)
-          self.principals = value
+      if attributes.key?(:'principal')
+        if (value = attributes[:'principal']).is_a?(Array)
+          self.principal = value
         end
       end
 
@@ -102,7 +102,7 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          principals == o.principals &&
+          principal == o.principal &&
           relation == o.relation
           additional_properties == o.additional_properties
     end
@@ -111,7 +111,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [principals, relation].hash
+      [principal, relation].hash
     end
   end
 end
