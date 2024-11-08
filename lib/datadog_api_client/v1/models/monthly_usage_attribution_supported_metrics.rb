@@ -55,6 +55,8 @@ module DatadogAPIClient::V1
     CUSTOM_INGESTED_TIMESERIES_PERCENTAGE = "custom_ingested_timeseries_percentage".freeze
     CWS_CONTAINERS_PERCENTAGE = "cws_containers_percentage".freeze
     CWS_CONTAINERS_USAGE = "cws_containers_usage".freeze
+    CWS_FARGATE_TASK_PERCENTAGE = "cws_fargate_task_percentage".freeze
+    CWS_FARGATE_TASK_USAGE = "cws_fargate_task_usage".freeze
     CWS_HOSTS_PERCENTAGE = "cws_hosts_percentage".freeze
     CWS_HOSTS_USAGE = "cws_hosts_usage".freeze
     DATA_JOBS_MONITORING_USAGE = "data_jobs_monitoring_usage".freeze
