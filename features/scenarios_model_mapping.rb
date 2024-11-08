@@ -1800,6 +1800,27 @@ ScenariosModelMappings = {
             "signal_id" => "String",
             "body" => "SecurityMonitoringSignalStateUpdateRequest",
     },
+    "v2.ListHistoricalJobs" => {
+            "page_size" => "Integer",
+            "page_number" => "Integer",
+            "sort" => "String",
+            "filter_query" => "String",
+    },
+    "v2.RunHistoricalJob" => {
+            "body" => "RunHistoricalJobRequest",
+    },
+    "v2.ConvertJobResultToSignal" => {
+            "body" => "ConvertJobResultsToSignalsRequest",
+    },
+    "v2.DeleteHistoricalJob" => {
+            "job_id" => "String",
+    },
+    "v2.GetHistoricalJob" => {
+            "job_id" => "String",
+    },
+    "v2.CancelHistoricalJob" => {
+            "job_id" => "String",
+    },
     "v2.ListPowerpacks" => {
             "page_limit" => "Integer",
             "page_offset" => "Integer",
