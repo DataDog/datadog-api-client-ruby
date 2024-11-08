@@ -1,0 +1,43 @@
+http_interactions:
+- recorded_at: Fri, 08 Nov 2024 09:54:39 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"jobDefinition":{"cases":[{"condition":"a >
+        1","name":"Condition 1","notifications":[],"status":"info"}],"from":1730387522611,"index":"main","message":"A
+        large number of failed login attempts.","name":"Excessive number of failed
+        attempts.","options":{"evaluationWindow":900,"keepAlive":3600,"maxSignalDuration":86400},"queries":[{"aggregation":"count","distinctFields":[],"groupByFields":[],"query":"source:non_existing_src_weekend"}],"tags":[],"to":1730387532611,"type":"log_detection"}},"type":"historicalDetectionsJobCreate"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/siem-historical-detections/jobs
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"e332b07e-d573-45fa-b2df-9a1bcc27f17e","type":"historicalDetectionsJob"}}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 201
+      message: Created
+- recorded_at: Fri, 08 Nov 2024 09:54:39 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: PATCH
+    uri: https://api.datadoghq.com/api/v2/siem-historical-detections/jobs/e332b07e-d573-45fa-b2df-9a1bcc27f17e/cancel
+  response:
+    body:
+      encoding: UTF-8
+      string: ''
+    headers: {}
+    status:
+      code: 204
+      message: No Content
+recorded_with: VCR 6.0.0

@@ -1,0 +1,21 @@
+http_interactions:
+- recorded_at: Fri, 08 Nov 2024 09:54:39 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/siem-historical-detections/jobs/inva-lid
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"status":"400","title":"Generic Error","detail":"invalid
+        jobId"}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 400
+      message: Bad Request
+recorded_with: VCR 6.0.0
