@@ -23,6 +23,8 @@ module DatadogAPIClient::V1
 
     GOOD_EVENTS = "good_events".freeze
     BAD_EVENTS = "bad_events".freeze
+    GOOD_MINUTES = "good_minutes".freeze
+    BAD_MINUTES = "bad_minutes".freeze
     SLO_STATUS = "slo_status".freeze
     ERROR_BUDGET_REMAINING = "error_budget_remaining".freeze
     BURN_RATE = "burn_rate".freeze
