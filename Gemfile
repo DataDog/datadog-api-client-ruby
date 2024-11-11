@@ -7,7 +7,7 @@ gemspec
 group :development, :test do
   gem 'activesupport'
   gem 'cucumber', '~> 9.1.1'
-  gem 'ddtrace', '>=1.22.0'
+  gem 'ddtrace', '>=1.0.0.beta1'
   gem 'gem-release'
   gem 'rake', '~> 13.0.1'
   gem 'rspec-expectations'
