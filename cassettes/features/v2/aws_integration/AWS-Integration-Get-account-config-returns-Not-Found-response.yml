@@ -1,0 +1,21 @@
+http_interactions:
+- recorded_at: Mon, 28 Oct 2024 14:43:06 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+    method: GET
+    uri: https://api.datadoghq.com/api/v2/integration/aws/accounts/448169a8-251c-4344-abee-1c4edef39f7a
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"status":"404","title":"Account not found","detail":"AWS
+        account with provided id is not integrated"}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 404
+      message: Not Found
+recorded_with: VCR 6.0.0
