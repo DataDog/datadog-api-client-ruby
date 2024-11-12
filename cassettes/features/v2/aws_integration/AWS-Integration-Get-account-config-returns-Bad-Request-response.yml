@@ -1,0 +1,21 @@
+http_interactions:
+- recorded_at: Mon, 28 Oct 2024 14:43:06 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+    method: GET
+    uri: https://api.datadoghq.com/api/v2/integration/aws/accounts/not-a-uuid
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"status":"400","title":"Invalid Parameter","detail":"invalid
+        parameter \"aws_account_config_id\" in \"path\"; expected type \"uuid\""}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 400
+      message: Bad Request
+recorded_with: VCR 6.0.0
