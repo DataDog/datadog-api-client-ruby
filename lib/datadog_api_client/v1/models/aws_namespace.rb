@@ -28,5 +28,6 @@ module DatadogAPIClient::V1
     CUSTOM = "custom".freeze
     NETWORK_ELB = "network_elb".freeze
     LAMBDA = "lambda".freeze
+    STEP_FUNCTIONS = "step_functions".freeze
   end
 end
