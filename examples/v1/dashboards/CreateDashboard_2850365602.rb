@@ -5,7 +5,6 @@ api_instance = DatadogAPIClient::V1::DashboardsAPI.new
 
 body = DatadogAPIClient::V1::Dashboard.new({
   description: nil,
-  is_read_only: false,
   layout_type: DatadogAPIClient::V1::DashboardLayoutType::ORDERED,
   notify_list: [],
   reflow_type: DatadogAPIClient::V1::DashboardReflowType::AUTO,
