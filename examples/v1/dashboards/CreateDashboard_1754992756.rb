@@ -39,6 +39,5 @@ body = DatadogAPIClient::V1::Dashboard.new({
     }),
   ],
   description: "description",
-  is_read_only: false,
 })
 p api_instance.create_dashboard(body)

@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Wed, 14 Sep 2022 15:56:53 GMT
+- recorded_at: Thu, 14 Nov 2024 19:12:41 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"description":null,"is_read_only":false,"layout_type":"ordered","notify_list":[],"reflow_type":"auto","restricted_roles":[],"template_variable_presets":[{"name":"my
+      string: '{"description":null,"layout_type":"ordered","notify_list":[],"reflow_type":"auto","restricted_roles":[],"template_variable_presets":[{"name":"my
         saved view","template_variables":[{"name":"datacenter","value":"*","values":["*"]}]}],"template_variables":[{"available_values":["my-host","host1","host2"],"defaults":["my-host"],"name":"host1","prefix":"host"}],"title":"","widgets":[{"definition":{"requests":{"fill":{"q":"avg:system.cpu.user{*}"}},"type":"hostmap"}}]}'
     headers:
       Accept:
@@ -15,8 +15,8 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"errors":["''template_variables'' value ''{u''values'': [u''*''],
-        u''name'': u''datacenter'', u''value'': u''*''}'' is invalid"]}'
+      string: '{"errors":["''template_variables'' value ''{''name'': ''datacenter'',
+        ''value'': ''*'', ''values'': [''*'']}'' is invalid"]}'
     headers:
       Content-Type:
       - application/json

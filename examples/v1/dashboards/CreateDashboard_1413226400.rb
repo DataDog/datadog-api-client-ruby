@@ -60,7 +60,6 @@ body = DatadogAPIClient::V1::Dashboard.new({
   ],
   template_variables: [],
   layout_type: DatadogAPIClient::V1::DashboardLayoutType::FREE,
-  is_read_only: false,
   notify_list: [],
 })
 p api_instance.create_dashboard(body)
