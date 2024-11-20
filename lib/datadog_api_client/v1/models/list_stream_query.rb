@@ -21,6 +21,9 @@ module DatadogAPIClient::V1
   class ListStreamQuery
     include BaseGenericModel
 
+    # Specifies the field for logs pattern clustering. Usable only with logs_pattern_stream.
+    attr_accessor :clustering_pattern_field_path
+
     # Compute configuration for the List Stream Widget. Compute can be used only with the logs_transaction_stream (from 1 to 5 items) list stream source.
     attr_reader :compute
 
@@ -51,6 +54,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.attribute_map
       {
+        :'clustering_pattern_field_path' => :'clustering_pattern_field_path',
         :'compute' => :'compute',
         :'data_source' => :'data_source',
         :'event_size' => :'event_size',
@@ -66,6 +70,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
+        :'clustering_pattern_field_path' => :'String',
         :'compute' => :'Array<ListStreamComputeItems>',
         :'data_source' => :'ListStreamSource',
         :'event_size' => :'WidgetEventSize',
@@ -94,6 +99,10 @@ module DatadogAPIClient::V1
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'clustering_pattern_field_path')
+        self.clustering_pattern_field_path = attributes[:'clustering_pattern_field_path']
+      end
 
       if attributes.key?(:'compute')
         if (value = attributes[:'compute']).is_a?(Array)
@@ -215,6 +224,7 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          clustering_pattern_field_path == o.clustering_pattern_field_path &&
           compute == o.compute &&
           data_source == o.data_source &&
           event_size == o.event_size &&
@@ -230,7 +240,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [compute, data_source, event_size, group_by, indexes, query_string, sort, storage].hash
+      [clustering_pattern_field_path, compute, data_source, event_size, group_by, indexes, query_string, sort, storage].hash
     end
   end
 end

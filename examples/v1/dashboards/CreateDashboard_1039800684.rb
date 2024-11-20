@@ -17,10 +17,16 @@ body = DatadogAPIClient::V1::Dashboard.new({
                 width: DatadogAPIClient::V1::ListStreamColumnWidth::AUTO,
                 field: "timestamp",
               }),
+              DatadogAPIClient::V1::ListStreamColumn.new({
+                width: DatadogAPIClient::V1::ListStreamColumnWidth::AUTO,
+                field: "message",
+                is_clustering_pattern_field_path: true,
+              }),
             ],
             query: DatadogAPIClient::V1::ListStreamQuery.new({
               data_source: DatadogAPIClient::V1::ListStreamSource::LOGS_PATTERN_STREAM,
               query_string: "",
+              clustering_pattern_field_path: "message",
               group_by: [
                 DatadogAPIClient::V1::ListStreamGroupByItems.new({
                   facet: "service",
