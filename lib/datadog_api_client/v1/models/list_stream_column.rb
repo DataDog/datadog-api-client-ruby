@@ -24,6 +24,9 @@ module DatadogAPIClient::V1
     # Widget column field.
     attr_reader :field
 
+    # Identifies the clustering pattern field column, usable only with logs_pattern_stream.
+    attr_accessor :is_clustering_pattern_field_path
+
     # Widget column width.
     attr_reader :width
 
@@ -34,6 +37,7 @@ module DatadogAPIClient::V1
     def self.attribute_map
       {
         :'field' => :'field',
+        :'is_clustering_pattern_field_path' => :'is_clustering_pattern_field_path',
         :'width' => :'width'
       }
     end
@@ -43,6 +47,7 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'field' => :'String',
+        :'is_clustering_pattern_field_path' => :'Boolean',
         :'width' => :'ListStreamColumnWidth'
       }
     end
@@ -67,6 +72,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'field')
         self.field = attributes[:'field']
+      end
+
+      if attributes.key?(:'is_clustering_pattern_field_path')
+        self.is_clustering_pattern_field_path = attributes[:'is_clustering_pattern_field_path']
       end
 
       if attributes.key?(:'width')
@@ -130,6 +139,7 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           field == o.field &&
+          is_clustering_pattern_field_path == o.is_clustering_pattern_field_path &&
           width == o.width
           additional_properties == o.additional_properties
     end
@@ -138,7 +148,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [field, width].hash
+      [field, is_clustering_pattern_field_path, width].hash
     end
   end
 end
