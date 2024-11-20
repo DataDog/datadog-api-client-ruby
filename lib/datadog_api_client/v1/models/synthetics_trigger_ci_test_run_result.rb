@@ -50,7 +50,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
-        :'device' => :'SyntheticsDeviceID',
+        :'device' => :'String',
         :'location' => :'Integer',
         :'public_id' => :'String',
         :'result_id' => :'String'

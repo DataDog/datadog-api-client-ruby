@@ -55,7 +55,7 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'height' => :'Integer',
-        :'id' => :'SyntheticsDeviceID',
+        :'id' => :'String',
         :'is_mobile' => :'Boolean',
         :'name' => :'String',
         :'width' => :'Integer'

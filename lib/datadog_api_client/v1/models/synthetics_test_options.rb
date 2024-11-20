@@ -147,7 +147,7 @@ module DatadogAPIClient::V1
         :'allow_insecure' => :'Boolean',
         :'check_certificate_revocation' => :'Boolean',
         :'ci' => :'SyntheticsTestCiOptions',
-        :'device_ids' => :'Array<SyntheticsDeviceID>',
+        :'device_ids' => :'Array<String>',
         :'disable_cors' => :'Boolean',
         :'disable_csp' => :'Boolean',
         :'enable_profiling' => :'Boolean',

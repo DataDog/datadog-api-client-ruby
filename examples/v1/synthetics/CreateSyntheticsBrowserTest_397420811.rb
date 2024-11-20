@@ -29,7 +29,7 @@ body = DatadogAPIClient::V1::SyntheticsBrowserTest.new({
     accept_self_signed: false,
     allow_insecure: true,
     device_ids: [
-      DatadogAPIClient::V1::SyntheticsDeviceID::TABLET,
+      "tablet",
     ],
     disable_cors: true,
     follow_redirects: true,

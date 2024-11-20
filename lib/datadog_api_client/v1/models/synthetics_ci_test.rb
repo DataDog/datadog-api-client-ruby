@@ -95,7 +95,7 @@ module DatadogAPIClient::V1
         :'body' => :'String',
         :'body_type' => :'String',
         :'cookies' => :'String',
-        :'device_ids' => :'Array<SyntheticsDeviceID>',
+        :'device_ids' => :'Array<String>',
         :'follow_redirects' => :'Boolean',
         :'headers' => :'Hash<String, String>',
         :'locations' => :'Array<String>',
