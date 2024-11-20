@@ -37,16 +37,15 @@ describe 'Deserialization', skip_before: true do
     end
 
     it 'should deserialize unknown nested enum in list' do
-      fixture = File.read('spec/fixtures/synthetics_unknown_nested_enum_in_list.json')
-      stub_request(:get, "#{@base_path}api/v1/synthetics/tests/api/public_id")
+      fixture = File.read('spec/fixtures/downtimes_unknown_nested_enum_in_list.json')
+      stub_request(:get, "#{@base_path}api/v2/downtime/downtime_id")
         .to_return(:body => fixture, :headers => [{"Content-Type": "application/json"}], :status => 299)
+      data = DatadogAPIClient::V2::DowntimesAPI.new.get_downtime("downtime_id")
 
-      data = @api_instance.get_api_test("public_id")
-
-      expect(data).to be_a DatadogAPIClient::V1::SyntheticsAPITest
-      expect(data.options.device_ids.length).to be 3
-      expect(data.options._unparsed).to be true
-      expect(data.options.device_ids[2].to_hash).to eq DatadogAPIClient::V1::SyntheticsDeviceID.build_from_hash("A non existent device ID").to_hash
+      expect(data).to be_a DatadogAPIClient::V2::DowntimeResponse
+      expect(data.data.attributes.notify_end_states.length).to be 3
+      expect(data.data.attributes._unparsed).to be true
+      expect(data.data.attributes.notify_end_states[2].to_hash).to eq DatadogAPIClient::V2::DowntimeNotifyEndStateTypes.build_from_hash("not an end state").to_hash
     end
 
     it 'should deserialize unknown top level enum' do

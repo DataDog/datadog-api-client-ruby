@@ -74,7 +74,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
-        :'device' => :'SyntheticsDeviceID',
+        :'device' => :'String',
         :'duration' => :'Float',
         :'execution_rule' => :'SyntheticsTestExecutionRule',
         :'location' => :'String',

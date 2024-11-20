@@ -1,0 +1,33 @@
+{
+  "data": {
+    "type": "downtime",
+    "attributes": {
+      "mute_first_recovery_notification": false,
+      "schedule": {
+        "end": null,
+        "start": "2024-11-10T03:12:35.223223+00:00"
+      },
+      "notify_end_types": [
+        "expired"
+      ],
+      "status": "active",
+      "monitor_identifier": {
+        "monitor_tags": [
+          "*"
+        ]
+      },
+      "display_timezone": "UTC",
+      "notify_end_states": [
+        "warn",
+        "alert",
+        "not an end state"
+      ],
+      "created": "2024-11-10T03:12:35.241213+00:00",
+      "modified": "2024-11-10T03:12:35.241213+00:00",
+      "canceled": null,
+      "message": null,
+      "scope": "host:java-hostsMuteErrorsTest-local-1731208355"
+    },
+    "id": "a5546ef7-fea3-4a1b-b82e-04f8067f655a"
+  }
+}

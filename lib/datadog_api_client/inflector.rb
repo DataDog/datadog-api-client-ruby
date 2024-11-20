@@ -619,7 +619,6 @@ module DatadogAPIClient
           "v1.synthetics_delete_tests_payload" => "SyntheticsDeleteTestsPayload",
           "v1.synthetics_delete_tests_response" => "SyntheticsDeleteTestsResponse",
           "v1.synthetics_device" => "SyntheticsDevice",
-          "v1.synthetics_device_id" => "SyntheticsDeviceID",
           "v1.synthetics_fetch_uptimes_payload" => "SyntheticsFetchUptimesPayload",
           "v1.synthetics_get_api_test_latest_results_response" => "SyntheticsGetAPITestLatestResultsResponse",
           "v1.synthetics_get_browser_test_latest_results_response" => "SyntheticsGetBrowserTestLatestResultsResponse",
