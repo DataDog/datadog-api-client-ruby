@@ -1228,6 +1228,9 @@ ScenariosModelMappings = {
             "page_cursor" => "String",
             "page_limit" => "Integer",
     },
+    "v2.CreateEvent" => {
+            "body" => "EventCreateRequestPayload",
+    },
     "v2.SearchEvents" => {
             "body" => "EventsListRequest",
     },
