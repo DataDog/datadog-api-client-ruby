@@ -84,6 +84,9 @@ module DatadogAPIClient::V2
     # User ID of the user who updated the rule.
     attr_accessor :update_author_id
 
+    # The date the rule was last updated, in milliseconds.
+    attr_accessor :updated_at
+
     # The version of the rule.
     attr_accessor :version
 
@@ -114,6 +117,7 @@ module DatadogAPIClient::V2
         :'third_party_cases' => :'thirdPartyCases',
         :'type' => :'type',
         :'update_author_id' => :'updateAuthorId',
+        :'updated_at' => :'updatedAt',
         :'version' => :'version'
       }
     end
@@ -143,6 +147,7 @@ module DatadogAPIClient::V2
         :'third_party_cases' => :'Array<SecurityMonitoringThirdPartyRuleCase>',
         :'type' => :'SecurityMonitoringRuleTypeRead',
         :'update_author_id' => :'Integer',
+        :'updated_at' => :'Integer',
         :'version' => :'Integer'
       }
     end
@@ -263,6 +268,10 @@ module DatadogAPIClient::V2
         self.update_author_id = attributes[:'update_author_id']
       end
 
+      if attributes.key?(:'updated_at')
+        self.updated_at = attributes[:'updated_at']
+      end
+
       if attributes.key?(:'version')
         self.version = attributes[:'version']
       end
@@ -315,6 +324,7 @@ module DatadogAPIClient::V2
           third_party_cases == o.third_party_cases &&
           type == o.type &&
           update_author_id == o.update_author_id &&
+          updated_at == o.updated_at &&
           version == o.version
           additional_properties == o.additional_properties
     end
@@ -323,7 +333,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [cases, compliance_signal_options, created_at, creation_author_id, default_tags, deprecation_date, filters, has_extended_title, id, is_default, is_deleted, is_enabled, message, name, options, queries, reference_tables, tags, third_party_cases, type, update_author_id, version].hash
+      [cases, compliance_signal_options, created_at, creation_author_id, default_tags, deprecation_date, filters, has_extended_title, id, is_default, is_deleted, is_enabled, message, name, options, queries, reference_tables, tags, third_party_cases, type, update_author_id, updated_at, version].hash
     end
   end
 end
