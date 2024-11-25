@@ -7,14 +7,14 @@ body = DatadogAPIClient::V2::CIAppCreatePipelineEventRequest.new({
   data: DatadogAPIClient::V2::CIAppCreatePipelineEventRequestData.new({
     attributes: DatadogAPIClient::V2::CIAppCreatePipelineEventRequestAttributes.new({
       resource: DatadogAPIClient::V2::CIAppPipelineEventJob.new({
-        _end: (Time.now + -30),
         level: DatadogAPIClient::V2::CIAppPipelineEventJobLevel::JOB,
-        name: "Build image",
-        start: (Time.now + -120),
-        status: DatadogAPIClient::V2::CIAppPipelineEventJobStatus::ERROR,
         id: "cf9456de-8b9e-4c27-aa79-27b1e78c1a33",
+        name: "Build image",
         pipeline_unique_id: "3eacb6f3-ff04-4e10-8a9c-46e6d054024a",
         pipeline_name: "Deploy to AWS",
+        start: (Time.now + -120),
+        _end: (Time.now + -30),
+        status: DatadogAPIClient::V2::CIAppPipelineEventJobStatus::ERROR,
         url: "https://my-ci-provider.example/jobs/my-jobs/run/1",
       }),
     }),
