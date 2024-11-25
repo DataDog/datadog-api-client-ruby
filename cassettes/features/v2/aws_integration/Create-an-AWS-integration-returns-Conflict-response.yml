@@ -1,5 +1,5 @@
 http_interactions:
-- recorded_at: Wed, 06 Nov 2024 18:44:48 GMT
+- recorded_at: Thu, 14 Nov 2024 20:07:58 GMT
   request:
     body:
       encoding: UTF-8
@@ -14,14 +14,14 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"7f221537-cb4f-47dc-8666-f77e5ca60750","type":"account","attributes":{"account_tags":["key:value"],"auth_config":{"role_name":"DatadogIntegrationRole","external_id":"8fce2f5d4975420794b61a5455bf78f2"},"aws_account_id":"123456789012","aws_partition":"aws","aws_regions":{"include_only":["us-east-1"]},"created_at":"2024-11-06T18:44:48.579473724Z","logs_config":{"lambda_forwarder":{"lambdas":["arn:aws:lambda:us-east-1:123456789012:function:DatadogLambdaLogForwarder"],"sources":["s3"]}},"metrics_config":{"enabled":true,"automute_enabled":true,"collect_custom_metrics":false,"collect_cloudwatch_alarms":false,"tag_filters":[{"namespace":"AWS/EC2","tags":["key:value"]}],"namespace_filters":{"include_only":["AWS/EC2"]}},"modified_at":"2024-11-06T18:44:48.579477654Z","resources_config":{"cloud_security_posture_management_collection":false,"extended_collection":false},"traces_config":{"xray_services":{"include_only":["AWS/AppSync"]}}}}}'
+      string: '{"data":{"id":"3827b469-bc3a-41be-bdf0-1d0e6ea413a2","type":"account","attributes":{"account_tags":["key:value"],"auth_config":{"role_name":"DatadogIntegrationRole","external_id":"d2a623a93f7444b29404f25cb5853c05"},"aws_account_id":"123456789012","aws_partition":"aws","aws_regions":{"include_only":["us-east-1"]},"created_at":"2024-11-14T20:07:59.282635727Z","logs_config":{"lambda_forwarder":{"lambdas":["arn:aws:lambda:us-east-1:123456789012:function:DatadogLambdaLogForwarder"],"sources":["s3"]}},"metrics_config":{"enabled":true,"automute_enabled":true,"collect_custom_metrics":false,"collect_cloudwatch_alarms":false,"tag_filters":[{"namespace":"AWS/EC2","tags":["key:value"]}],"namespace_filters":{"include_only":["AWS/EC2"]}},"modified_at":"2024-11-14T20:07:59.282642012Z","resources_config":{"cloud_security_posture_management_collection":false,"extended_collection":false},"traces_config":{"xray_services":{"include_only":["AWS/AppSync"]}}}}}'
     headers:
       Content-Type:
       - application/vnd.api+json
     status:
       code: 200
       message: OK
-- recorded_at: Wed, 06 Nov 2024 18:44:48 GMT
+- recorded_at: Thu, 14 Nov 2024 20:07:58 GMT
   request:
     body:
       encoding: UTF-8
@@ -44,14 +44,14 @@ http_interactions:
     status:
       code: 409
       message: Conflict
-- recorded_at: Wed, 06 Nov 2024 18:44:48 GMT
+- recorded_at: Thu, 14 Nov 2024 20:07:58 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/integration/aws/accounts/7f221537-cb4f-47dc-8666-f77e5ca60750
+    uri: https://api.datadoghq.com/api/v2/integration/aws/accounts/3827b469-bc3a-41be-bdf0-1d0e6ea413a2
   response:
     body:
       encoding: UTF-8
