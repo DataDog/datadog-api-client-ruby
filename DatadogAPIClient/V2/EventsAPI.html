@@ -516,7 +516,9 @@
   <div class="discussion">
     <p>Post an event.</p>
 
-<p>This endpoint allows you to post events. Only events with <code>change</code> category are under General Availability.</p>
+<p>This endpoint allows you to post events.</p>
+
+<p>Only events with <strong><code>change</code> category</strong> are under General Availability. Refer to <a href="https://docs.datadoghq.com/change_tracking">Change Tracking</a> for further details.</p>
 
 
   </div>
@@ -583,8 +585,6 @@
       <pre class="lines">
 
 
-41
-42
 43
 44
 45
@@ -633,10 +633,12 @@
 88
 89
 90
-91</pre>
+91
+92
+93</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/events_api.rb', line 41</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/events_api.rb', line 43</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create_event_with_http_info'>create_event_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -726,13 +728,13 @@
       <pre class="lines">
 
 
-96
-97
 98
-99</pre>
+99
+100
+101</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/events_api.rb', line 96</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/events_api.rb', line 98</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_events'>list_events</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_list_events_with_http_info'>list_events_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -892,8 +894,6 @@
       <pre class="lines">
 
 
-116
-117
 118
 119
 120
@@ -949,10 +949,12 @@
 170
 171
 172
-173</pre>
+173
+174
+175</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/events_api.rb', line 116</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/events_api.rb', line 118</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_events_with_http_info'>list_events_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -1063,8 +1065,6 @@
       <pre class="lines">
 
 
-182
-183
 184
 185
 186
@@ -1075,10 +1075,12 @@
 191
 192
 193
-194</pre>
+194
+195
+196</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/events_api.rb', line 182</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/events_api.rb', line 184</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_events_with_pagination'>list_events_with_pagination</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_api_version'>api_version</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>V2</span><span class='tstring_end'>&quot;</span></span>
@@ -1130,13 +1132,13 @@
       <pre class="lines">
 
 
-199
-200
 201
-202</pre>
+202
+203
+204</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/events_api.rb', line 199</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/events_api.rb', line 201</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_search_events'>search_events</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_search_events_with_http_info'>search_events_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -1233,8 +1235,6 @@
       <pre class="lines">
 
 
-214
-215
 216
 217
 218
@@ -1279,10 +1279,12 @@
 257
 258
 259
-260</pre>
+260
+261
+262</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/events_api.rb', line 214</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/events_api.rb', line 216</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_search_events_with_http_info'>search_events_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -1382,8 +1384,6 @@
       <pre class="lines">
 
 
-269
-270
 271
 272
 273
@@ -1394,10 +1394,12 @@
 278
 279
 280
-281</pre>
+281
+282
+283</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/events_api.rb', line 269</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/events_api.rb', line 271</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_search_events_with_pagination'>search_events_with_pagination</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_api_version'>api_version</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>V2</span><span class='tstring_end'>&quot;</span></span>
@@ -1422,7 +1424,7 @@
 </div>
 
       <div id="footer">
-  Generated on Fri Nov 22 17:22:00 2024 by
+  Generated on Mon Nov 25 14:01:30 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>
