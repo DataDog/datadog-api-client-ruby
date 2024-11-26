@@ -39,7 +39,7 @@ module DatadogAPIClient::V2
     # The name of the rule.
     attr_reader :name
 
-    # Options on rules.
+    # Options.
     attr_reader :options
 
     # Queries for selecting signals which are part of the rule.

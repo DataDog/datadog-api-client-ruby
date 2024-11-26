@@ -42,19 +42,19 @@ module DatadogAPIClient::V2
     # Job name.
     attr_reader :name
 
-    # Options on rules.
+    # Options.
     attr_accessor :options
 
     # Queries for selecting logs analyzed by the job.
     attr_reader :queries
 
-    # Reference tables for the rule.
+    # Reference tables used in the queries.
     attr_accessor :reference_tables
 
     # Tags for generated signals.
     attr_accessor :tags
 
-    # Cases for generating results from third-party rules. Only available for third-party rules.
+    # Cases for generating results from third-party detection method. Only available for third-party detection method.
     attr_accessor :third_party_cases
 
     # Ending time of data analyzed by the job.

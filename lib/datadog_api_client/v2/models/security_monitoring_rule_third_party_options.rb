@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Options on third party rules.
+  # Options on third party detection method.
   class SecurityMonitoringRuleThirdPartyOptions
     include BaseGenericModel
 

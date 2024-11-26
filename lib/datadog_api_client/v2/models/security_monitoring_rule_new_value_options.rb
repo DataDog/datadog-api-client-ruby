@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Options on new value rules.
+  # Options on new value detection method.
   class SecurityMonitoringRuleNewValueOptions
     include BaseGenericModel
 
