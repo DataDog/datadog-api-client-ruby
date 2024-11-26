@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # Name of the case.
     attr_accessor :name
 
-    # Notification targets for each rule case.
+    # Notification targets for each case.
     attr_accessor :notifications
 
     # A query to map a third party event to this case.

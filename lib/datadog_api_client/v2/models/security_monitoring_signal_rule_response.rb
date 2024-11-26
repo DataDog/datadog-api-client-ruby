@@ -57,7 +57,7 @@ module DatadogAPIClient::V2
     # The name of the rule.
     attr_accessor :name
 
-    # Options on rules.
+    # Options.
     attr_accessor :options
 
     # Queries for selecting logs which are part of the rule.
