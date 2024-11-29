@@ -24,7 +24,7 @@ module DatadogAPIClient::V1
     # Timestamp in seconds (Unix epoch) for the start of uptime.
     attr_reader :from_ts
 
-    # An array of Synthetic test IDs you want to delete.
+    # An array of Synthetic test IDs you want uptimes for.
     attr_reader :public_ids
 
     # Timestamp in seconds (Unix epoch) for the end of uptime.
