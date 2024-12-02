@@ -291,7 +291,7 @@ module DatadogAPIClient::V1
     # Shows the sum of all Network flows indexed over all hours in the current date for all organizations (To be deprecated on October 1st, 2024).
     attr_accessor :netflow_indexed_events_count_sum
 
-    # Shows the 99th percentile of all distinct Networks hosts over all hours in the current date for all organizations.
+    # Shows the 99th percentile of all distinct Cloud Network Monitoring hosts (formerly known as Network hosts) over all hours in the current date for all organizations.
     attr_accessor :npm_host_top99p
 
     # Sum of all observability pipelines bytes processed over all hours in the current date for the given org.
