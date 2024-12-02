@@ -17,35 +17,36 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The AWS Account Integration Config to be updated
+  # The AWS Account Integration Config to be updated.
   class AWSAccountUpdateRequestAttributes
     include BaseGenericModel
 
-    # Tags to apply to all metrics in the account
+    # Tags to apply to all hosts and metrics reporting for this account. Defaults to `[]`.
     attr_accessor :account_tags
 
-    # AWS Authentication config
+    # AWS Authentication config.
     attr_accessor :auth_config
 
-    # AWS Account ID
+    # AWS Account ID.
     attr_reader :aws_account_id
 
-    # AWS Account partition
+    # AWS partition your AWS account is scoped to. Defaults to `aws`.
+    # See [Partitions](https://docs.aws.amazon.com/whitepapers/latest/aws-fault-isolation-boundaries/partitions.html) in the AWS documentation for more information.
     attr_accessor :aws_partition
 
-    # AWS Regions to collect data from
+    # AWS Regions to collect data from. Defaults to `include_all`.
     attr_accessor :aws_regions
 
-    # AWS Logs config
+    # AWS Logs Collection config.
     attr_accessor :logs_config
 
-    # AWS Metrics config
+    # AWS Metrics Collection config.
     attr_accessor :metrics_config
 
-    # AWS Resources config
+    # AWS Resources Collection config.
     attr_accessor :resources_config
 
-    # AWS Traces config
+    # AWS Traces Collection config.
     attr_accessor :traces_config
 
     attr_accessor :additional_properties

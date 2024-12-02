@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # AWS Authentication config for role-based account
+  # AWS Authentication config to integrate your account using an IAM role.
   class AWSAuthConfigRole
     include BaseGenericModel
 
-    # AWS IAM External ID for associated role
+    # AWS IAM External ID for associated role.
     attr_accessor :external_id
 
-    # AWS IAM Role name
+    # AWS IAM Role name.
     attr_reader :role_name
 
     attr_accessor :additional_properties

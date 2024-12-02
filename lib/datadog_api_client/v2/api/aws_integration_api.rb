@@ -172,9 +172,9 @@ module DatadogAPIClient::V2
 
     # Delete an AWS integration.
     #
-    # Delete an AWS Account Integration Config
+    # Delete an AWS Account Integration Config by config ID.
     #
-    # @param aws_account_config_id [String] Unique Datadog ID of the AWS Account Integration Config
+    # @param aws_account_config_id [String] Unique Datadog ID of the AWS Account Integration Config. To get the config ID for an account, use the [List all AWS integrations](https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations) endpoint and query by AWS Account ID.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_aws_account_with_http_info(aws_account_config_id, opts = {})
@@ -243,9 +243,9 @@ module DatadogAPIClient::V2
 
     # Get an AWS integration by config ID.
     #
-    # Get an AWS Account Integration Config
+    # Get an AWS Account Integration Config by config ID.
     #
-    # @param aws_account_config_id [String] Unique Datadog ID of the AWS Account Integration Config
+    # @param aws_account_config_id [String] Unique Datadog ID of the AWS Account Integration Config. To get the config ID for an account, use the [List all AWS integrations](https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations) endpoint and query by AWS Account ID.
     # @param opts [Hash] the optional parameters
     # @return [Array<(AWSAccountResponse, Integer, Hash)>] AWSAccountResponse data, response status code and response headers
     def get_aws_account_with_http_info(aws_account_config_id, opts = {})
@@ -317,7 +317,7 @@ module DatadogAPIClient::V2
     # Get a list of AWS Account Integration Configs.
     #
     # @param opts [Hash] the optional parameters
-    # @option opts [String] :aws_account_id Optional query filter accounts by AWS Account ID
+    # @option opts [String] :aws_account_id Optional query parameter to filter accounts by AWS Account ID. If not provided, all accounts are returned.
     # @return [Array<(AWSAccountsResponse, Integer, Hash)>] AWSAccountsResponse data, response status code and response headers
     def list_aws_accounts_with_http_info(opts = {})
       unstable_enabled = @api_client.config.unstable_operations["v2.list_aws_accounts".to_sym]
@@ -448,9 +448,9 @@ module DatadogAPIClient::V2
 
     # Update an AWS integration.
     #
-    # Update an AWS Account Integration Config
+    # Update an AWS Account Integration Config by config ID.
     #
-    # @param aws_account_config_id [String] Unique Datadog ID of the AWS Account Integration Config
+    # @param aws_account_config_id [String] Unique Datadog ID of the AWS Account Integration Config. To get the config ID for an account, use the [List all AWS integrations](https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations) endpoint and query by AWS Account ID.
     # @param body [AWSAccountUpdateRequest] 
     # @param opts [Hash] the optional parameters
     # @return [Array<(AWSAccountResponse, Integer, Hash)>] AWSAccountResponse data, response status code and response headers
