@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Include only these services
+  # Include only these services. Defaults to `[]`.
   class XRayServicesIncludeOnly
     include BaseGenericModel
 
-    # Include only these services
+    # Include only these services.
     attr_reader :include_only
 
     attr_accessor :additional_properties

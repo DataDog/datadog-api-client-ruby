@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # AWS Accounts response body
+  # AWS Accounts response body.
   class AWSAccountsResponse
     include BaseGenericModel
 
-    # List of AWS Account Integration Configs
+    # List of AWS Account Integration Configs.
     attr_reader :data
 
     attr_accessor :additional_properties
