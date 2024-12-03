@@ -1186,6 +1186,20 @@ ScenariosModelMappings = {
             "dashboard_list_id" => "Integer",
             "body" => "DashboardListUpdateItemsRequest",
     },
+    "v2.CreateDataDeletionRequest" => {
+            "product" => "String",
+            "body" => "CreateDataDeletionRequestBody",
+    },
+    "v2.GetDataDeletionRequests" => {
+            "next_page" => "String",
+            "product" => "String",
+            "query" => "String",
+            "status" => "String",
+            "page_size" => "Integer",
+    },
+    "v2.CancelDataDeletionRequest" => {
+            "id" => "String",
+    },
     "v2.PatchDomainAllowlist" => {
             "body" => "DomainAllowlistRequest",
     },

@@ -1,0 +1,24 @@
+http_interactions:
+- recorded_at: Fri, 15 Nov 2024 08:59:22 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"from":1672527600000,"indexes":["index-1","index-2"],"query":{},"to":1704063600000}}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/deletion/data/logs
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"status":"412","code":"INVALID_BODY","title":"INVALID_BODY","detail":"INVALID_BODY"}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 412
+      message: Precondition Failed
+recorded_with: VCR 6.0.0
