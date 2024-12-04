@@ -1955,6 +1955,28 @@ ScenariosModelMappings = {
             "metric_id" => "String",
             "body" => "RumMetricUpdateRequest",
     },
+    "v2.ListSCIMGroups" => {
+            "start_index" => "Integer",
+            "count" => "Integer",
+            "filter" => "String",
+    },
+    "v2.CreateSCIMGroup" => {
+            "body" => "ExternalUserGroup",
+    },
+    "v2.DeleteSCIMGroup" => {
+            "group_id" => "String",
+    },
+    "v2.GetSCIMGroup" => {
+            "group_id" => "String",
+    },
+    "v2.PatchSCIMGroup" => {
+            "group_id" => "String",
+            "body" => "ExternalUserGroupPatchRequest",
+    },
+    "v2.UpdateSCIMGroup" => {
+            "group_id" => "String",
+            "body" => "ExternalUserGroup",
+    },
     "v2.ListScorecardOutcomes" => {
             "page_size" => "Integer",
             "page_offset" => "Integer",
