@@ -8,8 +8,8 @@ body = DatadogAPIClient::V2::CreateDataDeletionRequestBody.new({
     attributes: DatadogAPIClient::V2::CreateDataDeletionRequestBodyAttributes.new({
       from: 1672527600000,
       indexes: [
-        "index-1",
-        "index-2",
+        "test-index",
+        "test-index-2",
       ],
       query: {
         host: "abc", service: "xyz",

@@ -98,7 +98,7 @@ module DatadogAPIClient::V2
 
     # Creates a data deletion request.
     #
-    # Creates a data deletion request by providing a query and a time frame targeting the proper data.
+    # Creates a data deletion request by providing a query and a timeframe targeting the proper data.
     #
     # @param product [String] Name of the product to be deleted, either `logs` or `rum`.
     # @param body [CreateDataDeletionRequestBody] 
