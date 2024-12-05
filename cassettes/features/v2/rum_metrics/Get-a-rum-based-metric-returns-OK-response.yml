@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Tue, 29 Oct 2024 11:59:24 GMT
+- recorded_at: Thu, 28 Nov 2024 15:31:22 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"compute":{"aggregation_type":"distribution","include_percentiles":true,"path":"@duration"},"event_type":"session","filter":{"query":"source:Test-Get_a_rum_based_metric_returns_OK_response-1730203164"},"group_by":[{"path":"@browser.name","tag_name":"browser_name"}],"uniqueness":{"when":"match"}},"id":"Test-Get_a_rum_based_metric_returns_OK_response-1730203164","type":"rum_metrics"}}'
+      string: '{"data":{"attributes":{"compute":{"aggregation_type":"distribution","include_percentiles":true,"path":"@duration"},"event_type":"session","filter":{"query":"source:Test-Get_a_rum_based_metric_returns_OK_response-1732807882"},"group_by":[{"path":"@browser.name","tag_name":"browser_name"}],"uniqueness":{"when":"match"}},"id":"testgetarumbasedmetricreturnsokresponse1732807882","type":"rum_metrics"}}'
     headers:
       Accept:
       - application/json
@@ -14,39 +14,39 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"Test_Get_a_rum_based_metric_returns_OK_response_1730203164","type":"rum_metrics","attributes":{"compute":{"aggregation_type":"distribution","include_percentiles":true,"path":"@duration"},"event_type":"session","filter":{"query":"source:Test-Get_a_rum_based_metric_returns_OK_response-1730203164"},"group_by":[{"path":"@browser.name","tag_name":"browser_name"}],"uniqueness":{"when":"match"}}}}'
+      string: '{"data":{"id":"testgetarumbasedmetricreturnsokresponse1732807882","type":"rum_metrics","attributes":{"compute":{"aggregation_type":"distribution","include_percentiles":true,"path":"@duration"},"event_type":"session","filter":{"query":"source:Test-Get_a_rum_based_metric_returns_OK_response-1732807882"},"group_by":[{"path":"@browser.name","tag_name":"browser_name"}],"uniqueness":{"when":"match"}}}}'
     headers:
       Content-Type:
       - application/vnd.api+json
     status:
       code: 201
       message: Created
-- recorded_at: Tue, 29 Oct 2024 11:59:24 GMT
+- recorded_at: Thu, 28 Nov 2024 15:31:22 GMT
   request:
     body: null
     headers:
       Accept:
       - application/json
     method: GET
-    uri: https://api.datadoghq.com/api/v2/rum/config/metrics/Test_Get_a_rum_based_metric_returns_OK_response_1730203164
+    uri: https://api.datadoghq.com/api/v2/rum/config/metrics/testgetarumbasedmetricreturnsokresponse1732807882
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"Test_Get_a_rum_based_metric_returns_OK_response_1730203164","type":"rum_metrics","attributes":{"compute":{"aggregation_type":"distribution","include_percentiles":true,"path":"@duration"},"event_type":"session","filter":{"query":"source:Test-Get_a_rum_based_metric_returns_OK_response-1730203164"},"group_by":[{"path":"@browser.name","tag_name":"browser_name"}],"uniqueness":{"when":"match"}}}}'
+      string: '{"data":{"id":"testgetarumbasedmetricreturnsokresponse1732807882","type":"rum_metrics","attributes":{"compute":{"aggregation_type":"distribution","include_percentiles":true,"path":"@duration"},"event_type":"session","filter":{"query":"source:Test-Get_a_rum_based_metric_returns_OK_response-1732807882"},"group_by":[{"path":"@browser.name","tag_name":"browser_name"}],"uniqueness":{"when":"match"}}}}'
     headers:
       Content-Type:
       - application/vnd.api+json
     status:
       code: 200
       message: OK
-- recorded_at: Tue, 29 Oct 2024 11:59:24 GMT
+- recorded_at: Thu, 28 Nov 2024 15:31:22 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/rum/config/metrics/Test_Get_a_rum_based_metric_returns_OK_response_1730203164
+    uri: https://api.datadoghq.com/api/v2/rum/config/metrics/testgetarumbasedmetricreturnsokresponse1732807882
   response:
     body:
       encoding: UTF-8

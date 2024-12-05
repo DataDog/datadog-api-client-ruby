@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Tue, 29 Oct 2024 11:59:27 GMT
+- recorded_at: Thu, 28 Nov 2024 15:31:25 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"compute":{"aggregation_type":"distribution","include_percentiles":true,"path":"@duration"},"event_type":"session","filter":{"query":"source:Test-Update_a_rum_based_metric_returns_Conflict_response-1730203167"},"group_by":[{"path":"@browser.name","tag_name":"browser_name"}],"uniqueness":{"when":"match"}},"id":"Test-Update_a_rum_based_metric_returns_Conflict_response-1730203167","type":"rum_metrics"}}'
+      string: '{"data":{"attributes":{"compute":{"aggregation_type":"distribution","include_percentiles":true,"path":"@duration"},"event_type":"session","filter":{"query":"source:Test-Update_a_rum_based_metric_returns_Conflict_response-1732807885"},"group_by":[{"path":"@browser.name","tag_name":"browser_name"}],"uniqueness":{"when":"match"}},"id":"testupdatearumbasedmetricreturnsconflictresponse1732807885","type":"rum_metrics"}}'
     headers:
       Accept:
       - application/json
@@ -14,14 +14,14 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"Test_Update_a_rum_based_metric_returns_Conflict_response_1730203167","type":"rum_metrics","attributes":{"compute":{"aggregation_type":"distribution","include_percentiles":true,"path":"@duration"},"event_type":"session","filter":{"query":"source:Test-Update_a_rum_based_metric_returns_Conflict_response-1730203167"},"group_by":[{"path":"@browser.name","tag_name":"browser_name"}],"uniqueness":{"when":"match"}}}}'
+      string: '{"data":{"id":"testupdatearumbasedmetricreturnsconflictresponse1732807885","type":"rum_metrics","attributes":{"compute":{"aggregation_type":"distribution","include_percentiles":true,"path":"@duration"},"event_type":"session","filter":{"query":"source:Test-Update_a_rum_based_metric_returns_Conflict_response-1732807885"},"group_by":[{"path":"@browser.name","tag_name":"browser_name"}],"uniqueness":{"when":"match"}}}}'
     headers:
       Content-Type:
       - application/vnd.api+json
     status:
       code: 201
       message: Created
-- recorded_at: Tue, 29 Oct 2024 11:59:27 GMT
+- recorded_at: Thu, 28 Nov 2024 15:31:25 GMT
   request:
     body:
       encoding: UTF-8
@@ -32,7 +32,7 @@ http_interactions:
       Content-Type:
       - application/json
     method: PATCH
-    uri: https://api.datadoghq.com/api/v2/rum/config/metrics/Test_Update_a_rum_based_metric_returns_Conflict_response_1730203167
+    uri: https://api.datadoghq.com/api/v2/rum/config/metrics/testupdatearumbasedmetricreturnsconflictresponse1732807885
   response:
     body:
       encoding: UTF-8
@@ -44,14 +44,14 @@ http_interactions:
     status:
       code: 409
       message: Conflict
-- recorded_at: Tue, 29 Oct 2024 11:59:27 GMT
+- recorded_at: Thu, 28 Nov 2024 15:31:25 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/rum/config/metrics/Test_Update_a_rum_based_metric_returns_Conflict_response_1730203167
+    uri: https://api.datadoghq.com/api/v2/rum/config/metrics/testupdatearumbasedmetricreturnsconflictresponse1732807885
   response:
     body:
       encoding: UTF-8

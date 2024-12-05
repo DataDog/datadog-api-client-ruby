@@ -1,5 +1,5 @@
 http_interactions:
-- recorded_at: Tue, 29 Oct 2024 11:59:21 GMT
+- recorded_at: Thu, 28 Nov 2024 15:31:19 GMT
   request:
     body:
       encoding: UTF-8
@@ -21,7 +21,7 @@ http_interactions:
     status:
       code: 201
       message: Created
-- recorded_at: Tue, 29 Oct 2024 11:59:21 GMT
+- recorded_at: Thu, 28 Nov 2024 15:31:19 GMT
   request:
     body: null
     headers:
