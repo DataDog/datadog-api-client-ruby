@@ -33,7 +33,7 @@ module DatadogAPIClient::V2
     # List of indexes for the search. If not provided, the search is performed in all indexes.
     attr_accessor :indexes
 
-    # Whether the deletion request is fully created or not.
+    # Whether the deletion request is fully created or not. It can take several minutes to fully create a deletion request depending on the target query and timeframe.
     attr_reader :is_created
 
     # Organization ID.

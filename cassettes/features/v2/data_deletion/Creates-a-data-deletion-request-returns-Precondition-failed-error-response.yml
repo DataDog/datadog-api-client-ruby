@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Fri, 15 Nov 2024 08:59:22 GMT
+- recorded_at: Thu, 05 Dec 2024 09:23:44 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"from":1672527600000,"indexes":["index-1","index-2"],"query":{},"to":1704063600000}}}'
+      string: '{"data":{"attributes":{"from":1672527600000,"indexes":["test-index","test-index-2"],"query":{},"to":1704063600000}}}'
     headers:
       Accept:
       - application/json
