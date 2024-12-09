@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Include only these namespaces
+  # Include only these namespaces.
   class AWSNamespaceFiltersIncludeOnly
     include BaseGenericModel
 
-    # Include only these namespaces
+    # Include only these namespaces.
     attr_reader :include_only
 
     attr_accessor :additional_properties
