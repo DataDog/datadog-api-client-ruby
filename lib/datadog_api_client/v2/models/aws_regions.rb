@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # AWS Regions to collect data from
+  # AWS Regions to collect data from. Defaults to `include_all`.
   module AWSRegions
     class << self
       include BaseOneOfModel

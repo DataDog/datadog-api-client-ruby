@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # AWS Account Create Request data
+  # AWS Account Create Request data.
   class AWSAccountCreateRequestData
     include BaseGenericModel
 
-    # The AWS Account Integration Config to be created
+    # The AWS Account Integration Config to be created.
     attr_reader :attributes
 
     # AWS Account resource type.

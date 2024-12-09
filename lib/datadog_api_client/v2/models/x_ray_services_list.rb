@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # AWS X-Ray services to collect traces from
+  # AWS X-Ray services to collect traces from. Defaults to `include_only`.
   module XRayServicesList
     class << self
       include BaseOneOfModel

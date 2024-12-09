@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # AWS Namespaces response body
+  # AWS Namespaces response data.
   class AWSNamespacesResponseData
     include BaseGenericModel
 
-    # AWS Namespaces response body
+    # AWS Namespaces response attributes.
     attr_accessor :attributes
 
     # The `AWSNamespacesResponseData` `id`.

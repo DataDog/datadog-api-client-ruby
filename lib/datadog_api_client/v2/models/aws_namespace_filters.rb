@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # AWS Metrics namespace filters
+  # AWS Metrics namespace filters. Defaults to `exclude_only`.
   module AWSNamespaceFilters
     class << self
       include BaseOneOfModel
