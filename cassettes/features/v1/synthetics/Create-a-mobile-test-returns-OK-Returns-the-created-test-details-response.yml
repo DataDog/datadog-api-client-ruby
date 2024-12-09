@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Tue, 01 Oct 2024 12:07:30 GMT
+- recorded_at: Mon, 09 Dec 2024 11:17:52 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"config":{"variables":[]},"message":"","name":"Test-Create_a_mobile_test_returns_OK_Returns_the_created_test_details_response-1727784450","options":{"device_ids":["synthetics:mobile:device:iphone_15_ios_17"],"mobileApplication":{"applicationId":"ab0e0aed-536d-411a-9a99-5428c27d8f8e","referenceId":"6115922a-5f5d-455e-bc7e-7955a57f3815","referenceType":"version"},"tick_every":3600},"status":"paused","steps":[],"type":"mobile"}'
+      string: '{"config":{"variables":[]},"message":"","name":"Test-Create_a_mobile_test_returns_OK_Returns_the_created_test_details_response-1733743072","options":{"device_ids":["synthetics:mobile:device:iphone_15_ios_17"],"mobileApplication":{"applicationId":"ab0e0aed-536d-411a-9a99-5428c27d8f8e","referenceId":"6115922a-5f5d-455e-bc7e-7955a57f3815","referenceType":"version"},"tick_every":3600},"status":"paused","steps":[],"type":"mobile"}'
     headers:
       Accept:
       - application/json
@@ -14,7 +14,7 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"public_id":"dt9-u4h-bqv","name":"Test-Create_a_mobile_test_returns_OK_Returns_the_created_test_details_response-1727784450","status":"paused","type":"mobile","tags":[],"created_at":"2024-10-01T12:07:30.710400+00:00","modified_at":"2024-10-01T12:07:30.710400+00:00","config":{"variables":[]},"message":"","options":{"device_ids":["synthetics:mobile:device:iphone_15_ios_17"],"mobileApplication":{"applicationId":"ab0e0aed-536d-411a-9a99-5428c27d8f8e","referenceId":"6115922a-5f5d-455e-bc7e-7955a57f3815","referenceType":"version"},"tick_every":3600},"locations":["aws:us-west-2"],"created_by":{"name":null,"handle":"frog@datadoghq.com","email":"frog@datadoghq.com"},"deleted_at":null,"monitor_id":155147637,"org_id":321813,"modified_by":{"name":null,"handle":"frog@datadoghq.com","email":"frog@datadoghq.com"},"stepCount":{"assertions":0,"subtests":0,"total":0}}
+      string: '{"public_id":"gcc-5su-udk","name":"Test-Create_a_mobile_test_returns_OK_Returns_the_created_test_details_response-1733743072","status":"paused","type":"mobile","tags":[],"created_at":"2024-12-09T11:17:52.575311+00:00","modified_at":"2024-12-09T11:17:52.575311+00:00","config":{"variables":[]},"message":"","options":{"device_ids":["synthetics:mobile:device:iphone_15_ios_17"],"mobileApplication":{"applicationId":"ab0e0aed-536d-411a-9a99-5428c27d8f8e","referenceId":"6115922a-5f5d-455e-bc7e-7955a57f3815","referenceType":"version"},"tick_every":3600},"locations":["aws:us-west-2"],"created_by":{"name":null,"handle":"frog@datadoghq.com","email":"frog@datadoghq.com"},"deleted_at":null,"monitor_id":159881009,"org_id":321813,"modified_by":{"name":null,"handle":"frog@datadoghq.com","email":"frog@datadoghq.com"},"stepCount":{"assertions":0,"subtests":0,"total":0}}
 
         '
     headers:
@@ -23,11 +23,11 @@ http_interactions:
     status:
       code: 200
       message: OK
-- recorded_at: Tue, 01 Oct 2024 12:07:30 GMT
+- recorded_at: Mon, 09 Dec 2024 11:17:52 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"public_ids":["dt9-u4h-bqv"]}'
+      string: '{"public_ids":["gcc-5su-udk"]}'
     headers:
       Accept:
       - application/json
@@ -38,7 +38,7 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"deleted_tests":[{"public_id":"dt9-u4h-bqv","deleted_at":"2024-10-01T12:07:31.533655+00:00"}]}
+      string: '{"deleted_tests":[{"public_id":"gcc-5su-udk","deleted_at":"2024-12-09T11:17:53.488575+00:00"}]}
 
         '
     headers:

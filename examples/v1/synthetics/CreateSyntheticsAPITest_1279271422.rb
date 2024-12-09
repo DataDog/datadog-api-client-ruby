@@ -23,6 +23,7 @@ body = DatadogAPIClient::V1::SyntheticsAPITest.new({
             target: 200,
           }),
         ],
+        exit_if_succeed: true,
         extracted_values: [
           DatadogAPIClient::V1::SyntheticsParsingOptions.new({
             field: "server",

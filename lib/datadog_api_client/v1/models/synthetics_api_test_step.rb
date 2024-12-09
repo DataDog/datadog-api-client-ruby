@@ -27,6 +27,9 @@ module DatadogAPIClient::V1
     # Array of assertions used for the test.
     attr_reader :assertions
 
+    # Determines whether or not to exit the test if the step succeeds.
+    attr_accessor :exit_if_succeed
+
     # Array of values to parse and save as variables from the response.
     attr_accessor :extracted_values
 
@@ -54,6 +57,7 @@ module DatadogAPIClient::V1
       {
         :'allow_failure' => :'allowFailure',
         :'assertions' => :'assertions',
+        :'exit_if_succeed' => :'exitIfSucceed',
         :'extracted_values' => :'extractedValues',
         :'is_critical' => :'isCritical',
         :'name' => :'name',
@@ -69,6 +73,7 @@ module DatadogAPIClient::V1
       {
         :'allow_failure' => :'Boolean',
         :'assertions' => :'Array<SyntheticsAssertion>',
+        :'exit_if_succeed' => :'Boolean',
         :'extracted_values' => :'Array<SyntheticsParsingOptions>',
         :'is_critical' => :'Boolean',
         :'name' => :'String',
@@ -104,6 +109,10 @@ module DatadogAPIClient::V1
         if (value = attributes[:'assertions']).is_a?(Array)
           self.assertions = value
         end
+      end
+
+      if attributes.key?(:'exit_if_succeed')
+        self.exit_if_succeed = attributes[:'exit_if_succeed']
       end
 
       if attributes.key?(:'extracted_values')
@@ -212,6 +221,7 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           allow_failure == o.allow_failure &&
           assertions == o.assertions &&
+          exit_if_succeed == o.exit_if_succeed &&
           extracted_values == o.extracted_values &&
           is_critical == o.is_critical &&
           name == o.name &&
@@ -225,7 +235,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [allow_failure, assertions, extracted_values, is_critical, name, request, _retry, subtype].hash
+      [allow_failure, assertions, exit_if_succeed, extracted_values, is_critical, name, request, _retry, subtype].hash
     end
   end
 end
