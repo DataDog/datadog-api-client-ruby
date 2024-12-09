@@ -17,18 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Response object that includes metrics and metric tag configurations.
-  class MetricsAndMetricTagConfigurationsResponse
+  # Response metadata object.
+  class MetricPaginationMeta
     include BaseGenericModel
 
-    # Array of metrics and metric tag configurations.
-    attr_accessor :data
-
-    # Pagination links. Only present if pagination query parameters were provided.
-    attr_accessor :links
-
-    # Response metadata object.
-    attr_accessor :meta
+    # Paging attributes. Only present if pagination query parameters were provided.
+    attr_accessor :pagination
 
     attr_accessor :additional_properties
 
@@ -36,9 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data',
-        :'links' => :'links',
-        :'meta' => :'meta'
+        :'pagination' => :'pagination'
       }
     end
 
@@ -46,9 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'Array<MetricsAndMetricTagConfigurations>',
-        :'links' => :'MetricsListResponseLinks',
-        :'meta' => :'MetricPaginationMeta'
+        :'pagination' => :'MetricMetaPage'
       }
     end
 
@@ -57,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::MetricsAndMetricTagConfigurationsResponse` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::MetricPaginationMeta` initialize method"
       end
 
       self.additional_properties = {}
@@ -70,18 +60,8 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'data')
-        if (value = attributes[:'data']).is_a?(Array)
-          self.data = value
-        end
-      end
-
-      if attributes.key?(:'links')
-        self.links = attributes[:'links']
-      end
-
-      if attributes.key?(:'meta')
-        self.meta = attributes[:'meta']
+      if attributes.key?(:'pagination')
+        self.pagination = attributes[:'pagination']
       end
     end
 
@@ -111,9 +91,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data &&
-          links == o.links &&
-          meta == o.meta
+          pagination == o.pagination
           additional_properties == o.additional_properties
     end
 
@@ -121,7 +99,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, links, meta].hash
+      [pagination].hash
     end
   end
 end
