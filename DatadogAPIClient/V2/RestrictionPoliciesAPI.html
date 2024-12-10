@@ -489,7 +489,7 @@
       
       
         &mdash;
-        <div class='inline'><p>Identifier, formatted as <code>type:id</code>. Supported types: <code>connection</code>, <code>dashboard</code>, <code>notebook</code>, <code>security-rule</code>, <code>slo</code>.</p>
+        <div class='inline'><p>Identifier, formatted as <code>type:id</code>. Supported types: <code>connection</code>, <code>dashboard</code>, <code>notebook</code>, <code>reference-table</code>, <code>security-rule</code>, <code>slo</code>.</p>
 </div>
       
     </li>
@@ -725,7 +725,7 @@
       
       
         &mdash;
-        <div class='inline'><p>Identifier, formatted as <code>type:id</code>. Supported types: <code>connection</code>, <code>dashboard</code>, <code>notebook</code>, <code>security-rule</code>, <code>slo</code>.</p>
+        <div class='inline'><p>Identifier, formatted as <code>type:id</code>. Supported types: <code>connection</code>, <code>dashboard</code>, <code>notebook</code>, <code>reference-table</code>, <code>security-rule</code>, <code>slo</code>.</p>
 </div>
       
     </li>
@@ -952,6 +952,7 @@
 <li>Dashboards: <code>dashboard</code></li>
 <li>Notebooks: <code>notebook</code></li>
 <li>Powerpacks: <code>powerpack</code></li>
+<li>Reference Tables: <code>reference-table</code></li>
 <li>Security Rules: <code>security-rule</code></li>
 <li>Service Level Objectives: <code>slo</code></li>
 <li>Synthetic Global Variables: <code>synthetics-global-variable</code></li>
@@ -1004,6 +1005,10 @@
 <td>Monitors</td>
 <td><code>viewer</code>, <code>editor</code></td>
 </tr>
+<tr>
+<td>Reference Tables</td>
+<td><code>viewer</code>, <code>editor</code></td>
+</tr>
 </tbody></table>
 
 
@@ -1023,7 +1028,7 @@
       
       
         &mdash;
-        <div class='inline'><p>Identifier, formatted as <code>type:id</code>. Supported types: <code>connection</code>, <code>dashboard</code>, <code>notebook</code>, <code>security-rule</code>, <code>slo</code>.</p>
+        <div class='inline'><p>Identifier, formatted as <code>type:id</code>. Supported types: <code>connection</code>, <code>dashboard</code>, <code>notebook</code>, <code>reference-table</code>, <code>security-rule</code>, <code>slo</code>.</p>
 </div>
       
     </li>
@@ -1086,8 +1091,6 @@
       <pre class="lines">
 
 
-197
-198
 199
 200
 201
@@ -1140,10 +1143,12 @@
 248
 249
 250
-251</pre>
+251
+252
+253</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/restriction_policies_api.rb', line 197</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/restriction_policies_api.rb', line 199</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update_restriction_policy_with_http_info'>update_restriction_policy_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_resource_id'>resource_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -1210,7 +1215,7 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Dec 10 20:33:54 2024 by
+  Generated on Tue Dec 10 21:44:54 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>
