@@ -3,8 +3,8 @@ http_interactions:
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"resource":{"end":"2024-11-25T20:08:11.167Z","id":"cf9456de-8b9e-4c27-aa79-27b1e78c1a33","level":"job","name":"Build
-        image","pipeline_name":"Deploy to AWS","pipeline_unique_id":"3eacb6f3-ff04-4e10-8a9c-46e6d054024a","start":"2024-11-25T20:06:41.167Z","status":"error","url":"https://my-ci-provider.example/jobs/my-jobs/run/1"}},"type":"cipipeline_resource_request"}}'
+      string: '{"data":{"attributes":{"resource":{"git":{"author_email":"john.doe@email.com","repository_url":"https://github.com/DataDog/datadog-agent","sha":"7f263865994b76066c4612fd1965215e7dcb4cd2"},"level":"pipeline","name":"Deploy
+        to AWS","partial_retry":false,"start":"2024-11-25T20:06:41.317Z","status":"running","unique_id":"3eacb6f3-ff04-4e10-8a9c-46e6d054024a","url":"https://my-ci-provider.example/pipelines/my-pipeline/run/1"}},"type":"cipipeline_resource_request"}}'
     headers:
       Accept:
       - application/json
