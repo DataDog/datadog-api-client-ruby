@@ -230,7 +230,7 @@ module DatadogAPIClient::V1
           scopes == o.scopes &&
           status == o.status &&
           tags == o.tags &&
-          type == o.type
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -238,7 +238,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [classification, creator, id, last_triggered_ts, metrics, name, notifications, org_id, query, scopes, status, tags, type].hash
+      [classification, creator, id, last_triggered_ts, metrics, name, notifications, org_id, query, scopes, status, tags, type, additional_properties].hash
     end
   end
 end

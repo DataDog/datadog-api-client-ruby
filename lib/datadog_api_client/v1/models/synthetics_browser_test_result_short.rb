@@ -134,7 +134,7 @@ module DatadogAPIClient::V1
           probe_dc == o.probe_dc &&
           result == o.result &&
           result_id == o.result_id &&
-          status == o.status
+          status == o.status &&
           additional_properties == o.additional_properties
     end
 
@@ -142,7 +142,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [check_time, probe_dc, result, result_id, status].hash
+      [check_time, probe_dc, result, result_id, status, additional_properties].hash
     end
   end
 end

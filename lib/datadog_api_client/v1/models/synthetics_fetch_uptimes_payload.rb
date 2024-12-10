@@ -153,7 +153,7 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           from_ts == o.from_ts &&
           public_ids == o.public_ids &&
-          to_ts == o.to_ts
+          to_ts == o.to_ts &&
           additional_properties == o.additional_properties
     end
 
@@ -161,7 +161,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [from_ts, public_ids, to_ts].hash
+      [from_ts, public_ids, to_ts, additional_properties].hash
     end
   end
 end

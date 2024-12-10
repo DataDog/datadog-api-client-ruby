@@ -202,7 +202,7 @@ module DatadogAPIClient::V1
           rrule == o.rrule &&
           slo_id == o.slo_id &&
           start == o.start &&
-          timezone == o.timezone
+          timezone == o.timezone &&
           additional_properties == o.additional_properties
     end
 
@@ -210,7 +210,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [category, description, duration, _end, rrule, slo_id, start, timezone].hash
+      [category, description, duration, _end, rrule, slo_id, start, timezone, additional_properties].hash
     end
   end
 end

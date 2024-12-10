@@ -215,7 +215,7 @@ module DatadogAPIClient::V1
           primary_tag == o.primary_tag &&
           resource == o.resource &&
           row_type == o.row_type &&
-          service == o.service
+          service == o.service &&
           additional_properties == o.additional_properties
     end
 
@@ -223,7 +223,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [columns, env, name, primary_tag, resource, row_type, service].hash
+      [columns, env, name, primary_tag, resource, row_type, service, additional_properties].hash
     end
   end
 end

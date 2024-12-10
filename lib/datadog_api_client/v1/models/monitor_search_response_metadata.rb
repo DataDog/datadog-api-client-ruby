@@ -121,7 +121,7 @@ module DatadogAPIClient::V1
           page == o.page &&
           page_count == o.page_count &&
           per_page == o.per_page &&
-          total_count == o.total_count
+          total_count == o.total_count &&
           additional_properties == o.additional_properties
     end
 
@@ -129,7 +129,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [page, page_count, per_page, total_count].hash
+      [page, page_count, per_page, total_count, additional_properties].hash
     end
   end
 end

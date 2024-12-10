@@ -173,7 +173,7 @@ module DatadogAPIClient::V2
           show_title == o.show_title &&
           title == o.title &&
           type == o.type &&
-          widgets == o.widgets
+          widgets == o.widgets &&
           additional_properties == o.additional_properties
     end
 
@@ -181,7 +181,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [layout_type, show_title, title, type, widgets].hash
+      [layout_type, show_title, title, type, widgets, additional_properties].hash
     end
   end
 end

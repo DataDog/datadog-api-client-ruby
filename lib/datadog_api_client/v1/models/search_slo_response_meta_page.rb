@@ -161,7 +161,7 @@ module DatadogAPIClient::V1
           prev_number == o.prev_number &&
           size == o.size &&
           total == o.total &&
-          type == o.type
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -169,7 +169,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [first_number, last_number, next_number, number, prev_number, size, total, type].hash
+      [first_number, last_number, next_number, number, prev_number, size, total, type, additional_properties].hash
     end
   end
 end

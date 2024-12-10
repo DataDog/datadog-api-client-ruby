@@ -129,7 +129,7 @@ module DatadogAPIClient::V1
           muted == o.muted &&
           status == o.status &&
           tag == o.tag &&
-          type == o.type
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -137,7 +137,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [muted, status, tag, type].hash
+      [muted, status, tag, type, additional_properties].hash
     end
   end
 end

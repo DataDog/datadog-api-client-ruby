@@ -192,7 +192,7 @@ module DatadogAPIClient::V2
           path == o.path &&
           region == o.region &&
           storage_account == o.storage_account &&
-          type == o.type
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -200,7 +200,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [container, integration, path, region, storage_account, type].hash
+      [container, integration, path, region, storage_account, type, additional_properties].hash
     end
   end
 end

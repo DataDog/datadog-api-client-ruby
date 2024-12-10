@@ -163,7 +163,7 @@ module DatadogAPIClient::V1
           ci_visibility_pipeline_committers == o.ci_visibility_pipeline_committers &&
           ci_visibility_test_committers == o.ci_visibility_test_committers &&
           org_name == o.org_name &&
-          public_id == o.public_id
+          public_id == o.public_id &&
           additional_properties == o.additional_properties
     end
 
@@ -171,7 +171,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [ci_pipeline_indexed_spans, ci_test_indexed_spans, ci_visibility_itr_committers, ci_visibility_pipeline_committers, ci_visibility_test_committers, org_name, public_id].hash
+      [ci_pipeline_indexed_spans, ci_test_indexed_spans, ci_visibility_itr_committers, ci_visibility_pipeline_committers, ci_visibility_test_committers, org_name, public_id, additional_properties].hash
     end
   end
 end

@@ -204,7 +204,7 @@ module DatadogAPIClient::V2
           forward_tags_restriction_list_type == o.forward_tags_restriction_list_type &&
           forwarder_destination == o.forwarder_destination &&
           name == o.name &&
-          query == o.query
+          query == o.query &&
           additional_properties == o.additional_properties
     end
 
@@ -212,7 +212,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [enabled, forward_tags, forward_tags_restriction_list, forward_tags_restriction_list_type, forwarder_destination, name, query].hash
+      [enabled, forward_tags, forward_tags_restriction_list, forward_tags_restriction_list_type, forwarder_destination, name, query, additional_properties].hash
     end
   end
 end

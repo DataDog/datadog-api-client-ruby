@@ -188,7 +188,7 @@ module DatadogAPIClient::V2
           integration_type == o.integration_type &&
           metadata == o.metadata &&
           modified == o.modified &&
-          status == o.status
+          status == o.status &&
           additional_properties == o.additional_properties
     end
 
@@ -196,7 +196,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created, incident_id, integration_type, metadata, modified, status].hash
+      [created, incident_id, integration_type, metadata, modified, status, additional_properties].hash
     end
   end
 end

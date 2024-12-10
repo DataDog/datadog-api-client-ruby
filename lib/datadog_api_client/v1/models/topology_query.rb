@@ -131,7 +131,7 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           data_source == o.data_source &&
           filters == o.filters &&
-          service == o.service
+          service == o.service &&
           additional_properties == o.additional_properties
     end
 
@@ -139,7 +139,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data_source, filters, service].hash
+      [data_source, filters, service, additional_properties].hash
     end
   end
 end

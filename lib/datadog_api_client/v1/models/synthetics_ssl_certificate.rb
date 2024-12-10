@@ -203,7 +203,7 @@ module DatadogAPIClient::V1
           serial_number == o.serial_number &&
           subject == o.subject &&
           valid_from == o.valid_from &&
-          valid_to == o.valid_to
+          valid_to == o.valid_to &&
           additional_properties == o.additional_properties
     end
 
@@ -211,7 +211,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [cipher, exponent, ext_key_usage, fingerprint, fingerprint256, issuer, modulus, protocol, serial_number, subject, valid_from, valid_to].hash
+      [cipher, exponent, ext_key_usage, fingerprint, fingerprint256, issuer, modulus, protocol, serial_number, subject, valid_from, valid_to, additional_properties].hash
     end
   end
 end

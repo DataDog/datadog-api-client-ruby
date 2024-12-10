@@ -111,7 +111,7 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           agg_type == o.agg_type &&
           field == o.field &&
-          value == o.value
+          value == o.value &&
           additional_properties == o.additional_properties
     end
 
@@ -119,7 +119,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [agg_type, field, value].hash
+      [agg_type, field, value, additional_properties].hash
     end
   end
 end

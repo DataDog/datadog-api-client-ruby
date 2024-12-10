@@ -129,7 +129,7 @@ module DatadogAPIClient::V1
           hour == o.hour &&
           org_name == o.org_name &&
           public_id == o.public_id &&
-          snmp_devices == o.snmp_devices
+          snmp_devices == o.snmp_devices &&
           additional_properties == o.additional_properties
     end
 
@@ -137,7 +137,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [hour, org_name, public_id, snmp_devices].hash
+      [hour, org_name, public_id, snmp_devices, additional_properties].hash
     end
   end
 end

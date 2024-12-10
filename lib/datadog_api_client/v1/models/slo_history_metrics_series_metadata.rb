@@ -153,7 +153,7 @@ module DatadogAPIClient::V1
           metric == o.metric &&
           query_index == o.query_index &&
           scope == o.scope &&
-          unit == o.unit
+          unit == o.unit &&
           additional_properties == o.additional_properties
     end
 
@@ -161,7 +161,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [aggr, expression, metric, query_index, scope, unit].hash
+      [aggr, expression, metric, query_index, scope, unit, additional_properties].hash
     end
   end
 end

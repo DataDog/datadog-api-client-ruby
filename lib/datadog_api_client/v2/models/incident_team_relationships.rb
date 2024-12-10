@@ -101,7 +101,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           created_by == o.created_by &&
-          last_modified_by == o.last_modified_by
+          last_modified_by == o.last_modified_by &&
           additional_properties == o.additional_properties
     end
 
@@ -109,7 +109,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created_by, last_modified_by].hash
+      [created_by, last_modified_by, additional_properties].hash
     end
   end
 end

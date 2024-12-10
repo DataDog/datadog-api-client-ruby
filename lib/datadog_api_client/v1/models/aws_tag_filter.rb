@@ -101,7 +101,7 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           namespace == o.namespace &&
-          tag_filter_str == o.tag_filter_str
+          tag_filter_str == o.tag_filter_str &&
           additional_properties == o.additional_properties
     end
 
@@ -109,7 +109,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [namespace, tag_filter_str].hash
+      [namespace, tag_filter_str, additional_properties].hash
     end
   end
 end

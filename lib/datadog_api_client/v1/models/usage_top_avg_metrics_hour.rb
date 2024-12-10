@@ -121,7 +121,7 @@ module DatadogAPIClient::V1
           avg_metric_hour == o.avg_metric_hour &&
           max_metric_hour == o.max_metric_hour &&
           metric_category == o.metric_category &&
-          metric_name == o.metric_name
+          metric_name == o.metric_name &&
           additional_properties == o.additional_properties
     end
 
@@ -129,7 +129,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [avg_metric_hour, max_metric_hour, metric_category, metric_name].hash
+      [avg_metric_hour, max_metric_hour, metric_category, metric_name, additional_properties].hash
     end
   end
 end

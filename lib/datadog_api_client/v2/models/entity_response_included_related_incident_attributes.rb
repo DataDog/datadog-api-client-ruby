@@ -131,7 +131,7 @@ module DatadogAPIClient::V2
           html_url == o.html_url &&
           provider == o.provider &&
           status == o.status &&
-          title == o.title
+          title == o.title &&
           additional_properties == o.additional_properties
     end
 
@@ -139,7 +139,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created_at, html_url, provider, status, title].hash
+      [created_at, html_url, provider, status, title, additional_properties].hash
     end
   end
 end

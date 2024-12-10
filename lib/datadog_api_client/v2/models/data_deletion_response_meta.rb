@@ -131,7 +131,7 @@ module DatadogAPIClient::V2
           count_status == o.count_status &&
           next_page == o.next_page &&
           product == o.product &&
-          request_status == o.request_status
+          request_status == o.request_status &&
           additional_properties == o.additional_properties
     end
 
@@ -139,7 +139,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [count_product, count_status, next_page, product, request_status].hash
+      [count_product, count_status, next_page, product, request_status, additional_properties].hash
     end
   end
 end

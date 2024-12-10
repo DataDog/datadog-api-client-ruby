@@ -121,7 +121,7 @@ module DatadogAPIClient::V1
           is_hidden == o.is_hidden &&
           label == o.label &&
           link == o.link &&
-          override_label == o.override_label
+          override_label == o.override_label &&
           additional_properties == o.additional_properties
     end
 
@@ -129,7 +129,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [is_hidden, label, link, override_label].hash
+      [is_hidden, label, link, override_label, additional_properties].hash
     end
   end
 end

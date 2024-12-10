@@ -199,7 +199,7 @@ module DatadogAPIClient::V1
           is_column_break == o.is_column_break &&
           width == o.width &&
           x == o.x &&
-          y == o.y
+          y == o.y &&
           additional_properties == o.additional_properties
     end
 
@@ -207,7 +207,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [height, is_column_break, width, x, y].hash
+      [height, is_column_break, width, x, y, additional_properties].hash
     end
   end
 end

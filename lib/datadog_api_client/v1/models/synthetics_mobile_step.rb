@@ -215,7 +215,7 @@ module DatadogAPIClient::V1
           params == o.params &&
           public_id == o.public_id &&
           timeout == o.timeout &&
-          type == o.type
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -223,7 +223,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [allow_failure, has_new_step_element, is_critical, name, no_screenshot, params, public_id, timeout, type].hash
+      [allow_failure, has_new_step_element, is_critical, name, no_screenshot, params, public_id, timeout, type, additional_properties].hash
     end
   end
 end

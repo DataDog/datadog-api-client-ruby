@@ -133,7 +133,7 @@ module DatadogAPIClient::V1
           end_date == o.end_date &&
           size == o.size &&
           start_date == o.start_date &&
-          tags == o.tags
+          tags == o.tags &&
           additional_properties == o.additional_properties
     end
 
@@ -141,7 +141,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [computed_on, end_date, size, start_date, tags].hash
+      [computed_on, end_date, size, start_date, tags, additional_properties].hash
     end
   end
 end

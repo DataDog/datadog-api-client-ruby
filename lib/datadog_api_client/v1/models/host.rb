@@ -235,7 +235,7 @@ module DatadogAPIClient::V1
           name == o.name &&
           sources == o.sources &&
           tags_by_source == o.tags_by_source &&
-          up == o.up
+          up == o.up &&
           additional_properties == o.additional_properties
     end
 
@@ -243,7 +243,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [aliases, apps, aws_name, host_name, id, is_muted, last_reported_time, meta, metrics, mute_timeout, name, sources, tags_by_source, up].hash
+      [aliases, apps, aws_name, host_name, id, is_muted, last_reported_time, meta, metrics, mute_timeout, name, sources, tags_by_source, up, additional_properties].hash
     end
   end
 end

@@ -149,7 +149,7 @@ module DatadogAPIClient::V1
           password == o.password &&
           type == o.type &&
           username == o.username &&
-          workstation == o.workstation
+          workstation == o.workstation &&
           additional_properties == o.additional_properties
     end
 
@@ -157,7 +157,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [domain, password, type, username, workstation].hash
+      [domain, password, type, username, workstation, additional_properties].hash
     end
   end
 end

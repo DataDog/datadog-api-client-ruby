@@ -199,7 +199,7 @@ module DatadogAPIClient::V2
           logs_config == o.logs_config &&
           metrics_config == o.metrics_config &&
           resources_config == o.resources_config &&
-          traces_config == o.traces_config
+          traces_config == o.traces_config &&
           additional_properties == o.additional_properties
     end
 
@@ -207,7 +207,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [account_tags, auth_config, aws_account_id, aws_partition, aws_regions, logs_config, metrics_config, resources_config, traces_config].hash
+      [account_tags, auth_config, aws_account_id, aws_partition, aws_regions, logs_config, metrics_config, resources_config, traces_config, additional_properties].hash
     end
   end
 end

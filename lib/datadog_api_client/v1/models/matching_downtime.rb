@@ -151,7 +151,7 @@ module DatadogAPIClient::V1
           _end == o._end &&
           id == o.id &&
           scope == o.scope &&
-          start == o.start
+          start == o.start &&
           additional_properties == o.additional_properties
     end
 
@@ -159,7 +159,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [_end, id, scope, start].hash
+      [_end, id, scope, start, additional_properties].hash
     end
   end
 end

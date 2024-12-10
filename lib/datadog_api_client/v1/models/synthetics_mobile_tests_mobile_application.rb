@@ -159,7 +159,7 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           application_id == o.application_id &&
           reference_id == o.reference_id &&
-          reference_type == o.reference_type
+          reference_type == o.reference_type &&
           additional_properties == o.additional_properties
     end
 
@@ -167,7 +167,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [application_id, reference_id, reference_type].hash
+      [application_id, reference_id, reference_type, additional_properties].hash
     end
   end
 end

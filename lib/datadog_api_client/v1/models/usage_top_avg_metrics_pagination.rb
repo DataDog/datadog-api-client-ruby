@@ -120,7 +120,7 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           limit == o.limit &&
           next_record_id == o.next_record_id &&
-          total_number_of_records == o.total_number_of_records
+          total_number_of_records == o.total_number_of_records &&
           additional_properties == o.additional_properties
     end
 
@@ -128,7 +128,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [limit, next_record_id, total_number_of_records].hash
+      [limit, next_record_id, total_number_of_records, additional_properties].hash
     end
   end
 end

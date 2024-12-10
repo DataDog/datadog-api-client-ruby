@@ -130,7 +130,7 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           search == o.search &&
-          tags_execution == o.tags_execution
+          tags_execution == o.tags_execution &&
           additional_properties == o.additional_properties
     end
 
@@ -138,7 +138,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [search, tags_execution].hash
+      [search, tags_execution, additional_properties].hash
     end
   end
 end

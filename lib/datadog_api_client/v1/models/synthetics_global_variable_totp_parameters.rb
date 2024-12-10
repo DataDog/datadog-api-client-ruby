@@ -138,7 +138,7 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           digits == o.digits &&
-          refresh_interval == o.refresh_interval
+          refresh_interval == o.refresh_interval &&
           additional_properties == o.additional_properties
     end
 
@@ -146,7 +146,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [digits, refresh_interval].hash
+      [digits, refresh_interval, additional_properties].hash
     end
   end
 end

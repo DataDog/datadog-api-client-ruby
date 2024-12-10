@@ -129,7 +129,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           expected_result == o.expected_result &&
           index == o.index &&
-          payload == o.payload
+          payload == o.payload &&
           additional_properties == o.additional_properties
     end
 
@@ -137,7 +137,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [expected_result, index, payload].hash
+      [expected_result, index, payload, additional_properties].hash
     end
   end
 end

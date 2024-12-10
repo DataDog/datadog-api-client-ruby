@@ -141,7 +141,7 @@ module DatadogAPIClient::V1
           last_resolved_ts == o.last_resolved_ts &&
           last_triggered_ts == o.last_triggered_ts &&
           name == o.name &&
-          status == o.status
+          status == o.status &&
           additional_properties == o.additional_properties
     end
 
@@ -149,7 +149,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [last_nodata_ts, last_notified_ts, last_resolved_ts, last_triggered_ts, name, status].hash
+      [last_nodata_ts, last_notified_ts, last_resolved_ts, last_triggered_ts, name, status, additional_properties].hash
     end
   end
 end

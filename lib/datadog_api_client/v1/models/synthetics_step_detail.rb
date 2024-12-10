@@ -280,7 +280,7 @@ module DatadogAPIClient::V1
           url == o.url &&
           value == o.value &&
           vitals_metrics == o.vitals_metrics &&
-          warnings == o.warnings
+          warnings == o.warnings &&
           additional_properties == o.additional_properties
     end
 
@@ -288,7 +288,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [allow_failure, browser_errors, check_type, description, duration, error, failure, playing_tab, screenshot_bucket_key, skipped, snapshot_bucket_key, step_id, sub_test_step_details, time_to_interactive, type, url, value, vitals_metrics, warnings].hash
+      [allow_failure, browser_errors, check_type, description, duration, error, failure, playing_tab, screenshot_bucket_key, skipped, snapshot_bucket_key, step_id, sub_test_step_details, time_to_interactive, type, url, value, vitals_metrics, warnings, additional_properties].hash
     end
   end
 end

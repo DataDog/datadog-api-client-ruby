@@ -131,7 +131,7 @@ module DatadogAPIClient::V2
           assignee == o.assignee &&
           created_by == o.created_by &&
           modified_by == o.modified_by &&
-          project == o.project
+          project == o.project &&
           additional_properties == o.additional_properties
     end
 
@@ -139,7 +139,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [assignee, created_by, modified_by, project].hash
+      [assignee, created_by, modified_by, project, additional_properties].hash
     end
   end
 end

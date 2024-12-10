@@ -125,7 +125,7 @@ module DatadogAPIClient::V2
           default_notifications == o.default_notifications &&
           default_status == o.default_status &&
           root_queries == o.root_queries &&
-          signal_title_template == o.signal_title_template
+          signal_title_template == o.signal_title_template &&
           additional_properties == o.additional_properties
     end
 
@@ -133,7 +133,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [default_notifications, default_status, root_queries, signal_title_template].hash
+      [default_notifications, default_status, root_queries, signal_title_template, additional_properties].hash
     end
   end
 end

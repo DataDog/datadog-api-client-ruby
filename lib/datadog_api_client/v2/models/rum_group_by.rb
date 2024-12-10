@@ -160,7 +160,7 @@ module DatadogAPIClient::V2
           limit == o.limit &&
           missing == o.missing &&
           sort == o.sort &&
-          total == o.total
+          total == o.total &&
           additional_properties == o.additional_properties
     end
 
@@ -168,7 +168,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [facet, histogram, limit, missing, sort, total].hash
+      [facet, histogram, limit, missing, sort, total, additional_properties].hash
     end
   end
 end

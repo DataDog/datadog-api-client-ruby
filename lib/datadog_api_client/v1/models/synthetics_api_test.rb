@@ -270,7 +270,7 @@ module DatadogAPIClient::V1
           status == o.status &&
           subtype == o.subtype &&
           tags == o.tags &&
-          type == o.type
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -278,7 +278,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [config, locations, message, monitor_id, name, options, public_id, status, subtype, tags, type].hash
+      [config, locations, message, monitor_id, name, options, public_id, status, subtype, tags, type, additional_properties].hash
     end
   end
 end

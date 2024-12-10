@@ -101,7 +101,7 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           authentication == o.authentication &&
-          config_decryption == o.config_decryption
+          config_decryption == o.config_decryption &&
           additional_properties == o.additional_properties
     end
 
@@ -109,7 +109,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [authentication, config_decryption].hash
+      [authentication, config_decryption, additional_properties].hash
     end
   end
 end

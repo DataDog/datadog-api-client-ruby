@@ -247,7 +247,7 @@ module DatadogAPIClient::V1
           tags == o.tags &&
           text == o.text &&
           title == o.title &&
-          url == o.url
+          url == o.url &&
           additional_properties == o.additional_properties
     end
 
@@ -255,7 +255,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [alert_type, date_happened, device_name, host, id, id_str, payload, priority, source_type_name, tags, text, title, url].hash
+      [alert_type, date_happened, device_name, host, id, id_str, payload, priority, source_type_name, tags, text, title, url, additional_properties].hash
     end
   end
 end

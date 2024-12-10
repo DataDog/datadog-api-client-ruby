@@ -140,7 +140,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           cell_type == o.cell_type &&
           content == o.content &&
-          important == o.important
+          important == o.important &&
           additional_properties == o.additional_properties
     end
 
@@ -148,7 +148,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [cell_type, content, important].hash
+      [cell_type, content, important, additional_properties].hash
     end
   end
 end

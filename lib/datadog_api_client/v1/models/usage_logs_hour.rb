@@ -206,7 +206,7 @@ module DatadogAPIClient::V1
           logs_rehydrated_indexed_count == o.logs_rehydrated_indexed_count &&
           logs_rehydrated_ingested_bytes == o.logs_rehydrated_ingested_bytes &&
           org_name == o.org_name &&
-          public_id == o.public_id
+          public_id == o.public_id &&
           additional_properties == o.additional_properties
     end
 
@@ -214,7 +214,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [billable_ingested_bytes, hour, indexed_events_count, ingested_events_bytes, logs_forwarding_events_bytes, logs_live_indexed_count, logs_live_ingested_bytes, logs_rehydrated_indexed_count, logs_rehydrated_ingested_bytes, org_name, public_id].hash
+      [billable_ingested_bytes, hour, indexed_events_count, ingested_events_bytes, logs_forwarding_events_bytes, logs_live_indexed_count, logs_live_ingested_bytes, logs_rehydrated_indexed_count, logs_rehydrated_ingested_bytes, org_name, public_id, additional_properties].hash
     end
   end
 end

@@ -92,7 +92,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          include_percentiles == o.include_percentiles
+          include_percentiles == o.include_percentiles &&
           additional_properties == o.additional_properties
     end
 
@@ -100,7 +100,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [include_percentiles].hash
+      [include_percentiles, additional_properties].hash
     end
   end
 end

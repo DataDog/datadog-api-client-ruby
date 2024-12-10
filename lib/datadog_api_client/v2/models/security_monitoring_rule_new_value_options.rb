@@ -122,7 +122,7 @@ module DatadogAPIClient::V2
           forget_after == o.forget_after &&
           learning_duration == o.learning_duration &&
           learning_method == o.learning_method &&
-          learning_threshold == o.learning_threshold
+          learning_threshold == o.learning_threshold &&
           additional_properties == o.additional_properties
     end
 
@@ -130,7 +130,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [forget_after, learning_duration, learning_method, learning_threshold].hash
+      [forget_after, learning_duration, learning_method, learning_threshold, additional_properties].hash
     end
   end
 end

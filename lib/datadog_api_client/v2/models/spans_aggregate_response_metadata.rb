@@ -124,7 +124,7 @@ module DatadogAPIClient::V2
           elapsed == o.elapsed &&
           request_id == o.request_id &&
           status == o.status &&
-          warnings == o.warnings
+          warnings == o.warnings &&
           additional_properties == o.additional_properties
     end
 
@@ -132,7 +132,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [elapsed, request_id, status, warnings].hash
+      [elapsed, request_id, status, warnings, additional_properties].hash
     end
   end
 end

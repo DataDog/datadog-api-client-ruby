@@ -209,7 +209,7 @@ module DatadogAPIClient::V2
           id == o.id &&
           index == o.index &&
           notifications == o.notifications &&
-          to == o.to
+          to == o.to &&
           additional_properties == o.additional_properties
     end
 
@@ -217,7 +217,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [case_index, from, id, index, notifications, to].hash
+      [case_index, from, id, index, notifications, to, additional_properties].hash
     end
   end
 end

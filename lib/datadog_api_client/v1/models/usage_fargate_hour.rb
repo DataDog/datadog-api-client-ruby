@@ -162,7 +162,7 @@ module DatadogAPIClient::V1
           hour == o.hour &&
           org_name == o.org_name &&
           public_id == o.public_id &&
-          tasks_count == o.tasks_count
+          tasks_count == o.tasks_count &&
           additional_properties == o.additional_properties
     end
 
@@ -170,7 +170,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [apm_fargate_count, appsec_fargate_count, avg_profiled_fargate_tasks, hour, org_name, public_id, tasks_count].hash
+      [apm_fargate_count, appsec_fargate_count, avg_profiled_fargate_tasks, hour, org_name, public_id, tasks_count, additional_properties].hash
     end
   end
 end

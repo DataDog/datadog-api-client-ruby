@@ -140,7 +140,7 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           _alias == o._alias &&
           dimension == o.dimension &&
-          formula == o.formula
+          formula == o.formula &&
           additional_properties == o.additional_properties
     end
 
@@ -148,7 +148,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [_alias, dimension, formula].hash
+      [_alias, dimension, formula, additional_properties].hash
     end
   end
 end

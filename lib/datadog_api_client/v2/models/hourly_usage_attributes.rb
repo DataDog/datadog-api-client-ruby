@@ -163,7 +163,7 @@ module DatadogAPIClient::V2
           product_family == o.product_family &&
           public_id == o.public_id &&
           region == o.region &&
-          timestamp == o.timestamp
+          timestamp == o.timestamp &&
           additional_properties == o.additional_properties
     end
 
@@ -171,7 +171,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [account_name, account_public_id, measurements, org_name, product_family, public_id, region, timestamp].hash
+      [account_name, account_public_id, measurements, org_name, product_family, public_id, region, timestamp, additional_properties].hash
     end
   end
 end

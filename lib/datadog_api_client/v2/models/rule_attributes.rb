@@ -171,7 +171,7 @@ module DatadogAPIClient::V2
           modified_at == o.modified_at &&
           name == o.name &&
           owner == o.owner &&
-          scorecard_name == o.scorecard_name
+          scorecard_name == o.scorecard_name &&
           additional_properties == o.additional_properties
     end
 
@@ -179,7 +179,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [category, created_at, custom, description, enabled, modified_at, name, owner, scorecard_name].hash
+      [category, created_at, custom, description, enabled, modified_at, name, owner, scorecard_name, additional_properties].hash
     end
   end
 end

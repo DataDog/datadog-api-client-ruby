@@ -152,7 +152,7 @@ module DatadogAPIClient::V1
           filter_by == o.filter_by &&
           limit == o.limit &&
           metric == o.metric &&
-          search_by == o.search_by
+          search_by == o.search_by &&
           additional_properties == o.additional_properties
     end
 
@@ -160,7 +160,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [filter_by, limit, metric, search_by].hash
+      [filter_by, limit, metric, search_by, additional_properties].hash
     end
   end
 end

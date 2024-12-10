@@ -124,7 +124,7 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           denominator == o.denominator &&
           metrics == o.metrics &&
-          numerator == o.numerator
+          numerator == o.numerator &&
           additional_properties == o.additional_properties
     end
 
@@ -132,7 +132,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [denominator, metrics, numerator].hash
+      [denominator, metrics, numerator, additional_properties].hash
     end
   end
 end

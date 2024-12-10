@@ -192,7 +192,7 @@ module DatadogAPIClient::V2
           endpoint == o.endpoint &&
           index_name == o.index_name &&
           index_rotation == o.index_rotation &&
-          type == o.type
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -200,7 +200,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [auth, endpoint, index_name, index_rotation, type].hash
+      [auth, endpoint, index_name, index_rotation, type, additional_properties].hash
     end
   end
 end

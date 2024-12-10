@@ -162,7 +162,7 @@ module DatadogAPIClient::V2
           tag_config_source == o.tag_config_source &&
           tags == o.tags &&
           updated_at == o.updated_at &&
-          values == o.values
+          values == o.values &&
           additional_properties == o.additional_properties
     end
 
@@ -170,7 +170,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [month, org_name, public_id, tag_config_source, tags, updated_at, values].hash
+      [month, org_name, public_id, tag_config_source, tags, updated_at, values, additional_properties].hash
     end
   end
 end

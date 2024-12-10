@@ -123,7 +123,7 @@ module DatadogAPIClient::V2
           meta == o.meta &&
           name == o.name &&
           type == o.type &&
-          values == o.values
+          values == o.values &&
           additional_properties == o.additional_properties
     end
 
@@ -131,7 +131,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [meta, name, type, values].hash
+      [meta, name, type, values, additional_properties].hash
     end
   end
 end

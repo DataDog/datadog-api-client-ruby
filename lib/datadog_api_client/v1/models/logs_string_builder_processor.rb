@@ -194,7 +194,7 @@ module DatadogAPIClient::V1
           name == o.name &&
           target == o.target &&
           template == o.template &&
-          type == o.type
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -202,7 +202,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [is_enabled, is_replace_missing, name, target, template, type].hash
+      [is_enabled, is_replace_missing, name, target, template, type, additional_properties].hash
     end
   end
 end

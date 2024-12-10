@@ -129,7 +129,7 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           facet == o.facet &&
           limit == o.limit &&
-          sort == o.sort
+          sort == o.sort &&
           additional_properties == o.additional_properties
     end
 
@@ -137,7 +137,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [facet, limit, sort].hash
+      [facet, limit, sort, additional_properties].hash
     end
   end
 end

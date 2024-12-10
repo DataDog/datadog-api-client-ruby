@@ -113,7 +113,7 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           graph_def == o.graph_def &&
           metric_query == o.metric_query &&
-          snapshot_url == o.snapshot_url
+          snapshot_url == o.snapshot_url &&
           additional_properties == o.additional_properties
     end
 
@@ -121,7 +121,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [graph_def, metric_query, snapshot_url].hash
+      [graph_def, metric_query, snapshot_url, additional_properties].hash
     end
   end
 end

@@ -191,7 +191,7 @@ module DatadogAPIClient::V1
           ratio_in_month == o.ratio_in_month &&
           region == o.region &&
           start_date == o.start_date &&
-          usage == o.usage
+          usage == o.usage &&
           additional_properties == o.additional_properties
     end
 
@@ -199,7 +199,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [account_name, account_public_id, billing_plan, end_date, num_orgs, org_name, public_id, ratio_in_month, region, start_date, usage].hash
+      [account_name, account_public_id, billing_plan, end_date, num_orgs, org_name, public_id, ratio_in_month, region, start_date, usage, additional_properties].hash
     end
   end
 end

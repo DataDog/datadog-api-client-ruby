@@ -161,7 +161,7 @@ module DatadogAPIClient::V2
           bucket == o.bucket &&
           integration == o.integration &&
           path == o.path &&
-          type == o.type
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -169,7 +169,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [bucket, integration, path, type].hash
+      [bucket, integration, path, type, additional_properties].hash
     end
   end
 end

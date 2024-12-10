@@ -161,7 +161,7 @@ module DatadogAPIClient::V1
           conditional_formats == o.conditional_formats &&
           formula == o.formula &&
           limit == o.limit &&
-          style == o.style
+          style == o.style &&
           additional_properties == o.additional_properties
     end
 
@@ -169,7 +169,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [_alias, cell_display_mode, conditional_formats, formula, limit, style].hash
+      [_alias, cell_display_mode, conditional_formats, formula, limit, style, additional_properties].hash
     end
   end
 end

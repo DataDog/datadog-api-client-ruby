@@ -121,7 +121,7 @@ module DatadogAPIClient::V2
           created_at == o.created_at &&
           ingestion_source == o.ingestion_source &&
           modified_at == o.modified_at &&
-          origin == o.origin
+          origin == o.origin &&
           additional_properties == o.additional_properties
     end
 
@@ -129,7 +129,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created_at, ingestion_source, modified_at, origin].hash
+      [created_at, ingestion_source, modified_at, origin, additional_properties].hash
     end
   end
 end

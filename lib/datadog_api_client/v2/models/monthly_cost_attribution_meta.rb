@@ -103,7 +103,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           aggregates == o.aggregates &&
-          pagination == o.pagination
+          pagination == o.pagination &&
           additional_properties == o.additional_properties
     end
 
@@ -111,7 +111,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [aggregates, pagination].hash
+      [aggregates, pagination, additional_properties].hash
     end
   end
 end

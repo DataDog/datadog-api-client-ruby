@@ -205,7 +205,7 @@ module DatadogAPIClient::V2
           notify_end_states == o.notify_end_states &&
           notify_end_types == o.notify_end_types &&
           schedule == o.schedule &&
-          scope == o.scope
+          scope == o.scope &&
           additional_properties == o.additional_properties
     end
 
@@ -213,7 +213,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [display_timezone, message, monitor_identifier, mute_first_recovery_notification, notify_end_states, notify_end_types, schedule, scope].hash
+      [display_timezone, message, monitor_identifier, mute_first_recovery_notification, notify_end_states, notify_end_types, schedule, scope, additional_properties].hash
     end
   end
 end

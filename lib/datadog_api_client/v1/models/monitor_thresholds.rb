@@ -153,7 +153,7 @@ module DatadogAPIClient::V1
           ok == o.ok &&
           unknown == o.unknown &&
           warning == o.warning &&
-          warning_recovery == o.warning_recovery
+          warning_recovery == o.warning_recovery &&
           additional_properties == o.additional_properties
     end
 
@@ -161,7 +161,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [critical, critical_recovery, ok, unknown, warning, warning_recovery].hash
+      [critical, critical_recovery, ok, unknown, warning, warning_recovery, additional_properties].hash
     end
   end
 end

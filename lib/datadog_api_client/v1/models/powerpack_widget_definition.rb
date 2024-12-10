@@ -180,7 +180,7 @@ module DatadogAPIClient::V1
           show_title == o.show_title &&
           template_variables == o.template_variables &&
           title == o.title &&
-          type == o.type
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -188,7 +188,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [background_color, banner_img, powerpack_id, show_title, template_variables, title, type].hash
+      [background_color, banner_img, powerpack_id, show_title, template_variables, title, type, additional_properties].hash
     end
   end
 end

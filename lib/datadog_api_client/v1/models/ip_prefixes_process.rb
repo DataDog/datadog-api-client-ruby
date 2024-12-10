@@ -105,7 +105,7 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           prefixes_ipv4 == o.prefixes_ipv4 &&
-          prefixes_ipv6 == o.prefixes_ipv6
+          prefixes_ipv6 == o.prefixes_ipv6 &&
           additional_properties == o.additional_properties
     end
 
@@ -113,7 +113,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [prefixes_ipv4, prefixes_ipv6].hash
+      [prefixes_ipv4, prefixes_ipv6, additional_properties].hash
     end
   end
 end

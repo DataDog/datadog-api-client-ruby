@@ -161,7 +161,7 @@ module DatadogAPIClient::V2
           offset == o.offset &&
           prev_offset == o.prev_offset &&
           total == o.total &&
-          type == o.type
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -169,7 +169,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [first_offset, last_offset, limit, next_offset, offset, prev_offset, total, type].hash
+      [first_offset, last_offset, limit, next_offset, offset, prev_offset, total, type, additional_properties].hash
     end
   end
 end

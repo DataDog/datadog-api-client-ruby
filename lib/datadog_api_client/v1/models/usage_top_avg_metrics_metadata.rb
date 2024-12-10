@@ -111,7 +111,7 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           day == o.day &&
           month == o.month &&
-          pagination == o.pagination
+          pagination == o.pagination &&
           additional_properties == o.additional_properties
     end
 
@@ -119,7 +119,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [day, month, pagination].hash
+      [day, month, pagination, additional_properties].hash
     end
   end
 end

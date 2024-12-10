@@ -190,7 +190,7 @@ module DatadogAPIClient::V1
           saml_idp_initiated_login == o.saml_idp_initiated_login &&
           saml_idp_metadata_uploaded == o.saml_idp_metadata_uploaded &&
           saml_login_url == o.saml_login_url &&
-          saml_strict_mode == o.saml_strict_mode
+          saml_strict_mode == o.saml_strict_mode &&
           additional_properties == o.additional_properties
     end
 
@@ -198,7 +198,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [private_widget_share, saml, saml_autocreate_access_role, saml_autocreate_users_domains, saml_can_be_enabled, saml_idp_endpoint, saml_idp_initiated_login, saml_idp_metadata_uploaded, saml_login_url, saml_strict_mode].hash
+      [private_widget_share, saml, saml_autocreate_access_role, saml_autocreate_users_domains, saml_can_be_enabled, saml_idp_endpoint, saml_idp_initiated_login, saml_idp_metadata_uploaded, saml_login_url, saml_strict_mode, additional_properties].hash
     end
   end
 end

@@ -131,7 +131,7 @@ module DatadogAPIClient::V2
           ddtags == o.ddtags &&
           hostname == o.hostname &&
           message == o.message &&
-          service == o.service
+          service == o.service &&
           additional_properties == o.additional_properties
     end
 
@@ -139,7 +139,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [ddsource, ddtags, hostname, message, service].hash
+      [ddsource, ddtags, hostname, message, service, additional_properties].hash
     end
   end
 end

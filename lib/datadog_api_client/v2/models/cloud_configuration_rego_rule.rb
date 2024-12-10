@@ -132,7 +132,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           policy == o.policy &&
-          resource_types == o.resource_types
+          resource_types == o.resource_types &&
           additional_properties == o.additional_properties
     end
 
@@ -140,7 +140,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [policy, resource_types].hash
+      [policy, resource_types, additional_properties].hash
     end
   end
 end

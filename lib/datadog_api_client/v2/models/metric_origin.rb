@@ -151,7 +151,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           metric_type == o.metric_type &&
           product == o.product &&
-          service == o.service
+          service == o.service &&
           additional_properties == o.additional_properties
     end
 
@@ -159,7 +159,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [metric_type, product, service].hash
+      [metric_type, product, service, additional_properties].hash
     end
   end
 end

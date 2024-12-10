@@ -111,7 +111,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           role == o.role &&
           saml_assertion_attribute == o.saml_assertion_attribute &&
-          team == o.team
+          team == o.team &&
           additional_properties == o.additional_properties
     end
 
@@ -119,7 +119,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [role, saml_assertion_attribute, team].hash
+      [role, saml_assertion_attribute, team, additional_properties].hash
     end
   end
 end

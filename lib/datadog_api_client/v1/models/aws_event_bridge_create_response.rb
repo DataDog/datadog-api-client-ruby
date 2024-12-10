@@ -121,7 +121,7 @@ module DatadogAPIClient::V1
           event_source_name == o.event_source_name &&
           has_bus == o.has_bus &&
           region == o.region &&
-          status == o.status
+          status == o.status &&
           additional_properties == o.additional_properties
     end
 
@@ -129,7 +129,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [event_source_name, has_bus, region, status].hash
+      [event_source_name, has_bus, region, status, additional_properties].hash
     end
   end
 end

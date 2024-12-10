@@ -119,7 +119,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           cursor == o.cursor &&
-          limit == o.limit
+          limit == o.limit &&
           additional_properties == o.additional_properties
     end
 
@@ -127,7 +127,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [cursor, limit].hash
+      [cursor, limit, additional_properties].hash
     end
   end
 end

@@ -207,7 +207,7 @@ module DatadogAPIClient::V2
           source_type_name == o.source_type_name &&
           tags == o.tags &&
           type == o.type &&
-          unit == o.unit
+          unit == o.unit &&
           additional_properties == o.additional_properties
     end
 
@@ -215,7 +215,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [interval, metadata, metric, points, resources, source_type_name, tags, type, unit].hash
+      [interval, metadata, metric, points, resources, source_type_name, tags, type, unit, additional_properties].hash
     end
   end
 end

@@ -186,7 +186,7 @@ module DatadogAPIClient::V1
           is_enabled == o.is_enabled &&
           name == o.name &&
           target == o.target &&
-          type == o.type
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -194,7 +194,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [categories, is_enabled, name, target, type].hash
+      [categories, is_enabled, name, target, type, additional_properties].hash
     end
   end
 end

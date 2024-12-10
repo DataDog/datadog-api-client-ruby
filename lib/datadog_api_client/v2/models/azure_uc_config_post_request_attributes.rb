@@ -203,7 +203,7 @@ module DatadogAPIClient::V2
           amortized_bill_config == o.amortized_bill_config &&
           client_id == o.client_id &&
           is_enabled == o.is_enabled &&
-          scope == o.scope
+          scope == o.scope &&
           additional_properties == o.additional_properties
     end
 
@@ -211,7 +211,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [account_id, actual_bill_config, amortized_bill_config, client_id, is_enabled, scope].hash
+      [account_id, actual_bill_config, amortized_bill_config, client_id, is_enabled, scope, additional_properties].hash
     end
   end
 end

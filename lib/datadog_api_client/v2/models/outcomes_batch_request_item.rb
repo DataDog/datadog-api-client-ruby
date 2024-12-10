@@ -161,7 +161,7 @@ module DatadogAPIClient::V2
           remarks == o.remarks &&
           rule_id == o.rule_id &&
           service_name == o.service_name &&
-          state == o.state
+          state == o.state &&
           additional_properties == o.additional_properties
     end
 
@@ -169,7 +169,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [remarks, rule_id, service_name, state].hash
+      [remarks, rule_id, service_name, state, additional_properties].hash
     end
   end
 end

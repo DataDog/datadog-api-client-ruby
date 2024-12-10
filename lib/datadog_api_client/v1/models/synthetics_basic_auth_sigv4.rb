@@ -181,7 +181,7 @@ module DatadogAPIClient::V1
           secret_key == o.secret_key &&
           service_name == o.service_name &&
           session_token == o.session_token &&
-          type == o.type
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -189,7 +189,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [access_key, region, secret_key, service_name, session_token, type].hash
+      [access_key, region, secret_key, service_name, session_token, type, additional_properties].hash
     end
   end
 end

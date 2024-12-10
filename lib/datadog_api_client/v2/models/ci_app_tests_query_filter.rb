@@ -111,7 +111,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           from == o.from &&
           query == o.query &&
-          to == o.to
+          to == o.to &&
           additional_properties == o.additional_properties
     end
 
@@ -119,7 +119,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [from, query, to].hash
+      [from, query, to, additional_properties].hash
     end
   end
 end

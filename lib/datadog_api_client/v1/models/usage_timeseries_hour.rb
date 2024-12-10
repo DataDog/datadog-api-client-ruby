@@ -141,7 +141,7 @@ module DatadogAPIClient::V1
           num_custom_output_timeseries == o.num_custom_output_timeseries &&
           num_custom_timeseries == o.num_custom_timeseries &&
           org_name == o.org_name &&
-          public_id == o.public_id
+          public_id == o.public_id &&
           additional_properties == o.additional_properties
     end
 
@@ -149,7 +149,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [hour, num_custom_input_timeseries, num_custom_output_timeseries, num_custom_timeseries, org_name, public_id].hash
+      [hour, num_custom_input_timeseries, num_custom_output_timeseries, num_custom_timeseries, org_name, public_id, additional_properties].hash
     end
   end
 end

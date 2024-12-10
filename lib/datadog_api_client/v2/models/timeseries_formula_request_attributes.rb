@@ -178,7 +178,7 @@ module DatadogAPIClient::V2
           from == o.from &&
           interval == o.interval &&
           queries == o.queries &&
-          to == o.to
+          to == o.to &&
           additional_properties == o.additional_properties
     end
 
@@ -186,7 +186,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [formulas, from, interval, queries, to].hash
+      [formulas, from, interval, queries, to, additional_properties].hash
     end
   end
 end

@@ -135,7 +135,7 @@ module DatadogAPIClient::V1
           batch_id == o.batch_id &&
           locations == o.locations &&
           results == o.results &&
-          triggered_check_ids == o.triggered_check_ids
+          triggered_check_ids == o.triggered_check_ids &&
           additional_properties == o.additional_properties
     end
 
@@ -143,7 +143,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [batch_id, locations, results, triggered_check_ids].hash
+      [batch_id, locations, results, triggered_check_ids, additional_properties].hash
     end
   end
 end
