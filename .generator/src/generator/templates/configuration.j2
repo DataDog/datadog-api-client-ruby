@@ -284,7 +284,7 @@ module {{ module_name }}
             key: 'Authorization',
             value: basic_auth_token
           },
-{%- elif schema.type == "http" and schema.scheme == "bearer" %}
+{# {%- elif schema.type == "http" and schema.scheme == "bearer" %}
         {{name}}:
           {
             type: 'bearer',
@@ -295,6 +295,7 @@ module {{ module_name }}
             key: 'Authorization',
             value: "Bearer #{access_token}"
           },
+#}
 {%- elif schema.type == "oauth2" %}
         {{name}}:
           {
