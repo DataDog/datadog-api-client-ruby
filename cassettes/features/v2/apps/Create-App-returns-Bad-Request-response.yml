@@ -1,0 +1,24 @@
+http_interactions:
+- recorded_at: Tue, 10 Dec 2024 19:57:10 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"description":"This is a bad example app","embeddedQueries":[],"rootInstanceName":"grid0"},"type":"appDefinitions"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/app-builder/apps
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"detail":"missing required field","source":{"pointer":"/data/attributes/name"}}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 400
+      message: Bad Request
+recorded_with: VCR 6.0.0
