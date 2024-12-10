@@ -151,7 +151,7 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           substring == o.substring &&
           type == o.type &&
-          with == o.with
+          with == o.with &&
           additional_properties == o.additional_properties
     end
 
@@ -159,7 +159,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [substring, type, with].hash
+      [substring, type, with, additional_properties].hash
     end
   end
 end

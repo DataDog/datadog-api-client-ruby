@@ -129,7 +129,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           email == o.email &&
           name == o.name &&
-          title == o.title
+          title == o.title &&
           additional_properties == o.additional_properties
     end
 
@@ -137,7 +137,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [email, name, title].hash
+      [email, name, title, additional_properties].hash
     end
   end
 end

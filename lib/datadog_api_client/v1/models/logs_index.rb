@@ -224,7 +224,7 @@ module DatadogAPIClient::V1
           is_rate_limited == o.is_rate_limited &&
           name == o.name &&
           num_flex_logs_retention_days == o.num_flex_logs_retention_days &&
-          num_retention_days == o.num_retention_days
+          num_retention_days == o.num_retention_days &&
           additional_properties == o.additional_properties
     end
 
@@ -232,7 +232,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [daily_limit, daily_limit_reset, daily_limit_warning_threshold_percentage, exclusion_filters, filter, is_rate_limited, name, num_flex_logs_retention_days, num_retention_days].hash
+      [daily_limit, daily_limit_reset, daily_limit_warning_threshold_percentage, exclusion_filters, filter, is_rate_limited, name, num_flex_logs_retention_days, num_retention_days, additional_properties].hash
     end
   end
 end

@@ -172,7 +172,7 @@ module DatadogAPIClient::V2
           icon == o.icon &&
           id == o.id &&
           name == o.name &&
-          source == o.source
+          source == o.source &&
           additional_properties == o.additional_properties
     end
 
@@ -180,7 +180,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [icon, id, name, source].hash
+      [icon, id, name, source, additional_properties].hash
     end
   end
 end

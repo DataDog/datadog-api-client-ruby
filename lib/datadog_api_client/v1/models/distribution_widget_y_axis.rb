@@ -131,7 +131,7 @@ module DatadogAPIClient::V1
           label == o.label &&
           max == o.max &&
           min == o.min &&
-          scale == o.scale
+          scale == o.scale &&
           additional_properties == o.additional_properties
     end
 
@@ -139,7 +139,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [include_zero, label, max, min, scale].hash
+      [include_zero, label, max, min, scale, additional_properties].hash
     end
   end
 end

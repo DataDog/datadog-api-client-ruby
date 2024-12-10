@@ -210,7 +210,7 @@ module DatadogAPIClient::V1
           tick_edge == o.tick_edge &&
           tick_pos == o.tick_pos &&
           type == o.type &&
-          vertical_align == o.vertical_align
+          vertical_align == o.vertical_align &&
           additional_properties == o.additional_properties
     end
 
@@ -218,7 +218,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [background_color, content, font_size, has_padding, show_tick, text_align, tick_edge, tick_pos, type, vertical_align].hash
+      [background_color, content, font_size, has_padding, show_tick, text_align, tick_edge, tick_pos, type, vertical_align, additional_properties].hash
     end
   end
 end

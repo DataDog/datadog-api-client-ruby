@@ -188,7 +188,7 @@ module DatadogAPIClient::V2
           keep_alive == o.keep_alive &&
           max_signal_duration == o.max_signal_duration &&
           new_value_options == o.new_value_options &&
-          third_party_rule_options == o.third_party_rule_options
+          third_party_rule_options == o.third_party_rule_options &&
           additional_properties == o.additional_properties
     end
 
@@ -196,7 +196,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [compliance_rule_options, decrease_criticality_based_on_env, detection_method, evaluation_window, hardcoded_evaluator_type, impossible_travel_options, keep_alive, max_signal_duration, new_value_options, third_party_rule_options].hash
+      [compliance_rule_options, decrease_criticality_based_on_env, detection_method, evaluation_window, hardcoded_evaluator_type, impossible_travel_options, keep_alive, max_signal_duration, new_value_options, third_party_rule_options, additional_properties].hash
     end
   end
 end

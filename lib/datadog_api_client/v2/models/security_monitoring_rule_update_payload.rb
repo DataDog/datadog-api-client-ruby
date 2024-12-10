@@ -241,7 +241,7 @@ module DatadogAPIClient::V2
           reference_tables == o.reference_tables &&
           tags == o.tags &&
           third_party_cases == o.third_party_cases &&
-          version == o.version
+          version == o.version &&
           additional_properties == o.additional_properties
     end
 
@@ -249,7 +249,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [cases, compliance_signal_options, filters, has_extended_title, is_enabled, message, name, options, queries, reference_tables, tags, third_party_cases, version].hash
+      [cases, compliance_signal_options, filters, has_extended_title, is_enabled, message, name, options, queries, reference_tables, tags, third_party_cases, version, additional_properties].hash
     end
   end
 end

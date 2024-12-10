@@ -160,7 +160,7 @@ module DatadogAPIClient::V2
           issue_key == o.issue_key &&
           issuetype_id == o.issuetype_id &&
           project_key == o.project_key &&
-          redirect_url == o.redirect_url
+          redirect_url == o.redirect_url &&
           additional_properties == o.additional_properties
     end
 
@@ -168,7 +168,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [account, issue_key, issuetype_id, project_key, redirect_url].hash
+      [account, issue_key, issuetype_id, project_key, redirect_url, additional_properties].hash
     end
   end
 end

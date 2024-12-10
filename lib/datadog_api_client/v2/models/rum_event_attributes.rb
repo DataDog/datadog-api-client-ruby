@@ -125,7 +125,7 @@ module DatadogAPIClient::V2
           attributes == o.attributes &&
           service == o.service &&
           tags == o.tags &&
-          timestamp == o.timestamp
+          timestamp == o.timestamp &&
           additional_properties == o.additional_properties
     end
 
@@ -133,7 +133,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, service, tags, timestamp].hash
+      [attributes, service, tags, timestamp, additional_properties].hash
     end
   end
 end

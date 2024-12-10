@@ -184,7 +184,7 @@ module DatadogAPIClient::V2
           charge_period_end == o.charge_period_end &&
           charge_period_start == o.charge_period_start &&
           provider_name == o.provider_name &&
-          tags == o.tags
+          tags == o.tags &&
           additional_properties == o.additional_properties
     end
 
@@ -192,7 +192,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [billed_cost, billing_currency, charge_description, charge_period_end, charge_period_start, provider_name, tags].hash
+      [billed_cost, billing_currency, charge_description, charge_period_end, charge_period_start, provider_name, tags, additional_properties].hash
     end
   end
 end

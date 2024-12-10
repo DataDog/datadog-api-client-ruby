@@ -207,7 +207,7 @@ module DatadogAPIClient::V1
           name == o.name &&
           original_file_name == o.original_file_name &&
           size == o.size &&
-          type == o.type
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -215,7 +215,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [bucket_key, content, name, original_file_name, size, type].hash
+      [bucket_key, content, name, original_file_name, size, type, additional_properties].hash
     end
   end
 end

@@ -131,7 +131,7 @@ module DatadogAPIClient::V1
           duration == o.duration &&
           error_count == o.error_count &&
           step_count_completed == o.step_count_completed &&
-          step_count_total == o.step_count_total
+          step_count_total == o.step_count_total &&
           additional_properties == o.additional_properties
     end
 
@@ -139,7 +139,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [device, duration, error_count, step_count_completed, step_count_total].hash
+      [device, duration, error_count, step_count_completed, step_count_total, additional_properties].hash
     end
   end
 end

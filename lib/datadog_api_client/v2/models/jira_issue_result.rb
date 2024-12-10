@@ -121,7 +121,7 @@ module DatadogAPIClient::V2
           issue_id == o.issue_id &&
           issue_key == o.issue_key &&
           issue_url == o.issue_url &&
-          project_key == o.project_key
+          project_key == o.project_key &&
           additional_properties == o.additional_properties
     end
 
@@ -129,7 +129,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [issue_id, issue_key, issue_url, project_key].hash
+      [issue_id, issue_key, issue_url, project_key, additional_properties].hash
     end
   end
 end

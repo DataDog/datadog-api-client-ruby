@@ -147,7 +147,7 @@ module DatadogAPIClient::V1
           global_time_selectable_enabled == o.global_time_selectable_enabled &&
           selectable_template_vars == o.selectable_template_vars &&
           share_list == o.share_list &&
-          share_type == o.share_type
+          share_type == o.share_type &&
           additional_properties == o.additional_properties
     end
 
@@ -155,7 +155,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [global_time, global_time_selectable_enabled, selectable_template_vars, share_list, share_type].hash
+      [global_time, global_time_selectable_enabled, selectable_template_vars, share_list, share_type, additional_properties].hash
     end
   end
 end

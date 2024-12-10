@@ -101,7 +101,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           name == o.name &&
-          scorecard_name == o.scorecard_name
+          scorecard_name == o.scorecard_name &&
           additional_properties == o.additional_properties
     end
 
@@ -109,7 +109,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [name, scorecard_name].hash
+      [name, scorecard_name, additional_properties].hash
     end
   end
 end

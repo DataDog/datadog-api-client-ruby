@@ -131,7 +131,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           compute == o.compute &&
           filter == o.filter &&
-          group_by == o.group_by
+          group_by == o.group_by &&
           additional_properties == o.additional_properties
     end
 
@@ -139,7 +139,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [compute, filter, group_by].hash
+      [compute, filter, group_by, additional_properties].hash
     end
   end
 end

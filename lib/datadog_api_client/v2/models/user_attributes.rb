@@ -210,7 +210,7 @@ module DatadogAPIClient::V2
           service_account == o.service_account &&
           status == o.status &&
           title == o.title &&
-          verified == o.verified
+          verified == o.verified &&
           additional_properties == o.additional_properties
     end
 
@@ -218,7 +218,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created_at, disabled, email, handle, icon, mfa_enabled, modified_at, name, service_account, status, title, verified].hash
+      [created_at, disabled, email, handle, icon, mfa_enabled, modified_at, name, service_account, status, title, verified, additional_properties].hash
     end
   end
 end

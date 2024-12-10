@@ -325,7 +325,7 @@ module DatadogAPIClient::V2
           type == o.type &&
           update_author_id == o.update_author_id &&
           updated_at == o.updated_at &&
-          version == o.version
+          version == o.version &&
           additional_properties == o.additional_properties
     end
 
@@ -333,7 +333,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [cases, compliance_signal_options, created_at, creation_author_id, default_tags, deprecation_date, filters, has_extended_title, id, is_default, is_deleted, is_enabled, message, name, options, queries, reference_tables, tags, third_party_cases, type, update_author_id, updated_at, version].hash
+      [cases, compliance_signal_options, created_at, creation_author_id, default_tags, deprecation_date, filters, has_extended_title, id, is_default, is_deleted, is_enabled, message, name, options, queries, reference_tables, tags, third_party_cases, type, update_author_id, updated_at, version, additional_properties].hash
     end
   end
 end

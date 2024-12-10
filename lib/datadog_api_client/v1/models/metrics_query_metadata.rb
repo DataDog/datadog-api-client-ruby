@@ -250,7 +250,7 @@ module DatadogAPIClient::V1
           scope == o.scope &&
           start == o.start &&
           tag_set == o.tag_set &&
-          unit == o.unit
+          unit == o.unit &&
           additional_properties == o.additional_properties
     end
 
@@ -258,7 +258,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [aggr, display_name, _end, expression, interval, length, metric, pointlist, query_index, scope, start, tag_set, unit].hash
+      [aggr, display_name, _end, expression, interval, length, metric, pointlist, query_index, scope, start, tag_set, unit, additional_properties].hash
     end
   end
 end

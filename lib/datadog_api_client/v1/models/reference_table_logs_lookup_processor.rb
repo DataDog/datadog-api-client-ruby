@@ -198,7 +198,7 @@ module DatadogAPIClient::V1
           name == o.name &&
           source == o.source &&
           target == o.target &&
-          type == o.type
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -206,7 +206,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [is_enabled, lookup_enrichment_table, name, source, target, type].hash
+      [is_enabled, lookup_enrichment_table, name, source, target, type, additional_properties].hash
     end
   end
 end

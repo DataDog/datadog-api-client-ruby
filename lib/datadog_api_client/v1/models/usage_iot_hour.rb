@@ -129,7 +129,7 @@ module DatadogAPIClient::V1
           hour == o.hour &&
           iot_device_count == o.iot_device_count &&
           org_name == o.org_name &&
-          public_id == o.public_id
+          public_id == o.public_id &&
           additional_properties == o.additional_properties
     end
 
@@ -137,7 +137,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [hour, iot_device_count, org_name, public_id].hash
+      [hour, iot_device_count, org_name, public_id, additional_properties].hash
     end
   end
 end

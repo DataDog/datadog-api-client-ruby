@@ -101,7 +101,7 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           reset_time == o.reset_time &&
-          reset_utc_offset == o.reset_utc_offset
+          reset_utc_offset == o.reset_utc_offset &&
           additional_properties == o.additional_properties
     end
 
@@ -109,7 +109,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [reset_time, reset_utc_offset].hash
+      [reset_time, reset_utc_offset, additional_properties].hash
     end
   end
 end

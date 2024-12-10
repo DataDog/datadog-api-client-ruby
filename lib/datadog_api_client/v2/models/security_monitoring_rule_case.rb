@@ -124,7 +124,7 @@ module DatadogAPIClient::V2
           condition == o.condition &&
           name == o.name &&
           notifications == o.notifications &&
-          status == o.status
+          status == o.status &&
           additional_properties == o.additional_properties
     end
 
@@ -132,7 +132,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [condition, name, notifications, status].hash
+      [condition, name, notifications, status, additional_properties].hash
     end
   end
 end

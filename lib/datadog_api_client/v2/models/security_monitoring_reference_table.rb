@@ -131,7 +131,7 @@ module DatadogAPIClient::V2
           column_name == o.column_name &&
           log_field_path == o.log_field_path &&
           rule_query_name == o.rule_query_name &&
-          table_name == o.table_name
+          table_name == o.table_name &&
           additional_properties == o.additional_properties
     end
 
@@ -139,7 +139,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [check_presence, column_name, log_field_path, rule_query_name, table_name].hash
+      [check_presence, column_name, log_field_path, rule_query_name, table_name, additional_properties].hash
     end
   end
 end

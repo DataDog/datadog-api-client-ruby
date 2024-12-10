@@ -139,7 +139,7 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           application_id == o.application_id &&
           client_token_id == o.client_token_id &&
-          is_enabled == o.is_enabled
+          is_enabled == o.is_enabled &&
           additional_properties == o.additional_properties
     end
 
@@ -147,7 +147,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [application_id, client_token_id, is_enabled].hash
+      [application_id, client_token_id, is_enabled, additional_properties].hash
     end
   end
 end

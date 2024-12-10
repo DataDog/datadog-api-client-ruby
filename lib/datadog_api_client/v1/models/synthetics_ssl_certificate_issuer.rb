@@ -141,7 +141,7 @@ module DatadogAPIClient::V1
           l == o.l &&
           o == o.o &&
           ou == o.ou &&
-          st == o.st
+          st == o.st &&
           additional_properties == o.additional_properties
     end
 
@@ -149,7 +149,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [c, cn, l, o, ou, st].hash
+      [c, cn, l, o, ou, st, additional_properties].hash
     end
   end
 end

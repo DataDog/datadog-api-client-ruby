@@ -283,7 +283,7 @@ module DatadogAPIClient::V2
           sys_object_id == o.sys_object_id &&
           tags == o.tags &&
           vendor == o.vendor &&
-          version == o.version
+          version == o.version &&
           additional_properties == o.additional_properties
     end
 
@@ -291,7 +291,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [description, device_type, integration, interface_statuses, ip_address, location, model, name, os_hostname, os_name, os_version, ping_status, product_name, serial_number, status, subnet, sys_object_id, tags, vendor, version].hash
+      [description, device_type, integration, interface_statuses, ip_address, location, model, name, os_hostname, os_name, os_version, ping_status, product_name, serial_number, status, subnet, sys_object_id, tags, vendor, version, additional_properties].hash
     end
   end
 end

@@ -160,7 +160,7 @@ module DatadogAPIClient::V2
           domain == o.domain &&
           message == o.message &&
           stack == o.stack &&
-          type == o.type
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -168,7 +168,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [domain, message, stack, type].hash
+      [domain, message, stack, type, additional_properties].hash
     end
   end
 end

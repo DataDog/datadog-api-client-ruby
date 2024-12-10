@@ -164,7 +164,7 @@ module DatadogAPIClient::V1
           raw_error_budget_remaining == o.raw_error_budget_remaining &&
           sli == o.sli &&
           span_precision == o.span_precision &&
-          state == o.state
+          state == o.state &&
           additional_properties == o.additional_properties
     end
 
@@ -172,7 +172,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [calculation_error, error_budget_remaining, indexed_at, raw_error_budget_remaining, sli, span_precision, state].hash
+      [calculation_error, error_budget_remaining, indexed_at, raw_error_budget_remaining, sli, span_precision, state, additional_properties].hash
     end
   end
 end

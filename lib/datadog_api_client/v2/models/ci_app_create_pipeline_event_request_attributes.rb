@@ -129,7 +129,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           env == o.env &&
           resource == o.resource &&
-          service == o.service
+          service == o.service &&
           additional_properties == o.additional_properties
     end
 
@@ -137,7 +137,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [env, resource, service].hash
+      [env, resource, service, additional_properties].hash
     end
   end
 end

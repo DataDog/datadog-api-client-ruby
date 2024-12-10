@@ -142,7 +142,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           current_downtime == o.current_downtime &&
           recurrences == o.recurrences &&
-          timezone == o.timezone
+          timezone == o.timezone &&
           additional_properties == o.additional_properties
     end
 
@@ -150,7 +150,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [current_downtime, recurrences, timezone].hash
+      [current_downtime, recurrences, timezone, additional_properties].hash
     end
   end
 end

@@ -213,7 +213,7 @@ module DatadogAPIClient::V2
           severity == o.severity &&
           state == o.state &&
           time_to_repair == o.time_to_repair &&
-          time_to_resolve == o.time_to_resolve
+          time_to_resolve == o.time_to_resolve &&
           additional_properties == o.additional_properties
     end
 
@@ -221,7 +221,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [commander, created_by, fields, impact, last_modified_by, postmortem, responder, severity, state, time_to_repair, time_to_resolve].hash
+      [commander, created_by, fields, impact, last_modified_by, postmortem, responder, severity, state, time_to_repair, time_to_resolve, additional_properties].hash
     end
   end
 end

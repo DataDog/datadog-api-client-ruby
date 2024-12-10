@@ -154,7 +154,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           interval == o.interval &&
           max == o.max &&
-          min == o.min
+          min == o.min &&
           additional_properties == o.additional_properties
     end
 
@@ -162,7 +162,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [interval, max, min].hash
+      [interval, max, min, additional_properties].hash
     end
   end
 end

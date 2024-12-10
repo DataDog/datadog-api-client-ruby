@@ -189,7 +189,7 @@ module DatadogAPIClient::V1
           modified == o.modified &&
           name == o.name &&
           status == o.status &&
-          time == o.time
+          time == o.time &&
           additional_properties == o.additional_properties
     end
 
@@ -197,7 +197,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [author, cells, created, metadata, modified, name, status, time].hash
+      [author, cells, created, metadata, modified, name, status, time, additional_properties].hash
     end
   end
 end

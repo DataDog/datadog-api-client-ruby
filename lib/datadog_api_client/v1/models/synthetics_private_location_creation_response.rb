@@ -111,7 +111,7 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           config == o.config &&
           private_location == o.private_location &&
-          result_encryption == o.result_encryption
+          result_encryption == o.result_encryption &&
           additional_properties == o.additional_properties
     end
 
@@ -119,7 +119,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [config, private_location, result_encryption].hash
+      [config, private_location, result_encryption, additional_properties].hash
     end
   end
 end

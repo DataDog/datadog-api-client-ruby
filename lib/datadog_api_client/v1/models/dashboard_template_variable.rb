@@ -163,7 +163,7 @@ module DatadogAPIClient::V1
           default == o.default &&
           defaults == o.defaults &&
           name == o.name &&
-          prefix == o.prefix
+          prefix == o.prefix &&
           additional_properties == o.additional_properties
     end
 
@@ -171,7 +171,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [available_values, default, defaults, name, prefix].hash
+      [available_values, default, defaults, name, prefix, additional_properties].hash
     end
   end
 end

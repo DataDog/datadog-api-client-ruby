@@ -175,7 +175,7 @@ module DatadogAPIClient::V2
           provider_names == o.provider_names &&
           status == o.status &&
           uploaded_at == o.uploaded_at &&
-          uploaded_by == o.uploaded_by
+          uploaded_by == o.uploaded_by &&
           additional_properties == o.additional_properties
     end
 
@@ -183,7 +183,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [billed_cost, billing_currency, charge_period, content, name, provider_names, status, uploaded_at, uploaded_by].hash
+      [billed_cost, billing_currency, charge_period, content, name, provider_names, status, uploaded_at, uploaded_by, additional_properties].hash
     end
   end
 end

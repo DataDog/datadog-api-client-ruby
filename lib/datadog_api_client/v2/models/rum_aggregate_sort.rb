@@ -121,7 +121,7 @@ module DatadogAPIClient::V2
           aggregation == o.aggregation &&
           metric == o.metric &&
           order == o.order &&
-          type == o.type
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -129,7 +129,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [aggregation, metric, order, type].hash
+      [aggregation, metric, order, type, additional_properties].hash
     end
   end
 end

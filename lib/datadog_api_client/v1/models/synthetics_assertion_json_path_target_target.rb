@@ -121,7 +121,7 @@ module DatadogAPIClient::V1
           elements_operator == o.elements_operator &&
           json_path == o.json_path &&
           operator == o.operator &&
-          target_value == o.target_value
+          target_value == o.target_value &&
           additional_properties == o.additional_properties
     end
 
@@ -129,7 +129,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [elements_operator, json_path, operator, target_value].hash
+      [elements_operator, json_path, operator, target_value, additional_properties].hash
     end
   end
 end

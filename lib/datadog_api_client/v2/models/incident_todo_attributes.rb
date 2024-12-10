@@ -191,7 +191,7 @@ module DatadogAPIClient::V2
           created == o.created &&
           due_date == o.due_date &&
           incident_id == o.incident_id &&
-          modified == o.modified
+          modified == o.modified &&
           additional_properties == o.additional_properties
     end
 
@@ -199,7 +199,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [assignees, completed, content, created, due_date, incident_id, modified].hash
+      [assignees, completed, content, created, due_date, incident_id, modified, additional_properties].hash
     end
   end
 end

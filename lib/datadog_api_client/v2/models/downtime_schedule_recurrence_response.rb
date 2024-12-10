@@ -117,7 +117,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           duration == o.duration &&
           rrule == o.rrule &&
-          start == o.start
+          start == o.start &&
           additional_properties == o.additional_properties
     end
 
@@ -125,7 +125,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [duration, rrule, start].hash
+      [duration, rrule, start, additional_properties].hash
     end
   end
 end

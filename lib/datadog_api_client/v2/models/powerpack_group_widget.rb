@@ -129,7 +129,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           definition == o.definition &&
           layout == o.layout &&
-          live_span == o.live_span
+          live_span == o.live_span &&
           additional_properties == o.additional_properties
     end
 
@@ -137,7 +137,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [definition, layout, live_span].hash
+      [definition, layout, live_span, additional_properties].hash
     end
   end
 end

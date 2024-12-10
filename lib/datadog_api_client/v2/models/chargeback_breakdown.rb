@@ -111,7 +111,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           charge_type == o.charge_type &&
           cost == o.cost &&
-          product_name == o.product_name
+          product_name == o.product_name &&
           additional_properties == o.additional_properties
     end
 
@@ -119,7 +119,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [charge_type, cost, product_name].hash
+      [charge_type, cost, product_name, additional_properties].hash
     end
   end
 end

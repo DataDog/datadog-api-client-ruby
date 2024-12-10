@@ -169,7 +169,7 @@ module DatadogAPIClient::V2
           integrations == o.integrations &&
           last_modified_by_user == o.last_modified_by_user &&
           responders == o.responders &&
-          user_defined_fields == o.user_defined_fields
+          user_defined_fields == o.user_defined_fields &&
           additional_properties == o.additional_properties
     end
 
@@ -177,7 +177,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attachments, commander_user, created_by_user, impacts, integrations, last_modified_by_user, responders, user_defined_fields].hash
+      [attachments, commander_user, created_by_user, impacts, integrations, last_modified_by_user, responders, user_defined_fields, additional_properties].hash
     end
   end
 end

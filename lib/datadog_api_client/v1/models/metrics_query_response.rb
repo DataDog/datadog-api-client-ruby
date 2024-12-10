@@ -175,7 +175,7 @@ module DatadogAPIClient::V1
           res_type == o.res_type &&
           series == o.series &&
           status == o.status &&
-          to_date == o.to_date
+          to_date == o.to_date &&
           additional_properties == o.additional_properties
     end
 
@@ -183,7 +183,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [error, from_date, group_by, message, query, res_type, series, status, to_date].hash
+      [error, from_date, group_by, message, query, res_type, series, status, to_date, additional_properties].hash
     end
   end
 end

@@ -101,7 +101,7 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           custom_schedule == o.custom_schedule &&
-          evaluation_window == o.evaluation_window
+          evaluation_window == o.evaluation_window &&
           additional_properties == o.additional_properties
     end
 
@@ -109,7 +109,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [custom_schedule, evaluation_window].hash
+      [custom_schedule, evaluation_window, additional_properties].hash
     end
   end
 end

@@ -129,7 +129,7 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           add_to_signal_timeline == o.add_to_signal_timeline &&
           incident_id == o.incident_id &&
-          version == o.version
+          version == o.version &&
           additional_properties == o.additional_properties
     end
 
@@ -137,7 +137,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [add_to_signal_timeline, incident_id, version].hash
+      [add_to_signal_timeline, incident_id, version, additional_properties].hash
     end
   end
 end

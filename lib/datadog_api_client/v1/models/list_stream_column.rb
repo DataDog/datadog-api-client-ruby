@@ -140,7 +140,7 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           field == o.field &&
           is_clustering_pattern_field_path == o.is_clustering_pattern_field_path &&
-          width == o.width
+          width == o.width &&
           additional_properties == o.additional_properties
     end
 
@@ -148,7 +148,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [field, is_clustering_pattern_field_path, width].hash
+      [field, is_clustering_pattern_field_path, width, additional_properties].hash
     end
   end
 end

@@ -222,7 +222,7 @@ module DatadogAPIClient::V2
           message == o.message &&
           tags == o.tags &&
           timestamp == o.timestamp &&
-          title == o.title
+          title == o.title &&
           additional_properties == o.additional_properties
     end
 
@@ -230,7 +230,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [aggregation_key, attributes, category, message, tags, timestamp, title].hash
+      [aggregation_key, attributes, category, message, tags, timestamp, title, additional_properties].hash
     end
   end
 end

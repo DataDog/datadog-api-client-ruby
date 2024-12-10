@@ -222,7 +222,7 @@ module DatadogAPIClient::V2
           resource_type == o.resource_type &&
           rule == o.rule &&
           status == o.status &&
-          tags == o.tags
+          tags == o.tags &&
           additional_properties == o.additional_properties
     end
 
@@ -230,7 +230,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [evaluation, evaluation_changed_at, message, mute, resource, resource_configuration, resource_discovery_date, resource_type, rule, status, tags].hash
+      [evaluation, evaluation_changed_at, message, mute, resource, resource_configuration, resource_discovery_date, resource_type, rule, status, tags, additional_properties].hash
     end
   end
 end

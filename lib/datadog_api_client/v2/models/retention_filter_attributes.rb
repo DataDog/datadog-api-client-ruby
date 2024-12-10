@@ -192,7 +192,7 @@ module DatadogAPIClient::V2
           modified_at == o.modified_at &&
           modified_by == o.modified_by &&
           name == o.name &&
-          rate == o.rate
+          rate == o.rate &&
           additional_properties == o.additional_properties
     end
 
@@ -200,7 +200,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created_at, created_by, editable, enabled, execution_order, filter, filter_type, modified_at, modified_by, name, rate].hash
+      [created_at, created_by, editable, enabled, execution_order, filter, filter_type, modified_at, modified_by, name, rate, additional_properties].hash
     end
   end
 end

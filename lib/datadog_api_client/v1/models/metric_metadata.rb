@@ -151,7 +151,7 @@ module DatadogAPIClient::V1
           short_name == o.short_name &&
           statsd_interval == o.statsd_interval &&
           type == o.type &&
-          unit == o.unit
+          unit == o.unit &&
           additional_properties == o.additional_properties
     end
 
@@ -159,7 +159,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [description, integration, per_unit, short_name, statsd_interval, type, unit].hash
+      [description, integration, per_unit, short_name, statsd_interval, type, unit, additional_properties].hash
     end
   end
 end

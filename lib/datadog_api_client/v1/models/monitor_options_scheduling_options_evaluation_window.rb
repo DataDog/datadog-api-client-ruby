@@ -148,7 +148,7 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           day_starts == o.day_starts &&
           hour_starts == o.hour_starts &&
-          month_starts == o.month_starts
+          month_starts == o.month_starts &&
           additional_properties == o.additional_properties
     end
 
@@ -156,7 +156,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [day_starts, hour_starts, month_starts].hash
+      [day_starts, hour_starts, month_starts, additional_properties].hash
     end
   end
 end

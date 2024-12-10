@@ -188,7 +188,7 @@ module DatadogAPIClient::V2
           height == o.height &&
           width == o.width &&
           x == o.x &&
-          y == o.y
+          y == o.y &&
           additional_properties == o.additional_properties
     end
 
@@ -196,7 +196,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [height, width, x, y].hash
+      [height, width, x, y, additional_properties].hash
     end
   end
 end

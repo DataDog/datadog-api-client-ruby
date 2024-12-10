@@ -143,7 +143,7 @@ module DatadogAPIClient::V1
           display_type == o.display_type &&
           label == o.label &&
           time == o.time &&
-          value == o.value
+          value == o.value &&
           additional_properties == o.additional_properties
     end
 
@@ -151,7 +151,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [display_type, label, time, value].hash
+      [display_type, label, time, value, additional_properties].hash
     end
   end
 end

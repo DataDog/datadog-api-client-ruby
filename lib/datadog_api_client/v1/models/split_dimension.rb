@@ -109,7 +109,7 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          one_graph_per == o.one_graph_per
+          one_graph_per == o.one_graph_per &&
           additional_properties == o.additional_properties
     end
 
@@ -117,7 +117,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [one_graph_per].hash
+      [one_graph_per, additional_properties].hash
     end
   end
 end

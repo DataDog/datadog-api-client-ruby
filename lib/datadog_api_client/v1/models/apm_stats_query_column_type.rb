@@ -139,7 +139,7 @@ module DatadogAPIClient::V1
           _alias == o._alias &&
           cell_display_mode == o.cell_display_mode &&
           name == o.name &&
-          order == o.order
+          order == o.order &&
           additional_properties == o.additional_properties
     end
 
@@ -147,7 +147,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [_alias, cell_display_mode, name, order].hash
+      [_alias, cell_display_mode, name, order, additional_properties].hash
     end
   end
 end

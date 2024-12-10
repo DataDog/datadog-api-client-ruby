@@ -167,7 +167,7 @@ module DatadogAPIClient::V2
           name == o.name &&
           pattern == o.pattern &&
           priority == o.priority &&
-          tags == o.tags
+          tags == o.tags &&
           additional_properties == o.additional_properties
     end
 
@@ -175,7 +175,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [description, included_keywords, name, pattern, priority, tags].hash
+      [description, included_keywords, name, pattern, priority, tags, additional_properties].hash
     end
   end
 end

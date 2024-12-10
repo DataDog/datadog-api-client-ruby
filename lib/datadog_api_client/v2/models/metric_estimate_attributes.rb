@@ -111,7 +111,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           estimate_type == o.estimate_type &&
           estimated_at == o.estimated_at &&
-          estimated_output_series == o.estimated_output_series
+          estimated_output_series == o.estimated_output_series &&
           additional_properties == o.additional_properties
     end
 
@@ -119,7 +119,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [estimate_type, estimated_at, estimated_output_series].hash
+      [estimate_type, estimated_at, estimated_output_series, additional_properties].hash
     end
   end
 end

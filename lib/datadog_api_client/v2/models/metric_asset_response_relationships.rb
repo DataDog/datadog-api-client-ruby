@@ -121,7 +121,7 @@ module DatadogAPIClient::V2
           dashboards == o.dashboards &&
           monitors == o.monitors &&
           notebooks == o.notebooks &&
-          slos == o.slos
+          slos == o.slos &&
           additional_properties == o.additional_properties
     end
 
@@ -129,7 +129,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [dashboards, monitors, notebooks, slos].hash
+      [dashboards, monitors, notebooks, slos, additional_properties].hash
     end
   end
 end

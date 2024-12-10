@@ -111,7 +111,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           from_rule == o.from_rule &&
           id == o.id &&
-          job_definition == o.job_definition
+          job_definition == o.job_definition &&
           additional_properties == o.additional_properties
     end
 
@@ -119,7 +119,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [from_rule, id, job_definition].hash
+      [from_rule, id, job_definition, additional_properties].hash
     end
   end
 end

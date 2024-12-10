@@ -141,7 +141,7 @@ module DatadogAPIClient::V2
           index == o.index &&
           mac_address == o.mac_address &&
           name == o.name &&
-          status == o.status
+          status == o.status &&
           additional_properties == o.additional_properties
     end
 
@@ -149,7 +149,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [_alias, description, index, mac_address, name, status].hash
+      [_alias, description, index, mac_address, name, status, additional_properties].hash
     end
   end
 end

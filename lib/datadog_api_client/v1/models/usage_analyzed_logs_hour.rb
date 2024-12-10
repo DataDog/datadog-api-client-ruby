@@ -129,7 +129,7 @@ module DatadogAPIClient::V1
           analyzed_logs == o.analyzed_logs &&
           hour == o.hour &&
           org_name == o.org_name &&
-          public_id == o.public_id
+          public_id == o.public_id &&
           additional_properties == o.additional_properties
     end
 
@@ -137,7 +137,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [analyzed_logs, hour, org_name, public_id].hash
+      [analyzed_logs, hour, org_name, public_id, additional_properties].hash
     end
   end
 end

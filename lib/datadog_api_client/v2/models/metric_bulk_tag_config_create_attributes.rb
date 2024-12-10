@@ -117,7 +117,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           emails == o.emails &&
           exclude_tags_mode == o.exclude_tags_mode &&
-          tags == o.tags
+          tags == o.tags &&
           additional_properties == o.additional_properties
     end
 
@@ -125,7 +125,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [emails, exclude_tags_mode, tags].hash
+      [emails, exclude_tags_mode, tags, additional_properties].hash
     end
   end
 end

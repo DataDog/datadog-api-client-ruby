@@ -130,7 +130,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           document_url == o.document_url &&
-          title == o.title
+          title == o.title &&
           additional_properties == o.additional_properties
     end
 
@@ -138,7 +138,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [document_url, title].hash
+      [document_url, title, additional_properties].hash
     end
   end
 end

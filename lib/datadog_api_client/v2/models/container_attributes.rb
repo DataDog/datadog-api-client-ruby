@@ -194,7 +194,7 @@ module DatadogAPIClient::V2
           name == o.name &&
           started_at == o.started_at &&
           state == o.state &&
-          tags == o.tags
+          tags == o.tags &&
           additional_properties == o.additional_properties
     end
 
@@ -202,7 +202,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [container_id, created_at, host, image_digest, image_name, image_tags, name, started_at, state, tags].hash
+      [container_id, created_at, host, image_digest, image_name, image_tags, name, started_at, state, tags, additional_properties].hash
     end
   end
 end

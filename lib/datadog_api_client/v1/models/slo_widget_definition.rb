@@ -222,7 +222,7 @@ module DatadogAPIClient::V1
           title_size == o.title_size &&
           type == o.type &&
           view_mode == o.view_mode &&
-          view_type == o.view_type
+          view_type == o.view_type &&
           additional_properties == o.additional_properties
     end
 
@@ -230,7 +230,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [additional_query_filters, global_time_target, show_error_budget, slo_id, time_windows, title, title_align, title_size, type, view_mode, view_type].hash
+      [additional_query_filters, global_time_target, show_error_budget, slo_id, time_windows, title, title_align, title_size, type, view_mode, view_type, additional_properties].hash
     end
   end
 end

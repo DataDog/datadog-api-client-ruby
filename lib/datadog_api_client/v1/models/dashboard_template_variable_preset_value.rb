@@ -131,7 +131,7 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           name == o.name &&
           value == o.value &&
-          values == o.values
+          values == o.values &&
           additional_properties == o.additional_properties
     end
 
@@ -139,7 +139,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [name, value, values].hash
+      [name, value, values, additional_properties].hash
     end
   end
 end

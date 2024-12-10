@@ -102,7 +102,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           time_offset == o.time_offset &&
-          timezone == o.timezone
+          timezone == o.timezone &&
           additional_properties == o.additional_properties
     end
 
@@ -110,7 +110,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [time_offset, timezone].hash
+      [time_offset, timezone, additional_properties].hash
     end
   end
 end

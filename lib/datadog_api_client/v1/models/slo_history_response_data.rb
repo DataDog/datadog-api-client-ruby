@@ -198,7 +198,7 @@ module DatadogAPIClient::V1
           thresholds == o.thresholds &&
           to_ts == o.to_ts &&
           type == o.type &&
-          type_id == o.type_id
+          type_id == o.type_id &&
           additional_properties == o.additional_properties
     end
 
@@ -206,7 +206,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [from_ts, group_by, groups, monitors, overall, series, thresholds, to_ts, type, type_id].hash
+      [from_ts, group_by, groups, monitors, overall, series, thresholds, to_ts, type, type_id, additional_properties].hash
     end
   end
 end

@@ -121,7 +121,7 @@ module DatadogAPIClient::V1
           api_key == o.api_key &&
           application_key == o.application_key &&
           org == o.org &&
-          user == o.user
+          user == o.user &&
           additional_properties == o.additional_properties
     end
 
@@ -129,7 +129,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [api_key, application_key, org, user].hash
+      [api_key, application_key, org, user, additional_properties].hash
     end
   end
 end

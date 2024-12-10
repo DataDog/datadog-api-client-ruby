@@ -153,7 +153,7 @@ module DatadogAPIClient::V2
           last_modified_time == o.last_modified_time &&
           origin == o.origin &&
           origin_detail == o.origin_detail &&
-          warnings == o.warnings
+          warnings == o.warnings &&
           additional_properties == o.additional_properties
     end
 
@@ -161,7 +161,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [github_html_url, ingested_schema_version, ingestion_source, last_modified_time, origin, origin_detail, warnings].hash
+      [github_html_url, ingested_schema_version, ingestion_source, last_modified_time, origin, origin_detail, warnings, additional_properties].hash
     end
   end
 end

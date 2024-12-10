@@ -172,7 +172,7 @@ module DatadogAPIClient::V2
           channel_id == o.channel_id &&
           name == o.name &&
           team_id == o.team_id &&
-          tenant_id == o.tenant_id
+          tenant_id == o.tenant_id &&
           additional_properties == o.additional_properties
     end
 
@@ -180,7 +180,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [channel_id, name, team_id, tenant_id].hash
+      [channel_id, name, team_id, tenant_id, additional_properties].hash
     end
   end
 end

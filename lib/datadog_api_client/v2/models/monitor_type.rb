@@ -213,7 +213,7 @@ module DatadogAPIClient::V2
           query == o.query &&
           tags == o.tags &&
           templated_name == o.templated_name &&
-          type == o.type
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -221,7 +221,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created_at, group_status, groups, id, message, modified, name, query, tags, templated_name, type].hash
+      [created_at, group_status, groups, id, message, modified, name, query, tags, templated_name, type, additional_properties].hash
     end
   end
 end

@@ -131,7 +131,7 @@ module DatadogAPIClient::V1
           name == o.name &&
           parser == o.parser &&
           secure == o.secure &&
-          type == o.type
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -139,7 +139,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [field, name, parser, secure, type].hash
+      [field, name, parser, secure, type, additional_properties].hash
     end
   end
 end

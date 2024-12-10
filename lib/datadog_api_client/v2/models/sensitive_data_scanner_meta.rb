@@ -159,7 +159,7 @@ module DatadogAPIClient::V2
           has_highlight_enabled == o.has_highlight_enabled &&
           has_multi_pass_enabled == o.has_multi_pass_enabled &&
           is_pci_compliant == o.is_pci_compliant &&
-          version == o.version
+          version == o.version &&
           additional_properties == o.additional_properties
     end
 
@@ -167,7 +167,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [count_limit, group_count_limit, has_highlight_enabled, has_multi_pass_enabled, is_pci_compliant, version].hash
+      [count_limit, group_count_limit, has_highlight_enabled, has_multi_pass_enabled, is_pci_compliant, version, additional_properties].hash
     end
   end
 end

@@ -339,7 +339,7 @@ module DatadogAPIClient::V1
           thresholds == o.thresholds &&
           timeframe == o.timeframe &&
           type == o.type &&
-          warning_threshold == o.warning_threshold
+          warning_threshold == o.warning_threshold &&
           additional_properties == o.additional_properties
     end
 
@@ -347,7 +347,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created_at, creator, description, groups, id, modified_at, monitor_ids, monitor_tags, name, query, sli_specification, tags, target_threshold, thresholds, timeframe, type, warning_threshold].hash
+      [created_at, creator, description, groups, id, modified_at, monitor_ids, monitor_tags, name, query, sli_specification, tags, target_threshold, thresholds, timeframe, type, warning_threshold, additional_properties].hash
     end
   end
 end

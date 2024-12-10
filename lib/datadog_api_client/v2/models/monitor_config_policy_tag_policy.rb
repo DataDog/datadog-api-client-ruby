@@ -131,7 +131,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           tag_key == o.tag_key &&
           tag_key_required == o.tag_key_required &&
-          valid_tag_values == o.valid_tag_values
+          valid_tag_values == o.valid_tag_values &&
           additional_properties == o.additional_properties
     end
 
@@ -139,7 +139,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [tag_key, tag_key_required, valid_tag_values].hash
+      [tag_key, tag_key_required, valid_tag_values, additional_properties].hash
     end
   end
 end

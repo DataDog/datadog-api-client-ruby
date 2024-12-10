@@ -163,7 +163,7 @@ module DatadogAPIClient::V2
           last4 == o.last4 &&
           modified_at == o.modified_at &&
           name == o.name &&
-          remote_config_read_enabled == o.remote_config_read_enabled
+          remote_config_read_enabled == o.remote_config_read_enabled &&
           additional_properties == o.additional_properties
     end
 
@@ -171,7 +171,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [category, created_at, last4, modified_at, name, remote_config_read_enabled].hash
+      [category, created_at, last4, modified_at, name, remote_config_read_enabled, additional_properties].hash
     end
   end
 end

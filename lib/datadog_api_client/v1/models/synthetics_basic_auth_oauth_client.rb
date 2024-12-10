@@ -223,7 +223,7 @@ module DatadogAPIClient::V1
           resource == o.resource &&
           scope == o.scope &&
           token_api_authentication == o.token_api_authentication &&
-          type == o.type
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -231,7 +231,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [access_token_url, audience, client_id, client_secret, resource, scope, token_api_authentication, type].hash
+      [access_token_url, audience, client_id, client_secret, resource, scope, token_api_authentication, type, additional_properties].hash
     end
   end
 end

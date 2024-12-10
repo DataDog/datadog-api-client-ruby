@@ -121,7 +121,7 @@ module DatadogAPIClient::V1
           fill_max == o.fill_max &&
           fill_min == o.fill_min &&
           palette == o.palette &&
-          palette_flip == o.palette_flip
+          palette_flip == o.palette_flip &&
           additional_properties == o.additional_properties
     end
 
@@ -129,7 +129,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [fill_max, fill_min, palette, palette_flip].hash
+      [fill_max, fill_min, palette, palette_flip, additional_properties].hash
     end
   end
 end

@@ -141,7 +141,7 @@ module DatadogAPIClient::V2
           enable_custom_metrics == o.enable_custom_metrics &&
           id == o.id &&
           resource_type == o.resource_type &&
-          tags == o.tags
+          tags == o.tags &&
           additional_properties == o.additional_properties
     end
 
@@ -149,7 +149,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [enable_custom_metrics, id, resource_type, tags].hash
+      [enable_custom_metrics, id, resource_type, tags, additional_properties].hash
     end
   end
 end

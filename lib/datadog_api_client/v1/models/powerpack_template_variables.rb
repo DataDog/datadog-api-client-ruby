@@ -105,7 +105,7 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           controlled_by_powerpack == o.controlled_by_powerpack &&
-          controlled_externally == o.controlled_externally
+          controlled_externally == o.controlled_externally &&
           additional_properties == o.additional_properties
     end
 
@@ -113,7 +113,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [controlled_by_powerpack, controlled_externally].hash
+      [controlled_by_powerpack, controlled_externally, additional_properties].hash
     end
   end
 end

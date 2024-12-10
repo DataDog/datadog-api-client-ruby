@@ -141,7 +141,7 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           from == o.from &&
           timezone == o.timezone &&
-          to == o.to
+          to == o.to &&
           additional_properties == o.additional_properties
     end
 
@@ -149,7 +149,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [from, timezone, to].hash
+      [from, timezone, to, additional_properties].hash
     end
   end
 end

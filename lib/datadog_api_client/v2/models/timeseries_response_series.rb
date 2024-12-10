@@ -144,7 +144,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           group_tags == o.group_tags &&
           query_index == o.query_index &&
-          unit == o.unit
+          unit == o.unit &&
           additional_properties == o.additional_properties
     end
 
@@ -152,7 +152,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [group_tags, query_index, unit].hash
+      [group_tags, query_index, unit, additional_properties].hash
     end
   end
 end

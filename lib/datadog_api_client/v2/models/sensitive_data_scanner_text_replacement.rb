@@ -135,7 +135,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           number_of_chars == o.number_of_chars &&
           replacement_string == o.replacement_string &&
-          type == o.type
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -143,7 +143,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [number_of_chars, replacement_string, type].hash
+      [number_of_chars, replacement_string, type, additional_properties].hash
     end
   end
 end

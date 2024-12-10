@@ -255,7 +255,7 @@ module DatadogAPIClient::V2
           start_timestamp == o.start_timestamp &&
           tags == o.tags &&
           trace_id == o.trace_id &&
-          type == o.type
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -263,7 +263,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, custom, end_timestamp, env, host, ingestion_reason, parent_id, resource_hash, resource_name, retained_by, service, single_span, span_id, start_timestamp, tags, trace_id, type].hash
+      [attributes, custom, end_timestamp, env, host, ingestion_reason, parent_id, resource_hash, resource_name, retained_by, service, single_span, span_id, start_timestamp, tags, trace_id, type, additional_properties].hash
     end
   end
 end

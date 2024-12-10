@@ -130,7 +130,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           space == o.space &&
-          time == o.time
+          time == o.time &&
           additional_properties == o.additional_properties
     end
 
@@ -138,7 +138,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [space, time].hash
+      [space, time, additional_properties].hash
     end
   end
 end

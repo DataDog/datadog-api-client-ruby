@@ -109,7 +109,7 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          live_span == o.live_span
+          live_span == o.live_span &&
           additional_properties == o.additional_properties
     end
 
@@ -117,7 +117,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [live_span].hash
+      [live_span, additional_properties].hash
     end
   end
 end

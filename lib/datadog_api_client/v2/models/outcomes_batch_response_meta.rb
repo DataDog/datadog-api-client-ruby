@@ -101,7 +101,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           total_received == o.total_received &&
-          total_updated == o.total_updated
+          total_updated == o.total_updated &&
           additional_properties == o.additional_properties
     end
 
@@ -109,7 +109,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [total_received, total_updated].hash
+      [total_received, total_updated, additional_properties].hash
     end
   end
 end

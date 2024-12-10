@@ -235,7 +235,7 @@ module DatadogAPIClient::V1
           selectable_template_vars == o.selectable_template_vars &&
           share_list == o.share_list &&
           share_type == o.share_type &&
-          token == o.token
+          token == o.token &&
           additional_properties == o.additional_properties
     end
 
@@ -243,7 +243,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [author, created_at, dashboard_id, dashboard_type, global_time, global_time_selectable_enabled, public_url, selectable_template_vars, share_list, share_type, token].hash
+      [author, created_at, dashboard_id, dashboard_type, global_time, global_time_selectable_enabled, public_url, selectable_template_vars, share_list, share_type, token, additional_properties].hash
     end
   end
 end

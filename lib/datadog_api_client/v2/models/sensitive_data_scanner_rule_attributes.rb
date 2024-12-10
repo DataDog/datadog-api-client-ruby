@@ -213,7 +213,7 @@ module DatadogAPIClient::V2
           pattern == o.pattern &&
           priority == o.priority &&
           tags == o.tags &&
-          text_replacement == o.text_replacement
+          text_replacement == o.text_replacement &&
           additional_properties == o.additional_properties
     end
 
@@ -221,7 +221,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [description, excluded_namespaces, included_keyword_configuration, is_enabled, name, namespaces, pattern, priority, tags, text_replacement].hash
+      [description, excluded_namespaces, included_keyword_configuration, is_enabled, name, namespaces, pattern, priority, tags, text_replacement, additional_properties].hash
     end
   end
 end

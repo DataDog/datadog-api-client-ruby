@@ -151,7 +151,7 @@ module DatadogAPIClient::V1
           host_count == o.host_count &&
           hour == o.hour &&
           org_name == o.org_name &&
-          public_id == o.public_id
+          public_id == o.public_id &&
           additional_properties == o.additional_properties
     end
 
@@ -159,7 +159,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [aas_count, avg_container_agent_count, host_count, hour, org_name, public_id].hash
+      [aas_count, avg_container_agent_count, host_count, hour, org_name, public_id, additional_properties].hash
     end
   end
 end

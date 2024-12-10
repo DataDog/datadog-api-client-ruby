@@ -127,7 +127,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           external_id == o.external_id &&
-          role_name == o.role_name
+          role_name == o.role_name &&
           additional_properties == o.additional_properties
     end
 
@@ -135,7 +135,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [external_id, role_name].hash
+      [external_id, role_name, additional_properties].hash
     end
   end
 end

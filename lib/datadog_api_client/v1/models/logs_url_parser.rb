@@ -191,7 +191,7 @@ module DatadogAPIClient::V1
           normalize_ending_slashes == o.normalize_ending_slashes &&
           sources == o.sources &&
           target == o.target &&
-          type == o.type
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -199,7 +199,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [is_enabled, name, normalize_ending_slashes, sources, target, type].hash
+      [is_enabled, name, normalize_ending_slashes, sources, target, type, additional_properties].hash
     end
   end
 end

@@ -131,7 +131,7 @@ module DatadogAPIClient::V1
           name == o.name &&
           plural == o.plural &&
           scale_factor == o.scale_factor &&
-          short_name == o.short_name
+          short_name == o.short_name &&
           additional_properties == o.additional_properties
     end
 
@@ -139,7 +139,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [family, name, plural, scale_factor, short_name].hash
+      [family, name, plural, scale_factor, short_name, additional_properties].hash
     end
   end
 end

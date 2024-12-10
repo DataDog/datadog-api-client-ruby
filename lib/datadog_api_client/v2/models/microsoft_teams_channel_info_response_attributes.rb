@@ -151,7 +151,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           is_primary == o.is_primary &&
           team_id == o.team_id &&
-          tenant_id == o.tenant_id
+          tenant_id == o.tenant_id &&
           additional_properties == o.additional_properties
     end
 
@@ -159,7 +159,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [is_primary, team_id, tenant_id].hash
+      [is_primary, team_id, tenant_id, additional_properties].hash
     end
   end
 end

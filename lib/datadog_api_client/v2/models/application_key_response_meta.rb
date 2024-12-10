@@ -101,7 +101,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           max_allowed_per_user == o.max_allowed_per_user &&
-          page == o.page
+          page == o.page &&
           additional_properties == o.additional_properties
     end
 
@@ -109,7 +109,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [max_allowed_per_user, page].hash
+      [max_allowed_per_user, page, additional_properties].hash
     end
   end
 end

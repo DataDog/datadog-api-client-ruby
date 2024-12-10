@@ -149,7 +149,7 @@ module DatadogAPIClient::V1
           has_session == o.has_session &&
           invitation_expiry == o.invitation_expiry &&
           session_expiry == o.session_expiry &&
-          share_token == o.share_token
+          share_token == o.share_token &&
           additional_properties == o.additional_properties
     end
 
@@ -157,7 +157,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created_at, email, has_session, invitation_expiry, session_expiry, share_token].hash
+      [created_at, email, has_session, invitation_expiry, session_expiry, share_token, additional_properties].hash
     end
   end
 end

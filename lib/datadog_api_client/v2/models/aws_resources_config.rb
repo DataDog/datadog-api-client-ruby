@@ -101,7 +101,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           cloud_security_posture_management_collection == o.cloud_security_posture_management_collection &&
-          extended_collection == o.extended_collection
+          extended_collection == o.extended_collection &&
           additional_properties == o.additional_properties
     end
 
@@ -109,7 +109,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [cloud_security_posture_management_collection, extended_collection].hash
+      [cloud_security_posture_management_collection, extended_collection, additional_properties].hash
     end
   end
 end

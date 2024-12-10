@@ -202,7 +202,7 @@ module DatadogAPIClient::V1
           size_by == o.size_by &&
           time == o.time &&
           title == o.title &&
-          type == o.type
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -210,7 +210,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [color_by, custom_links, group_by, requests, size_by, time, title, type].hash
+      [color_by, custom_links, group_by, requests, size_by, time, title, type, additional_properties].hash
     end
   end
 end

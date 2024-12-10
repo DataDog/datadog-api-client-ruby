@@ -133,7 +133,7 @@ module DatadogAPIClient::V2
           event_type == o.event_type &&
           filter == o.filter &&
           group_by == o.group_by &&
-          uniqueness == o.uniqueness
+          uniqueness == o.uniqueness &&
           additional_properties == o.additional_properties
     end
 
@@ -141,7 +141,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [compute, event_type, filter, group_by, uniqueness].hash
+      [compute, event_type, filter, group_by, uniqueness, additional_properties].hash
     end
   end
 end

@@ -192,7 +192,7 @@ module DatadogAPIClient::V2
           query == o.query &&
           rehydration_max_scan_size_in_gb == o.rehydration_max_scan_size_in_gb &&
           rehydration_tags == o.rehydration_tags &&
-          state == o.state
+          state == o.state &&
           additional_properties == o.additional_properties
     end
 
@@ -200,7 +200,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [destination, include_tags, name, query, rehydration_max_scan_size_in_gb, rehydration_tags, state].hash
+      [destination, include_tags, name, query, rehydration_max_scan_size_in_gb, rehydration_tags, state, additional_properties].hash
     end
   end
 end

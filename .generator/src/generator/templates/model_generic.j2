@@ -271,7 +271,7 @@
       return true if self.equal?(o)
       self.class == o.class &&
 {%- for attr in model.properties %}
-          {{ attr|attribute_name }} == o.{{ attr|attribute_name }}{% if not loop.last or model.get("additionalProperties") %} &&{% endif %}
+          {{ attr|attribute_name }} == o.{{ attr|attribute_name }}{% if not loop.last or additionalProperties is not false %} &&{% endif %}
 {%- endfor %}
 {%- if additionalProperties is not false %}
           additional_properties == o.additional_properties
@@ -282,6 +282,6 @@
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [{% for attr in model.properties %}{{ attr|attribute_name }}{% if not loop.last or model.get("additionalProperties") %}, {% endif %}{% endfor %}{% if model.get("additionalProperties") %}additional_properties{% endif %}].hash
+      [{% for attr in model.properties %}{{ attr|attribute_name }}{% if not loop.last or additionalProperties is not false %}, {% endif %}{% endfor %}{% if additionalProperties is not false %}additional_properties{% endif %}].hash
     end
   end

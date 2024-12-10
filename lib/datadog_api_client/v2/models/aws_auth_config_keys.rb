@@ -130,7 +130,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           access_key_id == o.access_key_id &&
-          secret_access_key == o.secret_access_key
+          secret_access_key == o.secret_access_key &&
           additional_properties == o.additional_properties
     end
 
@@ -138,7 +138,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [access_key_id, secret_access_key].hash
+      [access_key_id, secret_access_key, additional_properties].hash
     end
   end
 end

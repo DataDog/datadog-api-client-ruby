@@ -111,7 +111,7 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           content == o.content &&
           filename == o.filename &&
-          updated_at == o.updated_at
+          updated_at == o.updated_at &&
           additional_properties == o.additional_properties
     end
 
@@ -119,7 +119,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [content, filename, updated_at].hash
+      [content, filename, updated_at, additional_properties].hash
     end
   end
 end

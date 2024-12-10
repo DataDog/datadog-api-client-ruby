@@ -119,7 +119,7 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           type == o.type &&
-          yaxis == o.yaxis
+          yaxis == o.yaxis &&
           additional_properties == o.additional_properties
     end
 
@@ -127,7 +127,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [type, yaxis].hash
+      [type, yaxis, additional_properties].hash
     end
   end
 end
