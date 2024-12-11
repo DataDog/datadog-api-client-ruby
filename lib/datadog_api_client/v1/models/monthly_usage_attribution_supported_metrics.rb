@@ -41,6 +41,8 @@ module DatadogAPIClient::V1
     CI_VISIBILITY_ITR_PERCENTAGE = "ci_visibility_itr_percentage".freeze
     CLOUD_SIEM_USAGE = "cloud_siem_usage".freeze
     CLOUD_SIEM_PERCENTAGE = "cloud_siem_percentage".freeze
+    CODE_SECURITY_HOST_USAGE = "code_security_host_usage".freeze
+    CODE_SECURITY_HOST_PERCENTAGE = "code_security_host_percentage".freeze
     CONTAINER_EXCL_AGENT_USAGE = "container_excl_agent_usage".freeze
     CONTAINER_EXCL_AGENT_PERCENTAGE = "container_excl_agent_percentage".freeze
     CONTAINER_USAGE = "container_usage".freeze
