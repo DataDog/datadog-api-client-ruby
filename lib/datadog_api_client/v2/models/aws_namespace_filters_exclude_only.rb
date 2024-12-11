@@ -17,11 +17,13 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Exclude only these namespaces
+  # Exclude only these namespaces from metrics collection. Defaults to `["AWS/SQS", "AWS/ElasticMapReduce"]`.
+  # `AWS/SQS` and `AWS/ElasticMapReduce` are excluded by default to reduce your AWS CloudWatch costs from `GetMetricData` API calls.
   class AWSNamespaceFiltersExcludeOnly
     include BaseGenericModel
 
-    # Exclude only these namespaces
+    # Exclude only these namespaces from metrics collection. Defaults to `["AWS/SQS", "AWS/ElasticMapReduce"]`.
+    # `AWS/SQS` and `AWS/ElasticMapReduce` are excluded by default to reduce your AWS CloudWatch costs from `GetMetricData` API calls.
     attr_reader :exclude_only
 
     attr_accessor :additional_properties
