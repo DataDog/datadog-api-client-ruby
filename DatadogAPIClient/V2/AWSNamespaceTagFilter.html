@@ -106,7 +106,11 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>AWS Metrics tag filters</p>
+    <p>AWS Metrics Collection tag filters list. Defaults to <code>[]</code>.
+The array of custom AWS resource tags (in the form <code>key:value</code>) defines a filter that Datadog uses when collecting metrics from a specified service.
+Wildcards, such as <code>?</code> (match a single character) and <code>*</code> (match multiple characters), and exclusion using <code>!</code> before the tag are supported.
+For EC2, only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored.
+For example, <code>env:production,instance-type:c?.*,!region:us-east-1</code>.</p>
 
 
   </div>
@@ -167,7 +171,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>The AWS Namespace to apply the tag filters against.</p>
+    <span class="summary_desc"><div class='inline'><p>The AWS service for which the tag filters defined in <code>tags</code> will be applied.</p>
 </div></span>
   
 </li>
@@ -193,7 +197,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>The tags to filter based on.</p>
+    <span class="summary_desc"><div class='inline'><p>The AWS resource tags to filter on for the service specified by <code>namespace</code>.</p>
 </div></span>
   
 </li>
@@ -246,12 +250,12 @@
       <pre class="lines">
 
 
-30
-31
-32</pre>
+34
+35
+36</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/aws_namespace_tag_filter.rb', line 30</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/aws_namespace_tag_filter.rb', line 34</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_additional_properties'>additional_properties</span>
   <span class='ivar'>@additional_properties</span>
@@ -274,7 +278,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>The AWS Namespace to apply the tag filters against</p>
+    <p>The AWS service for which the tag filters defined in <code>tags</code> will be applied.</p>
 
 
   </div>
@@ -288,12 +292,12 @@
       <pre class="lines">
 
 
-25
-26
-27</pre>
+29
+30
+31</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/aws_namespace_tag_filter.rb', line 25</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/aws_namespace_tag_filter.rb', line 29</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_namespace'>namespace</span>
   <span class='ivar'>@namespace</span>
@@ -316,7 +320,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>The tags to filter based on</p>
+    <p>The AWS resource tags to filter on for the service specified by <code>namespace</code>.</p>
 
 
   </div>
@@ -330,12 +334,12 @@
       <pre class="lines">
 
 
-28
-29
-30</pre>
+32
+33
+34</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/aws_namespace_tag_filter.rb', line 28</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/aws_namespace_tag_filter.rb', line 32</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_tags'>tags</span>
   <span class='ivar'>@tags</span>
@@ -351,7 +355,7 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Dec 11 21:33:30 2024 by
+  Generated on Wed Dec 11 22:01:20 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>

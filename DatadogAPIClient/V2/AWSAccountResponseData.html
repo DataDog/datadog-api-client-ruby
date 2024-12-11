@@ -106,7 +106,7 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>AWS Account Response body</p>
+    <p>AWS Account response data.</p>
 
 
   </div>
@@ -167,7 +167,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>The AWS Account Integration Config.</p>
+    <span class="summary_desc"><div class='inline'><p>AWS Account response attributes.</p>
 </div></span>
   
 </li>
@@ -276,12 +276,12 @@
       <pre class="lines">
 
 
-33
-34
-35</pre>
+35
+36
+37</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/aws_account_response_data.rb', line 33</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/aws_account_response_data.rb', line 35</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_additional_properties'>additional_properties</span>
   <span class='ivar'>@additional_properties</span>
@@ -304,7 +304,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>The AWS Account Integration Config</p>
+    <p>AWS Account response attributes.</p>
 
 
   </div>
@@ -346,7 +346,9 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Unique Datadog ID of the AWS Account Integration Config</p>
+    <p>Unique Datadog ID of the AWS Account Integration Config.
+To get the config ID for an account, use the <a href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List all AWS integrations</a>
+endpoint and query by AWS Account ID.</p>
 
 
   </div>
@@ -360,12 +362,12 @@
       <pre class="lines">
 
 
-28
-29
-30</pre>
+30
+31
+32</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/aws_account_response_data.rb', line 28</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/aws_account_response_data.rb', line 30</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_id'>id</span>
   <span class='ivar'>@id</span>
@@ -402,12 +404,12 @@
       <pre class="lines">
 
 
-31
-32
-33</pre>
+33
+34
+35</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/aws_account_response_data.rb', line 31</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/aws_account_response_data.rb', line 33</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_type'>type</span>
   <span class='ivar'>@type</span>
@@ -423,7 +425,7 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Dec 11 21:33:31 2024 by
+  Generated on Wed Dec 11 22:01:20 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>

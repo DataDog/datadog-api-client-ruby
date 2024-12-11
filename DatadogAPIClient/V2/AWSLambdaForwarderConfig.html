@@ -106,7 +106,8 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>AWS Lambda forwarder</p>
+    <p>Log Autosubscription configuration for Datadog Forwarder Lambda functions. Automatically set up triggers for existing
+and new logs for some services, ensuring no logs from new resources are missed and saving time spent on manual configuration.</p>
 
 
   </div>
@@ -167,7 +168,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>List of Datadog Lambda Log Forwarder ARNs.</p>
+    <span class="summary_desc"><div class='inline'><p>List of Datadog Lambda Log Forwarder ARNs in your AWS account.</p>
 </div></span>
   
 </li>
@@ -193,7 +194,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>List of AWS services that will send logs to the Datadog Lambda Log Forwarder.</p>
+    <span class="summary_desc"><div class='inline'><p>List of service IDs set to enable automatic log collection.</p>
 </div></span>
   
 </li>
@@ -246,12 +247,12 @@
       <pre class="lines">
 
 
-30
-31
-32</pre>
+32
+33
+34</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/aws_lambda_forwarder_config.rb', line 30</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/aws_lambda_forwarder_config.rb', line 32</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_additional_properties'>additional_properties</span>
   <span class='ivar'>@additional_properties</span>
@@ -274,7 +275,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>List of Datadog Lambda Log Forwarder ARNs</p>
+    <p>List of Datadog Lambda Log Forwarder ARNs in your AWS account. Defaults to <code>[]</code>.</p>
 
 
   </div>
@@ -288,12 +289,12 @@
       <pre class="lines">
 
 
-25
 26
-27</pre>
+27
+28</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/aws_lambda_forwarder_config.rb', line 25</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/aws_lambda_forwarder_config.rb', line 26</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_lambdas'>lambdas</span>
   <span class='ivar'>@lambdas</span>
@@ -316,7 +317,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>List of AWS services that will send logs to the Datadog Lambda Log Forwarder</p>
+    <p>List of service IDs set to enable automatic log collection. Discover the list of available services with the
+<a href="https://docs.datadoghq.com/api/latest/aws-logs-integration/#get-list-of-aws-log-ready-services">Get list of AWS log ready services</a> endpoint.</p>
 
 
   </div>
@@ -330,12 +332,12 @@
       <pre class="lines">
 
 
-28
-29
-30</pre>
+30
+31
+32</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/aws_lambda_forwarder_config.rb', line 28</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/aws_lambda_forwarder_config.rb', line 30</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_sources'>sources</span>
   <span class='ivar'>@sources</span>
@@ -351,7 +353,7 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Dec 11 21:33:32 2024 by
+  Generated on Wed Dec 11 22:01:22 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>

@@ -106,7 +106,7 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>AWS Logs config</p>
+    <p>AWS Logs Collection config.</p>
 
 
   </div>
@@ -167,7 +167,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>AWS Lambda forwarder.</p>
+    <span class="summary_desc"><div class='inline'><p>Log Autosubscription configuration for Datadog Forwarder Lambda functions.</p>
 </div></span>
   
 </li>
@@ -220,12 +220,12 @@
       <pre class="lines">
 
 
-27
 28
-29</pre>
+29
+30</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/aws_logs_config.rb', line 27</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/aws_logs_config.rb', line 28</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_additional_properties'>additional_properties</span>
   <span class='ivar'>@additional_properties</span>
@@ -248,7 +248,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>AWS Lambda forwarder</p>
+    <p>Log Autosubscription configuration for Datadog Forwarder Lambda functions. Automatically set up triggers for existing
+and new logs for some services, ensuring no logs from new resources are missed and saving time spent on manual configuration.</p>
 
 
   </div>
@@ -262,12 +263,12 @@
       <pre class="lines">
 
 
-25
 26
-27</pre>
+27
+28</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/aws_logs_config.rb', line 25</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/aws_logs_config.rb', line 26</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_lambda_forwarder'>lambda_forwarder</span>
   <span class='ivar'>@lambda_forwarder</span>
@@ -283,7 +284,7 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Dec 11 21:33:24 2024 by
+  Generated on Wed Dec 11 22:01:14 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>

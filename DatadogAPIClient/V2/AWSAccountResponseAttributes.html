@@ -106,7 +106,7 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>The AWS Account Integration Config</p>
+    <p>AWS Account response attributes.</p>
 
 
   </div>
@@ -141,7 +141,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Tags to apply to all metrics in the account.</p>
+    <span class="summary_desc"><div class='inline'><p>Tags to apply to all hosts and metrics reporting for this account.</p>
 </div></span>
   
 </li>
@@ -247,7 +247,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>AWS Account partition.</p>
+    <span class="summary_desc"><div class='inline'><p>AWS partition your AWS account is scoped to.</p>
 </div></span>
   
 </li>
@@ -325,7 +325,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>AWS Logs config.</p>
+    <span class="summary_desc"><div class='inline'><p>AWS Logs Collection config.</p>
 </div></span>
   
 </li>
@@ -351,7 +351,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>AWS Metrics config.</p>
+    <span class="summary_desc"><div class='inline'><p>AWS Metrics Collection config.</p>
 </div></span>
   
 </li>
@@ -403,7 +403,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>AWS Resources config.</p>
+    <span class="summary_desc"><div class='inline'><p>AWS Resources Collection config.</p>
 </div></span>
   
 </li>
@@ -429,7 +429,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>AWS Traces config.</p>
+    <span class="summary_desc"><div class='inline'><p>AWS Traces Collection config.</p>
 </div></span>
   
 </li>
@@ -468,7 +468,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Tags to apply to all metrics in the account</p>
+    <p>Tags to apply to all hosts and metrics reporting for this account. Defaults to <code>[]</code>.</p>
 
 
   </div>
@@ -524,12 +524,12 @@
       <pre class="lines">
 
 
-57
 58
-59</pre>
+59
+60</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/aws_account_response_attributes.rb', line 57</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/aws_account_response_attributes.rb', line 58</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_additional_properties'>additional_properties</span>
   <span class='ivar'>@additional_properties</span>
@@ -552,7 +552,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>AWS Authentication config</p>
+    <p>AWS Authentication config.</p>
 
 
   </div>
@@ -594,7 +594,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>AWS Account ID</p>
+    <p>AWS Account ID.</p>
 
 
   </div>
@@ -636,7 +636,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>AWS Account partition</p>
+    <p>AWS partition your AWS account is scoped to. Defaults to <code>aws</code>.
+See <a href="https://docs.aws.amazon.com/whitepapers/latest/aws-fault-isolation-boundaries/partitions.html">Partitions</a> in the AWS documentation for more information.</p>
 
 
   </div>
@@ -650,12 +651,12 @@
       <pre class="lines">
 
 
-34
 35
-36</pre>
+36
+37</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/aws_account_response_attributes.rb', line 34</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/aws_account_response_attributes.rb', line 35</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_aws_partition'>aws_partition</span>
   <span class='ivar'>@aws_partition</span>
@@ -678,7 +679,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>AWS Regions to collect data from</p>
+    <p>AWS Regions to collect data from. Defaults to <code>include_all</code>.</p>
 
 
   </div>
@@ -692,12 +693,12 @@
       <pre class="lines">
 
 
-37
 38
-39</pre>
+39
+40</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/aws_account_response_attributes.rb', line 37</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/aws_account_response_attributes.rb', line 38</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_aws_regions'>aws_regions</span>
   <span class='ivar'>@aws_regions</span>
@@ -720,7 +721,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Timestamp of when the account integration was created</p>
+    <p>Timestamp of when the account integration was created.</p>
 
 
   </div>
@@ -734,12 +735,12 @@
       <pre class="lines">
 
 
-40
 41
-42</pre>
+42
+43</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/aws_account_response_attributes.rb', line 40</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/aws_account_response_attributes.rb', line 41</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_created_at'>created_at</span>
   <span class='ivar'>@created_at</span>
@@ -762,7 +763,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>AWS Logs config</p>
+    <p>AWS Logs Collection config.</p>
 
 
   </div>
@@ -776,12 +777,12 @@
       <pre class="lines">
 
 
-43
 44
-45</pre>
+45
+46</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/aws_account_response_attributes.rb', line 43</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/aws_account_response_attributes.rb', line 44</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_logs_config'>logs_config</span>
   <span class='ivar'>@logs_config</span>
@@ -804,7 +805,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>AWS Metrics config</p>
+    <p>AWS Metrics Collection config.</p>
 
 
   </div>
@@ -818,12 +819,12 @@
       <pre class="lines">
 
 
-46
 47
-48</pre>
+48
+49</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/aws_account_response_attributes.rb', line 46</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/aws_account_response_attributes.rb', line 47</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_metrics_config'>metrics_config</span>
   <span class='ivar'>@metrics_config</span>
@@ -846,7 +847,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Timestamp of when the account integration was updated</p>
+    <p>Timestamp of when the account integration was updated.</p>
 
 
   </div>
@@ -860,12 +861,12 @@
       <pre class="lines">
 
 
-49
 50
-51</pre>
+51
+52</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/aws_account_response_attributes.rb', line 49</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/aws_account_response_attributes.rb', line 50</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_modified_at'>modified_at</span>
   <span class='ivar'>@modified_at</span>
@@ -888,7 +889,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>AWS Resources config</p>
+    <p>AWS Resources Collection config.</p>
 
 
   </div>
@@ -902,12 +903,12 @@
       <pre class="lines">
 
 
-52
 53
-54</pre>
+54
+55</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/aws_account_response_attributes.rb', line 52</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/aws_account_response_attributes.rb', line 53</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_resources_config'>resources_config</span>
   <span class='ivar'>@resources_config</span>
@@ -930,7 +931,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>AWS Traces config</p>
+    <p>AWS Traces Collection config.</p>
 
 
   </div>
@@ -944,12 +945,12 @@
       <pre class="lines">
 
 
-55
 56
-57</pre>
+57
+58</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/aws_account_response_attributes.rb', line 55</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/aws_account_response_attributes.rb', line 56</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_traces_config'>traces_config</span>
   <span class='ivar'>@traces_config</span>
@@ -965,7 +966,7 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Dec 11 21:33:34 2024 by
+  Generated on Wed Dec 11 22:01:24 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>
