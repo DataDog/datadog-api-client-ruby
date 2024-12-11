@@ -143,7 +143,7 @@ module DatadogAPIClient::V2
           public_id == o.public_id &&
           region == o.region &&
           timeseries == o.timeseries &&
-          usage_type == o.usage_type
+          usage_type == o.usage_type &&
           additional_properties == o.additional_properties
     end
 
@@ -151,7 +151,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [org_name, product_family, public_id, region, timeseries, usage_type].hash
+      [org_name, product_family, public_id, region, timeseries, usage_type, additional_properties].hash
     end
   end
 end

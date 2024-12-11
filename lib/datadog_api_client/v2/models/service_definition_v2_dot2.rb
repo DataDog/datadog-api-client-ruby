@@ -270,7 +270,7 @@ module DatadogAPIClient::V2
           tags == o.tags &&
           team == o.team &&
           tier == o.tier &&
-          type == o.type
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -278,7 +278,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [application, ci_pipeline_fingerprints, contacts, dd_service, description, extensions, integrations, languages, lifecycle, links, schema_version, tags, team, tier, type].hash
+      [application, ci_pipeline_fingerprints, contacts, dd_service, description, extensions, integrations, languages, lifecycle, links, schema_version, tags, team, tier, type, additional_properties].hash
     end
   end
 end

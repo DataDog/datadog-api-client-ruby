@@ -122,7 +122,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           provisioned_by == o.provisioned_by &&
           provisioned_by_id == o.provisioned_by_id &&
-          role == o.role
+          role == o.role &&
           additional_properties == o.additional_properties
     end
 
@@ -130,7 +130,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [provisioned_by, provisioned_by_id, role].hash
+      [provisioned_by, provisioned_by_id, role, additional_properties].hash
     end
   end
 end

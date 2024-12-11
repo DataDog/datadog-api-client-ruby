@@ -230,7 +230,7 @@ module DatadogAPIClient::V1
           new_client_id == o.new_client_id &&
           new_tenant_name == o.new_tenant_name &&
           resource_collection_enabled == o.resource_collection_enabled &&
-          tenant_name == o.tenant_name
+          tenant_name == o.tenant_name &&
           additional_properties == o.additional_properties
     end
 
@@ -238,7 +238,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [app_service_plan_filters, automute, client_id, client_secret, container_app_filters, cspm_enabled, custom_metrics_enabled, errors, host_filters, metrics_config, new_client_id, new_tenant_name, resource_collection_enabled, tenant_name].hash
+      [app_service_plan_filters, automute, client_id, client_secret, container_app_filters, cspm_enabled, custom_metrics_enabled, errors, host_filters, metrics_config, new_client_id, new_tenant_name, resource_collection_enabled, tenant_name, additional_properties].hash
     end
   end
 end

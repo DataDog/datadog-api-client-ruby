@@ -146,7 +146,7 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           limit == o.limit &&
           query_string == o.query_string &&
-          sort == o.sort
+          sort == o.sort &&
           additional_properties == o.additional_properties
     end
 
@@ -154,7 +154,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [limit, query_string, sort].hash
+      [limit, query_string, sort, additional_properties].hash
     end
   end
 end

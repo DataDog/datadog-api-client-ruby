@@ -211,7 +211,7 @@ module DatadogAPIClient::V1
           metric == o.metric &&
           palette == o.palette &&
           timeframe == o.timeframe &&
-          value == o.value
+          value == o.value &&
           additional_properties == o.additional_properties
     end
 
@@ -219,7 +219,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [comparator, custom_bg_color, custom_fg_color, hide_value, image_url, metric, palette, timeframe, value].hash
+      [comparator, custom_bg_color, custom_fg_color, hide_value, image_url, metric, palette, timeframe, value, additional_properties].hash
     end
   end
 end

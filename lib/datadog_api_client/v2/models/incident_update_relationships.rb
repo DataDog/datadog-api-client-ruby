@@ -119,7 +119,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           commander_user == o.commander_user &&
           integrations == o.integrations &&
-          postmortem == o.postmortem
+          postmortem == o.postmortem &&
           additional_properties == o.additional_properties
     end
 
@@ -127,7 +127,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [commander_user, integrations, postmortem].hash
+      [commander_user, integrations, postmortem, additional_properties].hash
     end
   end
 end

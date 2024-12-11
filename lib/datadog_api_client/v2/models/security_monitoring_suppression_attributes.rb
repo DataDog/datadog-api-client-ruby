@@ -229,7 +229,7 @@ module DatadogAPIClient::V2
           suppression_query == o.suppression_query &&
           update_date == o.update_date &&
           updater == o.updater &&
-          version == o.version
+          version == o.version &&
           additional_properties == o.additional_properties
     end
 
@@ -237,7 +237,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [creation_date, creator, data_exclusion_query, description, editable, enabled, expiration_date, name, rule_query, suppression_query, update_date, updater, version].hash
+      [creation_date, creator, data_exclusion_query, description, editable, enabled, expiration_date, name, rule_query, suppression_query, update_date, updater, version, additional_properties].hash
     end
   end
 end

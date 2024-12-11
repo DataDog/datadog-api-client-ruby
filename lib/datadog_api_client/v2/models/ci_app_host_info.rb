@@ -123,7 +123,7 @@ module DatadogAPIClient::V2
           hostname == o.hostname &&
           labels == o.labels &&
           name == o.name &&
-          workspace == o.workspace
+          workspace == o.workspace &&
           additional_properties == o.additional_properties
     end
 
@@ -131,7 +131,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [hostname, labels, name, workspace].hash
+      [hostname, labels, name, workspace, additional_properties].hash
     end
   end
 end

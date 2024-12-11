@@ -131,7 +131,7 @@ module DatadogAPIClient::V2
           os_architecture == o.os_architecture &&
           os_name == o.os_name &&
           os_version == o.os_version &&
-          size == o.size
+          size == o.size &&
           additional_properties == o.additional_properties
     end
 
@@ -139,7 +139,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [built_at, os_architecture, os_name, os_version, size].hash
+      [built_at, os_architecture, os_name, os_version, size, additional_properties].hash
     end
   end
 end

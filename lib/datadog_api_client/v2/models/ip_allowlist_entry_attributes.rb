@@ -121,7 +121,7 @@ module DatadogAPIClient::V2
           cidr_block == o.cidr_block &&
           created_at == o.created_at &&
           modified_at == o.modified_at &&
-          note == o.note
+          note == o.note &&
           additional_properties == o.additional_properties
     end
 
@@ -129,7 +129,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [cidr_block, created_at, modified_at, note].hash
+      [cidr_block, created_at, modified_at, note, additional_properties].hash
     end
   end
 end

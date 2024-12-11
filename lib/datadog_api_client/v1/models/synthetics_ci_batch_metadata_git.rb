@@ -101,7 +101,7 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           branch == o.branch &&
-          commit_sha == o.commit_sha
+          commit_sha == o.commit_sha &&
           additional_properties == o.additional_properties
     end
 
@@ -109,7 +109,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [branch, commit_sha].hash
+      [branch, commit_sha, additional_properties].hash
     end
   end
 end

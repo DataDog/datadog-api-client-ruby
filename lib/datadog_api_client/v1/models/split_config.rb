@@ -192,7 +192,7 @@ module DatadogAPIClient::V1
           limit == o.limit &&
           sort == o.sort &&
           split_dimensions == o.split_dimensions &&
-          static_splits == o.static_splits
+          static_splits == o.static_splits &&
           additional_properties == o.additional_properties
     end
 
@@ -200,7 +200,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [limit, sort, split_dimensions, static_splits].hash
+      [limit, sort, split_dimensions, static_splits, additional_properties].hash
     end
   end
 end

@@ -103,7 +103,7 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           date == o.date &&
-          usage == o.usage
+          usage == o.usage &&
           additional_properties == o.additional_properties
     end
 
@@ -111,7 +111,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [date, usage].hash
+      [date, usage, additional_properties].hash
     end
   end
 end

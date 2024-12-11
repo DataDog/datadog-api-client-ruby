@@ -111,7 +111,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           email == o.email &&
           escalation_level == o.escalation_level &&
-          name == o.name
+          name == o.name &&
           additional_properties == o.additional_properties
     end
 
@@ -119,7 +119,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [email, escalation_level, name].hash
+      [email, escalation_level, name, additional_properties].hash
     end
   end
 end

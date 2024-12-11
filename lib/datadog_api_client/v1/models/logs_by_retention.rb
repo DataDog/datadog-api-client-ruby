@@ -113,7 +113,7 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           orgs == o.orgs &&
           usage == o.usage &&
-          usage_by_month == o.usage_by_month
+          usage_by_month == o.usage_by_month &&
           additional_properties == o.additional_properties
     end
 
@@ -121,7 +121,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [orgs, usage, usage_by_month].hash
+      [orgs, usage, usage_by_month, additional_properties].hash
     end
   end
 end

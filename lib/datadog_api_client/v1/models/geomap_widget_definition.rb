@@ -237,7 +237,7 @@ module DatadogAPIClient::V1
           title_align == o.title_align &&
           title_size == o.title_size &&
           type == o.type &&
-          view == o.view
+          view == o.view &&
           additional_properties == o.additional_properties
     end
 
@@ -245,7 +245,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [custom_links, requests, style, time, title, title_align, title_size, type, view].hash
+      [custom_links, requests, style, time, title, title_align, title_size, type, view, additional_properties].hash
     end
   end
 end

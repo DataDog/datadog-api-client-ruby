@@ -175,7 +175,7 @@ module DatadogAPIClient::V1
           encode_as == o.encode_as &&
           name == o.name &&
           payload == o.payload &&
-          url == o.url
+          url == o.url &&
           additional_properties == o.additional_properties
     end
 
@@ -183,7 +183,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [custom_headers, encode_as, name, payload, url].hash
+      [custom_headers, encode_as, name, payload, url, additional_properties].hash
     end
   end
 end

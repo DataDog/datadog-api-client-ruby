@@ -109,7 +109,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           usage_type == o.usage_type &&
-          value == o.value
+          value == o.value &&
           additional_properties == o.additional_properties
     end
 
@@ -117,7 +117,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [usage_type, value].hash
+      [usage_type, value, additional_properties].hash
     end
   end
 end

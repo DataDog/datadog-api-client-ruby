@@ -375,7 +375,7 @@ module DatadogAPIClient::V1
           _retry == o._retry &&
           rum_settings == o.rum_settings &&
           scheduling == o.scheduling &&
-          tick_every == o.tick_every
+          tick_every == o.tick_every &&
           additional_properties == o.additional_properties
     end
 
@@ -383,7 +383,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [accept_self_signed, allow_insecure, check_certificate_revocation, ci, device_ids, disable_cors, disable_csp, enable_profiling, enable_security_testing, follow_redirects, http_version, ignore_server_certificate_error, initial_navigation_timeout, min_failure_duration, min_location_failed, monitor_name, monitor_options, monitor_priority, no_screenshot, restricted_roles, _retry, rum_settings, scheduling, tick_every].hash
+      [accept_self_signed, allow_insecure, check_certificate_revocation, ci, device_ids, disable_cors, disable_csp, enable_profiling, enable_security_testing, follow_redirects, http_version, ignore_server_certificate_error, initial_navigation_timeout, min_failure_duration, min_location_failed, monitor_name, monitor_options, monitor_priority, no_screenshot, restricted_roles, _retry, rum_settings, scheduling, tick_every, additional_properties].hash
     end
   end
 end

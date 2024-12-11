@@ -161,7 +161,7 @@ module DatadogAPIClient::V2
           name == o.name &&
           public_id == o.public_id &&
           sharing == o.sharing &&
-          url == o.url
+          url == o.url &&
           additional_properties == o.additional_properties
     end
 
@@ -169,7 +169,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created_at, description, disabled, modified_at, name, public_id, sharing, url].hash
+      [created_at, description, disabled, modified_at, name, public_id, sharing, url, additional_properties].hash
     end
   end
 end

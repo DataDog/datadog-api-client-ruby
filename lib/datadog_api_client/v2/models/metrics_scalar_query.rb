@@ -161,7 +161,7 @@ module DatadogAPIClient::V2
           aggregator == o.aggregator &&
           data_source == o.data_source &&
           name == o.name &&
-          query == o.query
+          query == o.query &&
           additional_properties == o.additional_properties
     end
 
@@ -169,7 +169,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [aggregator, data_source, name, query].hash
+      [aggregator, data_source, name, query, additional_properties].hash
     end
   end
 end

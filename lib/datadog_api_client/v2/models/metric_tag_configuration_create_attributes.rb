@@ -182,7 +182,7 @@ module DatadogAPIClient::V2
           exclude_tags_mode == o.exclude_tags_mode &&
           include_percentiles == o.include_percentiles &&
           metric_type == o.metric_type &&
-          tags == o.tags
+          tags == o.tags &&
           additional_properties == o.additional_properties
     end
 
@@ -190,7 +190,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [aggregations, exclude_tags_mode, include_percentiles, metric_type, tags].hash
+      [aggregations, exclude_tags_mode, include_percentiles, metric_type, tags, additional_properties].hash
     end
   end
 end

@@ -161,7 +161,7 @@ module DatadogAPIClient::V1
           relative_position == o.relative_position &&
           text_content == o.text_content &&
           user_locator == o.user_locator &&
-          view_name == o.view_name
+          view_name == o.view_name &&
           additional_properties == o.additional_properties
     end
 
@@ -169,7 +169,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [context, context_type, element_description, multi_locator, relative_position, text_content, user_locator, view_name].hash
+      [context, context_type, element_description, multi_locator, relative_position, text_content, user_locator, view_name, additional_properties].hash
     end
   end
 end

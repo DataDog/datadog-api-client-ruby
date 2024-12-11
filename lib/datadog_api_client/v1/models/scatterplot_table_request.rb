@@ -115,7 +115,7 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           formulas == o.formulas &&
           queries == o.queries &&
-          response_format == o.response_format
+          response_format == o.response_format &&
           additional_properties == o.additional_properties
     end
 
@@ -123,7 +123,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [formulas, queries, response_format].hash
+      [formulas, queries, response_format, additional_properties].hash
     end
   end
 end

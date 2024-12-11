@@ -143,7 +143,7 @@ module DatadogAPIClient::V2
           collect_custom_metrics == o.collect_custom_metrics &&
           enabled == o.enabled &&
           namespace_filters == o.namespace_filters &&
-          tag_filters == o.tag_filters
+          tag_filters == o.tag_filters &&
           additional_properties == o.additional_properties
     end
 
@@ -151,7 +151,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [automute_enabled, collect_cloudwatch_alarms, collect_custom_metrics, enabled, namespace_filters, tag_filters].hash
+      [automute_enabled, collect_cloudwatch_alarms, collect_custom_metrics, enabled, namespace_filters, tag_filters, additional_properties].hash
     end
   end
 end

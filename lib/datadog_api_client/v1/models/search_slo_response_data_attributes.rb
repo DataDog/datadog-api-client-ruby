@@ -103,7 +103,7 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           facets == o.facets &&
-          slos == o.slos
+          slos == o.slos &&
           additional_properties == o.additional_properties
     end
 
@@ -111,7 +111,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [facets, slos].hash
+      [facets, slos, additional_properties].hash
     end
   end
 end

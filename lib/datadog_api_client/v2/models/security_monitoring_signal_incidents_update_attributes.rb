@@ -121,7 +121,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           incident_ids == o.incident_ids &&
-          version == o.version
+          version == o.version &&
           additional_properties == o.additional_properties
     end
 
@@ -129,7 +129,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [incident_ids, version].hash
+      [incident_ids, version, additional_properties].hash
     end
   end
 end

@@ -202,7 +202,7 @@ module DatadogAPIClient::V1
           type == o.type &&
           url == o.url &&
           url_dark_theme == o.url_dark_theme &&
-          vertical_align == o.vertical_align
+          vertical_align == o.vertical_align &&
           additional_properties == o.additional_properties
     end
 
@@ -210,7 +210,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [has_background, has_border, horizontal_align, margin, sizing, type, url, url_dark_theme, vertical_align].hash
+      [has_background, has_border, horizontal_align, margin, sizing, type, url, url_dark_theme, vertical_align, additional_properties].hash
     end
   end
 end

@@ -175,7 +175,7 @@ module DatadogAPIClient::V2
           group_widget == o.group_widget &&
           name == o.name &&
           tags == o.tags &&
-          template_variables == o.template_variables
+          template_variables == o.template_variables &&
           additional_properties == o.additional_properties
     end
 
@@ -183,7 +183,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [description, group_widget, name, tags, template_variables].hash
+      [description, group_widget, name, tags, template_variables, additional_properties].hash
     end
   end
 end

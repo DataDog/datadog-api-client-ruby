@@ -223,7 +223,7 @@ module DatadogAPIClient::V1
           preview == o.preview &&
           sli_value == o.sli_value &&
           span_precision == o.span_precision &&
-          uptime == o.uptime
+          uptime == o.uptime &&
           additional_properties == o.additional_properties
     end
 
@@ -231,7 +231,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [error_budget_remaining, errors, group, history, monitor_modified, monitor_type, name, precision, preview, sli_value, span_precision, uptime].hash
+      [error_budget_remaining, errors, group, history, monitor_modified, monitor_type, name, precision, preview, sli_value, span_precision, uptime, additional_properties].hash
     end
   end
 end

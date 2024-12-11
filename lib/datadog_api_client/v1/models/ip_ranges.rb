@@ -211,7 +211,7 @@ module DatadogAPIClient::V1
           synthetics == o.synthetics &&
           synthetics_private_locations == o.synthetics_private_locations &&
           version == o.version &&
-          webhooks == o.webhooks
+          webhooks == o.webhooks &&
           additional_properties == o.additional_properties
     end
 
@@ -219,7 +219,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [agents, api, apm, global, logs, modified, orchestrator, process, remote_configuration, synthetics, synthetics_private_locations, version, webhooks].hash
+      [agents, api, apm, global, logs, modified, orchestrator, process, remote_configuration, synthetics, synthetics_private_locations, version, webhooks, additional_properties].hash
     end
   end
 end

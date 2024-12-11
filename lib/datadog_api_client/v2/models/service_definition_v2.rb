@@ -230,7 +230,7 @@ module DatadogAPIClient::V2
           repos == o.repos &&
           schema_version == o.schema_version &&
           tags == o.tags &&
-          team == o.team
+          team == o.team &&
           additional_properties == o.additional_properties
     end
 
@@ -238,7 +238,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [contacts, dd_service, dd_team, docs, extensions, integrations, links, repos, schema_version, tags, team].hash
+      [contacts, dd_service, dd_team, docs, extensions, integrations, links, repos, schema_version, tags, team, additional_properties].hash
     end
   end
 end

@@ -119,7 +119,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           date == o.date &&
-          leak_source == o.leak_source
+          leak_source == o.leak_source &&
           additional_properties == o.additional_properties
     end
 
@@ -127,7 +127,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [date, leak_source].hash
+      [date, leak_source, additional_properties].hash
     end
   end
 end

@@ -194,7 +194,7 @@ module DatadogAPIClient::V1
           title_align == o.title_align &&
           title_size == o.title_size &&
           type == o.type &&
-          workflow_id == o.workflow_id
+          workflow_id == o.workflow_id &&
           additional_properties == o.additional_properties
     end
 
@@ -202,7 +202,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [custom_links, inputs, time, title, title_align, title_size, type, workflow_id].hash
+      [custom_links, inputs, time, title, title_align, title_size, type, workflow_id, additional_properties].hash
     end
   end
 end

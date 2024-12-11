@@ -103,7 +103,7 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           accounts == o.accounts &&
-          is_installed == o.is_installed
+          is_installed == o.is_installed &&
           additional_properties == o.additional_properties
     end
 
@@ -111,7 +111,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [accounts, is_installed].hash
+      [accounts, is_installed, additional_properties].hash
     end
   end
 end

@@ -214,7 +214,7 @@ module DatadogAPIClient::V1
           title_size == o.title_size &&
           type == o.type &&
           xaxis == o.xaxis &&
-          yaxis == o.yaxis
+          yaxis == o.yaxis &&
           additional_properties == o.additional_properties
     end
 
@@ -222,7 +222,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [color_by_groups, custom_links, requests, time, title, title_align, title_size, type, xaxis, yaxis].hash
+      [color_by_groups, custom_links, requests, time, title, title_align, title_size, type, xaxis, yaxis, additional_properties].hash
     end
   end
 end

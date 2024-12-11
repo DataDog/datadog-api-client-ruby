@@ -195,7 +195,7 @@ module DatadogAPIClient::V2
           filtered_data_type == o.filtered_data_type &&
           is_enabled == o.is_enabled &&
           name == o.name &&
-          query == o.query
+          query == o.query &&
           additional_properties == o.additional_properties
     end
 
@@ -203,7 +203,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [exclusion_filters, filtered_data_type, is_enabled, name, query].hash
+      [exclusion_filters, filtered_data_type, is_enabled, name, query, additional_properties].hash
     end
   end
 end

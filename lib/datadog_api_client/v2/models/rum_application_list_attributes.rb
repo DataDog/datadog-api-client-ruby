@@ -280,7 +280,7 @@ module DatadogAPIClient::V2
           org_id == o.org_id &&
           type == o.type &&
           updated_at == o.updated_at &&
-          updated_by_handle == o.updated_by_handle
+          updated_by_handle == o.updated_by_handle &&
           additional_properties == o.additional_properties
     end
 
@@ -288,7 +288,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [application_id, created_at, created_by_handle, _hash, is_active, name, org_id, type, updated_at, updated_by_handle].hash
+      [application_id, created_at, created_by_handle, _hash, is_active, name, org_id, type, updated_at, updated_by_handle, additional_properties].hash
     end
   end
 end

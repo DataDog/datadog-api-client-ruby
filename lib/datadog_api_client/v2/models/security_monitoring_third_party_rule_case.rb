@@ -123,7 +123,7 @@ module DatadogAPIClient::V2
           name == o.name &&
           notifications == o.notifications &&
           query == o.query &&
-          status == o.status
+          status == o.status &&
           additional_properties == o.additional_properties
     end
 
@@ -131,7 +131,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [name, notifications, query, status].hash
+      [name, notifications, query, status, additional_properties].hash
     end
   end
 end

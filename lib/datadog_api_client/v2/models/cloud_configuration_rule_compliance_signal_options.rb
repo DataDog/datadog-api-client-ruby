@@ -136,7 +136,7 @@ module DatadogAPIClient::V2
           default_activation_status == o.default_activation_status &&
           default_group_by_fields == o.default_group_by_fields &&
           user_activation_status == o.user_activation_status &&
-          user_group_by_fields == o.user_group_by_fields
+          user_group_by_fields == o.user_group_by_fields &&
           additional_properties == o.additional_properties
     end
 
@@ -144,7 +144,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [default_activation_status, default_group_by_fields, user_activation_status, user_group_by_fields].hash
+      [default_activation_status, default_group_by_fields, user_activation_status, user_group_by_fields, additional_properties].hash
     end
   end
 end

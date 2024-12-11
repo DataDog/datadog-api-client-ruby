@@ -170,7 +170,7 @@ module DatadogAPIClient::V1
           name == o.name &&
           pattern == o.pattern &&
           secure == o.secure &&
-          type == o.type
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -178,7 +178,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [example, id, name, pattern, secure, type].hash
+      [example, id, name, pattern, secure, type, additional_properties].hash
     end
   end
 end

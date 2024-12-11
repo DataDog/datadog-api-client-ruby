@@ -153,7 +153,7 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           data_source == o.data_source &&
           query_string == o.query_string &&
-          steps == o.steps
+          steps == o.steps &&
           additional_properties == o.additional_properties
     end
 
@@ -161,7 +161,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data_source, query_string, steps].hash
+      [data_source, query_string, steps, additional_properties].hash
     end
   end
 end

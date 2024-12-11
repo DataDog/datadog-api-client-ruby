@@ -478,7 +478,7 @@ module DatadogAPIClient::V1
           threshold_windows == o.threshold_windows &&
           thresholds == o.thresholds &&
           timeout_h == o.timeout_h &&
-          variables == o.variables
+          variables == o.variables &&
           additional_properties == o.additional_properties
     end
 
@@ -486,7 +486,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [aggregation, device_ids, enable_logs_sample, enable_samples, escalation_message, evaluation_delay, group_retention_duration, groupby_simple_monitor, include_tags, locked, min_failure_duration, min_location_failed, new_group_delay, new_host_delay, no_data_timeframe, notification_preset_name, notify_audit, notify_by, notify_no_data, on_missing_data, renotify_interval, renotify_occurrences, renotify_statuses, require_full_window, scheduling_options, silenced, synthetics_check_id, threshold_windows, thresholds, timeout_h, variables].hash
+      [aggregation, device_ids, enable_logs_sample, enable_samples, escalation_message, evaluation_delay, group_retention_duration, groupby_simple_monitor, include_tags, locked, min_failure_duration, min_location_failed, new_group_delay, new_host_delay, no_data_timeframe, notification_preset_name, notify_audit, notify_by, notify_no_data, on_missing_data, renotify_interval, renotify_occurrences, renotify_statuses, require_full_window, scheduling_options, silenced, synthetics_check_id, threshold_windows, thresholds, timeout_h, variables, additional_properties].hash
     end
   end
 end

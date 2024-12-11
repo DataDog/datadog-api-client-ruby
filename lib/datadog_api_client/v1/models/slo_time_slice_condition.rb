@@ -164,7 +164,7 @@ module DatadogAPIClient::V1
           comparator == o.comparator &&
           query == o.query &&
           query_interval_seconds == o.query_interval_seconds &&
-          threshold == o.threshold
+          threshold == o.threshold &&
           additional_properties == o.additional_properties
     end
 
@@ -172,7 +172,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [comparator, query, query_interval_seconds, threshold].hash
+      [comparator, query, query_interval_seconds, threshold, additional_properties].hash
     end
   end
 end

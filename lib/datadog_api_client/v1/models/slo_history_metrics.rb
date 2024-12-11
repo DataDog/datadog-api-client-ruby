@@ -251,7 +251,7 @@ module DatadogAPIClient::V1
           query == o.query &&
           res_type == o.res_type &&
           resp_version == o.resp_version &&
-          times == o.times
+          times == o.times &&
           additional_properties == o.additional_properties
     end
 
@@ -259,7 +259,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [denominator, interval, message, numerator, query, res_type, resp_version, times].hash
+      [denominator, interval, message, numerator, query, res_type, resp_version, times, additional_properties].hash
     end
   end
 end

@@ -150,7 +150,7 @@ module DatadogAPIClient::V2
           description == o.description &&
           priority == o.priority &&
           title == o.title &&
-          type == o.type
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -158,7 +158,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [description, priority, title, type].hash
+      [description, priority, title, type, additional_properties].hash
     end
   end
 end

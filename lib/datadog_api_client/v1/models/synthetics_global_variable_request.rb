@@ -223,7 +223,7 @@ module DatadogAPIClient::V1
           parse_test_options == o.parse_test_options &&
           parse_test_public_id == o.parse_test_public_id &&
           tags == o.tags &&
-          value == o.value
+          value == o.value &&
           additional_properties == o.additional_properties
     end
 
@@ -231,7 +231,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, description, id, is_fido, is_totp, name, parse_test_options, parse_test_public_id, tags, value].hash
+      [attributes, description, id, is_fido, is_totp, name, parse_test_options, parse_test_public_id, tags, value, additional_properties].hash
     end
   end
 end

@@ -131,7 +131,7 @@ module DatadogAPIClient::V2
           oncall == o.oncall &&
           raw_schema == o.raw_schema &&
           related_entities == o.related_entities &&
-          schema == o.schema
+          schema == o.schema &&
           additional_properties == o.additional_properties
     end
 
@@ -139,7 +139,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [incidents, oncall, raw_schema, related_entities, schema].hash
+      [incidents, oncall, raw_schema, related_entities, schema, additional_properties].hash
     end
   end
 end

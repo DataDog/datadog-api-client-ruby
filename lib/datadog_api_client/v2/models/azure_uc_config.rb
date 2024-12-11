@@ -389,7 +389,7 @@ module DatadogAPIClient::V2
           status_updated_at == o.status_updated_at &&
           storage_account == o.storage_account &&
           storage_container == o.storage_container &&
-          updated_at == o.updated_at
+          updated_at == o.updated_at &&
           additional_properties == o.additional_properties
     end
 
@@ -397,7 +397,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [account_id, client_id, created_at, dataset_type, error_messages, export_name, export_path, id, months, scope, status, status_updated_at, storage_account, storage_container, updated_at].hash
+      [account_id, client_id, created_at, dataset_type, error_messages, export_name, export_path, id, months, scope, status, status_updated_at, storage_account, storage_container, updated_at, additional_properties].hash
     end
   end
 end

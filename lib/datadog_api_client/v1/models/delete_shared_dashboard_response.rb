@@ -91,7 +91,7 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          deleted_public_dashboard_token == o.deleted_public_dashboard_token
+          deleted_public_dashboard_token == o.deleted_public_dashboard_token &&
           additional_properties == o.additional_properties
     end
 
@@ -99,7 +99,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [deleted_public_dashboard_token].hash
+      [deleted_public_dashboard_token, additional_properties].hash
     end
   end
 end

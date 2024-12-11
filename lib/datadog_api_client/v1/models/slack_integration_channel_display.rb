@@ -121,7 +121,7 @@ module DatadogAPIClient::V1
           message == o.message &&
           notified == o.notified &&
           snapshot == o.snapshot &&
-          tags == o.tags
+          tags == o.tags &&
           additional_properties == o.additional_properties
     end
 
@@ -129,7 +129,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [message, notified, snapshot, tags].hash
+      [message, notified, snapshot, tags, additional_properties].hash
     end
   end
 end

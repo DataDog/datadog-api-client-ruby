@@ -119,7 +119,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           region == o.region &&
-          service_url == o.service_url
+          service_url == o.service_url &&
           additional_properties == o.additional_properties
     end
 
@@ -127,7 +127,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [region, service_url].hash
+      [region, service_url, additional_properties].hash
     end
   end
 end

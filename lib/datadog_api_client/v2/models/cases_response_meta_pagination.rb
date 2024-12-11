@@ -111,7 +111,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           current == o.current &&
           size == o.size &&
-          total == o.total
+          total == o.total &&
           additional_properties == o.additional_properties
     end
 
@@ -119,7 +119,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [current, size, total].hash
+      [current, size, total, additional_properties].hash
     end
   end
 end

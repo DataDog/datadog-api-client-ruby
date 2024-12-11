@@ -366,7 +366,7 @@ module DatadogAPIClient::V1
           _retry == o._retry &&
           scheduling == o.scheduling &&
           tick_every == o.tick_every &&
-          verbosity == o.verbosity
+          verbosity == o.verbosity &&
           additional_properties == o.additional_properties
     end
 
@@ -374,7 +374,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [allow_application_crash, bindings, ci, default_step_timeout, device_ids, disable_auto_accept_alert, min_failure_duration, mobile_application, monitor_name, monitor_options, monitor_priority, no_screenshot, restricted_roles, _retry, scheduling, tick_every, verbosity].hash
+      [allow_application_crash, bindings, ci, default_step_timeout, device_ids, disable_auto_accept_alert, min_failure_duration, mobile_application, monitor_name, monitor_options, monitor_priority, no_screenshot, restricted_roles, _retry, scheduling, tick_every, verbosity, additional_properties].hash
     end
   end
 end

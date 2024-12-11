@@ -152,7 +152,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           access_token == o.access_token &&
           endpoint == o.endpoint &&
-          type == o.type
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -160,7 +160,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [access_token, endpoint, type].hash
+      [access_token, endpoint, type, additional_properties].hash
     end
   end
 end

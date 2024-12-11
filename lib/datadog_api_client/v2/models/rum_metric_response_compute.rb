@@ -113,7 +113,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           aggregation_type == o.aggregation_type &&
           include_percentiles == o.include_percentiles &&
-          path == o.path
+          path == o.path &&
           additional_properties == o.additional_properties
     end
 
@@ -121,7 +121,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [aggregation_type, include_percentiles, path].hash
+      [aggregation_type, include_percentiles, path, additional_properties].hash
     end
   end
 end

@@ -121,7 +121,7 @@ module DatadogAPIClient::V2
           org == o.org &&
           other_orgs == o.other_orgs &&
           other_users == o.other_users &&
-          roles == o.roles
+          roles == o.roles &&
           additional_properties == o.additional_properties
     end
 
@@ -129,7 +129,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [org, other_orgs, other_users, roles].hash
+      [org, other_orgs, other_users, roles, additional_properties].hash
     end
   end
 end

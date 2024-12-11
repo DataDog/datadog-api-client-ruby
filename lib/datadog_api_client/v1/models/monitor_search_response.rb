@@ -113,7 +113,7 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           counts == o.counts &&
           metadata == o.metadata &&
-          monitors == o.monitors
+          monitors == o.monitors &&
           additional_properties == o.additional_properties
     end
 
@@ -121,7 +121,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [counts, metadata, monitors].hash
+      [counts, metadata, monitors, additional_properties].hash
     end
   end
 end

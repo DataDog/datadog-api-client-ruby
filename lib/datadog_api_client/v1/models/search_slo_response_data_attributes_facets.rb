@@ -177,7 +177,7 @@ module DatadogAPIClient::V1
           slo_type == o.slo_type &&
           target == o.target &&
           team_tags == o.team_tags &&
-          timeframe == o.timeframe
+          timeframe == o.timeframe &&
           additional_properties == o.additional_properties
     end
 
@@ -185,7 +185,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [all_tags, creator_name, env_tags, service_tags, slo_type, target, team_tags, timeframe].hash
+      [all_tags, creator_name, env_tags, service_tags, slo_type, target, team_tags, timeframe, additional_properties].hash
     end
   end
 end

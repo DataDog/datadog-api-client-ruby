@@ -172,7 +172,7 @@ module DatadogAPIClient::V2
           ms_channel_id == o.ms_channel_id &&
           ms_channel_name == o.ms_channel_name &&
           ms_tenant_id == o.ms_tenant_id &&
-          redirect_url == o.redirect_url
+          redirect_url == o.redirect_url &&
           additional_properties == o.additional_properties
     end
 
@@ -180,7 +180,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [ms_channel_id, ms_channel_name, ms_tenant_id, redirect_url].hash
+      [ms_channel_id, ms_channel_name, ms_tenant_id, redirect_url, additional_properties].hash
     end
   end
 end

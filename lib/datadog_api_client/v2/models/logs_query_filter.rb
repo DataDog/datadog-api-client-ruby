@@ -133,7 +133,7 @@ module DatadogAPIClient::V2
           indexes == o.indexes &&
           query == o.query &&
           storage_tier == o.storage_tier &&
-          to == o.to
+          to == o.to &&
           additional_properties == o.additional_properties
     end
 
@@ -141,7 +141,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [from, indexes, query, storage_tier, to].hash
+      [from, indexes, query, storage_tier, to, additional_properties].hash
     end
   end
 end

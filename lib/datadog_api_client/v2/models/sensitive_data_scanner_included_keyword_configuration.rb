@@ -156,7 +156,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           character_count == o.character_count &&
           keywords == o.keywords &&
-          use_recommended_keywords == o.use_recommended_keywords
+          use_recommended_keywords == o.use_recommended_keywords &&
           additional_properties == o.additional_properties
     end
 
@@ -164,7 +164,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [character_count, keywords, use_recommended_keywords].hash
+      [character_count, keywords, use_recommended_keywords, additional_properties].hash
     end
   end
 end

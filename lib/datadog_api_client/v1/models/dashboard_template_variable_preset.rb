@@ -103,7 +103,7 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           name == o.name &&
-          template_variables == o.template_variables
+          template_variables == o.template_variables &&
           additional_properties == o.additional_properties
     end
 
@@ -111,7 +111,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [name, template_variables].hash
+      [name, template_variables, additional_properties].hash
     end
   end
 end

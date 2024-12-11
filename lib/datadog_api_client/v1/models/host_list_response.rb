@@ -113,7 +113,7 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           host_list == o.host_list &&
           total_matching == o.total_matching &&
-          total_returned == o.total_returned
+          total_returned == o.total_returned &&
           additional_properties == o.additional_properties
     end
 
@@ -121,7 +121,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [host_list, total_matching, total_returned].hash
+      [host_list, total_matching, total_returned, additional_properties].hash
     end
   end
 end

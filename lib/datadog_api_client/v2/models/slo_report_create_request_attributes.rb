@@ -171,7 +171,7 @@ module DatadogAPIClient::V2
           interval == o.interval &&
           query == o.query &&
           timezone == o.timezone &&
-          to_ts == o.to_ts
+          to_ts == o.to_ts &&
           additional_properties == o.additional_properties
     end
 
@@ -179,7 +179,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [from_ts, interval, query, timezone, to_ts].hash
+      [from_ts, interval, query, timezone, to_ts, additional_properties].hash
     end
   end
 end

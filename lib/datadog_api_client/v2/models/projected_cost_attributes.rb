@@ -163,7 +163,7 @@ module DatadogAPIClient::V2
           org_name == o.org_name &&
           projected_total_cost == o.projected_total_cost &&
           public_id == o.public_id &&
-          region == o.region
+          region == o.region &&
           additional_properties == o.additional_properties
     end
 
@@ -171,7 +171,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [account_name, account_public_id, charges, date, org_name, projected_total_cost, public_id, region].hash
+      [account_name, account_public_id, charges, date, org_name, projected_total_cost, public_id, region, additional_properties].hash
     end
   end
 end

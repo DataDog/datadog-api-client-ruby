@@ -159,7 +159,7 @@ module DatadogAPIClient::V1
           handle == o.handle &&
           icon == o.icon &&
           name == o.name &&
-          verified == o.verified
+          verified == o.verified &&
           additional_properties == o.additional_properties
     end
 
@@ -167,7 +167,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [access_role, disabled, email, handle, icon, name, verified].hash
+      [access_role, disabled, email, handle, icon, name, verified, additional_properties].hash
     end
   end
 end

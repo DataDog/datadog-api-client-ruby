@@ -253,7 +253,7 @@ module DatadogAPIClient::V1
           source_type_name == o.source_type_name &&
           tags == o.tags &&
           text == o.text &&
-          title == o.title
+          title == o.title &&
           additional_properties == o.additional_properties
     end
 
@@ -261,7 +261,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [aggregation_key, alert_type, date_happened, device_name, host, priority, related_event_id, source_type_name, tags, text, title].hash
+      [aggregation_key, alert_type, date_happened, device_name, host, priority, related_event_id, source_type_name, tags, text, title, additional_properties].hash
     end
   end
 end

@@ -201,7 +201,7 @@ module DatadogAPIClient::V2
           severity == o.severity &&
           started_at == o.started_at &&
           team == o.team &&
-          version == o.version
+          version == o.version &&
           additional_properties == o.additional_properties
     end
 
@@ -209,7 +209,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [env, finished_at, git, id, name, services, severity, started_at, team, version].hash
+      [env, finished_at, git, id, name, services, severity, started_at, team, version, additional_properties].hash
     end
   end
 end

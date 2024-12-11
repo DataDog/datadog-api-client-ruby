@@ -111,7 +111,7 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           line_type == o.line_type &&
           line_width == o.line_width &&
-          palette == o.palette
+          palette == o.palette &&
           additional_properties == o.additional_properties
     end
 
@@ -119,7 +119,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [line_type, line_width, palette].hash
+      [line_type, line_width, palette, additional_properties].hash
     end
   end
 end

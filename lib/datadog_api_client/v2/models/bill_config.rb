@@ -172,7 +172,7 @@ module DatadogAPIClient::V2
           export_name == o.export_name &&
           export_path == o.export_path &&
           storage_account == o.storage_account &&
-          storage_container == o.storage_container
+          storage_container == o.storage_container &&
           additional_properties == o.additional_properties
     end
 
@@ -180,7 +180,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [export_name, export_path, storage_account, storage_container].hash
+      [export_name, export_path, storage_account, storage_container, additional_properties].hash
     end
   end
 end

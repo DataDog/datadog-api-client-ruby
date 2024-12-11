@@ -195,7 +195,7 @@ module DatadogAPIClient::V1
           name == o.name &&
           samples == o.samples &&
           source == o.source &&
-          type == o.type
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -203,7 +203,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [grok, is_enabled, name, samples, source, type].hash
+      [grok, is_enabled, name, samples, source, type, additional_properties].hash
     end
   end
 end

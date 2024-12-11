@@ -184,7 +184,7 @@ module DatadogAPIClient::V1
           cross_org_uuids == o.cross_org_uuids &&
           data_source == o.data_source &&
           name == o.name &&
-          query == o.query
+          query == o.query &&
           additional_properties == o.additional_properties
     end
 
@@ -192,7 +192,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [aggregator, cross_org_uuids, data_source, name, query].hash
+      [aggregator, cross_org_uuids, data_source, name, query, additional_properties].hash
     end
   end
 end
