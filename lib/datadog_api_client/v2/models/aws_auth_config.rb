@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # AWS Authentication config
+  # AWS Authentication config.
   module AWSAuthConfig
     class << self
       include BaseOneOfModel

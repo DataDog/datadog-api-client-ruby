@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Include only these regions
+  # Include only these regions.
   class AWSRegionsIncludeOnly
     include BaseGenericModel
 
-    # Include only these regions
+    # Include only these regions.
     attr_reader :include_only
 
     attr_accessor :additional_properties

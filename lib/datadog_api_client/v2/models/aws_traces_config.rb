@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # AWS Traces config
+  # AWS Traces Collection config.
   class AWSTracesConfig
     include BaseGenericModel
 
-    # AWS X-Ray services to collect traces from
+    # AWS X-Ray services to collect traces from. Defaults to `include_only`.
     attr_accessor :xray_services
 
     attr_accessor :additional_properties

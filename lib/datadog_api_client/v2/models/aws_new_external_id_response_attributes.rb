@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # AWS External ID response body
+  # AWS External ID response body.
   class AWSNewExternalIDResponseAttributes
     include BaseGenericModel
 
-    # AWS IAM External ID for associated role
+    # AWS IAM External ID for associated role.
     attr_reader :external_id
 
     attr_accessor :additional_properties
