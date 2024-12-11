@@ -191,7 +191,7 @@ module DatadogAPIClient::V1
           title_align == o.title_align &&
           title_size == o.title_size &&
           type == o.type &&
-          viz_type == o.viz_type
+          viz_type == o.viz_type &&
           additional_properties == o.additional_properties
     end
 
@@ -199,7 +199,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [alert_id, time, title, title_align, title_size, type, viz_type].hash
+      [alert_id, time, title, title_align, title_size, type, viz_type, additional_properties].hash
     end
   end
 end

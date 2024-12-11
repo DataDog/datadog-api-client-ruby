@@ -102,7 +102,7 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           deleted_at == o.deleted_at &&
-          public_id == o.public_id
+          public_id == o.public_id &&
           additional_properties == o.additional_properties
     end
 
@@ -110,7 +110,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [deleted_at, public_id].hash
+      [deleted_at, public_id, additional_properties].hash
     end
   end
 end

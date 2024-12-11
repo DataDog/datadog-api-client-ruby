@@ -172,7 +172,7 @@ module DatadogAPIClient::V1
           ssl == o.ssl &&
           tcp == o.tcp &&
           total == o.total &&
-          wait == o.wait
+          wait == o.wait &&
           additional_properties == o.additional_properties
     end
 
@@ -180,7 +180,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [dns, download, first_byte, handshake, redirect, ssl, tcp, total, wait].hash
+      [dns, download, first_byte, handshake, redirect, ssl, tcp, total, wait, additional_properties].hash
     end
   end
 end

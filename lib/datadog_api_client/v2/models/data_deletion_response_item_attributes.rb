@@ -352,7 +352,7 @@ module DatadogAPIClient::V2
           status == o.status &&
           to_time == o.to_time &&
           total_unrestricted == o.total_unrestricted &&
-          updated_at == o.updated_at
+          updated_at == o.updated_at &&
           additional_properties == o.additional_properties
     end
 
@@ -360,7 +360,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created_at, created_by, from_time, indexes, is_created, org_id, product, query, starting_at, status, to_time, total_unrestricted, updated_at].hash
+      [created_at, created_by, from_time, indexes, is_created, org_id, product, query, starting_at, status, to_time, total_unrestricted, updated_at, additional_properties].hash
     end
   end
 end

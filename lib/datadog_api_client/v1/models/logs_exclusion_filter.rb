@@ -121,7 +121,7 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           query == o.query &&
-          sample_rate == o.sample_rate
+          sample_rate == o.sample_rate &&
           additional_properties == o.additional_properties
     end
 
@@ -129,7 +129,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [query, sample_rate].hash
+      [query, sample_rate, additional_properties].hash
     end
   end
 end

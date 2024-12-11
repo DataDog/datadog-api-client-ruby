@@ -202,7 +202,7 @@ module DatadogAPIClient::V1
           split_config == o.split_config &&
           time == o.time &&
           title == o.title &&
-          type == o.type
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -210,7 +210,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [has_uniform_y_axes, size, source_widget_definition, split_config, time, title, type].hash
+      [has_uniform_y_axes, size, source_widget_definition, split_config, time, title, type, additional_properties].hash
     end
   end
 end

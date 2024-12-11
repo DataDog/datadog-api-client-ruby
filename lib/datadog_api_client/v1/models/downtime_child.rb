@@ -348,7 +348,7 @@ module DatadogAPIClient::V1
           scope == o.scope &&
           start == o.start &&
           timezone == o.timezone &&
-          updater_id == o.updater_id
+          updater_id == o.updater_id &&
           additional_properties == o.additional_properties
     end
 
@@ -356,7 +356,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [active, canceled, creator_id, disabled, downtime_type, _end, id, message, monitor_id, monitor_tags, mute_first_recovery_notification, notify_end_states, notify_end_types, parent_id, recurrence, scope, start, timezone, updater_id].hash
+      [active, canceled, creator_id, disabled, downtime_type, _end, id, message, monitor_id, monitor_tags, mute_first_recovery_notification, notify_end_states, notify_end_types, parent_id, recurrence, scope, start, timezone, updater_id, additional_properties].hash
     end
   end
 end

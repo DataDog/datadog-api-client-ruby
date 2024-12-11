@@ -175,7 +175,7 @@ module DatadogAPIClient::V1
           query == o.query &&
           sort == o.sort &&
           start_at == o.start_at &&
-          time == o.time
+          time == o.time &&
           additional_properties == o.additional_properties
     end
 
@@ -183,7 +183,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [index, limit, query, sort, start_at, time].hash
+      [index, limit, query, sort, start_at, time, additional_properties].hash
     end
   end
 end

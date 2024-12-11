@@ -101,7 +101,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           group == o.group &&
-          standard_pattern == o.standard_pattern
+          standard_pattern == o.standard_pattern &&
           additional_properties == o.additional_properties
     end
 
@@ -109,7 +109,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [group, standard_pattern].hash
+      [group, standard_pattern, additional_properties].hash
     end
   end
 end

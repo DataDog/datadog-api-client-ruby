@@ -225,7 +225,7 @@ module DatadogAPIClient::V1
           title == o.title &&
           title_align == o.title_align &&
           title_size == o.title_size &&
-          type == o.type
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -233,7 +233,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [check, group, group_by, grouping, tags, time, title, title_align, title_size, type].hash
+      [check, group, group_by, grouping, tags, time, title, title_align, title_size, type, additional_properties].hash
     end
   end
 end

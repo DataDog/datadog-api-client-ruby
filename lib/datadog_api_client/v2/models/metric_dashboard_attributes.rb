@@ -133,7 +133,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           popularity == o.popularity &&
           title == o.title &&
-          url == o.url
+          url == o.url &&
           additional_properties == o.additional_properties
     end
 
@@ -141,7 +141,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [popularity, title, url].hash
+      [popularity, title, url, additional_properties].hash
     end
   end
 end

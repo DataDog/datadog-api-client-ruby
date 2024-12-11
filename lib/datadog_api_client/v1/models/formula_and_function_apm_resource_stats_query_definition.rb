@@ -268,7 +268,7 @@ module DatadogAPIClient::V1
           primary_tag_value == o.primary_tag_value &&
           resource_name == o.resource_name &&
           service == o.service &&
-          stat == o.stat
+          stat == o.stat &&
           additional_properties == o.additional_properties
     end
 
@@ -276,7 +276,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [cross_org_uuids, data_source, env, group_by, name, operation_name, primary_tag_name, primary_tag_value, resource_name, service, stat].hash
+      [cross_org_uuids, data_source, env, group_by, name, operation_name, primary_tag_name, primary_tag_value, resource_name, service, stat, additional_properties].hash
     end
   end
 end

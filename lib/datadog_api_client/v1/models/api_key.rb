@@ -143,7 +143,7 @@ module DatadogAPIClient::V1
           created == o.created &&
           created_by == o.created_by &&
           key == o.key &&
-          name == o.name
+          name == o.name &&
           additional_properties == o.additional_properties
     end
 
@@ -151,7 +151,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created, created_by, key, name].hash
+      [created, created_by, key, name, additional_properties].hash
     end
   end
 end

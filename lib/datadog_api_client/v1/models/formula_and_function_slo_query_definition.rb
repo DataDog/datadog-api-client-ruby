@@ -214,7 +214,7 @@ module DatadogAPIClient::V1
           measure == o.measure &&
           name == o.name &&
           slo_id == o.slo_id &&
-          slo_query_type == o.slo_query_type
+          slo_query_type == o.slo_query_type &&
           additional_properties == o.additional_properties
     end
 
@@ -222,7 +222,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [additional_query_filters, cross_org_uuids, data_source, group_mode, measure, name, slo_id, slo_query_type].hash
+      [additional_query_filters, cross_org_uuids, data_source, group_mode, measure, name, slo_id, slo_query_type, additional_properties].hash
     end
   end
 end

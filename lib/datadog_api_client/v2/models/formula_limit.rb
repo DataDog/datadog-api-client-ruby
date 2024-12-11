@@ -120,7 +120,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           count == o.count &&
-          order == o.order
+          order == o.order &&
           additional_properties == o.additional_properties
     end
 
@@ -128,7 +128,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [count, order].hash
+      [count, order, additional_properties].hash
     end
   end
 end

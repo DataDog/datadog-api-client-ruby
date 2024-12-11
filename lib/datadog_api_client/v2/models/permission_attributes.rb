@@ -151,7 +151,7 @@ module DatadogAPIClient::V2
           display_type == o.display_type &&
           group_name == o.group_name &&
           name == o.name &&
-          restricted == o.restricted
+          restricted == o.restricted &&
           additional_properties == o.additional_properties
     end
 
@@ -159,7 +159,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created, description, display_name, display_type, group_name, name, restricted].hash
+      [created, description, display_name, display_type, group_name, name, restricted, additional_properties].hash
     end
   end
 end

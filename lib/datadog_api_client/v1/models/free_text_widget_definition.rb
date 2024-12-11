@@ -160,7 +160,7 @@ module DatadogAPIClient::V1
           font_size == o.font_size &&
           text == o.text &&
           text_align == o.text_align &&
-          type == o.type
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -168,7 +168,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [color, font_size, text, text_align, type].hash
+      [color, font_size, text, text_align, type, additional_properties].hash
     end
   end
 end

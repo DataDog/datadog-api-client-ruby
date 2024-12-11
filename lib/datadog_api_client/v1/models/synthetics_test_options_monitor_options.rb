@@ -141,7 +141,7 @@ module DatadogAPIClient::V1
           escalation_message == o.escalation_message &&
           notification_preset_name == o.notification_preset_name &&
           renotify_interval == o.renotify_interval &&
-          renotify_occurrences == o.renotify_occurrences
+          renotify_occurrences == o.renotify_occurrences &&
           additional_properties == o.additional_properties
     end
 
@@ -149,7 +149,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [escalation_message, notification_preset_name, renotify_interval, renotify_occurrences].hash
+      [escalation_message, notification_preset_name, renotify_interval, renotify_occurrences, additional_properties].hash
     end
   end
 end

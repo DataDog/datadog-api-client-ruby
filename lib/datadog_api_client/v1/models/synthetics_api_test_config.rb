@@ -137,7 +137,7 @@ module DatadogAPIClient::V1
           config_variables == o.config_variables &&
           request == o.request &&
           steps == o.steps &&
-          variables_from_script == o.variables_from_script
+          variables_from_script == o.variables_from_script &&
           additional_properties == o.additional_properties
     end
 
@@ -145,7 +145,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [assertions, config_variables, request, steps, variables_from_script].hash
+      [assertions, config_variables, request, steps, variables_from_script, additional_properties].hash
     end
   end
 end

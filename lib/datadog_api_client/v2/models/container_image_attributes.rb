@@ -272,7 +272,7 @@ module DatadogAPIClient::V2
           sizes == o.sizes &&
           sources == o.sources &&
           tags == o.tags &&
-          vulnerability_count == o.vulnerability_count
+          vulnerability_count == o.vulnerability_count &&
           additional_properties == o.additional_properties
     end
 
@@ -280,7 +280,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [container_count, image_flavors, image_tags, images_built_at, name, os_architectures, os_names, os_versions, published_at, registry, repo_digest, repository, short_image, sizes, sources, tags, vulnerability_count].hash
+      [container_count, image_flavors, image_tags, images_built_at, name, os_architectures, os_names, os_versions, published_at, registry, repo_digest, repository, short_image, sizes, sources, tags, vulnerability_count, additional_properties].hash
     end
   end
 end

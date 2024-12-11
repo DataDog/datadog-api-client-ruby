@@ -111,7 +111,7 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           group_by == o.group_by &&
           metric == o.metric &&
-          type == o.type
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -119,7 +119,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [group_by, metric, type].hash
+      [group_by, metric, type, additional_properties].hash
     end
   end
 end

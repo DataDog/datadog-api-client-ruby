@@ -151,7 +151,7 @@ module DatadogAPIClient::V1
           index_name == o.index_name &&
           org_name == o.org_name &&
           public_id == o.public_id &&
-          retention == o.retention
+          retention == o.retention &&
           additional_properties == o.additional_properties
     end
 
@@ -159,7 +159,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [event_count, hour, index_id, index_name, org_name, public_id, retention].hash
+      [event_count, hour, index_id, index_name, org_name, public_id, retention, additional_properties].hash
     end
   end
 end

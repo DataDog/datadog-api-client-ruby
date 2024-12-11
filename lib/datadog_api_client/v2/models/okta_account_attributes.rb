@@ -181,7 +181,7 @@ module DatadogAPIClient::V2
           client_id == o.client_id &&
           client_secret == o.client_secret &&
           domain == o.domain &&
-          name == o.name
+          name == o.name &&
           additional_properties == o.additional_properties
     end
 
@@ -189,7 +189,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [api_key, auth_method, client_id, client_secret, domain, name].hash
+      [api_key, auth_method, client_id, client_secret, domain, name, additional_properties].hash
     end
   end
 end

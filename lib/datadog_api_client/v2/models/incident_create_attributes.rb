@@ -184,7 +184,7 @@ module DatadogAPIClient::V2
           incident_type_uuid == o.incident_type_uuid &&
           initial_cells == o.initial_cells &&
           notification_handles == o.notification_handles &&
-          title == o.title
+          title == o.title &&
           additional_properties == o.additional_properties
     end
 
@@ -192,7 +192,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [customer_impact_scope, customer_impacted, fields, incident_type_uuid, initial_cells, notification_handles, title].hash
+      [customer_impact_scope, customer_impacted, fields, incident_type_uuid, initial_cells, notification_handles, title, additional_properties].hash
     end
   end
 end

@@ -115,7 +115,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           complex_rule == o.complex_rule &&
           rego_rule == o.rego_rule &&
-          resource_type == o.resource_type
+          resource_type == o.resource_type &&
           additional_properties == o.additional_properties
     end
 
@@ -123,7 +123,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [complex_rule, rego_rule, resource_type].hash
+      [complex_rule, rego_rule, resource_type, additional_properties].hash
     end
   end
 end

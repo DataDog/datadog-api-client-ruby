@@ -171,7 +171,7 @@ module DatadogAPIClient::V1
           no_screenshot == o.no_screenshot &&
           params == o.params &&
           timeout == o.timeout &&
-          type == o.type
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -179,7 +179,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [allow_failure, always_execute, exit_if_succeed, is_critical, name, no_screenshot, params, timeout, type].hash
+      [allow_failure, always_execute, exit_if_succeed, is_critical, name, no_screenshot, params, timeout, type, additional_properties].hash
     end
   end
 end

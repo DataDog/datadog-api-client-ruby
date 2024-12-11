@@ -129,7 +129,7 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           aggregation == o.aggregation &&
           facet == o.facet &&
-          interval == o.interval
+          interval == o.interval &&
           additional_properties == o.additional_properties
     end
 
@@ -137,7 +137,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [aggregation, facet, interval].hash
+      [aggregation, facet, interval, additional_properties].hash
     end
   end
 end

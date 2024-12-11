@@ -283,7 +283,7 @@ module DatadogAPIClient::V1
           slo_type == o.slo_type &&
           status == o.status &&
           team_tags == o.team_tags &&
-          thresholds == o.thresholds
+          thresholds == o.thresholds &&
           additional_properties == o.additional_properties
     end
 
@@ -291,7 +291,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [all_tags, created_at, creator, description, env_tags, groups, modified_at, monitor_ids, name, overall_status, query, service_tags, slo_type, status, team_tags, thresholds].hash
+      [all_tags, created_at, creator, description, env_tags, groups, modified_at, monitor_ids, name, overall_status, query, service_tags, slo_type, status, team_tags, thresholds, additional_properties].hash
     end
   end
 end

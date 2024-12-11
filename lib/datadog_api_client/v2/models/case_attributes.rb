@@ -213,7 +213,7 @@ module DatadogAPIClient::V2
           service_now_ticket == o.service_now_ticket &&
           status == o.status &&
           title == o.title &&
-          type == o.type
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -221,7 +221,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [archived_at, closed_at, created_at, description, jira_issue, key, modified_at, priority, service_now_ticket, status, title, type].hash
+      [archived_at, closed_at, created_at, description, jira_issue, key, modified_at, priority, service_now_ticket, status, title, type, additional_properties].hash
     end
   end
 end

@@ -108,7 +108,7 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           deleted == o.deleted &&
-          updated == o.updated
+          updated == o.updated &&
           additional_properties == o.additional_properties
     end
 
@@ -116,7 +116,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [deleted, updated].hash
+      [deleted, updated, additional_properties].hash
     end
   end
 end

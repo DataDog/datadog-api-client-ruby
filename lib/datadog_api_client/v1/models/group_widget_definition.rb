@@ -203,7 +203,7 @@ module DatadogAPIClient::V1
           title == o.title &&
           title_align == o.title_align &&
           type == o.type &&
-          widgets == o.widgets
+          widgets == o.widgets &&
           additional_properties == o.additional_properties
     end
 
@@ -211,7 +211,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [background_color, banner_img, layout_type, show_title, title, title_align, type, widgets].hash
+      [background_color, banner_img, layout_type, show_title, title, title_align, type, widgets, additional_properties].hash
     end
   end
 end

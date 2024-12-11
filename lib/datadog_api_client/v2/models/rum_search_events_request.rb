@@ -122,7 +122,7 @@ module DatadogAPIClient::V2
           filter == o.filter &&
           options == o.options &&
           page == o.page &&
-          sort == o.sort
+          sort == o.sort &&
           additional_properties == o.additional_properties
     end
 
@@ -130,7 +130,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [filter, options, page, sort].hash
+      [filter, options, page, sort, additional_properties].hash
     end
   end
 end

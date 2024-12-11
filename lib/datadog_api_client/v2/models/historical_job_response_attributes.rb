@@ -161,7 +161,7 @@ module DatadogAPIClient::V2
           job_definition == o.job_definition &&
           job_name == o.job_name &&
           job_status == o.job_status &&
-          modified_at == o.modified_at
+          modified_at == o.modified_at &&
           additional_properties == o.additional_properties
     end
 
@@ -169,7 +169,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created_at, created_by_handle, created_by_name, created_from_rule_id, job_definition, job_name, job_status, modified_at].hash
+      [created_at, created_by_handle, created_by_name, created_from_rule_id, job_definition, job_name, job_status, modified_at, additional_properties].hash
     end
   end
 end

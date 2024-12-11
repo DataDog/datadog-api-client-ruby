@@ -170,7 +170,7 @@ module DatadogAPIClient::V1
           target_display == o.target_display &&
           timeframe == o.timeframe &&
           warning == o.warning &&
-          warning_display == o.warning_display
+          warning_display == o.warning_display &&
           additional_properties == o.additional_properties
     end
 
@@ -178,7 +178,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [target, target_display, timeframe, warning, warning_display].hash
+      [target, target_display, timeframe, warning, warning_display, additional_properties].hash
     end
   end
 end

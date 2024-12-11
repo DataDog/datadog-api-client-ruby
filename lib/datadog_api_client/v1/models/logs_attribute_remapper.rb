@@ -227,7 +227,7 @@ module DatadogAPIClient::V1
           target == o.target &&
           target_format == o.target_format &&
           target_type == o.target_type &&
-          type == o.type
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -235,7 +235,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [is_enabled, name, override_on_conflict, preserve_source, source_type, sources, target, target_format, target_type, type].hash
+      [is_enabled, name, override_on_conflict, preserve_source, source_type, sources, target, target_format, target_type, type, additional_properties].hash
     end
   end
 end

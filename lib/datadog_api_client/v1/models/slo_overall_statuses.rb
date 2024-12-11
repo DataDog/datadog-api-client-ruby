@@ -185,7 +185,7 @@ module DatadogAPIClient::V1
           state == o.state &&
           status == o.status &&
           target == o.target &&
-          timeframe == o.timeframe
+          timeframe == o.timeframe &&
           additional_properties == o.additional_properties
     end
 
@@ -193,7 +193,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [error, error_budget_remaining, indexed_at, raw_error_budget_remaining, span_precision, state, status, target, timeframe].hash
+      [error, error_budget_remaining, indexed_at, raw_error_budget_remaining, span_precision, state, status, target, timeframe, additional_properties].hash
     end
   end
 end

@@ -232,7 +232,7 @@ module DatadogAPIClient::V1
           indexes == o.indexes &&
           query_string == o.query_string &&
           sort == o.sort &&
-          storage == o.storage
+          storage == o.storage &&
           additional_properties == o.additional_properties
     end
 
@@ -240,7 +240,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [clustering_pattern_field_path, compute, data_source, event_size, group_by, indexes, query_string, sort, storage].hash
+      [clustering_pattern_field_path, compute, data_source, event_size, group_by, indexes, query_string, sort, storage, additional_properties].hash
     end
   end
 end

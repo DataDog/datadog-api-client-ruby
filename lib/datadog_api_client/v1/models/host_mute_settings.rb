@@ -111,7 +111,7 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           _end == o._end &&
           message == o.message &&
-          override == o.override
+          override == o.override &&
           additional_properties == o.additional_properties
     end
 
@@ -119,7 +119,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [_end, message, override].hash
+      [_end, message, override, additional_properties].hash
     end
   end
 end

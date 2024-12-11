@@ -191,7 +191,7 @@ module DatadogAPIClient::V1
           type == o.type &&
           until_date == o.until_date &&
           until_occurrences == o.until_occurrences &&
-          week_days == o.week_days
+          week_days == o.week_days &&
           additional_properties == o.additional_properties
     end
 
@@ -199,7 +199,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [period, rrule, type, until_date, until_occurrences, week_days].hash
+      [period, rrule, type, until_date, until_occurrences, week_days, additional_properties].hash
     end
   end
 end

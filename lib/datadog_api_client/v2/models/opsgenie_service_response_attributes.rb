@@ -137,7 +137,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           custom_url == o.custom_url &&
           name == o.name &&
-          region == o.region
+          region == o.region &&
           additional_properties == o.additional_properties
     end
 
@@ -145,7 +145,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [custom_url, name, region].hash
+      [custom_url, name, region, additional_properties].hash
     end
   end
 end

@@ -121,7 +121,7 @@ module DatadogAPIClient::V2
           created_at == o.created_at &&
           expires_at == o.expires_at &&
           invite_type == o.invite_type &&
-          uuid == o.uuid
+          uuid == o.uuid &&
           additional_properties == o.additional_properties
     end
 
@@ -129,7 +129,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created_at, expires_at, invite_type, uuid].hash
+      [created_at, expires_at, invite_type, uuid, additional_properties].hash
     end
   end
 end

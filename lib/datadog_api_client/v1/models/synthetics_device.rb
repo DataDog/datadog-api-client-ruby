@@ -182,7 +182,7 @@ module DatadogAPIClient::V1
           id == o.id &&
           is_mobile == o.is_mobile &&
           name == o.name &&
-          width == o.width
+          width == o.width &&
           additional_properties == o.additional_properties
     end
 
@@ -190,7 +190,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [height, id, is_mobile, name, width].hash
+      [height, id, is_mobile, name, width, additional_properties].hash
     end
   end
 end

@@ -133,7 +133,7 @@ module DatadogAPIClient::V2
           editable == o.editable &&
           options == o.options &&
           title == o.title &&
-          value == o.value
+          value == o.value &&
           additional_properties == o.additional_properties
     end
 
@@ -141,7 +141,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [action, editable, options, title, value].hash
+      [action, editable, options, title, value, additional_properties].hash
     end
   end
 end

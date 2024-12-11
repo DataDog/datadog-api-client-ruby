@@ -165,7 +165,7 @@ module DatadogAPIClient::V2
           label == o.label &&
           position == o.position &&
           team_id == o.team_id &&
-          url == o.url
+          url == o.url &&
           additional_properties == o.additional_properties
     end
 
@@ -173,7 +173,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [label, position, team_id, url].hash
+      [label, position, team_id, url, additional_properties].hash
     end
   end
 end

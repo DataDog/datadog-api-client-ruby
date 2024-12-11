@@ -119,7 +119,7 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           match_rules == o.match_rules &&
-          support_rules == o.support_rules
+          support_rules == o.support_rules &&
           additional_properties == o.additional_properties
     end
 
@@ -127,7 +127,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [match_rules, support_rules].hash
+      [match_rules, support_rules, additional_properties].hash
     end
   end
 end

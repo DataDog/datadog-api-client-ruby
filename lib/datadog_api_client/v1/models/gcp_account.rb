@@ -268,7 +268,7 @@ module DatadogAPIClient::V1
           project_id == o.project_id &&
           resource_collection_enabled == o.resource_collection_enabled &&
           token_uri == o.token_uri &&
-          type == o.type
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -276,7 +276,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [auth_provider_x509_cert_url, auth_uri, automute, client_email, client_id, client_x509_cert_url, cloud_run_revision_filters, errors, host_filters, is_cspm_enabled, is_resource_change_collection_enabled, is_security_command_center_enabled, private_key, private_key_id, project_id, resource_collection_enabled, token_uri, type].hash
+      [auth_provider_x509_cert_url, auth_uri, automute, client_email, client_id, client_x509_cert_url, cloud_run_revision_filters, errors, host_filters, is_cspm_enabled, is_resource_change_collection_enabled, is_security_command_center_enabled, private_key, private_key_id, project_id, resource_collection_enabled, token_uri, type, additional_properties].hash
     end
   end
 end

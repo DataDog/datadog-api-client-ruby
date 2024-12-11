@@ -186,7 +186,7 @@ module DatadogAPIClient::V2
           job_result_ids == o.job_result_ids &&
           notifications == o.notifications &&
           signal_message == o.signal_message &&
-          signal_severity == o.signal_severity
+          signal_severity == o.signal_severity &&
           additional_properties == o.additional_properties
     end
 
@@ -194,7 +194,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [id, job_result_ids, notifications, signal_message, signal_severity].hash
+      [id, job_result_ids, notifications, signal_message, signal_severity, additional_properties].hash
     end
   end
 end

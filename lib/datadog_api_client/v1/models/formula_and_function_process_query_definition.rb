@@ -236,7 +236,7 @@ module DatadogAPIClient::V1
           name == o.name &&
           sort == o.sort &&
           tag_filters == o.tag_filters &&
-          text_filter == o.text_filter
+          text_filter == o.text_filter &&
           additional_properties == o.additional_properties
     end
 
@@ -244,7 +244,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [aggregator, cross_org_uuids, data_source, is_normalized_cpu, limit, metric, name, sort, tag_filters, text_filter].hash
+      [aggregator, cross_org_uuids, data_source, is_normalized_cpu, limit, metric, name, sort, tag_filters, text_filter, additional_properties].hash
     end
   end
 end

@@ -124,7 +124,7 @@ module DatadogAPIClient::V2
           custom == o.custom &&
           message == o.message &&
           tags == o.tags &&
-          timestamp == o.timestamp
+          timestamp == o.timestamp &&
           additional_properties == o.additional_properties
     end
 
@@ -132,7 +132,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [custom, message, tags, timestamp].hash
+      [custom, message, tags, timestamp, additional_properties].hash
     end
   end
 end

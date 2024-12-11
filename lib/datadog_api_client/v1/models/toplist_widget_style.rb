@@ -111,7 +111,7 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           display == o.display &&
           palette == o.palette &&
-          scaling == o.scaling
+          scaling == o.scaling &&
           additional_properties == o.additional_properties
     end
 
@@ -119,7 +119,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [display, palette, scaling].hash
+      [display, palette, scaling, additional_properties].hash
     end
   end
 end

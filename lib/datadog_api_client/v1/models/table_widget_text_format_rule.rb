@@ -149,7 +149,7 @@ module DatadogAPIClient::V1
           custom_fg_color == o.custom_fg_color &&
           match == o.match &&
           palette == o.palette &&
-          replace == o.replace
+          replace == o.replace &&
           additional_properties == o.additional_properties
     end
 
@@ -157,7 +157,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [custom_bg_color, custom_fg_color, match, palette, replace].hash
+      [custom_bg_color, custom_fg_color, match, palette, replace, additional_properties].hash
     end
   end
 end

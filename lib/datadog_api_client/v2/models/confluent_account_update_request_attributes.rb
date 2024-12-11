@@ -142,7 +142,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           api_key == o.api_key &&
           api_secret == o.api_secret &&
-          tags == o.tags
+          tags == o.tags &&
           additional_properties == o.additional_properties
     end
 
@@ -150,7 +150,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [api_key, api_secret, tags].hash
+      [api_key, api_secret, tags, additional_properties].hash
     end
   end
 end

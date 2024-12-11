@@ -119,7 +119,7 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           is_template == o.is_template &&
           take_snapshots == o.take_snapshots &&
-          type == o.type
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -127,7 +127,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [is_template, take_snapshots, type].hash
+      [is_template, take_snapshots, type, additional_properties].hash
     end
   end
 end

@@ -251,7 +251,7 @@ module DatadogAPIClient::V2
           name == o.name &&
           options == o.options &&
           tags == o.tags &&
-          type == o.type
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -259,7 +259,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [cases, compliance_signal_options, filters, is_enabled, message, name, options, tags, type].hash
+      [cases, compliance_signal_options, filters, is_enabled, message, name, options, tags, type, additional_properties].hash
     end
   end
 end

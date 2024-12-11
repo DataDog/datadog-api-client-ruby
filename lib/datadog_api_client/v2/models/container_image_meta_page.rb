@@ -171,7 +171,7 @@ module DatadogAPIClient::V2
           next_cursor == o.next_cursor &&
           prev_cursor == o.prev_cursor &&
           total == o.total &&
-          type == o.type
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -179,7 +179,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [cursor, limit, next_cursor, prev_cursor, total, type].hash
+      [cursor, limit, next_cursor, prev_cursor, total, type, additional_properties].hash
     end
   end
 end

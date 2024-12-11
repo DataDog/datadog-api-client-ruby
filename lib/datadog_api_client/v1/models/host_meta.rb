@@ -241,7 +241,7 @@ module DatadogAPIClient::V1
           python_v == o.python_v &&
           socket_fqdn == o.socket_fqdn &&
           socket_hostname == o.socket_hostname &&
-          win_v == o.win_v
+          win_v == o.win_v &&
           additional_properties == o.additional_properties
     end
 
@@ -249,7 +249,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [agent_checks, agent_version, cpu_cores, fbsd_v, gohai, install_method, mac_v, machine, nix_v, platform, processor, python_v, socket_fqdn, socket_hostname, win_v].hash
+      [agent_checks, agent_version, cpu_cores, fbsd_v, gohai, install_method, mac_v, machine, nix_v, platform, processor, python_v, socket_fqdn, socket_hostname, win_v, additional_properties].hash
     end
   end
 end

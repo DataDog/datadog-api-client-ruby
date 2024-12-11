@@ -174,7 +174,7 @@ module DatadogAPIClient::V2
           correlated_query_index == o.correlated_query_index &&
           metrics == o.metrics &&
           name == o.name &&
-          rule_id == o.rule_id
+          rule_id == o.rule_id &&
           additional_properties == o.additional_properties
     end
 
@@ -182,7 +182,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [aggregation, correlated_by_fields, correlated_query_index, metrics, name, rule_id].hash
+      [aggregation, correlated_by_fields, correlated_query_index, metrics, name, rule_id, additional_properties].hash
     end
   end
 end

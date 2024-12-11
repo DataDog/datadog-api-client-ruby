@@ -263,7 +263,7 @@ module DatadogAPIClient::V2
           update_date == o.update_date &&
           updated_at == o.updated_at &&
           updater == o.updater &&
-          version == o.version
+          version == o.version &&
           additional_properties == o.additional_properties
     end
 
@@ -271,7 +271,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [actions, agent_constraint, category, creation_author_uu_id, creation_date, creator, default_rule, description, enabled, expression, filters, name, update_author_uu_id, update_date, updated_at, updater, version].hash
+      [actions, agent_constraint, category, creation_author_uu_id, creation_date, creator, default_rule, description, enabled, expression, filters, name, update_author_uu_id, update_date, updated_at, updater, version, additional_properties].hash
     end
   end
 end

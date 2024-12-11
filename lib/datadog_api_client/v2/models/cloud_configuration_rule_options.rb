@@ -111,7 +111,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          compliance_rule_options == o.compliance_rule_options
+          compliance_rule_options == o.compliance_rule_options &&
           additional_properties == o.additional_properties
     end
 
@@ -119,7 +119,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [compliance_rule_options].hash
+      [compliance_rule_options, additional_properties].hash
     end
   end
 end

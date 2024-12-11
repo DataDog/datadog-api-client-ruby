@@ -163,7 +163,7 @@ module DatadogAPIClient::V2
           name == o.name &&
           namespace == o.namespace &&
           owner == o.owner &&
-          tags == o.tags
+          tags == o.tags &&
           additional_properties == o.additional_properties
     end
 
@@ -171,7 +171,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [api_version, description, display_name, kind, name, namespace, owner, tags].hash
+      [api_version, description, display_name, kind, name, namespace, owner, tags, additional_properties].hash
     end
   end
 end

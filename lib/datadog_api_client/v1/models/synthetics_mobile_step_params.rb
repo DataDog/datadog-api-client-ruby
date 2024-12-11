@@ -235,7 +235,7 @@ module DatadogAPIClient::V1
           variable == o.variable &&
           with_enter == o.with_enter &&
           x == o.x &&
-          y == o.y
+          y == o.y &&
           additional_properties == o.additional_properties
     end
 
@@ -243,7 +243,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [check, delay, direction, element, enabled, max_scrolls, positions, subtest_public_id, value, variable, with_enter, x, y].hash
+      [check, delay, direction, element, enabled, max_scrolls, positions, subtest_public_id, value, variable, with_enter, x, y, additional_properties].hash
     end
   end
 end

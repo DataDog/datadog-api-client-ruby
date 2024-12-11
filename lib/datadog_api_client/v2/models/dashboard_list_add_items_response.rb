@@ -93,7 +93,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          added_dashboards_to_list == o.added_dashboards_to_list
+          added_dashboards_to_list == o.added_dashboards_to_list &&
           additional_properties == o.additional_properties
     end
 
@@ -101,7 +101,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [added_dashboards_to_list].hash
+      [added_dashboards_to_list, additional_properties].hash
     end
   end
 end

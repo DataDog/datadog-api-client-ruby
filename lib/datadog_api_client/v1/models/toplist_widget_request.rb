@@ -265,7 +265,7 @@ module DatadogAPIClient::V1
           rum_query == o.rum_query &&
           security_query == o.security_query &&
           sort == o.sort &&
-          style == o.style
+          style == o.style &&
           additional_properties == o.additional_properties
     end
 
@@ -273,7 +273,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [apm_query, audit_query, conditional_formats, event_query, formulas, log_query, network_query, process_query, profile_metrics_query, q, queries, response_format, rum_query, security_query, sort, style].hash
+      [apm_query, audit_query, conditional_formats, event_query, formulas, log_query, network_query, process_query, profile_metrics_query, q, queries, response_format, rum_query, security_query, sort, style, additional_properties].hash
     end
   end
 end

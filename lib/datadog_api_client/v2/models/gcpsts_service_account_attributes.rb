@@ -190,7 +190,7 @@ module DatadogAPIClient::V2
           is_resource_change_collection_enabled == o.is_resource_change_collection_enabled &&
           is_security_command_center_enabled == o.is_security_command_center_enabled &&
           metric_namespace_configs == o.metric_namespace_configs &&
-          resource_collection_enabled == o.resource_collection_enabled
+          resource_collection_enabled == o.resource_collection_enabled &&
           additional_properties == o.additional_properties
     end
 
@@ -198,7 +198,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [account_tags, automute, client_email, cloud_run_revision_filters, host_filters, is_cspm_enabled, is_resource_change_collection_enabled, is_security_command_center_enabled, metric_namespace_configs, resource_collection_enabled].hash
+      [account_tags, automute, client_email, cloud_run_revision_filters, host_filters, is_cspm_enabled, is_resource_change_collection_enabled, is_security_command_center_enabled, metric_namespace_configs, resource_collection_enabled, additional_properties].hash
     end
   end
 end

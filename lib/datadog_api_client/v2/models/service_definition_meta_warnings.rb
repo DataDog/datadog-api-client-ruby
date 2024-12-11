@@ -111,7 +111,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           instance_location == o.instance_location &&
           keyword_location == o.keyword_location &&
-          message == o.message
+          message == o.message &&
           additional_properties == o.additional_properties
     end
 
@@ -119,7 +119,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [instance_location, keyword_location, message].hash
+      [instance_location, keyword_location, message, additional_properties].hash
     end
   end
 end

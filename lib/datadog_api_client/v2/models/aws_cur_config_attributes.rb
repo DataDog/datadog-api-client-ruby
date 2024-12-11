@@ -316,7 +316,7 @@ module DatadogAPIClient::V2
           report_prefix == o.report_prefix &&
           status == o.status &&
           status_updated_at == o.status_updated_at &&
-          updated_at == o.updated_at
+          updated_at == o.updated_at &&
           additional_properties == o.additional_properties
     end
 
@@ -324,7 +324,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [account_id, bucket_name, bucket_region, created_at, error_messages, months, report_name, report_prefix, status, status_updated_at, updated_at].hash
+      [account_id, bucket_name, bucket_region, created_at, error_messages, months, report_name, report_prefix, status, status_updated_at, updated_at, additional_properties].hash
     end
   end
 end

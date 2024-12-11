@@ -162,7 +162,7 @@ module DatadogAPIClient::V2
           changed_resource == o.changed_resource &&
           impacted_resources == o.impacted_resources &&
           new_value == o.new_value &&
-          prev_value == o.prev_value
+          prev_value == o.prev_value &&
           additional_properties == o.additional_properties
     end
 
@@ -170,7 +170,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [author, change_metadata, changed_resource, impacted_resources, new_value, prev_value].hash
+      [author, change_metadata, changed_resource, impacted_resources, new_value, prev_value, additional_properties].hash
     end
   end
 end

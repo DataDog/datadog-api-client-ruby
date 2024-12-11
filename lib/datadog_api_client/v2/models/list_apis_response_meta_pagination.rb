@@ -111,7 +111,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           limit == o.limit &&
           offset == o.offset &&
-          total_count == o.total_count
+          total_count == o.total_count &&
           additional_properties == o.additional_properties
     end
 
@@ -119,7 +119,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [limit, offset, total_count].hash
+      [limit, offset, total_count, additional_properties].hash
     end
   end
 end

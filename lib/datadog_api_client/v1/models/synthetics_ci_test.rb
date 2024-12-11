@@ -243,7 +243,7 @@ module DatadogAPIClient::V1
           public_id == o.public_id &&
           _retry == o._retry &&
           start_url == o.start_url &&
-          variables == o.variables
+          variables == o.variables &&
           additional_properties == o.additional_properties
     end
 
@@ -251,7 +251,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [allow_insecure_certificates, basic_auth, body, body_type, cookies, device_ids, follow_redirects, headers, locations, metadata, public_id, _retry, start_url, variables].hash
+      [allow_insecure_certificates, basic_auth, body, body_type, cookies, device_ids, follow_redirects, headers, locations, metadata, public_id, _retry, start_url, variables, additional_properties].hash
     end
   end
 end

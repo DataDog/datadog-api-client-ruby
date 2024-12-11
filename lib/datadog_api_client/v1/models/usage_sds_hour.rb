@@ -173,7 +173,7 @@ module DatadogAPIClient::V1
           org_name == o.org_name &&
           public_id == o.public_id &&
           rum_scanned_bytes == o.rum_scanned_bytes &&
-          total_scanned_bytes == o.total_scanned_bytes
+          total_scanned_bytes == o.total_scanned_bytes &&
           additional_properties == o.additional_properties
     end
 
@@ -181,7 +181,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [apm_scanned_bytes, events_scanned_bytes, hour, logs_scanned_bytes, org_name, public_id, rum_scanned_bytes, total_scanned_bytes].hash
+      [apm_scanned_bytes, events_scanned_bytes, hour, logs_scanned_bytes, org_name, public_id, rum_scanned_bytes, total_scanned_bytes, additional_properties].hash
     end
   end
 end

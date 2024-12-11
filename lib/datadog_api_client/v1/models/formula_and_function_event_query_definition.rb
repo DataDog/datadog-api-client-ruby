@@ -218,7 +218,7 @@ module DatadogAPIClient::V1
           indexes == o.indexes &&
           name == o.name &&
           search == o.search &&
-          storage == o.storage
+          storage == o.storage &&
           additional_properties == o.additional_properties
     end
 
@@ -226,7 +226,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [compute, cross_org_uuids, data_source, group_by, indexes, name, search, storage].hash
+      [compute, cross_org_uuids, data_source, group_by, indexes, name, search, storage, additional_properties].hash
     end
   end
 end

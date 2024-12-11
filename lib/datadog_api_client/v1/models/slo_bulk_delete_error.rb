@@ -153,7 +153,7 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           id == o.id &&
           message == o.message &&
-          timeframe == o.timeframe
+          timeframe == o.timeframe &&
           additional_properties == o.additional_properties
     end
 
@@ -161,7 +161,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [id, message, timeframe].hash
+      [id, message, timeframe, additional_properties].hash
     end
   end
 end

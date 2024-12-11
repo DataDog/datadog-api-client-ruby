@@ -213,7 +213,7 @@ module DatadogAPIClient::V2
           is_enabled == o.is_enabled &&
           months == o.months &&
           report_name == o.report_name &&
-          report_prefix == o.report_prefix
+          report_prefix == o.report_prefix &&
           additional_properties == o.additional_properties
     end
 
@@ -221,7 +221,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [account_id, bucket_name, bucket_region, is_enabled, months, report_name, report_prefix].hash
+      [account_id, bucket_name, bucket_region, is_enabled, months, report_name, report_prefix, additional_properties].hash
     end
   end
 end

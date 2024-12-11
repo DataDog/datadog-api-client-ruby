@@ -121,7 +121,7 @@ module DatadogAPIClient::V1
           device == o.device &&
           location == o.location &&
           public_id == o.public_id &&
-          result_id == o.result_id
+          result_id == o.result_id &&
           additional_properties == o.additional_properties
     end
 
@@ -129,7 +129,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [device, location, public_id, result_id].hash
+      [device, location, public_id, result_id, additional_properties].hash
     end
   end
 end

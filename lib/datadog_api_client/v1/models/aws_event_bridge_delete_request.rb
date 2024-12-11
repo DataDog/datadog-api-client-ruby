@@ -111,7 +111,7 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           account_id == o.account_id &&
           event_generator_name == o.event_generator_name &&
-          region == o.region
+          region == o.region &&
           additional_properties == o.additional_properties
     end
 
@@ -119,7 +119,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [account_id, event_generator_name, region].hash
+      [account_id, event_generator_name, region, additional_properties].hash
     end
   end
 end

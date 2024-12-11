@@ -139,7 +139,7 @@ module DatadogAPIClient::V1
           archive_comment == o.archive_comment &&
           archive_reason == o.archive_reason &&
           state == o.state &&
-          version == o.version
+          version == o.version &&
           additional_properties == o.additional_properties
     end
 
@@ -147,7 +147,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [archive_comment, archive_reason, state, version].hash
+      [archive_comment, archive_reason, state, version, additional_properties].hash
     end
   end
 end

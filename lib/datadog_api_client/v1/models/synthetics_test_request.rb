@@ -409,7 +409,7 @@ module DatadogAPIClient::V1
           service == o.service &&
           should_track_hops == o.should_track_hops &&
           timeout == o.timeout &&
-          url == o.url
+          url == o.url &&
           additional_properties == o.additional_properties
     end
 
@@ -417,7 +417,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [allow_insecure, basic_auth, body, body_type, call_type, certificate, certificate_domains, compressed_json_descriptor, compressed_proto_file, dns_server, dns_server_port, files, follow_redirects, headers, host, http_version, message, metadata, method, no_saving_response_body, number_of_packets, persist_cookies, port, proxy, query, servername, service, should_track_hops, timeout, url].hash
+      [allow_insecure, basic_auth, body, body_type, call_type, certificate, certificate_domains, compressed_json_descriptor, compressed_proto_file, dns_server, dns_server_port, files, follow_redirects, headers, host, http_version, message, metadata, method, no_saving_response_body, number_of_packets, persist_cookies, port, proxy, query, servername, service, should_track_hops, timeout, url, additional_properties].hash
     end
   end
 end

@@ -149,7 +149,7 @@ module DatadogAPIClient::V1
           definition == o.definition &&
           graph_size == o.graph_size &&
           split_by == o.split_by &&
-          time == o.time
+          time == o.time &&
           additional_properties == o.additional_properties
     end
 
@@ -157,7 +157,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [definition, graph_size, split_by, time].hash
+      [definition, graph_size, split_by, time, additional_properties].hash
     end
   end
 end

@@ -121,7 +121,7 @@ module DatadogAPIClient::V1
           action == o.action &&
           _end == o._end &&
           hostname == o.hostname &&
-          message == o.message
+          message == o.message &&
           additional_properties == o.additional_properties
     end
 
@@ -129,7 +129,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [action, _end, hostname, message].hash
+      [action, _end, hostname, message, additional_properties].hash
     end
   end
 end

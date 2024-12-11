@@ -111,7 +111,7 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           installer_version == o.installer_version &&
           tool == o.tool &&
-          tool_version == o.tool_version
+          tool_version == o.tool_version &&
           additional_properties == o.additional_properties
     end
 
@@ -119,7 +119,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [installer_version, tool, tool_version].hash
+      [installer_version, tool, tool_version, additional_properties].hash
     end
   end
 end

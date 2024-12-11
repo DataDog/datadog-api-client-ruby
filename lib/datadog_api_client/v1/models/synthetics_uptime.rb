@@ -147,7 +147,7 @@ module DatadogAPIClient::V1
           group == o.group &&
           history == o.history &&
           span_precision == o.span_precision &&
-          uptime == o.uptime
+          uptime == o.uptime &&
           additional_properties == o.additional_properties
     end
 
@@ -155,7 +155,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [errors, group, history, span_precision, uptime].hash
+      [errors, group, history, span_precision, uptime, additional_properties].hash
     end
   end
 end

@@ -101,7 +101,7 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           query == o.query &&
-          request_type == o.request_type
+          request_type == o.request_type &&
           additional_properties == o.additional_properties
     end
 
@@ -109,7 +109,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [query, request_type].hash
+      [query, request_type, additional_properties].hash
     end
   end
 end

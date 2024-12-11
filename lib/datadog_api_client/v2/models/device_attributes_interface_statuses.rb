@@ -121,7 +121,7 @@ module DatadogAPIClient::V2
           down == o.down &&
           off == o.off &&
           up == o.up &&
-          warning == o.warning
+          warning == o.warning &&
           additional_properties == o.additional_properties
     end
 
@@ -129,7 +129,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [down, off, up, warning].hash
+      [down, off, up, warning, additional_properties].hash
     end
   end
 end

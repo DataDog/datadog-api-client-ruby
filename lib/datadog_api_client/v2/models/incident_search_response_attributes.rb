@@ -157,7 +157,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           facets == o.facets &&
           incidents == o.incidents &&
-          total == o.total
+          total == o.total &&
           additional_properties == o.additional_properties
     end
 
@@ -165,7 +165,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [facets, incidents, total].hash
+      [facets, incidents, total, additional_properties].hash
     end
   end
 end

@@ -151,7 +151,7 @@ module DatadogAPIClient::V1
           last_billable_usage_hour == o.last_billable_usage_hour &&
           org_billable_usage == o.org_billable_usage &&
           percentage_in_account == o.percentage_in_account &&
-          usage_unit == o.usage_unit
+          usage_unit == o.usage_unit &&
           additional_properties == o.additional_properties
     end
 
@@ -159,7 +159,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [account_billable_usage, elapsed_usage_hours, first_billable_usage_hour, last_billable_usage_hour, org_billable_usage, percentage_in_account, usage_unit].hash
+      [account_billable_usage, elapsed_usage_hours, first_billable_usage_hour, last_billable_usage_hour, org_billable_usage, percentage_in_account, usage_unit, additional_properties].hash
     end
   end
 end

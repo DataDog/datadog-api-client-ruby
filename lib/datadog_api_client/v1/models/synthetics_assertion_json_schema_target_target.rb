@@ -101,7 +101,7 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           json_schema == o.json_schema &&
-          meta_schema == o.meta_schema
+          meta_schema == o.meta_schema &&
           additional_properties == o.additional_properties
     end
 
@@ -109,7 +109,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [json_schema, meta_schema].hash
+      [json_schema, meta_schema, additional_properties].hash
     end
   end
 end

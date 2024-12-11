@@ -113,7 +113,7 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           metadata == o.metadata &&
           results == o.results &&
-          status == o.status
+          status == o.status &&
           additional_properties == o.additional_properties
     end
 
@@ -121,7 +121,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [metadata, results, status].hash
+      [metadata, results, status, additional_properties].hash
     end
   end
 end

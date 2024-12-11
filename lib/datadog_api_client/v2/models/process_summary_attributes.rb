@@ -163,7 +163,7 @@ module DatadogAPIClient::V2
           start == o.start &&
           tags == o.tags &&
           timestamp == o.timestamp &&
-          user == o.user
+          user == o.user &&
           additional_properties == o.additional_properties
     end
 
@@ -171,7 +171,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [cmdline, host, pid, ppid, start, tags, timestamp, user].hash
+      [cmdline, host, pid, ppid, start, tags, timestamp, user, additional_properties].hash
     end
   end
 end

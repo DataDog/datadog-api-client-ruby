@@ -183,7 +183,7 @@ module DatadogAPIClient::V1
           session_count_android == o.session_count_android &&
           session_count_flutter == o.session_count_flutter &&
           session_count_ios == o.session_count_ios &&
-          session_count_reactnative == o.session_count_reactnative
+          session_count_reactnative == o.session_count_reactnative &&
           additional_properties == o.additional_properties
     end
 
@@ -191,7 +191,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [hour, org_name, public_id, replay_session_count, session_count, session_count_android, session_count_flutter, session_count_ios, session_count_reactnative].hash
+      [hour, org_name, public_id, replay_session_count, session_count, session_count_android, session_count_flutter, session_count_ios, session_count_reactnative, additional_properties].hash
     end
   end
 end

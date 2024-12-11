@@ -133,7 +133,7 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           billing == o.billing &&
           name == o.name &&
-          subscription == o.subscription
+          subscription == o.subscription &&
           additional_properties == o.additional_properties
     end
 
@@ -141,7 +141,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [billing, name, subscription].hash
+      [billing, name, subscription, additional_properties].hash
     end
   end
 end

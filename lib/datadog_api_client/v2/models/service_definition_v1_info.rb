@@ -139,7 +139,7 @@ module DatadogAPIClient::V2
           dd_service == o.dd_service &&
           description == o.description &&
           display_name == o.display_name &&
-          service_tier == o.service_tier
+          service_tier == o.service_tier &&
           additional_properties == o.additional_properties
     end
 
@@ -147,7 +147,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [dd_service, description, display_name, service_tier].hash
+      [dd_service, description, display_name, service_tier, additional_properties].hash
     end
   end
 end

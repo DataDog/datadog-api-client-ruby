@@ -264,7 +264,7 @@ module DatadogAPIClient::V2
           message == o.message &&
           repository_url == o.repository_url &&
           sha == o.sha &&
-          tag == o.tag
+          tag == o.tag &&
           additional_properties == o.additional_properties
     end
 
@@ -272,7 +272,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [author_email, author_name, author_time, branch, commit_time, committer_email, committer_name, default_branch, message, repository_url, sha, tag].hash
+      [author_email, author_name, author_time, branch, commit_time, committer_email, committer_name, default_branch, message, repository_url, sha, tag, additional_properties].hash
     end
   end
 end

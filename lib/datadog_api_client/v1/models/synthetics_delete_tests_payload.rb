@@ -105,7 +105,7 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           force_delete_dependencies == o.force_delete_dependencies &&
-          public_ids == o.public_ids
+          public_ids == o.public_ids &&
           additional_properties == o.additional_properties
     end
 
@@ -113,7 +113,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [force_delete_dependencies, public_ids].hash
+      [force_delete_dependencies, public_ids, additional_properties].hash
     end
   end
 end

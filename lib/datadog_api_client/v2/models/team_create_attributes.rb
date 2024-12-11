@@ -201,7 +201,7 @@ module DatadogAPIClient::V2
           handle == o.handle &&
           hidden_modules == o.hidden_modules &&
           name == o.name &&
-          visible_modules == o.visible_modules
+          visible_modules == o.visible_modules &&
           additional_properties == o.additional_properties
     end
 
@@ -209,7 +209,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [avatar, banner, description, handle, hidden_modules, name, visible_modules].hash
+      [avatar, banner, description, handle, hidden_modules, name, visible_modules, additional_properties].hash
     end
   end
 end

@@ -181,7 +181,7 @@ module DatadogAPIClient::V1
           status == o.status &&
           test_name == o.test_name &&
           test_public_id == o.test_public_id &&
-          test_type == o.test_type
+          test_type == o.test_type &&
           additional_properties == o.additional_properties
     end
 
@@ -189,7 +189,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [device, duration, execution_rule, location, result_id, retries, status, test_name, test_public_id, test_type].hash
+      [device, duration, execution_rule, location, result_id, retries, status, test_name, test_public_id, test_type, additional_properties].hash
     end
   end
 end

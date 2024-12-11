@@ -389,7 +389,7 @@ module DatadogAPIClient::V2
           start == o.start &&
           status == o.status &&
           tags == o.tags &&
-          url == o.url
+          url == o.url &&
           additional_properties == o.additional_properties
     end
 
@@ -397,7 +397,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [_end, error, git, id, job_id, job_name, level, metrics, name, node, parameters, pipeline_name, pipeline_unique_id, stage_id, stage_name, start, status, tags, url].hash
+      [_end, error, git, id, job_id, job_name, level, metrics, name, node, parameters, pipeline_name, pipeline_unique_id, stage_id, stage_name, start, status, tags, url, additional_properties].hash
     end
   end
 end

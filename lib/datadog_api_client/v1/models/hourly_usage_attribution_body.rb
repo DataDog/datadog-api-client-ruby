@@ -183,7 +183,7 @@ module DatadogAPIClient::V1
           tags == o.tags &&
           total_usage_sum == o.total_usage_sum &&
           updated_at == o.updated_at &&
-          usage_type == o.usage_type
+          usage_type == o.usage_type &&
           additional_properties == o.additional_properties
     end
 
@@ -191,7 +191,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [hour, org_name, public_id, region, tag_config_source, tags, total_usage_sum, updated_at, usage_type].hash
+      [hour, org_name, public_id, region, tag_config_source, tags, total_usage_sum, updated_at, usage_type, additional_properties].hash
     end
   end
 end

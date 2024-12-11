@@ -227,7 +227,7 @@ module DatadogAPIClient::V1
           name == o.name &&
           request == o.request &&
           _retry == o._retry &&
-          subtype == o.subtype
+          subtype == o.subtype &&
           additional_properties == o.additional_properties
     end
 
@@ -235,7 +235,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [allow_failure, assertions, exit_if_succeed, extracted_values, is_critical, name, request, _retry, subtype].hash
+      [allow_failure, assertions, exit_if_succeed, extracted_values, is_critical, name, request, _retry, subtype, additional_properties].hash
     end
   end
 end

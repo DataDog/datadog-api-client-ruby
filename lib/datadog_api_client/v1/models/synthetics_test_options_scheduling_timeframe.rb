@@ -159,7 +159,7 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           day == o.day &&
           from == o.from &&
-          to == o.to
+          to == o.to &&
           additional_properties == o.additional_properties
     end
 
@@ -167,7 +167,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [day, from, to].hash
+      [day, from, to, additional_properties].hash
     end
   end
 end

@@ -284,7 +284,7 @@ module DatadogAPIClient::V2
           tags == o.tags &&
           title == o.title &&
           type == o.type &&
-          url == o.url
+          url == o.url &&
           additional_properties == o.additional_properties
     end
 
@@ -292,7 +292,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [author, created, icon, id, integration_id, is_favorite, is_read_only, is_shared, modified, popularity, tags, title, type, url].hash
+      [author, created, icon, id, integration_id, is_favorite, is_read_only, is_shared, modified, popularity, tags, title, type, url, additional_properties].hash
     end
   end
 end

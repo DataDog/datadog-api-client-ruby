@@ -135,7 +135,7 @@ module DatadogAPIClient::V1
           group_by == o.group_by &&
           index == o.index &&
           multi_compute == o.multi_compute &&
-          search == o.search
+          search == o.search &&
           additional_properties == o.additional_properties
     end
 
@@ -143,7 +143,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [compute, group_by, index, multi_compute, search].hash
+      [compute, group_by, index, multi_compute, search, additional_properties].hash
     end
   end
 end

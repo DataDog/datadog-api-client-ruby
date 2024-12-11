@@ -164,7 +164,7 @@ module DatadogAPIClient::V1
           metric == o.metric &&
           points == o.points &&
           tags == o.tags &&
-          type == o.type
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -172,7 +172,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [host, metric, points, tags, type].hash
+      [host, metric, points, tags, type, additional_properties].hash
     end
   end
 end

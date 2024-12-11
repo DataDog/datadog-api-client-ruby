@@ -129,7 +129,7 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           filter == o.filter &&
           is_enabled == o.is_enabled &&
-          name == o.name
+          name == o.name &&
           additional_properties == o.additional_properties
     end
 
@@ -137,7 +137,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [filter, is_enabled, name].hash
+      [filter, is_enabled, name, additional_properties].hash
     end
   end
 end

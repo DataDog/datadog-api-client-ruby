@@ -113,7 +113,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           endpoints == o.endpoints &&
           in_app_label == o.in_app_label &&
-          timestamp == o.timestamp
+          timestamp == o.timestamp &&
           additional_properties == o.additional_properties
     end
 
@@ -121,7 +121,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [endpoints, in_app_label, timestamp].hash
+      [endpoints, in_app_label, timestamp, additional_properties].hash
     end
   end
 end

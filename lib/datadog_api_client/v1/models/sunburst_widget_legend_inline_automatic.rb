@@ -129,7 +129,7 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           hide_percent == o.hide_percent &&
           hide_value == o.hide_value &&
-          type == o.type
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -137,7 +137,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [hide_percent, hide_value, type].hash
+      [hide_percent, hide_value, type, additional_properties].hash
     end
   end
 end

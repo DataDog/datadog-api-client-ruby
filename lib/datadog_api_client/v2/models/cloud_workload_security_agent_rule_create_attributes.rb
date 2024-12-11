@@ -162,7 +162,7 @@ module DatadogAPIClient::V2
           enabled == o.enabled &&
           expression == o.expression &&
           filters == o.filters &&
-          name == o.name
+          name == o.name &&
           additional_properties == o.additional_properties
     end
 
@@ -170,7 +170,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [description, enabled, expression, filters, name].hash
+      [description, enabled, expression, filters, name, additional_properties].hash
     end
   end
 end

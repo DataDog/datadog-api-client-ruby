@@ -103,7 +103,7 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           fail_test_on_cannot_locate == o.fail_test_on_cannot_locate &&
-          values == o.values
+          values == o.values &&
           additional_properties == o.additional_properties
     end
 
@@ -111,7 +111,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [fail_test_on_cannot_locate, values].hash
+      [fail_test_on_cannot_locate, values, additional_properties].hash
     end
   end
 end

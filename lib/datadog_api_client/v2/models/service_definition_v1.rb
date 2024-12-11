@@ -197,7 +197,7 @@ module DatadogAPIClient::V2
           integrations == o.integrations &&
           org == o.org &&
           schema_version == o.schema_version &&
-          tags == o.tags
+          tags == o.tags &&
           additional_properties == o.additional_properties
     end
 
@@ -205,7 +205,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [contact, extensions, external_resources, info, integrations, org, schema_version, tags].hash
+      [contact, extensions, external_resources, info, integrations, org, schema_version, tags, additional_properties].hash
     end
   end
 end

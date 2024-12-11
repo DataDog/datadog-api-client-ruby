@@ -111,7 +111,7 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           cls == o.cls &&
           lcp == o.lcp &&
-          url == o.url
+          url == o.url &&
           additional_properties == o.additional_properties
     end
 
@@ -119,7 +119,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [cls, lcp, url].hash
+      [cls, lcp, url, additional_properties].hash
     end
   end
 end
