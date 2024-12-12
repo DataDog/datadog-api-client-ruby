@@ -20,7 +20,6 @@ body = DatadogAPIClient::V1::Dashboard.new({
               DatadogAPIClient::V1::ListStreamColumn.new({
                 width: DatadogAPIClient::V1::ListStreamColumnWidth::AUTO,
                 field: "message",
-                is_clustering_pattern_field_path: true,
               }),
             ],
             query: DatadogAPIClient::V1::ListStreamQuery.new({
