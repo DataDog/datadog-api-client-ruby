@@ -21,6 +21,7 @@ module DatadogAPIClient::V2
   class SLOReportInterval
     include BaseEnumModel
 
+    DAILY = "daily".freeze
     WEEKLY = "weekly".freeze
     MONTHLY = "monthly".freeze
   end
