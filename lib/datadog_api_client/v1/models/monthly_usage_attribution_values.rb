@@ -93,6 +93,12 @@ module DatadogAPIClient::V1
     # The Cloud Security Information and Event Management usage by tag(s).
     attr_accessor :cloud_siem_usage
 
+    # The percentage of Code Security host usage by tags.
+    attr_accessor :code_security_host_percentage
+
+    # The Code Security host usage by tags.
+    attr_accessor :code_security_host_usage
+
     # The percentage of container usage without the Datadog Agent by tag(s).
     attr_accessor :container_excl_agent_percentage
 
@@ -459,6 +465,8 @@ module DatadogAPIClient::V1
         :'ci_visibility_itr_usage' => :'ci_visibility_itr_usage',
         :'cloud_siem_percentage' => :'cloud_siem_percentage',
         :'cloud_siem_usage' => :'cloud_siem_usage',
+        :'code_security_host_percentage' => :'code_security_host_percentage',
+        :'code_security_host_usage' => :'code_security_host_usage',
         :'container_excl_agent_percentage' => :'container_excl_agent_percentage',
         :'container_excl_agent_usage' => :'container_excl_agent_usage',
         :'container_percentage' => :'container_percentage',
@@ -602,6 +610,8 @@ module DatadogAPIClient::V1
         :'ci_visibility_itr_usage' => :'Float',
         :'cloud_siem_percentage' => :'Float',
         :'cloud_siem_usage' => :'Float',
+        :'code_security_host_percentage' => :'Float',
+        :'code_security_host_usage' => :'Float',
         :'container_excl_agent_percentage' => :'Float',
         :'container_excl_agent_usage' => :'Float',
         :'container_percentage' => :'Float',
@@ -829,6 +839,14 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'cloud_siem_usage')
         self.cloud_siem_usage = attributes[:'cloud_siem_usage']
+      end
+
+      if attributes.key?(:'code_security_host_percentage')
+        self.code_security_host_percentage = attributes[:'code_security_host_percentage']
+      end
+
+      if attributes.key?(:'code_security_host_usage')
+        self.code_security_host_usage = attributes[:'code_security_host_usage']
       end
 
       if attributes.key?(:'container_excl_agent_percentage')
@@ -1330,6 +1348,8 @@ module DatadogAPIClient::V1
           ci_visibility_itr_usage == o.ci_visibility_itr_usage &&
           cloud_siem_percentage == o.cloud_siem_percentage &&
           cloud_siem_usage == o.cloud_siem_usage &&
+          code_security_host_percentage == o.code_security_host_percentage &&
+          code_security_host_usage == o.code_security_host_usage &&
           container_excl_agent_percentage == o.container_excl_agent_percentage &&
           container_excl_agent_usage == o.container_excl_agent_usage &&
           container_percentage == o.container_percentage &&
@@ -1449,7 +1469,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [api_percentage, api_usage, apm_fargate_percentage, apm_fargate_usage, apm_host_percentage, apm_host_usage, apm_usm_percentage, apm_usm_usage, appsec_fargate_percentage, appsec_fargate_usage, appsec_percentage, appsec_usage, asm_serverless_traced_invocations_percentage, asm_serverless_traced_invocations_usage, browser_percentage, browser_usage, ci_pipeline_indexed_spans_percentage, ci_pipeline_indexed_spans_usage, ci_test_indexed_spans_percentage, ci_test_indexed_spans_usage, ci_visibility_itr_percentage, ci_visibility_itr_usage, cloud_siem_percentage, cloud_siem_usage, container_excl_agent_percentage, container_excl_agent_usage, container_percentage, container_usage, cspm_containers_percentage, cspm_containers_usage, cspm_hosts_percentage, cspm_hosts_usage, custom_event_percentage, custom_event_usage, custom_ingested_timeseries_percentage, custom_ingested_timeseries_usage, custom_timeseries_percentage, custom_timeseries_usage, cws_containers_percentage, cws_containers_usage, cws_fargate_task_percentage, cws_fargate_task_usage, cws_hosts_percentage, cws_hosts_usage, data_jobs_monitoring_usage, data_stream_monitoring_usage, dbm_hosts_percentage, dbm_hosts_usage, dbm_queries_percentage, dbm_queries_usage, error_tracking_percentage, error_tracking_usage, estimated_indexed_spans_percentage, estimated_indexed_spans_usage, estimated_ingested_spans_percentage, estimated_ingested_spans_usage, fargate_percentage, fargate_usage, functions_percentage, functions_usage, incident_management_monthly_active_users_percentage, incident_management_monthly_active_users_usage, indexed_spans_percentage, indexed_spans_usage, infra_host_percentage, infra_host_usage, ingested_logs_bytes_percentage, ingested_logs_bytes_usage, ingested_spans_bytes_percentage, ingested_spans_bytes_usage, invocations_percentage, invocations_usage, lambda_traced_invocations_percentage, lambda_traced_invocations_usage, logs_indexed_15day_percentage, logs_indexed_15day_usage, logs_indexed_180day_percentage, logs_indexed_180day_usage, logs_indexed_1day_percentage, logs_indexed_1day_usage, logs_indexed_30day_percentage, logs_indexed_30day_usage, logs_indexed_360day_percentage, logs_indexed_360day_usage, logs_indexed_3day_percentage, logs_indexed_3day_usage, logs_indexed_45day_percentage, logs_indexed_45day_usage, logs_indexed_60day_percentage, logs_indexed_60day_usage, logs_indexed_7day_percentage, logs_indexed_7day_usage, logs_indexed_90day_percentage, logs_indexed_90day_usage, logs_indexed_custom_retention_percentage, logs_indexed_custom_retention_usage, mobile_app_testing_percentage, mobile_app_testing_usage, ndm_netflow_percentage, ndm_netflow_usage, npm_host_percentage, npm_host_usage, obs_pipeline_bytes_percentage, obs_pipeline_bytes_usage, obs_pipelines_vcpu_percentage, obs_pipelines_vcpu_usage, online_archive_percentage, online_archive_usage, profiled_container_percentage, profiled_container_usage, profiled_fargate_percentage, profiled_fargate_usage, profiled_host_percentage, profiled_host_usage, rum_browser_mobile_sessions_percentage, rum_browser_mobile_sessions_usage, rum_replay_sessions_percentage, rum_replay_sessions_usage, sca_fargate_percentage, sca_fargate_usage, sds_scanned_bytes_percentage, sds_scanned_bytes_usage, serverless_apps_percentage, serverless_apps_usage, siem_analyzed_logs_add_on_percentage, siem_analyzed_logs_add_on_usage, siem_ingested_bytes_percentage, siem_ingested_bytes_usage, snmp_percentage, snmp_usage, universal_service_monitoring_percentage, universal_service_monitoring_usage, vuln_management_hosts_percentage, vuln_management_hosts_usage, workflow_executions_percentage, workflow_executions_usage, additional_properties].hash
+      [api_percentage, api_usage, apm_fargate_percentage, apm_fargate_usage, apm_host_percentage, apm_host_usage, apm_usm_percentage, apm_usm_usage, appsec_fargate_percentage, appsec_fargate_usage, appsec_percentage, appsec_usage, asm_serverless_traced_invocations_percentage, asm_serverless_traced_invocations_usage, browser_percentage, browser_usage, ci_pipeline_indexed_spans_percentage, ci_pipeline_indexed_spans_usage, ci_test_indexed_spans_percentage, ci_test_indexed_spans_usage, ci_visibility_itr_percentage, ci_visibility_itr_usage, cloud_siem_percentage, cloud_siem_usage, code_security_host_percentage, code_security_host_usage, container_excl_agent_percentage, container_excl_agent_usage, container_percentage, container_usage, cspm_containers_percentage, cspm_containers_usage, cspm_hosts_percentage, cspm_hosts_usage, custom_event_percentage, custom_event_usage, custom_ingested_timeseries_percentage, custom_ingested_timeseries_usage, custom_timeseries_percentage, custom_timeseries_usage, cws_containers_percentage, cws_containers_usage, cws_fargate_task_percentage, cws_fargate_task_usage, cws_hosts_percentage, cws_hosts_usage, data_jobs_monitoring_usage, data_stream_monitoring_usage, dbm_hosts_percentage, dbm_hosts_usage, dbm_queries_percentage, dbm_queries_usage, error_tracking_percentage, error_tracking_usage, estimated_indexed_spans_percentage, estimated_indexed_spans_usage, estimated_ingested_spans_percentage, estimated_ingested_spans_usage, fargate_percentage, fargate_usage, functions_percentage, functions_usage, incident_management_monthly_active_users_percentage, incident_management_monthly_active_users_usage, indexed_spans_percentage, indexed_spans_usage, infra_host_percentage, infra_host_usage, ingested_logs_bytes_percentage, ingested_logs_bytes_usage, ingested_spans_bytes_percentage, ingested_spans_bytes_usage, invocations_percentage, invocations_usage, lambda_traced_invocations_percentage, lambda_traced_invocations_usage, logs_indexed_15day_percentage, logs_indexed_15day_usage, logs_indexed_180day_percentage, logs_indexed_180day_usage, logs_indexed_1day_percentage, logs_indexed_1day_usage, logs_indexed_30day_percentage, logs_indexed_30day_usage, logs_indexed_360day_percentage, logs_indexed_360day_usage, logs_indexed_3day_percentage, logs_indexed_3day_usage, logs_indexed_45day_percentage, logs_indexed_45day_usage, logs_indexed_60day_percentage, logs_indexed_60day_usage, logs_indexed_7day_percentage, logs_indexed_7day_usage, logs_indexed_90day_percentage, logs_indexed_90day_usage, logs_indexed_custom_retention_percentage, logs_indexed_custom_retention_usage, mobile_app_testing_percentage, mobile_app_testing_usage, ndm_netflow_percentage, ndm_netflow_usage, npm_host_percentage, npm_host_usage, obs_pipeline_bytes_percentage, obs_pipeline_bytes_usage, obs_pipelines_vcpu_percentage, obs_pipelines_vcpu_usage, online_archive_percentage, online_archive_usage, profiled_container_percentage, profiled_container_usage, profiled_fargate_percentage, profiled_fargate_usage, profiled_host_percentage, profiled_host_usage, rum_browser_mobile_sessions_percentage, rum_browser_mobile_sessions_usage, rum_replay_sessions_percentage, rum_replay_sessions_usage, sca_fargate_percentage, sca_fargate_usage, sds_scanned_bytes_percentage, sds_scanned_bytes_usage, serverless_apps_percentage, serverless_apps_usage, siem_analyzed_logs_add_on_percentage, siem_analyzed_logs_add_on_usage, siem_ingested_bytes_percentage, siem_ingested_bytes_usage, snmp_percentage, snmp_usage, universal_service_monitoring_percentage, universal_service_monitoring_usage, vuln_management_hosts_percentage, vuln_management_hosts_usage, workflow_executions_percentage, workflow_executions_usage, additional_properties].hash
     end
   end
 end
