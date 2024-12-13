@@ -39,6 +39,12 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(CancelDataDeletionResponseBody, Integer, Hash)>] CancelDataDeletionResponseBody data, response status code and response headers
     def cancel_data_deletion_request_with_http_info(id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.cancel_data_deletion_request".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.cancel_data_deletion_request")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.cancel_data_deletion_request"))
+      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DataDeletionAPI.cancel_data_deletion_request ...'
@@ -105,6 +111,12 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(CreateDataDeletionResponseBody, Integer, Hash)>] CreateDataDeletionResponseBody data, response status code and response headers
     def create_data_deletion_request_with_http_info(product, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_data_deletion_request".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_data_deletion_request")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_data_deletion_request"))
+      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DataDeletionAPI.create_data_deletion_request ...'
@@ -180,6 +192,12 @@ module DatadogAPIClient::V2
     # @option opts [Integer] :page_size Sets the page size of the search.
     # @return [Array<(GetDataDeletionsResponseBody, Integer, Hash)>] GetDataDeletionsResponseBody data, response status code and response headers
     def get_data_deletion_requests_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_data_deletion_requests".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_data_deletion_requests")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_data_deletion_requests"))
+      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DataDeletionAPI.get_data_deletion_requests ...'
