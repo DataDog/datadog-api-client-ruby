@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # The minimum time for the requested events. Supports date math and regular timestamps in milliseconds.
     attr_accessor :from
 
-    # The search query following the event search syntax.
+    # The search query following the [event search syntax](https://docs.datadoghq.com/service_management/events/explorer/searching).
     attr_accessor :query
 
     # The maximum time for the requested events. Supports date math and regular timestamps in milliseconds.
