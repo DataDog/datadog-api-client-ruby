@@ -34,6 +34,7 @@ module DatadogAPIClient::V1
     CI_TEST_INDEXED_SPANS_USAGE = "ci_test_indexed_spans_usage".freeze
     CI_VISIBILITY_ITR_USAGE = "ci_visibility_itr_usage".freeze
     CLOUD_SIEM_USAGE = "cloud_siem_usage".freeze
+    CODE_SECURITY_HOST_USAGE = "code_security_host_usage".freeze
     CONTAINER_EXCL_AGENT_USAGE = "container_excl_agent_usage".freeze
     CONTAINER_USAGE = "container_usage".freeze
     CSPM_CONTAINERS_USAGE = "cspm_containers_usage".freeze
