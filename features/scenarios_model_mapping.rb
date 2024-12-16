@@ -1171,6 +1171,18 @@ ScenariosModelMappings = {
             "view" => "String",
             "include_connected_accounts" => "Boolean",
     },
+    "v2.ListAllCSMAgents" => {
+            "page" => "Integer",
+            "size" => "Integer",
+            "query" => "String",
+            "order_direction" => "OrderDirection",
+    },
+    "v2.ListAllCSMServerlessAgents" => {
+            "page" => "Integer",
+            "size" => "Integer",
+            "query" => "String",
+            "order_direction" => "OrderDirection",
+    },
     "v2.DeleteDashboardListItems" => {
             "dashboard_list_id" => "Integer",
             "body" => "DashboardListDeleteItemsRequest",
