@@ -1,0 +1,24 @@
+http_interactions:
+- recorded_at: Tue, 10 Dec 2024 19:57:10 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"29494ddd-ac13-46a7-8558-b05b050ee755","type":"appDefinitions"},{"id":"71c0d358-eac5-41e3-892d-a7467571b9b0","type":"appDefinitions"},{"id":"98e7e44d-1562-474a-90f7-3a94e739c006","type":"appDefinitions"}]}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/app-builder/apps
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"detail":"one or more apps not found"}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 404
+      message: Not Found
+recorded_with: VCR 6.0.0

@@ -943,6 +943,40 @@ ScenariosModelMappings = {
             "filter_id" => "String",
             "body" => "RetentionFilterUpdateRequest",
     },
+    "v2.DeleteApps" => {
+            "body" => "DeleteAppsRequest",
+    },
+    "v2.ListApps" => {
+            "limit" => "Integer",
+            "page" => "Integer",
+            "filter_user_name" => "String",
+            "filter_user_uuid" => "String",
+            "filter_name" => "String",
+            "filter_query" => "String",
+            "filter_deployed" => "Boolean",
+            "filter_tags" => "String",
+            "filter_favorite" => "Boolean",
+            "sort" => "Array<AppsSortField>",
+    },
+    "v2.CreateApp" => {
+            "body" => "CreateAppRequest",
+    },
+    "v2.DeleteApp" => {
+            "app_id" => "String",
+    },
+    "v2.GetApp" => {
+            "app_id" => "String",
+    },
+    "v2.UpdateApp" => {
+            "app_id" => "String",
+            "body" => "UpdateAppRequest",
+    },
+    "v2.DisableApp" => {
+            "app_id" => "String",
+    },
+    "v2.DeployApp" => {
+            "app_id" => "String",
+    },
     "v2.ListAuditLogs" => {
             "filter_query" => "String",
             "filter_from" => "Time",
