@@ -1,0 +1,20 @@
+http_interactions:
+- recorded_at: Tue, 10 Dec 2024 19:57:10 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/app-builder/apps/bad-app-id
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"detail":"invalid path parameter","source":{"parameter":"appId"}}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 400
+      message: Bad Request
+recorded_with: VCR 6.0.0
