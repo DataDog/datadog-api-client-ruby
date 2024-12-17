@@ -35,7 +35,9 @@ module DatadogAPIClient::V2
     #
     # This endpoint allows you to post events.
     #
-    # Only events with **`change` category** are under General Availability. Refer to [Change Tracking](https://docs.datadoghq.com/change_tracking) for further details.
+    # ✅ **Only events with the `change` category** are in General Availability. See [Change Tracking](https://docs.datadoghq.com/change_tracking) for more details.
+    #
+    # ❌ For use cases involving other event categories, please use the V1 endpoint.
     #
     # @param body [EventCreateRequestPayload] Event request object
     # @param opts [Hash] the optional parameters
