@@ -52,11 +52,11 @@ module DatadogAPIClient::V1
     # Only hosts that match one of the defined tags are imported into Datadog.
     attr_accessor :host_filters
 
-    # Dictionary containing the key `excluded_resource_providers` which has to be a list of Microsoft Azure Resource Provider names.
-    # This feature is currently being beta tested.
-    # In order to enable all resource providers for metric collection, pass:
-    # `metrics_config: {"excluded_resource_providers": []}` (i.e., an empty list for `excluded_resource_providers`).
-    attr_accessor :metrics_config
+    # Enable Azure metrics for your organization.
+    attr_accessor :metrics_enabled
+
+    # Enable Azure metrics for your organization for resource providers where no resource provider config is specified.
+    attr_accessor :metrics_enabled_default
 
     # Your New Azure web application ID.
     attr_accessor :new_client_id
@@ -67,8 +67,14 @@ module DatadogAPIClient::V1
     # When enabled, Datadog collects metadata and configuration info from cloud resources (compute instances, databases, load balancers, etc.) monitored by this app registration.
     attr_accessor :resource_collection_enabled
 
+    # Configuration settings applied to resources from the specified Azure resource providers.
+    attr_accessor :resource_provider_configs
+
     # Your Azure Active Directory ID.
     attr_accessor :tenant_name
+
+    # Enable azure.usage metrics for your organization.
+    attr_accessor :usage_metrics_enabled
 
     attr_accessor :additional_properties
 
@@ -85,11 +91,14 @@ module DatadogAPIClient::V1
         :'custom_metrics_enabled' => :'custom_metrics_enabled',
         :'errors' => :'errors',
         :'host_filters' => :'host_filters',
-        :'metrics_config' => :'metrics_config',
+        :'metrics_enabled' => :'metrics_enabled',
+        :'metrics_enabled_default' => :'metrics_enabled_default',
         :'new_client_id' => :'new_client_id',
         :'new_tenant_name' => :'new_tenant_name',
         :'resource_collection_enabled' => :'resource_collection_enabled',
-        :'tenant_name' => :'tenant_name'
+        :'resource_provider_configs' => :'resource_provider_configs',
+        :'tenant_name' => :'tenant_name',
+        :'usage_metrics_enabled' => :'usage_metrics_enabled'
       }
     end
 
@@ -106,11 +115,14 @@ module DatadogAPIClient::V1
         :'custom_metrics_enabled' => :'Boolean',
         :'errors' => :'Array<String>',
         :'host_filters' => :'String',
-        :'metrics_config' => :'AzureAccountMetricsConfig',
+        :'metrics_enabled' => :'Boolean',
+        :'metrics_enabled_default' => :'Boolean',
         :'new_client_id' => :'String',
         :'new_tenant_name' => :'String',
         :'resource_collection_enabled' => :'Boolean',
-        :'tenant_name' => :'String'
+        :'resource_provider_configs' => :'Array<ResourceProviderConfig>',
+        :'tenant_name' => :'String',
+        :'usage_metrics_enabled' => :'Boolean'
       }
     end
 
@@ -170,8 +182,12 @@ module DatadogAPIClient::V1
         self.host_filters = attributes[:'host_filters']
       end
 
-      if attributes.key?(:'metrics_config')
-        self.metrics_config = attributes[:'metrics_config']
+      if attributes.key?(:'metrics_enabled')
+        self.metrics_enabled = attributes[:'metrics_enabled']
+      end
+
+      if attributes.key?(:'metrics_enabled_default')
+        self.metrics_enabled_default = attributes[:'metrics_enabled_default']
       end
 
       if attributes.key?(:'new_client_id')
@@ -186,8 +202,18 @@ module DatadogAPIClient::V1
         self.resource_collection_enabled = attributes[:'resource_collection_enabled']
       end
 
+      if attributes.key?(:'resource_provider_configs')
+        if (value = attributes[:'resource_provider_configs']).is_a?(Array)
+          self.resource_provider_configs = value
+        end
+      end
+
       if attributes.key?(:'tenant_name')
         self.tenant_name = attributes[:'tenant_name']
+      end
+
+      if attributes.key?(:'usage_metrics_enabled')
+        self.usage_metrics_enabled = attributes[:'usage_metrics_enabled']
       end
     end
 
@@ -226,11 +252,14 @@ module DatadogAPIClient::V1
           custom_metrics_enabled == o.custom_metrics_enabled &&
           errors == o.errors &&
           host_filters == o.host_filters &&
-          metrics_config == o.metrics_config &&
+          metrics_enabled == o.metrics_enabled &&
+          metrics_enabled_default == o.metrics_enabled_default &&
           new_client_id == o.new_client_id &&
           new_tenant_name == o.new_tenant_name &&
           resource_collection_enabled == o.resource_collection_enabled &&
+          resource_provider_configs == o.resource_provider_configs &&
           tenant_name == o.tenant_name &&
+          usage_metrics_enabled == o.usage_metrics_enabled &&
           additional_properties == o.additional_properties
     end
 
@@ -238,7 +267,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [app_service_plan_filters, automute, client_id, client_secret, container_app_filters, cspm_enabled, custom_metrics_enabled, errors, host_filters, metrics_config, new_client_id, new_tenant_name, resource_collection_enabled, tenant_name, additional_properties].hash
+      [app_service_plan_filters, automute, client_id, client_secret, container_app_filters, cspm_enabled, custom_metrics_enabled, errors, host_filters, metrics_enabled, metrics_enabled_default, new_client_id, new_tenant_name, resource_collection_enabled, resource_provider_configs, tenant_name, usage_metrics_enabled, additional_properties].hash
     end
   end
 end
