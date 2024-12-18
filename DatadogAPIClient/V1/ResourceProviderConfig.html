@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
-  Class: DatadogAPIClient::V1::AzureAccountMetricsConfig
+  Class: DatadogAPIClient::V1::ResourceProviderConfig
   
     &mdash; datadog-api-client 2.29.1.dev.1 documentation
   
@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="../../css/common.css" type="text/css" />
 
 <script type="text/javascript">
-  pathId = "DatadogAPIClient::V1::AzureAccountMetricsConfig";
+  pathId = "DatadogAPIClient::V1::ResourceProviderConfig";
   relpath = '../../';
 </script>
 
@@ -36,10 +36,10 @@
       <div id="header">
         <div id="menu">
   
-    <a href="../../_index.html">Index (A)</a> &raquo;
+    <a href="../../_index.html">Index (R)</a> &raquo;
     <span class='title'><span class='object_link'><a href="../../DatadogAPIClient.html" title="DatadogAPIClient (module)">DatadogAPIClient</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../V1.html" title="DatadogAPIClient::V1 (module)">V1</a></span></span>
      &raquo; 
-    <span class="title">AzureAccountMetricsConfig</span>
+    <span class="title">ResourceProviderConfig</span>
   
 </div>
 
@@ -59,7 +59,7 @@
         <div class="clear"></div>
       </div>
 
-      <div id="content"><h1>Class: DatadogAPIClient::V1::AzureAccountMetricsConfig
+      <div id="content"><h1>Class: DatadogAPIClient::V1::ResourceProviderConfig
   
   
   
@@ -74,7 +74,7 @@
         <ul class="fullTree">
           <li>Object</li>
           
-            <li class="next">DatadogAPIClient::V1::AzureAccountMetricsConfig</li>
+            <li class="next">DatadogAPIClient::V1::ResourceProviderConfig</li>
           
         </ul>
         <a href="#" class="inheritanceTree">show all</a>
@@ -99,17 +99,14 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/datadog_api_client/v1/models/azure_account_metrics_config.rb</dd>
+    <dd>lib/datadog_api_client/v1/models/resource_provider_config.rb</dd>
   </dl>
   
 </div>
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>Dictionary containing the key <code>excluded_resource_providers</code> which has to be a list of Microsoft Azure Resource Provider names.
-This feature is currently being beta tested.
-In order to enable all resource providers for metric collection, pass:
-<code>metrics_config: {&quot;excluded_resource_providers&quot;: []}</code> (i.e., an empty list for <code>excluded_resource_providers</code>).</p>
+    <p>Configuration settings applied to resources from the specified Azure resource provider.</p>
 
 
   </div>
@@ -153,7 +150,7 @@ In order to enable all resource providers for metric collection, pass:
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#excluded_resource_providers-instance_method" title="#excluded_resource_providers (instance method)">#<strong>excluded_resource_providers</strong>  &#x21d2; Object </a>
+      <a href="#metrics_enabled-instance_method" title="#metrics_enabled (instance method)">#<strong>metrics_enabled</strong>  &#x21d2; Object </a>
     
 
     
@@ -170,7 +167,33 @@ In order to enable all resource providers for metric collection, pass:
   
 
   
-    <span class="summary_desc"><div class='inline'><p>List of Microsoft Azure Resource Providers to exclude from metric collection.</p>
+    <span class="summary_desc"><div class='inline'><p>Collect metrics for resources from this provider.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#namespace-instance_method" title="#namespace (instance method)">#<strong>namespace</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The provider namespace to apply this configuration to.</p>
 </div></span>
   
 </li>
@@ -228,7 +251,7 @@ In order to enable all resource providers for metric collection, pass:
 32</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/azure_account_metrics_config.rb', line 30</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/resource_provider_config.rb', line 30</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_additional_properties'>additional_properties</span>
   <span class='ivar'>@additional_properties</span>
@@ -239,11 +262,11 @@ In order to enable all resource providers for metric collection, pass:
 </div>
     
       
-      <span id="excluded_resource_providers=-instance_method"></span>
+      <span id="metrics_enabled=-instance_method"></span>
       <div class="method_details ">
-  <h3 class="signature " id="excluded_resource_providers-instance_method">
+  <h3 class="signature " id="metrics_enabled-instance_method">
   
-    #<strong>excluded_resource_providers</strong>  &#x21d2; <tt>Object</tt> 
+    #<strong>metrics_enabled</strong>  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -251,7 +274,49 @@ In order to enable all resource providers for metric collection, pass:
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>List of Microsoft Azure Resource Providers to exclude from metric collection.</p>
+    <p>Collect metrics for resources from this provider.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+25
+26
+27</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/resource_provider_config.rb', line 25</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_metrics_enabled'>metrics_enabled</span>
+  <span class='ivar'>@metrics_enabled</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="namespace=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="namespace-instance_method">
+  
+    #<strong>namespace</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>The provider namespace to apply this configuration to.</p>
 
 
   </div>
@@ -270,10 +335,10 @@ In order to enable all resource providers for metric collection, pass:
 30</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/azure_account_metrics_config.rb', line 28</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/resource_provider_config.rb', line 28</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_excluded_resource_providers'>excluded_resource_providers</span>
-  <span class='ivar'>@excluded_resource_providers</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_namespace'>namespace</span>
+  <span class='ivar'>@namespace</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -286,7 +351,7 @@ In order to enable all resource providers for metric collection, pass:
 </div>
 
       <div id="footer">
-  Generated on Wed Dec 18 17:13:51 2024 by
+  Generated on Wed Dec 18 18:14:59 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>
