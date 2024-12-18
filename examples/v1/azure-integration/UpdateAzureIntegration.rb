@@ -18,12 +18,6 @@ body = DatadogAPIClient::V1::AzureAccount.new({
   new_client_id: "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d",
   new_tenant_name: "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d",
   resource_collection_enabled: true,
-  metrics_config: DatadogAPIClient::V1::AzureAccountMetricsConfig.new({
-    excluded_resource_providers: [
-      "Microsoft.Sql",
-      "Microsoft.Cdn",
-    ],
-  }),
   tenant_name: "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d",
 })
 p api_instance.update_azure_integration(body)

@@ -17,15 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Dictionary containing the key `excluded_resource_providers` which has to be a list of Microsoft Azure Resource Provider names.
-  # This feature is currently being beta tested.
-  # In order to enable all resource providers for metric collection, pass:
-  # `metrics_config: {"excluded_resource_providers": []}` (i.e., an empty list for `excluded_resource_providers`).
-  class AzureAccountMetricsConfig
+  # Configuration settings applied to resources from the specified Azure resource provider.
+  class ResourceProviderConfig
     include BaseGenericModel
 
-    # List of Microsoft Azure Resource Providers to exclude from metric collection.
-    attr_accessor :excluded_resource_providers
+    # Collect metrics for resources from this provider.
+    attr_accessor :metrics_enabled
+
+    # The provider namespace to apply this configuration to.
+    attr_accessor :namespace
 
     attr_accessor :additional_properties
 
@@ -33,7 +33,8 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.attribute_map
       {
-        :'excluded_resource_providers' => :'excluded_resource_providers'
+        :'metrics_enabled' => :'metrics_enabled',
+        :'namespace' => :'namespace'
       }
     end
 
@@ -41,7 +42,8 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
-        :'excluded_resource_providers' => :'Array<String>'
+        :'metrics_enabled' => :'Boolean',
+        :'namespace' => :'String'
       }
     end
 
@@ -50,7 +52,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::AzureAccountMetricsConfig` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::ResourceProviderConfig` initialize method"
       end
 
       self.additional_properties = {}
@@ -63,10 +65,12 @@ module DatadogAPIClient::V1
         end
       }
 
-      if attributes.key?(:'excluded_resource_providers')
-        if (value = attributes[:'excluded_resource_providers']).is_a?(Array)
-          self.excluded_resource_providers = value
-        end
+      if attributes.key?(:'metrics_enabled')
+        self.metrics_enabled = attributes[:'metrics_enabled']
+      end
+
+      if attributes.key?(:'namespace')
+        self.namespace = attributes[:'namespace']
       end
     end
 
@@ -96,7 +100,8 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          excluded_resource_providers == o.excluded_resource_providers &&
+          metrics_enabled == o.metrics_enabled &&
+          namespace == o.namespace &&
           additional_properties == o.additional_properties
     end
 
@@ -104,7 +109,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [excluded_resource_providers, additional_properties].hash
+      [metrics_enabled, namespace, additional_properties].hash
     end
   end
 end

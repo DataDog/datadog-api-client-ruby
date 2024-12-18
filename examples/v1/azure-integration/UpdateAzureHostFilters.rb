@@ -15,15 +15,18 @@ body = DatadogAPIClient::V1::AzureAccount.new({
     "*",
   ],
   host_filters: "key:value,filter:example",
-  metrics_config: DatadogAPIClient::V1::AzureAccountMetricsConfig.new({
-    excluded_resource_providers: [
-      "Microsoft.Sql",
-      "Microsoft.Cdn",
-    ],
-  }),
+  metrics_enabled: true,
+  metrics_enabled_default: true,
   new_client_id: "new1c7f6-1234-5678-9101-3fcbf464test",
   new_tenant_name: "new1c44-1234-5678-9101-cc00736ftest",
   resource_collection_enabled: true,
+  resource_provider_configs: [
+    DatadogAPIClient::V1::ResourceProviderConfig.new({
+      metrics_enabled: true,
+      namespace: "Microsoft.Compute",
+    }),
+  ],
   tenant_name: "testc44-1234-5678-9101-cc00736ftest",
+  usage_metrics_enabled: true,
 })
 p api_instance.update_azure_host_filters(body)
