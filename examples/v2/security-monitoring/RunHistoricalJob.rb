@@ -14,7 +14,7 @@ body = DatadogAPIClient::V2::RunHistoricalJobRequest.new({
         type: "log_detection",
         name: "Excessive number of failed attempts.",
         queries: [
-          DatadogAPIClient::V2::SecurityMonitoringStandardRuleQuery.new({
+          DatadogAPIClient::V2::HistoricalJobQuery.new({
             query: "source:non_existing_src_weekend",
             aggregation: DatadogAPIClient::V2::SecurityMonitoringRuleQueryAggregation::COUNT,
             group_by_fields: [],
@@ -29,7 +29,7 @@ body = DatadogAPIClient::V2::RunHistoricalJobRequest.new({
             condition: "a > 1",
           }),
         ],
-        options: DatadogAPIClient::V2::SecurityMonitoringRuleOptions.new({
+        options: DatadogAPIClient::V2::HistoricalJobOptions.new({
           keep_alive: DatadogAPIClient::V2::SecurityMonitoringRuleKeepAlive::ONE_HOUR,
           max_signal_duration: DatadogAPIClient::V2::SecurityMonitoringRuleMaxSignalDuration::ONE_DAY,
           evaluation_window: DatadogAPIClient::V2::SecurityMonitoringRuleEvaluationWindow::FIFTEEN_MINUTES,

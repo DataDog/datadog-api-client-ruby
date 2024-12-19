@@ -17,19 +17,9 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Options.
-  class SecurityMonitoringRuleOptions
+  # Job options.
+  class HistoricalJobOptions
     include BaseGenericModel
-
-    # Options for cloud_configuration rules.
-    # Fields `resourceType` and `regoRule` are mandatory when managing custom `cloud_configuration` rules.
-    #
-    attr_accessor :compliance_rule_options
-
-    # If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce signal noise.
-    # The severity is decreased by one level: `CRITICAL` in production becomes `HIGH` in non-production, `HIGH` becomes `MEDIUM` and so on. `INFO` remains `INFO`.
-    # The decrement is applied when the environment tag of the signal starts with `staging`, `test` or `dev`.
-    attr_accessor :decrease_criticality_based_on_env
 
     # The detection method.
     attr_accessor :detection_method
@@ -37,9 +27,6 @@ module DatadogAPIClient::V2
     # A time window is specified to match when at least one of the cases matches true. This is a sliding window
     # and evaluates in real time. For third party detection method, this field is not used.
     attr_accessor :evaluation_window
-
-    # Hardcoded evaluator type.
-    attr_accessor :hardcoded_evaluator_type
 
     # Options on impossible travel detection method.
     attr_accessor :impossible_travel_options
@@ -64,11 +51,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'compliance_rule_options' => :'complianceRuleOptions',
-        :'decrease_criticality_based_on_env' => :'decreaseCriticalityBasedOnEnv',
         :'detection_method' => :'detectionMethod',
         :'evaluation_window' => :'evaluationWindow',
-        :'hardcoded_evaluator_type' => :'hardcodedEvaluatorType',
         :'impossible_travel_options' => :'impossibleTravelOptions',
         :'keep_alive' => :'keepAlive',
         :'max_signal_duration' => :'maxSignalDuration',
@@ -81,11 +65,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'compliance_rule_options' => :'CloudConfigurationComplianceRuleOptions',
-        :'decrease_criticality_based_on_env' => :'Boolean',
         :'detection_method' => :'SecurityMonitoringRuleDetectionMethod',
         :'evaluation_window' => :'SecurityMonitoringRuleEvaluationWindow',
-        :'hardcoded_evaluator_type' => :'SecurityMonitoringRuleHardcodedEvaluatorType',
         :'impossible_travel_options' => :'SecurityMonitoringRuleImpossibleTravelOptions',
         :'keep_alive' => :'SecurityMonitoringRuleKeepAlive',
         :'max_signal_duration' => :'SecurityMonitoringRuleMaxSignalDuration',
@@ -99,7 +80,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SecurityMonitoringRuleOptions` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::HistoricalJobOptions` initialize method"
       end
 
       self.additional_properties = {}
@@ -112,24 +93,12 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'compliance_rule_options')
-        self.compliance_rule_options = attributes[:'compliance_rule_options']
-      end
-
-      if attributes.key?(:'decrease_criticality_based_on_env')
-        self.decrease_criticality_based_on_env = attributes[:'decrease_criticality_based_on_env']
-      end
-
       if attributes.key?(:'detection_method')
         self.detection_method = attributes[:'detection_method']
       end
 
       if attributes.key?(:'evaluation_window')
         self.evaluation_window = attributes[:'evaluation_window']
-      end
-
-      if attributes.key?(:'hardcoded_evaluator_type')
-        self.hardcoded_evaluator_type = attributes[:'hardcoded_evaluator_type']
       end
 
       if attributes.key?(:'impossible_travel_options')
@@ -179,11 +148,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          compliance_rule_options == o.compliance_rule_options &&
-          decrease_criticality_based_on_env == o.decrease_criticality_based_on_env &&
           detection_method == o.detection_method &&
           evaluation_window == o.evaluation_window &&
-          hardcoded_evaluator_type == o.hardcoded_evaluator_type &&
           impossible_travel_options == o.impossible_travel_options &&
           keep_alive == o.keep_alive &&
           max_signal_duration == o.max_signal_duration &&
@@ -196,7 +162,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [compliance_rule_options, decrease_criticality_based_on_env, detection_method, evaluation_window, hardcoded_evaluator_type, impossible_travel_options, keep_alive, max_signal_duration, new_value_options, third_party_rule_options, additional_properties].hash
+      [detection_method, evaluation_window, impossible_travel_options, keep_alive, max_signal_duration, new_value_options, third_party_rule_options, additional_properties].hash
     end
   end
 end

@@ -1611,6 +1611,8 @@ module DatadogAPIClient
           "v2.group_scalar_column" => "GroupScalarColumn",
           "v2.historical_job_data_type" => "HistoricalJobDataType",
           "v2.historical_job_list_meta" => "HistoricalJobListMeta",
+          "v2.historical_job_options" => "HistoricalJobOptions",
+          "v2.historical_job_query" => "HistoricalJobQuery",
           "v2.historical_job_response" => "HistoricalJobResponse",
           "v2.historical_job_response_attributes" => "HistoricalJobResponseAttributes",
           "v2.historical_job_response_data" => "HistoricalJobResponseData",
