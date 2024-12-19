@@ -1,0 +1,20 @@
+http_interactions:
+- recorded_at: Thu, 19 Dec 2024 17:17:10 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+    method: GET
+    uri: https://api.datadoghq.com/api/v2/csm/onboarding/coverage_analysis/cloud_accounts
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"4dee724d-00cc-11ea-a77b-570c9d03c6c5","type":"get_cloud_accounts_coverage_analysis_response_public_v0","attributes":{"aws_coverage":{"partially_configured_resources_count":0,"configured_resources_count":4,"total_resources_count":10,"coverage":0.4},"azure_coverage":{"partially_configured_resources_count":0,"configured_resources_count":2,"total_resources_count":6,"coverage":0.3333333333333333},"gcp_coverage":{"partially_configured_resources_count":0,"configured_resources_count":2,"total_resources_count":4,"coverage":0.5},"org_id":321813,"total_coverage":{"partially_configured_resources_count":0,"configured_resources_count":8,"total_resources_count":20,"coverage":0.4}}}}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 200
+      message: OK
+recorded_with: VCR 6.0.0
