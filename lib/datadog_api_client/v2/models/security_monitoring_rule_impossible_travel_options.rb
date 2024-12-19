@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Options on impossible travel rules.
+  # Options on impossible travel detection method.
   class SecurityMonitoringRuleImpossibleTravelOptions
     include BaseGenericModel
 

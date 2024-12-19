@@ -27,9 +27,6 @@ module DatadogAPIClient::V2
     # Cases used for generating job results.
     attr_reader :cases
 
-    # Additional queries to filter matched events before they are processed. This field is deprecated for log detection, signal correlation, and workload security rules.
-    attr_accessor :filters
-
     # Starting time of data analyzed by the job.
     attr_reader :from
 
@@ -42,19 +39,19 @@ module DatadogAPIClient::V2
     # Job name.
     attr_reader :name
 
-    # Options on rules.
+    # Job options.
     attr_accessor :options
 
     # Queries for selecting logs analyzed by the job.
     attr_reader :queries
 
-    # Reference tables for the rule.
+    # Reference tables used in the queries.
     attr_accessor :reference_tables
 
     # Tags for generated signals.
     attr_accessor :tags
 
-    # Cases for generating results from third-party rules. Only available for third-party rules.
+    # Cases for generating results from third-party detection method. Only available for third-party detection method.
     attr_accessor :third_party_cases
 
     # Ending time of data analyzed by the job.
@@ -71,7 +68,6 @@ module DatadogAPIClient::V2
       {
         :'calculated_fields' => :'calculatedFields',
         :'cases' => :'cases',
-        :'filters' => :'filters',
         :'from' => :'from',
         :'index' => :'index',
         :'message' => :'message',
@@ -92,13 +88,12 @@ module DatadogAPIClient::V2
       {
         :'calculated_fields' => :'Array<CalculatedField>',
         :'cases' => :'Array<SecurityMonitoringRuleCaseCreate>',
-        :'filters' => :'Array<SecurityMonitoringFilter>',
         :'from' => :'Integer',
         :'index' => :'String',
         :'message' => :'String',
         :'name' => :'String',
-        :'options' => :'SecurityMonitoringRuleOptions',
-        :'queries' => :'Array<SecurityMonitoringStandardRuleQuery>',
+        :'options' => :'HistoricalJobOptions',
+        :'queries' => :'Array<HistoricalJobQuery>',
         :'reference_tables' => :'Array<SecurityMonitoringReferenceTable>',
         :'tags' => :'Array<String>',
         :'third_party_cases' => :'Array<SecurityMonitoringThirdPartyRuleCaseCreate>',
@@ -134,12 +129,6 @@ module DatadogAPIClient::V2
       if attributes.key?(:'cases')
         if (value = attributes[:'cases']).is_a?(Array)
           self.cases = value
-        end
-      end
-
-      if attributes.key?(:'filters')
-        if (value = attributes[:'filters']).is_a?(Array)
-          self.filters = value
         end
       end
 
@@ -308,7 +297,6 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           calculated_fields == o.calculated_fields &&
           cases == o.cases &&
-          filters == o.filters &&
           from == o.from &&
           index == o.index &&
           message == o.message &&
@@ -327,7 +315,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [calculated_fields, cases, filters, from, index, message, name, options, queries, reference_tables, tags, third_party_cases, to, type, additional_properties].hash
+      [calculated_fields, cases, from, index, message, name, options, queries, reference_tables, tags, third_party_cases, to, type, additional_properties].hash
     end
   end
 end

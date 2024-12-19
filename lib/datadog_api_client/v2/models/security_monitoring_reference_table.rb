@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Reference table for the rule.
+  # Reference tables used in the queries.
   class SecurityMonitoringReferenceTable
     include BaseGenericModel
 
@@ -30,7 +30,7 @@ module DatadogAPIClient::V2
     # The field in the log to match against the reference table.
     attr_accessor :log_field_path
 
-    # The name of the rule query to apply the reference table to.
+    # The name of the query to apply the reference table to.
     attr_accessor :rule_query_name
 
     # The name of the reference table.
