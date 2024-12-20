@@ -1,4 +1,4 @@
-# Get all monitor details with tags
+# Get all monitors with tags
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::MonitorsAPI.new

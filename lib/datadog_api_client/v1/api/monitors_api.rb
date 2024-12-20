@@ -485,7 +485,7 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get all monitor details.
+    # Get all monitors.
     #
     # @see #list_monitors_with_http_info
     def list_monitors(opts = {})
@@ -493,9 +493,9 @@ module DatadogAPIClient::V1
       data
     end
 
-    # Get all monitor details.
+    # Get all monitors.
     #
-    # Get details about the specified monitor from your organization.
+    # Get all monitors from your organization.
     #
     # @param opts [Hash] the optional parameters
     # @option opts [String] :group_states When specified, shows additional information about the group states. Choose one or more from `all`, `alert`, `warn`, and `no data`.
@@ -564,7 +564,7 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get all monitor details.
+    # Get all monitors.
     #
     # Provide a paginated version of {#list_monitors}, returning all items.
     #
