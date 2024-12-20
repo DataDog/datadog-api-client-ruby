@@ -1,4 +1,4 @@
-# Get all monitor details returns "OK" response
+# Get all monitors returns "OK" response
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::MonitorsAPI.new
