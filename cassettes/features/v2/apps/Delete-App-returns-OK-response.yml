@@ -1,5 +1,5 @@
 http_interactions:
-- recorded_at: Thu, 12 Dec 2024 20:29:24 GMT
+- recorded_at: Fri, 20 Dec 2024 20:39:19 GMT
   request:
     body:
       encoding: UTF-8
@@ -16,39 +16,39 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"5cb67134-d7bd-4320-9cda-d79ec98cff4c","type":"appDefinitions"}}'
+      string: '{"data":{"id":"500bf715-77a5-4c1d-b4ef-0d181b071daf","type":"appDefinitions"}}'
     headers:
       Content-Type:
       - application/vnd.api+json
     status:
       code: 201
       message: Created
-- recorded_at: Thu, 12 Dec 2024 20:29:24 GMT
+- recorded_at: Fri, 20 Dec 2024 20:39:19 GMT
   request:
     body: null
     headers:
       Accept:
       - application/json
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/app-builder/apps/5cb67134-d7bd-4320-9cda-d79ec98cff4c
+    uri: https://api.datadoghq.com/api/v2/app-builder/apps/500bf715-77a5-4c1d-b4ef-0d181b071daf
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"5cb67134-d7bd-4320-9cda-d79ec98cff4c","type":"appDefinitions"}}'
+      string: '{"data":{"id":"500bf715-77a5-4c1d-b4ef-0d181b071daf","type":"appDefinitions"}}'
     headers:
       Content-Type:
       - application/vnd.api+json
     status:
       code: 200
       message: OK
-- recorded_at: Thu, 12 Dec 2024 20:29:24 GMT
+- recorded_at: Fri, 20 Dec 2024 20:39:19 GMT
   request:
     body: null
     headers:
       Accept:
       - application/json
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/app-builder/apps/5cb67134-d7bd-4320-9cda-d79ec98cff4c
+    uri: https://api.datadoghq.com/api/v2/app-builder/apps/500bf715-77a5-4c1d-b4ef-0d181b071daf
   response:
     body:
       encoding: UTF-8

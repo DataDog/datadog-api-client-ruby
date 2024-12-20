@@ -956,6 +956,7 @@ ScenariosModelMappings = {
             "filter_deployed" => "Boolean",
             "filter_tags" => "String",
             "filter_favorite" => "Boolean",
+            "filter_self_service" => "Boolean",
             "sort" => "Array<AppsSortField>",
     },
     "v2.CreateApp" => {
