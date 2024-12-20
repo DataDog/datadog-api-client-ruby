@@ -17,24 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # API error response body
-  class JSONAPIErrorItem
+  # References to the source of the error.
+  class JSONAPIErrorItemSource
     include BaseGenericModel
 
-    # A human-readable explanation specific to this occurrence of the error.
-    attr_accessor :detail
+    # A string indicating the name of a single request header which caused the error.
+    attr_accessor :header
 
-    # Non-standard meta-information about the error
-    attr_accessor :meta
+    # A string indicating which URI query parameter caused the error.
+    attr_accessor :parameter
 
-    # References to the source of the error.
-    attr_accessor :source
-
-    # Status code of the response.
-    attr_accessor :status
-
-    # Short human-readable summary of the error.
-    attr_accessor :title
+    # A JSON pointer to the value in the request document that caused the error.
+    attr_accessor :pointer
 
     attr_accessor :additional_properties
 
@@ -42,11 +36,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'detail' => :'detail',
-        :'meta' => :'meta',
-        :'source' => :'source',
-        :'status' => :'status',
-        :'title' => :'title'
+        :'header' => :'header',
+        :'parameter' => :'parameter',
+        :'pointer' => :'pointer'
       }
     end
 
@@ -54,11 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'detail' => :'String',
-        :'meta' => :'Hash<String, Object>',
-        :'source' => :'JSONAPIErrorItemSource',
-        :'status' => :'String',
-        :'title' => :'String'
+        :'header' => :'String',
+        :'parameter' => :'String',
+        :'pointer' => :'String'
       }
     end
 
@@ -67,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::JSONAPIErrorItem` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::JSONAPIErrorItemSource` initialize method"
       end
 
       self.additional_properties = {}
@@ -80,24 +70,16 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'detail')
-        self.detail = attributes[:'detail']
+      if attributes.key?(:'header')
+        self.header = attributes[:'header']
       end
 
-      if attributes.key?(:'meta')
-        self.meta = attributes[:'meta']
+      if attributes.key?(:'parameter')
+        self.parameter = attributes[:'parameter']
       end
 
-      if attributes.key?(:'source')
-        self.source = attributes[:'source']
-      end
-
-      if attributes.key?(:'status')
-        self.status = attributes[:'status']
-      end
-
-      if attributes.key?(:'title')
-        self.title = attributes[:'title']
+      if attributes.key?(:'pointer')
+        self.pointer = attributes[:'pointer']
       end
     end
 
@@ -127,11 +109,9 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          detail == o.detail &&
-          meta == o.meta &&
-          source == o.source &&
-          status == o.status &&
-          title == o.title &&
+          header == o.header &&
+          parameter == o.parameter &&
+          pointer == o.pointer &&
           additional_properties == o.additional_properties
     end
 
@@ -139,7 +119,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [detail, meta, source, status, title, additional_properties].hash
+      [header, parameter, pointer, additional_properties].hash
     end
   end
 end
