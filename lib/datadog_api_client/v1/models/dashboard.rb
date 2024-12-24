@@ -57,8 +57,6 @@ module DatadogAPIClient::V1
     attr_accessor :reflow_type
 
     # A list of role identifiers. Only the author and users associated with at least one of these roles can edit this dashboard.
-    #
-    # This property is deprecated; please use the [Restriction Policies API](https://docs.datadoghq.com/api/latest/restriction-policies/) instead to manage write authorization for individual dashboards.
     attr_accessor :restricted_roles
 
     # List of team names representing ownership of a dashboard.
