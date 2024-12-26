@@ -1920,6 +1920,403 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # List vulnerabilities.
+    #
+    # @see #list_vulnerabilities_with_http_info
+    def list_vulnerabilities(opts = {})
+      data, _status_code, _headers = list_vulnerabilities_with_http_info(opts)
+      data
+    end
+
+    # List vulnerabilities.
+    #
+    # Get a list of vulnerabilities.
+    #
+    # ### Pagination
+    #
+    # Pagination is enabled by default in both `vulnerabilities` and `assets`. The size of the page varies depending on the endpoint and cannot be modified. To automate the request of the next page, you can use the links section in the response.
+    #
+    # This endpoint will return paginated responses. The pages are stored in the links section of the response:
+    #
+    # ```JSON
+    # {
+    #   "data": [...],
+    #   "meta": {...},
+    #   "links": {
+    #     "self": "https://.../api/v2/security/vulnerabilities",
+    #     "first": "https://.../api/v2/security/vulnerabilities?page[number]=1&page[token]=abc",
+    #     "last": "https://.../api/v2/security/vulnerabilities?page[number]=43&page[token]=abc",
+    #     "next": "https://.../api/v2/security/vulnerabilities?page[number]=2&page[token]=abc"
+    #   }
+    # }
+    # ```
+    #
+    #
+    # - `links.previous` is empty if the first page is requested.
+    # - `links.next` is empty if the last page is requested.
+    #
+    # #### Token
+    #
+    # Vulnerabilities can be created, updated or deleted at any point in time.
+    #
+    # Upon the first request, a token is created to ensure consistency across subsequent paginated requests.
+    #
+    # A token is valid only for 24 hours.
+    #
+    # #### First request
+    #
+    # We consider a request to be the first request when there is no `page[token]` parameter.
+    #
+    # The response of this first request contains the newly created token in the `links` section.
+    #
+    # This token can then be used in the subsequent paginated requests.
+    #
+    # #### Subsequent requests
+    #
+    # Any request containing valid `page[token]` and `page[number]` parameters will be considered a subsequent request.
+    #
+    # If the `token` is invalid, a `404` response will be returned.
+    #
+    # If the page `number` is invalid, a `400` response will be returned.
+    #
+    # ### Filtering
+    #
+    # The request can include some filter parameters to filter the data to be retrieved. The format of the filter parameters follows the [JSON:API format](https://jsonapi.org/format/#fetching-filtering): `filter[$prop_name]`, where `prop_name` is the property name in the entity being filtered by.
+    #
+    # All filters can include multiple values, where data will be filtered with an OR clause: `filter[title]=Title1,Title2` will filter all vulnerabilities where title is equal to `Title1` OR `Title2`.
+    #
+    # String filters are case sensitive.
+    #
+    # Boolean filters accept `true` or `false` as values.
+    #
+    # Number filters must include an operator as a second filter input: `filter[$prop_name][$operator]`. For example, for the vulnerabilities endpoint: `filter[cvss.base.score][lte]=8`.
+    #
+    # Available operators are: `eq` (==), `lt` (<), `lte` (<=), `gt` (>) and `gte` (>=).
+    #
+    # ### Metadata
+    #
+    # Following [JSON:API format](https://jsonapi.org/format/#document-meta), object including non-standard meta-information.
+    #
+    # This endpoint includes the meta member in the response. For more details on each of the properties included in this section, check the endpoints response tables.
+    #
+    # ```JSON
+    # {
+    #   "data": [...],
+    #   "meta": {
+    #     "total": 1500,
+    #     "count": 18732,
+    #     "token": "some_token"
+    #   },
+    #   "links": {...}
+    # }
+    # ```
+    #
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :page_token Its value must come from the `links` section of the response of the first request. Do not manually edit it.
+    # @option opts [Integer] :page_number The page number to be retrieved. It should be equal or greater than `1`
+    # @option opts [VulnerabilityType] :filter_type Filter by vulnerability type.
+    # @option opts [Float] :filter_cvss_base_score_op Filter by vulnerability base (i.e. from the original advisory) severity score.
+    # @option opts [VulnerabilitySeverity] :filter_cvss_base_severity Filter by vulnerability base severity.
+    # @option opts [String] :filter_cvss_base_vector Filter by vulnerability base CVSS vector.
+    # @option opts [Float] :filter_cvss_datadog_score_op Filter by vulnerability Datadog severity score.
+    # @option opts [VulnerabilitySeverity] :filter_cvss_datadog_severity Filter by vulnerability Datadog severity.
+    # @option opts [String] :filter_cvss_datadog_vector Filter by vulnerability Datadog CVSS vector.
+    # @option opts [VulnerabilityStatus] :filter_status Filter by the status of the vulnerability.
+    # @option opts [VulnerabilityTool] :filter_tool Filter by the tool of the vulnerability.
+    # @option opts [String] :filter_library_name Filter by library name.
+    # @option opts [String] :filter_library_version Filter by library version.
+    # @option opts [String] :filter_advisory_id Filter by advisory ID.
+    # @option opts [Boolean] :filter_risks_exploitation_probability Filter by exploitation probability.
+    # @option opts [Boolean] :filter_risks_poc_exploit_available Filter by POC exploit availability.
+    # @option opts [Boolean] :filter_risks_exploit_available Filter by public exploit availability.
+    # @option opts [Float] :filter_risks_epss_score_op Filter by vulnerability [EPSS](https://www.first.org/epss/) severity score.
+    # @option opts [VulnerabilitySeverity] :filter_risks_epss_severity Filter by vulnerability [EPSS](https://www.first.org/epss/) severity.
+    # @option opts [String] :filter_language Filter by language.
+    # @option opts [VulnerabilityEcosystem] :filter_ecosystem Filter by ecosystem.
+    # @option opts [String] :filter_code_location_location Filter by vulnerability location.
+    # @option opts [String] :filter_code_location_file_path Filter by vulnerability file path.
+    # @option opts [String] :filter_code_location_method Filter by method.
+    # @option opts [Boolean] :filter_fix_available Filter by fix availability.
+    # @option opts [String] :filter_repo_digests Filter by vulnerability `repo_digest` (when the vulnerability is related to `Image` asset).
+    # @option opts [String] :filter_asset_name Filter by asset name.
+    # @option opts [AssetType] :filter_asset_type Filter by asset type.
+    # @option opts [String] :filter_asset_version_first Filter by the first version of the asset this vulnerability has been detected on.
+    # @option opts [String] :filter_asset_version_last Filter by the last version of the asset this vulnerability has been detected on.
+    # @option opts [String] :filter_asset_repository_url Filter by the repository url associated to the asset.
+    # @option opts [Boolean] :filter_asset_risks_in_production Filter whether the asset is in production or not.
+    # @option opts [Boolean] :filter_asset_risks_under_attack Filter whether the asset is under attack or not.
+    # @option opts [Boolean] :filter_asset_risks_is_publicly_accessible Filter whether the asset is publicly accessible or not.
+    # @option opts [Boolean] :filter_asset_risks_has_privileged_access Filter whether the asset is publicly accessible or not.
+    # @option opts [Boolean] :filter_asset_risks_has_access_to_sensitive_data Filter whether the asset  has access to sensitive data or not.
+    # @option opts [String] :filter_asset_environments Filter by asset environments.
+    # @option opts [String] :filter_asset_arch Filter by asset architecture.
+    # @option opts [String] :filter_asset_operating_system_name Filter by asset operating system name.
+    # @option opts [String] :filter_asset_operating_system_version Filter by asset operating system version.
+    # @return [Array<(ListVulnerabilitiesResponse, Integer, Hash)>] ListVulnerabilitiesResponse data, response status code and response headers
+    def list_vulnerabilities_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_vulnerabilities".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_vulnerabilities")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_vulnerabilities"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.list_vulnerabilities ...'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_number'].nil? && opts[:'page_number'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"page_number"]" when calling SecurityMonitoringAPI.list_vulnerabilities, must be greater than or equal to 1.'
+      end
+      allowable_values = ['AdminConsoleActive', 'CodeInjection', 'CommandInjection', 'ComponentWithKnownVulnerability', 'DangerousWorkflows', 'DefaultAppDeployed', 'DefaultHtmlEscapeInvalid', 'DirectoryListingLeak', 'EmailHtmlInjection', 'EndOfLife', 'HardcodedPassword', 'HardcodedSecret', 'HeaderInjection', 'HstsHeaderMissing', 'InsecureAuthProtocol', 'InsecureCookie', 'InsecureJspLayout', 'LdapInjection', 'MaliciousPackage', 'MandatoryRemediation', 'NoHttpOnlyCookie', 'NoSameSiteCookie', 'NoSqlMongoDbInjection', 'PathTraversal', 'ReflectionInjection', 'RiskyLicense', 'SessionRewriting', 'SessionTimeout', 'SqlInjection', 'Ssrf', 'StackTraceLeak', 'TrustBoundaryViolation', 'Unmaintained', 'UntrustedDeserialization', 'UnvalidatedRedirect', 'VerbTampering', 'WeakCipher', 'WeakHash', 'WeakRandomness', 'XContentTypeHeaderMissing', 'XPathInjection', 'Xss']
+      if @api_client.config.client_side_validation && opts[:'filter_type'] && !allowable_values.include?(opts[:'filter_type'])
+        fail ArgumentError, "invalid value for \"filter_type\", must be one of #{allowable_values}"
+      end
+      if @api_client.config.client_side_validation && !opts[:'filter_cvss_base_score_op'].nil? && opts[:'filter_cvss_base_score_op'] > 10
+        fail ArgumentError, 'invalid value for "opts[:"filter_cvss_base_score_op"]" when calling SecurityMonitoringAPI.list_vulnerabilities, must be smaller than or equal to 10.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'filter_cvss_base_score_op'].nil? && opts[:'filter_cvss_base_score_op'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"filter_cvss_base_score_op"]" when calling SecurityMonitoringAPI.list_vulnerabilities, must be greater than or equal to 0.'
+      end
+      allowable_values = ['Unknown', 'None', 'Low', 'Medium', 'High', 'Critical']
+      if @api_client.config.client_side_validation && opts[:'filter_cvss_base_severity'] && !allowable_values.include?(opts[:'filter_cvss_base_severity'])
+        fail ArgumentError, "invalid value for \"filter_cvss_base_severity\", must be one of #{allowable_values}"
+      end
+      if @api_client.config.client_side_validation && !opts[:'filter_cvss_datadog_score_op'].nil? && opts[:'filter_cvss_datadog_score_op'] > 10
+        fail ArgumentError, 'invalid value for "opts[:"filter_cvss_datadog_score_op"]" when calling SecurityMonitoringAPI.list_vulnerabilities, must be smaller than or equal to 10.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'filter_cvss_datadog_score_op'].nil? && opts[:'filter_cvss_datadog_score_op'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"filter_cvss_datadog_score_op"]" when calling SecurityMonitoringAPI.list_vulnerabilities, must be greater than or equal to 0.'
+      end
+      allowable_values = ['Unknown', 'None', 'Low', 'Medium', 'High', 'Critical']
+      if @api_client.config.client_side_validation && opts[:'filter_cvss_datadog_severity'] && !allowable_values.include?(opts[:'filter_cvss_datadog_severity'])
+        fail ArgumentError, "invalid value for \"filter_cvss_datadog_severity\", must be one of #{allowable_values}"
+      end
+      allowable_values = ['Open', 'Muted', 'Remediated', 'InProgress', 'AutoClosed']
+      if @api_client.config.client_side_validation && opts[:'filter_status'] && !allowable_values.include?(opts[:'filter_status'])
+        fail ArgumentError, "invalid value for \"filter_status\", must be one of #{allowable_values}"
+      end
+      allowable_values = ['IAST', 'SCA', 'Infra']
+      if @api_client.config.client_side_validation && opts[:'filter_tool'] && !allowable_values.include?(opts[:'filter_tool'])
+        fail ArgumentError, "invalid value for \"filter_tool\", must be one of #{allowable_values}"
+      end
+      if @api_client.config.client_side_validation && !opts[:'filter_risks_epss_score_op'].nil? && opts[:'filter_risks_epss_score_op'] > 1
+        fail ArgumentError, 'invalid value for "opts[:"filter_risks_epss_score_op"]" when calling SecurityMonitoringAPI.list_vulnerabilities, must be smaller than or equal to 1.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'filter_risks_epss_score_op'].nil? && opts[:'filter_risks_epss_score_op'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"filter_risks_epss_score_op"]" when calling SecurityMonitoringAPI.list_vulnerabilities, must be greater than or equal to 0.'
+      end
+      allowable_values = ['Unknown', 'None', 'Low', 'Medium', 'High', 'Critical']
+      if @api_client.config.client_side_validation && opts[:'filter_risks_epss_severity'] && !allowable_values.include?(opts[:'filter_risks_epss_severity'])
+        fail ArgumentError, "invalid value for \"filter_risks_epss_severity\", must be one of #{allowable_values}"
+      end
+      allowable_values = ['PyPI', 'Maven', 'NuGet', 'Npm', 'RubyGems', 'Go', 'Packagist', 'Ddeb', 'Rpm', 'Apk', 'Windows']
+      if @api_client.config.client_side_validation && opts[:'filter_ecosystem'] && !allowable_values.include?(opts[:'filter_ecosystem'])
+        fail ArgumentError, "invalid value for \"filter_ecosystem\", must be one of #{allowable_values}"
+      end
+      allowable_values = ['Repository', 'Service', 'Host', 'HostImage', 'Image']
+      if @api_client.config.client_side_validation && opts[:'filter_asset_type'] && !allowable_values.include?(opts[:'filter_asset_type'])
+        fail ArgumentError, "invalid value for \"filter_asset_type\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/api/v2/security/vulnerabilities'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'page[token]'] = opts[:'page_token'] if !opts[:'page_token'].nil?
+      query_params[:'page[number]'] = opts[:'page_number'] if !opts[:'page_number'].nil?
+      query_params[:'filter[type]'] = opts[:'filter_type'] if !opts[:'filter_type'].nil?
+      query_params[:'filter[cvss.base.score][`$op`]'] = opts[:'filter_cvss_base_score_op'] if !opts[:'filter_cvss_base_score_op'].nil?
+      query_params[:'filter[cvss.base.severity]'] = opts[:'filter_cvss_base_severity'] if !opts[:'filter_cvss_base_severity'].nil?
+      query_params[:'filter[cvss.base.vector]'] = opts[:'filter_cvss_base_vector'] if !opts[:'filter_cvss_base_vector'].nil?
+      query_params[:'filter[cvss.datadog.score][`$op`]'] = opts[:'filter_cvss_datadog_score_op'] if !opts[:'filter_cvss_datadog_score_op'].nil?
+      query_params[:'filter[cvss.datadog.severity]'] = opts[:'filter_cvss_datadog_severity'] if !opts[:'filter_cvss_datadog_severity'].nil?
+      query_params[:'filter[cvss.datadog.vector]'] = opts[:'filter_cvss_datadog_vector'] if !opts[:'filter_cvss_datadog_vector'].nil?
+      query_params[:'filter[status]'] = opts[:'filter_status'] if !opts[:'filter_status'].nil?
+      query_params[:'filter[tool]'] = opts[:'filter_tool'] if !opts[:'filter_tool'].nil?
+      query_params[:'filter[library.name]'] = opts[:'filter_library_name'] if !opts[:'filter_library_name'].nil?
+      query_params[:'filter[library.version]'] = opts[:'filter_library_version'] if !opts[:'filter_library_version'].nil?
+      query_params[:'filter[advisory_id]'] = opts[:'filter_advisory_id'] if !opts[:'filter_advisory_id'].nil?
+      query_params[:'filter[risks.exploitation_probability]'] = opts[:'filter_risks_exploitation_probability'] if !opts[:'filter_risks_exploitation_probability'].nil?
+      query_params[:'filter[risks.poc_exploit_available]'] = opts[:'filter_risks_poc_exploit_available'] if !opts[:'filter_risks_poc_exploit_available'].nil?
+      query_params[:'filter[risks.exploit_available]'] = opts[:'filter_risks_exploit_available'] if !opts[:'filter_risks_exploit_available'].nil?
+      query_params[:'filter[risks.epss.score][`$op`]'] = opts[:'filter_risks_epss_score_op'] if !opts[:'filter_risks_epss_score_op'].nil?
+      query_params[:'filter[risks.epss.severity]'] = opts[:'filter_risks_epss_severity'] if !opts[:'filter_risks_epss_severity'].nil?
+      query_params[:'filter[language]'] = opts[:'filter_language'] if !opts[:'filter_language'].nil?
+      query_params[:'filter[ecosystem]'] = opts[:'filter_ecosystem'] if !opts[:'filter_ecosystem'].nil?
+      query_params[:'filter[code_location.location]'] = opts[:'filter_code_location_location'] if !opts[:'filter_code_location_location'].nil?
+      query_params[:'filter[code_location.file_path]'] = opts[:'filter_code_location_file_path'] if !opts[:'filter_code_location_file_path'].nil?
+      query_params[:'filter[code_location.method]'] = opts[:'filter_code_location_method'] if !opts[:'filter_code_location_method'].nil?
+      query_params[:'filter[fix_available]'] = opts[:'filter_fix_available'] if !opts[:'filter_fix_available'].nil?
+      query_params[:'filter[repo_digests]'] = opts[:'filter_repo_digests'] if !opts[:'filter_repo_digests'].nil?
+      query_params[:'filter[asset.name]'] = opts[:'filter_asset_name'] if !opts[:'filter_asset_name'].nil?
+      query_params[:'filter[asset.type]'] = opts[:'filter_asset_type'] if !opts[:'filter_asset_type'].nil?
+      query_params[:'filter[asset.version.first]'] = opts[:'filter_asset_version_first'] if !opts[:'filter_asset_version_first'].nil?
+      query_params[:'filter[asset.version.last]'] = opts[:'filter_asset_version_last'] if !opts[:'filter_asset_version_last'].nil?
+      query_params[:'filter[asset.repository_url]'] = opts[:'filter_asset_repository_url'] if !opts[:'filter_asset_repository_url'].nil?
+      query_params[:'filter[asset.risks.in_production]'] = opts[:'filter_asset_risks_in_production'] if !opts[:'filter_asset_risks_in_production'].nil?
+      query_params[:'filter[asset.risks.under_attack]'] = opts[:'filter_asset_risks_under_attack'] if !opts[:'filter_asset_risks_under_attack'].nil?
+      query_params[:'filter[asset.risks.is_publicly_accessible]'] = opts[:'filter_asset_risks_is_publicly_accessible'] if !opts[:'filter_asset_risks_is_publicly_accessible'].nil?
+      query_params[:'filter[asset.risks.has_privileged_access]'] = opts[:'filter_asset_risks_has_privileged_access'] if !opts[:'filter_asset_risks_has_privileged_access'].nil?
+      query_params[:'filter[asset.risks.has_access_to_sensitive_data]'] = opts[:'filter_asset_risks_has_access_to_sensitive_data'] if !opts[:'filter_asset_risks_has_access_to_sensitive_data'].nil?
+      query_params[:'filter[asset.environments]'] = opts[:'filter_asset_environments'] if !opts[:'filter_asset_environments'].nil?
+      query_params[:'filter[asset.arch]'] = opts[:'filter_asset_arch'] if !opts[:'filter_asset_arch'].nil?
+      query_params[:'filter[asset.operating_system.name]'] = opts[:'filter_asset_operating_system_name'] if !opts[:'filter_asset_operating_system_name'].nil?
+      query_params[:'filter[asset.operating_system.version]'] = opts[:'filter_asset_operating_system_version'] if !opts[:'filter_asset_operating_system_version'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ListVulnerabilitiesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :list_vulnerabilities,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#list_vulnerabilities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List vulnerable assets.
+    #
+    # @see #list_vulnerable_assets_with_http_info
+    def list_vulnerable_assets(opts = {})
+      data, _status_code, _headers = list_vulnerable_assets_with_http_info(opts)
+      data
+    end
+
+    # List vulnerable assets.
+    #
+    # Get a list of vulnerable assets.
+    #
+    # ### Pagination
+    #
+    # Please review the [Pagination section for the "List Vulnerabilities"](#pagination) endpoint.
+    #
+    # ### Filtering
+    #
+    # Please review the [Filtering section for the "List Vulnerabilities"](#filtering) endpoint.
+    #
+    # ### Metadata
+    #
+    # Please review the [Metadata section for the "List Vulnerabilities"](#metadata) endpoint.
+    #
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :page_token Its value must come from the `links` section of the response of the first request. Do not manually edit it.
+    # @option opts [Integer] :page_number The page number to be retrieved. It should be equal or greater than `1`
+    # @option opts [String] :filter_name Filter by name.
+    # @option opts [AssetType] :filter_type Filter by type.
+    # @option opts [String] :filter_version_first Filter by the first version of the asset since it has been vulnerable.
+    # @option opts [String] :filter_version_last Filter by the last detected version of the asset.
+    # @option opts [String] :filter_repository_url Filter by the repository url associated to the asset.
+    # @option opts [Boolean] :filter_risks_in_production Filter whether the asset is in production or not.
+    # @option opts [Boolean] :filter_risks_under_attack Filter whether the asset (Service) is under attack or not.
+    # @option opts [Boolean] :filter_risks_is_publicly_accessible Filter whether the asset (Host) is publicly accessible or not.
+    # @option opts [Boolean] :filter_risks_has_privileged_access Filter whether the asset (Host) has privileged access or not.
+    # @option opts [Boolean] :filter_risks_has_access_to_sensitive_data Filter whether the asset (Host)  has access to sensitive data or not.
+    # @option opts [String] :filter_environments Filter by environment.
+    # @option opts [String] :filter_arch Filter by architecture.
+    # @option opts [String] :filter_operating_system_name Filter by operating system name.
+    # @option opts [String] :filter_operating_system_version Filter by operating system version.
+    # @return [Array<(ListVulnerableAssetsResponse, Integer, Hash)>] ListVulnerableAssetsResponse data, response status code and response headers
+    def list_vulnerable_assets_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_vulnerable_assets".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_vulnerable_assets")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_vulnerable_assets"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.list_vulnerable_assets ...'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_number'].nil? && opts[:'page_number'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"page_number"]" when calling SecurityMonitoringAPI.list_vulnerable_assets, must be greater than or equal to 1.'
+      end
+      allowable_values = ['Repository', 'Service', 'Host', 'HostImage', 'Image']
+      if @api_client.config.client_side_validation && opts[:'filter_type'] && !allowable_values.include?(opts[:'filter_type'])
+        fail ArgumentError, "invalid value for \"filter_type\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/api/v2/security/assets'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'page[token]'] = opts[:'page_token'] if !opts[:'page_token'].nil?
+      query_params[:'page[number]'] = opts[:'page_number'] if !opts[:'page_number'].nil?
+      query_params[:'filter[name]'] = opts[:'filter_name'] if !opts[:'filter_name'].nil?
+      query_params[:'filter[type]'] = opts[:'filter_type'] if !opts[:'filter_type'].nil?
+      query_params[:'filter[version.first]'] = opts[:'filter_version_first'] if !opts[:'filter_version_first'].nil?
+      query_params[:'filter[version.last]'] = opts[:'filter_version_last'] if !opts[:'filter_version_last'].nil?
+      query_params[:'filter[repository_url]'] = opts[:'filter_repository_url'] if !opts[:'filter_repository_url'].nil?
+      query_params[:'filter[risks.in_production]'] = opts[:'filter_risks_in_production'] if !opts[:'filter_risks_in_production'].nil?
+      query_params[:'filter[risks.under_attack]'] = opts[:'filter_risks_under_attack'] if !opts[:'filter_risks_under_attack'].nil?
+      query_params[:'filter[risks.is_publicly_accessible]'] = opts[:'filter_risks_is_publicly_accessible'] if !opts[:'filter_risks_is_publicly_accessible'].nil?
+      query_params[:'filter[risks.has_privileged_access]'] = opts[:'filter_risks_has_privileged_access'] if !opts[:'filter_risks_has_privileged_access'].nil?
+      query_params[:'filter[risks.has_access_to_sensitive_data]'] = opts[:'filter_risks_has_access_to_sensitive_data'] if !opts[:'filter_risks_has_access_to_sensitive_data'].nil?
+      query_params[:'filter[environments]'] = opts[:'filter_environments'] if !opts[:'filter_environments'].nil?
+      query_params[:'filter[arch]'] = opts[:'filter_arch'] if !opts[:'filter_arch'].nil?
+      query_params[:'filter[operating_system.name]'] = opts[:'filter_operating_system_name'] if !opts[:'filter_operating_system_name'].nil?
+      query_params[:'filter[operating_system.version]'] = opts[:'filter_operating_system_version'] if !opts[:'filter_operating_system_version'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ListVulnerableAssetsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :list_vulnerable_assets,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#list_vulnerable_assets\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Mute or unmute a batch of findings.
     #
     # @see #mute_findings_with_http_info
