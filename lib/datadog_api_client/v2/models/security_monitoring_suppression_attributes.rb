@@ -48,6 +48,9 @@ module DatadogAPIClient::V2
     # The rule query of the suppression rule, with the same syntax as the search bar for detection rules.
     attr_accessor :rule_query
 
+    # A Unix millisecond timestamp giving the start date for the suppression rule. After this date, it starts suppressing signals.
+    attr_accessor :start_date
+
     # The suppression query of the suppression rule. If a signal matches this query, it is suppressed and not triggered. Same syntax as the queries to search signals in the signal explorer.
     attr_accessor :suppression_query
 
@@ -75,6 +78,7 @@ module DatadogAPIClient::V2
         :'expiration_date' => :'expiration_date',
         :'name' => :'name',
         :'rule_query' => :'rule_query',
+        :'start_date' => :'start_date',
         :'suppression_query' => :'suppression_query',
         :'update_date' => :'update_date',
         :'updater' => :'updater',
@@ -95,6 +99,7 @@ module DatadogAPIClient::V2
         :'expiration_date' => :'Integer',
         :'name' => :'String',
         :'rule_query' => :'String',
+        :'start_date' => :'Integer',
         :'suppression_query' => :'String',
         :'update_date' => :'Integer',
         :'updater' => :'SecurityMonitoringUser',
@@ -154,6 +159,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'rule_query')
         self.rule_query = attributes[:'rule_query']
+      end
+
+      if attributes.key?(:'start_date')
+        self.start_date = attributes[:'start_date']
       end
 
       if attributes.key?(:'suppression_query')
@@ -226,6 +235,7 @@ module DatadogAPIClient::V2
           expiration_date == o.expiration_date &&
           name == o.name &&
           rule_query == o.rule_query &&
+          start_date == o.start_date &&
           suppression_query == o.suppression_query &&
           update_date == o.update_date &&
           updater == o.updater &&
@@ -237,7 +247,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [creation_date, creator, data_exclusion_query, description, editable, enabled, expiration_date, name, rule_query, suppression_query, update_date, updater, version, additional_properties].hash
+      [creation_date, creator, data_exclusion_query, description, editable, enabled, expiration_date, name, rule_query, start_date, suppression_query, update_date, updater, version, additional_properties].hash
     end
   end
 end
