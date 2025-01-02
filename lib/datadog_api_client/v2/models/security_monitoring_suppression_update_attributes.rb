@@ -39,6 +39,9 @@ module DatadogAPIClient::V2
     # The rule query of the suppression rule, with the same syntax as the search bar for detection rules.
     attr_accessor :rule_query
 
+    # A Unix millisecond timestamp giving the start date for the suppression rule. After this date, it starts suppressing signals. If unset, the start date of the suppression rule is left untouched. If set to `null`, the start date is removed.
+    attr_accessor :start_date
+
     # The suppression query of the suppression rule. If a signal matches this query, it is suppressed and not triggered. Same syntax as the queries to search signals in the signal explorer.
     attr_accessor :suppression_query
 
@@ -57,6 +60,7 @@ module DatadogAPIClient::V2
         :'expiration_date' => :'expiration_date',
         :'name' => :'name',
         :'rule_query' => :'rule_query',
+        :'start_date' => :'start_date',
         :'suppression_query' => :'suppression_query',
         :'version' => :'version'
       }
@@ -72,6 +76,7 @@ module DatadogAPIClient::V2
         :'expiration_date' => :'Integer',
         :'name' => :'String',
         :'rule_query' => :'String',
+        :'start_date' => :'Integer',
         :'suppression_query' => :'String',
         :'version' => :'Integer'
       }
@@ -82,6 +87,7 @@ module DatadogAPIClient::V2
     def self.openapi_nullable
       Set.new([
         :'expiration_date',
+        :'start_date',
       ])
     end
 
@@ -125,6 +131,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'rule_query')
         self.rule_query = attributes[:'rule_query']
+      end
+
+      if attributes.key?(:'start_date')
+        self.start_date = attributes[:'start_date']
       end
 
       if attributes.key?(:'suppression_query')
@@ -186,6 +196,7 @@ module DatadogAPIClient::V2
           expiration_date == o.expiration_date &&
           name == o.name &&
           rule_query == o.rule_query &&
+          start_date == o.start_date &&
           suppression_query == o.suppression_query &&
           version == o.version &&
           additional_properties == o.additional_properties
@@ -195,7 +206,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data_exclusion_query, description, enabled, expiration_date, name, rule_query, suppression_query, version, additional_properties].hash
+      [data_exclusion_query, description, enabled, expiration_date, name, rule_query, start_date, suppression_query, version, additional_properties].hash
     end
   end
 end
