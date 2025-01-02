@@ -306,6 +306,32 @@
       <li class="public ">
   <span class="summary_signature">
     
+      <a href="#start_date-instance_method" title="#start_date (instance method)">#<strong>start_date</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>A Unix millisecond timestamp giving the start date for the suppression rule.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#suppression_query-instance_method" title="#suppression_query (instance method)">#<strong>suppression_query</strong>  &#x21d2; Object </a>
     
 
@@ -404,12 +430,12 @@
       <pre class="lines">
 
 
-48
-49
-50</pre>
+51
+52
+53</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/security_monitoring_suppression_update_attributes.rb', line 48</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/security_monitoring_suppression_update_attributes.rb', line 51</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_additional_properties'>additional_properties</span>
   <span class='ivar'>@additional_properties</span>
@@ -672,6 +698,48 @@
 </div>
     
       
+      <span id="start_date=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="start_date-instance_method">
+  
+    #<strong>start_date</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>A Unix millisecond timestamp giving the start date for the suppression rule. After this date, it starts suppressing signals. If unset, the start date of the suppression rule is left untouched. If set to <code>null</code>, the start date is removed.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+43
+44
+45</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/security_monitoring_suppression_update_attributes.rb', line 43</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_start_date'>start_date</span>
+  <span class='ivar'>@start_date</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
       <span id="suppression_query=-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="suppression_query-instance_method">
@@ -698,12 +766,12 @@
       <pre class="lines">
 
 
-43
-44
-45</pre>
+46
+47
+48</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/security_monitoring_suppression_update_attributes.rb', line 43</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/security_monitoring_suppression_update_attributes.rb', line 46</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_suppression_query'>suppression_query</span>
   <span class='ivar'>@suppression_query</span>
@@ -740,12 +808,12 @@
       <pre class="lines">
 
 
-46
-47
-48</pre>
+49
+50
+51</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/security_monitoring_suppression_update_attributes.rb', line 46</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/security_monitoring_suppression_update_attributes.rb', line 49</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_version'>version</span>
   <span class='ivar'>@version</span>
@@ -761,7 +829,7 @@
 </div>
 
       <div id="footer">
-  Generated on Fri Dec 27 15:38:23 2024 by
+  Generated on Thu Jan  2 15:19:24 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>
