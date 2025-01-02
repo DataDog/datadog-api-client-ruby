@@ -2021,6 +2021,7 @@ ScenariosModelMappings = {
     },
     "v2.UpdateRestrictionPolicy" => {
             "resource_id" => "String",
+            "allow_self_lockout" => "String",
             "body" => "RestrictionPolicyUpdateRequest",
     },
     "v2.AggregateRUMEvents" => {
