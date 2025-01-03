@@ -9,16 +9,14 @@ end
 require 'cgi'
 require 'cucumber'
 require 'datadog_api_client'
-require 'ddtrace'
+require 'datadog/ci'
 require 'time'
 require 'timecop'
 require 'vcr'
 
-
 Datadog.configure do |c|
-  c.time_now_provider = -> { Time.now_without_mock_time }
   c.ci.enabled = true
-  c.ci.instrument :cucumber, operation_name: 'test'
+  c.ci.instrument :cucumber
   c.tracing.instrument :http
 end
 
