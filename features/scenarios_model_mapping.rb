@@ -827,6 +827,19 @@ ScenariosModelMappings = {
             "user_handle" => "String",
             "body" => "User",
     },
+    "v2.CreateActionConnection" => {
+            "body" => "CreateActionConnectionRequest",
+    },
+    "v2.DeleteActionConnection" => {
+            "connection_id" => "String",
+    },
+    "v2.GetActionConnection" => {
+            "connection_id" => "String",
+    },
+    "v2.UpdateActionConnection" => {
+            "connection_id" => "String",
+            "body" => "UpdateActionConnectionRequest",
+    },
     "v2.ListAPIKeys" => {
             "page_size" => "Integer",
             "page_number" => "Integer",
