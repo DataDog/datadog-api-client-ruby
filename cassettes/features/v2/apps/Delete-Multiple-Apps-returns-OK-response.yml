@@ -1,5 +1,5 @@
 http_interactions:
-- recorded_at: Thu, 12 Dec 2024 20:29:25 GMT
+- recorded_at: Fri, 20 Dec 2024 20:39:19 GMT
   request:
     body:
       encoding: UTF-8
@@ -16,18 +16,18 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"61d36766-5d27-47ea-a3e7-aa7bd77b1da3","type":"appDefinitions"}}'
+      string: '{"data":{"id":"884b37bc-71b8-40bc-8967-12684ec7f3c4","type":"appDefinitions"}}'
     headers:
       Content-Type:
       - application/vnd.api+json
     status:
       code: 201
       message: Created
-- recorded_at: Thu, 12 Dec 2024 20:29:25 GMT
+- recorded_at: Fri, 20 Dec 2024 20:39:19 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":[{"id":"61d36766-5d27-47ea-a3e7-aa7bd77b1da3","type":"appDefinitions"}]}'
+      string: '{"data":[{"id":"884b37bc-71b8-40bc-8967-12684ec7f3c4","type":"appDefinitions"}]}'
     headers:
       Accept:
       - application/json
@@ -38,21 +38,21 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":[{"id":"61d36766-5d27-47ea-a3e7-aa7bd77b1da3","type":"appDefinitions"}]}'
+      string: '{"data":[{"id":"884b37bc-71b8-40bc-8967-12684ec7f3c4","type":"appDefinitions"}]}'
     headers:
       Content-Type:
       - application/vnd.api+json
     status:
       code: 200
       message: OK
-- recorded_at: Thu, 12 Dec 2024 20:29:25 GMT
+- recorded_at: Fri, 20 Dec 2024 20:39:19 GMT
   request:
     body: null
     headers:
       Accept:
       - application/json
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/app-builder/apps/61d36766-5d27-47ea-a3e7-aa7bd77b1da3
+    uri: https://api.datadoghq.com/api/v2/app-builder/apps/884b37bc-71b8-40bc-8967-12684ec7f3c4
   response:
     body:
       encoding: UTF-8
