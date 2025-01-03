@@ -1,0 +1,20 @@
+http_interactions:
+- recorded_at: Thu, 19 Dec 2024 16:15:24 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+    method: GET
+    uri: https://api.datadoghq.com/api/v2/security/vulnerabilities?filter%5Bcvss.base.severity%5D=High&filter%5Basset.type%5D=Service&filter%5Btool%5D=Infra
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":[]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 200
+      message: OK
+recorded_with: VCR 6.0.0

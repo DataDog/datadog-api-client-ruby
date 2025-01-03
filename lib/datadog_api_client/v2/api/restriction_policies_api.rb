@@ -195,6 +195,7 @@ module DatadogAPIClient::V2
     # @param resource_id [String] Identifier, formatted as `type:id`. Supported types: `connection`, `dashboard`, `notebook`, `reference-table`, `security-rule`, `slo`.
     # @param body [RestrictionPolicyUpdateRequest] Restriction policy payload
     # @param opts [Hash] the optional parameters
+    # @option opts [String] :allow_self_lockout Allows admins (users with the `user_access_manage` permission) to remove their own access from the resource if set to `true`. By default, this is set to `false`, preventing admins from locking themselves out.
     # @return [Array<(RestrictionPolicyResponse, Integer, Hash)>] RestrictionPolicyResponse data, response status code and response headers
     def update_restriction_policy_with_http_info(resource_id, body, opts = {})
 
@@ -214,6 +215,7 @@ module DatadogAPIClient::V2
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'allow_self_lockout'] = opts[:'allow_self_lockout'] if !opts[:'allow_self_lockout'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
