@@ -53,7 +53,7 @@ module DatadogAPIClient::V2
         :'created_at' => :'String',
         :'user_id' => :'Integer',
         :'user_name' => :'String',
-        :'user_uuid' => :'String'
+        :'user_uuid' => :'UUID'
       }
     end
 
