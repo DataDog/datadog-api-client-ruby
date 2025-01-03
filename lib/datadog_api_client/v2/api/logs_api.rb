@@ -90,7 +90,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Search logs.
+    # Search logs (POST).
     #
     # @see #list_logs_with_http_info
     def list_logs(opts = {})
@@ -98,12 +98,12 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Search logs.
+    # Search logs (POST).
     #
     # List endpoint returns logs that match a log search query.
     # [Results are paginated][1].
     #
-    # Use this endpoint to build complex logs filtering and search.
+    # Use this endpoint to search and filter your logs.
     #
     # **If you are considering archiving logs for your organization,
     # consider use of the Datadog archive capabilities instead of the log list API.
@@ -163,7 +163,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Search logs.
+    # Search logs (POST).
     #
     # Provide a paginated version of {#list_logs}, returning all items.
     #
@@ -184,7 +184,7 @@ module DatadogAPIClient::V2
         end
     end
 
-    # Get a list of logs.
+    # Search logs (GET).
     #
     # @see #list_logs_get_with_http_info
     def list_logs_get(opts = {})
@@ -192,12 +192,12 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Get a list of logs.
+    # Search logs (GET).
     #
     # List endpoint returns logs that match a log search query.
     # [Results are paginated][1].
     #
-    # Use this endpoint to see your latest logs.
+    # Use this endpoint to search and filter your logs.
     #
     # **If you are considering archiving logs for your organization,
     # consider use of the Datadog archive capabilities instead of the log list API.
@@ -281,7 +281,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Get a list of logs.
+    # Search logs (GET).
     #
     # Provide a paginated version of {#list_logs_get}, returning all items.
     #

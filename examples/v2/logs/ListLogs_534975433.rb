@@ -1,4 +1,4 @@
-# Search logs (POST) returns "OK" response
+# Search logs (POST) returns "OK" response with pagination
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::LogsAPI.new
@@ -26,4 +26,4 @@ body = DatadogAPIClient::V2::LogsListRequest.new({
 opts = {
   body: body,
 }
-p api_instance.list_logs(opts)
+api_instance.list_logs_with_pagination(opts) { |item| puts item }
