@@ -1806,6 +1806,7 @@ module DatadogAPIClient
           "v2.job_definition" => "JobDefinition",
           "v2.job_definition_from_rule" => "JobDefinitionFromRule",
           "v2.jsonapi_error_item" => "JSONAPIErrorItem",
+          "v2.jsonapi_error_item_source" => "JSONAPIErrorItemSource",
           "v2.jsonapi_error_response" => "JSONAPIErrorResponse",
           "v2.leaked_key" => "LeakedKey",
           "v2.leaked_key_attributes" => "LeakedKeyAttributes",
