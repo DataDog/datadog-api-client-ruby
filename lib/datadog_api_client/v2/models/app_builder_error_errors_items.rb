@@ -17,21 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `DeploymentRelationshipMeta` object.
-  class DeploymentRelationshipMeta
+  # The definition of `AppBuilderErrorErrorsItems` object.
+  class AppBuilderErrorErrorsItems
     include BaseGenericModel
 
-    # The `meta` `created_at`.
-    attr_accessor :created_at
+    # The `items` `detail`.
+    attr_accessor :detail
 
-    # The `meta` `user_id`.
-    attr_accessor :user_id
-
-    # The `meta` `user_name`.
-    attr_accessor :user_name
-
-    # The `meta` `user_uuid`.
-    attr_accessor :user_uuid
+    # The definition of `AppBuilderErrorErrorsItemsSource` object.
+    attr_accessor :source
 
     attr_accessor :additional_properties
 
@@ -39,10 +33,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'created_at' => :'created_at',
-        :'user_id' => :'user_id',
-        :'user_name' => :'user_name',
-        :'user_uuid' => :'user_uuid'
+        :'detail' => :'detail',
+        :'source' => :'source'
       }
     end
 
@@ -50,10 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'created_at' => :'String',
-        :'user_id' => :'Integer',
-        :'user_name' => :'String',
-        :'user_uuid' => :'String'
+        :'detail' => :'String',
+        :'source' => :'AppBuilderErrorErrorsItemsSource'
       }
     end
 
@@ -62,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::DeploymentRelationshipMeta` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::AppBuilderErrorErrorsItems` initialize method"
       end
 
       self.additional_properties = {}
@@ -75,20 +65,12 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'created_at')
-        self.created_at = attributes[:'created_at']
+      if attributes.key?(:'detail')
+        self.detail = attributes[:'detail']
       end
 
-      if attributes.key?(:'user_id')
-        self.user_id = attributes[:'user_id']
-      end
-
-      if attributes.key?(:'user_name')
-        self.user_name = attributes[:'user_name']
-      end
-
-      if attributes.key?(:'user_uuid')
-        self.user_uuid = attributes[:'user_uuid']
+      if attributes.key?(:'source')
+        self.source = attributes[:'source']
       end
     end
 
@@ -118,10 +100,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          created_at == o.created_at &&
-          user_id == o.user_id &&
-          user_name == o.user_name &&
-          user_uuid == o.user_uuid &&
+          detail == o.detail &&
+          source == o.source &&
           additional_properties == o.additional_properties
     end
 
@@ -129,7 +109,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created_at, user_id, user_name, user_uuid, additional_properties].hash
+      [detail, source, additional_properties].hash
     end
   end
 end

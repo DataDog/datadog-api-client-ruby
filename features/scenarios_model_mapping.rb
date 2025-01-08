@@ -950,13 +950,12 @@ ScenariosModelMappings = {
             "limit" => "Integer",
             "page" => "Integer",
             "filter_user_name" => "String",
-            "filter_user_uuid" => "UUID",
+            "filter_user_uuid" => "String",
             "filter_name" => "String",
             "filter_query" => "String",
             "filter_deployed" => "Boolean",
             "filter_tags" => "String",
             "filter_favorite" => "Boolean",
-            "filter_self_service" => "Boolean",
             "sort" => "Array<AppsSortField>",
     },
     "v2.CreateApp" => {
@@ -967,7 +966,6 @@ ScenariosModelMappings = {
     },
     "v2.GetApp" => {
             "app_id" => "String",
-            "version" => "String",
     },
     "v2.UpdateApp" => {
             "app_id" => "String",

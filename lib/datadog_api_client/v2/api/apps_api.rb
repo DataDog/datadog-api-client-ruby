@@ -240,148 +240,6 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Deploy App.
-    #
-    # @see #deploy_app_with_http_info
-    def deploy_app(app_id, opts = {})
-      data, _status_code, _headers = deploy_app_with_http_info(app_id, opts)
-      data
-    end
-
-    # Deploy App.
-    #
-    # Deploy (publish) an app by ID
-    #
-    # @param app_id [String] 
-    # @param opts [Hash] the optional parameters
-    # @return [Array<(DeployAppResponse, Integer, Hash)>] DeployAppResponse data, response status code and response headers
-    def deploy_app_with_http_info(app_id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.deploy_app".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.deploy_app")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.deploy_app"))
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: AppsAPI.deploy_app ...'
-      end
-      # verify the required parameter 'app_id' is set
-      if @api_client.config.client_side_validation && app_id.nil?
-        fail ArgumentError, "Missing the required parameter 'app_id' when calling AppsAPI.deploy_app"
-      end
-      # resource path
-      local_var_path = '/api/v2/app-builder/apps/{app_id}/deployment'.sub('{app_id}', CGI.escape(app_id.to_s).gsub('%2F', '/'))
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'DeployAppResponse'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
-
-      new_options = opts.merge(
-        :operation => :deploy_app,
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type,
-        :api_version => "V2"
-      )
-
-      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: AppsAPI#deploy_app\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Disable App.
-    #
-    # @see #disable_app_with_http_info
-    def disable_app(app_id, opts = {})
-      data, _status_code, _headers = disable_app_with_http_info(app_id, opts)
-      data
-    end
-
-    # Disable App.
-    #
-    # Disable an app by ID
-    #
-    # @param app_id [String] 
-    # @param opts [Hash] the optional parameters
-    # @return [Array<(DisableAppResponse, Integer, Hash)>] DisableAppResponse data, response status code and response headers
-    def disable_app_with_http_info(app_id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.disable_app".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.disable_app")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.disable_app"))
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: AppsAPI.disable_app ...'
-      end
-      # verify the required parameter 'app_id' is set
-      if @api_client.config.client_side_validation && app_id.nil?
-        fail ArgumentError, "Missing the required parameter 'app_id' when calling AppsAPI.disable_app"
-      end
-      # resource path
-      local_var_path = '/api/v2/app-builder/apps/{app_id}/deployment'.sub('{app_id}', CGI.escape(app_id.to_s).gsub('%2F', '/'))
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'DisableAppResponse'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
-
-      new_options = opts.merge(
-        :operation => :disable_app,
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type,
-        :api_version => "V2"
-      )
-
-      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: AppsAPI#disable_app\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
     # Get App.
     #
     # @see #get_app_with_http_info
@@ -396,7 +254,6 @@ module DatadogAPIClient::V2
     #
     # @param app_id [String] 
     # @param opts [Hash] the optional parameters
-    # @option opts [String] :version 
     # @return [Array<(GetAppResponse, Integer, Hash)>] GetAppResponse data, response status code and response headers
     def get_app_with_http_info(app_id, opts = {})
       unstable_enabled = @api_client.config.unstable_operations["v2.get_app".to_sym]
@@ -418,7 +275,6 @@ module DatadogAPIClient::V2
 
       # query parameters
       query_params = opts[:query_params] || {}
-      query_params[:'version'] = opts[:'version'] if !opts[:'version'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -468,17 +324,16 @@ module DatadogAPIClient::V2
     # List all apps, with optional filters and sorting
     #
     # @param opts [Hash] the optional parameters
-    # @option opts [Integer] :limit The number of apps to return per page.
-    # @option opts [Integer] :page The page number to return.
-    # @option opts [String] :filter_user_name Filter apps by the app creator. Usually the user's email.
-    # @option opts [UUID] :filter_user_uuid Filter apps by the app creator's UUID.
-    # @option opts [String] :filter_name Filter by app name.
-    # @option opts [String] :filter_query Filter apps by the app name or the app creator.
-    # @option opts [Boolean] :filter_deployed Filter apps by whether they are published.
-    # @option opts [String] :filter_tags Filter apps by tags.
-    # @option opts [Boolean] :filter_favorite Filter apps by whether you have added them to your favorites.
-    # @option opts [Boolean] :filter_self_service Filter apps by whether they are enabled for self-service.
-    # @option opts [Array<AppsSortField>] :sort The fields and direction to sort apps by.
+    # @option opts [Integer] :limit The number of apps to return per page
+    # @option opts [Integer] :page The page number to return
+    # @option opts [String] :filter_user_name The `AppsFilter` `user_name`.
+    # @option opts [String] :filter_user_uuid The `AppsFilter` `user_uuid`.
+    # @option opts [String] :filter_name The `AppsFilter` `name`.
+    # @option opts [String] :filter_query The `AppsFilter` `query`.
+    # @option opts [Boolean] :filter_deployed The `AppsFilter` `deployed`.
+    # @option opts [String] :filter_tags The `AppsFilter` `tags`.
+    # @option opts [Boolean] :filter_favorite The `AppsFilter` `favorite`.
+    # @option opts [Array<AppsSortField>] :sort 
     # @return [Array<(ListAppsResponse, Integer, Hash)>] ListAppsResponse data, response status code and response headers
     def list_apps_with_http_info(opts = {})
       unstable_enabled = @api_client.config.unstable_operations["v2.list_apps".to_sym]
@@ -505,7 +360,6 @@ module DatadogAPIClient::V2
       query_params[:'filter[deployed]'] = opts[:'filter_deployed'] if !opts[:'filter_deployed'].nil?
       query_params[:'filter[tags]'] = opts[:'filter_tags'] if !opts[:'filter_tags'].nil?
       query_params[:'filter[favorite]'] = opts[:'filter_favorite'] if !opts[:'filter_favorite'].nil?
-      query_params[:'filter[self_service]'] = opts[:'filter_self_service'] if !opts[:'filter_self_service'].nil?
       query_params[:'sort'] = @api_client.build_collection_param(opts[:'sort'], :csv) if !opts[:'sort'].nil?
 
       # header parameters

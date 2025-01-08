@@ -17,21 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `DeploymentRelationshipMeta` object.
-  class DeploymentRelationshipMeta
+  # The definition of `AppBuilderError` object.
+  class AppBuilderError
     include BaseGenericModel
 
-    # The `meta` `created_at`.
-    attr_accessor :created_at
-
-    # The `meta` `user_id`.
-    attr_accessor :user_id
-
-    # The `meta` `user_name`.
-    attr_accessor :user_name
-
-    # The `meta` `user_uuid`.
-    attr_accessor :user_uuid
+    # The `AppBuilderError` `errors`.
+    attr_accessor :errors
 
     attr_accessor :additional_properties
 
@@ -39,10 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'created_at' => :'created_at',
-        :'user_id' => :'user_id',
-        :'user_name' => :'user_name',
-        :'user_uuid' => :'user_uuid'
+        :'errors' => :'errors'
       }
     end
 
@@ -50,10 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'created_at' => :'String',
-        :'user_id' => :'Integer',
-        :'user_name' => :'String',
-        :'user_uuid' => :'String'
+        :'errors' => :'Array<AppBuilderErrorErrorsItems>'
       }
     end
 
@@ -62,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::DeploymentRelationshipMeta` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::AppBuilderError` initialize method"
       end
 
       self.additional_properties = {}
@@ -75,20 +60,10 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'created_at')
-        self.created_at = attributes[:'created_at']
-      end
-
-      if attributes.key?(:'user_id')
-        self.user_id = attributes[:'user_id']
-      end
-
-      if attributes.key?(:'user_name')
-        self.user_name = attributes[:'user_name']
-      end
-
-      if attributes.key?(:'user_uuid')
-        self.user_uuid = attributes[:'user_uuid']
+      if attributes.key?(:'errors')
+        if (value = attributes[:'errors']).is_a?(Array)
+          self.errors = value
+        end
       end
     end
 
@@ -118,10 +93,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          created_at == o.created_at &&
-          user_id == o.user_id &&
-          user_name == o.user_name &&
-          user_uuid == o.user_uuid &&
+          errors == o.errors &&
           additional_properties == o.additional_properties
     end
 
@@ -129,7 +101,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created_at, user_id, user_name, user_uuid, additional_properties].hash
+      [errors, additional_properties].hash
     end
   end
 end

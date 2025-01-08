@@ -1,11 +1,11 @@
 http_interactions:
-- recorded_at: Fri, 20 Dec 2024 20:39:20 GMT
+- recorded_at: Tue, 10 Dec 2024 19:57:36 GMT
   request:
     body: null
     headers:
       Accept:
       - application/json
-    method: POST
+    method: DELETE
     uri: https://api.datadoghq.com/api/v2/app-builder/apps/invalid-uuid/deployment
   response:
     body:

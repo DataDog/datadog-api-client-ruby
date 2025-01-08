@@ -82,7 +82,7 @@ module DatadogAPIClient::V2
         :'updated_since_deployment' => :'Boolean',
         :'user_id' => :'Integer',
         :'user_name' => :'String',
-        :'user_uuid' => :'UUID',
+        :'user_uuid' => :'String',
         :'version' => :'Integer'
       }
     end

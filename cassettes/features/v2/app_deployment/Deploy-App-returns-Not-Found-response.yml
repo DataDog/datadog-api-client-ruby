@@ -1,11 +1,11 @@
 http_interactions:
-- recorded_at: Fri, 20 Dec 2024 20:39:21 GMT
+- recorded_at: Tue, 10 Dec 2024 19:57:35 GMT
   request:
     body: null
     headers:
       Accept:
       - application/json
-    method: DELETE
+    method: POST
     uri: https://api.datadoghq.com/api/v2/app-builder/apps/7addb29b-f935-472c-ae79-d1963979a23e/deployment
   response:
     body:
