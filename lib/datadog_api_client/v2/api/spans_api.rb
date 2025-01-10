@@ -209,7 +209,7 @@ module DatadogAPIClient::V2
     # @option opts [String] :filter_to Maximum timestamp for requested spans. Supports date-time ISO8601, date math, and regular timestamps (milliseconds).
     # @option opts [SpansSort] :sort Order of spans in results.
     # @option opts [String] :page_cursor List following results with a cursor provided in the previous query.
-    # @option opts [Integer] :page_limit Maximum number of spans in the response.
+    # @option opts [Integer] :page_limit Maximum number of spans in the response. Defaults to 10 and allows up to 5000.
     # @return [Array<(SpansListResponse, Integer, Hash)>] SpansListResponse data, response status code and response headers
     def list_spans_get_with_http_info(opts = {})
 
