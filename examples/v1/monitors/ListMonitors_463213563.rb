@@ -1,4 +1,4 @@
-# Get all monitor details returns "OK" response with pagination
+# Get all monitors returns "OK" response with pagination
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::MonitorsAPI.new
