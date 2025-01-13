@@ -3183,7 +3183,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Shows the 99th percentile of all profiled hosts over all hours in the current date for all organizations.</p>
+    <span class="summary_desc"><div class='inline'><p>Shows the 99th percentile of all profiled hosts over all hours within the current date for all organizations.</p>
 </div></span>
   
 </li>
@@ -3573,7 +3573,85 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Shows the sum of all mobile RUM lite sessions on Roku over all hours in the current date for all organizations (To be introduced on October 1st, 2024).</p>
+    <span class="summary_desc"><div class='inline'><p>Shows the sum of all mobile RUM lite sessions on Roku over all hours within the current date for all organizations (To be introduced on October 1st, 2024).</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#rum_mobile_replay_session_count_android_sum-instance_method" title="#rum_mobile_replay_session_count_android_sum (instance method)">#<strong>rum_mobile_replay_session_count_android_sum</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Shows the sum of all mobile RUM replay sessions on Android over all hours within the current date for the given org.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#rum_mobile_replay_session_count_ios_sum-instance_method" title="#rum_mobile_replay_session_count_ios_sum (instance method)">#<strong>rum_mobile_replay_session_count_ios_sum</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Shows the sum of all mobile RUM replay sessions on iOS over all hours within the current date for the given org.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#rum_mobile_replay_session_count_reactnative_sum-instance_method" title="#rum_mobile_replay_session_count_reactnative_sum (instance method)">#<strong>rum_mobile_replay_session_count_reactnative_sum</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Shows the sum of all mobile RUM replay sessions on React Native over all hours within the current date for the given org.</p>
 </div></span>
   
 </li>
@@ -4590,12 +4668,12 @@
       <pre class="lines">
 
 
-492
-493
-494</pre>
+501
+502
+503</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date.rb', line 492</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date.rb', line 501</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_additional_properties'>additional_properties</span>
   <span class='ivar'>@additional_properties</span>
@@ -9448,7 +9526,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Shows the 99th percentile of all profiled hosts over all hours in the current date for all organizations.</p>
+    <p>Shows the 99th percentile of all profiled hosts over all hours within the current date for all organizations.</p>
 
 
   </div>
@@ -10078,7 +10156,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Shows the sum of all mobile RUM lite sessions on Roku over all hours in the current date for all organizations (To be introduced on October 1st, 2024).</p>
+    <p>Shows the sum of all mobile RUM lite sessions on Roku over all hours within the current date for all organizations (To be introduced on October 1st, 2024).</p>
 
 
   </div>
@@ -10101,6 +10179,132 @@
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rum_mobile_lite_session_count_roku_sum'>rum_mobile_lite_session_count_roku_sum</span>
   <span class='ivar'>@rum_mobile_lite_session_count_roku_sum</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="rum_mobile_replay_session_count_android_sum=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="rum_mobile_replay_session_count_android_sum-instance_method">
+  
+    #<strong>rum_mobile_replay_session_count_android_sum</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Shows the sum of all mobile RUM replay sessions on Android over all hours within the current date for the given org.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+418
+419
+420</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date.rb', line 418</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_rum_mobile_replay_session_count_android_sum'>rum_mobile_replay_session_count_android_sum</span>
+  <span class='ivar'>@rum_mobile_replay_session_count_android_sum</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="rum_mobile_replay_session_count_ios_sum=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="rum_mobile_replay_session_count_ios_sum-instance_method">
+  
+    #<strong>rum_mobile_replay_session_count_ios_sum</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Shows the sum of all mobile RUM replay sessions on iOS over all hours within the current date for the given org.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+421
+422
+423</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date.rb', line 421</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_rum_mobile_replay_session_count_ios_sum'>rum_mobile_replay_session_count_ios_sum</span>
+  <span class='ivar'>@rum_mobile_replay_session_count_ios_sum</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="rum_mobile_replay_session_count_reactnative_sum=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="rum_mobile_replay_session_count_reactnative_sum-instance_method">
+  
+    #<strong>rum_mobile_replay_session_count_reactnative_sum</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Shows the sum of all mobile RUM replay sessions on React Native over all hours within the current date for the given org.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+424
+425
+426</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date.rb', line 424</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_rum_mobile_replay_session_count_reactnative_sum'>rum_mobile_replay_session_count_reactnative_sum</span>
+  <span class='ivar'>@rum_mobile_replay_session_count_reactnative_sum</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -10134,12 +10338,12 @@
       <pre class="lines">
 
 
-418
-419
-420</pre>
+427
+428
+429</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date.rb', line 418</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date.rb', line 427</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rum_replay_session_count_sum'>rum_replay_session_count_sum</span>
   <span class='ivar'>@rum_replay_session_count_sum</span>
@@ -10302,12 +10506,12 @@
       <pre class="lines">
 
 
-430
-431
-432</pre>
+439
+440
+441</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date.rb', line 430</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date.rb', line 439</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_sca_fargate_count_avg'>sca_fargate_count_avg</span>
   <span class='ivar'>@sca_fargate_count_avg</span>
@@ -10344,12 +10548,12 @@
       <pre class="lines">
 
 
-433
-434
-435</pre>
+442
+443
+444</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date.rb', line 433</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date.rb', line 442</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_sca_fargate_count_hwm'>sca_fargate_count_hwm</span>
   <span class='ivar'>@sca_fargate_count_hwm</span>
@@ -10386,12 +10590,12 @@
       <pre class="lines">
 
 
-436
-437
-438</pre>
+445
+446
+447</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date.rb', line 436</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date.rb', line 445</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_sds_apm_scanned_bytes_sum'>sds_apm_scanned_bytes_sum</span>
   <span class='ivar'>@sds_apm_scanned_bytes_sum</span>
@@ -10428,12 +10632,12 @@
       <pre class="lines">
 
 
-439
-440
-441</pre>
+448
+449
+450</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date.rb', line 439</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date.rb', line 448</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_sds_events_scanned_bytes_sum'>sds_events_scanned_bytes_sum</span>
   <span class='ivar'>@sds_events_scanned_bytes_sum</span>
@@ -10512,12 +10716,12 @@
       <pre class="lines">
 
 
-445
-446
-447</pre>
+454
+455
+456</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date.rb', line 445</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date.rb', line 454</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_sds_rum_scanned_bytes_sum'>sds_rum_scanned_bytes_sum</span>
   <span class='ivar'>@sds_rum_scanned_bytes_sum</span>
@@ -10596,12 +10800,12 @@
       <pre class="lines">
 
 
-451
-452
-453</pre>
+460
+461
+462</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date.rb', line 451</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date.rb', line 460</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_serverless_apps_azure_count_avg'>serverless_apps_azure_count_avg</span>
   <span class='ivar'>@serverless_apps_azure_count_avg</span>
@@ -10638,12 +10842,12 @@
       <pre class="lines">
 
 
-454
-455
-456</pre>
+463
+464
+465</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date.rb', line 454</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date.rb', line 463</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_serverless_apps_google_count_avg'>serverless_apps_google_count_avg</span>
   <span class='ivar'>@serverless_apps_google_count_avg</span>
@@ -10680,12 +10884,12 @@
       <pre class="lines">
 
 
-457
-458
-459</pre>
+466
+467
+468</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date.rb', line 457</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date.rb', line 466</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_serverless_apps_total_count_avg'>serverless_apps_total_count_avg</span>
   <span class='ivar'>@serverless_apps_total_count_avg</span>
@@ -10722,12 +10926,12 @@
       <pre class="lines">
 
 
-460
-461
-462</pre>
+469
+470
+471</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date.rb', line 460</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date.rb', line 469</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_siem_analyzed_logs_add_on_count_sum'>siem_analyzed_logs_add_on_count_sum</span>
   <span class='ivar'>@siem_analyzed_logs_add_on_count_sum</span>
@@ -10848,12 +11052,12 @@
       <pre class="lines">
 
 
-469
-470
-471</pre>
+478
+479
+480</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date.rb', line 469</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date.rb', line 478</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_synthetics_mobile_test_runs_sum'>synthetics_mobile_test_runs_sum</span>
   <span class='ivar'>@synthetics_mobile_test_runs_sum</span>
@@ -10890,12 +11094,12 @@
       <pre class="lines">
 
 
-472
-473
-474</pre>
+481
+482
+483</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date.rb', line 472</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date.rb', line 481</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_synthetics_parallel_testing_max_slots_hwm'>synthetics_parallel_testing_max_slots_hwm</span>
   <span class='ivar'>@synthetics_parallel_testing_max_slots_hwm</span>
@@ -11016,12 +11220,12 @@
       <pre class="lines">
 
 
-481
-482
-483</pre>
+490
+491
+492</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date.rb', line 481</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date.rb', line 490</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_universal_service_monitoring_host_top99p'>universal_service_monitoring_host_top99p</span>
   <span class='ivar'>@universal_service_monitoring_host_top99p</span>
@@ -11100,12 +11304,12 @@
       <pre class="lines">
 
 
-487
-488
-489</pre>
+496
+497
+498</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date.rb', line 487</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date.rb', line 496</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_vuln_management_host_count_top99p'>vuln_management_host_count_top99p</span>
   <span class='ivar'>@vuln_management_host_count_top99p</span>
@@ -11142,12 +11346,12 @@
       <pre class="lines">
 
 
-490
-491
-492</pre>
+499
+500
+501</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date.rb', line 490</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date.rb', line 499</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_workflow_executions_usage_sum'>workflow_executions_usage_sum</span>
   <span class='ivar'>@workflow_executions_usage_sum</span>
@@ -12019,7 +12223,7 @@ For object, use to_hash. Otherwise, just return the value</p>
 </div>
 
       <div id="footer">
-  Generated on Mon Jan 13 18:20:18 2025 by
+  Generated on Mon Jan 13 19:17:35 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>
