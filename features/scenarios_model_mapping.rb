@@ -1726,55 +1726,10 @@ ScenariosModelMappings = {
     "v2.UploadIdPMetadata" => {
             "idp_file" => "File",
     },
-    "v2.ListRoles" => {
-            "page_size" => "Integer",
-            "page_number" => "Integer",
-            "sort" => "RolesSort",
-            "filter" => "String",
-            "filter_id" => "String",
-    },
-    "v2.CreateRole" => {
-            "body" => "RoleCreateRequest",
-    },
-    "v2.DeleteRole" => {
-            "role_id" => "String",
-    },
-    "v2.GetRole" => {
-            "role_id" => "String",
-    },
-    "v2.UpdateRole" => {
-            "role_id" => "String",
-            "body" => "RoleUpdateRequest",
-    },
-    "v2.CloneRole" => {
-            "role_id" => "String",
-            "body" => "RoleCloneRequest",
-    },
-    "v2.RemovePermissionFromRole" => {
-            "role_id" => "String",
-            "body" => "RelationshipToPermission",
-    },
-    "v2.ListRolePermissions" => {
-            "role_id" => "String",
-    },
-    "v2.AddPermissionToRole" => {
-            "role_id" => "String",
-            "body" => "RelationshipToPermission",
-    },
-    "v2.RemoveUserFromRole" => {
-            "role_id" => "String",
-            "body" => "RelationshipToUser",
-    },
-    "v2.ListRoleUsers" => {
-            "role_id" => "String",
-            "page_size" => "Integer",
-            "page_number" => "Integer",
-            "sort" => "String",
-            "filter" => "String",
-    },
-    "v2.AddUserToRole" => {
-            "role_id" => "String",
-            "body" => "RelationshipToUser",
+    "v2.DeleteCustomFramework" => {
+            "org_id" => "String",
+            "handle" => "String",
+            "version" => "String",
     },
     "v2.ListFindings" => {
             "page_limit" => "Integer",
@@ -1963,6 +1918,56 @@ ScenariosModelMappings = {
     },
     "v2.CancelHistoricalJob" => {
             "job_id" => "String",
+    },
+    "v2.ListRoles" => {
+            "page_size" => "Integer",
+            "page_number" => "Integer",
+            "sort" => "RolesSort",
+            "filter" => "String",
+            "filter_id" => "String",
+    },
+    "v2.CreateRole" => {
+            "body" => "RoleCreateRequest",
+    },
+    "v2.DeleteRole" => {
+            "role_id" => "String",
+    },
+    "v2.GetRole" => {
+            "role_id" => "String",
+    },
+    "v2.UpdateRole" => {
+            "role_id" => "String",
+            "body" => "RoleUpdateRequest",
+    },
+    "v2.CloneRole" => {
+            "role_id" => "String",
+            "body" => "RoleCloneRequest",
+    },
+    "v2.RemovePermissionFromRole" => {
+            "role_id" => "String",
+            "body" => "RelationshipToPermission",
+    },
+    "v2.ListRolePermissions" => {
+            "role_id" => "String",
+    },
+    "v2.AddPermissionToRole" => {
+            "role_id" => "String",
+            "body" => "RelationshipToPermission",
+    },
+    "v2.RemoveUserFromRole" => {
+            "role_id" => "String",
+            "body" => "RelationshipToUser",
+    },
+    "v2.ListRoleUsers" => {
+            "role_id" => "String",
+            "page_size" => "Integer",
+            "page_number" => "Integer",
+            "sort" => "String",
+            "filter" => "String",
+    },
+    "v2.AddUserToRole" => {
+            "role_id" => "String",
+            "body" => "RelationshipToUser",
     },
     "v2.ListPowerpacks" => {
             "page_limit" => "Integer",
