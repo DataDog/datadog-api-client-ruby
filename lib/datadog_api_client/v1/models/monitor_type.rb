@@ -39,5 +39,6 @@ module DatadogAPIClient::V1
     ERROR_TRACKING_ALERT = "error-tracking alert".freeze
     DATABASE_MONITORING_ALERT = "database-monitoring alert".freeze
     NETWORK_PERFORMANCE_ALERT = "network-performance alert".freeze
+    COST_ALERT = "cost alert".freeze
   end
 end
