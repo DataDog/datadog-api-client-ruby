@@ -26,7 +26,8 @@ module DatadogAPIClient::V1
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of
         [
-          :'MonitorFormulaAndFunctionEventQueryDefinition'
+          :'MonitorFormulaAndFunctionEventQueryDefinition',
+          :'MonitorFormulaAndFunctionCostQueryDefinition'
         ]
       end
       # Builds the object
