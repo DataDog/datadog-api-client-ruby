@@ -1,0 +1,21 @@
+http_interactions:
+- recorded_at: Mon, 06 Jan 2025 22:02:37 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+    method: GET
+    uri: https://api.datadoghq.com/api/v2/actions/connections/aaa11111-aa11-aa11-aaaa-aaaaaa111111
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"title":"Generic Error","detail":"error getting connection:
+        rpc error: code = NotFound desc = connection not found"}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 404
+      message: Not Found
+recorded_with: VCR 6.0.0
