@@ -19,6 +19,7 @@ body = DatadogAPIClient::V2::CreateDataDeletionRequestBody.new({
       },
       to: 1704063600000,
     }),
+    type: DatadogAPIClient::V2::CreateDataDeletionRequestBodyDataType::CREATE_DELETION_REQ,
   }),
 })
 p api_instance.create_data_deletion_request("logs", body)

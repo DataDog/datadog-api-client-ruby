@@ -1312,6 +1312,7 @@ module DatadogAPIClient
           "v2.create_data_deletion_request_body" => "CreateDataDeletionRequestBody",
           "v2.create_data_deletion_request_body_attributes" => "CreateDataDeletionRequestBodyAttributes",
           "v2.create_data_deletion_request_body_data" => "CreateDataDeletionRequestBodyData",
+          "v2.create_data_deletion_request_body_data_type" => "CreateDataDeletionRequestBodyDataType",
           "v2.create_data_deletion_response_body" => "CreateDataDeletionResponseBody",
           "v2.create_open_api_response" => "CreateOpenAPIResponse",
           "v2.create_open_api_response_attributes" => "CreateOpenAPIResponseAttributes",
