@@ -489,7 +489,7 @@
       
       
         &mdash;
-        <div class='inline'><p>Identifier, formatted as <code>type:id</code>. Supported types: <code>connection</code>, <code>dashboard</code>, <code>notebook</code>, <code>reference-table</code>, <code>security-rule</code>, <code>slo</code>.</p>
+        <div class='inline'><p>Identifier, formatted as <code>type:id</code>. Supported types: <code>connection</code>, <code>dashboard</code>, <code>notebook</code>, <code>reference-table</code>, <code>security-rule</code>, <code>slo</code>, <code>workflow</code>, <code>app-builder-app</code>, <code>connection</code>, <code>connection-group</code>.</p>
 </div>
       
     </li>
@@ -725,7 +725,7 @@
       
       
         &mdash;
-        <div class='inline'><p>Identifier, formatted as <code>type:id</code>. Supported types: <code>connection</code>, <code>dashboard</code>, <code>notebook</code>, <code>reference-table</code>, <code>security-rule</code>, <code>slo</code>.</p>
+        <div class='inline'><p>Identifier, formatted as <code>type:id</code>. Supported types: <code>connection</code>, <code>dashboard</code>, <code>notebook</code>, <code>reference-table</code>, <code>security-rule</code>, <code>slo</code>, <code>workflow</code>, <code>app-builder-app</code>, <code>connection</code>, <code>connection-group</code>.</p>
 </div>
       
     </li>
@@ -959,6 +959,10 @@
 <li>Synthetic Tests: <code>synthetics-test</code></li>
 <li>Synthetic Private Locations: <code>synthetics-private-location</code></li>
 <li>Monitors: <code>monitor</code></li>
+<li>Workflows: <code>workflow</code></li>
+<li>App Builder Apps: <code>app-builder-app</code></li>
+<li>Connections: <code>connection</code></li>
+<li>Connection Groups: <code>connection-group</code></li>
 </ul>
 
 <h4 id="supported-relations-for-resources">Supported relations for resources</h4>
@@ -1009,6 +1013,22 @@
 <td>Reference Tables</td>
 <td><code>viewer</code>, <code>editor</code></td>
 </tr>
+<tr>
+<td>Workflows</td>
+<td><code>viewer</code>, <code>editor</code></td>
+</tr>
+<tr>
+<td>App Builder Apps</td>
+<td><code>viewer</code>, <code>runner</code>, <code>editor</code></td>
+</tr>
+<tr>
+<td>Connections</td>
+<td><code>viewer</code>, <code>resolver</code>, <code>editor</code></td>
+</tr>
+<tr>
+<td>Connection Groups</td>
+<td><code>viewer</code>, <code>editor</code></td>
+</tr>
 </tbody></table>
 
 
@@ -1028,7 +1048,7 @@
       
       
         &mdash;
-        <div class='inline'><p>Identifier, formatted as <code>type:id</code>. Supported types: <code>connection</code>, <code>dashboard</code>, <code>notebook</code>, <code>reference-table</code>, <code>security-rule</code>, <code>slo</code>.</p>
+        <div class='inline'><p>Identifier, formatted as <code>type:id</code>. Supported types: <code>connection</code>, <code>dashboard</code>, <code>notebook</code>, <code>reference-table</code>, <code>security-rule</code>, <code>slo</code>, <code>workflow</code>, <code>app-builder-app</code>, <code>connection</code>, <code>connection-group</code>.</p>
 </div>
       
     </li>
@@ -1116,14 +1136,6 @@
       <pre class="lines">
 
 
-200
-201
-202
-203
-204
-205
-206
-207
 208
 209
 210
@@ -1171,10 +1183,18 @@
 252
 253
 254
-255</pre>
+255
+256
+257
+258
+259
+260
+261
+262
+263</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/restriction_policies_api.rb', line 200</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/restriction_policies_api.rb', line 208</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update_restriction_policy_with_http_info'>update_restriction_policy_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_resource_id'>resource_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -1242,7 +1262,7 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Jan 15 19:18:41 2025 by
+  Generated on Fri Jan 17 14:14:42 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>
