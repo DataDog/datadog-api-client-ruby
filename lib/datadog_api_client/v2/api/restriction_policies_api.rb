@@ -35,7 +35,7 @@ module DatadogAPIClient::V2
     #
     # Deletes the restriction policy associated with a specified resource.
     #
-    # @param resource_id [String] Identifier, formatted as `type:id`. Supported types: `connection`, `dashboard`, `notebook`, `reference-table`, `security-rule`, `slo`.
+    # @param resource_id [String] Identifier, formatted as `type:id`. Supported types: `connection`, `dashboard`, `notebook`, `reference-table`, `security-rule`, `slo`, `workflow`, `app-builder-app`, `connection`, `connection-group`.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_restriction_policy_with_http_info(resource_id, opts = {})
@@ -100,7 +100,7 @@ module DatadogAPIClient::V2
     #
     # Retrieves the restriction policy associated with a specified resource.
     #
-    # @param resource_id [String] Identifier, formatted as `type:id`. Supported types: `connection`, `dashboard`, `notebook`, `reference-table`, `security-rule`, `slo`.
+    # @param resource_id [String] Identifier, formatted as `type:id`. Supported types: `connection`, `dashboard`, `notebook`, `reference-table`, `security-rule`, `slo`, `workflow`, `app-builder-app`, `connection`, `connection-group`.
     # @param opts [Hash] the optional parameters
     # @return [Array<(RestrictionPolicyResponse, Integer, Hash)>] RestrictionPolicyResponse data, response status code and response headers
     def get_restriction_policy_with_http_info(resource_id, opts = {})
@@ -177,6 +177,10 @@ module DatadogAPIClient::V2
     # - Synthetic Tests: `synthetics-test`
     # - Synthetic Private Locations: `synthetics-private-location`
     # - Monitors: `monitor`
+    # - Workflows: `workflow`
+    # - App Builder Apps: `app-builder-app`
+    # - Connections: `connection`
+    # - Connection Groups: `connection-group`
     #
     # #### Supported relations for resources
     # Resource Type               | Supported Relations
@@ -191,8 +195,12 @@ module DatadogAPIClient::V2
     # Synthetic Private Locations | `viewer`, `editor`
     # Monitors                    | `viewer`, `editor`
     # Reference Tables            | `viewer`, `editor`
+    # Workflows                   | `viewer`, `runner`, `editor`
+    # App Builder Apps            | `viewer`, `editor`
+    # Connections                 | `viewer`, `resolver`, `editor`
+    # Connection Groups           | `viewer`, `editor`
     #
-    # @param resource_id [String] Identifier, formatted as `type:id`. Supported types: `connection`, `dashboard`, `notebook`, `reference-table`, `security-rule`, `slo`.
+    # @param resource_id [String] Identifier, formatted as `type:id`. Supported types: `connection`, `dashboard`, `notebook`, `reference-table`, `security-rule`, `slo`, `workflow`, `app-builder-app`, `connection`, `connection-group`.
     # @param body [RestrictionPolicyUpdateRequest] Restriction policy payload
     # @param opts [Hash] the optional parameters
     # @option opts [Boolean] :allow_self_lockout Allows admins (users with the `user_access_manage` permission) to remove their own access from the resource if set to `true`. By default, this is set to `false`, preventing admins from locking themselves out.

@@ -1,0 +1,61 @@
+http_interactions:
+- recorded_at: Mon, 06 Jan 2025 22:02:36 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"integration":{"credentials":{"account_id":"123456789123","role":"MyRole","type":"AWSAssumeRole"},"type":"AWS"},"name":"Cassette
+        Connection DELETE"},"type":"action_connection"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/actions/connections
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"4b60345a-85b2-4417-94b2-72a9528b4060","type":"action_connection","attributes":{"integration":{"credentials":{"account_id":"123456789123","role":"MyRole","external_id":"3bceadebe70c4df7b8ec6abb789e08c0","principal_id":"464622532012","type":"AWSAssumeRole"},"type":"AWS"},"name":"Cassette
+        Connection DELETE"}}}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 201
+      message: Created
+- recorded_at: Mon, 06 Jan 2025 22:02:36 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/actions/connections/4b60345a-85b2-4417-94b2-72a9528b4060
+  response:
+    body:
+      encoding: UTF-8
+      string: ''
+    headers: {}
+    status:
+      code: 204
+      message: No Content
+- recorded_at: Mon, 06 Jan 2025 22:02:36 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/actions/connections/4b60345a-85b2-4417-94b2-72a9528b4060
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"title":"Generic Error","detail":"error deleting connection:
+        rpc error: code = NotFound desc = connection not found"}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 404
+      message: Not Found
+recorded_with: VCR 6.0.0
