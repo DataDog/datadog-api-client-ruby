@@ -24,6 +24,9 @@ module DatadogAPIClient::V2
     # The Datadog environment.
     attr_accessor :env
 
+    # The name of the CI provider. By default, this is "custom".
+    attr_accessor :provider_name
+
     # Details of the CI pipeline event.
     attr_reader :resource
 
@@ -37,6 +40,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'env' => :'env',
+        :'provider_name' => :'provider_name',
         :'resource' => :'resource',
         :'service' => :'service'
       }
@@ -47,6 +51,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'env' => :'String',
+        :'provider_name' => :'String',
         :'resource' => :'CIAppCreatePipelineEventRequestAttributesResource',
         :'service' => :'String'
       }
@@ -72,6 +77,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'env')
         self.env = attributes[:'env']
+      end
+
+      if attributes.key?(:'provider_name')
+        self.provider_name = attributes[:'provider_name']
       end
 
       if attributes.key?(:'resource')
@@ -128,6 +137,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           env == o.env &&
+          provider_name == o.provider_name &&
           resource == o.resource &&
           service == o.service &&
           additional_properties == o.additional_properties
@@ -137,7 +147,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [env, resource, service, additional_properties].hash
+      [env, provider_name, resource, service, additional_properties].hash
     end
   end
 end
