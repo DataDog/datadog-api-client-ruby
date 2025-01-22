@@ -17,15 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Asset version.
-  class AssetAttributesVersion
+  # Provides additional information about a BOM.
+  class SBOMMetadata
     include BaseGenericModel
 
-    # Asset first version.
-    attr_accessor :first
-
-    # Asset last version.
-    attr_accessor :last
+    # The component that the BOM describes.
+    attr_accessor :component
 
     attr_accessor :additional_properties
 
@@ -33,8 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'first' => :'first',
-        :'last' => :'last'
+        :'component' => :'component'
       }
     end
 
@@ -42,8 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'first' => :'String',
-        :'last' => :'String'
+        :'component' => :'SBOMMetadataComponent'
       }
     end
 
@@ -52,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::AssetAttributesVersion` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SBOMMetadata` initialize method"
       end
 
       self.additional_properties = {}
@@ -65,12 +60,8 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'first')
-        self.first = attributes[:'first']
-      end
-
-      if attributes.key?(:'last')
-        self.last = attributes[:'last']
+      if attributes.key?(:'component')
+        self.component = attributes[:'component']
       end
     end
 
@@ -100,8 +91,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          first == o.first &&
-          last == o.last &&
+          component == o.component &&
           additional_properties == o.additional_properties
     end
 
@@ -109,7 +99,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [first, last, additional_properties].hash
+      [component, additional_properties].hash
     end
   end
 end

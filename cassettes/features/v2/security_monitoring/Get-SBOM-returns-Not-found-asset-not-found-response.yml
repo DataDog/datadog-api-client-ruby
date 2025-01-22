@@ -1,0 +1,21 @@
+http_interactions:
+- recorded_at: Wed, 15 Jan 2025 14:19:46 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+    method: GET
+    uri: https://api.datadoghq.com/api/v2/security/sboms/Host?filter%5Basset_name%5D=unknown-host
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"title":"Asset not found","detail":"asset_type: ''Host''
+        with asset_name: ''unknown-host'' not found"}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 404
+      message: Not Found
+recorded_with: VCR 6.0.0

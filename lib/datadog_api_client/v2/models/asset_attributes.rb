@@ -65,10 +65,10 @@ module DatadogAPIClient::V2
         :'arch' => :'String',
         :'environments' => :'Array<String>',
         :'name' => :'String',
-        :'operating_system' => :'AssetAttributesOperatingSystem',
-        :'risks' => :'AssetAttributesRisks',
+        :'operating_system' => :'AssetOperatingSystem',
+        :'risks' => :'AssetRisks',
         :'type' => :'AssetType',
-        :'version' => :'AssetAttributesVersion'
+        :'version' => :'AssetVersion'
       }
     end
 

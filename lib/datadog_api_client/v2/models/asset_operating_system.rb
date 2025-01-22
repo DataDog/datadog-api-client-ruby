@@ -17,15 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Vulnerability severities.
-  class VulnerabilityAttributesCvss
+  # Asset operating system.
+  class AssetOperatingSystem
     include BaseGenericModel
 
-    # Vulnerability severity.
-    attr_reader :base
+    # Operating system version.
+    attr_accessor :description
 
-    # Vulnerability severity.
-    attr_reader :datadog
+    # Operating system name.
+    attr_reader :name
 
     attr_accessor :additional_properties
 
@@ -33,8 +33,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'base' => :'base',
-        :'datadog' => :'datadog'
+        :'description' => :'description',
+        :'name' => :'name'
       }
     end
 
@@ -42,8 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'base' => :'CVSS',
-        :'datadog' => :'CVSS'
+        :'description' => :'String',
+        :'name' => :'String'
       }
     end
 
@@ -52,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::VulnerabilityAttributesCvss` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::AssetOperatingSystem` initialize method"
       end
 
       self.additional_properties = {}
@@ -65,12 +65,12 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'base')
-        self.base = attributes[:'base']
+      if attributes.key?(:'description')
+        self.description = attributes[:'description']
       end
 
-      if attributes.key?(:'datadog')
-        self.datadog = attributes[:'datadog']
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
     end
 
@@ -78,29 +78,18 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @base.nil?
-      return false if @datadog.nil?
+      return false if @name.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param base [Object] Object to be assigned
+    # @param name [Object] Object to be assigned
     # @!visibility private
-    def base=(base)
-      if base.nil?
-        fail ArgumentError, 'invalid value for "base", base cannot be nil.'
+    def name=(name)
+      if name.nil?
+        fail ArgumentError, 'invalid value for "name", name cannot be nil.'
       end
-      @base = base
-    end
-
-    # Custom attribute writer method with validation
-    # @param datadog [Object] Object to be assigned
-    # @!visibility private
-    def datadog=(datadog)
-      if datadog.nil?
-        fail ArgumentError, 'invalid value for "datadog", datadog cannot be nil.'
-      end
-      @datadog = datadog
+      @name = name
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -129,8 +118,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          base == o.base &&
-          datadog == o.datadog &&
+          description == o.description &&
+          name == o.name &&
           additional_properties == o.additional_properties
     end
 
@@ -138,7 +127,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [base, datadog, additional_properties].hash
+      [description, name, additional_properties].hash
     end
   end
 end

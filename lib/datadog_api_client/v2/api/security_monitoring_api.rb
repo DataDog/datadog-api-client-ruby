@@ -1134,6 +1134,91 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get SBOM.
+    #
+    # @see #get_sbom_with_http_info
+    def get_sbom(asset_type, filter_asset_name, opts = {})
+      data, _status_code, _headers = get_sbom_with_http_info(asset_type, filter_asset_name, opts)
+      data
+    end
+
+    # Get SBOM.
+    #
+    # Get a single SBOM related to an asset by its type and name.
+    #
+    #
+    # @param asset_type [AssetType] The type of the asset for the SBOM request.
+    # @param filter_asset_name [String] The name of the asset for the SBOM request.
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :filter_repo_digest The container image `repo_digest` for the SBOM request. When the requested asset type is 'Image', this filter is mandatory.
+    # @return [Array<(GetSBOMResponse, Integer, Hash)>] GetSBOMResponse data, response status code and response headers
+    def get_sbom_with_http_info(asset_type, filter_asset_name, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_sbom".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_sbom")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_sbom"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_sbom ...'
+      end
+      # verify the required parameter 'asset_type' is set
+      if @api_client.config.client_side_validation && asset_type.nil?
+        fail ArgumentError, "Missing the required parameter 'asset_type' when calling SecurityMonitoringAPI.get_sbom"
+      end
+      # verify enum value
+      allowable_values = ['Repository', 'Service', 'Host', 'HostImage', 'Image']
+      if @api_client.config.client_side_validation && !allowable_values.include?(asset_type)
+        fail ArgumentError, "invalid value for \"asset_type\", must be one of #{allowable_values}"
+      end
+      # verify the required parameter 'filter_asset_name' is set
+      if @api_client.config.client_side_validation && filter_asset_name.nil?
+        fail ArgumentError, "Missing the required parameter 'filter_asset_name' when calling SecurityMonitoringAPI.get_sbom"
+      end
+      # resource path
+      local_var_path = '/api/v2/security/sboms/{asset_type}'.sub('{asset_type}', CGI.escape(asset_type.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter[asset_name]'] = filter_asset_name
+      query_params[:'filter[repo_digest]'] = opts[:'filter_repo_digest'] if !opts[:'filter_repo_digest'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GetSBOMResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_sbom,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#get_sbom\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get a security filter.
     #
     # @see #get_security_filter_with_http_info
