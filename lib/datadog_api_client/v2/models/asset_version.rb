@@ -17,18 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Static library vulnerability location.
-  class VulnerabilityAttributesDependencyLocations
+  # Asset version.
+  class AssetVersion
     include BaseGenericModel
 
-    # Static library vulnerability location.
-    attr_reader :block
+    # Asset first version.
+    attr_accessor :first
 
-    # Static library vulnerability location.
-    attr_accessor :name
-
-    # Static library vulnerability location.
-    attr_accessor :version
+    # Asset last version.
+    attr_accessor :last
 
     attr_accessor :additional_properties
 
@@ -36,9 +33,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'block' => :'block',
-        :'name' => :'name',
-        :'version' => :'version'
+        :'first' => :'first',
+        :'last' => :'last'
       }
     end
 
@@ -46,9 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'block' => :'DependencyLocation',
-        :'name' => :'DependencyLocation',
-        :'version' => :'DependencyLocation'
+        :'first' => :'String',
+        :'last' => :'String'
       }
     end
 
@@ -57,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::VulnerabilityAttributesDependencyLocations` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::AssetVersion` initialize method"
       end
 
       self.additional_properties = {}
@@ -70,35 +65,13 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'block')
-        self.block = attributes[:'block']
+      if attributes.key?(:'first')
+        self.first = attributes[:'first']
       end
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
+      if attributes.key?(:'last')
+        self.last = attributes[:'last']
       end
-
-      if attributes.key?(:'version')
-        self.version = attributes[:'version']
-      end
-    end
-
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    # @!visibility private
-    def valid?
-      return false if @block.nil?
-      true
-    end
-
-    # Custom attribute writer method with validation
-    # @param block [Object] Object to be assigned
-    # @!visibility private
-    def block=(block)
-      if block.nil?
-        fail ArgumentError, 'invalid value for "block", block cannot be nil.'
-      end
-      @block = block
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -127,9 +100,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          block == o.block &&
-          name == o.name &&
-          version == o.version &&
+          first == o.first &&
+          last == o.last &&
           additional_properties == o.additional_properties
     end
 
@@ -137,7 +109,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [block, name, version, additional_properties].hash
+      [first, last, additional_properties].hash
     end
   end
 end
