@@ -405,7 +405,7 @@ module DatadogAPIClient::V2
 
     # List active tags and aggregations.
     #
-    # List tags and aggregations that are actively queried on dashboards, notebooks, monitors, and the Metrics Explorer for a given metric name.
+    # List tags and aggregations that are actively queried on dashboards, notebooks, monitors, the Metrics Explorer, and using the API for a given metric name.
     #
     # @param metric_name [String] The name of the metric.
     # @param opts [Hash] the optional parameters

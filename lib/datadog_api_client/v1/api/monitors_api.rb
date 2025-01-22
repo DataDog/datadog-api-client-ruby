@@ -294,6 +294,27 @@ module DatadogAPIClient::V1
     # - `operator` `<`, `<=`, `>`, `>=`, `==`, or `!=`.
     # - `#` an integer or decimal number used to set the threshold.
     #
+    # **Cost Alert Query**
+    #
+    # Example: `formula(query).last(time_window).function(parameter) operator #`
+    #
+    # - `query` The search query - following the [Log search syntax](https://docs.datadoghq.com/logs/search_syntax/).
+    # - `time_window` - supports daily roll-up e.g. `7d`
+    # - `function` - [optional, defaults to `threshold` monitor if omitted] supports `change`, `anomaly`, `forecast`
+    # - `parameter` Specify the parameter of the type
+    #     - for `change`:
+    #         - supports `relative`, `absolute`
+    #         - [optional] supports `#`, where `#` is an integer or decimal number used to set the threshold
+    #     - for `anomaly`:
+    #         - supports `direction=both`, `direction=above`, `direction=below`
+    #         - [optional] supports `threshold=#`, where `#` is an integer or decimal number used to set the threshold
+    # - `operator`
+    #     - for `threshold` supports `<`, `<=`, `>`, `>=`, `==`, or `!=`
+    #     - for `change` supports `>`, `<`
+    #     - for `anomaly` supports `>=`
+    #     - for `forecast` supports `>`
+    # - `#` an integer or decimal number used to set the threshold.
+    #
     # @param body [Monitor] Create a monitor request body.
     # @param opts [Hash] the optional parameters
     # @return [Array<(Monitor, Integer, Hash)>] Monitor data, response status code and response headers
@@ -485,7 +506,7 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get all monitor details.
+    # Get all monitors.
     #
     # @see #list_monitors_with_http_info
     def list_monitors(opts = {})
@@ -493,9 +514,9 @@ module DatadogAPIClient::V1
       data
     end
 
-    # Get all monitor details.
+    # Get all monitors.
     #
-    # Get details about the specified monitor from your organization.
+    # Get all monitors from your organization.
     #
     # @param opts [Hash] the optional parameters
     # @option opts [String] :group_states When specified, shows additional information about the group states. Choose one or more from `all`, `alert`, `warn`, and `no data`.
@@ -564,7 +585,7 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get all monitor details.
+    # Get all monitors.
     #
     # Provide a paginated version of {#list_monitors}, returning all items.
     #

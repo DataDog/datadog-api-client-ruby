@@ -827,6 +827,19 @@ ScenariosModelMappings = {
             "user_handle" => "String",
             "body" => "User",
     },
+    "v2.CreateActionConnection" => {
+            "body" => "CreateActionConnectionRequest",
+    },
+    "v2.DeleteActionConnection" => {
+            "connection_id" => "String",
+    },
+    "v2.GetActionConnection" => {
+            "connection_id" => "String",
+    },
+    "v2.UpdateActionConnection" => {
+            "connection_id" => "String",
+            "body" => "UpdateActionConnectionRequest",
+    },
     "v2.ListAPIKeys" => {
             "page_size" => "Integer",
             "page_number" => "Integer",
@@ -950,12 +963,13 @@ ScenariosModelMappings = {
             "limit" => "Integer",
             "page" => "Integer",
             "filter_user_name" => "String",
-            "filter_user_uuid" => "String",
+            "filter_user_uuid" => "UUID",
             "filter_name" => "String",
             "filter_query" => "String",
             "filter_deployed" => "Boolean",
             "filter_tags" => "String",
             "filter_favorite" => "Boolean",
+            "filter_self_service" => "Boolean",
             "sort" => "Array<AppsSortField>",
     },
     "v2.CreateApp" => {
@@ -966,6 +980,7 @@ ScenariosModelMappings = {
     },
     "v2.GetApp" => {
             "app_id" => "String",
+            "version" => "String",
     },
     "v2.UpdateApp" => {
             "app_id" => "String",
@@ -2021,7 +2036,7 @@ ScenariosModelMappings = {
     },
     "v2.UpdateRestrictionPolicy" => {
             "resource_id" => "String",
-            "allow_self_lockout" => "String",
+            "allow_self_lockout" => "Boolean",
             "body" => "RestrictionPolicyUpdateRequest",
     },
     "v2.AggregateRUMEvents" => {

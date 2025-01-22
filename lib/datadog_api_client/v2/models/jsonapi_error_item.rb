@@ -24,6 +24,12 @@ module DatadogAPIClient::V2
     # A human-readable explanation specific to this occurrence of the error.
     attr_accessor :detail
 
+    # Non-standard meta-information about the error
+    attr_accessor :meta
+
+    # References to the source of the error.
+    attr_accessor :source
+
     # Status code of the response.
     attr_accessor :status
 
@@ -37,6 +43,8 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'detail' => :'detail',
+        :'meta' => :'meta',
+        :'source' => :'source',
         :'status' => :'status',
         :'title' => :'title'
       }
@@ -47,6 +55,8 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'detail' => :'String',
+        :'meta' => :'Hash<String, Object>',
+        :'source' => :'JSONAPIErrorItemSource',
         :'status' => :'String',
         :'title' => :'String'
       }
@@ -72,6 +82,14 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'detail')
         self.detail = attributes[:'detail']
+      end
+
+      if attributes.key?(:'meta')
+        self.meta = attributes[:'meta']
+      end
+
+      if attributes.key?(:'source')
+        self.source = attributes[:'source']
       end
 
       if attributes.key?(:'status')
@@ -110,6 +128,8 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           detail == o.detail &&
+          meta == o.meta &&
+          source == o.source &&
           status == o.status &&
           title == o.title &&
           additional_properties == o.additional_properties
@@ -119,7 +139,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [detail, status, title, additional_properties].hash
+      [detail, meta, source, status, title, additional_properties].hash
     end
   end
 end
