@@ -1446,7 +1446,8 @@
 277
 278
 279
-280</pre>
+280
+281</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/datadog_api_client/configuration.rb', line 162</span>
@@ -1538,6 +1539,7 @@
         <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>v2.delete_historical_job</span><span class='label_end'>&quot;:</span> <span class='kw'>false</span><span class='comma'>,</span>
         <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>v2.get_finding</span><span class='label_end'>&quot;:</span> <span class='kw'>false</span><span class='comma'>,</span>
         <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>v2.get_historical_job</span><span class='label_end'>&quot;:</span> <span class='kw'>false</span><span class='comma'>,</span>
+        <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>v2.get_sbom</span><span class='label_end'>&quot;:</span> <span class='kw'>false</span><span class='comma'>,</span>
         <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>v2.list_findings</span><span class='label_end'>&quot;:</span> <span class='kw'>false</span><span class='comma'>,</span>
         <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>v2.list_historical_jobs</span><span class='label_end'>&quot;:</span> <span class='kw'>false</span><span class='comma'>,</span>
         <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>v2.list_vulnerabilities</span><span class='label_end'>&quot;:</span> <span class='kw'>false</span><span class='comma'>,</span>
@@ -3246,12 +3248,12 @@ Default to true.</p>
       <pre class="lines">
 
 
-283
 284
-285</pre>
+285
+286</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/configuration.rb', line 283</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/configuration.rb', line 284</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_default'>default</span>
   <span class='cvar'>@@default</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="" title="DatadogAPIClient::Configuration (class)">Configuration</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="DatadogAPIClient::Configuration#initialize (method)">new</a></span></span>
@@ -3311,7 +3313,6 @@ Default to true.</p>
       <pre class="lines">
 
 
-324
 325
 326
 327
@@ -3319,10 +3320,11 @@ Default to true.</p>
 329
 330
 331
-332</pre>
+332
+333</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/configuration.rb', line 324</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/configuration.rb', line 325</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_api_key_with_prefix'>api_key_with_prefix</span><span class='lparen'>(</span><span class='id identifier rubyid_param_name'>param_name</span><span class='comma'>,</span> <span class='id identifier rubyid_param_alias'>param_alias</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_key'>key</span> <span class='op'>=</span> <span class='ivar'>@api_key</span><span class='lbracket'>[</span><span class='id identifier rubyid_param_name'>param_name</span><span class='rbracket'>]</span>
@@ -3363,12 +3365,12 @@ Default to true.</p>
       <pre class="lines">
 
 
-340
 341
-342</pre>
+342
+343</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/configuration.rb', line 340</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/configuration.rb', line 341</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_application_key='>application_key=</span><span class='lparen'>(</span><span class='id identifier rubyid_app_key'>app_key</span><span class='rparen'>)</span>
   <span class='ivar'>@api_key</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>appKeyAuth</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_app_key'>app_key</span>
@@ -3403,7 +3405,6 @@ Default to true.</p>
       <pre class="lines">
 
 
-350
 351
 352
 353
@@ -3427,10 +3428,11 @@ Default to true.</p>
 371
 372
 373
-374</pre>
+374
+375</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/configuration.rb', line 350</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/configuration.rb', line 351</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_auth_settings'>auth_settings</span>
   <span class='lbrace'>{</span>
@@ -3487,15 +3489,15 @@ Default to true.</p>
       <pre class="lines">
 
 
-315
 316
 317
 318
 319
-320</pre>
+320
+321</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/configuration.rb', line 315</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/configuration.rb', line 316</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_base_url'>base_url</span><span class='lparen'>(</span><span class='id identifier rubyid_operation'>operation</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_index'>index</span> <span class='op'>=</span> <span class='id identifier rubyid_server_operation_index'>server_operation_index</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='id identifier rubyid_operation'>operation</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='comma'>,</span> <span class='id identifier rubyid_server_index'>server_index</span><span class='rparen'>)</span>
@@ -3533,12 +3535,12 @@ Default to true.</p>
       <pre class="lines">
 
 
-345
 346
-347</pre>
+347
+348</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/configuration.rb', line 345</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/configuration.rb', line 346</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_basic_auth_token'>basic_auth_token</span>
   <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Basic </span><span class='tstring_end'>&#39;</span></span> <span class='op'>+</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_username'>username</span><span class='embexpr_end'>}</span><span class='tstring_content'>:</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_password'>password</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_pack'>pack</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>m</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\r\n</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
@@ -3604,12 +3606,12 @@ Default to true.</p>
       <pre class="lines">
 
 
-294
 295
-296</pre>
+296
+297</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/configuration.rb', line 294</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/configuration.rb', line 295</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_configure'>configure</span>
   <span class='kw'>yield</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_block_given?'>block_given?</span>
@@ -3634,7 +3636,6 @@ Default to true.</p>
       <pre class="lines">
 
 
-432
 433
 434
 435
@@ -3789,10 +3790,11 @@ Default to true.</p>
 584
 585
 586
-587</pre>
+587
+588</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/configuration.rb', line 432</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/configuration.rb', line 433</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_operation_server_settings'>operation_server_settings</span>
   <span class='lbrace'>{</span>
@@ -3980,7 +3982,6 @@ Default to true.</p>
       <pre class="lines">
 
 
-377
 378
 379
 380
@@ -4033,10 +4034,11 @@ Default to true.</p>
 427
 428
 429
-430</pre>
+430
+431</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/configuration.rb', line 377</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/configuration.rb', line 378</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_server_settings'>server_settings</span>
   <span class='lbracket'>[</span>
@@ -4158,7 +4160,6 @@ Default to true.</p>
       <pre class="lines">
 
 
-593
 594
 595
 596
@@ -4186,10 +4187,11 @@ Default to true.</p>
 618
 619
 620
-621</pre>
+621
+622</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/configuration.rb', line 593</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/configuration.rb', line 594</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_server_url'>server_url</span><span class='lparen'>(</span><span class='id identifier rubyid_index'>index</span><span class='comma'>,</span> <span class='id identifier rubyid_variables'>variables</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='id identifier rubyid_servers'>servers</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_servers'>servers</span> <span class='op'>=</span> <span class='id identifier rubyid_server_settings'>server_settings</span> <span class='kw'>if</span> <span class='id identifier rubyid_servers'>servers</span> <span class='op'>==</span> <span class='kw'>nil</span>
@@ -4230,7 +4232,7 @@ Default to true.</p>
 </div>
 
       <div id="footer">
-  Generated on Wed Jan 22 15:10:57 2025 by
+  Generated on Wed Jan 22 17:20:21 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>
