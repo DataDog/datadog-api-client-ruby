@@ -84,6 +84,9 @@ jobs:
     env:
       BUNDLE_WITHOUT: docs
       DD_PROFILING_NO_EXTENSION: true
+      DD_CIVISIBILITY_AGENTLESS_ENABLED: true
+      DD_ENV: prod
+      DD_API_KEY: ${{ secrets.DD_API_KEY }}
     steps:
       - uses: actions/checkout@v3
       - name: Set up Ruby ${{ matrix.ruby-version }}
@@ -129,7 +132,7 @@ jobs:
         with:
           app-id: ${{ secrets.PIPELINE_GITHUB_APP_ID }}
           private-key: ${{ secrets.PIPELINE_GITHUB_APP_PRIVATE_KEY }}
-          repositories:  datadog-api-spec
+          repositories: datadog-api-spec
       - name: Post status 3heck
         uses: DataDog/github-actions/post-status-check@v2
         with:
