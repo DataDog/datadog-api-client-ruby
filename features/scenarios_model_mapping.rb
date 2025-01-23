@@ -1876,6 +1876,46 @@ ScenariosModelMappings = {
             "filter_asset_operating_system_name" => "String",
             "filter_asset_operating_system_version" => "String",
     },
+    "v2.CreateInboxRule" => {
+            "body" => "CreateInboxRuleParameters",
+    },
+    "v2.ReorderInboxRules" => {
+            "body" => "ReorderInboxRulesParameters",
+    },
+    "v2.DeleteInboxRule" => {
+            "inbox_rule_id" => "UUID",
+    },
+    "v2.GetInboxRule" => {
+            "inbox_rule_id" => "UUID",
+    },
+    "v2.PatchInboxRule" => {
+            "inbox_rule_id" => "UUID",
+            "body" => "PatchInboxRulesParameters",
+    },
+    "v2.UpdateInboxRule" => {
+            "inbox_rule_id" => "UUID",
+            "body" => "UpdateInboxRuleParameters",
+    },
+    "v2.CreateMuteRule" => {
+            "body" => "CreateMuteRuleParameters",
+    },
+    "v2.ReorderMuteRules" => {
+            "body" => "ReorderMuteRulesParameters",
+    },
+    "v2.DeleteMuteRule" => {
+            "mute_rule_id" => "UUID",
+    },
+    "v2.GetMuteRule" => {
+            "mute_rule_id" => "UUID",
+    },
+    "v2.PatchMuteRule" => {
+            "mute_rule_id" => "UUID",
+            "body" => "PatchMuteRuleParameters",
+    },
+    "v2.UpdateMuteRule" => {
+            "mute_rule_id" => "UUID",
+            "body" => "UpdateMuteRuleParameters",
+    },
     "v2.CreateSecurityFilter" => {
             "body" => "SecurityFilterCreateRequest",
     },

@@ -301,6 +301,140 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Create a new inbox rule.
+    #
+    # @see #create_inbox_rule_with_http_info
+    def create_inbox_rule(body, opts = {})
+      data, _status_code, _headers = create_inbox_rule_with_http_info(body, opts)
+      data
+    end
+
+    # Create a new inbox rule.
+    #
+    # Create a new inbox rule and return the created rule.
+    #
+    # @param body [CreateInboxRuleParameters] Mandatory fields are the rule type and the required attributes: rule name, rule details, and action. The rule details are composed of issue types and security rule types on which the rule applies. Optional security rule IDs, severities, and a tag or attribute query can be provided. The action is composed of the optional reason description. 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(InboxRuleResponse, Integer, Hash)>] InboxRuleResponse data, response status code and response headers
+    def create_inbox_rule_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.create_inbox_rule ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.create_inbox_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/security/vulnerabilities/pipelines/inbox_rules'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'InboxRuleResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_inbox_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#create_inbox_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create a new mute rule.
+    #
+    # @see #create_mute_rule_with_http_info
+    def create_mute_rule(body, opts = {})
+      data, _status_code, _headers = create_mute_rule_with_http_info(body, opts)
+      data
+    end
+
+    # Create a new mute rule.
+    #
+    # Create a new mute rule and return the created rule.
+    #
+    # @param body [CreateMuteRuleParameters] Mandatory fields are the rule type and the required attributes: rule name, rule details, and action. The rule details are composed of issue types and security rule types on which the rule applies. Optional security rule IDs, severities, and a tag or attribute query can be provided. The action is composed of the reason for muting and the rule expiration date, and optionally a description of the rule. 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(MuteRuleResponse, Integer, Hash)>] MuteRuleResponse data, response status code and response headers
+    def create_mute_rule_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.create_mute_rule ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.create_mute_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/security/vulnerabilities/pipelines/mute_rules'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MuteRuleResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_mute_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#create_mute_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create a security filter.
     #
     # @see #create_security_filter_with_http_info
@@ -572,6 +706,136 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SecurityMonitoringAPI#delete_historical_job\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete an inbox rule.
+    #
+    # @see #delete_inbox_rule_with_http_info
+    def delete_inbox_rule(inbox_rule_id, opts = {})
+      delete_inbox_rule_with_http_info(inbox_rule_id, opts)
+      nil
+    end
+
+    # Delete an inbox rule.
+    #
+    # Delete an inbox rule
+    #
+    # @param inbox_rule_id [UUID] ID of the inbox rule
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_inbox_rule_with_http_info(inbox_rule_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.delete_inbox_rule ...'
+      end
+      # verify the required parameter 'inbox_rule_id' is set
+      if @api_client.config.client_side_validation && inbox_rule_id.nil?
+        fail ArgumentError, "Missing the required parameter 'inbox_rule_id' when calling SecurityMonitoringAPI.delete_inbox_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/security/vulnerabilities/pipelines/inbox_rules/{inbox_rule_id}'.sub('{inbox_rule_id}', CGI.escape(inbox_rule_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_inbox_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#delete_inbox_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete a mute rule.
+    #
+    # @see #delete_mute_rule_with_http_info
+    def delete_mute_rule(mute_rule_id, opts = {})
+      delete_mute_rule_with_http_info(mute_rule_id, opts)
+      nil
+    end
+
+    # Delete a mute rule.
+    #
+    # Delete a mute rule
+    #
+    # @param mute_rule_id [UUID] ID of the mute rule
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_mute_rule_with_http_info(mute_rule_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.delete_mute_rule ...'
+      end
+      # verify the required parameter 'mute_rule_id' is set
+      if @api_client.config.client_side_validation && mute_rule_id.nil?
+        fail ArgumentError, "Missing the required parameter 'mute_rule_id' when calling SecurityMonitoringAPI.delete_mute_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/security/vulnerabilities/pipelines/mute_rules/{mute_rule_id}'.sub('{mute_rule_id}', CGI.escape(mute_rule_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_mute_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#delete_mute_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1130,6 +1394,256 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SecurityMonitoringAPI#get_historical_job\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get details of an inbox rule.
+    #
+    # @see #get_inbox_rule_with_http_info
+    def get_inbox_rule(inbox_rule_id, opts = {})
+      data, _status_code, _headers = get_inbox_rule_with_http_info(inbox_rule_id, opts)
+      data
+    end
+
+    # Get details of an inbox rule.
+    #
+    # Get the details of an inbox rule.
+    #
+    # @param inbox_rule_id [UUID] ID of the inbox rule
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(InboxRuleResponse, Integer, Hash)>] InboxRuleResponse data, response status code and response headers
+    def get_inbox_rule_with_http_info(inbox_rule_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_inbox_rule ...'
+      end
+      # verify the required parameter 'inbox_rule_id' is set
+      if @api_client.config.client_side_validation && inbox_rule_id.nil?
+        fail ArgumentError, "Missing the required parameter 'inbox_rule_id' when calling SecurityMonitoringAPI.get_inbox_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/security/vulnerabilities/pipelines/inbox_rules/{inbox_rule_id}'.sub('{inbox_rule_id}', CGI.escape(inbox_rule_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'InboxRuleResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_inbox_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#get_inbox_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get the ordered list of inbox rules.
+    #
+    # @see #get_inbox_rules_with_http_info
+    def get_inbox_rules(opts = {})
+      data, _status_code, _headers = get_inbox_rules_with_http_info(opts)
+      data
+    end
+
+    # Get the ordered list of inbox rules.
+    #
+    # Returns the ordered list of inbox rules in the pipeline (first match applies)
+    #
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
+    def get_inbox_rules_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_inbox_rules ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/security/vulnerabilities/pipelines/inbox_rules'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'Object'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_inbox_rules,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#get_inbox_rules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get details of a mute rule.
+    #
+    # @see #get_mute_rule_with_http_info
+    def get_mute_rule(mute_rule_id, opts = {})
+      data, _status_code, _headers = get_mute_rule_with_http_info(mute_rule_id, opts)
+      data
+    end
+
+    # Get details of a mute rule.
+    #
+    # Get the details of a mute rule.
+    #
+    # @param mute_rule_id [UUID] ID of the mute rule
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(MuteRuleResponse, Integer, Hash)>] MuteRuleResponse data, response status code and response headers
+    def get_mute_rule_with_http_info(mute_rule_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_mute_rule ...'
+      end
+      # verify the required parameter 'mute_rule_id' is set
+      if @api_client.config.client_side_validation && mute_rule_id.nil?
+        fail ArgumentError, "Missing the required parameter 'mute_rule_id' when calling SecurityMonitoringAPI.get_mute_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/security/vulnerabilities/pipelines/mute_rules/{mute_rule_id}'.sub('{mute_rule_id}', CGI.escape(mute_rule_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MuteRuleResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_mute_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#get_mute_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get the ordered list of mute rules.
+    #
+    # @see #get_mute_rules_with_http_info
+    def get_mute_rules(opts = {})
+      data, _status_code, _headers = get_mute_rules_with_http_info(opts)
+      data
+    end
+
+    # Get the ordered list of mute rules.
+    #
+    # Returns the ordered list of mute rules in the pipeline (first match applies)
+    #
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
+    def get_mute_rules_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_mute_rules ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/security/vulnerabilities/pipelines/mute_rules'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'Object'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_mute_rules,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#get_mute_rules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2475,6 +2989,286 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Patch an inbox rule.
+    #
+    # @see #patch_inbox_rule_with_http_info
+    def patch_inbox_rule(inbox_rule_id, body, opts = {})
+      data, _status_code, _headers = patch_inbox_rule_with_http_info(inbox_rule_id, body, opts)
+      data
+    end
+
+    # Patch an inbox rule.
+    #
+    # Partially update the inbox rule. All fields are optional; if a field is not provided, it will not be updated.
+    #
+    # @param inbox_rule_id [UUID] ID of the inbox rule
+    # @param body [PatchInboxRulesParameters] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(InboxRuleResponse, Integer, Hash)>] InboxRuleResponse data, response status code and response headers
+    def patch_inbox_rule_with_http_info(inbox_rule_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.patch_inbox_rule ...'
+      end
+      # verify the required parameter 'inbox_rule_id' is set
+      if @api_client.config.client_side_validation && inbox_rule_id.nil?
+        fail ArgumentError, "Missing the required parameter 'inbox_rule_id' when calling SecurityMonitoringAPI.patch_inbox_rule"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.patch_inbox_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/security/vulnerabilities/pipelines/inbox_rules/{inbox_rule_id}'.sub('{inbox_rule_id}', CGI.escape(inbox_rule_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'InboxRuleResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :patch_inbox_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#patch_inbox_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Patch a mute rule.
+    #
+    # @see #patch_mute_rule_with_http_info
+    def patch_mute_rule(mute_rule_id, body, opts = {})
+      data, _status_code, _headers = patch_mute_rule_with_http_info(mute_rule_id, body, opts)
+      data
+    end
+
+    # Patch a mute rule.
+    #
+    # Partially update the mute rule. All fields are optional; if a field is not provided, it will not be updated.
+    #
+    # @param mute_rule_id [UUID] ID of the mute rule
+    # @param body [PatchMuteRuleParameters] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(MuteRuleResponse, Integer, Hash)>] MuteRuleResponse data, response status code and response headers
+    def patch_mute_rule_with_http_info(mute_rule_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.patch_mute_rule ...'
+      end
+      # verify the required parameter 'mute_rule_id' is set
+      if @api_client.config.client_side_validation && mute_rule_id.nil?
+        fail ArgumentError, "Missing the required parameter 'mute_rule_id' when calling SecurityMonitoringAPI.patch_mute_rule"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.patch_mute_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/security/vulnerabilities/pipelines/mute_rules/{mute_rule_id}'.sub('{mute_rule_id}', CGI.escape(mute_rule_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MuteRuleResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :patch_mute_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#patch_mute_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Reorder the list of inbox rules in the pipeline.
+    #
+    # @see #reorder_inbox_rules_with_http_info
+    def reorder_inbox_rules(body, opts = {})
+      data, _status_code, _headers = reorder_inbox_rules_with_http_info(body, opts)
+      data
+    end
+
+    # Reorder the list of inbox rules in the pipeline.
+    #
+    # Reorder the list of inbox rules in the pipeline and return the reordered list of rules.
+    # To reorder fields you need to provide the full list of pipeline rules in the new order.
+    #
+    # @param body [ReorderInboxRulesParameters] The list of rules to reorder. The order of the rules in the list will be the new order in the pipeline. 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
+    def reorder_inbox_rules_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.reorder_inbox_rules ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.reorder_inbox_rules"
+      end
+      # resource path
+      local_var_path = '/api/v2/security/vulnerabilities/pipelines/inbox_rules/reorder'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'Object'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :reorder_inbox_rules,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#reorder_inbox_rules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Reorder the list of mute rules in the pipeline.
+    #
+    # @see #reorder_mute_rules_with_http_info
+    def reorder_mute_rules(body, opts = {})
+      data, _status_code, _headers = reorder_mute_rules_with_http_info(body, opts)
+      data
+    end
+
+    # Reorder the list of mute rules in the pipeline.
+    #
+    # Reorder the list of mute rules in the pipeline and return the reordered list of rules.
+    # To reorder fields you need to provide the full list of pipeline rules in the new order.
+    #
+    # @param body [ReorderMuteRulesParameters] The list of rules to reorder. The order of the rules in the list will be the new order in the pipeline. 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
+    def reorder_mute_rules_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.reorder_mute_rules ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.reorder_mute_rules"
+      end
+      # resource path
+      local_var_path = '/api/v2/security/vulnerabilities/pipelines/mute_rules/reorder'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'Object'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :reorder_mute_rules,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#reorder_mute_rules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Run a historical job.
     #
     # @see #run_historical_job_with_http_info
@@ -2769,6 +3563,150 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SecurityMonitoringAPI#test_security_monitoring_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update an inbox rule.
+    #
+    # @see #update_inbox_rule_with_http_info
+    def update_inbox_rule(inbox_rule_id, body, opts = {})
+      data, _status_code, _headers = update_inbox_rule_with_http_info(inbox_rule_id, body, opts)
+      data
+    end
+
+    # Update an inbox rule.
+    #
+    # Update the whole inbox rule. If an optional field is not provided, it will be set to its default value.
+    #
+    # @param inbox_rule_id [UUID] ID of the inbox rule
+    # @param body [UpdateInboxRuleParameters] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(InboxRuleResponse, Integer, Hash)>] InboxRuleResponse data, response status code and response headers
+    def update_inbox_rule_with_http_info(inbox_rule_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.update_inbox_rule ...'
+      end
+      # verify the required parameter 'inbox_rule_id' is set
+      if @api_client.config.client_side_validation && inbox_rule_id.nil?
+        fail ArgumentError, "Missing the required parameter 'inbox_rule_id' when calling SecurityMonitoringAPI.update_inbox_rule"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.update_inbox_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/security/vulnerabilities/pipelines/inbox_rules/{inbox_rule_id}'.sub('{inbox_rule_id}', CGI.escape(inbox_rule_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'InboxRuleResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_inbox_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#update_inbox_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update a mute rule.
+    #
+    # @see #update_mute_rule_with_http_info
+    def update_mute_rule(mute_rule_id, body, opts = {})
+      data, _status_code, _headers = update_mute_rule_with_http_info(mute_rule_id, body, opts)
+      data
+    end
+
+    # Update a mute rule.
+    #
+    # Update the whole mute rule. If an optional field is not provided, it will be set to its default value.
+    #
+    # @param mute_rule_id [UUID] ID of the mute rule
+    # @param body [UpdateMuteRuleParameters] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(MuteRuleResponse, Integer, Hash)>] MuteRuleResponse data, response status code and response headers
+    def update_mute_rule_with_http_info(mute_rule_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.update_mute_rule ...'
+      end
+      # verify the required parameter 'mute_rule_id' is set
+      if @api_client.config.client_side_validation && mute_rule_id.nil?
+        fail ArgumentError, "Missing the required parameter 'mute_rule_id' when calling SecurityMonitoringAPI.update_mute_rule"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.update_mute_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/security/vulnerabilities/pipelines/mute_rules/{mute_rule_id}'.sub('{mute_rule_id}', CGI.escape(mute_rule_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MuteRuleResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_mute_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#update_mute_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

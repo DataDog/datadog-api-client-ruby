@@ -1,0 +1,59 @@
+http_interactions:
+- recorded_at: Thu, 23 Jan 2025 13:41:03 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"action":{"reason":"duplicate"},"enabled":true,"name":"Test-Delete_a_mute_rule_returns_Rule_successfully_deleted_response-1737639663","rule":{"issue_type":"vulnerability","query":"","rule_ids":[],"rule_types":["misconfiguration","attack_path"],"severities":["critical"]}},"type":"mute_rules"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/security/vulnerabilities/pipelines/mute_rules
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"ba7a16f1-4f80-417d-a868-6b5f14dd3328","type":"mute_rules","attributes":{"action":{"reason":"duplicate"},"created_at":1737639663734,"created_by":{"name":"frog","handle":"frog@datadoghq.com"},"enabled":true,"modified_at":1737639663734,"modified_by":{"name":"frog","handle":"frog@datadoghq.com"},"name":"Test-Delete_a_mute_rule_returns_Rule_successfully_deleted_response-1737639663","rule":{"issue_type":"vulnerability","rule_types":["misconfiguration","attack_path"],"rule_ids":[],"query":"","severities":["critical"]}}}}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 201
+      message: Created
+- recorded_at: Thu, 23 Jan 2025 13:41:03 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/security/vulnerabilities/pipelines/mute_rules/ba7a16f1-4f80-417d-a868-6b5f14dd3328
+  response:
+    body:
+      encoding: UTF-8
+      string: ''
+    headers: {}
+    status:
+      code: 204
+      message: No Content
+- recorded_at: Thu, 23 Jan 2025 13:41:03 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/security/vulnerabilities/pipelines/mute_rules/ba7a16f1-4f80-417d-a868-6b5f14dd3328
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"status":"404","title":"Not Found","detail":"Rule does
+        not exist"}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 404
+      message: Not Found
+recorded_with: VCR 6.0.0
