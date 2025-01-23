@@ -17,23 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The S3 archive destination.
-  class LogsArchiveDestinationS3
+  # The S3 encryption settings.
+  class LogsArchiveEncryptionS3
     include BaseGenericModel
 
-    # The bucket where the archive will be stored.
-    attr_reader :bucket
+    # An Amazon Resource Name (ARN) used to identify an AWS KMS key.
+    attr_accessor :key
 
-    # The S3 encryption settings.
-    attr_accessor :encryption
-
-    # The S3 Archive's integration destination.
-    attr_reader :integration
-
-    # The archive path.
-    attr_accessor :path
-
-    # Type of the S3 archive destination.
+    # Type of S3 encryption for a destination.
     attr_reader :type
 
     attr_accessor :additional_properties
@@ -42,10 +33,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'bucket' => :'bucket',
-        :'encryption' => :'encryption',
-        :'integration' => :'integration',
-        :'path' => :'path',
+        :'key' => :'key',
         :'type' => :'type'
       }
     end
@@ -54,11 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'bucket' => :'String',
-        :'encryption' => :'LogsArchiveEncryptionS3',
-        :'integration' => :'LogsArchiveIntegrationS3',
-        :'path' => :'String',
-        :'type' => :'LogsArchiveDestinationS3Type'
+        :'key' => :'String',
+        :'type' => :'LogsArchiveEncryptionS3Type'
       }
     end
 
@@ -67,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::LogsArchiveDestinationS3` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::LogsArchiveEncryptionS3` initialize method"
       end
 
       self.additional_properties = {}
@@ -80,20 +65,8 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'bucket')
-        self.bucket = attributes[:'bucket']
-      end
-
-      if attributes.key?(:'encryption')
-        self.encryption = attributes[:'encryption']
-      end
-
-      if attributes.key?(:'integration')
-        self.integration = attributes[:'integration']
-      end
-
-      if attributes.key?(:'path')
-        self.path = attributes[:'path']
+      if attributes.key?(:'key')
+        self.key = attributes[:'key']
       end
 
       if attributes.key?(:'type')
@@ -105,30 +78,8 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @bucket.nil?
-      return false if @integration.nil?
       return false if @type.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param bucket [Object] Object to be assigned
-    # @!visibility private
-    def bucket=(bucket)
-      if bucket.nil?
-        fail ArgumentError, 'invalid value for "bucket", bucket cannot be nil.'
-      end
-      @bucket = bucket
-    end
-
-    # Custom attribute writer method with validation
-    # @param integration [Object] Object to be assigned
-    # @!visibility private
-    def integration=(integration)
-      if integration.nil?
-        fail ArgumentError, 'invalid value for "integration", integration cannot be nil.'
-      end
-      @integration = integration
     end
 
     # Custom attribute writer method with validation
@@ -167,10 +118,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          bucket == o.bucket &&
-          encryption == o.encryption &&
-          integration == o.integration &&
-          path == o.path &&
+          key == o.key &&
           type == o.type &&
           additional_properties == o.additional_properties
     end
@@ -179,7 +127,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [bucket, encryption, integration, path, type, additional_properties].hash
+      [key, type, additional_properties].hash
     end
   end
 end

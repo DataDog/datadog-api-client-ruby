@@ -1915,6 +1915,8 @@ module DatadogAPIClient
           "v2.logs_archive_destination_gcs_type" => "LogsArchiveDestinationGCSType",
           "v2.logs_archive_destination_s3" => "LogsArchiveDestinationS3",
           "v2.logs_archive_destination_s3_type" => "LogsArchiveDestinationS3Type",
+          "v2.logs_archive_encryption_s3" => "LogsArchiveEncryptionS3",
+          "v2.logs_archive_encryption_s3_type" => "LogsArchiveEncryptionS3Type",
           "v2.logs_archive_integration_azure" => "LogsArchiveIntegrationAzure",
           "v2.logs_archive_integration_gcs" => "LogsArchiveIntegrationGCS",
           "v2.logs_archive_integration_s3" => "LogsArchiveIntegrationS3",
