@@ -48,7 +48,7 @@ jobs:
       - name: Compress docs
         run: tar czf doc.tar.gz doc
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: documentation
           path: doc.tar.gz
@@ -61,7 +61,7 @@ jobs:
       - build
 
     steps:
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with:
           name: documentation
           path: doc
