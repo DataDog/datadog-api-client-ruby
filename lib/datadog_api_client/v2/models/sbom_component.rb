@@ -17,24 +17,24 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Asset risks.
-  class AssetAttributesRisks
+  # Software or hardware component.
+  class SBOMComponent
     include BaseGenericModel
 
-    # Whether the asset has access to sensitive data or not.
-    attr_accessor :has_access_to_sensitive_data
+    # An optional identifier that can be used to reference the component elsewhere in the BOM.
+    attr_accessor :bom_ref
 
-    # Whether the asset has privileged access or not.
-    attr_accessor :has_privileged_access
+    # The name of the component. This will often be a shortened, single name of the component.
+    attr_reader :name
 
-    # Whether the asset is in production or not.
-    attr_reader :in_production
+    # Specifies the package-url (purl). The purl, if specified, MUST be valid and conform to the [specification](https://github.com/package-url/purl-spec).
+    attr_accessor :purl
 
-    # Whether the asset is publicly accessible or not.
-    attr_accessor :is_publicly_accessible
+    # The SBOM component type
+    attr_reader :type
 
-    # Whether the asset is under attack or not.
-    attr_accessor :under_attack
+    # The component version.
+    attr_reader :version
 
     attr_accessor :additional_properties
 
@@ -42,11 +42,11 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'has_access_to_sensitive_data' => :'has_access_to_sensitive_data',
-        :'has_privileged_access' => :'has_privileged_access',
-        :'in_production' => :'in_production',
-        :'is_publicly_accessible' => :'is_publicly_accessible',
-        :'under_attack' => :'under_attack'
+        :'bom_ref' => :'bom-ref',
+        :'name' => :'name',
+        :'purl' => :'purl',
+        :'type' => :'type',
+        :'version' => :'version'
       }
     end
 
@@ -54,11 +54,11 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'has_access_to_sensitive_data' => :'Boolean',
-        :'has_privileged_access' => :'Boolean',
-        :'in_production' => :'Boolean',
-        :'is_publicly_accessible' => :'Boolean',
-        :'under_attack' => :'Boolean'
+        :'bom_ref' => :'String',
+        :'name' => :'String',
+        :'purl' => :'String',
+        :'type' => :'SBOMComponentType',
+        :'version' => :'String'
       }
     end
 
@@ -67,7 +67,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::AssetAttributesRisks` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SBOMComponent` initialize method"
       end
 
       self.additional_properties = {}
@@ -80,24 +80,24 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'has_access_to_sensitive_data')
-        self.has_access_to_sensitive_data = attributes[:'has_access_to_sensitive_data']
+      if attributes.key?(:'bom_ref')
+        self.bom_ref = attributes[:'bom_ref']
       end
 
-      if attributes.key?(:'has_privileged_access')
-        self.has_privileged_access = attributes[:'has_privileged_access']
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
 
-      if attributes.key?(:'in_production')
-        self.in_production = attributes[:'in_production']
+      if attributes.key?(:'purl')
+        self.purl = attributes[:'purl']
       end
 
-      if attributes.key?(:'is_publicly_accessible')
-        self.is_publicly_accessible = attributes[:'is_publicly_accessible']
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
       end
 
-      if attributes.key?(:'under_attack')
-        self.under_attack = attributes[:'under_attack']
+      if attributes.key?(:'version')
+        self.version = attributes[:'version']
       end
     end
 
@@ -105,18 +105,40 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @in_production.nil?
+      return false if @name.nil?
+      return false if @type.nil?
+      return false if @version.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param in_production [Object] Object to be assigned
+    # @param name [Object] Object to be assigned
     # @!visibility private
-    def in_production=(in_production)
-      if in_production.nil?
-        fail ArgumentError, 'invalid value for "in_production", in_production cannot be nil.'
+    def name=(name)
+      if name.nil?
+        fail ArgumentError, 'invalid value for "name", name cannot be nil.'
       end
-      @in_production = in_production
+      @name = name
+    end
+
+    # Custom attribute writer method with validation
+    # @param type [Object] Object to be assigned
+    # @!visibility private
+    def type=(type)
+      if type.nil?
+        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+      end
+      @type = type
+    end
+
+    # Custom attribute writer method with validation
+    # @param version [Object] Object to be assigned
+    # @!visibility private
+    def version=(version)
+      if version.nil?
+        fail ArgumentError, 'invalid value for "version", version cannot be nil.'
+      end
+      @version = version
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -145,11 +167,11 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          has_access_to_sensitive_data == o.has_access_to_sensitive_data &&
-          has_privileged_access == o.has_privileged_access &&
-          in_production == o.in_production &&
-          is_publicly_accessible == o.is_publicly_accessible &&
-          under_attack == o.under_attack &&
+          bom_ref == o.bom_ref &&
+          name == o.name &&
+          purl == o.purl &&
+          type == o.type &&
+          version == o.version &&
           additional_properties == o.additional_properties
     end
 
@@ -157,7 +179,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [has_access_to_sensitive_data, has_privileged_access, in_production, is_publicly_accessible, under_attack, additional_properties].hash
+      [bom_ref, name, purl, type, version, additional_properties].hash
     end
   end
 end

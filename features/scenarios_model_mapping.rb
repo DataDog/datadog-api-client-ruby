@@ -1829,6 +1829,11 @@ ScenariosModelMappings = {
             "filter_operating_system_name" => "String",
             "filter_operating_system_version" => "String",
     },
+    "v2.GetSBOM" => {
+            "asset_type" => "AssetType",
+            "filter_asset_name" => "String",
+            "filter_repo_digest" => "String",
+    },
     "v2.ListVulnerabilities" => {
             "page_token" => "String",
             "page_number" => "Integer",
