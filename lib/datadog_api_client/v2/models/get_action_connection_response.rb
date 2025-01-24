@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The response for found connection
+  # The response for found connection.
   class GetActionConnectionResponse
     include BaseGenericModel
 

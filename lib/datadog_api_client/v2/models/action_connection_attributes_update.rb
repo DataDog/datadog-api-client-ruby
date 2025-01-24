@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # The definition of `ActionConnectionIntegrationUpdate` object.
     attr_accessor :integration
 
-    # Name of the connection
+    # Name of the connection.
     attr_accessor :name
 
     attr_accessor :additional_properties

@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Request used to create an action connection.
+  # Request used to create an Action Connection.
   class CreateActionConnectionRequest
     include BaseGenericModel
 

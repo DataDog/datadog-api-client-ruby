@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The response for a created connection
+  # The response for a created connection.
   class CreateActionConnectionResponse
     include BaseGenericModel
 

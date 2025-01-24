@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # The definition of `ActionConnectionIntegration` object.
     attr_reader :integration
 
-    # Name of the connection
+    # Name of the connection.
     attr_reader :name
 
     attr_accessor :additional_properties
