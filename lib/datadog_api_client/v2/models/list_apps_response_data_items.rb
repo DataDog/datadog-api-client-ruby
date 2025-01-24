@@ -17,23 +17,23 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `ListAppsResponseDataItems` object.
+  # An app definition object. This contains only basic information about the app such as ID, name, and tags.
   class ListAppsResponseDataItems
     include BaseGenericModel
 
-    # The definition of `ListAppsResponseDataItemsAttributes` object.
+    # Basic information about the app such as name, description, and tags.
     attr_reader :attributes
 
-    # The `items` `id`.
+    # The ID of the app.
     attr_reader :id
 
-    # The definition of `AppMeta` object.
+    # Metadata of an app.
     attr_accessor :meta
 
-    # The definition of `ListAppsResponseDataItemsRelationships` object.
+    # The app's publication information.
     attr_accessor :relationships
 
-    # The definition of `ListAppsResponseDataItemsType` object.
+    # The app definition type.
     attr_reader :type
 
     attr_accessor :additional_properties
@@ -55,10 +55,10 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'attributes' => :'ListAppsResponseDataItemsAttributes',
-        :'id' => :'String',
+        :'id' => :'UUID',
         :'meta' => :'AppMeta',
         :'relationships' => :'ListAppsResponseDataItemsRelationships',
-        :'type' => :'ListAppsResponseDataItemsType'
+        :'type' => :'AppDefinitionType'
       }
     end
 

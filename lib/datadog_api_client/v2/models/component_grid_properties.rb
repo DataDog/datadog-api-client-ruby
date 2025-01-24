@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `ComponentGridProperties` object.
+  # Properties of a grid component.
   class ComponentGridProperties
     include BaseGenericModel
 
-    # The `ComponentGridProperties` `backgroundColor`.
+    # The background color of the grid.
     attr_accessor :background_color
 
-    # The `ComponentGridProperties` `children`.
+    # The child components of the grid.
     attr_accessor :children
 
-    # The definition of `ComponentGridPropertiesIsVisible` object.
+    # Whether the grid component and its children are visible. If a string, it must be a valid JavaScript expression that evaluates to a boolean.
     attr_accessor :is_visible
 
     attr_accessor :additional_properties

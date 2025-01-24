@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `CreateAppRequestData` object.
+  # The data object containing the app definition.
   class CreateAppRequestData
     include BaseGenericModel
 
-    # The definition of `CreateAppRequestDataAttributes` object.
+    # App definition attributes such as name, description, and components.
     attr_accessor :attributes
 
-    # The definition of `CreateAppRequestDataType` object.
+    # The app definition type.
     attr_reader :type
 
     attr_accessor :additional_properties
@@ -43,7 +43,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'attributes' => :'CreateAppRequestDataAttributes',
-        :'type' => :'CreateAppRequestDataType'
+        :'type' => :'AppDefinitionType'
       }
     end
 

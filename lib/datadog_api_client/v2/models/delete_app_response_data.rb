@@ -21,10 +21,10 @@ module DatadogAPIClient::V2
   class DeleteAppResponseData
     include BaseGenericModel
 
-    # The `data` `id`.
+    # The ID of the deleted app.
     attr_reader :id
 
-    # The definition of `DeleteAppResponseDataType` object.
+    # The app definition type.
     attr_reader :type
 
     attr_accessor :additional_properties
@@ -42,8 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'id' => :'String',
-        :'type' => :'DeleteAppResponseDataType'
+        :'id' => :'UUID',
+        :'type' => :'AppDefinitionType'
       }
     end
 

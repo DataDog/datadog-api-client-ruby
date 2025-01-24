@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `DeploymentRelationship` object.
+  # Information pointing to the app's publication status.
   class DeploymentRelationship
     include BaseGenericModel
 
-    # The definition of `DeploymentRelationshipData` object.
+    # Data object containing the deployment ID.
     attr_accessor :data
 
-    # The definition of `DeploymentRelationshipMeta` object.
+    # Metadata object containing the publication creation information.
     attr_accessor :meta
 
     attr_accessor :additional_properties
@@ -43,7 +43,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'data' => :'DeploymentRelationshipData',
-        :'meta' => :'DeploymentRelationshipMeta'
+        :'meta' => :'DeploymentMetadata'
       }
     end
 

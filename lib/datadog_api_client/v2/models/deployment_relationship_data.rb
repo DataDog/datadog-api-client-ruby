@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `DeploymentRelationshipData` object.
+  # Data object containing the deployment ID.
   class DeploymentRelationshipData
     include BaseGenericModel
 
-    # The `data` `id`.
+    # The deployment ID.
     attr_accessor :id
 
-    # The definition of `DeploymentRelationshipDataType` object.
+    # The deployment type.
     attr_accessor :type
 
     attr_accessor :additional_properties
@@ -42,8 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'id' => :'String',
-        :'type' => :'DeploymentRelationshipDataType'
+        :'id' => :'UUID',
+        :'type' => :'AppDeploymentType'
       }
     end
 

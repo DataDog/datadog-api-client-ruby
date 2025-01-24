@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `CreateAppResponse` object.
+  # The response object after a new app is successfully created, with the app ID.
   class CreateAppResponse
     include BaseGenericModel
 
-    # The definition of `CreateAppResponseData` object.
+    # The data object containing the app ID.
     attr_accessor :data
 
     attr_accessor :additional_properties

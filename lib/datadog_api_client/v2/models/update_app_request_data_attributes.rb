@@ -17,32 +17,26 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `UpdateAppRequestDataAttributes` object.
+  # App definition attributes to be updated, such as name, description, and components.
   class UpdateAppRequestDataAttributes
     include BaseGenericModel
 
-    # The `attributes` `components`.
+    # The new UI components that make up the app. If this field is set, all existing components are replaced with the new components under this field.
     attr_accessor :components
 
-    # The `attributes` `description`.
+    # The new human-readable description for the app.
     attr_accessor :description
 
-    # The `attributes` `embeddedQueries`.
+    # The new array of queries, such as external actions and state variables, that the app uses. If this field is set, all existing queries are replaced with the new queries under this field.
     attr_accessor :embedded_queries
 
-    # The definition of `InputSchema` object.
-    attr_accessor :input_schema
-
-    # The `attributes` `name`.
+    # The new name of the app.
     attr_accessor :name
 
-    # The `attributes` `rootInstanceName`.
+    # The new name of the root component of the app. This must be a `grid` component that contains all other components.
     attr_accessor :root_instance_name
 
-    # The `attributes` `scripts`.
-    attr_accessor :scripts
-
-    # The `attributes` `tags`.
+    # The new list of tags for the app, which can be used to filter apps. If this field is set, any existing tags not included in the request are removed.
     attr_accessor :tags
 
     attr_accessor :additional_properties
@@ -54,10 +48,8 @@ module DatadogAPIClient::V2
         :'components' => :'components',
         :'description' => :'description',
         :'embedded_queries' => :'embeddedQueries',
-        :'input_schema' => :'inputSchema',
         :'name' => :'name',
         :'root_instance_name' => :'rootInstanceName',
-        :'scripts' => :'scripts',
         :'tags' => :'tags'
       }
     end
@@ -69,10 +61,8 @@ module DatadogAPIClient::V2
         :'components' => :'Array<ComponentGrid>',
         :'description' => :'String',
         :'embedded_queries' => :'Array<Query>',
-        :'input_schema' => :'InputSchema',
         :'name' => :'String',
         :'root_instance_name' => :'String',
-        :'scripts' => :'Array<Script>',
         :'tags' => :'Array<String>'
       }
     end
@@ -111,22 +101,12 @@ module DatadogAPIClient::V2
         end
       end
 
-      if attributes.key?(:'input_schema')
-        self.input_schema = attributes[:'input_schema']
-      end
-
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
 
       if attributes.key?(:'root_instance_name')
         self.root_instance_name = attributes[:'root_instance_name']
-      end
-
-      if attributes.key?(:'scripts')
-        if (value = attributes[:'scripts']).is_a?(Array)
-          self.scripts = value
-        end
       end
 
       if attributes.key?(:'tags')
@@ -165,10 +145,8 @@ module DatadogAPIClient::V2
           components == o.components &&
           description == o.description &&
           embedded_queries == o.embedded_queries &&
-          input_schema == o.input_schema &&
           name == o.name &&
           root_instance_name == o.root_instance_name &&
-          scripts == o.scripts &&
           tags == o.tags &&
           additional_properties == o.additional_properties
     end
@@ -177,7 +155,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [components, description, embedded_queries, input_schema, name, root_instance_name, scripts, tags, additional_properties].hash
+      [components, description, embedded_queries, name, root_instance_name, tags, additional_properties].hash
     end
   end
 end

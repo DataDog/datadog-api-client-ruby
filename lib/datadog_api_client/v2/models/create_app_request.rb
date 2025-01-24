@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `CreateAppRequest` object.
+  # A request object for creating a new app.
   class CreateAppRequest
     include BaseGenericModel
 
-    # The definition of `CreateAppRequestData` object.
+    # The data object containing the app definition.
     attr_accessor :data
 
     attr_accessor :additional_properties

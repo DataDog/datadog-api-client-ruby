@@ -17,23 +17,23 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `Query` object.
+  # A query used by an app. This can take the form of an external action, a data transformation, or a state variable change.
   class Query
     include BaseGenericModel
 
-    # The `Query` `events`.
+    # Events to listen for downstream of the query.
     attr_accessor :events
 
-    # The `Query` `id`.
+    # The ID of the query.
     attr_reader :id
 
-    # The `Query` `name`.
+    # The name of the query. The name must be unique within the app and is visible in the app editor.
     attr_reader :name
 
-    # The `Query` `properties`.
+    # The properties of the query. The properties vary depending on the query type.
     attr_accessor :properties
 
-    # The definition of `QueryType` object.
+    # The query type.
     attr_reader :type
 
     attr_accessor :additional_properties
@@ -55,7 +55,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'events' => :'Array<AppBuilderEvent>',
-        :'id' => :'String',
+        :'id' => :'UUID',
         :'name' => :'String',
         :'properties' => :'Object',
         :'type' => :'QueryType'

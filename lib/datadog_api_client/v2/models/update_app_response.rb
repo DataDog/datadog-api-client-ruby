@@ -17,20 +17,20 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `UpdateAppResponse` object.
+  # The response object after an app is successfully updated.
   class UpdateAppResponse
     include BaseGenericModel
 
-    # The definition of `UpdateAppResponseData` object.
+    # The data object containing the updated app definition.
     attr_accessor :data
 
-    # The `UpdateAppResponse` `included`.
+    # Data on the version of the app that was published.
     attr_accessor :included
 
-    # The definition of `AppMeta` object.
+    # Metadata of an app.
     attr_accessor :meta
 
-    # The definition of `UpdateAppResponseRelationship` object.
+    # The app's publication relationship and custom connections.
     attr_accessor :relationship
 
     attr_accessor :additional_properties
@@ -51,9 +51,9 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'data' => :'UpdateAppResponseData',
-        :'included' => :'Array<DeploymentIncluded>',
+        :'included' => :'Array<Deployment>',
         :'meta' => :'AppMeta',
-        :'relationship' => :'UpdateAppResponseRelationship'
+        :'relationship' => :'AppRelationship'
       }
     end
 

@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `QueryType` object.
+  # The query type.
   class QueryType
     include BaseEnumModel
 

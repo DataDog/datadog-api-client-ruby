@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `ListAppsResponseDataItemsRelationships` object.
+  # The app's publication information.
   class ListAppsResponseDataItemsRelationships
     include BaseGenericModel
 
-    # The definition of `DeploymentRelationship` object.
+    # Information pointing to the app's publication status.
     attr_accessor :deployment
 
     attr_accessor :additional_properties

@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `DeleteAppsResponseDataItems` object.
+  # An object containing the ID of a deleted app.
   class DeleteAppsResponseDataItems
     include BaseGenericModel
 
-    # The `items` `id`.
+    # The ID of the deleted app.
     attr_reader :id
 
-    # The definition of `DeleteAppsResponseDataItemsType` object.
+    # The app definition type.
     attr_reader :type
 
     attr_accessor :additional_properties
@@ -42,8 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'id' => :'String',
-        :'type' => :'DeleteAppsResponseDataItemsType'
+        :'id' => :'UUID',
+        :'type' => :'AppDefinitionType'
       }
     end
 

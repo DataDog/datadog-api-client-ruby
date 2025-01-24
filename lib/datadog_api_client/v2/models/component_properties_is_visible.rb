@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `ComponentPropertiesIsVisible` object.
+  # Whether the UI component is visible. If this is a string, it must be a valid JavaScript expression that evaluates to a boolean.
   module ComponentPropertiesIsVisible
     class << self
       include BaseOneOfModel

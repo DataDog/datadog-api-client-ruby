@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `ListAppsResponse` object.
+  # A paginated list of apps matching the specified filters and sorting.
   class ListAppsResponse
     include BaseGenericModel
 
-    # The `ListAppsResponse` `data`.
+    # An array of app definitions.
     attr_accessor :data
 
-    # The `ListAppsResponse` `included`.
+    # Data on the version of the app that was published.
     attr_accessor :included
 
-    # The definition of `ListAppsResponseMeta` object.
+    # Pagination metadata.
     attr_accessor :meta
 
     attr_accessor :additional_properties
@@ -47,7 +47,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'data' => :'Array<ListAppsResponseDataItems>',
-        :'included' => :'Array<DeploymentIncluded>',
+        :'included' => :'Array<Deployment>',
         :'meta' => :'ListAppsResponseMeta'
       }
     end

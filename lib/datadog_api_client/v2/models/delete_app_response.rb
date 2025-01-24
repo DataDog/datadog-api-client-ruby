@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `DeleteAppResponse` object.
+  # The response object after an app is successfully deleted.
   class DeleteAppResponse
     include BaseGenericModel
 

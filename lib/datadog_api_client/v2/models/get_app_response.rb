@@ -17,20 +17,20 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `GetAppResponse` object.
+  # The full app definition response object.
   class GetAppResponse
     include BaseGenericModel
 
-    # The definition of `GetAppResponseData` object.
+    # The data object containing the app definition.
     attr_accessor :data
 
-    # The `GetAppResponse` `included`.
+    # Data on the version of the app that was published.
     attr_accessor :included
 
-    # The definition of `AppMeta` object.
+    # Metadata of an app.
     attr_accessor :meta
 
-    # The definition of `GetAppResponseRelationship` object.
+    # The app's publication relationship and custom connections.
     attr_accessor :relationship
 
     attr_accessor :additional_properties
@@ -51,9 +51,9 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'data' => :'GetAppResponseData',
-        :'included' => :'Array<DeploymentIncluded>',
+        :'included' => :'Array<Deployment>',
         :'meta' => :'AppMeta',
-        :'relationship' => :'GetAppResponseRelationship'
+        :'relationship' => :'AppRelationship'
       }
     end
 
