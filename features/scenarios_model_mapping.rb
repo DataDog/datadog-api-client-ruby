@@ -1834,6 +1834,19 @@ ScenariosModelMappings = {
             "filter_asset_name" => "String",
             "filter_repo_digest" => "String",
     },
+    "v2.CreateSignalNotificationRule" => {
+            "body" => "CreateNotificationRuleParameters",
+    },
+    "v2.DeleteSignalNotificationRule" => {
+            "id" => "String",
+    },
+    "v2.GetSignalNotificationRule" => {
+            "id" => "String",
+    },
+    "v2.PatchSignalNotificationRule" => {
+            "id" => "String",
+            "body" => "PatchNotificationRuleParameters",
+    },
     "v2.ListVulnerabilities" => {
             "page_token" => "String",
             "page_number" => "Integer",
@@ -1875,6 +1888,19 @@ ScenariosModelMappings = {
             "filter_asset_arch" => "String",
             "filter_asset_operating_system_name" => "String",
             "filter_asset_operating_system_version" => "String",
+    },
+    "v2.CreateVulnerabilityNotificationRule" => {
+            "body" => "CreateNotificationRuleParameters",
+    },
+    "v2.DeleteVulnerabilityNotificationRule" => {
+            "id" => "String",
+    },
+    "v2.GetVulnerabilityNotificationRule" => {
+            "id" => "String",
+    },
+    "v2.PatchVulnerabilityNotificationRule" => {
+            "id" => "String",
+            "body" => "PatchNotificationRuleParameters",
     },
     "v2.CreateSecurityFilter" => {
             "body" => "SecurityFilterCreateRequest",
