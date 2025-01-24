@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `ComponentType` object.
+  # The UI component type.
   class ComponentType
     include BaseEnumModel
 

@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `ListAppsResponseMetaPage` object.
+  # Information on the total number of apps, to be used for pagination.
   class ListAppsResponseMetaPage
     include BaseGenericModel
 
-    # The `page` `totalCount`.
+    # The total number of apps under the Datadog organization, disregarding any filters applied.
     attr_accessor :total_count
 
-    # The `page` `totalFilteredCount`.
+    # The total number of apps that match the specified filters.
     attr_accessor :total_filtered_count
 
     attr_accessor :additional_properties

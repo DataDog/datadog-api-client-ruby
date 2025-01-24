@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `CustomConnectionAttributesOnPremRunner` object.
+  # Information about the Private Action Runner used by the custom connection, if the custom connection is associated with a Private Action Runner.
   class CustomConnectionAttributesOnPremRunner
     include BaseGenericModel
 
-    # The `onPremRunner` `id`.
+    # The Private Action Runner ID.
     attr_accessor :id
 
-    # The `onPremRunner` `url`.
+    # The URL of the Private Action Runner.
     attr_accessor :url
 
     attr_accessor :additional_properties

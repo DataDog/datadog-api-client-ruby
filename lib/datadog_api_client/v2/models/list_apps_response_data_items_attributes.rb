@@ -17,23 +17,23 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `ListAppsResponseDataItemsAttributes` object.
+  # Basic information about the app such as name, description, and tags.
   class ListAppsResponseDataItemsAttributes
     include BaseGenericModel
 
-    # The `attributes` `description`.
+    # A human-readable description for the app.
     attr_accessor :description
 
-    # The `attributes` `favorite`.
+    # Whether the app is marked as a favorite by the current user.
     attr_accessor :favorite
 
-    # The `attributes` `name`.
+    # The name of the app.
     attr_accessor :name
 
-    # The `attributes` `selfService`.
+    # Whether the app is enabled for use in the Datadog self-service hub.
     attr_accessor :self_service
 
-    # The `attributes` `tags`.
+    # A list of tags for the app, which can be used to filter apps.
     attr_accessor :tags
 
     attr_accessor :additional_properties

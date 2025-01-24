@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `CustomConnection` object.
+  # A custom connection used by an app.
   class CustomConnection
     include BaseGenericModel
 
-    # The definition of `CustomConnectionAttributes` object.
+    # The custom connection attributes.
     attr_accessor :attributes
 
-    # The `CustomConnection` `id`.
+    # The ID of the custom connection.
     attr_accessor :id
 
-    # The definition of `CustomConnectionType` object.
+    # The custom connection type.
     attr_accessor :type
 
     attr_accessor :additional_properties
@@ -47,7 +47,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'attributes' => :'CustomConnectionAttributes',
-        :'id' => :'String',
+        :'id' => :'UUID',
         :'type' => :'CustomConnectionType'
       }
     end

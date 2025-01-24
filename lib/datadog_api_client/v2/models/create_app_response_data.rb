@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `CreateAppResponseData` object.
+  # The data object containing the app ID.
   class CreateAppResponseData
     include BaseGenericModel
 
-    # The `data` `id`.
+    # The ID of the created app.
     attr_reader :id
 
-    # The definition of `CreateAppResponseDataType` object.
+    # The app definition type.
     attr_reader :type
 
     attr_accessor :additional_properties
@@ -42,8 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'id' => :'String',
-        :'type' => :'CreateAppResponseDataType'
+        :'id' => :'UUID',
+        :'type' => :'AppDefinitionType'
       }
     end
 

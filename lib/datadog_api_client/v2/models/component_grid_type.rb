@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `ComponentGridType` object.
+  # The grid component type.
   class ComponentGridType
     include BaseEnumModel
 

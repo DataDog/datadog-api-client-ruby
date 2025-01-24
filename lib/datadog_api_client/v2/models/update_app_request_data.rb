@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `UpdateAppRequestData` object.
+  # The data object containing the new app definition. Any fields not included in the request remain unchanged.
   class UpdateAppRequestData
     include BaseGenericModel
 
-    # The definition of `UpdateAppRequestDataAttributes` object.
+    # App definition attributes to be updated, such as name, description, and components.
     attr_accessor :attributes
 
-    # The `data` `id`.
+    # The ID of the app to update. The app ID must match the ID in the URL path.
     attr_accessor :id
 
-    # The definition of `UpdateAppRequestDataType` object.
+    # The app definition type.
     attr_reader :type
 
     attr_accessor :additional_properties
@@ -47,8 +47,8 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'attributes' => :'UpdateAppRequestDataAttributes',
-        :'id' => :'String',
-        :'type' => :'UpdateAppRequestDataType'
+        :'id' => :'UUID',
+        :'type' => :'AppDefinitionType'
       }
     end
 

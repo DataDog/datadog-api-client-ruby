@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `CustomConnectionType` object.
+  # The custom connection type.
   class CustomConnectionType
     include BaseEnumModel
 

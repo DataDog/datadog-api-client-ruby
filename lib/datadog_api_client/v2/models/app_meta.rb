@@ -17,38 +17,35 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `AppMeta` object.
+  # Metadata of an app.
   class AppMeta
     include BaseGenericModel
 
-    # The `AppMeta` `created_at`.
+    # Timestamp of when the app was created.
     attr_accessor :created_at
 
-    # The `AppMeta` `deleted_at`.
+    # Timestamp of when the app was deleted.
     attr_accessor :deleted_at
 
-    # The `AppMeta` `org_id`.
+    # The Datadog organization ID that owns the app.
     attr_accessor :org_id
 
-    # The `AppMeta` `run_as_user`.
-    attr_accessor :run_as_user
-
-    # The `AppMeta` `updated_at`.
+    # Timestamp of when the app was last updated.
     attr_accessor :updated_at
 
-    # The `AppMeta` `updated_since_deployment`.
+    # Whether the app was updated since it was last published. Published apps are pinned to a specific version and do not automatically update when the app is updated.
     attr_accessor :updated_since_deployment
 
-    # The `AppMeta` `user_id`.
+    # The ID of the user who created the app.
     attr_accessor :user_id
 
-    # The `AppMeta` `user_name`.
+    # The name (or email address) of the user who created the app.
     attr_accessor :user_name
 
-    # The `AppMeta` `user_uuid`.
+    # The UUID of the user who created the app.
     attr_accessor :user_uuid
 
-    # The `AppMeta` `version`.
+    # The version number of the app. This starts at 1 and increments with each update.
     attr_accessor :version
 
     attr_accessor :additional_properties
@@ -60,7 +57,6 @@ module DatadogAPIClient::V2
         :'created_at' => :'created_at',
         :'deleted_at' => :'deleted_at',
         :'org_id' => :'org_id',
-        :'run_as_user' => :'run_as_user',
         :'updated_at' => :'updated_at',
         :'updated_since_deployment' => :'updated_since_deployment',
         :'user_id' => :'user_id',
@@ -74,11 +70,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'created_at' => :'String',
-        :'deleted_at' => :'String',
+        :'created_at' => :'Time',
+        :'deleted_at' => :'Time',
         :'org_id' => :'Integer',
-        :'run_as_user' => :'String',
-        :'updated_at' => :'String',
+        :'updated_at' => :'Time',
         :'updated_since_deployment' => :'Boolean',
         :'user_id' => :'Integer',
         :'user_name' => :'String',
@@ -115,10 +110,6 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'org_id')
         self.org_id = attributes[:'org_id']
-      end
-
-      if attributes.key?(:'run_as_user')
-        self.run_as_user = attributes[:'run_as_user']
       end
 
       if attributes.key?(:'updated_at')
@@ -175,7 +166,6 @@ module DatadogAPIClient::V2
           created_at == o.created_at &&
           deleted_at == o.deleted_at &&
           org_id == o.org_id &&
-          run_as_user == o.run_as_user &&
           updated_at == o.updated_at &&
           updated_since_deployment == o.updated_since_deployment &&
           user_id == o.user_id &&
@@ -189,7 +179,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created_at, deleted_at, org_id, run_as_user, updated_at, updated_since_deployment, user_id, user_name, user_uuid, version, additional_properties].hash
+      [created_at, deleted_at, org_id, updated_at, updated_since_deployment, user_id, user_name, user_uuid, version, additional_properties].hash
     end
   end
 end

@@ -976,21 +976,21 @@ ScenariosModelMappings = {
             "body" => "CreateAppRequest",
     },
     "v2.DeleteApp" => {
-            "app_id" => "String",
+            "app_id" => "UUID",
     },
     "v2.GetApp" => {
-            "app_id" => "String",
+            "app_id" => "UUID",
             "version" => "String",
     },
     "v2.UpdateApp" => {
-            "app_id" => "String",
+            "app_id" => "UUID",
             "body" => "UpdateAppRequest",
     },
-    "v2.DisableApp" => {
-            "app_id" => "String",
+    "v2.UnpublishApp" => {
+            "app_id" => "UUID",
     },
-    "v2.DeployApp" => {
-            "app_id" => "String",
+    "v2.PublishApp" => {
+            "app_id" => "UUID",
     },
     "v2.ListAuditLogs" => {
             "filter_query" => "String",

@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `AppBuilderEvent` object.
+  # An event on a UI component that triggers a response or action in an app.
   class AppBuilderEvent
     include BaseGenericModel
 

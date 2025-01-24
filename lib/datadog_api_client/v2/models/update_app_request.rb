@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `UpdateAppRequest` object.
+  # A request object for updating an existing app.
   class UpdateAppRequest
     include BaseGenericModel
 
-    # The definition of `UpdateAppRequestData` object.
+    # The data object containing the new app definition. Any fields not included in the request remain unchanged.
     attr_accessor :data
 
     attr_accessor :additional_properties

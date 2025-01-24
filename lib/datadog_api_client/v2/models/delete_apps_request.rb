@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `DeleteAppsRequest` object.
+  # A request object for deleting multiple apps by ID.
   class DeleteAppsRequest
     include BaseGenericModel
 
-    # The `DeleteAppsRequest` `data`.
+    # An array of objects containing the IDs of the apps to delete.
     attr_accessor :data
 
     attr_accessor :additional_properties

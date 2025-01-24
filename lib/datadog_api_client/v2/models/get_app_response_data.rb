@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `GetAppResponseData` object.
+  # The data object containing the app definition.
   class GetAppResponseData
     include BaseGenericModel
 
-    # The definition of `GetAppResponseDataAttributes` object.
+    # The app definition attributes, such as name, description, and components.
     attr_reader :attributes
 
-    # The `data` `id`.
+    # The ID of the app.
     attr_reader :id
 
-    # The definition of `GetAppResponseDataType` object.
+    # The app definition type.
     attr_reader :type
 
     attr_accessor :additional_properties
@@ -47,8 +47,8 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'attributes' => :'GetAppResponseDataAttributes',
-        :'id' => :'String',
-        :'type' => :'GetAppResponseDataType'
+        :'id' => :'UUID',
+        :'type' => :'AppDefinitionType'
       }
     end
 

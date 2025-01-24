@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `DeleteAppsResponse` object.
+  # The response object after multiple apps are successfully deleted.
   class DeleteAppsResponse
     include BaseGenericModel
 
-    # The `DeleteAppsResponse` `data`.
+    # An array of objects containing the IDs of the deleted apps.
     attr_accessor :data
 
     attr_accessor :additional_properties

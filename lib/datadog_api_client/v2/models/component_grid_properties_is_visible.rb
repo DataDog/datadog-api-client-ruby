@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `ComponentGridPropertiesIsVisible` object.
+  # Whether the grid component and its children are visible. If a string, it must be a valid JavaScript expression that evaluates to a boolean.
   module ComponentGridPropertiesIsVisible
     class << self
       include BaseOneOfModel
