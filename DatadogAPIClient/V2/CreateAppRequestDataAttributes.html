@@ -106,7 +106,7 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>The definition of <code>CreateAppRequestDataAttributes</code> object.</p>
+    <p>App definition attributes such as name, description, and components.</p>
 
 
   </div>
@@ -167,7 +167,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>The <code>attributes</code> <code>components</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>The UI components that make up the app.</p>
 </div></span>
   
 </li>
@@ -193,7 +193,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>The <code>attributes</code> <code>description</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>A human-readable description for the app.</p>
 </div></span>
   
 </li>
@@ -219,33 +219,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>The <code>attributes</code> <code>embeddedQueries</code>.</p>
-</div></span>
-  
-</li>
-
-    
-      <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#input_schema-instance_method" title="#input_schema (instance method)">#<strong>input_schema</strong>  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-    
-    
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>The definition of <code>InputSchema</code> object.</p>
+    <span class="summary_desc"><div class='inline'><p>An array of queries, such as external actions and state variables, that the app uses.</p>
 </div></span>
   
 </li>
@@ -271,7 +245,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>The <code>attributes</code> <code>name</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>The name of the app.</p>
 </div></span>
   
 </li>
@@ -297,33 +271,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>The <code>attributes</code> <code>rootInstanceName</code>.</p>
-</div></span>
-  
-</li>
-
-    
-      <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#scripts-instance_method" title="#scripts (instance method)">#<strong>scripts</strong>  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-    
-    
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>The <code>attributes</code> <code>scripts</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>The name of the root component of the app.</p>
 </div></span>
   
 </li>
@@ -349,7 +297,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>The <code>attributes</code> <code>tags</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>A list of tags for the app, which can be used to filter apps.</p>
 </div></span>
   
 </li>
@@ -402,12 +350,12 @@
       <pre class="lines">
 
 
-48
-49
-50</pre>
+42
+43
+44</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/create_app_request_data_attributes.rb', line 48</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/create_app_request_data_attributes.rb', line 42</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_additional_properties'>additional_properties</span>
   <span class='ivar'>@additional_properties</span>
@@ -430,7 +378,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>The <code>attributes</code> <code>components</code>.</p>
+    <p>The UI components that make up the app.</p>
 
 
   </div>
@@ -472,7 +420,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>The <code>attributes</code> <code>description</code>.</p>
+    <p>A human-readable description for the app.</p>
 
 
   </div>
@@ -514,7 +462,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>The <code>attributes</code> <code>embeddedQueries</code>.</p>
+    <p>An array of queries, such as external actions and state variables, that the app uses.</p>
 
 
   </div>
@@ -544,11 +492,11 @@
 </div>
     
       
-      <span id="input_schema=-instance_method"></span>
+      <span id="name=-instance_method"></span>
       <div class="method_details ">
-  <h3 class="signature " id="input_schema-instance_method">
+  <h3 class="signature " id="name-instance_method">
   
-    #<strong>input_schema</strong>  &#x21d2; <tt>Object</tt> 
+    #<strong>name</strong>  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -556,7 +504,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>The definition of <code>InputSchema</code> object.</p>
+    <p>The name of the app.</p>
 
 
   </div>
@@ -576,48 +524,6 @@
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/create_app_request_data_attributes.rb', line 34</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_input_schema'>input_schema</span>
-  <span class='ivar'>@input_schema</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      
-      <span id="name=-instance_method"></span>
-      <div class="method_details ">
-  <h3 class="signature " id="name-instance_method">
-  
-    #<strong>name</strong>  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>The <code>attributes</code> <code>name</code>.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-37
-38
-39</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/create_app_request_data_attributes.rb', line 37</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_name'>name</span>
   <span class='ivar'>@name</span>
@@ -640,7 +546,49 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>The <code>attributes</code> <code>rootInstanceName</code>.</p>
+    <p>The name of the root component of the app. This must be a <code>grid</code> component that contains all other components.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+37
+38
+39</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/create_app_request_data_attributes.rb', line 37</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_root_instance_name'>root_instance_name</span>
+  <span class='ivar'>@root_instance_name</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="tags=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="tags-instance_method">
+  
+    #<strong>tags</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>A list of tags for the app, which can be used to filter apps.</p>
 
 
   </div>
@@ -661,90 +609,6 @@
     <td>
       <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/create_app_request_data_attributes.rb', line 40</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_root_instance_name'>root_instance_name</span>
-  <span class='ivar'>@root_instance_name</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      
-      <span id="scripts=-instance_method"></span>
-      <div class="method_details ">
-  <h3 class="signature " id="scripts-instance_method">
-  
-    #<strong>scripts</strong>  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>The <code>attributes</code> <code>scripts</code>.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-43
-44
-45</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/create_app_request_data_attributes.rb', line 43</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_scripts'>scripts</span>
-  <span class='ivar'>@scripts</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      
-      <span id="tags=-instance_method"></span>
-      <div class="method_details ">
-  <h3 class="signature " id="tags-instance_method">
-  
-    #<strong>tags</strong>  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>The <code>attributes</code> <code>tags</code>.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-46
-47
-48</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/create_app_request_data_attributes.rb', line 46</span>
-
 <span class='kw'>def</span> <span class='id identifier rubyid_tags'>tags</span>
   <span class='ivar'>@tags</span>
 <span class='kw'>end</span></pre>
@@ -759,7 +623,7 @@
 </div>
 
       <div id="footer">
-  Generated on Fri Jan 24 19:45:56 2025 by
+  Generated on Fri Jan 24 22:31:46 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>

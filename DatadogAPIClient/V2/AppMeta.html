@@ -106,7 +106,7 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>The definition of <code>AppMeta</code> object.</p>
+    <p>Metadata of an app.</p>
 
 
   </div>
@@ -167,7 +167,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>The <code>AppMeta</code> <code>created_at</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>Timestamp of when the app was created.</p>
 </div></span>
   
 </li>
@@ -193,7 +193,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>The <code>AppMeta</code> <code>deleted_at</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>Timestamp of when the app was deleted.</p>
 </div></span>
   
 </li>
@@ -219,33 +219,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>The <code>AppMeta</code> <code>org_id</code>.</p>
-</div></span>
-  
-</li>
-
-    
-      <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#run_as_user-instance_method" title="#run_as_user (instance method)">#<strong>run_as_user</strong>  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-    
-    
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>The <code>AppMeta</code> <code>run_as_user</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>The Datadog organization ID that owns the app.</p>
 </div></span>
   
 </li>
@@ -271,7 +245,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>The <code>AppMeta</code> <code>updated_at</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>Timestamp of when the app was last updated.</p>
 </div></span>
   
 </li>
@@ -297,7 +271,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>The <code>AppMeta</code> <code>updated_since_deployment</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>Whether the app was updated since it was last published.</p>
 </div></span>
   
 </li>
@@ -323,7 +297,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>The <code>AppMeta</code> <code>user_id</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>The ID of the user who created the app.</p>
 </div></span>
   
 </li>
@@ -349,7 +323,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>The <code>AppMeta</code> <code>user_name</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>The name (or email address) of the user who created the app.</p>
 </div></span>
   
 </li>
@@ -375,7 +349,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>The <code>AppMeta</code> <code>user_uuid</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>The UUID of the user who created the app.</p>
 </div></span>
   
 </li>
@@ -401,7 +375,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>The <code>AppMeta</code> <code>version</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>The version number of the app.</p>
 </div></span>
   
 </li>
@@ -454,12 +428,12 @@
       <pre class="lines">
 
 
-54
-55
-56</pre>
+51
+52
+53</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/app_meta.rb', line 54</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/app_meta.rb', line 51</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_additional_properties'>additional_properties</span>
   <span class='ivar'>@additional_properties</span>
@@ -482,7 +456,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>The <code>AppMeta</code> <code>created_at</code>.</p>
+    <p>Timestamp of when the app was created.</p>
 
 
   </div>
@@ -524,7 +498,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>The <code>AppMeta</code> <code>deleted_at</code>.</p>
+    <p>Timestamp of when the app was deleted.</p>
 
 
   </div>
@@ -566,7 +540,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>The <code>AppMeta</code> <code>org_id</code>.</p>
+    <p>The Datadog organization ID that owns the app.</p>
 
 
   </div>
@@ -596,11 +570,11 @@
 </div>
     
       
-      <span id="run_as_user=-instance_method"></span>
+      <span id="updated_at=-instance_method"></span>
       <div class="method_details ">
-  <h3 class="signature " id="run_as_user-instance_method">
+  <h3 class="signature " id="updated_at-instance_method">
   
-    #<strong>run_as_user</strong>  &#x21d2; <tt>Object</tt> 
+    #<strong>updated_at</strong>  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -608,7 +582,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>The <code>AppMeta</code> <code>run_as_user</code>.</p>
+    <p>Timestamp of when the app was last updated.</p>
 
 
   </div>
@@ -628,48 +602,6 @@
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/app_meta.rb', line 34</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_run_as_user'>run_as_user</span>
-  <span class='ivar'>@run_as_user</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      
-      <span id="updated_at=-instance_method"></span>
-      <div class="method_details ">
-  <h3 class="signature " id="updated_at-instance_method">
-  
-    #<strong>updated_at</strong>  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>The <code>AppMeta</code> <code>updated_at</code>.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-37
-38
-39</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/app_meta.rb', line 37</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_updated_at'>updated_at</span>
   <span class='ivar'>@updated_at</span>
@@ -692,7 +624,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>The <code>AppMeta</code> <code>updated_since_deployment</code>.</p>
+    <p>Whether the app was updated since it was last published. Published apps are pinned to a specific version and do not automatically update when the app is updated.</p>
 
 
   </div>
@@ -706,12 +638,12 @@
       <pre class="lines">
 
 
-40
-41
-42</pre>
+37
+38
+39</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/app_meta.rb', line 40</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/app_meta.rb', line 37</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_updated_since_deployment'>updated_since_deployment</span>
   <span class='ivar'>@updated_since_deployment</span>
@@ -734,7 +666,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>The <code>AppMeta</code> <code>user_id</code>.</p>
+    <p>The ID of the user who created the app.</p>
 
 
   </div>
@@ -748,12 +680,12 @@
       <pre class="lines">
 
 
-43
-44
-45</pre>
+40
+41
+42</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/app_meta.rb', line 43</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/app_meta.rb', line 40</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_user_id'>user_id</span>
   <span class='ivar'>@user_id</span>
@@ -776,7 +708,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>The <code>AppMeta</code> <code>user_name</code>.</p>
+    <p>The name (or email address) of the user who created the app.</p>
 
 
   </div>
@@ -790,12 +722,12 @@
       <pre class="lines">
 
 
-46
-47
-48</pre>
+43
+44
+45</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/app_meta.rb', line 46</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/app_meta.rb', line 43</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_user_name'>user_name</span>
   <span class='ivar'>@user_name</span>
@@ -818,7 +750,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>The <code>AppMeta</code> <code>user_uuid</code>.</p>
+    <p>The UUID of the user who created the app.</p>
 
 
   </div>
@@ -832,12 +764,12 @@
       <pre class="lines">
 
 
-49
-50
-51</pre>
+46
+47
+48</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/app_meta.rb', line 49</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/app_meta.rb', line 46</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_user_uuid'>user_uuid</span>
   <span class='ivar'>@user_uuid</span>
@@ -860,7 +792,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>The <code>AppMeta</code> <code>version</code>.</p>
+    <p>The version number of the app. This starts at 1 and increments with each update.</p>
 
 
   </div>
@@ -874,12 +806,12 @@
       <pre class="lines">
 
 
-52
-53
-54</pre>
+49
+50
+51</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/app_meta.rb', line 52</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/app_meta.rb', line 49</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_version'>version</span>
   <span class='ivar'>@version</span>
@@ -895,7 +827,7 @@
 </div>
 
       <div id="footer">
-  Generated on Fri Jan 24 19:45:40 2025 by
+  Generated on Fri Jan 24 22:31:31 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>
