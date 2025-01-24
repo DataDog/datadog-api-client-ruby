@@ -24,6 +24,9 @@ module DatadogAPIClient::V2
     # The bucket where the archive will be stored.
     attr_reader :bucket
 
+    # The S3 encryption settings.
+    attr_accessor :encryption
+
     # The S3 Archive's integration destination.
     attr_reader :integration
 
@@ -40,6 +43,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'bucket' => :'bucket',
+        :'encryption' => :'encryption',
         :'integration' => :'integration',
         :'path' => :'path',
         :'type' => :'type'
@@ -51,6 +55,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'bucket' => :'String',
+        :'encryption' => :'LogsArchiveEncryptionS3',
         :'integration' => :'LogsArchiveIntegrationS3',
         :'path' => :'String',
         :'type' => :'LogsArchiveDestinationS3Type'
@@ -77,6 +82,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'bucket')
         self.bucket = attributes[:'bucket']
+      end
+
+      if attributes.key?(:'encryption')
+        self.encryption = attributes[:'encryption']
       end
 
       if attributes.key?(:'integration')
@@ -159,6 +168,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           bucket == o.bucket &&
+          encryption == o.encryption &&
           integration == o.integration &&
           path == o.path &&
           type == o.type &&
@@ -169,7 +179,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [bucket, integration, path, type, additional_properties].hash
+      [bucket, encryption, integration, path, type, additional_properties].hash
     end
   end
 end

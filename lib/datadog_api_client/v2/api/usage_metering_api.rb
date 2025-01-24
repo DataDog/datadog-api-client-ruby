@@ -109,12 +109,6 @@ module DatadogAPIClient::V2
     # @option opts [String] :filter_view String to specify whether to retrieve active billing dimension mappings for the contract or for all available mappings. Allowed views have the string `active` or `all`. Defaults to `active`.
     # @return [Array<(BillingDimensionsMappingResponse, Integer, Hash)>] BillingDimensionsMappingResponse data, response status code and response headers
     def get_billing_dimension_mapping_with_http_info(opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.get_billing_dimension_mapping".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_billing_dimension_mapping")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_billing_dimension_mapping"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_billing_dimension_mapping ...'

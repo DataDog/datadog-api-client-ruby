@@ -20,5 +20,6 @@ body = DatadogAPIClient::V1::LogsPipeline.new({
       type: DatadogAPIClient::V1::LogsGrokParserType::GROK_PARSER,
     }),
   ],
+  tags: [],
 })
 p api_instance.update_logs_pipeline("pipeline_id", body)
