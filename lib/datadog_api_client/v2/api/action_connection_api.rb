@@ -33,7 +33,7 @@ module DatadogAPIClient::V2
 
     # Create a new Action Connection.
     #
-    # Create a new Action Connection
+    # Create a new Action Connection.
     #
     # @param body [CreateActionConnectionRequest] 
     # @param opts [Hash] the optional parameters
@@ -100,9 +100,9 @@ module DatadogAPIClient::V2
 
     # Delete an existing Action Connection.
     #
-    # Delete an existing Action Connection
+    # Delete an existing Action Connection.
     #
-    # @param connection_id [String] The ID of the action connection
+    # @param connection_id [String] The ID of the Action Connection.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_action_connection_with_http_info(connection_id, opts = {})
@@ -165,9 +165,9 @@ module DatadogAPIClient::V2
 
     # Get an existing Action Connection.
     #
-    # Get an existing Action Connection
+    # Get an existing Action Connection.
     #
-    # @param connection_id [String] The ID of the action connection
+    # @param connection_id [String] The ID of the Action Connection.
     # @param opts [Hash] the optional parameters
     # @return [Array<(GetActionConnectionResponse, Integer, Hash)>] GetActionConnectionResponse data, response status code and response headers
     def get_action_connection_with_http_info(connection_id, opts = {})
@@ -232,8 +232,8 @@ module DatadogAPIClient::V2
     #
     # Update an existing Action Connection
     #
-    # @param connection_id [String] The ID of the action connection
-    # @param body [UpdateActionConnectionRequest] Update an existing Action Connection request body
+    # @param connection_id [String] The ID of the Action Connection.
+    # @param body [UpdateActionConnectionRequest] Update an existing Action Connection request body.
     # @param opts [Hash] the optional parameters
     # @return [Array<(UpdateActionConnectionResponse, Integer, Hash)>] UpdateActionConnectionResponse data, response status code and response headers
     def update_action_connection_with_http_info(connection_id, body, opts = {})

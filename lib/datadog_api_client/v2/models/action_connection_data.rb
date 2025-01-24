@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # The definition of `ActionConnectionAttributes` object.
     attr_reader :attributes
 
-    # The connection identifier
+    # The connection identifier.
     attr_accessor :id
 
     # The definition of `ActionConnectionDataType` object.

@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Request used to update an action connection.
+  # Request used to update an Action Connection.
   class UpdateActionConnectionRequest
     include BaseGenericModel
 

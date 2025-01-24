@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class AWSAssumeRoleUpdate
     include BaseGenericModel
 
-    # AWS account the connection is created for
+    # AWS account the connection is created for.
     attr_reader :account_id
 
     # The `AWSAssumeRoleUpdate` `generate_new_external_id`.
