@@ -1,0 +1,37 @@
+# Patch a mute rule returns "Mute rule successfully patched" response
+
+require "datadog_api_client"
+api_instance = DatadogAPIClient::V2::SecurityMonitoringAPI.new
+
+# there is a valid "valid_mute_rule" in the system
+VALID_MUTE_RULE_DATA_ID = ENV["VALID_MUTE_RULE_DATA_ID"]
+
+body = DatadogAPIClient::V2::PatchMuteRuleParameters.new({
+  data: DatadogAPIClient::V2::PatchMuteRuleParametersData.new({
+    attributes: DatadogAPIClient::V2::PatchMuteRuleParametersDataAttributes.new({
+      action: DatadogAPIClient::V2::ActionMute.new({
+        expire_at: 1893452400000,
+        reason: DatadogAPIClient::V2::MuteReason::DUPLICATE,
+        reason_description: "Muting for a while",
+      }),
+      enabled: true,
+      name: "Rule 1",
+      rule: DatadogAPIClient::V2::AutomationRule.new({
+        issue_type: DatadogAPIClient::V2::IssueType::VULNERABILITY,
+        query: "key:val",
+        rule_ids: [
+          "rule-id-1",
+        ],
+        rule_types: [
+          DatadogAPIClient::V2::SecurityRuleTypesItems::APPLICATION_CODE_VULNERABILITY,
+        ],
+        severities: [
+          DatadogAPIClient::V2::SecurityRuleSeverity::CRITICAL,
+        ],
+      }),
+    }),
+    id: VALID_MUTE_RULE_DATA_ID,
+    type: DatadogAPIClient::V2::MuteRulesType::MUTE_RULES,
+  }),
+})
+p api_instance.patch_mute_rule(VALID_MUTE_RULE_DATA_ID, body)
