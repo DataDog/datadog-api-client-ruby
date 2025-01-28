@@ -38,12 +38,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(ActiveBillingDimensionsResponse, Integer, Hash)>] ActiveBillingDimensionsResponse data, response status code and response headers
     def get_active_billing_dimensions_with_http_info(opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.get_active_billing_dimensions".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_active_billing_dimensions")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_active_billing_dimensions"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_active_billing_dimensions ...'
@@ -515,12 +509,6 @@ module DatadogAPIClient::V2
     # @option opts [Boolean] :include_descendants Include child org cost in the response. Defaults to `true`.
     # @return [Array<(MonthlyCostAttributionResponse, Integer, Hash)>] MonthlyCostAttributionResponse data, response status code and response headers
     def get_monthly_cost_attribution_with_http_info(start_month, fields, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.get_monthly_cost_attribution".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_monthly_cost_attribution")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_monthly_cost_attribution"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_monthly_cost_attribution ...'

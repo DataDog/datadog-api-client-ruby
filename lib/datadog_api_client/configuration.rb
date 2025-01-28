@@ -202,8 +202,6 @@ module DatadogAPIClient
             "v2.publish_app": false,
             "v2.unpublish_app": false,
             "v2.update_app": false,
-            "v2.get_active_billing_dimensions": false,
-            "v2.get_monthly_cost_attribution": false,
             "v2.cancel_data_deletion_request": false,
             "v2.create_data_deletion_request": false,
             "v2.get_data_deletion_requests": false,
