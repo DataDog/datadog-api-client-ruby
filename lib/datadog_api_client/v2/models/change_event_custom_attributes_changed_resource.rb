@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Object representing a uniquely identified resource. Only the resource type `feature_flag` is supported.
+  # Object representing a uniquely identified resource.
   class ChangeEventCustomAttributesChangedResource
     include BaseGenericModel
 
