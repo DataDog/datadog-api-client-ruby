@@ -34,7 +34,7 @@ body = DatadogAPIClient::V2::EventCreateRequestPayload.new({
       category: DatadogAPIClient::V2::EventCategory::CHANGE,
       message: "payment_processed feature flag has been enabled",
       tags: [
-        "environment:test",
+        "env:test",
       ],
       title: "payment_processed feature flag updated",
     }),
