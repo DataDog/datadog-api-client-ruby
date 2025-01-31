@@ -1299,10 +1299,13 @@ It is only available via the API and isn&#39;t visible or editable in the Datado
 
 <p><strong>Cost Alert Query</strong></p>
 
-<p>Example: <code>formula(query).last(time_window).function(parameter) operator #</code></p>
+<p>Example: <code>formula(query).timeframe_type(time_window).function(parameter) operator #</code></p>
 
 <ul>
 <li><code>query</code> The search query - following the <a href="https://docs.datadoghq.com/logs/search_syntax/">Log search syntax</a>.</li>
+<li><code>timeframe_type</code> The timeframe type to evaluate the cost
+    - for <code>forecast</code> supports <code>current</code>
+    - for <code>change</code>, <code>anomaly</code>, <code>threshold</code> supports <code>last</code></li>
 <li><code>time_window</code> - supports daily roll-up e.g. <code>7d</code></li>
 <li><code>function</code> - [optional, defaults to <code>threshold</code> monitor if omitted] supports <code>change</code>, <code>anomaly</code>, <code>forecast</code></li>
 <li><code>parameter</code> Specify the parameter of the type
@@ -2494,9 +2497,6 @@ It is only available via the API and isn&#39;t visible or editable in the Datado
       <pre class="lines">
 
 
-595
-596
-597
 598
 599
 600
@@ -2507,10 +2507,13 @@ It is only available via the API and isn&#39;t visible or editable in the Datado
 605
 606
 607
-608</pre>
+608
+609
+610
+611</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/api/monitors_api.rb', line 595</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/api/monitors_api.rb', line 598</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_monitors_with_pagination'>list_monitors_with_pagination</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_api_version'>api_version</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>V1</span><span class='tstring_end'>&quot;</span></span>
@@ -3430,13 +3433,13 @@ It is only available via the API and isn&#39;t visible or editable in the Datado
       <pre class="lines">
 
 
-821
-822
-823
-824</pre>
+824
+825
+826
+827</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/api/monitors_api.rb', line 821</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/api/monitors_api.rb', line 824</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_validate_existing_monitor'>validate_existing_monitor</span><span class='lparen'>(</span><span class='id identifier rubyid_monitor_id'>monitor_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_validate_existing_monitor_with_http_info'>validate_existing_monitor_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_monitor_id'>monitor_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -3542,9 +3545,6 @@ It is only available via the API and isn&#39;t visible or editable in the Datado
       <pre class="lines">
 
 
-834
-835
-836
 837
 838
 839
@@ -3596,10 +3596,13 @@ It is only available via the API and isn&#39;t visible or editable in the Datado
 885
 886
 887
-888</pre>
+888
+889
+890
+891</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/api/monitors_api.rb', line 834</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/api/monitors_api.rb', line 837</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_validate_existing_monitor_with_http_info'>validate_existing_monitor_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_monitor_id'>monitor_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -3924,7 +3927,7 @@ It is only available via the API and isn&#39;t visible or editable in the Datado
 </div>
 
       <div id="footer">
-  Generated on Wed Jan 29 21:35:34 2025 by
+  Generated on Fri Jan 31 12:30:42 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>
