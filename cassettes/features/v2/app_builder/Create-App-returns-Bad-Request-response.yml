@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Thu, 09 Jan 2025 20:40:37 GMT
+- recorded_at: Thu, 30 Jan 2025 22:30:41 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"description":"This is a bad example app","embeddedQueries":[],"rootInstanceName":"grid0"},"type":"appDefinitions"}}'
+      string: '{"data":{"attributes":{"description":"This is a bad example app","queries":[],"rootInstanceName":"grid0"},"type":"appDefinitions"}}'
     headers:
       Accept:
       - application/json
@@ -14,8 +14,7 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"errors":[{"title":"missing required field","detail":"missing required
-        field","source":{"pointer":"/data/attributes/name"}}]}'
+      string: '{"errors":[{"title":"missing required field","source":{"pointer":"/data/attributes/name"}}]}'
     headers:
       Content-Type:
       - application/vnd.api+json
