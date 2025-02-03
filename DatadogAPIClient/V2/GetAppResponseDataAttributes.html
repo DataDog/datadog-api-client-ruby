@@ -202,32 +202,6 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#embedded_queries-instance_method" title="#embedded_queries (instance method)">#<strong>embedded_queries</strong>  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-    
-    
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>An array of queries, such as external actions and state variables, that the app uses.</p>
-</div></span>
-  
-</li>
-
-    
-      <li class="public ">
-  <span class="summary_signature">
-    
       <a href="#favorite-instance_method" title="#favorite (instance method)">#<strong>favorite</strong>  &#x21d2; Object </a>
     
 
@@ -272,6 +246,32 @@
 
   
     <span class="summary_desc"><div class='inline'><p>The name of the app.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#queries-instance_method" title="#queries (instance method)">#<strong>queries</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>An array of queries, such as external actions and state variables, that the app uses.</p>
 </div></span>
   
 </li>
@@ -476,48 +476,6 @@
 </div>
     
       
-      <span id="embedded_queries=-instance_method"></span>
-      <div class="method_details ">
-  <h3 class="signature " id="embedded_queries-instance_method">
-  
-    #<strong>embedded_queries</strong>  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>An array of queries, such as external actions and state variables, that the app uses.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-31
-32
-33</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/get_app_response_data_attributes.rb', line 31</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_embedded_queries'>embedded_queries</span>
-  <span class='ivar'>@embedded_queries</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      
       <span id="favorite=-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="favorite-instance_method">
@@ -544,12 +502,12 @@
       <pre class="lines">
 
 
-34
-35
-36</pre>
+31
+32
+33</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/get_app_response_data_attributes.rb', line 34</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/get_app_response_data_attributes.rb', line 31</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_favorite'>favorite</span>
   <span class='ivar'>@favorite</span>
@@ -586,6 +544,48 @@
       <pre class="lines">
 
 
+34
+35
+36</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/get_app_response_data_attributes.rb', line 34</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_name'>name</span>
+  <span class='ivar'>@name</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="queries=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="queries-instance_method">
+  
+    #<strong>queries</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>An array of queries, such as external actions and state variables, that the app uses.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
 37
 38
 39</pre>
@@ -593,8 +593,8 @@
     <td>
       <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/get_app_response_data_attributes.rb', line 37</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_name'>name</span>
-  <span class='ivar'>@name</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_queries'>queries</span>
+  <span class='ivar'>@queries</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -691,7 +691,7 @@
 </div>
 
       <div id="footer">
-  Generated on Mon Feb  3 18:03:03 2025 by
+  Generated on Mon Feb  3 19:23:44 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>
