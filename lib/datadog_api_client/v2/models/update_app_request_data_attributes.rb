@@ -27,11 +27,11 @@ module DatadogAPIClient::V2
     # The new human-readable description for the app.
     attr_accessor :description
 
-    # The new array of queries, such as external actions and state variables, that the app uses. If this field is set, all existing queries are replaced with the new queries under this field.
-    attr_accessor :embedded_queries
-
     # The new name of the app.
     attr_accessor :name
+
+    # The new array of queries, such as external actions and state variables, that the app uses. If this field is set, all existing queries are replaced with the new queries under this field.
+    attr_accessor :queries
 
     # The new name of the root component of the app. This must be a `grid` component that contains all other components.
     attr_accessor :root_instance_name
@@ -47,8 +47,8 @@ module DatadogAPIClient::V2
       {
         :'components' => :'components',
         :'description' => :'description',
-        :'embedded_queries' => :'embeddedQueries',
         :'name' => :'name',
+        :'queries' => :'queries',
         :'root_instance_name' => :'rootInstanceName',
         :'tags' => :'tags'
       }
@@ -60,8 +60,8 @@ module DatadogAPIClient::V2
       {
         :'components' => :'Array<ComponentGrid>',
         :'description' => :'String',
-        :'embedded_queries' => :'Array<Query>',
         :'name' => :'String',
+        :'queries' => :'Array<Query>',
         :'root_instance_name' => :'String',
         :'tags' => :'Array<String>'
       }
@@ -95,14 +95,14 @@ module DatadogAPIClient::V2
         self.description = attributes[:'description']
       end
 
-      if attributes.key?(:'embedded_queries')
-        if (value = attributes[:'embedded_queries']).is_a?(Array)
-          self.embedded_queries = value
-        end
-      end
-
       if attributes.key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'queries')
+        if (value = attributes[:'queries']).is_a?(Array)
+          self.queries = value
+        end
       end
 
       if attributes.key?(:'root_instance_name')
@@ -144,8 +144,8 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           components == o.components &&
           description == o.description &&
-          embedded_queries == o.embedded_queries &&
           name == o.name &&
+          queries == o.queries &&
           root_instance_name == o.root_instance_name &&
           tags == o.tags &&
           additional_properties == o.additional_properties
@@ -155,7 +155,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [components, description, embedded_queries, name, root_instance_name, tags, additional_properties].hash
+      [components, description, name, queries, root_instance_name, tags, additional_properties].hash
     end
   end
 end

@@ -1,5 +1,5 @@
 http_interactions:
-- recorded_at: Thu, 09 Jan 2025 20:40:39 GMT
+- recorded_at: Thu, 30 Jan 2025 22:30:44 GMT
   request:
     body: null
     headers:
@@ -10,7 +10,7 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"errors":[{"title":"app not found","detail":"app not found"}]}'
+      string: '{"errors":[{"title":"app not found"}]}'
     headers:
       Content-Type:
       - application/vnd.api+json

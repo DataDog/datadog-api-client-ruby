@@ -39,7 +39,7 @@ body = DatadogAPIClient::V2::CreateAppRequest.new({
         }),
       ],
       description: "This is a simple example app",
-      embedded_queries: [],
+      queries: [],
       name: "Example App",
       root_instance_name: "grid0",
     }),
