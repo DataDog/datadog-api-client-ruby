@@ -90,7 +90,7 @@ module DatadogAPIClient::V2
         :'managed' => :'Hash<String, Object>',
         :'name' => :'String',
         :'namespace' => :'String',
-        :'owner' => :'EntityV3MetadataOwner',
+        :'owner' => :'String',
         :'tags' => :'Array<String>'
       }
     end

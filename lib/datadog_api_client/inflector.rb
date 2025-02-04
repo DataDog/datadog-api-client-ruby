@@ -1536,7 +1536,6 @@ module DatadogAPIClient
           "v2.entity_v3_metadata_additional_owners_items" => "EntityV3MetadataAdditionalOwnersItems",
           "v2.entity_v3_metadata_contacts_items" => "EntityV3MetadataContactsItems",
           "v2.entity_v3_metadata_links_items" => "EntityV3MetadataLinksItems",
-          "v2.entity_v3_metadata_owner" => "EntityV3MetadataOwner",
           "v2.entity_v3_queue" => "EntityV3Queue",
           "v2.entity_v3_queue_datadog" => "EntityV3QueueDatadog",
           "v2.entity_v3_queue_kind" => "EntityV3QueueKind",
