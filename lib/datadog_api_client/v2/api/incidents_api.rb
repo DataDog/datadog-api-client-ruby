@@ -186,11 +186,14 @@ module DatadogAPIClient::V2
     #
     # Create an incident todo.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param incident_id [String] The UUID of the incident.
     # @param body [IncidentTodoCreateRequest] Incident todo payload.
     # @param opts [Hash] the optional parameters
     # @return [Array<(IncidentTodoResponse, Integer, Hash)>] IncidentTodoResponse data, response status code and response headers
     def create_incident_todo_with_http_info(incident_id, body, opts = {})
+      warn "[DEPRECATION] `CreateIncidentTodo` is deprecated."
       unstable_enabled = @api_client.config.unstable_operations["v2.create_incident_todo".to_sym]
       if unstable_enabled
         @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_incident_todo")
@@ -484,11 +487,14 @@ module DatadogAPIClient::V2
     #
     # Delete an incident todo.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param incident_id [String] The UUID of the incident.
     # @param todo_id [String] The UUID of the incident todo.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_incident_todo_with_http_info(incident_id, todo_id, opts = {})
+      warn "[DEPRECATION] `DeleteIncidentTodo` is deprecated."
       unstable_enabled = @api_client.config.unstable_operations["v2.delete_incident_todo".to_sym]
       if unstable_enabled
         @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_incident_todo")
@@ -780,11 +786,14 @@ module DatadogAPIClient::V2
     #
     # Get incident todo details.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param incident_id [String] The UUID of the incident.
     # @param todo_id [String] The UUID of the incident todo.
     # @param opts [Hash] the optional parameters
     # @return [Array<(IncidentTodoResponse, Integer, Hash)>] IncidentTodoResponse data, response status code and response headers
     def get_incident_todo_with_http_info(incident_id, todo_id, opts = {})
+      warn "[DEPRECATION] `GetIncidentTodo` is deprecated."
       unstable_enabled = @api_client.config.unstable_operations["v2.get_incident_todo".to_sym]
       if unstable_enabled
         @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_incident_todo")
@@ -1166,10 +1175,13 @@ module DatadogAPIClient::V2
     #
     # Get all todos for an incident.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param incident_id [String] The UUID of the incident.
     # @param opts [Hash] the optional parameters
     # @return [Array<(IncidentTodoListResponse, Integer, Hash)>] IncidentTodoListResponse data, response status code and response headers
     def list_incident_todos_with_http_info(incident_id, opts = {})
+      warn "[DEPRECATION] `ListIncidentTodos` is deprecated."
       unstable_enabled = @api_client.config.unstable_operations["v2.list_incident_todos".to_sym]
       if unstable_enabled
         @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_incident_todos")
@@ -1657,12 +1669,15 @@ module DatadogAPIClient::V2
     #
     # Update an incident todo.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param incident_id [String] The UUID of the incident.
     # @param todo_id [String] The UUID of the incident todo.
     # @param body [IncidentTodoPatchRequest] Incident todo payload.
     # @param opts [Hash] the optional parameters
     # @return [Array<(IncidentTodoResponse, Integer, Hash)>] IncidentTodoResponse data, response status code and response headers
     def update_incident_todo_with_http_info(incident_id, todo_id, body, opts = {})
+      warn "[DEPRECATION] `UpdateIncidentTodo` is deprecated."
       unstable_enabled = @api_client.config.unstable_operations["v2.update_incident_todo".to_sym]
       if unstable_enabled
         @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_incident_todo")
