@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # Attributes for `ListAPIsResponseData`.
     attr_accessor :attributes
 
-    # API identifier.
+    # Test
     attr_accessor :id
 
     attr_accessor :additional_properties
