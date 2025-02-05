@@ -1,5 +1,47 @@
 # CHANGELOG
 
+## 2.30.0 / 2025-02-05
+
+### Fixed
+* Modify owner properties to be a string by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/2227
+### Added
+* Add UT breakdown for fargate_container_profiler billing dimension by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/2157
+* Add synthetics browser step public_id field by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/2029
+* Add support for vulnerability management  by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/2158
+* add start_date to suppression APIs by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/2122
+* Add CSM Coverage Analysis API specs by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/2164
+* Add allow_self_lockout to documentation by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/2171
+* Ephemeral Infra_host new keys in summary endpoint by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/2174
+* Update app builder API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/2168
+* Add meta and source fields to JSONAPIErrorItem by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/2167
+* Add CSM Agentless Read Endpoint by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/2165
+* Update rum doc to include new usage types by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/2177
+* add cost monitor type to API Spec by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/2188
+* Add Action Connection API for Workflow Automation by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/2175
+* Add `type` in Data Deletion API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/2193
+* Add a cost monitor example by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/2198
+* Add `provider_name` attribute to pipelines API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/2179
+* Add support for vulnerability management - GetSBOM new endpoint by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/2192
+* Remove preview status for GetBillingDimensionMapping endpoint by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/2205
+* Add encryption field to logs archive destination by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/2203
+* Add tags and description to logs pipelines by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/2208
+* Publish security notification rules API endpoints by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/2201
+* Publish app builder API documentation by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/2181
+* update public document with configuration event type by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/2217
+* Add support for Entity kind API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/2222
+* Rename `embeddedQueries` attribute to `queries` in app builder api by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/2223
+### Changed
+* Fix specification for Azure metric filtering by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/2161
+* Change allow_self_lockout from string to bool by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/2176
+* remove flag Beta for cost-by-tag endpoint by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/2213
+* Added Support for Workflow Webhooks Public API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/2218
+* Vulnerabilities endpoints GA - Remove `x-unstable` by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/2224
+
+## New Contributors
+* @anmarchenko made their first contribution in https://github.com/DataDog/datadog-api-client-ruby/pull/2172
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-ruby/compare/v2.29.1...v2.30.0
+
 ## 2.29.1 / 2024-12-17
 
 ### Fixed
