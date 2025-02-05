@@ -254,7 +254,7 @@ module DatadogAPIClient::V2
     #
     # @param app_id [UUID] The ID of the app to retrieve.
     # @param opts [Hash] the optional parameters
-    # @option opts [String] :version The version number of the app to retrieve. If not specified, the latest version is returned. Version numbers start at 1 and increment with each update. The special values `latest` and `deployed` can be used to retrieve the latest version or the published version, respectively.
+    # @option opts [AppVersionSelector] :version The version number of the app to retrieve. If not specified, the latest version is returned. Version numbers start at 1 and increment with each update. The special values `latest` and `deployed` can be used to retrieve the latest version or the published version, respectively.
     # @return [Array<(GetAppResponse, Integer, Hash)>] GetAppResponse data, response status code and response headers
     def get_app_with_http_info(app_id, opts = {})
       unstable_enabled = @api_client.config.unstable_operations["v2.get_app".to_sym]

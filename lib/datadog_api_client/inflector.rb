@@ -958,6 +958,8 @@ module DatadogAPIClient
           "v2.app_meta" => "AppMeta",
           "v2.app_relationship" => "AppRelationship",
           "v2.apps_sort_field" => "AppsSortField",
+          "v2.app_version_selector" => "AppVersionSelector",
+          "v2.app_version_selector_constants" => "AppVersionSelectorConstants",
           "v2.asset" => "Asset",
           "v2.asset_attributes" => "AssetAttributes",
           "v2.asset_entity_type" => "AssetEntityType",

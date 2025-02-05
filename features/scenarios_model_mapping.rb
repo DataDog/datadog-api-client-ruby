@@ -980,7 +980,7 @@ ScenariosModelMappings = {
     },
     "v2.GetApp" => {
             "app_id" => "UUID",
-            "version" => "String",
+            "version" => "AppVersionSelector",
     },
     "v2.UpdateApp" => {
             "app_id" => "UUID",
