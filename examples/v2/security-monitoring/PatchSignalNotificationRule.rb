@@ -1,4 +1,4 @@
-# Patch a signal-based rule returns "Notification rule successfully patched." response
+# Patch a signal-based notification rule returns "Notification rule successfully patched." response
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::SecurityMonitoringAPI.new

@@ -505,7 +505,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Create a new signal-based rule.
+    # Create a new signal-based notification rule.
     #
     # @see #create_signal_notification_rule_with_http_info
     def create_signal_notification_rule(body, opts = {})
@@ -513,7 +513,7 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Create a new signal-based rule.
+    # Create a new signal-based notification rule.
     #
     # Create a new notification rule for security signals and return the created rule.
     #
@@ -572,7 +572,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Create a new vulnerability-based rule.
+    # Create a new vulnerability-based notification rule.
     #
     # @see #create_vulnerability_notification_rule_with_http_info
     def create_vulnerability_notification_rule(body, opts = {})
@@ -580,7 +580,7 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Create a new vulnerability-based rule.
+    # Create a new vulnerability-based notification rule.
     #
     # Create a new notification rule for security vulnerabilities and return the created rule.
     #
@@ -905,7 +905,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Delete a signal-based rule.
+    # Delete a signal-based notification rule.
     #
     # @see #delete_signal_notification_rule_with_http_info
     def delete_signal_notification_rule(id, opts = {})
@@ -913,7 +913,7 @@ module DatadogAPIClient::V2
       nil
     end
 
-    # Delete a signal-based rule.
+    # Delete a signal-based notification rule.
     #
     # Delete a notification rule for security signals.
     #
@@ -970,7 +970,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Delete a vulnerability-based rule.
+    # Delete a vulnerability-based notification rule.
     #
     # @see #delete_vulnerability_notification_rule_with_http_info
     def delete_vulnerability_notification_rule(id, opts = {})
@@ -978,7 +978,7 @@ module DatadogAPIClient::V2
       nil
     end
 
-    # Delete a vulnerability-based rule.
+    # Delete a vulnerability-based notification rule.
     #
     # Delete a notification rule for security vulnerabilities.
     #
@@ -1740,7 +1740,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Get details of a signal-based rule.
+    # Get details of a signal-based notification rule.
     #
     # @see #get_signal_notification_rule_with_http_info
     def get_signal_notification_rule(id, opts = {})
@@ -1748,7 +1748,7 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Get details of a signal-based rule.
+    # Get details of a signal-based notification rule.
     #
     # Get the details of a notification rule for security signals.
     #
@@ -1805,7 +1805,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Get the list of signal-based rules.
+    # Get the list of signal-based notification rules.
     #
     # @see #get_signal_notification_rules_with_http_info
     def get_signal_notification_rules(opts = {})
@@ -1813,7 +1813,7 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Get the list of signal-based rules.
+    # Get the list of signal-based notification rules.
     #
     # Returns the list of notification rules for security signals.
     #
@@ -1865,7 +1865,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Get details of a vulnerability-based rule.
+    # Get details of a vulnerability notification rule.
     #
     # @see #get_vulnerability_notification_rule_with_http_info
     def get_vulnerability_notification_rule(id, opts = {})
@@ -1873,7 +1873,7 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Get details of a vulnerability-based rule.
+    # Get details of a vulnerability notification rule.
     #
     # Get the details of a notification rule for security vulnerabilities.
     #
@@ -1930,7 +1930,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Get the list of vulnerability-based rules.
+    # Get the list of vulnerability notification rules.
     #
     # @see #get_vulnerability_notification_rules_with_http_info
     def get_vulnerability_notification_rules(opts = {})
@@ -1938,7 +1938,7 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Get the list of vulnerability-based rules.
+    # Get the list of vulnerability notification rules.
     #
     # Returns the list of notification rules for security vulnerabilities.
     #
@@ -2971,7 +2971,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Patch a signal-based rule.
+    # Patch a signal-based notification rule.
     #
     # @see #patch_signal_notification_rule_with_http_info
     def patch_signal_notification_rule(id, body, opts = {})
@@ -2979,7 +2979,7 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Patch a signal-based rule.
+    # Patch a signal-based notification rule.
     #
     # Partially update the notification rule. All fields are optional; if a field is not provided, it is not updated.
     #
@@ -3043,7 +3043,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Patch a vulnerability-based rule.
+    # Patch a vulnerability-based notification rule.
     #
     # @see #patch_vulnerability_notification_rule_with_http_info
     def patch_vulnerability_notification_rule(id, body, opts = {})
@@ -3051,7 +3051,7 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Patch a vulnerability-based rule.
+    # Patch a vulnerability-based notification rule.
     #
     # Partially update the notification rule. All fields are optional; if a field is not provided, it is not updated.
     #

@@ -1,0 +1,58 @@
+http_interactions:
+- recorded_at: Wed, 05 Feb 2025 13:46:04 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"enabled":true,"name":"Test-Get_the_list_of_signal_based_notification_rules_returns_The_list_of_notification_rules_response-1738763164","selectors":{"query":"env:test","rule_types":["signal_correlation"],"severities":["critical"],"trigger_source":"security_signals"},"targets":["@email@email.com"]},"type":"notification_rules"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/security/signals/notification_rules
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"btd-udo-vn7","type":"notification_rules","attributes":{"created_at":1738763164939,"created_by":{"name":"","handle":""},"enabled":true,"modified_at":1738763164939,"modified_by":{"name":"","handle":""},"name":"Test-Get_the_list_of_signal_based_notification_rules_returns_The_list_of_notification_rules_response-1738763164","selectors":{"severities":["critical"],"rule_types":["signal_correlation"],"query":"env:test","trigger_source":"security_signals"},"targets":["@email@email.com"],"time_aggregation":0,"version":1}}}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 201
+      message: Created
+- recorded_at: Wed, 05 Feb 2025 13:46:04 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+    method: GET
+    uri: https://api.datadoghq.com/api/v2/security/signals/notification_rules
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"btd-udo-vn7","type":"notification_rules","attributes":{"created_at":1738763164939,"created_by":{"name":"","handle":""},"enabled":true,"modified_at":1738763164939,"modified_by":{"name":"","handle":""},"name":"Test-Get_the_list_of_signal_based_notification_rules_returns_The_list_of_notification_rules_response-1738763164","selectors":{"severities":["critical"],"rule_types":["signal_correlation"],"query":"env:test","trigger_source":"security_signals"},"targets":["@email@email.com"],"time_aggregation":0,"version":1}}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 200
+      message: OK
+- recorded_at: Wed, 05 Feb 2025 13:46:04 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/security/signals/notification_rules/btd-udo-vn7
+  response:
+    body:
+      encoding: UTF-8
+      string: ''
+    headers: {}
+    status:
+      code: 204
+      message: No Content
+recorded_with: VCR 6.0.0
