@@ -612,8 +612,9 @@ module DatadogAPIClient::V2
     # @option opts [String] :filter_tags_configured Filter tag configurations by configured tags.
     # @option opts [MetricTagConfigurationMetricTypeCategory] :filter_metric_type Filter metrics by metric type.
     # @option opts [Boolean] :filter_include_percentiles Filter distributions with additional percentile aggregations enabled or disabled.
-    # @option opts [Boolean] :filter_queried (Beta) Filter custom metrics that have or have not been queried in the specified window[seconds]. If no window is provided or the window is less than 2 hours, a default of 2 hours will be applied.
+    # @option opts [Boolean] :filter_queried (Preview) Filter custom metrics that have or have not been queried in the specified window[seconds]. If no window is provided or the window is less than 2 hours, a default of 2 hours will be applied.
     # @option opts [String] :filter_tags Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions. Can only be combined with the filter[queried] filter.
+    # @option opts [Boolean] :filter_related_assets (Preview) Filter metrics that are used in dashboards, monitors, notebooks, SLOs.
     # @option opts [Integer] :window_seconds The number of seconds of look back (from now) to apply to a filter[tag] or filter[queried] query. Default value is 3600 (1 hour), maximum value is 2,592,000 (30 days).
     # @option opts [Integer] :page_size Maximum number of results returned.
     # @option opts [String] :page_cursor String to query the next page of results. This key is provided with each valid response from the API in `meta.pagination.next_cursor`. Once the `meta.pagination.next_cursor` key is null, all pages have been retrieved.
@@ -644,6 +645,7 @@ module DatadogAPIClient::V2
       query_params[:'filter[include_percentiles]'] = opts[:'filter_include_percentiles'] if !opts[:'filter_include_percentiles'].nil?
       query_params[:'filter[queried]'] = opts[:'filter_queried'] if !opts[:'filter_queried'].nil?
       query_params[:'filter[tags]'] = opts[:'filter_tags'] if !opts[:'filter_tags'].nil?
+      query_params[:'filter[related_assets]'] = opts[:'filter_related_assets'] if !opts[:'filter_related_assets'].nil?
       query_params[:'window[seconds]'] = opts[:'window_seconds'] if !opts[:'window_seconds'].nil?
       query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
       query_params[:'page[cursor]'] = opts[:'page_cursor'] if !opts[:'page_cursor'].nil?

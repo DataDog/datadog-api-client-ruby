@@ -1658,6 +1658,7 @@ ScenariosModelMappings = {
             "filter_include_percentiles" => "Boolean",
             "filter_queried" => "Boolean",
             "filter_tags" => "String",
+            "filter_related_assets" => "Boolean",
             "window_seconds" => "Integer",
             "page_size" => "Integer",
             "page_cursor" => "String",
