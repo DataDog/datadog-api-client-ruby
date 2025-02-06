@@ -102,7 +102,7 @@ module DatadogAPIClient::V2
     #
     # Create a Confluent resource for the account associated with the provided ID.
     #
-    # @param account_id [String] Confluent Account id.
+    # @param account_id [String] Confluent Account ID.
     # @param body [ConfluentResourceRequest] Confluent payload
     # @param opts [Hash] the optional parameters
     # @return [Array<(ConfluentResourceResponse, Integer, Hash)>] ConfluentResourceResponse data, response status code and response headers
@@ -174,7 +174,7 @@ module DatadogAPIClient::V2
     #
     # Delete a Confluent account with the provided account ID.
     #
-    # @param account_id [String] Confluent Account id.
+    # @param account_id [String] Confluent Account ID.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_confluent_account_with_http_info(account_id, opts = {})
@@ -239,7 +239,7 @@ module DatadogAPIClient::V2
     #
     # Delete a Confluent resource with the provided resource id for the account associated with the provided account ID.
     #
-    # @param account_id [String] Confluent Account id.
+    # @param account_id [String] Confluent Account ID.
     # @param resource_id [String] Confluent Account Resource ID.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
@@ -309,7 +309,7 @@ module DatadogAPIClient::V2
     #
     # Get the Confluent account with the provided account ID.
     #
-    # @param account_id [String] Confluent Account id.
+    # @param account_id [String] Confluent Account ID.
     # @param opts [Hash] the optional parameters
     # @return [Array<(ConfluentAccountResponse, Integer, Hash)>] ConfluentAccountResponse data, response status code and response headers
     def get_confluent_account_with_http_info(account_id, opts = {})
@@ -374,7 +374,7 @@ module DatadogAPIClient::V2
     #
     # Get a Confluent resource with the provided resource id for the account associated with the provided account ID.
     #
-    # @param account_id [String] Confluent Account id.
+    # @param account_id [String] Confluent Account ID.
     # @param resource_id [String] Confluent Account Resource ID.
     # @param opts [Hash] the optional parameters
     # @return [Array<(ConfluentResourceResponse, Integer, Hash)>] ConfluentResourceResponse data, response status code and response headers
@@ -504,7 +504,7 @@ module DatadogAPIClient::V2
     #
     # Get a Confluent resource for the account associated with the provided ID.
     #
-    # @param account_id [String] Confluent Account id.
+    # @param account_id [String] Confluent Account ID.
     # @param opts [Hash] the optional parameters
     # @return [Array<(ConfluentResourcesResponse, Integer, Hash)>] ConfluentResourcesResponse data, response status code and response headers
     def list_confluent_resource_with_http_info(account_id, opts = {})
@@ -569,7 +569,7 @@ module DatadogAPIClient::V2
     #
     # Update the Confluent account with the provided account ID.
     #
-    # @param account_id [String] Confluent Account id.
+    # @param account_id [String] Confluent Account ID.
     # @param body [ConfluentAccountUpdateRequest] Confluent payload
     # @param opts [Hash] the optional parameters
     # @return [Array<(ConfluentAccountResponse, Integer, Hash)>] ConfluentAccountResponse data, response status code and response headers
@@ -641,7 +641,7 @@ module DatadogAPIClient::V2
     #
     # Update a Confluent resource with the provided resource id for the account associated with the provided account ID.
     #
-    # @param account_id [String] Confluent Account id.
+    # @param account_id [String] Confluent Account ID.
     # @param resource_id [String] Confluent Account Resource ID.
     # @param body [ConfluentResourceRequest] Confluent payload
     # @param opts [Hash] the optional parameters
