@@ -3239,7 +3239,7 @@ Once the <code>meta.pagination.next_cursor</code> value is null, all pages have 
           <span class="default">
             
               &mdash; default:
-              <tt>Beta</tt>
+              <tt>Preview</tt>
             
           </span>
           
@@ -3256,6 +3256,21 @@ Once the <code>meta.pagination.next_cursor</code> value is null, all pages have 
           </span>
           
             &mdash; <div class='inline'><p>Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions. Can only be combined with the filter[queried] filter.</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:filter_related_assets</span>
+          <span class="type">(<tt>Boolean</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>Preview</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Filter metrics that are used in dashboards, monitors, notebooks, SLOs.</p>
 </div>
           
         </li>
@@ -3496,8 +3511,6 @@ Once the <code>meta.pagination.next_cursor</code> value is null, all pages have 
       <pre class="lines">
 
 
-693
-694
 695
 696
 697
@@ -3508,10 +3521,12 @@ Once the <code>meta.pagination.next_cursor</code> value is null, all pages have 
 702
 703
 704
-705</pre>
+705
+706
+707</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/metrics_api.rb', line 693</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/metrics_api.rb', line 695</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_tag_configurations_with_pagination'>list_tag_configurations_with_pagination</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_api_version'>api_version</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>V2</span><span class='tstring_end'>&quot;</span></span>
@@ -4069,13 +4084,13 @@ Once the <code>meta.pagination.next_cursor</code> value is null, all pages have 
       <pre class="lines">
 
 
-842
-843
 844
-845</pre>
+845
+846
+847</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/metrics_api.rb', line 842</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/metrics_api.rb', line 844</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_query_scalar_data'>query_scalar_data</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_query_scalar_data_with_http_info'>query_scalar_data_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -4164,8 +4179,6 @@ process the data using formulas and functions.</p>
       <pre class="lines">
 
 
-856
-857
 858
 859
 860
@@ -4214,10 +4227,12 @@ process the data using formulas and functions.</p>
 903
 904
 905
-906</pre>
+906
+907
+908</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/metrics_api.rb', line 856</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/metrics_api.rb', line 858</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_query_scalar_data_with_http_info'>query_scalar_data_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -4307,13 +4322,13 @@ process the data using formulas and functions.</p>
       <pre class="lines">
 
 
-911
-912
 913
-914</pre>
+914
+915
+916</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/metrics_api.rb', line 911</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/metrics_api.rb', line 913</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_query_timeseries_data'>query_timeseries_data</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_query_timeseries_data_with_http_info'>query_timeseries_data_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -4401,8 +4416,6 @@ process the data by applying formulas and functions.</p>
       <pre class="lines">
 
 
-924
-925
 926
 927
 928
@@ -4451,10 +4464,12 @@ process the data by applying formulas and functions.</p>
 971
 972
 973
-974</pre>
+974
+975
+976</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/metrics_api.rb', line 924</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/metrics_api.rb', line 926</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_query_timeseries_data_with_http_info'>query_timeseries_data_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -4544,13 +4559,13 @@ process the data by applying formulas and functions.</p>
       <pre class="lines">
 
 
-979
-980
 981
-982</pre>
+982
+983
+984</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/metrics_api.rb', line 979</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/metrics_api.rb', line 981</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_submit_metrics'>submit_metrics</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_submit_metrics_with_http_info'>submit_metrics_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -4673,8 +4688,6 @@ The maximum payload size is 500 kilobytes (512000 bytes). Compressed payloads mu
       <pre class="lines">
 
 
-1003
-1004
 1005
 1006
 1007
@@ -4728,10 +4741,12 @@ The maximum payload size is 500 kilobytes (512000 bytes). Compressed payloads mu
 1055
 1056
 1057
-1058</pre>
+1058
+1059
+1060</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/metrics_api.rb', line 1003</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/metrics_api.rb', line 1005</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_submit_metrics_with_http_info'>submit_metrics_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -5078,7 +5093,7 @@ a tag configuration to be created first.</p>
 </div>
 
       <div id="footer">
-  Generated on Thu Feb  6 17:27:58 2025 by
+  Generated on Thu Feb  6 18:41:29 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>
