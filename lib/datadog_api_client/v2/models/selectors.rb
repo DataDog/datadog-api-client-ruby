@@ -26,7 +26,7 @@ module DatadogAPIClient::V2
     # The query is composed of one or several key:value pairs, which can be used to filter security issues on tags and attributes.
     attr_accessor :query
 
-    # Security rule types used to filter signals and vulnerabilities generating notifications.
+    # Security rule types used as filters in security rules.
     attr_accessor :rule_types
 
     # The security rules severities to consider.

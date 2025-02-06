@@ -1,4 +1,4 @@
-# Delete a signal-based rule returns "Rule successfully deleted." response
+# Delete a signal-based notification rule returns "Rule successfully deleted." response
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::SecurityMonitoringAPI.new
