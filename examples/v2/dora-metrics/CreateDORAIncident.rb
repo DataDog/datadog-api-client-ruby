@@ -9,7 +9,7 @@ api_instance = DatadogAPIClient::V2::DORAMetricsAPI.new
 body = DatadogAPIClient::V2::DORAIncidentRequest.new({
   data: DatadogAPIClient::V2::DORAIncidentRequestData.new({
     attributes: DatadogAPIClient::V2::DORAIncidentRequestAttributes.new({
-      finished_at: 1707842944600000000,
+      finished_at: 17078429446000,
       git: DatadogAPIClient::V2::DORAGitInfo.new({
         commit_sha: "66adc9350f2cc9b250b69abddab733dd55e1a588",
         repository_url: "https://github.com/organization/example-repository",
@@ -19,7 +19,7 @@ body = DatadogAPIClient::V2::DORAIncidentRequest.new({
         "shopist",
       ],
       severity: "High",
-      started_at: 1707842944500000000,
+      started_at: 17078429445000,
       team: "backend",
       version: "v1.12.07",
     }),
