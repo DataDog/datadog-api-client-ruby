@@ -24,7 +24,6 @@ module DatadogAPIClient::V1
     ELEMENT = "element".freeze
     EMAIL = "email".freeze
     GLOBAL = "global".freeze
-    JAVASCRIPT = "javascript".freeze
     TEXT = "text".freeze
   end
 end
