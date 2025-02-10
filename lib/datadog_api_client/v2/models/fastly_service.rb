@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class FastlyService
     include BaseGenericModel
 
-    # The id of the Fastly service
+    # The ID of the Fastly service
     attr_reader :id
 
     # A list of tags for the Fastly service.
