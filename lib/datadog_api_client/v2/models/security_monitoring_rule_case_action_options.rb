@@ -17,25 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Case when signal is generated.
-  class SecurityMonitoringRuleCaseCreate
+  # Options for the rule action
+  class SecurityMonitoringRuleCaseActionOptions
     include BaseGenericModel
 
-    # Action to perform for each rule case.
-    attr_accessor :actions
-
-    # A case contains logical operations (`>`,`>=`, `&&`, `||`) to determine if a signal should be generated
-    # based on the event counts in the previously defined queries.
-    attr_accessor :condition
-
-    # Name of the case.
-    attr_accessor :name
-
-    # Notification targets.
-    attr_accessor :notifications
-
-    # Severity of the Security Signal.
-    attr_reader :status
+    # Duration of the action in seconds. 0 indicates no expiration.
+    attr_reader :duration
 
     attr_accessor :additional_properties
 
@@ -43,11 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'actions' => :'actions',
-        :'condition' => :'condition',
-        :'name' => :'name',
-        :'notifications' => :'notifications',
-        :'status' => :'status'
+        :'duration' => :'duration'
       }
     end
 
@@ -55,11 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'actions' => :'Array<SecurityMonitoringRuleCaseAction>',
-        :'condition' => :'String',
-        :'name' => :'String',
-        :'notifications' => :'Array<String>',
-        :'status' => :'SecurityMonitoringRuleSeverity'
+        :'duration' => :'Integer'
       }
     end
 
@@ -68,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SecurityMonitoringRuleCaseCreate` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SecurityMonitoringRuleCaseActionOptions` initialize method"
       end
 
       self.additional_properties = {}
@@ -81,28 +60,8 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'actions')
-        if (value = attributes[:'actions']).is_a?(Array)
-          self.actions = value
-        end
-      end
-
-      if attributes.key?(:'condition')
-        self.condition = attributes[:'condition']
-      end
-
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.key?(:'notifications')
-        if (value = attributes[:'notifications']).is_a?(Array)
-          self.notifications = value
-        end
-      end
-
-      if attributes.key?(:'status')
-        self.status = attributes[:'status']
+      if attributes.key?(:'duration')
+        self.duration = attributes[:'duration']
       end
     end
 
@@ -110,18 +69,18 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @status.nil?
+      return false if !@duration.nil? && @duration < 0
       true
     end
 
     # Custom attribute writer method with validation
-    # @param status [Object] Object to be assigned
+    # @param duration [Object] Object to be assigned
     # @!visibility private
-    def status=(status)
-      if status.nil?
-        fail ArgumentError, 'invalid value for "status", status cannot be nil.'
+    def duration=(duration)
+      if !duration.nil? && duration < 0
+        fail ArgumentError, 'invalid value for "duration", must be greater than or equal to 0.'
       end
-      @status = status
+      @duration = duration
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -150,11 +109,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          actions == o.actions &&
-          condition == o.condition &&
-          name == o.name &&
-          notifications == o.notifications &&
-          status == o.status &&
+          duration == o.duration &&
           additional_properties == o.additional_properties
     end
 
@@ -162,7 +117,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [actions, condition, name, notifications, status, additional_properties].hash
+      [duration, additional_properties].hash
     end
   end
 end
