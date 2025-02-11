@@ -42,6 +42,9 @@ module DatadogAPIClient::V2
     # Additional queries to filter matched events before they are processed. This field is deprecated for log detection, signal correlation, and workload security rules.
     attr_accessor :filters
 
+    # Additional grouping to perform on top of the existing groups in the query section. Must be a subset of the existing groups.
+    attr_accessor :group_signals_by
+
     # Whether the notifications include the triggering group-by values in their title.
     attr_accessor :has_extended_title
 
@@ -103,6 +106,7 @@ module DatadogAPIClient::V2
         :'default_tags' => :'defaultTags',
         :'deprecation_date' => :'deprecationDate',
         :'filters' => :'filters',
+        :'group_signals_by' => :'groupSignalsBy',
         :'has_extended_title' => :'hasExtendedTitle',
         :'id' => :'id',
         :'is_default' => :'isDefault',
@@ -133,6 +137,7 @@ module DatadogAPIClient::V2
         :'default_tags' => :'Array<String>',
         :'deprecation_date' => :'Integer',
         :'filters' => :'Array<SecurityMonitoringFilter>',
+        :'group_signals_by' => :'Array<String>',
         :'has_extended_title' => :'Boolean',
         :'id' => :'String',
         :'is_default' => :'Boolean',
@@ -201,6 +206,12 @@ module DatadogAPIClient::V2
       if attributes.key?(:'filters')
         if (value = attributes[:'filters']).is_a?(Array)
           self.filters = value
+        end
+      end
+
+      if attributes.key?(:'group_signals_by')
+        if (value = attributes[:'group_signals_by']).is_a?(Array)
+          self.group_signals_by = value
         end
       end
 
@@ -310,6 +321,7 @@ module DatadogAPIClient::V2
           default_tags == o.default_tags &&
           deprecation_date == o.deprecation_date &&
           filters == o.filters &&
+          group_signals_by == o.group_signals_by &&
           has_extended_title == o.has_extended_title &&
           id == o.id &&
           is_default == o.is_default &&
@@ -333,7 +345,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [cases, compliance_signal_options, created_at, creation_author_id, default_tags, deprecation_date, filters, has_extended_title, id, is_default, is_deleted, is_enabled, message, name, options, queries, reference_tables, tags, third_party_cases, type, update_author_id, updated_at, version, additional_properties].hash
+      [cases, compliance_signal_options, created_at, creation_author_id, default_tags, deprecation_date, filters, group_signals_by, has_extended_title, id, is_default, is_deleted, is_enabled, message, name, options, queries, reference_tables, tags, third_party_cases, type, update_author_id, updated_at, version, additional_properties].hash
     end
   end
 end
