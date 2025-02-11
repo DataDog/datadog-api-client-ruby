@@ -30,6 +30,9 @@ module DatadogAPIClient::V2
     # Starting time of data analyzed by the job.
     attr_reader :from
 
+    # Additional grouping to perform on top of the existing groups in the query section. Must be a subset of the existing groups.
+    attr_accessor :group_signals_by
+
     # Index used to load the data.
     attr_reader :index
 
@@ -69,6 +72,7 @@ module DatadogAPIClient::V2
         :'calculated_fields' => :'calculatedFields',
         :'cases' => :'cases',
         :'from' => :'from',
+        :'group_signals_by' => :'groupSignalsBy',
         :'index' => :'index',
         :'message' => :'message',
         :'name' => :'name',
@@ -89,6 +93,7 @@ module DatadogAPIClient::V2
         :'calculated_fields' => :'Array<CalculatedField>',
         :'cases' => :'Array<SecurityMonitoringRuleCaseCreate>',
         :'from' => :'Integer',
+        :'group_signals_by' => :'Array<String>',
         :'index' => :'String',
         :'message' => :'String',
         :'name' => :'String',
@@ -134,6 +139,12 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'from')
         self.from = attributes[:'from']
+      end
+
+      if attributes.key?(:'group_signals_by')
+        if (value = attributes[:'group_signals_by']).is_a?(Array)
+          self.group_signals_by = value
+        end
       end
 
       if attributes.key?(:'index')
@@ -298,6 +309,7 @@ module DatadogAPIClient::V2
           calculated_fields == o.calculated_fields &&
           cases == o.cases &&
           from == o.from &&
+          group_signals_by == o.group_signals_by &&
           index == o.index &&
           message == o.message &&
           name == o.name &&
@@ -315,7 +327,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [calculated_fields, cases, from, index, message, name, options, queries, reference_tables, tags, third_party_cases, to, type, additional_properties].hash
+      [calculated_fields, cases, from, group_signals_by, index, message, name, options, queries, reference_tables, tags, third_party_cases, to, type, additional_properties].hash
     end
   end
 end

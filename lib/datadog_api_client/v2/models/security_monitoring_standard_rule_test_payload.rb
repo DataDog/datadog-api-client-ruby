@@ -27,6 +27,9 @@ module DatadogAPIClient::V2
     # Additional queries to filter matched events before they are processed. This field is deprecated for log detection, signal correlation, and workload security rules.
     attr_accessor :filters
 
+    # Additional grouping to perform on top of the existing groups in the query section. Must be a subset of the existing groups.
+    attr_accessor :group_signals_by
+
     # Whether the notifications include the triggering group-by values in their title.
     attr_accessor :has_extended_title
 
@@ -65,6 +68,7 @@ module DatadogAPIClient::V2
       {
         :'cases' => :'cases',
         :'filters' => :'filters',
+        :'group_signals_by' => :'groupSignalsBy',
         :'has_extended_title' => :'hasExtendedTitle',
         :'is_enabled' => :'isEnabled',
         :'message' => :'message',
@@ -84,6 +88,7 @@ module DatadogAPIClient::V2
       {
         :'cases' => :'Array<SecurityMonitoringRuleCaseCreate>',
         :'filters' => :'Array<SecurityMonitoringFilter>',
+        :'group_signals_by' => :'Array<String>',
         :'has_extended_title' => :'Boolean',
         :'is_enabled' => :'Boolean',
         :'message' => :'String',
@@ -124,6 +129,12 @@ module DatadogAPIClient::V2
       if attributes.key?(:'filters')
         if (value = attributes[:'filters']).is_a?(Array)
           self.filters = value
+        end
+      end
+
+      if attributes.key?(:'group_signals_by')
+        if (value = attributes[:'group_signals_by']).is_a?(Array)
+          self.group_signals_by = value
         end
       end
 
@@ -277,6 +288,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           cases == o.cases &&
           filters == o.filters &&
+          group_signals_by == o.group_signals_by &&
           has_extended_title == o.has_extended_title &&
           is_enabled == o.is_enabled &&
           message == o.message &&
@@ -294,7 +306,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [cases, filters, has_extended_title, is_enabled, message, name, options, queries, reference_tables, tags, third_party_cases, type, additional_properties].hash
+      [cases, filters, group_signals_by, has_extended_title, is_enabled, message, name, options, queries, reference_tables, tags, third_party_cases, type, additional_properties].hash
     end
   end
 end

@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class SecurityMonitoringRuleCase
     include BaseGenericModel
 
+    # Action to perform for each rule case.
+    attr_accessor :actions
+
     # A rule case contains logical operations (`>`,`>=`, `&&`, `||`) to determine if a signal should be generated
     # based on the event counts in the previously defined queries.
     attr_accessor :condition
@@ -40,6 +43,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'actions' => :'actions',
         :'condition' => :'condition',
         :'name' => :'name',
         :'notifications' => :'notifications',
@@ -51,6 +55,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'actions' => :'Array<SecurityMonitoringRuleCaseAction>',
         :'condition' => :'String',
         :'name' => :'String',
         :'notifications' => :'Array<String>',
@@ -75,6 +80,12 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'actions')
+        if (value = attributes[:'actions']).is_a?(Array)
+          self.actions = value
+        end
+      end
 
       if attributes.key?(:'condition')
         self.condition = attributes[:'condition']
@@ -121,6 +132,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          actions == o.actions &&
           condition == o.condition &&
           name == o.name &&
           notifications == o.notifications &&
@@ -132,7 +144,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [condition, name, notifications, status, additional_properties].hash
+      [actions, condition, name, notifications, status, additional_properties].hash
     end
   end
 end
