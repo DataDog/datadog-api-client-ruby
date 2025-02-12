@@ -21,7 +21,7 @@ module DatadogAPIClient::V1
   class CheckCanDeleteSLOResponseData
     include BaseGenericModel
 
-    # An array of of SLO IDs that can be safely deleted.
+    # An array of SLO IDs that can be safely deleted.
     attr_accessor :ok
 
     attr_accessor :additional_properties

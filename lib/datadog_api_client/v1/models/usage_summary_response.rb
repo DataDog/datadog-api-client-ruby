@@ -168,7 +168,7 @@ module DatadogAPIClient::V1
     # Shows the average number of Cloud Security Management Pro containers over all hours in the current month for all organizations.
     attr_accessor :cspm_container_avg_sum
 
-    # Shows the sum of the the high-water marks of Cloud Security Management Pro containers over all hours in the current month for all organizations.
+    # Shows the sum of the high-water marks of Cloud Security Management Pro containers over all hours in the current month for all organizations.
     attr_accessor :cspm_container_hwm_sum
 
     # Shows the 99th percentile of all Cloud Security Management Pro GCP hosts over all hours in the current month for all organizations.
@@ -300,7 +300,7 @@ module DatadogAPIClient::V1
     # Shows the 99th percentile of all Heroku dynos over all hours in the current month for all organizations.
     attr_accessor :heroku_host_top99p_sum
 
-    # Shows sum of the the high-water marks of incident management monthly active users in the current month for all organizations.
+    # Shows sum of the high-water marks of incident management monthly active users in the current month for all organizations.
     attr_accessor :incident_management_monthly_active_users_hwm_sum
 
     # Shows the sum of all log events indexed over all hours in the current month for all organizations (To be deprecated on October 1st, 2024).
@@ -318,7 +318,7 @@ module DatadogAPIClient::V1
     # Shows the 99th percentile of all IoT devices over all hours in the current month of all organizations.
     attr_accessor :iot_device_top99p_sum
 
-    # Shows the the most recent hour in the current month for all organizations for which all usages were calculated.
+    # Shows the most recent hour in the current month for all organizations for which all usages were calculated.
     attr_accessor :last_updated
 
     # Shows the sum of all live logs indexed over all hours in the current month for all organization (To be deprecated on October 1st, 2024).
