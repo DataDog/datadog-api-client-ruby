@@ -243,6 +243,7 @@ module DatadogAPIClient
             "v2.delete_historical_job": false,
             "v2.get_finding": false,
             "v2.get_historical_job": false,
+            "v2.get_rule_version_history": false,
             "v2.list_findings": false,
             "v2.list_historical_jobs": false,
             "v2.mute_findings": false,
