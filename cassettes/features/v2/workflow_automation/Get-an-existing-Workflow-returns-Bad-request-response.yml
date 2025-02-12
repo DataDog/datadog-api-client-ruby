@@ -1,0 +1,21 @@
+http_interactions:
+- recorded_at: Tue, 04 Feb 2025 04:58:33 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+    method: GET
+    uri: https://api.datadoghq.com/api/v2/workflows/bad-format
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"status":"400","title":"Invalid Parameter","detail":"invalid
+        parameter \"workflowId\" in \"path\"; expected type \"uuid\""}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 400
+      message: Bad Request
+recorded_with: VCR 6.0.0
