@@ -2410,6 +2410,19 @@ ScenariosModelMappings = {
     "v2.ListUserPermissions" => {
             "user_id" => "String",
     },
+    "v2.CreateWorkflow" => {
+            "body" => "CreateWorkflowRequest",
+    },
+    "v2.DeleteWorkflow" => {
+            "workflow_id" => "String",
+    },
+    "v2.GetWorkflow" => {
+            "workflow_id" => "String",
+    },
+    "v2.UpdateWorkflow" => {
+            "workflow_id" => "String",
+            "body" => "UpdateWorkflowRequest",
+    },
     "v2.ListWorkflowInstances" => {
             "workflow_id" => "String",
             "page_size" => "Integer",

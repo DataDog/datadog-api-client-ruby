@@ -93,6 +93,73 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Create a Workflow.
+    #
+    # @see #create_workflow_with_http_info
+    def create_workflow(body, opts = {})
+      data, _status_code, _headers = create_workflow_with_http_info(body, opts)
+      data
+    end
+
+    # Create a Workflow.
+    #
+    # Create a new workflow, returning the workflow ID. This API requires an application key scoped with the `workflows_write` permission.
+    #
+    # @param body [CreateWorkflowRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(CreateWorkflowResponse, Integer, Hash)>] CreateWorkflowResponse data, response status code and response headers
+    def create_workflow_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: WorkflowAutomationAPI.create_workflow ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling WorkflowAutomationAPI.create_workflow"
+      end
+      # resource path
+      local_var_path = '/api/v2/workflows'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CreateWorkflowResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :create_workflow,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: WorkflowAutomationAPI#create_workflow\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Execute a workflow.
     #
     # @see #create_workflow_instance_with_http_info
@@ -161,6 +228,136 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: WorkflowAutomationAPI#create_workflow_instance\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete an existing Workflow.
+    #
+    # @see #delete_workflow_with_http_info
+    def delete_workflow(workflow_id, opts = {})
+      delete_workflow_with_http_info(workflow_id, opts)
+      nil
+    end
+
+    # Delete an existing Workflow.
+    #
+    # Delete a workflow by ID. This API requires an application key scoped with the `workflows_write` permission.
+    #
+    # @param workflow_id [String] The ID of the workflow.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_workflow_with_http_info(workflow_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: WorkflowAutomationAPI.delete_workflow ...'
+      end
+      # verify the required parameter 'workflow_id' is set
+      if @api_client.config.client_side_validation && workflow_id.nil?
+        fail ArgumentError, "Missing the required parameter 'workflow_id' when calling WorkflowAutomationAPI.delete_workflow"
+      end
+      # resource path
+      local_var_path = '/api/v2/workflows/{workflow_id}'.sub('{workflow_id}', CGI.escape(workflow_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :delete_workflow,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: WorkflowAutomationAPI#delete_workflow\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get an existing Workflow.
+    #
+    # @see #get_workflow_with_http_info
+    def get_workflow(workflow_id, opts = {})
+      data, _status_code, _headers = get_workflow_with_http_info(workflow_id, opts)
+      data
+    end
+
+    # Get an existing Workflow.
+    #
+    # Get a workflow by ID.  This API requires an application key scoped with the `workflows_read` permission.
+    #
+    # @param workflow_id [String] The ID of the workflow.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(GetWorkflowResponse, Integer, Hash)>] GetWorkflowResponse data, response status code and response headers
+    def get_workflow_with_http_info(workflow_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: WorkflowAutomationAPI.get_workflow ...'
+      end
+      # verify the required parameter 'workflow_id' is set
+      if @api_client.config.client_side_validation && workflow_id.nil?
+        fail ArgumentError, "Missing the required parameter 'workflow_id' when calling WorkflowAutomationAPI.get_workflow"
+      end
+      # resource path
+      local_var_path = '/api/v2/workflows/{workflow_id}'.sub('{workflow_id}', CGI.escape(workflow_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GetWorkflowResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_workflow,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: WorkflowAutomationAPI#get_workflow\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -300,6 +497,78 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: WorkflowAutomationAPI#list_workflow_instances\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update an existing Workflow.
+    #
+    # @see #update_workflow_with_http_info
+    def update_workflow(workflow_id, body, opts = {})
+      data, _status_code, _headers = update_workflow_with_http_info(workflow_id, body, opts)
+      data
+    end
+
+    # Update an existing Workflow.
+    #
+    # Update a workflow by ID. This API requires an application key scoped with the `workflows_write` permission.
+    #
+    # @param workflow_id [String] The ID of the workflow.
+    # @param body [UpdateWorkflowRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(UpdateWorkflowResponse, Integer, Hash)>] UpdateWorkflowResponse data, response status code and response headers
+    def update_workflow_with_http_info(workflow_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: WorkflowAutomationAPI.update_workflow ...'
+      end
+      # verify the required parameter 'workflow_id' is set
+      if @api_client.config.client_side_validation && workflow_id.nil?
+        fail ArgumentError, "Missing the required parameter 'workflow_id' when calling WorkflowAutomationAPI.update_workflow"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling WorkflowAutomationAPI.update_workflow"
+      end
+      # resource path
+      local_var_path = '/api/v2/workflows/{workflow_id}'.sub('{workflow_id}', CGI.escape(workflow_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'UpdateWorkflowResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :update_workflow,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: WorkflowAutomationAPI#update_workflow\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
