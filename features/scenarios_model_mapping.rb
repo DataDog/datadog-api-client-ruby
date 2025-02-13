@@ -1978,6 +1978,11 @@ ScenariosModelMappings = {
             "rule_id" => "String",
             "body" => "SecurityMonitoringRuleTestRequest",
     },
+    "v2.GetRuleVersionHistory" => {
+            "rule_id" => "String",
+            "page_size" => "Integer",
+            "page_number" => "Integer",
+    },
     "v2.ListSecurityMonitoringSignals" => {
             "filter_query" => "String",
             "filter_from" => "Time",
