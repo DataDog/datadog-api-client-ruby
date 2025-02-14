@@ -17,8 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A data query used by an app. This can take the form of an external action, a data transformation, or a state variable.
-  module Query
+  # The inputs to the action query. These are the values that are passed to the action when it is triggered.
+  module ActionQuerySpecInputs
     class << self
       include BaseOneOfModel
       include BaseOneOfModelNoDiscriminator
@@ -26,9 +26,8 @@ module DatadogAPIClient::V2
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of
         [
-          :'ActionQuery',
-          :'DataTransform',
-          :'StateVariable'
+          :'String',
+          :'ActionQuerySpecInput'
         ]
       end
       # Builds the object

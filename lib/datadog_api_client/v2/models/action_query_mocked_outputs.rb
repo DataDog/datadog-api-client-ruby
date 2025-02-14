@@ -17,8 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A data query used by an app. This can take the form of an external action, a data transformation, or a state variable.
-  module Query
+  # The mocked outputs of the action query. This is useful for testing the app without actually running the action.
+  module ActionQueryMockedOutputs
     class << self
       include BaseOneOfModel
       include BaseOneOfModelNoDiscriminator
@@ -26,9 +26,8 @@ module DatadogAPIClient::V2
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of
         [
-          :'ActionQuery',
-          :'DataTransform',
-          :'StateVariable'
+          :'String',
+          :'ActionQueryMockedOutputsObject'
         ]
       end
       # Builds the object

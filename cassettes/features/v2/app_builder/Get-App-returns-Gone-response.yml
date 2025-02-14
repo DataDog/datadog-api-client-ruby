@@ -1,5 +1,5 @@
 http_interactions:
-- recorded_at: Fri, 14 Feb 2025 16:45:05 GMT
+- recorded_at: Fri, 14 Feb 2025 16:45:02 GMT
   request:
     body:
       encoding: UTF-8
@@ -26,47 +26,43 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"28f5b1d6-f416-46b5-8cc4-94ae094c97f4","type":"appDefinitions"}}'
+      string: '{"data":{"id":"84b262f9-ae08-4be9-9050-93ff89ccd474","type":"appDefinitions"}}'
     headers:
       Content-Type:
       - application/vnd.api+json
     status:
       code: 201
       message: Created
-- recorded_at: Fri, 14 Feb 2025 16:45:05 GMT
+- recorded_at: Fri, 14 Feb 2025 16:45:02 GMT
   request:
-    body:
-      encoding: UTF-8
-      string: '{"data":{"attributes":{"rootInstanceName":""},"id":"28f5b1d6-f416-46b5-8cc4-94ae094c97f4","type":"appDefinitions"}}'
+    body: null
     headers:
       Accept:
       - application/json
-      Content-Type:
-      - application/json
-    method: PATCH
-    uri: https://api.datadoghq.com/api/v2/app-builder/apps/28f5b1d6-f416-46b5-8cc4-94ae094c97f4
+    method: GET
+    uri: https://api.datadoghq.com/api/v2/app-builder/apps/84b262f9-ae08-4be9-9050-93ff89ccd474?version=31
   response:
     body:
       encoding: UTF-8
-      string: '{"errors":[{"title":"missing required field","source":{"pointer":"/data/attributes/rootInstanceName"}}]}'
+      string: '{"errors":[{"title":"app version not found"}]}'
     headers:
       Content-Type:
       - application/vnd.api+json
     status:
-      code: 400
-      message: Bad Request
-- recorded_at: Fri, 14 Feb 2025 16:45:05 GMT
+      code: 410
+      message: Gone
+- recorded_at: Fri, 14 Feb 2025 16:45:02 GMT
   request:
     body: null
     headers:
       Accept:
       - application/json
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/app-builder/apps/28f5b1d6-f416-46b5-8cc4-94ae094c97f4
+    uri: https://api.datadoghq.com/api/v2/app-builder/apps/84b262f9-ae08-4be9-9050-93ff89ccd474
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"28f5b1d6-f416-46b5-8cc4-94ae094c97f4","type":"appDefinitions"}}'
+      string: '{"data":{"id":"84b262f9-ae08-4be9-9050-93ff89ccd474","type":"appDefinitions"}}'
     headers:
       Content-Type:
       - application/vnd.api+json
