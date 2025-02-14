@@ -17,8 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A data query used by an app. This can take the form of an external action, a data transformation, or a state variable.
-  module Query
+  # The minimum time in milliseconds that must pass before the query can be triggered again. This is useful for preventing accidental double-clicks from triggering the query multiple times.
+  module ActionQueryDebounceInMs
     class << self
       include BaseOneOfModel
       include BaseOneOfModelNoDiscriminator
@@ -26,9 +26,8 @@ module DatadogAPIClient::V2
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of
         [
-          :'ActionQuery',
-          :'DataTransform',
-          :'StateVariable'
+          :'Float',
+          :'String'
         ]
       end
       # Builds the object

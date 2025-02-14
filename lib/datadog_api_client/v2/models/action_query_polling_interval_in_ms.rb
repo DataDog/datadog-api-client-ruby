@@ -17,8 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A data query used by an app. This can take the form of an external action, a data transformation, or a state variable.
-  module Query
+  # If specified, the app will poll the query at the specified interval in milliseconds. The minimum polling interval is 15 seconds. The query will only poll when the app's browser tab is active.
+  module ActionQueryPollingIntervalInMs
     class << self
       include BaseOneOfModel
       include BaseOneOfModelNoDiscriminator
@@ -26,9 +26,8 @@ module DatadogAPIClient::V2
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of
         [
-          :'ActionQuery',
-          :'DataTransform',
-          :'StateVariable'
+          :'Float',
+          :'String'
         ]
       end
       # Builds the object

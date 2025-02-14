@@ -17,8 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A data query used by an app. This can take the form of an external action, a data transformation, or a state variable.
-  module Query
+  # Determines when this query is executed. If set to `false`, the query will run when the app loads and whenever any query arguments change. If set to `true`, the query will only run when manually triggered from elsewhere in the app.
+  module ActionQueryOnlyTriggerManually
     class << self
       include BaseOneOfModel
       include BaseOneOfModelNoDiscriminator
@@ -26,9 +26,8 @@ module DatadogAPIClient::V2
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of
         [
-          :'ActionQuery',
-          :'DataTransform',
-          :'StateVariable'
+          :'Boolean',
+          :'String'
         ]
       end
       # Builds the object
