@@ -1492,6 +1492,12 @@ module DatadogAPIClient::V2
     # @option opts [String] :filter_repo_digest The container image `repo_digest` for the SBOM request. When the requested asset type is 'Image', this filter is mandatory.
     # @return [Array<(GetSBOMResponse, Integer, Hash)>] GetSBOMResponse data, response status code and response headers
     def get_sbom_with_http_info(asset_type, filter_asset_name, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_sbom".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_sbom")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_sbom"))
+      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_sbom ...'

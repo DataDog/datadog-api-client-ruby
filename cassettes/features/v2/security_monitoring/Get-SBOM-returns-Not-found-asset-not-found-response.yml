@@ -1,5 +1,5 @@
 http_interactions:
-- recorded_at: Fri, 31 Jan 2025 12:04:00 GMT
+- recorded_at: Mon, 10 Feb 2025 11:40:12 GMT
   request:
     body: null
     headers:
@@ -10,8 +10,8 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"errors":[{"title":"Asset not found","detail":"asset_type: ''Host''
-        with asset_name: ''unknown-host'' not found"}]}'
+      string: '{"errors":[{"status":"404","title":"Asset not found","detail":"asset_type:
+        ''Host'' with asset_name: ''unknown-host'' not found"}]}'
     headers:
       Content-Type:
       - application/vnd.api+json
