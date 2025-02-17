@@ -17,30 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Formula to be used in a widget query.
-  class WidgetFormula
+  # Custom unit.
+  class NumberFormatUnitCustom
     include BaseGenericModel
 
-    # Expression alias.
-    attr_accessor :_alias
+    # The label for the custom unit.
+    attr_reader :label
 
-    # Define a display mode for the table cell.
-    attr_accessor :cell_display_mode
-
-    # List of conditional formats.
-    attr_accessor :conditional_formats
-
-    # String expression built from queries, formulas, and functions.
-    attr_reader :formula
-
-    # Options for limiting results returned.
-    attr_accessor :limit
-
-    # Number format options for the widget.
-    attr_accessor :number_format
-
-    # Styling options for widget formulas.
-    attr_accessor :style
+    # The type of custom unit.
+    attr_accessor :type
 
     attr_accessor :additional_properties
 
@@ -48,13 +33,8 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.attribute_map
       {
-        :'_alias' => :'alias',
-        :'cell_display_mode' => :'cell_display_mode',
-        :'conditional_formats' => :'conditional_formats',
-        :'formula' => :'formula',
-        :'limit' => :'limit',
-        :'number_format' => :'number_format',
-        :'style' => :'style'
+        :'label' => :'label',
+        :'type' => :'type'
       }
     end
 
@@ -62,13 +42,8 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
-        :'_alias' => :'String',
-        :'cell_display_mode' => :'TableWidgetCellDisplayMode',
-        :'conditional_formats' => :'Array<WidgetConditionalFormat>',
-        :'formula' => :'String',
-        :'limit' => :'WidgetFormulaLimit',
-        :'number_format' => :'WidgetNumberFormat',
-        :'style' => :'WidgetFormulaStyle'
+        :'label' => :'String',
+        :'type' => :'NumberFormatUnitCustomType'
       }
     end
 
@@ -77,7 +52,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::WidgetFormula` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::NumberFormatUnitCustom` initialize method"
       end
 
       self.additional_properties = {}
@@ -90,34 +65,12 @@ module DatadogAPIClient::V1
         end
       }
 
-      if attributes.key?(:'_alias')
-        self._alias = attributes[:'_alias']
+      if attributes.key?(:'label')
+        self.label = attributes[:'label']
       end
 
-      if attributes.key?(:'cell_display_mode')
-        self.cell_display_mode = attributes[:'cell_display_mode']
-      end
-
-      if attributes.key?(:'conditional_formats')
-        if (value = attributes[:'conditional_formats']).is_a?(Array)
-          self.conditional_formats = value
-        end
-      end
-
-      if attributes.key?(:'formula')
-        self.formula = attributes[:'formula']
-      end
-
-      if attributes.key?(:'limit')
-        self.limit = attributes[:'limit']
-      end
-
-      if attributes.key?(:'number_format')
-        self.number_format = attributes[:'number_format']
-      end
-
-      if attributes.key?(:'style')
-        self.style = attributes[:'style']
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
       end
     end
 
@@ -125,18 +78,22 @@ module DatadogAPIClient::V1
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @formula.nil?
+      return false if !@label.nil? && @label.to_s.length > 12
+      return false if !@label.nil? && @label.to_s.length < 1
       true
     end
 
     # Custom attribute writer method with validation
-    # @param formula [Object] Object to be assigned
+    # @param label [Object] Object to be assigned
     # @!visibility private
-    def formula=(formula)
-      if formula.nil?
-        fail ArgumentError, 'invalid value for "formula", formula cannot be nil.'
+    def label=(label)
+      if !label.nil? && label.to_s.length > 12
+        fail ArgumentError, 'invalid value for "label", the character length must be smaller than or equal to 12.'
       end
-      @formula = formula
+      if !label.nil? && label.to_s.length < 1
+        fail ArgumentError, 'invalid value for "label", the character length must be great than or equal to 1.'
+      end
+      @label = label
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -165,13 +122,8 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          _alias == o._alias &&
-          cell_display_mode == o.cell_display_mode &&
-          conditional_formats == o.conditional_formats &&
-          formula == o.formula &&
-          limit == o.limit &&
-          number_format == o.number_format &&
-          style == o.style &&
+          label == o.label &&
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -179,7 +131,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [_alias, cell_display_mode, conditional_formats, formula, limit, number_format, style, additional_properties].hash
+      [label, type, additional_properties].hash
     end
   end
 end
