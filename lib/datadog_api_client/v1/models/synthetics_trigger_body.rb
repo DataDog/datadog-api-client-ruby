@@ -21,7 +21,7 @@ module DatadogAPIClient::V1
   class SyntheticsTriggerBody
     include BaseGenericModel
 
-    # Individual Synthetic test.
+    # List of Synthetic tests.
     attr_reader :tests
 
     attr_accessor :additional_properties
