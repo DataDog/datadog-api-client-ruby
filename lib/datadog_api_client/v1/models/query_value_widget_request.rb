@@ -66,6 +66,9 @@ module DatadogAPIClient::V1
     # The log query.
     attr_accessor :security_query
 
+    # Sort object
+    attr_accessor :sort
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -86,7 +89,8 @@ module DatadogAPIClient::V1
         :'queries' => :'queries',
         :'response_format' => :'response_format',
         :'rum_query' => :'rum_query',
-        :'security_query' => :'security_query'
+        :'security_query' => :'security_query',
+        :'sort' => :'sort'
       }
     end
 
@@ -108,7 +112,8 @@ module DatadogAPIClient::V1
         :'queries' => :'Array<FormulaAndFunctionQueryDefinition>',
         :'response_format' => :'FormulaAndFunctionResponseFormat',
         :'rum_query' => :'LogQueryDefinition',
-        :'security_query' => :'LogQueryDefinition'
+        :'security_query' => :'LogQueryDefinition',
+        :'sort' => :'ColumnSortObject'
       }
     end
 
@@ -195,6 +200,10 @@ module DatadogAPIClient::V1
       if attributes.key?(:'security_query')
         self.security_query = attributes[:'security_query']
       end
+
+      if attributes.key?(:'sort')
+        self.sort = attributes[:'sort']
+      end
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -238,6 +247,7 @@ module DatadogAPIClient::V1
           response_format == o.response_format &&
           rum_query == o.rum_query &&
           security_query == o.security_query &&
+          sort == o.sort &&
           additional_properties == o.additional_properties
     end
 
@@ -245,7 +255,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [aggregator, apm_query, audit_query, conditional_formats, event_query, formulas, log_query, network_query, process_query, profile_metrics_query, q, queries, response_format, rum_query, security_query, additional_properties].hash
+      [aggregator, apm_query, audit_query, conditional_formats, event_query, formulas, log_query, network_query, process_query, profile_metrics_query, q, queries, response_format, rum_query, security_query, sort, additional_properties].hash
     end
   end
 end
