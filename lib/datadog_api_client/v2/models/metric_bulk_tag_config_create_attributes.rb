@@ -29,6 +29,19 @@ module DatadogAPIClient::V2
     # Defaults to false.
     attr_accessor :exclude_tags_mode
 
+    # When provided, all tags that have been actively queried are
+    # configured (and, therefore, remain queryable) for each metric that
+    # matches the given prefix.  Minimum value is 1 second, and maximum
+    # value is 7,776,000 seconds (90 days).
+    attr_reader :include_actively_queried_tags_window
+
+    # When set to true, the configuration overrides any existing
+    # configurations for the given metric with the new set of tags in this
+    # configuration request. If false, old configurations are kept and
+    # are merged with the set of tags in this configuration request.
+    # Defaults to true.
+    attr_accessor :override_existing_configurations
+
     # A list of tag names to apply to the configuration.
     attr_accessor :tags
 
@@ -40,6 +53,8 @@ module DatadogAPIClient::V2
       {
         :'emails' => :'emails',
         :'exclude_tags_mode' => :'exclude_tags_mode',
+        :'include_actively_queried_tags_window' => :'include_actively_queried_tags_window',
+        :'override_existing_configurations' => :'override_existing_configurations',
         :'tags' => :'tags'
       }
     end
@@ -50,6 +65,8 @@ module DatadogAPIClient::V2
       {
         :'emails' => :'Array<String>',
         :'exclude_tags_mode' => :'Boolean',
+        :'include_actively_queried_tags_window' => :'Float',
+        :'override_existing_configurations' => :'Boolean',
         :'tags' => :'Array<String>'
       }
     end
@@ -82,11 +99,41 @@ module DatadogAPIClient::V2
         self.exclude_tags_mode = attributes[:'exclude_tags_mode']
       end
 
+      if attributes.key?(:'include_actively_queried_tags_window')
+        self.include_actively_queried_tags_window = attributes[:'include_actively_queried_tags_window']
+      end
+
+      if attributes.key?(:'override_existing_configurations')
+        self.override_existing_configurations = attributes[:'override_existing_configurations']
+      end
+
       if attributes.key?(:'tags')
         if (value = attributes[:'tags']).is_a?(Array)
           self.tags = value
         end
       end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if !@include_actively_queried_tags_window.nil? && @include_actively_queried_tags_window > 7776000
+      return false if !@include_actively_queried_tags_window.nil? && @include_actively_queried_tags_window < 1
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param include_actively_queried_tags_window [Object] Object to be assigned
+    # @!visibility private
+    def include_actively_queried_tags_window=(include_actively_queried_tags_window)
+      if !include_actively_queried_tags_window.nil? && include_actively_queried_tags_window > 7776000
+        fail ArgumentError, 'invalid value for "include_actively_queried_tags_window", must be smaller than or equal to 7776000.'
+      end
+      if !include_actively_queried_tags_window.nil? && include_actively_queried_tags_window < 1
+        fail ArgumentError, 'invalid value for "include_actively_queried_tags_window", must be greater than or equal to 1.'
+      end
+      @include_actively_queried_tags_window = include_actively_queried_tags_window
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -117,6 +164,8 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           emails == o.emails &&
           exclude_tags_mode == o.exclude_tags_mode &&
+          include_actively_queried_tags_window == o.include_actively_queried_tags_window &&
+          override_existing_configurations == o.override_existing_configurations &&
           tags == o.tags &&
           additional_properties == o.additional_properties
     end
@@ -125,7 +174,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [emails, exclude_tags_mode, tags, additional_properties].hash
+      [emails, exclude_tags_mode, include_actively_queried_tags_window, override_existing_configurations, tags, additional_properties].hash
     end
   end
 end
