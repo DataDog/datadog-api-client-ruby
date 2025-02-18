@@ -17,15 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes for AWS CUR config Patch Request.
-  class AwsCURConfigPatchRequestAttributes
+  # The account filtering configuration.
+  class AccountFilteringConfig
     include BaseGenericModel
 
-    # The account filtering configuration.
-    attr_accessor :account_filters
+    # The AWS account IDs to be excluded from your billing dataset. This field is used when `include_new_accounts` is `true`.
+    attr_accessor :excluded_accounts
 
-    # Whether or not the Cloud Cost Management account is enabled.
-    attr_accessor :is_enabled
+    # Whether or not to automatically include new member accounts by default in your billing dataset.
+    attr_accessor :include_new_accounts
+
+    # The AWS account IDs to be included in your billing dataset. This field is used when `include_new_accounts` is `false`.
+    attr_accessor :included_accounts
 
     attr_accessor :additional_properties
 
@@ -33,8 +36,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'account_filters' => :'account_filters',
-        :'is_enabled' => :'is_enabled'
+        :'excluded_accounts' => :'excluded_accounts',
+        :'include_new_accounts' => :'include_new_accounts',
+        :'included_accounts' => :'included_accounts'
       }
     end
 
@@ -42,8 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'account_filters' => :'AccountFilteringConfig',
-        :'is_enabled' => :'Boolean'
+        :'excluded_accounts' => :'Array<String>',
+        :'include_new_accounts' => :'Boolean',
+        :'included_accounts' => :'Array<String>'
       }
     end
 
@@ -52,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::AwsCURConfigPatchRequestAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::AccountFilteringConfig` initialize method"
       end
 
       self.additional_properties = {}
@@ -65,12 +70,20 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'account_filters')
-        self.account_filters = attributes[:'account_filters']
+      if attributes.key?(:'excluded_accounts')
+        if (value = attributes[:'excluded_accounts']).is_a?(Array)
+          self.excluded_accounts = value
+        end
       end
 
-      if attributes.key?(:'is_enabled')
-        self.is_enabled = attributes[:'is_enabled']
+      if attributes.key?(:'include_new_accounts')
+        self.include_new_accounts = attributes[:'include_new_accounts']
+      end
+
+      if attributes.key?(:'included_accounts')
+        if (value = attributes[:'included_accounts']).is_a?(Array)
+          self.included_accounts = value
+        end
       end
     end
 
@@ -100,8 +113,9 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          account_filters == o.account_filters &&
-          is_enabled == o.is_enabled &&
+          excluded_accounts == o.excluded_accounts &&
+          include_new_accounts == o.include_new_accounts &&
+          included_accounts == o.included_accounts &&
           additional_properties == o.additional_properties
     end
 
@@ -109,7 +123,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [account_filters, is_enabled, additional_properties].hash
+      [excluded_accounts, include_new_accounts, included_accounts, additional_properties].hash
     end
   end
 end
