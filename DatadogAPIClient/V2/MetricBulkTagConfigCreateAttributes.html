@@ -202,6 +202,60 @@
       <li class="public ">
   <span class="summary_signature">
     
+      <a href="#include_actively_queried_tags_window-instance_method" title="#include_actively_queried_tags_window (instance method)">#<strong>include_actively_queried_tags_window</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>When provided, all tags that have been actively queried are configured (and, therefore, remain queryable) for each metric that matches the given prefix.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#override_existing_configurations-instance_method" title="#override_existing_configurations (instance method)">#<strong>override_existing_configurations</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>When set to true, the configuration overrides any existing configurations for the given metric with the new set of tags in this configuration request.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#tags-instance_method" title="#tags (instance method)">#<strong>tags</strong>  &#x21d2; Object </a>
     
 
@@ -272,12 +326,12 @@
       <pre class="lines">
 
 
-35
-36
-37</pre>
+48
+49
+50</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/metric_bulk_tag_config_create_attributes.rb', line 35</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/metric_bulk_tag_config_create_attributes.rb', line 48</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_additional_properties'>additional_properties</span>
   <span class='ivar'>@additional_properties</span>
@@ -374,6 +428,97 @@ Defaults to false.</p>
 </div>
     
       
+      <span id="include_actively_queried_tags_window=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="include_actively_queried_tags_window-instance_method">
+  
+    #<strong>include_actively_queried_tags_window</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>When provided, all tags that have been actively queried are
+configured (and, therefore, remain queryable) for each metric that
+matches the given prefix.  Minimum value is 1 second, and maximum
+value is 7,776,000 seconds (90 days).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+36
+37
+38</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/metric_bulk_tag_config_create_attributes.rb', line 36</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_include_actively_queried_tags_window'>include_actively_queried_tags_window</span>
+  <span class='ivar'>@include_actively_queried_tags_window</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="override_existing_configurations=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="override_existing_configurations-instance_method">
+  
+    #<strong>override_existing_configurations</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>When set to true, the configuration overrides any existing
+configurations for the given metric with the new set of tags in this
+configuration request. If false, old configurations are kept and
+are merged with the set of tags in this configuration request.
+Defaults to true.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+43
+44
+45</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/metric_bulk_tag_config_create_attributes.rb', line 43</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_override_existing_configurations'>override_existing_configurations</span>
+  <span class='ivar'>@override_existing_configurations</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
       <span id="tags=-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="tags-instance_method">
@@ -400,12 +545,12 @@ Defaults to false.</p>
       <pre class="lines">
 
 
-33
-34
-35</pre>
+46
+47
+48</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/metric_bulk_tag_config_create_attributes.rb', line 33</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/metric_bulk_tag_config_create_attributes.rb', line 46</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_tags'>tags</span>
   <span class='ivar'>@tags</span>
@@ -421,7 +566,7 @@ Defaults to false.</p>
 </div>
 
       <div id="footer">
-  Generated on Fri Feb 14 16:06:46 2025 by
+  Generated on Tue Feb 18 21:07:44 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>

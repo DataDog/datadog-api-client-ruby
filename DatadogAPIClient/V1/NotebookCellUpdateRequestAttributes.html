@@ -83,9 +83,7 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/datadog_api_client/v1/models/notebook_cell_update_request_attributes.rb<span class="defines">,<br />
-  lib/datadog_api_client/v1/models/notebook_cell_update_request_attributes.rb</span>
-</dd>
+    <dd>lib/datadog_api_client/v1/models/notebook_cell_update_request_attributes.rb</dd>
   </dl>
   
 </div>
@@ -105,40 +103,9 @@
 
 
 
-  <h2>Class Attribute Summary <small><a href="#" class="summary_toggle">collapse</a></small></h2>
-  <ul class="summary">
-    
-      <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#_unparsed-class_method" title="_unparsed (class method)">.<strong>_unparsed</strong>  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-    
-    
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>Returns the value of attribute _unparsed.</p>
-</div></span>
-  
-</li>
-
-    
-  </ul>
 
 
-
-  
+  <h2>Instance Attribute Summary</h2>
   
   <h3 class="inherited">Attributes included from <span class='object_link'><a href="BaseOneOfModel.html" title="DatadogAPIClient::V1::BaseOneOfModel (module)">BaseOneOfModel</a></span></h3>
   <p class="inherited"><span class='object_link'><a href="BaseOneOfModel.html#_unparsed-instance_method" title="DatadogAPIClient::V1::BaseOneOfModel#_unparsed (method)">#_unparsed</a></span></p>
@@ -214,53 +181,6 @@
   
   
   
-  <div id="class_attr_details" class="attr_details">
-    <h2>Class Attribute Details</h2>
-    
-      
-      <span id="_unparsed=-class_method"></span>
-      <div class="method_details first">
-  <h3 class="signature first" id="_unparsed-class_method">
-  
-    .<strong>_unparsed</strong>  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>Returns the value of attribute _unparsed.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-23
-24
-25</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/notebook_cell_update_request_attributes.rb', line 23</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid__unparsed'>_unparsed</span>
-  <span class='ivar'>@_unparsed</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-  </div>
-
 
   <div id="class_method_details" class="method_details_list">
     <h2>Class Method Details</h2>
@@ -327,7 +247,6 @@
       <pre class="lines">
 
 
-40
 41
 42
 43
@@ -355,7 +274,7 @@
 65</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/notebook_cell_update_request_attributes.rb', line 40</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/notebook_cell_update_request_attributes.rb', line 41</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_build'>build</span><span class='lparen'>(</span><span class='id identifier rubyid_data'>data</span><span class='rparen'>)</span>
   <span class='comment'># Go through the list of oneOf items and attempt to identify the appropriate one.
@@ -369,7 +288,7 @@
     <span class='kw'>begin</span>
       <span class='kw'>next</span> <span class='kw'>if</span> <span class='id identifier rubyid_klass'>klass</span> <span class='op'>==</span> <span class='symbol'>:AnyType</span> <span class='comment'># &quot;nullable: true&quot;
 </span>      <span class='id identifier rubyid_typed_data'>typed_data</span> <span class='op'>=</span> <span class='id identifier rubyid_find_and_cast_into_type'>find_and_cast_into_type</span><span class='lparen'>(</span><span class='id identifier rubyid_klass'>klass</span><span class='comma'>,</span> <span class='id identifier rubyid_data'>data</span><span class='rparen'>)</span>
-      <span class='kw'>next</span> <span class='kw'>if</span> <span class='id identifier rubyid_typed_data'>typed_data</span><span class='period'>.</span><span class='id identifier rubyid__unparsed'>_unparsed</span>
+      <span class='kw'>next</span> <span class='kw'>if</span> <span class='id identifier rubyid_typed_data'>typed_data</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:_unparsed</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_typed_data'>typed_data</span><span class='period'>.</span><span class='id identifier rubyid__unparsed'>_unparsed</span>
       <span class='kw'>return</span> <span class='id identifier rubyid_typed_data'>typed_data</span> <span class='kw'>if</span> <span class='id identifier rubyid_typed_data'>typed_data</span>
     <span class='kw'>rescue</span> <span class='comment'># rescue all errors so we keep iterating even if the current item lookup raises
 </span>    <span class='kw'>end</span>
@@ -379,9 +298,8 @@
     <span class='id identifier rubyid_data'>data</span>
   <span class='kw'>else</span>
     <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid__unparsed'>_unparsed</span> <span class='op'>=</span> <span class='kw'>true</span>
-    <span class='const'><span class='object_link'><a href="../../DatadogAPIClient.html" title="DatadogAPIClient (module)">DatadogAPIClient</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../V1.html" title="DatadogAPIClient::V1 (module)">V1</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="UnparsedObject.html" title="DatadogAPIClient::V1::UnparsedObject (class)">UnparsedObject</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="UnparsedObject.html#initialize-instance_method" title="DatadogAPIClient::V1::UnparsedObject#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_data'>data</span><span class='rparen'>)</span>
+    <span class='const'><span class='object_link'><a href="../../DatadogAPIClient.html" title="DatadogAPIClient (module)">DatadogAPIClient</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../UnparsedObject.html" title="DatadogAPIClient::UnparsedObject (class)">UnparsedObject</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../UnparsedObject.html#initialize-instance_method" title="DatadogAPIClient::UnparsedObject#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_data'>data</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
-
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -413,8 +331,6 @@
       <pre class="lines">
 
 
-26
-27
 28
 29
 30
@@ -422,19 +338,21 @@
 32
 33
 34
-35</pre>
+35
+36
+37</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/notebook_cell_update_request_attributes.rb', line 26</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/notebook_cell_update_request_attributes.rb', line 28</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_openapi_one_of'>openapi_one_of</span>
   <span class='lbracket'>[</span>
-    <span class='symbol'>:&#39;NotebookDistributionCellAttributes&#39;</span><span class='comma'>,</span>
-    <span class='symbol'>:&#39;NotebookHeatMapCellAttributes&#39;</span><span class='comma'>,</span>
-    <span class='symbol'>:&#39;NotebookLogStreamCellAttributes&#39;</span><span class='comma'>,</span>
     <span class='symbol'>:&#39;NotebookMarkdownCellAttributes&#39;</span><span class='comma'>,</span>
     <span class='symbol'>:&#39;NotebookTimeseriesCellAttributes&#39;</span><span class='comma'>,</span>
-    <span class='symbol'>:&#39;NotebookToplistCellAttributes&#39;</span>
+    <span class='symbol'>:&#39;NotebookToplistCellAttributes&#39;</span><span class='comma'>,</span>
+    <span class='symbol'>:&#39;NotebookHeatMapCellAttributes&#39;</span><span class='comma'>,</span>
+    <span class='symbol'>:&#39;NotebookDistributionCellAttributes&#39;</span><span class='comma'>,</span>
+    <span class='symbol'>:&#39;NotebookLogStreamCellAttributes&#39;</span>
   <span class='rbracket'>]</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -447,7 +365,7 @@
 </div>
 
       <div id="footer">
-  Generated on Fri Feb 14 16:05:22 2025 by
+  Generated on Tue Feb 18 21:07:05 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>
