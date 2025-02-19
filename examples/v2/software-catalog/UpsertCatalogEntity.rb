@@ -34,7 +34,11 @@ body = DatadogAPIClient::V2::EntityV3Service.new({
   }),
   kind: DatadogAPIClient::V2::EntityV3ServiceKind::SERVICE,
   metadata: DatadogAPIClient::V2::EntityV3Metadata.new({
-    additional_owners: [],
+    additional_owners: [
+      DatadogAPIClient::V2::EntityV3MetadataAdditionalOwnersItems.new({
+        name: "",
+      }),
+    ],
     contacts: [
       DatadogAPIClient::V2::EntityV3MetadataContactsItems.new({
         contact: "https://slack/",
