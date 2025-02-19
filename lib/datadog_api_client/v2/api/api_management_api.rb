@@ -39,10 +39,13 @@ module DatadogAPIClient::V2
     # It returns the created API ID.
     #
     #
+    # @deprecated This API is deprecated.
+    #
     # @param opts [Hash] the optional parameters
     # @option opts [File] :openapi_spec_file Binary `OpenAPI` spec file
     # @return [Array<(CreateOpenAPIResponse, Integer, Hash)>] CreateOpenAPIResponse data, response status code and response headers
     def create_open_api_with_http_info(opts = {})
+      warn "[DEPRECATION] `CreateOpenAPI` is deprecated."
       unstable_enabled = @api_client.config.unstable_operations["v2.create_open_api".to_sym]
       if unstable_enabled
         @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_open_api")
@@ -109,10 +112,13 @@ module DatadogAPIClient::V2
     #
     # Delete a specific API by ID.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param id [UUID] ID of the API to delete
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_open_api_with_http_info(id, opts = {})
+      warn "[DEPRECATION] `DeleteOpenAPI` is deprecated."
       unstable_enabled = @api_client.config.unstable_operations["v2.delete_open_api".to_sym]
       if unstable_enabled
         @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_open_api")
@@ -180,10 +186,13 @@ module DatadogAPIClient::V2
     #
     # Retrieve information about a specific API in [OpenAPI](https://spec.openapis.org/oas/latest.html) format file.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param id [UUID] ID of the API to retrieve
     # @param opts [Hash] the optional parameters
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
     def get_open_api_with_http_info(id, opts = {})
+      warn "[DEPRECATION] `GetOpenAPI` is deprecated."
       unstable_enabled = @api_client.config.unstable_operations["v2.get_open_api".to_sym]
       if unstable_enabled
         @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_open_api")
@@ -251,12 +260,15 @@ module DatadogAPIClient::V2
     #
     # List APIs and their IDs.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param opts [Hash] the optional parameters
     # @option opts [String] :query Filter APIs by name
     # @option opts [Integer] :page_limit Number of items per page.
     # @option opts [Integer] :page_offset Offset for pagination.
     # @return [Array<(ListAPIsResponse, Integer, Hash)>] ListAPIsResponse data, response status code and response headers
     def list_apis_with_http_info(opts = {})
+      warn "[DEPRECATION] `ListAPIs` is deprecated."
       unstable_enabled = @api_client.config.unstable_operations["v2.list_apis".to_sym]
       if unstable_enabled
         @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_apis")
@@ -331,11 +343,14 @@ module DatadogAPIClient::V2
     # The ID is returned by the create API, or can be found in the URL in the API catalog UI.
     #
     #
+    # @deprecated This API is deprecated.
+    #
     # @param id [UUID] ID of the API to modify
     # @param opts [Hash] the optional parameters
     # @option opts [File] :openapi_spec_file Binary `OpenAPI` spec file
     # @return [Array<(UpdateOpenAPIResponse, Integer, Hash)>] UpdateOpenAPIResponse data, response status code and response headers
     def update_open_api_with_http_info(id, opts = {})
+      warn "[DEPRECATION] `UpdateOpenAPI` is deprecated."
       unstable_enabled = @api_client.config.unstable_operations["v2.update_open_api".to_sym]
       if unstable_enabled
         @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_open_api")
