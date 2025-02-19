@@ -17,12 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Define a display mode for the table cell.
-  class TableWidgetCellDisplayMode
+  # Trend type for the cell display mode options.
+  class WidgetFormulaCellDisplayModeOptionsTrendType
     include BaseEnumModel
 
-    NUMBER = "number".freeze
-    BAR = "bar".freeze
-    TREND = "trend".freeze
+    AREA = "area".freeze
+    LINE = "line".freeze
+    BARS = "bars".freeze
   end
 end

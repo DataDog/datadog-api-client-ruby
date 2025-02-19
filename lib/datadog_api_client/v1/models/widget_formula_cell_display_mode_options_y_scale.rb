@@ -17,12 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Define a display mode for the table cell.
-  class TableWidgetCellDisplayMode
+  # Y scale for the cell display mode options.
+  class WidgetFormulaCellDisplayModeOptionsYScale
     include BaseEnumModel
 
-    NUMBER = "number".freeze
-    BAR = "bar".freeze
-    TREND = "trend".freeze
+    SHARED = "shared".freeze
+    INDEPENDENT = "independent".freeze
   end
 end
