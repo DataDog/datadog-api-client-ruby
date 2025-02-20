@@ -916,6 +916,7 @@ module DatadogAPIClient
           "v1.widget_vertical_align" => "WidgetVerticalAlign",
           "v1.widget_view_mode" => "WidgetViewMode",
           "v1.widget_viz_type" => "WidgetVizType",
+          "v2.account_filtering_config" => "AccountFilteringConfig",
           "v2.action_connection_attributes" => "ActionConnectionAttributes",
           "v2.action_connection_attributes_update" => "ActionConnectionAttributesUpdate",
           "v2.action_connection_data" => "ActionConnectionData",
