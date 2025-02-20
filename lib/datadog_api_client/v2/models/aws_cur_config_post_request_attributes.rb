@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class AwsCURConfigPostRequestAttributes
     include BaseGenericModel
 
+    # The account filtering configuration.
+    attr_accessor :account_filters
+
     # The AWS account ID.
     attr_reader :account_id
 
@@ -48,6 +51,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'account_filters' => :'account_filters',
         :'account_id' => :'account_id',
         :'bucket_name' => :'bucket_name',
         :'bucket_region' => :'bucket_region',
@@ -62,6 +66,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'account_filters' => :'AccountFilteringConfig',
         :'account_id' => :'String',
         :'bucket_name' => :'String',
         :'bucket_region' => :'String',
@@ -89,6 +94,10 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'account_filters')
+        self.account_filters = attributes[:'account_filters']
+      end
 
       if attributes.key?(:'account_id')
         self.account_id = attributes[:'account_id']
@@ -207,6 +216,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          account_filters == o.account_filters &&
           account_id == o.account_id &&
           bucket_name == o.bucket_name &&
           bucket_region == o.bucket_region &&
@@ -221,7 +231,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [account_id, bucket_name, bucket_region, is_enabled, months, report_name, report_prefix, additional_properties].hash
+      [account_filters, account_id, bucket_name, bucket_region, is_enabled, months, report_name, report_prefix, additional_properties].hash
     end
   end
 end
