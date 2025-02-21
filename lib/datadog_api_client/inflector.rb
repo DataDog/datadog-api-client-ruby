@@ -269,6 +269,8 @@ module DatadogAPIClient
           "v1.logs_service_remapper" => "LogsServiceRemapper",
           "v1.logs_service_remapper_type" => "LogsServiceRemapperType",
           "v1.logs_sort" => "LogsSort",
+          "v1.logs_span_remapper" => "LogsSpanRemapper",
+          "v1.logs_span_remapper_type" => "LogsSpanRemapperType",
           "v1.logs_status_remapper" => "LogsStatusRemapper",
           "v1.logs_status_remapper_type" => "LogsStatusRemapperType",
           "v1.logs_string_builder_processor" => "LogsStringBuilderProcessor",
