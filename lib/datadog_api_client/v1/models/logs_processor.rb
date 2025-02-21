@@ -41,7 +41,8 @@ module DatadogAPIClient::V1
           :'LogsGeoIPParser',
           :'LogsLookupProcessor',
           :'ReferenceTableLogsLookupProcessor',
-          :'LogsTraceRemapper'
+          :'LogsTraceRemapper',
+          :'LogsSpanRemapper'
         ]
       end
       # Builds the object
