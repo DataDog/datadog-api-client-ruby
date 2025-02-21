@@ -30,5 +30,9 @@ module DatadogAPIClient::V2
     THIRTY_MINUTES = 1800.freeze
     ONE_HOUR = 3600.freeze
     TWO_HOURS = 7200.freeze
+    THREE_HOURS = 10800.freeze
+    SIX_HOURS = 21600.freeze
+    TWELVE_HOURS = 43200.freeze
+    ONE_DAY = 86400.freeze
   end
 end
