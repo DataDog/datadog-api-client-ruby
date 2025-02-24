@@ -21,7 +21,7 @@ module DatadogAPIClient::V1
   class SyntheticsCITestBody
     include BaseGenericModel
 
-    # Individual synthetics test.
+    # List of Synthetic tests with overrides.
     attr_accessor :tests
 
     attr_accessor :additional_properties
