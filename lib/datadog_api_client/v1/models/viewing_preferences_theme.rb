@@ -17,12 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Type of sharing access (either open to anyone who has the public URL or invite-only).
-  class DashboardShareType
+  # The theme of the shared dashboard view. "system" follows your system's default viewing theme.
+  class ViewingPreferencesTheme
     include BaseEnumModel
 
-    OPEN = "open".freeze
-    INVITE = "invite".freeze
-    EMBED = "embed".freeze
+    SYSTEM = "system".freeze
+    LIGHT = "light".freeze
+    DARK = "dark".freeze
   end
 end
