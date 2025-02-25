@@ -17,12 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Type of sharing access (either open to anyone who has the public URL or invite-only).
-  class DashboardShareType
+  # Active means the dashboard is publicly available. Paused means the dashboard is not publicly available.
+  class SharedDashboardStatus
     include BaseEnumModel
 
-    OPEN = "open".freeze
-    INVITE = "invite".freeze
-    EMBED = "embed".freeze
+    ACTIVE = "active".freeze
+    PAUSED = "paused".freeze
   end
 end

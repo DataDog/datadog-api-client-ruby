@@ -21,11 +21,20 @@ module DatadogAPIClient::V1
   class SharedDashboardUpdateRequest
     include BaseGenericModel
 
+    # The `SharedDashboard` `embeddable_domains`.
+    attr_accessor :embeddable_domains
+
+    # The time when an OPEN shared dashboard becomes publicly unavailable.
+    attr_accessor :expiration
+
     # Timeframe setting for the shared dashboard.
     attr_accessor :global_time
 
     # Whether to allow viewers to select a different global time setting for the shared dashboard.
     attr_accessor :global_time_selectable_enabled
+
+    # The `SharedDashboard` `invitees`.
+    attr_accessor :invitees
 
     # List of objects representing template variables on the shared dashboard which can have selectable values.
     attr_accessor :selectable_template_vars
@@ -36,17 +45,32 @@ module DatadogAPIClient::V1
     # Type of sharing access (either open to anyone who has the public URL or invite-only).
     attr_accessor :share_type
 
+    # Active means the dashboard is publicly available. Paused means the dashboard is not publicly available.
+    attr_accessor :status
+
+    # Title of the shared dashboard.
+    attr_accessor :title
+
+    # The viewing preferences for a shared dashboard.
+    attr_accessor :viewing_preferences
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
+        :'embeddable_domains' => :'embeddable_domains',
+        :'expiration' => :'expiration',
         :'global_time' => :'global_time',
         :'global_time_selectable_enabled' => :'global_time_selectable_enabled',
+        :'invitees' => :'invitees',
         :'selectable_template_vars' => :'selectable_template_vars',
         :'share_list' => :'share_list',
-        :'share_type' => :'share_type'
+        :'share_type' => :'share_type',
+        :'status' => :'status',
+        :'title' => :'title',
+        :'viewing_preferences' => :'viewing_preferences'
       }
     end
 
@@ -54,11 +78,17 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
+        :'embeddable_domains' => :'Array<String>',
+        :'expiration' => :'Time',
         :'global_time' => :'SharedDashboardUpdateRequestGlobalTime',
         :'global_time_selectable_enabled' => :'Boolean',
+        :'invitees' => :'Array<SharedDashboardInviteesItems>',
         :'selectable_template_vars' => :'Array<SelectableTemplateVariableItems>',
         :'share_list' => :'Array<String>',
-        :'share_type' => :'DashboardShareType'
+        :'share_type' => :'DashboardShareType',
+        :'status' => :'SharedDashboardStatus',
+        :'title' => :'String',
+        :'viewing_preferences' => :'ViewingPreferences'
       }
     end
 
@@ -66,6 +96,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_nullable
       Set.new([
+        :'expiration',
         :'global_time',
         :'global_time_selectable_enabled',
         :'selectable_template_vars',
@@ -92,12 +123,28 @@ module DatadogAPIClient::V1
         end
       }
 
+      if attributes.key?(:'embeddable_domains')
+        if (value = attributes[:'embeddable_domains']).is_a?(Array)
+          self.embeddable_domains = value
+        end
+      end
+
+      if attributes.key?(:'expiration')
+        self.expiration = attributes[:'expiration']
+      end
+
       if attributes.key?(:'global_time')
         self.global_time = attributes[:'global_time']
       end
 
       if attributes.key?(:'global_time_selectable_enabled')
         self.global_time_selectable_enabled = attributes[:'global_time_selectable_enabled']
+      end
+
+      if attributes.key?(:'invitees')
+        if (value = attributes[:'invitees']).is_a?(Array)
+          self.invitees = value
+        end
       end
 
       if attributes.key?(:'selectable_template_vars')
@@ -114,6 +161,18 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'share_type')
         self.share_type = attributes[:'share_type']
+      end
+
+      if attributes.key?(:'status')
+        self.status = attributes[:'status']
+      end
+
+      if attributes.key?(:'title')
+        self.title = attributes[:'title']
+      end
+
+      if attributes.key?(:'viewing_preferences')
+        self.viewing_preferences = attributes[:'viewing_preferences']
       end
     end
 
@@ -143,11 +202,17 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          embeddable_domains == o.embeddable_domains &&
+          expiration == o.expiration &&
           global_time == o.global_time &&
           global_time_selectable_enabled == o.global_time_selectable_enabled &&
+          invitees == o.invitees &&
           selectable_template_vars == o.selectable_template_vars &&
           share_list == o.share_list &&
           share_type == o.share_type &&
+          status == o.status &&
+          title == o.title &&
+          viewing_preferences == o.viewing_preferences &&
           additional_properties == o.additional_properties
     end
 
@@ -155,7 +220,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [global_time, global_time_selectable_enabled, selectable_template_vars, share_list, share_type, additional_properties].hash
+      [embeddable_domains, expiration, global_time, global_time_selectable_enabled, invitees, selectable_template_vars, share_list, share_type, status, title, viewing_preferences, additional_properties].hash
     end
   end
 end

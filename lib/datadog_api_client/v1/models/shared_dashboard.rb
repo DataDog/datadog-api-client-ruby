@@ -25,7 +25,7 @@ module DatadogAPIClient::V1
     attr_accessor :author
 
     # Date the dashboard was shared.
-    attr_accessor :created_at
+    attr_accessor :created
 
     # ID of the dashboard to share.
     attr_reader :dashboard_id
@@ -33,11 +33,23 @@ module DatadogAPIClient::V1
     # The type of the associated private dashboard.
     attr_reader :dashboard_type
 
+    # The `SharedDashboard` `embeddable_domains`.
+    attr_accessor :embeddable_domains
+
+    # The time when an OPEN shared dashboard becomes publicly unavailable.
+    attr_accessor :expiration
+
     # Object containing the live span selection for the dashboard.
     attr_accessor :global_time
 
     # Whether to allow viewers to select a different global time setting for the shared dashboard.
     attr_accessor :global_time_selectable_enabled
+
+    # The `SharedDashboard` `invitees`.
+    attr_accessor :invitees
+
+    # The last time the shared dashboard was accessed. Null if never accessed.
+    attr_accessor :last_accessed
 
     # URL of the shared dashboard.
     attr_accessor :public_url
@@ -51,8 +63,17 @@ module DatadogAPIClient::V1
     # Type of sharing access (either open to anyone who has the public URL or invite-only).
     attr_accessor :share_type
 
+    # Active means the dashboard is publicly available. Paused means the dashboard is not publicly available.
+    attr_accessor :status
+
+    # Title of the shared dashboard.
+    attr_accessor :title
+
     # A unique token assigned to the shared dashboard.
     attr_accessor :token
+
+    # The viewing preferences for a shared dashboard.
+    attr_accessor :viewing_preferences
 
     attr_accessor :additional_properties
 
@@ -61,16 +82,23 @@ module DatadogAPIClient::V1
     def self.attribute_map
       {
         :'author' => :'author',
-        :'created_at' => :'created_at',
+        :'created' => :'created',
         :'dashboard_id' => :'dashboard_id',
         :'dashboard_type' => :'dashboard_type',
+        :'embeddable_domains' => :'embeddable_domains',
+        :'expiration' => :'expiration',
         :'global_time' => :'global_time',
         :'global_time_selectable_enabled' => :'global_time_selectable_enabled',
+        :'invitees' => :'invitees',
+        :'last_accessed' => :'last_accessed',
         :'public_url' => :'public_url',
         :'selectable_template_vars' => :'selectable_template_vars',
         :'share_list' => :'share_list',
         :'share_type' => :'share_type',
-        :'token' => :'token'
+        :'status' => :'status',
+        :'title' => :'title',
+        :'token' => :'token',
+        :'viewing_preferences' => :'viewing_preferences'
       }
     end
 
@@ -79,16 +107,23 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'author' => :'SharedDashboardAuthor',
-        :'created_at' => :'Time',
+        :'created' => :'Time',
         :'dashboard_id' => :'String',
         :'dashboard_type' => :'DashboardType',
+        :'embeddable_domains' => :'Array<String>',
+        :'expiration' => :'Time',
         :'global_time' => :'DashboardGlobalTime',
         :'global_time_selectable_enabled' => :'Boolean',
+        :'invitees' => :'Array<SharedDashboardInviteesItems>',
+        :'last_accessed' => :'Time',
         :'public_url' => :'String',
         :'selectable_template_vars' => :'Array<SelectableTemplateVariableItems>',
         :'share_list' => :'Array<String>',
         :'share_type' => :'DashboardShareType',
-        :'token' => :'String'
+        :'status' => :'SharedDashboardStatus',
+        :'title' => :'String',
+        :'token' => :'String',
+        :'viewing_preferences' => :'ViewingPreferences'
       }
     end
 
@@ -96,7 +131,9 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_nullable
       Set.new([
+        :'expiration',
         :'global_time_selectable_enabled',
+        :'last_accessed',
         :'selectable_template_vars',
         :'share_list',
         :'share_type',
@@ -125,8 +162,8 @@ module DatadogAPIClient::V1
         self.author = attributes[:'author']
       end
 
-      if attributes.key?(:'created_at')
-        self.created_at = attributes[:'created_at']
+      if attributes.key?(:'created')
+        self.created = attributes[:'created']
       end
 
       if attributes.key?(:'dashboard_id')
@@ -137,12 +174,32 @@ module DatadogAPIClient::V1
         self.dashboard_type = attributes[:'dashboard_type']
       end
 
+      if attributes.key?(:'embeddable_domains')
+        if (value = attributes[:'embeddable_domains']).is_a?(Array)
+          self.embeddable_domains = value
+        end
+      end
+
+      if attributes.key?(:'expiration')
+        self.expiration = attributes[:'expiration']
+      end
+
       if attributes.key?(:'global_time')
         self.global_time = attributes[:'global_time']
       end
 
       if attributes.key?(:'global_time_selectable_enabled')
         self.global_time_selectable_enabled = attributes[:'global_time_selectable_enabled']
+      end
+
+      if attributes.key?(:'invitees')
+        if (value = attributes[:'invitees']).is_a?(Array)
+          self.invitees = value
+        end
+      end
+
+      if attributes.key?(:'last_accessed')
+        self.last_accessed = attributes[:'last_accessed']
       end
 
       if attributes.key?(:'public_url')
@@ -165,8 +222,20 @@ module DatadogAPIClient::V1
         self.share_type = attributes[:'share_type']
       end
 
+      if attributes.key?(:'status')
+        self.status = attributes[:'status']
+      end
+
+      if attributes.key?(:'title')
+        self.title = attributes[:'title']
+      end
+
       if attributes.key?(:'token')
         self.token = attributes[:'token']
+      end
+
+      if attributes.key?(:'viewing_preferences')
+        self.viewing_preferences = attributes[:'viewing_preferences']
       end
     end
 
@@ -226,16 +295,23 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           author == o.author &&
-          created_at == o.created_at &&
+          created == o.created &&
           dashboard_id == o.dashboard_id &&
           dashboard_type == o.dashboard_type &&
+          embeddable_domains == o.embeddable_domains &&
+          expiration == o.expiration &&
           global_time == o.global_time &&
           global_time_selectable_enabled == o.global_time_selectable_enabled &&
+          invitees == o.invitees &&
+          last_accessed == o.last_accessed &&
           public_url == o.public_url &&
           selectable_template_vars == o.selectable_template_vars &&
           share_list == o.share_list &&
           share_type == o.share_type &&
+          status == o.status &&
+          title == o.title &&
           token == o.token &&
+          viewing_preferences == o.viewing_preferences &&
           additional_properties == o.additional_properties
     end
 
@@ -243,7 +319,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [author, created_at, dashboard_id, dashboard_type, global_time, global_time_selectable_enabled, public_url, selectable_template_vars, share_list, share_type, token, additional_properties].hash
+      [author, created, dashboard_id, dashboard_type, embeddable_domains, expiration, global_time, global_time_selectable_enabled, invitees, last_accessed, public_url, selectable_template_vars, share_list, share_type, status, title, token, viewing_preferences, additional_properties].hash
     end
   end
 end
