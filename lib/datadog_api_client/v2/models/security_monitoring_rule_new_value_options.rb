@@ -22,11 +22,12 @@ module DatadogAPIClient::V2
     include BaseGenericModel
 
     # The duration in days after which a learned value is forgotten.
-    attr_accessor :forget_after
+    attr_reader :forget_after
 
     # The duration in days during which values are learned, and after which signals will be generated for values that
     # weren't learned. If set to 0, a signal will be generated for all new values after the first value is learned.
-    attr_accessor :learning_duration
+    # The value must be between 0 and 30 (inclusive).
+    attr_reader :learning_duration
 
     # The learning method used to determine when signals should be generated for values that weren't learned.
     attr_accessor :learning_method
@@ -51,8 +52,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'forget_after' => :'SecurityMonitoringRuleNewValueOptionsForgetAfter',
-        :'learning_duration' => :'SecurityMonitoringRuleNewValueOptionsLearningDuration',
+        :'forget_after' => :'Integer',
+        :'learning_duration' => :'Integer',
         :'learning_method' => :'SecurityMonitoringRuleNewValueOptionsLearningMethod',
         :'learning_threshold' => :'SecurityMonitoringRuleNewValueOptionsLearningThreshold'
       }
@@ -91,6 +92,43 @@ module DatadogAPIClient::V2
       if attributes.key?(:'learning_threshold')
         self.learning_threshold = attributes[:'learning_threshold']
       end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if !@forget_after.nil? && @forget_after > 30
+      return false if !@forget_after.nil? && @forget_after < 1
+      return false if !@learning_duration.nil? && @learning_duration > 30
+      return false if !@learning_duration.nil? && @learning_duration < 0
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param forget_after [Object] Object to be assigned
+    # @!visibility private
+    def forget_after=(forget_after)
+      if !forget_after.nil? && forget_after > 30
+        fail ArgumentError, 'invalid value for "forget_after", must be smaller than or equal to 30.'
+      end
+      if !forget_after.nil? && forget_after < 1
+        fail ArgumentError, 'invalid value for "forget_after", must be greater than or equal to 1.'
+      end
+      @forget_after = forget_after
+    end
+
+    # Custom attribute writer method with validation
+    # @param learning_duration [Object] Object to be assigned
+    # @!visibility private
+    def learning_duration=(learning_duration)
+      if !learning_duration.nil? && learning_duration > 30
+        fail ArgumentError, 'invalid value for "learning_duration", must be smaller than or equal to 30.'
+      end
+      if !learning_duration.nil? && learning_duration < 0
+        fail ArgumentError, 'invalid value for "learning_duration", must be greater than or equal to 0.'
+      end
+      @learning_duration = learning_duration
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
