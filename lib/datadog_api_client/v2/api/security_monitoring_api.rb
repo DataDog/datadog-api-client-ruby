@@ -1538,7 +1538,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'GetSBOMResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_sbom,
@@ -2729,6 +2729,12 @@ module DatadogAPIClient::V2
     # @option opts [String] :filter_asset_operating_system_version Filter by asset operating system version.
     # @return [Array<(ListVulnerabilitiesResponse, Integer, Hash)>] ListVulnerabilitiesResponse data, response status code and response headers
     def list_vulnerabilities_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_vulnerabilities".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_vulnerabilities")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_vulnerabilities"))
+      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.list_vulnerabilities ...'
@@ -2847,7 +2853,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'ListVulnerabilitiesResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_vulnerabilities,
@@ -2911,6 +2917,12 @@ module DatadogAPIClient::V2
     # @option opts [String] :filter_operating_system_version Filter by operating system version.
     # @return [Array<(ListVulnerableAssetsResponse, Integer, Hash)>] ListVulnerableAssetsResponse data, response status code and response headers
     def list_vulnerable_assets_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_vulnerable_assets".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_vulnerable_assets")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_vulnerable_assets"))
+      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.list_vulnerable_assets ...'
@@ -2959,7 +2971,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'ListVulnerableAssetsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_vulnerable_assets,
