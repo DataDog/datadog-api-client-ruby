@@ -2501,8 +2501,6 @@ module DatadogAPIClient
           "v2.security_monitoring_rule_keep_alive" => "SecurityMonitoringRuleKeepAlive",
           "v2.security_monitoring_rule_max_signal_duration" => "SecurityMonitoringRuleMaxSignalDuration",
           "v2.security_monitoring_rule_new_value_options" => "SecurityMonitoringRuleNewValueOptions",
-          "v2.security_monitoring_rule_new_value_options_forget_after" => "SecurityMonitoringRuleNewValueOptionsForgetAfter",
-          "v2.security_monitoring_rule_new_value_options_learning_duration" => "SecurityMonitoringRuleNewValueOptionsLearningDuration",
           "v2.security_monitoring_rule_new_value_options_learning_method" => "SecurityMonitoringRuleNewValueOptionsLearningMethod",
           "v2.security_monitoring_rule_new_value_options_learning_threshold" => "SecurityMonitoringRuleNewValueOptionsLearningThreshold",
           "v2.security_monitoring_rule_options" => "SecurityMonitoringRuleOptions",
