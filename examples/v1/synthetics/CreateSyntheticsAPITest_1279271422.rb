@@ -48,6 +48,7 @@ body = DatadogAPIClient::V1::SyntheticsAPITest.new({
           interval: 1000,
         }),
         subtype: DatadogAPIClient::V1::SyntheticsAPITestStepSubtype::HTTP,
+        extracted_values_from_script: "dd.variable.set('STATUS_CODE', dd.response.statusCode);",
       }),
       DatadogAPIClient::V1::SyntheticsAPIWaitStep.new({
         name: "Wait",
