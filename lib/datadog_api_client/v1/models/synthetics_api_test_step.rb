@@ -33,6 +33,9 @@ module DatadogAPIClient::V1
     # Array of values to parse and save as variables from the response.
     attr_accessor :extracted_values
 
+    # Generate variables using JavaScript.
+    attr_accessor :extracted_values_from_script
+
     # Determines whether or not to consider the entire test as failed if this step fails.
     # Can be used only if `allowFailure` is `true`.
     attr_accessor :is_critical
@@ -59,6 +62,7 @@ module DatadogAPIClient::V1
         :'assertions' => :'assertions',
         :'exit_if_succeed' => :'exitIfSucceed',
         :'extracted_values' => :'extractedValues',
+        :'extracted_values_from_script' => :'extractedValuesFromScript',
         :'is_critical' => :'isCritical',
         :'name' => :'name',
         :'request' => :'request',
@@ -75,6 +79,7 @@ module DatadogAPIClient::V1
         :'assertions' => :'Array<SyntheticsAssertion>',
         :'exit_if_succeed' => :'Boolean',
         :'extracted_values' => :'Array<SyntheticsParsingOptions>',
+        :'extracted_values_from_script' => :'String',
         :'is_critical' => :'Boolean',
         :'name' => :'String',
         :'request' => :'SyntheticsTestRequest',
@@ -119,6 +124,10 @@ module DatadogAPIClient::V1
         if (value = attributes[:'extracted_values']).is_a?(Array)
           self.extracted_values = value
         end
+      end
+
+      if attributes.key?(:'extracted_values_from_script')
+        self.extracted_values_from_script = attributes[:'extracted_values_from_script']
       end
 
       if attributes.key?(:'is_critical')
@@ -223,6 +232,7 @@ module DatadogAPIClient::V1
           assertions == o.assertions &&
           exit_if_succeed == o.exit_if_succeed &&
           extracted_values == o.extracted_values &&
+          extracted_values_from_script == o.extracted_values_from_script &&
           is_critical == o.is_critical &&
           name == o.name &&
           request == o.request &&
@@ -235,7 +245,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [allow_failure, assertions, exit_if_succeed, extracted_values, is_critical, name, request, _retry, subtype, additional_properties].hash
+      [allow_failure, assertions, exit_if_succeed, extracted_values, extracted_values_from_script, is_critical, name, request, _retry, subtype, additional_properties].hash
     end
   end
 end
