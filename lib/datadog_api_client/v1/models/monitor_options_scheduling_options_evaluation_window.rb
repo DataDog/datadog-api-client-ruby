@@ -21,7 +21,7 @@ module DatadogAPIClient::V1
   class MonitorOptionsSchedulingOptionsEvaluationWindow
     include BaseGenericModel
 
-    # The time of the day at which a one day cumulative evaluation window starts. Must be defined in UTC time in `HH:mm` format.
+    # The time of the day at which a one day cumulative evaluation window starts.
     attr_accessor :day_starts
 
     # The minute of the hour at which a one hour cumulative evaluation window starts.
@@ -29,6 +29,9 @@ module DatadogAPIClient::V1
 
     # The day of the month at which a one month cumulative evaluation window starts.
     attr_reader :month_starts
+
+    # The timezone of the time of the day of the cumulative evaluation window start.
+    attr_accessor :timezone
 
     attr_accessor :additional_properties
 
@@ -38,7 +41,8 @@ module DatadogAPIClient::V1
       {
         :'day_starts' => :'day_starts',
         :'hour_starts' => :'hour_starts',
-        :'month_starts' => :'month_starts'
+        :'month_starts' => :'month_starts',
+        :'timezone' => :'timezone'
       }
     end
 
@@ -48,7 +52,8 @@ module DatadogAPIClient::V1
       {
         :'day_starts' => :'String',
         :'hour_starts' => :'Integer',
-        :'month_starts' => :'Integer'
+        :'month_starts' => :'Integer',
+        :'timezone' => :'String'
       }
     end
 
@@ -80,6 +85,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'month_starts')
         self.month_starts = attributes[:'month_starts']
+      end
+
+      if attributes.key?(:'timezone')
+        self.timezone = attributes[:'timezone']
       end
     end
 
@@ -149,6 +158,7 @@ module DatadogAPIClient::V1
           day_starts == o.day_starts &&
           hour_starts == o.hour_starts &&
           month_starts == o.month_starts &&
+          timezone == o.timezone &&
           additional_properties == o.additional_properties
     end
 
@@ -156,7 +166,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [day_starts, hour_starts, month_starts, additional_properties].hash
+      [day_starts, hour_starts, month_starts, timezone, additional_properties].hash
     end
   end
 end
