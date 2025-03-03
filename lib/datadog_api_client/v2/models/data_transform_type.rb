@@ -17,12 +17,10 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The query type.
-  class QueryType
+  # The data transform type.
+  class DataTransformType
     include BaseEnumModel
 
-    ACTION = "action".freeze
-    STATEVARIABLE = "stateVariable".freeze
     DATATRANSFORM = "dataTransform".freeze
   end
 end
