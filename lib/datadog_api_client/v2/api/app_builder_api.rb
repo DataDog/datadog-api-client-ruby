@@ -39,12 +39,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(CreateAppResponse, Integer, Hash)>] CreateAppResponse data, response status code and response headers
     def create_app_with_http_info(body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.create_app".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_app")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_app"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AppBuilderAPI.create_app ...'
@@ -112,12 +106,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(DeleteAppResponse, Integer, Hash)>] DeleteAppResponse data, response status code and response headers
     def delete_app_with_http_info(app_id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.delete_app".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_app")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_app"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AppBuilderAPI.delete_app ...'
@@ -183,12 +171,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(DeleteAppsResponse, Integer, Hash)>] DeleteAppsResponse data, response status code and response headers
     def delete_apps_with_http_info(body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.delete_apps".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_apps")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_apps"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AppBuilderAPI.delete_apps ...'
@@ -257,12 +239,6 @@ module DatadogAPIClient::V2
     # @option opts [String] :version The version number of the app to retrieve. If not specified, the latest version is returned. Version numbers start at 1 and increment with each update. The special values `latest` and `deployed` can be used to retrieve the latest version or the published version, respectively.
     # @return [Array<(GetAppResponse, Integer, Hash)>] GetAppResponse data, response status code and response headers
     def get_app_with_http_info(app_id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.get_app".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_app")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_app"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AppBuilderAPI.get_app ...'
@@ -339,12 +315,6 @@ module DatadogAPIClient::V2
     # @option opts [Array<AppsSortField>] :sort The fields and direction to sort apps by.
     # @return [Array<(ListAppsResponse, Integer, Hash)>] ListAppsResponse data, response status code and response headers
     def list_apps_with_http_info(opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.list_apps".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_apps")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_apps"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AppBuilderAPI.list_apps ...'
@@ -417,12 +387,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(PublishAppResponse, Integer, Hash)>] PublishAppResponse data, response status code and response headers
     def publish_app_with_http_info(app_id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.publish_app".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.publish_app")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.publish_app"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AppBuilderAPI.publish_app ...'
@@ -488,12 +452,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(UnpublishAppResponse, Integer, Hash)>] UnpublishAppResponse data, response status code and response headers
     def unpublish_app_with_http_info(app_id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.unpublish_app".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.unpublish_app")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.unpublish_app"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AppBuilderAPI.unpublish_app ...'
@@ -560,12 +518,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(UpdateAppResponse, Integer, Hash)>] UpdateAppResponse data, response status code and response headers
     def update_app_with_http_info(app_id, body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.update_app".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_app")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_app"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AppBuilderAPI.update_app ...'
