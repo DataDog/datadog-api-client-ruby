@@ -1,0 +1,22 @@
+http_interactions:
+- recorded_at: Sat, 01 Mar 2025 20:02:09 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"lambda":false,"vuln_containers_os":true,"vuln_host_os":true},"id":"000000000002","type":"aws_scan_options"}}'
+    headers:
+      Accept:
+      - '*/*'
+      Content-Type:
+      - application/json
+    method: PATCH
+    uri: https://api.datadoghq.com/api/v2/agentless_scanning/accounts/aws/000000000002
+  response:
+    body:
+      encoding: UTF-8
+      string: ''
+    headers: {}
+    status:
+      code: 204
+      message: No Content
+recorded_with: VCR 6.0.0

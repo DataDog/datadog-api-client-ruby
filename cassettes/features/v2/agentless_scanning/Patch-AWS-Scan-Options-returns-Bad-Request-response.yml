@@ -1,0 +1,23 @@
+http_interactions:
+- recorded_at: Sat, 01 Mar 2025 19:45:09 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Content-Type:
+      - application/json
+    method: PATCH
+    uri: https://api.datadoghq.com/api/v2/agentless_scanning/accounts/aws/000000000003
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"status":"400","title":"Bad Request","detail":"unexpected
+        end of JSON input"}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 400
+      message: Bad Request
+recorded_with: VCR 6.0.0

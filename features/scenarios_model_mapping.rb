@@ -840,6 +840,16 @@ ScenariosModelMappings = {
             "connection_id" => "String",
             "body" => "UpdateActionConnectionRequest",
     },
+    "v2.CreateAwsScanOptions" => {
+            "body" => "AwsScanOptionsCreateRequest",
+    },
+    "v2.DeleteAwsScanOptions" => {
+            "account_id" => "String",
+    },
+    "v2.UpdateAwsScanOptions" => {
+            "account_id" => "String",
+            "body" => "AwsScanOptionsUpdateRequest",
+    },
     "v2.ListAPIKeys" => {
             "page_size" => "Integer",
             "page_number" => "Integer",

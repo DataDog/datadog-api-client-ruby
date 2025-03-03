@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Response object that includes the scan options of an AWS account.
-  class AwsScanOptionsResponse
+  # Response object that includes a list of AWS scan options.
+  class AwsScanOptionsListResponse
     include BaseGenericModel
 
-    # Single AWS Scan Options entry.
+    # A list of AWS scan options.
     attr_accessor :data
 
     attr_accessor :additional_properties
@@ -38,7 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'AwsScanOptionsData'
+        :'data' => :'Array<AwsScanOptionsData>'
       }
     end
 
@@ -47,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::AwsScanOptionsResponse` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::AwsScanOptionsListResponse` initialize method"
       end
 
       self.additional_properties = {}
@@ -61,7 +61,9 @@ module DatadogAPIClient::V2
       }
 
       if attributes.key?(:'data')
-        self.data = attributes[:'data']
+        if (value = attributes[:'data']).is_a?(Array)
+          self.data = value
+        end
       end
     end
 

@@ -1,5 +1,5 @@
 http_interactions:
-- recorded_at: Wed, 18 Dec 2024 15:40:11 GMT
+- recorded_at: Sat, 01 Mar 2025 20:02:08 GMT
   request:
     body: null
     headers:
@@ -10,7 +10,7 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":[]}'
+      string: '{"data":[{"id":"000000000002","type":"aws_scan_options","attributes":{"lambda":false,"sensitive_data":false,"vuln_containers_os":true,"vuln_host_os":true}}]}'
     headers:
       Content-Type:
       - application/vnd.api+json

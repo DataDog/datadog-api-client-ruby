@@ -1,0 +1,21 @@
+http_interactions:
+- recorded_at: Sat, 01 Mar 2025 20:02:07 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/agentless_scanning/accounts/aws/incorrectId
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"title":"Generic Error","detail":"missing or invalid url
+        parameter ''accountId'', expected uuid format ''123456789012''"}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 400
+      message: Bad Request
+recorded_with: VCR 6.0.0

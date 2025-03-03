@@ -17,12 +17,21 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Response object that includes the scan options of an AWS account.
-  class AwsScanOptionsResponse
+  # Attributes for the AWS scan options to update.
+  class AwsScanOptionsUpdateAttributes
     include BaseGenericModel
 
-    # Single AWS Scan Options entry.
-    attr_accessor :data
+    # Indicates if scanning of Lambda functions is enabled.
+    attr_accessor :lambda
+
+    # Indicates if scanning for sensitive data is enabled.
+    attr_accessor :sensitive_data
+
+    # Indicates if scanning for vulnerabilities in containers is enabled.
+    attr_accessor :vuln_containers_os
+
+    # Indicates if scanning for vulnerabilities in hosts is enabled.
+    attr_accessor :vuln_host_os
 
     attr_accessor :additional_properties
 
@@ -30,7 +39,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data'
+        :'lambda' => :'lambda',
+        :'sensitive_data' => :'sensitive_data',
+        :'vuln_containers_os' => :'vuln_containers_os',
+        :'vuln_host_os' => :'vuln_host_os'
       }
     end
 
@@ -38,7 +50,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'AwsScanOptionsData'
+        :'lambda' => :'Boolean',
+        :'sensitive_data' => :'Boolean',
+        :'vuln_containers_os' => :'Boolean',
+        :'vuln_host_os' => :'Boolean'
       }
     end
 
@@ -47,7 +62,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::AwsScanOptionsResponse` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::AwsScanOptionsUpdateAttributes` initialize method"
       end
 
       self.additional_properties = {}
@@ -60,8 +75,20 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'data')
-        self.data = attributes[:'data']
+      if attributes.key?(:'lambda')
+        self.lambda = attributes[:'lambda']
+      end
+
+      if attributes.key?(:'sensitive_data')
+        self.sensitive_data = attributes[:'sensitive_data']
+      end
+
+      if attributes.key?(:'vuln_containers_os')
+        self.vuln_containers_os = attributes[:'vuln_containers_os']
+      end
+
+      if attributes.key?(:'vuln_host_os')
+        self.vuln_host_os = attributes[:'vuln_host_os']
       end
     end
 
@@ -91,7 +118,10 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data &&
+          lambda == o.lambda &&
+          sensitive_data == o.sensitive_data &&
+          vuln_containers_os == o.vuln_containers_os &&
+          vuln_host_os == o.vuln_host_os &&
           additional_properties == o.additional_properties
     end
 
@@ -99,7 +129,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, additional_properties].hash
+      [lambda, sensitive_data, vuln_containers_os, vuln_host_os, additional_properties].hash
     end
   end
 end

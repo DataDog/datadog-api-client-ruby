@@ -1,0 +1,25 @@
+http_interactions:
+- recorded_at: Sat, 01 Mar 2025 20:02:10 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"lambda":true,"sensitive_data":false,"vuln_containers_os":true,"vuln_host_os":true},"id":"123","type":"aws_scan_options"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/agentless_scanning/accounts/aws
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"title":"Generic Error","detail":"the provided Aws account
+        id is not valid"}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 400
+      message: Bad Request
+recorded_with: VCR 6.0.0
