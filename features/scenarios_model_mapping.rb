@@ -850,6 +850,12 @@ ScenariosModelMappings = {
             "account_id" => "String",
             "body" => "AwsScanOptionsUpdateRequest",
     },
+    "v2.CreateAwsOnDemandTask" => {
+            "body" => "AwsOnDemandCreateRequest",
+    },
+    "v2.RetrieveAwsOnDemandTask" => {
+            "task_id" => "String",
+    },
     "v2.ListAPIKeys" => {
             "page_size" => "Integer",
             "page_number" => "Integer",

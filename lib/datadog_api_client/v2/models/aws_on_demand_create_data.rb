@@ -17,17 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Object for the scan options of a single AWS account.
-  class AwsScanOptionsCreateData
+  # Object for a single AWS on demand task.
+  class AwsOnDemandCreateData
     include BaseGenericModel
 
-    # Attributes for the AWS scan options to create.
+    # Attributes for the AWS on demand task.
     attr_reader :attributes
 
-    # The ID of the AWS account.
-    attr_reader :id
-
-    # The type of the resource. The value should always be `aws_scan_options`.
+    # The type of the on demand task. The value should always be `aws_resource`.
     attr_reader :type
 
     attr_accessor :additional_properties
@@ -37,7 +34,6 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'attributes' => :'attributes',
-        :'id' => :'id',
         :'type' => :'type'
       }
     end
@@ -46,9 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'AwsScanOptionsCreateAttributes',
-        :'id' => :'String',
-        :'type' => :'AwsScanOptionsType'
+        :'attributes' => :'AwsOnDemandCreateAttributes',
+        :'type' => :'AwsOnDemandType'
       }
     end
 
@@ -57,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::AwsScanOptionsCreateData` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::AwsOnDemandCreateData` initialize method"
       end
 
       self.additional_properties = {}
@@ -74,10 +69,6 @@ module DatadogAPIClient::V2
         self.attributes = attributes[:'attributes']
       end
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
-      end
-
       if attributes.key?(:'type')
         self.type = attributes[:'type']
       end
@@ -88,7 +79,6 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @attributes.nil?
-      return false if @id.nil?
       return false if @type.nil?
       true
     end
@@ -101,16 +91,6 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "attributes", attributes cannot be nil.'
       end
       @attributes = attributes
-    end
-
-    # Custom attribute writer method with validation
-    # @param id [Object] Object to be assigned
-    # @!visibility private
-    def id=(id)
-      if id.nil?
-        fail ArgumentError, 'invalid value for "id", id cannot be nil.'
-      end
-      @id = id
     end
 
     # Custom attribute writer method with validation
@@ -150,7 +130,6 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           attributes == o.attributes &&
-          id == o.id &&
           type == o.type &&
           additional_properties == o.additional_properties
     end
@@ -159,7 +138,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, id, type, additional_properties].hash
+      [attributes, type, additional_properties].hash
     end
   end
 end

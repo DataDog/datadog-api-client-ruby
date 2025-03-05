@@ -7,7 +7,7 @@ body = DatadogAPIClient::V2::AwsScanOptionsCreateRequest.new({
   data: DatadogAPIClient::V2::AwsScanOptionsCreateData.new({
     id: "000000000003",
     type: DatadogAPIClient::V2::AwsScanOptionsType::AWS_SCAN_OPTIONS,
-    attributes: DatadogAPIClient::V2::AwsScanOptionsAttributes.new({
+    attributes: DatadogAPIClient::V2::AwsScanOptionsCreateAttributes.new({
       lambda: true,
       sensitive_data: false,
       vuln_containers_os: true,
