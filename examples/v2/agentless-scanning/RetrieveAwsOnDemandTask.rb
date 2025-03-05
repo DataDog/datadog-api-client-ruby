@@ -1,0 +1,5 @@
+# Get AWS On Demand task by id returns "OK." response
+
+require "datadog_api_client"
+api_instance = DatadogAPIClient::V2::AgentlessScanningAPI.new
+p api_instance.retrieve_aws_on_demand_task("63d6b4f5-e5d0-4d90-824a-9580f05f026a")
