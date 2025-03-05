@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
-  Class: DatadogAPIClient::V2::StateVariable
+  Class: DatadogAPIClient::V2::AwsOnDemandAttributes
   
     &mdash; datadog-api-client 2.30.0.dev.1 documentation
   
@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="../../css/common.css" type="text/css" />
 
 <script type="text/javascript">
-  pathId = "DatadogAPIClient::V2::StateVariable";
+  pathId = "DatadogAPIClient::V2::AwsOnDemandAttributes";
   relpath = '../../';
 </script>
 
@@ -36,10 +36,10 @@
       <div id="header">
         <div id="menu">
   
-    <a href="../../_index.html">Index (S)</a> &raquo;
+    <a href="../../_index.html">Index (A)</a> &raquo;
     <span class='title'><span class='object_link'><a href="../../DatadogAPIClient.html" title="DatadogAPIClient (module)">DatadogAPIClient</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../V2.html" title="DatadogAPIClient::V2 (module)">V2</a></span></span>
      &raquo; 
-    <span class="title">StateVariable</span>
+    <span class="title">AwsOnDemandAttributes</span>
   
 </div>
 
@@ -59,7 +59,7 @@
         <div class="clear"></div>
       </div>
 
-      <div id="content"><h1>Class: DatadogAPIClient::V2::StateVariable
+      <div id="content"><h1>Class: DatadogAPIClient::V2::AwsOnDemandAttributes
   
   
   
@@ -74,7 +74,7 @@
         <ul class="fullTree">
           <li>Object</li>
           
-            <li class="next">DatadogAPIClient::V2::StateVariable</li>
+            <li class="next">DatadogAPIClient::V2::AwsOnDemandAttributes</li>
           
         </ul>
         <a href="#" class="inheritanceTree">show all</a>
@@ -99,14 +99,14 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/datadog_api_client/v2/models/state_variable.rb</dd>
+    <dd>lib/datadog_api_client/v2/models/aws_on_demand_attributes.rb</dd>
   </dl>
   
 </div>
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>A variable, which can be set and read by other components in the app.</p>
+    <p>Attributes for the AWS on demand task.</p>
 
 
   </div>
@@ -150,7 +150,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#id-instance_method" title="#id (instance method)">#<strong>id</strong>  &#x21d2; Object </a>
+      <a href="#arn-instance_method" title="#arn (instance method)">#<strong>arn</strong>  &#x21d2; Object </a>
     
 
     
@@ -159,8 +159,6 @@
   
   
     
-      <span class="note title readonly">readonly</span>
-    
     
   
   
@@ -169,7 +167,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>The ID of the state variable.</p>
+    <span class="summary_desc"><div class='inline'><p>The arn of the resource to scan.</p>
 </div></span>
   
 </li>
@@ -178,7 +176,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#name-instance_method" title="#name (instance method)">#<strong>name</strong>  &#x21d2; Object </a>
+      <a href="#assigned_at-instance_method" title="#assigned_at (instance method)">#<strong>assigned_at</strong>  &#x21d2; Object </a>
     
 
     
@@ -187,8 +185,6 @@
   
   
     
-      <span class="note title readonly">readonly</span>
-    
     
   
   
@@ -197,7 +193,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>A unique identifier for this state variable.</p>
+    <span class="summary_desc"><div class='inline'><p>Specifies the assignment timestamp if the task has been already assigned to a scanner.</p>
 </div></span>
   
 </li>
@@ -206,7 +202,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#properties-instance_method" title="#properties (instance method)">#<strong>properties</strong>  &#x21d2; Object </a>
+      <a href="#created_at-instance_method" title="#created_at (instance method)">#<strong>created_at</strong>  &#x21d2; Object </a>
     
 
     
@@ -215,8 +211,6 @@
   
   
     
-      <span class="note title readonly">readonly</span>
-    
     
   
   
@@ -225,7 +219,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>The properties of the state variable.</p>
+    <span class="summary_desc"><div class='inline'><p>The task submission timestamp.</p>
 </div></span>
   
 </li>
@@ -234,7 +228,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#type-instance_method" title="#type (instance method)">#<strong>type</strong>  &#x21d2; Object </a>
+      <a href="#status-instance_method" title="#status (instance method)">#<strong>status</strong>  &#x21d2; Object </a>
     
 
     
@@ -243,8 +237,6 @@
   
   
     
-      <span class="note title readonly">readonly</span>
-    
     
   
   
@@ -253,7 +245,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>The state variable type.</p>
+    <span class="summary_desc"><div class='inline'><p>Indicates the status of the task.</p>
 </div></span>
   
 </li>
@@ -306,12 +298,12 @@
       <pre class="lines">
 
 
-36
-37
-38</pre>
+39
+40
+41</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/state_variable.rb', line 36</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/aws_on_demand_attributes.rb', line 39</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_additional_properties'>additional_properties</span>
   <span class='ivar'>@additional_properties</span>
@@ -322,11 +314,11 @@
 </div>
     
       
-      <span id="id=-instance_method"></span>
+      <span id="arn=-instance_method"></span>
       <div class="method_details ">
-  <h3 class="signature " id="id-instance_method">
+  <h3 class="signature " id="arn-instance_method">
   
-    #<strong>id</strong>  &#x21d2; <tt>Object</tt> 
+    #<strong>arn</strong>  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -334,7 +326,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>The ID of the state variable.</p>
+    <p>The arn of the resource to scan.</p>
 
 
   </div>
@@ -353,10 +345,10 @@
 27</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/state_variable.rb', line 25</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/aws_on_demand_attributes.rb', line 25</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_id'>id</span>
-  <span class='ivar'>@id</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_arn'>arn</span>
+  <span class='ivar'>@arn</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -364,11 +356,11 @@
 </div>
     
       
-      <span id="name=-instance_method"></span>
+      <span id="assigned_at=-instance_method"></span>
       <div class="method_details ">
-  <h3 class="signature " id="name-instance_method">
+  <h3 class="signature " id="assigned_at-instance_method">
   
-    #<strong>name</strong>  &#x21d2; <tt>Object</tt> 
+    #<strong>assigned_at</strong>  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -376,7 +368,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>A unique identifier for this state variable. This name is also used to access the variable&#39;s value throughout the app.</p>
+    <p>Specifies the assignment timestamp if the task has been already assigned to a scanner.</p>
 
 
   </div>
@@ -395,10 +387,10 @@
 30</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/state_variable.rb', line 28</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/aws_on_demand_attributes.rb', line 28</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_name'>name</span>
-  <span class='ivar'>@name</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_assigned_at'>assigned_at</span>
+  <span class='ivar'>@assigned_at</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -406,11 +398,11 @@
 </div>
     
       
-      <span id="properties=-instance_method"></span>
+      <span id="created_at=-instance_method"></span>
       <div class="method_details ">
-  <h3 class="signature " id="properties-instance_method">
+  <h3 class="signature " id="created_at-instance_method">
   
-    #<strong>properties</strong>  &#x21d2; <tt>Object</tt> 
+    #<strong>created_at</strong>  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -418,7 +410,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>The properties of the state variable.</p>
+    <p>The task submission timestamp.</p>
 
 
   </div>
@@ -437,10 +429,10 @@
 33</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/state_variable.rb', line 31</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/aws_on_demand_attributes.rb', line 31</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_properties'>properties</span>
-  <span class='ivar'>@properties</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_created_at'>created_at</span>
+  <span class='ivar'>@created_at</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -448,11 +440,11 @@
 </div>
     
       
-      <span id="type=-instance_method"></span>
+      <span id="status=-instance_method"></span>
       <div class="method_details ">
-  <h3 class="signature " id="type-instance_method">
+  <h3 class="signature " id="status-instance_method">
   
-    #<strong>type</strong>  &#x21d2; <tt>Object</tt> 
+    #<strong>status</strong>  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -460,7 +452,10 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>The state variable type.</p>
+    <p>Indicates the status of the task.
+QUEUED: the task has been submitted successfully and the resource has not been assigned to a scanner yet.
+ASSIGNED: the task has been assigned.
+ABORTED: the scan has been aborted after a period of time due to technical reasons, such as resource not found, insufficient permissions, or the absence of a configured scanner.</p>
 
 
   </div>
@@ -474,15 +469,15 @@
       <pre class="lines">
 
 
-34
-35
-36</pre>
+37
+38
+39</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/state_variable.rb', line 34</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/aws_on_demand_attributes.rb', line 37</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_type'>type</span>
-  <span class='ivar'>@type</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_status'>status</span>
+  <span class='ivar'>@status</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
