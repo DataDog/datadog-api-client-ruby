@@ -187,14 +187,13 @@ module DatadogAPIClient::V2
         api_version = "V2"
         page_size = @api_client.get_attribute_from_path(opts, "page_limit", 100)
         @api_client.set_attribute_from_path(api_version, opts, "page_limit", Integer, page_size)
-        @api_client.set_attribute_from_path(api_version, opts, "page_offset", Integer, 0)
         while true do
             response = list_catalog_entity(opts)
             @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
             if @api_client.get_attribute_from_path(response, "data").length < page_size
               break
             end
-            @api_client.set_attribute_from_path(api_version, opts, "page_offset", Integer, @api_client.get_attribute_from_path(opts, "page_offset", 0) + 1)
+            @api_client.set_attribute_from_path(api_version, opts, "page_offset", Integer, @api_client.get_attribute_from_path(opts, "page_offset", 0) + page_size)
         end
     end
 
