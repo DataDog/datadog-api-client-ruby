@@ -45,6 +45,9 @@ module DatadogAPIClient::V1
     # The ID of the organization.
     attr_accessor :org_id
 
+    # Quality issues detected with the monitor.
+    attr_accessor :quality_issues
+
     # The monitor query.
     attr_accessor :query
 
@@ -77,6 +80,7 @@ module DatadogAPIClient::V1
         :'name' => :'name',
         :'notifications' => :'notifications',
         :'org_id' => :'org_id',
+        :'quality_issues' => :'quality_issues',
         :'query' => :'query',
         :'scopes' => :'scopes',
         :'status' => :'status',
@@ -97,6 +101,7 @@ module DatadogAPIClient::V1
         :'name' => :'String',
         :'notifications' => :'Array<MonitorSearchResultNotification>',
         :'org_id' => :'Integer',
+        :'quality_issues' => :'Array<String>',
         :'query' => :'String',
         :'scopes' => :'Array<String>',
         :'status' => :'MonitorOverallStates',
@@ -167,6 +172,12 @@ module DatadogAPIClient::V1
         self.org_id = attributes[:'org_id']
       end
 
+      if attributes.key?(:'quality_issues')
+        if (value = attributes[:'quality_issues']).is_a?(Array)
+          self.quality_issues = value
+        end
+      end
+
       if attributes.key?(:'query')
         self.query = attributes[:'query']
       end
@@ -226,6 +237,7 @@ module DatadogAPIClient::V1
           name == o.name &&
           notifications == o.notifications &&
           org_id == o.org_id &&
+          quality_issues == o.quality_issues &&
           query == o.query &&
           scopes == o.scopes &&
           status == o.status &&
@@ -238,7 +250,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [classification, creator, id, last_triggered_ts, metrics, name, notifications, org_id, query, scopes, status, tags, type, additional_properties].hash
+      [classification, creator, id, last_triggered_ts, metrics, name, notifications, org_id, quality_issues, query, scopes, status, tags, type, additional_properties].hash
     end
   end
 end
