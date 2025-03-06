@@ -90,6 +90,72 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
+    # Delete an index.
+    #
+    # @see #delete_logs_index_with_http_info
+    def delete_logs_index(name, opts = {})
+      data, _status_code, _headers = delete_logs_index_with_http_info(name, opts)
+      data
+    end
+
+    # Delete an index.
+    #
+    # Delete an existing index from your organization. Index deletions are permanent and cannot be reverted.
+    # You cannot recreate an index with the same name as deleted ones.
+    #
+    # @param name [String] Name of the log index.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(LogsIndex, Integer, Hash)>] LogsIndex data, response status code and response headers
+    def delete_logs_index_with_http_info(name, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: LogsIndexesAPI.delete_logs_index ...'
+      end
+      # verify the required parameter 'name' is set
+      if @api_client.config.client_side_validation && name.nil?
+        fail ArgumentError, "Missing the required parameter 'name' when calling LogsIndexesAPI.delete_logs_index"
+      end
+      # resource path
+      local_var_path = '/api/v1/logs/config/indexes/{name}'.sub('{name}', CGI.escape(name.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'LogsIndex'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :delete_logs_index,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V1"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: LogsIndexesAPI#delete_logs_index\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get an index.
     #
     # @see #get_logs_index_with_http_info
