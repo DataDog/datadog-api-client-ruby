@@ -853,7 +853,7 @@ ScenariosModelMappings = {
     "v2.CreateAwsOnDemandTask" => {
             "body" => "AwsOnDemandCreateRequest",
     },
-    "v2.RetrieveAwsOnDemandTask" => {
+    "v2.GetAwsOnDemandTask" => {
             "task_id" => "String",
     },
     "v2.ListAPIKeys" => {
