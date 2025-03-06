@@ -500,6 +500,9 @@ ScenariosModelMappings = {
     "v1.CreateLogsIndex" => {
             "body" => "LogsIndex",
     },
+    "v1.DeleteLogsIndex" => {
+            "name" => "String",
+    },
     "v1.GetLogsIndex" => {
             "name" => "String",
     },
