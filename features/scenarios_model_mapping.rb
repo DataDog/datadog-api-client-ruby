@@ -2071,6 +2071,32 @@ ScenariosModelMappings = {
             "page_limit" => "Integer",
             "page_cursor" => "String",
     },
+    "v2.CreateApplicationSecurityWafCustomRule" => {
+            "body" => "ApplicationSecurityWafCustomRuleCreateRequest",
+    },
+    "v2.DeleteApplicationSecurityWafCustomRule" => {
+            "custom_rule_id" => "String",
+    },
+    "v2.GetApplicationSecurityWafCustomRule" => {
+            "custom_rule_id" => "String",
+    },
+    "v2.UpdateApplicationSecurityWafCustomRule" => {
+            "custom_rule_id" => "String",
+            "body" => "ApplicationSecurityWafCustomRuleUpdateRequest",
+    },
+    "v2.CreateApplicationSecurityWafExclusionFilter" => {
+            "body" => "ApplicationSecurityWafExclusionFilterCreateRequest",
+    },
+    "v2.DeleteApplicationSecurityWafExclusionFilter" => {
+            "exclusion_filter_id" => "String",
+    },
+    "v2.GetApplicationSecurityWafExclusionFilter" => {
+            "exclusion_filter_id" => "String",
+    },
+    "v2.UpdateApplicationSecurityWafExclusionFilter" => {
+            "exclusion_filter_id" => "String",
+            "body" => "ApplicationSecurityWafExclusionFilterUpdateRequest",
+    },
     "v2.CreateCSMThreatsAgentRule" => {
             "body" => "CloudWorkloadSecurityAgentRuleCreateRequest",
     },
