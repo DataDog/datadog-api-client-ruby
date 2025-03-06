@@ -22,16 +22,16 @@ module DatadogAPIClient::V2
     include BaseGenericModel
 
     # Indicates if scanning of Lambda functions is enabled.
-    attr_accessor :lambda
+    attr_reader :lambda
 
     # Indicates if scanning for sensitive data is enabled.
-    attr_accessor :sensitive_data
+    attr_reader :sensitive_data
 
     # Indicates if scanning for vulnerabilities in containers is enabled.
-    attr_accessor :vuln_containers_os
+    attr_reader :vuln_containers_os
 
     # Indicates if scanning for vulnerabilities in hosts is enabled.
-    attr_accessor :vuln_host_os
+    attr_reader :vuln_host_os
 
     attr_accessor :additional_properties
 
@@ -90,6 +90,57 @@ module DatadogAPIClient::V2
       if attributes.key?(:'vuln_host_os')
         self.vuln_host_os = attributes[:'vuln_host_os']
       end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @lambda.nil?
+      return false if @sensitive_data.nil?
+      return false if @vuln_containers_os.nil?
+      return false if @vuln_host_os.nil?
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param lambda [Object] Object to be assigned
+    # @!visibility private
+    def lambda=(lambda)
+      if lambda.nil?
+        fail ArgumentError, 'invalid value for "lambda", lambda cannot be nil.'
+      end
+      @lambda = lambda
+    end
+
+    # Custom attribute writer method with validation
+    # @param sensitive_data [Object] Object to be assigned
+    # @!visibility private
+    def sensitive_data=(sensitive_data)
+      if sensitive_data.nil?
+        fail ArgumentError, 'invalid value for "sensitive_data", sensitive_data cannot be nil.'
+      end
+      @sensitive_data = sensitive_data
+    end
+
+    # Custom attribute writer method with validation
+    # @param vuln_containers_os [Object] Object to be assigned
+    # @!visibility private
+    def vuln_containers_os=(vuln_containers_os)
+      if vuln_containers_os.nil?
+        fail ArgumentError, 'invalid value for "vuln_containers_os", vuln_containers_os cannot be nil.'
+      end
+      @vuln_containers_os = vuln_containers_os
+    end
+
+    # Custom attribute writer method with validation
+    # @param vuln_host_os [Object] Object to be assigned
+    # @!visibility private
+    def vuln_host_os=(vuln_host_os)
+      if vuln_host_os.nil?
+        fail ArgumentError, 'invalid value for "vuln_host_os", vuln_host_os cannot be nil.'
+      end
+      @vuln_host_os = vuln_host_os
     end
 
     # Returns the object in the form of hash, with additionalProperties support.

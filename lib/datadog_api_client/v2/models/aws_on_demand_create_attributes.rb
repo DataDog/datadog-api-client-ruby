@@ -22,7 +22,7 @@ module DatadogAPIClient::V2
     include BaseGenericModel
 
     # The arn of the resource to scan. Agentless supports the scan of EC2 instances, lambda functions, AMI, ECR, RDS and S3 buckets.
-    attr_accessor :arn
+    attr_reader :arn
 
     attr_accessor :additional_properties
 
@@ -63,6 +63,24 @@ module DatadogAPIClient::V2
       if attributes.key?(:'arn')
         self.arn = attributes[:'arn']
       end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @arn.nil?
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param arn [Object] Object to be assigned
+    # @!visibility private
+    def arn=(arn)
+      if arn.nil?
+        fail ArgumentError, 'invalid value for "arn", arn cannot be nil.'
+      end
+      @arn = arn
     end
 
     # Returns the object in the form of hash, with additionalProperties support.

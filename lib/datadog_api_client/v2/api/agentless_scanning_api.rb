@@ -33,7 +33,7 @@ module DatadogAPIClient::V2
 
     # Post an AWS on demand task.
     #
-    # Trigger the scan of an AWS resource with a high priority.
+    # Trigger the scan of an AWS resource with a high priority. Agentless scanning must be activated for the AWS account containing the resource to scan.
     #
     # @param body [AwsOnDemandCreateRequest] The definition of the on demand task.
     # @param opts [Hash] the optional parameters
@@ -222,6 +222,71 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get AWS On Demand task by id.
+    #
+    # @see #get_aws_on_demand_task_with_http_info
+    def get_aws_on_demand_task(task_id, opts = {})
+      data, _status_code, _headers = get_aws_on_demand_task_with_http_info(task_id, opts)
+      data
+    end
+
+    # Get AWS On Demand task by id.
+    #
+    # Fetch the data of a specific on demand task.
+    #
+    # @param task_id [String] The UUID of the task.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(AwsOnDemandResponse, Integer, Hash)>] AwsOnDemandResponse data, response status code and response headers
+    def get_aws_on_demand_task_with_http_info(task_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AgentlessScanningAPI.get_aws_on_demand_task ...'
+      end
+      # verify the required parameter 'task_id' is set
+      if @api_client.config.client_side_validation && task_id.nil?
+        fail ArgumentError, "Missing the required parameter 'task_id' when calling AgentlessScanningAPI.get_aws_on_demand_task"
+      end
+      # resource path
+      local_var_path = '/api/v2/agentless_scanning/ondemand/aws/{task_id}'.sub('{task_id}', CGI.escape(task_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AwsOnDemandResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_aws_on_demand_task,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AgentlessScanningAPI#get_aws_on_demand_task\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get AWS On Demand tasks.
     #
     # @see #list_aws_on_demand_tasks_with_http_info
@@ -338,71 +403,6 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AgentlessScanningAPI#list_aws_scan_options\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Get AWS On Demand task by id.
-    #
-    # @see #retrieve_aws_on_demand_task_with_http_info
-    def retrieve_aws_on_demand_task(task_id, opts = {})
-      data, _status_code, _headers = retrieve_aws_on_demand_task_with_http_info(task_id, opts)
-      data
-    end
-
-    # Get AWS On Demand task by id.
-    #
-    # Fetch the data of a specific on demand task.
-    #
-    # @param task_id [String] The UUID of the task.
-    # @param opts [Hash] the optional parameters
-    # @return [Array<(AwsOnDemandResponse, Integer, Hash)>] AwsOnDemandResponse data, response status code and response headers
-    def retrieve_aws_on_demand_task_with_http_info(task_id, opts = {})
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: AgentlessScanningAPI.retrieve_aws_on_demand_task ...'
-      end
-      # verify the required parameter 'task_id' is set
-      if @api_client.config.client_side_validation && task_id.nil?
-        fail ArgumentError, "Missing the required parameter 'task_id' when calling AgentlessScanningAPI.retrieve_aws_on_demand_task"
-      end
-      # resource path
-      local_var_path = '/api/v2/agentless_scanning/ondemand/aws/{task_id}'.sub('{task_id}', CGI.escape(task_id.to_s).gsub('%2F', '/'))
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'AwsOnDemandResponse'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
-
-      new_options = opts.merge(
-        :operation => :retrieve_aws_on_demand_task,
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type,
-        :api_version => "V2"
-      )
-
-      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: AgentlessScanningAPI#retrieve_aws_on_demand_task\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
