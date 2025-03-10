@@ -33,10 +33,10 @@ module DatadogAPIClient::V2
 
     # Create a RUM retention filter.
     #
-    # Create a RUM retention filter for an application.
+    # Create a RUM retention filter for a RUM application.
     # Returns RUM retention filter objects from the request body when the request is successful.
     #
-    # @param app_id [String] Application ID.
+    # @param app_id [String] RUM application ID.
     # @param body [RumRetentionFilterCreateRequest] The definition of the new RUM retention filter.
     # @param opts [Hash] the optional parameters
     # @return [Array<(RumRetentionFilterResponse, Integer, Hash)>] RumRetentionFilterResponse data, response status code and response headers
@@ -106,9 +106,9 @@ module DatadogAPIClient::V2
 
     # Delete a RUM retention filter.
     #
-    # Delete a RUM retention filter for an application.
+    # Delete a RUM retention filter for a RUM application.
     #
-    # @param app_id [String] Application ID.
+    # @param app_id [String] RUM application ID.
     # @param rf_id [String] Retention filter ID.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
@@ -176,9 +176,9 @@ module DatadogAPIClient::V2
 
     # Get a RUM retention filter.
     #
-    # Get a RUM retention filter for an application.
+    # Get a RUM retention filter for a RUM application.
     #
-    # @param app_id [String] Application ID.
+    # @param app_id [String] RUM application ID.
     # @param rf_id [String] Retention filter ID.
     # @param opts [Hash] the optional parameters
     # @return [Array<(RumRetentionFilterResponse, Integer, Hash)>] RumRetentionFilterResponse data, response status code and response headers
@@ -246,9 +246,9 @@ module DatadogAPIClient::V2
 
     # Get all RUM retention filters.
     #
-    # Get the list of RUM retention filters for an application.
+    # Get the list of RUM retention filters for a RUM application.
     #
-    # @param app_id [String] Application ID.
+    # @param app_id [String] RUM application ID.
     # @param opts [Hash] the optional parameters
     # @return [Array<(RumRetentionFiltersResponse, Integer, Hash)>] RumRetentionFiltersResponse data, response status code and response headers
     def list_retention_filters_with_http_info(app_id, opts = {})
@@ -311,10 +311,10 @@ module DatadogAPIClient::V2
 
     # Order RUM retention filters.
     #
-    # Order RUM retention filters for an application.
+    # Order RUM retention filters for a RUM application.
     # Returns RUM retention filter objects without attributes and meta from the request body when the request is successful.
     #
-    # @param app_id [String] Application ID.
+    # @param app_id [String] RUM application ID.
     # @param body [RumRetentionFiltersOrderRequest] New definition of the RUM retention filter.
     # @param opts [Hash] the optional parameters
     # @return [Array<(RumRetentionFiltersOrderResponse, Integer, Hash)>] RumRetentionFiltersOrderResponse data, response status code and response headers
@@ -384,10 +384,10 @@ module DatadogAPIClient::V2
 
     # Update a RUM retention filter.
     #
-    # Update a RUM retention filter for an application.
+    # Update a RUM retention filter for a RUM application.
     # Returns RUM retention filter objects from the request body when the request is successful.
     #
-    # @param app_id [String] Application ID.
+    # @param app_id [String] RUM application ID.
     # @param rf_id [String] Retention filter ID.
     # @param body [RumRetentionFilterUpdateRequest] New definition of the RUM retention filter.
     # @param opts [Hash] the optional parameters

@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # All RUM retention filters for an application.
+  # All RUM retention filters for a RUM application.
   class RumRetentionFiltersResponse
     include BaseGenericModel
 

@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class RumRetentionFilterMeta
     include BaseGenericModel
 
-    # The type of RUM events to filter on.
+    # The origin source of the retention filter, which may be created or updated through the Datadog UI, terraform, or other channels such as direct API calls.
     attr_accessor :source
 
     attr_accessor :additional_properties
