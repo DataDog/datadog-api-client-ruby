@@ -2033,6 +2033,7 @@ module DatadogAPIClient
           "v2.logs_archive_order_definition_type" => "LogsArchiveOrderDefinitionType",
           "v2.logs_archives" => "LogsArchives",
           "v2.logs_archive_state" => "LogsArchiveState",
+          "v2.logs_archive_storage_class_s3_type" => "LogsArchiveStorageClassS3Type",
           "v2.logs_compute" => "LogsCompute",
           "v2.logs_compute_type" => "LogsComputeType",
           "v2.logs_group_by" => "LogsGroupBy",
