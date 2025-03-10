@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The type of RUM events to filter on.
+  # The origin source of the retention filter, which may be created or updated through the Datadog UI, terraform, or other channels such as direct API calls.
   class RumRetentionFilterSource
     include BaseEnumModel
 
