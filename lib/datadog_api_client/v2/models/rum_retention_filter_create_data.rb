@@ -24,9 +24,6 @@ module DatadogAPIClient::V2
     # The object describing attributes of a RUM retention filter to create.
     attr_reader :attributes
 
-    # The object describing metadata of a RUM retention filter.
-    attr_accessor :meta
-
     # The type of the resource. The value should always be retention_filters.
     attr_reader :type
 
@@ -37,7 +34,6 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'attributes' => :'attributes',
-        :'meta' => :'meta',
         :'type' => :'type'
       }
     end
@@ -47,7 +43,6 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'attributes' => :'RumRetentionFilterCreateAttributes',
-        :'meta' => :'RumRetentionFilterMeta',
         :'type' => :'RumRetentionFilterType'
       }
     end
@@ -72,10 +67,6 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'attributes')
         self.attributes = attributes[:'attributes']
-      end
-
-      if attributes.key?(:'meta')
-        self.meta = attributes[:'meta']
       end
 
       if attributes.key?(:'type')
@@ -139,7 +130,6 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           attributes == o.attributes &&
-          meta == o.meta &&
           type == o.type &&
           additional_properties == o.additional_properties
     end
@@ -148,7 +138,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, meta, type, additional_properties].hash
+      [attributes, type, additional_properties].hash
     end
   end
 end
