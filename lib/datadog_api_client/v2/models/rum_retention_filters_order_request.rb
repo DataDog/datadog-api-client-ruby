@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The list of RUM retention filter IDs along with their corresponding type to reorder.
-  # All retention filter IDs should be included in the list created for an application.
+  # All retention filter IDs should be included in the list created for a RUM application.
   class RumRetentionFiltersOrderRequest
     include BaseGenericModel
 

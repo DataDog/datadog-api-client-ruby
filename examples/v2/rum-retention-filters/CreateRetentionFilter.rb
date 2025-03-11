@@ -13,9 +13,6 @@ body = DatadogAPIClient::V2::RumRetentionFilterCreateRequest.new({
       sample_rate: 50,
       enabled: true,
     }),
-    meta: DatadogAPIClient::V2::RumRetentionFilterMeta.new({
-      source: DatadogAPIClient::V2::RumRetentionFilterSource::TERRAFORM,
-    }),
   }),
 })
 p api_instance.create_retention_filter("a33671aa-24fd-4dcd-ba4b-5bbdbafe7690", body)
