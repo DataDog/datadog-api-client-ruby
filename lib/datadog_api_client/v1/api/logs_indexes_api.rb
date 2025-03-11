@@ -94,8 +94,8 @@ module DatadogAPIClient::V1
     #
     # @see #delete_logs_index_with_http_info
     def delete_logs_index(name, opts = {})
-      data, _status_code, _headers = delete_logs_index_with_http_info(name, opts)
-      data
+      delete_logs_index_with_http_info(name, opts)
+      nil
     end
 
     # Delete an index.
@@ -105,7 +105,7 @@ module DatadogAPIClient::V1
     #
     # @param name [String] Name of the log index.
     # @param opts [Hash] the optional parameters
-    # @return [Array<(LogsIndex, Integer, Hash)>] LogsIndex data, response status code and response headers
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_logs_index_with_http_info(name, opts = {})
 
       if @api_client.config.debugging
@@ -124,7 +124,7 @@ module DatadogAPIClient::V1
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -133,7 +133,7 @@ module DatadogAPIClient::V1
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'LogsIndex'
+      return_type = opts[:debug_return_type]
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
