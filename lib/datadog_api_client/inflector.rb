@@ -2643,6 +2643,7 @@ module DatadogAPIClient
           "v2.security_monitoring_signal_triage_update_data" => "SecurityMonitoringSignalTriageUpdateData",
           "v2.security_monitoring_signal_triage_update_response" => "SecurityMonitoringSignalTriageUpdateResponse",
           "v2.security_monitoring_signal_type" => "SecurityMonitoringSignalType",
+          "v2.security_monitoring_standard_data_source" => "SecurityMonitoringStandardDataSource",
           "v2.security_monitoring_standard_rule_create_payload" => "SecurityMonitoringStandardRuleCreatePayload",
           "v2.security_monitoring_standard_rule_payload" => "SecurityMonitoringStandardRulePayload",
           "v2.security_monitoring_standard_rule_query" => "SecurityMonitoringStandardRuleQuery",

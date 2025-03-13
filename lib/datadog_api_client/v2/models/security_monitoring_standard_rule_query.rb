@@ -24,6 +24,9 @@ module DatadogAPIClient::V2
     # The aggregation type.
     attr_accessor :aggregation
 
+    # Source of events, either logs or audit trail.
+    attr_accessor :data_source
+
     # Field for which the cardinality is measured. Sent as an array.
     attr_accessor :distinct_fields
 
@@ -53,6 +56,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'aggregation' => :'aggregation',
+        :'data_source' => :'dataSource',
         :'distinct_fields' => :'distinctFields',
         :'group_by_fields' => :'groupByFields',
         :'has_optional_group_by_fields' => :'hasOptionalGroupByFields',
@@ -68,6 +72,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'aggregation' => :'SecurityMonitoringRuleQueryAggregation',
+        :'data_source' => :'SecurityMonitoringStandardDataSource',
         :'distinct_fields' => :'Array<String>',
         :'group_by_fields' => :'Array<String>',
         :'has_optional_group_by_fields' => :'Boolean',
@@ -98,6 +103,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'aggregation')
         self.aggregation = attributes[:'aggregation']
+      end
+
+      if attributes.key?(:'data_source')
+        self.data_source = attributes[:'data_source']
       end
 
       if attributes.key?(:'distinct_fields')
@@ -162,6 +171,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           aggregation == o.aggregation &&
+          data_source == o.data_source &&
           distinct_fields == o.distinct_fields &&
           group_by_fields == o.group_by_fields &&
           has_optional_group_by_fields == o.has_optional_group_by_fields &&
@@ -176,7 +186,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [aggregation, distinct_fields, group_by_fields, has_optional_group_by_fields, metric, metrics, name, query, additional_properties].hash
+      [aggregation, data_source, distinct_fields, group_by_fields, has_optional_group_by_fields, metric, metrics, name, query, additional_properties].hash
     end
   end
 end
