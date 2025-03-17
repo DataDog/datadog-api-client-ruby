@@ -108,7 +108,7 @@ module DatadogAPIClient::V2
         :'tags' => :'Array<String>',
         :'team' => :'String',
         :'tier' => :'String',
-        :'type' => :'ServiceDefinitionV2Dot2Type'
+        :'type' => :'String'
       }
     end
 
