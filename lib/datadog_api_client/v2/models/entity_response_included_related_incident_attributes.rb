@@ -34,7 +34,7 @@ module DatadogAPIClient::V2
     attr_accessor :status
 
     # Incident title.
-    attr_accessor :title
+    attr_reader :title
 
     attr_accessor :additional_properties
 
@@ -99,6 +99,24 @@ module DatadogAPIClient::V2
       if attributes.key?(:'title')
         self.title = attributes[:'title']
       end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @title.nil?
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param title [Object] Object to be assigned
+    # @!visibility private
+    def title=(title)
+      if title.nil?
+        fail ArgumentError, 'invalid value for "title", title cannot be nil.'
+      end
+      @title = title
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
