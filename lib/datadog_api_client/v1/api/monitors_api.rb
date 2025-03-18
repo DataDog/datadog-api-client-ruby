@@ -522,7 +522,7 @@ module DatadogAPIClient::V1
     # Get all monitors from your organization.
     #
     # @param opts [Hash] the optional parameters
-    # @option opts [String] :group_states When specified, shows additional information about the group states. Choose one or more from `all`, `alert`, `warn`, and `no data` (`no%20data`).
+    # @option opts [String] :group_states When specified, shows additional information about the group states. Choose one or more from `all`, `alert`, `warn`, and `no data`.
     # @option opts [String] :name A string to filter monitors by name.
     # @option opts [String] :tags A comma separated list indicating what tags, if any, should be used to filter the list of monitors by scope. For example, `host:host0`.
     # @option opts [String] :monitor_tags A comma separated list indicating what service and/or custom tags, if any, should be used to filter the list of monitors. Tags created in the Datadog UI automatically have the service key prepended. For example, `service:my-app`.
