@@ -22,10 +22,10 @@ module DatadogAPIClient::V2
     include BaseGenericModel
 
     # Entity kind.
-    attr_accessor :kind
+    attr_reader :kind
 
     # Entity name.
-    attr_accessor :name
+    attr_reader :name
 
     # Entity namespace.
     attr_accessor :namespace
@@ -90,6 +90,35 @@ module DatadogAPIClient::V2
       if attributes.key?(:'type')
         self.type = attributes[:'type']
       end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @kind.nil?
+      return false if @name.nil?
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param kind [Object] Object to be assigned
+    # @!visibility private
+    def kind=(kind)
+      if kind.nil?
+        fail ArgumentError, 'invalid value for "kind", kind cannot be nil.'
+      end
+      @kind = kind
+    end
+
+    # Custom attribute writer method with validation
+    # @param name [Object] Object to be assigned
+    # @!visibility private
+    def name=(name)
+      if name.nil?
+        fail ArgumentError, 'invalid value for "name", name cannot be nil.'
+      end
+      @name = name
     end
 
     # Returns the object in the form of hash, with additionalProperties support.

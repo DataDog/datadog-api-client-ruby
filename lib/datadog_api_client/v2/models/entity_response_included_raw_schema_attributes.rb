@@ -22,7 +22,7 @@ module DatadogAPIClient::V2
     include BaseGenericModel
 
     # Schema from user input in base64 encoding.
-    attr_accessor :raw_schema
+    attr_reader :raw_schema
 
     attr_accessor :additional_properties
 
@@ -63,6 +63,24 @@ module DatadogAPIClient::V2
       if attributes.key?(:'raw_schema')
         self.raw_schema = attributes[:'raw_schema']
       end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @raw_schema.nil?
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param raw_schema [Object] Object to be assigned
+    # @!visibility private
+    def raw_schema=(raw_schema)
+      if raw_schema.nil?
+        fail ArgumentError, 'invalid value for "raw_schema", raw_schema cannot be nil.'
+      end
+      @raw_schema = raw_schema
     end
 
     # Returns the object in the form of hash, with additionalProperties support.

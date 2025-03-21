@@ -22,7 +22,7 @@ module DatadogAPIClient::V2
     include BaseGenericModel
 
     # Entity schema v3.
-    attr_accessor :schema
+    attr_reader :schema
 
     attr_accessor :additional_properties
 
@@ -63,6 +63,24 @@ module DatadogAPIClient::V2
       if attributes.key?(:'schema')
         self.schema = attributes[:'schema']
       end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @schema.nil?
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param schema [Object] Object to be assigned
+    # @!visibility private
+    def schema=(schema)
+      if schema.nil?
+        fail ArgumentError, 'invalid value for "schema", schema cannot be nil.'
+      end
+      @schema = schema
     end
 
     # Returns the object in the form of hash, with additionalProperties support.

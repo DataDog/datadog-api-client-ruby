@@ -25,7 +25,7 @@ module DatadogAPIClient::V2
     attr_accessor :escalations
 
     # Oncall provider.
-    attr_accessor :provider
+    attr_reader :provider
 
     attr_accessor :additional_properties
 
@@ -74,6 +74,24 @@ module DatadogAPIClient::V2
       if attributes.key?(:'provider')
         self.provider = attributes[:'provider']
       end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @provider.nil?
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param provider [Object] Object to be assigned
+    # @!visibility private
+    def provider=(provider)
+      if provider.nil?
+        fail ArgumentError, 'invalid value for "provider", provider cannot be nil.'
+      end
+      @provider = provider
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
