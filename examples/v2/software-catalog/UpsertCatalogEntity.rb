@@ -36,7 +36,7 @@ body = DatadogAPIClient::V2::EntityV3Service.new({
   metadata: DatadogAPIClient::V2::EntityV3Metadata.new({
     additional_owners: [
       DatadogAPIClient::V2::EntityV3MetadataAdditionalOwnersItems.new({
-        name: "",
+        name: "fake-team-name",
       }),
     ],
     contacts: [
