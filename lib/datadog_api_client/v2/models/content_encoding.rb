@@ -24,5 +24,6 @@ module DatadogAPIClient::V2
     IDENTITY = "identity".freeze
     GZIP = "gzip".freeze
     DEFLATE = "deflate".freeze
+    ZSTD1 = "zstd1".freeze
   end
 end
