@@ -53,7 +53,7 @@ module DatadogAPIClient::V2
         :'attributes' => :'EntityResponseIncludedRelatedEntityAttributes',
         :'id' => :'String',
         :'meta' => :'EntityResponseIncludedRelatedEntityMeta',
-        :'type' => :'String'
+        :'type' => :'EntityResponseIncludedRelatedEntityType'
       }
     end
 

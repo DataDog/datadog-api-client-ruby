@@ -48,7 +48,7 @@ module DatadogAPIClient::V2
       {
         :'attributes' => :'EntityResponseIncludedSchemaAttributes',
         :'id' => :'String',
-        :'type' => :'String'
+        :'type' => :'EntityResponseIncludedSchemaType'
       }
     end
 

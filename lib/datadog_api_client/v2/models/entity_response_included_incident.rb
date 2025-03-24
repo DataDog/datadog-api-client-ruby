@@ -48,7 +48,7 @@ module DatadogAPIClient::V2
       {
         :'attributes' => :'EntityResponseIncludedRelatedIncidentAttributes',
         :'id' => :'String',
-        :'type' => :'String'
+        :'type' => :'EntityResponseIncludedIncidentType'
       }
     end
 
