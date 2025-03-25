@@ -17,12 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Schema for a Change Event-based trigger.
-  class ChangeEventTriggerWrapper
+  # Schema for a Database Monitoring-based trigger.
+  class DatabaseMonitoringTriggerWrapper
     include BaseGenericModel
 
-    # Trigger a workflow from a Change Event.
-    attr_reader :change_event_trigger
+    # Trigger a workflow from Database Monitoring.
+    attr_reader :database_monitoring_trigger
 
     # A list of steps that run first after a trigger fires.
     attr_accessor :start_step_names
@@ -33,7 +33,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'change_event_trigger' => :'changeEventTrigger',
+        :'database_monitoring_trigger' => :'databaseMonitoringTrigger',
         :'start_step_names' => :'startStepNames'
       }
     end
@@ -42,7 +42,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'change_event_trigger' => :'Object',
+        :'database_monitoring_trigger' => :'Object',
         :'start_step_names' => :'Array<String>'
       }
     end
@@ -52,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ChangeEventTriggerWrapper` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::DatabaseMonitoringTriggerWrapper` initialize method"
       end
 
       self.additional_properties = {}
@@ -65,8 +65,8 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'change_event_trigger')
-        self.change_event_trigger = attributes[:'change_event_trigger']
+      if attributes.key?(:'database_monitoring_trigger')
+        self.database_monitoring_trigger = attributes[:'database_monitoring_trigger']
       end
 
       if attributes.key?(:'start_step_names')
@@ -80,18 +80,18 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @change_event_trigger.nil?
+      return false if @database_monitoring_trigger.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param change_event_trigger [Object] Object to be assigned
+    # @param database_monitoring_trigger [Object] Object to be assigned
     # @!visibility private
-    def change_event_trigger=(change_event_trigger)
-      if change_event_trigger.nil?
-        fail ArgumentError, 'invalid value for "change_event_trigger", change_event_trigger cannot be nil.'
+    def database_monitoring_trigger=(database_monitoring_trigger)
+      if database_monitoring_trigger.nil?
+        fail ArgumentError, 'invalid value for "database_monitoring_trigger", database_monitoring_trigger cannot be nil.'
       end
-      @change_event_trigger = change_event_trigger
+      @database_monitoring_trigger = database_monitoring_trigger
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -120,7 +120,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          change_event_trigger == o.change_event_trigger &&
+          database_monitoring_trigger == o.database_monitoring_trigger &&
           start_step_names == o.start_step_names &&
           additional_properties == o.additional_properties
     end
@@ -129,7 +129,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [change_event_trigger, start_step_names, additional_properties].hash
+      [database_monitoring_trigger, start_step_names, additional_properties].hash
     end
   end
 end

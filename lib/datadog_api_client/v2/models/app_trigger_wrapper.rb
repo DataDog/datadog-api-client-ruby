@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class AppTriggerWrapper
     include BaseGenericModel
 
-    # Trigger a workflow VIA an App.
+    # Trigger a workflow from an App.
     attr_reader :app_trigger
 
     # A list of steps that run first after a trigger fires.

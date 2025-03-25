@@ -30,13 +30,17 @@ module DatadogAPIClient::V2
           :'AppTriggerWrapper',
           :'CaseTriggerWrapper',
           :'ChangeEventTriggerWrapper',
+          :'DatabaseMonitoringTriggerWrapper',
           :'DashboardTriggerWrapper',
           :'GithubWebhookTriggerWrapper',
           :'IncidentTriggerWrapper',
           :'MonitorTriggerWrapper',
+          :'NotebookTriggerWrapper',
           :'ScheduleTriggerWrapper',
           :'SecurityTriggerWrapper',
+          :'SelfServiceTriggerWrapper',
           :'SlackTriggerWrapper',
+          :'SoftwareCatalogTriggerWrapper',
           :'WorkflowTriggerWrapper'
         ]
       end

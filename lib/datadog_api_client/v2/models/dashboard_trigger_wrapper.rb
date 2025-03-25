@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class DashboardTriggerWrapper
     include BaseGenericModel
 
-    # Trigger a workflow VIA a Dashboard.
+    # Trigger a workflow from a Dashboard.
     attr_reader :dashboard_trigger
 
     # A list of steps that run first after a trigger fires.

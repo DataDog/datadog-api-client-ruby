@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class ScheduleTriggerWrapper
     include BaseGenericModel
 
-    # Trigger a workflow VIA a Schedule. The workflow must be published.
+    # Trigger a workflow from a Schedule. The workflow must be published.
     attr_reader :schedule_trigger
 
     # A list of steps that run first after a trigger fires.

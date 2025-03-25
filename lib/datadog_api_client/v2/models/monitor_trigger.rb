@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Trigger a workflow VIA a Monitor. For automatic triggering a handle must be configured and the workflow must be published.
+  # Trigger a workflow from a Monitor. For automatic triggering a handle must be configured and the workflow must be published.
   class MonitorTrigger
     include BaseGenericModel
 

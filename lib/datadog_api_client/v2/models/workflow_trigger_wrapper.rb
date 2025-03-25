@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # A list of steps that run first after a trigger fires.
     attr_accessor :start_step_names
 
-    # Trigger a workflow VIA the Datadog UI. Only required if no other trigger exists.
+    # Trigger a workflow from the Datadog UI. Only required if no other trigger exists.
     attr_reader :workflow_trigger
 
     attr_accessor :additional_properties

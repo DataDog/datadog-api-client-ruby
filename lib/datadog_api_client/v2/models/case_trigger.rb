@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Trigger a workflow VIA a Case. For automatic triggering a handle must be configured and the workflow must be published.
+  # Trigger a workflow from a Case. For automatic triggering a handle must be configured and the workflow must be published.
   class CaseTrigger
     include BaseGenericModel
 

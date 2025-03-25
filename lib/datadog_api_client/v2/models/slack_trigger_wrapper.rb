@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class SlackTriggerWrapper
     include BaseGenericModel
 
-    # Trigger a workflow VIA Slack. The workflow must be published.
+    # Trigger a workflow from Slack. The workflow must be published.
     attr_reader :slack_trigger
 
     # A list of steps that run first after a trigger fires.
