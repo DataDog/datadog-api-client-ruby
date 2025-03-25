@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Trigger a workflow VIA a Security Signal or Finding. For automatic triggering a handle must be configured and the workflow must be published.
+  # Trigger a workflow from a Security Signal or Finding. For automatic triggering a handle must be configured and the workflow must be published.
   class SecurityTrigger
     include BaseGenericModel
 

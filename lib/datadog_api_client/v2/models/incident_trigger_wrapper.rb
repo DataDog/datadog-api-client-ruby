@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class IncidentTriggerWrapper
     include BaseGenericModel
 
-    # Trigger a workflow VIA an Incident. For automatic triggering a handle must be configured and the workflow must be published.
+    # Trigger a workflow from an Incident. For automatic triggering a handle must be configured and the workflow must be published.
     attr_reader :incident_trigger
 
     # A list of steps that run first after a trigger fires.

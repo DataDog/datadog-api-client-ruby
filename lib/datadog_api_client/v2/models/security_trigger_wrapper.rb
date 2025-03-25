@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class SecurityTriggerWrapper
     include BaseGenericModel
 
-    # Trigger a workflow VIA a Security Signal or Finding. For automatic triggering a handle must be configured and the workflow must be published.
+    # Trigger a workflow from a Security Signal or Finding. For automatic triggering a handle must be configured and the workflow must be published.
     attr_reader :security_trigger
 
     # A list of steps that run first after a trigger fires.

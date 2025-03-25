@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class APITriggerWrapper
     include BaseGenericModel
 
-    # Trigger a workflow VIA an API. The workflow must be published.
+    # Trigger a workflow from an API request. The workflow must be published.
     attr_reader :api_trigger
 
     # A list of steps that run first after a trigger fires.

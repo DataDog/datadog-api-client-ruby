@@ -17,12 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Schema for a Change Event-based trigger.
-  class ChangeEventTriggerWrapper
+  # Schema for a Self Service-based trigger.
+  class SelfServiceTriggerWrapper
     include BaseGenericModel
 
-    # Trigger a workflow from a Change Event.
-    attr_reader :change_event_trigger
+    # Trigger a workflow from Self Service.
+    attr_reader :self_service_trigger
 
     # A list of steps that run first after a trigger fires.
     attr_accessor :start_step_names
@@ -33,7 +33,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'change_event_trigger' => :'changeEventTrigger',
+        :'self_service_trigger' => :'selfServiceTrigger',
         :'start_step_names' => :'startStepNames'
       }
     end
@@ -42,7 +42,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'change_event_trigger' => :'Object',
+        :'self_service_trigger' => :'Object',
         :'start_step_names' => :'Array<String>'
       }
     end
@@ -52,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ChangeEventTriggerWrapper` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SelfServiceTriggerWrapper` initialize method"
       end
 
       self.additional_properties = {}
@@ -65,8 +65,8 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'change_event_trigger')
-        self.change_event_trigger = attributes[:'change_event_trigger']
+      if attributes.key?(:'self_service_trigger')
+        self.self_service_trigger = attributes[:'self_service_trigger']
       end
 
       if attributes.key?(:'start_step_names')
@@ -80,18 +80,18 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @change_event_trigger.nil?
+      return false if @self_service_trigger.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param change_event_trigger [Object] Object to be assigned
+    # @param self_service_trigger [Object] Object to be assigned
     # @!visibility private
-    def change_event_trigger=(change_event_trigger)
-      if change_event_trigger.nil?
-        fail ArgumentError, 'invalid value for "change_event_trigger", change_event_trigger cannot be nil.'
+    def self_service_trigger=(self_service_trigger)
+      if self_service_trigger.nil?
+        fail ArgumentError, 'invalid value for "self_service_trigger", self_service_trigger cannot be nil.'
       end
-      @change_event_trigger = change_event_trigger
+      @self_service_trigger = self_service_trigger
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -120,7 +120,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          change_event_trigger == o.change_event_trigger &&
+          self_service_trigger == o.self_service_trigger &&
           start_step_names == o.start_step_names &&
           additional_properties == o.additional_properties
     end
@@ -129,7 +129,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [change_event_trigger, start_step_names, additional_properties].hash
+      [self_service_trigger, start_step_names, additional_properties].hash
     end
   end
 end

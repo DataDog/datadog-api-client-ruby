@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Trigger a workflow VIA an Incident. For automatic triggering a handle must be configured and the workflow must be published.
+  # Trigger a workflow from an Incident. For automatic triggering a handle must be configured and the workflow must be published.
   class IncidentTrigger
     include BaseGenericModel
 

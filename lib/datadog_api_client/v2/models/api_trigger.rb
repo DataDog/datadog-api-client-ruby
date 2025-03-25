@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Trigger a workflow VIA an API. The workflow must be published.
+  # Trigger a workflow from an API request. The workflow must be published.
   class APITrigger
     include BaseGenericModel
 
