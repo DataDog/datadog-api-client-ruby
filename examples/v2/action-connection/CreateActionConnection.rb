@@ -7,7 +7,7 @@ body = DatadogAPIClient::V2::CreateActionConnectionRequest.new({
   data: DatadogAPIClient::V2::ActionConnectionData.new({
     type: DatadogAPIClient::V2::ActionConnectionDataType::ACTION_CONNECTION,
     attributes: DatadogAPIClient::V2::ActionConnectionAttributes.new({
-      name: "Cassette Connection DELETE_ME",
+      name: "Cassette Connection exampleactionconnection",
       integration: DatadogAPIClient::V2::AWSIntegration.new({
         type: DatadogAPIClient::V2::AWSIntegrationType::AWS,
         credentials: DatadogAPIClient::V2::AWSAssumeRole.new({
