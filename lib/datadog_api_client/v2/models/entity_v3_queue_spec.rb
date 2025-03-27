@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class EntityV3QueueSpec
     include BaseGenericModel
 
+    # A list of components the queue is a part of
+    attr_accessor :component_of
+
     # The lifecycle state of the queue.
     attr_reader :lifecycle
 
@@ -34,6 +37,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'component_of' => :'componentOf',
         :'lifecycle' => :'lifecycle',
         :'tier' => :'tier',
         :'type' => :'type'
@@ -44,6 +48,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'component_of' => :'Array<String>',
         :'lifecycle' => :'String',
         :'tier' => :'String',
         :'type' => :'String'
@@ -65,6 +70,12 @@ module DatadogAPIClient::V2
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'component_of')
+        if (value = attributes[:'component_of']).is_a?(Array)
+          self.component_of = value
+        end
+      end
 
       if attributes.key?(:'lifecycle')
         self.lifecycle = attributes[:'lifecycle']
@@ -114,6 +125,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          component_of == o.component_of &&
           lifecycle == o.lifecycle &&
           tier == o.tier &&
           type == o.type
@@ -123,7 +135,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [lifecycle, tier, type].hash
+      [component_of, lifecycle, tier, type].hash
     end
   end
 end

@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class EntityV3ServiceSpec
     include BaseGenericModel
 
+    # A list of components the service is a part of
+    attr_accessor :component_of
+
     # A list of components the service depends on.
     attr_accessor :depends_on
 
@@ -40,6 +43,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'component_of' => :'componentOf',
         :'depends_on' => :'dependsOn',
         :'languages' => :'languages',
         :'lifecycle' => :'lifecycle',
@@ -52,6 +56,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'component_of' => :'Array<String>',
         :'depends_on' => :'Array<String>',
         :'languages' => :'Array<String>',
         :'lifecycle' => :'String',
@@ -75,6 +80,12 @@ module DatadogAPIClient::V2
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'component_of')
+        if (value = attributes[:'component_of']).is_a?(Array)
+          self.component_of = value
+        end
+      end
 
       if attributes.key?(:'depends_on')
         if (value = attributes[:'depends_on']).is_a?(Array)
@@ -136,6 +147,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          component_of == o.component_of &&
           depends_on == o.depends_on &&
           languages == o.languages &&
           lifecycle == o.lifecycle &&
@@ -147,7 +159,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [depends_on, languages, lifecycle, tier, type].hash
+      [component_of, depends_on, languages, lifecycle, tier, type].hash
     end
   end
 end
