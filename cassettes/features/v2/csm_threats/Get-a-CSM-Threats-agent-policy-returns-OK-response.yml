@@ -1,0 +1,64 @@
+http_interactions:
+- recorded_at: Thu, 27 Mar 2025 09:35:50 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"description":"My agent policy","enabled":true,"hostTags":["env:staging"],"name":"testgetacsmthreatsagentpolicyreturnsokresponse1743068150"},"type":"policy"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datad0g.com/api/v2/remote_config/products/cws/policy
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"aeb-hly-q0l","type":"policy","attributes":{"blockingRulesCount":0,"datadogManaged":false,"description":"My
+        agent policy","disabledRulesCount":1,"enabled":true,"hostTags":["env:staging"],"monitoringRulesCount":225,"name":"testgetacsmthreatsagentpolicyreturnsokresponse1743068150","policyVersion":"1","priority":1000000025,"ruleCount":226,"updateDate":1743068150558,"updater":{"name":"Quentin
+        Guillard","handle":"quentin.guillard@datadoghq.com"}}}}'
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+- recorded_at: Thu, 27 Mar 2025 09:35:50 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+    method: GET
+    uri: https://api.datad0g.com/api/v2/remote_config/products/cws/policy/aeb-hly-q0l
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"aeb-hly-q0l","type":"policy","attributes":{"blockingRulesCount":0,"datadogManaged":false,"description":"My
+        agent policy","disabledRulesCount":1,"enabled":true,"hostTags":["env:staging"],"monitoringRulesCount":225,"name":"testgetacsmthreatsagentpolicyreturnsokresponse1743068150","policyVersion":"1","priority":1000000025,"ruleCount":226,"updateDate":1743068150558,"updater":{"name":"Quentin
+        Guillard","handle":"quentin.guillard@datadoghq.com"}}}}'
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+- recorded_at: Thu, 27 Mar 2025 09:35:50 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datad0g.com/api/v2/remote_config/products/cws/policy/aeb-hly-q0l
+  response:
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 204
+      message: No Content
+recorded_with: VCR 6.0.0

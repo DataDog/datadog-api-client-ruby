@@ -1,0 +1,28 @@
+http_interactions:
+- recorded_at: Thu, 27 Mar 2025 09:35:42 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: "{\"data\":{\"attributes\":{\"description\":\"My agent policy\",\"enabled\"\
+        :true,\"hostTags\":[\"bad_tag:\u574F\u6807\u7B7E\"],\"name\":\"my_agent_policy\"\
+        },\"type\":\"policy\"}}"
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datad0g.com/api/v2/remote_config/products/cws/policy
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"title":"failed to create policy"}]}
+
+        '
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 400
+      message: Bad Request
+recorded_with: VCR 6.0.0
