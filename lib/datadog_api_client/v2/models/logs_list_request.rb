@@ -25,7 +25,7 @@ module DatadogAPIClient::V2
     attr_accessor :filter
 
     # Global query options that are used during the query.
-    # Note: you should supply either timezone or time offset, but not both. Otherwise, the query will fail.
+    # Note: These fields are currently deprecated and do not affect the query results.
     attr_accessor :options
 
     # Paging attributes for listing logs.
