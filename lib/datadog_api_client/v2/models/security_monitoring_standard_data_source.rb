@@ -23,5 +23,9 @@ module DatadogAPIClient::V2
 
     LOGS = "logs".freeze
     AUDIT = "audit".freeze
+    APP_SEC_SPANS = "app_sec_spans".freeze
+    SPANS = "spans".freeze
+    SECURITY_RUNTIME = "security_runtime".freeze
+    NETWORK = "network".freeze
   end
 end
