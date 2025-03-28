@@ -18,7 +18,9 @@ require 'time'
 
 module DatadogAPIClient::V2
   # Global query options that are used during the query.
-  # Note: you should supply either timezone or time offset, but not both. Otherwise, the query will fail.
+  # Note: These fields are currently deprecated and do not affect the query results.
+  #
+  # @deprecated This model is deprecated.
   class LogsQueryOptions
     include BaseGenericModel
 
@@ -52,6 +54,7 @@ module DatadogAPIClient::V2
     # @param attributes [Hash] Model attributes in the form of hash
     # @!visibility private
     def initialize(attributes = {})
+      warn "[DEPRECATION] `LogsQueryOptions` is deprecated."
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::LogsQueryOptions` initialize method"
       end
