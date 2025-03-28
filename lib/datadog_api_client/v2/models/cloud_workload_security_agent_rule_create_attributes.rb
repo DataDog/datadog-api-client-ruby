@@ -24,17 +24,23 @@ module DatadogAPIClient::V2
     # The description of the Agent rule.
     attr_accessor :description
 
-    # Whether the Agent rule is enabled.
+    # Whether the Agent rule is enabled
     attr_accessor :enabled
 
     # The SECL expression of the Agent rule.
     attr_reader :expression
 
-    # The platforms the Agent rule is supported on.
+    # The platforms the Agent rule is supported on
     attr_accessor :filters
 
     # The name of the Agent rule.
     attr_reader :name
+
+    # The ID of the policy where the Agent rule is saved
+    attr_accessor :policy_id
+
+    # The list of product tags associated with the rule
+    attr_accessor :product_tags
 
     attr_accessor :additional_properties
 
@@ -46,7 +52,9 @@ module DatadogAPIClient::V2
         :'enabled' => :'enabled',
         :'expression' => :'expression',
         :'filters' => :'filters',
-        :'name' => :'name'
+        :'name' => :'name',
+        :'policy_id' => :'policy_id',
+        :'product_tags' => :'product_tags'
       }
     end
 
@@ -58,7 +66,9 @@ module DatadogAPIClient::V2
         :'enabled' => :'Boolean',
         :'expression' => :'String',
         :'filters' => :'Array<String>',
-        :'name' => :'String'
+        :'name' => :'String',
+        :'policy_id' => :'String',
+        :'product_tags' => :'Array<String>'
       }
     end
 
@@ -100,6 +110,16 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'policy_id')
+        self.policy_id = attributes[:'policy_id']
+      end
+
+      if attributes.key?(:'product_tags')
+        if (value = attributes[:'product_tags']).is_a?(Array)
+          self.product_tags = value
+        end
       end
     end
 
@@ -163,6 +183,8 @@ module DatadogAPIClient::V2
           expression == o.expression &&
           filters == o.filters &&
           name == o.name &&
+          policy_id == o.policy_id &&
+          product_tags == o.product_tags &&
           additional_properties == o.additional_properties
     end
 
@@ -170,7 +192,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [description, enabled, expression, filters, name, additional_properties].hash
+      [description, enabled, expression, filters, name, policy_id, product_tags, additional_properties].hash
     end
   end
 end
