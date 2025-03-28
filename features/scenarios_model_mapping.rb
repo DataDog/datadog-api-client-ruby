@@ -1765,6 +1765,13 @@ ScenariosModelMappings = {
             "device_id" => "String",
             "body" => "ListTagsResponse",
     },
+    "v2.GetAggregatedConnections" => {
+            "from" => "Integer",
+            "to" => "Integer",
+            "group_by" => "String",
+            "tags" => "String",
+            "limit" => "Integer",
+    },
     "v2.GetOrgConfig" => {
             "org_config_name" => "String",
     },

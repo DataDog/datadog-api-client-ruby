@@ -230,6 +230,7 @@ module DatadogAPIClient
             "v2.list_aws_namespaces": false,
             "v2.update_aws_account": false,
             "v2.list_aws_logs_services": false,
+            "v2.get_aggregated_connections": false,
             "v2.cancel_historical_job": false,
             "v2.convert_job_result_to_signal": false,
             "v2.delete_historical_job": false,
