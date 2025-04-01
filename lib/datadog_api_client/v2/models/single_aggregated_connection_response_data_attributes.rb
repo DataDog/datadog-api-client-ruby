@@ -36,7 +36,7 @@ module DatadogAPIClient::V2
     # The total number of packets sent by the server over the given period.
     attr_accessor :packets_sent_by_server
 
-    # Measured as TCP smoothed roundtrip time in microseconds (the time between a TCP frame being sent and acknowledged).
+    # Measured as TCP smoothed round trip time in microseconds (the time between a TCP frame being sent and acknowledged).
     attr_accessor :rtt_micro_seconds
 
     # The number of TCP connections in a closed state. Measured in connections per second from the client.
