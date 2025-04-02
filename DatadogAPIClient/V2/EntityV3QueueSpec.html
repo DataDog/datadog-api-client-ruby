@@ -6,7 +6,7 @@
 <title>
   Class: DatadogAPIClient::V2::EntityV3QueueSpec
   
-    &mdash; datadog-api-client 2.30.0.dev.1 documentation
+    &mdash; datadog-api-client 2.31.1.dev.1 documentation
   
 </title>
 
@@ -124,6 +124,32 @@
       <li class="public ">
   <span class="summary_signature">
     
+      <a href="#component_of-instance_method" title="#component_of (instance method)">#<strong>component_of</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>A list of components the queue is a part of.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#lifecycle-instance_method" title="#lifecycle (instance method)">#<strong>lifecycle</strong>  &#x21d2; Object </a>
     
 
@@ -224,9 +250,51 @@
     <h2>Instance Attribute Details</h2>
     
       
-      <span id="lifecycle=-instance_method"></span>
+      <span id="component_of=-instance_method"></span>
       <div class="method_details first">
-  <h3 class="signature first" id="lifecycle-instance_method">
+  <h3 class="signature first" id="component_of-instance_method">
+  
+    #<strong>component_of</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>A list of components the queue is a part of</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+25
+26
+27</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/entity_v3_queue_spec.rb', line 25</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_component_of'>component_of</span>
+  <span class='ivar'>@component_of</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="lifecycle=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="lifecycle-instance_method">
   
     #<strong>lifecycle</strong>  &#x21d2; <tt>Object</tt> 
   
@@ -355,7 +423,7 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Feb 18 21:07:23 2025 by
+  Generated on Wed Apr  2 21:46:33 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>
