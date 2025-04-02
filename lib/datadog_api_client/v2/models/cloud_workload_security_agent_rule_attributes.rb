@@ -17,59 +17,62 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A Cloud Workload Security Agent rule returned by the API.
+  # A Cloud Workload Security Agent rule returned by the API
   class CloudWorkloadSecurityAgentRuleAttributes
     include BaseGenericModel
 
-    # The array of actions the rule can perform if triggered.
+    # The array of actions the rule can perform if triggered
     attr_accessor :actions
 
-    # The version of the agent.
+    # The version of the Agent
     attr_accessor :agent_constraint
 
-    # The category of the Agent rule.
+    # The category of the Agent rule
     attr_accessor :category
 
-    # The ID of the user who created the rule.
+    # The ID of the user who created the rule
     attr_accessor :creation_author_uu_id
 
-    # When the Agent rule was created, timestamp in milliseconds.
+    # When the Agent rule was created, timestamp in milliseconds
     attr_accessor :creation_date
 
-    # The attributes of the user who created the Agent rule.
+    # The attributes of the user who created the Agent rule
     attr_accessor :creator
 
-    # Whether the rule is included by default.
+    # Whether the rule is included by default
     attr_accessor :default_rule
 
-    # The description of the Agent rule.
+    # The description of the Agent rule
     attr_accessor :description
 
-    # Whether the Agent rule is enabled.
+    # Whether the Agent rule is enabled
     attr_accessor :enabled
 
-    # The SECL expression of the Agent rule.
+    # The SECL expression of the Agent rule
     attr_accessor :expression
 
-    # The platforms the Agent rule is supported on.
+    # The platforms the Agent rule is supported on
     attr_accessor :filters
 
-    # The name of the Agent rule.
+    # The name of the Agent rule
     attr_accessor :name
 
-    # The ID of the user who updated the rule.
+    # The list of product tags associated with the rule
+    attr_accessor :product_tags
+
+    # The ID of the user who updated the rule
     attr_accessor :update_author_uu_id
 
-    # Timestamp in milliseconds when the Agent rule was last updated.
+    # Timestamp in milliseconds when the Agent rule was last updated
     attr_accessor :update_date
 
-    # When the Agent rule was last updated, timestamp in milliseconds.
+    # When the Agent rule was last updated, timestamp in milliseconds
     attr_accessor :updated_at
 
-    # The attributes of the user who last updated the Agent rule.
+    # The attributes of the user who last updated the Agent rule
     attr_accessor :updater
 
-    # The version of the Agent rule.
+    # The version of the Agent rule
     attr_accessor :version
 
     attr_accessor :additional_properties
@@ -90,6 +93,7 @@ module DatadogAPIClient::V2
         :'expression' => :'expression',
         :'filters' => :'filters',
         :'name' => :'name',
+        :'product_tags' => :'product_tags',
         :'update_author_uu_id' => :'updateAuthorUuId',
         :'update_date' => :'updateDate',
         :'updated_at' => :'updatedAt',
@@ -114,6 +118,7 @@ module DatadogAPIClient::V2
         :'expression' => :'String',
         :'filters' => :'Array<String>',
         :'name' => :'String',
+        :'product_tags' => :'Array<String>',
         :'update_author_uu_id' => :'String',
         :'update_date' => :'Integer',
         :'updated_at' => :'Integer',
@@ -200,6 +205,12 @@ module DatadogAPIClient::V2
         self.name = attributes[:'name']
       end
 
+      if attributes.key?(:'product_tags')
+        if (value = attributes[:'product_tags']).is_a?(Array)
+          self.product_tags = value
+        end
+      end
+
       if attributes.key?(:'update_author_uu_id')
         self.update_author_uu_id = attributes[:'update_author_uu_id']
       end
@@ -259,6 +270,7 @@ module DatadogAPIClient::V2
           expression == o.expression &&
           filters == o.filters &&
           name == o.name &&
+          product_tags == o.product_tags &&
           update_author_uu_id == o.update_author_uu_id &&
           update_date == o.update_date &&
           updated_at == o.updated_at &&
@@ -271,7 +283,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [actions, agent_constraint, category, creation_author_uu_id, creation_date, creator, default_rule, description, enabled, expression, filters, name, update_author_uu_id, update_date, updated_at, updater, version, additional_properties].hash
+      [actions, agent_constraint, category, creation_author_uu_id, creation_date, creator, default_rule, description, enabled, expression, filters, name, product_tags, update_author_uu_id, update_date, updated_at, updater, version, additional_properties].hash
     end
   end
 end
