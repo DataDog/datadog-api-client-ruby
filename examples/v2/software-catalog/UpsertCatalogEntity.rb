@@ -62,6 +62,7 @@ body = DatadogAPIClient::V2::EntityV3Service.new({
     ],
   }),
   spec: DatadogAPIClient::V2::EntityV3ServiceSpec.new({
+    component_of: [],
     depends_on: [],
     languages: [],
   }),
