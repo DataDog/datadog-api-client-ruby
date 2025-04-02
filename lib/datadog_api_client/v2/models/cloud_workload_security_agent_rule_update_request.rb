@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Request object that includes the Agent rule with the attributes to update.
+  # Request object that includes the Agent rule with the attributes to update
   class CloudWorkloadSecurityAgentRuleUpdateRequest
     include BaseGenericModel
 
-    # Object for a single Agent rule.
+    # Object for a single Agent rule
     attr_reader :data
 
     attr_accessor :additional_properties

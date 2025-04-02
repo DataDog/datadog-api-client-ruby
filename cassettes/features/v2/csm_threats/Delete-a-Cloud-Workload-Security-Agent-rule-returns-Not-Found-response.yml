@@ -1,16 +1,16 @@
 http_interactions:
-- recorded_at: Tue, 23 Apr 2024 17:57:46 GMT
+- recorded_at: Tue, 01 Apr 2025 14:30:54 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/security_monitoring/cloud_workload_security/agent_rules/abc-123-xyz
+    uri: https://api.datadoghq.com/api/v2/security_monitoring/cloud_workload_security/agent_rules/non-existent-rule-id
   response:
     body:
       encoding: UTF-8
-      string: '{"errors":["not_found(Agent rule not found: agentRuleId=abc-123-xyz)"]}
+      string: '{"errors":["Not found"]}
 
         '
     headers:

@@ -35,7 +35,7 @@ module DatadogAPIClient::V2
     #
     # Create a new Agent rule with the given parameters.
     #
-    # @param body [CloudWorkloadSecurityAgentRuleCreateRequest] The definition of the new Agent rule.
+    # @param body [CloudWorkloadSecurityAgentRuleCreateRequest] The definition of the new Agent rule
     # @param opts [Hash] the optional parameters
     # @return [Array<(CloudWorkloadSecurityAgentRuleResponse, Integer, Hash)>] CloudWorkloadSecurityAgentRuleResponse data, response status code and response headers
     def create_cloud_workload_security_agent_rule_with_http_info(body, opts = {})
@@ -90,6 +90,73 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Create a CSM Threats Agent policy.
+    #
+    # @see #create_csm_threats_agent_policy_with_http_info
+    def create_csm_threats_agent_policy(body, opts = {})
+      data, _status_code, _headers = create_csm_threats_agent_policy_with_http_info(body, opts)
+      data
+    end
+
+    # Create a CSM Threats Agent policy.
+    #
+    # Create a new Cloud Security Management Threats Agent policy with the given parameters
+    #
+    # @param body [CloudWorkloadSecurityAgentPolicyCreateRequest] The definition of the new Agent policy
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(CloudWorkloadSecurityAgentPolicyResponse, Integer, Hash)>] CloudWorkloadSecurityAgentPolicyResponse data, response status code and response headers
+    def create_csm_threats_agent_policy_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CSMThreatsAPI.create_csm_threats_agent_policy ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CSMThreatsAPI.create_csm_threats_agent_policy"
+      end
+      # resource path
+      local_var_path = '/api/v2/remote_config/products/cws/policy'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CloudWorkloadSecurityAgentPolicyResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :create_csm_threats_agent_policy,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CSMThreatsAPI#create_csm_threats_agent_policy\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create a CSM Threats Agent rule.
     #
     # @see #create_csm_threats_agent_rule_with_http_info
@@ -100,9 +167,9 @@ module DatadogAPIClient::V2
 
     # Create a CSM Threats Agent rule.
     #
-    # Create a new Cloud Security Management Threats Agent rule with the given parameters.
+    # Create a new Cloud Security Management Threats Agent rule with the given parameters
     #
-    # @param body [CloudWorkloadSecurityAgentRuleCreateRequest] The definition of the new Agent rule.
+    # @param body [CloudWorkloadSecurityAgentRuleCreateRequest] The definition of the new Agent rule
     # @param opts [Hash] the optional parameters
     # @return [Array<(CloudWorkloadSecurityAgentRuleResponse, Integer, Hash)>] CloudWorkloadSecurityAgentRuleResponse data, response status code and response headers
     def create_csm_threats_agent_rule_with_http_info(body, opts = {})
@@ -167,9 +234,9 @@ module DatadogAPIClient::V2
 
     # Delete a Cloud Workload Security Agent rule.
     #
-    # Delete a specific Agent rule.
+    # Delete a specific Agent rule
     #
-    # @param agent_rule_id [String] The ID of the Agent rule.
+    # @param agent_rule_id [String] The ID of the Agent rule
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_cloud_workload_security_agent_rule_with_http_info(agent_rule_id, opts = {})
@@ -222,6 +289,71 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Delete a CSM Threats Agent policy.
+    #
+    # @see #delete_csm_threats_agent_policy_with_http_info
+    def delete_csm_threats_agent_policy(policy_id, opts = {})
+      delete_csm_threats_agent_policy_with_http_info(policy_id, opts)
+      nil
+    end
+
+    # Delete a CSM Threats Agent policy.
+    #
+    # Delete a specific Cloud Security Management Threats Agent policy
+    #
+    # @param policy_id [String] The ID of the Agent policy
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_csm_threats_agent_policy_with_http_info(policy_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CSMThreatsAPI.delete_csm_threats_agent_policy ...'
+      end
+      # verify the required parameter 'policy_id' is set
+      if @api_client.config.client_side_validation && policy_id.nil?
+        fail ArgumentError, "Missing the required parameter 'policy_id' when calling CSMThreatsAPI.delete_csm_threats_agent_policy"
+      end
+      # resource path
+      local_var_path = '/api/v2/remote_config/products/cws/policy/{policy_id}'.sub('{policy_id}', CGI.escape(policy_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :delete_csm_threats_agent_policy,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CSMThreatsAPI#delete_csm_threats_agent_policy\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Delete a CSM Threats Agent rule.
     #
     # @see #delete_csm_threats_agent_rule_with_http_info
@@ -232,10 +364,11 @@ module DatadogAPIClient::V2
 
     # Delete a CSM Threats Agent rule.
     #
-    # Delete a specific Cloud Security Management Threats Agent rule.
+    # Delete a specific Cloud Security Management Threats Agent rule
     #
-    # @param agent_rule_id [String] The ID of the Agent rule.
+    # @param agent_rule_id [String] The ID of the Agent rule
     # @param opts [Hash] the optional parameters
+    # @option opts [String] :policy_id The ID of the Agent policy
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_csm_threats_agent_rule_with_http_info(agent_rule_id, opts = {})
 
@@ -251,6 +384,7 @@ module DatadogAPIClient::V2
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'policy_id'] = opts[:'policy_id'] if !opts[:'policy_id'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -421,9 +555,9 @@ module DatadogAPIClient::V2
 
     # Get a Cloud Workload Security Agent rule.
     #
-    # Get the details of a specific Agent rule.
+    # Get the details of a specific Agent rule
     #
-    # @param agent_rule_id [String] The ID of the Agent rule.
+    # @param agent_rule_id [String] The ID of the Agent rule
     # @param opts [Hash] the optional parameters
     # @return [Array<(CloudWorkloadSecurityAgentRuleResponse, Integer, Hash)>] CloudWorkloadSecurityAgentRuleResponse data, response status code and response headers
     def get_cloud_workload_security_agent_rule_with_http_info(agent_rule_id, opts = {})
@@ -476,6 +610,71 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get a CSM Threats Agent policy.
+    #
+    # @see #get_csm_threats_agent_policy_with_http_info
+    def get_csm_threats_agent_policy(policy_id, opts = {})
+      data, _status_code, _headers = get_csm_threats_agent_policy_with_http_info(policy_id, opts)
+      data
+    end
+
+    # Get a CSM Threats Agent policy.
+    #
+    # Get the details of a specific Cloud Security Management Threats Agent policy
+    #
+    # @param policy_id [String] The ID of the Agent policy
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(CloudWorkloadSecurityAgentPolicyResponse, Integer, Hash)>] CloudWorkloadSecurityAgentPolicyResponse data, response status code and response headers
+    def get_csm_threats_agent_policy_with_http_info(policy_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CSMThreatsAPI.get_csm_threats_agent_policy ...'
+      end
+      # verify the required parameter 'policy_id' is set
+      if @api_client.config.client_side_validation && policy_id.nil?
+        fail ArgumentError, "Missing the required parameter 'policy_id' when calling CSMThreatsAPI.get_csm_threats_agent_policy"
+      end
+      # resource path
+      local_var_path = '/api/v2/remote_config/products/cws/policy/{policy_id}'.sub('{policy_id}', CGI.escape(policy_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CloudWorkloadSecurityAgentPolicyResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_csm_threats_agent_policy,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CSMThreatsAPI#get_csm_threats_agent_policy\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get a CSM Threats Agent rule.
     #
     # @see #get_csm_threats_agent_rule_with_http_info
@@ -486,10 +685,11 @@ module DatadogAPIClient::V2
 
     # Get a CSM Threats Agent rule.
     #
-    # Get the details of a specific Cloud Security Management Threats Agent rule.
+    # Get the details of a specific Cloud Security Management Threats Agent rule
     #
-    # @param agent_rule_id [String] The ID of the Agent rule.
+    # @param agent_rule_id [String] The ID of the Agent rule
     # @param opts [Hash] the optional parameters
+    # @option opts [String] :policy_id The ID of the Agent policy
     # @return [Array<(CloudWorkloadSecurityAgentRuleResponse, Integer, Hash)>] CloudWorkloadSecurityAgentRuleResponse data, response status code and response headers
     def get_csm_threats_agent_rule_with_http_info(agent_rule_id, opts = {})
 
@@ -505,6 +705,7 @@ module DatadogAPIClient::V2
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'policy_id'] = opts[:'policy_id'] if !opts[:'policy_id'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -551,7 +752,7 @@ module DatadogAPIClient::V2
 
     # Get all Cloud Workload Security Agent rules.
     #
-    # Get the list of Agent rules.
+    # Get the list of Agent rules
     #
     # @param opts [Hash] the optional parameters
     # @return [Array<(CloudWorkloadSecurityAgentRulesListResponse, Integer, Hash)>] CloudWorkloadSecurityAgentRulesListResponse data, response status code and response headers
@@ -601,6 +802,66 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get all CSM Threats Agent policies.
+    #
+    # @see #list_csm_threats_agent_policies_with_http_info
+    def list_csm_threats_agent_policies(opts = {})
+      data, _status_code, _headers = list_csm_threats_agent_policies_with_http_info(opts)
+      data
+    end
+
+    # Get all CSM Threats Agent policies.
+    #
+    # Get the list of Cloud Security Management Threats Agent policies
+    #
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(CloudWorkloadSecurityAgentPoliciesListResponse, Integer, Hash)>] CloudWorkloadSecurityAgentPoliciesListResponse data, response status code and response headers
+    def list_csm_threats_agent_policies_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CSMThreatsAPI.list_csm_threats_agent_policies ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/remote_config/products/cws/policy'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CloudWorkloadSecurityAgentPoliciesListResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :list_csm_threats_agent_policies,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CSMThreatsAPI#list_csm_threats_agent_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get all CSM Threats Agent rules.
     #
     # @see #list_csm_threats_agent_rules_with_http_info
@@ -611,9 +872,10 @@ module DatadogAPIClient::V2
 
     # Get all CSM Threats Agent rules.
     #
-    # Get the list of Cloud Security Management Threats Agent rules.
+    # Get the list of Cloud Security Management Threats Agent rules
     #
     # @param opts [Hash] the optional parameters
+    # @option opts [String] :policy_id The ID of the Agent policy
     # @return [Array<(CloudWorkloadSecurityAgentRulesListResponse, Integer, Hash)>] CloudWorkloadSecurityAgentRulesListResponse data, response status code and response headers
     def list_csm_threats_agent_rules_with_http_info(opts = {})
 
@@ -625,6 +887,7 @@ module DatadogAPIClient::V2
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'policy_id'] = opts[:'policy_id'] if !opts[:'policy_id'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -674,8 +937,8 @@ module DatadogAPIClient::V2
     # Update a specific Agent rule.
     # Returns the Agent rule object when the request is successful.
     #
-    # @param agent_rule_id [String] The ID of the Agent rule.
-    # @param body [CloudWorkloadSecurityAgentRuleUpdateRequest] New definition of the Agent rule.
+    # @param agent_rule_id [String] The ID of the Agent rule
+    # @param body [CloudWorkloadSecurityAgentRuleUpdateRequest] New definition of the Agent rule
     # @param opts [Hash] the optional parameters
     # @return [Array<(CloudWorkloadSecurityAgentRuleResponse, Integer, Hash)>] CloudWorkloadSecurityAgentRuleResponse data, response status code and response headers
     def update_cloud_workload_security_agent_rule_with_http_info(agent_rule_id, body, opts = {})
@@ -734,6 +997,79 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Update a CSM Threats Agent policy.
+    #
+    # @see #update_csm_threats_agent_policy_with_http_info
+    def update_csm_threats_agent_policy(policy_id, body, opts = {})
+      data, _status_code, _headers = update_csm_threats_agent_policy_with_http_info(policy_id, body, opts)
+      data
+    end
+
+    # Update a CSM Threats Agent policy.
+    #
+    # Update a specific Cloud Security Management Threats Agent policy.
+    # Returns the Agent policy object when the request is successful.
+    #
+    # @param policy_id [String] The ID of the Agent policy
+    # @param body [CloudWorkloadSecurityAgentPolicyUpdateRequest] New definition of the Agent policy
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(CloudWorkloadSecurityAgentPolicyResponse, Integer, Hash)>] CloudWorkloadSecurityAgentPolicyResponse data, response status code and response headers
+    def update_csm_threats_agent_policy_with_http_info(policy_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CSMThreatsAPI.update_csm_threats_agent_policy ...'
+      end
+      # verify the required parameter 'policy_id' is set
+      if @api_client.config.client_side_validation && policy_id.nil?
+        fail ArgumentError, "Missing the required parameter 'policy_id' when calling CSMThreatsAPI.update_csm_threats_agent_policy"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CSMThreatsAPI.update_csm_threats_agent_policy"
+      end
+      # resource path
+      local_var_path = '/api/v2/remote_config/products/cws/policy/{policy_id}'.sub('{policy_id}', CGI.escape(policy_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CloudWorkloadSecurityAgentPolicyResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :update_csm_threats_agent_policy,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CSMThreatsAPI#update_csm_threats_agent_policy\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Update a CSM Threats Agent rule.
     #
     # @see #update_csm_threats_agent_rule_with_http_info
@@ -747,9 +1083,10 @@ module DatadogAPIClient::V2
     # Update a specific Cloud Security Management Threats Agent rule.
     # Returns the Agent rule object when the request is successful.
     #
-    # @param agent_rule_id [String] The ID of the Agent rule.
-    # @param body [CloudWorkloadSecurityAgentRuleUpdateRequest] New definition of the Agent rule.
+    # @param agent_rule_id [String] The ID of the Agent rule
+    # @param body [CloudWorkloadSecurityAgentRuleUpdateRequest] New definition of the Agent rule
     # @param opts [Hash] the optional parameters
+    # @option opts [String] :policy_id The ID of the Agent policy
     # @return [Array<(CloudWorkloadSecurityAgentRuleResponse, Integer, Hash)>] CloudWorkloadSecurityAgentRuleResponse data, response status code and response headers
     def update_csm_threats_agent_rule_with_http_info(agent_rule_id, body, opts = {})
 
@@ -769,6 +1106,7 @@ module DatadogAPIClient::V2
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'policy_id'] = opts[:'policy_id'] if !opts[:'policy_id'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
