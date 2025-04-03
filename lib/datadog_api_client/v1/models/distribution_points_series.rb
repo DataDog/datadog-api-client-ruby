@@ -56,7 +56,7 @@ module DatadogAPIClient::V1
       {
         :'host' => :'String',
         :'metric' => :'String',
-        :'points' => :'Array<Array<DistributionPointItem>>',
+        :'points' => :'Array<Array<DistributionPointItems>>',
         :'tags' => :'Array<String>',
         :'type' => :'DistributionPointsType'
       }

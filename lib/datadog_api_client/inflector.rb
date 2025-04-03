@@ -89,7 +89,7 @@ module DatadogAPIClient
           "v1.dashboard_type" => "DashboardType",
           "v1.deleted_monitor" => "DeletedMonitor",
           "v1.delete_shared_dashboard_response" => "DeleteSharedDashboardResponse",
-          "v1.distribution_point_item" => "DistributionPointItem",
+          "v1.distribution_point_items" => "DistributionPointItems",
           "v1.distribution_points_content_encoding" => "DistributionPointsContentEncoding",
           "v1.distribution_points_payload" => "DistributionPointsPayload",
           "v1.distribution_points_series" => "DistributionPointsSeries",

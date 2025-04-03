@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V1
   # List of distribution point.
-  module DistributionPointItem
+  module DistributionPointItems
     class << self
       include BaseOneOfModel
       include BaseOneOfModelNoDiscriminator
