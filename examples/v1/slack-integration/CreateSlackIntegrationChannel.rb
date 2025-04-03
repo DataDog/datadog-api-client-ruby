@@ -6,6 +6,7 @@ api_instance = DatadogAPIClient::V1::SlackIntegrationAPI.new
 body = DatadogAPIClient::V1::SlackIntegrationChannel.new({
   display: DatadogAPIClient::V1::SlackIntegrationChannelDisplay.new({
     message: true,
+    mute_buttons: false,
     notified: true,
     snapshot: true,
     tags: true,
