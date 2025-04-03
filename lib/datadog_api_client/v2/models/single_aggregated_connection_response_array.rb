@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `SingleAggregatedConnectionResponseArray` object.
+  # List of aggregated connections.
   class SingleAggregatedConnectionResponseArray
     include BaseGenericModel
 
-    # The `SingleAggregatedConnectionResponseArray` `data`.
+    # Array of aggregated connection objects.
     attr_accessor :data
 
     attr_accessor :additional_properties
