@@ -24,6 +24,9 @@ module DatadogAPIClient::V1
     # Show the main body of the alert event.
     attr_accessor :message
 
+    # Show interactive buttons to mute the alerting monitor.
+    attr_accessor :mute_buttons
+
     # Show the list of @-handles in the alert event.
     attr_accessor :notified
 
@@ -40,6 +43,7 @@ module DatadogAPIClient::V1
     def self.attribute_map
       {
         :'message' => :'message',
+        :'mute_buttons' => :'mute_buttons',
         :'notified' => :'notified',
         :'snapshot' => :'snapshot',
         :'tags' => :'tags'
@@ -51,6 +55,7 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'message' => :'Boolean',
+        :'mute_buttons' => :'Boolean',
         :'notified' => :'Boolean',
         :'snapshot' => :'Boolean',
         :'tags' => :'Boolean'
@@ -77,6 +82,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'message')
         self.message = attributes[:'message']
+      end
+
+      if attributes.key?(:'mute_buttons')
+        self.mute_buttons = attributes[:'mute_buttons']
       end
 
       if attributes.key?(:'notified')
@@ -119,6 +128,7 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           message == o.message &&
+          mute_buttons == o.mute_buttons &&
           notified == o.notified &&
           snapshot == o.snapshot &&
           tags == o.tags &&
@@ -129,7 +139,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [message, notified, snapshot, tags, additional_properties].hash
+      [message, mute_buttons, notified, snapshot, tags, additional_properties].hash
     end
   end
 end
