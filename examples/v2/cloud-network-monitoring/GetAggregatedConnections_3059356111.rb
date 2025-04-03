@@ -1,4 +1,4 @@
-# Get all aggregated connections returns "OK" response
+# Get aggregated connections returns "OK" response
 
 require "datadog_api_client"
 DatadogAPIClient.configure do |config|

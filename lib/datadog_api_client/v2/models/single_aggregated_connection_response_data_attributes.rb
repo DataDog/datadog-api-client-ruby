@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `SingleAggregatedConnectionResponseDataAttributes` object.
+  # Attributes for an aggregated connection.
   class SingleAggregatedConnectionResponseDataAttributes
     include BaseGenericModel
 
@@ -27,7 +27,7 @@ module DatadogAPIClient::V2
     # The total number of bytes sent by the server over the given period.
     attr_accessor :bytes_sent_by_server
 
-    # The `attributes` `group_bys`.
+    # The key, value pairs for each group by.
     attr_accessor :group_bys
 
     # The total number of packets sent by the client over the given period.

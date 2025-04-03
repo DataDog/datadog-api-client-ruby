@@ -23,7 +23,7 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
-    # Get aggregated connections.
+    # Get all aggregated connections.
     #
     # @see #get_aggregated_connections_with_http_info
     def get_aggregated_connections(opts = {})
@@ -31,13 +31,13 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Get aggregated connections.
+    # Get all aggregated connections.
     #
-    # Get aggregated connections
+    # Get all aggregated connections.
     #
     # @param opts [Hash] the optional parameters
-    # @option opts [Integer] :from Unix timestamp (number of seconds since epoch) of the start of the query window. If not provided, the start of the query window is 15 minutes before the "to" timestamp. If neither "from" nor "to" are provided, the query window is [now - 15m, now].
-    # @option opts [Integer] :to Unix timestamp (number of seconds since epoch) of the end of the query window. If not provided, the end of the query window is the current time. If neither "from" nor "to" are provided, the query window is [now - 15m, now].
+    # @option opts [Integer] :from Unix timestamp (number of seconds since epoch) of the start of the query window. If not provided, the start of the query window is 15 minutes before the `to` timestamp. If neither `from` nor `to` are provided, the query window is `[now - 15m, now]`.
+    # @option opts [Integer] :to Unix timestamp (number of seconds since epoch) of the end of the query window. If not provided, the end of the query window is the current time. If neither `from` nor `to` are provided, the query window is `[now - 15m, now]`.
     # @option opts [String] :group_by Comma-separated list of fields to group connections by.
     # @option opts [String] :tags Comma-separated list of tags to filter connections by.
     # @option opts [Integer] :limit The number of connections to be returned. The maximum value is 5000.
