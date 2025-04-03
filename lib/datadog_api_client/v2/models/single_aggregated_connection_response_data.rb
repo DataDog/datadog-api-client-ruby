@@ -17,18 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `SingleAggregatedConnectionResponseData` object.
+  # Object describing an aggregated connection.
   class SingleAggregatedConnectionResponseData
     include BaseGenericModel
 
-    # The definition of `SingleAggregatedConnectionResponseDataAttributes` object.
+    # Attributes for an aggregated connection.
     attr_accessor :attributes
 
-    # The `SingleAggregatedConnectionResponseData` `id`.
+    # A unique identifier for the aggregated connection based on the group by values.
     attr_accessor :id
 
-    # Aggregated connection resource type. Allowed enum values: `aggregated_connection`.
-    # default: `aggregated_connection`
+    # Aggregated connection resource type.
     attr_accessor :type
 
     attr_accessor :additional_properties

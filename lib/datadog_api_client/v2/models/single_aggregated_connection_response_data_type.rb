@@ -17,8 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Aggregated connection resource type. Allowed enum values: `aggregated_connection`.
-  # default: `aggregated_connection`
+  # Aggregated connection resource type.
   class SingleAggregatedConnectionResponseDataType
     include BaseEnumModel
 
