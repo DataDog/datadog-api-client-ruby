@@ -124,7 +124,7 @@ module DatadogAPIClient::V2
         # generic array, return directly
         value
       when :UUID
-        value.to_s
+        value
       when /\AArray<(?<inner_type>.+)>\z/
         inner_type = Regexp.last_match[:inner_type]
         value.map { |v| _deserialize(inner_type, v) }
@@ -255,7 +255,9 @@ module DatadogAPIClient::V2
       when 'Object' # "type: object"
         return data if data.instance_of?(Hash)
       when 'UUID'
-        return UUIDTools::UUID.parse(data)
+        raise TypeError, "Expected String, got #{uuid_string.class.name} instead." unless uuid_string.kind_of?(String)
+        raise ArgumentError, "Invalid UUID format." unless /\A\h{8}-\h{4}-\h{4}-\h{4}-\h{12}\z/.match?(data)
+        return data
       when /\AArray<(?<sub_type>.+)>\z/ # "type: array"
         if data.instance_of?(Array)
           sub_type = Regexp.last_match[:sub_type]
