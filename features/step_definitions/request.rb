@@ -123,6 +123,14 @@ module APIWorld
     @undo_operations
   end
 
+  # Takes a tag name and converts it into an API class name by removing spaces and dashes, then appending "API"
+  # For example: "Logs-Archive" -> "LogsArchiveAPI"
+  # @param name [String] The tag name to convert
+  # @return [String] The API class name
+  def build_api_name(name)
+    name.gsub(/[\s-]/, '') + "API"
+  end
+
   def build_undo_for(version, operation_id, api_instance = nil)
     operation = undo_operations
     raise "missing x-undo for #{version}" unless operation.key? version
@@ -134,13 +142,14 @@ module APIWorld
     return if operation["type"] != "unsafe"
 
     if operation["tag"] != nil
-      undo_tag = operation["tag"].gsub(/\s/, '')
+      undo_tag = operation["tag"]
+      api_name = build_api_name(undo_tag)
       undo_api = Object.const_get("DatadogAPIClient")
       undo_configuration = from_env(undo_api::Configuration.new)
       undo_configuration.api_key = ENV["DD_TEST_CLIENT_API_KEY"]
       undo_configuration.application_key = ENV["DD_TEST_CLIENT_APP_KEY"]
       undo_api_client = undo_api::APIClient.new undo_configuration
-      api_instance = undo_api.const_get("V#{version}").const_get("#{undo_tag}API").new undo_api_client
+      api_instance = undo_api.const_get("V#{version}").const_get(api_name).new undo_api_client
     end
 
     api_instance ||= @api_instance
@@ -171,7 +180,7 @@ module APIWorld
   end
 
   def build_given(api_version, operation)
-    api_name = operation["tag"].gsub(/\s/, '')
+    api_name = build_api_name(operation["tag"])
     operation_name = operation["operationId"].snakecase
 
     # make sure we have a fresh instance of API client and configuration
@@ -180,7 +189,7 @@ module APIWorld
     given_configuration.api_key = ENV["DD_TEST_CLIENT_API_KEY"]
     given_configuration.application_key = ENV["DD_TEST_CLIENT_APP_KEY"]
     given_api_client = given_api::APIClient.new given_configuration
-    given_api_instance = given_api.const_get("V#{api_version}").const_get("#{api_name}API").new given_api_client
+    given_api_instance = given_api.const_get("V#{api_version}").const_get(api_name).new given_api_client
     method = given_api_instance.method("#{operation_name}_with_http_info".to_sym)
 
     # find undo method
@@ -240,7 +249,8 @@ Given('a valid "appKeyAuth" key in the system') do
 end
 
 Given(/^an instance of "([^"]+)" API$/) do |api_name|
-  @api_instance = api.const_get("V#{@api_version}").const_get("#{api_name}API").new api_client
+  name = build_api_name(api_name)
+  @api_instance = api.const_get("V#{@api_version}").const_get(name).new api_client
 end
 
 Given('operation {string} enabled') do |name|

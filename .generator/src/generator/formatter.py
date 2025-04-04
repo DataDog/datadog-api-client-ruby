@@ -342,6 +342,9 @@ def format_data_with_schema_dict(
 
     return parameters
 
+def class_name(value):
+    value = re.sub(r'[^a-zA-Z0-9]', '', value)
+    return value + "API"
 
 def attribute_path(attribute):
     return ".".join(attribute_name(a) for a in attribute.split("."))
