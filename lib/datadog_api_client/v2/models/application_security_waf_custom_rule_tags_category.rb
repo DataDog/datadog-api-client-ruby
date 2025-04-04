@@ -23,6 +23,6 @@ module DatadogAPIClient::V2
 
     ATTACK_ATTEMPT = "attack_attempt".freeze
     BUSINESS_LOGIC = "business_logic".freeze
-    SECURITY_RESPONSES = "security_responses".freeze
+    SECURITY_RESPONSE = "security_response".freeze
   end
 end
