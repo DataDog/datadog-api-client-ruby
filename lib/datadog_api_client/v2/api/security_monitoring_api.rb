@@ -39,12 +39,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def cancel_historical_job_with_http_info(job_id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.cancel_historical_job".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.cancel_historical_job")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.cancel_historical_job"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.cancel_historical_job ...'
@@ -176,12 +170,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def convert_job_result_to_signal_with_http_info(body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.convert_job_result_to_signal".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.convert_job_result_to_signal")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.convert_job_result_to_signal"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.convert_job_result_to_signal ...'
@@ -655,12 +643,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_historical_job_with_http_info(job_id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.delete_historical_job".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_historical_job")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_historical_job"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.delete_historical_job ...'
@@ -1343,12 +1325,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(HistoricalJobResponse, Integer, Hash)>] HistoricalJobResponse data, response status code and response headers
     def get_historical_job_with_http_info(job_id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.get_historical_job".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_historical_job")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_historical_job"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_historical_job ...'
@@ -2253,12 +2229,6 @@ module DatadogAPIClient::V2
     # @option opts [String] :filter_query Query used to filter items from the fetched list.
     # @return [Array<(ListHistoricalJobsResponse, Integer, Hash)>] ListHistoricalJobsResponse data, response status code and response headers
     def list_historical_jobs_with_http_info(opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.list_historical_jobs".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_historical_jobs")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_historical_jobs"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.list_historical_jobs ...'
@@ -3224,12 +3194,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(JobCreateResponse, Integer, Hash)>] JobCreateResponse data, response status code and response headers
     def run_historical_job_with_http_info(body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.run_historical_job".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.run_historical_job")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.run_historical_job"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.run_historical_job ...'
