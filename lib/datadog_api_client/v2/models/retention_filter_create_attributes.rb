@@ -37,6 +37,10 @@ module DatadogAPIClient::V2
     # a value of 1.0 keeps all spans matching the query.
     attr_reader :rate
 
+    # Sample rate to apply to traces containing spans going through this retention filter.
+    # A value of 1.0 keeps all traces with spans matching the query.
+    attr_accessor :trace_rate
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -47,7 +51,8 @@ module DatadogAPIClient::V2
         :'filter' => :'filter',
         :'filter_type' => :'filter_type',
         :'name' => :'name',
-        :'rate' => :'rate'
+        :'rate' => :'rate',
+        :'trace_rate' => :'trace_rate'
       }
     end
 
@@ -59,7 +64,8 @@ module DatadogAPIClient::V2
         :'filter' => :'SpansFilterCreate',
         :'filter_type' => :'RetentionFilterType',
         :'name' => :'String',
-        :'rate' => :'Float'
+        :'rate' => :'Float',
+        :'trace_rate' => :'Float'
       }
     end
 
@@ -99,6 +105,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'rate')
         self.rate = attributes[:'rate']
+      end
+
+      if attributes.key?(:'trace_rate')
+        self.trace_rate = attributes[:'trace_rate']
       end
     end
 
@@ -195,6 +205,7 @@ module DatadogAPIClient::V2
           filter_type == o.filter_type &&
           name == o.name &&
           rate == o.rate &&
+          trace_rate == o.trace_rate &&
           additional_properties == o.additional_properties
     end
 
@@ -202,7 +213,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [enabled, filter, filter_type, name, rate, additional_properties].hash
+      [enabled, filter, filter_type, name, rate, trace_rate, additional_properties].hash
     end
   end
 end
