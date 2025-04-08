@@ -6,7 +6,7 @@
 <title>
   Class: DatadogAPIClient::V2::RetentionFilterAllAttributes
   
-    &mdash; datadog-api-client 2.30.0.dev.1 documentation
+    &mdash; datadog-api-client 2.31.1.dev.1 documentation
   
 </title>
 
@@ -428,6 +428,32 @@
 
   
     <span class="summary_desc"><div class='inline'><p>Sample rate to apply to spans going through this retention filter, a value of 1.0 keeps all spans matching the query.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#trace_rate-instance_method" title="#trace_rate (instance method)">#<strong>trace_rate</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Sample rate to apply to traces containing spans going through this retention filter.</p>
 </div></span>
   
 </li>
@@ -958,13 +984,56 @@ a value of 1.0 keeps all spans matching the query.</p>
 </table>
 </div>
     
+      
+      <span id="trace_rate=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="trace_rate-instance_method">
+  
+    #<strong>trace_rate</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Sample rate to apply to traces containing spans going through this retention filter.
+A value of 1.0 keeps all traces with spans matching the query.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+60
+61
+62</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/retention_filter_all_attributes.rb', line 60</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_trace_rate'>trace_rate</span>
+  <span class='ivar'>@trace_rate</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
   </div>
 
 
 </div>
 
       <div id="footer">
-  Generated on Tue Feb 18 21:07:38 2025 by
+  Generated on Tue Apr  8 20:52:24 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>
