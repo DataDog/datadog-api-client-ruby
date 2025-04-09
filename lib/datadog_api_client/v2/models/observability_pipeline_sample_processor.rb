@@ -17,18 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The Quota Processor measures logging traffic for logs that match a specified filter. When the configured daily quota is met, the processor can drop or alert.
-  class ObservabilityPipelineQuotaProcessor
+  # The `sample` processor allows probabilistic sampling of logs at a fixed rate.
+  class ObservabilityPipelineSampleProcessor
     include BaseGenericModel
-
-    # If set to `true`, logs that matched the quota filter and sent after the quota has been met are dropped; only logs that did not match the filter query continue through the pipeline.
-    attr_reader :drop_events
 
     # The unique identifier for this component. Used to reference this component in other parts of the pipeline (for example, as the `input` to downstream components).
     attr_reader :id
-
-    # If `true`, the processor skips quota checks when partition fields are missing from the logs.
-    attr_accessor :ignore_when_missing_partitions
 
     # A Datadog search query used to determine which logs this processor targets.
     attr_reader :include
@@ -36,19 +30,10 @@ module DatadogAPIClient::V2
     # A list of component IDs whose output is used as the `input` for this component.
     attr_reader :inputs
 
-    # The maximum amount of data or number of events allowed before the quota is enforced. Can be specified in bytes or events.
-    attr_reader :limit
+    # Number of events to sample (1 in N).
+    attr_reader :rate
 
-    # Name of the quota.
-    attr_reader :name
-
-    # A list of alternate quota rules that apply to specific sets of events, identified by matching field values. Each override can define a custom limit.
-    attr_accessor :overrides
-
-    # A list of fields used to segment log traffic for quota enforcement. Quotas are tracked independently by unique combinations of these field values.
-    attr_accessor :partition_fields
-
-    # The processor type. The value should always be `quota`.
+    # The processor type. The value should always be `sample`.
     attr_reader :type
 
     attr_accessor :additional_properties
@@ -57,15 +42,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'drop_events' => :'drop_events',
         :'id' => :'id',
-        :'ignore_when_missing_partitions' => :'ignore_when_missing_partitions',
         :'include' => :'include',
         :'inputs' => :'inputs',
-        :'limit' => :'limit',
-        :'name' => :'name',
-        :'overrides' => :'overrides',
-        :'partition_fields' => :'partition_fields',
+        :'rate' => :'rate',
         :'type' => :'type'
       }
     end
@@ -74,16 +54,11 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'drop_events' => :'Boolean',
         :'id' => :'String',
-        :'ignore_when_missing_partitions' => :'Boolean',
         :'include' => :'String',
         :'inputs' => :'Array<String>',
-        :'limit' => :'ObservabilityPipelineQuotaProcessorLimit',
-        :'name' => :'String',
-        :'overrides' => :'Array<ObservabilityPipelineQuotaProcessorOverride>',
-        :'partition_fields' => :'Array<String>',
-        :'type' => :'ObservabilityPipelineQuotaProcessorType'
+        :'rate' => :'Integer',
+        :'type' => :'ObservabilityPipelineSampleProcessorType'
       }
     end
 
@@ -92,7 +67,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineQuotaProcessor` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineSampleProcessor` initialize method"
       end
 
       self.additional_properties = {}
@@ -105,16 +80,8 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'drop_events')
-        self.drop_events = attributes[:'drop_events']
-      end
-
       if attributes.key?(:'id')
         self.id = attributes[:'id']
-      end
-
-      if attributes.key?(:'ignore_when_missing_partitions')
-        self.ignore_when_missing_partitions = attributes[:'ignore_when_missing_partitions']
       end
 
       if attributes.key?(:'include')
@@ -127,24 +94,8 @@ module DatadogAPIClient::V2
         end
       end
 
-      if attributes.key?(:'limit')
-        self.limit = attributes[:'limit']
-      end
-
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.key?(:'overrides')
-        if (value = attributes[:'overrides']).is_a?(Array)
-          self.overrides = value
-        end
-      end
-
-      if attributes.key?(:'partition_fields')
-        if (value = attributes[:'partition_fields']).is_a?(Array)
-          self.partition_fields = value
-        end
+      if attributes.key?(:'rate')
+        self.rate = attributes[:'rate']
       end
 
       if attributes.key?(:'type')
@@ -156,24 +107,13 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @drop_events.nil?
       return false if @id.nil?
       return false if @include.nil?
       return false if @inputs.nil?
-      return false if @limit.nil?
-      return false if @name.nil?
+      return false if @rate.nil?
+      return false if @rate < 1
       return false if @type.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param drop_events [Object] Object to be assigned
-    # @!visibility private
-    def drop_events=(drop_events)
-      if drop_events.nil?
-        fail ArgumentError, 'invalid value for "drop_events", drop_events cannot be nil.'
-      end
-      @drop_events = drop_events
     end
 
     # Custom attribute writer method with validation
@@ -207,23 +147,16 @@ module DatadogAPIClient::V2
     end
 
     # Custom attribute writer method with validation
-    # @param limit [Object] Object to be assigned
+    # @param rate [Object] Object to be assigned
     # @!visibility private
-    def limit=(limit)
-      if limit.nil?
-        fail ArgumentError, 'invalid value for "limit", limit cannot be nil.'
+    def rate=(rate)
+      if rate.nil?
+        fail ArgumentError, 'invalid value for "rate", rate cannot be nil.'
       end
-      @limit = limit
-    end
-
-    # Custom attribute writer method with validation
-    # @param name [Object] Object to be assigned
-    # @!visibility private
-    def name=(name)
-      if name.nil?
-        fail ArgumentError, 'invalid value for "name", name cannot be nil.'
+      if rate < 1
+        fail ArgumentError, 'invalid value for "rate", must be greater than or equal to 1.'
       end
-      @name = name
+      @rate = rate
     end
 
     # Custom attribute writer method with validation
@@ -262,15 +195,10 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          drop_events == o.drop_events &&
           id == o.id &&
-          ignore_when_missing_partitions == o.ignore_when_missing_partitions &&
           include == o.include &&
           inputs == o.inputs &&
-          limit == o.limit &&
-          name == o.name &&
-          overrides == o.overrides &&
-          partition_fields == o.partition_fields &&
+          rate == o.rate &&
           type == o.type &&
           additional_properties == o.additional_properties
     end
@@ -279,7 +207,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [drop_events, id, ignore_when_missing_partitions, include, inputs, limit, name, overrides, partition_fields, type, additional_properties].hash
+      [id, include, inputs, rate, type, additional_properties].hash
     end
   end
 end

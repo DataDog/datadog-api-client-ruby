@@ -31,7 +31,10 @@ module DatadogAPIClient::V2
           :'ObservabilityPipelineQuotaProcessor',
           :'ObservabilityPipelineAddFieldsProcessor',
           :'ObservabilityPipelineRemoveFieldsProcessor',
-          :'ObservabilityPipelineRenameFieldsProcessor'
+          :'ObservabilityPipelineRenameFieldsProcessor',
+          :'ObservabilityPipelineSampleProcessor',
+          :'ObservabilityPipelineThrottleProcessor',
+          :'ObservabilityPipelineParseGrokProcessor'
         ]
       end
       # Builds the object
