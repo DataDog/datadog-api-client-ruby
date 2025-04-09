@@ -33,8 +33,8 @@ module DatadogAPIClient::V2
     # The name of the retention filter.
     attr_reader :name
 
-    # Sample rate to apply to spans going through this retention filter,
-    # a value of 1.0 keeps all spans matching the query.
+    # Sample rate to apply to spans going through this retention filter.
+    # A value of 1.0 keeps all spans matching the query.
     attr_reader :rate
 
     # Sample rate to apply to traces containing spans going through this retention filter.
