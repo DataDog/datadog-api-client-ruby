@@ -30,6 +30,9 @@ module DatadogAPIClient::V2
     # The interface index
     attr_accessor :index
 
+    # The interface IP addresses
+    attr_accessor :ip_addresses
+
     # The interface MAC address
     attr_accessor :mac_address
 
@@ -48,6 +51,7 @@ module DatadogAPIClient::V2
         :'_alias' => :'alias',
         :'description' => :'description',
         :'index' => :'index',
+        :'ip_addresses' => :'ip_addresses',
         :'mac_address' => :'mac_address',
         :'name' => :'name',
         :'status' => :'status'
@@ -61,6 +65,7 @@ module DatadogAPIClient::V2
         :'_alias' => :'String',
         :'description' => :'String',
         :'index' => :'Integer',
+        :'ip_addresses' => :'Array<String>',
         :'mac_address' => :'String',
         :'name' => :'String',
         :'status' => :'InterfaceAttributesStatus'
@@ -95,6 +100,12 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'index')
         self.index = attributes[:'index']
+      end
+
+      if attributes.key?(:'ip_addresses')
+        if (value = attributes[:'ip_addresses']).is_a?(Array)
+          self.ip_addresses = value
+        end
       end
 
       if attributes.key?(:'mac_address')
@@ -139,6 +150,7 @@ module DatadogAPIClient::V2
           _alias == o._alias &&
           description == o.description &&
           index == o.index &&
+          ip_addresses == o.ip_addresses &&
           mac_address == o.mac_address &&
           name == o.name &&
           status == o.status &&
@@ -149,7 +161,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [_alias, description, index, mac_address, name, status, additional_properties].hash
+      [_alias, description, index, ip_addresses, mac_address, name, status, additional_properties].hash
     end
   end
 end

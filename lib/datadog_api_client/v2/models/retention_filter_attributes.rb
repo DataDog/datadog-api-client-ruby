@@ -55,6 +55,10 @@ module DatadogAPIClient::V2
     # a value of 1.0 keeps all spans matching the query.
     attr_accessor :rate
 
+    # Sample rate to apply to traces containing spans going through this retention filter.
+    # A value of 1.0 keeps all traces with spans matching the query.
+    attr_accessor :trace_rate
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -71,7 +75,8 @@ module DatadogAPIClient::V2
         :'modified_at' => :'modified_at',
         :'modified_by' => :'modified_by',
         :'name' => :'name',
-        :'rate' => :'rate'
+        :'rate' => :'rate',
+        :'trace_rate' => :'trace_rate'
       }
     end
 
@@ -89,7 +94,8 @@ module DatadogAPIClient::V2
         :'modified_at' => :'Integer',
         :'modified_by' => :'String',
         :'name' => :'String',
-        :'rate' => :'Float'
+        :'rate' => :'Float',
+        :'trace_rate' => :'Float'
       }
     end
 
@@ -154,6 +160,10 @@ module DatadogAPIClient::V2
       if attributes.key?(:'rate')
         self.rate = attributes[:'rate']
       end
+
+      if attributes.key?(:'trace_rate')
+        self.trace_rate = attributes[:'trace_rate']
+      end
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -193,6 +203,7 @@ module DatadogAPIClient::V2
           modified_by == o.modified_by &&
           name == o.name &&
           rate == o.rate &&
+          trace_rate == o.trace_rate &&
           additional_properties == o.additional_properties
     end
 
@@ -200,7 +211,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created_at, created_by, editable, enabled, execution_order, filter, filter_type, modified_at, modified_by, name, rate, additional_properties].hash
+      [created_at, created_by, editable, enabled, execution_order, filter, filter_type, modified_at, modified_by, name, rate, trace_rate, additional_properties].hash
     end
   end
 end
