@@ -17,18 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Specifies the pipeline's configuration, including its sources, processors, and destinations.
-  class ObservabilityPipelineConfig
+  # The `fluent` source ingests logs from a Fluentd-compatible service.
+  class ObservabilityPipelineFluentSource
     include BaseGenericModel
 
-    # A list of destination components where processed logs are sent.
-    attr_reader :destinations
+    # The unique identifier for this component. Used to reference this component in other parts of the pipeline (for example, as the `input` to downstream components).
+    attr_reader :id
 
-    # A list of processors that transform or enrich log data.
-    attr_accessor :processors
+    # Configuration for enabling TLS encryption.
+    attr_accessor :tls
 
-    # A list of configured data sources for the pipeline.
-    attr_reader :sources
+    # The source type. The value should always be `fluent`.
+    attr_reader :type
 
     attr_accessor :additional_properties
 
@@ -36,9 +36,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'destinations' => :'destinations',
-        :'processors' => :'processors',
-        :'sources' => :'sources'
+        :'id' => :'id',
+        :'tls' => :'tls',
+        :'type' => :'type'
       }
     end
 
@@ -46,9 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'destinations' => :'Array<ObservabilityPipelineConfigDestinationItem>',
-        :'processors' => :'Array<ObservabilityPipelineConfigProcessorItem>',
-        :'sources' => :'Array<ObservabilityPipelineConfigSourceItem>'
+        :'id' => :'String',
+        :'tls' => :'ObservabilityPipelineTls',
+        :'type' => :'ObservabilityPipelineFluentSourceType'
       }
     end
 
@@ -57,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineConfig` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineFluentSource` initialize method"
       end
 
       self.additional_properties = {}
@@ -70,22 +70,16 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'destinations')
-        if (value = attributes[:'destinations']).is_a?(Array)
-          self.destinations = value
-        end
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
       end
 
-      if attributes.key?(:'processors')
-        if (value = attributes[:'processors']).is_a?(Array)
-          self.processors = value
-        end
+      if attributes.key?(:'tls')
+        self.tls = attributes[:'tls']
       end
 
-      if attributes.key?(:'sources')
-        if (value = attributes[:'sources']).is_a?(Array)
-          self.sources = value
-        end
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
       end
     end
 
@@ -93,29 +87,29 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @destinations.nil?
-      return false if @sources.nil?
+      return false if @id.nil?
+      return false if @type.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param destinations [Object] Object to be assigned
+    # @param id [Object] Object to be assigned
     # @!visibility private
-    def destinations=(destinations)
-      if destinations.nil?
-        fail ArgumentError, 'invalid value for "destinations", destinations cannot be nil.'
+    def id=(id)
+      if id.nil?
+        fail ArgumentError, 'invalid value for "id", id cannot be nil.'
       end
-      @destinations = destinations
+      @id = id
     end
 
     # Custom attribute writer method with validation
-    # @param sources [Object] Object to be assigned
+    # @param type [Object] Object to be assigned
     # @!visibility private
-    def sources=(sources)
-      if sources.nil?
-        fail ArgumentError, 'invalid value for "sources", sources cannot be nil.'
+    def type=(type)
+      if type.nil?
+        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
       end
-      @sources = sources
+      @type = type
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -144,9 +138,9 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          destinations == o.destinations &&
-          processors == o.processors &&
-          sources == o.sources &&
+          id == o.id &&
+          tls == o.tls &&
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -154,7 +148,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [destinations, processors, sources, additional_properties].hash
+      [id, tls, type, additional_properties].hash
     end
   end
 end
