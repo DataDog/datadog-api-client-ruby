@@ -1733,6 +1733,23 @@ ScenariosModelMappings = {
             "content_encoding" => "MetricContentEncoding",
             "body" => "MetricPayload",
     },
+    "v2.GetMonitorNotificationRules" => {
+            "include" => "String",
+    },
+    "v2.CreateMonitorNotificationRule" => {
+            "body" => "MonitorNotificationRuleCreateRequest",
+    },
+    "v2.DeleteMonitorNotificationRule" => {
+            "rule_id" => "String",
+    },
+    "v2.GetMonitorNotificationRule" => {
+            "rule_id" => "String",
+            "include" => "String",
+    },
+    "v2.UpdateMonitorNotificationRule" => {
+            "rule_id" => "String",
+            "body" => "MonitorNotificationRuleUpdateRequest",
+    },
     "v2.CreateMonitorConfigPolicy" => {
             "body" => "MonitorConfigPolicyCreateRequest",
     },
