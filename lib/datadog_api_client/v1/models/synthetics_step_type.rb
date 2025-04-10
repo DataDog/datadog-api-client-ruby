@@ -30,6 +30,7 @@ module DatadogAPIClient::V1
     ASSERT_FROM_JAVASCRIPT = "assertFromJavascript".freeze
     ASSERT_PAGE_CONTAINS = "assertPageContains".freeze
     ASSERT_PAGE_LACKS = "assertPageLacks".freeze
+    ASSERT_REQUESTS = "assertRequests".freeze
     CLICK = "click".freeze
     EXTRACT_FROM_JAVASCRIPT = "extractFromJavascript".freeze
     EXTRACT_VARIABLE = "extractVariable".freeze
