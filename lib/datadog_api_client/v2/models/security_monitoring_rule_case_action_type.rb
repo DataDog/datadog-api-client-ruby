@@ -23,5 +23,6 @@ module DatadogAPIClient::V2
 
     BLOCK_IP = "block_ip".freeze
     BLOCK_USER = "block_user".freeze
+    USER_BEHAVIOR = "user_behavior".freeze
   end
 end
