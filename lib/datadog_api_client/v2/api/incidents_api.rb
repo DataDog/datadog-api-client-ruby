@@ -1323,13 +1323,13 @@ module DatadogAPIClient::V2
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: IncidentsAPI.search_incidents ...'
       end
-      allowable_values = ['users', 'attachments']
-      if @api_client.config.client_side_validation && opts[:'include'] && !allowable_values.include?(opts[:'include'])
-        fail ArgumentError, "invalid value for \"include\", must be one of #{allowable_values}"
-      end
       # verify the required parameter 'query' is set
       if @api_client.config.client_side_validation && query.nil?
         fail ArgumentError, "Missing the required parameter 'query' when calling IncidentsAPI.search_incidents"
+      end
+      allowable_values = ['users', 'attachments']
+      if @api_client.config.client_side_validation && opts[:'include'] && !allowable_values.include?(opts[:'include'])
+        fail ArgumentError, "invalid value for \"include\", must be one of #{allowable_values}"
       end
       allowable_values = ['created', '-created']
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
