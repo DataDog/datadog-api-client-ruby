@@ -1,12 +1,12 @@
 http_interactions:
-- recorded_at: Fri, 05 Jul 2024 14:25:54 GMT
+- recorded_at: Wed, 09 Apr 2025 22:39:12 GMT
   request:
     body: null
     headers:
       Accept:
       - application/json
     method: GET
-    uri: https://api.datadoghq.com/api/v2/ndm/interfaces?device_id=default:1.2.3.4
+    uri: https://api.datadoghq.com/api/v2/ndm/interfaces?device_id=default%3A1.2.3.4&get_ip_addresses=true
   response:
     body:
       encoding: UTF-8
