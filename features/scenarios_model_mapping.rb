@@ -1353,8 +1353,8 @@ ScenariosModelMappings = {
             "body" => "IncidentTypePatchRequest",
     },
     "v2.SearchIncidents" => {
-            "include" => "IncidentRelatedObject",
             "query" => "String",
+            "include" => "IncidentRelatedObject",
             "sort" => "IncidentSearchSortOrder",
             "page_size" => "Integer",
             "page_offset" => "Integer",
