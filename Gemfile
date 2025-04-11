@@ -19,7 +19,6 @@ group :development, :test do
   gem 'webmock'
   gem 'zstandard'
   gem 'pry'
-  gem 'uuidtools'
 end
 
 group :docs do
