@@ -1,11 +1,10 @@
 http_interactions:
-- recorded_at: Mon, 04 Nov 2024 19:02:22 GMT
+- recorded_at: Wed, 09 Apr 2025 20:37:30 GMT
   request:
     body:
       encoding: UTF-8
       string: '{"data":{"attributes":{"description":"Any incidents that harm (or have
-        the potential to) the confidentiality, integrity, or availability of our data.","is_default":false,"name":"Security
-        Incident"},"type":"incident_types"}}'
+        the potential to) the confidentiality, integrity, or availability of our data.","is_default":false,"name":"fa473c6f81961a61"},"type":"incident_types"}}'
     headers:
       Accept:
       - application/json
@@ -16,24 +15,23 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"dbf7f2e1-8f37-4624-9762-6e744db257aa","type":"incident_types","attributes":{"createdAt":"2024-11-04T19:02:22.674338166Z","createdBy":"3ad549bf-eba0-11e9-a77a-0705486660d0","description":"Any
+      string: '{"data":{"id":"dc0ba7fa-64c9-46bd-a93d-1249070b52b6","type":"incident_types","attributes":{"createdAt":"2025-04-09T20:37:30.487313985Z","createdBy":"9919ec9b-ebc7-49ee-8dc8-03626e717cca","description":"Any
         incidents that harm (or have the potential to) the confidentiality, integrity,
-        or availability of our data.","is_default":false,"lastModifiedBy":"3ad549bf-eba0-11e9-a77a-0705486660d0","modifiedAt":"2024-11-04T19:02:22.674338166Z","name":"Security
-        Incident","prefix":"IR"}}}'
+        or availability of our data.","is_default":false,"lastModifiedBy":"9919ec9b-ebc7-49ee-8dc8-03626e717cca","modifiedAt":"2025-04-09T20:37:30.487314108Z","name":"fa473c6f81961a61","prefix":"IR"},"relationships":{"created_by_user":{"data":{"id":"9919ec9b-ebc7-49ee-8dc8-03626e717cca","type":"users"}},"google_meet_configuration":{"data":null},"last_modified_by_user":{"data":{"id":"9919ec9b-ebc7-49ee-8dc8-03626e717cca","type":"users"}},"zoom_configuration":{"data":null}}}}'
     headers:
       Content-Type:
       - application/vnd.api+json
     status:
       code: 201
       message: Created
-- recorded_at: Mon, 04 Nov 2024 19:02:22 GMT
+- recorded_at: Wed, 09 Apr 2025 20:37:30 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/incidents/config/types/dbf7f2e1-8f37-4624-9762-6e744db257aa
+    uri: https://api.datadoghq.com/api/v2/incidents/config/types/dc0ba7fa-64c9-46bd-a93d-1249070b52b6
   response:
     body:
       encoding: UTF-8
@@ -42,20 +40,22 @@ http_interactions:
     status:
       code: 204
       message: No Content
-- recorded_at: Mon, 04 Nov 2024 19:02:22 GMT
+- recorded_at: Wed, 09 Apr 2025 20:37:30 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/incidents/config/types/dbf7f2e1-8f37-4624-9762-6e744db257aa
+    uri: https://api.datadoghq.com/api/v2/incidents/config/types/dc0ba7fa-64c9-46bd-a93d-1249070b52b6
   response:
     body:
       encoding: UTF-8
-      string: ''
-    headers: {}
+      string: '{"errors":[{"status":"404","title":"Not Found"}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
     status:
-      code: 204
-      message: No Content
+      code: 404
+      message: Not Found
 recorded_with: VCR 6.0.0

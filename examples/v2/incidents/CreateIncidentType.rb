@@ -11,7 +11,7 @@ body = DatadogAPIClient::V2::IncidentTypeCreateRequest.new({
     attributes: DatadogAPIClient::V2::IncidentTypeAttributes.new({
       description: "Any incidents that harm (or have the potential to) the confidentiality, integrity, or availability of our data.",
       is_default: false,
-      name: "Security Incident",
+      name: "8d4bbb66dccf2456",
     }),
     type: DatadogAPIClient::V2::IncidentTypeType::INCIDENT_TYPES,
   }),
