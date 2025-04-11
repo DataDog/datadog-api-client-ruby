@@ -1772,6 +1772,22 @@ ScenariosModelMappings = {
             "tags" => "String",
             "limit" => "Integer",
     },
+    "v2.CreateOnCallSchedule" => {
+            "include" => "String",
+            "body" => "ScheduleCreateRequest",
+    },
+    "v2.DeleteOnCallSchedule" => {
+            "schedule_id" => "String",
+    },
+    "v2.GetOnCallSchedule" => {
+            "include" => "String",
+            "schedule_id" => "String",
+    },
+    "v2.UpdateOnCallSchedule" => {
+            "include" => "String",
+            "schedule_id" => "String",
+            "body" => "ScheduleUpdateRequest",
+    },
     "v2.GetOrgConfig" => {
             "org_config_name" => "String",
     },
