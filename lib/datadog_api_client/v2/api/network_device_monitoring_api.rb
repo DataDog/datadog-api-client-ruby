@@ -102,6 +102,7 @@ module DatadogAPIClient::V2
     #
     # @param device_id [String] The ID of the device to get interfaces from.
     # @param opts [Hash] the optional parameters
+    # @option opts [Boolean] :get_ip_addresses Whether to get the IP addresses of the interfaces.
     # @return [Array<(GetInterfacesResponse, Integer, Hash)>] GetInterfacesResponse data, response status code and response headers
     def get_interfaces_with_http_info(device_id, opts = {})
 
@@ -118,6 +119,7 @@ module DatadogAPIClient::V2
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'device_id'] = device_id
+      query_params[:'get_ip_addresses'] = opts[:'get_ip_addresses'] if !opts[:'get_ip_addresses'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
