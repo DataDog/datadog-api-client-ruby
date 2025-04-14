@@ -21,24 +21,6 @@ module DatadogAPIClient::V2
   class MetricTagConfigurationAttributes
     include BaseGenericModel
 
-    # A list of queryable aggregation combinations for a count, rate, or gauge metric.
-    # By default, count and rate metrics require the (time: sum, space: sum) aggregation and
-    # Gauge metrics require the (time: avg, space: avg) aggregation.
-    # Additional time & space combinations are also available:
-    #
-    # - time: avg, space: avg
-    # - time: avg, space: max
-    # - time: avg, space: min
-    # - time: avg, space: sum
-    # - time: count, space: sum
-    # - time: max, space: max
-    # - time: min, space: min
-    # - time: sum, space: avg
-    # - time: sum, space: sum
-    #
-    # Can only be applied to non_distribution metrics that have a `metric_type` of `count`, `rate`, or `gauge`.
-    attr_accessor :aggregations
-
     # Timestamp when the tag configuration was created.
     attr_accessor :created_at
 
@@ -66,7 +48,6 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'aggregations' => :'aggregations',
         :'created_at' => :'created_at',
         :'exclude_tags_mode' => :'exclude_tags_mode',
         :'include_percentiles' => :'include_percentiles',
@@ -80,7 +61,6 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'aggregations' => :'Array<MetricCustomAggregation>',
         :'created_at' => :'Time',
         :'exclude_tags_mode' => :'Boolean',
         :'include_percentiles' => :'Boolean',
@@ -107,12 +87,6 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
-
-      if attributes.key?(:'aggregations')
-        if (value = attributes[:'aggregations']).is_a?(Array)
-          self.aggregations = value
-        end
-      end
 
       if attributes.key?(:'created_at')
         self.created_at = attributes[:'created_at']
@@ -167,7 +141,6 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          aggregations == o.aggregations &&
           created_at == o.created_at &&
           exclude_tags_mode == o.exclude_tags_mode &&
           include_percentiles == o.include_percentiles &&
@@ -181,7 +154,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [aggregations, created_at, exclude_tags_mode, include_percentiles, metric_type, modified_at, tags, additional_properties].hash
+      [created_at, exclude_tags_mode, include_percentiles, metric_type, modified_at, tags, additional_properties].hash
     end
   end
 end

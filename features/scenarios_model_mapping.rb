@@ -1702,7 +1702,6 @@ ScenariosModelMappings = {
             "metric_name" => "String",
             "filter_groups" => "String",
             "filter_hours_ago" => "Integer",
-            "filter_num_aggregations" => "Integer",
             "filter_pct" => "Boolean",
             "filter_timespan_h" => "Integer",
     },
