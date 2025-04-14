@@ -107,10 +107,9 @@ module DatadogAPIClient::V2
     # Create a tag configuration.
     #
     # Create and define a list of queryable tag keys for an existing count/gauge/rate/distribution metric.
-    # Optionally, include percentile aggregations on any distribution metric or configure custom aggregations
-    # on any count, rate, or gauge metric. By setting `exclude_tags_mode` to true the behavior is changed
-    # from an allow-list to a deny-list, and tags in the defined list will not be queryable.
-    # Can only be used with application keys of users with the `Manage Tags for Metrics` permission.
+    # Optionally, include percentile aggregations on any distribution metric. By setting `exclude_tags_mode`
+    # to true the behavior is changed from an allow-list to a deny-list, and tags in the defined list will not
+    # be queryable. Can only be used with application keys of users with the `Manage Tags for Metrics` permission.
     #
     # @param metric_name [String] The name of the metric.
     # @param body [MetricTagConfigurationCreateRequest] 
@@ -318,13 +317,12 @@ module DatadogAPIClient::V2
 
     # Tag Configuration Cardinality Estimator.
     #
-    # Returns the estimated cardinality for a metric with a given tag, percentile and number of aggregations configuration using Metrics without Limits&trade;.
+    # Returns the estimated cardinality for a metric with a given tag and percentile configuration using Metrics without Limits&trade;.
     #
     # @param metric_name [String] The name of the metric.
     # @param opts [Hash] the optional parameters
     # @option opts [String] :filter_groups Filtered tag keys that the metric is configured to query with.
     # @option opts [Integer] :filter_hours_ago The number of hours of look back (from now) to estimate cardinality with. If unspecified, it defaults to 0 hours.
-    # @option opts [Integer] :filter_num_aggregations The number of aggregations that a `count`, `rate`, or `gauge` metric is configured to use. Max number of aggregation combos is 9.
     # @option opts [Boolean] :filter_pct A boolean, for distribution metrics only, to estimate cardinality if the metric includes additional percentile aggregators.
     # @option opts [Integer] :filter_timespan_h A window, in hours, from the look back to estimate cardinality with. The minimum and default is 1 hour.
     # @return [Array<(MetricEstimateResponse, Integer, Hash)>] MetricEstimateResponse data, response status code and response headers
@@ -343,9 +341,6 @@ module DatadogAPIClient::V2
       if @api_client.config.client_side_validation && !opts[:'filter_hours_ago'].nil? && opts[:'filter_hours_ago'] < 49
         fail ArgumentError, 'invalid value for "opts[:"filter_hours_ago"]" when calling MetricsAPI.estimate_metrics_output_series, must be greater than or equal to 49.'
       end
-      if @api_client.config.client_side_validation && !opts[:'filter_num_aggregations'].nil? && opts[:'filter_num_aggregations'] > 9
-        fail ArgumentError, 'invalid value for "opts[:"filter_num_aggregations"]" when calling MetricsAPI.estimate_metrics_output_series, must be smaller than or equal to 9.'
-      end
       if @api_client.config.client_side_validation && !opts[:'filter_timespan_h'].nil? && opts[:'filter_timespan_h'] > 2147483647
         fail ArgumentError, 'invalid value for "opts[:"filter_timespan_h"]" when calling MetricsAPI.estimate_metrics_output_series, must be smaller than or equal to 2147483647.'
       end
@@ -356,7 +351,6 @@ module DatadogAPIClient::V2
       query_params = opts[:query_params] || {}
       query_params[:'filter[groups]'] = opts[:'filter_groups'] if !opts[:'filter_groups'].nil?
       query_params[:'filter[hours_ago]'] = opts[:'filter_hours_ago'] if !opts[:'filter_hours_ago'].nil?
-      query_params[:'filter[num_aggregations]'] = opts[:'filter_num_aggregations'] if !opts[:'filter_num_aggregations'].nil?
       query_params[:'filter[pct]'] = opts[:'filter_pct'] if !opts[:'filter_pct'].nil?
       query_params[:'filter[timespan_h]'] = opts[:'filter_timespan_h'] if !opts[:'filter_timespan_h'].nil?
 
@@ -395,7 +389,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # List active tags and aggregations.
+    # List active tags.
     #
     # @see #list_active_metric_configurations_with_http_info
     def list_active_metric_configurations(metric_name, opts = {})
@@ -403,9 +397,9 @@ module DatadogAPIClient::V2
       data
     end
 
-    # List active tags and aggregations.
+    # List active tags.
     #
-    # List tags and aggregations that are actively queried on dashboards, notebooks, monitors, the Metrics Explorer, and using the API for a given metric name.
+    # List tags that are actively queried on dashboards, notebooks, monitors, the Metrics Explorer, and using the API for a given metric name.
     #
     # @param metric_name [String] The name of the metric.
     # @param opts [Hash] the optional parameters
@@ -1069,9 +1063,8 @@ module DatadogAPIClient::V2
 
     # Update a tag configuration.
     #
-    # Update the tag configuration of a metric or percentile aggregations of a distribution metric or custom aggregations
-    # of a count, rate, or gauge metric. By setting `exclude_tags_mode` to true the behavior is changed
-    # from an allow-list to a deny-list, and tags in the defined list will not be queryable.
+    # Update the tag configuration of a metric or percentile aggregations of a distribution metric. By setting `exclude_tags_mode`
+    # to true the behavior is changed from an allow-list to a deny-list, and tags in the defined list will not be queryable.
     # Can only be used with application keys from users with the `Manage Tags for Metrics` permission. This endpoint requires
     # a tag configuration to be created first.
     #
