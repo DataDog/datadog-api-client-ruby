@@ -1757,6 +1757,7 @@ ScenariosModelMappings = {
     },
     "v2.GetInterfaces" => {
             "device_id" => "String",
+            "get_ip_addresses" => "Boolean",
     },
     "v2.ListDeviceUserTags" => {
             "device_id" => "String",
