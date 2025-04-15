@@ -1,0 +1,24 @@
+http_interactions:
+- recorded_at: Fri, 17 Jan 2025 20:09:49 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"handle":"rreb","icon_url":"","name":"bare","requirements":[{"controls":[{"name":"sdee","rules_id":["tge-nhp-wjz"]}],"name":"serd"}],"version":"cr2e"},"type":"custom_framework"}}'
+    headers:
+      Accept:
+      - '*/*'
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/cloud_security_management/custom_frameworks
+  response:
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 201
+      message: Created
+recorded_with: VCR 6.0.0
