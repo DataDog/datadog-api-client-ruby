@@ -1171,6 +1171,15 @@ ScenariosModelMappings = {
             "cloud_account_id" => "String",
             "body" => "AzureUCConfigPatchRequest",
     },
+    "v2.UpsertBudget" => {
+            "body" => "BudgetWithEntries",
+    },
+    "v2.DeleteBudget" => {
+            "budget_id" => "String",
+    },
+    "v2.GetBudget" => {
+            "budget_id" => "String",
+    },
     "v2.UploadCustomCostsFile" => {
             "body" => "Array<CustomCostsFileLineItem>",
     },
