@@ -90,6 +90,79 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Create a monitor notification rule.
+    #
+    # @see #create_monitor_notification_rule_with_http_info
+    def create_monitor_notification_rule(body, opts = {})
+      data, _status_code, _headers = create_monitor_notification_rule_with_http_info(body, opts)
+      data
+    end
+
+    # Create a monitor notification rule.
+    #
+    # Creates a monitor notification rule.
+    #
+    # @param body [MonitorNotificationRuleCreateRequest] Request body to create a monitor notification rule.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(MonitorNotificationRuleResponse, Integer, Hash)>] MonitorNotificationRuleResponse data, response status code and response headers
+    def create_monitor_notification_rule_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_monitor_notification_rule".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_monitor_notification_rule")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_monitor_notification_rule"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MonitorsAPI.create_monitor_notification_rule ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling MonitorsAPI.create_monitor_notification_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/monitor/notification_rule'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MonitorNotificationRuleResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_monitor_notification_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MonitorsAPI#create_monitor_notification_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Delete a monitor configuration policy.
     #
     # @see #delete_monitor_config_policy_with_http_info
@@ -155,6 +228,77 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Delete a monitor notification rule.
+    #
+    # @see #delete_monitor_notification_rule_with_http_info
+    def delete_monitor_notification_rule(rule_id, opts = {})
+      delete_monitor_notification_rule_with_http_info(rule_id, opts)
+      nil
+    end
+
+    # Delete a monitor notification rule.
+    #
+    # Deletes a monitor notification rule by `rule_id`.
+    #
+    # @param rule_id [String] ID of the monitor notification rule to delete.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_monitor_notification_rule_with_http_info(rule_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.delete_monitor_notification_rule".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_monitor_notification_rule")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_monitor_notification_rule"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MonitorsAPI.delete_monitor_notification_rule ...'
+      end
+      # verify the required parameter 'rule_id' is set
+      if @api_client.config.client_side_validation && rule_id.nil?
+        fail ArgumentError, "Missing the required parameter 'rule_id' when calling MonitorsAPI.delete_monitor_notification_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/monitor/notification_rule/{rule_id}'.sub('{rule_id}', CGI.escape(rule_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_monitor_notification_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MonitorsAPI#delete_monitor_notification_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get a monitor configuration policy.
     #
     # @see #get_monitor_config_policy_with_http_info
@@ -216,6 +360,147 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: MonitorsAPI#get_monitor_config_policy\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get a monitor notification rule.
+    #
+    # @see #get_monitor_notification_rule_with_http_info
+    def get_monitor_notification_rule(rule_id, opts = {})
+      data, _status_code, _headers = get_monitor_notification_rule_with_http_info(rule_id, opts)
+      data
+    end
+
+    # Get a monitor notification rule.
+    #
+    # Returns a monitor notification rule by `rule_id`.
+    #
+    # @param rule_id [String] ID of the monitor notification rule to fetch.
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :include Comma-separated list of resource paths for related resources to include in the response. Supported resource path is `created_by`.
+    # @return [Array<(MonitorNotificationRuleResponse, Integer, Hash)>] MonitorNotificationRuleResponse data, response status code and response headers
+    def get_monitor_notification_rule_with_http_info(rule_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_monitor_notification_rule".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_monitor_notification_rule")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_monitor_notification_rule"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MonitorsAPI.get_monitor_notification_rule ...'
+      end
+      # verify the required parameter 'rule_id' is set
+      if @api_client.config.client_side_validation && rule_id.nil?
+        fail ArgumentError, "Missing the required parameter 'rule_id' when calling MonitorsAPI.get_monitor_notification_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/monitor/notification_rule/{rule_id}'.sub('{rule_id}', CGI.escape(rule_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MonitorNotificationRuleResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_monitor_notification_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MonitorsAPI#get_monitor_notification_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get all monitor notification rules.
+    #
+    # @see #get_monitor_notification_rules_with_http_info
+    def get_monitor_notification_rules(opts = {})
+      data, _status_code, _headers = get_monitor_notification_rules_with_http_info(opts)
+      data
+    end
+
+    # Get all monitor notification rules.
+    #
+    # Returns a list of all monitor notification rules.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :include Comma-separated list of resource paths for related resources to include in the response. Supported resource path is `created_by`.
+    # @return [Array<(MonitorNotificationRuleListResponse, Integer, Hash)>] MonitorNotificationRuleListResponse data, response status code and response headers
+    def get_monitor_notification_rules_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_monitor_notification_rules".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_monitor_notification_rules")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_monitor_notification_rules"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MonitorsAPI.get_monitor_notification_rules ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/monitor/notification_rule'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MonitorNotificationRuleListResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_monitor_notification_rules,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MonitorsAPI#get_monitor_notification_rules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -348,6 +633,84 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: MonitorsAPI#update_monitor_config_policy\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update a monitor notification rule.
+    #
+    # @see #update_monitor_notification_rule_with_http_info
+    def update_monitor_notification_rule(rule_id, body, opts = {})
+      data, _status_code, _headers = update_monitor_notification_rule_with_http_info(rule_id, body, opts)
+      data
+    end
+
+    # Update a monitor notification rule.
+    #
+    # Updates a monitor notification rule by `rule_id`.
+    #
+    # @param rule_id [String] ID of the monitor notification rule to update.
+    # @param body [MonitorNotificationRuleUpdateRequest] Request body to update the monitor notification rule.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(MonitorNotificationRuleResponse, Integer, Hash)>] MonitorNotificationRuleResponse data, response status code and response headers
+    def update_monitor_notification_rule_with_http_info(rule_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.update_monitor_notification_rule".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_monitor_notification_rule")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_monitor_notification_rule"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MonitorsAPI.update_monitor_notification_rule ...'
+      end
+      # verify the required parameter 'rule_id' is set
+      if @api_client.config.client_side_validation && rule_id.nil?
+        fail ArgumentError, "Missing the required parameter 'rule_id' when calling MonitorsAPI.update_monitor_notification_rule"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling MonitorsAPI.update_monitor_notification_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/monitor/notification_rule/{rule_id}'.sub('{rule_id}', CGI.escape(rule_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MonitorNotificationRuleResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_monitor_notification_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MonitorsAPI#update_monitor_notification_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
