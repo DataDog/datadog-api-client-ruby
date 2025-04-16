@@ -6,8 +6,8 @@ api_instance = DatadogAPIClient::V2::On - CallAPI.new
 # there is a valid "user" in the system
 USER_DATA_ID = ENV["USER_DATA_ID"]
 
-# there is a valid "team" in the system
-TEAM_DATA_ID = ENV["TEAM_DATA_ID"]
+# there is a valid "dd_team" in the system
+DD_TEAM_DATA_ID = ENV["DD_TEAM_DATA_ID"]
 
 body = DatadogAPIClient::V2::ScheduleCreateRequest.new({
   data: DatadogAPIClient::V2::ScheduleCreateRequestData.new({
@@ -49,7 +49,7 @@ body = DatadogAPIClient::V2::ScheduleCreateRequest.new({
       teams: DatadogAPIClient::V2::ScheduleCreateRequestDataRelationshipsTeams.new({
         data: [
           DatadogAPIClient::V2::ScheduleCreateRequestDataRelationshipsTeamsDataItems.new({
-            id: TEAM_DATA_ID,
+            id: DD_TEAM_DATA_ID,
             type: DatadogAPIClient::V2::ScheduleCreateRequestDataRelationshipsTeamsDataItemsType::TEAMS,
           }),
         ],

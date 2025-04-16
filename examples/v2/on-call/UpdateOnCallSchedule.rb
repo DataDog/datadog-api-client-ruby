@@ -10,8 +10,8 @@ SCHEDULE_DATA_RELATIONSHIPS_LAYERS_DATA_0_ID = ENV["SCHEDULE_DATA_RELATIONSHIPS_
 # there is a valid "user" in the system
 USER_DATA_ID = ENV["USER_DATA_ID"]
 
-# there is a valid "team" in the system
-TEAM_DATA_ID = ENV["TEAM_DATA_ID"]
+# there is a valid "dd_team" in the system
+DD_TEAM_DATA_ID = ENV["DD_TEAM_DATA_ID"]
 
 body = DatadogAPIClient::V2::ScheduleUpdateRequest.new({
   data: DatadogAPIClient::V2::ScheduleUpdateRequestData.new({
@@ -56,7 +56,7 @@ body = DatadogAPIClient::V2::ScheduleUpdateRequest.new({
       teams: DatadogAPIClient::V2::ScheduleUpdateRequestDataRelationshipsTeams.new({
         data: [
           DatadogAPIClient::V2::ScheduleUpdateRequestDataRelationshipsTeamsDataItems.new({
-            id: TEAM_DATA_ID,
+            id: DD_TEAM_DATA_ID,
             type: DatadogAPIClient::V2::ScheduleUpdateRequestDataRelationshipsTeamsDataItemsType::TEAMS,
           }),
         ],

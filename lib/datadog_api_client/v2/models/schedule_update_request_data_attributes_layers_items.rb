@@ -37,7 +37,7 @@ module DatadogAPIClient::V2
     # The members assigned to this layer.
     attr_accessor :members
 
-    # The name for this layer (for example, “Secondary Coverage”).
+    # The name for this layer (for example, "Secondary Coverage").
     attr_accessor :name
 
     # Any time restrictions that define when this layer is active.

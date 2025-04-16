@@ -1790,6 +1790,22 @@ ScenariosModelMappings = {
             "tags" => "String",
             "limit" => "Integer",
     },
+    "v2.CreateOnCallEscalationPolicy" => {
+            "include" => "String",
+            "body" => "EscalationPolicyCreateRequest",
+    },
+    "v2.DeleteOnCallEscalationPolicy" => {
+            "policy_id" => "String",
+    },
+    "v2.GetOnCallEscalationPolicy" => {
+            "policy_id" => "String",
+            "include" => "String",
+    },
+    "v2.UpdateOnCallEscalationPolicy" => {
+            "policy_id" => "String",
+            "include" => "String",
+            "body" => "EscalationPolicyUpdateRequest",
+    },
     "v2.CreateOnCallSchedule" => {
             "include" => "String",
             "body" => "ScheduleCreateRequest",

@@ -23,6 +23,75 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
+    # Create on call escalation policy.
+    #
+    # @see #create_on_call_escalation_policy_with_http_info
+    def create_on_call_escalation_policy(body, opts = {})
+      data, _status_code, _headers = create_on_call_escalation_policy_with_http_info(body, opts)
+      data
+    end
+
+    # Create on call escalation policy.
+    #
+    # Create a new on-call escalation policy
+    #
+    # @param body [EscalationPolicyCreateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :include Comma-separated list of included relationships to be returned. Allowed values: `teams`, `steps`, `steps.targets`.
+    # @return [Array<(EscalationPolicy, Integer, Hash)>] EscalationPolicy data, response status code and response headers
+    def create_on_call_escalation_policy_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OnCallAPI.create_on_call_escalation_policy ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling OnCallAPI.create_on_call_escalation_policy"
+      end
+      # resource path
+      local_var_path = '/api/v2/on-call/escalation-policies'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'EscalationPolicy'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_on_call_escalation_policy,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OnCallAPI#create_on_call_escalation_policy\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create on-call schedule.
     #
     # @see #create_on_call_schedule_with_http_info
@@ -92,6 +161,71 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Delete on call escalation policy.
+    #
+    # @see #delete_on_call_escalation_policy_with_http_info
+    def delete_on_call_escalation_policy(policy_id, opts = {})
+      delete_on_call_escalation_policy_with_http_info(policy_id, opts)
+      nil
+    end
+
+    # Delete on call escalation policy.
+    #
+    # Delete an on-call escalation policy
+    #
+    # @param policy_id [String] The ID of the escalation policy
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_on_call_escalation_policy_with_http_info(policy_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OnCallAPI.delete_on_call_escalation_policy ...'
+      end
+      # verify the required parameter 'policy_id' is set
+      if @api_client.config.client_side_validation && policy_id.nil?
+        fail ArgumentError, "Missing the required parameter 'policy_id' when calling OnCallAPI.delete_on_call_escalation_policy"
+      end
+      # resource path
+      local_var_path = '/api/v2/on-call/escalation-policies/{policy_id}'.sub('{policy_id}', CGI.escape(policy_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_on_call_escalation_policy,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OnCallAPI#delete_on_call_escalation_policy\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Delete on-call schedule.
     #
     # @see #delete_on_call_schedule_with_http_info
@@ -153,6 +287,73 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: OnCallAPI#delete_on_call_schedule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get on call escalation policy.
+    #
+    # @see #get_on_call_escalation_policy_with_http_info
+    def get_on_call_escalation_policy(policy_id, opts = {})
+      data, _status_code, _headers = get_on_call_escalation_policy_with_http_info(policy_id, opts)
+      data
+    end
+
+    # Get on call escalation policy.
+    #
+    # Get an on-call escalation policy
+    #
+    # @param policy_id [String] The ID of the escalation policy
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :include Comma-separated list of included relationships to be returned. Allowed values: `teams`, `steps`, `steps.targets`.
+    # @return [Array<(EscalationPolicy, Integer, Hash)>] EscalationPolicy data, response status code and response headers
+    def get_on_call_escalation_policy_with_http_info(policy_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OnCallAPI.get_on_call_escalation_policy ...'
+      end
+      # verify the required parameter 'policy_id' is set
+      if @api_client.config.client_side_validation && policy_id.nil?
+        fail ArgumentError, "Missing the required parameter 'policy_id' when calling OnCallAPI.get_on_call_escalation_policy"
+      end
+      # resource path
+      local_var_path = '/api/v2/on-call/escalation-policies/{policy_id}'.sub('{policy_id}', CGI.escape(policy_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'EscalationPolicy'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_on_call_escalation_policy,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OnCallAPI#get_on_call_escalation_policy\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -220,6 +421,80 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: OnCallAPI#get_on_call_schedule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update on call escalation policy.
+    #
+    # @see #update_on_call_escalation_policy_with_http_info
+    def update_on_call_escalation_policy(policy_id, body, opts = {})
+      data, _status_code, _headers = update_on_call_escalation_policy_with_http_info(policy_id, body, opts)
+      data
+    end
+
+    # Update on call escalation policy.
+    #
+    # Update an on-call escalation policy
+    #
+    # @param policy_id [String] The ID of the escalation policy
+    # @param body [EscalationPolicyUpdateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :include Comma-separated list of included relationships to be returned. Allowed values: `teams`, `steps`, `steps.targets`.
+    # @return [Array<(EscalationPolicy, Integer, Hash)>] EscalationPolicy data, response status code and response headers
+    def update_on_call_escalation_policy_with_http_info(policy_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OnCallAPI.update_on_call_escalation_policy ...'
+      end
+      # verify the required parameter 'policy_id' is set
+      if @api_client.config.client_side_validation && policy_id.nil?
+        fail ArgumentError, "Missing the required parameter 'policy_id' when calling OnCallAPI.update_on_call_escalation_policy"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling OnCallAPI.update_on_call_escalation_policy"
+      end
+      # resource path
+      local_var_path = '/api/v2/on-call/escalation-policies/{policy_id}'.sub('{policy_id}', CGI.escape(policy_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'EscalationPolicy'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_on_call_escalation_policy,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OnCallAPI#update_on_call_escalation_policy\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
