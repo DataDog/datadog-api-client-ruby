@@ -17,18 +17,22 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Specifies the pipeline's configuration, including its sources, processors, and destinations.
-  class ObservabilityPipelineConfig
+  # A Grok parsing rule used in the `parse_grok` processor. Each rule defines how to extract structured fields
+  # from a specific log field using Grok patterns.
+  class ObservabilityPipelineParseGrokProcessorRule
     include BaseGenericModel
 
-    # A list of destination components where processed logs are sent.
-    attr_reader :destinations
+    # A list of Grok parsing rules that define how to extract fields from the source field.
+    # Each rule must contain a name and a valid Grok pattern.
+    #
+    attr_reader :match_rules
 
-    # A list of processors that transform or enrich log data.
-    attr_accessor :processors
+    # The name of the field in the log event to apply the Grok rules to.
+    attr_reader :source
 
-    # A list of configured data sources for the pipeline.
-    attr_reader :sources
+    # A list of Grok helper rules that can be referenced by the parsing rules.
+    #
+    attr_reader :support_rules
 
     attr_accessor :additional_properties
 
@@ -36,9 +40,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'destinations' => :'destinations',
-        :'processors' => :'processors',
-        :'sources' => :'sources'
+        :'match_rules' => :'match_rules',
+        :'source' => :'source',
+        :'support_rules' => :'support_rules'
       }
     end
 
@@ -46,9 +50,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'destinations' => :'Array<ObservabilityPipelineConfigDestinationItem>',
-        :'processors' => :'Array<ObservabilityPipelineConfigProcessorItem>',
-        :'sources' => :'Array<ObservabilityPipelineConfigSourceItem>'
+        :'match_rules' => :'Array<ObservabilityPipelineParseGrokProcessorRuleMatchRule>',
+        :'source' => :'String',
+        :'support_rules' => :'Array<ObservabilityPipelineParseGrokProcessorRuleSupportRule>'
       }
     end
 
@@ -57,7 +61,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineConfig` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineParseGrokProcessorRule` initialize method"
       end
 
       self.additional_properties = {}
@@ -70,21 +74,19 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'destinations')
-        if (value = attributes[:'destinations']).is_a?(Array)
-          self.destinations = value
+      if attributes.key?(:'match_rules')
+        if (value = attributes[:'match_rules']).is_a?(Array)
+          self.match_rules = value
         end
       end
 
-      if attributes.key?(:'processors')
-        if (value = attributes[:'processors']).is_a?(Array)
-          self.processors = value
-        end
+      if attributes.key?(:'source')
+        self.source = attributes[:'source']
       end
 
-      if attributes.key?(:'sources')
-        if (value = attributes[:'sources']).is_a?(Array)
-          self.sources = value
+      if attributes.key?(:'support_rules')
+        if (value = attributes[:'support_rules']).is_a?(Array)
+          self.support_rules = value
         end
       end
     end
@@ -93,29 +95,40 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @destinations.nil?
-      return false if @sources.nil?
+      return false if @match_rules.nil?
+      return false if @source.nil?
+      return false if @support_rules.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param destinations [Object] Object to be assigned
+    # @param match_rules [Object] Object to be assigned
     # @!visibility private
-    def destinations=(destinations)
-      if destinations.nil?
-        fail ArgumentError, 'invalid value for "destinations", destinations cannot be nil.'
+    def match_rules=(match_rules)
+      if match_rules.nil?
+        fail ArgumentError, 'invalid value for "match_rules", match_rules cannot be nil.'
       end
-      @destinations = destinations
+      @match_rules = match_rules
     end
 
     # Custom attribute writer method with validation
-    # @param sources [Object] Object to be assigned
+    # @param source [Object] Object to be assigned
     # @!visibility private
-    def sources=(sources)
-      if sources.nil?
-        fail ArgumentError, 'invalid value for "sources", sources cannot be nil.'
+    def source=(source)
+      if source.nil?
+        fail ArgumentError, 'invalid value for "source", source cannot be nil.'
       end
-      @sources = sources
+      @source = source
+    end
+
+    # Custom attribute writer method with validation
+    # @param support_rules [Object] Object to be assigned
+    # @!visibility private
+    def support_rules=(support_rules)
+      if support_rules.nil?
+        fail ArgumentError, 'invalid value for "support_rules", support_rules cannot be nil.'
+      end
+      @support_rules = support_rules
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -144,9 +157,9 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          destinations == o.destinations &&
-          processors == o.processors &&
-          sources == o.sources &&
+          match_rules == o.match_rules &&
+          source == o.source &&
+          support_rules == o.support_rules &&
           additional_properties == o.additional_properties
     end
 
@@ -154,7 +167,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [destinations, processors, sources, additional_properties].hash
+      [match_rules, source, support_rules, additional_properties].hash
     end
   end
 end
