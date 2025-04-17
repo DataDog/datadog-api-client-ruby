@@ -79,6 +79,7 @@ Feature: Network Device Monitoring
   Scenario: Get the list of interfaces of the device returns "OK" response
     Given new "GetInterfaces" request
     And request contains "device_id" parameter with value "default:1.2.3.4"
+    And request contains "get_ip_addresses" parameter with value true
     When the request is sent
     Then the response status is 200 OK
     And the response "data[0].type" is equal to "interface"
@@ -86,6 +87,7 @@ Feature: Network Device Monitoring
     And the response "data[0].attributes.name" is equal to "if99"
     And the response "data[0].attributes.description" is equal to "a network interface"
     And the response "data[0].attributes.mac_address" is equal to "00:00:00:00:00:00"
+    And the response "data[0].attributes.ip_addresses" is equal to ["1.1.1.1","1.1.1.2"]
     And the response "data[0].attributes.alias" is equal to "interface_99"
     And the response "data[0].attributes.index" is equal to 99
     And the response "data[0].attributes.status" is equal to "up"

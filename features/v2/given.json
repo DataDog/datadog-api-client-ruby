@@ -440,6 +440,18 @@
     "parameters": [
       {
         "name": "body",
+        "value": "{\n  \"data\": {\n    \"type\": \"monitor-notification-rule\",\n    \"attributes\": {\n      \"name\":\"test rule\",\n      \"filter\": {\n        \"tags\": [\n          \"app:{{ unique_lower }}\"\n        ]\n      },\n      \"recipients\":[\n        \"slack-monitor-app\"\n      ]\n    }\n  }\n}"
+      }
+    ],
+    "step": "there is a valid \"monitor_notification_rule\" in the system",
+    "key": "monitor_notification_rule",
+    "tag": "Monitors",
+    "operationId": "CreateMonitorNotificationRule"
+  },
+  {
+    "parameters": [
+      {
+        "name": "body",
         "value": "{\n  \"data\": {\n    \"type\": \"monitor-config-policy\",\n    \"attributes\": {\n      \"policy_type\": \"tag\",\n      \"policy\": {\n        \"tag_key\": \"{{ unique_lower_alnum }}\", \"tag_key_required\": false, \"valid_tag_values\": [\"prod\", \"staging\"]\n      }\n    }\n  }\n}"
       }
     ],
@@ -447,6 +459,30 @@
     "key": "monitor_configuration_policy",
     "tag": "Monitors",
     "operationId": "CreateMonitorConfigPolicy"
+  },
+  {
+    "parameters": [
+      {
+        "name": "body",
+        "value": "{\n  \"data\": {\n    \"attributes\": {\n      \"name\": \"{{ unique }}\",\n      \"description\": \"{{ unique }}\",\n      \"resolve_page_on_policy_end\": true,\n      \"retries\": 2,\n      \"steps\": [\n        {\n          \"assignment\": \"default\",\n          \"escalate_after_seconds\": 3600,\n          \"targets\": [\n            {\n              \"id\": \"{{ dd_team.data.id }}\",\n              \"type\": \"teams\"\n            },\n            {\n              \"id\": \"{{ schedule.data.id }}\",\n              \"type\": \"schedules\"\n            },\n            {\n              \"id\": \"{{ user.data.id }}\",\n              \"type\": \"users\"\n            }\n          ]\n        },\n        {\n          \"assignment\": \"round-robin\",\n          \"escalate_after_seconds\": 3600,\n          \"targets\": [\n            {\n              \"id\": \"{{ dd_team.data.id }}\",\n              \"type\": \"teams\"\n            }\n          ]\n        }\n      ]\n    },\n    \"relationships\": {\n      \"teams\": {\n        \"data\": [\n          {\n            \"id\": \"{{ dd_team.data.id }}\",\n            \"type\": \"teams\"\n          }\n        ]\n      }\n    },\n    \"type\": \"policies\"\n  }\n}"
+      }
+    ],
+    "step": "there is a valid \"escalation_policy\" in the system",
+    "key": "escalation_policy",
+    "tag": "On-Call",
+    "operationId": "CreateOnCallEscalationPolicy"
+  },
+  {
+    "parameters": [
+      {
+        "name": "body",
+        "value": "{\n  \"data\": {\n    \"attributes\": {\n      \"layers\": [\n        {\n          \"effective_date\": \"{{ timeISO('now - 10d') }}\",\n          \"end_date\": \"{{ timeISO('now + 10d') }}\",\n          \"interval\": {\n            \"days\": 1\n          },\n          \"members\": [\n            {\n              \"user\": {\n                \"id\": \"890f29d4-0b7a-11f0-aeb2-760fcae4f596\"\n              }\n            }\n          ],\n          \"name\": \"Layer 1\",\n          \"restrictions\": [\n            {\n              \"end_day\": \"friday\",\n              \"end_time\": \"17:00:00\",\n              \"start_day\": \"monday\",\n              \"start_time\": \"09:00:00\"\n            }\n          ],\n          \"rotation_start\": \"{{ timeISO('now - 5d') }}\"\n        }\n      ],\n      \"name\": \"{{ unique }}\",\n      \"tags\": [\n        \"tag1\",\n        \"tag2\"\n      ],\n      \"time_zone\": \"America/New_York\"\n    },\n    \"relationships\": {\n      \"teams\": {\n        \"data\": [\n          {\n            \"id\": \"65aea9d0-941c-4607-bf8a-14fc0dac2820\",\n            \"type\": \"teams\"\n          }\n        ]\n      }\n    },\n    \"type\": \"schedules\"\n  }\n}"
+      }
+    ],
+    "step": "there is a valid \"schedule\" in the system",
+    "key": "schedule",
+    "tag": "On-Call",
+    "operationId": "CreateOnCallSchedule"
   },
   {
     "source": "data[4]",
@@ -502,6 +538,18 @@
     "key": "agent_rule",
     "tag": "CSM Threats",
     "operationId": "CreateCSMThreatsAgentRule"
+  },
+  {
+    "parameters": [
+      {
+        "name": "body",
+        "value": "{\n   \"data\":{\n      \"attributes\":{\n         \"config\":{\n            \"destinations\":[\n               {\n                  \"id\":\"datadog-logs-destination\",\n                  \"inputs\":[\n                     \"filter-processor\"\n                  ],\n                  \"type\":\"datadog_logs\"\n               }\n            ],\n            \"processors\":[\n               {\n                  \"id\":\"filter-processor\",\n                  \"include\":\"service:my-service\",\n                  \"inputs\":[\n                     \"datadog-agent-source\"\n                  ],\n                  \"type\":\"filter\"\n               }\n            ],\n            \"sources\":[\n               {\n                  \"id\":\"datadog-agent-source\",\n                  \"type\":\"datadog_agent\"\n               }\n            ]\n         },\n         \"name\":\"Main Observability Pipeline\"\n      },\n      \"type\":\"pipelines\"\n   }\n}"
+      }
+    ],
+    "step": "there is a valid \"pipeline\" in the system",
+    "key": "pipeline",
+    "tag": "Observability Pipelines",
+    "operationId": "CreatePipeline"
   },
   {
     "parameters": [

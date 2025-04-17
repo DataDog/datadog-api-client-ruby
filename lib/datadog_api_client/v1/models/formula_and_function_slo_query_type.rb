@@ -22,6 +22,7 @@ module DatadogAPIClient::V1
     include BaseEnumModel
 
     METRIC = "metric".freeze
+    MONITOR = "monitor".freeze
     TIME_SLICE = "time_slice".freeze
   end
 end

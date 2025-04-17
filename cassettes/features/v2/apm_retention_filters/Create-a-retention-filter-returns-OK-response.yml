@@ -1,5 +1,5 @@
 http_interactions:
-- recorded_at: Thu, 19 Oct 2023 12:28:01 GMT
+- recorded_at: Tue, 08 Apr 2025 11:32:45 GMT
   request:
     body:
       encoding: UTF-8
@@ -16,9 +16,9 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"kkZkTzFaR_Oy4OWzOJQbcw","attributes":{"name":"my retention
-        filter","rate":1.0,"enabled":true,"filter_type":"spans-sampling-processor","filter":{"query":"@http.status_code:200
-        service:my-service"},"editable":true,"modified_by":"9919ec9b-ebc7-49ee-8dc8-03626e717cca","modified_at":1697718481,"created_by":"9919ec9b-ebc7-49ee-8dc8-03626e717cca","created_at":1697718481},"type":"apm_retention_filter"}}
+      string: '{"data":{"id":"x1aRVkAVQN2CBx1ghs4xDQ","attributes":{"name":"my retention
+        filter","rate":1.0,"trace_rate":0.0,"enabled":true,"filter_type":"spans-sampling-processor","filter":{"query":"@http.status_code:200
+        service:my-service"},"editable":true,"modified_by":"frog@datadoghq.com","modified_at":1744111965,"created_by":"frog@datadoghq.com","created_at":1744111965},"type":"apm_retention_filter"}}
 
         '
     headers:
@@ -27,14 +27,14 @@ http_interactions:
     status:
       code: 200
       message: OK
-- recorded_at: Thu, 19 Oct 2023 12:28:01 GMT
+- recorded_at: Tue, 08 Apr 2025 11:32:45 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/apm/config/retention-filters/kkZkTzFaR_Oy4OWzOJQbcw
+    uri: https://api.datadoghq.com/api/v2/apm/config/retention-filters/x1aRVkAVQN2CBx1ghs4xDQ
   response:
     body:
       encoding: UTF-8

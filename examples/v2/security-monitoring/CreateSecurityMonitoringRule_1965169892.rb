@@ -31,6 +31,12 @@ body = DatadogAPIClient::V2::SecurityMonitoringStandardRuleCreatePayload.new({
             duration: 900,
           }),
         }),
+        DatadogAPIClient::V2::SecurityMonitoringRuleCaseAction.new({
+          type: DatadogAPIClient::V2::SecurityMonitoringRuleCaseActionType::USER_BEHAVIOR,
+          options: DatadogAPIClient::V2::SecurityMonitoringRuleCaseActionOptions.new({
+            user_behavior_name: "behavior",
+          }),
+        }),
       ],
     }),
   ],

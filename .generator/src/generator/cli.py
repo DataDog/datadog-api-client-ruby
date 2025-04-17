@@ -40,7 +40,7 @@ def cli(specs, output):
     env.filters["return_type"] = openapi.return_type
     env.filters["snake_case"] = formatter.snake_case
     env.filters["attribute_path"] = formatter.attribute_path
-
+    env.filters["class_name"] = formatter.class_name
     env.globals["gem_name"] = GEM_NAME
     env.globals["module_name"] = MODULE_NAME
     env.globals["enumerate"] = enumerate

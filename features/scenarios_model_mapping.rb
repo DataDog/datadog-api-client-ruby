@@ -1733,6 +1733,23 @@ ScenariosModelMappings = {
             "content_encoding" => "MetricContentEncoding",
             "body" => "MetricPayload",
     },
+    "v2.GetMonitorNotificationRules" => {
+            "include" => "String",
+    },
+    "v2.CreateMonitorNotificationRule" => {
+            "body" => "MonitorNotificationRuleCreateRequest",
+    },
+    "v2.DeleteMonitorNotificationRule" => {
+            "rule_id" => "String",
+    },
+    "v2.GetMonitorNotificationRule" => {
+            "rule_id" => "String",
+            "include" => "String",
+    },
+    "v2.UpdateMonitorNotificationRule" => {
+            "rule_id" => "String",
+            "body" => "MonitorNotificationRuleUpdateRequest",
+    },
     "v2.CreateMonitorConfigPolicy" => {
             "body" => "MonitorConfigPolicyCreateRequest",
     },
@@ -1757,6 +1774,7 @@ ScenariosModelMappings = {
     },
     "v2.GetInterfaces" => {
             "device_id" => "String",
+            "get_ip_addresses" => "Boolean",
     },
     "v2.ListDeviceUserTags" => {
             "device_id" => "String",
@@ -1771,6 +1789,38 @@ ScenariosModelMappings = {
             "group_by" => "String",
             "tags" => "String",
             "limit" => "Integer",
+    },
+    "v2.CreateOnCallEscalationPolicy" => {
+            "include" => "String",
+            "body" => "EscalationPolicyCreateRequest",
+    },
+    "v2.DeleteOnCallEscalationPolicy" => {
+            "policy_id" => "String",
+    },
+    "v2.GetOnCallEscalationPolicy" => {
+            "policy_id" => "String",
+            "include" => "String",
+    },
+    "v2.UpdateOnCallEscalationPolicy" => {
+            "policy_id" => "String",
+            "include" => "String",
+            "body" => "EscalationPolicyUpdateRequest",
+    },
+    "v2.CreateOnCallSchedule" => {
+            "include" => "String",
+            "body" => "ScheduleCreateRequest",
+    },
+    "v2.DeleteOnCallSchedule" => {
+            "schedule_id" => "String",
+    },
+    "v2.GetOnCallSchedule" => {
+            "include" => "String",
+            "schedule_id" => "String",
+    },
+    "v2.UpdateOnCallSchedule" => {
+            "include" => "String",
+            "schedule_id" => "String",
+            "body" => "ScheduleUpdateRequest",
     },
     "v2.GetOrgConfig" => {
             "org_config_name" => "String",
@@ -2132,6 +2182,19 @@ ScenariosModelMappings = {
     "v2.UpdateCloudWorkloadSecurityAgentRule" => {
             "agent_rule_id" => "String",
             "body" => "CloudWorkloadSecurityAgentRuleUpdateRequest",
+    },
+    "v2.CreatePipeline" => {
+            "body" => "ObservabilityPipelineCreateRequest",
+    },
+    "v2.DeletePipeline" => {
+            "pipeline_id" => "String",
+    },
+    "v2.GetPipeline" => {
+            "pipeline_id" => "String",
+    },
+    "v2.UpdatePipeline" => {
+            "pipeline_id" => "String",
+            "body" => "ObservabilityPipeline",
     },
     "v2.DeleteRestrictionPolicy" => {
             "resource_id" => "String",
