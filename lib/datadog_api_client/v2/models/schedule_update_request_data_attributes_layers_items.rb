@@ -23,7 +23,7 @@ module DatadogAPIClient::V2
     include BaseGenericModel
 
     # When this updated layer takes effect (ISO 8601 format).
-    attr_accessor :effective_date
+    attr_reader :effective_date
 
     # When this updated layer should stop being active (ISO 8601 format).
     attr_accessor :end_date
@@ -32,19 +32,19 @@ module DatadogAPIClient::V2
     attr_accessor :id
 
     # Specifies how the rotation repeats: number of days, plus optional seconds, up to the given maximums.
-    attr_accessor :interval
+    attr_reader :interval
 
     # The members assigned to this layer.
-    attr_accessor :members
+    attr_reader :members
 
     # The name for this layer (for example, "Secondary Coverage").
-    attr_accessor :name
+    attr_reader :name
 
     # Any time restrictions that define when this layer is active.
     attr_accessor :restrictions
 
     # The date/time at which the rotation begins (ISO 8601 format).
-    attr_accessor :rotation_start
+    attr_reader :rotation_start
 
     attr_accessor :additional_properties
 
@@ -131,6 +131,68 @@ module DatadogAPIClient::V2
       if attributes.key?(:'rotation_start')
         self.rotation_start = attributes[:'rotation_start']
       end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @effective_date.nil?
+      return false if @interval.nil?
+      return false if @members.nil?
+      return false if @name.nil?
+      return false if @rotation_start.nil?
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param effective_date [Object] Object to be assigned
+    # @!visibility private
+    def effective_date=(effective_date)
+      if effective_date.nil?
+        fail ArgumentError, 'invalid value for "effective_date", effective_date cannot be nil.'
+      end
+      @effective_date = effective_date
+    end
+
+    # Custom attribute writer method with validation
+    # @param interval [Object] Object to be assigned
+    # @!visibility private
+    def interval=(interval)
+      if interval.nil?
+        fail ArgumentError, 'invalid value for "interval", interval cannot be nil.'
+      end
+      @interval = interval
+    end
+
+    # Custom attribute writer method with validation
+    # @param members [Object] Object to be assigned
+    # @!visibility private
+    def members=(members)
+      if members.nil?
+        fail ArgumentError, 'invalid value for "members", members cannot be nil.'
+      end
+      @members = members
+    end
+
+    # Custom attribute writer method with validation
+    # @param name [Object] Object to be assigned
+    # @!visibility private
+    def name=(name)
+      if name.nil?
+        fail ArgumentError, 'invalid value for "name", name cannot be nil.'
+      end
+      @name = name
+    end
+
+    # Custom attribute writer method with validation
+    # @param rotation_start [Object] Object to be assigned
+    # @!visibility private
+    def rotation_start=(rotation_start)
+      if rotation_start.nil?
+        fail ArgumentError, 'invalid value for "rotation_start", rotation_start cannot be nil.'
+      end
+      @rotation_start = rotation_start
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
