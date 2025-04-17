@@ -17,18 +17,16 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Specifies the pipeline's configuration, including its sources, processors, and destinations.
-  class ObservabilityPipelineConfig
+  # Defines a Grok parsing rule, which extracts structured fields from log content using named Grok patterns.
+  # Each rule must have a unique name and a valid Datadog Grok pattern that will be applied to the source field.
+  class ObservabilityPipelineParseGrokProcessorRuleMatchRule
     include BaseGenericModel
 
-    # A list of destination components where processed logs are sent.
-    attr_reader :destinations
+    # The name of the rule.
+    attr_reader :name
 
-    # A list of processors that transform or enrich log data.
-    attr_accessor :processors
-
-    # A list of configured data sources for the pipeline.
-    attr_reader :sources
+    # The definition of the Grok rule.
+    attr_reader :rule
 
     attr_accessor :additional_properties
 
@@ -36,9 +34,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'destinations' => :'destinations',
-        :'processors' => :'processors',
-        :'sources' => :'sources'
+        :'name' => :'name',
+        :'rule' => :'rule'
       }
     end
 
@@ -46,9 +43,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'destinations' => :'Array<ObservabilityPipelineConfigDestinationItem>',
-        :'processors' => :'Array<ObservabilityPipelineConfigProcessorItem>',
-        :'sources' => :'Array<ObservabilityPipelineConfigSourceItem>'
+        :'name' => :'String',
+        :'rule' => :'String'
       }
     end
 
@@ -57,7 +53,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineConfig` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineParseGrokProcessorRuleMatchRule` initialize method"
       end
 
       self.additional_properties = {}
@@ -70,22 +66,12 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'destinations')
-        if (value = attributes[:'destinations']).is_a?(Array)
-          self.destinations = value
-        end
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
 
-      if attributes.key?(:'processors')
-        if (value = attributes[:'processors']).is_a?(Array)
-          self.processors = value
-        end
-      end
-
-      if attributes.key?(:'sources')
-        if (value = attributes[:'sources']).is_a?(Array)
-          self.sources = value
-        end
+      if attributes.key?(:'rule')
+        self.rule = attributes[:'rule']
       end
     end
 
@@ -93,29 +79,29 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @destinations.nil?
-      return false if @sources.nil?
+      return false if @name.nil?
+      return false if @rule.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param destinations [Object] Object to be assigned
+    # @param name [Object] Object to be assigned
     # @!visibility private
-    def destinations=(destinations)
-      if destinations.nil?
-        fail ArgumentError, 'invalid value for "destinations", destinations cannot be nil.'
+    def name=(name)
+      if name.nil?
+        fail ArgumentError, 'invalid value for "name", name cannot be nil.'
       end
-      @destinations = destinations
+      @name = name
     end
 
     # Custom attribute writer method with validation
-    # @param sources [Object] Object to be assigned
+    # @param rule [Object] Object to be assigned
     # @!visibility private
-    def sources=(sources)
-      if sources.nil?
-        fail ArgumentError, 'invalid value for "sources", sources cannot be nil.'
+    def rule=(rule)
+      if rule.nil?
+        fail ArgumentError, 'invalid value for "rule", rule cannot be nil.'
       end
-      @sources = sources
+      @rule = rule
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -144,9 +130,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          destinations == o.destinations &&
-          processors == o.processors &&
-          sources == o.sources &&
+          name == o.name &&
+          rule == o.rule &&
           additional_properties == o.additional_properties
     end
 
@@ -154,7 +139,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [destinations, processors, sources, additional_properties].hash
+      [name, rule, additional_properties].hash
     end
   end
 end
