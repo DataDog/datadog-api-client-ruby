@@ -1,4 +1,4 @@
-# Create on call escalation policy returns "Created" response
+# Create on-call escalation policy returns "Created" response
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::On - CallAPI.new
@@ -32,16 +32,6 @@ body = DatadogAPIClient::V2::EscalationPolicyCreateRequest.new({
               id: SCHEDULE_DATA_ID,
               type: DatadogAPIClient::V2::EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItemsType::SCHEDULES,
             }),
-            DatadogAPIClient::V2::EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItems.new({
-              id: DD_TEAM_DATA_ID,
-              type: DatadogAPIClient::V2::EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItemsType::TEAMS,
-            }),
-          ],
-        }),
-        DatadogAPIClient::V2::EscalationPolicyCreateRequestDataAttributesStepsItems.new({
-          assignment: DatadogAPIClient::V2::EscalationPolicyCreateRequestDataAttributesStepsItemsAssignment::ROUND_ROBIN,
-          escalate_after_seconds: 3600,
-          targets: [
             DatadogAPIClient::V2::EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItems.new({
               id: DD_TEAM_DATA_ID,
               type: DatadogAPIClient::V2::EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItemsType::TEAMS,

@@ -25,7 +25,7 @@ module DatadogAPIClient::V2
     attr_accessor :description
 
     # Specifies the name of the escalation policy.
-    attr_reader :name
+    attr_accessor :name
 
     # Indicates whether the page is automatically resolved when the policy ends.
     attr_accessor :resolve_page_on_policy_end
@@ -90,24 +90,6 @@ module DatadogAPIClient::V2
       if attributes.key?(:'retries')
         self.retries = attributes[:'retries']
       end
-    end
-
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    # @!visibility private
-    def valid?
-      return false if @name.nil?
-      true
-    end
-
-    # Custom attribute writer method with validation
-    # @param name [Object] Object to be assigned
-    # @!visibility private
-    def name=(name)
-      if name.nil?
-        fail ArgumentError, 'invalid value for "name", name cannot be nil.'
-      end
-      @name = name
     end
 
     # Returns the object in the form of hash, with additionalProperties support.

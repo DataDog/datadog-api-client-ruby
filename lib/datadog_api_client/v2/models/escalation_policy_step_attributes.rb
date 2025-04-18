@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class EscalationPolicyStepAttributes
     include BaseGenericModel
 
-    # Specifies how this escalation step will assign targets (example `default` or `round-robin`).
+    # Specifies how this escalation step will assign targets (example `default`).
     attr_accessor :assignment
 
     # Specifies how many seconds to wait before escalating to the next step.

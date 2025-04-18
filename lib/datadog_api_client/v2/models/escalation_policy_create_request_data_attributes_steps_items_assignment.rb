@@ -17,11 +17,10 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Specifies how this escalation step will assign targets (example `default` or `round-robin`).
+  # Specifies how this escalation step will assign targets (example `default`).
   class EscalationPolicyCreateRequestDataAttributesStepsItemsAssignment
     include BaseEnumModel
 
     DEFAULT = "default".freeze
-    ROUND_ROBIN = "round-robin".freeze
   end
 end
