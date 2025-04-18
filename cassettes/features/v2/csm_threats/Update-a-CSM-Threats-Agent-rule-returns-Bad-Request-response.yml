@@ -1,10 +1,34 @@
 http_interactions:
-- recorded_at: Tue, 28 May 2024 19:38:08 GMT
+- recorded_at: Tue, 15 Apr 2025 09:10:11 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"description":"My agent policy","enabled":true,"hostTags":["env:staging"],"name":"testupdateacsmthreatsagentrulereturnsbadrequestresponse1744708211"},"type":"policy"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/remote_config/products/cws/policy
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"1i5-k3r-2dg","type":"policy","attributes":{"blockingRulesCount":0,"datadogManaged":false,"description":"My
+        agent policy","disabledRulesCount":1,"enabled":true,"hostTags":["env:staging"],"monitoringRulesCount":225,"name":"testupdateacsmthreatsagentrulereturnsbadrequestresponse1744708211","policyVersion":"1","priority":1000000001,"ruleCount":226,"updateDate":1744708211304,"updater":{"name":"CI
+        Account","handle":"9919ec9b-ebc7-49ee-8dc8-03626e717cca"}}}}'
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+- recorded_at: Tue, 15 Apr 2025 09:10:11 GMT
   request:
     body:
       encoding: UTF-8
       string: '{"data":{"attributes":{"description":"My Agent rule","enabled":true,"expression":"exec.file.name
-        == \"sh\"","name":"testupdateacsmthreatsagentrulereturnsbadrequestresponse1716925088"},"type":"agent_rule"}}'
+        == \"sh\"","name":"testupdateacsmthreatsagentrulereturnsbadrequestresponse1744708211","policy_id":"1i5-k3r-2dg","product_tags":["security:attack","technique:T1059"]},"type":"agent_rule"}}'
     headers:
       Accept:
       - application/json
@@ -15,10 +39,10 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"0wn-l36-875","type":"agent_rule","attributes":{"category":"Process
-        Activity","creationDate":1716925088306,"creator":{"name":"CI Account","handle":"9919ec9b-ebc7-49ee-8dc8-03626e717cca"},"defaultRule":false,"description":"My
+      string: '{"data":{"id":"qtl-8mk-8gy","type":"agent_rule","attributes":{"category":"Process
+        Activity","creationDate":1744708211716,"creator":{"name":"CI Account","handle":"9919ec9b-ebc7-49ee-8dc8-03626e717cca"},"defaultRule":false,"description":"My
         Agent rule","enabled":true,"expression":"exec.file.name == \"sh\"","filters":["os
-        == \"linux\""],"name":"testupdateacsmthreatsagentrulereturnsbadrequestresponse1716925088","updateDate":1716925088306,"updater":{"name":"CI
+        == \"linux\""],"name":"testupdateacsmthreatsagentrulereturnsbadrequestresponse1744708211","updateDate":1744708211716,"updater":{"name":"CI
         Account","handle":"9919ec9b-ebc7-49ee-8dc8-03626e717cca"}}}}'
     headers:
       Content-Type:
@@ -26,39 +50,57 @@ http_interactions:
     status:
       code: 200
       message: OK
-- recorded_at: Tue, 28 May 2024 19:38:08 GMT
+- recorded_at: Tue, 15 Apr 2025 09:10:11 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"description":"Test Agent rule","enabled":true,"expression":"open.file.path
-        = sh"},"id":"0wn-l36-875","type":"agent_rule"}}'
+      string: '{"data":{"attributes":{"description":"My Agent rule","enabled":true,"expression":"exec.file.name
+        == \"sh\"","policy_id":"1i5-k3r-2dg","product_tags":[]},"id":"invalid-agent-rule-id","type":"agent_rule"}}'
     headers:
       Accept:
       - application/json
       Content-Type:
       - application/json
     method: PATCH
-    uri: https://api.datadoghq.com/api/v2/remote_config/products/cws/agent_rules/0wn-l36-875
+    uri: https://api.datadoghq.com/api/v2/remote_config/products/cws/agent_rules/qtl-8mk-8gy
   response:
     body:
       encoding: UTF-8
-      string: '{"errors":["input_validation_error(Field ''expression'' is invalid:
-        rule `testupdateacsmthreatsagentrulereturnsbadrequestresponse1716925088` error:
-        syntax error `1:18: unexpected token \"sh\" (expected \"~\")`)"]}'
+      string: '{"errors":[{"title":"failed to update rule"}]}
+
+        '
     headers:
       Content-Type:
       - application/json
     status:
       code: 400
       message: Bad Request
-- recorded_at: Tue, 28 May 2024 19:38:08 GMT
+- recorded_at: Tue, 15 Apr 2025 09:10:11 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/remote_config/products/cws/agent_rules/0wn-l36-875
+    uri: https://api.datadoghq.com/api/v2/remote_config/products/cws/agent_rules/qtl-8mk-8gy
+  response:
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 204
+      message: No Content
+- recorded_at: Tue, 15 Apr 2025 09:10:11 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/remote_config/products/cws/policy/1i5-k3r-2dg
   response:
     body:
       encoding: UTF-8

@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Object for a single Agent rule.
+  # Object for a single Agent rule
   class CloudWorkloadSecurityAgentRuleData
     include BaseGenericModel
 
-    # A Cloud Workload Security Agent rule returned by the API.
+    # A Cloud Workload Security Agent rule returned by the API
     attr_accessor :attributes
 
-    # The ID of the Agent rule.
+    # The ID of the Agent rule
     attr_accessor :id
 
-    # The type of the resource. The value should always be `agent_rule`.
+    # The type of the resource, must always be `agent_rule`
     attr_accessor :type
 
     attr_accessor :additional_properties
