@@ -17,8 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A data source for the pipeline.
-  module ObservabilityPipelineConfigSourceItem
+  # Specifies how the value of the generated metric is computed.
+  module ObservabilityPipelineMetricValue
     class << self
       include BaseOneOfModel
       include BaseOneOfModelNoDiscriminator
@@ -26,11 +26,8 @@ module DatadogAPIClient::V2
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of
         [
-          :'ObservabilityPipelineKafkaSource',
-          :'ObservabilityPipelineDatadogAgentSource',
-          :'ObservabilityPipelineSplunkTcpSource',
-          :'ObservabilityPipelineSplunkHecSource',
-          :'ObservabilityPipelineAmazonS3Source'
+          :'ObservabilityPipelineGeneratedMetricIncrementByOne',
+          :'ObservabilityPipelineGeneratedMetricIncrementByField'
         ]
       end
       # Builds the object
