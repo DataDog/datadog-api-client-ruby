@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The action the rule can perform if triggered.
+  # The action the rule can perform if triggered
   class CloudWorkloadSecurityAgentRuleAction
     include BaseGenericModel
 

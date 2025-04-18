@@ -17,18 +17,24 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Update an existing Cloud Workload Security Agent rule.
+  # Update an existing Cloud Workload Security Agent rule
   class CloudWorkloadSecurityAgentRuleUpdateAttributes
     include BaseGenericModel
 
-    # The description of the Agent rule.
+    # The description of the Agent rule
     attr_accessor :description
 
-    # Whether the Agent rule is enabled.
+    # Whether the Agent rule is enabled
     attr_accessor :enabled
 
-    # The SECL expression of the Agent rule.
+    # The SECL expression of the Agent rule
     attr_accessor :expression
+
+    # The ID of the policy where the Agent rule is saved
+    attr_accessor :policy_id
+
+    # The list of product tags associated with the rule
+    attr_accessor :product_tags
 
     attr_accessor :additional_properties
 
@@ -38,7 +44,9 @@ module DatadogAPIClient::V2
       {
         :'description' => :'description',
         :'enabled' => :'enabled',
-        :'expression' => :'expression'
+        :'expression' => :'expression',
+        :'policy_id' => :'policy_id',
+        :'product_tags' => :'product_tags'
       }
     end
 
@@ -48,7 +56,9 @@ module DatadogAPIClient::V2
       {
         :'description' => :'String',
         :'enabled' => :'Boolean',
-        :'expression' => :'String'
+        :'expression' => :'String',
+        :'policy_id' => :'String',
+        :'product_tags' => :'Array<String>'
       }
     end
 
@@ -81,6 +91,16 @@ module DatadogAPIClient::V2
       if attributes.key?(:'expression')
         self.expression = attributes[:'expression']
       end
+
+      if attributes.key?(:'policy_id')
+        self.policy_id = attributes[:'policy_id']
+      end
+
+      if attributes.key?(:'product_tags')
+        if (value = attributes[:'product_tags']).is_a?(Array)
+          self.product_tags = value
+        end
+      end
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -112,6 +132,8 @@ module DatadogAPIClient::V2
           description == o.description &&
           enabled == o.enabled &&
           expression == o.expression &&
+          policy_id == o.policy_id &&
+          product_tags == o.product_tags &&
           additional_properties == o.additional_properties
     end
 
@@ -119,7 +141,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [description, enabled, expression, additional_properties].hash
+      [description, enabled, expression, policy_id, product_tags, additional_properties].hash
     end
   end
 end
