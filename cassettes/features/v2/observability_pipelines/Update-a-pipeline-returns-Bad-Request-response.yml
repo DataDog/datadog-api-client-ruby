@@ -1,5 +1,5 @@
 http_interactions:
-- recorded_at: Fri, 04 Apr 2025 10:37:04 GMT
+- recorded_at: Mon, 21 Apr 2025 12:54:56 GMT
   request:
     body:
       encoding: UTF-8
@@ -15,7 +15,7 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"c193d7da-1140-11f0-9a6d-da7ad0900002","type":"pipelines","attributes":{"name":"Main
+      string: '{"data":{"id":"d73f214e-1eaf-11f0-99b2-da7ad0900002","type":"pipelines","attributes":{"name":"Main
         Observability Pipeline","config":{"destinations":[{"id":"datadog-logs-destination","inputs":["filter-processor"],"type":"datadog_logs"}],"processors":[{"id":"filter-processor","include":"service:my-service","inputs":["datadog-agent-source"],"type":"filter"}],"sources":[{"id":"datadog-agent-source","type":"datadog_agent"}]}}}}
 
         '
@@ -25,7 +25,7 @@ http_interactions:
     status:
       code: 201
       message: Created
-- recorded_at: Fri, 04 Apr 2025 10:37:04 GMT
+- recorded_at: Mon, 21 Apr 2025 12:54:56 GMT
   request:
     body:
       encoding: UTF-8
@@ -37,7 +37,7 @@ http_interactions:
       Content-Type:
       - application/json
     method: PUT
-    uri: https://api.datadoghq.com/api/v2/remote_config/products/obs_pipelines/pipelines/c193d7da-1140-11f0-9a6d-da7ad0900002
+    uri: https://api.datadoghq.com/api/v2/remote_config/products/obs_pipelines/pipelines/d73f214e-1eaf-11f0-99b2-da7ad0900002
   response:
     body:
       encoding: UTF-8
@@ -54,14 +54,14 @@ http_interactions:
     status:
       code: 400
       message: Bad Request
-- recorded_at: Fri, 04 Apr 2025 10:37:04 GMT
+- recorded_at: Mon, 21 Apr 2025 12:54:56 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/remote_config/products/obs_pipelines/pipelines/c193d7da-1140-11f0-9a6d-da7ad0900002
+    uri: https://api.datadoghq.com/api/v2/remote_config/products/obs_pipelines/pipelines/d73f214e-1eaf-11f0-99b2-da7ad0900002
   response:
     body:
       encoding: UTF-8
