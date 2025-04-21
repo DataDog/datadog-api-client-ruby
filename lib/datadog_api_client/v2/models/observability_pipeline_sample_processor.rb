@@ -17,17 +17,26 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The `datadog_agent` source collects logs from the Datadog Agent.
-  class ObservabilityPipelineDatadogAgentSource
+  # The `sample` processor allows probabilistic sampling of logs at a fixed rate.
+  class ObservabilityPipelineSampleProcessor
     include BaseGenericModel
 
-    # The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
+    # The unique identifier for this component. Used to reference this component in other parts of the pipeline (for example, as the `input` to downstream components).
     attr_reader :id
 
-    # Configuration for enabling TLS encryption between the pipeline component and external services.
-    attr_accessor :tls
+    # A Datadog search query used to determine which logs this processor targets.
+    attr_reader :include
 
-    # The source type. The value should always be `datadog_agent`.
+    # A list of component IDs whose output is used as the `input` for this component.
+    attr_reader :inputs
+
+    # The percentage of logs to sample.
+    attr_accessor :percentage
+
+    # Number of events to sample (1 in N).
+    attr_reader :rate
+
+    # The processor type. The value should always be `sample`.
     attr_reader :type
 
     attr_accessor :additional_properties
@@ -37,7 +46,10 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'id' => :'id',
-        :'tls' => :'tls',
+        :'include' => :'include',
+        :'inputs' => :'inputs',
+        :'percentage' => :'percentage',
+        :'rate' => :'rate',
         :'type' => :'type'
       }
     end
@@ -47,8 +59,11 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'id' => :'String',
-        :'tls' => :'ObservabilityPipelineTls',
-        :'type' => :'ObservabilityPipelineDatadogAgentSourceType'
+        :'include' => :'String',
+        :'inputs' => :'Array<String>',
+        :'percentage' => :'Float',
+        :'rate' => :'Integer',
+        :'type' => :'ObservabilityPipelineSampleProcessorType'
       }
     end
 
@@ -57,7 +72,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineDatadogAgentSource` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineSampleProcessor` initialize method"
       end
 
       self.additional_properties = {}
@@ -74,8 +89,22 @@ module DatadogAPIClient::V2
         self.id = attributes[:'id']
       end
 
-      if attributes.key?(:'tls')
-        self.tls = attributes[:'tls']
+      if attributes.key?(:'include')
+        self.include = attributes[:'include']
+      end
+
+      if attributes.key?(:'inputs')
+        if (value = attributes[:'inputs']).is_a?(Array)
+          self.inputs = value
+        end
+      end
+
+      if attributes.key?(:'percentage')
+        self.percentage = attributes[:'percentage']
+      end
+
+      if attributes.key?(:'rate')
+        self.rate = attributes[:'rate']
       end
 
       if attributes.key?(:'type')
@@ -88,6 +117,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @id.nil?
+      return false if @include.nil?
+      return false if @inputs.nil?
+      return false if !@rate.nil? && @rate < 1
       return false if @type.nil?
       true
     end
@@ -100,6 +132,36 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "id", id cannot be nil.'
       end
       @id = id
+    end
+
+    # Custom attribute writer method with validation
+    # @param include [Object] Object to be assigned
+    # @!visibility private
+    def include=(include)
+      if include.nil?
+        fail ArgumentError, 'invalid value for "include", include cannot be nil.'
+      end
+      @include = include
+    end
+
+    # Custom attribute writer method with validation
+    # @param inputs [Object] Object to be assigned
+    # @!visibility private
+    def inputs=(inputs)
+      if inputs.nil?
+        fail ArgumentError, 'invalid value for "inputs", inputs cannot be nil.'
+      end
+      @inputs = inputs
+    end
+
+    # Custom attribute writer method with validation
+    # @param rate [Object] Object to be assigned
+    # @!visibility private
+    def rate=(rate)
+      if !rate.nil? && rate < 1
+        fail ArgumentError, 'invalid value for "rate", must be greater than or equal to 1.'
+      end
+      @rate = rate
     end
 
     # Custom attribute writer method with validation
@@ -139,7 +201,10 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           id == o.id &&
-          tls == o.tls &&
+          include == o.include &&
+          inputs == o.inputs &&
+          percentage == o.percentage &&
+          rate == o.rate &&
           type == o.type &&
           additional_properties == o.additional_properties
     end
@@ -148,7 +213,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [id, tls, type, additional_properties].hash
+      [id, include, inputs, percentage, rate, type, additional_properties].hash
     end
   end
 end

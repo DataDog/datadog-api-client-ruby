@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The `datadog_agent` source collects logs from the Datadog Agent.
-  class ObservabilityPipelineDatadogAgentSource
+  # The `fluent` source ingests logs from a Fluentd-compatible service.
+  class ObservabilityPipelineFluentSource
     include BaseGenericModel
 
-    # The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
+    # The unique identifier for this component. Used to reference this component in other parts of the pipeline (for example, as the `input` to downstream components).
     attr_reader :id
 
     # Configuration for enabling TLS encryption between the pipeline component and external services.
     attr_accessor :tls
 
-    # The source type. The value should always be `datadog_agent`.
+    # The source type. The value should always be `fluent`.
     attr_reader :type
 
     attr_accessor :additional_properties
@@ -48,7 +48,7 @@ module DatadogAPIClient::V2
       {
         :'id' => :'String',
         :'tls' => :'ObservabilityPipelineTls',
-        :'type' => :'ObservabilityPipelineDatadogAgentSourceType'
+        :'type' => :'ObservabilityPipelineFluentSourceType'
       }
     end
 
@@ -57,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineDatadogAgentSource` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineFluentSource` initialize method"
       end
 
       self.additional_properties = {}

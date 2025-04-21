@@ -17,18 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The `datadog_agent` source collects logs from the Datadog Agent.
-  class ObservabilityPipelineDatadogAgentSource
+  # The Grok helper rule referenced in the parsing rules.
+  class ObservabilityPipelineParseGrokProcessorRuleSupportRule
     include BaseGenericModel
 
-    # The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
-    attr_reader :id
+    # The name of the Grok helper rule.
+    attr_reader :name
 
-    # Configuration for enabling TLS encryption between the pipeline component and external services.
-    attr_accessor :tls
-
-    # The source type. The value should always be `datadog_agent`.
-    attr_reader :type
+    # The definition of the Grok helper rule.
+    attr_reader :rule
 
     attr_accessor :additional_properties
 
@@ -36,9 +33,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'id' => :'id',
-        :'tls' => :'tls',
-        :'type' => :'type'
+        :'name' => :'name',
+        :'rule' => :'rule'
       }
     end
 
@@ -46,9 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'id' => :'String',
-        :'tls' => :'ObservabilityPipelineTls',
-        :'type' => :'ObservabilityPipelineDatadogAgentSourceType'
+        :'name' => :'String',
+        :'rule' => :'String'
       }
     end
 
@@ -57,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineDatadogAgentSource` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineParseGrokProcessorRuleSupportRule` initialize method"
       end
 
       self.additional_properties = {}
@@ -70,16 +65,12 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
 
-      if attributes.key?(:'tls')
-        self.tls = attributes[:'tls']
-      end
-
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
+      if attributes.key?(:'rule')
+        self.rule = attributes[:'rule']
       end
     end
 
@@ -87,29 +78,29 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @id.nil?
-      return false if @type.nil?
+      return false if @name.nil?
+      return false if @rule.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param id [Object] Object to be assigned
+    # @param name [Object] Object to be assigned
     # @!visibility private
-    def id=(id)
-      if id.nil?
-        fail ArgumentError, 'invalid value for "id", id cannot be nil.'
+    def name=(name)
+      if name.nil?
+        fail ArgumentError, 'invalid value for "name", name cannot be nil.'
       end
-      @id = id
+      @name = name
     end
 
     # Custom attribute writer method with validation
-    # @param type [Object] Object to be assigned
+    # @param rule [Object] Object to be assigned
     # @!visibility private
-    def type=(type)
-      if type.nil?
-        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+    def rule=(rule)
+      if rule.nil?
+        fail ArgumentError, 'invalid value for "rule", rule cannot be nil.'
       end
-      @type = type
+      @rule = rule
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -138,9 +129,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
-          tls == o.tls &&
-          type == o.type &&
+          name == o.name &&
+          rule == o.rule &&
           additional_properties == o.additional_properties
     end
 
@@ -148,7 +138,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [id, tls, type, additional_properties].hash
+      [name, rule, additional_properties].hash
     end
   end
 end

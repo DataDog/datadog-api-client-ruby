@@ -17,17 +17,26 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The `datadog_agent` source collects logs from the Datadog Agent.
-  class ObservabilityPipelineDatadogAgentSource
+  # The `parse_grok` processor extracts structured fields from unstructured log messages using Grok patterns.
+  class ObservabilityPipelineParseGrokProcessor
     include BaseGenericModel
 
-    # The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
+    # If set to `true`, disables the default Grok rules provided by Datadog.
+    attr_accessor :disable_library_rules
+
+    # A unique identifier for this processor.
     attr_reader :id
 
-    # Configuration for enabling TLS encryption between the pipeline component and external services.
-    attr_accessor :tls
+    # A Datadog search query used to determine which logs this processor targets.
+    attr_reader :include
 
-    # The source type. The value should always be `datadog_agent`.
+    # A list of component IDs whose output is used as the `input` for this component.
+    attr_reader :inputs
+
+    # The list of Grok parsing rules. If multiple matching rules are provided, they are evaluated in order. The first successful match is applied.
+    attr_reader :rules
+
+    # The processor type. The value should always be `parse_grok`.
     attr_reader :type
 
     attr_accessor :additional_properties
@@ -36,8 +45,11 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'disable_library_rules' => :'disable_library_rules',
         :'id' => :'id',
-        :'tls' => :'tls',
+        :'include' => :'include',
+        :'inputs' => :'inputs',
+        :'rules' => :'rules',
         :'type' => :'type'
       }
     end
@@ -46,9 +58,12 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'disable_library_rules' => :'Boolean',
         :'id' => :'String',
-        :'tls' => :'ObservabilityPipelineTls',
-        :'type' => :'ObservabilityPipelineDatadogAgentSourceType'
+        :'include' => :'String',
+        :'inputs' => :'Array<String>',
+        :'rules' => :'Array<ObservabilityPipelineParseGrokProcessorRule>',
+        :'type' => :'ObservabilityPipelineParseGrokProcessorType'
       }
     end
 
@@ -57,7 +72,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineDatadogAgentSource` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineParseGrokProcessor` initialize method"
       end
 
       self.additional_properties = {}
@@ -70,12 +85,28 @@ module DatadogAPIClient::V2
         end
       }
 
+      if attributes.key?(:'disable_library_rules')
+        self.disable_library_rules = attributes[:'disable_library_rules']
+      end
+
       if attributes.key?(:'id')
         self.id = attributes[:'id']
       end
 
-      if attributes.key?(:'tls')
-        self.tls = attributes[:'tls']
+      if attributes.key?(:'include')
+        self.include = attributes[:'include']
+      end
+
+      if attributes.key?(:'inputs')
+        if (value = attributes[:'inputs']).is_a?(Array)
+          self.inputs = value
+        end
+      end
+
+      if attributes.key?(:'rules')
+        if (value = attributes[:'rules']).is_a?(Array)
+          self.rules = value
+        end
       end
 
       if attributes.key?(:'type')
@@ -88,6 +119,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @id.nil?
+      return false if @include.nil?
+      return false if @inputs.nil?
+      return false if @rules.nil?
       return false if @type.nil?
       true
     end
@@ -100,6 +134,36 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "id", id cannot be nil.'
       end
       @id = id
+    end
+
+    # Custom attribute writer method with validation
+    # @param include [Object] Object to be assigned
+    # @!visibility private
+    def include=(include)
+      if include.nil?
+        fail ArgumentError, 'invalid value for "include", include cannot be nil.'
+      end
+      @include = include
+    end
+
+    # Custom attribute writer method with validation
+    # @param inputs [Object] Object to be assigned
+    # @!visibility private
+    def inputs=(inputs)
+      if inputs.nil?
+        fail ArgumentError, 'invalid value for "inputs", inputs cannot be nil.'
+      end
+      @inputs = inputs
+    end
+
+    # Custom attribute writer method with validation
+    # @param rules [Object] Object to be assigned
+    # @!visibility private
+    def rules=(rules)
+      if rules.nil?
+        fail ArgumentError, 'invalid value for "rules", rules cannot be nil.'
+      end
+      @rules = rules
     end
 
     # Custom attribute writer method with validation
@@ -138,8 +202,11 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          disable_library_rules == o.disable_library_rules &&
           id == o.id &&
-          tls == o.tls &&
+          include == o.include &&
+          inputs == o.inputs &&
+          rules == o.rules &&
           type == o.type &&
           additional_properties == o.additional_properties
     end
@@ -148,7 +215,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [id, tls, type, additional_properties].hash
+      [disable_library_rules, id, include, inputs, rules, type, additional_properties].hash
     end
   end
 end

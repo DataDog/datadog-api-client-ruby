@@ -27,7 +27,9 @@ module DatadogAPIClient::V2
       def openapi_one_of
         [
           :'ObservabilityPipelineKafkaSource',
-          :'ObservabilityPipelineDatadogAgentSource'
+          :'ObservabilityPipelineDatadogAgentSource',
+          :'ObservabilityPipelineFluentSource',
+          :'ObservabilityPipelineHttpServerSource'
         ]
       end
       # Builds the object

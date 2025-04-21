@@ -39,7 +39,7 @@ module DatadogAPIClient::V2
     # The maximum amount of data or number of events allowed before the quota is enforced. Can be specified in bytes or events.
     attr_reader :limit
 
-    # Name for identifying the processor.
+    # Name of the quota.
     attr_reader :name
 
     # A list of alternate quota rules that apply to specific sets of events, identified by matching field values. Each override can define a custom limit.

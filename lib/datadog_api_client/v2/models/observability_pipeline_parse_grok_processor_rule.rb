@@ -17,18 +17,22 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The `datadog_agent` source collects logs from the Datadog Agent.
-  class ObservabilityPipelineDatadogAgentSource
+  # A Grok parsing rule used in the `parse_grok` processor. Each rule defines how to extract structured fields
+  # from a specific log field using Grok patterns.
+  class ObservabilityPipelineParseGrokProcessorRule
     include BaseGenericModel
 
-    # The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
-    attr_reader :id
+    # A list of Grok parsing rules that define how to extract fields from the source field.
+    # Each rule must contain a name and a valid Grok pattern.
+    #
+    attr_reader :match_rules
 
-    # Configuration for enabling TLS encryption between the pipeline component and external services.
-    attr_accessor :tls
+    # The name of the field in the log event to apply the Grok rules to.
+    attr_reader :source
 
-    # The source type. The value should always be `datadog_agent`.
-    attr_reader :type
+    # A list of Grok helper rules that can be referenced by the parsing rules.
+    #
+    attr_reader :support_rules
 
     attr_accessor :additional_properties
 
@@ -36,9 +40,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'id' => :'id',
-        :'tls' => :'tls',
-        :'type' => :'type'
+        :'match_rules' => :'match_rules',
+        :'source' => :'source',
+        :'support_rules' => :'support_rules'
       }
     end
 
@@ -46,9 +50,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'id' => :'String',
-        :'tls' => :'ObservabilityPipelineTls',
-        :'type' => :'ObservabilityPipelineDatadogAgentSourceType'
+        :'match_rules' => :'Array<ObservabilityPipelineParseGrokProcessorRuleMatchRule>',
+        :'source' => :'String',
+        :'support_rules' => :'Array<ObservabilityPipelineParseGrokProcessorRuleSupportRule>'
       }
     end
 
@@ -57,7 +61,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineDatadogAgentSource` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineParseGrokProcessorRule` initialize method"
       end
 
       self.additional_properties = {}
@@ -70,16 +74,20 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.key?(:'match_rules')
+        if (value = attributes[:'match_rules']).is_a?(Array)
+          self.match_rules = value
+        end
       end
 
-      if attributes.key?(:'tls')
-        self.tls = attributes[:'tls']
+      if attributes.key?(:'source')
+        self.source = attributes[:'source']
       end
 
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
+      if attributes.key?(:'support_rules')
+        if (value = attributes[:'support_rules']).is_a?(Array)
+          self.support_rules = value
+        end
       end
     end
 
@@ -87,29 +95,40 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @id.nil?
-      return false if @type.nil?
+      return false if @match_rules.nil?
+      return false if @source.nil?
+      return false if @support_rules.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param id [Object] Object to be assigned
+    # @param match_rules [Object] Object to be assigned
     # @!visibility private
-    def id=(id)
-      if id.nil?
-        fail ArgumentError, 'invalid value for "id", id cannot be nil.'
+    def match_rules=(match_rules)
+      if match_rules.nil?
+        fail ArgumentError, 'invalid value for "match_rules", match_rules cannot be nil.'
       end
-      @id = id
+      @match_rules = match_rules
     end
 
     # Custom attribute writer method with validation
-    # @param type [Object] Object to be assigned
+    # @param source [Object] Object to be assigned
     # @!visibility private
-    def type=(type)
-      if type.nil?
-        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+    def source=(source)
+      if source.nil?
+        fail ArgumentError, 'invalid value for "source", source cannot be nil.'
       end
-      @type = type
+      @source = source
+    end
+
+    # Custom attribute writer method with validation
+    # @param support_rules [Object] Object to be assigned
+    # @!visibility private
+    def support_rules=(support_rules)
+      if support_rules.nil?
+        fail ArgumentError, 'invalid value for "support_rules", support_rules cannot be nil.'
+      end
+      @support_rules = support_rules
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -138,9 +157,9 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
-          tls == o.tls &&
-          type == o.type &&
+          match_rules == o.match_rules &&
+          source == o.source &&
+          support_rules == o.support_rules &&
           additional_properties == o.additional_properties
     end
 
@@ -148,7 +167,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [id, tls, type, additional_properties].hash
+      [match_rules, source, support_rules, additional_properties].hash
     end
   end
 end

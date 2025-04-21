@@ -17,17 +17,23 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The `datadog_agent` source collects logs from the Datadog Agent.
-  class ObservabilityPipelineDatadogAgentSource
+  # The `http_server` source collects logs over HTTP POST from external services.
+  class ObservabilityPipelineHttpServerSource
     include BaseGenericModel
 
-    # The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
+    # HTTP authentication method.
+    attr_reader :auth_strategy
+
+    # The decoding format used to interpret incoming logs.
+    attr_reader :decoding
+
+    # Unique ID for the HTTP server source.
     attr_reader :id
 
     # Configuration for enabling TLS encryption between the pipeline component and external services.
     attr_accessor :tls
 
-    # The source type. The value should always be `datadog_agent`.
+    # The source type. The value should always be `http_server`.
     attr_reader :type
 
     attr_accessor :additional_properties
@@ -36,6 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'auth_strategy' => :'auth_strategy',
+        :'decoding' => :'decoding',
         :'id' => :'id',
         :'tls' => :'tls',
         :'type' => :'type'
@@ -46,9 +54,11 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'auth_strategy' => :'ObservabilityPipelineHttpServerSourceAuthStrategy',
+        :'decoding' => :'ObservabilityPipelineDecoding',
         :'id' => :'String',
         :'tls' => :'ObservabilityPipelineTls',
-        :'type' => :'ObservabilityPipelineDatadogAgentSourceType'
+        :'type' => :'ObservabilityPipelineHttpServerSourceType'
       }
     end
 
@@ -57,7 +67,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineDatadogAgentSource` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineHttpServerSource` initialize method"
       end
 
       self.additional_properties = {}
@@ -69,6 +79,14 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'auth_strategy')
+        self.auth_strategy = attributes[:'auth_strategy']
+      end
+
+      if attributes.key?(:'decoding')
+        self.decoding = attributes[:'decoding']
+      end
 
       if attributes.key?(:'id')
         self.id = attributes[:'id']
@@ -87,9 +105,31 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
+      return false if @auth_strategy.nil?
+      return false if @decoding.nil?
       return false if @id.nil?
       return false if @type.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param auth_strategy [Object] Object to be assigned
+    # @!visibility private
+    def auth_strategy=(auth_strategy)
+      if auth_strategy.nil?
+        fail ArgumentError, 'invalid value for "auth_strategy", auth_strategy cannot be nil.'
+      end
+      @auth_strategy = auth_strategy
+    end
+
+    # Custom attribute writer method with validation
+    # @param decoding [Object] Object to be assigned
+    # @!visibility private
+    def decoding=(decoding)
+      if decoding.nil?
+        fail ArgumentError, 'invalid value for "decoding", decoding cannot be nil.'
+      end
+      @decoding = decoding
     end
 
     # Custom attribute writer method with validation
@@ -138,6 +178,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          auth_strategy == o.auth_strategy &&
+          decoding == o.decoding &&
           id == o.id &&
           tls == o.tls &&
           type == o.type &&
@@ -148,7 +190,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [id, tls, type, additional_properties].hash
+      [auth_strategy, decoding, id, tls, type, additional_properties].hash
     end
   end
 end
