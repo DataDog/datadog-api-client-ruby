@@ -17,8 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A destination for the pipeline.
-  module ObservabilityPipelineConfigDestinationItem
+  # The definition of `ObservabilityPipelineSensitiveDataScannerProcessorAction` object.
+  module ObservabilityPipelineSensitiveDataScannerProcessorAction
     class << self
       include BaseOneOfModel
       include BaseOneOfModelNoDiscriminator
@@ -26,13 +26,9 @@ module DatadogAPIClient::V2
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of
         [
-          :'ObservabilityPipelineDatadogLogsDestination',
-          :'ObservabilityPipelineSumoLogicDestination',
-          :'ObservabilityPipelineElasticsearchDestination',
-          :'ObservabilityPipelineRsyslogDestination',
-          :'ObservabilityPipelineSyslogNgDestination',
-          :'AzureStorageDestination',
-          :'MicrosoftSentinelDestination'
+          :'ObservabilityPipelineSensitiveDataScannerProcessorActionRedact',
+          :'ObservabilityPipelineSensitiveDataScannerProcessorActionHash',
+          :'ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedact'
         ]
       end
       # Builds the object
