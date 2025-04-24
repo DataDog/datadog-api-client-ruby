@@ -22,7 +22,7 @@ module DatadogAPIClient::V2
     include BaseGenericModel
 
     # Describes the main attributes for creating a new schedule, including name, layers, time zone, and tags.
-    attr_accessor :attributes
+    attr_reader :attributes
 
     # Gathers relationship objects for the schedule creation request, including the teams to associate.
     attr_accessor :relationships
@@ -87,8 +87,19 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
+      return false if @attributes.nil?
       return false if @type.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param attributes [Object] Object to be assigned
+    # @!visibility private
+    def attributes=(attributes)
+      if attributes.nil?
+        fail ArgumentError, 'invalid value for "attributes", attributes cannot be nil.'
+      end
+      @attributes = attributes
     end
 
     # Custom attribute writer method with validation
