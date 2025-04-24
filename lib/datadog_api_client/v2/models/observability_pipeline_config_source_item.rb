@@ -27,7 +27,11 @@ module DatadogAPIClient::V2
       def openapi_one_of
         [
           :'ObservabilityPipelineKafkaSource',
-          :'ObservabilityPipelineDatadogAgentSource'
+          :'ObservabilityPipelineDatadogAgentSource',
+          :'ObservabilityPipelineAmazonDataFirehoseSource',
+          :'ObservabilityPipelineGooglePubSubSource',
+          :'ObservabilityPipelineHttpClientSource',
+          :'ObservabilityPipelineLogstashSource'
         ]
       end
       # Builds the object
