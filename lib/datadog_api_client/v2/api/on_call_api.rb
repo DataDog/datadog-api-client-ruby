@@ -23,7 +23,7 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
-    # Create on call escalation policy.
+    # Create on-call escalation policy.
     #
     # @see #create_on_call_escalation_policy_with_http_info
     def create_on_call_escalation_policy(body, opts = {})
@@ -31,7 +31,7 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Create on call escalation policy.
+    # Create on-call escalation policy.
     #
     # Create a new on-call escalation policy
     #
@@ -161,7 +161,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Delete on call escalation policy.
+    # Delete on-call escalation policy.
     #
     # @see #delete_on_call_escalation_policy_with_http_info
     def delete_on_call_escalation_policy(policy_id, opts = {})
@@ -169,7 +169,7 @@ module DatadogAPIClient::V2
       nil
     end
 
-    # Delete on call escalation policy.
+    # Delete on-call escalation policy.
     #
     # Delete an on-call escalation policy
     #
@@ -291,7 +291,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Get on call escalation policy.
+    # Get on-call escalation policy.
     #
     # @see #get_on_call_escalation_policy_with_http_info
     def get_on_call_escalation_policy(policy_id, opts = {})
@@ -299,7 +299,7 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Get on call escalation policy.
+    # Get on-call escalation policy.
     #
     # Get an on-call escalation policy
     #
@@ -425,7 +425,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Update on call escalation policy.
+    # Update on-call escalation policy.
     #
     # @see #update_on_call_escalation_policy_with_http_info
     def update_on_call_escalation_policy(policy_id, body, opts = {})
@@ -433,7 +433,7 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Update on call escalation policy.
+    # Update on-call escalation policy.
     #
     # Update an on-call escalation policy
     #

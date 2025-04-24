@@ -1,4 +1,4 @@
-# Delete on call escalation policy returns "No Content" response
+# Delete on-call escalation policy returns "No Content" response
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::On - CallAPI.new

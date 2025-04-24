@@ -1,4 +1,4 @@
-# Create on call escalation policy returns "Created" response
+# Create on-call escalation policy returns "Created" response
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::On - CallAPI.new
