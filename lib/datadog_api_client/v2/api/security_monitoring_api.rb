@@ -301,6 +301,73 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Create a custom framework.
+    #
+    # @see #create_custom_framework_with_http_info
+    def create_custom_framework(body, opts = {})
+      data, _status_code, _headers = create_custom_framework_with_http_info(body, opts)
+      data
+    end
+
+    # Create a custom framework.
+    #
+    # Create a custom framework.
+    #
+    # @param body [CreateCustomFrameworkRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(CreateCustomFrameworkResponse, Integer, Hash)>] CreateCustomFrameworkResponse data, response status code and response headers
+    def create_custom_framework_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.create_custom_framework ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.create_custom_framework"
+      end
+      # resource path
+      local_var_path = '/api/v2/cloud_security_management/custom_frameworks'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CreateCustomFrameworkResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_custom_framework,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#create_custom_framework\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create a security filter.
     #
     # @see #create_security_filter_with_http_info
@@ -635,6 +702,76 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SecurityMonitoringAPI#create_vulnerability_notification_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete a custom framework.
+    #
+    # @see #delete_custom_framework_with_http_info
+    def delete_custom_framework(handle, version, opts = {})
+      data, _status_code, _headers = delete_custom_framework_with_http_info(handle, version, opts)
+      data
+    end
+
+    # Delete a custom framework.
+    #
+    # Delete a custom framework.
+    #
+    # @param handle [String] The framework handle
+    # @param version [String] The framework version
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(DeleteCustomFrameworkResponse, Integer, Hash)>] DeleteCustomFrameworkResponse data, response status code and response headers
+    def delete_custom_framework_with_http_info(handle, version, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.delete_custom_framework ...'
+      end
+      # verify the required parameter 'handle' is set
+      if @api_client.config.client_side_validation && handle.nil?
+        fail ArgumentError, "Missing the required parameter 'handle' when calling SecurityMonitoringAPI.delete_custom_framework"
+      end
+      # verify the required parameter 'version' is set
+      if @api_client.config.client_side_validation && version.nil?
+        fail ArgumentError, "Missing the required parameter 'version' when calling SecurityMonitoringAPI.delete_custom_framework"
+      end
+      # resource path
+      local_var_path = '/api/v2/cloud_security_management/custom_frameworks/{handle}/{version}'.sub('{handle}', CGI.escape(handle.to_s).gsub('%2F', '/')).sub('{version}', CGI.escape(version.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DeleteCustomFrameworkResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_custom_framework,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#delete_custom_framework\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1251,6 +1388,76 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get a custom framework.
+    #
+    # @see #get_custom_framework_with_http_info
+    def get_custom_framework(handle, version, opts = {})
+      data, _status_code, _headers = get_custom_framework_with_http_info(handle, version, opts)
+      data
+    end
+
+    # Get a custom framework.
+    #
+    # Get a custom framework.
+    #
+    # @param handle [String] The framework handle
+    # @param version [String] The framework version
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(GetCustomFrameworkResponse, Integer, Hash)>] GetCustomFrameworkResponse data, response status code and response headers
+    def get_custom_framework_with_http_info(handle, version, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_custom_framework ...'
+      end
+      # verify the required parameter 'handle' is set
+      if @api_client.config.client_side_validation && handle.nil?
+        fail ArgumentError, "Missing the required parameter 'handle' when calling SecurityMonitoringAPI.get_custom_framework"
+      end
+      # verify the required parameter 'version' is set
+      if @api_client.config.client_side_validation && version.nil?
+        fail ArgumentError, "Missing the required parameter 'version' when calling SecurityMonitoringAPI.get_custom_framework"
+      end
+      # resource path
+      local_var_path = '/api/v2/cloud_security_management/custom_frameworks/{handle}/{version}'.sub('{handle}', CGI.escape(handle.to_s).gsub('%2F', '/')).sub('{version}', CGI.escape(version.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GetCustomFrameworkResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_custom_framework,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#get_custom_framework\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get a finding.
     #
     # @see #get_finding_with_http_info
@@ -1453,7 +1660,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'GetRuleVersionHistoryResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :get_rule_version_history,
@@ -3502,6 +3709,83 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SecurityMonitoringAPI#test_security_monitoring_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update a custom framework.
+    #
+    # @see #update_custom_framework_with_http_info
+    def update_custom_framework(handle, version, body, opts = {})
+      data, _status_code, _headers = update_custom_framework_with_http_info(handle, version, body, opts)
+      data
+    end
+
+    # Update a custom framework.
+    #
+    # Update a custom framework.
+    #
+    # @param handle [String] The framework handle
+    # @param version [String] The framework version
+    # @param body [UpdateCustomFrameworkRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(UpdateCustomFrameworkResponse, Integer, Hash)>] UpdateCustomFrameworkResponse data, response status code and response headers
+    def update_custom_framework_with_http_info(handle, version, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.update_custom_framework ...'
+      end
+      # verify the required parameter 'handle' is set
+      if @api_client.config.client_side_validation && handle.nil?
+        fail ArgumentError, "Missing the required parameter 'handle' when calling SecurityMonitoringAPI.update_custom_framework"
+      end
+      # verify the required parameter 'version' is set
+      if @api_client.config.client_side_validation && version.nil?
+        fail ArgumentError, "Missing the required parameter 'version' when calling SecurityMonitoringAPI.update_custom_framework"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.update_custom_framework"
+      end
+      # resource path
+      local_var_path = '/api/v2/cloud_security_management/custom_frameworks/{handle}/{version}'.sub('{handle}', CGI.escape(handle.to_s).gsub('%2F', '/')).sub('{version}', CGI.escape(version.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'UpdateCustomFrameworkResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_custom_framework,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#update_custom_framework\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
