@@ -2199,8 +2199,15 @@ ScenariosModelMappings = {
             "agent_rule_id" => "String",
             "body" => "CloudWorkloadSecurityAgentRuleUpdateRequest",
     },
+    "v2.ListPipelines" => {
+            "page_size" => "Integer",
+            "page_number" => "Integer",
+    },
     "v2.CreatePipeline" => {
-            "body" => "ObservabilityPipelineCreateRequest",
+            "body" => "ObservabilityPipelineSpec",
+    },
+    "v2.ValidatePipeline" => {
+            "body" => "ObservabilityPipelineSpec",
     },
     "v2.DeletePipeline" => {
             "pipeline_id" => "String",

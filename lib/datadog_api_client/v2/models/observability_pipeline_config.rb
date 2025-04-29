@@ -25,7 +25,7 @@ module DatadogAPIClient::V2
     attr_reader :destinations
 
     # A list of processors that transform or enrich log data.
-    attr_reader :processors
+    attr_accessor :processors
 
     # A list of configured data sources for the pipeline.
     attr_reader :sources
@@ -94,7 +94,6 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @destinations.nil?
-      return false if @processors.nil?
       return false if @sources.nil?
       true
     end
@@ -107,16 +106,6 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "destinations", destinations cannot be nil.'
       end
       @destinations = destinations
-    end
-
-    # Custom attribute writer method with validation
-    # @param processors [Object] Object to be assigned
-    # @!visibility private
-    def processors=(processors)
-      if processors.nil?
-        fail ArgumentError, 'invalid value for "processors", processors cannot be nil.'
-      end
-      @processors = processors
     end
 
     # Custom attribute writer method with validation

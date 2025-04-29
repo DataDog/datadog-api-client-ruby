@@ -17,14 +17,23 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Contains the pipeline’s ID, type, and configuration attributes.
-  class ObservabilityPipelineCreateRequestData
+  # The `syslog_ng` destination forwards logs to an external `syslog-ng` server over TCP or UDP using the syslog protocol.
+  class ObservabilityPipelineSyslogNgDestination
     include BaseGenericModel
 
-    # Defines the pipeline’s name and its components (sources, processors, and destinations).
-    attr_reader :attributes
+    # The unique identifier for this component.
+    attr_reader :id
 
-    # The resource type identifier. For pipeline resources, this should always be set to `pipelines`.
+    # A list of component IDs whose output is used as the `input` for this component.
+    attr_reader :inputs
+
+    # Optional socket keepalive duration in milliseconds.
+    attr_reader :keepalive
+
+    # Configuration for enabling TLS encryption between the pipeline component and external services.
+    attr_accessor :tls
+
+    # The destination type. The value should always be `syslog_ng`.
     attr_reader :type
 
     attr_accessor :additional_properties
@@ -33,7 +42,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'attributes' => :'attributes',
+        :'id' => :'id',
+        :'inputs' => :'inputs',
+        :'keepalive' => :'keepalive',
+        :'tls' => :'tls',
         :'type' => :'type'
       }
     end
@@ -42,8 +54,11 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'ObservabilityPipelineDataAttributes',
-        :'type' => :'String'
+        :'id' => :'String',
+        :'inputs' => :'Array<String>',
+        :'keepalive' => :'Integer',
+        :'tls' => :'ObservabilityPipelineTls',
+        :'type' => :'ObservabilityPipelineSyslogNgDestinationType'
       }
     end
 
@@ -52,7 +67,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineCreateRequestData` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineSyslogNgDestination` initialize method"
       end
 
       self.additional_properties = {}
@@ -65,8 +80,22 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'attributes')
-        self.attributes = attributes[:'attributes']
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
+      end
+
+      if attributes.key?(:'inputs')
+        if (value = attributes[:'inputs']).is_a?(Array)
+          self.inputs = value
+        end
+      end
+
+      if attributes.key?(:'keepalive')
+        self.keepalive = attributes[:'keepalive']
+      end
+
+      if attributes.key?(:'tls')
+        self.tls = attributes[:'tls']
       end
 
       if attributes.key?(:'type')
@@ -78,19 +107,41 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @attributes.nil?
+      return false if @id.nil?
+      return false if @inputs.nil?
+      return false if !@keepalive.nil? && @keepalive < 0
       return false if @type.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param attributes [Object] Object to be assigned
+    # @param id [Object] Object to be assigned
     # @!visibility private
-    def attributes=(attributes)
-      if attributes.nil?
-        fail ArgumentError, 'invalid value for "attributes", attributes cannot be nil.'
+    def id=(id)
+      if id.nil?
+        fail ArgumentError, 'invalid value for "id", id cannot be nil.'
       end
-      @attributes = attributes
+      @id = id
+    end
+
+    # Custom attribute writer method with validation
+    # @param inputs [Object] Object to be assigned
+    # @!visibility private
+    def inputs=(inputs)
+      if inputs.nil?
+        fail ArgumentError, 'invalid value for "inputs", inputs cannot be nil.'
+      end
+      @inputs = inputs
+    end
+
+    # Custom attribute writer method with validation
+    # @param keepalive [Object] Object to be assigned
+    # @!visibility private
+    def keepalive=(keepalive)
+      if !keepalive.nil? && keepalive < 0
+        fail ArgumentError, 'invalid value for "keepalive", must be greater than or equal to 0.'
+      end
+      @keepalive = keepalive
     end
 
     # Custom attribute writer method with validation
@@ -129,7 +180,10 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          attributes == o.attributes &&
+          id == o.id &&
+          inputs == o.inputs &&
+          keepalive == o.keepalive &&
+          tls == o.tls &&
           type == o.type &&
           additional_properties == o.additional_properties
     end
@@ -138,7 +192,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, type, additional_properties].hash
+      [id, inputs, keepalive, tls, type, additional_properties].hash
     end
   end
 end

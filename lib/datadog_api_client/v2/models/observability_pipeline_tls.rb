@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Configuration for enabling TLS encryption.
+  # Configuration for enabling TLS encryption between the pipeline component and external services.
   class ObservabilityPipelineTls
     include BaseGenericModel
 

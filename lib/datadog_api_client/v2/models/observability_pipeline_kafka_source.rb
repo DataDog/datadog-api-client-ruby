@@ -33,7 +33,7 @@ module DatadogAPIClient::V2
     # Specifies the SASL mechanism for authenticating with a Kafka cluster.
     attr_accessor :sasl
 
-    # Configuration for enabling TLS encryption.
+    # Configuration for enabling TLS encryption between the pipeline component and external services.
     attr_accessor :tls
 
     # A list of Kafka topic names to subscribe to. The source ingests messages from each topic specified.

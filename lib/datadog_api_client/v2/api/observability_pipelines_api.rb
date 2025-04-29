@@ -35,7 +35,7 @@ module DatadogAPIClient::V2
     #
     # Create a new pipeline.
     #
-    # @param body [ObservabilityPipelineCreateRequest] 
+    # @param body [ObservabilityPipelineSpec] 
     # @param opts [Hash] the optional parameters
     # @return [Array<(ObservabilityPipeline, Integer, Hash)>] ObservabilityPipeline data, response status code and response headers
     def create_pipeline_with_http_info(body, opts = {})
@@ -238,6 +238,76 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # List pipelines.
+    #
+    # @see #list_pipelines_with_http_info
+    def list_pipelines(opts = {})
+      data, _status_code, _headers = list_pipelines_with_http_info(opts)
+      data
+    end
+
+    # List pipelines.
+    #
+    # Retrieve a list of pipelines.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 100.
+    # @option opts [Integer] :page_number Specific page number to return.
+    # @return [Array<(ListPipelinesResponse, Integer, Hash)>] ListPipelinesResponse data, response status code and response headers
+    def list_pipelines_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_pipelines".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_pipelines")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_pipelines"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ObservabilityPipelinesAPI.list_pipelines ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/remote_config/products/obs_pipelines/pipelines'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+      query_params[:'page[number]'] = opts[:'page_number'] if !opts[:'page_number'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ListPipelinesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :list_pipelines,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ObservabilityPipelinesAPI#list_pipelines\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Update a pipeline.
     #
     # @see #update_pipeline_with_http_info
@@ -312,6 +382,81 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ObservabilityPipelinesAPI#update_pipeline\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Validate an observability pipeline.
+    #
+    # @see #validate_pipeline_with_http_info
+    def validate_pipeline(body, opts = {})
+      data, _status_code, _headers = validate_pipeline_with_http_info(body, opts)
+      data
+    end
+
+    # Validate an observability pipeline.
+    #
+    # Validates a pipeline configuration without creating or updating any resources.
+    # Returns a list of validation errors, if any.
+    #
+    #
+    # @param body [ObservabilityPipelineSpec] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(ValidationResponse, Integer, Hash)>] ValidationResponse data, response status code and response headers
+    def validate_pipeline_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.validate_pipeline".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.validate_pipeline")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.validate_pipeline"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ObservabilityPipelinesAPI.validate_pipeline ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling ObservabilityPipelinesAPI.validate_pipeline"
+      end
+      # resource path
+      local_var_path = '/api/v2/remote_config/products/obs_pipelines/pipelines/validate'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ValidationResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :validate_pipeline,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ObservabilityPipelinesAPI#validate_pipeline\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

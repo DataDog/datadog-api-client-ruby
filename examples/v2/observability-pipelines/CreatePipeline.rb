@@ -6,8 +6,8 @@ DatadogAPIClient.configure do |config|
 end
 api_instance = DatadogAPIClient::V2::ObservabilityPipelinesAPI.new
 
-body = DatadogAPIClient::V2::ObservabilityPipelineCreateRequest.new({
-  data: DatadogAPIClient::V2::ObservabilityPipelineCreateRequestData.new({
+body = DatadogAPIClient::V2::ObservabilityPipelineSpec.new({
+  data: DatadogAPIClient::V2::ObservabilityPipelineSpecData.new({
     attributes: DatadogAPIClient::V2::ObservabilityPipelineDataAttributes.new({
       config: DatadogAPIClient::V2::ObservabilityPipelineConfig.new({
         destinations: [
