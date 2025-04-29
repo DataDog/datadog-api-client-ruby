@@ -1,5 +1,5 @@
 http_interactions:
-- recorded_at: Fri, 04 Apr 2025 10:37:02 GMT
+- recorded_at: Fri, 25 Apr 2025 17:29:29 GMT
   request:
     body:
       encoding: UTF-8
@@ -15,7 +15,7 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"c06831ee-1140-11f0-9fe5-da7ad0900002","type":"pipelines","attributes":{"name":"Main
+      string: '{"data":{"id":"dbbff3d0-21fa-11f0-96e0-da7ad0900002","type":"pipelines","attributes":{"name":"Main
         Observability Pipeline","config":{"destinations":[{"id":"datadog-logs-destination","inputs":["filter-processor"],"type":"datadog_logs"}],"processors":[{"id":"filter-processor","include":"service:my-service","inputs":["datadog-agent-source"],"type":"filter"}],"sources":[{"id":"datadog-agent-source","type":"datadog_agent"}]}}}}
 
         '
@@ -25,18 +25,18 @@ http_interactions:
     status:
       code: 201
       message: Created
-- recorded_at: Fri, 04 Apr 2025 10:37:02 GMT
+- recorded_at: Fri, 25 Apr 2025 17:29:29 GMT
   request:
     body: null
     headers:
       Accept:
       - application/json
     method: GET
-    uri: https://api.datadoghq.com/api/v2/remote_config/products/obs_pipelines/pipelines/c06831ee-1140-11f0-9fe5-da7ad0900002
+    uri: https://api.datadoghq.com/api/v2/remote_config/products/obs_pipelines/pipelines/dbbff3d0-21fa-11f0-96e0-da7ad0900002
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"c06831ee-1140-11f0-9fe5-da7ad0900002","type":"pipelines","attributes":{"name":"Main
+      string: '{"data":{"id":"dbbff3d0-21fa-11f0-96e0-da7ad0900002","type":"pipelines","attributes":{"name":"Main
         Observability Pipeline","config":{"destinations":[{"id":"datadog-logs-destination","inputs":["filter-processor"],"type":"datadog_logs"}],"processors":[{"id":"filter-processor","include":"service:my-service","inputs":["datadog-agent-source"],"type":"filter"}],"sources":[{"id":"datadog-agent-source","type":"datadog_agent"}]}}}}
 
         '
@@ -46,14 +46,14 @@ http_interactions:
     status:
       code: 200
       message: OK
-- recorded_at: Fri, 04 Apr 2025 10:37:02 GMT
+- recorded_at: Fri, 25 Apr 2025 17:29:29 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/remote_config/products/obs_pipelines/pipelines/c06831ee-1140-11f0-9fe5-da7ad0900002
+    uri: https://api.datadoghq.com/api/v2/remote_config/products/obs_pipelines/pipelines/dbbff3d0-21fa-11f0-96e0-da7ad0900002
   response:
     body:
       encoding: UTF-8

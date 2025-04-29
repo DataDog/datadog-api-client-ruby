@@ -17,12 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Top-level schema representing a pipeline.
-  class ObservabilityPipelineCreateRequest
+  # Configuration for fully redacting sensitive data.
+  class ObservabilityPipelineSensitiveDataScannerProcessorActionRedactOptions
     include BaseGenericModel
 
-    # Contains the pipeline’s ID, type, and configuration attributes.
-    attr_reader :data
+    # The `ObservabilityPipelineSensitiveDataScannerProcessorActionRedactOptions` `replace`.
+    attr_reader :replace
 
     attr_accessor :additional_properties
 
@@ -30,7 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data'
+        :'replace' => :'replace'
       }
     end
 
@@ -38,7 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'ObservabilityPipelineCreateRequestData'
+        :'replace' => :'String'
       }
     end
 
@@ -47,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineCreateRequest` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineSensitiveDataScannerProcessorActionRedactOptions` initialize method"
       end
 
       self.additional_properties = {}
@@ -60,8 +60,8 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'data')
-        self.data = attributes[:'data']
+      if attributes.key?(:'replace')
+        self.replace = attributes[:'replace']
       end
     end
 
@@ -69,18 +69,18 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @data.nil?
+      return false if @replace.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param data [Object] Object to be assigned
+    # @param replace [Object] Object to be assigned
     # @!visibility private
-    def data=(data)
-      if data.nil?
-        fail ArgumentError, 'invalid value for "data", data cannot be nil.'
+    def replace=(replace)
+      if replace.nil?
+        fail ArgumentError, 'invalid value for "replace", replace cannot be nil.'
       end
-      @data = data
+      @replace = replace
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -109,7 +109,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data &&
+          replace == o.replace &&
           additional_properties == o.additional_properties
     end
 
@@ -117,7 +117,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, additional_properties].hash
+      [replace, additional_properties].hash
     end
   end
 end

@@ -39,8 +39,15 @@ module DatadogAPIClient::V2
     # The maximum amount of data or number of events allowed before the quota is enforced. Can be specified in bytes or events.
     attr_reader :limit
 
-    # Name for identifying the processor.
+    # Name of the quota.
     attr_reader :name
+
+    # The action to take when the quota is exceeded. Options:
+    # - `drop`: Drop the event.
+    # - `no_action`: Let the event pass through.
+    # - `overflow_routing`: Route to an overflow destination.
+    #
+    attr_accessor :overflow_action
 
     # A list of alternate quota rules that apply to specific sets of events, identified by matching field values. Each override can define a custom limit.
     attr_accessor :overrides
@@ -64,6 +71,7 @@ module DatadogAPIClient::V2
         :'inputs' => :'inputs',
         :'limit' => :'limit',
         :'name' => :'name',
+        :'overflow_action' => :'overflow_action',
         :'overrides' => :'overrides',
         :'partition_fields' => :'partition_fields',
         :'type' => :'type'
@@ -81,6 +89,7 @@ module DatadogAPIClient::V2
         :'inputs' => :'Array<String>',
         :'limit' => :'ObservabilityPipelineQuotaProcessorLimit',
         :'name' => :'String',
+        :'overflow_action' => :'ObservabilityPipelineQuotaProcessorOverflowAction',
         :'overrides' => :'Array<ObservabilityPipelineQuotaProcessorOverride>',
         :'partition_fields' => :'Array<String>',
         :'type' => :'ObservabilityPipelineQuotaProcessorType'
@@ -133,6 +142,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'overflow_action')
+        self.overflow_action = attributes[:'overflow_action']
       end
 
       if attributes.key?(:'overrides')
@@ -269,6 +282,7 @@ module DatadogAPIClient::V2
           inputs == o.inputs &&
           limit == o.limit &&
           name == o.name &&
+          overflow_action == o.overflow_action &&
           overrides == o.overrides &&
           partition_fields == o.partition_fields &&
           type == o.type &&
@@ -279,7 +293,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [drop_events, id, ignore_when_missing_partitions, include, inputs, limit, name, overrides, partition_fields, type, additional_properties].hash
+      [drop_events, id, ignore_when_missing_partitions, include, inputs, limit, name, overflow_action, overrides, partition_fields, type, additional_properties].hash
     end
   end
 end
