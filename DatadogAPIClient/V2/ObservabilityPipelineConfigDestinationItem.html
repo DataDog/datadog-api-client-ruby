@@ -246,20 +246,6 @@
       <pre class="lines">
 
 
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
 49
 50
 51
@@ -270,10 +256,24 @@
 56
 57
 58
-59</pre>
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_config_destination_item.rb', line 35</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_config_destination_item.rb', line 49</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_build'>build</span><span class='lparen'>(</span><span class='id identifier rubyid_data'>data</span><span class='rparen'>)</span>
   <span class='comment'># Go through the list of oneOf items and attempt to identify the appropriate one.
@@ -334,14 +334,42 @@
 28
 29
 30
-31</pre>
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_config_destination_item.rb', line 27</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_openapi_one_of'>openapi_one_of</span>
   <span class='lbracket'>[</span>
-    <span class='symbol'>:&#39;ObservabilityPipelineDatadogLogsDestination&#39;</span>
+    <span class='symbol'>:&#39;ObservabilityPipelineDatadogLogsDestination&#39;</span><span class='comma'>,</span>
+    <span class='symbol'>:&#39;ObservabilityPipelineAmazonS3Destination&#39;</span><span class='comma'>,</span>
+    <span class='symbol'>:&#39;ObservabilityPipelineGoogleCloudStorageDestination&#39;</span><span class='comma'>,</span>
+    <span class='symbol'>:&#39;ObservabilityPipelineSplunkHecDestination&#39;</span><span class='comma'>,</span>
+    <span class='symbol'>:&#39;ObservabilityPipelineSumoLogicDestination&#39;</span><span class='comma'>,</span>
+    <span class='symbol'>:&#39;ObservabilityPipelineElasticsearchDestination&#39;</span><span class='comma'>,</span>
+    <span class='symbol'>:&#39;ObservabilityPipelineRsyslogDestination&#39;</span><span class='comma'>,</span>
+    <span class='symbol'>:&#39;ObservabilityPipelineSyslogNgDestination&#39;</span><span class='comma'>,</span>
+    <span class='symbol'>:&#39;AzureStorageDestination&#39;</span><span class='comma'>,</span>
+    <span class='symbol'>:&#39;MicrosoftSentinelDestination&#39;</span><span class='comma'>,</span>
+    <span class='symbol'>:&#39;ObservabilityPipelineGoogleChronicleDestination&#39;</span><span class='comma'>,</span>
+    <span class='symbol'>:&#39;ObservabilityPipelineNewRelicDestination&#39;</span><span class='comma'>,</span>
+    <span class='symbol'>:&#39;ObservabilityPipelineSentinelOneDestination&#39;</span><span class='comma'>,</span>
+    <span class='symbol'>:&#39;ObservabilityPipelineOpenSearchDestination&#39;</span><span class='comma'>,</span>
+    <span class='symbol'>:&#39;ObservabilityPipelineAmazonOpenSearchDestination&#39;</span>
   <span class='rbracket'>]</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -354,7 +382,7 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Apr 29 17:12:01 2025 by
+  Generated on Tue Apr 29 19:58:58 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>
