@@ -309,7 +309,7 @@ module DatadogAPIClient::V1
     # an integration source with those supplied in the request.
     #
     # @param host_name [String] This endpoint allows you to update/replace all in an integration source with those supplied in the request.
-    # @param body [HostTags] Add tags to host
+    # @param body [HostTags] Add tags to host.
     # @param opts [Hash] the optional parameters
     # @option opts [String] :source The source of the tags (for example chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value)
     # @return [Array<(HostTags, Integer, Hash)>] HostTags data, response status code and response headers
