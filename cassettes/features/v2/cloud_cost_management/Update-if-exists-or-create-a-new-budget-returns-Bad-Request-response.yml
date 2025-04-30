@@ -1,0 +1,25 @@
+http_interactions:
+- recorded_at: Mon, 28 Apr 2025 11:19:55 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{}}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: PUT
+    uri: https://api.datadoghq.com/api/v2/cost/budget
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"status":"400","title":"Bad Request","detail":"got type
+        \"\" expected one of \"budget\""}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 400
+      message: Bad Request
+recorded_with: VCR 6.0.0

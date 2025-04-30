@@ -157,6 +157,71 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Delete a budget.
+    #
+    # @see #delete_budget_with_http_info
+    def delete_budget(budget_id, opts = {})
+      delete_budget_with_http_info(budget_id, opts)
+      nil
+    end
+
+    # Delete a budget.
+    #
+    # Delete a budget.
+    #
+    # @param budget_id [String] Budget id.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_budget_with_http_info(budget_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.delete_budget ...'
+      end
+      # verify the required parameter 'budget_id' is set
+      if @api_client.config.client_side_validation && budget_id.nil?
+        fail ArgumentError, "Missing the required parameter 'budget_id' when calling CloudCostManagementAPI.delete_budget"
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/budget/{budget_id}'.sub('{budget_id}', CGI.escape(budget_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_budget,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#delete_budget\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Delete Cloud Cost Management AWS CUR config.
     #
     # @see #delete_cost_awscur_config_with_http_info
@@ -352,6 +417,71 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get a budget.
+    #
+    # @see #get_budget_with_http_info
+    def get_budget(budget_id, opts = {})
+      data, _status_code, _headers = get_budget_with_http_info(budget_id, opts)
+      data
+    end
+
+    # Get a budget.
+    #
+    # Get a budget.
+    #
+    # @param budget_id [String] Budget id.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(BudgetWithEntries, Integer, Hash)>] BudgetWithEntries data, response status code and response headers
+    def get_budget_with_http_info(budget_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.get_budget ...'
+      end
+      # verify the required parameter 'budget_id' is set
+      if @api_client.config.client_side_validation && budget_id.nil?
+        fail ArgumentError, "Missing the required parameter 'budget_id' when calling CloudCostManagementAPI.get_budget"
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/budget/{budget_id}'.sub('{budget_id}', CGI.escape(budget_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'BudgetWithEntries'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_budget,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#get_budget\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get Custom Costs file.
     #
     # @see #get_custom_costs_file_with_http_info
@@ -413,6 +543,66 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CloudCostManagementAPI#get_custom_costs_file\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List budgets.
+    #
+    # @see #list_budgets_with_http_info
+    def list_budgets(opts = {})
+      data, _status_code, _headers = list_budgets_with_http_info(opts)
+      data
+    end
+
+    # List budgets.
+    #
+    # List budgets.
+    #
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(BudgetArray, Integer, Hash)>] BudgetArray data, response status code and response headers
+    def list_budgets_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.list_budgets ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/budgets'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'BudgetArray'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_budgets,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#list_budgets\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -804,6 +994,73 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CloudCostManagementAPI#upload_custom_costs_file\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create or update a budget.
+    #
+    # @see #upsert_budget_with_http_info
+    def upsert_budget(body, opts = {})
+      data, _status_code, _headers = upsert_budget_with_http_info(body, opts)
+      data
+    end
+
+    # Create or update a budget.
+    #
+    # Create a new budget or update an existing one.
+    #
+    # @param body [BudgetWithEntries] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(BudgetWithEntries, Integer, Hash)>] BudgetWithEntries data, response status code and response headers
+    def upsert_budget_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.upsert_budget ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CloudCostManagementAPI.upsert_budget"
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/budget'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'BudgetWithEntries'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :upsert_budget,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#upsert_budget\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
