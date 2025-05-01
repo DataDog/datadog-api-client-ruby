@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 2.34.0 / 2025-05-01
+
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-ruby/compare/v2.33.0...v2.34.0
+
 ## 2.32.0 / 2025-04-14
 
 ### Fixed
