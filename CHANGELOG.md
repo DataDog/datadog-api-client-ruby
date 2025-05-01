@@ -1,25 +1,5 @@
 # CHANGELOG
 
-## 2.33.0 / 2025-05-01
-
-### Fixed
-* Set required properties for schedules in OnCall API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/2342
-* Update On-Call Escalation policies endpoints schemas and description by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/2353
-### Added
-* Update NDM GetInterfaces documentation to add get_ip_addresses param by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/2330
-* Add OnCall Escalation Policy v2 endpoints by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/2341
-* datadog_integration_gcp_sts Add Support for IsPerProjectQuotaEnabled for GCP STS Service Accounts  by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/2349
-* Complete Observability Pipelines API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/2358
-* Add budgeting endpoints by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/2337
-### Changed
-* Add Monitor Notification Rules v2 API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/2317
-* Remove `uuidtools` while maintaining validation logic by @AlexMooney in https://github.com/DataDog/datadog-api-client-ruby/pull/2320
-
-## New Contributors
-* @AlexMooney made their first contribution in https://github.com/DataDog/datadog-api-client-ruby/pull/2320
-
-**Full Changelog**: https://github.com/DataDog/datadog-api-client-ruby/compare/v2.32.0...v2.33.0
-
 ## 2.32.0 / 2025-04-14
 
 ### Fixed
