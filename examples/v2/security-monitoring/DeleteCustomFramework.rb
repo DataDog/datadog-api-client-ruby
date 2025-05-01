@@ -2,4 +2,4 @@
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::SecurityMonitoringAPI.new
-p api_instance.delete_custom_framework("create-framework-new", "10")
+p api_instance.delete_custom_framework("", "10")

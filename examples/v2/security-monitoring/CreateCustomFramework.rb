@@ -8,7 +8,7 @@ body = DatadogAPIClient::V2::CreateCustomFrameworkRequest.new({
     type: DatadogAPIClient::V2::CustomFrameworkType::CUSTOM_FRAMEWORK,
     attributes: DatadogAPIClient::V2::CustomFrameworkDataAttributes.new({
       name: "name",
-      handle: "create-framework-new",
+      handle: "",
       version: "10",
       icon_url: "test-url",
       requirements: [
