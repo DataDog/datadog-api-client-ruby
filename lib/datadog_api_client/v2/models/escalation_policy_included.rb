@@ -28,9 +28,8 @@ module DatadogAPIClient::V2
         [
           :'TeamReference',
           :'EscalationPolicyStep',
-          :'UserTarget',
-          :'ScheduleTarget',
-          :'TeamTarget'
+          :'EscalationPolicyUser',
+          :'ScheduleData'
         ]
       end
       # Builds the object
