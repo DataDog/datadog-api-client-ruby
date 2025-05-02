@@ -17,12 +17,10 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Specifies the type of escalation target (example `users`, `schedules`, or `teams`).
-  class EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItemsType
+  # Team routing rules resource type.
+  class TeamRoutingRulesRequestDataType
     include BaseEnumModel
 
-    USERS = "users".freeze
-    SCHEDULES = "schedules".freeze
-    TEAMS = "teams".freeze
+    TEAM_ROUTING_RULES = "team_routing_rules".freeze
   end
 end

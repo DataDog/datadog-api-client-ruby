@@ -21,30 +21,30 @@ body = DatadogAPIClient::V2::EscalationPolicyCreateRequest.new({
       retries: 2,
       steps: [
         DatadogAPIClient::V2::EscalationPolicyCreateRequestDataAttributesStepsItems.new({
-          assignment: DatadogAPIClient::V2::EscalationPolicyCreateRequestDataAttributesStepsItemsAssignment::DEFAULT,
+          assignment: DatadogAPIClient::V2::EscalationPolicyStepAttributesAssignment::DEFAULT,
           escalate_after_seconds: 3600,
           targets: [
-            DatadogAPIClient::V2::EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItems.new({
+            DatadogAPIClient::V2::EscalationPolicyStepTarget.new({
               id: USER_DATA_ID,
-              type: DatadogAPIClient::V2::EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItemsType::USERS,
+              type: DatadogAPIClient::V2::EscalationPolicyStepTargetType::USERS,
             }),
-            DatadogAPIClient::V2::EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItems.new({
+            DatadogAPIClient::V2::EscalationPolicyStepTarget.new({
               id: SCHEDULE_DATA_ID,
-              type: DatadogAPIClient::V2::EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItemsType::SCHEDULES,
+              type: DatadogAPIClient::V2::EscalationPolicyStepTargetType::SCHEDULES,
             }),
-            DatadogAPIClient::V2::EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItems.new({
+            DatadogAPIClient::V2::EscalationPolicyStepTarget.new({
               id: DD_TEAM_DATA_ID,
-              type: DatadogAPIClient::V2::EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItemsType::TEAMS,
+              type: DatadogAPIClient::V2::EscalationPolicyStepTargetType::TEAMS,
             }),
           ],
         }),
         DatadogAPIClient::V2::EscalationPolicyCreateRequestDataAttributesStepsItems.new({
-          assignment: DatadogAPIClient::V2::EscalationPolicyCreateRequestDataAttributesStepsItemsAssignment::ROUND_ROBIN,
+          assignment: DatadogAPIClient::V2::EscalationPolicyStepAttributesAssignment::ROUND_ROBIN,
           escalate_after_seconds: 3600,
           targets: [
-            DatadogAPIClient::V2::EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItems.new({
+            DatadogAPIClient::V2::EscalationPolicyStepTarget.new({
               id: DD_TEAM_DATA_ID,
-              type: DatadogAPIClient::V2::EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItemsType::TEAMS,
+              type: DatadogAPIClient::V2::EscalationPolicyStepTargetType::TEAMS,
             }),
           ],
         }),

@@ -17,11 +17,10 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Specifies how this escalation step will assign targets (example `default` or `round-robin`).
-  class EscalationPolicyUpdateRequestDataAttributesStepsItemsAssignment
+  # Team routing rules resource type.
+  class RoutingRuleType
     include BaseEnumModel
 
-    DEFAULT = "default".freeze
-    ROUND_ROBIN = "round-robin".freeze
+    TEAM_ROUTING_RULES = "team_routing_rules".freeze
   end
 end

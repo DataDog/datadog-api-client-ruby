@@ -2071,6 +2071,15 @@ ScenariosModelMappings = {
             "schedule_id" => "String",
             "body" => "ScheduleUpdateRequest",
     },
+    "v2.GetOnCallTeamRoutingRules" => {
+            "team_id" => "String",
+            "include" => "String",
+    },
+    "v2.SetOnCallTeamRoutingRules" => {
+            "team_id" => "String",
+            "include" => "String",
+            "body" => "TeamRoutingRulesRequest",
+    },
     "v2.GetOrgConfig" => {
             "org_config_name" => "String",
     },

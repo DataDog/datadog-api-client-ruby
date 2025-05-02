@@ -46,9 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'assignment' => :'EscalationPolicyCreateRequestDataAttributesStepsItemsAssignment',
+        :'assignment' => :'EscalationPolicyStepAttributesAssignment',
         :'escalate_after_seconds' => :'Integer',
-        :'targets' => :'Array<EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItems>'
+        :'targets' => :'Array<EscalationPolicyStepTarget>'
       }
     end
 

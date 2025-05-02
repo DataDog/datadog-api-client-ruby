@@ -17,15 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Defines a single escalation target within a step for an escalation policy creation request. Contains `id` and `type`.
-  class EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItems
+  # Specifies relationships for team routing rules, including rule references.
+  class TeamRoutingRulesDataRelationships
     include BaseGenericModel
 
-    # Specifies the unique identifier for this target.
-    attr_accessor :id
-
-    # Specifies the type of escalation target (example `users`, `schedules`, or `teams`).
-    attr_accessor :type
+    # Holds references to a set of routing rules in a relationship.
+    attr_accessor :rules
 
     attr_accessor :additional_properties
 
@@ -33,8 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'id' => :'id',
-        :'type' => :'type'
+        :'rules' => :'rules'
       }
     end
 
@@ -42,8 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'id' => :'String',
-        :'type' => :'EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItemsType'
+        :'rules' => :'TeamRoutingRulesDataRelationshipsRules'
       }
     end
 
@@ -52,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItems` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TeamRoutingRulesDataRelationships` initialize method"
       end
 
       self.additional_properties = {}
@@ -65,12 +60,8 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
-      end
-
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
+      if attributes.key?(:'rules')
+        self.rules = attributes[:'rules']
       end
     end
 
@@ -100,8 +91,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
-          type == o.type &&
+          rules == o.rules &&
           additional_properties == o.additional_properties
     end
 
@@ -109,7 +99,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [id, type, additional_properties].hash
+      [rules, additional_properties].hash
     end
   end
 end

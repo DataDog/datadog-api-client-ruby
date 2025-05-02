@@ -22,13 +22,13 @@ body = DatadogAPIClient::V2::EscalationPolicyUpdateRequest.new({
       retries: 0,
       steps: [
         DatadogAPIClient::V2::EscalationPolicyUpdateRequestDataAttributesStepsItems.new({
-          assignment: DatadogAPIClient::V2::EscalationPolicyUpdateRequestDataAttributesStepsItemsAssignment::DEFAULT,
+          assignment: DatadogAPIClient::V2::EscalationPolicyStepAttributesAssignment::DEFAULT,
           escalate_after_seconds: 3600,
           id: ESCALATION_POLICY_DATA_RELATIONSHIPS_STEPS_DATA_0_ID,
           targets: [
-            DatadogAPIClient::V2::EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItems.new({
+            DatadogAPIClient::V2::EscalationPolicyStepTarget.new({
               id: USER_DATA_ID,
-              type: DatadogAPIClient::V2::EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItemsType::USERS,
+              type: DatadogAPIClient::V2::EscalationPolicyStepTargetType::USERS,
             }),
           ],
         }),
