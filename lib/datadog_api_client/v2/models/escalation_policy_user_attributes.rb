@@ -17,8 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Provides basic user information for a schedule, including a name and email address.
-  class ScheduleUserAttributes
+  # Provides basic user information for an escalation policy, including a name and email address.
+  class EscalationPolicyUserAttributes
     include BaseGenericModel
 
     # The user's email address.
@@ -57,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ScheduleUserAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::EscalationPolicyUserAttributes` initialize method"
       end
 
       self.additional_properties = {}
