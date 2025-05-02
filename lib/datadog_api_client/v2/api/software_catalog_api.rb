@@ -197,6 +197,107 @@ module DatadogAPIClient::V2
         end
     end
 
+    # Get a list of entity relations.
+    #
+    # @see #list_catalog_relation_with_http_info
+    def list_catalog_relation(opts = {})
+      data, _status_code, _headers = list_catalog_relation_with_http_info(opts)
+      data
+    end
+
+    # Get a list of entity relations.
+    #
+    # Get a list of entity relations from Software Catalog.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :page_offset Specific offset to use as the beginning of the returned page.
+    # @option opts [Integer] :page_limit Maximum number of relations in the response.
+    # @option opts [RelationType] :filter_type Filter relations by type.
+    # @option opts [String] :filter_from_ref Filter relations by the reference of the first entity in the relation.
+    # @option opts [String] :filter_to_ref Filter relations by the reference of the second entity in the relation.
+    # @option opts [RelationIncludeType] :include Include relationship data.
+    # @return [Array<(ListRelationCatalogResponse, Integer, Hash)>] ListRelationCatalogResponse data, response status code and response headers
+    def list_catalog_relation_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SoftwareCatalogAPI.list_catalog_relation ...'
+      end
+      allowable_values = ['RelationTypeOwns', 'RelationTypeOwnedBy', 'RelationTypeDependsOn', 'RelationTypeDependencyOf', 'RelationTypePartsOf', 'RelationTypeHasPart', 'RelationTypeOtherOwns', 'RelationTypeOtherOwnedBy', 'RelationTypeImplementedBy', 'RelationTypeImplements']
+      if @api_client.config.client_side_validation && opts[:'filter_type'] && !allowable_values.include?(opts[:'filter_type'])
+        fail ArgumentError, "invalid value for \"filter_type\", must be one of #{allowable_values}"
+      end
+      allowable_values = ['entity', 'schema']
+      if @api_client.config.client_side_validation && opts[:'include'] && !allowable_values.include?(opts[:'include'])
+        fail ArgumentError, "invalid value for \"include\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/api/v2/catalog/relation'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'page[offset]'] = opts[:'page_offset'] if !opts[:'page_offset'].nil?
+      query_params[:'page[limit]'] = opts[:'page_limit'] if !opts[:'page_limit'].nil?
+      query_params[:'filter[type]'] = opts[:'filter_type'] if !opts[:'filter_type'].nil?
+      query_params[:'filter[from_ref]'] = opts[:'filter_from_ref'] if !opts[:'filter_from_ref'].nil?
+      query_params[:'filter[to_ref]'] = opts[:'filter_to_ref'] if !opts[:'filter_to_ref'].nil?
+      query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ListRelationCatalogResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_catalog_relation,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SoftwareCatalogAPI#list_catalog_relation\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get a list of entity relations.
+    #
+    # Provide a paginated version of {#list_catalog_relation}, returning all items.
+    #
+    # To use it you need to use a block: list_catalog_relation_with_pagination { |item| p item }
+    #
+    # @yield [RelationResponse] Paginated items
+    def list_catalog_relation_with_pagination(opts = {})
+        api_version = "V2"
+        page_size = @api_client.get_attribute_from_path(opts, "page_limit", 100)
+        @api_client.set_attribute_from_path(api_version, opts, "page_limit", Integer, page_size)
+        while true do
+            response = list_catalog_relation(opts)
+            @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
+            if @api_client.get_attribute_from_path(response, "data").length < page_size
+              break
+            end
+            @api_client.set_attribute_from_path(api_version, opts, "page_offset", Integer, @api_client.get_attribute_from_path(opts, "page_offset", 0) + page_size)
+        end
+    end
+
     # Create or update entities.
     #
     # @see #upsert_catalog_entity_with_http_info
