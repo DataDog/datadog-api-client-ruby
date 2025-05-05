@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
-  Class: DatadogAPIClient::V2::EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItems
+  Class: DatadogAPIClient::V2::TimeRestriction
   
     &mdash; datadog-api-client 2.33.0.dev.1 documentation
   
@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="../../css/common.css" type="text/css" />
 
 <script type="text/javascript">
-  pathId = "DatadogAPIClient::V2::EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItems";
+  pathId = "DatadogAPIClient::V2::TimeRestriction";
   relpath = '../../';
 </script>
 
@@ -36,10 +36,10 @@
       <div id="header">
         <div id="menu">
   
-    <a href="../../_index.html">Index (E)</a> &raquo;
+    <a href="../../_index.html">Index (T)</a> &raquo;
     <span class='title'><span class='object_link'><a href="../../DatadogAPIClient.html" title="DatadogAPIClient (module)">DatadogAPIClient</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../V2.html" title="DatadogAPIClient::V2 (module)">V2</a></span></span>
      &raquo; 
-    <span class="title">EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItems</span>
+    <span class="title">TimeRestriction</span>
   
 </div>
 
@@ -59,7 +59,7 @@
         <div class="clear"></div>
       </div>
 
-      <div id="content"><h1>Class: DatadogAPIClient::V2::EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItems
+      <div id="content"><h1>Class: DatadogAPIClient::V2::TimeRestriction
   
   
   
@@ -74,7 +74,7 @@
         <ul class="fullTree">
           <li>Object</li>
           
-            <li class="next">DatadogAPIClient::V2::EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItems</li>
+            <li class="next">DatadogAPIClient::V2::TimeRestriction</li>
           
         </ul>
         <a href="#" class="inheritanceTree">show all</a>
@@ -99,14 +99,14 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/datadog_api_client/v2/models/escalation_policy_update_request_data_attributes_steps_items_targets_items.rb</dd>
+    <dd>lib/datadog_api_client/v2/models/time_restriction.rb</dd>
   </dl>
   
 </div>
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>Defines a single escalation target within a step for an escalation policy update request. Contains <code>id</code> and <code>type</code>.</p>
+    <p>Defines a single time restriction rule with start and end times and the applicable weekdays.</p>
 
 
   </div>
@@ -150,7 +150,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#id-instance_method" title="#id (instance method)">#<strong>id</strong>  &#x21d2; Object </a>
+      <a href="#end_day-instance_method" title="#end_day (instance method)">#<strong>end_day</strong>  &#x21d2; Object </a>
     
 
     
@@ -167,7 +167,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Specifies the unique identifier for this target.</p>
+    <span class="summary_desc"><div class='inline'><p>A day of the week.</p>
 </div></span>
   
 </li>
@@ -176,7 +176,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#type-instance_method" title="#type (instance method)">#<strong>type</strong>  &#x21d2; Object </a>
+      <a href="#end_time-instance_method" title="#end_time (instance method)">#<strong>end_time</strong>  &#x21d2; Object </a>
     
 
     
@@ -193,7 +193,59 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Specifies the type of escalation target (example <code>users</code>, <code>schedules</code>, or <code>teams</code>).</p>
+    <span class="summary_desc"><div class='inline'><p>Specifies the ending time for this restriction.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#start_day-instance_method" title="#start_day (instance method)">#<strong>start_day</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>A day of the week.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#start_time-instance_method" title="#start_time (instance method)">#<strong>start_time</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Specifies the starting time for this restriction.</p>
 </div></span>
   
 </li>
@@ -246,12 +298,12 @@
       <pre class="lines">
 
 
-30
-31
-32</pre>
+36
+37
+38</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/escalation_policy_update_request_data_attributes_steps_items_targets_items.rb', line 30</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/time_restriction.rb', line 36</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_additional_properties'>additional_properties</span>
   <span class='ivar'>@additional_properties</span>
@@ -262,11 +314,11 @@
 </div>
     
       
-      <span id="id=-instance_method"></span>
+      <span id="end_day=-instance_method"></span>
       <div class="method_details ">
-  <h3 class="signature " id="id-instance_method">
+  <h3 class="signature " id="end_day-instance_method">
   
-    #<strong>id</strong>  &#x21d2; <tt>Object</tt> 
+    #<strong>end_day</strong>  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -274,7 +326,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Specifies the unique identifier for this target.</p>
+    <p>A day of the week.</p>
 
 
   </div>
@@ -293,10 +345,10 @@
 27</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/escalation_policy_update_request_data_attributes_steps_items_targets_items.rb', line 25</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/time_restriction.rb', line 25</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_id'>id</span>
-  <span class='ivar'>@id</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_end_day'>end_day</span>
+  <span class='ivar'>@end_day</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -304,11 +356,11 @@
 </div>
     
       
-      <span id="type=-instance_method"></span>
+      <span id="end_time=-instance_method"></span>
       <div class="method_details ">
-  <h3 class="signature " id="type-instance_method">
+  <h3 class="signature " id="end_time-instance_method">
   
-    #<strong>type</strong>  &#x21d2; <tt>Object</tt> 
+    #<strong>end_time</strong>  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -316,7 +368,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Specifies the type of escalation target (example <code>users</code>, <code>schedules</code>, or <code>teams</code>).</p>
+    <p>Specifies the ending time for this restriction.</p>
 
 
   </div>
@@ -335,10 +387,94 @@
 30</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/escalation_policy_update_request_data_attributes_steps_items_targets_items.rb', line 28</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/time_restriction.rb', line 28</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_type'>type</span>
-  <span class='ivar'>@type</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_end_time'>end_time</span>
+  <span class='ivar'>@end_time</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="start_day=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="start_day-instance_method">
+  
+    #<strong>start_day</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>A day of the week.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+31
+32
+33</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/time_restriction.rb', line 31</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_start_day'>start_day</span>
+  <span class='ivar'>@start_day</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="start_time=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="start_time-instance_method">
+  
+    #<strong>start_time</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Specifies the starting time for this restriction.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+34
+35
+36</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/time_restriction.rb', line 34</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_start_time'>start_time</span>
+  <span class='ivar'>@start_time</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -351,7 +487,7 @@
 </div>
 
       <div id="footer">
-  Generated on Fri May  2 08:03:11 2025 by
+  Generated on Mon May  5 17:57:09 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>
