@@ -17,11 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Specifies how this escalation step will assign targets (example `default` or `round-robin`).
-  class EscalationPolicyCreateRequestDataAttributesStepsItemsAssignment
+  # Specifies the level of urgency for a routing rule (low, high, or dynamic).
+  class Urgency
     include BaseEnumModel
 
-    DEFAULT = "default".freeze
-    ROUND_ROBIN = "round-robin".freeze
+    LOW = "low".freeze
+    HIGH = "high".freeze
+    DYNAMIC = "dynamic".freeze
   end
 end

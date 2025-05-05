@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # Specifies the type of escalation target (example `users`, `schedules`, or `teams`).
-  class EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItemsType
+  class EscalationPolicyStepTargetType
     include BaseEnumModel
 
     USERS = "users".freeze

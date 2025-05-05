@@ -17,21 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Defines a single escalation step within an escalation policy update request. Contains assignment strategy, escalation timeout, an optional step ID, and a list of targets.
-  class EscalationPolicyUpdateRequestDataAttributesStepsItems
+  # Represents a complete set of team routing rules, including data and optionally included related resources.
+  class TeamRoutingRules
     include BaseGenericModel
 
-    # Specifies how this escalation step will assign targets (example `default` or `round-robin`).
-    attr_accessor :assignment
+    # Represents the top-level data object for team routing rules, containing the ID, relationships, and resource type.
+    attr_accessor :data
 
-    # Defines how many seconds to wait before escalating to the next step.
-    attr_accessor :escalate_after_seconds
-
-    # Specifies the unique identifier of this step.
-    attr_accessor :id
-
-    # Specifies the collection of escalation targets for this step.
-    attr_reader :targets
+    # Provides related routing rules or other included resources.
+    attr_accessor :included
 
     attr_accessor :additional_properties
 
@@ -39,10 +33,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'assignment' => :'assignment',
-        :'escalate_after_seconds' => :'escalate_after_seconds',
-        :'id' => :'id',
-        :'targets' => :'targets'
+        :'data' => :'data',
+        :'included' => :'included'
       }
     end
 
@@ -50,10 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'assignment' => :'EscalationPolicyStepAttributesAssignment',
-        :'escalate_after_seconds' => :'Integer',
-        :'id' => :'String',
-        :'targets' => :'Array<EscalationPolicyStepTarget>'
+        :'data' => :'TeamRoutingRulesData',
+        :'included' => :'Array<TeamRoutingRulesIncluded>'
       }
     end
 
@@ -62,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::EscalationPolicyUpdateRequestDataAttributesStepsItems` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TeamRoutingRules` initialize method"
       end
 
       self.additional_properties = {}
@@ -75,41 +65,15 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'assignment')
-        self.assignment = attributes[:'assignment']
+      if attributes.key?(:'data')
+        self.data = attributes[:'data']
       end
 
-      if attributes.key?(:'escalate_after_seconds')
-        self.escalate_after_seconds = attributes[:'escalate_after_seconds']
-      end
-
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
-      end
-
-      if attributes.key?(:'targets')
-        if (value = attributes[:'targets']).is_a?(Array)
-          self.targets = value
+      if attributes.key?(:'included')
+        if (value = attributes[:'included']).is_a?(Array)
+          self.included = value
         end
       end
-    end
-
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    # @!visibility private
-    def valid?
-      return false if @targets.nil?
-      true
-    end
-
-    # Custom attribute writer method with validation
-    # @param targets [Object] Object to be assigned
-    # @!visibility private
-    def targets=(targets)
-      if targets.nil?
-        fail ArgumentError, 'invalid value for "targets", targets cannot be nil.'
-      end
-      @targets = targets
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -138,10 +102,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          assignment == o.assignment &&
-          escalate_after_seconds == o.escalate_after_seconds &&
-          id == o.id &&
-          targets == o.targets &&
+          data == o.data &&
+          included == o.included &&
           additional_properties == o.additional_properties
     end
 
@@ -149,7 +111,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [assignment, escalate_after_seconds, id, targets, additional_properties].hash
+      [data, included, additional_properties].hash
     end
   end
 end
