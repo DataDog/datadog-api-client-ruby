@@ -2080,6 +2080,18 @@ ScenariosModelMappings = {
             "include" => "String",
             "body" => "TeamRoutingRulesRequest",
     },
+    "v2.CreateOnCallPage" => {
+            "body" => "CreatePageRequest",
+    },
+    "v2.AcknowledgeOnCallPage" => {
+            "page_id" => "UUID",
+    },
+    "v2.EscalateOnCallPage" => {
+            "page_id" => "UUID",
+    },
+    "v2.ResolveOnCallPage" => {
+            "page_id" => "UUID",
+    },
     "v2.GetOrgConfig" => {
             "org_config_name" => "String",
     },
