@@ -1,7 +1,7 @@
 # Create on-call escalation policy returns "Created" response
 
 require "datadog_api_client"
-api_instance = DatadogAPIClient::V2::On - CallAPI.new
+api_instance = DatadogAPIClient::V2::OnCallAPI.new
 
 # there is a valid "user" in the system
 USER_DATA_ID = ENV["USER_DATA_ID"]

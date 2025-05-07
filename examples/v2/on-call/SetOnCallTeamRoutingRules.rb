@@ -1,7 +1,7 @@
 # Set on-call team routing rules returns "OK" response
 
 require "datadog_api_client"
-api_instance = DatadogAPIClient::V2::On - CallAPI.new
+api_instance = DatadogAPIClient::V2::OnCallAPI.new
 
 # there is a valid "dd_team" in the system
 DD_TEAM_DATA_ID = ENV["DD_TEAM_DATA_ID"]
