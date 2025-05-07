@@ -22,7 +22,7 @@ module DatadogAPIClient::V2
     include BaseGenericModel
 
     # Base HTTP url for the integration
-    attr_reader :base_url
+    attr_accessor :base_url
 
     # The definition of `HTTPCredentialsUpdate` object.
     attr_accessor :credentials
@@ -87,21 +87,8 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      pattern = Regexp.new(/url/)
-      return false if !@base_url.nil? && @base_url !~ pattern
       return false if @type.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param base_url [Object] Object to be assigned
-    # @!visibility private
-    def base_url=(base_url)
-      pattern = Regexp.new(/url/)
-      if !base_url.nil? && base_url !~ pattern
-        fail ArgumentError, "invalid value for \"base_url\", must conform to the pattern #{pattern}."
-      end
-      @base_url = base_url
     end
 
     # Custom attribute writer method with validation
