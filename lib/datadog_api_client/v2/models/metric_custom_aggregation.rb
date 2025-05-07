@@ -18,6 +18,8 @@ require 'time'
 
 module DatadogAPIClient::V2
   # A time and space aggregation combination for use in query.
+  #
+  # @deprecated This model is deprecated.
   class MetricCustomAggregation
     include BaseGenericModel
 
@@ -51,6 +53,7 @@ module DatadogAPIClient::V2
     # @param attributes [Hash] Model attributes in the form of hash
     # @!visibility private
     def initialize(attributes = {})
+      warn "[DEPRECATION] `MetricCustomAggregation` is deprecated."
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::MetricCustomAggregation` initialize method"
       end

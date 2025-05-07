@@ -318,13 +318,13 @@ module DatadogAPIClient::V2
 
     # Tag Configuration Cardinality Estimator.
     #
-    # Returns the estimated cardinality for a metric with a given tag, percentile and number of aggregations configuration using Metrics without Limits&trade;.
+    # Returns the estimated cardinality for a metric with a given tag and percentile configuration using Metrics without Limits&trade;.
     #
     # @param metric_name [String] The name of the metric.
     # @param opts [Hash] the optional parameters
     # @option opts [String] :filter_groups Filtered tag keys that the metric is configured to query with.
     # @option opts [Integer] :filter_hours_ago The number of hours of look back (from now) to estimate cardinality with. If unspecified, it defaults to 0 hours.
-    # @option opts [Integer] :filter_num_aggregations The number of aggregations that a `count`, `rate`, or `gauge` metric is configured to use. Max number of aggregation combos is 9.
+    # @option opts [Integer] :filter_num_aggregations This argument has no effect as all time and space combinations are now available with no impact on customer bills.
     # @option opts [Boolean] :filter_pct A boolean, for distribution metrics only, to estimate cardinality if the metric includes additional percentile aggregators.
     # @option opts [Integer] :filter_timespan_h A window, in hours, from the look back to estimate cardinality with. The minimum and default is 1 hour.
     # @return [Array<(MetricEstimateResponse, Integer, Hash)>] MetricEstimateResponse data, response status code and response headers
