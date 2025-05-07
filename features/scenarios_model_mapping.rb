@@ -2013,8 +2013,8 @@ ScenariosModelMappings = {
             "body" => "MonitorConfigPolicyEditRequest",
     },
     "v2.ListDevices" => {
-            "page_number" => "Integer",
             "page_size" => "Integer",
+            "page_number" => "Integer",
             "sort" => "String",
             "filter_tag" => "String",
     },
