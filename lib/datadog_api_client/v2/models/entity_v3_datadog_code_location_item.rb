@@ -25,7 +25,7 @@ module DatadogAPIClient::V2
     attr_accessor :paths
 
     # The repository path of the source code of the entity.
-    attr_reader :repository_url
+    attr_accessor :repository_url
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -70,26 +70,6 @@ module DatadogAPIClient::V2
       if attributes.key?(:'repository_url')
         self.repository_url = attributes[:'repository_url']
       end
-    end
-
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    # @!visibility private
-    def valid?
-      pattern = Regexp.new(/url/)
-      return false if !@repository_url.nil? && @repository_url !~ pattern
-      true
-    end
-
-    # Custom attribute writer method with validation
-    # @param repository_url [Object] Object to be assigned
-    # @!visibility private
-    def repository_url=(repository_url)
-      pattern = Regexp.new(/url/)
-      if !repository_url.nil? && repository_url !~ pattern
-        fail ArgumentError, "invalid value for \"repository_url\", must conform to the pattern #{pattern}."
-      end
-      @repository_url = repository_url
     end
 
     # Checks equality by comparing each attribute.
