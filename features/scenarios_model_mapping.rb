@@ -2191,18 +2191,37 @@ ScenariosModelMappings = {
             "exclusion_filter_id" => "String",
             "body" => "ApplicationSecurityWafExclusionFilterUpdateRequest",
     },
+    "v2.ListCSMThreatsAgentRules" => {
+            "policy_id" => "String",
+    },
     "v2.CreateCSMThreatsAgentRule" => {
             "body" => "CloudWorkloadSecurityAgentRuleCreateRequest",
     },
     "v2.DeleteCSMThreatsAgentRule" => {
             "agent_rule_id" => "String",
+            "policy_id" => "String",
     },
     "v2.GetCSMThreatsAgentRule" => {
             "agent_rule_id" => "String",
+            "policy_id" => "String",
     },
     "v2.UpdateCSMThreatsAgentRule" => {
             "agent_rule_id" => "String",
+            "policy_id" => "String",
             "body" => "CloudWorkloadSecurityAgentRuleUpdateRequest",
+    },
+    "v2.CreateCSMThreatsAgentPolicy" => {
+            "body" => "CloudWorkloadSecurityAgentPolicyCreateRequest",
+    },
+    "v2.DeleteCSMThreatsAgentPolicy" => {
+            "policy_id" => "String",
+    },
+    "v2.GetCSMThreatsAgentPolicy" => {
+            "policy_id" => "String",
+    },
+    "v2.UpdateCSMThreatsAgentPolicy" => {
+            "policy_id" => "String",
+            "body" => "CloudWorkloadSecurityAgentPolicyUpdateRequest",
     },
     "v2.CreateCloudWorkloadSecurityAgentRule" => {
             "body" => "CloudWorkloadSecurityAgentRuleCreateRequest",

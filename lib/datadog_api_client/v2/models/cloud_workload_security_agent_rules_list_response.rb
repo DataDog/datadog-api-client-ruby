@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Response object that includes a list of Agent rule.
+  # Response object that includes a list of Agent rule
   class CloudWorkloadSecurityAgentRulesListResponse
     include BaseGenericModel
 
-    # A list of Agent rules objects.
+    # A list of Agent rules objects
     attr_accessor :data
 
     attr_accessor :additional_properties

@@ -1,0 +1,26 @@
+http_interactions:
+- recorded_at: Tue, 15 Apr 2025 09:10:06 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"description":"My agent policy","enabled":true,"hostTags":[],"hostTagsLists":[],"name":"test"},"type":"policy"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/remote_config/products/cws/policy
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"title":"failed to create policy"}]}
+
+        '
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 400
+      message: Bad Request
+recorded_with: VCR 6.0.0
