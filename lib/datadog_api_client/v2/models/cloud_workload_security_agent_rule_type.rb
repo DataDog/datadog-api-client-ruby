@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The type of the resource. The value should always be `agent_rule`.
+  # The type of the resource, must always be `agent_rule`
   class CloudWorkloadSecurityAgentRuleType
     include BaseEnumModel
 

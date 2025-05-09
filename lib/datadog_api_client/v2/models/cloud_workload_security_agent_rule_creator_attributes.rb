@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The attributes of the user who created the Agent rule.
+  # The attributes of the user who created the Agent rule
   class CloudWorkloadSecurityAgentRuleCreatorAttributes
     include BaseGenericModel
 
-    # The handle of the user.
+    # The handle of the user
     attr_accessor :handle
 
-    # The name of the user.
+    # The name of the user
     attr_accessor :name
 
     attr_accessor :additional_properties
