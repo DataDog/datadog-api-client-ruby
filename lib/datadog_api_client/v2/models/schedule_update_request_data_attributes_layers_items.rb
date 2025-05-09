@@ -73,7 +73,7 @@ module DatadogAPIClient::V2
         :'interval' => :'ScheduleUpdateRequestDataAttributesLayersItemsInterval',
         :'members' => :'Array<ScheduleUpdateRequestDataAttributesLayersItemsMembersItems>',
         :'name' => :'String',
-        :'restrictions' => :'Array<ScheduleUpdateRequestDataAttributesLayersItemsRestrictionsItems>',
+        :'restrictions' => :'Array<TimeRestriction>',
         :'rotation_start' => :'Time'
       }
     end

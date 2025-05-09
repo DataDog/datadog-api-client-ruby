@@ -34,10 +34,10 @@ body = DatadogAPIClient::V2::ScheduleUpdateRequest.new({
           ],
           name: "Layer 1",
           restrictions: [
-            DatadogAPIClient::V2::ScheduleUpdateRequestDataAttributesLayersItemsRestrictionsItems.new({
-              end_day: DatadogAPIClient::V2::ScheduleUpdateRequestDataAttributesLayersItemsRestrictionsItemsEndDay::FRIDAY,
+            DatadogAPIClient::V2::TimeRestriction.new({
+              end_day: DatadogAPIClient::V2::Weekday::FRIDAY,
               end_time: "17:00:00",
-              start_day: DatadogAPIClient::V2::ScheduleUpdateRequestDataAttributesLayersItemsRestrictionsItemsStartDay::MONDAY,
+              start_day: DatadogAPIClient::V2::Weekday::MONDAY,
               start_time: "09:00:00",
             }),
           ],
