@@ -1,7 +1,7 @@
 # Get on-call schedule returns "OK" response
 
 require "datadog_api_client"
-api_instance = DatadogAPIClient::V2::On - CallAPI.new
+api_instance = DatadogAPIClient::V2::OnCallAPI.new
 
 # there is a valid "schedule" in the system
 SCHEDULE_DATA_ID = ENV["SCHEDULE_DATA_ID"]
