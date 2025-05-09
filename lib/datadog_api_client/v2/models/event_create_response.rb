@@ -24,6 +24,9 @@ module DatadogAPIClient::V2
     # JSON object containing all events attributes and their associated values.
     attr_accessor :attributes
 
+    # A numerical ID compatible with the V1 endpoint. This field is not populated in response from the V2 endpoint. To retrieve this ID, refer to the event attributes in the Event Explorer.
+    attr_accessor :id
+
     # Event type
     attr_accessor :type
 
@@ -34,6 +37,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'attributes' => :'attributes',
+        :'id' => :'id',
         :'type' => :'type'
       }
     end
@@ -43,6 +47,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'attributes' => :'EventCreateResponseAttributes',
+        :'id' => :'String',
         :'type' => :'String'
       }
     end
@@ -67,6 +72,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'attributes')
         self.attributes = attributes[:'attributes']
+      end
+
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
       end
 
       if attributes.key?(:'type')
@@ -101,6 +110,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           attributes == o.attributes &&
+          id == o.id &&
           type == o.type &&
           additional_properties == o.additional_properties
     end
@@ -109,7 +119,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, type, additional_properties].hash
+      [attributes, id, type, additional_properties].hash
     end
   end
 end
