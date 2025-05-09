@@ -62,7 +62,7 @@ module DatadogAPIClient::V2
         :'end_date' => :'Time',
         :'interval' => :'LayerAttributesInterval',
         :'name' => :'String',
-        :'restrictions' => :'Array<LayerAttributesRestrictionsItems>',
+        :'restrictions' => :'Array<TimeRestriction>',
         :'rotation_start' => :'Time'
       }
     end
