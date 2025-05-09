@@ -22,6 +22,7 @@ module DatadogAPIClient::V2
     include BaseEnumModel
 
     UNKNOWN = "UNKNOWN".freeze
+    SEV_0 = "SEV-0".freeze
     SEV_1 = "SEV-1".freeze
     SEV_2 = "SEV-2".freeze
     SEV_3 = "SEV-3".freeze

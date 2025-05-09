@@ -88,8 +88,6 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @base_url.nil?
-      pattern = Regexp.new(/url/)
-      return false if @base_url !~ pattern
       return false if @credentials.nil?
       return false if @type.nil?
       true
@@ -101,10 +99,6 @@ module DatadogAPIClient::V2
     def base_url=(base_url)
       if base_url.nil?
         fail ArgumentError, 'invalid value for "base_url", base_url cannot be nil.'
-      end
-      pattern = Regexp.new(/url/)
-      if base_url !~ pattern
-        fail ArgumentError, "invalid value for \"base_url\", must conform to the pattern #{pattern}."
       end
       @base_url = base_url
     end
