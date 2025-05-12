@@ -1,18 +1,16 @@
 http_interactions:
-- recorded_at: Tue, 19 Jul 2022 14:57:41 GMT
+- recorded_at: Mon, 12 May 2025 12:32:50 GMT
   request:
     body: null
     headers:
       Accept:
-      - application/json;datetime-format=rfc3339
+      - application/json;datetime-format=rfc3339, application/json
     method: GET
-    uri: https://api.datadoghq.com/api/v2/usage/hourly_usage?filter%5Btimestamp%5D%5Bstart%5D=2022-07-16T14%3A57%3A41.335Z&filter%5Btimestamp%5D%5Bend%5D=2022-07-14T14%3A57%3A41.335Z&filter%5Bproduct_families%5D=infra_hosts
+    uri: https://api.datadoghq.com/api/v2/usage/hourly_usage?filter%5Btimestamp%5D%5Bstart%5D=2025-05-09T12%3A32%3A50.132Z&filter%5Btimestamp%5D%5Bend%5D=2025-05-07T12%3A32%3A50.132Z&filter%5Bproduct_families%5D=infra_hosts
   response:
     body:
       encoding: UTF-8
-      string: '{"errors":["start_hr [YYYY-MM-DDThh] must be before end_hr [YYYY-MM-DDThh]"]}
-
-        '
+      string: '{"errors":["start_hr [YYYY-MM-DDThh] must be before end_hr [YYYY-MM-DDThh]"]}'
     headers:
       Content-Type:
       - application/json

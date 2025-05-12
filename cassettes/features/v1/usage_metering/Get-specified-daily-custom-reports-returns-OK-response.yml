@@ -4,7 +4,7 @@ http_interactions:
     body: null
     headers:
       Accept:
-      - application/json;datetime-format=rfc3339
+      - application/json;datetime-format=rfc3339, application/json
     method: GET
     uri: https://api.datadoghq.com/api/v1/daily_custom_reports/2022-03-20
   response:

@@ -1,18 +1,16 @@
 http_interactions:
-- recorded_at: Wed, 20 Apr 2022 18:23:39 GMT
+- recorded_at: Mon, 12 May 2025 12:32:52 GMT
   request:
     body: null
     headers:
       Accept:
-      - application/json;datetime-format=rfc3339
+      - application/json;datetime-format=rfc3339, application/json
     method: GET
-    uri: https://api.datadoghq.com/api/v2/usage/observability_pipelines?start_hr=2022-04-17T18%3A23%3A39.831Z&end_hr=2022-04-15T18%3A23%3A39.831Z
+    uri: https://api.datadoghq.com/api/v2/usage/observability_pipelines?start_hr=2025-05-09T12%3A32%3A52.982Z&end_hr=2025-05-07T12%3A32%3A52.982Z
   response:
     body:
       encoding: UTF-8
-      string: '{"errors":["start_hr [YYYY-MM-DDThh] must be before end_hr [YYYY-MM-DDThh]"]}
-
-        '
+      string: '{"errors":["start_hr [YYYY-MM-DDThh] must be before end_hr [YYYY-MM-DDThh]"]}'
     headers:
       Content-Type:
       - application/json

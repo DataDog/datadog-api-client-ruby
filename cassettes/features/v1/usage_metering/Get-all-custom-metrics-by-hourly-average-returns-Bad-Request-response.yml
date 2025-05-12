@@ -1,16 +1,16 @@
 http_interactions:
-- recorded_at: Fri, 01 Apr 2022 00:41:20 GMT
+- recorded_at: Mon, 12 May 2025 11:35:28 GMT
   request:
     body: null
     headers:
       Accept:
-      - application/json;datetime-format=rfc3339
+      - application/json;datetime-format=rfc3339, application/json
     method: GET
     uri: https://api.datadoghq.com/api/v1/usage/top_avg_metrics
   response:
     body:
       encoding: UTF-8
-      string: '{"errors": ["The parameter ''month/day'' is required"]}'
+      string: '{"errors":["The parameter ''month/day'' is required"]}'
     headers:
       Content-Type:
       - application/json
