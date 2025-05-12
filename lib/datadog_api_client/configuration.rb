@@ -380,7 +380,7 @@ module DatadogAPIClient
     def server_settings
       [
         {
-          url: "https://{subdomain}.{site}",
+          url: +"https://{subdomain}.{site}",
           description: "No description provided",
           variables: {
             site: {
@@ -402,7 +402,7 @@ module DatadogAPIClient
           }
         },
         {
-          url: "{protocol}://{name}",
+          url: +"{protocol}://{name}",
           description: "No description provided",
           variables: {
             name: {
@@ -416,7 +416,7 @@ module DatadogAPIClient
           }
         },
         {
-          url: "https://{subdomain}.{site}",
+          url: +"https://{subdomain}.{site}",
           description: "No description provided",
           variables: {
             site: {
@@ -436,7 +436,7 @@ module DatadogAPIClient
       {
         "v1.get_ip_ranges": [
           {
-            url: "https://{subdomain}.{site}",
+            url: +"https://{subdomain}.{site}",
             description: "No description provided",
             variables: {
               site: {
@@ -458,7 +458,7 @@ module DatadogAPIClient
             }
           },
           {
-            url: "{protocol}://{name}",
+            url: +"{protocol}://{name}",
             description: "No description provided",
             variables: {
               name: {
@@ -472,7 +472,7 @@ module DatadogAPIClient
             }
           },
           {
-            url: "https://{subdomain}.datadoghq.com",
+            url: +"https://{subdomain}.datadoghq.com",
             description: "No description provided",
             variables: {
               subdomain: {
@@ -480,11 +480,11 @@ module DatadogAPIClient
                 default_value: "ip-ranges",
               }
             }
-          }  
+          }
         ],
         "v1.submit_log": [
           {
-            url: "https://{subdomain}.{site}",
+            url: +"https://{subdomain}.{site}",
             description: "No description provided",
             variables: {
               site: {
@@ -506,7 +506,7 @@ module DatadogAPIClient
             }
           },
           {
-            url: "{protocol}://{name}",
+            url: +"{protocol}://{name}",
             description: "No description provided",
             variables: {
               name: {
@@ -520,7 +520,7 @@ module DatadogAPIClient
             }
           },
           {
-            url: "https://{subdomain}.{site}",
+            url: +"https://{subdomain}.{site}",
             description: "No description provided",
             variables: {
               site: {
@@ -532,11 +532,11 @@ module DatadogAPIClient
                 default_value: "http-intake.logs",
               }
             }
-          }  
+          }
         ],
         "v2.submit_log": [
           {
-            url: "https://{subdomain}.{site}",
+            url: +"https://{subdomain}.{site}",
             description: "No description provided",
             variables: {
               site: {
@@ -558,7 +558,7 @@ module DatadogAPIClient
             }
           },
           {
-            url: "{protocol}://{name}",
+            url: +"{protocol}://{name}",
             description: "No description provided",
             variables: {
               name: {
@@ -572,7 +572,7 @@ module DatadogAPIClient
             }
           },
           {
-            url: "https://{subdomain}.{site}",
+            url: +"https://{subdomain}.{site}",
             description: "No description provided",
             variables: {
               site: {
@@ -584,11 +584,11 @@ module DatadogAPIClient
                 default_value: "http-intake.logs",
               }
             }
-          }  
+          }
         ],
         "v2.create_on_call_page": [
           {
-            url: "https://{site}",
+            url: +"https://{site}",
             description: "No description provided",
             variables: {
               site: {
@@ -605,7 +605,7 @@ module DatadogAPIClient
             }
           },
           {
-            url: "{protocol}://{name}",
+            url: +"{protocol}://{name}",
             description: "No description provided",
             variables: {
               name: {
@@ -619,7 +619,7 @@ module DatadogAPIClient
             }
           },
           {
-            url: "https://{subdomain}.{site}",
+            url: +"https://{subdomain}.{site}",
             description: "No description provided",
             variables: {
               site: {
@@ -631,11 +631,11 @@ module DatadogAPIClient
                 default_value: "api",
               }
             }
-          }  
+          }
         ],
         "v2.acknowledge_on_call_page": [
           {
-            url: "https://{site}",
+            url: +"https://{site}",
             description: "No description provided",
             variables: {
               site: {
@@ -652,7 +652,7 @@ module DatadogAPIClient
             }
           },
           {
-            url: "{protocol}://{name}",
+            url: +"{protocol}://{name}",
             description: "No description provided",
             variables: {
               name: {
@@ -666,7 +666,7 @@ module DatadogAPIClient
             }
           },
           {
-            url: "https://{subdomain}.{site}",
+            url: +"https://{subdomain}.{site}",
             description: "No description provided",
             variables: {
               site: {
@@ -678,11 +678,11 @@ module DatadogAPIClient
                 default_value: "api",
               }
             }
-          }  
+          }
         ],
         "v2.escalate_on_call_page": [
           {
-            url: "https://{site}",
+            url: +"https://{site}",
             description: "No description provided",
             variables: {
               site: {
@@ -699,7 +699,7 @@ module DatadogAPIClient
             }
           },
           {
-            url: "{protocol}://{name}",
+            url: +"{protocol}://{name}",
             description: "No description provided",
             variables: {
               name: {
@@ -713,7 +713,7 @@ module DatadogAPIClient
             }
           },
           {
-            url: "https://{subdomain}.{site}",
+            url: +"https://{subdomain}.{site}",
             description: "No description provided",
             variables: {
               site: {
@@ -725,11 +725,11 @@ module DatadogAPIClient
                 default_value: "api",
               }
             }
-          }  
+          }
         ],
         "v2.resolve_on_call_page": [
           {
-            url: "https://{site}",
+            url: +"https://{site}",
             description: "No description provided",
             variables: {
               site: {
@@ -746,7 +746,7 @@ module DatadogAPIClient
             }
           },
           {
-            url: "{protocol}://{name}",
+            url: +"{protocol}://{name}",
             description: "No description provided",
             variables: {
               name: {
@@ -760,7 +760,7 @@ module DatadogAPIClient
             }
           },
           {
-            url: "https://{subdomain}.{site}",
+            url: +"https://{subdomain}.{site}",
             description: "No description provided",
             variables: {
               site: {
@@ -772,7 +772,7 @@ module DatadogAPIClient
                 default_value: "api",
               }
             }
-          }  
+          }
         ],
       }
     end
