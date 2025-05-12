@@ -586,6 +586,194 @@ module DatadogAPIClient
             }
           }  
         ],
+        "v2.create_on_call_page": [
+          {
+            url: "https://{site}",
+            description: "No description provided",
+            variables: {
+              site: {
+                description: "The globally available endpoint for On-Call.",
+                default_value: "navy.oncall.datadoghq.com",
+                enum_values: [
+                  "saffron.oncall.datadoghq.com",
+                  "navy.oncall.datadoghq.com",
+                  "coral.oncall.datadoghq.com",
+                  "teal.oncall.datadoghq.com",
+                  "beige.oncall.datadoghq.eu"
+                ]
+              }
+            }
+          },
+          {
+            url: "{protocol}://{name}",
+            description: "No description provided",
+            variables: {
+              name: {
+                description: "Full site DNS name.",
+                default_value: "api.datadoghq.com",
+              },
+              protocol: {
+                description: "The protocol for accessing the API.",
+                default_value: "https",
+              }
+            }
+          },
+          {
+            url: "https://{subdomain}.{site}",
+            description: "No description provided",
+            variables: {
+              site: {
+                description: "Any Datadog deployment.",
+                default_value: "datadoghq.com",
+              },
+              subdomain: {
+                description: "The subdomain where the API is deployed.",
+                default_value: "api",
+              }
+            }
+          }  
+        ],
+        "v2.acknowledge_on_call_page": [
+          {
+            url: "https://{site}",
+            description: "No description provided",
+            variables: {
+              site: {
+                description: "The globally available endpoint for On-Call.",
+                default_value: "navy.oncall.datadoghq.com",
+                enum_values: [
+                  "saffron.oncall.datadoghq.com",
+                  "navy.oncall.datadoghq.com",
+                  "coral.oncall.datadoghq.com",
+                  "teal.oncall.datadoghq.com",
+                  "beige.oncall.datadoghq.eu"
+                ]
+              }
+            }
+          },
+          {
+            url: "{protocol}://{name}",
+            description: "No description provided",
+            variables: {
+              name: {
+                description: "Full site DNS name.",
+                default_value: "api.datadoghq.com",
+              },
+              protocol: {
+                description: "The protocol for accessing the API.",
+                default_value: "https",
+              }
+            }
+          },
+          {
+            url: "https://{subdomain}.{site}",
+            description: "No description provided",
+            variables: {
+              site: {
+                description: "Any Datadog deployment.",
+                default_value: "datadoghq.com",
+              },
+              subdomain: {
+                description: "The subdomain where the API is deployed.",
+                default_value: "api",
+              }
+            }
+          }  
+        ],
+        "v2.escalate_on_call_page": [
+          {
+            url: "https://{site}",
+            description: "No description provided",
+            variables: {
+              site: {
+                description: "The globally available endpoint for On-Call.",
+                default_value: "navy.oncall.datadoghq.com",
+                enum_values: [
+                  "saffron.oncall.datadoghq.com",
+                  "navy.oncall.datadoghq.com",
+                  "coral.oncall.datadoghq.com",
+                  "teal.oncall.datadoghq.com",
+                  "beige.oncall.datadoghq.eu"
+                ]
+              }
+            }
+          },
+          {
+            url: "{protocol}://{name}",
+            description: "No description provided",
+            variables: {
+              name: {
+                description: "Full site DNS name.",
+                default_value: "api.datadoghq.com",
+              },
+              protocol: {
+                description: "The protocol for accessing the API.",
+                default_value: "https",
+              }
+            }
+          },
+          {
+            url: "https://{subdomain}.{site}",
+            description: "No description provided",
+            variables: {
+              site: {
+                description: "Any Datadog deployment.",
+                default_value: "datadoghq.com",
+              },
+              subdomain: {
+                description: "The subdomain where the API is deployed.",
+                default_value: "api",
+              }
+            }
+          }  
+        ],
+        "v2.resolve_on_call_page": [
+          {
+            url: "https://{site}",
+            description: "No description provided",
+            variables: {
+              site: {
+                description: "The globally available endpoint for On-Call.",
+                default_value: "navy.oncall.datadoghq.com",
+                enum_values: [
+                  "saffron.oncall.datadoghq.com",
+                  "navy.oncall.datadoghq.com",
+                  "coral.oncall.datadoghq.com",
+                  "teal.oncall.datadoghq.com",
+                  "beige.oncall.datadoghq.eu"
+                ]
+              }
+            }
+          },
+          {
+            url: "{protocol}://{name}",
+            description: "No description provided",
+            variables: {
+              name: {
+                description: "Full site DNS name.",
+                default_value: "api.datadoghq.com",
+              },
+              protocol: {
+                description: "The protocol for accessing the API.",
+                default_value: "https",
+              }
+            }
+          },
+          {
+            url: "https://{subdomain}.{site}",
+            description: "No description provided",
+            variables: {
+              site: {
+                description: "Any Datadog deployment.",
+                default_value: "datadoghq.com",
+              },
+              subdomain: {
+                description: "The subdomain where the API is deployed.",
+                default_value: "api",
+              }
+            }
+          }  
+        ],
       }
     end
 
