@@ -16,12 +16,12 @@ body = DatadogAPIClient::V2::ScheduleCreateRequest.new({
         DatadogAPIClient::V2::ScheduleCreateRequestDataAttributesLayersItems.new({
           effective_date: (Time.now + -10 * 86400),
           end_date: (Time.now + 10 * 86400),
-          interval: DatadogAPIClient::V2::ScheduleCreateRequestDataAttributesLayersItemsInterval.new({
+          interval: DatadogAPIClient::V2::LayerAttributesInterval.new({
             days: 1,
           }),
           members: [
-            DatadogAPIClient::V2::ScheduleCreateRequestDataAttributesLayersItemsMembersItems.new({
-              user: DatadogAPIClient::V2::ScheduleCreateRequestDataAttributesLayersItemsMembersItemsUser.new({
+            DatadogAPIClient::V2::ScheduleRequestDataAttributesLayersItemsMembersItems.new({
+              user: DatadogAPIClient::V2::ScheduleRequestDataAttributesLayersItemsMembersItemsUser.new({
                 id: USER_DATA_ID,
               }),
             }),
@@ -46,11 +46,11 @@ body = DatadogAPIClient::V2::ScheduleCreateRequest.new({
       time_zone: "America/New_York",
     }),
     relationships: DatadogAPIClient::V2::ScheduleCreateRequestDataRelationships.new({
-      teams: DatadogAPIClient::V2::ScheduleCreateRequestDataRelationshipsTeams.new({
+      teams: DatadogAPIClient::V2::DataRelationshipsTeams.new({
         data: [
-          DatadogAPIClient::V2::ScheduleCreateRequestDataRelationshipsTeamsDataItems.new({
+          DatadogAPIClient::V2::DataRelationshipsTeamsDataItems.new({
             id: DD_TEAM_DATA_ID,
-            type: DatadogAPIClient::V2::ScheduleCreateRequestDataRelationshipsTeamsDataItemsType::TEAMS,
+            type: DatadogAPIClient::V2::DataRelationshipsTeamsDataItemsType::TEAMS,
           }),
         ],
       }),

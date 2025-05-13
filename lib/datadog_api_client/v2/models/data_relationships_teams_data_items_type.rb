@@ -17,8 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Indicates that the resource is of type `teams`.
-  class EscalationPolicyDataRelationshipsTeamsDataItemsType
+  # Teams resource type.
+  class DataRelationshipsTeamsDataItemsType
     include BaseEnumModel
 
     TEAMS = "teams".freeze

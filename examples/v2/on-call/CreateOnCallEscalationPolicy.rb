@@ -51,11 +51,11 @@ body = DatadogAPIClient::V2::EscalationPolicyCreateRequest.new({
       ],
     }),
     relationships: DatadogAPIClient::V2::EscalationPolicyCreateRequestDataRelationships.new({
-      teams: DatadogAPIClient::V2::EscalationPolicyCreateRequestDataRelationshipsTeams.new({
+      teams: DatadogAPIClient::V2::DataRelationshipsTeams.new({
         data: [
-          DatadogAPIClient::V2::EscalationPolicyCreateRequestDataRelationshipsTeamsDataItems.new({
+          DatadogAPIClient::V2::DataRelationshipsTeamsDataItems.new({
             id: DD_TEAM_DATA_ID,
-            type: DatadogAPIClient::V2::EscalationPolicyCreateRequestDataRelationshipsTeamsDataItemsType::TEAMS,
+            type: DatadogAPIClient::V2::DataRelationshipsTeamsDataItemsType::TEAMS,
           }),
         ],
       }),

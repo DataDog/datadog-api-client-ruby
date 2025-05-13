@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # Defines the relationship to a collection of steps within an escalation policy. Contains an array of step data references.
     attr_reader :steps
 
-    # Defines the relationship to a collection of teams within an escalation policy. Contains an array of team data references.
+    # Associates teams with this schedule in a data structure.
     attr_accessor :teams
 
     attr_accessor :additional_properties
@@ -43,7 +43,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'steps' => :'EscalationPolicyDataRelationshipsSteps',
-        :'teams' => :'EscalationPolicyDataRelationshipsTeams'
+        :'teams' => :'DataRelationshipsTeams'
       }
     end
 
