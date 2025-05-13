@@ -27,7 +27,7 @@ module DatadogAPIClient::V2
     # The date/time after which this layer no longer applies (in ISO 8601).
     attr_accessor :end_date
 
-    # Defines how frequently the rotation repeats, using days and/or seconds (up to certain limits).
+    # Defines how often the rotation repeats, using a combination of days and optional seconds.
     attr_reader :interval
 
     # A list of members who participate in this layer's rotation.
@@ -64,8 +64,8 @@ module DatadogAPIClient::V2
       {
         :'effective_date' => :'Time',
         :'end_date' => :'Time',
-        :'interval' => :'ScheduleCreateRequestDataAttributesLayersItemsInterval',
-        :'members' => :'Array<ScheduleCreateRequestDataAttributesLayersItemsMembersItems>',
+        :'interval' => :'LayerAttributesInterval',
+        :'members' => :'Array<ScheduleRequestDataAttributesLayersItemsMembersItems>',
         :'name' => :'String',
         :'restrictions' => :'Array<TimeRestriction>',
         :'rotation_start' => :'Time'

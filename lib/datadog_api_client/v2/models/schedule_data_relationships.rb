@@ -43,7 +43,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'layers' => :'ScheduleDataRelationshipsLayers',
-        :'teams' => :'ScheduleDataRelationshipsTeams'
+        :'teams' => :'DataRelationshipsTeams'
       }
     end
 

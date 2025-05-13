@@ -17,12 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Identifies the user participating in this layer as a single object with an `id`.
-  class ScheduleCreateRequestDataAttributesLayersItemsMembersItemsUser
+  # Associates teams with this schedule in a data structure.
+  class DataRelationshipsTeams
     include BaseGenericModel
 
-    # The user's ID.
-    attr_accessor :id
+    # An array of team references for this schedule.
+    attr_accessor :data
 
     attr_accessor :additional_properties
 
@@ -30,7 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'id' => :'id'
+        :'data' => :'data'
       }
     end
 
@@ -38,7 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'id' => :'String'
+        :'data' => :'Array<DataRelationshipsTeamsDataItems>'
       }
     end
 
@@ -47,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ScheduleCreateRequestDataAttributesLayersItemsMembersItemsUser` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::DataRelationshipsTeams` initialize method"
       end
 
       self.additional_properties = {}
@@ -60,8 +60,10 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.key?(:'data')
+        if (value = attributes[:'data']).is_a?(Array)
+          self.data = value
+        end
       end
     end
 
@@ -91,7 +93,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
+          data == o.data &&
           additional_properties == o.additional_properties
     end
 
@@ -99,7 +101,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [id, additional_properties].hash
+      [data, additional_properties].hash
     end
   end
 end
