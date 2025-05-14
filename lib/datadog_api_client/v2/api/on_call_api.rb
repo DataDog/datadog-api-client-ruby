@@ -492,7 +492,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Get the schedule of an on-call user.
+    # Get the schedule on-call user.
     #
     # @see #get_schedule_on_call_user_with_http_info
     def get_schedule_on_call_user(schedule_id, opts = {})
@@ -500,7 +500,7 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Get the schedule of an on-call user.
+    # Get the schedule on-call user.
     #
     # Retrieves the user who is on-call for the specified schedule at a given time.
     #
