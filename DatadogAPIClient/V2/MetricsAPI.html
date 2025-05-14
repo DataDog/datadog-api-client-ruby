@@ -6,7 +6,7 @@
 <title>
   Class: DatadogAPIClient::V2::MetricsAPI
   
-    &mdash; datadog-api-client 2.30.0.dev.1 documentation
+    &mdash; datadog-api-client 2.33.0.dev.1 documentation
   
 </title>
 
@@ -1288,10 +1288,10 @@ Can only be used with application keys of users with the <code>Manage Tags for M
     <p>Create a tag configuration.</p>
 
 <p>Create and define a list of queryable tag keys for an existing count/gauge/rate/distribution metric.
-Optionally, include percentile aggregations on any distribution metric or configure custom aggregations
-on any count, rate, or gauge metric. By setting <code>exclude_tags_mode</code> to true the behavior is changed
-from an allow-list to a deny-list, and tags in the defined list will not be queryable.
-Can only be used with application keys of users with the <code>Manage Tags for Metrics</code> permission.</p>
+Optionally, include percentile aggregations on any distribution metric. By setting <code>exclude_tags_mode</code>
+to true, the behavior is changed from an allow-list to a deny-list, and tags in the defined list are
+not queryable. Can only be used with application keys of users with the <code>Manage Tags for Metrics</code>
+permission.</p>
 
 
   </div>
@@ -2108,7 +2108,7 @@ keys from users with the <code>Manage Tags for Metrics</code> permission.</p>
             
           </span>
           
-            &mdash; <div class='inline'><p>The number of aggregations that a <code>count</code>, <code>rate</code>, or <code>gauge</code> metric is configured to use. Max number of aggregation combos is 9.</p>
+            &mdash; <div class='inline'><p>Deprecated. Number of aggregations has no impact on volume.</p>
 </div>
           
         </li>
@@ -5009,7 +5009,7 @@ a tag configuration to be created first.</p>
 </div>
 
       <div id="footer">
-  Generated on Tue Feb 18 21:07:09 2025 by
+  Generated on Wed May 14 17:03:02 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>
