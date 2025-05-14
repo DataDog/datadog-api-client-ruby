@@ -579,6 +579,7 @@ module DatadogAPIClient
           "v1.synthetics_assertion_json_schema_target_target" => "SyntheticsAssertionJSONSchemaTargetTarget",
           "v1.synthetics_assertion_operator" => "SyntheticsAssertionOperator",
           "v1.synthetics_assertion_target" => "SyntheticsAssertionTarget",
+          "v1.synthetics_assertion_target_value" => "SyntheticsAssertionTargetValue",
           "v1.synthetics_assertion_timings_scope" => "SyntheticsAssertionTimingsScope",
           "v1.synthetics_assertion_type" => "SyntheticsAssertionType",
           "v1.synthetics_assertion_x_path_operator" => "SyntheticsAssertionXPathOperator",

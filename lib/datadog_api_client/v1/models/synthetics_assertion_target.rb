@@ -27,7 +27,7 @@ module DatadogAPIClient::V1
     # The associated assertion property.
     attr_accessor :property
 
-    # Value used by the operator.
+    # Value used by the operator in assertions. Can be either a number or string.
     attr_reader :target
 
     # Timings scope for response time assertions.
@@ -56,7 +56,7 @@ module DatadogAPIClient::V1
       {
         :'operator' => :'SyntheticsAssertionOperator',
         :'property' => :'String',
-        :'target' => :'Object',
+        :'target' => :'SyntheticsAssertionTargetValue',
         :'timings_scope' => :'SyntheticsAssertionTimingsScope',
         :'type' => :'SyntheticsAssertionType'
       }
