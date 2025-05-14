@@ -24,7 +24,7 @@ module DatadogAPIClient::V1
     # Assertion operator to apply.
     attr_reader :operator
 
-    # Value used by the operator.
+    # Value used by the operator in assertions. Can be either a number or string.
     attr_reader :target
 
     # Type of the assertion.
@@ -47,7 +47,7 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'operator' => :'SyntheticsAssertionBodyHashOperator',
-        :'target' => :'Object',
+        :'target' => :'SyntheticsAssertionTargetValue',
         :'type' => :'SyntheticsAssertionBodyHashType'
       }
     end
