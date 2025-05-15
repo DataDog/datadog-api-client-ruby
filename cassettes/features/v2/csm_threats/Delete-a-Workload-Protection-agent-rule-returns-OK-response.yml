@@ -1,0 +1,107 @@
+http_interactions:
+- recorded_at: Thu, 15 May 2025 14:34:23 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"description":"My agent policy","enabled":true,"hostTags":["env:staging"],"name":"testdeleteaworkloadprotectionagentrulereturnsokresponse1747319663"},"type":"policy"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/remote_config/products/cws/policy
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"hea-hly-nmh","type":"policy","attributes":{"blockingRulesCount":0,"datadogManaged":false,"description":"My
+        agent policy","disabledRulesCount":1,"enabled":true,"hostTags":["env:staging"],"monitoringRulesCount":225,"name":"testdeleteaworkloadprotectionagentrulereturnsokresponse1747319663","policyVersion":"1","priority":1000000070,"ruleCount":226,"updateDate":1747319663455,"updater":{"name":"frog","handle":"frog@datadoghq.com"}}}}'
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+- recorded_at: Thu, 15 May 2025 14:34:23 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"description":"My Agent rule","enabled":true,"expression":"exec.file.name
+        == \"sh\"","name":"testdeleteaworkloadprotectionagentrulereturnsokresponse1747319663","policy_id":"hea-hly-nmh","product_tags":["security:attack","technique:T1059"]},"type":"agent_rule"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/remote_config/products/cws/agent_rules
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"e3n-gsi-qxc","type":"agent_rule","attributes":{"category":"Process
+        Activity","creationDate":1747319663941,"creator":{"name":"frog","handle":"frog@datadoghq.com"},"defaultRule":false,"description":"My
+        Agent rule","enabled":true,"expression":"exec.file.name == \"sh\"","filters":["os
+        == \"linux\""],"monitoring":["hea-hly-nmh"],"name":"testdeleteaworkloadprotectionagentrulereturnsokresponse1747319663","product_tags":["security:attack","technique:T1059"],"updateDate":1747319663941,"updater":{"name":"frog","handle":"frog@datadoghq.com"}}}}'
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+- recorded_at: Thu, 15 May 2025 14:34:23 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/remote_config/products/cws/agent_rules/e3n-gsi-qxc?policy_id=hea-hly-nmh
+  response:
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 204
+      message: No Content
+- recorded_at: Thu, 15 May 2025 14:34:23 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/remote_config/products/cws/agent_rules/e3n-gsi-qxc
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"title":"failed to delete rule"}]}
+
+        '
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 404
+      message: Not Found
+- recorded_at: Thu, 15 May 2025 14:34:23 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/remote_config/products/cws/policy/hea-hly-nmh
+  response:
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 204
+      message: No Content
+recorded_with: VCR 6.0.0

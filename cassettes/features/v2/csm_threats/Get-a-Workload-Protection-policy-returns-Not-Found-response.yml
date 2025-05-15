@@ -1,0 +1,20 @@
+http_interactions:
+- recorded_at: Thu, 15 May 2025 14:34:33 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+    method: GET
+    uri: https://api.datadoghq.com/api/v2/remote_config/products/cws/policy/non-existent-policy-id
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"title":"Not Found"}]}'
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 404
+      message: Not Found
+recorded_with: VCR 6.0.0
