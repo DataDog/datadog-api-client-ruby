@@ -31,11 +31,11 @@ module DatadogAPIClient::V2
     # Options on impossible travel detection method.
     attr_accessor :impossible_travel_options
 
-    # Once a signal is generated, the signal will remain “open” if a case is matched at least once within
+    # Once a signal is generated, the signal will remain "open" if a case is matched at least once within
     # this keep alive window. For third party detection method, this field is not used.
     attr_accessor :keep_alive
 
-    # A signal will “close” regardless of the query being matched once the time exceeds the maximum duration.
+    # A signal will "close" regardless of the query being matched once the time exceeds the maximum duration.
     # This time is calculated from the first seen timestamp.
     attr_accessor :max_signal_duration
 

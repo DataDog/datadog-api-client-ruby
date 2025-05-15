@@ -1153,6 +1153,14 @@ ScenariosModelMappings = {
             "version" => "String",
             "body" => "UpdateCustomFrameworkRequest",
     },
+    "v2.GetResourceEvaluationFilters" => {
+            "cloud_provider" => "String",
+            "account_id" => "String",
+            "skip_cache" => "Boolean",
+    },
+    "v2.UpdateResourceEvaluationFilters" => {
+            "body" => "UpdateResourceEvaluationFiltersRequest",
+    },
     "v2.ListFindings" => {
             "page_limit" => "Integer",
             "snapshot_timestamp" => "Integer",
