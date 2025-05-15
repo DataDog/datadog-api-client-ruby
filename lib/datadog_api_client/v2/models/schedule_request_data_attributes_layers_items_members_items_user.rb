@@ -17,12 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Defines the relationship to a collection of teams within an escalation policy. Contains an array of team data references.
-  class EscalationPolicyDataRelationshipsTeams
+  # Identifies the user participating in this layer as a single object with an `id`.
+  class ScheduleRequestDataAttributesLayersItemsMembersItemsUser
     include BaseGenericModel
 
-    # An array of references to the teams associated with this escalation policy.
-    attr_accessor :data
+    # The user's ID.
+    attr_accessor :id
 
     attr_accessor :additional_properties
 
@@ -30,7 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data'
+        :'id' => :'id'
       }
     end
 
@@ -38,7 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'Array<EscalationPolicyDataRelationshipsTeamsDataItems>'
+        :'id' => :'String'
       }
     end
 
@@ -47,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::EscalationPolicyDataRelationshipsTeams` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ScheduleRequestDataAttributesLayersItemsMembersItemsUser` initialize method"
       end
 
       self.additional_properties = {}
@@ -60,10 +60,8 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'data')
-        if (value = attributes[:'data']).is_a?(Array)
-          self.data = value
-        end
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
       end
     end
 
@@ -93,7 +91,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data &&
+          id == o.id &&
           additional_properties == o.additional_properties
     end
 
@@ -101,7 +99,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, additional_properties].hash
+      [id, additional_properties].hash
     end
   end
 end

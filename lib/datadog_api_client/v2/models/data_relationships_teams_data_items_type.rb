@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # Teams resource type.
-  class ScheduleDataRelationshipsTeamsDataItemsType
+  class DataRelationshipsTeamsDataItemsType
     include BaseEnumModel
 
     TEAMS = "teams".freeze

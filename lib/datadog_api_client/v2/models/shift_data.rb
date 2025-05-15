@@ -17,12 +17,21 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Identifies the user participating in this layer as a single object with an `id`.
-  class ScheduleCreateRequestDataAttributesLayersItemsMembersItemsUser
+  # The definition of `ShiftData` object.
+  class ShiftData
     include BaseGenericModel
 
-    # The user's ID.
+    # The definition of `ShiftDataAttributes` object.
+    attr_accessor :attributes
+
+    # The `ShiftData` `id`.
     attr_accessor :id
+
+    # The definition of `ShiftDataRelationships` object.
+    attr_accessor :relationships
+
+    # Indicates that the resource is of type 'shifts'.
+    attr_reader :type
 
     attr_accessor :additional_properties
 
@@ -30,7 +39,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'id' => :'id'
+        :'attributes' => :'attributes',
+        :'id' => :'id',
+        :'relationships' => :'relationships',
+        :'type' => :'type'
       }
     end
 
@@ -38,7 +50,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'id' => :'String'
+        :'attributes' => :'ShiftDataAttributes',
+        :'id' => :'String',
+        :'relationships' => :'ShiftDataRelationships',
+        :'type' => :'ShiftDataType'
       }
     end
 
@@ -47,7 +62,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ScheduleCreateRequestDataAttributesLayersItemsMembersItemsUser` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ShiftData` initialize method"
       end
 
       self.additional_properties = {}
@@ -60,9 +75,39 @@ module DatadogAPIClient::V2
         end
       }
 
+      if attributes.key?(:'attributes')
+        self.attributes = attributes[:'attributes']
+      end
+
       if attributes.key?(:'id')
         self.id = attributes[:'id']
       end
+
+      if attributes.key?(:'relationships')
+        self.relationships = attributes[:'relationships']
+      end
+
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
+      end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @type.nil?
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param type [Object] Object to be assigned
+    # @!visibility private
+    def type=(type)
+      if type.nil?
+        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+      end
+      @type = type
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -91,7 +136,10 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          attributes == o.attributes &&
           id == o.id &&
+          relationships == o.relationships &&
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -99,7 +147,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [id, additional_properties].hash
+      [attributes, id, relationships, type, additional_properties].hash
     end
   end
 end

@@ -107,10 +107,10 @@ module DatadogAPIClient::V2
     # Create a tag configuration.
     #
     # Create and define a list of queryable tag keys for an existing count/gauge/rate/distribution metric.
-    # Optionally, include percentile aggregations on any distribution metric or configure custom aggregations
-    # on any count, rate, or gauge metric. By setting `exclude_tags_mode` to true the behavior is changed
-    # from an allow-list to a deny-list, and tags in the defined list will not be queryable.
-    # Can only be used with application keys of users with the `Manage Tags for Metrics` permission.
+    # Optionally, include percentile aggregations on any distribution metric. By setting `exclude_tags_mode`
+    # to true, the behavior is changed from an allow-list to a deny-list, and tags in the defined list are
+    # not queryable. Can only be used with application keys of users with the `Manage Tags for Metrics`
+    # permission.
     #
     # @param metric_name [String] The name of the metric.
     # @param body [MetricTagConfigurationCreateRequest] 
@@ -324,7 +324,7 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @option opts [String] :filter_groups Filtered tag keys that the metric is configured to query with.
     # @option opts [Integer] :filter_hours_ago The number of hours of look back (from now) to estimate cardinality with. If unspecified, it defaults to 0 hours.
-    # @option opts [Integer] :filter_num_aggregations The number of aggregations that a `count`, `rate`, or `gauge` metric is configured to use. Max number of aggregation combos is 9.
+    # @option opts [Integer] :filter_num_aggregations Deprecated. Number of aggregations has no impact on volume.
     # @option opts [Boolean] :filter_pct A boolean, for distribution metrics only, to estimate cardinality if the metric includes additional percentile aggregators.
     # @option opts [Integer] :filter_timespan_h A window, in hours, from the look back to estimate cardinality with. The minimum and default is 1 hour.
     # @return [Array<(MetricEstimateResponse, Integer, Hash)>] MetricEstimateResponse data, response status code and response headers

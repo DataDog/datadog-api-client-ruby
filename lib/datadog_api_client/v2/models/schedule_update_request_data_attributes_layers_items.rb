@@ -31,7 +31,7 @@ module DatadogAPIClient::V2
     # A unique identifier for the layer being updated.
     attr_accessor :id
 
-    # Specifies how the rotation repeats: number of days, plus optional seconds, up to the given maximums.
+    # Defines how often the rotation repeats, using a combination of days and optional seconds.
     attr_reader :interval
 
     # The members assigned to this layer.
@@ -70,8 +70,8 @@ module DatadogAPIClient::V2
         :'effective_date' => :'Time',
         :'end_date' => :'Time',
         :'id' => :'String',
-        :'interval' => :'ScheduleUpdateRequestDataAttributesLayersItemsInterval',
-        :'members' => :'Array<ScheduleUpdateRequestDataAttributesLayersItemsMembersItems>',
+        :'interval' => :'LayerAttributesInterval',
+        :'members' => :'Array<ScheduleRequestDataAttributesLayersItemsMembersItems>',
         :'name' => :'String',
         :'restrictions' => :'Array<TimeRestriction>',
         :'rotation_start' => :'Time'

@@ -21,14 +21,11 @@ module DatadogAPIClient::V2
   class FullCustomFrameworkDataAttributes
     include BaseGenericModel
 
-    # Framework Description
-    attr_reader :description
-
     # Framework Handle
     attr_reader :handle
 
     # Framework Icon URL
-    attr_reader :icon_url
+    attr_accessor :icon_url
 
     # Framework Name
     attr_reader :name
@@ -45,7 +42,6 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'description' => :'description',
         :'handle' => :'handle',
         :'icon_url' => :'icon_url',
         :'name' => :'name',
@@ -58,7 +54,6 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'description' => :'String',
         :'handle' => :'String',
         :'icon_url' => :'String',
         :'name' => :'String',
@@ -84,10 +79,6 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
-
-      if attributes.key?(:'description')
-        self.description = attributes[:'description']
-      end
 
       if attributes.key?(:'handle')
         self.handle = attributes[:'handle']
@@ -116,23 +107,11 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @description.nil?
       return false if @handle.nil?
-      return false if @icon_url.nil?
       return false if @name.nil?
       return false if @requirements.nil?
       return false if @version.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param description [Object] Object to be assigned
-    # @!visibility private
-    def description=(description)
-      if description.nil?
-        fail ArgumentError, 'invalid value for "description", description cannot be nil.'
-      end
-      @description = description
     end
 
     # Custom attribute writer method with validation
@@ -143,16 +122,6 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "handle", handle cannot be nil.'
       end
       @handle = handle
-    end
-
-    # Custom attribute writer method with validation
-    # @param icon_url [Object] Object to be assigned
-    # @!visibility private
-    def icon_url=(icon_url)
-      if icon_url.nil?
-        fail ArgumentError, 'invalid value for "icon_url", icon_url cannot be nil.'
-      end
-      @icon_url = icon_url
     end
 
     # Custom attribute writer method with validation
@@ -211,7 +180,6 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          description == o.description &&
           handle == o.handle &&
           icon_url == o.icon_url &&
           name == o.name &&
@@ -224,7 +192,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [description, handle, icon_url, name, requirements, version, additional_properties].hash
+      [handle, icon_url, name, requirements, version, additional_properties].hash
     end
   end
 end

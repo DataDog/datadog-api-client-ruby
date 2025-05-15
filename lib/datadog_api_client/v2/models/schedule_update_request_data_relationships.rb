@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class ScheduleUpdateRequestDataRelationships
     include BaseGenericModel
 
-    # Defines the teams that this schedule update is associated with.
+    # Associates teams with this schedule in a data structure.
     attr_accessor :teams
 
     attr_accessor :additional_properties
@@ -38,7 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'teams' => :'ScheduleUpdateRequestDataRelationshipsTeams'
+        :'teams' => :'DataRelationshipsTeams'
       }
     end
 

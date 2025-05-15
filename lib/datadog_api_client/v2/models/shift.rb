@@ -17,15 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Specifies how the rotation repeats: number of days, plus optional seconds, up to the given maximums.
-  class ScheduleUpdateRequestDataAttributesLayersItemsInterval
+  # The definition of `Shift` object.
+  class Shift
     include BaseGenericModel
 
-    # How many days each rotation cycle should span.
-    attr_reader :days
+    # The definition of `ShiftData` object.
+    attr_accessor :data
 
-    # Additional seconds to add to the rotation cycle (for example, partial days).
-    attr_reader :seconds
+    # The `Shift` `included`.
+    attr_accessor :included
 
     attr_accessor :additional_properties
 
@@ -33,8 +33,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'days' => :'days',
-        :'seconds' => :'seconds'
+        :'data' => :'data',
+        :'included' => :'included'
       }
     end
 
@@ -42,8 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'days' => :'Integer',
-        :'seconds' => :'Integer'
+        :'data' => :'ShiftData',
+        :'included' => :'Array<ShiftIncluded>'
       }
     end
 
@@ -52,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ScheduleUpdateRequestDataAttributesLayersItemsInterval` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::Shift` initialize method"
       end
 
       self.additional_properties = {}
@@ -65,42 +65,15 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'days')
-        self.days = attributes[:'days']
+      if attributes.key?(:'data')
+        self.data = attributes[:'data']
       end
 
-      if attributes.key?(:'seconds')
-        self.seconds = attributes[:'seconds']
+      if attributes.key?(:'included')
+        if (value = attributes[:'included']).is_a?(Array)
+          self.included = value
+        end
       end
-    end
-
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    # @!visibility private
-    def valid?
-      return false if !@days.nil? && @days > 400
-      return false if !@seconds.nil? && @seconds > 2592000
-      true
-    end
-
-    # Custom attribute writer method with validation
-    # @param days [Object] Object to be assigned
-    # @!visibility private
-    def days=(days)
-      if !days.nil? && days > 400
-        fail ArgumentError, 'invalid value for "days", must be smaller than or equal to 400.'
-      end
-      @days = days
-    end
-
-    # Custom attribute writer method with validation
-    # @param seconds [Object] Object to be assigned
-    # @!visibility private
-    def seconds=(seconds)
-      if !seconds.nil? && seconds > 2592000
-        fail ArgumentError, 'invalid value for "seconds", must be smaller than or equal to 2592000.'
-      end
-      @seconds = seconds
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -129,8 +102,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          days == o.days &&
-          seconds == o.seconds &&
+          data == o.data &&
+          included == o.included &&
           additional_properties == o.additional_properties
     end
 
@@ -138,7 +111,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [days, seconds, additional_properties].hash
+      [data, included, additional_properties].hash
     end
   end
 end

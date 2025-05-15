@@ -22,12 +22,12 @@ body = DatadogAPIClient::V2::ScheduleUpdateRequest.new({
           id: SCHEDULE_DATA_RELATIONSHIPS_LAYERS_DATA_0_ID,
           effective_date: (Time.now + -10 * 86400),
           end_date: (Time.now + 10 * 86400),
-          interval: DatadogAPIClient::V2::ScheduleUpdateRequestDataAttributesLayersItemsInterval.new({
+          interval: DatadogAPIClient::V2::LayerAttributesInterval.new({
             seconds: 300,
           }),
           members: [
-            DatadogAPIClient::V2::ScheduleUpdateRequestDataAttributesLayersItemsMembersItems.new({
-              user: DatadogAPIClient::V2::ScheduleUpdateRequestDataAttributesLayersItemsMembersItemsUser.new({
+            DatadogAPIClient::V2::ScheduleRequestDataAttributesLayersItemsMembersItems.new({
+              user: DatadogAPIClient::V2::ScheduleRequestDataAttributesLayersItemsMembersItemsUser.new({
                 id: USER_DATA_ID,
               }),
             }),
@@ -53,11 +53,11 @@ body = DatadogAPIClient::V2::ScheduleUpdateRequest.new({
       time_zone: "America/New_York",
     }),
     relationships: DatadogAPIClient::V2::ScheduleUpdateRequestDataRelationships.new({
-      teams: DatadogAPIClient::V2::ScheduleUpdateRequestDataRelationshipsTeams.new({
+      teams: DatadogAPIClient::V2::DataRelationshipsTeams.new({
         data: [
-          DatadogAPIClient::V2::ScheduleUpdateRequestDataRelationshipsTeamsDataItems.new({
+          DatadogAPIClient::V2::DataRelationshipsTeamsDataItems.new({
             id: DD_TEAM_DATA_ID,
-            type: DatadogAPIClient::V2::ScheduleUpdateRequestDataRelationshipsTeamsDataItemsType::TEAMS,
+            type: DatadogAPIClient::V2::DataRelationshipsTeamsDataItemsType::TEAMS,
           }),
         ],
       }),

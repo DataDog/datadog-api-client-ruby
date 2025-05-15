@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A custom metadata entry to attach to each object uploaded to the GCS bucket.
+  # A custom metadata entry.
   class ObservabilityPipelineMetadataEntry
     include BaseGenericModel
 

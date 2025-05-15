@@ -36,11 +36,11 @@ body = DatadogAPIClient::V2::EscalationPolicyUpdateRequest.new({
     }),
     id: ESCALATION_POLICY_DATA_ID,
     relationships: DatadogAPIClient::V2::EscalationPolicyUpdateRequestDataRelationships.new({
-      teams: DatadogAPIClient::V2::EscalationPolicyUpdateRequestDataRelationshipsTeams.new({
+      teams: DatadogAPIClient::V2::DataRelationshipsTeams.new({
         data: [
-          DatadogAPIClient::V2::EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItems.new({
+          DatadogAPIClient::V2::DataRelationshipsTeamsDataItems.new({
             id: DD_TEAM_DATA_ID,
-            type: DatadogAPIClient::V2::EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItemsType::TEAMS,
+            type: DatadogAPIClient::V2::DataRelationshipsTeamsDataItemsType::TEAMS,
           }),
         ],
       }),

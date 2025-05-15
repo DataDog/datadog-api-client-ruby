@@ -17,10 +17,10 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Indicates that the resource is of type `teams`.
-  class EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItemsType
+  # Indicates that the resource is of type 'shifts'.
+  class ShiftDataType
     include BaseEnumModel
 
-    TEAMS = "teams".freeze
+    SHIFTS = "shifts".freeze
   end
 end

@@ -41,8 +41,8 @@ module DatadogAPIClient::V2
     # Optional prefix for object keys within the GCS bucket.
     attr_accessor :key_prefix
 
-    # Custom metadata key-value pairs added to each object.
-    attr_reader :metadata
+    # Custom metadata to attach to each object uploaded to the GCS bucket.
+    attr_accessor :metadata
 
     # Storage class used for objects stored in GCS.
     attr_reader :storage_class
@@ -152,7 +152,6 @@ module DatadogAPIClient::V2
       return false if @bucket.nil?
       return false if @id.nil?
       return false if @inputs.nil?
-      return false if @metadata.nil?
       return false if @storage_class.nil?
       return false if @type.nil?
       true
@@ -206,16 +205,6 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "inputs", inputs cannot be nil.'
       end
       @inputs = inputs
-    end
-
-    # Custom attribute writer method with validation
-    # @param metadata [Object] Object to be assigned
-    # @!visibility private
-    def metadata=(metadata)
-      if metadata.nil?
-        fail ArgumentError, 'invalid value for "metadata", metadata cannot be nil.'
-      end
-      @metadata = metadata
     end
 
     # Custom attribute writer method with validation

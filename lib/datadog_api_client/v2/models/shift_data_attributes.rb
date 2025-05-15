@@ -17,12 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Defines the relationship to teams within an escalation policy update request, referencing the teams to be associated with or removed from the policy.
-  class EscalationPolicyUpdateRequestDataRelationshipsTeams
+  # The definition of `ShiftDataAttributes` object.
+  class ShiftDataAttributes
     include BaseGenericModel
 
-    # An array of team references for the escalation policy update.
-    attr_accessor :data
+    # The end time of the shift.
+    attr_accessor :_end
+
+    # The start time of the shift.
+    attr_accessor :start
 
     attr_accessor :additional_properties
 
@@ -30,7 +33,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data'
+        :'_end' => :'end',
+        :'start' => :'start'
       }
     end
 
@@ -38,7 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'Array<EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItems>'
+        :'_end' => :'Time',
+        :'start' => :'Time'
       }
     end
 
@@ -47,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::EscalationPolicyUpdateRequestDataRelationshipsTeams` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ShiftDataAttributes` initialize method"
       end
 
       self.additional_properties = {}
@@ -60,10 +65,12 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'data')
-        if (value = attributes[:'data']).is_a?(Array)
-          self.data = value
-        end
+      if attributes.key?(:'_end')
+        self._end = attributes[:'_end']
+      end
+
+      if attributes.key?(:'start')
+        self.start = attributes[:'start']
       end
     end
 
@@ -93,7 +100,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data &&
+          _end == o._end &&
+          start == o.start &&
           additional_properties == o.additional_properties
     end
 
@@ -101,7 +109,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, additional_properties].hash
+      [_end, start, additional_properties].hash
     end
   end
 end
