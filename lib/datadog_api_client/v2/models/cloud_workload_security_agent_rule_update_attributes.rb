@@ -21,14 +21,23 @@ module DatadogAPIClient::V2
   class CloudWorkloadSecurityAgentRuleUpdateAttributes
     include BaseGenericModel
 
+    # The blocking policies that the rule belongs to
+    attr_accessor :blocking
+
     # The description of the Agent rule
     attr_accessor :description
+
+    # The disabled policies that the rule belongs to
+    attr_accessor :disabled
 
     # Whether the Agent rule is enabled
     attr_accessor :enabled
 
     # The SECL expression of the Agent rule
     attr_accessor :expression
+
+    # The monitoring policies that the rule belongs to
+    attr_accessor :monitoring
 
     # The ID of the policy where the Agent rule is saved
     attr_accessor :policy_id
@@ -42,9 +51,12 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'blocking' => :'blocking',
         :'description' => :'description',
+        :'disabled' => :'disabled',
         :'enabled' => :'enabled',
         :'expression' => :'expression',
+        :'monitoring' => :'monitoring',
         :'policy_id' => :'policy_id',
         :'product_tags' => :'product_tags'
       }
@@ -54,9 +66,12 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'blocking' => :'Array<String>',
         :'description' => :'String',
+        :'disabled' => :'Array<String>',
         :'enabled' => :'Boolean',
         :'expression' => :'String',
+        :'monitoring' => :'Array<String>',
         :'policy_id' => :'String',
         :'product_tags' => :'Array<String>'
       }
@@ -80,8 +95,20 @@ module DatadogAPIClient::V2
         end
       }
 
+      if attributes.key?(:'blocking')
+        if (value = attributes[:'blocking']).is_a?(Array)
+          self.blocking = value
+        end
+      end
+
       if attributes.key?(:'description')
         self.description = attributes[:'description']
+      end
+
+      if attributes.key?(:'disabled')
+        if (value = attributes[:'disabled']).is_a?(Array)
+          self.disabled = value
+        end
       end
 
       if attributes.key?(:'enabled')
@@ -90,6 +117,12 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'expression')
         self.expression = attributes[:'expression']
+      end
+
+      if attributes.key?(:'monitoring')
+        if (value = attributes[:'monitoring']).is_a?(Array)
+          self.monitoring = value
+        end
       end
 
       if attributes.key?(:'policy_id')
@@ -129,9 +162,12 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          blocking == o.blocking &&
           description == o.description &&
+          disabled == o.disabled &&
           enabled == o.enabled &&
           expression == o.expression &&
+          monitoring == o.monitoring &&
           policy_id == o.policy_id &&
           product_tags == o.product_tags &&
           additional_properties == o.additional_properties
@@ -141,7 +177,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [description, enabled, expression, policy_id, product_tags, additional_properties].hash
+      [blocking, description, disabled, enabled, expression, monitoring, policy_id, product_tags, additional_properties].hash
     end
   end
 end

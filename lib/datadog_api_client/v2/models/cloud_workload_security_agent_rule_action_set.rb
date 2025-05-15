@@ -17,21 +17,30 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The action the rule can perform if triggered
-  class CloudWorkloadSecurityAgentRuleAction
+  # The set action applied on the scope matching the rule
+  class CloudWorkloadSecurityAgentRuleActionSet
     include BaseGenericModel
 
-    # SECL expression used to target the container to apply the action on
-    attr_accessor :filter
+    # Whether the value should be appended to the field
+    attr_accessor :append
 
-    # Kill system call applied on the container matching the rule
-    attr_accessor :kill
+    # The field of the set action
+    attr_accessor :field
 
-    # The metadata action applied on the scope matching the rule
-    attr_accessor :metadata
+    # The name of the set action
+    attr_accessor :name
 
-    # The set action applied on the scope matching the rule
-    attr_accessor :set
+    # The scope of the set action
+    attr_accessor :scope
+
+    # The size of the set action
+    attr_accessor :size
+
+    # The time to live of the set action
+    attr_accessor :ttl
+
+    # The value of the set action
+    attr_accessor :value
 
     attr_accessor :additional_properties
 
@@ -39,10 +48,13 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'filter' => :'filter',
-        :'kill' => :'kill',
-        :'metadata' => :'metadata',
-        :'set' => :'set'
+        :'append' => :'append',
+        :'field' => :'field',
+        :'name' => :'name',
+        :'scope' => :'scope',
+        :'size' => :'size',
+        :'ttl' => :'ttl',
+        :'value' => :'value'
       }
     end
 
@@ -50,10 +62,13 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'filter' => :'String',
-        :'kill' => :'CloudWorkloadSecurityAgentRuleKill',
-        :'metadata' => :'CloudWorkloadSecurityAgentRuleActionMetadata',
-        :'set' => :'CloudWorkloadSecurityAgentRuleActionSet'
+        :'append' => :'Boolean',
+        :'field' => :'String',
+        :'name' => :'String',
+        :'scope' => :'String',
+        :'size' => :'Integer',
+        :'ttl' => :'Integer',
+        :'value' => :'String'
       }
     end
 
@@ -62,7 +77,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::CloudWorkloadSecurityAgentRuleAction` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::CloudWorkloadSecurityAgentRuleActionSet` initialize method"
       end
 
       self.additional_properties = {}
@@ -75,20 +90,32 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'filter')
-        self.filter = attributes[:'filter']
+      if attributes.key?(:'append')
+        self.append = attributes[:'append']
       end
 
-      if attributes.key?(:'kill')
-        self.kill = attributes[:'kill']
+      if attributes.key?(:'field')
+        self.field = attributes[:'field']
       end
 
-      if attributes.key?(:'metadata')
-        self.metadata = attributes[:'metadata']
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
 
-      if attributes.key?(:'set')
-        self.set = attributes[:'set']
+      if attributes.key?(:'scope')
+        self.scope = attributes[:'scope']
+      end
+
+      if attributes.key?(:'size')
+        self.size = attributes[:'size']
+      end
+
+      if attributes.key?(:'ttl')
+        self.ttl = attributes[:'ttl']
+      end
+
+      if attributes.key?(:'value')
+        self.value = attributes[:'value']
       end
     end
 
@@ -118,10 +145,13 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          filter == o.filter &&
-          kill == o.kill &&
-          metadata == o.metadata &&
-          set == o.set &&
+          append == o.append &&
+          field == o.field &&
+          name == o.name &&
+          scope == o.scope &&
+          size == o.size &&
+          ttl == o.ttl &&
+          value == o.value &&
           additional_properties == o.additional_properties
     end
 
@@ -129,7 +159,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [filter, kill, metadata, set, additional_properties].hash
+      [append, field, name, scope, size, ttl, value, additional_properties].hash
     end
   end
 end
