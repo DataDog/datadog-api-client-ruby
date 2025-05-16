@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class CloudWorkloadSecurityAgentPolicyCreateAttributes
     include BaseGenericModel
 
+    # The array of actions the rule can perform if triggered
+    attr_accessor :actions
+
     # The description of the policy
     attr_accessor :description
 
@@ -42,6 +45,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'actions' => :'actions',
         :'description' => :'description',
         :'enabled' => :'enabled',
         :'host_tags' => :'hostTags',
@@ -54,12 +58,21 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'actions' => :'Array<CloudWorkloadSecurityAgentRuleAction>',
         :'description' => :'String',
         :'enabled' => :'Boolean',
         :'host_tags' => :'Array<String>',
         :'host_tags_lists' => :'Array<Array<String>>',
         :'name' => :'String'
       }
+    end
+
+    # List of attributes with nullable: true
+    # @!visibility private
+    def self.openapi_nullable
+      Set.new([
+        :'actions',
+      ])
     end
 
     # Initializes the object
@@ -79,6 +92,12 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'actions')
+        if (value = attributes[:'actions']).is_a?(Array)
+          self.actions = value
+        end
+      end
 
       if attributes.key?(:'description')
         self.description = attributes[:'description']
@@ -149,6 +168,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          actions == o.actions &&
           description == o.description &&
           enabled == o.enabled &&
           host_tags == o.host_tags &&
@@ -161,7 +181,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [description, enabled, host_tags, host_tags_lists, name, additional_properties].hash
+      [actions, description, enabled, host_tags, host_tags_lists, name, additional_properties].hash
     end
   end
 end
