@@ -21,6 +21,9 @@ module DatadogAPIClient::V1
   class Monitor
     include BaseGenericModel
 
+    # The classification of the monitor.
+    attr_accessor :classification
+
     # Timestamp of the monitor creation.
     attr_accessor :created
 
@@ -78,6 +81,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.attribute_map
       {
+        :'classification' => :'classification',
         :'created' => :'created',
         :'creator' => :'creator',
         :'deleted' => :'deleted',
@@ -102,6 +106,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
+        :'classification' => :'String',
         :'created' => :'Time',
         :'creator' => :'Creator',
         :'deleted' => :'Time',
@@ -149,6 +154,10 @@ module DatadogAPIClient::V1
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'classification')
+        self.classification = attributes[:'classification']
+      end
 
       if attributes.key?(:'created')
         self.created = attributes[:'created']
@@ -280,6 +289,7 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          classification == o.classification &&
           created == o.created &&
           creator == o.creator &&
           deleted == o.deleted &&
@@ -304,7 +314,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created, creator, deleted, id, matching_downtimes, message, modified, multi, name, options, overall_state, priority, query, restricted_roles, state, tags, type, additional_properties].hash
+      [classification, created, creator, deleted, id, matching_downtimes, message, modified, multi, name, options, overall_state, priority, query, restricted_roles, state, tags, type, additional_properties].hash
     end
   end
 end
