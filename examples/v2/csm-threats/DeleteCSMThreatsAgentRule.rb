@@ -1,4 +1,4 @@
-# Delete a CSM Threats Agent rule returns "OK" response
+# Delete a Workload Protection agent rule returns "OK" response
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::CSMThreatsAPI.new

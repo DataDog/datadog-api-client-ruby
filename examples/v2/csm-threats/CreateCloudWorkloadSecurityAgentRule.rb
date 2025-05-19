@@ -1,4 +1,4 @@
-# Create a Cloud Workload Security Agent rule returns "OK" response
+# Create a Workload Protection agent rule (US1-FED) returns "OK" response
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::CSMThreatsAPI.new
