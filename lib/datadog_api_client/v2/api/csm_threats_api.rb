@@ -23,7 +23,7 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
-    # Create a Cloud Workload Security Agent rule.
+    # Create a Workload Protection agent rule (US1-FED).
     #
     # @see #create_cloud_workload_security_agent_rule_with_http_info
     def create_cloud_workload_security_agent_rule(body, opts = {})
@@ -31,11 +31,13 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Create a Cloud Workload Security Agent rule.
+    # Create a Workload Protection agent rule (US1-FED).
     #
-    # Create a new Agent rule with the given parameters.
+    # Create a new agent rule with the given parameters.
     #
-    # @param body [CloudWorkloadSecurityAgentRuleCreateRequest] The definition of the new Agent rule
+    # **Note**: This endpoint should only be used for the Government (US1-FED) site.
+    #
+    # @param body [CloudWorkloadSecurityAgentRuleCreateRequest] The definition of the new agent rule
     # @param opts [Hash] the optional parameters
     # @return [Array<(CloudWorkloadSecurityAgentRuleResponse, Integer, Hash)>] CloudWorkloadSecurityAgentRuleResponse data, response status code and response headers
     def create_cloud_workload_security_agent_rule_with_http_info(body, opts = {})
@@ -90,7 +92,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Create a CSM Threats Agent policy.
+    # Create a Workload Protection policy.
     #
     # @see #create_csm_threats_agent_policy_with_http_info
     def create_csm_threats_agent_policy(body, opts = {})
@@ -98,9 +100,11 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Create a CSM Threats Agent policy.
+    # Create a Workload Protection policy.
     #
-    # Create a new Cloud Security Management Threats Agent policy with the given parameters
+    # Create a new Workload Protection policy with the given parameters.
+    #
+    # **Note**: This endpoint is not available for the Government (US1-FED) site. Please reference the (US1-FED) specific resource below.
     #
     # @param body [CloudWorkloadSecurityAgentPolicyCreateRequest] The definition of the new Agent policy
     # @param opts [Hash] the optional parameters
@@ -157,7 +161,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Create a CSM Threats Agent rule.
+    # Create a Workload Protection agent rule.
     #
     # @see #create_csm_threats_agent_rule_with_http_info
     def create_csm_threats_agent_rule(body, opts = {})
@@ -165,11 +169,13 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Create a CSM Threats Agent rule.
+    # Create a Workload Protection agent rule.
     #
-    # Create a new Cloud Security Management Threats Agent rule with the given parameters
+    # Create a new Workload Protection agent rule with the given parameters.
     #
-    # @param body [CloudWorkloadSecurityAgentRuleCreateRequest] The definition of the new Agent rule
+    # **Note**: This endpoint is not available for the Government (US1-FED) site. Please reference the (US1-FED) specific resource below.
+    #
+    # @param body [CloudWorkloadSecurityAgentRuleCreateRequest] The definition of the new agent rule
     # @param opts [Hash] the optional parameters
     # @return [Array<(CloudWorkloadSecurityAgentRuleResponse, Integer, Hash)>] CloudWorkloadSecurityAgentRuleResponse data, response status code and response headers
     def create_csm_threats_agent_rule_with_http_info(body, opts = {})
@@ -224,7 +230,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Delete a Cloud Workload Security Agent rule.
+    # Delete a Workload Protection agent rule (US1-FED).
     #
     # @see #delete_cloud_workload_security_agent_rule_with_http_info
     def delete_cloud_workload_security_agent_rule(agent_rule_id, opts = {})
@@ -232,9 +238,11 @@ module DatadogAPIClient::V2
       nil
     end
 
-    # Delete a Cloud Workload Security Agent rule.
+    # Delete a Workload Protection agent rule (US1-FED).
     #
-    # Delete a specific Agent rule
+    # Delete a specific agent rule.
+    #
+    # **Note**: This endpoint should only be used for the Government (US1-FED) site.
     #
     # @param agent_rule_id [String] The ID of the Agent rule
     # @param opts [Hash] the optional parameters
@@ -289,7 +297,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Delete a CSM Threats Agent policy.
+    # Delete a Workload Protection policy.
     #
     # @see #delete_csm_threats_agent_policy_with_http_info
     def delete_csm_threats_agent_policy(policy_id, opts = {})
@@ -297,9 +305,11 @@ module DatadogAPIClient::V2
       nil
     end
 
-    # Delete a CSM Threats Agent policy.
+    # Delete a Workload Protection policy.
     #
-    # Delete a specific Cloud Security Management Threats Agent policy
+    # Delete a specific Workload Protection policy.
+    #
+    # **Note**: This endpoint is not available for the Government (US1-FED) site. Please reference the (US1-FED) specific resource below.
     #
     # @param policy_id [String] The ID of the Agent policy
     # @param opts [Hash] the optional parameters
@@ -354,7 +364,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Delete a CSM Threats Agent rule.
+    # Delete a Workload Protection agent rule.
     #
     # @see #delete_csm_threats_agent_rule_with_http_info
     def delete_csm_threats_agent_rule(agent_rule_id, opts = {})
@@ -362,9 +372,11 @@ module DatadogAPIClient::V2
       nil
     end
 
-    # Delete a CSM Threats Agent rule.
+    # Delete a Workload Protection agent rule.
     #
-    # Delete a specific Cloud Security Management Threats Agent rule
+    # Delete a specific Workload Protection agent rule.
+    #
+    # **Note**: This endpoint is not available for the Government (US1-FED) site. Please reference the (US1-FED) specific resource below.
     #
     # @param agent_rule_id [String] The ID of the Agent rule
     # @param opts [Hash] the optional parameters
@@ -421,7 +433,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Get the latest Cloud Workload Security policy.
+    # Download the Workload Protection policy (US1-FED).
     #
     # @see #download_cloud_workload_policy_file_with_http_info
     def download_cloud_workload_policy_file(opts = {})
@@ -429,11 +441,13 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Get the latest Cloud Workload Security policy.
+    # Download the Workload Protection policy (US1-FED).
     #
-    # The download endpoint generates a Cloud Workload Security policy file from your currently active
-    # Cloud Workload Security rules, and downloads them as a .policy file. This file can then be deployed to
-    # your Agents to update the policy running in your environment.
+    # The download endpoint generates a Workload Protection policy file from your currently active
+    # Workload Protection agent rules, and downloads them as a `.policy` file. This file can then be deployed to
+    # your agents to update the policy running in your environment.
+    #
+    # **Note**: This endpoint should only be used for the Government (US1-FED) site.
     #
     # @param opts [Hash] the optional parameters
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
@@ -483,7 +497,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Get the latest CSM Threats policy.
+    # Download the Workload Protection policy.
     #
     # @see #download_csm_threats_policy_with_http_info
     def download_csm_threats_policy(opts = {})
@@ -491,11 +505,13 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Get the latest CSM Threats policy.
+    # Download the Workload Protection policy.
     #
-    # The download endpoint generates a CSM Threats policy file from your currently active
-    # CSM Threats rules, and downloads them as a `.policy` file. This file can then be deployed to
-    # your Agents to update the policy running in your environment.
+    # The download endpoint generates a Workload Protection policy file from your currently active
+    # Workload Protection agent rules, and downloads them as a `.policy` file. This file can then be deployed to
+    # your agents to update the policy running in your environment.
+    #
+    # **Note**: This endpoint is not available for the Government (US1-FED) site. Please reference the (US1-FED) specific resource below.
     #
     # @param opts [Hash] the optional parameters
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
@@ -545,7 +561,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Get a Cloud Workload Security Agent rule.
+    # Get a Workload Protection agent rule (US1-FED).
     #
     # @see #get_cloud_workload_security_agent_rule_with_http_info
     def get_cloud_workload_security_agent_rule(agent_rule_id, opts = {})
@@ -553,9 +569,11 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Get a Cloud Workload Security Agent rule.
+    # Get a Workload Protection agent rule (US1-FED).
     #
-    # Get the details of a specific Agent rule
+    # Get the details of a specific agent rule.
+    #
+    # **Note**: This endpoint should only be used for the Government (US1-FED) site.
     #
     # @param agent_rule_id [String] The ID of the Agent rule
     # @param opts [Hash] the optional parameters
@@ -610,7 +628,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Get a CSM Threats Agent policy.
+    # Get a Workload Protection policy.
     #
     # @see #get_csm_threats_agent_policy_with_http_info
     def get_csm_threats_agent_policy(policy_id, opts = {})
@@ -618,9 +636,11 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Get a CSM Threats Agent policy.
+    # Get a Workload Protection policy.
     #
-    # Get the details of a specific Cloud Security Management Threats Agent policy
+    # Get the details of a specific Workload Protection policy.
+    #
+    # **Note**: This endpoint is not available for the Government (US1-FED) site. Please reference the (US1-FED) specific resource below.
     #
     # @param policy_id [String] The ID of the Agent policy
     # @param opts [Hash] the optional parameters
@@ -675,7 +695,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Get a CSM Threats Agent rule.
+    # Get a Workload Protection agent rule.
     #
     # @see #get_csm_threats_agent_rule_with_http_info
     def get_csm_threats_agent_rule(agent_rule_id, opts = {})
@@ -683,9 +703,11 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Get a CSM Threats Agent rule.
+    # Get a Workload Protection agent rule.
     #
-    # Get the details of a specific Cloud Security Management Threats Agent rule
+    # Get the details of a specific Workload Protection agent rule.
+    #
+    # **Note**: This endpoint is not available for the Government (US1-FED) site. Please reference the (US1-FED) specific resource below.
     #
     # @param agent_rule_id [String] The ID of the Agent rule
     # @param opts [Hash] the optional parameters
@@ -742,7 +764,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Get all Cloud Workload Security Agent rules.
+    # Get all Workload Protection agent rules (US1-FED).
     #
     # @see #list_cloud_workload_security_agent_rules_with_http_info
     def list_cloud_workload_security_agent_rules(opts = {})
@@ -750,9 +772,11 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Get all Cloud Workload Security Agent rules.
+    # Get all Workload Protection agent rules (US1-FED).
     #
-    # Get the list of Agent rules
+    # Get the list of agent rules.
+    #
+    # **Note**: This endpoint should only be used for the Government (US1-FED) site.
     #
     # @param opts [Hash] the optional parameters
     # @return [Array<(CloudWorkloadSecurityAgentRulesListResponse, Integer, Hash)>] CloudWorkloadSecurityAgentRulesListResponse data, response status code and response headers
@@ -802,7 +826,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Get all CSM Threats Agent policies.
+    # Get all Workload Protection policies.
     #
     # @see #list_csm_threats_agent_policies_with_http_info
     def list_csm_threats_agent_policies(opts = {})
@@ -810,9 +834,11 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Get all CSM Threats Agent policies.
+    # Get all Workload Protection policies.
     #
-    # Get the list of Cloud Security Management Threats Agent policies
+    # Get the list of Workload Protection policies.
+    #
+    # **Note**: This endpoint is not available for the Government (US1-FED) site. Please reference the (US1-FED) specific resource below.
     #
     # @param opts [Hash] the optional parameters
     # @return [Array<(CloudWorkloadSecurityAgentPoliciesListResponse, Integer, Hash)>] CloudWorkloadSecurityAgentPoliciesListResponse data, response status code and response headers
@@ -862,7 +888,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Get all CSM Threats Agent rules.
+    # Get all Workload Protection agent rules.
     #
     # @see #list_csm_threats_agent_rules_with_http_info
     def list_csm_threats_agent_rules(opts = {})
@@ -870,9 +896,11 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Get all CSM Threats Agent rules.
+    # Get all Workload Protection agent rules.
     #
-    # Get the list of Cloud Security Management Threats Agent rules
+    # Get the list of Workload Protection agent rules.
+    #
+    # **Note**: This endpoint is not available for the Government (US1-FED) site. Please reference the (US1-FED) specific resource below.
     #
     # @param opts [Hash] the optional parameters
     # @option opts [String] :policy_id The ID of the Agent policy
@@ -924,7 +952,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Update a Cloud Workload Security Agent rule.
+    # Update a Workload Protection agent rule (US1-FED).
     #
     # @see #update_cloud_workload_security_agent_rule_with_http_info
     def update_cloud_workload_security_agent_rule(agent_rule_id, body, opts = {})
@@ -932,13 +960,15 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Update a Cloud Workload Security Agent rule.
+    # Update a Workload Protection agent rule (US1-FED).
     #
-    # Update a specific Agent rule.
-    # Returns the Agent rule object when the request is successful.
+    # Update a specific agent rule.
+    # Returns the agent rule object when the request is successful.
+    #
+    # **Note**: This endpoint should only be used for the Government (US1-FED) site.
     #
     # @param agent_rule_id [String] The ID of the Agent rule
-    # @param body [CloudWorkloadSecurityAgentRuleUpdateRequest] New definition of the Agent rule
+    # @param body [CloudWorkloadSecurityAgentRuleUpdateRequest] New definition of the agent rule
     # @param opts [Hash] the optional parameters
     # @return [Array<(CloudWorkloadSecurityAgentRuleResponse, Integer, Hash)>] CloudWorkloadSecurityAgentRuleResponse data, response status code and response headers
     def update_cloud_workload_security_agent_rule_with_http_info(agent_rule_id, body, opts = {})
@@ -997,7 +1027,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Update a CSM Threats Agent policy.
+    # Update a Workload Protection policy.
     #
     # @see #update_csm_threats_agent_policy_with_http_info
     def update_csm_threats_agent_policy(policy_id, body, opts = {})
@@ -1005,10 +1035,12 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Update a CSM Threats Agent policy.
+    # Update a Workload Protection policy.
     #
-    # Update a specific Cloud Security Management Threats Agent policy.
-    # Returns the Agent policy object when the request is successful.
+    # Update a specific Workload Protection policy.
+    # Returns the policy object when the request is successful.
+    #
+    # **Note**: This endpoint is not available for the Government (US1-FED) site. Please reference the (US1-FED) specific resource below.
     #
     # @param policy_id [String] The ID of the Agent policy
     # @param body [CloudWorkloadSecurityAgentPolicyUpdateRequest] New definition of the Agent policy
@@ -1070,7 +1102,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Update a CSM Threats Agent rule.
+    # Update a Workload Protection agent rule.
     #
     # @see #update_csm_threats_agent_rule_with_http_info
     def update_csm_threats_agent_rule(agent_rule_id, body, opts = {})
@@ -1078,13 +1110,15 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Update a CSM Threats Agent rule.
+    # Update a Workload Protection agent rule.
     #
-    # Update a specific Cloud Security Management Threats Agent rule.
-    # Returns the Agent rule object when the request is successful.
+    # Update a specific Workload Protection Agent rule.
+    # Returns the agent rule object when the request is successful.
+    #
+    # **Note**: This endpoint is not available for the Government (US1-FED) site. Please reference the (US1-FED) specific resource below.
     #
     # @param agent_rule_id [String] The ID of the Agent rule
-    # @param body [CloudWorkloadSecurityAgentRuleUpdateRequest] New definition of the Agent rule
+    # @param body [CloudWorkloadSecurityAgentRuleUpdateRequest] New definition of the agent rule
     # @param opts [Hash] the optional parameters
     # @option opts [String] :policy_id The ID of the Agent policy
     # @return [Array<(CloudWorkloadSecurityAgentRuleResponse, Integer, Hash)>] CloudWorkloadSecurityAgentRuleResponse data, response status code and response headers

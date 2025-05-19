@@ -1,4 +1,4 @@
-# Get the latest Cloud Workload Security policy returns "OK" response
+# Download the Workload Protection policy (US1-FED) returns "OK" response
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::CSMThreatsAPI.new
