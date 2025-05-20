@@ -17,22 +17,10 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A signal will "close" regardless of the query being matched once the time exceeds the maximum duration.
-  # This time is calculated from the first seen timestamp.
-  class SecurityMonitoringRuleMaxSignalDuration
+  # Constant string to identify the request type.
+  class ResourceFilterRequestType
     include BaseEnumModel
 
-    ZERO_MINUTES = 0.freeze
-    ONE_MINUTE = 60.freeze
-    FIVE_MINUTES = 300.freeze
-    TEN_MINUTES = 600.freeze
-    FIFTEEN_MINUTES = 900.freeze
-    THIRTY_MINUTES = 1800.freeze
-    ONE_HOUR = 3600.freeze
-    TWO_HOURS = 7200.freeze
-    THREE_HOURS = 10800.freeze
-    SIX_HOURS = 21600.freeze
-    TWELVE_HOURS = 43200.freeze
-    ONE_DAY = 86400.freeze
+    CSM_RESOURCE_FILTER = "csm_resource_filter".freeze
   end
 end
