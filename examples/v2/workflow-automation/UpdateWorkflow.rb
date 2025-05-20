@@ -24,7 +24,6 @@ body = DatadogAPIClient::V2::UpdateWorkflowRequest.new({
             env: DatadogAPIClient::V2::ConnectionEnvEnv::DEFAULT,
           }),
         ],
-        handle: "my-handle",
         input_schema: DatadogAPIClient::V2::InputSchema.new({
           parameters: [
             DatadogAPIClient::V2::InputSchemaParameters.new({
