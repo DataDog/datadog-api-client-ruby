@@ -21,6 +21,12 @@ module DatadogAPIClient::V2
   class FindingAttributes
     include BaseGenericModel
 
+    # The Datadog relative link for this finding.
+    attr_accessor :datadog_link
+
+    # The description and remediation steps for this finding.
+    attr_accessor :description
+
     # The evaluation of the finding.
     attr_accessor :evaluation
 
@@ -57,6 +63,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'datadog_link' => :'datadog_link',
+        :'description' => :'description',
         :'evaluation' => :'evaluation',
         :'evaluation_changed_at' => :'evaluation_changed_at',
         :'mute' => :'mute',
@@ -74,6 +82,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'datadog_link' => :'String',
+        :'description' => :'String',
         :'evaluation' => :'FindingEvaluation',
         :'evaluation_changed_at' => :'Integer',
         :'mute' => :'FindingMute',
@@ -104,6 +114,14 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'datadog_link')
+        self.datadog_link = attributes[:'datadog_link']
+      end
+
+      if attributes.key?(:'description')
+        self.description = attributes[:'description']
+      end
 
       if attributes.key?(:'evaluation')
         self.evaluation = attributes[:'evaluation']
@@ -203,6 +221,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          datadog_link == o.datadog_link &&
+          description == o.description &&
           evaluation == o.evaluation &&
           evaluation_changed_at == o.evaluation_changed_at &&
           mute == o.mute &&
@@ -220,7 +240,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [evaluation, evaluation_changed_at, mute, resource, resource_discovery_date, resource_type, rule, status, tags, vulnerability_type, additional_properties].hash
+      [datadog_link, description, evaluation, evaluation_changed_at, mute, resource, resource_discovery_date, resource_type, rule, status, tags, vulnerability_type, additional_properties].hash
     end
   end
 end
