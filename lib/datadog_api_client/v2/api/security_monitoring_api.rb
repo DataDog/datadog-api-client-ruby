@@ -1605,6 +1605,72 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # List resource filters.
+    #
+    # @see #get_resource_evaluation_filters_with_http_info
+    def get_resource_evaluation_filters(opts = {})
+      data, _status_code, _headers = get_resource_evaluation_filters_with_http_info(opts)
+      data
+    end
+
+    # List resource filters.
+    #
+    # List resource filters.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :cloud_provider Filter resource filters by cloud provider (e.g. aws, gcp, azure).
+    # @option opts [String] :account_id Filter resource filters by cloud provider account ID. This parameter is only valid when provider is specified.
+    # @option opts [Boolean] :skip_cache Skip cache for resource filters.
+    # @return [Array<(GetResourceEvaluationFiltersResponse, Integer, Hash)>] GetResourceEvaluationFiltersResponse data, response status code and response headers
+    def get_resource_evaluation_filters_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_resource_evaluation_filters ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/cloud_security_management/resource_filters'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'cloud_provider'] = opts[:'cloud_provider'] if !opts[:'cloud_provider'].nil?
+      query_params[:'account_id'] = opts[:'account_id'] if !opts[:'account_id'].nil?
+      query_params[:'skip_cache'] = opts[:'skip_cache'] if !opts[:'skip_cache'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GetResourceEvaluationFiltersResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_resource_evaluation_filters,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#get_resource_evaluation_filters\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get a rule's version history.
     #
     # @see #get_rule_version_history_with_http_info
@@ -3786,6 +3852,73 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SecurityMonitoringAPI#update_custom_framework\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update resource filters.
+    #
+    # @see #update_resource_evaluation_filters_with_http_info
+    def update_resource_evaluation_filters(body, opts = {})
+      data, _status_code, _headers = update_resource_evaluation_filters_with_http_info(body, opts)
+      data
+    end
+
+    # Update resource filters.
+    #
+    # Update resource filters.
+    #
+    # @param body [UpdateResourceEvaluationFiltersRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(UpdateResourceEvaluationFiltersResponse, Integer, Hash)>] UpdateResourceEvaluationFiltersResponse data, response status code and response headers
+    def update_resource_evaluation_filters_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.update_resource_evaluation_filters ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.update_resource_evaluation_filters"
+      end
+      # resource path
+      local_var_path = '/api/v2/cloud_security_management/resource_filters'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'UpdateResourceEvaluationFiltersResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_resource_evaluation_filters,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#update_resource_evaluation_filters\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
