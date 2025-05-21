@@ -17,15 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Object representing an event creation request.
-  class EventCreateRequest
+  # A link.
+  class AlertEventCustomAttributesLinksItems
     include BaseGenericModel
 
-    # Event attributes.
-    attr_reader :attributes
+    # The category of the link.
+    attr_reader :category
 
-    # Entity type.
-    attr_reader :type
+    # The title of the link. Limited to 300 characters.
+    attr_reader :title
+
+    # The URL of the link. Limited to 2048 characters.
+    attr_reader :url
 
     attr_accessor :additional_properties
 
@@ -33,8 +36,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'attributes' => :'attributes',
-        :'type' => :'type'
+        :'category' => :'category',
+        :'title' => :'title',
+        :'url' => :'url'
       }
     end
 
@@ -42,8 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'EventPayload',
-        :'type' => :'EventCreateRequestType'
+        :'category' => :'AlertEventCustomAttributesLinksItemsCategory',
+        :'title' => :'String',
+        :'url' => :'String'
       }
     end
 
@@ -52,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::EventCreateRequest` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::AlertEventCustomAttributesLinksItems` initialize method"
       end
 
       self.additional_properties = {}
@@ -65,12 +70,16 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'attributes')
-        self.attributes = attributes[:'attributes']
+      if attributes.key?(:'category')
+        self.category = attributes[:'category']
       end
 
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
+      if attributes.key?(:'title')
+        self.title = attributes[:'title']
+      end
+
+      if attributes.key?(:'url')
+        self.url = attributes[:'url']
       end
     end
 
@@ -78,29 +87,44 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @attributes.nil?
-      return false if @type.nil?
+      return false if @category.nil?
+      return false if !@title.nil? && @title.to_s.length > 300
+      return false if @url.nil?
+      return false if @url.to_s.length > 2048
       true
     end
 
     # Custom attribute writer method with validation
-    # @param attributes [Object] Object to be assigned
+    # @param category [Object] Object to be assigned
     # @!visibility private
-    def attributes=(attributes)
-      if attributes.nil?
-        fail ArgumentError, 'invalid value for "attributes", attributes cannot be nil.'
+    def category=(category)
+      if category.nil?
+        fail ArgumentError, 'invalid value for "category", category cannot be nil.'
       end
-      @attributes = attributes
+      @category = category
     end
 
     # Custom attribute writer method with validation
-    # @param type [Object] Object to be assigned
+    # @param title [Object] Object to be assigned
     # @!visibility private
-    def type=(type)
-      if type.nil?
-        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+    def title=(title)
+      if !title.nil? && title.to_s.length > 300
+        fail ArgumentError, 'invalid value for "title", the character length must be smaller than or equal to 300.'
       end
-      @type = type
+      @title = title
+    end
+
+    # Custom attribute writer method with validation
+    # @param url [Object] Object to be assigned
+    # @!visibility private
+    def url=(url)
+      if url.nil?
+        fail ArgumentError, 'invalid value for "url", url cannot be nil.'
+      end
+      if url.to_s.length > 2048
+        fail ArgumentError, 'invalid value for "url", the character length must be smaller than or equal to 2048.'
+      end
+      @url = url
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -129,8 +153,9 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          attributes == o.attributes &&
-          type == o.type &&
+          category == o.category &&
+          title == o.title &&
+          url == o.url &&
           additional_properties == o.additional_properties
     end
 
@@ -138,7 +163,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, type, additional_properties].hash
+      [category, title, url, additional_properties].hash
     end
   end
 end
