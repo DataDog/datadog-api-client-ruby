@@ -21,8 +21,8 @@ module DatadogAPIClient::V2
   class EventCreateResponseAttributesAttributesEvt
     include BaseGenericModel
 
-    # Event id
-    attr_accessor :id
+    # A unique identifier for the event. You can use this ID to query or reference the event in the V2 endpoint.
+    attr_accessor :uid
 
     attr_accessor :additional_properties
 
@@ -30,7 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'id' => :'id'
+        :'uid' => :'uid'
       }
     end
 
@@ -38,7 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'id' => :'String'
+        :'uid' => :'String'
       }
     end
 
@@ -60,8 +60,8 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.key?(:'uid')
+        self.uid = attributes[:'uid']
       end
     end
 
@@ -91,7 +91,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
+          uid == o.uid &&
           additional_properties == o.additional_properties
     end
 
@@ -99,7 +99,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [id, additional_properties].hash
+      [uid, additional_properties].hash
     end
   end
 end

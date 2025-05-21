@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Object representing the entity which made the change. Optional field but if provided should include `type` and `name`.
+  # Object representing the entity that made the change. Optional field but if provided should include type and name.
   class ChangeEventCustomAttributesAuthor
     include BaseGenericModel
 

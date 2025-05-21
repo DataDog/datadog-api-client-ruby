@@ -21,21 +21,24 @@ module DatadogAPIClient::V2
   class EventPayload
     include BaseGenericModel
 
-    # An arbitrary string to use for aggregation when correlating events. Limited to 100 characters.
+    # An arbitrary string to use for aggregation when correlating events. If you specify a key, events are deduplicated to alerts based on this key. Limited to 100 characters.
     attr_reader :aggregation_key
 
-    # JSON object for custom attributes. Schema are different per each event category.
+    # JSON object for custom attributes. Schema is different per event category.
     attr_reader :attributes
 
-    # Event category to identify the type of event. Only the value `change` is supported. Support for other categories are coming. please reach out to datadog support if you're interested.
+    # Event category to identify the type of event.
     attr_reader :category
+
+    # Integration IDs sourced from integration manifests. Currently, only `custom-events` is supported.
+    attr_accessor :integration_id
 
     # The body of the event. Limited to 4000 characters.
     attr_reader :message
 
     # A list of tags to apply to the event.
     # Refer to [Tags docs](https://docs.datadoghq.com/getting_started/tagging/).
-    attr_accessor :tags
+    attr_reader :tags
 
     # Timestamp when the event occurred. Must follow [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) format.
     # For example `"2017-01-15T01:30:15.010000Z"`.
@@ -54,6 +57,7 @@ module DatadogAPIClient::V2
         :'aggregation_key' => :'aggregation_key',
         :'attributes' => :'attributes',
         :'category' => :'category',
+        :'integration_id' => :'integration_id',
         :'message' => :'message',
         :'tags' => :'tags',
         :'timestamp' => :'timestamp',
@@ -68,6 +72,7 @@ module DatadogAPIClient::V2
         :'aggregation_key' => :'String',
         :'attributes' => :'EventPayloadAttributes',
         :'category' => :'EventCategory',
+        :'integration_id' => :'EventPayloadIntegrationId',
         :'message' => :'String',
         :'tags' => :'Array<String>',
         :'timestamp' => :'String',
@@ -105,6 +110,10 @@ module DatadogAPIClient::V2
         self.category = attributes[:'category']
       end
 
+      if attributes.key?(:'integration_id')
+        self.integration_id = attributes[:'integration_id']
+      end
+
       if attributes.key?(:'message')
         self.message = attributes[:'message']
       end
@@ -132,6 +141,8 @@ module DatadogAPIClient::V2
       return false if @attributes.nil?
       return false if @category.nil?
       return false if !@message.nil? && @message.to_s.length > 4000
+      return false if !@tags.nil? && @tags.length > 100
+      return false if !@tags.nil? && @tags.length < 1
       return false if @title.nil?
       return false if @title.to_s.length > 500
       true
@@ -178,6 +189,19 @@ module DatadogAPIClient::V2
     end
 
     # Custom attribute writer method with validation
+    # @param tags [Object] Object to be assigned
+    # @!visibility private
+    def tags=(tags)
+      if !tags.nil? && tags.length > 100
+        fail ArgumentError, 'invalid value for "tags", number of items must be less than or equal to 100.'
+      end
+      if !tags.nil? && tags.length < 1
+        fail ArgumentError, 'invalid value for "tags", number of items must be greater than or equal to 1.'
+      end
+      @tags = tags
+    end
+
+    # Custom attribute writer method with validation
     # @param title [Object] Object to be assigned
     # @!visibility private
     def title=(title)
@@ -219,6 +243,7 @@ module DatadogAPIClient::V2
           aggregation_key == o.aggregation_key &&
           attributes == o.attributes &&
           category == o.category &&
+          integration_id == o.integration_id &&
           message == o.message &&
           tags == o.tags &&
           timestamp == o.timestamp &&
@@ -230,7 +255,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [aggregation_key, attributes, category, message, tags, timestamp, title, additional_properties].hash
+      [aggregation_key, attributes, category, integration_id, message, tags, timestamp, title, additional_properties].hash
     end
   end
 end
