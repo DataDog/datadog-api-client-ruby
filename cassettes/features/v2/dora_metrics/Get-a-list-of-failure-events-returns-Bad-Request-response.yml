@@ -1,0 +1,25 @@
+http_interactions:
+- recorded_at: Thu, 22 May 2025 10:44:59 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"limit":10}}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/dora/failures
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"status":"400","title":"Bad Request","detail":"got type
+        \"\" expected one of \"dora_failures_list_request\""}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 400
+      message: Bad Request
+recorded_with: VCR 6.0.0
