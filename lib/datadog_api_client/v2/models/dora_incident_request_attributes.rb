@@ -30,7 +30,7 @@ module DatadogAPIClient::V2
     # Git info for DORA Metrics events.
     attr_accessor :git
 
-    # Incident ID. Required to update a previously sent incident.
+    # Incident ID. Must have at least 16 characters. Required to update a previously sent incident.
     attr_accessor :id
 
     # Incident name.
