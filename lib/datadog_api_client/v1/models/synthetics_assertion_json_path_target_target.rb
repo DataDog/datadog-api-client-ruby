@@ -30,7 +30,7 @@ module DatadogAPIClient::V1
     # The specific operator to use on the path.
     attr_accessor :operator
 
-    # The path target value to compare to.
+    # Value used by the operator in assertions. Can be either a number or string.
     attr_accessor :target_value
 
     attr_accessor :additional_properties
@@ -53,7 +53,7 @@ module DatadogAPIClient::V1
         :'elements_operator' => :'String',
         :'json_path' => :'String',
         :'operator' => :'String',
-        :'target_value' => :'Object'
+        :'target_value' => :'SyntheticsAssertionTargetValue'
       }
     end
 
