@@ -1106,6 +1106,14 @@ ScenariosModelMappings = {
     "v2.DeleteCatalogEntity" => {
             "entity_id" => "String",
     },
+    "v2.ListCatalogRelation" => {
+            "page_offset" => "Integer",
+            "page_limit" => "Integer",
+            "filter_type" => "RelationType",
+            "filter_from_ref" => "String",
+            "filter_to_ref" => "String",
+            "include" => "RelationIncludeType",
+    },
     "v2.CreateCIAppPipelineEvent" => {
             "body" => "CIAppCreatePipelineEventRequest",
     },
