@@ -23,6 +23,85 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
+    # Add a member team.
+    #
+    # @see #add_member_team_with_http_info
+    def add_member_team(super_team_id, body, opts = {})
+      add_member_team_with_http_info(super_team_id, body, opts)
+      nil
+    end
+
+    # Add a member team.
+    #
+    # Add a member team.
+    # Adds the team given by the `id` in the body as a member team of the super team.
+    #
+    # @param super_team_id [String] None
+    # @param body [AddMemberTeamRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def add_member_team_with_http_info(super_team_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.add_member_team".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.add_member_team")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.add_member_team"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TeamsAPI.add_member_team ...'
+      end
+      # verify the required parameter 'super_team_id' is set
+      if @api_client.config.client_side_validation && super_team_id.nil?
+        fail ArgumentError, "Missing the required parameter 'super_team_id' when calling TeamsAPI.add_member_team"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling TeamsAPI.add_member_team"
+      end
+      # resource path
+      local_var_path = '/api/v2/team/{super_team_id}/member_teams'.sub('{super_team_id}', CGI.escape(super_team_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :add_member_team,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TeamsAPI#add_member_team\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create a team.
     #
     # @see #create_team_with_http_info
@@ -869,6 +948,105 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get all member teams.
+    #
+    # @see #list_member_teams_with_http_info
+    def list_member_teams(super_team_id, opts = {})
+      data, _status_code, _headers = list_member_teams_with_http_info(super_team_id, opts)
+      data
+    end
+
+    # Get all member teams.
+    #
+    # Get all member teams.
+    #
+    # @param super_team_id [String] None
+    # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 100.
+    # @option opts [Integer] :page_number Specific page number to return.
+    # @option opts [Array<TeamsField>] :fields_team List of fields that need to be fetched.
+    # @return [Array<(TeamsResponse, Integer, Hash)>] TeamsResponse data, response status code and response headers
+    def list_member_teams_with_http_info(super_team_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_member_teams".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_member_teams")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_member_teams"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TeamsAPI.list_member_teams ...'
+      end
+      # verify the required parameter 'super_team_id' is set
+      if @api_client.config.client_side_validation && super_team_id.nil?
+        fail ArgumentError, "Missing the required parameter 'super_team_id' when calling TeamsAPI.list_member_teams"
+      end
+      # resource path
+      local_var_path = '/api/v2/team/{super_team_id}/member_teams'.sub('{super_team_id}', CGI.escape(super_team_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+      query_params[:'page[number]'] = opts[:'page_number'] if !opts[:'page_number'].nil?
+      query_params[:'fields[team]'] = @api_client.build_collection_param(opts[:'fields_team'], :csv) if !opts[:'fields_team'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TeamsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_member_teams,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TeamsAPI#list_member_teams\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get all member teams.
+    #
+    # Provide a paginated version of {#list_member_teams}, returning all items.
+    #
+    # To use it you need to use a block: list_member_teams_with_pagination { |item| p item }
+    #
+    # @yield [Team] Paginated items
+    def list_member_teams_with_pagination(super_team_id, opts = {})
+        api_version = "V2"
+        page_size = @api_client.get_attribute_from_path(opts, "page_size", 10)
+        @api_client.set_attribute_from_path(api_version, opts, "page_size", Integer, page_size)
+        @api_client.set_attribute_from_path(api_version, opts, "page_number", Integer, 0)
+        while true do
+            response = list_member_teams(super_team_id, opts)
+            @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
+            if @api_client.get_attribute_from_path(response, "data").length < page_size
+              break
+            end
+            @api_client.set_attribute_from_path(api_version, opts, "page_number", Integer, @api_client.get_attribute_from_path(opts, "page_number", 0) + 1)
+        end
+    end
+
     # Get all teams.
     #
     # @see #list_teams_with_http_info
@@ -969,6 +1147,82 @@ module DatadogAPIClient::V2
             end
             @api_client.set_attribute_from_path(api_version, opts, "page_number", Integer, @api_client.get_attribute_from_path(opts, "page_number", 0) + 1)
         end
+    end
+
+    # Remove a member team.
+    #
+    # @see #remove_member_team_with_http_info
+    def remove_member_team(super_team_id, member_team_id, opts = {})
+      remove_member_team_with_http_info(super_team_id, member_team_id, opts)
+      nil
+    end
+
+    # Remove a member team.
+    #
+    # Remove a super team's member team identified by `member_team_id`.
+    #
+    # @param super_team_id [String] None
+    # @param member_team_id [String] None
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def remove_member_team_with_http_info(super_team_id, member_team_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.remove_member_team".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.remove_member_team")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.remove_member_team"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TeamsAPI.remove_member_team ...'
+      end
+      # verify the required parameter 'super_team_id' is set
+      if @api_client.config.client_side_validation && super_team_id.nil?
+        fail ArgumentError, "Missing the required parameter 'super_team_id' when calling TeamsAPI.remove_member_team"
+      end
+      # verify the required parameter 'member_team_id' is set
+      if @api_client.config.client_side_validation && member_team_id.nil?
+        fail ArgumentError, "Missing the required parameter 'member_team_id' when calling TeamsAPI.remove_member_team"
+      end
+      # resource path
+      local_var_path = '/api/v2/team/{super_team_id}/member_teams/{member_team_id}'.sub('{super_team_id}', CGI.escape(super_team_id.to_s).gsub('%2F', '/')).sub('{member_team_id}', CGI.escape(member_team_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :remove_member_team,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TeamsAPI#remove_member_team\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
     end
 
     # Update a team.
