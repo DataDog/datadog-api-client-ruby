@@ -25,7 +25,7 @@ body = DatadogAPIClient::V2::RumMetricCreateRequest.new({
         _when: DatadogAPIClient::V2::RumMetricUniquenessWhen::WHEN_MATCH,
       }),
     }),
-    id: "rum.sessions.webui.count",
+    id: "examplerummetric",
     type: DatadogAPIClient::V2::RumMetricType::RUM_METRICS,
   }),
 })
