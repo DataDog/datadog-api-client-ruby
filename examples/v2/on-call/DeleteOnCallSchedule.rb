@@ -1,4 +1,4 @@
-# Delete on-call schedule returns "No Content" response
+# Delete On-Call schedule returns "No Content" response
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::OnCallAPI.new

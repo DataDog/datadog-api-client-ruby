@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Contains all data needed to update an existing schedule, including its attributes (such as name, layers, or tags) and any relationships to teams.
+  # Contains all data needed to update an existing schedule, including its attributes (such as name and time zone) and any relationships to teams.
   class ScheduleUpdateRequestData
     include BaseGenericModel
 
-    # Defines the updatable attributes for a schedule, such as name, time zone, tags, and layers.
+    # Defines the updatable attributes for a schedule, such as name, time zone, and layers.
     attr_reader :attributes
 
     # The ID of the schedule to be updated.

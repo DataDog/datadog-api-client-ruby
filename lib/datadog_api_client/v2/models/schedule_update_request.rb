@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class ScheduleUpdateRequest
     include BaseGenericModel
 
-    # Contains all data needed to update an existing schedule, including its attributes (such as name, layers, or tags) and any relationships to teams.
+    # Contains all data needed to update an existing schedule, including its attributes (such as name and time zone) and any relationships to teams.
     attr_reader :data
 
     attr_accessor :additional_properties

@@ -21,10 +21,10 @@ module DatadogAPIClient::V2
   class CreatePageRequestDataAttributesTarget
     include BaseGenericModel
 
-    # A unique ID for the target (for example, team handle or user UUID).
+    # Identifier for the target (for example, team handle or user ID).
     attr_accessor :identifier
 
-    # The kind of target, `team_uuid` | `team_handle` | `user_uuid`.
+    # The kind of target, `team_id` | `team_handle` | `user_id`.
     attr_accessor :type
 
     attr_accessor :additional_properties
@@ -43,7 +43,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'identifier' => :'String',
-        :'type' => :'String'
+        :'type' => :'OnCallPageTargetType'
       }
     end
 

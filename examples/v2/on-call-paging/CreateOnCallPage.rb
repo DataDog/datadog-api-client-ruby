@@ -12,7 +12,7 @@ body = DatadogAPIClient::V2::CreatePageRequest.new({
       ],
       target: DatadogAPIClient::V2::CreatePageRequestDataAttributesTarget.new({
         identifier: "my-team",
-        type: "team_handle",
+        type: DatadogAPIClient::V2::OnCallPageTargetType::TEAM_HANDLE,
       }),
       title: "Page title",
       urgency: DatadogAPIClient::V2::PageUrgency::LOW,
