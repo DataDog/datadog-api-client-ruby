@@ -17,18 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Describes the main attributes for creating a new schedule, including name, layers, time zone, and tags.
+  # Describes the main attributes for creating a new schedule, including name, layers, and time zone.
   class ScheduleCreateRequestDataAttributes
     include BaseGenericModel
 
-    # The layers of on-call coverage that define rotation intervals and restrictions.
+    # The layers of On-Call coverage that define rotation intervals and restrictions.
     attr_reader :layers
 
     # A human-readable name for the new schedule.
     attr_reader :name
-
-    # A list of tags for categorizing or filtering the schedule.
-    attr_accessor :tags
 
     # The time zone in which the schedule is defined.
     attr_reader :time_zone
@@ -41,7 +38,6 @@ module DatadogAPIClient::V2
       {
         :'layers' => :'layers',
         :'name' => :'name',
-        :'tags' => :'tags',
         :'time_zone' => :'time_zone'
       }
     end
@@ -52,7 +48,6 @@ module DatadogAPIClient::V2
       {
         :'layers' => :'Array<ScheduleCreateRequestDataAttributesLayersItems>',
         :'name' => :'String',
-        :'tags' => :'Array<String>',
         :'time_zone' => :'String'
       }
     end
@@ -83,12 +78,6 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
-      end
-
-      if attributes.key?(:'tags')
-        if (value = attributes[:'tags']).is_a?(Array)
-          self.tags = value
-        end
       end
 
       if attributes.key?(:'time_zone')
@@ -164,7 +153,6 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           layers == o.layers &&
           name == o.name &&
-          tags == o.tags &&
           time_zone == o.time_zone &&
           additional_properties == o.additional_properties
     end
@@ -173,7 +161,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [layers, name, tags, time_zone, additional_properties].hash
+      [layers, name, time_zone, additional_properties].hash
     end
   end
 end

@@ -23,7 +23,7 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
-    # Create on-call escalation policy.
+    # Create On-Call escalation policy.
     #
     # @see #create_on_call_escalation_policy_with_http_info
     def create_on_call_escalation_policy(body, opts = {})
@@ -31,9 +31,9 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Create on-call escalation policy.
+    # Create On-Call escalation policy.
     #
-    # Create a new on-call escalation policy
+    # Create a new On-Call escalation policy
     #
     # @param body [EscalationPolicyCreateRequest] 
     # @param opts [Hash] the optional parameters
@@ -92,7 +92,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Create on-call schedule.
+    # Create On-Call schedule.
     #
     # @see #create_on_call_schedule_with_http_info
     def create_on_call_schedule(body, opts = {})
@@ -100,9 +100,9 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Create on-call schedule.
+    # Create On-Call schedule.
     #
-    # Create a new on-call schedule
+    # Create a new On-Call schedule
     #
     # @param body [ScheduleCreateRequest] 
     # @param opts [Hash] the optional parameters
@@ -161,7 +161,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Delete on-call escalation policy.
+    # Delete On-Call escalation policy.
     #
     # @see #delete_on_call_escalation_policy_with_http_info
     def delete_on_call_escalation_policy(policy_id, opts = {})
@@ -169,9 +169,9 @@ module DatadogAPIClient::V2
       nil
     end
 
-    # Delete on-call escalation policy.
+    # Delete On-Call escalation policy.
     #
-    # Delete an on-call escalation policy
+    # Delete an On-Call escalation policy
     #
     # @param policy_id [String] The ID of the escalation policy
     # @param opts [Hash] the optional parameters
@@ -226,7 +226,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Delete on-call schedule.
+    # Delete On-Call schedule.
     #
     # @see #delete_on_call_schedule_with_http_info
     def delete_on_call_schedule(schedule_id, opts = {})
@@ -234,9 +234,9 @@ module DatadogAPIClient::V2
       nil
     end
 
-    # Delete on-call schedule.
+    # Delete On-Call schedule.
     #
-    # Delete an on-call schedule
+    # Delete an On-Call schedule
     #
     # @param schedule_id [String] The ID of the schedule
     # @param opts [Hash] the optional parameters
@@ -291,7 +291,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Get on-call escalation policy.
+    # Get On-Call escalation policy.
     #
     # @see #get_on_call_escalation_policy_with_http_info
     def get_on_call_escalation_policy(policy_id, opts = {})
@@ -299,9 +299,9 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Get on-call escalation policy.
+    # Get On-Call escalation policy.
     #
-    # Get an on-call escalation policy
+    # Get an On-Call escalation policy
     #
     # @param policy_id [String] The ID of the escalation policy
     # @param opts [Hash] the optional parameters
@@ -358,7 +358,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Get on-call schedule.
+    # Get On-Call schedule.
     #
     # @see #get_on_call_schedule_with_http_info
     def get_on_call_schedule(schedule_id, opts = {})
@@ -366,9 +366,9 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Get on-call schedule.
+    # Get On-Call schedule.
     #
-    # Get an on-call schedule
+    # Get an On-Call schedule
     #
     # @param schedule_id [String] The ID of the schedule
     # @param opts [Hash] the optional parameters
@@ -425,7 +425,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Get on-call team routing rules.
+    # Get On-Call team routing rules.
     #
     # @see #get_on_call_team_routing_rules_with_http_info
     def get_on_call_team_routing_rules(team_id, opts = {})
@@ -433,9 +433,9 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Get on-call team routing rules.
+    # Get On-Call team routing rules.
     #
-    # Get a team's on-call routing rules
+    # Get a team's On-Call routing rules
     #
     # @param team_id [String] The team ID
     # @param opts [Hash] the optional parameters
@@ -561,7 +561,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Set on-call team routing rules.
+    # Set On-Call team routing rules.
     #
     # @see #set_on_call_team_routing_rules_with_http_info
     def set_on_call_team_routing_rules(team_id, body, opts = {})
@@ -569,9 +569,9 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Set on-call team routing rules.
+    # Set On-Call team routing rules.
     #
-    # Set a team's on-call routing rules
+    # Set a team's On-Call routing rules
     #
     # @param team_id [String] The team ID
     # @param body [TeamRoutingRulesRequest] 
@@ -635,7 +635,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Update on-call escalation policy.
+    # Update On-Call escalation policy.
     #
     # @see #update_on_call_escalation_policy_with_http_info
     def update_on_call_escalation_policy(policy_id, body, opts = {})
@@ -643,9 +643,9 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Update on-call escalation policy.
+    # Update On-Call escalation policy.
     #
-    # Update an on-call escalation policy
+    # Update an On-Call escalation policy
     #
     # @param policy_id [String] The ID of the escalation policy
     # @param body [EscalationPolicyUpdateRequest] 
@@ -709,7 +709,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Update on-call schedule.
+    # Update On-Call schedule.
     #
     # @see #update_on_call_schedule_with_http_info
     def update_on_call_schedule(schedule_id, body, opts = {})
@@ -717,9 +717,9 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Update on-call schedule.
+    # Update On-Call schedule.
     #
-    # Update a new on-call schedule
+    # Update a new On-Call schedule
     #
     # @param schedule_id [String] The ID of the schedule
     # @param body [ScheduleUpdateRequest] 

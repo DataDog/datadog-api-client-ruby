@@ -1,4 +1,4 @@
-# Set on-call team routing rules returns "OK" response
+# Set On-Call team routing rules returns "OK" response
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::OnCallAPI.new

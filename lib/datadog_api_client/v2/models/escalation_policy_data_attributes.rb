@@ -17,12 +17,9 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Defines the main attributes of an escalation policy, such as its description, name, and behavior on policy end.
+  # Defines the main attributes of an escalation policy, such as its name and behavior on policy end.
   class EscalationPolicyDataAttributes
     include BaseGenericModel
-
-    # Provides a detailed text description of the escalation policy.
-    attr_accessor :description
 
     # Specifies the name of the escalation policy.
     attr_reader :name
@@ -39,7 +36,6 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'description' => :'description',
         :'name' => :'name',
         :'resolve_page_on_policy_end' => :'resolve_page_on_policy_end',
         :'retries' => :'retries'
@@ -50,7 +46,6 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'description' => :'String',
         :'name' => :'String',
         :'resolve_page_on_policy_end' => :'Boolean',
         :'retries' => :'Integer'
@@ -74,10 +69,6 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
-
-      if attributes.key?(:'description')
-        self.description = attributes[:'description']
-      end
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
@@ -136,7 +127,6 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          description == o.description &&
           name == o.name &&
           resolve_page_on_policy_end == o.resolve_page_on_policy_end &&
           retries == o.retries &&
@@ -147,7 +137,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [description, name, resolve_page_on_policy_end, retries, additional_properties].hash
+      [name, resolve_page_on_policy_end, retries, additional_properties].hash
     end
   end
 end

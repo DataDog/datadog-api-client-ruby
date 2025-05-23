@@ -1,4 +1,4 @@
-# Create on-call escalation policy returns "Created" response
+# Create On-Call escalation policy returns "Created" response
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::OnCallAPI.new
@@ -15,7 +15,6 @@ DD_TEAM_DATA_ID = ENV["DD_TEAM_DATA_ID"]
 body = DatadogAPIClient::V2::EscalationPolicyCreateRequest.new({
   data: DatadogAPIClient::V2::EscalationPolicyCreateRequestData.new({
     attributes: DatadogAPIClient::V2::EscalationPolicyCreateRequestDataAttributes.new({
-      description: "Escalation Policy 1 description",
       name: "Example-On-Call",
       resolve_page_on_policy_end: true,
       retries: 2,
@@ -63,4 +62,7 @@ body = DatadogAPIClient::V2::EscalationPolicyCreateRequest.new({
     type: DatadogAPIClient::V2::EscalationPolicyCreateRequestDataType::POLICIES,
   }),
 })
-p api_instance.create_on_call_escalation_policy(body)
+opts = {
+  include: "steps.targets",
+}
+p api_instance.create_on_call_escalation_policy(body, opts)

@@ -17,10 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Users resource type.
-  class TeamReferenceRelationshipsOncallUsersDataItemsType
+  # The kind of target, `team_id` | `team_handle` | `user_id`.
+  class OnCallPageTargetType
     include BaseEnumModel
 
-    USERS = "users".freeze
+    TEAM_ID = "team_id".freeze
+    TEAM_HANDLE = "team_handle".freeze
+    USER_ID = "user_id".freeze
   end
 end

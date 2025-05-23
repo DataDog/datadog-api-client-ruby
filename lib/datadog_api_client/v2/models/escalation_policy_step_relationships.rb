@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class EscalationPolicyStepRelationships
     include BaseGenericModel
 
-    # Represents an escalation target, which can be a team, user, or schedule.
+    # A list of escalation targets for a step
     attr_accessor :targets
 
     attr_accessor :additional_properties
@@ -38,7 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'targets' => :'EscalationTarget'
+        :'targets' => :'EscalationTargets'
       }
     end
 
