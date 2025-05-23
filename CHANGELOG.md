@@ -1,5 +1,21 @@
 # CHANGELOG
 
+## 2.34.0/2025-05-23
+
+### Added
+* Adding endpoints to manage Resource Evaluation Filters [#2411](https://github.com/DataDog/datadog-api-client-ruby/pull/2411)
+* Add Sev0 as a supported incident severity [#2403](https://github.com/DataDog/datadog-api-client-ruby/pull/2403)
+* Share timerestriction object [#2397](https://github.com/DataDog/datadog-api-client-ruby/pull/2397)
+* add On-Call Paging spec [#2391](https://github.com/DataDog/datadog-api-client-ruby/pull/2391)
+* Add pagination method for NDM ListDevices. [#2386](https://github.com/DataDog/datadog-api-client-ruby/pull/2386)
+
+### Fixed
+* Fix frozen string errors again, more durably this time [#2407](https://github.com/DataDog/datadog-api-client-ruby/pull/2407)
+* Fix incorrect pattern for url [#2399](https://github.com/DataDog/datadog-api-client-ruby/pull/2399)
+* Make metadata optional for GCS destination [#2389](https://github.com/DataDog/datadog-api-client-ruby/pull/2389)
+* Remove isReadOnly default when creating dashboards [#2388](https://github.com/DataDog/datadog-api-client-ruby/pull/2388)
+* Make assertion target be int or string [#2385](https://github.com/DataDog/datadog-api-client-ruby/pull/2385)
+
 ## 2.33.0 / 2025-05-01
 
 ### Fixed
