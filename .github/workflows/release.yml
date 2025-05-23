@@ -49,8 +49,9 @@ jobs:
 
           declare -A versions
           for package in $CHANGED_PACKAGE_JSON_FILES; do
-            base_version=$(git show $BASE_SHA:$package/package.json | jq -r .version)
-            head_version=$(git show $HEAD_SHA:$package/package.json | jq -r .version)
+            version_dir=$(find $package/lib/*/version.rb -name "version.rb" | head -n 1)
+            base_version=$(git show $BASE_SHA:$version_dir | grep "VERSION" | sed "s/.*'\(.*\)'.*/\1/")
+            head_version=$(git show $HEAD_SHA:$version_dir | grep "VERSION" | sed "s/.*'\(.*\)'.*/\1/")
 
             if [ "$base_version" != "$head_version" ]; then
               versions[$package]=$head_version
