@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
-  Module: DatadogAPIClient::V2::ActionQueryMockedOutputs
+  Module: DatadogAPIClient::V1::SyntheticsAssertionTargetValue
   
     &mdash; datadog-api-client 2.33.0.dev.1 documentation
   
@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="../../css/common.css" type="text/css" />
 
 <script type="text/javascript">
-  pathId = "DatadogAPIClient::V2::ActionQueryMockedOutputs";
+  pathId = "DatadogAPIClient::V1::SyntheticsAssertionTargetValue";
   relpath = '../../';
 </script>
 
@@ -36,10 +36,10 @@
       <div id="header">
         <div id="menu">
   
-    <a href="../../_index.html">Index (A)</a> &raquo;
-    <span class='title'><span class='object_link'><a href="../../DatadogAPIClient.html" title="DatadogAPIClient (module)">DatadogAPIClient</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../V2.html" title="DatadogAPIClient::V2 (module)">V2</a></span></span>
+    <a href="../../_index.html">Index (S)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../DatadogAPIClient.html" title="DatadogAPIClient (module)">DatadogAPIClient</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../V1.html" title="DatadogAPIClient::V1 (module)">V1</a></span></span>
      &raquo; 
-    <span class="title">ActionQueryMockedOutputs</span>
+    <span class="title">SyntheticsAssertionTargetValue</span>
   
 </div>
 
@@ -59,7 +59,7 @@
         <div class="clear"></div>
       </div>
 
-      <div id="content"><h1>Module: DatadogAPIClient::V2::ActionQueryMockedOutputs
+      <div id="content"><h1>Module: DatadogAPIClient::V1::SyntheticsAssertionTargetValue
   
   
   
@@ -71,7 +71,7 @@
   
   <dl>
       <dt>Extended by:</dt>
-      <dd><span class='object_link'><a href="BaseOneOfModel.html" title="DatadogAPIClient::V2::BaseOneOfModel (module)">BaseOneOfModel</a></span>, <span class='object_link'><a href="BaseOneOfModelNoDiscriminator.html" title="DatadogAPIClient::V2::BaseOneOfModelNoDiscriminator (module)">BaseOneOfModelNoDiscriminator</a></span></dd>
+      <dd><span class='object_link'><a href="BaseOneOfModel.html" title="DatadogAPIClient::V1::BaseOneOfModel (module)">BaseOneOfModel</a></span>, <span class='object_link'><a href="BaseOneOfModelNoDiscriminator.html" title="DatadogAPIClient::V1::BaseOneOfModelNoDiscriminator (module)">BaseOneOfModelNoDiscriminator</a></span></dd>
   </dl>
   
   
@@ -83,14 +83,14 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/datadog_api_client/v2/models/action_query_mocked_outputs.rb</dd>
+    <dd>lib/datadog_api_client/v1/models/synthetics_assertion_target_value.rb</dd>
   </dl>
   
 </div>
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>The mocked outputs of the action query. This is useful for testing the app without actually running the action.</p>
+    <p>Value used by the operator in assertions. Can be either a number or string.</p>
 
 
   </div>
@@ -106,8 +106,8 @@
 
   <h2>Instance Attribute Summary</h2>
   
-  <h3 class="inherited">Attributes included from <span class='object_link'><a href="BaseOneOfModel.html" title="DatadogAPIClient::V2::BaseOneOfModel (module)">BaseOneOfModel</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="BaseOneOfModel.html#_unparsed-instance_method" title="DatadogAPIClient::V2::BaseOneOfModel#_unparsed (method)">#_unparsed</a></span></p>
+  <h3 class="inherited">Attributes included from <span class='object_link'><a href="BaseOneOfModel.html" title="DatadogAPIClient::V1::BaseOneOfModel (module)">BaseOneOfModel</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="BaseOneOfModel.html#_unparsed-instance_method" title="DatadogAPIClient::V1::BaseOneOfModel#_unparsed (method)">#_unparsed</a></span></p>
 
 
   
@@ -273,7 +273,7 @@
 60</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/action_query_mocked_outputs.rb', line 36</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/synthetics_assertion_target_value.rb', line 36</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_build'>build</span><span class='lparen'>(</span><span class='id identifier rubyid_data'>data</span><span class='rparen'>)</span>
   <span class='comment'># Go through the list of oneOf items and attempt to identify the appropriate one.
@@ -338,12 +338,12 @@
 32</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/action_query_mocked_outputs.rb', line 27</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/synthetics_assertion_target_value.rb', line 27</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_openapi_one_of'>openapi_one_of</span>
   <span class='lbracket'>[</span>
-    <span class='symbol'>:&#39;String&#39;</span><span class='comma'>,</span>
-    <span class='symbol'>:&#39;ActionQueryMockedOutputsObject&#39;</span>
+    <span class='symbol'>:&#39;Float&#39;</span><span class='comma'>,</span>
+    <span class='symbol'>:&#39;String&#39;</span>
   <span class='rbracket'>]</span>
 <span class='kw'>end</span></pre>
     </td>
