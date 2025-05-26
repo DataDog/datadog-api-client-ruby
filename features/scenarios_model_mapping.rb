@@ -1551,6 +1551,18 @@ ScenariosModelMappings = {
     "v2.CreateDORADeployment" => {
             "body" => "DORADeploymentRequest",
     },
+    "v2.ListDORADeployments" => {
+            "body" => "DORAListDeploymentsRequest",
+    },
+    "v2.GetDORADeployment" => {
+            "deployment_id" => "String",
+    },
+    "v2.ListDORAFailures" => {
+            "body" => "DORAListFailuresRequest",
+    },
+    "v2.GetDORAFailure" => {
+            "failure_id" => "String",
+    },
     "v2.CreateDORAIncident" => {
             "body" => "DORAIncidentRequest",
     },

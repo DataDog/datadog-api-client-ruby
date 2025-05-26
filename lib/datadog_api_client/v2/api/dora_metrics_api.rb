@@ -111,7 +111,7 @@ module DatadogAPIClient::V2
 
     # Send an incident event for DORA Metrics.
     #
-    # Use this API endpoint to provide data about incidents for DORA metrics.
+    # Use this API endpoint to provide failure data for DORA metrics.
     #
     # This is necessary for:
     # - Change Failure Rate
@@ -174,6 +174,270 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: DORAMetricsAPI#create_dora_incident\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get a deployment event.
+    #
+    # @see #get_dora_deployment_with_http_info
+    def get_dora_deployment(deployment_id, opts = {})
+      data, _status_code, _headers = get_dora_deployment_with_http_info(deployment_id, opts)
+      data
+    end
+
+    # Get a deployment event.
+    #
+    # Use this API endpoint to get a deployment event.
+    #
+    # @param deployment_id [String] The ID of the deployment event.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(DORAFetchResponse, Integer, Hash)>] DORAFetchResponse data, response status code and response headers
+    def get_dora_deployment_with_http_info(deployment_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DORAMetricsAPI.get_dora_deployment ...'
+      end
+      # verify the required parameter 'deployment_id' is set
+      if @api_client.config.client_side_validation && deployment_id.nil?
+        fail ArgumentError, "Missing the required parameter 'deployment_id' when calling DORAMetricsAPI.get_dora_deployment"
+      end
+      # resource path
+      local_var_path = '/api/v2/dora/deployments/{deployment_id}'.sub('{deployment_id}', CGI.escape(deployment_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DORAFetchResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_dora_deployment,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DORAMetricsAPI#get_dora_deployment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get a failure event.
+    #
+    # @see #get_dora_failure_with_http_info
+    def get_dora_failure(failure_id, opts = {})
+      data, _status_code, _headers = get_dora_failure_with_http_info(failure_id, opts)
+      data
+    end
+
+    # Get a failure event.
+    #
+    # Use this API endpoint to get a failure event.
+    #
+    # @param failure_id [String] The ID of the failure event.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(DORAFetchResponse, Integer, Hash)>] DORAFetchResponse data, response status code and response headers
+    def get_dora_failure_with_http_info(failure_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DORAMetricsAPI.get_dora_failure ...'
+      end
+      # verify the required parameter 'failure_id' is set
+      if @api_client.config.client_side_validation && failure_id.nil?
+        fail ArgumentError, "Missing the required parameter 'failure_id' when calling DORAMetricsAPI.get_dora_failure"
+      end
+      # resource path
+      local_var_path = '/api/v2/dora/failures/{failure_id}'.sub('{failure_id}', CGI.escape(failure_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DORAFetchResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_dora_failure,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DORAMetricsAPI#get_dora_failure\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get a list of deployment events.
+    #
+    # @see #list_dora_deployments_with_http_info
+    def list_dora_deployments(body, opts = {})
+      data, _status_code, _headers = list_dora_deployments_with_http_info(body, opts)
+      data
+    end
+
+    # Get a list of deployment events.
+    #
+    # Use this API endpoint to get a list of deployment events.
+    #
+    # @param body [DORAListDeploymentsRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(DORAListResponse, Integer, Hash)>] DORAListResponse data, response status code and response headers
+    def list_dora_deployments_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DORAMetricsAPI.list_dora_deployments ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling DORAMetricsAPI.list_dora_deployments"
+      end
+      # resource path
+      local_var_path = '/api/v2/dora/deployments'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DORAListResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :list_dora_deployments,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DORAMetricsAPI#list_dora_deployments\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get a list of failure events.
+    #
+    # @see #list_dora_failures_with_http_info
+    def list_dora_failures(body, opts = {})
+      data, _status_code, _headers = list_dora_failures_with_http_info(body, opts)
+      data
+    end
+
+    # Get a list of failure events.
+    #
+    # Use this API endpoint to get a list of failure events.
+    #
+    # @param body [DORAListFailuresRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(DORAListResponse, Integer, Hash)>] DORAListResponse data, response status code and response headers
+    def list_dora_failures_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DORAMetricsAPI.list_dora_failures ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling DORAMetricsAPI.list_dora_failures"
+      end
+      # resource path
+      local_var_path = '/api/v2/dora/failures'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DORAListResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :list_dora_failures,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DORAMetricsAPI#list_dora_failures\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
