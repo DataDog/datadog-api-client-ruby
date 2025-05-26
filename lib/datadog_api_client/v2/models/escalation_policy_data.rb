@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class EscalationPolicyData
     include BaseGenericModel
 
-    # Defines the main attributes of an escalation policy, such as its description, name, and behavior on policy end.
+    # Defines the main attributes of an escalation policy, such as its name and behavior on policy end.
     attr_accessor :attributes
 
     # Specifies the unique identifier of the escalation policy.

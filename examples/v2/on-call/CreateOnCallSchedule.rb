@@ -1,4 +1,4 @@
-# Create on-call schedule returns "Created" response
+# Create On-Call schedule returns "Created" response
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::OnCallAPI.new
@@ -39,10 +39,6 @@ body = DatadogAPIClient::V2::ScheduleCreateRequest.new({
         }),
       ],
       name: "Example-On-Call",
-      tags: [
-        "tag1",
-        "tag2",
-      ],
       time_zone: "America/New_York",
     }),
     relationships: DatadogAPIClient::V2::ScheduleCreateRequestDataRelationships.new({

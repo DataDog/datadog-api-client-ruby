@@ -1,4 +1,4 @@
-# Update on-call schedule returns "OK" response
+# Update On-Call schedule returns "OK" response
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::OnCallAPI.new
@@ -45,11 +45,6 @@ body = DatadogAPIClient::V2::ScheduleUpdateRequest.new({
         }),
       ],
       name: "Example-On-Call",
-      tags: [
-        "tag1",
-        "tag2",
-        "tag3",
-      ],
       time_zone: "America/New_York",
     }),
     relationships: DatadogAPIClient::V2::ScheduleUpdateRequestDataRelationships.new({
