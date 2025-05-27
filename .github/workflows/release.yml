@@ -41,17 +41,17 @@ jobs:
           GH_TOKEN: ${{ steps.get_token.outputs.token }}
         shell: bash
         run: |
-          CHANGED_PACKAGE_JSON_FILES=$(git diff --diff-filter=MACR --name-only $BASE_SHA...$HEAD_SHA \
-            | grep -E 'package\.json$' \
-            | xargs dirname \
+          CHANGED_VERSION_RB_FILES=$(git diff --diff-filter=MACR --name-only $BASE_SHA...$HEAD_SHA \
+            | grep -E 'version\.rb$' \
+            | xargs dirname | xargs dirname | xargs dirname \
             | sort \
             | uniq)
 
           declare -A versions
-          for package in $CHANGED_PACKAGE_JSON_FILES; do
+          for package in $CHANGED_VERSION_RB_FILES; do
             version_dir=$(find $package/lib/*/version.rb -name "version.rb" | head -n 1)
-            base_version=$(git show $BASE_SHA:$version_dir | grep "VERSION" | sed "s/.*'\(.*\)'.*/\1/")
-            head_version=$(git show $HEAD_SHA:$version_dir | grep "VERSION" | sed "s/.*'\(.*\)'.*/\1/")
+            base_version=$(git show $BASE_SHA:$version_dir | grep "VERSION =" | sed "s/.*'\(.*\)'.*/\1/")
+            head_version=$(git show $HEAD_SHA:$version_dir | grep "VERSION =" | sed "s/.*'\(.*\)'.*/\1/")
 
             if [ "$base_version" != "$head_version" ]; then
               versions[$package]=$head_version
