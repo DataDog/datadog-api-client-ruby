@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Source of events, either logs or audit trail.
+  # Source of events, either logs, audit trail, or Datadog events.
   class SecurityMonitoringStandardDataSource
     include BaseEnumModel
 
@@ -27,5 +27,6 @@ module DatadogAPIClient::V2
     SPANS = "spans".freeze
     SECURITY_RUNTIME = "security_runtime".freeze
     NETWORK = "network".freeze
+    EVENTS = "events".freeze
   end
 end

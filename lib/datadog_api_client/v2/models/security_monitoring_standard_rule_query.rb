@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # The aggregation type.
     attr_accessor :aggregation
 
-    # Source of events, either logs or audit trail.
+    # Source of events, either logs, audit trail, or Datadog events.
     attr_accessor :data_source
 
     # Field for which the cardinality is measured. Sent as an array.
