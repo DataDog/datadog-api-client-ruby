@@ -1,4 +1,4 @@
-# Update on-call escalation policy returns "OK" response
+# Update On-Call escalation policy returns "OK" response
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::OnCallAPI.new
@@ -16,7 +16,6 @@ DD_TEAM_DATA_ID = ENV["DD_TEAM_DATA_ID"]
 body = DatadogAPIClient::V2::EscalationPolicyUpdateRequest.new({
   data: DatadogAPIClient::V2::EscalationPolicyUpdateRequestData.new({
     attributes: DatadogAPIClient::V2::EscalationPolicyUpdateRequestDataAttributes.new({
-      description: "Example-On-Call",
       name: "Example-On-Call-updated",
       resolve_page_on_policy_end: false,
       retries: 0,

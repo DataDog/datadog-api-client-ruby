@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class ScheduleData
     include BaseGenericModel
 
-    # Provides core properties of a schedule object, such as its name, time zone, and tags.
+    # Provides core properties of a schedule object such as its name and time zone.
     attr_accessor :attributes
 
     # The schedule's unique identifier.

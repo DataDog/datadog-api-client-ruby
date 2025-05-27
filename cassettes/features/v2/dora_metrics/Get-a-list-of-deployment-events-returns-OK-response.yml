@@ -1,0 +1,24 @@
+http_interactions:
+- recorded_at: Thu, 22 May 2025 10:44:58 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"from":"2025-03-23T00:00:00Z","limit":1,"to":"2025-03-24T00:00:00Z"},"type":"dora_deployments_list_request"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/dora/deployments
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":[]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 200
+      message: OK
+recorded_with: VCR 6.0.0

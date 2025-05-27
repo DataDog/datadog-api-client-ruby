@@ -1,4 +1,4 @@
-# Set on-call team routing rules returns "OK" response
+# Set On-Call team routing rules returns "OK" response
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::OnCallAPI.new
@@ -15,9 +15,9 @@ body = DatadogAPIClient::V2::TeamRoutingRulesRequest.new({
       rules: [
         DatadogAPIClient::V2::TeamRoutingRulesRequestRule.new({
           actions: [
-            DatadogAPIClient::V2::SlackAction.new({
+            DatadogAPIClient::V2::SendSlackMessageAction.new({
               channel: "channel",
-              type: "send_slack_message",
+              type: DatadogAPIClient::V2::SendSlackMessageActionType::SEND_SLACK_MESSAGE,
               workspace: "workspace",
             }),
           ],
@@ -39,7 +39,6 @@ body = DatadogAPIClient::V2::TeamRoutingRulesRequest.new({
               }),
             ],
           }),
-          urgency: DatadogAPIClient::V2::Urgency::HIGH,
         }),
         DatadogAPIClient::V2::TeamRoutingRulesRequestRule.new({
           policy_id: ESCALATION_POLICY_DATA_ID,
@@ -52,4 +51,7 @@ body = DatadogAPIClient::V2::TeamRoutingRulesRequest.new({
     type: DatadogAPIClient::V2::TeamRoutingRulesRequestDataType::TEAM_ROUTING_RULES,
   }),
 })
-p api_instance.set_on_call_team_routing_rules(DD_TEAM_DATA_ID, body)
+opts = {
+  include: "rules",
+}
+p api_instance.set_on_call_team_routing_rules(DD_TEAM_DATA_ID, body, opts)
