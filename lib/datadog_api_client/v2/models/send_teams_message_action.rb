@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # Sends a message to a Microsoft Teams channel.
-  class TeamsAction
+  class SendTeamsMessageAction
     include BaseGenericModel
 
     # The channel ID.
@@ -30,7 +30,7 @@ module DatadogAPIClient::V2
     # The tenant ID.
     attr_reader :tenant
 
-    # Must be set to "send_teams_message".
+    # Indicates that the action is a send Microsoft Teams message action.
     attr_reader :type
 
     attr_accessor :additional_properties
@@ -53,7 +53,7 @@ module DatadogAPIClient::V2
         :'channel' => :'String',
         :'team' => :'String',
         :'tenant' => :'String',
-        :'type' => :'String'
+        :'type' => :'SendTeamsMessageActionType'
       }
     end
 
@@ -62,7 +62,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TeamsAction` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SendTeamsMessageAction` initialize method"
       end
 
       self.additional_properties = {}
