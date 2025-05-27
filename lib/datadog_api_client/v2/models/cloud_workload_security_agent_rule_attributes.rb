@@ -27,6 +27,9 @@ module DatadogAPIClient::V2
     # The version of the Agent
     attr_accessor :agent_constraint
 
+    # The blocking policies that the rule belongs to
+    attr_accessor :blocking
+
     # The category of the Agent rule
     attr_accessor :category
 
@@ -45,6 +48,9 @@ module DatadogAPIClient::V2
     # The description of the Agent rule
     attr_accessor :description
 
+    # The disabled policies that the rule belongs to
+    attr_accessor :disabled
+
     # Whether the Agent rule is enabled
     attr_accessor :enabled
 
@@ -53,6 +59,9 @@ module DatadogAPIClient::V2
 
     # The platforms the Agent rule is supported on
     attr_accessor :filters
+
+    # The monitoring policies that the rule belongs to
+    attr_accessor :monitoring
 
     # The name of the Agent rule
     attr_accessor :name
@@ -83,15 +92,18 @@ module DatadogAPIClient::V2
       {
         :'actions' => :'actions',
         :'agent_constraint' => :'agentConstraint',
+        :'blocking' => :'blocking',
         :'category' => :'category',
         :'creation_author_uu_id' => :'creationAuthorUuId',
         :'creation_date' => :'creationDate',
         :'creator' => :'creator',
         :'default_rule' => :'defaultRule',
         :'description' => :'description',
+        :'disabled' => :'disabled',
         :'enabled' => :'enabled',
         :'expression' => :'expression',
         :'filters' => :'filters',
+        :'monitoring' => :'monitoring',
         :'name' => :'name',
         :'product_tags' => :'product_tags',
         :'update_author_uu_id' => :'updateAuthorUuId',
@@ -108,15 +120,18 @@ module DatadogAPIClient::V2
       {
         :'actions' => :'Array<CloudWorkloadSecurityAgentRuleAction>',
         :'agent_constraint' => :'String',
+        :'blocking' => :'Array<String>',
         :'category' => :'String',
         :'creation_author_uu_id' => :'String',
         :'creation_date' => :'Integer',
         :'creator' => :'CloudWorkloadSecurityAgentRuleCreatorAttributes',
         :'default_rule' => :'Boolean',
         :'description' => :'String',
+        :'disabled' => :'Array<String>',
         :'enabled' => :'Boolean',
         :'expression' => :'String',
         :'filters' => :'Array<String>',
+        :'monitoring' => :'Array<String>',
         :'name' => :'String',
         :'product_tags' => :'Array<String>',
         :'update_author_uu_id' => :'String',
@@ -163,6 +178,12 @@ module DatadogAPIClient::V2
         self.agent_constraint = attributes[:'agent_constraint']
       end
 
+      if attributes.key?(:'blocking')
+        if (value = attributes[:'blocking']).is_a?(Array)
+          self.blocking = value
+        end
+      end
+
       if attributes.key?(:'category')
         self.category = attributes[:'category']
       end
@@ -187,6 +208,12 @@ module DatadogAPIClient::V2
         self.description = attributes[:'description']
       end
 
+      if attributes.key?(:'disabled')
+        if (value = attributes[:'disabled']).is_a?(Array)
+          self.disabled = value
+        end
+      end
+
       if attributes.key?(:'enabled')
         self.enabled = attributes[:'enabled']
       end
@@ -198,6 +225,12 @@ module DatadogAPIClient::V2
       if attributes.key?(:'filters')
         if (value = attributes[:'filters']).is_a?(Array)
           self.filters = value
+        end
+      end
+
+      if attributes.key?(:'monitoring')
+        if (value = attributes[:'monitoring']).is_a?(Array)
+          self.monitoring = value
         end
       end
 
@@ -260,15 +293,18 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           actions == o.actions &&
           agent_constraint == o.agent_constraint &&
+          blocking == o.blocking &&
           category == o.category &&
           creation_author_uu_id == o.creation_author_uu_id &&
           creation_date == o.creation_date &&
           creator == o.creator &&
           default_rule == o.default_rule &&
           description == o.description &&
+          disabled == o.disabled &&
           enabled == o.enabled &&
           expression == o.expression &&
           filters == o.filters &&
+          monitoring == o.monitoring &&
           name == o.name &&
           product_tags == o.product_tags &&
           update_author_uu_id == o.update_author_uu_id &&
@@ -283,7 +319,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [actions, agent_constraint, category, creation_author_uu_id, creation_date, creator, default_rule, description, enabled, expression, filters, name, product_tags, update_author_uu_id, update_date, updated_at, updater, version, additional_properties].hash
+      [actions, agent_constraint, blocking, category, creation_author_uu_id, creation_date, creator, default_rule, description, disabled, enabled, expression, filters, monitoring, name, product_tags, update_author_uu_id, update_date, updated_at, updater, version, additional_properties].hash
     end
   end
 end
