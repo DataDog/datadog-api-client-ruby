@@ -28,7 +28,7 @@ module DatadogAPIClient::V2
     attr_accessor :auth_config
 
     # AWS Account ID.
-    attr_reader :aws_account_id
+    attr_accessor :aws_account_id
 
     # AWS partition your AWS account is scoped to. Defaults to `aws`.
     # See [Partitions](https://docs.aws.amazon.com/whitepapers/latest/aws-fault-isolation-boundaries/partitions.html) in the AWS documentation for more information.
@@ -164,24 +164,6 @@ module DatadogAPIClient::V2
       if attributes.key?(:'traces_config')
         self.traces_config = attributes[:'traces_config']
       end
-    end
-
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    # @!visibility private
-    def valid?
-      return false if @aws_account_id.nil?
-      true
-    end
-
-    # Custom attribute writer method with validation
-    # @param aws_account_id [Object] Object to be assigned
-    # @!visibility private
-    def aws_account_id=(aws_account_id)
-      if aws_account_id.nil?
-        fail ArgumentError, 'invalid value for "aws_account_id", aws_account_id cannot be nil.'
-      end
-      @aws_account_id = aws_account_id
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
