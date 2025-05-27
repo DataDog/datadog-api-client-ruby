@@ -18,13 +18,13 @@ require 'time'
 
 module DatadogAPIClient::V2
   # Sends a message to a Slack channel.
-  class SlackAction
+  class SendSlackMessageAction
     include BaseGenericModel
 
     # The channel ID.
     attr_reader :channel
 
-    # Must be set to "send_slack_message".
+    # Indicates that the action is a send Slack message action.
     attr_reader :type
 
     # The workspace ID.
@@ -47,7 +47,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'channel' => :'String',
-        :'type' => :'String',
+        :'type' => :'SendSlackMessageActionType',
         :'workspace' => :'String'
       }
     end
@@ -57,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SlackAction` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SendSlackMessageAction` initialize method"
       end
 
       self.additional_properties = {}
