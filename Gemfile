@@ -10,6 +10,7 @@ group :development, :test do
   gem 'datadog-ci', '~> 1.11'
   gem 'gem-release'
   gem 'rake', '~> 13.0.1'
+  gem 'ostruct'
   gem 'rspec-expectations'
   gem 'rubocop'
   gem 'rufo'
