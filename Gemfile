@@ -6,7 +6,7 @@ gemspec
 
 group :development, :test do
   gem 'activesupport'
-  gem 'cucumber', '~> 9.1.1'
+  gem 'cucumber', '~> 9.2.1'
   gem 'datadog-ci', '~> 1.11'
   gem 'gem-release'
   gem 'rake', '~> 13.0.1'
