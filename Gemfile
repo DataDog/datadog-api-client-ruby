@@ -6,6 +6,7 @@ gemspec
 
 group :development, :test do
   gem 'activesupport'
+  gem 'bigdecimal', '= 3.1.9'
   gem 'cucumber', '~> 9.2.1'
   gem 'datadog-ci', '~> 1.11'
   gem 'gem-release'
