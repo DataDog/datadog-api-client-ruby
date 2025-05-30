@@ -1,4 +1,4 @@
-# Send an incident event for DORA Metrics returns "OK" response
+# Send a failure event for DORA Metrics returns "OK - but delayed due to incident" response
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::DORAMetricsAPI.new
@@ -23,4 +23,4 @@ body = DatadogAPIClient::V2::DORAFailureRequest.new({
     }),
   }),
 })
-p api_instance.create_dora_incident(body)
+p api_instance.create_dora_failure(body)

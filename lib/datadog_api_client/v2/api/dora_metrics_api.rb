@@ -44,12 +44,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(DORADeploymentResponse, Integer, Hash)>] DORADeploymentResponse data, response status code and response headers
     def create_dora_deployment_with_http_info(body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.create_dora_deployment".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_dora_deployment")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_dora_deployment"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DORAMetricsAPI.create_dora_deployment ...'
@@ -101,6 +95,77 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Send a failure event for DORA Metrics.
+    #
+    # @see #create_dora_failure_with_http_info
+    def create_dora_failure(body, opts = {})
+      data, _status_code, _headers = create_dora_failure_with_http_info(body, opts)
+      data
+    end
+
+    # Send a failure event for DORA Metrics.
+    #
+    # Use this API endpoint to provide failure data for DORA metrics.
+    #
+    # This is necessary for:
+    # - Change Failure Rate
+    # - Time to Restore
+    #
+    # @param body [DORAFailureRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(DORAFailureResponse, Integer, Hash)>] DORAFailureResponse data, response status code and response headers
+    def create_dora_failure_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DORAMetricsAPI.create_dora_failure ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling DORAMetricsAPI.create_dora_failure"
+      end
+      # resource path
+      local_var_path = '/api/v2/dora/failure'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DORAFailureResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :create_dora_failure,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DORAMetricsAPI#create_dora_failure\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Send an incident event for DORA Metrics.
     #
     # @see #create_dora_incident_with_http_info
@@ -111,22 +176,21 @@ module DatadogAPIClient::V2
 
     # Send an incident event for DORA Metrics.
     #
+    # **Note**: This endpoint is deprecated. Please use `/api/v2/dora/failure` instead.
+    #
     # Use this API endpoint to provide failure data for DORA metrics.
     #
     # This is necessary for:
     # - Change Failure Rate
     # - Time to Restore
     #
-    # @param body [DORAIncidentRequest] 
+    # @deprecated This API is deprecated.
+    #
+    # @param body [DORAFailureRequest] 
     # @param opts [Hash] the optional parameters
-    # @return [Array<(DORAIncidentResponse, Integer, Hash)>] DORAIncidentResponse data, response status code and response headers
+    # @return [Array<(DORAFailureResponse, Integer, Hash)>] DORAFailureResponse data, response status code and response headers
     def create_dora_incident_with_http_info(body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.create_dora_incident".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_dora_incident")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_dora_incident"))
-      end
+      warn "[DEPRECATION] `CreateDORAIncident` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DORAMetricsAPI.create_dora_incident ...'
@@ -155,7 +219,7 @@ module DatadogAPIClient::V2
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'DORAIncidentResponse'
+      return_type = opts[:debug_return_type] || 'DORAFailureResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth]

@@ -210,8 +210,6 @@ module DatadogAPIClient
             "v2.cancel_data_deletion_request": false,
             "v2.create_data_deletion_request": false,
             "v2.get_data_deletion_requests": false,
-            "v2.create_dora_deployment": false,
-            "v2.create_dora_incident": false,
             "v2.create_incident": false,
             "v2.create_incident_integration": false,
             "v2.create_incident_todo": false,
