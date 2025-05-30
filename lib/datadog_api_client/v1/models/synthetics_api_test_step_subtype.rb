@@ -23,5 +23,11 @@ module DatadogAPIClient::V1
 
     HTTP = "http".freeze
     GRPC = "grpc".freeze
+    SSL = "ssl".freeze
+    DNS = "dns".freeze
+    TCP = "tcp".freeze
+    UDP = "udp".freeze
+    ICMP = "icmp".freeze
+    WEBSOCKET = "websocket".freeze
   end
 end
