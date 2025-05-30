@@ -1,9 +1,6 @@
 # Send a deployment event for DORA Metrics returns "OK" response
 
 require "datadog_api_client"
-DatadogAPIClient.configure do |config|
-  config.unstable_operations["v2.create_dora_deployment".to_sym] = true
-end
 api_instance = DatadogAPIClient::V2::DORAMetricsAPI.new
 
 body = DatadogAPIClient::V2::DORADeploymentRequest.new({

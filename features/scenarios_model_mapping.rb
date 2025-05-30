@@ -1557,6 +1557,9 @@ ScenariosModelMappings = {
     "v2.GetDORADeployment" => {
             "deployment_id" => "String",
     },
+    "v2.CreateDORAFailure" => {
+            "body" => "DORAFailureRequest",
+    },
     "v2.ListDORAFailures" => {
             "body" => "DORAListFailuresRequest",
     },
@@ -1564,7 +1567,7 @@ ScenariosModelMappings = {
             "failure_id" => "String",
     },
     "v2.CreateDORAIncident" => {
-            "body" => "DORAIncidentRequest",
+            "body" => "DORAFailureRequest",
     },
     "v2.ListDowntimes" => {
             "current_only" => "Boolean",

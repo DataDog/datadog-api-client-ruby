@@ -17,10 +17,10 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # JSON:API type for DORA incident events.
-  class DORAIncidentType
+  # JSON:API type for DORA failure events.
+  class DORAFailureType
     include BaseEnumModel
 
-    DORA_INCIDENT = "dora_incident".freeze
+    DORA_FAILURE = "dora_failure".freeze
   end
 end
