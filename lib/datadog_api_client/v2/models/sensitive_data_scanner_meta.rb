@@ -33,8 +33,14 @@ module DatadogAPIClient::V2
     # (Deprecated) Whether or not scanned events have multi-pass enabled.
     attr_accessor :has_multi_pass_enabled
 
+    # Whether or not the sampling rate for products can be set to a float point number (as opposed to an integer).
+    attr_accessor :is_float_sampling_rate_enabled
+
     # Whether or not the org is compliant to the payment card industry standard.
     attr_accessor :is_pci_compliant
+
+    # Global minimum sampling rate allowed for all product within the org.
+    attr_reader :min_sampling_rate
 
     # Version of the API.
     attr_reader :version
@@ -49,7 +55,9 @@ module DatadogAPIClient::V2
         :'group_count_limit' => :'group_count_limit',
         :'has_highlight_enabled' => :'has_highlight_enabled',
         :'has_multi_pass_enabled' => :'has_multi_pass_enabled',
+        :'is_float_sampling_rate_enabled' => :'is_float_sampling_rate_enabled',
         :'is_pci_compliant' => :'is_pci_compliant',
+        :'min_sampling_rate' => :'min_sampling_rate',
         :'version' => :'version'
       }
     end
@@ -62,7 +70,9 @@ module DatadogAPIClient::V2
         :'group_count_limit' => :'Integer',
         :'has_highlight_enabled' => :'Boolean',
         :'has_multi_pass_enabled' => :'Boolean',
+        :'is_float_sampling_rate_enabled' => :'Boolean',
         :'is_pci_compliant' => :'Boolean',
+        :'min_sampling_rate' => :'Float',
         :'version' => :'Integer'
       }
     end
@@ -101,8 +111,16 @@ module DatadogAPIClient::V2
         self.has_multi_pass_enabled = attributes[:'has_multi_pass_enabled']
       end
 
+      if attributes.key?(:'is_float_sampling_rate_enabled')
+        self.is_float_sampling_rate_enabled = attributes[:'is_float_sampling_rate_enabled']
+      end
+
       if attributes.key?(:'is_pci_compliant')
         self.is_pci_compliant = attributes[:'is_pci_compliant']
+      end
+
+      if attributes.key?(:'min_sampling_rate')
+        self.min_sampling_rate = attributes[:'min_sampling_rate']
       end
 
       if attributes.key?(:'version')
@@ -114,8 +132,23 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
+      return false if !@min_sampling_rate.nil? && @min_sampling_rate > 100.0
+      return false if !@min_sampling_rate.nil? && @min_sampling_rate < 0.0
       return false if !@version.nil? && @version < 0
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param min_sampling_rate [Object] Object to be assigned
+    # @!visibility private
+    def min_sampling_rate=(min_sampling_rate)
+      if !min_sampling_rate.nil? && min_sampling_rate > 100.0
+        fail ArgumentError, 'invalid value for "min_sampling_rate", must be smaller than or equal to 100.0.'
+      end
+      if !min_sampling_rate.nil? && min_sampling_rate < 0.0
+        fail ArgumentError, 'invalid value for "min_sampling_rate", must be greater than or equal to 0.0.'
+      end
+      @min_sampling_rate = min_sampling_rate
     end
 
     # Custom attribute writer method with validation
@@ -158,7 +191,9 @@ module DatadogAPIClient::V2
           group_count_limit == o.group_count_limit &&
           has_highlight_enabled == o.has_highlight_enabled &&
           has_multi_pass_enabled == o.has_multi_pass_enabled &&
+          is_float_sampling_rate_enabled == o.is_float_sampling_rate_enabled &&
           is_pci_compliant == o.is_pci_compliant &&
+          min_sampling_rate == o.min_sampling_rate &&
           version == o.version &&
           additional_properties == o.additional_properties
     end
@@ -167,7 +202,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [count_limit, group_count_limit, has_highlight_enabled, has_multi_pass_enabled, is_pci_compliant, version, additional_properties].hash
+      [count_limit, group_count_limit, has_highlight_enabled, has_multi_pass_enabled, is_float_sampling_rate_enabled, is_pci_compliant, min_sampling_rate, version, additional_properties].hash
     end
   end
 end
