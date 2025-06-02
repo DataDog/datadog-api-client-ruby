@@ -36,6 +36,9 @@ module DatadogAPIClient::V2
     # Whether or not the rule is enabled.
     attr_accessor :is_enabled
 
+    # List of labels.
+    attr_accessor :labels
+
     # Name of the rule.
     attr_accessor :name
 
@@ -65,6 +68,7 @@ module DatadogAPIClient::V2
         :'excluded_namespaces' => :'excluded_namespaces',
         :'included_keyword_configuration' => :'included_keyword_configuration',
         :'is_enabled' => :'is_enabled',
+        :'labels' => :'labels',
         :'name' => :'name',
         :'namespaces' => :'namespaces',
         :'pattern' => :'pattern',
@@ -82,6 +86,7 @@ module DatadogAPIClient::V2
         :'excluded_namespaces' => :'Array<String>',
         :'included_keyword_configuration' => :'SensitiveDataScannerIncludedKeywordConfiguration',
         :'is_enabled' => :'Boolean',
+        :'labels' => :'Array<String>',
         :'name' => :'String',
         :'namespaces' => :'Array<String>',
         :'pattern' => :'String',
@@ -125,6 +130,12 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'is_enabled')
         self.is_enabled = attributes[:'is_enabled']
+      end
+
+      if attributes.key?(:'labels')
+        if (value = attributes[:'labels']).is_a?(Array)
+          self.labels = value
+        end
       end
 
       if attributes.key?(:'name')
@@ -208,6 +219,7 @@ module DatadogAPIClient::V2
           excluded_namespaces == o.excluded_namespaces &&
           included_keyword_configuration == o.included_keyword_configuration &&
           is_enabled == o.is_enabled &&
+          labels == o.labels &&
           name == o.name &&
           namespaces == o.namespaces &&
           pattern == o.pattern &&
@@ -221,7 +233,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [description, excluded_namespaces, included_keyword_configuration, is_enabled, name, namespaces, pattern, priority, tags, text_replacement, additional_properties].hash
+      [description, excluded_namespaces, included_keyword_configuration, is_enabled, labels, name, namespaces, pattern, priority, tags, text_replacement, additional_properties].hash
     end
   end
 end
