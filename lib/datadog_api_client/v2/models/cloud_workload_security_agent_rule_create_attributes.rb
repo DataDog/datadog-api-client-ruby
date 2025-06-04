@@ -21,8 +21,17 @@ module DatadogAPIClient::V2
   class CloudWorkloadSecurityAgentRuleCreateAttributes
     include BaseGenericModel
 
+    # The array of actions the rule can perform if triggered
+    attr_accessor :actions
+
+    # The blocking policies that the rule belongs to
+    attr_accessor :blocking
+
     # The description of the Agent rule.
     attr_accessor :description
+
+    # The disabled policies that the rule belongs to
+    attr_accessor :disabled
 
     # Whether the Agent rule is enabled
     attr_accessor :enabled
@@ -32,6 +41,9 @@ module DatadogAPIClient::V2
 
     # The platforms the Agent rule is supported on
     attr_accessor :filters
+
+    # The monitoring policies that the rule belongs to
+    attr_accessor :monitoring
 
     # The name of the Agent rule.
     attr_reader :name
@@ -48,10 +60,14 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'actions' => :'actions',
+        :'blocking' => :'blocking',
         :'description' => :'description',
+        :'disabled' => :'disabled',
         :'enabled' => :'enabled',
         :'expression' => :'expression',
         :'filters' => :'filters',
+        :'monitoring' => :'monitoring',
         :'name' => :'name',
         :'policy_id' => :'policy_id',
         :'product_tags' => :'product_tags'
@@ -62,14 +78,26 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'actions' => :'Array<CloudWorkloadSecurityAgentRuleAction>',
+        :'blocking' => :'Array<String>',
         :'description' => :'String',
+        :'disabled' => :'Array<String>',
         :'enabled' => :'Boolean',
         :'expression' => :'String',
         :'filters' => :'Array<String>',
+        :'monitoring' => :'Array<String>',
         :'name' => :'String',
         :'policy_id' => :'String',
         :'product_tags' => :'Array<String>'
       }
+    end
+
+    # List of attributes with nullable: true
+    # @!visibility private
+    def self.openapi_nullable
+      Set.new([
+        :'actions',
+      ])
     end
 
     # Initializes the object
@@ -90,8 +118,26 @@ module DatadogAPIClient::V2
         end
       }
 
+      if attributes.key?(:'actions')
+        if (value = attributes[:'actions']).is_a?(Array)
+          self.actions = value
+        end
+      end
+
+      if attributes.key?(:'blocking')
+        if (value = attributes[:'blocking']).is_a?(Array)
+          self.blocking = value
+        end
+      end
+
       if attributes.key?(:'description')
         self.description = attributes[:'description']
+      end
+
+      if attributes.key?(:'disabled')
+        if (value = attributes[:'disabled']).is_a?(Array)
+          self.disabled = value
+        end
       end
 
       if attributes.key?(:'enabled')
@@ -105,6 +151,12 @@ module DatadogAPIClient::V2
       if attributes.key?(:'filters')
         if (value = attributes[:'filters']).is_a?(Array)
           self.filters = value
+        end
+      end
+
+      if attributes.key?(:'monitoring')
+        if (value = attributes[:'monitoring']).is_a?(Array)
+          self.monitoring = value
         end
       end
 
@@ -178,10 +230,14 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          actions == o.actions &&
+          blocking == o.blocking &&
           description == o.description &&
+          disabled == o.disabled &&
           enabled == o.enabled &&
           expression == o.expression &&
           filters == o.filters &&
+          monitoring == o.monitoring &&
           name == o.name &&
           policy_id == o.policy_id &&
           product_tags == o.product_tags &&
@@ -192,7 +248,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [description, enabled, expression, filters, name, policy_id, product_tags, additional_properties].hash
+      [actions, blocking, description, disabled, enabled, expression, filters, monitoring, name, policy_id, product_tags, additional_properties].hash
     end
   end
 end
