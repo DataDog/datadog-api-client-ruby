@@ -202,6 +202,32 @@
       <li class="public ">
   <span class="summary_signature">
     
+      <a href="#blocking-instance_method" title="#blocking (instance method)">#<strong>blocking</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The blocking policies that the rule belongs to.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#category-instance_method" title="#category (instance method)">#<strong>category</strong>  &#x21d2; Object </a>
     
 
@@ -358,6 +384,32 @@
       <li class="public ">
   <span class="summary_signature">
     
+      <a href="#disabled-instance_method" title="#disabled (instance method)">#<strong>disabled</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The disabled policies that the rule belongs to.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#enabled-instance_method" title="#enabled (instance method)">#<strong>enabled</strong>  &#x21d2; Object </a>
     
 
@@ -428,6 +480,32 @@
 
   
     <span class="summary_desc"><div class='inline'><p>The platforms the Agent rule is supported on.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#monitoring-instance_method" title="#monitoring (instance method)">#<strong>monitoring</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The monitoring policies that the rule belongs to.</p>
 </div></span>
   
 </li>
@@ -762,6 +840,48 @@
 </div>
     
       
+      <span id="blocking=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="blocking-instance_method">
+  
+    #<strong>blocking</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>The blocking policies that the rule belongs to</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+31
+32
+33</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/cloud_workload_security_agent_rule_attributes.rb', line 31</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_blocking'>blocking</span>
+  <span class='ivar'>@blocking</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
       <span id="category=-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="category-instance_method">
@@ -1014,6 +1134,48 @@
 </div>
     
       
+      <span id="disabled=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="disabled-instance_method">
+  
+    #<strong>disabled</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>The disabled policies that the rule belongs to</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+52
+53
+54</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/cloud_workload_security_agent_rule_attributes.rb', line 52</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_disabled'>disabled</span>
+  <span class='ivar'>@disabled</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
       <span id="enabled=-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="enabled-instance_method">
@@ -1140,6 +1302,48 @@
 </div>
     
       
+      <span id="monitoring=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="monitoring-instance_method">
+  
+    #<strong>monitoring</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>The monitoring policies that the rule belongs to</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+64
+65
+66</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/cloud_workload_security_agent_rule_attributes.rb', line 64</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_monitoring'>monitoring</span>
+  <span class='ivar'>@monitoring</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
       <span id="name=-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="name-instance_method">
@@ -1208,12 +1412,12 @@
       <pre class="lines">
 
 
-61
-62
-63</pre>
+70
+71
+72</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/cloud_workload_security_agent_rule_attributes.rb', line 61</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/cloud_workload_security_agent_rule_attributes.rb', line 70</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_product_tags'>product_tags</span>
   <span class='ivar'>@product_tags</span>
@@ -1439,7 +1643,7 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Jun  4 08:37:32 2025 by
+  Generated on Wed Jun  4 10:14:14 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>
