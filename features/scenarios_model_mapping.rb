@@ -2104,6 +2104,10 @@ ScenariosModelMappings = {
             "schedule_id" => "String",
             "filter_at_ts" => "String",
     },
+    "v2.GetTeamOnCallUsers" => {
+            "include" => "String",
+            "team_id" => "String",
+    },
     "v2.GetOnCallTeamRoutingRules" => {
             "team_id" => "String",
             "include" => "String",
