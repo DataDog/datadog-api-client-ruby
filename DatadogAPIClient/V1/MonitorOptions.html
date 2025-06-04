@@ -6,7 +6,7 @@
 <title>
   Class: DatadogAPIClient::V1::MonitorOptions
   
-    &mdash; datadog-api-client 2.30.0.dev.1 documentation
+    &mdash; datadog-api-client 2.34.0 documentation
   
 </title>
 
@@ -1776,7 +1776,7 @@ For instance, a monitor grouped by <code>cluster</code>, <code>namespace</code>,
 new <code>cluster</code> violating the alert conditions by setting <code>notify_by</code> to <code>[&quot;cluster&quot;]</code>. Tags mentioned
 in <code>notify_by</code> must be a subset of the grouping tags in the query.
 For example, a query grouped by <code>cluster</code> and <code>namespace</code> cannot notify on <code>region</code>.
-Setting <code>notify_by</code> to <code>[*]</code> configures the monitor to notify as a simple-alert.</p>
+Setting <code>notify_by</code> to <code>[&quot;*&quot;]</code> configures the monitor to notify as a simple-alert.</p>
 
 
   </div>
@@ -2367,7 +2367,7 @@ metric monitors.</p>
 </div>
 
       <div id="footer">
-  Generated on Tue Feb 18 21:07:15 2025 by
+  Generated on Wed Jun  4 11:45:27 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>
