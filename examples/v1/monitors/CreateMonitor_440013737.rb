@@ -18,5 +18,6 @@ body = DatadogAPIClient::V1::Monitor.new({
       critical: 1,
     }),
   }),
+  draft_status: DatadogAPIClient::V1::MonitorDraftStatus::DRAFT,
 })
 p api_instance.create_monitor(body)

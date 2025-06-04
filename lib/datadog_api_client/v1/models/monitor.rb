@@ -30,6 +30,15 @@ module DatadogAPIClient::V1
     # Whether or not the monitor is deleted. (Always `null`)
     attr_accessor :deleted
 
+    # Indicates whether the monitor is in a draft or published state.
+    #
+    # `draft`: The monitor appears as Draft and does not send notifications.
+    # `published`: The monitor is active and evaluates conditions and notify as configured.
+    #
+    # This field is in preview. The draft value is only available to customers with the feature enabled.
+    #
+    attr_accessor :draft_status
+
     # ID of this monitor.
     attr_accessor :id
 
@@ -81,6 +90,7 @@ module DatadogAPIClient::V1
         :'created' => :'created',
         :'creator' => :'creator',
         :'deleted' => :'deleted',
+        :'draft_status' => :'draft_status',
         :'id' => :'id',
         :'matching_downtimes' => :'matching_downtimes',
         :'message' => :'message',
@@ -105,6 +115,7 @@ module DatadogAPIClient::V1
         :'created' => :'Time',
         :'creator' => :'Creator',
         :'deleted' => :'Time',
+        :'draft_status' => :'MonitorDraftStatus',
         :'id' => :'Integer',
         :'matching_downtimes' => :'Array<MatchingDowntime>',
         :'message' => :'String',
@@ -160,6 +171,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'deleted')
         self.deleted = attributes[:'deleted']
+      end
+
+      if attributes.key?(:'draft_status')
+        self.draft_status = attributes[:'draft_status']
       end
 
       if attributes.key?(:'id')
@@ -283,6 +298,7 @@ module DatadogAPIClient::V1
           created == o.created &&
           creator == o.creator &&
           deleted == o.deleted &&
+          draft_status == o.draft_status &&
           id == o.id &&
           matching_downtimes == o.matching_downtimes &&
           message == o.message &&
@@ -304,7 +320,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created, creator, deleted, id, matching_downtimes, message, modified, multi, name, options, overall_state, priority, query, restricted_roles, state, tags, type, additional_properties].hash
+      [created, creator, deleted, draft_status, id, matching_downtimes, message, modified, multi, name, options, overall_state, priority, query, restricted_roles, state, tags, type, additional_properties].hash
     end
   end
 end
