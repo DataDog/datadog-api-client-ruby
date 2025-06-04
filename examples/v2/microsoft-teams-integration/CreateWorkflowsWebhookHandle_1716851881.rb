@@ -7,7 +7,7 @@ body = DatadogAPIClient::V2::MicrosoftTeamsCreateWorkflowsWebhookHandleRequest.n
   data: DatadogAPIClient::V2::MicrosoftTeamsWorkflowsWebhookHandleRequestData.new({
     attributes: DatadogAPIClient::V2::MicrosoftTeamsWorkflowsWebhookHandleRequestAttributes.new({
       name: "Example-Microsoft-Teams-Integration",
-      url: "https://fake.url.com",
+      url: "https://example.logic.azure.com/workflows/123",
     }),
     type: DatadogAPIClient::V2::MicrosoftTeamsWorkflowsWebhookHandleType::WORKFLOWS_WEBHOOK_HANDLE,
   }),
