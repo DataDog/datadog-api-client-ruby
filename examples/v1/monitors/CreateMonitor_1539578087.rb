@@ -31,5 +31,6 @@ body = DatadogAPIClient::V1::Monitor.new({
     }),
   }),
   type: DatadogAPIClient::V1::MonitorType::QUERY_ALERT,
+  draft_status: DatadogAPIClient::V1::MonitorDraftStatus::PUBLISHED,
 })
 p api_instance.create_monitor(body)

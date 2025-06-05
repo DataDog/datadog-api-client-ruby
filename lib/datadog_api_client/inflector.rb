@@ -295,6 +295,7 @@ module DatadogAPIClient
           "v1.metrics_query_unit" => "MetricsQueryUnit",
           "v1.monitor" => "Monitor",
           "v1.monitor_device_id" => "MonitorDeviceID",
+          "v1.monitor_draft_status" => "MonitorDraftStatus",
           "v1.monitor_formula_and_function_cost_aggregator" => "MonitorFormulaAndFunctionCostAggregator",
           "v1.monitor_formula_and_function_cost_data_source" => "MonitorFormulaAndFunctionCostDataSource",
           "v1.monitor_formula_and_function_cost_query_definition" => "MonitorFormulaAndFunctionCostQueryDefinition",
