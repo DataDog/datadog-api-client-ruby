@@ -2376,6 +2376,17 @@ module DatadogAPIClient::V2
     #
     # Query parameters must be only among the documented ones and with values of correct types. Duplicated query parameters (e.g. `filter[status]=low&filter[status]=info`) are not allowed.
     #
+    # ### Additional extension fields
+    #
+    # Additional extension fields are available for some findings.
+    #
+    # The data is available when you include the query parameter `?detailed_findings=true` in the request.
+    #
+    # The following fields are available for findings:
+    # - `external_id`: The resource external ID related to the finding.
+    # - `description`: The description and remediation steps for the finding.
+    # - `datadog_link`: The Datadog relative link for the finding.
+    #
     # ### Response
     #
     # The response includes an array of finding objects, pagination metadata, and a count of items that match the query.
@@ -2402,6 +2413,7 @@ module DatadogAPIClient::V2
     # @option opts [FindingEvaluation] :filter_evaluation Return only `pass` or `fail` findings.
     # @option opts [FindingStatus] :filter_status Return only findings with the specified status.
     # @option opts [Array<FindingVulnerabilityType>] :filter_vulnerability_type Return findings that match the selected vulnerability types (repeatable).
+    # @option opts [Boolean] :detailed_findings Return additional fields for some findings.
     # @return [Array<(ListFindingsResponse, Integer, Hash)>] ListFindingsResponse data, response status code and response headers
     def list_findings_with_http_info(opts = {})
       unstable_enabled = @api_client.config.unstable_operations["v2.list_findings".to_sym]
@@ -2449,6 +2461,7 @@ module DatadogAPIClient::V2
       query_params[:'filter[evaluation]'] = opts[:'filter_evaluation'] if !opts[:'filter_evaluation'].nil?
       query_params[:'filter[status]'] = opts[:'filter_status'] if !opts[:'filter_status'].nil?
       query_params[:'filter[vulnerability_type]'] = @api_client.build_collection_param(opts[:'filter_vulnerability_type'], :multi) if !opts[:'filter_vulnerability_type'].nil?
+      query_params[:'detailed_findings'] = opts[:'detailed_findings'] if !opts[:'detailed_findings'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
