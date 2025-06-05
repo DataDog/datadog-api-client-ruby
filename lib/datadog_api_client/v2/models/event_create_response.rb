@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # JSON object containing all events attributes and their associated values.
     attr_accessor :attributes
 
-    # Event type
+    # Event type.
     attr_accessor :type
 
     attr_accessor :additional_properties

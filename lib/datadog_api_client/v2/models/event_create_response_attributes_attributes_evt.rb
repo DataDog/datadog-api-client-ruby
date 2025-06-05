@@ -21,8 +21,11 @@ module DatadogAPIClient::V2
   class EventCreateResponseAttributesAttributesEvt
     include BaseGenericModel
 
-    # Event id
+    # (Deprecated) Event id. Use `uid` instead.
     attr_accessor :id
+
+    # A unique identifier for the event. You can use this id to query or reference the event.
+    attr_accessor :uid
 
     attr_accessor :additional_properties
 
@@ -30,7 +33,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'id' => :'id'
+        :'id' => :'id',
+        :'uid' => :'uid'
       }
     end
 
@@ -38,7 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'id' => :'String'
+        :'id' => :'String',
+        :'uid' => :'String'
       }
     end
 
@@ -62,6 +67,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'id')
         self.id = attributes[:'id']
+      end
+
+      if attributes.key?(:'uid')
+        self.uid = attributes[:'uid']
       end
     end
 
@@ -92,6 +101,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           id == o.id &&
+          uid == o.uid &&
           additional_properties == o.additional_properties
     end
 
@@ -99,7 +109,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [id, additional_properties].hash
+      [id, uid, additional_properties].hash
     end
   end
 end

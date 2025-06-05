@@ -17,11 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Event category to identify the type of event.
-  class EventCategory
+  # The priority of the alert. Defaults to `5`.
+  class AlertEventCustomAttributesPriority
     include BaseEnumModel
 
-    CHANGE = "change".freeze
-    ALERT = "alert".freeze
+    PRIORITY_ONE = "1".freeze
+    PRIORITY_TWO = "2".freeze
+    PRIORITY_THREE = "3".freeze
+    PRIORITY_FOUR = "4".freeze
+    PRIORITY_FIVE = "5".freeze
   end
 end

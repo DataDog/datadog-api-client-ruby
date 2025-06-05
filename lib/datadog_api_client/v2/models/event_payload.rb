@@ -21,21 +21,24 @@ module DatadogAPIClient::V2
   class EventPayload
     include BaseGenericModel
 
-    # An arbitrary string to use for aggregation when correlating events. Limited to 100 characters.
+    # An arbitrary string to use for aggregation when correlating events. If you specify a key, events are deduplicated to alerts based on this key. Limited to 100 characters.
     attr_reader :aggregation_key
 
-    # JSON object for custom attributes. Schema are different per each event category.
+    # JSON object for custom attributes. Schema is different per event category.
     attr_reader :attributes
 
-    # Event category to identify the type of event. Only the value `change` is supported. Support for other categories are coming. please reach out to datadog support if you're interested.
+    # Event category to identify the type of event.
     attr_reader :category
+
+    # Integration IDs sourced from integration manifests. Currently, only `custom-events` is supported.
+    attr_accessor :integration_id
 
     # The body of the event. Limited to 4000 characters.
     attr_reader :message
 
     # A list of tags to apply to the event.
     # Refer to [Tags docs](https://docs.datadoghq.com/getting_started/tagging/).
-    attr_accessor :tags
+    attr_reader :tags
 
     # Timestamp when the event occurred. Must follow [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) format.
     # For example `"2017-01-15T01:30:15.010000Z"`.
@@ -45,8 +48,6 @@ module DatadogAPIClient::V2
     # The event title. Limited to 500 characters.
     attr_reader :title
 
-    attr_accessor :additional_properties
-
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
@@ -54,6 +55,7 @@ module DatadogAPIClient::V2
         :'aggregation_key' => :'aggregation_key',
         :'attributes' => :'attributes',
         :'category' => :'category',
+        :'integration_id' => :'integration_id',
         :'message' => :'message',
         :'tags' => :'tags',
         :'timestamp' => :'timestamp',
@@ -68,6 +70,7 @@ module DatadogAPIClient::V2
         :'aggregation_key' => :'String',
         :'attributes' => :'EventPayloadAttributes',
         :'category' => :'EventCategory',
+        :'integration_id' => :'EventPayloadIntegrationId',
         :'message' => :'String',
         :'tags' => :'Array<String>',
         :'timestamp' => :'String',
@@ -83,14 +86,12 @@ module DatadogAPIClient::V2
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::EventPayload` initialize method"
       end
 
-      self.additional_properties = {}
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          self.additional_properties[k.to_sym] = v
-        else
-          h[k.to_sym] = v
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::EventPayload`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
+        h[k.to_sym] = v
       }
 
       if attributes.key?(:'aggregation_key')
@@ -103,6 +104,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'category')
         self.category = attributes[:'category']
+      end
+
+      if attributes.key?(:'integration_id')
+        self.integration_id = attributes[:'integration_id']
       end
 
       if attributes.key?(:'message')
@@ -129,11 +134,16 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if !@aggregation_key.nil? && @aggregation_key.to_s.length > 100
+      return false if !@aggregation_key.nil? && @aggregation_key.to_s.length < 1
       return false if @attributes.nil?
       return false if @category.nil?
       return false if !@message.nil? && @message.to_s.length > 4000
+      return false if !@message.nil? && @message.to_s.length < 1
+      return false if !@tags.nil? && @tags.length > 100
+      return false if !@tags.nil? && @tags.length < 1
       return false if @title.nil?
       return false if @title.to_s.length > 500
+      return false if @title.to_s.length < 1
       true
     end
 
@@ -143,6 +153,9 @@ module DatadogAPIClient::V2
     def aggregation_key=(aggregation_key)
       if !aggregation_key.nil? && aggregation_key.to_s.length > 100
         fail ArgumentError, 'invalid value for "aggregation_key", the character length must be smaller than or equal to 100.'
+      end
+      if !aggregation_key.nil? && aggregation_key.to_s.length < 1
+        fail ArgumentError, 'invalid value for "aggregation_key", the character length must be great than or equal to 1.'
       end
       @aggregation_key = aggregation_key
     end
@@ -174,7 +187,23 @@ module DatadogAPIClient::V2
       if !message.nil? && message.to_s.length > 4000
         fail ArgumentError, 'invalid value for "message", the character length must be smaller than or equal to 4000.'
       end
+      if !message.nil? && message.to_s.length < 1
+        fail ArgumentError, 'invalid value for "message", the character length must be great than or equal to 1.'
+      end
       @message = message
+    end
+
+    # Custom attribute writer method with validation
+    # @param tags [Object] Object to be assigned
+    # @!visibility private
+    def tags=(tags)
+      if !tags.nil? && tags.length > 100
+        fail ArgumentError, 'invalid value for "tags", number of items must be less than or equal to 100.'
+      end
+      if !tags.nil? && tags.length < 1
+        fail ArgumentError, 'invalid value for "tags", number of items must be greater than or equal to 1.'
+      end
+      @tags = tags
     end
 
     # Custom attribute writer method with validation
@@ -187,27 +216,10 @@ module DatadogAPIClient::V2
       if title.to_s.length > 500
         fail ArgumentError, 'invalid value for "title", the character length must be smaller than or equal to 500.'
       end
+      if title.to_s.length < 1
+        fail ArgumentError, 'invalid value for "title", the character length must be great than or equal to 1.'
+      end
       @title = title
-    end
-
-    # Returns the object in the form of hash, with additionalProperties support.
-    # @return [Hash] Returns the object in the form of hash
-    # @!visibility private
-    def to_hash
-      hash = {}
-      self.class.attribute_map.each_pair do |attr, param|
-        value = self.send(attr)
-        if value.nil?
-          is_nullable = self.class.openapi_nullable.include?(attr)
-          next if !is_nullable || (is_nullable && !instance_variable_defined?(:"@#{attr}"))
-        end
-
-        hash[param] = _to_hash(value)
-      end
-      self.additional_properties.each_pair do |attr, value|
-        hash[attr] = value
-      end
-      hash
     end
 
     # Checks equality by comparing each attribute.
@@ -219,18 +231,18 @@ module DatadogAPIClient::V2
           aggregation_key == o.aggregation_key &&
           attributes == o.attributes &&
           category == o.category &&
+          integration_id == o.integration_id &&
           message == o.message &&
           tags == o.tags &&
           timestamp == o.timestamp &&
-          title == o.title &&
-          additional_properties == o.additional_properties
+          title == o.title
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [aggregation_key, attributes, category, message, tags, timestamp, title, additional_properties].hash
+      [aggregation_key, attributes, category, integration_id, message, tags, timestamp, title].hash
     end
   end
 end
