@@ -6,7 +6,7 @@
 <title>
   Class: DatadogAPIClient::V2::FindingAttributes
   
-    &mdash; datadog-api-client 2.30.0.dev.1 documentation
+    &mdash; datadog-api-client 2.34.0 documentation
   
 </title>
 
@@ -150,6 +150,58 @@
       <li class="public ">
   <span class="summary_signature">
     
+      <a href="#datadog_link-instance_method" title="#datadog_link (instance method)">#<strong>datadog_link</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The Datadog relative link for this finding.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#description-instance_method" title="#description (instance method)">#<strong>description</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The description and remediation steps for this finding.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#evaluation-instance_method" title="#evaluation (instance method)">#<strong>evaluation</strong>  &#x21d2; Object </a>
     
 
@@ -196,6 +248,32 @@
 
   
     <span class="summary_desc"><div class='inline'><p>The date on which the evaluation for this finding changed (Unix ms).</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#external_id-instance_method" title="#external_id (instance method)">#<strong>external_id</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The cloud-based ID for the resource related to the finding.</p>
 </div></span>
   
 </li>
@@ -474,6 +552,90 @@
 </div>
     
       
+      <span id="datadog_link=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="datadog_link-instance_method">
+  
+    #<strong>datadog_link</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>The Datadog relative link for this finding.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+25
+26
+27</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/finding_attributes.rb', line 25</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_datadog_link'>datadog_link</span>
+  <span class='ivar'>@datadog_link</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="description=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="description-instance_method">
+  
+    #<strong>description</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>The description and remediation steps for this finding.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+28
+29
+30</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/finding_attributes.rb', line 28</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_description'>description</span>
+  <span class='ivar'>@description</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
       <span id="evaluation=-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="evaluation-instance_method">
@@ -551,6 +713,48 @@
 
 <span class='kw'>def</span> <span class='id identifier rubyid_evaluation_changed_at'>evaluation_changed_at</span>
   <span class='ivar'>@evaluation_changed_at</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="external_id=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="external_id-instance_method">
+  
+    #<strong>external_id</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>The cloud-based ID for the resource related to the finding.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+37
+38
+39</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/finding_attributes.rb', line 37</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_external_id'>external_id</span>
+  <span class='ivar'>@external_id</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -899,7 +1103,7 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Feb 18 21:07:20 2025 by
+  Generated on Thu Jun  5 12:13:54 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>
