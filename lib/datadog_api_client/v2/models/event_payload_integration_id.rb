@@ -17,11 +17,10 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Event category to identify the type of event.
-  class EventCategory
+  # Integration IDs sourced from integration manifests. Currently, only `custom-events` is supported.
+  class EventPayloadIntegrationId
     include BaseEnumModel
 
-    CHANGE = "change".freeze
-    ALERT = "alert".freeze
+    CUSTOM_EVENTS = "custom-events".freeze
   end
 end

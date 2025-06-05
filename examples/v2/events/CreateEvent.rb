@@ -6,6 +6,7 @@ api_instance = DatadogAPIClient::V2::EventsAPI.new
 body = DatadogAPIClient::V2::EventCreateRequestPayload.new({
   data: DatadogAPIClient::V2::EventCreateRequest.new({
     attributes: DatadogAPIClient::V2::EventPayload.new({
+      aggregation_key: "aggregation_key_123",
       attributes: DatadogAPIClient::V2::ChangeEventCustomAttributes.new({
         author: DatadogAPIClient::V2::ChangeEventCustomAttributesAuthor.new({
           name: "datadog@datadog.com",
@@ -32,11 +33,12 @@ body = DatadogAPIClient::V2::EventCreateRequestPayload.new({
         },
       }),
       category: DatadogAPIClient::V2::EventCategory::CHANGE,
+      integration_id: DatadogAPIClient::V2::EventPayloadIntegrationId::CUSTOM_EVENTS,
       message: "payment_processed feature flag has been enabled",
       tags: [
         "env:test",
       ],
-      title: "payment_processed feature flag updated",
+      title: "Datadog api client test",
     }),
     type: DatadogAPIClient::V2::EventCreateRequestType::EVENT,
   }),
