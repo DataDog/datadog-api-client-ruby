@@ -21,11 +21,20 @@ module DatadogAPIClient::V2
   class FindingAttributes
     include BaseGenericModel
 
+    # The Datadog relative link for this finding.
+    attr_accessor :datadog_link
+
+    # The description and remediation steps for this finding.
+    attr_accessor :description
+
     # The evaluation of the finding.
     attr_accessor :evaluation
 
     # The date on which the evaluation for this finding changed (Unix ms).
     attr_reader :evaluation_changed_at
+
+    # The cloud-based ID for the resource related to the finding.
+    attr_accessor :external_id
 
     # Information about the mute status of this finding.
     attr_accessor :mute
@@ -57,8 +66,11 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'datadog_link' => :'datadog_link',
+        :'description' => :'description',
         :'evaluation' => :'evaluation',
         :'evaluation_changed_at' => :'evaluation_changed_at',
+        :'external_id' => :'external_id',
         :'mute' => :'mute',
         :'resource' => :'resource',
         :'resource_discovery_date' => :'resource_discovery_date',
@@ -74,8 +86,11 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'datadog_link' => :'String',
+        :'description' => :'String',
         :'evaluation' => :'FindingEvaluation',
         :'evaluation_changed_at' => :'Integer',
+        :'external_id' => :'String',
         :'mute' => :'FindingMute',
         :'resource' => :'String',
         :'resource_discovery_date' => :'Integer',
@@ -105,12 +120,24 @@ module DatadogAPIClient::V2
         end
       }
 
+      if attributes.key?(:'datadog_link')
+        self.datadog_link = attributes[:'datadog_link']
+      end
+
+      if attributes.key?(:'description')
+        self.description = attributes[:'description']
+      end
+
       if attributes.key?(:'evaluation')
         self.evaluation = attributes[:'evaluation']
       end
 
       if attributes.key?(:'evaluation_changed_at')
         self.evaluation_changed_at = attributes[:'evaluation_changed_at']
+      end
+
+      if attributes.key?(:'external_id')
+        self.external_id = attributes[:'external_id']
       end
 
       if attributes.key?(:'mute')
@@ -203,8 +230,11 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          datadog_link == o.datadog_link &&
+          description == o.description &&
           evaluation == o.evaluation &&
           evaluation_changed_at == o.evaluation_changed_at &&
+          external_id == o.external_id &&
           mute == o.mute &&
           resource == o.resource &&
           resource_discovery_date == o.resource_discovery_date &&
@@ -220,7 +250,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [evaluation, evaluation_changed_at, mute, resource, resource_discovery_date, resource_type, rule, status, tags, vulnerability_type, additional_properties].hash
+      [datadog_link, description, evaluation, evaluation_changed_at, external_id, mute, resource, resource_discovery_date, resource_type, rule, status, tags, vulnerability_type, additional_properties].hash
     end
   end
 end
