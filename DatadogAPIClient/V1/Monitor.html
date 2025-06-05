@@ -6,7 +6,7 @@
 <title>
   Class: DatadogAPIClient::V1::Monitor
   
-    &mdash; datadog-api-client 2.30.0.dev.1 documentation
+    &mdash; datadog-api-client 2.34.0 documentation
   
 </title>
 
@@ -220,6 +220,32 @@
 
   
     <span class="summary_desc"><div class='inline'><p>Whether or not the monitor is deleted.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#draft_status-instance_method" title="#draft_status (instance method)">#<strong>draft_status</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Indicates whether the monitor is in a draft or published state.</p>
 </div></span>
   
 </li>
@@ -775,6 +801,53 @@
 
 <span class='kw'>def</span> <span class='id identifier rubyid_deleted'>deleted</span>
   <span class='ivar'>@deleted</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="draft_status=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="draft_status-instance_method">
+  
+    #<strong>draft_status</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Indicates whether the monitor is in a draft or published state.</p>
+
+<p><code>draft</code>: The monitor appears as Draft and does not send notifications.
+<code>published</code>: The monitor is active and evaluates conditions and notify as configured.</p>
+
+<p>This field is in preview. The draft value is only available to customers with the feature enabled.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+40
+41
+42</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/monitor.rb', line 40</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_draft_status'>draft_status</span>
+  <span class='ivar'>@draft_status</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1375,7 +1448,7 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Feb 18 21:07:08 2025 by
+  Generated on Thu Jun  5 08:10:03 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>
