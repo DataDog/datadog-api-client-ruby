@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Response after receiving a DORA incident event.
-  class DORAIncidentResponse
+  # Request to create a DORA failure event.
+  class DORAFailureRequest
     include BaseGenericModel
 
-    # Response after receiving a DORA incident event.
+    # The JSON:API data.
     attr_reader :data
 
     attr_accessor :additional_properties
@@ -38,7 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'DORAIncidentResponseData'
+        :'data' => :'DORAFailureRequestData'
       }
     end
 
@@ -47,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::DORAIncidentResponse` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::DORAFailureRequest` initialize method"
       end
 
       self.additional_properties = {}

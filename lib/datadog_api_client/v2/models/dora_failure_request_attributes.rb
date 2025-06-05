@@ -17,32 +17,32 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes to create a DORA incident event.
-  class DORAIncidentRequestAttributes
+  # Attributes to create a DORA failure event.
+  class DORAFailureRequestAttributes
     include BaseGenericModel
 
-    # Environment name that was impacted by the incident.
+    # Environment name that was impacted by the failure.
     attr_accessor :env
 
-    # Unix timestamp when the incident finished. It must be in nanoseconds, milliseconds, or seconds, and it should not be older than 1 hour.
+    # Unix timestamp when the failure finished. It must be in nanoseconds, milliseconds, or seconds, and it should not be older than 1 hour.
     attr_accessor :finished_at
 
     # Git info for DORA Metrics events.
     attr_accessor :git
 
-    # Incident ID. Must have at least 16 characters. Required to update a previously sent incident.
+    # Failure ID. Must have at least 16 characters. Required to update a previously sent failure.
     attr_accessor :id
 
-    # Incident name.
+    # Failure name.
     attr_accessor :name
 
-    # Service names impacted by the incident. If possible, use names registered in the Service Catalog. Required when the team field is not provided.
+    # Service names impacted by the failure. If possible, use names registered in the Service Catalog. Required when the team field is not provided.
     attr_accessor :services
 
-    # Incident severity.
+    # Failure severity.
     attr_accessor :severity
 
-    # Unix timestamp when the incident started. It must be in nanoseconds, milliseconds, or seconds.
+    # Unix timestamp when the failure started. It must be in nanoseconds, milliseconds, or seconds.
     attr_reader :started_at
 
     # Name of the team owning the services impacted. If possible, use team handles registered in Datadog. Required when the services field is not provided.
@@ -92,7 +92,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::DORAIncidentRequestAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::DORAFailureRequestAttributes` initialize method"
       end
 
       self.additional_properties = {}

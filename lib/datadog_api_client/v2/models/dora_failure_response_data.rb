@@ -17,12 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The JSON:API data.
-  class DORAIncidentRequestData
+  # Response after receiving a DORA failure event.
+  class DORAFailureResponseData
     include BaseGenericModel
 
-    # Attributes to create a DORA incident event.
-    attr_reader :attributes
+    # The ID of the received DORA failure event.
+    attr_reader :id
+
+    # JSON:API type for DORA failure events.
+    attr_accessor :type
 
     attr_accessor :additional_properties
 
@@ -30,7 +33,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'attributes' => :'attributes'
+        :'id' => :'id',
+        :'type' => :'type'
       }
     end
 
@@ -38,7 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'DORAIncidentRequestAttributes'
+        :'id' => :'String',
+        :'type' => :'DORAFailureType'
       }
     end
 
@@ -47,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::DORAIncidentRequestData` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::DORAFailureResponseData` initialize method"
       end
 
       self.additional_properties = {}
@@ -60,8 +65,12 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'attributes')
-        self.attributes = attributes[:'attributes']
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
+      end
+
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
       end
     end
 
@@ -69,18 +78,18 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @attributes.nil?
+      return false if @id.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param attributes [Object] Object to be assigned
+    # @param id [Object] Object to be assigned
     # @!visibility private
-    def attributes=(attributes)
-      if attributes.nil?
-        fail ArgumentError, 'invalid value for "attributes", attributes cannot be nil.'
+    def id=(id)
+      if id.nil?
+        fail ArgumentError, 'invalid value for "id", id cannot be nil.'
       end
-      @attributes = attributes
+      @id = id
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -109,7 +118,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          attributes == o.attributes &&
+          id == o.id &&
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -117,7 +127,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, additional_properties].hash
+      [id, type, additional_properties].hash
     end
   end
 end
