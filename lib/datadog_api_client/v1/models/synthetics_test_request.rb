@@ -42,6 +42,9 @@ module DatadogAPIClient::V1
     # By default, the client certificate is applied on the domain of the starting URL for browser tests. If you want your client certificate to be applied on other domains instead, add them in `certificateDomains`.
     attr_accessor :certificate_domains
 
+    # Check for certificate revocation.
+    attr_accessor :check_certificate_revocation
+
     # A protobuf JSON descriptor that needs to be gzipped first then base64 encoded.
     attr_accessor :compressed_json_descriptor
 
@@ -68,6 +71,9 @@ module DatadogAPIClient::V1
 
     # HTTP version to use for a Synthetic test.
     attr_accessor :http_version
+
+    # Whether the message is base64 encoded.
+    attr_accessor :is_message_base64_encoded
 
     # Message to send for UDP or WebSocket tests.
     attr_accessor :message
@@ -126,6 +132,7 @@ module DatadogAPIClient::V1
         :'call_type' => :'callType',
         :'certificate' => :'certificate',
         :'certificate_domains' => :'certificateDomains',
+        :'check_certificate_revocation' => :'checkCertificateRevocation',
         :'compressed_json_descriptor' => :'compressedJsonDescriptor',
         :'compressed_proto_file' => :'compressedProtoFile',
         :'dns_server' => :'dnsServer',
@@ -135,6 +142,7 @@ module DatadogAPIClient::V1
         :'headers' => :'headers',
         :'host' => :'host',
         :'http_version' => :'httpVersion',
+        :'is_message_base64_encoded' => :'isMessageBase64Encoded',
         :'message' => :'message',
         :'metadata' => :'metadata',
         :'method' => :'method',
@@ -163,6 +171,7 @@ module DatadogAPIClient::V1
         :'call_type' => :'SyntheticsTestCallType',
         :'certificate' => :'SyntheticsTestRequestCertificate',
         :'certificate_domains' => :'Array<String>',
+        :'check_certificate_revocation' => :'Boolean',
         :'compressed_json_descriptor' => :'String',
         :'compressed_proto_file' => :'String',
         :'dns_server' => :'String',
@@ -172,6 +181,7 @@ module DatadogAPIClient::V1
         :'headers' => :'Hash<String, String>',
         :'host' => :'String',
         :'http_version' => :'SyntheticsTestOptionsHTTPVersion',
+        :'is_message_base64_encoded' => :'Boolean',
         :'message' => :'String',
         :'metadata' => :'Hash<String, String>',
         :'method' => :'String',
@@ -237,6 +247,10 @@ module DatadogAPIClient::V1
         end
       end
 
+      if attributes.key?(:'check_certificate_revocation')
+        self.check_certificate_revocation = attributes[:'check_certificate_revocation']
+      end
+
       if attributes.key?(:'compressed_json_descriptor')
         self.compressed_json_descriptor = attributes[:'compressed_json_descriptor']
       end
@@ -273,6 +287,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'http_version')
         self.http_version = attributes[:'http_version']
+      end
+
+      if attributes.key?(:'is_message_base64_encoded')
+        self.is_message_base64_encoded = attributes[:'is_message_base64_encoded']
       end
 
       if attributes.key?(:'message')
@@ -387,6 +405,7 @@ module DatadogAPIClient::V1
           call_type == o.call_type &&
           certificate == o.certificate &&
           certificate_domains == o.certificate_domains &&
+          check_certificate_revocation == o.check_certificate_revocation &&
           compressed_json_descriptor == o.compressed_json_descriptor &&
           compressed_proto_file == o.compressed_proto_file &&
           dns_server == o.dns_server &&
@@ -396,6 +415,7 @@ module DatadogAPIClient::V1
           headers == o.headers &&
           host == o.host &&
           http_version == o.http_version &&
+          is_message_base64_encoded == o.is_message_base64_encoded &&
           message == o.message &&
           metadata == o.metadata &&
           method == o.method &&
@@ -417,7 +437,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [allow_insecure, basic_auth, body, body_type, call_type, certificate, certificate_domains, compressed_json_descriptor, compressed_proto_file, dns_server, dns_server_port, files, follow_redirects, headers, host, http_version, message, metadata, method, no_saving_response_body, number_of_packets, persist_cookies, port, proxy, query, servername, service, should_track_hops, timeout, url, additional_properties].hash
+      [allow_insecure, basic_auth, body, body_type, call_type, certificate, certificate_domains, check_certificate_revocation, compressed_json_descriptor, compressed_proto_file, dns_server, dns_server_port, files, follow_redirects, headers, host, http_version, is_message_base64_encoded, message, metadata, method, no_saving_response_body, number_of_packets, persist_cookies, port, proxy, query, servername, service, should_track_hops, timeout, url, additional_properties].hash
     end
   end
 end
