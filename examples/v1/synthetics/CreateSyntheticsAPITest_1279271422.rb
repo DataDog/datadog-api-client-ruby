@@ -83,6 +83,148 @@ body = DatadogAPIClient::V1::SyntheticsAPITest.new({
           call_type: DatadogAPIClient::V1::SyntheticsTestCallType::UNARY,
         }),
       }),
+      DatadogAPIClient::V1::SyntheticsAPITestStep.new({
+        name: "SSL step",
+        subtype: DatadogAPIClient::V1::SyntheticsAPITestStepSubtype::SSL,
+        allow_failure: false,
+        is_critical: true,
+        _retry: DatadogAPIClient::V1::SyntheticsTestOptionsRetry.new({
+          count: 0,
+          interval: 300,
+        }),
+        assertions: [
+          DatadogAPIClient::V1::SyntheticsAssertionTarget.new({
+            operator: DatadogAPIClient::V1::SyntheticsAssertionOperator::IS_IN_MORE_DAYS_THAN,
+            type: DatadogAPIClient::V1::SyntheticsAssertionType::CERTIFICATE,
+            target: 10,
+          }),
+        ],
+        request: DatadogAPIClient::V1::SyntheticsTestRequest.new({
+          check_certificate_revocation: true,
+          host: "example.org",
+          port: 443,
+        }),
+      }),
+      DatadogAPIClient::V1::SyntheticsAPITestStep.new({
+        name: "DNS step",
+        subtype: DatadogAPIClient::V1::SyntheticsAPITestStepSubtype::DNS,
+        allow_failure: false,
+        is_critical: true,
+        _retry: DatadogAPIClient::V1::SyntheticsTestOptionsRetry.new({
+          count: 0,
+          interval: 300,
+        }),
+        assertions: [
+          DatadogAPIClient::V1::SyntheticsAssertionTarget.new({
+            operator: DatadogAPIClient::V1::SyntheticsAssertionOperator::LESS_THAN,
+            type: DatadogAPIClient::V1::SyntheticsAssertionType::RESPONSE_TIME,
+            target: 1000,
+          }),
+        ],
+        request: DatadogAPIClient::V1::SyntheticsTestRequest.new({
+          host: "troisdizaines.com",
+          dns_server: "8.8.8.8",
+          dns_server_port: "53",
+        }),
+      }),
+      DatadogAPIClient::V1::SyntheticsAPITestStep.new({
+        name: "TCP step",
+        subtype: DatadogAPIClient::V1::SyntheticsAPITestStepSubtype::TCP,
+        allow_failure: false,
+        is_critical: true,
+        _retry: DatadogAPIClient::V1::SyntheticsTestOptionsRetry.new({
+          count: 0,
+          interval: 300,
+        }),
+        assertions: [
+          DatadogAPIClient::V1::SyntheticsAssertionTarget.new({
+            operator: DatadogAPIClient::V1::SyntheticsAssertionOperator::LESS_THAN,
+            type: DatadogAPIClient::V1::SyntheticsAssertionType::RESPONSE_TIME,
+            target: 1000,
+          }),
+        ],
+        request: DatadogAPIClient::V1::SyntheticsTestRequest.new({
+          host: "34.95.79.70",
+          port: 80,
+          should_track_hops: true,
+          timeout: 32,
+        }),
+      }),
+      DatadogAPIClient::V1::SyntheticsAPITestStep.new({
+        name: "ICMP step",
+        subtype: DatadogAPIClient::V1::SyntheticsAPITestStepSubtype::ICMP,
+        allow_failure: false,
+        is_critical: true,
+        _retry: DatadogAPIClient::V1::SyntheticsTestOptionsRetry.new({
+          count: 0,
+          interval: 300,
+        }),
+        assertions: [
+          DatadogAPIClient::V1::SyntheticsAssertionTarget.new({
+            operator: DatadogAPIClient::V1::SyntheticsAssertionOperator::IS,
+            target: 0,
+            type: DatadogAPIClient::V1::SyntheticsAssertionType::PACKET_LOSS_PERCENTAGE,
+          }),
+        ],
+        request: DatadogAPIClient::V1::SyntheticsTestRequest.new({
+          host: "34.95.79.70",
+          number_of_packets: 4,
+          should_track_hops: true,
+          timeout: 38,
+        }),
+      }),
+      DatadogAPIClient::V1::SyntheticsAPITestStep.new({
+        name: "Websocket step",
+        subtype: DatadogAPIClient::V1::SyntheticsAPITestStepSubtype::WEBSOCKET,
+        allow_failure: false,
+        is_critical: true,
+        _retry: DatadogAPIClient::V1::SyntheticsTestOptionsRetry.new({
+          count: 0,
+          interval: 300,
+        }),
+        assertions: [
+          DatadogAPIClient::V1::SyntheticsAssertionTarget.new({
+            operator: DatadogAPIClient::V1::SyntheticsAssertionOperator::LESS_THAN,
+            type: DatadogAPIClient::V1::SyntheticsAssertionType::RESPONSE_TIME,
+            target: 1000,
+          }),
+        ],
+        request: DatadogAPIClient::V1::SyntheticsTestRequest.new({
+          url: "ws://34.95.79.70/web-socket",
+          message: "My message",
+          is_message_base64_encoded: true,
+          headers: {
+            f: "g",
+          },
+          basic_auth: DatadogAPIClient::V1::SyntheticsBasicAuthWeb.new({
+            type: DatadogAPIClient::V1::SyntheticsBasicAuthWebType::WEB,
+            username: "user",
+            password: "password",
+          }),
+        }),
+      }),
+      DatadogAPIClient::V1::SyntheticsAPITestStep.new({
+        name: "UDP step",
+        subtype: DatadogAPIClient::V1::SyntheticsAPITestStepSubtype::UDP,
+        allow_failure: false,
+        is_critical: true,
+        _retry: DatadogAPIClient::V1::SyntheticsTestOptionsRetry.new({
+          count: 0,
+          interval: 300,
+        }),
+        assertions: [
+          DatadogAPIClient::V1::SyntheticsAssertionTarget.new({
+            operator: DatadogAPIClient::V1::SyntheticsAssertionOperator::LESS_THAN,
+            type: DatadogAPIClient::V1::SyntheticsAssertionType::RESPONSE_TIME,
+            target: 1000,
+          }),
+        ],
+        request: DatadogAPIClient::V1::SyntheticsTestRequest.new({
+          host: "8.8.8.8",
+          port: 53,
+          message: "A image.google.com",
+        }),
+      }),
     ],
   }),
   locations: [
