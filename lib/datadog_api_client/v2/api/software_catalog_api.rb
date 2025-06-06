@@ -88,6 +88,71 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Delete a single kind.
+    #
+    # @see #delete_catalog_kind_with_http_info
+    def delete_catalog_kind(kind_id, opts = {})
+      delete_catalog_kind_with_http_info(kind_id, opts)
+      nil
+    end
+
+    # Delete a single kind.
+    #
+    # Delete a single kind in Software Catalog.
+    #
+    # @param kind_id [String] Entity kind.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_catalog_kind_with_http_info(kind_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SoftwareCatalogAPI.delete_catalog_kind ...'
+      end
+      # verify the required parameter 'kind_id' is set
+      if @api_client.config.client_side_validation && kind_id.nil?
+        fail ArgumentError, "Missing the required parameter 'kind_id' when calling SoftwareCatalogAPI.delete_catalog_kind"
+      end
+      # resource path
+      local_var_path = '/api/v2/catalog/kind/{kind_id}'.sub('{kind_id}', CGI.escape(kind_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_catalog_kind,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SoftwareCatalogAPI#delete_catalog_kind\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get a list of entities.
     #
     # @see #list_catalog_entity_with_http_info
@@ -189,6 +254,95 @@ module DatadogAPIClient::V2
         @api_client.set_attribute_from_path(api_version, opts, "page_limit", Integer, page_size)
         while true do
             response = list_catalog_entity(opts)
+            @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
+            if @api_client.get_attribute_from_path(response, "data").length < page_size
+              break
+            end
+            @api_client.set_attribute_from_path(api_version, opts, "page_offset", Integer, @api_client.get_attribute_from_path(opts, "page_offset", 0) + page_size)
+        end
+    end
+
+    # Get a list of entity kinds.
+    #
+    # @see #list_catalog_kind_with_http_info
+    def list_catalog_kind(opts = {})
+      data, _status_code, _headers = list_catalog_kind_with_http_info(opts)
+      data
+    end
+
+    # Get a list of entity kinds.
+    #
+    # Get a list of entity kinds from Software Catalog.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :page_offset Specific offset to use as the beginning of the returned page.
+    # @option opts [Integer] :page_limit Maximum number of kinds in the response.
+    # @option opts [String] :filter_id Filter entities by UUID.
+    # @option opts [String] :filter_name Filter entities by name.
+    # @return [Array<(ListKindCatalogResponse, Integer, Hash)>] ListKindCatalogResponse data, response status code and response headers
+    def list_catalog_kind_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SoftwareCatalogAPI.list_catalog_kind ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/catalog/kind'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'page[offset]'] = opts[:'page_offset'] if !opts[:'page_offset'].nil?
+      query_params[:'page[limit]'] = opts[:'page_limit'] if !opts[:'page_limit'].nil?
+      query_params[:'filter[id]'] = opts[:'filter_id'] if !opts[:'filter_id'].nil?
+      query_params[:'filter[name]'] = opts[:'filter_name'] if !opts[:'filter_name'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ListKindCatalogResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_catalog_kind,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SoftwareCatalogAPI#list_catalog_kind\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get a list of entity kinds.
+    #
+    # Provide a paginated version of {#list_catalog_kind}, returning all items.
+    #
+    # To use it you need to use a block: list_catalog_kind_with_pagination { |item| p item }
+    #
+    # @yield [KindData] Paginated items
+    def list_catalog_kind_with_pagination(opts = {})
+        api_version = "V2"
+        page_size = @api_client.get_attribute_from_path(opts, "page_limit", 100)
+        @api_client.set_attribute_from_path(api_version, opts, "page_limit", Integer, page_size)
+        while true do
+            response = list_catalog_kind(opts)
             @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
             if @api_client.get_attribute_from_path(response, "data").length < page_size
               break
@@ -361,6 +515,73 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SoftwareCatalogAPI#upsert_catalog_entity\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create or update kinds.
+    #
+    # @see #upsert_catalog_kind_with_http_info
+    def upsert_catalog_kind(body, opts = {})
+      data, _status_code, _headers = upsert_catalog_kind_with_http_info(body, opts)
+      data
+    end
+
+    # Create or update kinds.
+    #
+    # Create or update kinds in Software Catalog.
+    #
+    # @param body [UpsertCatalogKindRequest] Kind YAML or JSON.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(UpsertCatalogKindResponse, Integer, Hash)>] UpsertCatalogKindResponse data, response status code and response headers
+    def upsert_catalog_kind_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SoftwareCatalogAPI.upsert_catalog_kind ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SoftwareCatalogAPI.upsert_catalog_kind"
+      end
+      # resource path
+      local_var_path = '/api/v2/catalog/kind'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'UpsertCatalogKindResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :upsert_catalog_kind,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SoftwareCatalogAPI#upsert_catalog_kind\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
