@@ -1106,6 +1106,18 @@ ScenariosModelMappings = {
     "v2.DeleteCatalogEntity" => {
             "entity_id" => "String",
     },
+    "v2.ListCatalogKind" => {
+            "page_offset" => "Integer",
+            "page_limit" => "Integer",
+            "filter_id" => "String",
+            "filter_name" => "String",
+    },
+    "v2.UpsertCatalogKind" => {
+            "body" => "UpsertCatalogKindRequest",
+    },
+    "v2.DeleteCatalogKind" => {
+            "kind_id" => "String",
+    },
     "v2.ListCatalogRelation" => {
             "page_offset" => "Integer",
             "page_limit" => "Integer",
