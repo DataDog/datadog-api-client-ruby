@@ -2083,6 +2083,10 @@ ScenariosModelMappings = {
             "tags" => "String",
             "limit" => "Integer",
     },
+    "v2.ListOnCallEscalationPolicies" => {
+            "page_size" => "Integer",
+            "page_number" => "Integer",
+    },
     "v2.CreateOnCallEscalationPolicy" => {
             "include" => "String",
             "body" => "EscalationPolicyCreateRequest",
@@ -2098,6 +2102,10 @@ ScenariosModelMappings = {
             "policy_id" => "String",
             "include" => "String",
             "body" => "EscalationPolicyUpdateRequest",
+    },
+    "v2.ListOnCallSchedules" => {
+            "page_size" => "Integer",
+            "page_number" => "Integer",
     },
     "v2.CreateOnCallSchedule" => {
             "include" => "String",
@@ -2119,6 +2127,21 @@ ScenariosModelMappings = {
             "include" => "String",
             "schedule_id" => "String",
             "filter_at_ts" => "String",
+    },
+    "v2.ListOnCallScheduleOverrides" => {
+            "schedule_id" => "String",
+            "page_size" => "Integer",
+            "page_number" => "Integer",
+            "filter_start" => "String",
+            "filter_end" => "String",
+    },
+    "v2.CreateOnCallScheduleOverride" => {
+            "schedule_id" => "String",
+            "body" => "OverrideRequest",
+    },
+    "v2.DeleteOnCallScheduleOverride" => {
+            "schedule_id" => "String",
+            "override_id" => "String",
     },
     "v2.GetTeamOnCallUsers" => {
             "include" => "String",

@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Defines the main on-call responder object for a team, including relationships.
-  class TeamOnCallRespondersData
+  # The definition of `OverrideCreateData` object.
+  class OverrideCreateData
     include BaseGenericModel
 
-    # Unique identifier of the on-call responder configuration.
-    attr_accessor :id
+    # The definition of `OverrideCreateDataAttributes` object.
+    attr_reader :attributes
 
-    # Relationship objects linked to a team's on-call responder configuration, including escalations and responders.
+    # The definition of `OverrideCreateDataRelationships` object.
     attr_accessor :relationships
 
-    # Represents the resource type for a group of users assigned to handle on-call duties within a team.
+    # The definition of `OverrideCreateDataType` object.
     attr_reader :type
 
     attr_accessor :additional_properties
@@ -36,7 +36,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'id' => :'id',
+        :'attributes' => :'attributes',
         :'relationships' => :'relationships',
         :'type' => :'type'
       }
@@ -46,9 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'id' => :'String',
-        :'relationships' => :'TeamOnCallRespondersDataRelationships',
-        :'type' => :'TeamOnCallRespondersDataType'
+        :'attributes' => :'OverrideCreateDataAttributes',
+        :'relationships' => :'OverrideCreateDataRelationships',
+        :'type' => :'OverrideCreateDataType'
       }
     end
 
@@ -57,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TeamOnCallRespondersData` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::OverrideCreateData` initialize method"
       end
 
       self.additional_properties = {}
@@ -70,8 +70,8 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.key?(:'attributes')
+        self.attributes = attributes[:'attributes']
       end
 
       if attributes.key?(:'relationships')
@@ -87,8 +87,19 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
+      return false if @attributes.nil?
       return false if @type.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param attributes [Object] Object to be assigned
+    # @!visibility private
+    def attributes=(attributes)
+      if attributes.nil?
+        fail ArgumentError, 'invalid value for "attributes", attributes cannot be nil.'
+      end
+      @attributes = attributes
     end
 
     # Custom attribute writer method with validation
@@ -127,7 +138,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
+          attributes == o.attributes &&
           relationships == o.relationships &&
           type == o.type &&
           additional_properties == o.additional_properties
@@ -137,7 +148,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [id, relationships, type, additional_properties].hash
+      [attributes, relationships, type, additional_properties].hash
     end
   end
 end

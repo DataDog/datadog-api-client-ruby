@@ -2,4 +2,7 @@
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::OnCallAPI.new
-p api_instance.get_on_call_team_routing_rules("27590dae-47be-4a7d-9abf-8f4e45124020")
+
+# there is a valid "dd_team" in the system
+DD_TEAM_DATA_ID = ENV["DD_TEAM_DATA_ID"]
+p api_instance.get_on_call_team_routing_rules(DD_TEAM_DATA_ID)
