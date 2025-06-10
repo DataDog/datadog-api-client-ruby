@@ -161,6 +161,78 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Create an override.
+    #
+    # @see #create_on_call_schedule_override_with_http_info
+    def create_on_call_schedule_override(schedule_id, body, opts = {})
+      data, _status_code, _headers = create_on_call_schedule_override_with_http_info(schedule_id, body, opts)
+      data
+    end
+
+    # Create an override.
+    #
+    # Create an override for a given schedule.
+    #
+    # @param schedule_id [String] The ID of the on-call schedule.
+    # @param body [OverrideRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(OverrideResponse, Integer, Hash)>] OverrideResponse data, response status code and response headers
+    def create_on_call_schedule_override_with_http_info(schedule_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OnCallAPI.create_on_call_schedule_override ...'
+      end
+      # verify the required parameter 'schedule_id' is set
+      if @api_client.config.client_side_validation && schedule_id.nil?
+        fail ArgumentError, "Missing the required parameter 'schedule_id' when calling OnCallAPI.create_on_call_schedule_override"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling OnCallAPI.create_on_call_schedule_override"
+      end
+      # resource path
+      local_var_path = '/api/v2/on-call/schedules/{schedule_id}/overrides'.sub('{schedule_id}', CGI.escape(schedule_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'OverrideResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_on_call_schedule_override,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OnCallAPI#create_on_call_schedule_override\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Delete On-Call escalation policy.
     #
     # @see #delete_on_call_escalation_policy_with_http_info
@@ -287,6 +359,76 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: OnCallAPI#delete_on_call_schedule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete an override.
+    #
+    # @see #delete_on_call_schedule_override_with_http_info
+    def delete_on_call_schedule_override(schedule_id, override_id, opts = {})
+      delete_on_call_schedule_override_with_http_info(schedule_id, override_id, opts)
+      nil
+    end
+
+    # Delete an override.
+    #
+    # Delete an override for a given schedule.
+    #
+    # @param schedule_id [String] The ID of the on-call schedule.
+    # @param override_id [String] The ID of the override.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_on_call_schedule_override_with_http_info(schedule_id, override_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OnCallAPI.delete_on_call_schedule_override ...'
+      end
+      # verify the required parameter 'schedule_id' is set
+      if @api_client.config.client_side_validation && schedule_id.nil?
+        fail ArgumentError, "Missing the required parameter 'schedule_id' when calling OnCallAPI.delete_on_call_schedule_override"
+      end
+      # verify the required parameter 'override_id' is set
+      if @api_client.config.client_side_validation && override_id.nil?
+        fail ArgumentError, "Missing the required parameter 'override_id' when calling OnCallAPI.delete_on_call_schedule_override"
+      end
+      # resource path
+      local_var_path = '/api/v2/on-call/schedules/{schedule_id}/overrides/{override_id}'.sub('{schedule_id}', CGI.escape(schedule_id.to_s).gsub('%2F', '/')).sub('{override_id}', CGI.escape(override_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_on_call_schedule_override,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OnCallAPI#delete_on_call_schedule_override\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -624,6 +766,215 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: OnCallAPI#get_team_on_call_users\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get a list of all escalation policies.
+    #
+    # @see #list_on_call_escalation_policies_with_http_info
+    def list_on_call_escalation_policies(opts = {})
+      data, _status_code, _headers = list_on_call_escalation_policies_with_http_info(opts)
+      data
+    end
+
+    # Get a list of all escalation policies.
+    #
+    # Get a list of all escalation policies.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 100.
+    # @option opts [Integer] :page_number Specific page number to return.
+    # @return [Array<(EscalationPoliciesResponse, Integer, Hash)>] EscalationPoliciesResponse data, response status code and response headers
+    def list_on_call_escalation_policies_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OnCallAPI.list_on_call_escalation_policies ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/on-call/escalation-policies'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+      query_params[:'page[number]'] = opts[:'page_number'] if !opts[:'page_number'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'EscalationPoliciesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_on_call_escalation_policies,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OnCallAPI#list_on_call_escalation_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get a list of all overrides for a schedule.
+    #
+    # @see #list_on_call_schedule_overrides_with_http_info
+    def list_on_call_schedule_overrides(schedule_id, filter_start, filter_end, opts = {})
+      data, _status_code, _headers = list_on_call_schedule_overrides_with_http_info(schedule_id, filter_start, filter_end, opts)
+      data
+    end
+
+    # Get a list of all overrides for a schedule.
+    #
+    # Get a list of all overrides for a given schedule.
+    #
+    # @param schedule_id [String] The ID of the on-call schedule.
+    # @param filter_start [String] The start time (in ISO-8601 format) of the time range to filter overrides by. Only overrides that overlap with this time range will be returned.
+    # @param filter_end [String] The end time (in ISO-8601 format) of the time range to filter overrides by. Only overrides that overlap with this time range will be returned.
+    # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 100.
+    # @option opts [Integer] :page_number Specific page number to return.
+    # @return [Array<(OverridesResponse, Integer, Hash)>] OverridesResponse data, response status code and response headers
+    def list_on_call_schedule_overrides_with_http_info(schedule_id, filter_start, filter_end, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OnCallAPI.list_on_call_schedule_overrides ...'
+      end
+      # verify the required parameter 'schedule_id' is set
+      if @api_client.config.client_side_validation && schedule_id.nil?
+        fail ArgumentError, "Missing the required parameter 'schedule_id' when calling OnCallAPI.list_on_call_schedule_overrides"
+      end
+      # verify the required parameter 'filter_start' is set
+      if @api_client.config.client_side_validation && filter_start.nil?
+        fail ArgumentError, "Missing the required parameter 'filter_start' when calling OnCallAPI.list_on_call_schedule_overrides"
+      end
+      # verify the required parameter 'filter_end' is set
+      if @api_client.config.client_side_validation && filter_end.nil?
+        fail ArgumentError, "Missing the required parameter 'filter_end' when calling OnCallAPI.list_on_call_schedule_overrides"
+      end
+      # resource path
+      local_var_path = '/api/v2/on-call/schedules/{schedule_id}/overrides'.sub('{schedule_id}', CGI.escape(schedule_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter[start]'] = filter_start
+      query_params[:'filter[end]'] = filter_end
+      query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+      query_params[:'page[number]'] = opts[:'page_number'] if !opts[:'page_number'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'OverridesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_on_call_schedule_overrides,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OnCallAPI#list_on_call_schedule_overrides\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get a list of all on-call schedules.
+    #
+    # @see #list_on_call_schedules_with_http_info
+    def list_on_call_schedules(opts = {})
+      data, _status_code, _headers = list_on_call_schedules_with_http_info(opts)
+      data
+    end
+
+    # Get a list of all on-call schedules.
+    #
+    # Get a list of all on-call schedules.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 100.
+    # @option opts [Integer] :page_number Specific page number to return.
+    # @return [Array<(SchedulesResponse, Integer, Hash)>] SchedulesResponse data, response status code and response headers
+    def list_on_call_schedules_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OnCallAPI.list_on_call_schedules ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/on-call/schedules'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+      query_params[:'page[number]'] = opts[:'page_number'] if !opts[:'page_number'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SchedulesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_on_call_schedules,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OnCallAPI#list_on_call_schedules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
