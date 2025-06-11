@@ -23,6 +23,7 @@ body = DatadogAPIClient::V2::CloudWorkloadSecurityAgentRuleCreateRequest.new({
             value: "test_value",
             scope: "process",
           }),
+          _hash: DatadogAPIClient::V2::CloudWorkloadSecurityAgentRuleActionHash.new({}),
         }),
       ],
     }),
