@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class DORADeploymentRequestAttributes
     include BaseGenericModel
 
+    # A list of user-defined tags. The tags must follow the `key:value` pattern. Up to 100 may be added per event.
+    attr_accessor :custom_tags
+
     # Environment name to where the service was deployed.
     attr_accessor :env
 
@@ -51,6 +54,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'custom_tags' => :'custom_tags',
         :'env' => :'env',
         :'finished_at' => :'finished_at',
         :'git' => :'git',
@@ -66,6 +70,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'custom_tags' => :'Array<String>',
         :'env' => :'String',
         :'finished_at' => :'Integer',
         :'git' => :'DORAGitInfo',
@@ -75,6 +80,14 @@ module DatadogAPIClient::V2
         :'team' => :'String',
         :'version' => :'String'
       }
+    end
+
+    # List of attributes with nullable: true
+    # @!visibility private
+    def self.openapi_nullable
+      Set.new([
+        :'custom_tags',
+      ])
     end
 
     # Initializes the object
@@ -94,6 +107,12 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'custom_tags')
+        if (value = attributes[:'custom_tags']).is_a?(Array)
+          self.custom_tags = value
+        end
+      end
 
       if attributes.key?(:'env')
         self.env = attributes[:'env']
@@ -194,6 +213,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          custom_tags == o.custom_tags &&
           env == o.env &&
           finished_at == o.finished_at &&
           git == o.git &&
@@ -209,7 +229,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [env, finished_at, git, id, service, started_at, team, version, additional_properties].hash
+      [custom_tags, env, finished_at, git, id, service, started_at, team, version, additional_properties].hash
     end
   end
 end
