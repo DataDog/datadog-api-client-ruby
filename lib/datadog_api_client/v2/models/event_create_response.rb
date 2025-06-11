@@ -21,10 +21,10 @@ module DatadogAPIClient::V2
   class EventCreateResponse
     include BaseGenericModel
 
-    # JSON object containing all events attributes and their associated values.
+    # JSON object containing event attributes and their associated values.
     attr_accessor :attributes
 
-    # Event type
+    # Entity type.
     attr_accessor :type
 
     attr_accessor :additional_properties

@@ -17,11 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Event category to identify the type of event.
-  class EventCategory
+  # The status of the alert.
+  class AlertEventCustomAttributesStatus
     include BaseEnumModel
 
-    CHANGE = "change".freeze
-    ALERT = "alert".freeze
+    WARN = "warn".freeze
+    ERROR = "error".freeze
+    OK = "ok".freeze
   end
 end
