@@ -17,11 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Event category to identify the type of event.
-  class EventCategory
+  # The category of the link.
+  class AlertEventCustomAttributesLinksItemsCategory
     include BaseEnumModel
 
-    CHANGE = "change".freeze
-    ALERT = "alert".freeze
+    RUNBOOK = "runbook".freeze
+    DOCUMENTATION = "documentation".freeze
+    DASHBOARD = "dashboard".freeze
   end
 end
