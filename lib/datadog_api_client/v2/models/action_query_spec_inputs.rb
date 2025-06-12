@@ -27,7 +27,7 @@ module DatadogAPIClient::V2
       def openapi_one_of
         [
           :'String',
-          :'ActionQuerySpecInput'
+          :'Hash<String, Object>'
         ]
       end
       # Builds the object
