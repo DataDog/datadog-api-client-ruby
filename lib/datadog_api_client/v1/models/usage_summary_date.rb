@@ -27,7 +27,7 @@ module DatadogAPIClient::V1
     # Shows the 99th percentile of all Azure app services using APM over all hours in the current date all organizations.
     attr_accessor :apm_azure_app_service_host_top99p
 
-    # Shows the 99th percentile of all APM DevSecOps hosts over all hours in the current date for the given org.
+    # Shows the 99th percentile of all APM DevSecOps hosts over all hours in the current date for all organizations.
     attr_accessor :apm_devsecops_host_top99p
 
     # Shows the average of all APM ECS Fargate tasks over all hours in the current date for all organizations.
@@ -75,43 +75,43 @@ module DatadogAPIClient::V1
     # Shows the sum of all browser RUM units over all hours in the current date for all organizations (To be deprecated on October 1st, 2024).
     attr_accessor :browser_rum_units_sum
 
-    # Shows the sum of all CI pipeline indexed spans over all hours in the current month for all organizations.
+    # Shows the sum of all CI pipeline indexed spans over all hours in the current date for all organizations.
     attr_accessor :ci_pipeline_indexed_spans_sum
 
-    # Shows the sum of all CI test indexed spans over all hours in the current month for all organizations.
+    # Shows the sum of all CI test indexed spans over all hours in the current date for all organizations.
     attr_accessor :ci_test_indexed_spans_sum
 
-    # Shows the high-water mark of all CI visibility intelligent test runner committers over all hours in the current month for all organizations.
+    # Shows the high-water mark of all CI visibility intelligent test runner committers over all hours in the current date for all organizations.
     attr_accessor :ci_visibility_itr_committers_hwm
 
-    # Shows the high-water mark of all CI visibility pipeline committers over all hours in the current month for all organizations.
+    # Shows the high-water mark of all CI visibility pipeline committers over all hours in the current date for all organizations.
     attr_accessor :ci_visibility_pipeline_committers_hwm
 
-    # Shows the high-water mark of all CI visibility test committers over all hours in the current month for all organizations.
+    # Shows the high-water mark of all CI visibility test committers over all hours in the current date for all organizations.
     attr_accessor :ci_visibility_test_committers_hwm
 
-    # Host count average of Cloud Cost Management for AWS for the given date and given organization.
+    # Host count average for Cloud Cost Management for AWS for the given date for all organizations.
     attr_accessor :cloud_cost_management_aws_host_count_avg
 
-    # Host count average of Cloud Cost Management for Azure for the given date and given organization.
+    # Host count average for Cloud Cost Management for Azure for the given date for all organizations.
     attr_accessor :cloud_cost_management_azure_host_count_avg
 
-    # Host count average of Cloud Cost Management for GCP for the given date and given organization.
+    # Host count average for Cloud Cost Management for GCP for the given date for all organizations.
     attr_accessor :cloud_cost_management_gcp_host_count_avg
 
-    # Host count average of Cloud Cost Management for all cloud providers for the given date and given organization.
+    # Host count average for Cloud Cost Management for all cloud providers for the given date for all organizations.
     attr_accessor :cloud_cost_management_host_count_avg
 
-    # Shows the sum of all Cloud Security Information and Event Management events over all hours in the current date for the given org.
+    # Shows the sum of all Cloud Security Information and Event Management events over all hours in the current date for all organizations.
     attr_accessor :cloud_siem_events_sum
 
-    # Shows the high-water mark of all Static Analysis committers over all hours in the current date for the given org.
+    # Shows the high-water mark of all Static Analysis committers over all hours in the current date for all organizations.
     attr_accessor :code_analysis_sa_committers_hwm
 
-    # Shows the high-water mark of all static Software Composition Analysis committers over all hours in the current date for the given org.
+    # Shows the high-water mark of all static Software Composition Analysis committers over all hours in the current date for all organizations.
     attr_accessor :code_analysis_sca_committers_hwm
 
-    # Shows the 99th percentile of all Code Security hosts over all hours in the current date for the given org.
+    # Shows the 99th percentile of all Code Security hosts over all hours in the current date for all organizations.
     attr_accessor :code_security_host_top99p
 
     # Shows the average of all distinct containers over all hours in the current date for all organizations.
@@ -123,34 +123,34 @@ module DatadogAPIClient::V1
     # Shows the high-water mark of all distinct containers over all hours in the current date for all organizations.
     attr_accessor :container_hwm
 
-    # Shows the sum of all Cloud Security Management Enterprise compliance containers over all hours in the current date for the given org.
+    # Shows the sum of all Cloud Security Management Enterprise compliance containers over all hours in the current date for all organizations.
     attr_accessor :csm_container_enterprise_compliance_count_sum
 
-    # Shows the sum of all Cloud Security Management Enterprise Cloud Workload Security containers over all hours in the current date for the given org.
+    # Shows the sum of all Cloud Security Management Enterprise Cloud Workload Security containers over all hours in the current date for all organizations.
     attr_accessor :csm_container_enterprise_cws_count_sum
 
-    # Shows the sum of all Cloud Security Management Enterprise containers over all hours in the current date for the given org.
+    # Shows the sum of all Cloud Security Management Enterprise containers over all hours in the current date for all organizations.
     attr_accessor :csm_container_enterprise_total_count_sum
 
-    # Shows the 99th percentile of all Cloud Security Management Enterprise Azure app services hosts over all hours in the current date for the given org.
+    # Shows the 99th percentile of all Cloud Security Management Enterprise Azure app services hosts over all hours in the current date for all organizations.
     attr_accessor :csm_host_enterprise_aas_host_count_top99p
 
-    # Shows the 99th percentile of all Cloud Security Management Enterprise AWS hosts over all hours in the current date for the given org.
+    # Shows the 99th percentile of all Cloud Security Management Enterprise AWS hosts over all hours on the current date for all organizations.
     attr_accessor :csm_host_enterprise_aws_host_count_top99p
 
-    # Shows the 99th percentile of all Cloud Security Management Enterprise Azure hosts over all hours in the current date for the given org.
+    # Shows the 99th percentile of all Cloud Security Management Enterprise Azure hosts over all hours on the current date for all organizations.
     attr_accessor :csm_host_enterprise_azure_host_count_top99p
 
-    # Shows the 99th percentile of all Cloud Security Management Enterprise compliance hosts over all hours in the current date for the given org.
+    # Shows the 99th percentile of all Cloud Security Management Enterprise compliance hosts over all hours on the current date for all organizations.
     attr_accessor :csm_host_enterprise_compliance_host_count_top99p
 
-    # Shows the 99th percentile of all Cloud Security Management Enterprise Cloud Workload Security hosts over all hours in the current date for the given org.
+    # Shows the 99th percentile of all Cloud Security Management Enterprise Cloud Workload Security hosts over all hours on the current date for all organizations.
     attr_accessor :csm_host_enterprise_cws_host_count_top99p
 
-    # Shows the 99th percentile of all Cloud Security Management Enterprise GCP hosts over all hours in the current date for the given org.
+    # Shows the 99th percentile of all Cloud Security Management Enterprise GCP hosts over all hours in the current date for all organizations.
     attr_accessor :csm_host_enterprise_gcp_host_count_top99p
 
-    # Shows the 99th percentile of all Cloud Security Management Enterprise hosts over all hours in the current date for the given org.
+    # Shows the 99th percentile of all Cloud Security Management Enterprise hosts over all hours in the current date for all organizations.
     attr_accessor :csm_host_enterprise_total_host_count_top99p
 
     # Shows the 99th percentile of all Cloud Security Management Pro Azure app services hosts over all hours in the current date for all organizations.
@@ -186,7 +186,7 @@ module DatadogAPIClient::V1
     # Shows the 99th percentile of all Cloud Workload Security hosts over all hours in the current date for all organizations.
     attr_accessor :cws_host_top99p
 
-    # Shows the sum of all Data Jobs Monitoring hosts over all hours in the current date for the given org.
+    # Shows the sum of all Data Jobs Monitoring hosts over all hours in the current date for all organizations.
     attr_accessor :data_jobs_monitoring_host_hr_sum
 
     # The date for the usage.
@@ -198,55 +198,55 @@ module DatadogAPIClient::V1
     # Shows the average of all normalized Database Monitoring queries over all hours in the current date for all organizations.
     attr_accessor :dbm_queries_count_avg
 
-    # Shows the sum of all ephemeral infrastructure hosts with the Datadog Agent over all hours in the current date for the given org.
+    # Shows the sum of all ephemeral infrastructure hosts with the Datadog Agent over all hours in the current date for all organizations.
     attr_accessor :eph_infra_host_agent_sum
 
-    # Shows the sum of all ephemeral infrastructure hosts on Alibaba over all hours in the current date for the given org.
+    # Shows the sum of all ephemeral infrastructure hosts on Alibaba over all hours in the current date for all organizations.
     attr_accessor :eph_infra_host_alibaba_sum
 
-    # Shows the sum of all ephemeral infrastructure hosts on AWS over all hours in the current date for the given org.
+    # Shows the sum of all ephemeral infrastructure hosts on AWS over all hours in the current date for all organizations.
     attr_accessor :eph_infra_host_aws_sum
 
-    # Shows the sum of all ephemeral infrastructure hosts on Azure over all hours in the current date for the given org.
+    # Shows the sum of all ephemeral infrastructure hosts on Azure over all hours in the current date for all organizations.
     attr_accessor :eph_infra_host_azure_sum
 
-    # Shows the sum of all ephemeral infrastructure hosts for Enterprise over all hours in the current date for the given org.
+    # Shows the sum of all ephemeral infrastructure hosts for Enterprise over all hours in the current date for all organizations.
     attr_accessor :eph_infra_host_ent_sum
 
-    # Shows the sum of all ephemeral infrastructure hosts on GCP over all hours in the current date for the given org.
+    # Shows the sum of all ephemeral infrastructure hosts on GCP over all hours in the current date for all organizations.
     attr_accessor :eph_infra_host_gcp_sum
 
-    # Shows the sum of all ephemeral infrastructure hosts on Heroku over all hours in the current date for the given org.
+    # Shows the sum of all ephemeral infrastructure hosts on Heroku over all hours in the current date for all organizations.
     attr_accessor :eph_infra_host_heroku_sum
 
-    # Shows the sum of all ephemeral infrastructure hosts with only Azure App Services over all hours in the current date for the given org.
+    # Shows the sum of all ephemeral infrastructure hosts with only Azure App Services over all hours in the current date for all organizations.
     attr_accessor :eph_infra_host_only_aas_sum
 
-    # Shows the sum of all ephemeral infrastructure hosts with only vSphere over all hours in the current date for the given org.
+    # Shows the sum of all ephemeral infrastructure hosts with only vSphere over all hours in the current date for all organizations.
     attr_accessor :eph_infra_host_only_vsphere_sum
 
-    # Shows the sum of all ephemeral APM hosts reported by the Datadog exporter for the OpenTelemetry Collector over all hours in the current date for the given org.
+    # Shows the sum of all ephemeral APM hosts reported by the Datadog exporter for the OpenTelemetry Collector over all hours in the current date for all organizations.
     attr_accessor :eph_infra_host_opentelemetry_apm_sum
 
-    # Shows the sum of all ephemeral hosts reported by the Datadog exporter for the OpenTelemetry Collector over all hours in the current date for the given org.
+    # Shows the sum of all ephemeral hosts reported by the Datadog exporter for the OpenTelemetry Collector over all hours in the current date for all organizations.
     attr_accessor :eph_infra_host_opentelemetry_sum
 
-    # Shows the sum of all ephemeral infrastructure hosts for Pro over all hours in the current date for the given org.
+    # Shows the sum of all ephemeral infrastructure hosts for Pro over all hours in the current date for all organizations.
     attr_accessor :eph_infra_host_pro_sum
 
-    # Shows the sum of all ephemeral infrastructure hosts for Pro Plus over all hours in the current date for the given org.
+    # Shows the sum of all ephemeral infrastructure hosts for Pro Plus over all hours in the current date for all organizations.
     attr_accessor :eph_infra_host_proplus_sum
 
-    # Shows the sum of all Error Tracking APM error events over all hours in the current date for the given org.
+    # Shows the sum of all Error Tracking APM error events over all hours in the current date for all organizations.
     attr_accessor :error_tracking_apm_error_events_sum
 
-    # Shows the sum of all Error Tracking error events over all hours in the current date for the given org.
+    # Shows the sum of all Error Tracking error events over all hours in the current date for all organizations.
     attr_accessor :error_tracking_error_events_sum
 
-    # Shows the sum of all Error Tracking events over all hours in the current date for the given org.
+    # Shows the sum of all Error Tracking events over all hours in the current date for all organizations.
     attr_accessor :error_tracking_events_sum
 
-    # Shows the sum of all Error Tracking RUM error events over all hours in the current date for the given org.
+    # Shows the sum of all Error Tracking RUM error events over all hours in the current date for all organizations.
     attr_accessor :error_tracking_rum_error_events_sum
 
     # The average number of Profiling Fargate tasks over all hours in the current date for all organizations.
@@ -261,28 +261,28 @@ module DatadogAPIClient::V1
     # Shows the average of all Fargate tasks over all hours in the current date for all organizations.
     attr_accessor :fargate_tasks_count_hwm
 
-    # Shows the average number of Flex Logs Compute Large Instances over all hours in the current date for the given org.
+    # Shows the average number of Flex Logs Compute Large Instances over all hours in the current date for all organizations.
     attr_accessor :flex_logs_compute_large_avg
 
-    # Shows the average number of Flex Logs Compute Medium Instances over all hours in the current date for the given org.
+    # Shows the average number of Flex Logs Compute Medium Instances over all hours in the current date for all organizations.
     attr_accessor :flex_logs_compute_medium_avg
 
-    # Shows the average number of Flex Logs Compute Small Instances over all hours in the current date for the given org.
+    # Shows the average number of Flex Logs Compute Small Instances over all hours in the current date for all organizations.
     attr_accessor :flex_logs_compute_small_avg
 
-    # Shows the average number of Flex Logs Compute Extra Small Instances over all hours in the current date for the given org.
+    # Shows the average number of Flex Logs Compute Extra Small Instances over all hours in the current date for all organizations.
     attr_accessor :flex_logs_compute_xsmall_avg
 
-    # Shows the average number of Flex Logs Starter Instances over all hours in the current date for the given org.
+    # Shows the average number of Flex Logs Starter Instances over all hours in the current date for all organizations.
     attr_accessor :flex_logs_starter_avg
 
-    # Shows the average number of Flex Logs Starter Storage Index Instances over all hours in the current date for the given org.
+    # Shows the average number of Flex Logs Starter Storage Index Instances over all hours in the current date for all organizations.
     attr_accessor :flex_logs_starter_storage_index_avg
 
-    # Shows the average number of Flex Logs Starter Storage Retention Adjustment Instances over all hours in the current date for the given org.
+    # Shows the average number of Flex Logs Starter Storage Retention Adjustment Instances over all hours in the current date for all organizations.
     attr_accessor :flex_logs_starter_storage_retention_adjustment_avg
 
-    # Shows the average of all Flex Stored Logs over all hours in the current date for the given org.
+    # Shows the average of all Flex Stored Logs over all hours in the current date for all organizations.
     attr_accessor :flex_stored_logs_avg
 
     # Shows the sum of all log bytes forwarded over all hours in the current date for all organizations.
@@ -336,7 +336,7 @@ module DatadogAPIClient::V1
     # Shows the sum of all mobile RUM units over all hours in the current date for all organizations (To be deprecated on October 1st, 2024).
     attr_accessor :mobile_rum_units_sum
 
-    # Shows the sum of all Network Device Monitoring NetFlow events over all hours in the current date for the given org.
+    # Shows the sum of all Network Device Monitoring NetFlow events over all hours in the current date for all organizations.
     attr_accessor :ndm_netflow_events_sum
 
     # Shows the sum of all Network flows indexed over all hours in the current date for all organizations (To be deprecated on October 1st, 2024).
@@ -345,13 +345,13 @@ module DatadogAPIClient::V1
     # Shows the 99th percentile of all distinct Cloud Network Monitoring hosts (formerly known as Network hosts) over all hours in the current date for all organizations.
     attr_accessor :npm_host_top99p
 
-    # Sum of all observability pipelines bytes processed over all hours in the current date for the given org.
+    # Sum of all observability pipelines bytes processed over all hours in the current date for all organizations.
     attr_accessor :observability_pipelines_bytes_processed_sum
 
-    # Shows the sum of all Oracle Cloud Infrastructure hosts over all hours in the current date for the given org.
+    # Shows the sum of all Oracle Cloud Infrastructure hosts over all hours in the current date for all organizations.
     attr_accessor :oci_host_sum
 
-    # Shows the 99th percentile of all Oracle Cloud Infrastructure hosts over all hours in the current date for the given org.
+    # Shows the 99th percentile of all Oracle Cloud Infrastructure hosts over all hours in the current date for all organizations.
     attr_accessor :oci_host_top99p
 
     # Sum of all online archived events over all hours in the current date for all organizations.
@@ -366,13 +366,16 @@ module DatadogAPIClient::V1
     # Organizations associated with a user.
     attr_accessor :orgs
 
+    # Sum of all product analytics sessions over all hours in the current date for all organizations.
+    attr_accessor :product_analytics_sum
+
     # Shows the 99th percentile of all profiled Azure app services over all hours in the current date for all organizations.
     attr_accessor :profiling_aas_count_top99p
 
     # Shows the 99th percentile of all profiled hosts over all hours within the current date for all organizations.
     attr_accessor :profiling_host_top99p
 
-    # Shows the sum of all mobile sessions and all browser lite and legacy sessions over all hours in the current month for all organizations (To be deprecated on October 1st, 2024).
+    # Shows the sum of all mobile sessions and all browser lite and legacy sessions over all hours in the current date for all organizations (To be deprecated on October 1st, 2024).
     attr_accessor :rum_browser_and_mobile_session_count
 
     # Shows the sum of all browser RUM legacy sessions over all hours in the current date for all organizations (To be introduced on October 1st, 2024).
@@ -447,10 +450,10 @@ module DatadogAPIClient::V1
     # Shows the sum of all browser and mobile RUM units over all hours in the current date for all organizations (To be deprecated on October 1st, 2024).
     attr_accessor :rum_units_sum
 
-    # Shows the average of all Software Composition Analysis Fargate tasks over all hours in the current date for the given org.
+    # Shows the average of all Software Composition Analysis Fargate tasks over all hours in the current date for all organizations.
     attr_accessor :sca_fargate_count_avg
 
-    # Shows the sum of the high-water marks of all Software Composition Analysis Fargate tasks over all hours in the current date for the given org.
+    # Shows the sum of the high-water marks of all Software Composition Analysis Fargate tasks over all hours in the current date for all organizations.
     attr_accessor :sca_fargate_count_hwm
 
     # Sum of all APM bytes scanned with sensitive data scanner over all hours in the current date for all organizations.
@@ -459,25 +462,25 @@ module DatadogAPIClient::V1
     # Sum of all event stream events bytes scanned with sensitive data scanner over all hours in the current date for all organizations.
     attr_accessor :sds_events_scanned_bytes_sum
 
-    # Shows the sum of all bytes scanned of logs usage by the Sensitive Data Scanner over all hours in the current month for all organizations.
+    # Shows the sum of all bytes scanned by the Sensitive Data Scanner for logs usage across all organizations over all hours on the current date.
     attr_accessor :sds_logs_scanned_bytes_sum
 
     # Sum of all RUM bytes scanned with sensitive data scanner over all hours in the current date for all organizations.
     attr_accessor :sds_rum_scanned_bytes_sum
 
-    # Shows the sum of all bytes scanned across all usage types by the Sensitive Data Scanner over all hours in the current month for all organizations.
+    # Shows the sum of all bytes scanned by the Sensitive Data Scanner across all usage types over all hours of the current date for all organizations.
     attr_accessor :sds_total_scanned_bytes_sum
 
-    # Shows the average of the number of Serverless Apps for Azure for the given date and given org.
+    # Shows the average number of Serverless Apps for Azure for the given date for all organizations.
     attr_accessor :serverless_apps_azure_count_avg
 
-    # Shows the average of the number of Serverless Apps for Google Cloud for the given date and given org.
+    # Shows the average number of Serverless Apps for Google Cloud for the given date for all organizations.
     attr_accessor :serverless_apps_google_count_avg
 
-    # Shows the average of the number of Serverless Apps for Azure and Google Cloud for the given date and given org.
+    # Shows the average number of Serverless Apps for Azure and Google Cloud for the given date for all organizations.
     attr_accessor :serverless_apps_total_count_avg
 
-    # Shows the sum of all log events analyzed by Cloud SIEM over all hours in the current date for the given org.
+    # Shows the sum of all log events analyzed by Cloud SIEM over all hours in the current date for all organizations.
     attr_accessor :siem_analyzed_logs_add_on_count_sum
 
     # Shows the sum of all Synthetic browser tests over all hours in the current date for all organizations.
@@ -498,13 +501,13 @@ module DatadogAPIClient::V1
     # Shows the sum of all ingested APM span bytes over all hours in the current date for all organizations.
     attr_accessor :twol_ingested_events_bytes_sum
 
-    # Shows the 99th percentile of all universal service management hosts over all hours in the current date for the given org.
+    # Shows the 99th percentile of all universal service management hosts over all hours on the current date for all organizations.
     attr_accessor :universal_service_monitoring_host_top99p
 
     # Shows the 99th percentile of all vSphere hosts over all hours in the current date for all organizations.
     attr_accessor :vsphere_host_top99p
 
-    # Shows the 99th percentile of all Application Vulnerability Management hosts over all hours in the current date for the given org.
+    # Shows the 99th percentile of all Application Vulnerability Management hosts over all hours on the current date for all organizations.
     attr_accessor :vuln_management_host_count_top99p
 
     # Sum of all workflows executed over all hours in the current date for all organizations.
@@ -631,6 +634,7 @@ module DatadogAPIClient::V1
         :'opentelemetry_apm_host_top99p' => :'opentelemetry_apm_host_top99p',
         :'opentelemetry_host_top99p' => :'opentelemetry_host_top99p',
         :'orgs' => :'orgs',
+        :'product_analytics_sum' => :'product_analytics_sum',
         :'profiling_aas_count_top99p' => :'profiling_aas_count_top99p',
         :'profiling_host_top99p' => :'profiling_host_top99p',
         :'rum_browser_and_mobile_session_count' => :'rum_browser_and_mobile_session_count',
@@ -801,6 +805,7 @@ module DatadogAPIClient::V1
         :'opentelemetry_apm_host_top99p' => :'Integer',
         :'opentelemetry_host_top99p' => :'Integer',
         :'orgs' => :'Array<UsageSummaryDateOrg>',
+        :'product_analytics_sum' => :'Integer',
         :'profiling_aas_count_top99p' => :'Integer',
         :'profiling_host_top99p' => :'Integer',
         :'rum_browser_and_mobile_session_count' => :'Integer',
@@ -1332,6 +1337,10 @@ module DatadogAPIClient::V1
         end
       end
 
+      if attributes.key?(:'product_analytics_sum')
+        self.product_analytics_sum = attributes[:'product_analytics_sum']
+      end
+
       if attributes.key?(:'profiling_aas_count_top99p')
         self.profiling_aas_count_top99p = attributes[:'profiling_aas_count_top99p']
       end
@@ -1666,6 +1675,7 @@ module DatadogAPIClient::V1
           opentelemetry_apm_host_top99p == o.opentelemetry_apm_host_top99p &&
           opentelemetry_host_top99p == o.opentelemetry_host_top99p &&
           orgs == o.orgs &&
+          product_analytics_sum == o.product_analytics_sum &&
           profiling_aas_count_top99p == o.profiling_aas_count_top99p &&
           profiling_host_top99p == o.profiling_host_top99p &&
           rum_browser_and_mobile_session_count == o.rum_browser_and_mobile_session_count &&
@@ -1721,7 +1731,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [agent_host_top99p, apm_azure_app_service_host_top99p, apm_devsecops_host_top99p, apm_fargate_count_avg, apm_host_top99p, appsec_fargate_count_avg, asm_serverless_sum, audit_logs_lines_indexed_sum, audit_trail_enabled_hwm, avg_profiled_fargate_tasks, aws_host_top99p, aws_lambda_func_count, aws_lambda_invocations_sum, azure_app_service_top99p, billable_ingested_bytes_sum, browser_rum_lite_session_count_sum, browser_rum_replay_session_count_sum, browser_rum_units_sum, ci_pipeline_indexed_spans_sum, ci_test_indexed_spans_sum, ci_visibility_itr_committers_hwm, ci_visibility_pipeline_committers_hwm, ci_visibility_test_committers_hwm, cloud_cost_management_aws_host_count_avg, cloud_cost_management_azure_host_count_avg, cloud_cost_management_gcp_host_count_avg, cloud_cost_management_host_count_avg, cloud_siem_events_sum, code_analysis_sa_committers_hwm, code_analysis_sca_committers_hwm, code_security_host_top99p, container_avg, container_excl_agent_avg, container_hwm, csm_container_enterprise_compliance_count_sum, csm_container_enterprise_cws_count_sum, csm_container_enterprise_total_count_sum, csm_host_enterprise_aas_host_count_top99p, csm_host_enterprise_aws_host_count_top99p, csm_host_enterprise_azure_host_count_top99p, csm_host_enterprise_compliance_host_count_top99p, csm_host_enterprise_cws_host_count_top99p, csm_host_enterprise_gcp_host_count_top99p, csm_host_enterprise_total_host_count_top99p, cspm_aas_host_top99p, cspm_aws_host_top99p, cspm_azure_host_top99p, cspm_container_avg, cspm_container_hwm, cspm_gcp_host_top99p, cspm_host_top99p, custom_ts_avg, cws_container_count_avg, cws_fargate_task_avg, cws_host_top99p, data_jobs_monitoring_host_hr_sum, date, dbm_host_top99p, dbm_queries_count_avg, eph_infra_host_agent_sum, eph_infra_host_alibaba_sum, eph_infra_host_aws_sum, eph_infra_host_azure_sum, eph_infra_host_ent_sum, eph_infra_host_gcp_sum, eph_infra_host_heroku_sum, eph_infra_host_only_aas_sum, eph_infra_host_only_vsphere_sum, eph_infra_host_opentelemetry_apm_sum, eph_infra_host_opentelemetry_sum, eph_infra_host_pro_sum, eph_infra_host_proplus_sum, error_tracking_apm_error_events_sum, error_tracking_error_events_sum, error_tracking_events_sum, error_tracking_rum_error_events_sum, fargate_container_profiler_profiling_fargate_avg, fargate_container_profiler_profiling_fargate_eks_avg, fargate_tasks_count_avg, fargate_tasks_count_hwm, flex_logs_compute_large_avg, flex_logs_compute_medium_avg, flex_logs_compute_small_avg, flex_logs_compute_xsmall_avg, flex_logs_starter_avg, flex_logs_starter_storage_index_avg, flex_logs_starter_storage_retention_adjustment_avg, flex_stored_logs_avg, forwarding_events_bytes_sum, gcp_host_top99p, heroku_host_top99p, incident_management_monthly_active_users_hwm, indexed_events_count_sum, infra_host_top99p, ingested_events_bytes_sum, iot_device_sum, iot_device_top99p, mobile_rum_lite_session_count_sum, mobile_rum_session_count_android_sum, mobile_rum_session_count_flutter_sum, mobile_rum_session_count_ios_sum, mobile_rum_session_count_reactnative_sum, mobile_rum_session_count_roku_sum, mobile_rum_session_count_sum, mobile_rum_units_sum, ndm_netflow_events_sum, netflow_indexed_events_count_sum, npm_host_top99p, observability_pipelines_bytes_processed_sum, oci_host_sum, oci_host_top99p, online_archive_events_count_sum, opentelemetry_apm_host_top99p, opentelemetry_host_top99p, orgs, profiling_aas_count_top99p, profiling_host_top99p, rum_browser_and_mobile_session_count, rum_browser_legacy_session_count_sum, rum_browser_lite_session_count_sum, rum_browser_replay_session_count_sum, rum_lite_session_count_sum, rum_mobile_legacy_session_count_android_sum, rum_mobile_legacy_session_count_flutter_sum, rum_mobile_legacy_session_count_ios_sum, rum_mobile_legacy_session_count_reactnative_sum, rum_mobile_legacy_session_count_roku_sum, rum_mobile_lite_session_count_android_sum, rum_mobile_lite_session_count_flutter_sum, rum_mobile_lite_session_count_ios_sum, rum_mobile_lite_session_count_kotlinmultiplatform_sum, rum_mobile_lite_session_count_reactnative_sum, rum_mobile_lite_session_count_roku_sum, rum_mobile_lite_session_count_unity_sum, rum_mobile_replay_session_count_android_sum, rum_mobile_replay_session_count_ios_sum, rum_mobile_replay_session_count_kotlinmultiplatform_sum, rum_mobile_replay_session_count_reactnative_sum, rum_replay_session_count_sum, rum_session_count_sum, rum_total_session_count_sum, rum_units_sum, sca_fargate_count_avg, sca_fargate_count_hwm, sds_apm_scanned_bytes_sum, sds_events_scanned_bytes_sum, sds_logs_scanned_bytes_sum, sds_rum_scanned_bytes_sum, sds_total_scanned_bytes_sum, serverless_apps_azure_count_avg, serverless_apps_google_count_avg, serverless_apps_total_count_avg, siem_analyzed_logs_add_on_count_sum, synthetics_browser_check_calls_count_sum, synthetics_check_calls_count_sum, synthetics_mobile_test_runs_sum, synthetics_parallel_testing_max_slots_hwm, trace_search_indexed_events_count_sum, twol_ingested_events_bytes_sum, universal_service_monitoring_host_top99p, vsphere_host_top99p, vuln_management_host_count_top99p, workflow_executions_usage_sum, additional_properties].hash
+      [agent_host_top99p, apm_azure_app_service_host_top99p, apm_devsecops_host_top99p, apm_fargate_count_avg, apm_host_top99p, appsec_fargate_count_avg, asm_serverless_sum, audit_logs_lines_indexed_sum, audit_trail_enabled_hwm, avg_profiled_fargate_tasks, aws_host_top99p, aws_lambda_func_count, aws_lambda_invocations_sum, azure_app_service_top99p, billable_ingested_bytes_sum, browser_rum_lite_session_count_sum, browser_rum_replay_session_count_sum, browser_rum_units_sum, ci_pipeline_indexed_spans_sum, ci_test_indexed_spans_sum, ci_visibility_itr_committers_hwm, ci_visibility_pipeline_committers_hwm, ci_visibility_test_committers_hwm, cloud_cost_management_aws_host_count_avg, cloud_cost_management_azure_host_count_avg, cloud_cost_management_gcp_host_count_avg, cloud_cost_management_host_count_avg, cloud_siem_events_sum, code_analysis_sa_committers_hwm, code_analysis_sca_committers_hwm, code_security_host_top99p, container_avg, container_excl_agent_avg, container_hwm, csm_container_enterprise_compliance_count_sum, csm_container_enterprise_cws_count_sum, csm_container_enterprise_total_count_sum, csm_host_enterprise_aas_host_count_top99p, csm_host_enterprise_aws_host_count_top99p, csm_host_enterprise_azure_host_count_top99p, csm_host_enterprise_compliance_host_count_top99p, csm_host_enterprise_cws_host_count_top99p, csm_host_enterprise_gcp_host_count_top99p, csm_host_enterprise_total_host_count_top99p, cspm_aas_host_top99p, cspm_aws_host_top99p, cspm_azure_host_top99p, cspm_container_avg, cspm_container_hwm, cspm_gcp_host_top99p, cspm_host_top99p, custom_ts_avg, cws_container_count_avg, cws_fargate_task_avg, cws_host_top99p, data_jobs_monitoring_host_hr_sum, date, dbm_host_top99p, dbm_queries_count_avg, eph_infra_host_agent_sum, eph_infra_host_alibaba_sum, eph_infra_host_aws_sum, eph_infra_host_azure_sum, eph_infra_host_ent_sum, eph_infra_host_gcp_sum, eph_infra_host_heroku_sum, eph_infra_host_only_aas_sum, eph_infra_host_only_vsphere_sum, eph_infra_host_opentelemetry_apm_sum, eph_infra_host_opentelemetry_sum, eph_infra_host_pro_sum, eph_infra_host_proplus_sum, error_tracking_apm_error_events_sum, error_tracking_error_events_sum, error_tracking_events_sum, error_tracking_rum_error_events_sum, fargate_container_profiler_profiling_fargate_avg, fargate_container_profiler_profiling_fargate_eks_avg, fargate_tasks_count_avg, fargate_tasks_count_hwm, flex_logs_compute_large_avg, flex_logs_compute_medium_avg, flex_logs_compute_small_avg, flex_logs_compute_xsmall_avg, flex_logs_starter_avg, flex_logs_starter_storage_index_avg, flex_logs_starter_storage_retention_adjustment_avg, flex_stored_logs_avg, forwarding_events_bytes_sum, gcp_host_top99p, heroku_host_top99p, incident_management_monthly_active_users_hwm, indexed_events_count_sum, infra_host_top99p, ingested_events_bytes_sum, iot_device_sum, iot_device_top99p, mobile_rum_lite_session_count_sum, mobile_rum_session_count_android_sum, mobile_rum_session_count_flutter_sum, mobile_rum_session_count_ios_sum, mobile_rum_session_count_reactnative_sum, mobile_rum_session_count_roku_sum, mobile_rum_session_count_sum, mobile_rum_units_sum, ndm_netflow_events_sum, netflow_indexed_events_count_sum, npm_host_top99p, observability_pipelines_bytes_processed_sum, oci_host_sum, oci_host_top99p, online_archive_events_count_sum, opentelemetry_apm_host_top99p, opentelemetry_host_top99p, orgs, product_analytics_sum, profiling_aas_count_top99p, profiling_host_top99p, rum_browser_and_mobile_session_count, rum_browser_legacy_session_count_sum, rum_browser_lite_session_count_sum, rum_browser_replay_session_count_sum, rum_lite_session_count_sum, rum_mobile_legacy_session_count_android_sum, rum_mobile_legacy_session_count_flutter_sum, rum_mobile_legacy_session_count_ios_sum, rum_mobile_legacy_session_count_reactnative_sum, rum_mobile_legacy_session_count_roku_sum, rum_mobile_lite_session_count_android_sum, rum_mobile_lite_session_count_flutter_sum, rum_mobile_lite_session_count_ios_sum, rum_mobile_lite_session_count_kotlinmultiplatform_sum, rum_mobile_lite_session_count_reactnative_sum, rum_mobile_lite_session_count_roku_sum, rum_mobile_lite_session_count_unity_sum, rum_mobile_replay_session_count_android_sum, rum_mobile_replay_session_count_ios_sum, rum_mobile_replay_session_count_kotlinmultiplatform_sum, rum_mobile_replay_session_count_reactnative_sum, rum_replay_session_count_sum, rum_session_count_sum, rum_total_session_count_sum, rum_units_sum, sca_fargate_count_avg, sca_fargate_count_hwm, sds_apm_scanned_bytes_sum, sds_events_scanned_bytes_sum, sds_logs_scanned_bytes_sum, sds_rum_scanned_bytes_sum, sds_total_scanned_bytes_sum, serverless_apps_azure_count_avg, serverless_apps_google_count_avg, serverless_apps_total_count_avg, siem_analyzed_logs_add_on_count_sum, synthetics_browser_check_calls_count_sum, synthetics_check_calls_count_sum, synthetics_mobile_test_runs_sum, synthetics_parallel_testing_max_slots_hwm, trace_search_indexed_events_count_sum, twol_ingested_events_bytes_sum, universal_service_monitoring_host_top99p, vsphere_host_top99p, vuln_management_host_count_top99p, workflow_executions_usage_sum, additional_properties].hash
     end
   end
 end
