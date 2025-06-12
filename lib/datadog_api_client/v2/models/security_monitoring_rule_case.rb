@@ -28,6 +28,9 @@ module DatadogAPIClient::V2
     # based on the event counts in the previously defined queries.
     attr_accessor :condition
 
+    # Severity of the Security Signal.
+    attr_accessor :custom_status
+
     # Name of the case.
     attr_accessor :name
 
@@ -45,6 +48,7 @@ module DatadogAPIClient::V2
       {
         :'actions' => :'actions',
         :'condition' => :'condition',
+        :'custom_status' => :'customStatus',
         :'name' => :'name',
         :'notifications' => :'notifications',
         :'status' => :'status'
@@ -57,6 +61,7 @@ module DatadogAPIClient::V2
       {
         :'actions' => :'Array<SecurityMonitoringRuleCaseAction>',
         :'condition' => :'String',
+        :'custom_status' => :'SecurityMonitoringRuleSeverity',
         :'name' => :'String',
         :'notifications' => :'Array<String>',
         :'status' => :'SecurityMonitoringRuleSeverity'
@@ -89,6 +94,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'condition')
         self.condition = attributes[:'condition']
+      end
+
+      if attributes.key?(:'custom_status')
+        self.custom_status = attributes[:'custom_status']
       end
 
       if attributes.key?(:'name')
@@ -134,6 +143,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           actions == o.actions &&
           condition == o.condition &&
+          custom_status == o.custom_status &&
           name == o.name &&
           notifications == o.notifications &&
           status == o.status &&
@@ -144,7 +154,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [actions, condition, name, notifications, status, additional_properties].hash
+      [actions, condition, custom_status, name, notifications, status, additional_properties].hash
     end
   end
 end

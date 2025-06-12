@@ -27,6 +27,12 @@ module DatadogAPIClient::V2
     # How to generate compliance signals. Useful for cloud_configuration rules only.
     attr_accessor :compliance_signal_options
 
+    # Custom/Overridden Message for generated signals (used in case of Default rule update).
+    attr_accessor :custom_message
+
+    # Custom/Overridden name (used in case of Default rule update).
+    attr_accessor :custom_name
+
     # Additional queries to filter matched events before they are processed. This field is deprecated for log detection, signal correlation, and workload security rules.
     attr_accessor :filters
 
@@ -71,6 +77,8 @@ module DatadogAPIClient::V2
       {
         :'cases' => :'cases',
         :'compliance_signal_options' => :'complianceSignalOptions',
+        :'custom_message' => :'customMessage',
+        :'custom_name' => :'customName',
         :'filters' => :'filters',
         :'group_signals_by' => :'groupSignalsBy',
         :'has_extended_title' => :'hasExtendedTitle',
@@ -92,6 +100,8 @@ module DatadogAPIClient::V2
       {
         :'cases' => :'Array<SecurityMonitoringRuleCase>',
         :'compliance_signal_options' => :'CloudConfigurationRuleComplianceSignalOptions',
+        :'custom_message' => :'String',
+        :'custom_name' => :'String',
         :'filters' => :'Array<SecurityMonitoringFilter>',
         :'group_signals_by' => :'Array<String>',
         :'has_extended_title' => :'Boolean',
@@ -133,6 +143,14 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'compliance_signal_options')
         self.compliance_signal_options = attributes[:'compliance_signal_options']
+      end
+
+      if attributes.key?(:'custom_message')
+        self.custom_message = attributes[:'custom_message']
+      end
+
+      if attributes.key?(:'custom_name')
+        self.custom_name = attributes[:'custom_name']
       end
 
       if attributes.key?(:'filters')
@@ -242,6 +260,8 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           cases == o.cases &&
           compliance_signal_options == o.compliance_signal_options &&
+          custom_message == o.custom_message &&
+          custom_name == o.custom_name &&
           filters == o.filters &&
           group_signals_by == o.group_signals_by &&
           has_extended_title == o.has_extended_title &&
@@ -261,7 +281,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [cases, compliance_signal_options, filters, group_signals_by, has_extended_title, is_enabled, message, name, options, queries, reference_tables, tags, third_party_cases, version, additional_properties].hash
+      [cases, compliance_signal_options, custom_message, custom_name, filters, group_signals_by, has_extended_title, is_enabled, message, name, options, queries, reference_tables, tags, third_party_cases, version, additional_properties].hash
     end
   end
 end

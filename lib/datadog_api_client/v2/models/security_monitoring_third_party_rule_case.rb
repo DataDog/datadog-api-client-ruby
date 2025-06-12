@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class SecurityMonitoringThirdPartyRuleCase
     include BaseGenericModel
 
+    # Severity of the Security Signal.
+    attr_accessor :custom_status
+
     # Name of the case.
     attr_accessor :name
 
@@ -39,6 +42,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'custom_status' => :'customStatus',
         :'name' => :'name',
         :'notifications' => :'notifications',
         :'query' => :'query',
@@ -50,6 +54,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'custom_status' => :'SecurityMonitoringRuleSeverity',
         :'name' => :'String',
         :'notifications' => :'Array<String>',
         :'query' => :'String',
@@ -74,6 +79,10 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'custom_status')
+        self.custom_status = attributes[:'custom_status']
+      end
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
@@ -120,6 +129,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          custom_status == o.custom_status &&
           name == o.name &&
           notifications == o.notifications &&
           query == o.query &&
@@ -131,7 +141,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [name, notifications, query, status, additional_properties].hash
+      [custom_status, name, notifications, query, status, additional_properties].hash
     end
   end
 end

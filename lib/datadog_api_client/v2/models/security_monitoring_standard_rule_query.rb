@@ -24,6 +24,9 @@ module DatadogAPIClient::V2
     # The aggregation type.
     attr_accessor :aggregation
 
+    # Query extension to append to the logs query.
+    attr_accessor :custom_query_extension
+
     # Source of events, either logs, audit trail, or Datadog events.
     attr_accessor :data_source
 
@@ -56,6 +59,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'aggregation' => :'aggregation',
+        :'custom_query_extension' => :'customQueryExtension',
         :'data_source' => :'dataSource',
         :'distinct_fields' => :'distinctFields',
         :'group_by_fields' => :'groupByFields',
@@ -72,6 +76,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'aggregation' => :'SecurityMonitoringRuleQueryAggregation',
+        :'custom_query_extension' => :'String',
         :'data_source' => :'SecurityMonitoringStandardDataSource',
         :'distinct_fields' => :'Array<String>',
         :'group_by_fields' => :'Array<String>',
@@ -103,6 +108,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'aggregation')
         self.aggregation = attributes[:'aggregation']
+      end
+
+      if attributes.key?(:'custom_query_extension')
+        self.custom_query_extension = attributes[:'custom_query_extension']
       end
 
       if attributes.key?(:'data_source')
@@ -171,6 +180,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           aggregation == o.aggregation &&
+          custom_query_extension == o.custom_query_extension &&
           data_source == o.data_source &&
           distinct_fields == o.distinct_fields &&
           group_by_fields == o.group_by_fields &&
@@ -186,7 +196,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [aggregation, data_source, distinct_fields, group_by_fields, has_optional_group_by_fields, metric, metrics, name, query, additional_properties].hash
+      [aggregation, custom_query_extension, data_source, distinct_fields, group_by_fields, has_optional_group_by_fields, metric, metrics, name, query, additional_properties].hash
     end
   end
 end

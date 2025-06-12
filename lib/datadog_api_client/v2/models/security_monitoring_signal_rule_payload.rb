@@ -24,6 +24,12 @@ module DatadogAPIClient::V2
     # Cases for generating signals.
     attr_reader :cases
 
+    # Custom/Overridden message for generated signals (used in case of Default rule update).
+    attr_accessor :custom_message
+
+    # Custom/Overridden name of the rule (used in case of Default rule update).
+    attr_accessor :custom_name
+
     # Additional queries to filter matched events before they are processed. This field is deprecated for log detection, signal correlation, and workload security rules.
     attr_accessor :filters
 
@@ -58,6 +64,8 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'cases' => :'cases',
+        :'custom_message' => :'customMessage',
+        :'custom_name' => :'customName',
         :'filters' => :'filters',
         :'has_extended_title' => :'hasExtendedTitle',
         :'is_enabled' => :'isEnabled',
@@ -75,6 +83,8 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'cases' => :'Array<SecurityMonitoringRuleCaseCreate>',
+        :'custom_message' => :'String',
+        :'custom_name' => :'String',
         :'filters' => :'Array<SecurityMonitoringFilter>',
         :'has_extended_title' => :'Boolean',
         :'is_enabled' => :'Boolean',
@@ -109,6 +119,14 @@ module DatadogAPIClient::V2
         if (value = attributes[:'cases']).is_a?(Array)
           self.cases = value
         end
+      end
+
+      if attributes.key?(:'custom_message')
+        self.custom_message = attributes[:'custom_message']
+      end
+
+      if attributes.key?(:'custom_name')
+        self.custom_name = attributes[:'custom_name']
       end
 
       if attributes.key?(:'filters')
@@ -254,6 +272,8 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           cases == o.cases &&
+          custom_message == o.custom_message &&
+          custom_name == o.custom_name &&
           filters == o.filters &&
           has_extended_title == o.has_extended_title &&
           is_enabled == o.is_enabled &&
@@ -270,7 +290,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [cases, filters, has_extended_title, is_enabled, message, name, options, queries, tags, type, additional_properties].hash
+      [cases, custom_message, custom_name, filters, has_extended_title, is_enabled, message, name, options, queries, tags, type, additional_properties].hash
     end
   end
 end
