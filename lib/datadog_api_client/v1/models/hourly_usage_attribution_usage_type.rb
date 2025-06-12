@@ -82,6 +82,7 @@ module DatadogAPIClient::V1
     PROFILED_CONTAINER_USAGE = "profiled_container_usage".freeze
     PROFILED_FARGATE_USAGE = "profiled_fargate_usage".freeze
     PROFILED_HOST_USAGE = "profiled_host_usage".freeze
+    PRODUCT_ANALYTICS_SESSION_USAGE = "product_analytics_session_usage".freeze
     RUM_BROWSER_MOBILE_SESSIONS_USAGE = "rum_browser_mobile_sessions_usage".freeze
     RUM_REPLAY_SESSIONS_USAGE = "rum_replay_sessions_usage".freeze
     SCA_FARGATE_USAGE = "sca_fargate_usage".freeze
