@@ -308,13 +308,13 @@ def format_data_with_schema_dict(
             )
             parameters += f"{escape_reserved_keyword(snake_case(k))}: {value},\n"
 
-    if schema.get("additionalProperties"):
+    if (additionalProperties := schema.get("additionalProperties", {})) and additionalProperties != False:
         for k, v in data.items():
             if has_properties and k in schema["properties"]:
                 continue
             value = format_data_with_schema(
                 v,
-                schema["additionalProperties"],
+                additionalProperties,
                 name_prefix=name_prefix,
                 replace_values=replace_values,
             )
