@@ -57,11 +57,14 @@ module DatadogAPIClient::V1
     # DNS server port to use for DNS tests.
     attr_accessor :dns_server_port
 
-    # Files to be used as part of the request in the test.
+    # Files to be used as part of the request in the test. Only valid if `bodyType` is `multipart/form-data`.
     attr_accessor :files
 
     # Specifies whether or not the request follows redirects.
     attr_accessor :follow_redirects
+
+    # Form to be used as part of the request in the test. Only valid if `bodyType` is `multipart/form-data`.
+    attr_accessor :form
 
     # Headers to include when performing the test.
     attr_accessor :headers
@@ -139,6 +142,7 @@ module DatadogAPIClient::V1
         :'dns_server_port' => :'dnsServerPort',
         :'files' => :'files',
         :'follow_redirects' => :'follow_redirects',
+        :'form' => :'form',
         :'headers' => :'headers',
         :'host' => :'host',
         :'http_version' => :'httpVersion',
@@ -178,6 +182,7 @@ module DatadogAPIClient::V1
         :'dns_server_port' => :'String',
         :'files' => :'Array<SyntheticsTestRequestBodyFile>',
         :'follow_redirects' => :'Boolean',
+        :'form' => :'Hash<String, String>',
         :'headers' => :'Hash<String, String>',
         :'host' => :'String',
         :'http_version' => :'SyntheticsTestOptionsHTTPVersion',
@@ -275,6 +280,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'follow_redirects')
         self.follow_redirects = attributes[:'follow_redirects']
+      end
+
+      if attributes.key?(:'form')
+        self.form = attributes[:'form']
       end
 
       if attributes.key?(:'headers')
@@ -412,6 +421,7 @@ module DatadogAPIClient::V1
           dns_server_port == o.dns_server_port &&
           files == o.files &&
           follow_redirects == o.follow_redirects &&
+          form == o.form &&
           headers == o.headers &&
           host == o.host &&
           http_version == o.http_version &&
@@ -437,7 +447,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [allow_insecure, basic_auth, body, body_type, call_type, certificate, certificate_domains, check_certificate_revocation, compressed_json_descriptor, compressed_proto_file, dns_server, dns_server_port, files, follow_redirects, headers, host, http_version, is_message_base64_encoded, message, metadata, method, no_saving_response_body, number_of_packets, persist_cookies, port, proxy, query, servername, service, should_track_hops, timeout, url, additional_properties].hash
+      [allow_insecure, basic_auth, body, body_type, call_type, certificate, certificate_domains, check_certificate_revocation, compressed_json_descriptor, compressed_proto_file, dns_server, dns_server_port, files, follow_redirects, form, headers, host, http_version, is_message_base64_encoded, message, metadata, method, no_saving_response_body, number_of_packets, persist_cookies, port, proxy, query, servername, service, should_track_hops, timeout, url, additional_properties].hash
     end
   end
 end
