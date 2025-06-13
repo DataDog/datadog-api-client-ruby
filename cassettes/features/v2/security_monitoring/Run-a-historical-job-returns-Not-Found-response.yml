@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Fri, 08 Nov 2024 09:54:40 GMT
+- recorded_at: Thu, 12 Jun 2025 14:01:05 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"fromRule":{"caseIndex":0,"from":1730201035064,"id":"non-existng","index":"main","notifications":[],"to":1730204635115}},"type":"historicalDetectionsJobCreate"}}'
+      string: '{"data":{"attributes":{"fromRule":{"from":1730201035064,"id":"non-existng","index":"main","notifications":[],"to":1730204635115}},"type":"historicalDetectionsJobCreate"}}'
     headers:
       Accept:
       - application/json
@@ -14,7 +14,7 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"errors":[{"status":"404","detail":"failed to get rule details"}]}'
+      string: '{"errors":[{"status":"404","title":"Not Found"}]}'
     headers:
       Content-Type:
       - application/vnd.api+json
