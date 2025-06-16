@@ -6,6 +6,10 @@ api_instance = DatadogAPIClient::V2::DORAMetricsAPI.new
 body = DatadogAPIClient::V2::DORAFailureRequest.new({
   data: DatadogAPIClient::V2::DORAFailureRequestData.new({
     attributes: DatadogAPIClient::V2::DORAFailureRequestAttributes.new({
+      custom_tags: [
+        "language:java",
+        "department:engineering",
+      ],
       env: "staging",
       finished_at: 1693491984000000000,
       git: DatadogAPIClient::V2::DORAGitInfo.new({
