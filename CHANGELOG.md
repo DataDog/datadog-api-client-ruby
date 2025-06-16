@@ -1,5 +1,24 @@
 # CHANGELOG
 
+## 2.35.0/2025-06-16
+
+### Fixed
+* Fix generation for additionalProperties containers [#2469](https://github.com/DataDog/datadog-api-client-ruby/pull/2469)
+
+### Changed
+* Add billing read permission [#2456](https://github.com/DataDog/datadog-api-client-ruby/pull/2456)
+* Update DORA endpoints [#2434](https://github.com/DataDog/datadog-api-client-ruby/pull/2434)
+
+### Added
+* Add `form` field for `multipart/form-data` HTTP API tests [#2452](https://github.com/DataDog/datadog-api-client-ruby/pull/2452)
+* Add new endpoint to upsert/list/delete custom kinds [#2445](https://github.com/DataDog/datadog-api-client-ruby/pull/2445)
+* Add spec for team on-call endpoint [#2443](https://github.com/DataDog/datadog-api-client-ruby/pull/2443)
+* Add support for all subtypes in multistep steps [#2415](https://github.com/DataDog/datadog-api-client-ruby/pull/2415)
+* Added new optional field definition to include more detail in findings for '/api/v2/posture_management/findings'  [#2413](https://github.com/DataDog/datadog-api-client-ruby/pull/2413)
+* Exposing set action on Terraform V2 [#2412](https://github.com/DataDog/datadog-api-client-ruby/pull/2412)
+* Add monitor draft status field [#2410](https://github.com/DataDog/datadog-api-client-ruby/pull/2410)
+* Add rum application to restriction policy [#2292](https://github.com/DataDog/datadog-api-client-ruby/pull/2292)
+
 ## 2.34.0/2025-05-28
 
 ### Fixed
