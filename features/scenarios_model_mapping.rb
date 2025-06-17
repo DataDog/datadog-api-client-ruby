@@ -2560,6 +2560,20 @@ ScenariosModelMappings = {
     "v2.CreateTeam" => {
             "body" => "TeamCreateRequest",
     },
+    "v2.ListMemberTeams" => {
+            "super_team_id" => "String",
+            "page_size" => "Integer",
+            "page_number" => "Integer",
+            "fields_team" => "Array<TeamsField>",
+    },
+    "v2.AddMemberTeam" => {
+            "super_team_id" => "String",
+            "body" => "AddMemberTeamRequest",
+    },
+    "v2.RemoveMemberTeam" => {
+            "super_team_id" => "String",
+            "member_team_id" => "String",
+    },
     "v2.DeleteTeam" => {
             "team_id" => "String",
     },
