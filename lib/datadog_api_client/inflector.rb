@@ -3101,6 +3101,7 @@ module DatadogAPIClient
           "v2.sensitive_data_scanner_rule_update" => "SensitiveDataScannerRuleUpdate",
           "v2.sensitive_data_scanner_rule_update_request" => "SensitiveDataScannerRuleUpdateRequest",
           "v2.sensitive_data_scanner_rule_update_response" => "SensitiveDataScannerRuleUpdateResponse",
+          "v2.sensitive_data_scanner_samplings" => "SensitiveDataScannerSamplings",
           "v2.sensitive_data_scanner_standard_pattern" => "SensitiveDataScannerStandardPattern",
           "v2.sensitive_data_scanner_standard_pattern_attributes" => "SensitiveDataScannerStandardPatternAttributes",
           "v2.sensitive_data_scanner_standard_pattern_data" => "SensitiveDataScannerStandardPatternData",

@@ -17,27 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes of the Sensitive Data Scanner group.
-  class SensitiveDataScannerGroupAttributes
+  # Sampling configurations for the Scanning Group.
+  class SensitiveDataScannerSamplings
     include BaseGenericModel
 
-    # Description of the group.
-    attr_accessor :description
+    # Datadog product onto which Sensitive Data Scanner can be activated.
+    attr_accessor :product
 
-    # Filter for the Scanning Group.
-    attr_accessor :filter
-
-    # Whether or not the group is enabled.
-    attr_accessor :is_enabled
-
-    # Name of the group.
-    attr_accessor :name
-
-    # List of products the scanning group applies.
-    attr_accessor :product_list
-
-    # List of sampling rates per product type.
-    attr_accessor :samplings
+    # Rate at which data in product type will be scanned, as a percentage.
+    attr_reader :rate
 
     attr_accessor :additional_properties
 
@@ -45,12 +33,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'description' => :'description',
-        :'filter' => :'filter',
-        :'is_enabled' => :'is_enabled',
-        :'name' => :'name',
-        :'product_list' => :'product_list',
-        :'samplings' => :'samplings'
+        :'product' => :'product',
+        :'rate' => :'rate'
       }
     end
 
@@ -58,12 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'description' => :'String',
-        :'filter' => :'SensitiveDataScannerFilter',
-        :'is_enabled' => :'Boolean',
-        :'name' => :'String',
-        :'product_list' => :'Array<SensitiveDataScannerProduct>',
-        :'samplings' => :'Array<SensitiveDataScannerSamplings>'
+        :'product' => :'SensitiveDataScannerProduct',
+        :'rate' => :'Float'
       }
     end
 
@@ -72,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SensitiveDataScannerGroupAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SensitiveDataScannerSamplings` initialize method"
       end
 
       self.additional_properties = {}
@@ -85,33 +65,35 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'description')
-        self.description = attributes[:'description']
+      if attributes.key?(:'product')
+        self.product = attributes[:'product']
       end
 
-      if attributes.key?(:'filter')
-        self.filter = attributes[:'filter']
+      if attributes.key?(:'rate')
+        self.rate = attributes[:'rate']
       end
+    end
 
-      if attributes.key?(:'is_enabled')
-        self.is_enabled = attributes[:'is_enabled']
-      end
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if !@rate.nil? && @rate > 100.0
+      return false if !@rate.nil? && @rate < 0.0
+      true
+    end
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
+    # Custom attribute writer method with validation
+    # @param rate [Object] Object to be assigned
+    # @!visibility private
+    def rate=(rate)
+      if !rate.nil? && rate > 100.0
+        fail ArgumentError, 'invalid value for "rate", must be smaller than or equal to 100.0.'
       end
-
-      if attributes.key?(:'product_list')
-        if (value = attributes[:'product_list']).is_a?(Array)
-          self.product_list = value
-        end
+      if !rate.nil? && rate < 0.0
+        fail ArgumentError, 'invalid value for "rate", must be greater than or equal to 0.0.'
       end
-
-      if attributes.key?(:'samplings')
-        if (value = attributes[:'samplings']).is_a?(Array)
-          self.samplings = value
-        end
-      end
+      @rate = rate
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -140,12 +122,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          description == o.description &&
-          filter == o.filter &&
-          is_enabled == o.is_enabled &&
-          name == o.name &&
-          product_list == o.product_list &&
-          samplings == o.samplings &&
+          product == o.product &&
+          rate == o.rate &&
           additional_properties == o.additional_properties
     end
 
@@ -153,7 +131,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [description, filter, is_enabled, name, product_list, samplings, additional_properties].hash
+      [product, rate, additional_properties].hash
     end
   end
 end
