@@ -33,13 +33,17 @@ module DatadogAPIClient::V2
 
     # Post an event.
     #
-    # This endpoint allows you to post events.
+    # This endpoint allows you to publish events.
     #
-    # ✅ **Only events with the `change` category** are in General Availability. See [Change Tracking](https://docs.datadoghq.com/change_tracking) for more details.
+    # ✅ **Only events with the `change` or `alert` category** are in General Availability. For change events, see [Change Tracking](https://docs.datadoghq.com/change_tracking) for more details.
     #
-    # ❌ For use cases involving other event categories, please use the V1 endpoint.
+    # ❌ For use cases involving other event categories, use the V1 endpoint or reach out to [support](https://www.datadoghq.com/support/).
     #
-    # @param body [EventCreateRequestPayload] Event request object
+    # ❌ Notifications are not yet supported for events sent to this endpoint. Use the V1 endpoint for notification functionality.
+    #
+    # ❌ This endpoint is not available for the Government (US1-FED) site. Contact your account representative for more information.
+    #
+    # @param body [EventCreateRequestPayload] Event creation request payload.
     # @param opts [Hash] the optional parameters
     # @return [Array<(EventCreateResponsePayload, Integer, Hash)>] EventCreateResponsePayload data, response status code and response headers
     def create_event_with_http_info(body, opts = {})
