@@ -30,6 +30,12 @@ module DatadogAPIClient::V2
     # User ID of the user who created the rule.
     attr_accessor :creation_author_id
 
+    # Custom/Overridden message for generated signals (used in case of Default rule update).
+    attr_accessor :custom_message
+
+    # Custom/Overridden name of the rule (used in case of Default rule update).
+    attr_accessor :custom_name
+
     # When the rule will be deprecated, timestamp in milliseconds.
     attr_accessor :deprecation_date
 
@@ -84,6 +90,8 @@ module DatadogAPIClient::V2
         :'cases' => :'cases',
         :'created_at' => :'createdAt',
         :'creation_author_id' => :'creationAuthorId',
+        :'custom_message' => :'customMessage',
+        :'custom_name' => :'customName',
         :'deprecation_date' => :'deprecationDate',
         :'filters' => :'filters',
         :'has_extended_title' => :'hasExtendedTitle',
@@ -109,6 +117,8 @@ module DatadogAPIClient::V2
         :'cases' => :'Array<SecurityMonitoringRuleCase>',
         :'created_at' => :'Integer',
         :'creation_author_id' => :'Integer',
+        :'custom_message' => :'String',
+        :'custom_name' => :'String',
         :'deprecation_date' => :'Integer',
         :'filters' => :'Array<SecurityMonitoringFilter>',
         :'has_extended_title' => :'Boolean',
@@ -157,6 +167,14 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'creation_author_id')
         self.creation_author_id = attributes[:'creation_author_id']
+      end
+
+      if attributes.key?(:'custom_message')
+        self.custom_message = attributes[:'custom_message']
+      end
+
+      if attributes.key?(:'custom_name')
+        self.custom_name = attributes[:'custom_name']
       end
 
       if attributes.key?(:'deprecation_date')
@@ -255,6 +273,8 @@ module DatadogAPIClient::V2
           cases == o.cases &&
           created_at == o.created_at &&
           creation_author_id == o.creation_author_id &&
+          custom_message == o.custom_message &&
+          custom_name == o.custom_name &&
           deprecation_date == o.deprecation_date &&
           filters == o.filters &&
           has_extended_title == o.has_extended_title &&
@@ -277,7 +297,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [cases, created_at, creation_author_id, deprecation_date, filters, has_extended_title, id, is_default, is_deleted, is_enabled, message, name, options, queries, tags, type, update_author_id, version, additional_properties].hash
+      [cases, created_at, creation_author_id, custom_message, custom_name, deprecation_date, filters, has_extended_title, id, is_default, is_deleted, is_enabled, message, name, options, queries, tags, type, update_author_id, version, additional_properties].hash
     end
   end
 end

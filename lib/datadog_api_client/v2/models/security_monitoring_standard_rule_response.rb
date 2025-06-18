@@ -33,6 +33,12 @@ module DatadogAPIClient::V2
     # User ID of the user who created the rule.
     attr_accessor :creation_author_id
 
+    # Custom/Overridden message for generated signals (used in case of Default rule update).
+    attr_accessor :custom_message
+
+    # Custom/Overridden name of the rule (used in case of Default rule update).
+    attr_accessor :custom_name
+
     # Default Tags for default rules (included in tags)
     attr_accessor :default_tags
 
@@ -103,6 +109,8 @@ module DatadogAPIClient::V2
         :'compliance_signal_options' => :'complianceSignalOptions',
         :'created_at' => :'createdAt',
         :'creation_author_id' => :'creationAuthorId',
+        :'custom_message' => :'customMessage',
+        :'custom_name' => :'customName',
         :'default_tags' => :'defaultTags',
         :'deprecation_date' => :'deprecationDate',
         :'filters' => :'filters',
@@ -134,6 +142,8 @@ module DatadogAPIClient::V2
         :'compliance_signal_options' => :'CloudConfigurationRuleComplianceSignalOptions',
         :'created_at' => :'Integer',
         :'creation_author_id' => :'Integer',
+        :'custom_message' => :'String',
+        :'custom_name' => :'String',
         :'default_tags' => :'Array<String>',
         :'deprecation_date' => :'Integer',
         :'filters' => :'Array<SecurityMonitoringFilter>',
@@ -191,6 +201,14 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'creation_author_id')
         self.creation_author_id = attributes[:'creation_author_id']
+      end
+
+      if attributes.key?(:'custom_message')
+        self.custom_message = attributes[:'custom_message']
+      end
+
+      if attributes.key?(:'custom_name')
+        self.custom_name = attributes[:'custom_name']
       end
 
       if attributes.key?(:'default_tags')
@@ -318,6 +336,8 @@ module DatadogAPIClient::V2
           compliance_signal_options == o.compliance_signal_options &&
           created_at == o.created_at &&
           creation_author_id == o.creation_author_id &&
+          custom_message == o.custom_message &&
+          custom_name == o.custom_name &&
           default_tags == o.default_tags &&
           deprecation_date == o.deprecation_date &&
           filters == o.filters &&
@@ -345,7 +365,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [cases, compliance_signal_options, created_at, creation_author_id, default_tags, deprecation_date, filters, group_signals_by, has_extended_title, id, is_default, is_deleted, is_enabled, message, name, options, queries, reference_tables, tags, third_party_cases, type, update_author_id, updated_at, version, additional_properties].hash
+      [cases, compliance_signal_options, created_at, creation_author_id, custom_message, custom_name, default_tags, deprecation_date, filters, group_signals_by, has_extended_title, id, is_default, is_deleted, is_enabled, message, name, options, queries, reference_tables, tags, third_party_cases, type, update_author_id, updated_at, version, additional_properties].hash
     end
   end
 end
