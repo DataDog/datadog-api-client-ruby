@@ -6,7 +6,7 @@
 <title>
   Class: DatadogAPIClient::V2::SecurityMonitoringSignalRulePayload
   
-    &mdash; datadog-api-client 2.30.0.dev.1 documentation
+    &mdash; datadog-api-client 2.35.0 documentation
   
 </title>
 
@@ -170,6 +170,58 @@
 
   
     <span class="summary_desc"><div class='inline'><p>Cases for generating signals.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#custom_message-instance_method" title="#custom_message (instance method)">#<strong>custom_message</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Custom/Overridden message for generated signals (used in case of Default rule update).</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#custom_name-instance_method" title="#custom_name (instance method)">#<strong>custom_name</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Custom/Overridden name of the rule (used in case of Default rule update).</p>
 </div></span>
   
 </li>
@@ -517,6 +569,90 @@
 
 <span class='kw'>def</span> <span class='id identifier rubyid_cases'>cases</span>
   <span class='ivar'>@cases</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="custom_message=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="custom_message-instance_method">
+  
+    #<strong>custom_message</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Custom/Overridden message for generated signals (used in case of Default rule update).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+28
+29
+30</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/security_monitoring_signal_rule_payload.rb', line 28</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_custom_message'>custom_message</span>
+  <span class='ivar'>@custom_message</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="custom_name=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="custom_name-instance_method">
+  
+    #<strong>custom_name</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Custom/Overridden name of the rule (used in case of Default rule update).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+31
+32
+33</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/security_monitoring_signal_rule_payload.rb', line 31</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_custom_name'>custom_name</span>
+  <span class='ivar'>@custom_name</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -907,7 +1043,7 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Feb 18 21:07:43 2025 by
+  Generated on Wed Jun 18 14:49:30 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>
