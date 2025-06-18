@@ -24,6 +24,9 @@ body = DatadogAPIClient::V2::CloudWorkloadSecurityAgentRuleCreateRequest.new({
             scope: "process",
           }),
         }),
+        DatadogAPIClient::V2::CloudWorkloadSecurityAgentRuleAction.new({
+          _hash: DatadogAPIClient::V2::CloudWorkloadSecurityAgentRuleActionHash.new({}),
+        }),
       ],
     }),
     type: DatadogAPIClient::V2::CloudWorkloadSecurityAgentRuleType::AGENT_RULE,

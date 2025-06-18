@@ -24,6 +24,9 @@ module DatadogAPIClient::V2
     # SECL expression used to target the container to apply the action on
     attr_accessor :filter
 
+    # An empty object indicating the hash action
+    attr_accessor :_hash
+
     # Kill system call applied on the container matching the rule
     attr_accessor :kill
 
@@ -40,6 +43,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'filter' => :'filter',
+        :'_hash' => :'hash',
         :'kill' => :'kill',
         :'metadata' => :'metadata',
         :'set' => :'set'
@@ -51,6 +55,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'filter' => :'String',
+        :'_hash' => :'Hash<String, Object>',
         :'kill' => :'CloudWorkloadSecurityAgentRuleKill',
         :'metadata' => :'CloudWorkloadSecurityAgentRuleActionMetadata',
         :'set' => :'CloudWorkloadSecurityAgentRuleActionSet'
@@ -77,6 +82,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'filter')
         self.filter = attributes[:'filter']
+      end
+
+      if attributes.key?(:'_hash')
+        self._hash = attributes[:'_hash']
       end
 
       if attributes.key?(:'kill')
@@ -119,6 +128,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           filter == o.filter &&
+          _hash == o._hash &&
           kill == o.kill &&
           metadata == o.metadata &&
           set == o.set &&
@@ -129,7 +139,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [filter, kill, metadata, set, additional_properties].hash
+      [filter, _hash, kill, metadata, set, additional_properties].hash
     end
   end
 end
