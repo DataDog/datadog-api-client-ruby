@@ -17,12 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # JSON object for category-specific attributes.
-  class EventCreateResponseAttributesAttributes
+  # Links to the event.
+  class EventCreateResponsePayloadLinks
     include BaseGenericModel
 
-    # JSON object of event system attributes.
-    attr_accessor :evt
+    # The URL of the event. This link is only functional when using the default subdomain.
+    attr_accessor :_self
 
     attr_accessor :additional_properties
 
@@ -30,7 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'evt' => :'evt'
+        :'_self' => :'self'
       }
     end
 
@@ -38,7 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'evt' => :'EventCreateResponseAttributesAttributesEvt'
+        :'_self' => :'String'
       }
     end
 
@@ -47,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::EventCreateResponseAttributesAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::EventCreateResponsePayloadLinks` initialize method"
       end
 
       self.additional_properties = {}
@@ -60,8 +60,8 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'evt')
-        self.evt = attributes[:'evt']
+      if attributes.key?(:'_self')
+        self._self = attributes[:'_self']
       end
     end
 
@@ -91,7 +91,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          evt == o.evt &&
+          _self == o._self &&
           additional_properties == o.additional_properties
     end
 
@@ -99,7 +99,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [evt, additional_properties].hash
+      [_self, additional_properties].hash
     end
   end
 end

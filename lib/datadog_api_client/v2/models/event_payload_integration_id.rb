@@ -17,10 +17,10 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The type of the impacted resource.
-  class ChangeEventCustomAttributesImpactedResourcesItemsType
+  # Integration ID sourced from integration manifests.
+  class EventPayloadIntegrationId
     include BaseEnumModel
 
-    SERVICE = "service".freeze
+    CUSTOM_EVENTS = "custom-events".freeze
   end
 end
