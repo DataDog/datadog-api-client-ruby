@@ -6,7 +6,7 @@
 <title>
   Class: DatadogAPIClient::V2::ChangeEventCustomAttributes
   
-    &mdash; datadog-api-client 2.30.0.dev.1 documentation
+    &mdash; datadog-api-client 2.35.0 documentation
   
 </title>
 
@@ -106,7 +106,7 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>Object representing custom change event attributes.</p>
+    <p>Change event attributes.</p>
 
 
   </div>
@@ -167,7 +167,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Object representing the entity which made the change.</p>
+    <span class="summary_desc"><div class='inline'><p>The entity that made the change.</p>
 </div></span>
   
 </li>
@@ -193,7 +193,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Free form object with information related to the <code>change</code> event.</p>
+    <span class="summary_desc"><div class='inline'><p>Free form JSON object with information related to the <code>change</code> event.</p>
 </div></span>
   
 </li>
@@ -221,7 +221,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Object representing a uniquely identified resource.</p>
+    <span class="summary_desc"><div class='inline'><p>A uniquely identified resource.</p>
 </div></span>
   
 </li>
@@ -238,6 +238,8 @@
   
   
   
+    
+      <span class="note title readonly">readonly</span>
     
     
   
@@ -273,7 +275,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Free form object to track new value of the changed resource.</p>
+    <span class="summary_desc"><div class='inline'><p>Free form JSON object representing the new state of the changed resource.</p>
 </div></span>
   
 </li>
@@ -299,7 +301,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Free form object to track previous value of the changed resource.</p>
+    <span class="summary_desc"><div class='inline'><p>Free form JSON object representing the previous state of the changed resource.</p>
 </div></span>
   
 </li>
@@ -380,7 +382,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Object representing the entity which made the change. Optional field but if provided should include <code>type</code> and <code>name</code>.</p>
+    <p>The entity that made the change. Optional, if provided it must include <code>type</code> and <code>name</code>.</p>
 
 
   </div>
@@ -422,7 +424,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Free form object with information related to the <code>change</code> event. Can be arbitrarily nested and contain any valid JSON.</p>
+    <p>Free form JSON object with information related to the <code>change</code> event. Supports up to 100 properties per object and a maximum nesting depth of 10 levels.</p>
 
 
   </div>
@@ -464,7 +466,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Object representing a uniquely identified resource.</p>
+    <p>A uniquely identified resource.</p>
 
 
   </div>
@@ -507,7 +509,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     <p>A list of resources impacted by this change. It is recommended to provide an impacted resource to display
-the change event at the right location. Only resources of type <code>service</code> are supported.</p>
+the change event at the correct location. Only resources of type <code>service</code> are supported. Maximum of 100 impacted resources allowed.</p>
 
 
   </div>
@@ -549,7 +551,7 @@ the change event at the right location. Only resources of type <code>service</co
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Free form object to track new value of the changed resource.</p>
+    <p>Free form JSON object representing the new state of the changed resource.</p>
 
 
   </div>
@@ -591,7 +593,7 @@ the change event at the right location. Only resources of type <code>service</co
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Free form object to track previous value of the changed resource.</p>
+    <p>Free form JSON object representing the previous state of the changed resource.</p>
 
 
   </div>
@@ -626,7 +628,7 @@ the change event at the right location. Only resources of type <code>service</co
 </div>
 
       <div id="footer">
-  Generated on Tue Feb 18 21:07:37 2025 by
+  Generated on Thu Jun 19 08:46:45 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>

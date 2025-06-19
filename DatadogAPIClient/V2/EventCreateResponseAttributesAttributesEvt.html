@@ -6,7 +6,7 @@
 <title>
   Class: DatadogAPIClient::V2::EventCreateResponseAttributesAttributesEvt
   
-    &mdash; datadog-api-client 2.30.0.dev.1 documentation
+    &mdash; datadog-api-client 2.35.0 documentation
   
 </title>
 
@@ -167,7 +167,33 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Event id.</p>
+    <span class="summary_desc"><div class='inline'><p>Event identifier.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#uid-instance_method" title="#uid (instance method)">#<strong>uid</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>A unique identifier for the event.</p>
 </div></span>
   
 </li>
@@ -248,7 +274,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Event id</p>
+    <p>Event identifier. This field is deprecated and will be removed in a future version. Use the <code>uid</code> field instead.</p>
 
 
   </div>
@@ -277,13 +303,55 @@
 </table>
 </div>
     
+      
+      <span id="uid=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="uid-instance_method">
+  
+    #<strong>uid</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>A unique identifier for the event. You can use this identifier to query or reference the event.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+28
+29
+30</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/event_create_response_attributes_attributes_evt.rb', line 28</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_uid'>uid</span>
+  <span class='ivar'>@uid</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
   </div>
 
 
 </div>
 
       <div id="footer">
-  Generated on Tue Feb 18 21:07:46 2025 by
+  Generated on Thu Jun 19 08:46:46 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>
