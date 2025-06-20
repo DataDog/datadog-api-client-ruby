@@ -2056,6 +2056,27 @@ ScenariosModelMappings = {
             "policy_id" => "String",
             "body" => "MonitorConfigPolicyEditRequest",
     },
+    "v2.CreateMonitorUserTemplate" => {
+            "body" => "MonitorUserTemplateCreateRequest",
+    },
+    "v2.ValidateMonitorUserTemplate" => {
+            "body" => "MonitorUserTemplateCreateRequest",
+    },
+    "v2.DeleteMonitorUserTemplate" => {
+            "template_id" => "String",
+    },
+    "v2.GetMonitorUserTemplate" => {
+            "template_id" => "String",
+            "with_all_versions" => "Boolean",
+    },
+    "v2.UpdateMonitorUserTemplate" => {
+            "template_id" => "String",
+            "body" => "MonitorUserTemplateUpdateRequest",
+    },
+    "v2.ValidateExistingMonitorUserTemplate" => {
+            "template_id" => "String",
+            "body" => "MonitorUserTemplateUpdateRequest",
+    },
     "v2.ListDevices" => {
             "page_size" => "Integer",
             "page_number" => "Integer",
