@@ -23,5 +23,7 @@ module DatadogAPIClient::V2
 
     USER = "user".freeze
     SYSTEM = "system".freeze
+    API = "api".freeze
+    AUTOMATION = "automation".freeze
   end
 end
