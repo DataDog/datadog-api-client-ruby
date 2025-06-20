@@ -1,0 +1,20 @@
+http_interactions:
+- recorded_at: Fri, 13 Jun 2025 20:58:16 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/cost/gcp_uc_config/100
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"status":"204","title":"No Content"}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 204
+      message: No Content
+recorded_with: VCR 6.0.0
