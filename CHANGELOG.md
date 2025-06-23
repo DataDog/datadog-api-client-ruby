@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 2.37.0/2025-06-23
+
+### Fixed
+* Fix basic auth requirements [#2481](https://github.com/DataDog/datadog-api-client-ruby/pull/2481)
+
+### Added
+* Microsoft Sentinel Public API support [#2479](https://github.com/DataDog/datadog-api-client-ruby/pull/2479)
+* Add the AP2 datacenter. [#2477](https://github.com/DataDog/datadog-api-client-ruby/pull/2477)
+
 ## 2.36.0/2025-06-23
 
 ### Fixed
