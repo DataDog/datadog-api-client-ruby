@@ -17,15 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # An event object.
+  # Object representing an event creation request.
   class EventCreateRequest
     include BaseGenericModel
 
     # Event attributes.
-    attr_reader :attributes
+    attr_accessor :attributes
 
     # Entity type.
-    attr_reader :type
+    attr_accessor :type
 
     attr_accessor :additional_properties
 
@@ -72,35 +72,6 @@ module DatadogAPIClient::V2
       if attributes.key?(:'type')
         self.type = attributes[:'type']
       end
-    end
-
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    # @!visibility private
-    def valid?
-      return false if @attributes.nil?
-      return false if @type.nil?
-      true
-    end
-
-    # Custom attribute writer method with validation
-    # @param attributes [Object] Object to be assigned
-    # @!visibility private
-    def attributes=(attributes)
-      if attributes.nil?
-        fail ArgumentError, 'invalid value for "attributes", attributes cannot be nil.'
-      end
-      @attributes = attributes
-    end
-
-    # Custom attribute writer method with validation
-    # @param type [Object] Object to be assigned
-    # @!visibility private
-    def type=(type)
-      if type.nil?
-        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
-      end
-      @type = type
     end
 
     # Returns the object in the form of hash, with additionalProperties support.

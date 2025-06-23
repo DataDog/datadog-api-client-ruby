@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # JSON object for category-specific attributes. Schema is different per event category.
+  # JSON object for custom attributes. Schema are different per each event category.
   module EventPayloadAttributes
     class << self
       include BaseOneOfModel
@@ -26,8 +26,7 @@ module DatadogAPIClient::V2
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of
         [
-          :'ChangeEventCustomAttributes',
-          :'AlertEventCustomAttributes'
+          :'ChangeEventCustomAttributes'
         ]
       end
       # Builds the object
