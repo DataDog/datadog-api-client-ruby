@@ -1,5 +1,22 @@
 # CHANGELOG
 
+## 2.36.0/2025-06-23
+
+### Fixed
+* Fix basic auth requirements [#2481](https://github.com/DataDog/datadog-api-client-ruby/pull/2481)
+* Add support for the api_security detection rule type [#2476](https://github.com/DataDog/datadog-api-client-ruby/pull/2476)
+
+### Added
+* Microsoft Sentinel Public API support [#2479](https://github.com/DataDog/datadog-api-client-ruby/pull/2479)
+* Add hash field to actions in CWS agent rules [#2470](https://github.com/DataDog/datadog-api-client-ruby/pull/2470)
+* Add custom fields to Rule update/validate API public documentation. [#2466](https://github.com/DataDog/datadog-api-client-ruby/pull/2466)
+* SDCD-1142: adding `custom_tags` optional attribute to DORA API spec [#2451](https://github.com/DataDog/datadog-api-client-ruby/pull/2451)
+* Add sampling fields to SDS spec [#2447](https://github.com/DataDog/datadog-api-client-ruby/pull/2447)
+* Add API spec for team hierarchy APIs [#2420](https://github.com/DataDog/datadog-api-client-ruby/pull/2420)
+
+### Changed
+* Update events intake specs for v2 Events post endpoint [#2460](https://github.com/DataDog/datadog-api-client-ruby/pull/2460)
+
 ## 2.35.0/2025-06-16
 
 ### Fixed
