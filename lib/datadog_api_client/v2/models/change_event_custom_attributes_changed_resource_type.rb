@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The type of the resource that was changed.
+  # Resource's type.
   class ChangeEventCustomAttributesChangedResourceType
     include BaseEnumModel
 

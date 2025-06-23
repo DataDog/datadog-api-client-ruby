@@ -17,15 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Event creation response.
+  # Response containing information about created event.
   class EventCreateResponsePayload
     include BaseGenericModel
 
-    # Event object.
+    # Object containing an event response.
     attr_accessor :data
-
-    # Links to the event.
-    attr_accessor :links
 
     attr_accessor :additional_properties
 
@@ -33,8 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data',
-        :'links' => :'links'
+        :'data' => :'data'
       }
     end
 
@@ -42,8 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'EventCreateResponse',
-        :'links' => :'EventCreateResponsePayloadLinks'
+        :'data' => :'EventCreateResponse'
       }
     end
 
@@ -67,10 +62,6 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'data')
         self.data = attributes[:'data']
-      end
-
-      if attributes.key?(:'links')
-        self.links = attributes[:'links']
       end
     end
 
@@ -101,7 +92,6 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           data == o.data &&
-          links == o.links &&
           additional_properties == o.additional_properties
     end
 
@@ -109,7 +99,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, links, additional_properties].hash
+      [data, additional_properties].hash
     end
   end
 end
