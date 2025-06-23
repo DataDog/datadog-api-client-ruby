@@ -6,7 +6,7 @@
 <title>
   Class: DatadogAPIClient::V2::EventPayload
   
-    &mdash; datadog-api-client 2.35.0 documentation
+    &mdash; datadog-api-client 2.30.0.dev.1 documentation
   
 </title>
 
@@ -169,7 +169,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>A string used for aggregation when <a href="https://docs.datadoghq.com/service_management/events/correlation/">correlating</a> events.</p>
+    <span class="summary_desc"><div class='inline'><p>An arbitrary string to use for aggregation when correlating events.</p>
 </div></span>
   
 </li>
@@ -197,7 +197,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>JSON object for category-specific attributes.</p>
+    <span class="summary_desc"><div class='inline'><p>JSON object for custom attributes.</p>
 </div></span>
   
 </li>
@@ -225,33 +225,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Event category identifying the type of event.</p>
-</div></span>
-  
-</li>
-
-    
-      <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#integration_id-instance_method" title="#integration_id (instance method)">#<strong>integration_id</strong>  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-    
-    
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>Integration ID sourced from integration manifests.</p>
+    <span class="summary_desc"><div class='inline'><p>Event category to identify the type of event.</p>
 </div></span>
   
 </li>
@@ -279,7 +253,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Free formed text associated with the event.</p>
+    <span class="summary_desc"><div class='inline'><p>The body of the event.</p>
 </div></span>
   
 </li>
@@ -297,8 +271,6 @@
   
   
     
-      <span class="note title readonly">readonly</span>
-    
     
   
   
@@ -307,7 +279,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>A list of tags associated with the event.</p>
+    <span class="summary_desc"><div class='inline'><p>A list of tags to apply to the event.</p>
 </div></span>
   
 </li>
@@ -361,7 +333,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>The title of the event.</p>
+    <span class="summary_desc"><div class='inline'><p>The event title.</p>
 </div></span>
   
 </li>
@@ -442,7 +414,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>A string used for aggregation when <a href="https://docs.datadoghq.com/service_management/events/correlation/">correlating</a> events. If you specify a key, events are deduplicated to alerts based on this key. Limited to 100 characters.</p>
+    <p>An arbitrary string to use for aggregation when correlating events. Limited to 100 characters.</p>
 
 
   </div>
@@ -484,7 +456,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>JSON object for category-specific attributes. Schema is different per event category.</p>
+    <p>JSON object for custom attributes. Schema are different per each event category.</p>
 
 
   </div>
@@ -526,7 +498,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Event category identifying the type of event.</p>
+    <p>Event category to identify the type of event. Only the value <code>change</code> is supported. Support for other categories are coming. please reach out to datadog support if you&#39;re interested.</p>
 
 
   </div>
@@ -556,48 +528,6 @@
 </div>
     
       
-      <span id="integration_id=-instance_method"></span>
-      <div class="method_details ">
-  <h3 class="signature " id="integration_id-instance_method">
-  
-    #<strong>integration_id</strong>  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>Integration ID sourced from integration manifests.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-34
-35
-36</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/event_payload.rb', line 34</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_integration_id'>integration_id</span>
-  <span class='ivar'>@integration_id</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      
       <span id="message=-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="message-instance_method">
@@ -610,7 +540,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Free formed text associated with the event. It&#39;s suggested to use <code>data.attributes.attributes.custom</code> for well-structured attributes. Limited to 4000 characters.</p>
+    <p>The body of the event. Limited to 4000 characters.</p>
 
 
   </div>
@@ -652,7 +582,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>A list of tags associated with the event. Maximum of 100 tags allowed.
+    <p>A list of tags to apply to the event.
 Refer to <a href="https://docs.datadoghq.com/getting_started/tagging/">Tags docs</a>.</p>
 
 
@@ -739,7 +669,7 @@ Defaults to the timestamp of receipt. Limited to values no older than 18 hours.<
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>The title of the event. Limited to 500 characters.</p>
+    <p>The event title. Limited to 500 characters.</p>
 
 
   </div>
@@ -774,7 +704,7 @@ Defaults to the timestamp of receipt. Limited to values no older than 18 hours.<
 </div>
 
       <div id="footer">
-  Generated on Mon Jun 23 19:17:59 2025 by
+  Generated on Tue Feb 18 21:07:13 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>
