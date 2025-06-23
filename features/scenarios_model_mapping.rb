@@ -830,6 +830,19 @@ ScenariosModelMappings = {
             "user_handle" => "String",
             "body" => "User",
     },
+    "v2.ListAppKeyRegistrations" => {
+            "page_size" => "Integer",
+            "page_number" => "Integer",
+    },
+    "v2.UnregisterAppKey" => {
+            "app_key_id" => "String",
+    },
+    "v2.GetAppKeyRegistration" => {
+            "app_key_id" => "String",
+    },
+    "v2.RegisterAppKey" => {
+            "app_key_id" => "String",
+    },
     "v2.CreateActionConnection" => {
             "body" => "CreateActionConnectionRequest",
     },
