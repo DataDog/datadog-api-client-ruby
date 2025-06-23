@@ -33,7 +33,7 @@ module DatadogAPIClient::V2
 
     # Cancel a workflow instance.
     #
-    # Cancels a specific execution of a given workflow. This API requires a [registered application key](https://docs.datadoghq.com/api/latest/action-connection/#register-a-new-app-key).
+    # Cancels a specific execution of a given workflow. This API requires an application key scoped with the workflows_run permission.
     #
     # @param workflow_id [String] The ID of the workflow.
     # @param instance_id [String] The ID of the workflow instance.
@@ -103,7 +103,7 @@ module DatadogAPIClient::V2
 
     # Create a Workflow.
     #
-    # Create a new workflow, returning the workflow ID. This API requires a [registered application key](https://docs.datadoghq.com/api/latest/action-connection/#register-a-new-app-key).
+    # Create a new workflow, returning the workflow ID. This API requires an application key scoped with the `workflows_write` permission.
     #
     # @param body [CreateWorkflowRequest] 
     # @param opts [Hash] the optional parameters
@@ -170,7 +170,7 @@ module DatadogAPIClient::V2
 
     # Execute a workflow.
     #
-    # Execute the given workflow. This API requires a [registered application key](https://docs.datadoghq.com/api/latest/action-connection/#register-a-new-app-key).
+    # Execute the given workflow. This API requires an application key scoped with the workflows_run permission.
     #
     # @param workflow_id [String] The ID of the workflow.
     # @param body [WorkflowInstanceCreateRequest] 
@@ -242,7 +242,7 @@ module DatadogAPIClient::V2
 
     # Delete an existing Workflow.
     #
-    # Delete a workflow by ID. This API requires a [registered application key](https://docs.datadoghq.com/api/latest/action-connection/#register-a-new-app-key).
+    # Delete a workflow by ID. This API requires an application key scoped with the `workflows_write` permission.
     #
     # @param workflow_id [String] The ID of the workflow.
     # @param opts [Hash] the optional parameters
@@ -307,7 +307,7 @@ module DatadogAPIClient::V2
 
     # Get an existing Workflow.
     #
-    # Get a workflow by ID. This API requires a [registered application key](https://docs.datadoghq.com/api/latest/action-connection/#register-a-new-app-key).
+    # Get a workflow by ID.  This API requires an application key scoped with the `workflows_read` permission.
     #
     # @param workflow_id [String] The ID of the workflow.
     # @param opts [Hash] the optional parameters
@@ -372,7 +372,7 @@ module DatadogAPIClient::V2
 
     # Get a workflow instance.
     #
-    # Get a specific execution of a given workflow. This API requires a [registered application key](https://docs.datadoghq.com/api/latest/action-connection/#register-a-new-app-key).
+    # Get a specific execution of a given workflow. This API requires an application key scoped with the workflows_read permission.
     #
     # @param workflow_id [String] The ID of the workflow.
     # @param instance_id [String] The ID of the workflow instance.
@@ -442,7 +442,7 @@ module DatadogAPIClient::V2
 
     # List workflow instances.
     #
-    # List all instances of a given workflow. This API requires a [registered application key](https://docs.datadoghq.com/api/latest/action-connection/#register-a-new-app-key).
+    # List all instances of a given workflow. This API requires an application key scoped with the workflows_read permission.
     #
     # @param workflow_id [String] The ID of the workflow.
     # @param opts [Hash] the optional parameters
@@ -511,7 +511,7 @@ module DatadogAPIClient::V2
 
     # Update an existing Workflow.
     #
-    # Update a workflow by ID. This API requires a [registered application key](https://docs.datadoghq.com/api/latest/action-connection/#register-a-new-app-key).
+    # Update a workflow by ID. This API requires an application key scoped with the `workflows_write` permission.
     #
     # @param workflow_id [String] The ID of the workflow.
     # @param body [UpdateWorkflowRequest] 

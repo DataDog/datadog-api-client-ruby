@@ -33,7 +33,7 @@ module DatadogAPIClient::V2
 
     # Create a new Action Connection.
     #
-    # Create a new Action Connection. This API requires a [registered application key](https://docs.datadoghq.com/api/latest/action-connection/#register-a-new-app-key).
+    # Create a new Action Connection
     #
     # @param body [CreateActionConnectionRequest] 
     # @param opts [Hash] the optional parameters
@@ -100,7 +100,7 @@ module DatadogAPIClient::V2
 
     # Delete an existing Action Connection.
     #
-    # Delete an existing Action Connection. This API requires a [registered application key](https://docs.datadoghq.com/api/latest/action-connection/#register-a-new-app-key).
+    # Delete an existing Action Connection
     #
     # @param connection_id [String] The ID of the action connection
     # @param opts [Hash] the optional parameters
@@ -165,7 +165,7 @@ module DatadogAPIClient::V2
 
     # Get an existing Action Connection.
     #
-    # Get an existing Action Connection. This API requires a [registered application key](https://docs.datadoghq.com/api/latest/action-connection/#register-a-new-app-key).
+    # Get an existing Action Connection
     #
     # @param connection_id [String] The ID of the action connection
     # @param opts [Hash] the optional parameters
@@ -220,265 +220,6 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Get an existing App Key Registration.
-    #
-    # @see #get_app_key_registration_with_http_info
-    def get_app_key_registration(app_key_id, opts = {})
-      data, _status_code, _headers = get_app_key_registration_with_http_info(app_key_id, opts)
-      data
-    end
-
-    # Get an existing App Key Registration.
-    #
-    # Get an existing App Key Registration
-    #
-    # @param app_key_id [String] The ID of the app key
-    # @param opts [Hash] the optional parameters
-    # @return [Array<(GetAppKeyRegistrationResponse, Integer, Hash)>] GetAppKeyRegistrationResponse data, response status code and response headers
-    def get_app_key_registration_with_http_info(app_key_id, opts = {})
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ActionConnectionAPI.get_app_key_registration ...'
-      end
-      # verify the required parameter 'app_key_id' is set
-      if @api_client.config.client_side_validation && app_key_id.nil?
-        fail ArgumentError, "Missing the required parameter 'app_key_id' when calling ActionConnectionAPI.get_app_key_registration"
-      end
-      # resource path
-      local_var_path = '/api/v2/actions/app_key_registrations/{app_key_id}'.sub('{app_key_id}', CGI.escape(app_key_id.to_s).gsub('%2F', '/'))
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'GetAppKeyRegistrationResponse'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
-
-      new_options = opts.merge(
-        :operation => :get_app_key_registration,
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type,
-        :api_version => "V2"
-      )
-
-      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ActionConnectionAPI#get_app_key_registration\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # List App Key Registrations.
-    #
-    # @see #list_app_key_registrations_with_http_info
-    def list_app_key_registrations(opts = {})
-      data, _status_code, _headers = list_app_key_registrations_with_http_info(opts)
-      data
-    end
-
-    # List App Key Registrations.
-    #
-    # List App Key Registrations
-    #
-    # @param opts [Hash] the optional parameters
-    # @option opts [Integer] :page_size The number of App Key Registrations to return per page.
-    # @option opts [Integer] :page_number The page number to return.
-    # @return [Array<(ListAppKeyRegistrationsResponse, Integer, Hash)>] ListAppKeyRegistrationsResponse data, response status code and response headers
-    def list_app_key_registrations_with_http_info(opts = {})
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ActionConnectionAPI.list_app_key_registrations ...'
-      end
-      # resource path
-      local_var_path = '/api/v2/actions/app_key_registrations'
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-      query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
-      query_params[:'page[number]'] = opts[:'page_number'] if !opts[:'page_number'].nil?
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'ListAppKeyRegistrationsResponse'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
-
-      new_options = opts.merge(
-        :operation => :list_app_key_registrations,
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type,
-        :api_version => "V2"
-      )
-
-      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ActionConnectionAPI#list_app_key_registrations\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Register a new App Key.
-    #
-    # @see #register_app_key_with_http_info
-    def register_app_key(app_key_id, opts = {})
-      data, _status_code, _headers = register_app_key_with_http_info(app_key_id, opts)
-      data
-    end
-
-    # Register a new App Key.
-    #
-    # Register a new App Key
-    #
-    # @param app_key_id [String] The ID of the app key
-    # @param opts [Hash] the optional parameters
-    # @return [Array<(RegisterAppKeyResponse, Integer, Hash)>] RegisterAppKeyResponse data, response status code and response headers
-    def register_app_key_with_http_info(app_key_id, opts = {})
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ActionConnectionAPI.register_app_key ...'
-      end
-      # verify the required parameter 'app_key_id' is set
-      if @api_client.config.client_side_validation && app_key_id.nil?
-        fail ArgumentError, "Missing the required parameter 'app_key_id' when calling ActionConnectionAPI.register_app_key"
-      end
-      # resource path
-      local_var_path = '/api/v2/actions/app_key_registrations/{app_key_id}'.sub('{app_key_id}', CGI.escape(app_key_id.to_s).gsub('%2F', '/'))
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'RegisterAppKeyResponse'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
-
-      new_options = opts.merge(
-        :operation => :register_app_key,
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type,
-        :api_version => "V2"
-      )
-
-      data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ActionConnectionAPI#register_app_key\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Unregister an App Key.
-    #
-    # @see #unregister_app_key_with_http_info
-    def unregister_app_key(app_key_id, opts = {})
-      unregister_app_key_with_http_info(app_key_id, opts)
-      nil
-    end
-
-    # Unregister an App Key.
-    #
-    # Unregister an App Key
-    #
-    # @param app_key_id [String] The ID of the app key
-    # @param opts [Hash] the optional parameters
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def unregister_app_key_with_http_info(app_key_id, opts = {})
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ActionConnectionAPI.unregister_app_key ...'
-      end
-      # verify the required parameter 'app_key_id' is set
-      if @api_client.config.client_side_validation && app_key_id.nil?
-        fail ArgumentError, "Missing the required parameter 'app_key_id' when calling ActionConnectionAPI.unregister_app_key"
-      end
-      # resource path
-      local_var_path = '/api/v2/actions/app_key_registrations/{app_key_id}'.sub('{app_key_id}', CGI.escape(app_key_id.to_s).gsub('%2F', '/'))
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type]
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
-
-      new_options = opts.merge(
-        :operation => :unregister_app_key,
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type,
-        :api_version => "V2"
-      )
-
-      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ActionConnectionAPI#unregister_app_key\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
     # Update an existing Action Connection.
     #
     # @see #update_action_connection_with_http_info
@@ -489,7 +230,7 @@ module DatadogAPIClient::V2
 
     # Update an existing Action Connection.
     #
-    # Update an existing Action Connection. This API requires a [registered application key](https://docs.datadoghq.com/api/latest/action-connection/#register-a-new-app-key).
+    # Update an existing Action Connection
     #
     # @param connection_id [String] The ID of the action connection
     # @param body [UpdateActionConnectionRequest] Update an existing Action Connection request body
