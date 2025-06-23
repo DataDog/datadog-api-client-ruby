@@ -22,13 +22,13 @@ module DatadogAPIClient::V1
     include BaseGenericModel
 
     # Password to use for the basic authentication.
-    attr_reader :password
+    attr_accessor :password
 
     # The type of basic authentication to use when performing the test.
     attr_accessor :type
 
     # Username to use for the basic authentication.
-    attr_reader :username
+    attr_accessor :username
 
     attr_accessor :additional_properties
 
@@ -81,35 +81,6 @@ module DatadogAPIClient::V1
       if attributes.key?(:'username')
         self.username = attributes[:'username']
       end
-    end
-
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    # @!visibility private
-    def valid?
-      return false if @password.nil?
-      return false if @username.nil?
-      true
-    end
-
-    # Custom attribute writer method with validation
-    # @param password [Object] Object to be assigned
-    # @!visibility private
-    def password=(password)
-      if password.nil?
-        fail ArgumentError, 'invalid value for "password", password cannot be nil.'
-      end
-      @password = password
-    end
-
-    # Custom attribute writer method with validation
-    # @param username [Object] Object to be assigned
-    # @!visibility private
-    def username=(username)
-      if username.nil?
-        fail ArgumentError, 'invalid value for "username", username cannot be nil.'
-      end
-      @username = username
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
