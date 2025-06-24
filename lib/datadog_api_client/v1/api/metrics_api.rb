@@ -99,6 +99,9 @@ module DatadogAPIClient::V1
     # Get active metrics list.
     #
     # Get the list of actively reporting metrics from a given time until now.
+    # The tag service resets daily at midnight UTC. This endpoint returns only
+    # metrics that have reported since the last reset, even if the `from`
+    # parameter specifies an earlier time.
     #
     # @param from [Integer] Seconds since the Unix epoch.
     # @param opts [Hash] the optional parameters
