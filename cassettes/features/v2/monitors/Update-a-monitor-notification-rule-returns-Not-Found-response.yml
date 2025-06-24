@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Thu, 10 Apr 2025 10:29:57 GMT
+- recorded_at: Thu, 29 May 2025 02:36:22 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"filter":{"tags":["test:test-update_a_monitor_notification_rule_returns_not_found_response-1744280997","host:abc"]},"name":"updated
+      string: '{"data":{"attributes":{"filter":{"tags":["test:test-update_a_monitor_notification_rule_returns_not_found_response-1748486182","host:abc"]},"name":"updated
         rule","recipients":["slack-test-channel","jira-test"]},"id":"00000000-0000-1234-0000-000000000000","type":"monitor-notification-rule"}}'
     headers:
       Accept:

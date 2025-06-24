@@ -163,6 +163,79 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Create a monitor user template.
+    #
+    # @see #create_monitor_user_template_with_http_info
+    def create_monitor_user_template(body, opts = {})
+      data, _status_code, _headers = create_monitor_user_template_with_http_info(body, opts)
+      data
+    end
+
+    # Create a monitor user template.
+    #
+    # Create a new monitor user template.
+    #
+    # @param body [MonitorUserTemplateCreateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(MonitorUserTemplateCreateResponse, Integer, Hash)>] MonitorUserTemplateCreateResponse data, response status code and response headers
+    def create_monitor_user_template_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_monitor_user_template".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_monitor_user_template")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_monitor_user_template"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MonitorsAPI.create_monitor_user_template ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling MonitorsAPI.create_monitor_user_template"
+      end
+      # resource path
+      local_var_path = '/api/v2/monitor/template'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MonitorUserTemplateCreateResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_monitor_user_template,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MonitorsAPI#create_monitor_user_template\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Delete a monitor configuration policy.
     #
     # @see #delete_monitor_config_policy_with_http_info
@@ -295,6 +368,77 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: MonitorsAPI#delete_monitor_notification_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete a monitor user template.
+    #
+    # @see #delete_monitor_user_template_with_http_info
+    def delete_monitor_user_template(template_id, opts = {})
+      delete_monitor_user_template_with_http_info(template_id, opts)
+      nil
+    end
+
+    # Delete a monitor user template.
+    #
+    # Delete an existing monitor user template by its ID.
+    #
+    # @param template_id [String] ID of the monitor user template.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_monitor_user_template_with_http_info(template_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.delete_monitor_user_template".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_monitor_user_template")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_monitor_user_template"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MonitorsAPI.delete_monitor_user_template ...'
+      end
+      # verify the required parameter 'template_id' is set
+      if @api_client.config.client_side_validation && template_id.nil?
+        fail ArgumentError, "Missing the required parameter 'template_id' when calling MonitorsAPI.delete_monitor_user_template"
+      end
+      # resource path
+      local_var_path = '/api/v2/monitor/template/{template_id}'.sub('{template_id}', CGI.escape(template_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_monitor_user_template,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MonitorsAPI#delete_monitor_user_template\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -505,6 +649,79 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get a monitor user template.
+    #
+    # @see #get_monitor_user_template_with_http_info
+    def get_monitor_user_template(template_id, opts = {})
+      data, _status_code, _headers = get_monitor_user_template_with_http_info(template_id, opts)
+      data
+    end
+
+    # Get a monitor user template.
+    #
+    # Retrieve a monitor user template by its ID.
+    #
+    # @param template_id [String] ID of the monitor user template.
+    # @param opts [Hash] the optional parameters
+    # @option opts [Boolean] :with_all_versions Whether to include all versions of the template in the response in the versions field.
+    # @return [Array<(MonitorUserTemplateResponse, Integer, Hash)>] MonitorUserTemplateResponse data, response status code and response headers
+    def get_monitor_user_template_with_http_info(template_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_monitor_user_template".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_monitor_user_template")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_monitor_user_template"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MonitorsAPI.get_monitor_user_template ...'
+      end
+      # verify the required parameter 'template_id' is set
+      if @api_client.config.client_side_validation && template_id.nil?
+        fail ArgumentError, "Missing the required parameter 'template_id' when calling MonitorsAPI.get_monitor_user_template"
+      end
+      # resource path
+      local_var_path = '/api/v2/monitor/template/{template_id}'.sub('{template_id}', CGI.escape(template_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'with_all_versions'] = opts[:'with_all_versions'] if !opts[:'with_all_versions'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MonitorUserTemplateResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_monitor_user_template,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MonitorsAPI#get_monitor_user_template\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get all monitor configuration policies.
     #
     # @see #list_monitor_config_policies_with_http_info
@@ -561,6 +778,72 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: MonitorsAPI#list_monitor_config_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get all monitor user templates.
+    #
+    # @see #list_monitor_user_templates_with_http_info
+    def list_monitor_user_templates(opts = {})
+      data, _status_code, _headers = list_monitor_user_templates_with_http_info(opts)
+      data
+    end
+
+    # Get all monitor user templates.
+    #
+    # Retrieve all monitor user templates.
+    #
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(MonitorUserTemplateListResponse, Integer, Hash)>] MonitorUserTemplateListResponse data, response status code and response headers
+    def list_monitor_user_templates_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_monitor_user_templates".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_monitor_user_templates")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_monitor_user_templates"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MonitorsAPI.list_monitor_user_templates ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/monitor/template'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MonitorUserTemplateListResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_monitor_user_templates,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MonitorsAPI#list_monitor_user_templates\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -711,6 +994,235 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: MonitorsAPI#update_monitor_notification_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update a monitor user template to a new version.
+    #
+    # @see #update_monitor_user_template_with_http_info
+    def update_monitor_user_template(template_id, body, opts = {})
+      data, _status_code, _headers = update_monitor_user_template_with_http_info(template_id, body, opts)
+      data
+    end
+
+    # Update a monitor user template to a new version.
+    #
+    # Creates a new version of an existing monitor user template.
+    #
+    # @param template_id [String] ID of the monitor user template.
+    # @param body [MonitorUserTemplateUpdateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(MonitorUserTemplateResponse, Integer, Hash)>] MonitorUserTemplateResponse data, response status code and response headers
+    def update_monitor_user_template_with_http_info(template_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.update_monitor_user_template".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_monitor_user_template")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_monitor_user_template"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MonitorsAPI.update_monitor_user_template ...'
+      end
+      # verify the required parameter 'template_id' is set
+      if @api_client.config.client_side_validation && template_id.nil?
+        fail ArgumentError, "Missing the required parameter 'template_id' when calling MonitorsAPI.update_monitor_user_template"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling MonitorsAPI.update_monitor_user_template"
+      end
+      # resource path
+      local_var_path = '/api/v2/monitor/template/{template_id}'.sub('{template_id}', CGI.escape(template_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MonitorUserTemplateResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_monitor_user_template,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MonitorsAPI#update_monitor_user_template\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Validate an existing monitor user template.
+    #
+    # @see #validate_existing_monitor_user_template_with_http_info
+    def validate_existing_monitor_user_template(template_id, body, opts = {})
+      validate_existing_monitor_user_template_with_http_info(template_id, body, opts)
+      nil
+    end
+
+    # Validate an existing monitor user template.
+    #
+    # Validate the structure and content of an existing monitor user template being updated to a new version.
+    #
+    # @param template_id [String] ID of the monitor user template.
+    # @param body [MonitorUserTemplateUpdateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def validate_existing_monitor_user_template_with_http_info(template_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.validate_existing_monitor_user_template".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.validate_existing_monitor_user_template")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.validate_existing_monitor_user_template"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MonitorsAPI.validate_existing_monitor_user_template ...'
+      end
+      # verify the required parameter 'template_id' is set
+      if @api_client.config.client_side_validation && template_id.nil?
+        fail ArgumentError, "Missing the required parameter 'template_id' when calling MonitorsAPI.validate_existing_monitor_user_template"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling MonitorsAPI.validate_existing_monitor_user_template"
+      end
+      # resource path
+      local_var_path = '/api/v2/monitor/template/{template_id}/validate'.sub('{template_id}', CGI.escape(template_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :validate_existing_monitor_user_template,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MonitorsAPI#validate_existing_monitor_user_template\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Validate a monitor user template.
+    #
+    # @see #validate_monitor_user_template_with_http_info
+    def validate_monitor_user_template(body, opts = {})
+      validate_monitor_user_template_with_http_info(body, opts)
+      nil
+    end
+
+    # Validate a monitor user template.
+    #
+    # Validate the structure and content of a monitor user template.
+    #
+    # @param body [MonitorUserTemplateCreateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def validate_monitor_user_template_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.validate_monitor_user_template".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.validate_monitor_user_template")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.validate_monitor_user_template"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MonitorsAPI.validate_monitor_user_template ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling MonitorsAPI.validate_monitor_user_template"
+      end
+      # resource path
+      local_var_path = '/api/v2/monitor/template/validate'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :validate_monitor_user_template,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MonitorsAPI#validate_monitor_user_template\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
