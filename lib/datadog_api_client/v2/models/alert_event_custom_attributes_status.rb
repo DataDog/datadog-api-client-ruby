@@ -17,10 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The type of the impacted resource.
-  class ChangeEventCustomAttributesImpactedResourcesItemsType
+  # The status of the alert.
+  class AlertEventCustomAttributesStatus
     include BaseEnumModel
 
-    SERVICE = "service".freeze
+    WARN = "warn".freeze
+    ERROR = "error".freeze
+    OK = "ok".freeze
   end
 end

@@ -17,10 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Event category to identify the type of event. Only the value `change` is supported. Support for other categories are coming. please reach out to datadog support if you're interested.
+  # Event category identifying the type of event.
   class EventCategory
     include BaseEnumModel
 
     CHANGE = "change".freeze
+    ALERT = "alert".freeze
   end
 end

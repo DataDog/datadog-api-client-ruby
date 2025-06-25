@@ -545,6 +545,58 @@ module DatadogAPIClient
             }
           }
         ],
+        "v2.create_event": [
+          {
+            url: +"https://{subdomain}.{site}",
+            description: "No description provided",
+            variables: {
+              site: {
+                description: "The regional site for customers.",
+                default_value: "datadoghq.com",
+                enum_values: [
+                  "datadoghq.com",
+                  "us3.datadoghq.com",
+                  "us5.datadoghq.com",
+                  "ap1.datadoghq.com",
+                  "datadoghq.eu",
+                  "ddog-gov.com"
+                ]
+              },
+              subdomain: {
+                description: "The subdomain where the API is deployed.",
+                default_value: "event-management-intake",
+              }
+            }
+          },
+          {
+            url: +"{protocol}://{name}",
+            description: "No description provided",
+            variables: {
+              name: {
+                description: "Full site DNS name.",
+                default_value: "event-management-intake.datadoghq.com",
+              },
+              protocol: {
+                description: "The protocol for accessing the API.",
+                default_value: "https",
+              }
+            }
+          },
+          {
+            url: +"https://{subdomain}.{site}",
+            description: "No description provided",
+            variables: {
+              site: {
+                description: "Any Datadog deployment.",
+                default_value: "datadoghq.com",
+              },
+              subdomain: {
+                description: "The subdomain where the API is deployed.",
+                default_value: "event-management-intake",
+              }
+            }
+          }
+        ],
         "v2.submit_log": [
           {
             url: +"https://{subdomain}.{site}",

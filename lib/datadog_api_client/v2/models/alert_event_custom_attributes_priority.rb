@@ -17,10 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The type of the impacted resource.
-  class ChangeEventCustomAttributesImpactedResourcesItemsType
+  # The priority of the alert.
+  class AlertEventCustomAttributesPriority
     include BaseEnumModel
 
-    SERVICE = "service".freeze
+    PRIORITY_ONE = "1".freeze
+    PRIORITY_TWO = "2".freeze
+    PRIORITY_THREE = "3".freeze
+    PRIORITY_FOUR = "4".freeze
+    PRIORITY_FIVE = "5".freeze
   end
 end

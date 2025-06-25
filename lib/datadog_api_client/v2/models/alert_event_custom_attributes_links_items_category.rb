@@ -17,10 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The type of the impacted resource.
-  class ChangeEventCustomAttributesImpactedResourcesItemsType
+  # The category of the link.
+  class AlertEventCustomAttributesLinksItemsCategory
     include BaseEnumModel
 
-    SERVICE = "service".freeze
+    RUNBOOK = "runbook".freeze
+    DOCUMENTATION = "documentation".freeze
+    DASHBOARD = "dashboard".freeze
   end
 end
