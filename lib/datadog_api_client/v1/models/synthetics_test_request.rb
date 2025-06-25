@@ -179,7 +179,7 @@ module DatadogAPIClient::V1
         :'compressed_json_descriptor' => :'String',
         :'compressed_proto_file' => :'String',
         :'dns_server' => :'String',
-        :'dns_server_port' => :'String',
+        :'dns_server_port' => :'SyntheticsTestRequestDNSServerPort',
         :'files' => :'Array<SyntheticsTestRequestBodyFile>',
         :'follow_redirects' => :'Boolean',
         :'form' => :'Hash<String, String>',
