@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # JSON object containing all events attributes and their associated values.
+  # Event attributes.
   class EventCreateResponseAttributes
     include BaseGenericModel
 
-    # JSON object of attributes from your events.
+    # JSON object for category-specific attributes.
     attr_accessor :attributes
 
     attr_accessor :additional_properties
