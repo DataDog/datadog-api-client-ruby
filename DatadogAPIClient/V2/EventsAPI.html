@@ -6,7 +6,7 @@
 <title>
   Class: DatadogAPIClient::V2::EventsAPI
   
-    &mdash; datadog-api-client 2.30.0.dev.1 documentation
+    &mdash; datadog-api-client 2.37.0 documentation
   
 </title>
 
@@ -516,11 +516,15 @@
   <div class="discussion">
     <p>Post an event.</p>
 
-<p>This endpoint allows you to post events.</p>
+<p>This endpoint allows you to publish events.</p>
 
-<p>✅ <strong>Only events with the <code>change</code> category</strong> are in General Availability. See <a href="https://docs.datadoghq.com/change_tracking">Change Tracking</a> for more details.</p>
+<p>✅ <strong>Only events with the <code>change</code> or <code>alert</code> category</strong> are in General Availability. For change events, see <a href="https://docs.datadoghq.com/change_tracking">Change Tracking</a> for more details.</p>
 
-<p>❌ For use cases involving other event categories, please use the V1 endpoint.</p>
+<p>❌ For use cases involving other event categories, use the V1 endpoint or reach out to <a href="https://www.datadoghq.com/support/">support</a>.</p>
+
+<p>❌ Notifications are not yet supported for events sent to this endpoint. Use the V1 endpoint for notification functionality.</p>
+
+<p>❌ This endpoint is not available for the Government (US1-FED) site. Contact your account representative for more information.</p>
 
 
   </div>
@@ -539,7 +543,7 @@
       
       
         &mdash;
-        <div class='inline'><p>Event request object</p>
+        <div class='inline'><p>Event creation request payload.</p>
 </div>
       
     </li>
@@ -1426,7 +1430,7 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Feb 18 21:07:08 2025 by
+  Generated on Wed Jun 25 18:33:50 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>
