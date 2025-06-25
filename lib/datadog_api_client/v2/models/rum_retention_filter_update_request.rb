@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The RUM retention filter body to update.
+  # The RUM retention filter body to update
   class RumRetentionFilterUpdateRequest
     include BaseGenericModel
 
