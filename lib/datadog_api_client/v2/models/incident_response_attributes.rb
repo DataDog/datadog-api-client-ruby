@@ -55,6 +55,9 @@ module DatadogAPIClient::V2
     # A unique identifier that represents an incident type.
     attr_accessor :incident_type_uuid
 
+    # A flag indicating whether the incident is a test incident.
+    attr_accessor :is_test
+
     # Timestamp when the incident was last modified.
     attr_accessor :modified
 
@@ -112,6 +115,7 @@ module DatadogAPIClient::V2
         :'detected' => :'detected',
         :'fields' => :'fields',
         :'incident_type_uuid' => :'incident_type_uuid',
+        :'is_test' => :'is_test',
         :'modified' => :'modified',
         :'non_datadog_creator' => :'non_datadog_creator',
         :'notification_handles' => :'notification_handles',
@@ -143,6 +147,7 @@ module DatadogAPIClient::V2
         :'detected' => :'Time',
         :'fields' => :'Hash<String, IncidentFieldAttributes>',
         :'incident_type_uuid' => :'String',
+        :'is_test' => :'Boolean',
         :'modified' => :'Time',
         :'non_datadog_creator' => :'IncidentNonDatadogCreator',
         :'notification_handles' => :'Array<IncidentNotificationHandle>',
@@ -237,6 +242,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'incident_type_uuid')
         self.incident_type_uuid = attributes[:'incident_type_uuid']
+      end
+
+      if attributes.key?(:'is_test')
+        self.is_test = attributes[:'is_test']
       end
 
       if attributes.key?(:'modified')
@@ -349,6 +358,7 @@ module DatadogAPIClient::V2
           detected == o.detected &&
           fields == o.fields &&
           incident_type_uuid == o.incident_type_uuid &&
+          is_test == o.is_test &&
           modified == o.modified &&
           non_datadog_creator == o.non_datadog_creator &&
           notification_handles == o.notification_handles &&
@@ -369,7 +379,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [archived, case_id, created, customer_impact_duration, customer_impact_end, customer_impact_scope, customer_impact_start, customer_impacted, detected, fields, incident_type_uuid, modified, non_datadog_creator, notification_handles, public_id, resolved, severity, state, time_to_detect, time_to_internal_response, time_to_repair, time_to_resolve, title, visibility, additional_properties].hash
+      [archived, case_id, created, customer_impact_duration, customer_impact_end, customer_impact_scope, customer_impact_start, customer_impacted, detected, fields, incident_type_uuid, is_test, modified, non_datadog_creator, notification_handles, public_id, resolved, severity, state, time_to_detect, time_to_internal_response, time_to_repair, time_to_resolve, title, visibility, additional_properties].hash
     end
   end
 end

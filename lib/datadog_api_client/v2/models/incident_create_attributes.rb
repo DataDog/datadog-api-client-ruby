@@ -36,6 +36,9 @@ module DatadogAPIClient::V2
     # An array of initial timeline cells to be placed at the beginning of the incident timeline.
     attr_accessor :initial_cells
 
+    # A flag indicating whether the incident is a test incident.
+    attr_accessor :is_test
+
     # Notification handles that will be notified of the incident at creation.
     attr_accessor :notification_handles
 
@@ -53,6 +56,7 @@ module DatadogAPIClient::V2
         :'fields' => :'fields',
         :'incident_type_uuid' => :'incident_type_uuid',
         :'initial_cells' => :'initial_cells',
+        :'is_test' => :'is_test',
         :'notification_handles' => :'notification_handles',
         :'title' => :'title'
       }
@@ -67,6 +71,7 @@ module DatadogAPIClient::V2
         :'fields' => :'Hash<String, IncidentFieldAttributes>',
         :'incident_type_uuid' => :'String',
         :'initial_cells' => :'Array<IncidentTimelineCellCreateAttributes>',
+        :'is_test' => :'Boolean',
         :'notification_handles' => :'Array<IncidentNotificationHandle>',
         :'title' => :'String'
       }
@@ -110,6 +115,10 @@ module DatadogAPIClient::V2
         if (value = attributes[:'initial_cells']).is_a?(Array)
           self.initial_cells = value
         end
+      end
+
+      if attributes.key?(:'is_test')
+        self.is_test = attributes[:'is_test']
       end
 
       if attributes.key?(:'notification_handles')
@@ -183,6 +192,7 @@ module DatadogAPIClient::V2
           fields == o.fields &&
           incident_type_uuid == o.incident_type_uuid &&
           initial_cells == o.initial_cells &&
+          is_test == o.is_test &&
           notification_handles == o.notification_handles &&
           title == o.title &&
           additional_properties == o.additional_properties
@@ -192,7 +202,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [customer_impact_scope, customer_impacted, fields, incident_type_uuid, initial_cells, notification_handles, title, additional_properties].hash
+      [customer_impact_scope, customer_impacted, fields, incident_type_uuid, initial_cells, is_test, notification_handles, title, additional_properties].hash
     end
   end
 end
