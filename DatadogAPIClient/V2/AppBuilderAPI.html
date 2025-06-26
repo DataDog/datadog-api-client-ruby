@@ -700,7 +700,7 @@
   <div class="discussion">
     <p>Create App.</p>
 
-<p>Create a new app, returning the app ID.</p>
+<p>Create a new app, returning the app ID. This API requires a <a href="https://docs.datadoghq.com/api/latest/action-connection/#register-a-new-app-key">registered application key</a>.</p>
 
 
   </div>
@@ -948,7 +948,7 @@
   <div class="discussion">
     <p>Delete App.</p>
 
-<p>Delete a single app.</p>
+<p>Delete a single app. This API requires a <a href="https://docs.datadoghq.com/api/latest/action-connection/#register-a-new-app-key">registered application key</a>.</p>
 
 
   </div>
@@ -1196,7 +1196,7 @@
   <div class="discussion">
     <p>Delete Multiple Apps.</p>
 
-<p>Delete multiple apps in a single request from a list of app IDs.</p>
+<p>Delete multiple apps in a single request from a list of app IDs. This API requires a <a href="https://docs.datadoghq.com/api/latest/action-connection/#register-a-new-app-key">registered application key</a>.</p>
 
 
   </div>
@@ -1444,7 +1444,7 @@
   <div class="discussion">
     <p>Get App.</p>
 
-<p>Get the full definition of an app.</p>
+<p>Get the full definition of an app. This API requires a <a href="https://docs.datadoghq.com/api/latest/action-connection/#register-a-new-app-key">registered application key</a>.</p>
 
 
   </div>
@@ -1717,7 +1717,7 @@
   <div class="discussion">
     <p>List Apps.</p>
 
-<p>List all apps, with optional filters and sorting. This endpoint is paginated. Only basic app information such as the app ID, name, and description is returned by this endpoint.</p>
+<p>List all apps, with optional filters and sorting. This endpoint is paginated. Only basic app information such as the app ID, name, and description is returned by this endpoint. This API requires a <a href="https://docs.datadoghq.com/api/latest/action-connection/#register-a-new-app-key">registered application key</a>.</p>
 
 
   </div>
@@ -2105,7 +2105,7 @@
   <div class="discussion">
     <p>Publish App.</p>
 
-<p>Publish an app for use by other users. To ensure the app is accessible to the correct users, you also need to set a <a href="https://docs.datadoghq.com/api/latest/restriction-policies/">Restriction Policy</a> on the app if a policy does not yet exist.</p>
+<p>Publish an app for use by other users. To ensure the app is accessible to the correct users, you also need to set a <a href="https://docs.datadoghq.com/api/latest/restriction-policies/">Restriction Policy</a> on the app if a policy does not yet exist. This API requires a <a href="https://docs.datadoghq.com/api/latest/action-connection/#register-a-new-app-key">registered application key</a>.</p>
 
 
   </div>
@@ -2353,7 +2353,7 @@
   <div class="discussion">
     <p>Unpublish App.</p>
 
-<p>Unpublish an app, removing the live version of the app. Unpublishing creates a new instance of a <code>deployment</code> object on the app, with a nil <code>app_version_id</code> (<code>00000000-0000-0000-0000-000000000000</code>). The app can still be updated and published again in the future.</p>
+<p>Unpublish an app, removing the live version of the app. Unpublishing creates a new instance of a <code>deployment</code> object on the app, with a nil <code>app_version_id</code> (<code>00000000-0000-0000-0000-000000000000</code>). The app can still be updated and published again in the future. This API requires a <a href="https://docs.datadoghq.com/api/latest/action-connection/#register-a-new-app-key">registered application key</a>.</p>
 
 
   </div>
@@ -2601,7 +2601,7 @@
   <div class="discussion">
     <p>Update App.</p>
 
-<p>Update an existing app. This creates a new version of the app.</p>
+<p>Update an existing app. This creates a new version of the app. This API requires a <a href="https://docs.datadoghq.com/api/latest/action-connection/#register-a-new-app-key">registered application key</a>.</p>
 
 
   </div>
@@ -2815,7 +2815,7 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Jun 25 22:21:02 2025 by
+  Generated on Thu Jun 26 16:59:32 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>
