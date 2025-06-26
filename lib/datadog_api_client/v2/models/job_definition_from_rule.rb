@@ -21,9 +21,6 @@ module DatadogAPIClient::V2
   class JobDefinitionFromRule
     include BaseGenericModel
 
-    # Index of the rule case applied by the job.
-    attr_reader :case_index
-
     # Starting time of data analyzed by the job.
     attr_reader :from
 
@@ -45,7 +42,6 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'case_index' => :'caseIndex',
         :'from' => :'from',
         :'id' => :'id',
         :'index' => :'index',
@@ -58,7 +54,6 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'case_index' => :'Integer',
         :'from' => :'Integer',
         :'id' => :'String',
         :'index' => :'String',
@@ -84,10 +79,6 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
-
-      if attributes.key?(:'case_index')
-        self.case_index = attributes[:'case_index']
-      end
 
       if attributes.key?(:'from')
         self.from = attributes[:'from']
@@ -116,26 +107,11 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @case_index.nil?
-      return false if @case_index > 9
       return false if @from.nil?
       return false if @id.nil?
       return false if @index.nil?
       return false if @to.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param case_index [Object] Object to be assigned
-    # @!visibility private
-    def case_index=(case_index)
-      if case_index.nil?
-        fail ArgumentError, 'invalid value for "case_index", case_index cannot be nil.'
-      end
-      if case_index > 9
-        fail ArgumentError, 'invalid value for "case_index", must be smaller than or equal to 9.'
-      end
-      @case_index = case_index
     end
 
     # Custom attribute writer method with validation
@@ -204,7 +180,6 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          case_index == o.case_index &&
           from == o.from &&
           id == o.id &&
           index == o.index &&
@@ -217,7 +192,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [case_index, from, id, index, notifications, to, additional_properties].hash
+      [from, id, index, notifications, to, additional_properties].hash
     end
   end
 end
