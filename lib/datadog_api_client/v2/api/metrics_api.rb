@@ -787,6 +787,7 @@ module DatadogAPIClient::V2
     #
     # @param metric_name [String] The name of the metric.
     # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :window_seconds The number of seconds of look back (from now). Default value is 604,800 (1 week), minimum value is 7200 (2 hours), maximum value is 2,630,000 (1 month).
     # @return [Array<(MetricVolumesResponse, Integer, Hash)>] MetricVolumesResponse data, response status code and response headers
     def list_volumes_by_metric_name_with_http_info(metric_name, opts = {})
 
@@ -802,6 +803,7 @@ module DatadogAPIClient::V2
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'window[seconds]'] = opts[:'window_seconds'] if !opts[:'window_seconds'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
