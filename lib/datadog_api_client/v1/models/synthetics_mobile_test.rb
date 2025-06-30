@@ -28,7 +28,7 @@ module DatadogAPIClient::V1
     attr_accessor :device_ids
 
     # Notification message associated with the test.
-    attr_accessor :message
+    attr_reader :message
 
     # The associated monitor ID.
     attr_accessor :monitor_id
@@ -167,6 +167,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def valid?
       return false if @config.nil?
+      return false if @message.nil?
       return false if @name.nil?
       return false if @options.nil?
       return false if @type.nil?
@@ -181,6 +182,16 @@ module DatadogAPIClient::V1
         fail ArgumentError, 'invalid value for "config", config cannot be nil.'
       end
       @config = config
+    end
+
+    # Custom attribute writer method with validation
+    # @param message [Object] Object to be assigned
+    # @!visibility private
+    def message=(message)
+      if message.nil?
+        fail ArgumentError, 'invalid value for "message", message cannot be nil.'
+      end
+      @message = message
     end
 
     # Custom attribute writer method with validation
