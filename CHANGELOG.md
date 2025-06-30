@@ -1,5 +1,25 @@
 # CHANGELOG
 
+## 2.38.0/2025-06-30
+
+### Fixed
+* Synthetics mobile test `message` field is now required [#2500](https://github.com/DataDog/datadog-api-client-ruby/pull/2500)
+* Make dns port be string and number [#2484](https://github.com/DataDog/datadog-api-client-ruby/pull/2484)
+
+### Security
+* Remove caseIndex from historical jobs api spec [#2499](https://github.com/DataDog/datadog-api-client-ruby/pull/2499)
+
+### Changed
+* Update events intake specs for v2 Events post endpoint [#2495](https://github.com/DataDog/datadog-api-client-ruby/pull/2495)
+
+### Added
+* Update Incident API specs to include `is_test` in `POST /incidents` and incidents response [#2494](https://github.com/DataDog/datadog-api-client-ruby/pull/2494)
+* Add App Key Registration API  [#2488](https://github.com/DataDog/datadog-api-client-ruby/pull/2488)
+* Add Monitor Template API [#2425](https://github.com/DataDog/datadog-api-client-ruby/pull/2425)
+
+### Deprecated
+* Deprecate SLO metadata fields in api spec [#2454](https://github.com/DataDog/datadog-api-client-ruby/pull/2454)
+
 ## 2.37.0/2025-06-24
 
 ### Fixed
