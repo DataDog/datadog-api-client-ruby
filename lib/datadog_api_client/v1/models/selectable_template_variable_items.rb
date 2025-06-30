@@ -30,6 +30,9 @@ module DatadogAPIClient::V1
     # The tag/attribute key associated with the template variable.
     attr_accessor :prefix
 
+    # The type of variable. This is to differentiate between filter variables (interpolated in query) and group by variables (interpolated into group by).
+    attr_accessor :type
+
     # List of visible tag values on the shared dashboard.
     attr_accessor :visible_tags
 
@@ -42,6 +45,7 @@ module DatadogAPIClient::V1
         :'default_value' => :'default_value',
         :'name' => :'name',
         :'prefix' => :'prefix',
+        :'type' => :'type',
         :'visible_tags' => :'visible_tags'
       }
     end
@@ -53,6 +57,7 @@ module DatadogAPIClient::V1
         :'default_value' => :'String',
         :'name' => :'String',
         :'prefix' => :'String',
+        :'type' => :'String',
         :'visible_tags' => :'Array<String>'
       }
     end
@@ -61,6 +66,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_nullable
       Set.new([
+        :'type',
         :'visible_tags',
       ])
     end
@@ -93,6 +99,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'prefix')
         self.prefix = attributes[:'prefix']
+      end
+
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
       end
 
       if attributes.key?(:'visible_tags')
@@ -131,6 +141,7 @@ module DatadogAPIClient::V1
           default_value == o.default_value &&
           name == o.name &&
           prefix == o.prefix &&
+          type == o.type &&
           visible_tags == o.visible_tags &&
           additional_properties == o.additional_properties
     end
@@ -139,7 +150,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [default_value, name, prefix, visible_tags, additional_properties].hash
+      [default_value, name, prefix, type, visible_tags, additional_properties].hash
     end
   end
 end

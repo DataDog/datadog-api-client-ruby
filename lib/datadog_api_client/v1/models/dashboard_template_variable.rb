@@ -36,6 +36,9 @@ module DatadogAPIClient::V1
     # The tag prefix associated with the variable. Only tags with this prefix appear in the variable drop-down.
     attr_accessor :prefix
 
+    # The type of variable. This is to differentiate between filter variables (interpolated in query) and group by variables (interpolated into group by).
+    attr_accessor :type
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -46,7 +49,8 @@ module DatadogAPIClient::V1
         :'default' => :'default',
         :'defaults' => :'defaults',
         :'name' => :'name',
-        :'prefix' => :'prefix'
+        :'prefix' => :'prefix',
+        :'type' => :'type'
       }
     end
 
@@ -58,7 +62,8 @@ module DatadogAPIClient::V1
         :'default' => :'String',
         :'defaults' => :'Array<String>',
         :'name' => :'String',
-        :'prefix' => :'String'
+        :'prefix' => :'String',
+        :'type' => :'String'
       }
     end
 
@@ -69,6 +74,7 @@ module DatadogAPIClient::V1
         :'available_values',
         :'default',
         :'prefix',
+        :'type',
       ])
     end
 
@@ -112,6 +118,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'prefix')
         self.prefix = attributes[:'prefix']
+      end
+
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
       end
     end
 
@@ -164,6 +174,7 @@ module DatadogAPIClient::V1
           defaults == o.defaults &&
           name == o.name &&
           prefix == o.prefix &&
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -171,7 +182,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [available_values, default, defaults, name, prefix, additional_properties].hash
+      [available_values, default, defaults, name, prefix, type, additional_properties].hash
     end
   end
 end
