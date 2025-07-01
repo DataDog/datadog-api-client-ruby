@@ -157,6 +157,73 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Create Cloud Cost Management GCP Usage Cost config.
+    #
+    # @see #create_cost_gcp_usage_cost_config_with_http_info
+    def create_cost_gcp_usage_cost_config(body, opts = {})
+      data, _status_code, _headers = create_cost_gcp_usage_cost_config_with_http_info(body, opts)
+      data
+    end
+
+    # Create Cloud Cost Management GCP Usage Cost config.
+    #
+    # Create a Cloud Cost Management account for an GCP Usage Cost config.
+    #
+    # @param body [GCPUsageCostConfigPostRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(GCPUsageCostConfigResponse, Integer, Hash)>] GCPUsageCostConfigResponse data, response status code and response headers
+    def create_cost_gcp_usage_cost_config_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.create_cost_gcp_usage_cost_config ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CloudCostManagementAPI.create_cost_gcp_usage_cost_config"
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/gcp_uc_config'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GCPUsageCostConfigResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_cost_gcp_usage_cost_config,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#create_cost_gcp_usage_cost_config\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Delete a budget.
     #
     # @see #delete_budget_with_http_info
@@ -348,6 +415,71 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CloudCostManagementAPI#delete_cost_azure_uc_config\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete Cloud Cost Management GCP Usage Cost config.
+    #
+    # @see #delete_cost_gcp_usage_cost_config_with_http_info
+    def delete_cost_gcp_usage_cost_config(cloud_account_id, opts = {})
+      delete_cost_gcp_usage_cost_config_with_http_info(cloud_account_id, opts)
+      nil
+    end
+
+    # Delete Cloud Cost Management GCP Usage Cost config.
+    #
+    # Archive a Cloud Cost Management account.
+    #
+    # @param cloud_account_id [String] Cloud Account id.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_cost_gcp_usage_cost_config_with_http_info(cloud_account_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.delete_cost_gcp_usage_cost_config ...'
+      end
+      # verify the required parameter 'cloud_account_id' is set
+      if @api_client.config.client_side_validation && cloud_account_id.nil?
+        fail ArgumentError, "Missing the required parameter 'cloud_account_id' when calling CloudCostManagementAPI.delete_cost_gcp_usage_cost_config"
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/gcp_uc_config/{cloud_account_id}'.sub('{cloud_account_id}', CGI.escape(cloud_account_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_cost_gcp_usage_cost_config,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#delete_cost_gcp_usage_cost_config\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -727,6 +859,66 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # List Cloud Cost Management GCP Usage Cost configs.
+    #
+    # @see #list_cost_gcp_usage_cost_configs_with_http_info
+    def list_cost_gcp_usage_cost_configs(opts = {})
+      data, _status_code, _headers = list_cost_gcp_usage_cost_configs_with_http_info(opts)
+      data
+    end
+
+    # List Cloud Cost Management GCP Usage Cost configs.
+    #
+    # List the GCP Usage Cost configs.
+    #
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(GCPUsageCostConfigsResponse, Integer, Hash)>] GCPUsageCostConfigsResponse data, response status code and response headers
+    def list_cost_gcp_usage_cost_configs_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.list_cost_gcp_usage_cost_configs ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/gcp_uc_config'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GCPUsageCostConfigsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_cost_gcp_usage_cost_configs,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#list_cost_gcp_usage_cost_configs\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List Custom Costs files.
     #
     # @see #list_custom_costs_files_with_http_info
@@ -927,6 +1119,78 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CloudCostManagementAPI#update_cost_azure_uc_configs\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update Cloud Cost Management GCP Usage Cost config.
+    #
+    # @see #update_cost_gcp_usage_cost_config_with_http_info
+    def update_cost_gcp_usage_cost_config(cloud_account_id, body, opts = {})
+      data, _status_code, _headers = update_cost_gcp_usage_cost_config_with_http_info(cloud_account_id, body, opts)
+      data
+    end
+
+    # Update Cloud Cost Management GCP Usage Cost config.
+    #
+    # Update the status of an GCP Usage Cost config (active/archived).
+    #
+    # @param cloud_account_id [String] Cloud Account id.
+    # @param body [GCPUsageCostConfigPatchRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(GCPUsageCostConfigResponse, Integer, Hash)>] GCPUsageCostConfigResponse data, response status code and response headers
+    def update_cost_gcp_usage_cost_config_with_http_info(cloud_account_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.update_cost_gcp_usage_cost_config ...'
+      end
+      # verify the required parameter 'cloud_account_id' is set
+      if @api_client.config.client_side_validation && cloud_account_id.nil?
+        fail ArgumentError, "Missing the required parameter 'cloud_account_id' when calling CloudCostManagementAPI.update_cost_gcp_usage_cost_config"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CloudCostManagementAPI.update_cost_gcp_usage_cost_config"
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/gcp_uc_config/{cloud_account_id}'.sub('{cloud_account_id}', CGI.escape(cloud_account_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GCPUsageCostConfigResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_cost_gcp_usage_cost_config,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#update_cost_gcp_usage_cost_config\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

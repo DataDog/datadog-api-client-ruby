@@ -1471,6 +1471,16 @@ ScenariosModelMappings = {
     "v2.GetCustomCostsFile" => {
             "file_id" => "String",
     },
+    "v2.CreateCostGCPUsageCostConfig" => {
+            "body" => "GCPUsageCostConfigPostRequest",
+    },
+    "v2.DeleteCostGCPUsageCostConfig" => {
+            "cloud_account_id" => "String",
+    },
+    "v2.UpdateCostGCPUsageCostConfig" => {
+            "cloud_account_id" => "String",
+            "body" => "GCPUsageCostConfigPatchRequest",
+    },
     "v2.GetMonthlyCostAttribution" => {
             "start_month" => "Time",
             "end_month" => "Time",
