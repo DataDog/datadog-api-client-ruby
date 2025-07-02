@@ -106,12 +106,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(MonitorNotificationRuleResponse, Integer, Hash)>] MonitorNotificationRuleResponse data, response status code and response headers
     def create_monitor_notification_rule_with_http_info(body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.create_monitor_notification_rule".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_monitor_notification_rule")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_monitor_notification_rule"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MonitorsAPI.create_monitor_notification_rule ...'
@@ -317,12 +311,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_monitor_notification_rule_with_http_info(rule_id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.delete_monitor_notification_rule".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_monitor_notification_rule")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_monitor_notification_rule"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MonitorsAPI.delete_monitor_notification_rule ...'
@@ -525,12 +513,6 @@ module DatadogAPIClient::V2
     # @option opts [String] :include Comma-separated list of resource paths for related resources to include in the response. Supported resource path is `created_by`.
     # @return [Array<(MonitorNotificationRuleResponse, Integer, Hash)>] MonitorNotificationRuleResponse data, response status code and response headers
     def get_monitor_notification_rule_with_http_info(rule_id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.get_monitor_notification_rule".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_monitor_notification_rule")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_monitor_notification_rule"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MonitorsAPI.get_monitor_notification_rule ...'
@@ -597,12 +579,6 @@ module DatadogAPIClient::V2
     # @option opts [String] :include Comma-separated list of resource paths for related resources to include in the response. Supported resource path is `created_by`.
     # @return [Array<(MonitorNotificationRuleListResponse, Integer, Hash)>] MonitorNotificationRuleListResponse data, response status code and response headers
     def get_monitor_notification_rules_with_http_info(opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.get_monitor_notification_rules".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_monitor_notification_rules")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_monitor_notification_rules"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MonitorsAPI.get_monitor_notification_rules ...'
@@ -937,12 +913,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(MonitorNotificationRuleResponse, Integer, Hash)>] MonitorNotificationRuleResponse data, response status code and response headers
     def update_monitor_notification_rule_with_http_info(rule_id, body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.update_monitor_notification_rule".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_monitor_notification_rule")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_monitor_notification_rule"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MonitorsAPI.update_monitor_notification_rule ...'
