@@ -1775,6 +1775,78 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
+    # Search Synthetic tests.
+    #
+    # @see #search_tests_with_http_info
+    def search_tests(opts = {})
+      data, _status_code, _headers = search_tests_with_http_info(opts)
+      data
+    end
+
+    # Search Synthetic tests.
+    #
+    # Search for Synthetic tests and Test Suites.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [Boolean] :include_full_config If true, include the full configuration for each test in the response.
+    # @option opts [Boolean] :search_suites If true, returns suites instead of tests.
+    # @option opts [Boolean] :facets_only If true, return only facets instead of full test details.
+    # @option opts [Integer] :start The offset from which to start returning results.
+    # @option opts [Integer] :count The maximum number of results to return.
+    # @option opts [String] :sort The sort order for the results (e.g., 'name,asc' or 'name,desc').
+    # @return [Array<(SyntheticsListTestsResponse, Integer, Hash)>] SyntheticsListTestsResponse data, response status code and response headers
+    def search_tests_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsAPI.search_tests ...'
+      end
+      # resource path
+      local_var_path = '/api/v1/synthetics/tests/search'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'include_full_config'] = opts[:'include_full_config'] if !opts[:'include_full_config'].nil?
+      query_params[:'search_suites'] = opts[:'search_suites'] if !opts[:'search_suites'].nil?
+      query_params[:'facets_only'] = opts[:'facets_only'] if !opts[:'facets_only'].nil?
+      query_params[:'start'] = opts[:'start'] if !opts[:'start'].nil?
+      query_params[:'count'] = opts[:'count'] if !opts[:'count'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SyntheticsListTestsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :search_tests,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V1"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SyntheticsAPI#search_tests\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Trigger tests from CI/CD pipelines.
     #
     # @see #trigger_ci_tests_with_http_info

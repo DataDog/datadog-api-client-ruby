@@ -1,0 +1,13 @@
+# Search Synthetic tests with boolean query parameters
+
+require "datadog_api_client"
+api_instance = DatadogAPIClient::V1::SyntheticsAPI.new
+opts = {
+  include_full_config: true,
+  search_suites: true,
+  facets_only: true,
+  start: 10,
+  count: 5,
+  sort: "name,desc",
+}
+p api_instance.search_tests(opts)
