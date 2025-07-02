@@ -6,7 +6,7 @@
 <title>
   Class: DatadogAPIClient::V1::HostsAPI
   
-    &mdash; datadog-api-client 2.30.0.dev.1 documentation
+    &mdash; datadog-api-client 2.38.0 documentation
   
 </title>
 
@@ -756,7 +756,8 @@ Active means the host has reported in the past hour, and up means it has reporte
 <p>This endpoint allows searching for hosts by name, alias, or tag.
 Hosts live within the past 3 hours are included by default.
 Retention is 7 days.
-Results are paginated with a max of 1000 results at a time.</p>
+Results are paginated with a max of 1000 results at a time.
+<strong>Note:</strong> If the host is an Amazon EC2 instance, <code>id</code> is replaced with <code>aws_id</code> in the response.</p>
 
 
   </div>
@@ -1532,7 +1533,7 @@ Results are paginated with a max of 1000 results at a time.</p>
 </div>
 
       <div id="footer">
-  Generated on Tue Feb 18 21:07:07 2025 by
+  Generated on Wed Jul  2 09:46:39 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>
