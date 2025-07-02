@@ -753,6 +753,14 @@ ScenariosModelMappings = {
             "public_id" => "String",
             "body" => "SyntheticsMobileTest",
     },
+    "v1.SearchTests" => {
+            "include_full_config" => "Boolean",
+            "search_suites" => "Boolean",
+            "facets_only" => "Boolean",
+            "start" => "Integer",
+            "count" => "Integer",
+            "sort" => "String",
+    },
     "v1.TriggerTests" => {
             "body" => "SyntheticsTriggerBody",
     },
