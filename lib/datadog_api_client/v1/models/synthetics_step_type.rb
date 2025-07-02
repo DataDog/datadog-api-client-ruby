@@ -33,6 +33,7 @@ module DatadogAPIClient::V1
     ASSERT_REQUESTS = "assertRequests".freeze
     CLICK = "click".freeze
     EXTRACT_FROM_JAVASCRIPT = "extractFromJavascript".freeze
+    EXTRACT_FROM_EMAIL_BODY = "extractFromEmailBody".freeze
     EXTRACT_VARIABLE = "extractVariable".freeze
     GO_TO_EMAIL_LINK = "goToEmailLink".freeze
     GO_TO_URL = "goToUrl".freeze
