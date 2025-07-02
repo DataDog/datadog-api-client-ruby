@@ -40,7 +40,8 @@ module DatadogAPIClient::V2
           :'ObservabilityPipelineAmazonDataFirehoseSource',
           :'ObservabilityPipelineGooglePubSubSource',
           :'ObservabilityPipelineHttpClientSource',
-          :'ObservabilityPipelineLogstashSource'
+          :'ObservabilityPipelineLogstashSource',
+          :'ObservabilityPipelineSocketSource'
         ]
       end
       # Builds the object
