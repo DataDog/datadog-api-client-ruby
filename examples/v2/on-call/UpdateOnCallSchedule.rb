@@ -23,7 +23,7 @@ body = DatadogAPIClient::V2::ScheduleUpdateRequest.new({
           effective_date: (Time.now + -10 * 86400),
           end_date: (Time.now + 10 * 86400),
           interval: DatadogAPIClient::V2::LayerAttributesInterval.new({
-            seconds: 300,
+            seconds: 3600,
           }),
           members: [
             DatadogAPIClient::V2::ScheduleRequestDataAttributesLayersItemsMembersItems.new({

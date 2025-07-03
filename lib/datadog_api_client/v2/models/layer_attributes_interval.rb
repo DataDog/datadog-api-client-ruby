@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Defines how often the rotation repeats, using a combination of days and optional seconds.
+  # Defines how often the rotation repeats, using a combination of days and optional seconds. Should be at least 1 hour.
   class LayerAttributesInterval
     include BaseGenericModel
 
