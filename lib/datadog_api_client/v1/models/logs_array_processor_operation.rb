@@ -17,8 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Definition of a logs processor.
-  module LogsProcessor
+  # Configuration of the array processor operation to perform.
+  module LogsArrayProcessorOperation
     class << self
       include BaseOneOfModel
       include BaseOneOfModelNoDiscriminator
@@ -26,24 +26,9 @@ module DatadogAPIClient::V1
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of
         [
-          :'LogsGrokParser',
-          :'LogsDateRemapper',
-          :'LogsStatusRemapper',
-          :'LogsServiceRemapper',
-          :'LogsMessageRemapper',
-          :'LogsAttributeRemapper',
-          :'LogsURLParser',
-          :'LogsUserAgentParser',
-          :'LogsCategoryProcessor',
-          :'LogsArithmeticProcessor',
-          :'LogsStringBuilderProcessor',
-          :'LogsPipelineProcessor',
-          :'LogsGeoIPParser',
-          :'LogsLookupProcessor',
-          :'ReferenceTableLogsLookupProcessor',
-          :'LogsTraceRemapper',
-          :'LogsSpanRemapper',
-          :'LogsArrayProcessor'
+          :'LogsArrayProcessorOperationAppend',
+          :'LogsArrayProcessorOperationLength',
+          :'LogsArrayProcessorOperationSelect'
         ]
       end
       # Builds the object
