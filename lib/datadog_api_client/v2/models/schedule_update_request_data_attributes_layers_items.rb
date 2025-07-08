@@ -31,7 +31,7 @@ module DatadogAPIClient::V2
     # A unique identifier for the layer being updated.
     attr_accessor :id
 
-    # Defines how often the rotation repeats, using a combination of days and optional seconds.
+    # Defines how often the rotation repeats, using a combination of days and optional seconds. Should be at least 1 hour.
     attr_reader :interval
 
     # The members assigned to this layer.
