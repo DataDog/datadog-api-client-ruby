@@ -68,9 +68,6 @@ module DatadogAPIClient::V1
     # determined entirely by the `monitor_ids` field).
     attr_accessor :monitor_tags
 
-    # The name of the service level objective object.
-    attr_accessor :name
-
     # A metric-based SLO. **Required if type is `metric`**. Note that Datadog only allows the sum by aggregator
     # to be used because this will sum up all request counts instead of averaging them, or taking the max or
     # min of all of those requests.
@@ -120,7 +117,6 @@ module DatadogAPIClient::V1
         :'modified_at' => :'modified_at',
         :'monitor_ids' => :'monitor_ids',
         :'monitor_tags' => :'monitor_tags',
-        :'name' => :'name',
         :'query' => :'query',
         :'sli_specification' => :'sli_specification',
         :'tags' => :'tags',
@@ -145,7 +141,6 @@ module DatadogAPIClient::V1
         :'modified_at' => :'Integer',
         :'monitor_ids' => :'Array<Integer>',
         :'monitor_tags' => :'Array<String>',
-        :'name' => :'String',
         :'query' => :'ServiceLevelObjectiveQuery',
         :'sli_specification' => :'SLOSliSpec',
         :'tags' => :'Array<String>',
@@ -227,10 +222,6 @@ module DatadogAPIClient::V1
         end
       end
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
-      end
-
       if attributes.key?(:'query')
         self.query = attributes[:'query']
       end
@@ -303,7 +294,6 @@ module DatadogAPIClient::V1
           modified_at == o.modified_at &&
           monitor_ids == o.monitor_ids &&
           monitor_tags == o.monitor_tags &&
-          name == o.name &&
           query == o.query &&
           sli_specification == o.sli_specification &&
           tags == o.tags &&
@@ -319,7 +309,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [configured_alert_ids, created_at, creator, description, groups, id, modified_at, monitor_ids, monitor_tags, name, query, sli_specification, tags, target_threshold, thresholds, timeframe, type, warning_threshold, additional_properties].hash
+      [configured_alert_ids, created_at, creator, description, groups, id, modified_at, monitor_ids, monitor_tags, query, sli_specification, tags, target_threshold, thresholds, timeframe, type, warning_threshold, additional_properties].hash
     end
   end
 end
