@@ -2030,6 +2030,9 @@ ScenariosModelMappings = {
             "filter_pct" => "Boolean",
             "filter_timespan_h" => "Integer",
     },
+    "v2.GetMetricTagCardinalityDetails" => {
+            "metric_name" => "String",
+    },
     "v2.DeleteTagConfiguration" => {
             "metric_name" => "String",
     },

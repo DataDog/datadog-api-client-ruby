@@ -395,6 +395,71 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get tag key cardinality details.
+    #
+    # @see #get_metric_tag_cardinality_details_with_http_info
+    def get_metric_tag_cardinality_details(metric_name, opts = {})
+      data, _status_code, _headers = get_metric_tag_cardinality_details_with_http_info(metric_name, opts)
+      data
+    end
+
+    # Get tag key cardinality details.
+    #
+    # Returns the cardinality details of tags for a specific metric.
+    #
+    # @param metric_name [String] The name of the metric.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(MetricTagCardinalitiesResponse, Integer, Hash)>] MetricTagCardinalitiesResponse data, response status code and response headers
+    def get_metric_tag_cardinality_details_with_http_info(metric_name, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MetricsAPI.get_metric_tag_cardinality_details ...'
+      end
+      # verify the required parameter 'metric_name' is set
+      if @api_client.config.client_side_validation && metric_name.nil?
+        fail ArgumentError, "Missing the required parameter 'metric_name' when calling MetricsAPI.get_metric_tag_cardinality_details"
+      end
+      # resource path
+      local_var_path = '/api/v2/metrics/{metric_name}/tag-cardinalities'.sub('{metric_name}', CGI.escape(metric_name.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MetricTagCardinalitiesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_metric_tag_cardinality_details,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MetricsAPI#get_metric_tag_cardinality_details\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List active tags and aggregations.
     #
     # @see #list_active_metric_configurations_with_http_info
