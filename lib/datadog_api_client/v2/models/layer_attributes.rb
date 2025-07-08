@@ -27,7 +27,7 @@ module DatadogAPIClient::V2
     # When the layer ceases to be active (ISO 8601).
     attr_accessor :end_date
 
-    # Defines how often the rotation repeats, using a combination of days and optional seconds.
+    # Defines how often the rotation repeats, using a combination of days and optional seconds. Should be at least 1 hour.
     attr_accessor :interval
 
     # The name of this layer.
