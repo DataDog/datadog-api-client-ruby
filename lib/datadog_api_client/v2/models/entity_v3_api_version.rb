@@ -17,10 +17,13 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The schema version of entity type. The field is known as schema-version in the previous version.
+  # The version of the schema data that was used to populate this entity's data. This could be via the API, Terraform, or YAML file in a repository. The field is known as schema-version in the previous version.
   class EntityV3APIVersion
     include BaseEnumModel
 
     V3 = "v3".freeze
+    V2_2 = "v2.2".freeze
+    V2_1 = "v2.1".freeze
+    V2 = "v2".freeze
   end
 end
