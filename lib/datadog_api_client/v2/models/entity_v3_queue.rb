@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class EntityV3Queue
     include BaseGenericModel
 
-    # The schema version of entity type. The field is known as schema-version in the previous version.
+    # The version of the schema data that was used to populate this entity's data. This could be via the API, Terraform, or YAML file in a repository. The field is known as schema-version in the previous version.
     attr_reader :api_version
 
     # Datadog product integrations for the datastore entity.
