@@ -29,7 +29,8 @@ module DatadogAPIClient::V2
           :'CustomDestinationForwardDestinationHttp',
           :'CustomDestinationForwardDestinationSplunk',
           :'CustomDestinationForwardDestinationElasticsearch',
-          :'CustomDestinationForwardDestinationMicrosoftSentinel'
+          :'CustomDestinationForwardDestinationMicrosoftSentinel',
+          :'CustomDestinationForwardDestinationGoogleSecurityOperations'
         ]
       end
       # Builds the object
