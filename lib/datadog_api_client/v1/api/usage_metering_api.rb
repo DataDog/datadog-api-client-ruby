@@ -131,7 +131,7 @@ module DatadogAPIClient::V1
     # ```
     #
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
-    # @param usage_type [HourlyUsageAttributionUsageType] Usage type to retrieve.
+    # @param usage_type [HourlyUsageAttributionUsageType] Usage type to retrieve. The following values have been **deprecated**: `estimated_indexed_spans_usage`, `estimated_ingested_spans_usage`.
     # @param opts [Hash] the optional parameters
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
     # @option opts [String] :next_record_id List following results with a next_record_id provided in the previous query.
@@ -455,11 +455,11 @@ module DatadogAPIClient::V1
     # ```
     #
     # @param start_month [Time] Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage beginning in this month. Maximum of 15 months ago.
-    # @param fields [MonthlyUsageAttributionSupportedMetrics] Comma-separated list of usage types to return, or `*` for all usage types.
+    # @param fields [MonthlyUsageAttributionSupportedMetrics] Comma-separated list of usage types to return, or `*` for all usage types. The following values have been **deprecated**: `estimated_indexed_spans_usage`, `estimated_indexed_spans_percentage`, `estimated_ingested_spans_usage`, `estimated_ingested_spans_percentage`.
     # @param opts [Hash] the optional parameters
     # @option opts [Time] :end_month Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage ending this month.
     # @option opts [UsageSortDirection] :sort_direction The direction to sort by: `[desc, asc]`.
-    # @option opts [MonthlyUsageAttributionSupportedMetrics] :sort_name The field to sort by.
+    # @option opts [MonthlyUsageAttributionSupportedMetrics] :sort_name The field to sort by. The following values have been **deprecated**: `estimated_indexed_spans_usage`, `estimated_indexed_spans_percentage`, `estimated_ingested_spans_usage`, `estimated_ingested_spans_percentage`.
     # @option opts [String] :tag_breakdown_keys Comma separated list of tag keys used to group usage. If no value is provided the usage will not be broken down by tags.  To see which tags are available, look for the value of `tag_config_source` in the API response.
     # @option opts [String] :next_record_id List following results with a next_record_id provided in the previous query.
     # @option opts [Boolean] :include_descendants Include child org usage in the response. Defaults to `true`.

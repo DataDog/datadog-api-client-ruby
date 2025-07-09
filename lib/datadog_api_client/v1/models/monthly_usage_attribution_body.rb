@@ -47,6 +47,7 @@ module DatadogAPIClient::V1
     attr_accessor :updated_at
 
     # Fields in Usage Summary by tag(s).
+    # The following values have been **deprecated**: `estimated_indexed_spans_usage`, `estimated_indexed_spans_percentage`, `estimated_ingested_spans_usage`, `estimated_ingested_spans_percentage`.
     attr_accessor :values
 
     attr_accessor :additional_properties
