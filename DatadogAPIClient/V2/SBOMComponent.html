@@ -6,7 +6,7 @@
 <title>
   Class: DatadogAPIClient::V2::SBOMComponent
   
-    &mdash; datadog-api-client 2.30.0.dev.1 documentation
+    &mdash; datadog-api-client 2.38.0 documentation
   
 </title>
 
@@ -176,6 +176,32 @@
       <li class="public ">
   <span class="summary_signature">
     
+      <a href="#licenses-instance_method" title="#licenses (instance method)">#<strong>licenses</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The software licenses of the SBOM component.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#name-instance_method" title="#name (instance method)">#<strong>name</strong>  &#x21d2; Object </a>
     
 
@@ -204,6 +230,32 @@
       <li class="public ">
   <span class="summary_signature">
     
+      <a href="#properties-instance_method" title="#properties (instance method)">#<strong>properties</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The custom properties of the component of the SBOM.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#purl-instance_method" title="#purl (instance method)">#<strong>purl</strong>  &#x21d2; Object </a>
     
 
@@ -222,6 +274,34 @@
 
   
     <span class="summary_desc"><div class='inline'><p>Specifies the package-url (purl).</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#supplier-instance_method" title="#supplier (instance method)">#<strong>supplier</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The supplier of the component.</p>
 </div></span>
   
 </li>
@@ -388,6 +468,48 @@
 </div>
     
       
+      <span id="licenses=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="licenses-instance_method">
+  
+    #<strong>licenses</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>The software licenses of the SBOM component.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+28
+29
+30</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/sbom_component.rb', line 28</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_licenses'>licenses</span>
+  <span class='ivar'>@licenses</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
       <span id="name=-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="name-instance_method">
@@ -430,6 +552,48 @@
 </div>
     
       
+      <span id="properties=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="properties-instance_method">
+  
+    #<strong>properties</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>The custom properties of the component of the SBOM.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+34
+35
+36</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/sbom_component.rb', line 34</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_properties'>properties</span>
+  <span class='ivar'>@properties</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
       <span id="purl=-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="purl-instance_method">
@@ -465,6 +629,48 @@
 
 <span class='kw'>def</span> <span class='id identifier rubyid_purl'>purl</span>
   <span class='ivar'>@purl</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="supplier=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="supplier-instance_method">
+  
+    #<strong>supplier</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>The supplier of the component.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+40
+41
+42</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/sbom_component.rb', line 40</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_supplier'>supplier</span>
+  <span class='ivar'>@supplier</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -561,7 +767,7 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Feb 18 21:07:14 2025 by
+  Generated on Thu Jul 10 20:33:01 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>
