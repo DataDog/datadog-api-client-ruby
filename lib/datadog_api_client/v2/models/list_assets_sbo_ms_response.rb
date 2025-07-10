@@ -17,18 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Provides additional information about a BOM.
-  class SBOMMetadata
+  # The expected response schema when listing assets SBOMs.
+  class ListAssetsSBOMsResponse
     include BaseGenericModel
 
-    # List of authors of the SBOM.
-    attr_accessor :authors
+    # List of assets SBOMs.
+    attr_reader :data
 
-    # The component that the BOM describes.
-    attr_accessor :component
+    # The JSON:API links related to pagination.
+    attr_accessor :links
 
-    # The timestamp of the SBOM creation.
-    attr_accessor :timestamp
+    # The metadata related to this request.
+    attr_accessor :meta
 
     attr_accessor :additional_properties
 
@@ -36,9 +36,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'authors' => :'authors',
-        :'component' => :'component',
-        :'timestamp' => :'timestamp'
+        :'data' => :'data',
+        :'links' => :'links',
+        :'meta' => :'meta'
       }
     end
 
@@ -46,9 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'authors' => :'Array<SBOMMetadataAuthor>',
-        :'component' => :'SBOMMetadataComponent',
-        :'timestamp' => :'String'
+        :'data' => :'Array<SBOM>',
+        :'links' => :'Links',
+        :'meta' => :'Metadata'
       }
     end
 
@@ -57,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SBOMMetadata` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ListAssetsSBOMsResponse` initialize method"
       end
 
       self.additional_properties = {}
@@ -70,19 +70,37 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'authors')
-        if (value = attributes[:'authors']).is_a?(Array)
-          self.authors = value
+      if attributes.key?(:'data')
+        if (value = attributes[:'data']).is_a?(Array)
+          self.data = value
         end
       end
 
-      if attributes.key?(:'component')
-        self.component = attributes[:'component']
+      if attributes.key?(:'links')
+        self.links = attributes[:'links']
       end
 
-      if attributes.key?(:'timestamp')
-        self.timestamp = attributes[:'timestamp']
+      if attributes.key?(:'meta')
+        self.meta = attributes[:'meta']
       end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @data.nil?
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param data [Object] Object to be assigned
+    # @!visibility private
+    def data=(data)
+      if data.nil?
+        fail ArgumentError, 'invalid value for "data", data cannot be nil.'
+      end
+      @data = data
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -111,9 +129,9 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          authors == o.authors &&
-          component == o.component &&
-          timestamp == o.timestamp &&
+          data == o.data &&
+          links == o.links &&
+          meta == o.meta &&
           additional_properties == o.additional_properties
     end
 
@@ -121,7 +139,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [authors, component, timestamp, additional_properties].hash
+      [data, links, meta, additional_properties].hash
     end
   end
 end

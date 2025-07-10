@@ -17,33 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The JSON:API attributes of the asset.
-  class AssetAttributes
+  # The custom property of the component of the SBOM.
+  class SBOMComponentProperty
     include BaseGenericModel
 
-    # Asset architecture.
-    attr_accessor :arch
-
-    # List of environments where the asset is deployed.
-    attr_reader :environments
-
-    # Asset name.
+    # The name of the custom property of the component of the SBOM.
     attr_reader :name
 
-    # Asset operating system.
-    attr_accessor :operating_system
-
-    # Asset risks.
-    attr_reader :risks
-
-    # List of teams that own the asset.
-    attr_accessor :teams
-
-    # The asset type
-    attr_reader :type
-
-    # Asset version.
-    attr_accessor :version
+    # The value of the custom property of the component of the SBOM.
+    attr_reader :value
 
     attr_accessor :additional_properties
 
@@ -51,14 +33,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'arch' => :'arch',
-        :'environments' => :'environments',
         :'name' => :'name',
-        :'operating_system' => :'operating_system',
-        :'risks' => :'risks',
-        :'teams' => :'teams',
-        :'type' => :'type',
-        :'version' => :'version'
+        :'value' => :'value'
       }
     end
 
@@ -66,14 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'arch' => :'String',
-        :'environments' => :'Array<String>',
         :'name' => :'String',
-        :'operating_system' => :'AssetOperatingSystem',
-        :'risks' => :'AssetRisks',
-        :'teams' => :'Array<String>',
-        :'type' => :'AssetType',
-        :'version' => :'AssetVersion'
+        :'value' => :'String'
       }
     end
 
@@ -82,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::AssetAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SBOMComponentProperty` initialize method"
       end
 
       self.additional_properties = {}
@@ -95,40 +65,12 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'arch')
-        self.arch = attributes[:'arch']
-      end
-
-      if attributes.key?(:'environments')
-        if (value = attributes[:'environments']).is_a?(Array)
-          self.environments = value
-        end
-      end
-
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
 
-      if attributes.key?(:'operating_system')
-        self.operating_system = attributes[:'operating_system']
-      end
-
-      if attributes.key?(:'risks')
-        self.risks = attributes[:'risks']
-      end
-
-      if attributes.key?(:'teams')
-        if (value = attributes[:'teams']).is_a?(Array)
-          self.teams = value
-        end
-      end
-
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
-      end
-
-      if attributes.key?(:'version')
-        self.version = attributes[:'version']
+      if attributes.key?(:'value')
+        self.value = attributes[:'value']
       end
     end
 
@@ -136,21 +78,9 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @environments.nil?
       return false if @name.nil?
-      return false if @risks.nil?
-      return false if @type.nil?
+      return false if @value.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param environments [Object] Object to be assigned
-    # @!visibility private
-    def environments=(environments)
-      if environments.nil?
-        fail ArgumentError, 'invalid value for "environments", environments cannot be nil.'
-      end
-      @environments = environments
     end
 
     # Custom attribute writer method with validation
@@ -164,23 +94,13 @@ module DatadogAPIClient::V2
     end
 
     # Custom attribute writer method with validation
-    # @param risks [Object] Object to be assigned
+    # @param value [Object] Object to be assigned
     # @!visibility private
-    def risks=(risks)
-      if risks.nil?
-        fail ArgumentError, 'invalid value for "risks", risks cannot be nil.'
+    def value=(value)
+      if value.nil?
+        fail ArgumentError, 'invalid value for "value", value cannot be nil.'
       end
-      @risks = risks
-    end
-
-    # Custom attribute writer method with validation
-    # @param type [Object] Object to be assigned
-    # @!visibility private
-    def type=(type)
-      if type.nil?
-        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
-      end
-      @type = type
+      @value = value
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -209,14 +129,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          arch == o.arch &&
-          environments == o.environments &&
           name == o.name &&
-          operating_system == o.operating_system &&
-          risks == o.risks &&
-          teams == o.teams &&
-          type == o.type &&
-          version == o.version &&
+          value == o.value &&
           additional_properties == o.additional_properties
     end
 
@@ -224,7 +138,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [arch, environments, name, operating_system, risks, teams, type, version, additional_properties].hash
+      [name, value, additional_properties].hash
     end
   end
 end

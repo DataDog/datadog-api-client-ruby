@@ -17,18 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Provides additional information about a BOM.
-  class SBOMMetadata
+  # The dependencies of a component of the SBOM.
+  class SBOMComponentDependency
     include BaseGenericModel
 
-    # List of authors of the SBOM.
-    attr_accessor :authors
+    # The components that are dependencies of the ref component.
+    attr_accessor :depends_on
 
-    # The component that the BOM describes.
-    attr_accessor :component
-
-    # The timestamp of the SBOM creation.
-    attr_accessor :timestamp
+    # The identifier for the related component.
+    attr_accessor :ref
 
     attr_accessor :additional_properties
 
@@ -36,9 +33,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'authors' => :'authors',
-        :'component' => :'component',
-        :'timestamp' => :'timestamp'
+        :'depends_on' => :'dependsOn',
+        :'ref' => :'ref'
       }
     end
 
@@ -46,9 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'authors' => :'Array<SBOMMetadataAuthor>',
-        :'component' => :'SBOMMetadataComponent',
-        :'timestamp' => :'String'
+        :'depends_on' => :'Array<String>',
+        :'ref' => :'String'
       }
     end
 
@@ -57,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SBOMMetadata` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SBOMComponentDependency` initialize method"
       end
 
       self.additional_properties = {}
@@ -70,18 +65,14 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'authors')
-        if (value = attributes[:'authors']).is_a?(Array)
-          self.authors = value
+      if attributes.key?(:'depends_on')
+        if (value = attributes[:'depends_on']).is_a?(Array)
+          self.depends_on = value
         end
       end
 
-      if attributes.key?(:'component')
-        self.component = attributes[:'component']
-      end
-
-      if attributes.key?(:'timestamp')
-        self.timestamp = attributes[:'timestamp']
+      if attributes.key?(:'ref')
+        self.ref = attributes[:'ref']
       end
     end
 
@@ -111,9 +102,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          authors == o.authors &&
-          component == o.component &&
-          timestamp == o.timestamp &&
+          depends_on == o.depends_on &&
+          ref == o.ref &&
           additional_properties == o.additional_properties
     end
 
@@ -121,7 +111,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [authors, component, timestamp, additional_properties].hash
+      [depends_on, ref, additional_properties].hash
     end
   end
 end

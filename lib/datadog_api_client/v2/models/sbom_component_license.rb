@@ -17,18 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Provides additional information about a BOM.
-  class SBOMMetadata
+  # The software license of the component of the SBOM.
+  class SBOMComponentLicense
     include BaseGenericModel
 
-    # List of authors of the SBOM.
-    attr_accessor :authors
-
-    # The component that the BOM describes.
-    attr_accessor :component
-
-    # The timestamp of the SBOM creation.
-    attr_accessor :timestamp
+    # The software license of the component of the SBOM.
+    attr_reader :license
 
     attr_accessor :additional_properties
 
@@ -36,9 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'authors' => :'authors',
-        :'component' => :'component',
-        :'timestamp' => :'timestamp'
+        :'license' => :'license'
       }
     end
 
@@ -46,9 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'authors' => :'Array<SBOMMetadataAuthor>',
-        :'component' => :'SBOMMetadataComponent',
-        :'timestamp' => :'String'
+        :'license' => :'SBOMComponentLicenseLicense'
       }
     end
 
@@ -57,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SBOMMetadata` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SBOMComponentLicense` initialize method"
       end
 
       self.additional_properties = {}
@@ -70,19 +60,27 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'authors')
-        if (value = attributes[:'authors']).is_a?(Array)
-          self.authors = value
-        end
+      if attributes.key?(:'license')
+        self.license = attributes[:'license']
       end
+    end
 
-      if attributes.key?(:'component')
-        self.component = attributes[:'component']
-      end
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @license.nil?
+      true
+    end
 
-      if attributes.key?(:'timestamp')
-        self.timestamp = attributes[:'timestamp']
+    # Custom attribute writer method with validation
+    # @param license [Object] Object to be assigned
+    # @!visibility private
+    def license=(license)
+      if license.nil?
+        fail ArgumentError, 'invalid value for "license", license cannot be nil.'
       end
+      @license = license
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -111,9 +109,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          authors == o.authors &&
-          component == o.component &&
-          timestamp == o.timestamp &&
+          license == o.license &&
           additional_properties == o.additional_properties
     end
 
@@ -121,7 +117,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [authors, component, timestamp, additional_properties].hash
+      [license, additional_properties].hash
     end
   end
 end
