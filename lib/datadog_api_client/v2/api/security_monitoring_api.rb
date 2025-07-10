@@ -2344,6 +2344,111 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # List assets SBOMs.
+    #
+    # @see #list_assets_sbo_ms_with_http_info
+    def list_assets_sbo_ms(opts = {})
+      data, _status_code, _headers = list_assets_sbo_ms_with_http_info(opts)
+      data
+    end
+
+    # List assets SBOMs.
+    #
+    # Get a list of assets SBOMs for an organization.
+    #
+    # ### Pagination
+    #
+    # Please review the [Pagination section](#pagination) for the "List Vulnerabilities" endpoint.
+    #
+    # ### Filtering
+    #
+    # Please review the [Filtering section](#filtering) for the "List Vulnerabilities" endpoint.
+    #
+    # ### Metadata
+    #
+    # Please review the [Metadata section](#metadata) for the "List Vulnerabilities" endpoint.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :page_token Its value must come from the `links` section of the response of the first request. Do not manually edit it.
+    # @option opts [Integer] :page_number The page number to be retrieved. It should be equal to or greater than 1.
+    # @option opts [AssetType] :filter_asset_type The type of the assets for the SBOM request.
+    # @option opts [String] :filter_asset_name The name of the asset for the SBOM request.
+    # @option opts [String] :filter_package_name The name of the component that is a dependency of an asset.
+    # @option opts [String] :filter_package_version The version of the component that is a dependency of an asset.
+    # @option opts [String] :filter_license_name The software license name of the component that is a dependency of an asset.
+    # @option opts [SBOMComponentLicenseType] :filter_license_type The software license type of the component that is a dependency of an asset.
+    # @return [Array<(ListAssetsSBOMsResponse, Integer, Hash)>] ListAssetsSBOMsResponse data, response status code and response headers
+    def list_assets_sbo_ms_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_assets_sbo_ms".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_assets_sbo_ms")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_assets_sbo_ms"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.list_assets_sbo_ms ...'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_number'].nil? && opts[:'page_number'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"page_number"]" when calling SecurityMonitoringAPI.list_assets_sbo_ms, must be greater than or equal to 1.'
+      end
+      allowable_values = ['Repository', 'Service', 'Host', 'HostImage', 'Image']
+      if @api_client.config.client_side_validation && opts[:'filter_asset_type'] && !allowable_values.include?(opts[:'filter_asset_type'])
+        fail ArgumentError, "invalid value for \"filter_asset_type\", must be one of #{allowable_values}"
+      end
+      allowable_values = ['network_strong_copyleft', 'non_standard_copyleft', 'other_non_free', 'other_non_standard', 'permissive', 'public_domain', 'strong_copyleft', 'weak_copyleft']
+      if @api_client.config.client_side_validation && opts[:'filter_license_type'] && !allowable_values.include?(opts[:'filter_license_type'])
+        fail ArgumentError, "invalid value for \"filter_license_type\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/api/v2/security/sboms'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'page[token]'] = opts[:'page_token'] if !opts[:'page_token'].nil?
+      query_params[:'page[number]'] = opts[:'page_number'] if !opts[:'page_number'].nil?
+      query_params[:'filter[asset_type]'] = opts[:'filter_asset_type'] if !opts[:'filter_asset_type'].nil?
+      query_params[:'filter[asset_name]'] = opts[:'filter_asset_name'] if !opts[:'filter_asset_name'].nil?
+      query_params[:'filter[package_name]'] = opts[:'filter_package_name'] if !opts[:'filter_package_name'].nil?
+      query_params[:'filter[package_version]'] = opts[:'filter_package_version'] if !opts[:'filter_package_version'].nil?
+      query_params[:'filter[license_name]'] = opts[:'filter_license_name'] if !opts[:'filter_license_name'].nil?
+      query_params[:'filter[license_type]'] = opts[:'filter_license_type'] if !opts[:'filter_license_type'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ListAssetsSBOMsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_assets_sbo_ms,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#list_assets_sbo_ms\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List findings.
     #
     # @see #list_findings_with_http_info
@@ -2999,6 +3104,7 @@ module DatadogAPIClient::V2
     # @option opts [String] :filter_code_location_method Filter by method.
     # @option opts [Boolean] :filter_fix_available Filter by fix availability.
     # @option opts [String] :filter_repo_digests Filter by vulnerability `repo_digest` (when the vulnerability is related to `Image` asset).
+    # @option opts [String] :filter_origin Filter by origin.
     # @option opts [String] :filter_asset_name Filter by asset name.
     # @option opts [AssetType] :filter_asset_type Filter by asset type.
     # @option opts [String] :filter_asset_version_first Filter by the first version of the asset this vulnerability has been detected on.
@@ -3010,6 +3116,7 @@ module DatadogAPIClient::V2
     # @option opts [Boolean] :filter_asset_risks_has_privileged_access Filter whether the asset is publicly accessible or not.
     # @option opts [Boolean] :filter_asset_risks_has_access_to_sensitive_data Filter whether the asset  has access to sensitive data or not.
     # @option opts [String] :filter_asset_environments Filter by asset environments.
+    # @option opts [String] :filter_asset_teams Filter by asset teams.
     # @option opts [String] :filter_asset_arch Filter by asset architecture.
     # @option opts [String] :filter_asset_operating_system_name Filter by asset operating system name.
     # @option opts [String] :filter_asset_operating_system_version Filter by asset operating system version.
@@ -3109,6 +3216,7 @@ module DatadogAPIClient::V2
       query_params[:'filter[code_location.method]'] = opts[:'filter_code_location_method'] if !opts[:'filter_code_location_method'].nil?
       query_params[:'filter[fix_available]'] = opts[:'filter_fix_available'] if !opts[:'filter_fix_available'].nil?
       query_params[:'filter[repo_digests]'] = opts[:'filter_repo_digests'] if !opts[:'filter_repo_digests'].nil?
+      query_params[:'filter[origin]'] = opts[:'filter_origin'] if !opts[:'filter_origin'].nil?
       query_params[:'filter[asset.name]'] = opts[:'filter_asset_name'] if !opts[:'filter_asset_name'].nil?
       query_params[:'filter[asset.type]'] = opts[:'filter_asset_type'] if !opts[:'filter_asset_type'].nil?
       query_params[:'filter[asset.version.first]'] = opts[:'filter_asset_version_first'] if !opts[:'filter_asset_version_first'].nil?
@@ -3120,6 +3228,7 @@ module DatadogAPIClient::V2
       query_params[:'filter[asset.risks.has_privileged_access]'] = opts[:'filter_asset_risks_has_privileged_access'] if !opts[:'filter_asset_risks_has_privileged_access'].nil?
       query_params[:'filter[asset.risks.has_access_to_sensitive_data]'] = opts[:'filter_asset_risks_has_access_to_sensitive_data'] if !opts[:'filter_asset_risks_has_access_to_sensitive_data'].nil?
       query_params[:'filter[asset.environments]'] = opts[:'filter_asset_environments'] if !opts[:'filter_asset_environments'].nil?
+      query_params[:'filter[asset.teams]'] = opts[:'filter_asset_teams'] if !opts[:'filter_asset_teams'].nil?
       query_params[:'filter[asset.arch]'] = opts[:'filter_asset_arch'] if !opts[:'filter_asset_arch'].nil?
       query_params[:'filter[asset.operating_system.name]'] = opts[:'filter_asset_operating_system_name'] if !opts[:'filter_asset_operating_system_name'].nil?
       query_params[:'filter[asset.operating_system.version]'] = opts[:'filter_asset_operating_system_version'] if !opts[:'filter_asset_operating_system_version'].nil?
@@ -3198,6 +3307,7 @@ module DatadogAPIClient::V2
     # @option opts [Boolean] :filter_risks_has_privileged_access Filter whether the asset (Host) has privileged access or not.
     # @option opts [Boolean] :filter_risks_has_access_to_sensitive_data Filter whether the asset (Host)  has access to sensitive data or not.
     # @option opts [String] :filter_environments Filter by environment.
+    # @option opts [String] :filter_teams Filter by teams.
     # @option opts [String] :filter_arch Filter by architecture.
     # @option opts [String] :filter_operating_system_name Filter by operating system name.
     # @option opts [String] :filter_operating_system_version Filter by operating system version.
@@ -3238,6 +3348,7 @@ module DatadogAPIClient::V2
       query_params[:'filter[risks.has_privileged_access]'] = opts[:'filter_risks_has_privileged_access'] if !opts[:'filter_risks_has_privileged_access'].nil?
       query_params[:'filter[risks.has_access_to_sensitive_data]'] = opts[:'filter_risks_has_access_to_sensitive_data'] if !opts[:'filter_risks_has_access_to_sensitive_data'].nil?
       query_params[:'filter[environments]'] = opts[:'filter_environments'] if !opts[:'filter_environments'].nil?
+      query_params[:'filter[teams]'] = opts[:'filter_teams'] if !opts[:'filter_teams'].nil?
       query_params[:'filter[arch]'] = opts[:'filter_arch'] if !opts[:'filter_arch'].nil?
       query_params[:'filter[operating_system.name]'] = opts[:'filter_operating_system_name'] if !opts[:'filter_operating_system_name'].nil?
       query_params[:'filter[operating_system.version]'] = opts[:'filter_operating_system_version'] if !opts[:'filter_operating_system_version'].nil?
