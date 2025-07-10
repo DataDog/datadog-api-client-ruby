@@ -27,6 +27,9 @@ module DatadogAPIClient::V2
     # A list of software and hardware components.
     attr_reader :components
 
+    # List of dependencies between components of the SBOM.
+    attr_reader :dependencies
+
     # Provides additional information about a BOM.
     attr_reader :metadata
 
@@ -47,6 +50,7 @@ module DatadogAPIClient::V2
       {
         :'bom_format' => :'bomFormat',
         :'components' => :'components',
+        :'dependencies' => :'dependencies',
         :'metadata' => :'metadata',
         :'serial_number' => :'serialNumber',
         :'spec_version' => :'specVersion',
@@ -60,6 +64,7 @@ module DatadogAPIClient::V2
       {
         :'bom_format' => :'String',
         :'components' => :'Array<SBOMComponent>',
+        :'dependencies' => :'Array<SBOMComponentDependency>',
         :'metadata' => :'SBOMMetadata',
         :'serial_number' => :'String',
         :'spec_version' => :'SpecVersion',
@@ -95,6 +100,12 @@ module DatadogAPIClient::V2
         end
       end
 
+      if attributes.key?(:'dependencies')
+        if (value = attributes[:'dependencies']).is_a?(Array)
+          self.dependencies = value
+        end
+      end
+
       if attributes.key?(:'metadata')
         self.metadata = attributes[:'metadata']
       end
@@ -118,6 +129,7 @@ module DatadogAPIClient::V2
     def valid?
       return false if @bom_format.nil?
       return false if @components.nil?
+      return false if @dependencies.nil?
       return false if @metadata.nil?
       return false if @serial_number.nil?
       return false if @spec_version.nil?
@@ -143,6 +155,16 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "components", components cannot be nil.'
       end
       @components = components
+    end
+
+    # Custom attribute writer method with validation
+    # @param dependencies [Object] Object to be assigned
+    # @!visibility private
+    def dependencies=(dependencies)
+      if dependencies.nil?
+        fail ArgumentError, 'invalid value for "dependencies", dependencies cannot be nil.'
+      end
+      @dependencies = dependencies
     end
 
     # Custom attribute writer method with validation
@@ -213,6 +235,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           bom_format == o.bom_format &&
           components == o.components &&
+          dependencies == o.dependencies &&
           metadata == o.metadata &&
           serial_number == o.serial_number &&
           spec_version == o.spec_version &&
@@ -224,7 +247,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [bom_format, components, metadata, serial_number, spec_version, version, additional_properties].hash
+      [bom_format, components, dependencies, metadata, serial_number, spec_version, version, additional_properties].hash
     end
   end
 end

@@ -24,11 +24,20 @@ module DatadogAPIClient::V2
     # An optional identifier that can be used to reference the component elsewhere in the BOM.
     attr_accessor :bom_ref
 
+    # The software licenses of the SBOM component.
+    attr_accessor :licenses
+
     # The name of the component. This will often be a shortened, single name of the component.
     attr_reader :name
 
+    # The custom properties of the component of the SBOM.
+    attr_accessor :properties
+
     # Specifies the package-url (purl). The purl, if specified, MUST be valid and conform to the [specification](https://github.com/package-url/purl-spec).
     attr_accessor :purl
+
+    # The supplier of the component.
+    attr_reader :supplier
 
     # The SBOM component type
     attr_reader :type
@@ -43,8 +52,11 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'bom_ref' => :'bom-ref',
+        :'licenses' => :'licenses',
         :'name' => :'name',
+        :'properties' => :'properties',
         :'purl' => :'purl',
+        :'supplier' => :'supplier',
         :'type' => :'type',
         :'version' => :'version'
       }
@@ -55,8 +67,11 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'bom_ref' => :'String',
+        :'licenses' => :'Array<SBOMComponentLicense>',
         :'name' => :'String',
+        :'properties' => :'Array<SBOMComponentProperty>',
         :'purl' => :'String',
+        :'supplier' => :'SBOMComponentSupplier',
         :'type' => :'SBOMComponentType',
         :'version' => :'String'
       }
@@ -84,12 +99,28 @@ module DatadogAPIClient::V2
         self.bom_ref = attributes[:'bom_ref']
       end
 
+      if attributes.key?(:'licenses')
+        if (value = attributes[:'licenses']).is_a?(Array)
+          self.licenses = value
+        end
+      end
+
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
 
+      if attributes.key?(:'properties')
+        if (value = attributes[:'properties']).is_a?(Array)
+          self.properties = value
+        end
+      end
+
       if attributes.key?(:'purl')
         self.purl = attributes[:'purl']
+      end
+
+      if attributes.key?(:'supplier')
+        self.supplier = attributes[:'supplier']
       end
 
       if attributes.key?(:'type')
@@ -106,6 +137,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @name.nil?
+      return false if @supplier.nil?
       return false if @type.nil?
       return false if @version.nil?
       true
@@ -119,6 +151,16 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "name", name cannot be nil.'
       end
       @name = name
+    end
+
+    # Custom attribute writer method with validation
+    # @param supplier [Object] Object to be assigned
+    # @!visibility private
+    def supplier=(supplier)
+      if supplier.nil?
+        fail ArgumentError, 'invalid value for "supplier", supplier cannot be nil.'
+      end
+      @supplier = supplier
     end
 
     # Custom attribute writer method with validation
@@ -168,8 +210,11 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           bom_ref == o.bom_ref &&
+          licenses == o.licenses &&
           name == o.name &&
+          properties == o.properties &&
           purl == o.purl &&
+          supplier == o.supplier &&
           type == o.type &&
           version == o.version &&
           additional_properties == o.additional_properties
@@ -179,7 +224,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [bom_ref, name, purl, type, version, additional_properties].hash
+      [bom_ref, licenses, name, properties, purl, supplier, type, version, additional_properties].hash
     end
   end
 end
