@@ -1588,6 +1588,15 @@ ScenariosModelMappings = {
             "dashboard_list_id" => "Integer",
             "body" => "DashboardListUpdateItemsRequest",
     },
+    "v2.CreateDataset" => {
+            "body" => "DatasetCreateRequest",
+    },
+    "v2.DeleteDataset" => {
+            "dataset_id" => "String",
+    },
+    "v2.GetDataset" => {
+            "dataset_id" => "String",
+    },
     "v2.CreateDataDeletionRequest" => {
             "product" => "String",
             "body" => "CreateDataDeletionRequestBody",
