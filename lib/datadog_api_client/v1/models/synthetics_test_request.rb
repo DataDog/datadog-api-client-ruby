@@ -51,6 +51,9 @@ module DatadogAPIClient::V1
     # A protobuf file that needs to be gzipped first then base64 encoded.
     attr_accessor :compressed_proto_file
 
+    # Disable fetching intermediate certificates from AIA.
+    attr_accessor :disable_aia_intermediate_fetching
+
     # DNS server to use for DNS tests.
     attr_accessor :dns_server
 
@@ -138,6 +141,7 @@ module DatadogAPIClient::V1
         :'check_certificate_revocation' => :'checkCertificateRevocation',
         :'compressed_json_descriptor' => :'compressedJsonDescriptor',
         :'compressed_proto_file' => :'compressedProtoFile',
+        :'disable_aia_intermediate_fetching' => :'disableAiaIntermediateFetching',
         :'dns_server' => :'dnsServer',
         :'dns_server_port' => :'dnsServerPort',
         :'files' => :'files',
@@ -178,6 +182,7 @@ module DatadogAPIClient::V1
         :'check_certificate_revocation' => :'Boolean',
         :'compressed_json_descriptor' => :'String',
         :'compressed_proto_file' => :'String',
+        :'disable_aia_intermediate_fetching' => :'Boolean',
         :'dns_server' => :'String',
         :'dns_server_port' => :'SyntheticsTestRequestDNSServerPort',
         :'files' => :'Array<SyntheticsTestRequestBodyFile>',
@@ -262,6 +267,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'compressed_proto_file')
         self.compressed_proto_file = attributes[:'compressed_proto_file']
+      end
+
+      if attributes.key?(:'disable_aia_intermediate_fetching')
+        self.disable_aia_intermediate_fetching = attributes[:'disable_aia_intermediate_fetching']
       end
 
       if attributes.key?(:'dns_server')
@@ -417,6 +426,7 @@ module DatadogAPIClient::V1
           check_certificate_revocation == o.check_certificate_revocation &&
           compressed_json_descriptor == o.compressed_json_descriptor &&
           compressed_proto_file == o.compressed_proto_file &&
+          disable_aia_intermediate_fetching == o.disable_aia_intermediate_fetching &&
           dns_server == o.dns_server &&
           dns_server_port == o.dns_server_port &&
           files == o.files &&
@@ -447,7 +457,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [allow_insecure, basic_auth, body, body_type, call_type, certificate, certificate_domains, check_certificate_revocation, compressed_json_descriptor, compressed_proto_file, dns_server, dns_server_port, files, follow_redirects, form, headers, host, http_version, is_message_base64_encoded, message, metadata, method, no_saving_response_body, number_of_packets, persist_cookies, port, proxy, query, servername, service, should_track_hops, timeout, url, additional_properties].hash
+      [allow_insecure, basic_auth, body, body_type, call_type, certificate, certificate_domains, check_certificate_revocation, compressed_json_descriptor, compressed_proto_file, disable_aia_intermediate_fetching, dns_server, dns_server_port, files, follow_redirects, form, headers, host, http_version, is_message_base64_encoded, message, metadata, method, no_saving_response_body, number_of_packets, persist_cookies, port, proxy, query, servername, service, should_track_hops, timeout, url, additional_properties].hash
     end
   end
 end

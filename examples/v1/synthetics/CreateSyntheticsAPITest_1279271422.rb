@@ -101,6 +101,7 @@ body = DatadogAPIClient::V1::SyntheticsAPITest.new({
         ],
         request: DatadogAPIClient::V1::SyntheticsTestRequest.new({
           check_certificate_revocation: true,
+          disable_aia_intermediate_fetching: true,
           host: "example.org",
           port: 443,
         }),
