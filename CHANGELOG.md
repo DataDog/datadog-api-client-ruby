@@ -1,5 +1,21 @@
 # CHANGELOG
 
+## 2.39.0/2025-07-14
+
+### Added
+* Add Datasets API to Open API Spec  [#2528](https://github.com/DataDog/datadog-api-client-ruby/pull/2528)
+* Add support for vulnerability management - GetSBOMsList new endpoint and update existing ones [#2527](https://github.com/DataDog/datadog-api-client-ruby/pull/2527)
+* Add spreadsheet to restriction_policy specs [#2521](https://github.com/DataDog/datadog-api-client-ruby/pull/2521)
+* Adds missing /api/v1/synthetics/tests/search spec [#2514](https://github.com/DataDog/datadog-api-client-ruby/pull/2514)
+* Add API spec for AWS Integrations IAM permissions [#2508](https://github.com/DataDog/datadog-api-client-ruby/pull/2508)
+* New keys added for multiple products [#2506](https://github.com/DataDog/datadog-api-client-ruby/pull/2506)
+* Add extractFromEmailBody step for synthetics browser test [#2503](https://github.com/DataDog/datadog-api-client-ruby/pull/2503)
+* Add support for `Array Processor` in `Logs Pipelines` [#2501](https://github.com/DataDog/datadog-api-client-ruby/pull/2501)
+* Document Cloud Cost Management GCP endpoints publicly [#2450](https://github.com/DataDog/datadog-api-client-ruby/pull/2450)
+
+### Changed
+* Update template variable schemas with type field in dashboards and shared dashboards endpoints for group by template variables [#2502](https://github.com/DataDog/datadog-api-client-ruby/pull/2502)
+
 ## 2.38.0/2025-06-30
 
 ### Fixed
