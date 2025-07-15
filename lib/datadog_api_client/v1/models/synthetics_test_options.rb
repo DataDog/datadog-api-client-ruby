@@ -21,14 +21,14 @@ module DatadogAPIClient::V1
   class SyntheticsTestOptions
     include BaseGenericModel
 
-    # For SSL test, whether or not the test should allow self signed
+    # For SSL tests, whether or not the test should allow self signed
     # certificates.
     attr_accessor :accept_self_signed
 
     # Allows loading insecure content for an HTTP request in an API test.
     attr_accessor :allow_insecure
 
-    # For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+    # For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
     attr_accessor :check_certificate_revocation
 
     # CI/CD options for a Synthetic test.
@@ -36,6 +36,9 @@ module DatadogAPIClient::V1
 
     # For browser test, array with the different device IDs used to run the test.
     attr_accessor :device_ids
+
+    # For SSL tests, whether or not the test should disable fetching intermediate certificates from AIA.
+    attr_accessor :disable_aia_intermediate_fetching
 
     # Whether or not to disable CORS mechanism.
     attr_accessor :disable_cors
@@ -117,6 +120,7 @@ module DatadogAPIClient::V1
         :'check_certificate_revocation' => :'checkCertificateRevocation',
         :'ci' => :'ci',
         :'device_ids' => :'device_ids',
+        :'disable_aia_intermediate_fetching' => :'disableAiaIntermediateFetching',
         :'disable_cors' => :'disableCors',
         :'disable_csp' => :'disableCsp',
         :'enable_profiling' => :'enableProfiling',
@@ -148,6 +152,7 @@ module DatadogAPIClient::V1
         :'check_certificate_revocation' => :'Boolean',
         :'ci' => :'SyntheticsTestCiOptions',
         :'device_ids' => :'Array<String>',
+        :'disable_aia_intermediate_fetching' => :'Boolean',
         :'disable_cors' => :'Boolean',
         :'disable_csp' => :'Boolean',
         :'enable_profiling' => :'Boolean',
@@ -208,6 +213,10 @@ module DatadogAPIClient::V1
         if (value = attributes[:'device_ids']).is_a?(Array)
           self.device_ids = value
         end
+      end
+
+      if attributes.key?(:'disable_aia_intermediate_fetching')
+        self.disable_aia_intermediate_fetching = attributes[:'disable_aia_intermediate_fetching']
       end
 
       if attributes.key?(:'disable_cors')
@@ -357,6 +366,7 @@ module DatadogAPIClient::V1
           check_certificate_revocation == o.check_certificate_revocation &&
           ci == o.ci &&
           device_ids == o.device_ids &&
+          disable_aia_intermediate_fetching == o.disable_aia_intermediate_fetching &&
           disable_cors == o.disable_cors &&
           disable_csp == o.disable_csp &&
           enable_profiling == o.enable_profiling &&
@@ -383,7 +393,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [accept_self_signed, allow_insecure, check_certificate_revocation, ci, device_ids, disable_cors, disable_csp, enable_profiling, enable_security_testing, follow_redirects, http_version, ignore_server_certificate_error, initial_navigation_timeout, min_failure_duration, min_location_failed, monitor_name, monitor_options, monitor_priority, no_screenshot, restricted_roles, _retry, rum_settings, scheduling, tick_every, additional_properties].hash
+      [accept_self_signed, allow_insecure, check_certificate_revocation, ci, device_ids, disable_aia_intermediate_fetching, disable_cors, disable_csp, enable_profiling, enable_security_testing, follow_redirects, http_version, ignore_server_certificate_error, initial_navigation_timeout, min_failure_duration, min_location_failed, monitor_name, monitor_options, monitor_priority, no_screenshot, restricted_roles, _retry, rum_settings, scheduling, tick_every, additional_properties].hash
     end
   end
 end
