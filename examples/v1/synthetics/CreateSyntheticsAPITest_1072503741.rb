@@ -25,6 +25,7 @@ body = DatadogAPIClient::V1::SyntheticsAPITest.new({
   options: DatadogAPIClient::V1::SyntheticsTestOptions.new({
     accept_self_signed: true,
     check_certificate_revocation: true,
+    disable_aia_intermediate_fetching: true,
     tick_every: 60,
   }),
   subtype: DatadogAPIClient::V1::SyntheticsTestDetailsSubType::SSL,
