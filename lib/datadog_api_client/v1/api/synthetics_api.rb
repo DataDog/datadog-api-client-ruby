@@ -1536,7 +1536,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'SyntheticsListGlobalVariablesResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_global_variables,
