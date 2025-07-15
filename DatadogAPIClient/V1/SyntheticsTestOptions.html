@@ -6,7 +6,7 @@
 <title>
   Class: DatadogAPIClient::V1::SyntheticsTestOptions
   
-    &mdash; datadog-api-client 2.30.0.dev.1 documentation
+    &mdash; datadog-api-client 2.39.0 documentation
   
 </title>
 
@@ -167,7 +167,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>For SSL test, whether or not the test should allow self signed certificates.</p>
+    <span class="summary_desc"><div class='inline'><p>For SSL tests, whether or not the test should allow self signed certificates.</p>
 </div></span>
   
 </li>
@@ -245,7 +245,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.</p>
+    <span class="summary_desc"><div class='inline'><p>For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.</p>
 </div></span>
   
 </li>
@@ -298,6 +298,32 @@
 
   
     <span class="summary_desc"><div class='inline'><p>For browser test, array with the different device IDs used to run the test.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#disable_aia_intermediate_fetching-instance_method" title="#disable_aia_intermediate_fetching (instance method)">#<strong>disable_aia_intermediate_fetching</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>For SSL tests, whether or not the test should disable fetching intermediate certificates from AIA.</p>
 </div></span>
   
 </li>
@@ -850,7 +876,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>For SSL test, whether or not the test should allow self signed
+    <p>For SSL tests, whether or not the test should allow self signed
 certificates.</p>
 
 
@@ -977,7 +1003,7 @@ certificates.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.</p>
+    <p>For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.</p>
 
 
   </div>
@@ -1084,6 +1110,48 @@ certificates.</p>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_device_ids'>device_ids</span>
   <span class='ivar'>@device_ids</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="disable_aia_intermediate_fetching=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="disable_aia_intermediate_fetching-instance_method">
+  
+    #<strong>disable_aia_intermediate_fetching</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>For SSL tests, whether or not the test should disable fetching intermediate certificates from AIA.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+41
+42
+43</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/synthetics_test_options.rb', line 41</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_disable_aia_intermediate_fetching'>disable_aia_intermediate_fetching</span>
+  <span class='ivar'>@disable_aia_intermediate_fetching</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1864,7 +1932,7 @@ RUM data is collected using the specified application.</p>
 </div>
 
       <div id="footer">
-  Generated on Tue Feb 18 21:07:28 2025 by
+  Generated on Tue Jul 15 16:03:11 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>
