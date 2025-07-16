@@ -43,12 +43,6 @@ module DatadogAPIClient::V2
     # @option opts [Integer] :limit The number of connections to be returned. The maximum value is 7500.
     # @return [Array<(SingleAggregatedConnectionResponseArray, Integer, Hash)>] SingleAggregatedConnectionResponseArray data, response status code and response headers
     def get_aggregated_connections_with_http_info(opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.get_aggregated_connections".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_aggregated_connections")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_aggregated_connections"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudNetworkMonitoringAPI.get_aggregated_connections ...'
