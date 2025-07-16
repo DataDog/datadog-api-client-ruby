@@ -467,7 +467,7 @@
             
           </span>
           
-            &mdash; <div class='inline'><p>The number of connections to be returned. The maximum value is 5000.</p>
+            &mdash; <div class='inline'><p>The number of connections to be returned. The maximum value is 7500.</p>
 </div>
           
         </li>
@@ -576,8 +576,8 @@
   <span class='kw'>if</span> <span class='ivar'>@api_client</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_debugging'>debugging</span>
     <span class='ivar'>@api_client</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_logger'>logger</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Calling API: CloudNetworkMonitoringAPI.get_aggregated_connections ...</span><span class='tstring_end'>&#39;</span></span>
   <span class='kw'>end</span>
-  <span class='kw'>if</span> <span class='ivar'>@api_client</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_client_side_validation'>client_side_validation</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;limit&#39;</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;limit&#39;</span><span class='rbracket'>]</span> <span class='op'>&gt;</span> <span class='int'>5000</span>
-    <span class='id identifier rubyid_fail'>fail</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>invalid value for &quot;opts[:&quot;limit&quot;]&quot; when calling CloudNetworkMonitoringAPI.get_aggregated_connections, must be smaller than or equal to 5000.</span><span class='tstring_end'>&#39;</span></span>
+  <span class='kw'>if</span> <span class='ivar'>@api_client</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_client_side_validation'>client_side_validation</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;limit&#39;</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;limit&#39;</span><span class='rbracket'>]</span> <span class='op'>&gt;</span> <span class='int'>7500</span>
+    <span class='id identifier rubyid_fail'>fail</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>invalid value for &quot;opts[:&quot;limit&quot;]&quot; when calling CloudNetworkMonitoringAPI.get_aggregated_connections, must be smaller than or equal to 7500.</span><span class='tstring_end'>&#39;</span></span>
   <span class='kw'>end</span>
   <span class='kw'>if</span> <span class='ivar'>@api_client</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_client_side_validation'>client_side_validation</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;limit&#39;</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;limit&#39;</span><span class='rbracket'>]</span> <span class='op'>&lt;</span> <span class='int'>1</span>
     <span class='id identifier rubyid_fail'>fail</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>invalid value for &quot;opts[:&quot;limit&quot;]&quot; when calling CloudNetworkMonitoringAPI.get_aggregated_connections, must be greater than or equal to 1.</span><span class='tstring_end'>&#39;</span></span>
@@ -637,7 +637,7 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Jul 15 16:03:15 2025 by
+  Generated on Wed Jul 16 17:47:12 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>
