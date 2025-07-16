@@ -619,7 +619,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'NotificationRuleResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :create_signal_notification_rule,
@@ -686,7 +686,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'NotificationRuleResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :create_vulnerability_notification_rule,
@@ -1087,7 +1087,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :delete_signal_notification_rule,
@@ -1152,7 +1152,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :delete_vulnerability_notification_rule,
@@ -1811,7 +1811,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'GetSBOMResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :get_sbom,
@@ -2139,7 +2139,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'NotificationRuleResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :get_signal_notification_rule,
@@ -2199,7 +2199,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'Object'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :get_signal_notification_rules,
@@ -2264,7 +2264,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'NotificationRuleResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :get_vulnerability_notification_rule,
@@ -2324,7 +2324,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'Object'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :get_vulnerability_notification_rules,
@@ -2429,7 +2429,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'ListAssetsSBOMsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :list_assets_sbo_ms,
@@ -3248,7 +3248,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'ListVulnerabilitiesResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :list_vulnerabilities,
@@ -3368,7 +3368,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'ListVulnerableAssetsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :list_vulnerable_assets,
@@ -3513,7 +3513,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'NotificationRuleResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :patch_signal_notification_rule,
@@ -3585,7 +3585,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'NotificationRuleResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :patch_vulnerability_notification_rule,
