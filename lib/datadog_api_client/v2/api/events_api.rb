@@ -43,8 +43,6 @@ module DatadogAPIClient::V2
     #
     # ❌ Notifications are not yet supported for events sent to this endpoint. Use the V1 endpoint for notification functionality.
     #
-    # ❌ This endpoint is not available for the Government (US1-FED) site. Contact your account representative for more information.
-    #
     # @param body [EventCreateRequestPayload] Event creation request payload.
     # @param opts [Hash] the optional parameters
     # @return [Array<(EventCreateResponsePayload, Integer, Hash)>] EventCreateResponsePayload data, response status code and response headers
