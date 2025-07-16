@@ -40,7 +40,7 @@ module DatadogAPIClient::V2
     # @option opts [Integer] :to Unix timestamp (number of seconds since epoch) of the end of the query window. If not provided, the end of the query window is the current time. If neither `from` nor `to` are provided, the query window is `[now - 15m, now]`.
     # @option opts [String] :group_by Comma-separated list of fields to group connections by.
     # @option opts [String] :tags Comma-separated list of tags to filter connections by.
-    # @option opts [Integer] :limit The number of connections to be returned. The maximum value is 5000.
+    # @option opts [Integer] :limit The number of connections to be returned. The maximum value is 7500.
     # @return [Array<(SingleAggregatedConnectionResponseArray, Integer, Hash)>] SingleAggregatedConnectionResponseArray data, response status code and response headers
     def get_aggregated_connections_with_http_info(opts = {})
       unstable_enabled = @api_client.config.unstable_operations["v2.get_aggregated_connections".to_sym]
@@ -53,8 +53,8 @@ module DatadogAPIClient::V2
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudNetworkMonitoringAPI.get_aggregated_connections ...'
       end
-      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 5000
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling CloudNetworkMonitoringAPI.get_aggregated_connections, must be smaller than or equal to 5000.'
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 7500
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling CloudNetworkMonitoringAPI.get_aggregated_connections, must be smaller than or equal to 7500.'
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling CloudNetworkMonitoringAPI.get_aggregated_connections, must be greater than or equal to 1.'
