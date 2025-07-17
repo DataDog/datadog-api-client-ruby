@@ -1793,7 +1793,7 @@ module DatadogAPIClient::V1
     # @option opts [Boolean] :facets_only If true, return only facets instead of full test details.
     # @option opts [Integer] :start The offset from which to start returning results.
     # @option opts [Integer] :count The maximum number of results to return.
-    # @option opts [String] :sort The sort order for the results (e.g., 'name,asc' or 'name,desc').
+    # @option opts [String] :sort The sort order for the results (e.g., `name,asc` or `name,desc`).
     # @return [Array<(SyntheticsListTestsResponse, Integer, Hash)>] SyntheticsListTestsResponse data, response status code and response headers
     def search_tests_with_http_info(opts = {})
 
