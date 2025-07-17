@@ -195,7 +195,7 @@ module {{ module_name }}::{{ version|upper }}
 
       # auth_names
       {%- set authMethods = operation.security if "security" in operation else openapi.security %}
-      auth_names = opts[:debug_auth_names] || [{% for auth in (authMethods or []) %}:{{ ", :".join(auth.keys()) }}{%- if not loop.last %}, {% endif %}{% endfor %}]
+      auth_names = opts[:debug_auth_names] || [{% for auth in get_security_names(authMethods)|sort %}:{{ auth }}{%- if not loop.last %}, {% endif %}{% endfor %}]
 
       new_options = opts.merge(
         :operation => :{{ operation.operationId|snake_case }},
