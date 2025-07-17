@@ -655,6 +655,7 @@ module DatadogAPIClient
                 description: "The globally available endpoint for On-Call.",
                 default_value: "navy.oncall.datadoghq.com",
                 enum_values: [
+                  "lava.oncall.datadoghq.com",
                   "saffron.oncall.datadoghq.com",
                   "navy.oncall.datadoghq.com",
                   "coral.oncall.datadoghq.com",
@@ -702,6 +703,7 @@ module DatadogAPIClient
                 description: "The globally available endpoint for On-Call.",
                 default_value: "navy.oncall.datadoghq.com",
                 enum_values: [
+                  "lava.oncall.datadoghq.com",
                   "saffron.oncall.datadoghq.com",
                   "navy.oncall.datadoghq.com",
                   "coral.oncall.datadoghq.com",
@@ -749,6 +751,7 @@ module DatadogAPIClient
                 description: "The globally available endpoint for On-Call.",
                 default_value: "navy.oncall.datadoghq.com",
                 enum_values: [
+                  "lava.oncall.datadoghq.com",
                   "saffron.oncall.datadoghq.com",
                   "navy.oncall.datadoghq.com",
                   "coral.oncall.datadoghq.com",
@@ -796,6 +799,7 @@ module DatadogAPIClient
                 description: "The globally available endpoint for On-Call.",
                 default_value: "navy.oncall.datadoghq.com",
                 enum_values: [
+                  "lava.oncall.datadoghq.com",
                   "saffron.oncall.datadoghq.com",
                   "navy.oncall.datadoghq.com",
                   "coral.oncall.datadoghq.com",
