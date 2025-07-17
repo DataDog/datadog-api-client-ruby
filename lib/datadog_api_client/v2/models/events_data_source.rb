@@ -23,5 +23,6 @@ module DatadogAPIClient::V2
 
     LOGS = "logs".freeze
     RUM = "rum".freeze
+    DORA = "dora".freeze
   end
 end
