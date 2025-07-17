@@ -1674,6 +1674,9 @@ ScenariosModelMappings = {
     "v2.SearchEvents" => {
             "body" => "EventsListRequest",
     },
+    "v2.GetEvent" => {
+            "event_id" => "String",
+    },
     "v2.ListIncidents" => {
             "include" => "Array<IncidentRelatedObject>",
             "page_size" => "Integer",
