@@ -70,7 +70,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'RUMAnalyticsAggregateResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :aggregate_rum_events,
@@ -411,7 +411,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'RUMEventsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :list_rum_events,
@@ -504,7 +504,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'RUMEventsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :search_rum_events,
