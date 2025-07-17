@@ -3031,6 +3031,7 @@ module DatadogAPIClient
           "v2.security_monitoring_rule_case" => "SecurityMonitoringRuleCase",
           "v2.security_monitoring_rule_case_action" => "SecurityMonitoringRuleCaseAction",
           "v2.security_monitoring_rule_case_action_options" => "SecurityMonitoringRuleCaseActionOptions",
+          "v2.security_monitoring_rule_case_action_options_flagged_ip_type" => "SecurityMonitoringRuleCaseActionOptionsFlaggedIPType",
           "v2.security_monitoring_rule_case_action_type" => "SecurityMonitoringRuleCaseActionType",
           "v2.security_monitoring_rule_case_create" => "SecurityMonitoringRuleCaseCreate",
           "v2.security_monitoring_rule_convert_payload" => "SecurityMonitoringRuleConvertPayload",

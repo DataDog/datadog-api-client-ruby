@@ -37,6 +37,12 @@ body = DatadogAPIClient::V2::SecurityMonitoringStandardRuleCreatePayload.new({
             user_behavior_name: "behavior",
           }),
         }),
+        DatadogAPIClient::V2::SecurityMonitoringRuleCaseAction.new({
+          type: DatadogAPIClient::V2::SecurityMonitoringRuleCaseActionType::FLAG_IP,
+          options: DatadogAPIClient::V2::SecurityMonitoringRuleCaseActionOptions.new({
+            flagged_ip_type: DatadogAPIClient::V2::SecurityMonitoringRuleCaseActionOptionsFlaggedIPType::FLAGGED,
+          }),
+        }),
       ],
     }),
   ],
