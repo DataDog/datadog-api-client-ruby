@@ -17,13 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The action type.
-  class SecurityMonitoringRuleCaseActionType
+  # Used with the case action of type 'flag_ip'. The value specified in this field is applied as a flag to the IP addresses.
+  class SecurityMonitoringRuleCaseActionOptionsFlaggedIPType
     include BaseEnumModel
 
-    BLOCK_IP = "block_ip".freeze
-    BLOCK_USER = "block_user".freeze
-    USER_BEHAVIOR = "user_behavior".freeze
-    FLAG_IP = "flag_ip".freeze
+    SUSPICIOUS = "SUSPICIOUS".freeze
+    FLAGGED = "FLAGGED".freeze
   end
 end
