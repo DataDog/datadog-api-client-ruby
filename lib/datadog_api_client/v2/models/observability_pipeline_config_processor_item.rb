@@ -41,7 +41,8 @@ module DatadogAPIClient::V2
           :'ObservabilityPipelineDedupeProcessor',
           :'ObservabilityPipelineEnrichmentTableProcessor',
           :'ObservabilityPipelineReduceProcessor',
-          :'ObservabilityPipelineThrottleProcessor'
+          :'ObservabilityPipelineThrottleProcessor',
+          :'ObservabilityPipelineDatadogTagsProcessor'
         ]
       end
       # Builds the object
