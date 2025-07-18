@@ -2163,6 +2163,13 @@ ScenariosModelMappings = {
             "tags" => "String",
             "limit" => "Integer",
     },
+    "v2.GetAggregatedDns" => {
+            "from" => "Integer",
+            "to" => "Integer",
+            "group_by" => "String",
+            "tags" => "String",
+            "limit" => "Integer",
+    },
     "v2.CreateOnCallEscalationPolicy" => {
             "include" => "String",
             "body" => "EscalationPolicyCreateRequest",
