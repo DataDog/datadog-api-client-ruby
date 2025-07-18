@@ -17,8 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `ActionConnectionIntegration` object.
-  module ActionConnectionIntegration
+  # The definition of the `DatadogCredentials` object.
+  module DatadogCredentials
     class << self
       include BaseOneOfModel
       include BaseOneOfModelNoDiscriminator
@@ -26,9 +26,7 @@ module DatadogAPIClient::V2
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of
         [
-          :'AWSIntegration',
-          :'DatadogIntegration',
-          :'HTTPIntegration'
+          :'DatadogAPIKey'
         ]
       end
       # Builds the object
