@@ -27,6 +27,7 @@ module DatadogAPIClient::V2
       def openapi_one_of
         [
           :'AWSIntegrationUpdate',
+          :'DatadogIntegrationUpdate',
           :'HTTPIntegrationUpdate'
         ]
       end
