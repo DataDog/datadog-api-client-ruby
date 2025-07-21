@@ -6,7 +6,7 @@
 <title>
   Class: DatadogAPIClient::V1::UsageBillableSummaryBody
   
-    &mdash; datadog-api-client 2.30.0.dev.1 documentation
+    &mdash; datadog-api-client 2.39.0 documentation
   
 </title>
 
@@ -142,6 +142,58 @@
 
   
     <span class="summary_desc"><div class='inline'><p>The total account usage.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#account_committed_usage-instance_method" title="#account_committed_usage (instance method)">#<strong>account_committed_usage</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The total account committed usage.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#account_on_demand_usage-instance_method" title="#account_on_demand_usage (instance method)">#<strong>account_on_demand_usage</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The total account on-demand usage.</p>
 </div></span>
   
 </li>
@@ -385,6 +437,90 @@
 
 <span class='kw'>def</span> <span class='id identifier rubyid_account_billable_usage'>account_billable_usage</span>
   <span class='ivar'>@account_billable_usage</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="account_committed_usage=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="account_committed_usage-instance_method">
+  
+    #<strong>account_committed_usage</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>The total account committed usage.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+28
+29
+30</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_billable_summary_body.rb', line 28</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_account_committed_usage'>account_committed_usage</span>
+  <span class='ivar'>@account_committed_usage</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="account_on_demand_usage=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="account_on_demand_usage-instance_method">
+  
+    #<strong>account_on_demand_usage</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>The total account on-demand usage.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+31
+32
+33</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_billable_summary_body.rb', line 31</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_account_on_demand_usage'>account_on_demand_usage</span>
+  <span class='ivar'>@account_on_demand_usage</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -691,7 +827,7 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Feb 18 21:07:33 2025 by
+  Generated on Mon Jul 21 21:03:13 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>
