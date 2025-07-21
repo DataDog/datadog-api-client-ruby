@@ -24,6 +24,12 @@ module DatadogAPIClient::V1
     # The total account usage.
     attr_accessor :account_billable_usage
 
+    # The total account committed usage.
+    attr_accessor :account_committed_usage
+
+    # The total account on-demand usage.
+    attr_accessor :account_on_demand_usage
+
     # Elapsed usage hours for some billable product.
     attr_accessor :elapsed_usage_hours
 
@@ -49,6 +55,8 @@ module DatadogAPIClient::V1
     def self.attribute_map
       {
         :'account_billable_usage' => :'account_billable_usage',
+        :'account_committed_usage' => :'account_committed_usage',
+        :'account_on_demand_usage' => :'account_on_demand_usage',
         :'elapsed_usage_hours' => :'elapsed_usage_hours',
         :'first_billable_usage_hour' => :'first_billable_usage_hour',
         :'last_billable_usage_hour' => :'last_billable_usage_hour',
@@ -63,6 +71,8 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'account_billable_usage' => :'Integer',
+        :'account_committed_usage' => :'Integer',
+        :'account_on_demand_usage' => :'Integer',
         :'elapsed_usage_hours' => :'Integer',
         :'first_billable_usage_hour' => :'Time',
         :'last_billable_usage_hour' => :'Time',
@@ -92,6 +102,14 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'account_billable_usage')
         self.account_billable_usage = attributes[:'account_billable_usage']
+      end
+
+      if attributes.key?(:'account_committed_usage')
+        self.account_committed_usage = attributes[:'account_committed_usage']
+      end
+
+      if attributes.key?(:'account_on_demand_usage')
+        self.account_on_demand_usage = attributes[:'account_on_demand_usage']
       end
 
       if attributes.key?(:'elapsed_usage_hours')
@@ -146,6 +164,8 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           account_billable_usage == o.account_billable_usage &&
+          account_committed_usage == o.account_committed_usage &&
+          account_on_demand_usage == o.account_on_demand_usage &&
           elapsed_usage_hours == o.elapsed_usage_hours &&
           first_billable_usage_hour == o.first_billable_usage_hour &&
           last_billable_usage_hour == o.last_billable_usage_hour &&
@@ -159,7 +179,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [account_billable_usage, elapsed_usage_hours, first_billable_usage_hour, last_billable_usage_hour, org_billable_usage, percentage_in_account, usage_unit, additional_properties].hash
+      [account_billable_usage, account_committed_usage, account_on_demand_usage, elapsed_usage_hours, first_billable_usage_hour, last_billable_usage_hour, org_billable_usage, percentage_in_account, usage_unit, additional_properties].hash
     end
   end
 end
