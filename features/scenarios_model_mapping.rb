@@ -1093,6 +1093,10 @@ ScenariosModelMappings = {
             "case_id" => "String",
             "body" => "CaseAssignRequest",
     },
+    "v2.UpdateAttributes" => {
+            "case_id" => "String",
+            "body" => "CaseUpdateAttributesRequest",
+    },
     "v2.UpdatePriority" => {
             "case_id" => "String",
             "body" => "CaseUpdatePriorityRequest",
