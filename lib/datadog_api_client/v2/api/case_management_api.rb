@@ -796,6 +796,78 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Update case attributes.
+    #
+    # @see #update_attributes_with_http_info
+    def update_attributes(case_id, body, opts = {})
+      data, _status_code, _headers = update_attributes_with_http_info(case_id, body, opts)
+      data
+    end
+
+    # Update case attributes.
+    #
+    # Update case attributes
+    #
+    # @param case_id [String] Case's UUID or key
+    # @param body [CaseUpdateAttributesRequest] Case attributes update payload
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(CaseResponse, Integer, Hash)>] CaseResponse data, response status code and response headers
+    def update_attributes_with_http_info(case_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CaseManagementAPI.update_attributes ...'
+      end
+      # verify the required parameter 'case_id' is set
+      if @api_client.config.client_side_validation && case_id.nil?
+        fail ArgumentError, "Missing the required parameter 'case_id' when calling CaseManagementAPI.update_attributes"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CaseManagementAPI.update_attributes"
+      end
+      # resource path
+      local_var_path = '/api/v2/cases/{case_id}/attributes'.sub('{case_id}', CGI.escape(case_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CaseResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_attributes,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CaseManagementAPI#update_attributes\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Update case priority.
     #
     # @see #update_priority_with_http_info
