@@ -10,6 +10,7 @@ group :development, :test do
   gem 'cucumber', '~> 9.2.1'
   gem 'datadog-ci', '= 1.11'
   gem 'datadog', '= 2.10.0'
+  gem 'libddwaf', '= 1.18.0.0.1'
   gem 'gem-release'
   gem 'rake', '~> 13.0.1'
   gem 'ostruct'
