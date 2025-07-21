@@ -9,7 +9,7 @@ group :development, :test do
   gem 'bigdecimal', '= 3.1.9'
   gem 'cucumber', '~> 9.2.1'
   gem 'datadog-ci', '= 1.11'
-  gem `datadog`, `= 2.10.0`
+  gem 'datadog', '= 2.10.0'
   gem 'gem-release'
   gem 'rake', '~> 13.0.1'
   gem 'ostruct'
