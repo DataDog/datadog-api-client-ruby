@@ -24,6 +24,9 @@ module DatadogAPIClient::V2
     # Duration of the action in seconds. 0 indicates no expiration.
     attr_reader :duration
 
+    # Used with the case action of type 'flag_ip'. The value specified in this field is applied as a flag to the IP addresses.
+    attr_accessor :flagged_ip_type
+
     # Used with the case action of type 'user_behavior'. The value specified in this field is applied as a risk tag to all users affected by the rule.
     attr_accessor :user_behavior_name
 
@@ -34,6 +37,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'duration' => :'duration',
+        :'flagged_ip_type' => :'flaggedIPType',
         :'user_behavior_name' => :'userBehaviorName'
       }
     end
@@ -43,6 +47,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'duration' => :'Integer',
+        :'flagged_ip_type' => :'SecurityMonitoringRuleCaseActionOptionsFlaggedIPType',
         :'user_behavior_name' => :'String'
       }
     end
@@ -67,6 +72,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'duration')
         self.duration = attributes[:'duration']
+      end
+
+      if attributes.key?(:'flagged_ip_type')
+        self.flagged_ip_type = attributes[:'flagged_ip_type']
       end
 
       if attributes.key?(:'user_behavior_name')
@@ -119,6 +128,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           duration == o.duration &&
+          flagged_ip_type == o.flagged_ip_type &&
           user_behavior_name == o.user_behavior_name &&
           additional_properties == o.additional_properties
     end
@@ -127,7 +137,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [duration, user_behavior_name, additional_properties].hash
+      [duration, flagged_ip_type, user_behavior_name, additional_properties].hash
     end
   end
 end
