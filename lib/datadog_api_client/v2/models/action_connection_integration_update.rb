@@ -27,8 +27,29 @@ module DatadogAPIClient::V2
       def openapi_one_of
         [
           :'AWSIntegrationUpdate',
+          :'AnthropicIntegrationUpdate',
+          :'AsanaIntegrationUpdate',
+          :'AzureIntegrationUpdate',
+          :'CircleCIIntegrationUpdate',
+          :'ClickupIntegrationUpdate',
+          :'CloudflareIntegrationUpdate',
+          :'ConfigCatIntegrationUpdate',
           :'DatadogIntegrationUpdate',
-          :'HTTPIntegrationUpdate'
+          :'FastlyIntegrationUpdate',
+          :'FreshserviceIntegrationUpdate',
+          :'GCPIntegrationUpdate',
+          :'GeminiIntegrationUpdate',
+          :'GitlabIntegrationUpdate',
+          :'GreyNoiseIntegrationUpdate',
+          :'HTTPIntegrationUpdate',
+          :'LaunchDarklyIntegrationUpdate',
+          :'NotionIntegrationUpdate',
+          :'OktaIntegrationUpdate',
+          :'OpenAIIntegrationUpdate',
+          :'ServiceNowIntegrationUpdate',
+          :'SplitIntegrationUpdate',
+          :'StatsigIntegrationUpdate',
+          :'VirusTotalIntegrationUpdate'
         ]
       end
       # Builds the object
