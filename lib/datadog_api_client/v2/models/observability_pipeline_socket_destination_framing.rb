@@ -17,8 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A processor for the pipeline.
-  module ObservabilityPipelineConfigProcessorItem
+  # Framing method configuration.
+  module ObservabilityPipelineSocketDestinationFraming
     class << self
       include BaseOneOfModel
       include BaseOneOfModelNoDiscriminator
@@ -26,24 +26,9 @@ module DatadogAPIClient::V2
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of
         [
-          :'ObservabilityPipelineFilterProcessor',
-          :'ObservabilityPipelineParseJSONProcessor',
-          :'ObservabilityPipelineQuotaProcessor',
-          :'ObservabilityPipelineAddFieldsProcessor',
-          :'ObservabilityPipelineRemoveFieldsProcessor',
-          :'ObservabilityPipelineRenameFieldsProcessor',
-          :'ObservabilityPipelineGenerateMetricsProcessor',
-          :'ObservabilityPipelineSampleProcessor',
-          :'ObservabilityPipelineParseGrokProcessor',
-          :'ObservabilityPipelineSensitiveDataScannerProcessor',
-          :'ObservabilityPipelineOcsfMapperProcessor',
-          :'ObservabilityPipelineAddEnvVarsProcessor',
-          :'ObservabilityPipelineDedupeProcessor',
-          :'ObservabilityPipelineEnrichmentTableProcessor',
-          :'ObservabilityPipelineReduceProcessor',
-          :'ObservabilityPipelineThrottleProcessor',
-          :'ObservabilityPipelineCustomProcessor',
-          :'ObservabilityPipelineDatadogTagsProcessor'
+          :'ObservabilityPipelineSocketDestinationFramingNewlineDelimited',
+          :'ObservabilityPipelineSocketDestinationFramingBytes',
+          :'ObservabilityPipelineSocketDestinationFramingCharacterDelimited'
         ]
       end
       # Builds the object

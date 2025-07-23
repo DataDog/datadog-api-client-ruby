@@ -40,7 +40,8 @@ module DatadogAPIClient::V2
           :'ObservabilityPipelineNewRelicDestination',
           :'ObservabilityPipelineSentinelOneDestination',
           :'ObservabilityPipelineOpenSearchDestination',
-          :'ObservabilityPipelineAmazonOpenSearchDestination'
+          :'ObservabilityPipelineAmazonOpenSearchDestination',
+          :'ObservabilityPipelineSocketDestination'
         ]
       end
       # Builds the object
