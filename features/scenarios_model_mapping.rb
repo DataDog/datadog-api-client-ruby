@@ -754,6 +754,7 @@ ScenariosModelMappings = {
             "body" => "SyntheticsMobileTest",
     },
     "v1.SearchTests" => {
+            "text" => "String",
             "include_full_config" => "Boolean",
             "search_suites" => "Boolean",
             "facets_only" => "Boolean",
