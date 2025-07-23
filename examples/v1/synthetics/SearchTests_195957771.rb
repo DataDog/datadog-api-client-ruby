@@ -3,6 +3,7 @@
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::SyntheticsAPI.new
 opts = {
+  text: "tag:value",
   include_full_config: true,
   search_suites: true,
   facets_only: true,
