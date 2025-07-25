@@ -6,12 +6,12 @@ http_interactions:
       Accept:
       - application/json
     method: GET
-    uri: https://api.datadoghq.com/api/v2/network/connections/aggregate?limit=8000
+    uri: https://api.datadoghq.com/api/v2/network/dns/aggregate?group_by=server_ungrouped%2Cserver_service
   response:
     body:
       encoding: UTF-8
-      string: '{"errors":[{"status":"400","title":"Invalid limit","detail":"Limit
-        must meet requirements listed in https://docs.datadoghq.com/api/latest/cloud-network-monitoring/"}]}'
+      string: '{"errors":[{"status":"400","title":"Cannot combine server_ungrouped
+        with other server groupings or network.dns_query"}]}'
     headers:
       Content-Type:
       - application/vnd.api+json
