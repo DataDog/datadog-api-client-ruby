@@ -222,12 +222,12 @@
       <pre class="lines">
 
 
-27
-28
-29</pre>
+39
+40
+41</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/dataset_response_single.rb', line 27</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/dataset_response_single.rb', line 39</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_additional_properties'>additional_properties</span>
   <span class='ivar'>@additional_properties</span>
@@ -252,6 +252,28 @@
   <div class="discussion">
     <p>Dataset object.</p>
 
+<h3 id="datasets-constraints">Datasets Constraints</h3>
+
+<ul>
+<li><p><strong>Tag Limit per Dataset</strong>:</p>
+
+<ul>
+<li>Each restricted dataset supports a maximum of 10 key:value pairs per product.</li>
+</ul></li>
+<li><p><strong>Tag Key Rules per Telemetry Type</strong>:</p>
+
+<ul>
+<li>Only one tag key or attribute may be used to define access within a single telemetry type.</li>
+<li>The same or different tag key may be used across different telemetry types.</li>
+</ul></li>
+<li><p><strong>Tag Value Uniqueness</strong>:</p>
+
+<ul>
+<li>Tag values must be unique within a single dataset.</li>
+<li>A tag value used in one dataset cannot be reused in another dataset of the same telemetry type.</li>
+</ul></li>
+</ul>
+
 
   </div>
 </div>
@@ -264,12 +286,12 @@
       <pre class="lines">
 
 
-25
-26
-27</pre>
+37
+38
+39</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/dataset_response_single.rb', line 25</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/dataset_response_single.rb', line 37</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_data'>data</span>
   <span class='ivar'>@data</span>
@@ -285,7 +307,7 @@
 </div>
 
       <div id="footer">
-  Generated on Fri Jul 25 13:41:24 2025 by
+  Generated on Fri Jul 25 18:47:10 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>
