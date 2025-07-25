@@ -27,8 +27,8 @@ module DatadogAPIClient::V2
     # per telemetry type.
     attr_reader :filters
 
-    # Name of the product the dataset is for. Possible values are 'apm', 'rum', 'synthetics',
-    # 'metrics', 'logs', 'sd_repoinfo', 'error_tracking', 'cloud_cost', and 'ml_obs'.
+    # Name of the product the dataset is for. Possible values are 'apm', 'rum',
+    # 'metrics', 'logs', 'error_tracking', and 'cloud_cost'.
     attr_reader :product
 
     attr_accessor :additional_properties

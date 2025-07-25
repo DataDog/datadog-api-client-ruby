@@ -1598,6 +1598,10 @@ ScenariosModelMappings = {
     "v2.GetDataset" => {
             "dataset_id" => "String",
     },
+    "v2.UpdateDataset" => {
+            "dataset_id" => "String",
+            "body" => "DatasetUpdateRequest",
+    },
     "v2.CreateDataDeletionRequest" => {
             "product" => "String",
             "body" => "CreateDataDeletionRequestBody",
