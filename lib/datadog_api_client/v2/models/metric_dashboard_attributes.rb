@@ -24,6 +24,9 @@ module DatadogAPIClient::V2
     # Value from 0 to 5 that ranks popularity of the dashboard.
     attr_reader :popularity
 
+    # List of tag keys used in the asset.
+    attr_accessor :tags
+
     # Title of the asset.
     attr_accessor :title
 
@@ -37,6 +40,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'popularity' => :'popularity',
+        :'tags' => :'tags',
         :'title' => :'title',
         :'url' => :'url'
       }
@@ -47,6 +51,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'popularity' => :'Float',
+        :'tags' => :'Array<String>',
         :'title' => :'String',
         :'url' => :'String'
       }
@@ -72,6 +77,12 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'popularity')
         self.popularity = attributes[:'popularity']
+      end
+
+      if attributes.key?(:'tags')
+        if (value = attributes[:'tags']).is_a?(Array)
+          self.tags = value
+        end
       end
 
       if attributes.key?(:'title')
@@ -132,6 +143,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           popularity == o.popularity &&
+          tags == o.tags &&
           title == o.title &&
           url == o.url &&
           additional_properties == o.additional_properties
@@ -141,7 +153,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [popularity, title, url, additional_properties].hash
+      [popularity, tags, title, url, additional_properties].hash
     end
   end
 end
