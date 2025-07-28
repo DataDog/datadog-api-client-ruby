@@ -35,7 +35,7 @@ module DatadogAPIClient::V2
     #
     # Deletes the restriction policy associated with a specified resource.
     #
-    # @param resource_id [String] Identifier, formatted as `type:id`. Supported types: `connection`, `dashboard`, `integration-account`, `integration-service`, `integration-webhook`, `notebook`, `reference-table`, `security-rule`, `slo`, `workflow`, `app-builder-app`, `connection`, `connection-group`, `rum-application`, `cross-org-connection`, `spreadsheet`.
+    # @param resource_id [String] Identifier, formatted as `type:id`. Supported types: `dashboard`, `integration-service`, `integration-webhook`, `notebook`, `reference-table`, `security-rule`, `slo`, `workflow`, `app-builder-app`, `connection`, `connection-group`, `rum-application`, `cross-org-connection`, `spreadsheet`.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_restriction_policy_with_http_info(resource_id, opts = {})
@@ -100,7 +100,7 @@ module DatadogAPIClient::V2
     #
     # Retrieves the restriction policy associated with a specified resource.
     #
-    # @param resource_id [String] Identifier, formatted as `type:id`. Supported types: `connection`, `dashboard`, `integration-account`, `integration-service`, `integration-webhook`, `notebook`, `reference-table`, `security-rule`, `slo`, `workflow`, `app-builder-app`, `connection`, `connection-group`, `rum-application`, `cross-org-connection`, `spreadsheet`.
+    # @param resource_id [String] Identifier, formatted as `type:id`. Supported types: `dashboard`, `integration-service`, `integration-webhook`, `notebook`, `reference-table`, `security-rule`, `slo`, `workflow`, `app-builder-app`, `connection`, `connection-group`, `rum-application`, `cross-org-connection`, `spreadsheet`.
     # @param opts [Hash] the optional parameters
     # @return [Array<(RestrictionPolicyResponse, Integer, Hash)>] RestrictionPolicyResponse data, response status code and response headers
     def get_restriction_policy_with_http_info(resource_id, opts = {})
@@ -168,7 +168,6 @@ module DatadogAPIClient::V2
     # #### Supported resources
     # Restriction policies can be applied to the following resources:
     # - Dashboards: `dashboard`
-    # - Integration Accounts: `integration-account`
     # - Integration Services: `integration-service`
     # - Integration Webhooks: `integration-webhook`
     # - Notebooks: `notebook`
@@ -192,7 +191,6 @@ module DatadogAPIClient::V2
     # Resource Type               | Supported Relations
     # ----------------------------|--------------------------
     # Dashboards                  | `viewer`, `editor`
-    # Integration Accounts        | `viewer`, `editor`
     # Integration Services        | `viewer`, `editor`
     # Integration Webhooks        | `viewer`, `editor`
     # Notebooks                   | `viewer`, `editor`
@@ -212,7 +210,7 @@ module DatadogAPIClient::V2
     # Cross Org Connections       | `viewer`, `editor`
     # Spreadsheets                | `viewer`, `editor`
     #
-    # @param resource_id [String] Identifier, formatted as `type:id`. Supported types: `connection`, `dashboard`, `integration-account`, `integration-service`, `integration-webhook`, `notebook`, `reference-table`, `security-rule`, `slo`, `workflow`, `app-builder-app`, `connection`, `connection-group`, `rum-application`, `cross-org-connection`, `spreadsheet`.
+    # @param resource_id [String] Identifier, formatted as `type:id`. Supported types: `dashboard`, `integration-service`, `integration-webhook`, `notebook`, `reference-table`, `security-rule`, `slo`, `workflow`, `app-builder-app`, `connection`, `connection-group`, `rum-application`, `cross-org-connection`, `spreadsheet`.
     # @param body [RestrictionPolicyUpdateRequest] Restriction policy payload
     # @param opts [Hash] the optional parameters
     # @option opts [Boolean] :allow_self_lockout Allows admins (users with the `user_access_manage` permission) to remove their own access from the resource if set to `true`. By default, this is set to `false`, preventing admins from locking themselves out.
