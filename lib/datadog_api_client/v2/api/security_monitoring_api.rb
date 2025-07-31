@@ -2491,6 +2491,7 @@ module DatadogAPIClient::V2
     # - `external_id`: The resource external ID related to the finding.
     # - `description`: The description and remediation steps for the finding.
     # - `datadog_link`: The Datadog relative link for the finding.
+    # - `ip_addresses`: The list of private IP addresses for the resource related to the finding.
     #
     # ### Response
     #
@@ -2514,6 +2515,7 @@ module DatadogAPIClient::V2
     # @option opts [String] :filter_rule_id Return findings for the specified rule ID.
     # @option opts [String] :filter_rule_name Return findings for the specified rule.
     # @option opts [String] :filter_resource_type Return only findings for the specified resource type.
+    # @option opts [String] :filter_resource_id Return only findings for the specified resource id.
     # @option opts [String] :filter_discovery_timestamp Return findings that were found on a specified date (Unix ms) or date range (using comparison operators).
     # @option opts [FindingEvaluation] :filter_evaluation Return only `pass` or `fail` findings.
     # @option opts [FindingStatus] :filter_status Return only findings with the specified status.
@@ -2562,6 +2564,7 @@ module DatadogAPIClient::V2
       query_params[:'filter[rule_id]'] = opts[:'filter_rule_id'] if !opts[:'filter_rule_id'].nil?
       query_params[:'filter[rule_name]'] = opts[:'filter_rule_name'] if !opts[:'filter_rule_name'].nil?
       query_params[:'filter[resource_type]'] = opts[:'filter_resource_type'] if !opts[:'filter_resource_type'].nil?
+      query_params[:'filter[@resource_id]'] = opts[:'filter_resource_id'] if !opts[:'filter_resource_id'].nil?
       query_params[:'filter[discovery_timestamp]'] = opts[:'filter_discovery_timestamp'] if !opts[:'filter_discovery_timestamp'].nil?
       query_params[:'filter[evaluation]'] = opts[:'filter_evaluation'] if !opts[:'filter_evaluation'].nil?
       query_params[:'filter[status]'] = opts[:'filter_status'] if !opts[:'filter_status'].nil?
