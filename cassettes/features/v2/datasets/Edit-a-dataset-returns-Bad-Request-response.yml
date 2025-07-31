@@ -1,0 +1,22 @@
+http_interactions:
+- recorded_at: Tue, 29 Jul 2025 20:35:59 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: PUT
+    uri: https://api.datadoghq.com/api/v2/datasets/malformed_id
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":["Invalid request: Request body contains invalid json"]}'
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 400
+      message: Bad Request
+recorded_with: VCR 6.0.0

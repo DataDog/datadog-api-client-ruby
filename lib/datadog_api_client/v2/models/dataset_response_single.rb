@@ -21,9 +21,7 @@ module DatadogAPIClient::V2
   class DatasetResponseSingle
     include BaseGenericModel
 
-    # Dataset object.
-    #
-    # ### Datasets Constraints
+    # **Datasets Object Constraints**
     # - **Tag Limit per Dataset**:
     #   - Each restricted dataset supports a maximum of 10 key:value pairs per product.
     #
@@ -34,7 +32,7 @@ module DatadogAPIClient::V2
     # - **Tag Value Uniqueness**:
     #   - Tag values must be unique within a single dataset.
     #   - A tag value used in one dataset cannot be reused in another dataset of the same telemetry type.
-    attr_reader :data
+    attr_accessor :data
 
     attr_accessor :additional_properties
 
@@ -50,7 +48,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'Dataset'
+        :'data' => :'DatasetResponse'
       }
     end
 
@@ -75,24 +73,6 @@ module DatadogAPIClient::V2
       if attributes.key?(:'data')
         self.data = attributes[:'data']
       end
-    end
-
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    # @!visibility private
-    def valid?
-      return false if @data.nil?
-      true
-    end
-
-    # Custom attribute writer method with validation
-    # @param data [Object] Object to be assigned
-    # @!visibility private
-    def data=(data)
-      if data.nil?
-        fail ArgumentError, 'invalid value for "data", data cannot be nil.'
-      end
-      @data = data
     end
 
     # Returns the object in the form of hash, with additionalProperties support.

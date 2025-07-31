@@ -1,27 +1,31 @@
 # Edit a dataset returns "OK" response
 
 require "datadog_api_client"
+DatadogAPIClient.configure do |config|
+  config.unstable_operations["v2.update_dataset".to_sym] = true
+end
 api_instance = DatadogAPIClient::V2::DatasetsAPI.new
 
+# there is a valid "dataset" in the system
+DATASET_DATA_ID = ENV["DATASET_DATA_ID"]
+
 body = DatadogAPIClient::V2::DatasetUpdateRequest.new({
-  data: DatadogAPIClient::V2::Dataset.new({
-    attributes: DatadogAPIClient::V2::DatasetAttributes.new({
-      created_at: nil,
+  data: DatadogAPIClient::V2::DatasetRequest.new({
+    attributes: DatadogAPIClient::V2::DatasetAttributesRequest.new({
       name: "Security Audit Dataset",
       principals: [
-        "role:86245fce-0a4e-11f0-92bd-da7ad0900002",
+        "role:94172442-be03-11e9-a77a-3b7612558ac1",
       ],
       product_filters: [
         DatadogAPIClient::V2::FiltersPerProduct.new({
           filters: [
-            "@application.id:ABCD",
+            "@application.id:1234",
           ],
-          product: "logs",
+          product: "metrics",
         }),
       ],
     }),
-    id: "123e4567-e89b-12d3-a456-426614174000",
     type: "dataset",
   }),
 })
-p api_instance.update_dataset("dataset_id", body)
+p api_instance.update_dataset(DATASET_DATA_ID, body)

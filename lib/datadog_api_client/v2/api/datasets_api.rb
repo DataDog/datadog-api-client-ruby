@@ -39,6 +39,12 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(DatasetResponseSingle, Integer, Hash)>] DatasetResponseSingle data, response status code and response headers
     def create_dataset_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_dataset".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_dataset")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_dataset"))
+      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DatasetsAPI.create_dataset ...'
@@ -106,6 +112,12 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_dataset_with_http_info(dataset_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.delete_dataset".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_dataset")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_dataset"))
+      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DatasetsAPI.delete_dataset ...'
@@ -170,6 +182,12 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(DatasetResponseMulti, Integer, Hash)>] DatasetResponseMulti data, response status code and response headers
     def get_all_datasets_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_all_datasets".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_all_datasets")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_all_datasets"))
+      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DatasetsAPI.get_all_datasets ...'
@@ -231,6 +249,12 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(DatasetResponseSingle, Integer, Hash)>] DatasetResponseSingle data, response status code and response headers
     def get_dataset_with_http_info(dataset_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_dataset".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_dataset")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_dataset"))
+      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DatasetsAPI.get_dataset ...'
@@ -297,6 +321,12 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(DatasetResponseSingle, Integer, Hash)>] DatasetResponseSingle data, response status code and response headers
     def update_dataset_with_http_info(dataset_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.update_dataset".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_dataset")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_dataset"))
+      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DatasetsAPI.update_dataset ...'

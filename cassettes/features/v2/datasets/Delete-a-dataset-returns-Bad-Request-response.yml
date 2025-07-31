@@ -1,0 +1,23 @@
+http_interactions:
+- recorded_at: Tue, 29 Jul 2025 20:35:58 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/datasets/malformed_id
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":["Invalid request: [UUIDInvalidValue] \"malformed_id\" is
+        not a valid UUID: invalid UUID length: 12"]}
+
+        '
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 400
+      message: Bad Request
+recorded_with: VCR 6.0.0

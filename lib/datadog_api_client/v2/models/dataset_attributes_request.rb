@@ -17,15 +17,9 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Dataset metadata and configuration(s).
-  class DatasetAttributes
+  # Dataset metadata and configurations.
+  class DatasetAttributesRequest
     include BaseGenericModel
-
-    # Timestamp when the dataset was created.
-    attr_accessor :created_at
-
-    # Unique ID of the user who created the dataset.
-    attr_accessor :created_by
 
     # Name of the dataset.
     attr_reader :name
@@ -42,8 +36,6 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'created_at' => :'created_at',
-        :'created_by' => :'created_by',
         :'name' => :'name',
         :'principals' => :'principals',
         :'product_filters' => :'product_filters'
@@ -54,20 +46,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'created_at' => :'Time',
-        :'created_by' => :'UUID',
         :'name' => :'String',
         :'principals' => :'Array<String>',
         :'product_filters' => :'Array<FiltersPerProduct>'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-        :'created_at',
-      ])
     end
 
     # Initializes the object
@@ -75,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::DatasetAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::DatasetAttributesRequest` initialize method"
       end
 
       self.additional_properties = {}
@@ -87,14 +69,6 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
-
-      if attributes.key?(:'created_at')
-        self.created_at = attributes[:'created_at']
-      end
-
-      if attributes.key?(:'created_by')
-        self.created_by = attributes[:'created_by']
-      end
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
@@ -179,8 +153,6 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          created_at == o.created_at &&
-          created_by == o.created_by &&
           name == o.name &&
           principals == o.principals &&
           product_filters == o.product_filters &&
@@ -191,7 +163,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created_at, created_by, name, principals, product_filters, additional_properties].hash
+      [name, principals, product_filters, additional_properties].hash
     end
   end
 end
