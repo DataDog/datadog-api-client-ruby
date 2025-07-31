@@ -1,0 +1,70 @@
+http_interactions:
+- recorded_at: Tue, 29 Jul 2025 20:35:57 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"name":"Security Audit Dataset","principals":["role:94172442-be03-11e9-a77a-3b7612558ac1"],"product_filters":[{"filters":["@application.id:ABCD"],"product":"metrics"}]},"type":"dataset"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/datasets
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"dataset","id":"7cbada94-7d01-4e73-8c74-ea70fb3b3088","attributes":{"name":"Security
+        Audit Dataset","product_filters":[{"product":"metrics","filters":["@application.id:ABCD"]}],"principals":["role:94172442-be03-11e9-a77a-3b7612558ac1"]}}}
+
+        '
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+- recorded_at: Tue, 29 Jul 2025 20:35:57 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"name":"Security Audit Dataset","principals":["role:94172442-be03-11e9-a77a-3b7612558ac1"],"product_filters":[{"filters":["@application.id:ABCD"],"product":"metrics"}]},"type":"dataset"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/datasets
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":["Invalid request: [DatasetNameConflict] dataset with name
+        \"Security Audit Dataset\" already exists"]}
+
+        '
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 409
+      message: Conflict
+- recorded_at: Tue, 29 Jul 2025 20:35:57 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/datasets/7cbada94-7d01-4e73-8c74-ea70fb3b3088
+  response:
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 204
+      message: No Content
+recorded_with: VCR 6.0.0

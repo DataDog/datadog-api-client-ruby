@@ -21,17 +21,15 @@ module DatadogAPIClient::V2
   class DatasetCreateRequest
     include BaseGenericModel
 
-    # Dataset object.
-    #
-    # ### Datasets Constraints
-    # - **Tag Limit per Dataset**:
+    # **Datasets Object Constraints**
+    # - **Tag limit per dataset**:
     #   - Each restricted dataset supports a maximum of 10 key:value pairs per product.
     #
-    # - **Tag Key Rules per Telemetry Type**:
+    # - **Tag key rules per telemetry type**:
     #   - Only one tag key or attribute may be used to define access within a single telemetry type.
     #   - The same or different tag key may be used across different telemetry types.
     #
-    # - **Tag Value Uniqueness**:
+    # - **Tag value uniqueness**:
     #   - Tag values must be unique within a single dataset.
     #   - A tag value used in one dataset cannot be reused in another dataset of the same telemetry type.
     attr_reader :data
@@ -50,7 +48,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'Dataset'
+        :'data' => :'DatasetRequest'
       }
     end
 

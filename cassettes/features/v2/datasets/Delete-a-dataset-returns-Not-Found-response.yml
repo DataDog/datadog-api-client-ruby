@@ -1,0 +1,23 @@
+http_interactions:
+- recorded_at: Tue, 29 Jul 2025 20:35:58 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/datasets/00000000-0000-0000-0000-000000000000
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":["Invalid request: [DatasetNotFound] dataset \"00000000-0000-0000-0000-000000000000\"
+        not found"]}
+
+        '
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 404
+      message: Not Found
+recorded_with: VCR 6.0.0

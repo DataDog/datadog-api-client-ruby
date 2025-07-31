@@ -17,27 +17,22 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Dataset object.
-  # 
-  # ### Datasets Constraints
-  # - **Tag Limit per Dataset**:
+  # **Datasets Object Constraints**
+  # - **Tag limit per dataset**:
   #   - Each restricted dataset supports a maximum of 10 key:value pairs per product.
   # 
-  # - **Tag Key Rules per Telemetry Type**:
+  # - **Tag key rules per telemetry type**:
   #   - Only one tag key or attribute may be used to define access within a single telemetry type.
   #   - The same or different tag key may be used across different telemetry types.
   # 
-  # - **Tag Value Uniqueness**:
+  # - **Tag value uniqueness**:
   #   - Tag values must be unique within a single dataset.
   #   - A tag value used in one dataset cannot be reused in another dataset of the same telemetry type.
-  class Dataset
+  class DatasetRequest
     include BaseGenericModel
 
-    # Dataset metadata and configuration(s).
+    # Dataset metadata and configurations.
     attr_reader :attributes
-
-    # Unique identifier for the dataset.
-    attr_accessor :id
 
     # Resource type, always "dataset".
     attr_reader :type
@@ -49,7 +44,6 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'attributes' => :'attributes',
-        :'id' => :'id',
         :'type' => :'type'
       }
     end
@@ -58,8 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'DatasetAttributes',
-        :'id' => :'String',
+        :'attributes' => :'DatasetAttributesRequest',
         :'type' => :'String'
       }
     end
@@ -69,7 +62,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::Dataset` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::DatasetRequest` initialize method"
       end
 
       self.additional_properties = {}
@@ -84,10 +77,6 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'attributes')
         self.attributes = attributes[:'attributes']
-      end
-
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
       end
 
       if attributes.key?(:'type')
@@ -151,7 +140,6 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           attributes == o.attributes &&
-          id == o.id &&
           type == o.type &&
           additional_properties == o.additional_properties
     end
@@ -160,7 +148,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, id, type, additional_properties].hash
+      [attributes, type, additional_properties].hash
     end
   end
 end
