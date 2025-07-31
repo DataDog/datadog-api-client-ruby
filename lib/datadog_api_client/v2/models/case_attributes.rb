@@ -17,12 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Case attributes
+  # Case resource attributes
   class CaseAttributes
     include BaseGenericModel
 
     # Timestamp of when the case was archived
     attr_accessor :archived_at
+
+    # The definition of `CaseObjectAttributes` object.
+    attr_accessor :attributes
 
     # Timestamp of when the case was closed
     attr_accessor :closed_at
@@ -64,6 +67,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'archived_at' => :'archived_at',
+        :'attributes' => :'attributes',
         :'closed_at' => :'closed_at',
         :'created_at' => :'created_at',
         :'description' => :'description',
@@ -83,6 +87,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'archived_at' => :'Time',
+        :'attributes' => :'Hash<String, Array<String>>',
         :'closed_at' => :'Time',
         :'created_at' => :'Time',
         :'description' => :'String',
@@ -129,6 +134,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'archived_at')
         self.archived_at = attributes[:'archived_at']
+      end
+
+      if attributes.key?(:'attributes')
+        self.attributes = attributes[:'attributes']
       end
 
       if attributes.key?(:'closed_at')
@@ -203,6 +212,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           archived_at == o.archived_at &&
+          attributes == o.attributes &&
           closed_at == o.closed_at &&
           created_at == o.created_at &&
           description == o.description &&
@@ -221,7 +231,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [archived_at, closed_at, created_at, description, jira_issue, key, modified_at, priority, service_now_ticket, status, title, type, additional_properties].hash
+      [archived_at, attributes, closed_at, created_at, description, jira_issue, key, modified_at, priority, service_now_ticket, status, title, type, additional_properties].hash
     end
   end
 end
