@@ -105,13 +105,16 @@ module DatadogAPIClient::V1
 
     # Modify the triage assignee of a security signal.
     #
-    # Modify the triage assignee of a security signal.
+    # This endpoint is deprecated - Modify the triage assignee of a security signal.
+    #
+    # @deprecated This API is deprecated.
     #
     # @param signal_id [String] The ID of the signal.
     # @param body [SignalAssigneeUpdateRequest] Attributes describing the signal update.
     # @param opts [Hash] the optional parameters
     # @return [Array<(SuccessfulSignalUpdateResponse, Integer, Hash)>] SuccessfulSignalUpdateResponse data, response status code and response headers
     def edit_security_monitoring_signal_assignee_with_http_info(signal_id, body, opts = {})
+      warn "[DEPRECATION] `EditSecurityMonitoringSignalAssignee` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.edit_security_monitoring_signal_assignee ...'
@@ -177,13 +180,16 @@ module DatadogAPIClient::V1
 
     # Change the triage state of a security signal.
     #
-    # Change the triage state of a security signal.
+    # This endpoint is deprecated - Change the triage state of a security signal.
+    #
+    # @deprecated This API is deprecated.
     #
     # @param signal_id [String] The ID of the signal.
     # @param body [SignalStateUpdateRequest] Attributes describing the signal update.
     # @param opts [Hash] the optional parameters
     # @return [Array<(SuccessfulSignalUpdateResponse, Integer, Hash)>] SuccessfulSignalUpdateResponse data, response status code and response headers
     def edit_security_monitoring_signal_state_with_http_info(signal_id, body, opts = {})
+      warn "[DEPRECATION] `EditSecurityMonitoringSignalState` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.edit_security_monitoring_signal_state ...'
