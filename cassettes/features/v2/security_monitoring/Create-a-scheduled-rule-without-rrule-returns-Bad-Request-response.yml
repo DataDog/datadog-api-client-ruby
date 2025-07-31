@@ -1,0 +1,26 @@
+http_interactions:
+- recorded_at: Thu, 31 Jul 2025 07:49:14 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"cases":[{"condition":"a > 0","name":"","notifications":[],"status":"info"}],"filters":[],"isEnabled":true,"message":"Test
+        rule","name":"Test-Create_a_scheduled_rule_without_rrule_returns_Bad_Request_response-1753948154","options":{"evaluationWindow":900,"keepAlive":3600,"maxSignalDuration":86400},"queries":[{"aggregation":"count","distinctFields":[],"groupByFields":[],"index":"main","query":"@test:true"}],"schedulingOptions":{"start":"2025-06-18T12:00:00","timezone":"Europe/Paris"},"tags":[],"type":"log_detection"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/security_monitoring/rules
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"error":{"code":"InvalidArgument","message":"Invalid rule configuration","details":[{"code":"InvalidArgument","message":"The
+        RRULE schedule is invalid for scheduled rules","target":"schedulingOptions.rrule"}]}}'
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 400
+      message: Bad Request
+recorded_with: VCR 6.0.0
