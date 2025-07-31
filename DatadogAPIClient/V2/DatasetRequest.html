@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
-  Class: DatadogAPIClient::V2::Dataset
+  Class: DatadogAPIClient::V2::DatasetRequest
   
     &mdash; datadog-api-client 2.39.0 documentation
   
@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="../../css/common.css" type="text/css" />
 
 <script type="text/javascript">
-  pathId = "DatadogAPIClient::V2::Dataset";
+  pathId = "DatadogAPIClient::V2::DatasetRequest";
   relpath = '../../';
 </script>
 
@@ -39,7 +39,7 @@
     <a href="../../_index.html">Index (D)</a> &raquo;
     <span class='title'><span class='object_link'><a href="../../DatadogAPIClient.html" title="DatadogAPIClient (module)">DatadogAPIClient</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../V2.html" title="DatadogAPIClient::V2 (module)">V2</a></span></span>
      &raquo; 
-    <span class="title">Dataset</span>
+    <span class="title">DatasetRequest</span>
   
 </div>
 
@@ -59,7 +59,7 @@
         <div class="clear"></div>
       </div>
 
-      <div id="content"><h1>Class: DatadogAPIClient::V2::Dataset
+      <div id="content"><h1>Class: DatadogAPIClient::V2::DatasetRequest
   
   
   
@@ -74,7 +74,7 @@
         <ul class="fullTree">
           <li>Object</li>
           
-            <li class="next">DatadogAPIClient::V2::Dataset</li>
+            <li class="next">DatadogAPIClient::V2::DatasetRequest</li>
           
         </ul>
         <a href="#" class="inheritanceTree">show all</a>
@@ -99,30 +99,28 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/datadog_api_client/v2/models/dataset.rb</dd>
+    <dd>lib/datadog_api_client/v2/models/dataset_request.rb</dd>
   </dl>
   
 </div>
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>Dataset object.</p>
-
-<h3 id="datasets-constraints">Datasets Constraints</h3>
+    <p><strong>Datasets Object Constraints</strong></p>
 
 <ul>
-<li><p><strong>Tag Limit per Dataset</strong>:</p>
+<li><p><strong>Tag limit per dataset</strong>:</p>
 
 <ul>
 <li>Each restricted dataset supports a maximum of 10 key:value pairs per product.</li>
 </ul></li>
-<li><p><strong>Tag Key Rules per Telemetry Type</strong>:</p>
+<li><p><strong>Tag key rules per telemetry type</strong>:</p>
 
 <ul>
 <li>Only one tag key or attribute may be used to define access within a single telemetry type.</li>
 <li>The same or different tag key may be used across different telemetry types.</li>
 </ul></li>
-<li><p><strong>Tag Value Uniqueness</strong>:</p>
+<li><p><strong>Tag value uniqueness</strong>:</p>
 
 <ul>
 <li>Tag values must be unique within a single dataset.</li>
@@ -191,33 +189,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Dataset metadata and configuration(s).</p>
-</div></span>
-  
-</li>
-
-    
-      <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#id-instance_method" title="#id (instance method)">#<strong>id</strong>  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-    
-    
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>Unique identifier for the dataset.</p>
+    <span class="summary_desc"><div class='inline'><p>Dataset metadata and configurations.</p>
 </div></span>
   
 </li>
@@ -298,12 +270,12 @@
       <pre class="lines">
 
 
-45
-46
-47</pre>
+40
+41
+42</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/dataset.rb', line 45</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/dataset_request.rb', line 40</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_additional_properties'>additional_properties</span>
   <span class='ivar'>@additional_properties</span>
@@ -326,7 +298,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Dataset metadata and configuration(s).</p>
+    <p>Dataset metadata and configurations.</p>
 
 
   </div>
@@ -340,57 +312,15 @@
       <pre class="lines">
 
 
-37
-38
-39</pre>
+35
+36
+37</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/dataset.rb', line 37</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/dataset_request.rb', line 35</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_attributes'>attributes</span>
   <span class='ivar'>@attributes</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      
-      <span id="id=-instance_method"></span>
-      <div class="method_details ">
-  <h3 class="signature " id="id-instance_method">
-  
-    #<strong>id</strong>  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>Unique identifier for the dataset.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-40
-41
-42</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/dataset.rb', line 40</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_id'>id</span>
-  <span class='ivar'>@id</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -424,12 +354,12 @@
       <pre class="lines">
 
 
-43
-44
-45</pre>
+38
+39
+40</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/dataset.rb', line 43</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/dataset_request.rb', line 38</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_type'>type</span>
   <span class='ivar'>@type</span>
@@ -445,7 +375,7 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Jul 31 17:49:38 2025 by
+  Generated on Thu Jul 31 19:50:22 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>
