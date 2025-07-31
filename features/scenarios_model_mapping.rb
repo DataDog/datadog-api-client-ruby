@@ -1213,6 +1213,7 @@ ScenariosModelMappings = {
             "filter_rule_id" => "String",
             "filter_rule_name" => "String",
             "filter_resource_type" => "String",
+            "filter_resource_id" => "String",
             "filter_discovery_timestamp" => "String",
             "filter_evaluation" => "FindingEvaluation",
             "filter_status" => "FindingStatus",
