@@ -17,8 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `ActionConnectionIntegration` object.
-  module ActionConnectionIntegration
+  # The definition of the `AnthropicCredentialsUpdate` object.
+  module AnthropicCredentialsUpdate
     class << self
       include BaseOneOfModel
       include BaseOneOfModelNoDiscriminator
@@ -26,30 +26,7 @@ module DatadogAPIClient::V2
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of
         [
-          :'AWSIntegration',
-          :'AnthropicIntegration',
-          :'AsanaIntegration',
-          :'AzureIntegration',
-          :'CircleCIIntegration',
-          :'ClickupIntegration',
-          :'CloudflareIntegration',
-          :'ConfigCatIntegration',
-          :'DatadogIntegration',
-          :'FastlyIntegration',
-          :'FreshserviceIntegration',
-          :'GCPIntegration',
-          :'GeminiIntegration',
-          :'GitlabIntegration',
-          :'GreyNoiseIntegration',
-          :'HTTPIntegration',
-          :'LaunchDarklyIntegration',
-          :'NotionIntegration',
-          :'OktaIntegration',
-          :'OpenAIIntegration',
-          :'ServiceNowIntegration',
-          :'SplitIntegration',
-          :'StatsigIntegration',
-          :'VirusTotalIntegration'
+          :'AnthropicAPIKeyUpdate'
         ]
       end
       # Builds the object
