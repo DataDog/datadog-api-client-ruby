@@ -35,7 +35,7 @@ module DatadogAPIClient::V2
     #
     # Deletes the restriction policy associated with a specified resource.
     #
-    # @param resource_id [String] Identifier, formatted as `type:id`. Supported types: `dashboard`, `integration-service`, `integration-webhook`, `notebook`, `reference-table`, `security-rule`, `slo`, `workflow`, `app-builder-app`, `connection`, `connection-group`, `rum-application`, `cross-org-connection`, `spreadsheet`.
+    # @param resource_id [String] Identifier, formatted as `type:id`. Supported types: `dashboard`, `integration-service`, `integration-webhook`, `notebook`, `reference-table`, `security-rule`, `slo`, `workflow`, `app-builder-app`, `connection`, `connection-group`, `rum-application`, `cross-org-connection`, `spreadsheet`, `on-call-schedule`, `on-call-escalation-policy`, `on-call-team-routing-rules.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_restriction_policy_with_http_info(resource_id, opts = {})
@@ -100,7 +100,7 @@ module DatadogAPIClient::V2
     #
     # Retrieves the restriction policy associated with a specified resource.
     #
-    # @param resource_id [String] Identifier, formatted as `type:id`. Supported types: `dashboard`, `integration-service`, `integration-webhook`, `notebook`, `reference-table`, `security-rule`, `slo`, `workflow`, `app-builder-app`, `connection`, `connection-group`, `rum-application`, `cross-org-connection`, `spreadsheet`.
+    # @param resource_id [String] Identifier, formatted as `type:id`. Supported types: `dashboard`, `integration-service`, `integration-webhook`, `notebook`, `reference-table`, `security-rule`, `slo`, `workflow`, `app-builder-app`, `connection`, `connection-group`, `rum-application`, `cross-org-connection`, `spreadsheet`, `on-call-schedule`, `on-call-escalation-policy`, `on-call-team-routing-rules.
     # @param opts [Hash] the optional parameters
     # @return [Array<(RestrictionPolicyResponse, Integer, Hash)>] RestrictionPolicyResponse data, response status code and response headers
     def get_restriction_policy_with_http_info(resource_id, opts = {})
@@ -186,6 +186,9 @@ module DatadogAPIClient::V2
     # - RUM Applications: `rum-application`
     # - Cross Org Connections: `cross-org-connection`
     # - Spreadsheets: `spreadsheet`
+    # - On-Call Schedules: `on-call-schedule`
+    # - On-Call Escalation Policies: `on-call-escalation-policy`
+    # - On-Call Team Routing Rules: `on-call-team-routing-rules`
     #
     # #### Supported relations for resources
     # Resource Type               | Supported Relations
@@ -209,8 +212,11 @@ module DatadogAPIClient::V2
     # RUM Application             | `viewer`, `editor`
     # Cross Org Connections       | `viewer`, `editor`
     # Spreadsheets                | `viewer`, `editor`
+    # On-Call Schedules           | `viewer`, `overrider`, `editor`
+    # On-Call Escalation Policies | `viewer`, `editor`
+    # On-Call Team Routing Rules  | `viewer`, `editor`
     #
-    # @param resource_id [String] Identifier, formatted as `type:id`. Supported types: `dashboard`, `integration-service`, `integration-webhook`, `notebook`, `reference-table`, `security-rule`, `slo`, `workflow`, `app-builder-app`, `connection`, `connection-group`, `rum-application`, `cross-org-connection`, `spreadsheet`.
+    # @param resource_id [String] Identifier, formatted as `type:id`. Supported types: `dashboard`, `integration-service`, `integration-webhook`, `notebook`, `reference-table`, `security-rule`, `slo`, `workflow`, `app-builder-app`, `connection`, `connection-group`, `rum-application`, `cross-org-connection`, `spreadsheet`, `on-call-schedule`, `on-call-escalation-policy`, `on-call-team-routing-rules.
     # @param body [RestrictionPolicyUpdateRequest] Restriction policy payload
     # @param opts [Hash] the optional parameters
     # @option opts [Boolean] :allow_self_lockout Allows admins (users with the `user_access_manage` permission) to remove their own access from the resource if set to `true`. By default, this is set to `false`, preventing admins from locking themselves out.
