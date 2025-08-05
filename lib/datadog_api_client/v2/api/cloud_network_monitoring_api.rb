@@ -40,7 +40,7 @@ module DatadogAPIClient::V2
     # @option opts [Integer] :to Unix timestamp (number of seconds since epoch) of the end of the query window. If not provided, the end of the query window is the current time. If neither `from` nor `to` are provided, the query window is `[now - 15m, now]`.
     # @option opts [String] :group_by Comma-separated list of fields to group connections by. The maximum number of group_by(s) is 10.
     # @option opts [String] :tags Comma-separated list of tags to filter connections by.
-    # @option opts [Integer] :limit The number of connections to be returned. The maximum value is 7500.
+    # @option opts [Integer] :limit The number of connections to be returned. The maximum value is 7500. The default is 100.
     # @return [Array<(SingleAggregatedConnectionResponseArray, Integer, Hash)>] SingleAggregatedConnectionResponseArray data, response status code and response headers
     def get_aggregated_connections_with_http_info(opts = {})
       unstable_enabled = @api_client.config.unstable_operations["v2.get_aggregated_connections".to_sym]
@@ -101,6 +101,88 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CloudNetworkMonitoringAPI#get_aggregated_connections\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get all aggregated DNS traffic.
+    #
+    # @see #get_aggregated_dns_with_http_info
+    def get_aggregated_dns(opts = {})
+      data, _status_code, _headers = get_aggregated_dns_with_http_info(opts)
+      data
+    end
+
+    # Get all aggregated DNS traffic.
+    #
+    # Get all aggregated DNS traffic.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :from Unix timestamp (number of seconds since epoch) of the start of the query window. If not provided, the start of the query window is 15 minutes before the `to` timestamp. If neither `from` nor `to` are provided, the query window is `[now - 15m, now]`.
+    # @option opts [Integer] :to Unix timestamp (number of seconds since epoch) of the end of the query window. If not provided, the end of the query window is the current time. If neither `from` nor `to` are provided, the query window is `[now - 15m, now]`.
+    # @option opts [String] :group_by Comma-separated list of fields to group DNS traffic by. The server side defaults to `network.dns_query` if unspecified. `server_ungrouped` may be used if groups are not desired. The maximum number of group_by(s) is 10.
+    # @option opts [String] :tags Comma-separated list of tags to filter DNS traffic by.
+    # @option opts [Integer] :limit The number of aggregated DNS entries to be returned. The maximum value is 7500. The default is 100.
+    # @return [Array<(SingleAggregatedDnsResponseArray, Integer, Hash)>] SingleAggregatedDnsResponseArray data, response status code and response headers
+    def get_aggregated_dns_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_aggregated_dns".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_aggregated_dns")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_aggregated_dns"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudNetworkMonitoringAPI.get_aggregated_dns ...'
+      end
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 7500
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling CloudNetworkMonitoringAPI.get_aggregated_dns, must be smaller than or equal to 7500.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling CloudNetworkMonitoringAPI.get_aggregated_dns, must be greater than or equal to 1.'
+      end
+      # resource path
+      local_var_path = '/api/v2/network/dns/aggregate'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'from'] = opts[:'from'] if !opts[:'from'].nil?
+      query_params[:'to'] = opts[:'to'] if !opts[:'to'].nil?
+      query_params[:'group_by'] = opts[:'group_by'] if !opts[:'group_by'].nil?
+      query_params[:'tags'] = opts[:'tags'] if !opts[:'tags'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SingleAggregatedDnsResponseArray'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_aggregated_dns,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudNetworkMonitoringAPI#get_aggregated_dns\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
