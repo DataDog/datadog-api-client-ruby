@@ -25,6 +25,9 @@ module DatadogAPIClient::V2
     #
     attr_reader :auth
 
+    # Configuration for buffer settings on destination components.
+    attr_accessor :buffer
+
     # The Google Chronicle customer ID.
     attr_reader :customer_id
 
@@ -50,6 +53,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'auth' => :'auth',
+        :'buffer' => :'buffer',
         :'customer_id' => :'customer_id',
         :'encoding' => :'encoding',
         :'id' => :'id',
@@ -64,6 +68,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'auth' => :'ObservabilityPipelineGcpAuth',
+        :'buffer' => :'ObservabilityPipelineBufferOptions',
         :'customer_id' => :'String',
         :'encoding' => :'ObservabilityPipelineGoogleChronicleDestinationEncoding',
         :'id' => :'String',
@@ -93,6 +98,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'auth')
         self.auth = attributes[:'auth']
+      end
+
+      if attributes.key?(:'buffer')
+        self.buffer = attributes[:'buffer']
       end
 
       if attributes.key?(:'customer_id')
@@ -211,6 +220,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           auth == o.auth &&
+          buffer == o.buffer &&
           customer_id == o.customer_id &&
           encoding == o.encoding &&
           id == o.id &&
@@ -224,7 +234,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [auth, customer_id, encoding, id, inputs, log_type, type, additional_properties].hash
+      [auth, buffer, customer_id, encoding, id, inputs, log_type, type, additional_properties].hash
     end
   end
 end

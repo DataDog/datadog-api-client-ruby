@@ -17,24 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The `opensearch` destination writes logs to an OpenSearch cluster.
-  class ObservabilityPipelineOpenSearchDestination
+  # Options for configuring a memory buffer by queue length.
+  class ObservabilityPipelineMemoryBufferSizeOptions
     include BaseGenericModel
 
-    # Configuration for buffer settings on destination components.
-    attr_accessor :buffer
+    # The `ObservabilityPipelineMemoryBufferSizeOptions` `max_events`.
+    attr_reader :max_events
 
-    # The index to write logs to.
-    attr_accessor :bulk_index
-
-    # The unique identifier for this component.
-    attr_reader :id
-
-    # A list of component IDs whose output is used as the `input` for this component.
-    attr_reader :inputs
-
-    # The destination type. The value should always be `opensearch`.
-    attr_reader :type
+    # The type of the buffer that will be configured, a memory buffer.
+    attr_accessor :type
 
     attr_accessor :additional_properties
 
@@ -42,10 +33,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'buffer' => :'buffer',
-        :'bulk_index' => :'bulk_index',
-        :'id' => :'id',
-        :'inputs' => :'inputs',
+        :'max_events' => :'max_events',
         :'type' => :'type'
       }
     end
@@ -54,11 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'buffer' => :'ObservabilityPipelineBufferOptions',
-        :'bulk_index' => :'String',
-        :'id' => :'String',
-        :'inputs' => :'Array<String>',
-        :'type' => :'ObservabilityPipelineOpenSearchDestinationType'
+        :'max_events' => :'Integer',
+        :'type' => :'ObservabilityPipelineBufferOptionsMemoryType'
       }
     end
 
@@ -67,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineOpenSearchDestination` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineMemoryBufferSizeOptions` initialize method"
       end
 
       self.additional_properties = {}
@@ -80,22 +65,8 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'buffer')
-        self.buffer = attributes[:'buffer']
-      end
-
-      if attributes.key?(:'bulk_index')
-        self.bulk_index = attributes[:'bulk_index']
-      end
-
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
-      end
-
-      if attributes.key?(:'inputs')
-        if (value = attributes[:'inputs']).is_a?(Array)
-          self.inputs = value
-        end
+      if attributes.key?(:'max_events')
+        self.max_events = attributes[:'max_events']
       end
 
       if attributes.key?(:'type')
@@ -107,40 +78,22 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @id.nil?
-      return false if @inputs.nil?
-      return false if @type.nil?
+      return false if !@max_events.nil? && @max_events > 268435456
+      return false if !@max_events.nil? && @max_events < 1
       true
     end
 
     # Custom attribute writer method with validation
-    # @param id [Object] Object to be assigned
+    # @param max_events [Object] Object to be assigned
     # @!visibility private
-    def id=(id)
-      if id.nil?
-        fail ArgumentError, 'invalid value for "id", id cannot be nil.'
+    def max_events=(max_events)
+      if !max_events.nil? && max_events > 268435456
+        fail ArgumentError, 'invalid value for "max_events", must be smaller than or equal to 268435456.'
       end
-      @id = id
-    end
-
-    # Custom attribute writer method with validation
-    # @param inputs [Object] Object to be assigned
-    # @!visibility private
-    def inputs=(inputs)
-      if inputs.nil?
-        fail ArgumentError, 'invalid value for "inputs", inputs cannot be nil.'
+      if !max_events.nil? && max_events < 1
+        fail ArgumentError, 'invalid value for "max_events", must be greater than or equal to 1.'
       end
-      @inputs = inputs
-    end
-
-    # Custom attribute writer method with validation
-    # @param type [Object] Object to be assigned
-    # @!visibility private
-    def type=(type)
-      if type.nil?
-        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
-      end
-      @type = type
+      @max_events = max_events
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -169,10 +122,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          buffer == o.buffer &&
-          bulk_index == o.bulk_index &&
-          id == o.id &&
-          inputs == o.inputs &&
+          max_events == o.max_events &&
           type == o.type &&
           additional_properties == o.additional_properties
     end
@@ -181,7 +131,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [buffer, bulk_index, id, inputs, type, additional_properties].hash
+      [max_events, type, additional_properties].hash
     end
   end
 end
