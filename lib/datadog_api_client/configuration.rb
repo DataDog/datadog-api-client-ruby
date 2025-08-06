@@ -254,8 +254,6 @@ module DatadogAPIClient
             "v2.update_monitor_user_template": false,
             "v2.validate_existing_monitor_user_template": false,
             "v2.validate_monitor_user_template": false,
-            "v2.get_aggregated_connections": false,
-            "v2.get_aggregated_dns": false,
             "v2.create_pipeline": false,
             "v2.delete_pipeline": false,
             "v2.get_pipeline": false,
