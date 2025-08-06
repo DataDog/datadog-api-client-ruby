@@ -32,7 +32,7 @@ module DatadogAPIClient::V2
 
     # A list of Grok helper rules that can be referenced by the parsing rules.
     #
-    attr_reader :support_rules
+    attr_accessor :support_rules
 
     attr_accessor :additional_properties
 
@@ -97,7 +97,6 @@ module DatadogAPIClient::V2
     def valid?
       return false if @match_rules.nil?
       return false if @source.nil?
-      return false if @support_rules.nil?
       true
     end
 
@@ -119,16 +118,6 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "source", source cannot be nil.'
       end
       @source = source
-    end
-
-    # Custom attribute writer method with validation
-    # @param support_rules [Object] Object to be assigned
-    # @!visibility private
-    def support_rules=(support_rules)
-      if support_rules.nil?
-        fail ArgumentError, 'invalid value for "support_rules", support_rules cannot be nil.'
-      end
-      @support_rules = support_rules
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
