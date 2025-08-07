@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class RelationshipToIncidentUserDefinedFieldData
     include BaseGenericModel
 
-    # A unique identifier that represents the responder.
+    # A unique identifier that represents the user defined field.
     attr_reader :id
 
     # The incident user defined fields type.
