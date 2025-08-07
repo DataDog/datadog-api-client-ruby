@@ -17,20 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Log Autosubscription configuration for Datadog Forwarder Lambda functions. Automatically set up triggers for existing
-  # and new logs for some services, ensuring no logs from new resources are missed and saving time spent on manual configuration.
-  class AWSLambdaForwarderConfig
+  # Log source configuration.
+  class AWSLambdaForwarderConfigLogSourceConfig
     include BaseGenericModel
 
-    # List of Datadog Lambda Log Forwarder ARNs in your AWS account. Defaults to `[]`.
-    attr_accessor :lambdas
-
-    # Log source configuration.
-    attr_accessor :log_source_config
-
-    # List of service IDs set to enable automatic log collection. Discover the list of available services with the
-    # [Get list of AWS log ready services](https://docs.datadoghq.com/api/latest/aws-logs-integration/#get-list-of-aws-log-ready-services) endpoint.
-    attr_accessor :sources
+    # List of AWS log source tag filters. Defaults to `[]`.
+    attr_accessor :tag_filters
 
     attr_accessor :additional_properties
 
@@ -38,9 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'lambdas' => :'lambdas',
-        :'log_source_config' => :'log_source_config',
-        :'sources' => :'sources'
+        :'tag_filters' => :'tag_filters'
       }
     end
 
@@ -48,9 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'lambdas' => :'Array<String>',
-        :'log_source_config' => :'AWSLambdaForwarderConfigLogSourceConfig',
-        :'sources' => :'Array<String>'
+        :'tag_filters' => :'Array<AWSLogSourceTagFilter>'
       }
     end
 
@@ -59,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::AWSLambdaForwarderConfig` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::AWSLambdaForwarderConfigLogSourceConfig` initialize method"
       end
 
       self.additional_properties = {}
@@ -72,19 +60,9 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'lambdas')
-        if (value = attributes[:'lambdas']).is_a?(Array)
-          self.lambdas = value
-        end
-      end
-
-      if attributes.key?(:'log_source_config')
-        self.log_source_config = attributes[:'log_source_config']
-      end
-
-      if attributes.key?(:'sources')
-        if (value = attributes[:'sources']).is_a?(Array)
-          self.sources = value
+      if attributes.key?(:'tag_filters')
+        if (value = attributes[:'tag_filters']).is_a?(Array)
+          self.tag_filters = value
         end
       end
     end
@@ -115,9 +93,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          lambdas == o.lambdas &&
-          log_source_config == o.log_source_config &&
-          sources == o.sources &&
+          tag_filters == o.tag_filters &&
           additional_properties == o.additional_properties
     end
 
@@ -125,7 +101,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [lambdas, log_source_config, sources, additional_properties].hash
+      [tag_filters, additional_properties].hash
     end
   end
 end
