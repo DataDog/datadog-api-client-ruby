@@ -25,6 +25,16 @@ body = DatadogAPIClient::V2::AWSAccountUpdateRequest.new({
           lambdas: [
             "arn:aws:lambda:us-east-1:123456789012:function:DatadogLambdaLogForwarder",
           ],
+          log_source_config: DatadogAPIClient::V2::AWSLambdaForwarderConfigLogSourceConfig.new({
+            tag_filters: [
+              DatadogAPIClient::V2::AWSLogSourceTagFilter.new({
+                source: "s3",
+                tags: [
+                  "test:test",
+                ],
+              }),
+            ],
+          }),
           sources: [
             "s3",
           ],

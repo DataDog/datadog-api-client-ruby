@@ -1,5 +1,5 @@
 http_interactions:
-- recorded_at: Thu, 14 Nov 2024 20:08:02 GMT
+- recorded_at: Wed, 06 Aug 2025 17:41:47 GMT
   request:
     body: null
     headers:
@@ -10,7 +10,7 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"02482e8953d346d8a50e512dba92bff3","type":"external_id","attributes":{"external_id":"02482e8953d346d8a50e512dba92bff3"}}}'
+      string: '{"data":{"id":"b6ec0b8a9ddf478e98b0134747bab2c5","type":"external_id","attributes":{"external_id":"b6ec0b8a9ddf478e98b0134747bab2c5"}}}'
     headers:
       Content-Type:
       - application/vnd.api+json
