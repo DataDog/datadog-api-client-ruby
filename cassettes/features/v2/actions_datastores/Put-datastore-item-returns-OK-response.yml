@@ -1,0 +1,105 @@
+http_interactions:
+- recorded_at: Fri, 08 Aug 2025 20:31:01 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"description":"","name":"Test Datastore","org_access":"contributor","primary_column_name":"id","primary_key_generation_strategy":"none"},"type":"datastores"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/actions-datastores
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"722ffe40-682f-4368-be01-c37c69b4f270","type":"datastores"}}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 200
+      message: OK
+- recorded_at: Fri, 08 Aug 2025 20:31:01 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+    method: GET
+    uri: https://api.datadoghq.com/api/v2/actions-datastores/722ffe40-682f-4368-be01-c37c69b4f270
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"722ffe40-682f-4368-be01-c37c69b4f270","type":"datastores","attributes":{"created_at":"2025-08-08T20:31:01.804875Z","creator_user_id":1445416,"creator_user_uuid":"3ad549bf-eba0-11e9-a77a-0705486660d0","description":"","modified_at":"2025-08-08T20:31:01.804875Z","name":"Test
+        Datastore","org_id":321813,"primary_column_name":"id","primary_key_generation_strategy":"none"}}}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 200
+      message: OK
+- recorded_at: Fri, 08 Aug 2025 20:31:01 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"value":{"data":"example data","id":"new-item-key","key":"value"}},"id":"e7e64418-b60c-4789-9612-895ac8423207","type":"items"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/actions-datastores/722ffe40-682f-4368-be01-c37c69b4f270/items
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"a081eee3-f7be-4bfd-89dc-a0be86358698","type":"items"}}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 200
+      message: OK
+- recorded_at: Fri, 08 Aug 2025 20:31:01 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"id":"e7e64418-b60c-4789-9612-895ac8423207","item_key":"new-item-key"},"id":"e7e64418-b60c-4789-9612-895ac8423207","type":"items"}}'
+    headers:
+      Accept:
+      - '*/*'
+      Content-Type:
+      - application/json
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/actions-datastores/e7e64418-b60c-4789-9612-895ac8423207/items
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"title":"datastore not found"}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 404
+      message: Not Found
+- recorded_at: Fri, 08 Aug 2025 20:31:01 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json, */*
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/actions-datastores/722ffe40-682f-4368-be01-c37c69b4f270
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"722ffe40-682f-4368-be01-c37c69b4f270","type":"datastores"}}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 200
+      message: OK
+recorded_with: VCR 6.0.0

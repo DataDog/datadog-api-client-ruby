@@ -1,0 +1,65 @@
+http_interactions:
+- recorded_at: Fri, 08 Aug 2025 20:31:01 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"description":"","name":"Test Datastore","org_access":"contributor","primary_column_name":"id","primary_key_generation_strategy":"none"},"type":"datastores"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/actions-datastores
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"df73e3f3-e657-4adf-8b23-67c74581cab2","type":"datastores"}}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 200
+      message: OK
+- recorded_at: Fri, 08 Aug 2025 20:31:01 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"value":{"missing":"item-key"}},"type":"items"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/actions-datastores/df73e3f3-e657-4adf-8b23-67c74581cab2/items
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"title":"item key missing or invalid","detail":"item at
+        index 0: primary column \"id\" is missing"}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 400
+      message: Bad Request
+- recorded_at: Fri, 08 Aug 2025 20:31:01 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json, */*
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/actions-datastores/df73e3f3-e657-4adf-8b23-67c74581cab2
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"df73e3f3-e657-4adf-8b23-67c74581cab2","type":"datastores"}}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 200
+      message: OK
+recorded_with: VCR 6.0.0

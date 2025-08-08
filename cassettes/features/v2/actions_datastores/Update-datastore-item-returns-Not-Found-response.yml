@@ -1,0 +1,65 @@
+http_interactions:
+- recorded_at: Fri, 08 Aug 2025 20:31:02 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"description":"","name":"Test Datastore","org_access":"contributor","primary_column_name":"id","primary_key_generation_strategy":"none"},"type":"datastores"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/actions-datastores
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"cbd57ae9-ce7a-424c-8a69-f249293b42a5","type":"datastores"}}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 200
+      message: OK
+- recorded_at: Fri, 08 Aug 2025 20:31:02 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"item_changes":{},"item_key":"non-existent-item-key"},"id":"93c691af-4dd3-4693-9c7a-7e6af82673fc","type":"items"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: PATCH
+    uri: https://api.datadoghq.com/api/v2/actions-datastores/cbd57ae9-ce7a-424c-8a69-f249293b42a5/items
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"title":"item changes invalid","detail":"failed to find
+        item with key non-existent-item-key"}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 404
+      message: Not Found
+- recorded_at: Fri, 08 Aug 2025 20:31:02 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json, */*
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/actions-datastores/cbd57ae9-ce7a-424c-8a69-f249293b42a5
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"cbd57ae9-ce7a-424c-8a69-f249293b42a5","type":"datastores"}}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 200
+      message: OK
+recorded_with: VCR 6.0.0

@@ -1,0 +1,61 @@
+http_interactions:
+- recorded_at: Fri, 08 Aug 2025 20:30:59 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"description":"","name":"Test Datastore","org_access":"contributor","primary_column_name":"id","primary_key_generation_strategy":"none"},"type":"datastores"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/actions-datastores
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"2cc78566-42a3-4ac7-8a69-e3c781697adf","type":"datastores"}}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 200
+      message: OK
+- recorded_at: Fri, 08 Aug 2025 20:30:59 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+    method: GET
+    uri: https://api.datadoghq.com/api/v2/actions-datastores/invalid-uuid/items
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"title":"invalid path parameter","detail":"invalid datastoreId
+        format in path","source":{"parameter":"datastoreId"}}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 400
+      message: Bad Request
+- recorded_at: Fri, 08 Aug 2025 20:30:59 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json, */*
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/actions-datastores/2cc78566-42a3-4ac7-8a69-e3c781697adf
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"2cc78566-42a3-4ac7-8a69-e3c781697adf","type":"datastores"}}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 200
+      message: OK
+recorded_with: VCR 6.0.0
