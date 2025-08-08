@@ -3243,6 +3243,7 @@ module DatadogAPIClient
           "v2.security_monitoring_rule_type_test" => "SecurityMonitoringRuleTypeTest",
           "v2.security_monitoring_rule_update_payload" => "SecurityMonitoringRuleUpdatePayload",
           "v2.security_monitoring_rule_validate_payload" => "SecurityMonitoringRuleValidatePayload",
+          "v2.security_monitoring_scheduling_options" => "SecurityMonitoringSchedulingOptions",
           "v2.security_monitoring_signal" => "SecurityMonitoringSignal",
           "v2.security_monitoring_signal_archive_reason" => "SecurityMonitoringSignalArchiveReason",
           "v2.security_monitoring_signal_assignee_update_attributes" => "SecurityMonitoringSignalAssigneeUpdateAttributes",
