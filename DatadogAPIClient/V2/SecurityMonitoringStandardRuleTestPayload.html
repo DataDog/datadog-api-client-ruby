@@ -6,7 +6,7 @@
 <title>
   Class: DatadogAPIClient::V2::SecurityMonitoringStandardRuleTestPayload
   
-    &mdash; datadog-api-client 2.30.0.dev.1 documentation
+    &mdash; datadog-api-client 2.39.0 documentation
   
 </title>
 
@@ -142,6 +142,32 @@
 
   
     <span class="summary_desc"><div class='inline'><p>Returns the value of attribute additional_properties.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#calculated_fields-instance_method" title="#calculated_fields (instance method)">#<strong>calculated_fields</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Calculated fields.</p>
 </div></span>
   
 </li>
@@ -422,6 +448,32 @@
       <li class="public ">
   <span class="summary_signature">
     
+      <a href="#scheduling_options-instance_method" title="#scheduling_options (instance method)">#<strong>scheduling_options</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Options for scheduled rules.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#tags-instance_method" title="#tags (instance method)">#<strong>tags</strong>  &#x21d2; Object </a>
     
 
@@ -553,6 +605,48 @@
 
 <span class='kw'>def</span> <span class='id identifier rubyid_additional_properties'>additional_properties</span>
   <span class='ivar'>@additional_properties</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="calculated_fields=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="calculated_fields-instance_method">
+  
+    #<strong>calculated_fields</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Calculated fields. Only allowed for scheduled rules - in other words, when schedulingOptions is also defined.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+25
+26
+27</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/security_monitoring_standard_rule_test_payload.rb', line 25</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_calculated_fields'>calculated_fields</span>
+  <span class='ivar'>@calculated_fields</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -980,6 +1074,48 @@
 </div>
     
       
+      <span id="scheduling_options=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="scheduling_options-instance_method">
+  
+    #<strong>scheduling_options</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Options for scheduled rules. When this field is present, the rule runs based on the schedule. When absent, it runs real-time on ingested logs.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+58
+59
+60</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/security_monitoring_standard_rule_test_payload.rb', line 58</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_scheduling_options'>scheduling_options</span>
+  <span class='ivar'>@scheduling_options</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
       <span id="tags=-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="tags-instance_method">
@@ -1111,7 +1247,7 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Feb 18 21:07:46 2025 by
+  Generated on Fri Aug  8 13:02:21 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>

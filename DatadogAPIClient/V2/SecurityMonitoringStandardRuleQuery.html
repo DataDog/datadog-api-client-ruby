@@ -306,6 +306,32 @@
       <li class="public ">
   <span class="summary_signature">
     
+      <a href="#index-instance_method" title="#index (instance method)">#<strong>index</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p><strong>This field is currently unstable and might be removed in a minor version upgrade.</strong> The index to run the query on, if the <code>dataSource</code> is <code>logs</code>.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#metric-instance_method" title="#metric (instance method)">#<strong>metric</strong>  &#x21d2; Object </a>
     
 
@@ -722,6 +748,49 @@
 </div>
     
       
+      <span id="index=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="index-instance_method">
+  
+    #<strong>index</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p><strong>This field is currently unstable and might be removed in a minor version upgrade.</strong>
+The index to run the query on, if the <code>dataSource</code> is <code>logs</code>. Only used for scheduled rules - in other words, when the <code>schedulingOptions</code> field is present in the rule payload.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+44
+45
+46</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/security_monitoring_standard_rule_query.rb', line 44</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_index'>index</span>
+  <span class='ivar'>@index</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
       <span id="metric=-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="metric-instance_method">
@@ -896,7 +965,7 @@ aggregations. <code>metrics</code> field should be used instead.</p>
 </div>
 
       <div id="footer">
-  Generated on Thu Aug  7 20:09:09 2025 by
+  Generated on Fri Aug  8 13:02:20 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>
