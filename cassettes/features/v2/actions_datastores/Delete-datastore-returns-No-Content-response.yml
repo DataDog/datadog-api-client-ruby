@@ -1,0 +1,18 @@
+http_interactions:
+- recorded_at: Fri, 08 Aug 2025 20:30:57 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json, */*
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/actions-datastores/221012bd-9acc-4719-8973-b23e5669a25a
+  response:
+    body:
+      encoding: UTF-8
+      string: ''
+    headers: {}
+    status:
+      code: 204
+      message: No Content
+recorded_with: VCR 6.0.0
