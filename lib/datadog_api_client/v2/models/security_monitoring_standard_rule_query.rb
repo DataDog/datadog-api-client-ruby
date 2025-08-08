@@ -39,6 +39,10 @@ module DatadogAPIClient::V2
     # When false, events without a group-by value are ignored by the rule. When true, events with missing group-by fields are processed with `N/A`, replacing the missing values.
     attr_accessor :has_optional_group_by_fields
 
+    # **This field is currently unstable and might be removed in a minor version upgrade.**
+    # The index to run the query on, if the `dataSource` is `logs`. Only used for scheduled rules - in other words, when the `schedulingOptions` field is present in the rule payload.
+    attr_accessor :index
+
     # (Deprecated) The target field to aggregate over when using the sum or max
     # aggregations. `metrics` field should be used instead.
     attr_accessor :metric
@@ -64,6 +68,7 @@ module DatadogAPIClient::V2
         :'distinct_fields' => :'distinctFields',
         :'group_by_fields' => :'groupByFields',
         :'has_optional_group_by_fields' => :'hasOptionalGroupByFields',
+        :'index' => :'index',
         :'metric' => :'metric',
         :'metrics' => :'metrics',
         :'name' => :'name',
@@ -81,6 +86,7 @@ module DatadogAPIClient::V2
         :'distinct_fields' => :'Array<String>',
         :'group_by_fields' => :'Array<String>',
         :'has_optional_group_by_fields' => :'Boolean',
+        :'index' => :'String',
         :'metric' => :'String',
         :'metrics' => :'Array<String>',
         :'name' => :'String',
@@ -134,6 +140,10 @@ module DatadogAPIClient::V2
         self.has_optional_group_by_fields = attributes[:'has_optional_group_by_fields']
       end
 
+      if attributes.key?(:'index')
+        self.index = attributes[:'index']
+      end
+
       if attributes.key?(:'metric')
         self.metric = attributes[:'metric']
       end
@@ -185,6 +195,7 @@ module DatadogAPIClient::V2
           distinct_fields == o.distinct_fields &&
           group_by_fields == o.group_by_fields &&
           has_optional_group_by_fields == o.has_optional_group_by_fields &&
+          index == o.index &&
           metric == o.metric &&
           metrics == o.metrics &&
           name == o.name &&
@@ -196,7 +207,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [aggregation, custom_query_extension, data_source, distinct_fields, group_by_fields, has_optional_group_by_fields, metric, metrics, name, query, additional_properties].hash
+      [aggregation, custom_query_extension, data_source, distinct_fields, group_by_fields, has_optional_group_by_fields, index, metric, metrics, name, query, additional_properties].hash
     end
   end
 end

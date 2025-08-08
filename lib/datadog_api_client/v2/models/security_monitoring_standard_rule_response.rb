@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class SecurityMonitoringStandardRuleResponse
     include BaseGenericModel
 
+    # Calculated fields. Only allowed for scheduled rules - in other words, when schedulingOptions is also defined.
+    attr_accessor :calculated_fields
+
     # Cases for generating signals.
     attr_accessor :cases
 
@@ -81,6 +84,9 @@ module DatadogAPIClient::V2
     # Reference tables for the rule.
     attr_accessor :reference_tables
 
+    # Options for scheduled rules. When this field is present, the rule runs based on the schedule. When absent, it runs real-time on ingested logs.
+    attr_accessor :scheduling_options
+
     # Tags for generated signals.
     attr_accessor :tags
 
@@ -105,6 +111,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'calculated_fields' => :'calculatedFields',
         :'cases' => :'cases',
         :'compliance_signal_options' => :'complianceSignalOptions',
         :'created_at' => :'createdAt',
@@ -125,6 +132,7 @@ module DatadogAPIClient::V2
         :'options' => :'options',
         :'queries' => :'queries',
         :'reference_tables' => :'referenceTables',
+        :'scheduling_options' => :'schedulingOptions',
         :'tags' => :'tags',
         :'third_party_cases' => :'thirdPartyCases',
         :'type' => :'type',
@@ -138,6 +146,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'calculated_fields' => :'Array<CalculatedField>',
         :'cases' => :'Array<SecurityMonitoringRuleCase>',
         :'compliance_signal_options' => :'CloudConfigurationRuleComplianceSignalOptions',
         :'created_at' => :'Integer',
@@ -158,6 +167,7 @@ module DatadogAPIClient::V2
         :'options' => :'SecurityMonitoringRuleOptions',
         :'queries' => :'Array<SecurityMonitoringStandardRuleQuery>',
         :'reference_tables' => :'Array<SecurityMonitoringReferenceTable>',
+        :'scheduling_options' => :'SecurityMonitoringSchedulingOptions',
         :'tags' => :'Array<String>',
         :'third_party_cases' => :'Array<SecurityMonitoringThirdPartyRuleCase>',
         :'type' => :'SecurityMonitoringRuleTypeRead',
@@ -165,6 +175,14 @@ module DatadogAPIClient::V2
         :'updated_at' => :'Integer',
         :'version' => :'Integer'
       }
+    end
+
+    # List of attributes with nullable: true
+    # @!visibility private
+    def self.openapi_nullable
+      Set.new([
+        :'scheduling_options',
+      ])
     end
 
     # Initializes the object
@@ -184,6 +202,12 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'calculated_fields')
+        if (value = attributes[:'calculated_fields']).is_a?(Array)
+          self.calculated_fields = value
+        end
+      end
 
       if attributes.key?(:'cases')
         if (value = attributes[:'cases']).is_a?(Array)
@@ -277,6 +301,10 @@ module DatadogAPIClient::V2
         end
       end
 
+      if attributes.key?(:'scheduling_options')
+        self.scheduling_options = attributes[:'scheduling_options']
+      end
+
       if attributes.key?(:'tags')
         if (value = attributes[:'tags']).is_a?(Array)
           self.tags = value
@@ -332,6 +360,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          calculated_fields == o.calculated_fields &&
           cases == o.cases &&
           compliance_signal_options == o.compliance_signal_options &&
           created_at == o.created_at &&
@@ -352,6 +381,7 @@ module DatadogAPIClient::V2
           options == o.options &&
           queries == o.queries &&
           reference_tables == o.reference_tables &&
+          scheduling_options == o.scheduling_options &&
           tags == o.tags &&
           third_party_cases == o.third_party_cases &&
           type == o.type &&
@@ -365,7 +395,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [cases, compliance_signal_options, created_at, creation_author_id, custom_message, custom_name, default_tags, deprecation_date, filters, group_signals_by, has_extended_title, id, is_default, is_deleted, is_enabled, message, name, options, queries, reference_tables, tags, third_party_cases, type, update_author_id, updated_at, version, additional_properties].hash
+      [calculated_fields, cases, compliance_signal_options, created_at, creation_author_id, custom_message, custom_name, default_tags, deprecation_date, filters, group_signals_by, has_extended_title, id, is_default, is_deleted, is_enabled, message, name, options, queries, reference_tables, scheduling_options, tags, third_party_cases, type, update_author_id, updated_at, version, additional_properties].hash
     end
   end
 end
