@@ -301,7 +301,7 @@ module DatadogAPIClient::V2
     #
     # Archive a Cloud Cost Management Account.
     #
-    # @param cloud_account_id [String] Cloud Account id.
+    # @param cloud_account_id [Integer] Cloud Account id.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_cost_awscur_config_with_http_info(cloud_account_id, opts = {})
@@ -366,7 +366,7 @@ module DatadogAPIClient::V2
     #
     # Archive a Cloud Cost Management Account.
     #
-    # @param cloud_account_id [String] Cloud Account id.
+    # @param cloud_account_id [Integer] Cloud Account id.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_cost_azure_uc_config_with_http_info(cloud_account_id, opts = {})
@@ -431,7 +431,7 @@ module DatadogAPIClient::V2
     #
     # Archive a Cloud Cost Management account.
     #
-    # @param cloud_account_id [String] Cloud Account id.
+    # @param cloud_account_id [Integer] Cloud Account id.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_cost_gcp_usage_cost_config_with_http_info(cloud_account_id, opts = {})
@@ -932,6 +932,10 @@ module DatadogAPIClient::V2
     # List the Custom Costs files.
     #
     # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :page_number Page number for pagination
+    # @option opts [Integer] :page_size Page size for pagination
+    # @option opts [String] :filter_status Filter by file status
+    # @option opts [String] :sort Sort key with optional descending prefix
     # @return [Array<(CustomCostsFileListResponse, Integer, Hash)>] CustomCostsFileListResponse data, response status code and response headers
     def list_custom_costs_files_with_http_info(opts = {})
 
@@ -943,6 +947,10 @@ module DatadogAPIClient::V2
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'page[number]'] = opts[:'page_number'] if !opts[:'page_number'].nil?
+      query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+      query_params[:'filter[status]'] = opts[:'filter_status'] if !opts[:'filter_status'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -991,7 +999,7 @@ module DatadogAPIClient::V2
     #
     # Update the status (active/archived) and/or account filtering configuration of an AWS CUR config.
     #
-    # @param cloud_account_id [String] Cloud Account id.
+    # @param cloud_account_id [Integer] Cloud Account id.
     # @param body [AwsCURConfigPatchRequest] 
     # @param opts [Hash] the optional parameters
     # @return [Array<(AwsCURConfigsResponse, Integer, Hash)>] AwsCURConfigsResponse data, response status code and response headers
@@ -1063,7 +1071,7 @@ module DatadogAPIClient::V2
     #
     # Update the status of an  Azure config (active/archived).
     #
-    # @param cloud_account_id [String] Cloud Account id.
+    # @param cloud_account_id [Integer] Cloud Account id.
     # @param body [AzureUCConfigPatchRequest] 
     # @param opts [Hash] the optional parameters
     # @return [Array<(AzureUCConfigPairsResponse, Integer, Hash)>] AzureUCConfigPairsResponse data, response status code and response headers
@@ -1135,7 +1143,7 @@ module DatadogAPIClient::V2
     #
     # Update the status of an GCP Usage Cost config (active/archived).
     #
-    # @param cloud_account_id [String] Cloud Account id.
+    # @param cloud_account_id [Integer] Cloud Account id.
     # @param body [GCPUsageCostConfigPatchRequest] 
     # @param opts [Hash] the optional parameters
     # @return [Array<(GCPUsageCostConfigResponse, Integer, Hash)>] GCPUsageCostConfigResponse data, response status code and response headers

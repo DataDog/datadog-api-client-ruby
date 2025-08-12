@@ -1,0 +1,20 @@
+http_interactions:
+- recorded_at: Fri, 08 Aug 2025 20:11:43 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+    method: GET
+    uri: https://api.datadoghq.com/api/v2/cost/custom_costs?page%5Bnumber%5D=1&page%5Bsize%5D=10&sort=-created_at
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":[],"meta":{"version":"1.0","total_filtered_count":1}}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 200
+      message: OK
+recorded_with: VCR 6.0.0

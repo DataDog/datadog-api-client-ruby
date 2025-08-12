@@ -1,0 +1,21 @@
+http_interactions:
+- recorded_at: Fri, 08 Aug 2025 20:08:03 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/cost/aws_cur_config/invalid
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"status":"400","title":"Invalid Parameter","detail":"invalid
+        parameter \"cloudAccountId\" in \"path\"; expected type \"int64\""}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 400
+      message: Bad Request
+recorded_with: VCR 6.0.0

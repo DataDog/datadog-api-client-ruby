@@ -1464,20 +1464,20 @@ ScenariosModelMappings = {
             "body" => "AwsCURConfigPostRequest",
     },
     "v2.DeleteCostAWSCURConfig" => {
-            "cloud_account_id" => "String",
+            "cloud_account_id" => "Integer",
     },
     "v2.UpdateCostAWSCURConfig" => {
-            "cloud_account_id" => "String",
+            "cloud_account_id" => "Integer",
             "body" => "AwsCURConfigPatchRequest",
     },
     "v2.CreateCostAzureUCConfigs" => {
             "body" => "AzureUCConfigPostRequest",
     },
     "v2.DeleteCostAzureUCConfig" => {
-            "cloud_account_id" => "String",
+            "cloud_account_id" => "Integer",
     },
     "v2.UpdateCostAzureUCConfigs" => {
-            "cloud_account_id" => "String",
+            "cloud_account_id" => "Integer",
             "body" => "AzureUCConfigPatchRequest",
     },
     "v2.UpsertBudget" => {
@@ -1488,6 +1488,12 @@ ScenariosModelMappings = {
     },
     "v2.GetBudget" => {
             "budget_id" => "String",
+    },
+    "v2.ListCustomCostsFiles" => {
+            "page_number" => "Integer",
+            "page_size" => "Integer",
+            "filter_status" => "String",
+            "sort" => "String",
     },
     "v2.UploadCustomCostsFile" => {
             "body" => "Array<CustomCostsFileLineItem>",
@@ -1502,10 +1508,10 @@ ScenariosModelMappings = {
             "body" => "GCPUsageCostConfigPostRequest",
     },
     "v2.DeleteCostGCPUsageCostConfig" => {
-            "cloud_account_id" => "String",
+            "cloud_account_id" => "Integer",
     },
     "v2.UpdateCostGCPUsageCostConfig" => {
-            "cloud_account_id" => "String",
+            "cloud_account_id" => "Integer",
             "body" => "GCPUsageCostConfigPatchRequest",
     },
     "v2.GetMonthlyCostAttribution" => {

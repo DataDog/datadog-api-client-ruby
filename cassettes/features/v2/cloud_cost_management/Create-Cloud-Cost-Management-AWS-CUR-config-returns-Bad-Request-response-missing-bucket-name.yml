@@ -1,0 +1,25 @@
+http_interactions:
+- recorded_at: Mon, 11 Aug 2025 16:52:12 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"account_id":"123456789123","bucket_region":"us-east-1","report_name":"dd-report-name","report_prefix":"dd-report-prefix"},"type":"aws_cur_config_post_request"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/cost/aws_cur_config
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"status":"400","title":"Bad Request","detail":"attribute
+        \"bucket_name\" is required"}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 400
+      message: Bad Request
+recorded_with: VCR 6.0.0

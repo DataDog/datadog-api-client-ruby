@@ -11,4 +11,4 @@ body = DatadogAPIClient::V2::AwsCURConfigPatchRequest.new({
     type: DatadogAPIClient::V2::AwsCURConfigPatchRequestType::AWS_CUR_CONFIG_PATCH_REQUEST,
   }),
 })
-p api_instance.update_cost_awscur_config("100", body)
+p api_instance.update_cost_awscur_config(100, body)

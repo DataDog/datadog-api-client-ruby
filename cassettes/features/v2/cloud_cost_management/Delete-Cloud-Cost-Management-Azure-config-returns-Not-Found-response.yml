@@ -1,0 +1,20 @@
+http_interactions:
+- recorded_at: Fri, 08 Aug 2025 20:09:03 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/cost/azure_uc_config/123456
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"status":"404","title":"Not Found"}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 404
+      message: Not Found
+recorded_with: VCR 6.0.0

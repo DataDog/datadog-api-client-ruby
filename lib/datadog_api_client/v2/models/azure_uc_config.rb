@@ -101,7 +101,7 @@ module DatadogAPIClient::V2
         :'error_messages' => :'Array<String>',
         :'export_name' => :'String',
         :'export_path' => :'String',
-        :'id' => :'Integer',
+        :'id' => :'String',
         :'months' => :'Integer',
         :'scope' => :'String',
         :'status' => :'String',

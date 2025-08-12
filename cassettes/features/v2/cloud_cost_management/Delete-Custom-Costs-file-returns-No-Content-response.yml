@@ -1,0 +1,18 @@
+http_interactions:
+- recorded_at: Fri, 08 Aug 2025 20:21:19 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/cost/custom_costs/1234abcd-1234-abcd-1234-1234abcd1234
+  response:
+    body:
+      encoding: UTF-8
+      string: ''
+    headers: {}
+    status:
+      code: 204
+      message: No Content
+recorded_with: VCR 6.0.0

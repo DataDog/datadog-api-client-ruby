@@ -47,7 +47,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'attributes' => :'AwsCURConfigAttributes',
-        :'id' => :'Integer',
+        :'id' => :'String',
         :'type' => :'AwsCURConfigType'
       }
     end

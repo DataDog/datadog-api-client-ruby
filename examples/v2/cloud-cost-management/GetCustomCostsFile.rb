@@ -2,4 +2,4 @@
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::CloudCostManagementAPI.new
-p api_instance.get_custom_costs_file("file_id")
+p api_instance.get_custom_costs_file("9ed1a245-8291-44de-9f59-1dc87975ca4a")

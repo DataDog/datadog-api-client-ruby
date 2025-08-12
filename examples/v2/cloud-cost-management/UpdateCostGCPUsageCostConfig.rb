@@ -11,4 +11,4 @@ body = DatadogAPIClient::V2::GCPUsageCostConfigPatchRequest.new({
     type: DatadogAPIClient::V2::GCPUsageCostConfigPatchRequestType::GCP_USAGE_COST_CONFIG_PATCH_REQUEST,
   }),
 })
-p api_instance.update_cost_gcp_usage_cost_config("100", body)
+p api_instance.update_cost_gcp_usage_cost_config(100, body)

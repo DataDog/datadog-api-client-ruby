@@ -1,0 +1,21 @@
+http_interactions:
+- recorded_at: Mon, 11 Aug 2025 14:33:07 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+    method: GET
+    uri: https://api.datadoghq.com/api/v2/cost/custom_costs?filter%5Bstatus%5D=not_a_real_filter
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"status":"400","title":"Bad Request","detail":"unknown
+        status, got not_a_real_filter"}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 400
+      message: Bad Request
+recorded_with: VCR 6.0.0

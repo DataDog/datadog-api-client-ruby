@@ -1,19 +1,17 @@
 http_interactions:
-- recorded_at: Mon, 22 Jul 2024 12:40:43 GMT
+- recorded_at: Fri, 08 Aug 2025 20:21:03 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/cost/custom_costs/9d055d22-a838-4e9f-bc34-a4f9ab66280c
+    uri: https://api.datadoghq.com/api/v2/cost/custom_costs/1234abcd-1234-abcd-1234-1234abcd1234
   response:
     body:
       encoding: UTF-8
       string: ''
-    headers:
-      Content-Type:
-      - application/vnd.api+json
+    headers: {}
     status:
       code: 204
       message: No Content

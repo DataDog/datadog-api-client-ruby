@@ -5,11 +5,15 @@ api_instance = DatadogAPIClient::V2::CloudCostManagementAPI.new
 
 body = [
   DatadogAPIClient::V2::CustomCostsFileLineItem.new({
-    billed_cost: 100.5,
+    provider_name: "my_provider",
+    charge_period_start: "2023-05-06",
+    charge_period_end: "2023-06-06",
+    charge_description: "my_description",
+    billed_cost: 250,
     billing_currency: "USD",
-    charge_description: "Monthly usage charge for my service",
-    charge_period_end: "2023-02-28",
-    charge_period_start: "2023-02-01",
+    tags: {
+      key: "value",
+    },
   }),
 ]
 p api_instance.upload_custom_costs_file(body)

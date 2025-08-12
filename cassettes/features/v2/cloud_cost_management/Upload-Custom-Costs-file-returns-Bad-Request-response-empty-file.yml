@@ -1,0 +1,25 @@
+http_interactions:
+- recorded_at: Mon, 11 Aug 2025 18:38:59 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '[]'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: PUT
+    uri: https://api.datadoghq.com/api/v2/cost/custom_costs
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"status":"400","title":"Bad Request","detail":"Custom cost
+        file cannot be empty"}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 400
+      message: Bad Request
+recorded_with: VCR 6.0.0
