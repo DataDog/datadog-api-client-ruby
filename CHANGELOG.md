@@ -1,5 +1,31 @@
 # CHANGELOG
 
+## 2.40.0/2025-08-12
+
+### Added
+* Add Flex_Logs_Compute_XL to API Spec [#2585](https://github.com/DataDog/datadog-api-client-ruby/pull/2585)
+* Support Host and IaC finding types in security notifications  [#2584](https://github.com/DataDog/datadog-api-client-ruby/pull/2584)
+* New keys for summary public endpoint for Event Management Correlation product [#2580](https://github.com/DataDog/datadog-api-client-ruby/pull/2580)
+* Add log autosubscription tag filters config to aws v2 API [#2576](https://github.com/DataDog/datadog-api-client-ruby/pull/2576)
+* Extended List Findings API to expose resource related Private IP Addresses to details [#2569](https://github.com/DataDog/datadog-api-client-ruby/pull/2569)
+* update metrics.yaml for ListMetricAssets and include Dashboard info [#2564](https://github.com/DataDog/datadog-api-client-ruby/pull/2564)
+* Support Cloud SIEM scheduled rules in API client [#2561](https://github.com/DataDog/datadog-api-client-ruby/pull/2561)
+* Uncomment edit dataset block, add dataset limitations into endpoint descriptions  [#2559](https://github.com/DataDog/datadog-api-client-ruby/pull/2559)
+* Add `text` field in synthetics search endpoint [#2558](https://github.com/DataDog/datadog-api-client-ruby/pull/2558)
+* Adding all action connection types to public API [#2557](https://github.com/DataDog/datadog-api-client-ruby/pull/2557)
+* Document case management attributes endpoints [#2554](https://github.com/DataDog/datadog-api-client-ruby/pull/2554)
+* add AP2 endpoint for On-Call Paging [#2551](https://github.com/DataDog/datadog-api-client-ruby/pull/2551)
+* Flag IP case action [#2549](https://github.com/DataDog/datadog-api-client-ruby/pull/2549)
+* Add DNS specs for Cloud Network Monitoring API [#2547](https://github.com/DataDog/datadog-api-client-ruby/pull/2547)
+
+### Fixed
+* Split Dataset into separate request and response objects, mark unstable [#2568](https://github.com/DataDog/datadog-api-client-ruby/pull/2568)
+* Disables some tests to avoid fails as the service is disabled [#2563](https://github.com/DataDog/datadog-api-client-ruby/pull/2563)
+* OP make 'support_rules' field in parse_grok processor optional [#2552](https://github.com/DataDog/datadog-api-client-ruby/pull/2552)
+
+### Deprecated
+* Deprecate signals triage v1 endpoints [#2565](https://github.com/DataDog/datadog-api-client-ruby/pull/2565)
+
 ## 2.39.0/2025-07-14
 
 ### Added
