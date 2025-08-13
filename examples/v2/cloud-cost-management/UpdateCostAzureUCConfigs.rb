@@ -11,4 +11,4 @@ body = DatadogAPIClient::V2::AzureUCConfigPatchRequest.new({
     type: DatadogAPIClient::V2::AzureUCConfigPatchRequestType::AZURE_UC_CONFIG_PATCH_REQUEST,
   }),
 })
-p api_instance.update_cost_azure_uc_configs("100", body)
+p api_instance.update_cost_azure_uc_configs(100, body)

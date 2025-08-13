@@ -47,7 +47,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'attributes' => :'AzureUCConfigPairAttributes',
-        :'id' => :'Integer',
+        :'id' => :'String',
         :'type' => :'AzureUCConfigPairType'
       }
     end
