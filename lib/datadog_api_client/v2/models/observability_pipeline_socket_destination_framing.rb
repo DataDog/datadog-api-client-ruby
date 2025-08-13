@@ -17,8 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A destination for the pipeline.
-  module ObservabilityPipelineConfigDestinationItem
+  # Framing method configuration.
+  module ObservabilityPipelineSocketDestinationFraming
     class << self
       include BaseOneOfModel
       include BaseOneOfModelNoDiscriminator
@@ -26,24 +26,9 @@ module DatadogAPIClient::V2
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of
         [
-          :'ObservabilityPipelineDatadogLogsDestination',
-          :'ObservabilityPipelineAmazonS3Destination',
-          :'ObservabilityPipelineGoogleCloudStorageDestination',
-          :'ObservabilityPipelineSplunkHecDestination',
-          :'ObservabilityPipelineSumoLogicDestination',
-          :'ObservabilityPipelineElasticsearchDestination',
-          :'ObservabilityPipelineRsyslogDestination',
-          :'ObservabilityPipelineSyslogNgDestination',
-          :'AzureStorageDestination',
-          :'MicrosoftSentinelDestination',
-          :'ObservabilityPipelineGoogleChronicleDestination',
-          :'ObservabilityPipelineNewRelicDestination',
-          :'ObservabilityPipelineSentinelOneDestination',
-          :'ObservabilityPipelineOpenSearchDestination',
-          :'ObservabilityPipelineAmazonOpenSearchDestination',
-          :'ObservabilityPipelineSocketDestination',
-          :'ObservabilityPipelineAmazonSecurityLakeDestination',
-          :'ObservabilityPipelineCrowdStrikeNextGenSiemDestination'
+          :'ObservabilityPipelineSocketDestinationFramingNewlineDelimited',
+          :'ObservabilityPipelineSocketDestinationFramingBytes',
+          :'ObservabilityPipelineSocketDestinationFramingCharacterDelimited'
         ]
       end
       # Builds the object
