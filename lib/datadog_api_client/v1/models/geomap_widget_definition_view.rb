@@ -21,7 +21,10 @@ module DatadogAPIClient::V1
   class GeomapWidgetDefinitionView
     include BaseGenericModel
 
-    # The 2-letter ISO code of a country to focus the map on. Or `WORLD`.
+    # A custom extent of the map defined by an array of four numbers in the order `[minLongitude, minLatitude, maxLongitude, maxLatitude]`.
+    attr_reader :custom_extent
+
+    # The ISO code of a country, sub-division, or region to focus the map on. Or `WORLD`. Mutually exclusive with `custom_extent`.
     attr_reader :focus
 
     attr_accessor :additional_properties
@@ -30,6 +33,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.attribute_map
       {
+        :'custom_extent' => :'custom_extent',
         :'focus' => :'focus'
       }
     end
@@ -38,6 +42,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
+        :'custom_extent' => :'Array<Float>',
         :'focus' => :'String'
       }
     end
@@ -60,6 +65,12 @@ module DatadogAPIClient::V1
         end
       }
 
+      if attributes.key?(:'custom_extent')
+        if (value = attributes[:'custom_extent']).is_a?(Array)
+          self.custom_extent = value
+        end
+      end
+
       if attributes.key?(:'focus')
         self.focus = attributes[:'focus']
       end
@@ -69,8 +80,23 @@ module DatadogAPIClient::V1
     # @return true if the model is valid
     # @!visibility private
     def valid?
+      return false if !@custom_extent.nil? && @custom_extent.length > 4
+      return false if !@custom_extent.nil? && @custom_extent.length < 4
       return false if @focus.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param custom_extent [Object] Object to be assigned
+    # @!visibility private
+    def custom_extent=(custom_extent)
+      if !custom_extent.nil? && custom_extent.length > 4
+        fail ArgumentError, 'invalid value for "custom_extent", number of items must be less than or equal to 4.'
+      end
+      if !custom_extent.nil? && custom_extent.length < 4
+        fail ArgumentError, 'invalid value for "custom_extent", number of items must be greater than or equal to 4.'
+      end
+      @custom_extent = custom_extent
     end
 
     # Custom attribute writer method with validation
@@ -109,6 +135,7 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          custom_extent == o.custom_extent &&
           focus == o.focus &&
           additional_properties == o.additional_properties
     end
@@ -117,7 +144,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [focus, additional_properties].hash
+      [custom_extent, focus, additional_properties].hash
     end
   end
 end
