@@ -246,8 +246,6 @@
       <pre class="lines">
 
 
-50
-51
 52
 53
 54
@@ -270,10 +268,12 @@
 71
 72
 73
-74</pre>
+74
+75
+76</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_config_processor_item.rb', line 50</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_config_processor_item.rb', line 52</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_build'>build</span><span class='lparen'>(</span><span class='id identifier rubyid_data'>data</span><span class='rparen'>)</span>
   <span class='comment'># Go through the list of oneOf items and attempt to identify the appropriate one.
@@ -349,7 +349,9 @@
 43
 44
 45
-46</pre>
+46
+47
+48</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_config_processor_item.rb', line 27</span>
@@ -371,7 +373,9 @@
     <span class='symbol'>:&#39;ObservabilityPipelineDedupeProcessor&#39;</span><span class='comma'>,</span>
     <span class='symbol'>:&#39;ObservabilityPipelineEnrichmentTableProcessor&#39;</span><span class='comma'>,</span>
     <span class='symbol'>:&#39;ObservabilityPipelineReduceProcessor&#39;</span><span class='comma'>,</span>
-    <span class='symbol'>:&#39;ObservabilityPipelineThrottleProcessor&#39;</span>
+    <span class='symbol'>:&#39;ObservabilityPipelineThrottleProcessor&#39;</span><span class='comma'>,</span>
+    <span class='symbol'>:&#39;ObservabilityPipelineCustomProcessor&#39;</span><span class='comma'>,</span>
+    <span class='symbol'>:&#39;ObservabilityPipelineDatadogTagsProcessor&#39;</span>
   <span class='rbracket'>]</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -384,7 +388,7 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Aug 12 20:12:47 2025 by
+  Generated on Wed Aug 13 18:34:26 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>
