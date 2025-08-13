@@ -4,7 +4,7 @@ require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::SecurityMonitoringAPI.new
 
 body = DatadogAPIClient::V2::SecurityMonitoringStandardRulePayload.new({
-  name: "Example-Security-Monitoring",
+  name: "_49768568946de993",
   queries: [
     DatadogAPIClient::V2::SecurityMonitoringStandardRuleQuery.new({
       query: "@test:true",
