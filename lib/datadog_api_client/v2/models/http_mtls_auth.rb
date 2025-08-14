@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of the `HTTPIntegration` object.
-  class HTTPIntegration
+  # The definition of the `HTTPMtlsAuth` object.
+  class HTTPMtlsAuth
     include BaseGenericModel
 
-    # Base HTTP url for the integration.
-    attr_reader :base_url
+    # Certificate of authority used to sign the request.
+    attr_reader :certificate
 
-    # The definition of the `HTTPCredentials` object.
-    attr_reader :credentials
+    # Private key used for the MTLS handshake
+    attr_reader :private_key
 
-    # The definition of the `HTTPIntegrationType` object.
+    # The definition of the `HTTPMtlsAuth` object.
     attr_reader :type
 
     attr_accessor :additional_properties
@@ -36,8 +36,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'base_url' => :'base_url',
-        :'credentials' => :'credentials',
+        :'certificate' => :'certificate',
+        :'private_key' => :'private_key',
         :'type' => :'type'
       }
     end
@@ -46,9 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'base_url' => :'String',
-        :'credentials' => :'HTTPCredentials',
-        :'type' => :'HTTPIntegrationType'
+        :'certificate' => :'String',
+        :'private_key' => :'String',
+        :'type' => :'HTTPMtlsAuthType'
       }
     end
 
@@ -57,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::HTTPIntegration` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::HTTPMtlsAuth` initialize method"
       end
 
       self.additional_properties = {}
@@ -70,12 +70,12 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'base_url')
-        self.base_url = attributes[:'base_url']
+      if attributes.key?(:'certificate')
+        self.certificate = attributes[:'certificate']
       end
 
-      if attributes.key?(:'credentials')
-        self.credentials = attributes[:'credentials']
+      if attributes.key?(:'private_key')
+        self.private_key = attributes[:'private_key']
       end
 
       if attributes.key?(:'type')
@@ -87,30 +87,30 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @base_url.nil?
-      return false if @credentials.nil?
+      return false if @certificate.nil?
+      return false if @private_key.nil?
       return false if @type.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param base_url [Object] Object to be assigned
+    # @param certificate [Object] Object to be assigned
     # @!visibility private
-    def base_url=(base_url)
-      if base_url.nil?
-        fail ArgumentError, 'invalid value for "base_url", base_url cannot be nil.'
+    def certificate=(certificate)
+      if certificate.nil?
+        fail ArgumentError, 'invalid value for "certificate", certificate cannot be nil.'
       end
-      @base_url = base_url
+      @certificate = certificate
     end
 
     # Custom attribute writer method with validation
-    # @param credentials [Object] Object to be assigned
+    # @param private_key [Object] Object to be assigned
     # @!visibility private
-    def credentials=(credentials)
-      if credentials.nil?
-        fail ArgumentError, 'invalid value for "credentials", credentials cannot be nil.'
+    def private_key=(private_key)
+      if private_key.nil?
+        fail ArgumentError, 'invalid value for "private_key", private_key cannot be nil.'
       end
-      @credentials = credentials
+      @private_key = private_key
     end
 
     # Custom attribute writer method with validation
@@ -149,8 +149,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          base_url == o.base_url &&
-          credentials == o.credentials &&
+          certificate == o.certificate &&
+          private_key == o.private_key &&
           type == o.type &&
           additional_properties == o.additional_properties
     end
@@ -159,7 +159,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [base_url, credentials, type, additional_properties].hash
+      [certificate, private_key, type, additional_properties].hash
     end
   end
 end

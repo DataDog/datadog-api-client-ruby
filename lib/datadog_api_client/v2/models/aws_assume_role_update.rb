@@ -17,20 +17,20 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `AWSAssumeRoleUpdate` object.
+  # The definition of the `AWSAssumeRole` object.
   class AWSAssumeRoleUpdate
     include BaseGenericModel
 
-    # AWS account the connection is created for
+    # AWS account the connection is created for.
     attr_reader :account_id
 
-    # The `AWSAssumeRoleUpdate` `generate_new_external_id`.
+    # Pass true if the `external_id` should be regenerated.
     attr_accessor :generate_new_external_id
 
-    # Role to assume
+    # Role to assume.
     attr_accessor :role
 
-    # The definition of `AWSAssumeRoleType` object.
+    # The definition of the `AWSAssumeRole` object.
     attr_reader :type
 
     attr_accessor :additional_properties

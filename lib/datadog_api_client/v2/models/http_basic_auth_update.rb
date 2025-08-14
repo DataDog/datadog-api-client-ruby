@@ -17,18 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of the `HTTPIntegration` object.
-  class HTTPIntegration
+  # The definition of the `HTTPBasicAuth` object.
+  class HTTPBasicAuthUpdate
     include BaseGenericModel
 
-    # Base HTTP url for the integration.
-    attr_reader :base_url
+    # Password used for authentication. Saved in a secret store
+    attr_accessor :password
 
-    # The definition of the `HTTPCredentials` object.
-    attr_reader :credentials
-
-    # The definition of the `HTTPIntegrationType` object.
+    # The definition of the `HTTPBasicAuth` object.
     attr_reader :type
+
+    # Username used for authentication.
+    attr_accessor :username
 
     attr_accessor :additional_properties
 
@@ -36,9 +36,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'base_url' => :'base_url',
-        :'credentials' => :'credentials',
-        :'type' => :'type'
+        :'password' => :'password',
+        :'type' => :'type',
+        :'username' => :'username'
       }
     end
 
@@ -46,9 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'base_url' => :'String',
-        :'credentials' => :'HTTPCredentials',
-        :'type' => :'HTTPIntegrationType'
+        :'password' => :'String',
+        :'type' => :'HTTPBasicAuthType',
+        :'username' => :'String'
       }
     end
 
@@ -57,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::HTTPIntegration` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::HTTPBasicAuthUpdate` initialize method"
       end
 
       self.additional_properties = {}
@@ -70,16 +70,16 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'base_url')
-        self.base_url = attributes[:'base_url']
-      end
-
-      if attributes.key?(:'credentials')
-        self.credentials = attributes[:'credentials']
+      if attributes.key?(:'password')
+        self.password = attributes[:'password']
       end
 
       if attributes.key?(:'type')
         self.type = attributes[:'type']
+      end
+
+      if attributes.key?(:'username')
+        self.username = attributes[:'username']
       end
     end
 
@@ -87,30 +87,8 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @base_url.nil?
-      return false if @credentials.nil?
       return false if @type.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param base_url [Object] Object to be assigned
-    # @!visibility private
-    def base_url=(base_url)
-      if base_url.nil?
-        fail ArgumentError, 'invalid value for "base_url", base_url cannot be nil.'
-      end
-      @base_url = base_url
-    end
-
-    # Custom attribute writer method with validation
-    # @param credentials [Object] Object to be assigned
-    # @!visibility private
-    def credentials=(credentials)
-      if credentials.nil?
-        fail ArgumentError, 'invalid value for "credentials", credentials cannot be nil.'
-      end
-      @credentials = credentials
     end
 
     # Custom attribute writer method with validation
@@ -149,9 +127,9 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          base_url == o.base_url &&
-          credentials == o.credentials &&
+          password == o.password &&
           type == o.type &&
+          username == o.username &&
           additional_properties == o.additional_properties
     end
 
@@ -159,7 +137,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [base_url, credentials, type, additional_properties].hash
+      [password, type, username, additional_properties].hash
     end
   end
 end
