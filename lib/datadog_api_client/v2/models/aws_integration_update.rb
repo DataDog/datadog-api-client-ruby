@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `AWSIntegrationUpdate` object.
+  # The definition of the `AWSIntegrationUpdate` object.
   class AWSIntegrationUpdate
     include BaseGenericModel
 
-    # The definition of `AWSCredentialsUpdate` object.
+    # The definition of the `AWSCredentialsUpdate` object.
     attr_accessor :credentials
 
-    # The definition of `AWSIntegrationType` object.
+    # The definition of the `AWSIntegrationType` object.
     attr_reader :type
 
     attr_accessor :additional_properties

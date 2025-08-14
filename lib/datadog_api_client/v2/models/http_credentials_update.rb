@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `HTTPCredentialsUpdate` object.
+  # The definition of the `HTTPCredentialsUpdate` object.
   module HTTPCredentialsUpdate
     class << self
       include BaseOneOfModel
@@ -26,7 +26,9 @@ module DatadogAPIClient::V2
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of
         [
-          :'HTTPTokenAuthUpdate'
+          :'HTTPTokenAuthUpdate',
+          :'HTTPBasicAuthUpdate',
+          :'HTTPMtlsAuthUpdate'
         ]
       end
       # Builds the object

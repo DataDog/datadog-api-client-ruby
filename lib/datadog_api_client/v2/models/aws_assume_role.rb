@@ -17,23 +17,26 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `AWSAssumeRole` object.
+  # The definition of the `AWSAssumeRole` object.
   class AWSAssumeRole
     include BaseGenericModel
 
-    # AWS account the connection is created for
+    # AWS account the connection is created for.
     attr_reader :account_id
 
-    # External ID used to scope which connection can be used to assume the role
+    # External ID used to scope which connection can be used to assume the role.
     attr_accessor :external_id
 
-    # AWS account that will assume the role
+    # Pass true if the `external_id` should be regenerated.
+    attr_accessor :generate_new_external_id
+
+    # AWS account that will assume the role.
     attr_accessor :principal_id
 
-    # Role to assume
+    # Role to assume.
     attr_reader :role
 
-    # The definition of `AWSAssumeRoleType` object.
+    # The definition of the `AWSAssumeRole` object.
     attr_reader :type
 
     attr_accessor :additional_properties
@@ -44,6 +47,7 @@ module DatadogAPIClient::V2
       {
         :'account_id' => :'account_id',
         :'external_id' => :'external_id',
+        :'generate_new_external_id' => :'generate_new_external_id',
         :'principal_id' => :'principal_id',
         :'role' => :'role',
         :'type' => :'type'
@@ -56,6 +60,7 @@ module DatadogAPIClient::V2
       {
         :'account_id' => :'String',
         :'external_id' => :'String',
+        :'generate_new_external_id' => :'Boolean',
         :'principal_id' => :'String',
         :'role' => :'String',
         :'type' => :'AWSAssumeRoleType'
@@ -86,6 +91,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'external_id')
         self.external_id = attributes[:'external_id']
+      end
+
+      if attributes.key?(:'generate_new_external_id')
+        self.generate_new_external_id = attributes[:'generate_new_external_id']
       end
 
       if attributes.key?(:'principal_id')
@@ -175,6 +184,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           account_id == o.account_id &&
           external_id == o.external_id &&
+          generate_new_external_id == o.generate_new_external_id &&
           principal_id == o.principal_id &&
           role == o.role &&
           type == o.type &&
@@ -185,7 +195,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [account_id, external_id, principal_id, role, type, additional_properties].hash
+      [account_id, external_id, generate_new_external_id, principal_id, role, type, additional_properties].hash
     end
   end
 end

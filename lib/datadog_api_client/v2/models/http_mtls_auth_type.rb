@@ -17,10 +17,10 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of the `HTTPIntegrationType` object.
-  class HTTPIntegrationType
+  # The definition of the `HTTPMtlsAuth` object.
+  class HTTPMtlsAuthType
     include BaseEnumModel
 
-    HTTP = "HTTP".freeze
+    HTTPMTLSAUTH = "HTTPMtlsAuth".freeze
   end
 end

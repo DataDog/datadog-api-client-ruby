@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `AWSCredentials` object.
+  # The definition of the `AWSCredentials` object.
   module AWSCredentials
     class << self
       include BaseOneOfModel

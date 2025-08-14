@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `HTTPTokenAuthType` object.
+  # The definition of the `HTTPTokenAuth` object.
   class HTTPTokenAuthType
     include BaseEnumModel
 

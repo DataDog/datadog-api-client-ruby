@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `AWSCredentialsUpdate` object.
+  # The definition of the `AWSCredentialsUpdate` object.
   module AWSCredentialsUpdate
     class << self
       include BaseOneOfModel

@@ -30,7 +30,7 @@ module DatadogAPIClient::V2
     # The `HTTPTokenAuth` `tokens`.
     attr_accessor :tokens
 
-    # The definition of `HTTPTokenAuthType` object.
+    # The definition of the `HTTPTokenAuth` object.
     attr_reader :type
 
     # The `HTTPTokenAuth` `url_parameters`.

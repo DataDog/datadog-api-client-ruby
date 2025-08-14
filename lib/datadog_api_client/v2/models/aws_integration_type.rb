@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `AWSIntegrationType` object.
+  # The definition of the `AWSIntegrationType` object.
   class AWSIntegrationType
     include BaseEnumModel
 
