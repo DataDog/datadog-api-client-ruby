@@ -22,6 +22,6 @@ module DatadogAPIClient::V2
     include BaseEnumModel
 
     FEATURE_FLAG = "feature_flag".freeze
-    CONFIGURATION = "configuration".freeze
+    METRIC_CONFIGURATION = "metric_configuration".freeze
   end
 end
