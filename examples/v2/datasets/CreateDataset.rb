@@ -22,7 +22,7 @@ body = DatadogAPIClient::V2::DatasetCreateRequest.new({
         }),
       ],
     }),
-    type: "dataset",
+    type: DatadogAPIClient::V2::DatasetType::DATASET,
   }),
 })
 p api_instance.create_dataset(body)

@@ -37,7 +37,7 @@ module DatadogAPIClient::V2
     # Unique identifier for the dataset.
     attr_accessor :id
 
-    # Resource type, always "dataset".
+    # Resource type, always set to `dataset`.
     attr_accessor :type
 
     attr_accessor :additional_properties
@@ -58,7 +58,7 @@ module DatadogAPIClient::V2
       {
         :'attributes' => :'DatasetAttributesResponse',
         :'id' => :'String',
-        :'type' => :'String'
+        :'type' => :'DatasetType'
       }
     end
 
