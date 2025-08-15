@@ -839,6 +839,42 @@ ScenariosModelMappings = {
             "user_handle" => "String",
             "body" => "User",
     },
+    "v2.CreateDatastore" => {
+            "body" => "CreateAppsDatastoreRequest",
+    },
+    "v2.CreateDatastoreFromImport" => {
+            "body" => "CreateAppsDatastoreFromImportRequest",
+    },
+    "v2.DeleteDatastore" => {
+            "datastore_id" => "String",
+    },
+    "v2.GetDatastore" => {
+            "datastore_id" => "String",
+    },
+    "v2.UpdateDatastore" => {
+            "datastore_id" => "String",
+            "body" => "UpdateAppsDatastoreRequest",
+    },
+    "v2.DeleteDatastoreItem" => {
+            "datastore_id" => "String",
+            "body" => "DeleteAppsDatastoreItemRequest",
+    },
+    "v2.ListDatastoreItems" => {
+            "datastore_id" => "String",
+            "filter" => "String",
+            "item_key" => "String",
+            "page_limit" => "Integer",
+            "page_offset" => "Integer",
+            "sort" => "String",
+    },
+    "v2.PutDatastoreItem" => {
+            "datastore_id" => "String",
+            "body" => "PutAppsDatastoreItemRequest",
+    },
+    "v2.BulkPutDatastoreItems" => {
+            "datastore_id" => "String",
+            "body" => "BulkPutAppsDatastoreItemsRequest",
+    },
     "v2.ListAppKeyRegistrations" => {
             "page_size" => "Integer",
             "page_number" => "Integer",

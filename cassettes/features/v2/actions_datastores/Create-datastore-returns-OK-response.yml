@@ -1,0 +1,40 @@
+http_interactions:
+- recorded_at: Mon, 11 Aug 2025 22:19:01 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"name":"datastore-name","primary_column_name":"primaryKey"},"type":"datastores"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/actions-datastores
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"d57621df-a245-47e0-af1c-fb5aa84b113c","type":"datastores"}}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 200
+      message: OK
+- recorded_at: Mon, 11 Aug 2025 22:19:01 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/actions-datastores/d57621df-a245-47e0-af1c-fb5aa84b113c
+  response:
+    body:
+      encoding: UTF-8
+      string: ''
+    headers: {}
+    status:
+      code: 200
+      message: No Content
+recorded_with: VCR 6.0.0
