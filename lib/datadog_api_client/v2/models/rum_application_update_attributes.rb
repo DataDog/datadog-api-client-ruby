@@ -24,6 +24,12 @@ module DatadogAPIClient::V2
     # Name of the RUM application.
     attr_accessor :name
 
+    # Configures which RUM events are processed and stored for the application.
+    attr_accessor :rum_event_processing_state
+
+    # Controls the retention policy for product analytics data derived from RUM events.
+    attr_accessor :rum_product_analytics_retention_state
+
     # Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`, `roku`, `electron`, `unity`, `kotlin-multiplatform`.
     attr_accessor :type
 
@@ -34,6 +40,8 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'name' => :'name',
+        :'rum_event_processing_state' => :'rum_event_processing_state',
+        :'rum_product_analytics_retention_state' => :'rum_product_analytics_retention_state',
         :'type' => :'type'
       }
     end
@@ -43,6 +51,8 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'name' => :'String',
+        :'rum_event_processing_state' => :'RUMEventProcessingState',
+        :'rum_product_analytics_retention_state' => :'RUMProductAnalyticsRetentionState',
         :'type' => :'String'
       }
     end
@@ -67,6 +77,14 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'rum_event_processing_state')
+        self.rum_event_processing_state = attributes[:'rum_event_processing_state']
+      end
+
+      if attributes.key?(:'rum_product_analytics_retention_state')
+        self.rum_product_analytics_retention_state = attributes[:'rum_product_analytics_retention_state']
       end
 
       if attributes.key?(:'type')
@@ -101,6 +119,8 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           name == o.name &&
+          rum_event_processing_state == o.rum_event_processing_state &&
+          rum_product_analytics_retention_state == o.rum_product_analytics_retention_state &&
           type == o.type &&
           additional_properties == o.additional_properties
     end
@@ -109,7 +129,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [name, type, additional_properties].hash
+      [name, rum_event_processing_state, rum_product_analytics_retention_state, type, additional_properties].hash
     end
   end
 end
