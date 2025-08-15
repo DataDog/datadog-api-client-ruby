@@ -2505,6 +2505,9 @@ ScenariosModelMappings = {
             "filter_rule_id" => "String",
             "filter_rule_name" => "String",
     },
+    "v2.UpdateScorecardOutcomesAsync" => {
+            "body" => "UpdateOutcomesAsyncRequest",
+    },
     "v2.CreateScorecardOutcomesBatch" => {
             "body" => "OutcomesBatchRequest",
     },
