@@ -1,0 +1,25 @@
+http_interactions:
+- recorded_at: Mon, 11 Aug 2025 22:19:01 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"item_key":"primaryKey"},"id":"invalid-uuid","type":"items"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/actions-datastores/invalid-uuid/items
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"title":"invalid path parameter","detail":"invalid datastoreId
+        format in path","source":{"parameter":"datastoreId"}}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 400
+      message: Bad Request
+recorded_with: VCR 6.0.0
