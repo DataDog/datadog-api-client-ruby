@@ -2210,7 +2210,7 @@
         <span class='name'>cloud_account_id</span>
       
       
-        <span class='type'>(<tt>String</tt>)</span>
+        <span class='type'>(<tt>Integer</tt>)</span>
       
       
       
@@ -2446,7 +2446,7 @@
         <span class='name'>cloud_account_id</span>
       
       
-        <span class='type'>(<tt>String</tt>)</span>
+        <span class='type'>(<tt>Integer</tt>)</span>
       
       
       
@@ -2682,7 +2682,7 @@
         <span class='name'>cloud_account_id</span>
       
       
-        <span class='type'>(<tt>String</tt>)</span>
+        <span class='type'>(<tt>Integer</tt>)</span>
       
       
       
@@ -4492,6 +4492,63 @@
   
 </ul>
 
+  
+    
+    
+    <p class="tag_title">Options Hash (<tt>opts</tt>):</p>
+    <ul class="option">
+      
+        <li>
+          <span class="name">:page_number</span>
+          <span class="type">(<tt>Integer</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Page number for pagination</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:page_size</span>
+          <span class="type">(<tt>Integer</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Page size for pagination</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:filter_status</span>
+          <span class="type">(<tt>String</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Filter by file status</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:sort</span>
+          <span class="type">(<tt>String</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Sort key with optional descending prefix</p>
+</div>
+          
+        </li>
+      
+    </ul>
+  
+
 <p class="tag_title">Returns:</p>
 <ul class="return">
   
@@ -4691,7 +4748,7 @@
         <span class='name'>cloud_account_id</span>
       
       
-        <span class='type'>(<tt>String</tt>)</span>
+        <span class='type'>(<tt>Integer</tt>)</span>
       
       
       
@@ -4950,7 +5007,7 @@
         <span class='name'>cloud_account_id</span>
       
       
-        <span class='type'>(<tt>String</tt>)</span>
+        <span class='type'>(<tt>Integer</tt>)</span>
       
       
       
@@ -5165,13 +5222,13 @@
       <pre class="lines">
 
 
-1129
-1130
-1131
-1132</pre>
+1137
+1138
+1139
+1140</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/cloud_cost_management_api.rb', line 1129</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/cloud_cost_management_api.rb', line 1137</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update_cost_gcp_usage_cost_config'>update_cost_gcp_usage_cost_config</span><span class='lparen'>(</span><span class='id identifier rubyid_cloud_account_id'>cloud_account_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_update_cost_gcp_usage_cost_config_with_http_info'>update_cost_gcp_usage_cost_config_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_cloud_account_id'>cloud_account_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -5209,7 +5266,7 @@
         <span class='name'>cloud_account_id</span>
       
       
-        <span class='type'>(<tt>String</tt>)</span>
+        <span class='type'>(<tt>Integer</tt>)</span>
       
       
       
@@ -5273,14 +5330,6 @@
       <pre class="lines">
 
 
-1142
-1143
-1144
-1145
-1146
-1147
-1148
-1149
 1150
 1151
 1152
@@ -5327,10 +5376,18 @@
 1193
 1194
 1195
-1196</pre>
+1196
+1197
+1198
+1199
+1200
+1201
+1202
+1203
+1204</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/cloud_cost_management_api.rb', line 1142</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/cloud_cost_management_api.rb', line 1150</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update_cost_gcp_usage_cost_config_with_http_info'>update_cost_gcp_usage_cost_config_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_cloud_account_id'>cloud_account_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -5660,13 +5717,13 @@
       <pre class="lines">
 
 
-1268
-1269
-1270
-1271</pre>
+1276
+1277
+1278
+1279</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/cloud_cost_management_api.rb', line 1268</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/cloud_cost_management_api.rb', line 1276</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_upsert_budget'>upsert_budget</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_upsert_budget_with_http_info'>upsert_budget_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -5753,14 +5810,6 @@
       <pre class="lines">
 
 
-1280
-1281
-1282
-1283
-1284
-1285
-1286
-1287
 1288
 1289
 1290
@@ -5803,10 +5852,18 @@
 1327
 1328
 1329
-1330</pre>
+1330
+1331
+1332
+1333
+1334
+1335
+1336
+1337
+1338</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/cloud_cost_management_api.rb', line 1280</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/cloud_cost_management_api.rb', line 1288</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_upsert_budget_with_http_info'>upsert_budget_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -5869,7 +5926,7 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Aug 13 21:18:58 2025 by
+  Generated on Fri Aug 15 18:51:19 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>
