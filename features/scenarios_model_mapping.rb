@@ -2663,6 +2663,9 @@ ScenariosModelMappings = {
     "v2.CreateTeam" => {
             "body" => "TeamCreateRequest",
     },
+    "v2.SyncTeams" => {
+            "body" => "TeamSyncRequest",
+    },
     "v2.ListMemberTeams" => {
             "super_team_id" => "String",
             "page_size" => "Integer",

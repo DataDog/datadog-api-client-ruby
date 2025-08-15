@@ -277,6 +277,7 @@ module DatadogAPIClient
             "v2.add_member_team": false,
             "v2.list_member_teams": false,
             "v2.remove_member_team": false,
+            "v2.sync_teams": false,
             "v2.create_incident_team": false,
             "v2.delete_incident_team": false,
             "v2.get_incident_team": false,
