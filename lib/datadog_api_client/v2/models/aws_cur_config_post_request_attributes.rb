@@ -33,9 +33,6 @@ module DatadogAPIClient::V2
     # The region the bucket is located in.
     attr_accessor :bucket_region
 
-    # Whether or not the Cloud Cost Management account is enabled.
-    attr_accessor :is_enabled
-
     # The month of the report.
     attr_reader :months
 
@@ -55,7 +52,6 @@ module DatadogAPIClient::V2
         :'account_id' => :'account_id',
         :'bucket_name' => :'bucket_name',
         :'bucket_region' => :'bucket_region',
-        :'is_enabled' => :'is_enabled',
         :'months' => :'months',
         :'report_name' => :'report_name',
         :'report_prefix' => :'report_prefix'
@@ -70,7 +66,6 @@ module DatadogAPIClient::V2
         :'account_id' => :'String',
         :'bucket_name' => :'String',
         :'bucket_region' => :'String',
-        :'is_enabled' => :'Boolean',
         :'months' => :'Integer',
         :'report_name' => :'String',
         :'report_prefix' => :'String'
@@ -109,10 +104,6 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'bucket_region')
         self.bucket_region = attributes[:'bucket_region']
-      end
-
-      if attributes.key?(:'is_enabled')
-        self.is_enabled = attributes[:'is_enabled']
       end
 
       if attributes.key?(:'months')
@@ -220,7 +211,6 @@ module DatadogAPIClient::V2
           account_id == o.account_id &&
           bucket_name == o.bucket_name &&
           bucket_region == o.bucket_region &&
-          is_enabled == o.is_enabled &&
           months == o.months &&
           report_name == o.report_name &&
           report_prefix == o.report_prefix &&
@@ -231,7 +221,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [account_filters, account_id, bucket_name, bucket_region, is_enabled, months, report_name, report_prefix, additional_properties].hash
+      [account_filters, account_id, bucket_name, bucket_region, months, report_name, report_prefix, additional_properties].hash
     end
   end
 end
