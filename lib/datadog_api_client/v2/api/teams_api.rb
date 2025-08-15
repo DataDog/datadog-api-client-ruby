@@ -1225,6 +1225,89 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Link Teams with GitHub Teams.
+    #
+    # @see #sync_teams_with_http_info
+    def sync_teams(body, opts = {})
+      sync_teams_with_http_info(body, opts)
+      nil
+    end
+
+    # Link Teams with GitHub Teams.
+    #
+    # This endpoint attempts to link your existing Datadog teams with GitHub teams by matching their names.
+    # It evaluates all current Datadog teams and compares them against teams in the GitHub organization
+    # connected to your Datadog account, based on Datadog Team handle and GitHub Team slug
+    # (lowercased and kebab-cased).
+    #
+    # This operation is read-only on the GitHub side, no teams will be modified or created.
+    #
+    # [A GitHub organization must be connected to your Datadog account](https://docs.datadoghq.com/integrations/github/),
+    # and the GitHub App integrated with Datadog must have the `Members Read` permission. Matching is performed by comparing the Datadog team handle to the GitHub team slug
+    # using a normalized exact match; case is ignored and spaces are removed. No modifications are made
+    # to teams in GitHub. This will not create new Teams in Datadog.
+    #
+    # @param body [TeamSyncRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def sync_teams_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.sync_teams".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.sync_teams")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.sync_teams"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TeamsAPI.sync_teams ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling TeamsAPI.sync_teams"
+      end
+      # resource path
+      local_var_path = '/api/v2/team/sync'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :sync_teams,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TeamsAPI#sync_teams\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Update a team.
     #
     # @see #update_team_with_http_info
