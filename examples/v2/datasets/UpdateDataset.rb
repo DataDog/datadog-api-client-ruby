@@ -25,7 +25,7 @@ body = DatadogAPIClient::V2::DatasetUpdateRequest.new({
         }),
       ],
     }),
-    type: "dataset",
+    type: DatadogAPIClient::V2::DatasetType::DATASET,
   }),
 })
 p api_instance.update_dataset(DATASET_DATA_ID, body)
