@@ -34,7 +34,7 @@ module DatadogAPIClient::V2
     # Dataset metadata and configurations.
     attr_reader :attributes
 
-    # Resource type, always "dataset".
+    # Resource type, always set to `dataset`.
     attr_reader :type
 
     attr_accessor :additional_properties
@@ -53,7 +53,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'attributes' => :'DatasetAttributesRequest',
-        :'type' => :'String'
+        :'type' => :'DatasetType'
       }
     end
 

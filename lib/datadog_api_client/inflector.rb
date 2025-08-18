@@ -1689,6 +1689,7 @@ module DatadogAPIClient
           "v2.dataset_response" => "DatasetResponse",
           "v2.dataset_response_multi" => "DatasetResponseMulti",
           "v2.dataset_response_single" => "DatasetResponseSingle",
+          "v2.dataset_type" => "DatasetType",
           "v2.dataset_update_request" => "DatasetUpdateRequest",
           "v2.data_transform" => "DataTransform",
           "v2.data_transform_properties" => "DataTransformProperties",
