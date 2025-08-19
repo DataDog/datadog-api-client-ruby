@@ -6,7 +6,7 @@
 <title>
   Class: DatadogAPIClient::V2::RUMApplicationCreateAttributes
   
-    &mdash; datadog-api-client 2.30.0.dev.1 documentation
+    &mdash; datadog-api-client 2.40.0 documentation
   
 </title>
 
@@ -178,6 +178,58 @@
       <li class="public ">
   <span class="summary_signature">
     
+      <a href="#product_analytics_retention_state-instance_method" title="#product_analytics_retention_state (instance method)">#<strong>product_analytics_retention_state</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Controls the retention policy for Product Analytics data derived from RUM events.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#rum_event_processing_state-instance_method" title="#rum_event_processing_state (instance method)">#<strong>rum_event_processing_state</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Configures which RUM events are processed and stored for the application.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#type-instance_method" title="#type (instance method)">#<strong>type</strong>  &#x21d2; Object </a>
     
 
@@ -306,6 +358,90 @@
 </div>
     
       
+      <span id="product_analytics_retention_state=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="product_analytics_retention_state-instance_method">
+  
+    #<strong>product_analytics_retention_state</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Controls the retention policy for Product Analytics data derived from RUM events.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+28
+29
+30</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/rum_application_create_attributes.rb', line 28</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_product_analytics_retention_state'>product_analytics_retention_state</span>
+  <span class='ivar'>@product_analytics_retention_state</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="rum_event_processing_state=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="rum_event_processing_state-instance_method">
+  
+    #<strong>rum_event_processing_state</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Configures which RUM events are processed and stored for the application.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+31
+32
+33</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/rum_application_create_attributes.rb', line 31</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_rum_event_processing_state'>rum_event_processing_state</span>
+  <span class='ivar'>@rum_event_processing_state</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
       <span id="type=-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="type-instance_method">
@@ -353,7 +489,7 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Feb 18 21:07:40 2025 by
+  Generated on Tue Aug 19 21:19:27 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>
