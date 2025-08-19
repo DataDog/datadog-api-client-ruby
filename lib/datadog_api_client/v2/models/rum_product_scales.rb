@@ -17,21 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # RUM application creation attributes.
-  class RUMApplicationCreateAttributes
+  # Product Scales configuration for the RUM application.
+  class RUMProductScales
     include BaseGenericModel
 
-    # Name of the RUM application.
-    attr_reader :name
+    # Product Analytics retention scale configuration.
+    attr_accessor :product_analytics_retention_scale
 
-    # Controls the retention policy for Product Analytics data derived from RUM events.
-    attr_accessor :product_analytics_retention_state
-
-    # Configures which RUM events are processed and stored for the application.
-    attr_accessor :rum_event_processing_state
-
-    # Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`, `roku`, `electron`, `unity`, `kotlin-multiplatform`.
-    attr_accessor :type
+    # RUM event processing scale configuration.
+    attr_accessor :rum_event_processing_scale
 
     attr_accessor :additional_properties
 
@@ -39,10 +33,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'name' => :'name',
-        :'product_analytics_retention_state' => :'product_analytics_retention_state',
-        :'rum_event_processing_state' => :'rum_event_processing_state',
-        :'type' => :'type'
+        :'product_analytics_retention_scale' => :'product_analytics_retention_scale',
+        :'rum_event_processing_scale' => :'rum_event_processing_scale'
       }
     end
 
@@ -50,10 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'name' => :'String',
-        :'product_analytics_retention_state' => :'RUMProductAnalyticsRetentionState',
-        :'rum_event_processing_state' => :'RUMEventProcessingState',
-        :'type' => :'String'
+        :'product_analytics_retention_scale' => :'RUMProductAnalyticsRetentionScale',
+        :'rum_event_processing_scale' => :'RUMEventProcessingScale'
       }
     end
 
@@ -62,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RUMApplicationCreateAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RUMProductScales` initialize method"
       end
 
       self.additional_properties = {}
@@ -75,39 +65,13 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
+      if attributes.key?(:'product_analytics_retention_scale')
+        self.product_analytics_retention_scale = attributes[:'product_analytics_retention_scale']
       end
 
-      if attributes.key?(:'product_analytics_retention_state')
-        self.product_analytics_retention_state = attributes[:'product_analytics_retention_state']
+      if attributes.key?(:'rum_event_processing_scale')
+        self.rum_event_processing_scale = attributes[:'rum_event_processing_scale']
       end
-
-      if attributes.key?(:'rum_event_processing_state')
-        self.rum_event_processing_state = attributes[:'rum_event_processing_state']
-      end
-
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
-      end
-    end
-
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    # @!visibility private
-    def valid?
-      return false if @name.nil?
-      true
-    end
-
-    # Custom attribute writer method with validation
-    # @param name [Object] Object to be assigned
-    # @!visibility private
-    def name=(name)
-      if name.nil?
-        fail ArgumentError, 'invalid value for "name", name cannot be nil.'
-      end
-      @name = name
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -136,10 +100,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          name == o.name &&
-          product_analytics_retention_state == o.product_analytics_retention_state &&
-          rum_event_processing_state == o.rum_event_processing_state &&
-          type == o.type &&
+          product_analytics_retention_scale == o.product_analytics_retention_scale &&
+          rum_event_processing_scale == o.rum_event_processing_scale &&
           additional_properties == o.additional_properties
     end
 
@@ -147,7 +109,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [name, product_analytics_retention_state, rum_event_processing_state, type, additional_properties].hash
+      [product_analytics_retention_scale, rum_event_processing_scale, additional_properties].hash
     end
   end
 end

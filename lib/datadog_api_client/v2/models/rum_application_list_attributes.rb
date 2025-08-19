@@ -42,6 +42,9 @@ module DatadogAPIClient::V2
     # Org ID of the RUM application.
     attr_reader :org_id
 
+    # Product Scales configuration for the RUM application.
+    attr_accessor :product_scales
+
     # Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`, `roku`, `electron`, `unity`, `kotlin-multiplatform`.
     attr_reader :type
 
@@ -64,6 +67,7 @@ module DatadogAPIClient::V2
         :'is_active' => :'is_active',
         :'name' => :'name',
         :'org_id' => :'org_id',
+        :'product_scales' => :'product_scales',
         :'type' => :'type',
         :'updated_at' => :'updated_at',
         :'updated_by_handle' => :'updated_by_handle'
@@ -81,6 +85,7 @@ module DatadogAPIClient::V2
         :'is_active' => :'Boolean',
         :'name' => :'String',
         :'org_id' => :'Integer',
+        :'product_scales' => :'RUMProductScales',
         :'type' => :'String',
         :'updated_at' => :'Integer',
         :'updated_by_handle' => :'String'
@@ -131,6 +136,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'org_id')
         self.org_id = attributes[:'org_id']
+      end
+
+      if attributes.key?(:'product_scales')
+        self.product_scales = attributes[:'product_scales']
       end
 
       if attributes.key?(:'type')
@@ -278,6 +287,7 @@ module DatadogAPIClient::V2
           is_active == o.is_active &&
           name == o.name &&
           org_id == o.org_id &&
+          product_scales == o.product_scales &&
           type == o.type &&
           updated_at == o.updated_at &&
           updated_by_handle == o.updated_by_handle &&
@@ -288,7 +298,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [application_id, created_at, created_by_handle, _hash, is_active, name, org_id, type, updated_at, updated_by_handle, additional_properties].hash
+      [application_id, created_at, created_by_handle, _hash, is_active, name, org_id, product_scales, type, updated_at, updated_by_handle, additional_properties].hash
     end
   end
 end
