@@ -21,8 +21,8 @@ module DatadogAPIClient::V2
   class ObservabilityPipelineQuotaProcessor
     include BaseGenericModel
 
-    # If set to `true`, logs that matched the quota filter and sent after the quota has been met are dropped; only logs that did not match the filter query continue through the pipeline.
-    attr_reader :drop_events
+    # If set to `true`, logs that match the quota filter and are sent after the quota is exceeded are dropped. Logs that do not match the filter continue through the pipeline. **Note**: You can set either `drop_events` or `overflow_action`, but not both.
+    attr_accessor :drop_events
 
     # The unique identifier for this component. Used to reference this component in other parts of the pipeline (for example, as the `input` to downstream components).
     attr_reader :id
@@ -42,7 +42,7 @@ module DatadogAPIClient::V2
     # Name of the quota.
     attr_reader :name
 
-    # The action to take when the quota is exceeded. Options:
+    # The action to take when the quota or bucket limit is exceeded. Options:
     # - `drop`: Drop the event.
     # - `no_action`: Let the event pass through.
     # - `overflow_routing`: Route to an overflow destination.
@@ -54,6 +54,13 @@ module DatadogAPIClient::V2
 
     # A list of fields used to segment log traffic for quota enforcement. Quotas are tracked independently by unique combinations of these field values.
     attr_accessor :partition_fields
+
+    # The action to take when the quota or bucket limit is exceeded. Options:
+    # - `drop`: Drop the event.
+    # - `no_action`: Let the event pass through.
+    # - `overflow_routing`: Route to an overflow destination.
+    #
+    attr_accessor :too_many_buckets_action
 
     # The processor type. The value should always be `quota`.
     attr_reader :type
@@ -74,6 +81,7 @@ module DatadogAPIClient::V2
         :'overflow_action' => :'overflow_action',
         :'overrides' => :'overrides',
         :'partition_fields' => :'partition_fields',
+        :'too_many_buckets_action' => :'too_many_buckets_action',
         :'type' => :'type'
       }
     end
@@ -92,6 +100,7 @@ module DatadogAPIClient::V2
         :'overflow_action' => :'ObservabilityPipelineQuotaProcessorOverflowAction',
         :'overrides' => :'Array<ObservabilityPipelineQuotaProcessorOverride>',
         :'partition_fields' => :'Array<String>',
+        :'too_many_buckets_action' => :'ObservabilityPipelineQuotaProcessorOverflowAction',
         :'type' => :'ObservabilityPipelineQuotaProcessorType'
       }
     end
@@ -160,6 +169,10 @@ module DatadogAPIClient::V2
         end
       end
 
+      if attributes.key?(:'too_many_buckets_action')
+        self.too_many_buckets_action = attributes[:'too_many_buckets_action']
+      end
+
       if attributes.key?(:'type')
         self.type = attributes[:'type']
       end
@@ -169,7 +182,6 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @drop_events.nil?
       return false if @id.nil?
       return false if @include.nil?
       return false if @inputs.nil?
@@ -177,16 +189,6 @@ module DatadogAPIClient::V2
       return false if @name.nil?
       return false if @type.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param drop_events [Object] Object to be assigned
-    # @!visibility private
-    def drop_events=(drop_events)
-      if drop_events.nil?
-        fail ArgumentError, 'invalid value for "drop_events", drop_events cannot be nil.'
-      end
-      @drop_events = drop_events
     end
 
     # Custom attribute writer method with validation
@@ -285,6 +287,7 @@ module DatadogAPIClient::V2
           overflow_action == o.overflow_action &&
           overrides == o.overrides &&
           partition_fields == o.partition_fields &&
+          too_many_buckets_action == o.too_many_buckets_action &&
           type == o.type &&
           additional_properties == o.additional_properties
     end
@@ -293,7 +296,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [drop_events, id, ignore_when_missing_partitions, include, inputs, limit, name, overflow_action, overrides, partition_fields, type, additional_properties].hash
+      [drop_events, id, ignore_when_missing_partitions, include, inputs, limit, name, overflow_action, overrides, partition_fields, too_many_buckets_action, type, additional_properties].hash
     end
   end
 end

@@ -29,6 +29,9 @@ module DatadogAPIClient::V2
     # S3 bucket name.
     attr_reader :bucket
 
+    # Configuration for buffer settings on destination components.
+    attr_accessor :buffer
+
     # Unique identifier for the destination component.
     attr_reader :id
 
@@ -58,6 +61,7 @@ module DatadogAPIClient::V2
       {
         :'auth' => :'auth',
         :'bucket' => :'bucket',
+        :'buffer' => :'buffer',
         :'id' => :'id',
         :'inputs' => :'inputs',
         :'key_prefix' => :'key_prefix',
@@ -74,6 +78,7 @@ module DatadogAPIClient::V2
       {
         :'auth' => :'ObservabilityPipelineAwsAuth',
         :'bucket' => :'String',
+        :'buffer' => :'ObservabilityPipelineBufferOptions',
         :'id' => :'String',
         :'inputs' => :'Array<String>',
         :'key_prefix' => :'String',
@@ -108,6 +113,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'bucket')
         self.bucket = attributes[:'bucket']
+      end
+
+      if attributes.key?(:'buffer')
+        self.buffer = attributes[:'buffer']
       end
 
       if attributes.key?(:'id')
@@ -242,6 +251,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           auth == o.auth &&
           bucket == o.bucket &&
+          buffer == o.buffer &&
           id == o.id &&
           inputs == o.inputs &&
           key_prefix == o.key_prefix &&
@@ -256,7 +266,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [auth, bucket, id, inputs, key_prefix, region, storage_class, tls, type, additional_properties].hash
+      [auth, bucket, buffer, id, inputs, key_prefix, region, storage_class, tls, type, additional_properties].hash
     end
   end
 end

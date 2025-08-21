@@ -32,6 +32,9 @@ module DatadogAPIClient::V2
     # Name of the GCS bucket.
     attr_reader :bucket
 
+    # Configuration for buffer settings on destination components.
+    attr_accessor :buffer
+
     # Unique identifier for the destination component.
     attr_reader :id
 
@@ -59,6 +62,7 @@ module DatadogAPIClient::V2
         :'acl' => :'acl',
         :'auth' => :'auth',
         :'bucket' => :'bucket',
+        :'buffer' => :'buffer',
         :'id' => :'id',
         :'inputs' => :'inputs',
         :'key_prefix' => :'key_prefix',
@@ -75,6 +79,7 @@ module DatadogAPIClient::V2
         :'acl' => :'ObservabilityPipelineGoogleCloudStorageDestinationAcl',
         :'auth' => :'ObservabilityPipelineGcpAuth',
         :'bucket' => :'String',
+        :'buffer' => :'ObservabilityPipelineBufferOptions',
         :'id' => :'String',
         :'inputs' => :'Array<String>',
         :'key_prefix' => :'String',
@@ -112,6 +117,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'bucket')
         self.bucket = attributes[:'bucket']
+      end
+
+      if attributes.key?(:'buffer')
+        self.buffer = attributes[:'buffer']
       end
 
       if attributes.key?(:'id')
@@ -256,6 +265,7 @@ module DatadogAPIClient::V2
           acl == o.acl &&
           auth == o.auth &&
           bucket == o.bucket &&
+          buffer == o.buffer &&
           id == o.id &&
           inputs == o.inputs &&
           key_prefix == o.key_prefix &&
@@ -269,7 +279,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [acl, auth, bucket, id, inputs, key_prefix, metadata, storage_class, type, additional_properties].hash
+      [acl, auth, bucket, buffer, id, inputs, key_prefix, metadata, storage_class, type, additional_properties].hash
     end
   end
 end

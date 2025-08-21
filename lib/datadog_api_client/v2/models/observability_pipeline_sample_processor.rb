@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class ObservabilityPipelineSampleProcessor
     include BaseGenericModel
 
+    # Optional list of fields to group events by. Each group is sampled independently.
+    attr_reader :group_by
+
     # The unique identifier for this component. Used to reference this component in other parts of the pipeline (for example, as the `input` to downstream components).
     attr_reader :id
 
@@ -45,6 +48,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'group_by' => :'group_by',
         :'id' => :'id',
         :'include' => :'include',
         :'inputs' => :'inputs',
@@ -58,6 +62,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'group_by' => :'Array<String>',
         :'id' => :'String',
         :'include' => :'String',
         :'inputs' => :'Array<String>',
@@ -84,6 +89,12 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'group_by')
+        if (value = attributes[:'group_by']).is_a?(Array)
+          self.group_by = value
+        end
+      end
 
       if attributes.key?(:'id')
         self.id = attributes[:'id']
@@ -116,12 +127,23 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
+      return false if !@group_by.nil? && @group_by.length < 1
       return false if @id.nil?
       return false if @include.nil?
       return false if @inputs.nil?
       return false if !@rate.nil? && @rate < 1
       return false if @type.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param group_by [Object] Object to be assigned
+    # @!visibility private
+    def group_by=(group_by)
+      if !group_by.nil? && group_by.length < 1
+        fail ArgumentError, 'invalid value for "group_by", number of items must be greater than or equal to 1.'
+      end
+      @group_by = group_by
     end
 
     # Custom attribute writer method with validation
@@ -200,6 +222,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          group_by == o.group_by &&
           id == o.id &&
           include == o.include &&
           inputs == o.inputs &&
@@ -213,7 +236,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [id, include, inputs, percentage, rate, type, additional_properties].hash
+      [group_by, id, include, inputs, percentage, rate, type, additional_properties].hash
     end
   end
 end
