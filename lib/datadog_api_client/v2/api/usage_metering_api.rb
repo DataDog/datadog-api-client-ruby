@@ -33,9 +33,10 @@ module DatadogAPIClient::V2
 
     # Get active billing dimensions for cost attribution.
     #
-    # Get active billing dimensions for cost attribution. Cost data for a given month becomes available no later than the 19th of the following month.
+    # Get active billing dimensions for cost attribution in a given month. Note that billing dimensions active in a given month may not appear in the Monthly Cost Attribution API response until the 19th of the following month. For the most accurate results, request the same month for both endpoints.
     #
     # @param opts [Hash] the optional parameters
+    # @option opts [Time] :month Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for billing dimensions active this month. Defaults to the current month.
     # @return [Array<(ActiveBillingDimensionsResponse, Integer, Hash)>] ActiveBillingDimensionsResponse data, response status code and response headers
     def get_active_billing_dimensions_with_http_info(opts = {})
 
@@ -47,6 +48,7 @@ module DatadogAPIClient::V2
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'month'] = opts[:'month'] if !opts[:'month'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

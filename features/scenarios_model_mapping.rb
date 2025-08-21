@@ -1514,6 +1514,9 @@ ScenariosModelMappings = {
             "cloud_account_id" => "Integer",
             "body" => "GCPUsageCostConfigPatchRequest",
     },
+    "v2.GetActiveBillingDimensions" => {
+            "month" => "Time",
+    },
     "v2.GetMonthlyCostAttribution" => {
             "start_month" => "Time",
             "end_month" => "Time",
