@@ -27,7 +27,7 @@ module DatadogAPIClient::V2
     # The unique identifier of the IP allowlist entry.
     attr_accessor :id
 
-    # IP allowlist Entry type.
+    # IP allowlist entry type.
     attr_reader :type
 
     attr_accessor :additional_properties

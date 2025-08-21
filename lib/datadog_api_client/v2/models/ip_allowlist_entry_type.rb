@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # IP allowlist Entry type.
+  # IP allowlist entry type.
   class IPAllowlistEntryType
     include BaseEnumModel
 
