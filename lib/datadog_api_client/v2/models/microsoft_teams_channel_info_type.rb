@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Channel info resource type.
+  # Microsoft Teams channel info resource type.
   class MicrosoftTeamsChannelInfoType
     include BaseEnumModel
 
