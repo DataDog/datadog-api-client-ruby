@@ -1545,8 +1545,8 @@ ScenariosModelMappings = {
             "include_connected_accounts" => "Boolean",
     },
     "v2.GetHistoricalCostByOrg" => {
-            "view" => "String",
             "start_month" => "Time",
+            "view" => "String",
             "end_month" => "Time",
             "include_connected_accounts" => "Boolean",
     },
