@@ -27,7 +27,7 @@ module DatadogAPIClient::V2
     # The ID of the channel.
     attr_reader :id
 
-    # Channel info resource type.
+    # Microsoft Teams channel info resource type.
     attr_accessor :type
 
     attr_accessor :additional_properties
