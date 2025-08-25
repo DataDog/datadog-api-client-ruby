@@ -225,6 +225,7 @@ module DatadogAPIClient
           "v1.log_query_definition_search" => "LogQueryDefinitionSearch",
           "v1.logs_api_error" => "LogsAPIError",
           "v1.logs_api_error_response" => "LogsAPIErrorResponse",
+          "v1.logs_api_limit_reached_response" => "LogsAPILimitReachedResponse",
           "v1.logs_arithmetic_processor" => "LogsArithmeticProcessor",
           "v1.logs_arithmetic_processor_type" => "LogsArithmeticProcessorType",
           "v1.logs_array_processor" => "LogsArrayProcessor",
