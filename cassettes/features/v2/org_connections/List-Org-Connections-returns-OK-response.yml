@@ -1,0 +1,22 @@
+http_interactions:
+- recorded_at: Mon, 25 Aug 2025 18:13:20 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+    method: GET
+    uri: https://api.datadoghq.com/api/v2/org_connections
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":[],"meta":{"page":{"total_count":0,"total_filtered_count":0}}}
+
+        '
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+recorded_with: VCR 6.0.0
