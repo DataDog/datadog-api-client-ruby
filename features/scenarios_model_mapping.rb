@@ -2634,6 +2634,10 @@ ScenariosModelMappings = {
     "v2.GetSLOReportJobStatus" => {
             "report_id" => "String",
     },
+    "v2.GetSPARecommendations" => {
+            "shard" => "String",
+            "service" => "String",
+    },
     "v2.AggregateSpans" => {
             "body" => "SpansAggregateRequest",
     },
