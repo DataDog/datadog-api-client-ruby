@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # AWS Account Update Request body.
+  # AWS Account update request body.
   class AWSAccountUpdateRequest
     include BaseGenericModel
 
