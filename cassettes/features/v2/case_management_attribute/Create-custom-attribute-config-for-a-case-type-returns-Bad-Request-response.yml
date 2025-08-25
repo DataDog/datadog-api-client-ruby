@@ -1,0 +1,65 @@
+http_interactions:
+- recorded_at: Thu, 21 Aug 2025 12:41:42 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: "{\"data\":{\"attributes\":{\"description\":\"Worldwide case type\"\
+        ,\"emoji\":\"\U0001F30D\",\"name\":\"World\"},\"type\":\"case_type\"}}"
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/cases/types
+  response:
+    body:
+      encoding: UTF-8
+      string: "{\"data\":{\"id\":\"869f4c88-f545-4aa1-a03f-152bb52186bf\",\"type\"\
+        :\"case_type\",\"attributes\":{\"description\":\"Worldwide case type\",\"\
+        emoji\":\"\U0001F30D\",\"name\":\"World\"}}}"
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 201
+      message: Created
+- recorded_at: Thu, 21 Aug 2025 12:41:42 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"display_name":"AWS Region 17557801-0000-0000-0000-175578010200","is_multi":true,"key":"region_a9c736ee59b5f856","type":"FLOAT"},"type":"custom_attribute"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/cases/types/869f4c88-f545-4aa1-a03f-152bb52186bf/custom_attributes
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"status":"400","title":"Bad Request"}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 400
+      message: Bad Request
+- recorded_at: Thu, 21 Aug 2025 12:41:42 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/cases/types/869f4c88-f545-4aa1-a03f-152bb52186bf
+  response:
+    body:
+      encoding: UTF-8
+      string: ''
+    headers: {}
+    status:
+      code: 204
+      message: No Content
+recorded_with: VCR 6.0.0
