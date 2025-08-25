@@ -274,6 +274,7 @@ module DatadogAPIClient
             "v2.create_slo_report_job": false,
             "v2.get_slo_report": false,
             "v2.get_slo_report_job_status": false,
+            "v2.get_spa_recommendations": false,
             "v2.add_member_team": false,
             "v2.list_member_teams": false,
             "v2.remove_member_team": false,
