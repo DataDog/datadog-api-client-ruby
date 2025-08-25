@@ -1,5 +1,5 @@
 http_interactions:
-- recorded_at: Sun, 24 Aug 2025 22:56:14 GMT
+- recorded_at: Sun, 24 Aug 2025 22:53:40 GMT
   request:
     body: null
     headers:
@@ -11,24 +11,6 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"data":[{"id":"000000000002","type":"aws_scan_options","attributes":{"lambda":false,"sensitive_data":false,"vuln_containers_os":true,"vuln_host_os":true}},{"id":"123456789012","type":"aws_scan_options","attributes":{"lambda":true,"sensitive_data":true,"vuln_containers_os":true,"vuln_host_os":true}}]}'
-    headers:
-      Content-Type:
-      - application/vnd.api+json
-    status:
-      code: 200
-      message: OK
-- recorded_at: Sun, 24 Aug 2025 22:56:14 GMT
-  request:
-    body: null
-    headers:
-      Accept:
-      - application/json
-    method: GET
-    uri: https://api.datadoghq.com/api/v2/agentless_scanning/accounts/aws/000000000002
-  response:
-    body:
-      encoding: UTF-8
-      string: '{"data":{"id":"000000000002","type":"aws_scan_options","attributes":{"lambda":false,"sensitive_data":false,"vuln_containers_os":true,"vuln_host_os":true}}}'
     headers:
       Content-Type:
       - application/vnd.api+json

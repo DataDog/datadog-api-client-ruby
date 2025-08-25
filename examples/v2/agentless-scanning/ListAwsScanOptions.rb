@@ -1,4 +1,4 @@
-# Get AWS Scan Options returns "OK" response
+# List AWS Scan Options returns "OK" response
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::AgentlessScanningAPI.new

@@ -871,6 +871,9 @@ ScenariosModelMappings = {
     "v2.DeleteAwsScanOptions" => {
             "account_id" => "String",
     },
+    "v2.GetAwsScanOptions" => {
+            "account_id" => "String",
+    },
     "v2.UpdateAwsScanOptions" => {
             "account_id" => "String",
             "body" => "AwsScanOptionsUpdateRequest",
