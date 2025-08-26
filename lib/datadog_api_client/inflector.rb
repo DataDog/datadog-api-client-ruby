@@ -938,6 +938,7 @@ module DatadogAPIClient
           "v1.widget_text_align" => "WidgetTextAlign",
           "v1.widget_tick_edge" => "WidgetTickEdge",
           "v1.widget_time" => "WidgetTime",
+          "v1.widget_time_hide_incomplete_data" => "WidgetTimeHideIncompleteData",
           "v1.widget_time_windows" => "WidgetTimeWindows",
           "v1.widget_vertical_align" => "WidgetVerticalAlign",
           "v1.widget_view_mode" => "WidgetViewMode",
