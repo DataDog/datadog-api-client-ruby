@@ -69,7 +69,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :acknowledge_on_call_page,
@@ -137,7 +137,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'CreatePageResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :create_on_call_page,
@@ -203,7 +203,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :escalate_on_call_page,
@@ -269,7 +269,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :resolve_on_call_page,
