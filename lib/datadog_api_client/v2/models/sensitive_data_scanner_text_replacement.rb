@@ -28,6 +28,9 @@ module DatadogAPIClient::V2
     # Required if type == 'replacement_string'.
     attr_accessor :replacement_string
 
+    # Only valid when type == `replacement_string`. When enabled, matches can be unmasked in logs by users with ‘Data Scanner Unmask’ permission. As a security best practice, avoid masking for highly-sensitive, long-lived data.
+    attr_accessor :should_save_match
+
     # Type of the replacement text. None means no replacement.
     # hash means the data will be stubbed. replacement_string means that
     # one can chose a text to replace the data. partial_replacement_from_beginning
@@ -44,6 +47,7 @@ module DatadogAPIClient::V2
       {
         :'number_of_chars' => :'number_of_chars',
         :'replacement_string' => :'replacement_string',
+        :'should_save_match' => :'should_save_match',
         :'type' => :'type'
       }
     end
@@ -54,6 +58,7 @@ module DatadogAPIClient::V2
       {
         :'number_of_chars' => :'Integer',
         :'replacement_string' => :'String',
+        :'should_save_match' => :'Boolean',
         :'type' => :'SensitiveDataScannerTextReplacementType'
       }
     end
@@ -82,6 +87,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'replacement_string')
         self.replacement_string = attributes[:'replacement_string']
+      end
+
+      if attributes.key?(:'should_save_match')
+        self.should_save_match = attributes[:'should_save_match']
       end
 
       if attributes.key?(:'type')
@@ -135,6 +144,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           number_of_chars == o.number_of_chars &&
           replacement_string == o.replacement_string &&
+          should_save_match == o.should_save_match &&
           type == o.type &&
           additional_properties == o.additional_properties
     end
@@ -143,7 +153,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [number_of_chars, replacement_string, type, additional_properties].hash
+      [number_of_chars, replacement_string, should_save_match, type, additional_properties].hash
     end
   end
 end
