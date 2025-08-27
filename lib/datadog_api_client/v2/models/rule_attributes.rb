@@ -36,6 +36,9 @@ module DatadogAPIClient::V2
     # If enabled, the rule is calculated as part of the score.
     attr_accessor :enabled
 
+    # The maturity level of the rule (1, 2, or 3).
+    attr_reader :level
+
     # Time of the last rule outcome modification.
     attr_accessor :modified_at
 
@@ -59,6 +62,7 @@ module DatadogAPIClient::V2
         :'custom' => :'custom',
         :'description' => :'description',
         :'enabled' => :'enabled',
+        :'level' => :'level',
         :'modified_at' => :'modified_at',
         :'name' => :'name',
         :'owner' => :'owner',
@@ -75,6 +79,7 @@ module DatadogAPIClient::V2
         :'custom' => :'Boolean',
         :'description' => :'String',
         :'enabled' => :'Boolean',
+        :'level' => :'Integer',
         :'modified_at' => :'Time',
         :'name' => :'String',
         :'owner' => :'String',
@@ -120,6 +125,10 @@ module DatadogAPIClient::V2
         self.enabled = attributes[:'enabled']
       end
 
+      if attributes.key?(:'level')
+        self.level = attributes[:'level']
+      end
+
       if attributes.key?(:'modified_at')
         self.modified_at = attributes[:'modified_at']
       end
@@ -135,6 +144,28 @@ module DatadogAPIClient::V2
       if attributes.key?(:'scorecard_name')
         self.scorecard_name = attributes[:'scorecard_name']
       end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if !@level.nil? && @level > 3
+      return false if !@level.nil? && @level < 1
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param level [Object] Object to be assigned
+    # @!visibility private
+    def level=(level)
+      if !level.nil? && level > 3
+        fail ArgumentError, 'invalid value for "level", must be smaller than or equal to 3.'
+      end
+      if !level.nil? && level < 1
+        fail ArgumentError, 'invalid value for "level", must be greater than or equal to 1.'
+      end
+      @level = level
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -168,6 +199,7 @@ module DatadogAPIClient::V2
           custom == o.custom &&
           description == o.description &&
           enabled == o.enabled &&
+          level == o.level &&
           modified_at == o.modified_at &&
           name == o.name &&
           owner == o.owner &&
@@ -179,7 +211,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [category, created_at, custom, description, enabled, modified_at, name, owner, scorecard_name, additional_properties].hash
+      [category, created_at, custom, description, enabled, level, modified_at, name, owner, scorecard_name, additional_properties].hash
     end
   end
 end
