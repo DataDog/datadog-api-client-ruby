@@ -20,6 +20,7 @@ body = DatadogAPIClient::V1::Dashboard.new({
         ],
         time: DatadogAPIClient::V1::WidgetLegacyLiveSpan.new({
           live_span: DatadogAPIClient::V1::WidgetLiveSpan::PAST_FIVE_MINUTES,
+          hide_incomplete_cost_data: true,
         }),
         type: DatadogAPIClient::V1::TimeseriesWidgetDefinitionType::TIMESERIES,
         requests: [

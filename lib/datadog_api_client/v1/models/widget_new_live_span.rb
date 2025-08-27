@@ -21,6 +21,9 @@ module DatadogAPIClient::V1
   class WidgetNewLiveSpan
     include BaseGenericModel
 
+    # Whether to hide incomplete cost data in the widget.
+    attr_accessor :hide_incomplete_cost_data
+
     # Type "live" denotes a live span in the new format.
     attr_reader :type
 
@@ -36,6 +39,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.attribute_map
       {
+        :'hide_incomplete_cost_data' => :'hide_incomplete_cost_data',
         :'type' => :'type',
         :'unit' => :'unit',
         :'value' => :'value'
@@ -46,6 +50,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
+        :'hide_incomplete_cost_data' => :'Boolean',
         :'type' => :'WidgetNewLiveSpanType',
         :'unit' => :'WidgetLiveSpanUnit',
         :'value' => :'Integer'
@@ -69,6 +74,10 @@ module DatadogAPIClient::V1
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'hide_incomplete_cost_data')
+        self.hide_incomplete_cost_data = attributes[:'hide_incomplete_cost_data']
+      end
 
       if attributes.key?(:'type')
         self.type = attributes[:'type']
@@ -153,6 +162,7 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          hide_incomplete_cost_data == o.hide_incomplete_cost_data &&
           type == o.type &&
           unit == o.unit &&
           value == o.value &&
@@ -163,7 +173,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [type, unit, value, additional_properties].hash
+      [hide_incomplete_cost_data, type, unit, value, additional_properties].hash
     end
   end
 end

@@ -22,6 +22,7 @@ body = DatadogAPIClient::V1::Dashboard.new({
           type: DatadogAPIClient::V1::WidgetNewFixedSpanType::FIXED,
           from: 1712080128,
           to: 1712083128,
+          hide_incomplete_cost_data: true,
         }),
         type: DatadogAPIClient::V1::TimeseriesWidgetDefinitionType::TIMESERIES,
         requests: [
