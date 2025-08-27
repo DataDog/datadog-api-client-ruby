@@ -21,6 +21,9 @@ module DatadogAPIClient::V1
   class WidgetLegacyLiveSpan
     include BaseGenericModel
 
+    # Whether to hide incomplete cost data in the widget.
+    attr_accessor :hide_incomplete_cost_data
+
     # The available timeframes depend on the widget you are using.
     attr_accessor :live_span
 
@@ -28,6 +31,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.attribute_map
       {
+        :'hide_incomplete_cost_data' => :'hide_incomplete_cost_data',
         :'live_span' => :'live_span'
       }
     end
@@ -36,6 +40,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
+        :'hide_incomplete_cost_data' => :'Boolean',
         :'live_span' => :'WidgetLiveSpan'
       }
     end
@@ -56,6 +61,10 @@ module DatadogAPIClient::V1
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'hide_incomplete_cost_data')
+        self.hide_incomplete_cost_data = attributes[:'hide_incomplete_cost_data']
+      end
+
       if attributes.key?(:'live_span')
         self.live_span = attributes[:'live_span']
       end
@@ -67,6 +76,7 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          hide_incomplete_cost_data == o.hide_incomplete_cost_data &&
           live_span == o.live_span
     end
 
@@ -74,7 +84,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [live_span].hash
+      [hide_incomplete_cost_data, live_span].hash
     end
   end
 end

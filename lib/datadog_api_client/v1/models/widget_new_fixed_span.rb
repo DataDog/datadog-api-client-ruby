@@ -24,6 +24,9 @@ module DatadogAPIClient::V1
     # Start time in seconds since epoch.
     attr_reader :from
 
+    # Whether to hide incomplete cost data in the widget.
+    attr_accessor :hide_incomplete_cost_data
+
     # End time in seconds since epoch.
     attr_reader :to
 
@@ -37,6 +40,7 @@ module DatadogAPIClient::V1
     def self.attribute_map
       {
         :'from' => :'from',
+        :'hide_incomplete_cost_data' => :'hide_incomplete_cost_data',
         :'to' => :'to',
         :'type' => :'type'
       }
@@ -47,6 +51,7 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'from' => :'Integer',
+        :'hide_incomplete_cost_data' => :'Boolean',
         :'to' => :'Integer',
         :'type' => :'WidgetNewFixedSpanType'
       }
@@ -72,6 +77,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'from')
         self.from = attributes[:'from']
+      end
+
+      if attributes.key?(:'hide_incomplete_cost_data')
+        self.hide_incomplete_cost_data = attributes[:'hide_incomplete_cost_data']
       end
 
       if attributes.key?(:'to')
@@ -158,6 +167,7 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           from == o.from &&
+          hide_incomplete_cost_data == o.hide_incomplete_cost_data &&
           to == o.to &&
           type == o.type &&
           additional_properties == o.additional_properties
@@ -167,7 +177,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [from, to, type, additional_properties].hash
+      [from, hide_incomplete_cost_data, to, type, additional_properties].hash
     end
   end
 end
