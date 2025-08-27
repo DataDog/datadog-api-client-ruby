@@ -9,6 +9,7 @@ api_instance = DatadogAPIClient::V2::DataDeletionAPI.new
 body = DatadogAPIClient::V2::CreateDataDeletionRequestBody.new({
   data: DatadogAPIClient::V2::CreateDataDeletionRequestBodyData.new({
     attributes: DatadogAPIClient::V2::CreateDataDeletionRequestBodyAttributes.new({
+      displayed_total: 25000,
       from: 1672527600000,
       indexes: [
         "test-index",
