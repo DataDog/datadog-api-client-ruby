@@ -265,6 +265,7 @@ module DatadogAPIClient
             "v2.delete_scorecard_rule": false,
             "v2.list_scorecard_outcomes": false,
             "v2.list_scorecard_rules": false,
+            "v2.update_scorecard_outcomes_async": false,
             "v2.update_scorecard_rule": false,
             "v2.create_incident_service": false,
             "v2.delete_incident_service": false,

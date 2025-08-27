@@ -454,6 +454,79 @@ module DatadogAPIClient::V2
         end
     end
 
+    # Update Scorecard outcomes asynchronously.
+    #
+    # @see #update_scorecard_outcomes_async_with_http_info
+    def update_scorecard_outcomes_async(body, opts = {})
+      update_scorecard_outcomes_async_with_http_info(body, opts)
+      nil
+    end
+
+    # Update Scorecard outcomes asynchronously.
+    #
+    # Updates multiple scorecard rule outcomes in a single batched request.
+    #
+    # @param body [UpdateOutcomesAsyncRequest] Set of scorecard outcomes.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def update_scorecard_outcomes_async_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.update_scorecard_outcomes_async".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_scorecard_outcomes_async")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_scorecard_outcomes_async"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ServiceScorecardsAPI.update_scorecard_outcomes_async ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling ServiceScorecardsAPI.update_scorecard_outcomes_async"
+      end
+      # resource path
+      local_var_path = '/api/v2/scorecard/outcomes'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_scorecard_outcomes_async,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ServiceScorecardsAPI#update_scorecard_outcomes_async\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Update an existing rule.
     #
     # @see #update_scorecard_rule_with_http_info
