@@ -63,9 +63,6 @@ module DatadogAPIClient::V1
     # Variables to replace in the test.
     attr_accessor :variables
 
-    # The version number of the Synthetic test version to trigger.
-    attr_accessor :version
-
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -85,8 +82,7 @@ module DatadogAPIClient::V1
         :'public_id' => :'public_id',
         :'_retry' => :'retry',
         :'start_url' => :'startUrl',
-        :'variables' => :'variables',
-        :'version' => :'version'
+        :'variables' => :'variables'
       }
     end
 
@@ -107,8 +103,7 @@ module DatadogAPIClient::V1
         :'public_id' => :'String',
         :'_retry' => :'SyntheticsTestOptionsRetry',
         :'start_url' => :'String',
-        :'variables' => :'Hash<String, String>',
-        :'version' => :'Integer'
+        :'variables' => :'Hash<String, String>'
       }
     end
 
@@ -189,10 +184,6 @@ module DatadogAPIClient::V1
       if attributes.key?(:'variables')
         self.variables = attributes[:'variables']
       end
-
-      if attributes.key?(:'version')
-        self.version = attributes[:'version']
-      end
     end
 
     # Check to see if the all the properties in the model are valid
@@ -253,7 +244,6 @@ module DatadogAPIClient::V1
           _retry == o._retry &&
           start_url == o.start_url &&
           variables == o.variables &&
-          version == o.version &&
           additional_properties == o.additional_properties
     end
 
@@ -261,7 +251,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [allow_insecure_certificates, basic_auth, body, body_type, cookies, device_ids, follow_redirects, headers, locations, metadata, public_id, _retry, start_url, variables, version, additional_properties].hash
+      [allow_insecure_certificates, basic_auth, body, body_type, cookies, device_ids, follow_redirects, headers, locations, metadata, public_id, _retry, start_url, variables, additional_properties].hash
     end
   end
 end
