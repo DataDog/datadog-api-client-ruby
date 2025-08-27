@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class CreateDataDeletionRequestBodyAttributes
     include BaseGenericModel
 
+    # The total number of elements to be deleted that the UI shows to the user.
+    attr_reader :displayed_total
+
     # Start of requested time window, milliseconds since Unix epoch.
     attr_reader :from
 
@@ -39,6 +42,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'displayed_total' => :'displayed_total',
         :'from' => :'from',
         :'indexes' => :'indexes',
         :'query' => :'query',
@@ -50,6 +54,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'displayed_total' => :'Integer',
         :'from' => :'Integer',
         :'indexes' => :'Array<String>',
         :'query' => :'Hash<String, String>',
@@ -75,6 +80,10 @@ module DatadogAPIClient::V2
         end
       }
 
+      if attributes.key?(:'displayed_total')
+        self.displayed_total = attributes[:'displayed_total']
+      end
+
       if attributes.key?(:'from')
         self.from = attributes[:'from']
       end
@@ -98,10 +107,21 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
+      return false if @displayed_total.nil?
       return false if @from.nil?
       return false if @query.nil?
       return false if @to.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param displayed_total [Object] Object to be assigned
+    # @!visibility private
+    def displayed_total=(displayed_total)
+      if displayed_total.nil?
+        fail ArgumentError, 'invalid value for "displayed_total", displayed_total cannot be nil.'
+      end
+      @displayed_total = displayed_total
     end
 
     # Custom attribute writer method with validation
@@ -160,6 +180,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          displayed_total == o.displayed_total &&
           from == o.from &&
           indexes == o.indexes &&
           query == o.query &&
@@ -171,7 +192,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [from, indexes, query, to, additional_properties].hash
+      [displayed_total, from, indexes, query, to, additional_properties].hash
     end
   end
 end

@@ -54,6 +54,9 @@ module DatadogAPIClient::V2
     # End of requested time window, milliseconds since Unix epoch.
     attr_reader :to_time
 
+    # Total number of elements to be deleted according to the UI.
+    attr_reader :total_displayed
+
     # Total number of elements to be deleted. Only the data accessible to the current user that matches the query and timeframe provided will be deleted.
     attr_reader :total_unrestricted
 
@@ -77,6 +80,7 @@ module DatadogAPIClient::V2
         :'starting_at' => :'starting_at',
         :'status' => :'status',
         :'to_time' => :'to_time',
+        :'total_displayed' => :'total_displayed',
         :'total_unrestricted' => :'total_unrestricted',
         :'updated_at' => :'updated_at'
       }
@@ -97,6 +101,7 @@ module DatadogAPIClient::V2
         :'starting_at' => :'String',
         :'status' => :'String',
         :'to_time' => :'Integer',
+        :'total_displayed' => :'Integer',
         :'total_unrestricted' => :'Integer',
         :'updated_at' => :'String'
       }
@@ -166,6 +171,10 @@ module DatadogAPIClient::V2
         self.to_time = attributes[:'to_time']
       end
 
+      if attributes.key?(:'total_displayed')
+        self.total_displayed = attributes[:'total_displayed']
+      end
+
       if attributes.key?(:'total_unrestricted')
         self.total_unrestricted = attributes[:'total_unrestricted']
       end
@@ -189,6 +198,7 @@ module DatadogAPIClient::V2
       return false if @starting_at.nil?
       return false if @status.nil?
       return false if @to_time.nil?
+      return false if @total_displayed.nil?
       return false if @total_unrestricted.nil?
       return false if @updated_at.nil?
       true
@@ -295,6 +305,16 @@ module DatadogAPIClient::V2
     end
 
     # Custom attribute writer method with validation
+    # @param total_displayed [Object] Object to be assigned
+    # @!visibility private
+    def total_displayed=(total_displayed)
+      if total_displayed.nil?
+        fail ArgumentError, 'invalid value for "total_displayed", total_displayed cannot be nil.'
+      end
+      @total_displayed = total_displayed
+    end
+
+    # Custom attribute writer method with validation
     # @param total_unrestricted [Object] Object to be assigned
     # @!visibility private
     def total_unrestricted=(total_unrestricted)
@@ -351,6 +371,7 @@ module DatadogAPIClient::V2
           starting_at == o.starting_at &&
           status == o.status &&
           to_time == o.to_time &&
+          total_displayed == o.total_displayed &&
           total_unrestricted == o.total_unrestricted &&
           updated_at == o.updated_at &&
           additional_properties == o.additional_properties
@@ -360,7 +381,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created_at, created_by, from_time, indexes, is_created, org_id, product, query, starting_at, status, to_time, total_unrestricted, updated_at, additional_properties].hash
+      [created_at, created_by, from_time, indexes, is_created, org_id, product, query, starting_at, status, to_time, total_displayed, total_unrestricted, updated_at, additional_properties].hash
     end
   end
 end
