@@ -1,0 +1,20 @@
+http_interactions:
+- recorded_at: Tue, 26 Aug 2025 20:19:36 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/org_connections/malformed_id
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":["connection id must be a valid uuid"]}'
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 400
+      message: Bad Request
+recorded_with: VCR 6.0.0
