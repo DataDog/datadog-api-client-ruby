@@ -1,12 +1,12 @@
 http_interactions:
-- recorded_at: Tue, 22 Jul 2025 14:56:49 GMT
+- recorded_at: Thu, 28 Aug 2025 16:14:27 GMT
   request:
     body: null
     headers:
       Accept:
       - application/json
     method: GET
-    uri: https://api.datadoghq.com/api/v1/synthetics/tests/search?text=tag%3Avalue&include_full_config=true&search_suites=true&facets_only=true&start=10&count=5&sort=name%2Cdesc
+    uri: https://api.datadoghq.com/api/v1/synthetics/tests/search?text=tag%3Avalue&include_full_config=true&search_suites=true&facets_only=true&count=5&sort=name%2Cdesc
   response:
     body:
       encoding: UTF-8

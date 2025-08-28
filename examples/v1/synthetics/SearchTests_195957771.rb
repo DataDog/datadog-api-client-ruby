@@ -7,7 +7,6 @@ opts = {
   include_full_config: true,
   search_suites: true,
   facets_only: true,
-  start: 10,
   count: 5,
   sort: "name,desc",
 }
