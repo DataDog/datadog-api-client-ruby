@@ -100,7 +100,7 @@ module DatadogAPIClient::V2
 
     # Delete an existing Action Connection.
     #
-    # Delete an existing Action Connection. This API requires a [registered application key](https://docs.datadoghq.com/api/latest/action-connection/#register-a-new-app-key).
+    # Delete an existing Action Connection. This API requires a [registered application key](https://docs.datadoghq.com/api/latest/action-connection/#register-a-new-app-key). Alternatively, you can configure these permissions [in the UI](https://docs.datadoghq.com/account_management/api-app-keys/#actions-api-access).
     #
     # @param connection_id [String] The ID of the action connection
     # @param opts [Hash] the optional parameters
