@@ -1,0 +1,21 @@
+http_interactions:
+- recorded_at: Wed, 27 Aug 2025 13:04:35 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+    method: GET
+    uri: https://api.datadoghq.com/api/v2/agentless_scanning/accounts/aws/not-an-account-id
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"title":"Generic Error","detail":"missing or invalid url
+        parameter ''accountId'', expected 12 digit format ''123456789012''"}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 400
+      message: Bad Request
+recorded_with: VCR 6.0.0
