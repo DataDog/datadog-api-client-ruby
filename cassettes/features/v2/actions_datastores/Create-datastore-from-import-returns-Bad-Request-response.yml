@@ -1,0 +1,28 @@
+http_interactions:
+- recorded_at: Fri, 29 Aug 2025 21:35:03 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"name":"datastore-name","primary_column_name":"0invalid_name","values":[{"primaryKey":"key1","value":{"data":"example
+        data 1","key":"value"}},{"primaryKey":"key2","value":{"data":"example data
+        2","key":"value"}}]},"type":"datastores"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/actions-datastores/import
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"status":"400","id":"996818df-5080-4cfd-bd5a-44c995871c30","title":"datastore
+        configuration invalid","detail":"column name ''0invalid_name'' does not start
+        with a letter or an underscore"}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 400
+      message: Bad Request
+recorded_with: VCR 6.0.0
