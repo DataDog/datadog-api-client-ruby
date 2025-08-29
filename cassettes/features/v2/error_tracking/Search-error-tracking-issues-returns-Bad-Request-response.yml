@@ -1,0 +1,26 @@
+http_interactions:
+- recorded_at: Fri, 29 Aug 2025 12:59:23 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"from":1671612804000,"query":"service:orders-*
+        AND @language:go","to":1671620004000,"track":"invalid-track"},"type":"search_request"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/error-tracking/issues/search
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"status":"400","title":"Bad Request","detail":"invalid
+        json value for TrackType: invalid-track"}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 400
+      message: Bad Request
+recorded_with: VCR 6.0.0
