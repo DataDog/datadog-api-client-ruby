@@ -1679,6 +1679,22 @@ ScenariosModelMappings = {
             "page_offset" => "Integer",
             "page_limit" => "Integer",
     },
+    "v2.SearchIssues" => {
+            "include" => "Array<SearchIssuesIncludeQueryParameterItem>",
+            "body" => "IssuesSearchRequest",
+    },
+    "v2.GetIssue" => {
+            "issue_id" => "String",
+            "include" => "Array<GetIssueIncludeQueryParameterItem>",
+    },
+    "v2.UpdateIssueAssignee" => {
+            "issue_id" => "String",
+            "body" => "IssueUpdateAssigneeRequest",
+    },
+    "v2.UpdateIssueState" => {
+            "issue_id" => "String",
+            "body" => "IssueUpdateStateRequest",
+    },
     "v2.ListEvents" => {
             "filter_query" => "String",
             "filter_from" => "String",
