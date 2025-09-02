@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class MetricTagConfigurationCreateAttributes
     include BaseGenericModel
 
-    # Deprecated. You no longer need to configure specific time and space aggregations for Metrics Without Limits.
+    # Deprecated. You no longer need to configure specific time and space aggregations for Metrics without Limits™.
     attr_accessor :aggregations
 
     # When set to true, the configuration will exclude the configured tags and include any other submitted tags.
