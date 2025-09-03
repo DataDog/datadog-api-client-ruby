@@ -1899,6 +1899,167 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get a hist signal's details.
+    #
+    # @see #get_security_monitoring_histsignal_with_http_info
+    def get_security_monitoring_histsignal(histsignal_id, opts = {})
+      data, _status_code, _headers = get_security_monitoring_histsignal_with_http_info(histsignal_id, opts)
+      data
+    end
+
+    # Get a hist signal's details.
+    #
+    # Get a hist signal's details.
+    #
+    # @param histsignal_id [String] The ID of the historical signal.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SecurityMonitoringSignalResponse, Integer, Hash)>] SecurityMonitoringSignalResponse data, response status code and response headers
+    def get_security_monitoring_histsignal_with_http_info(histsignal_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_security_monitoring_histsignal".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_security_monitoring_histsignal")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_security_monitoring_histsignal"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_security_monitoring_histsignal ...'
+      end
+      # verify the required parameter 'histsignal_id' is set
+      if @api_client.config.client_side_validation && histsignal_id.nil?
+        fail ArgumentError, "Missing the required parameter 'histsignal_id' when calling SecurityMonitoringAPI.get_security_monitoring_histsignal"
+      end
+      # resource path
+      local_var_path = '/api/v2/siem-historical-detections/histsignals/{histsignal_id}'.sub('{histsignal_id}', CGI.escape(histsignal_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityMonitoringSignalResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_security_monitoring_histsignal,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#get_security_monitoring_histsignal\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get a job's hist signals.
+    #
+    # @see #get_security_monitoring_histsignals_by_job_id_with_http_info
+    def get_security_monitoring_histsignals_by_job_id(job_id, opts = {})
+      data, _status_code, _headers = get_security_monitoring_histsignals_by_job_id_with_http_info(job_id, opts)
+      data
+    end
+
+    # Get a job's hist signals.
+    #
+    # Get a job's hist signals.
+    #
+    # @param job_id [String] The ID of the job.
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :filter_query The search query for security signals.
+    # @option opts [Time] :filter_from The minimum timestamp for requested security signals.
+    # @option opts [Time] :filter_to The maximum timestamp for requested security signals.
+    # @option opts [SecurityMonitoringSignalsSort] :sort The order of the security signals in results.
+    # @option opts [String] :page_cursor A list of results using the cursor provided in the previous query.
+    # @option opts [Integer] :page_limit The maximum number of security signals in the response.
+    # @return [Array<(SecurityMonitoringSignalsListResponse, Integer, Hash)>] SecurityMonitoringSignalsListResponse data, response status code and response headers
+    def get_security_monitoring_histsignals_by_job_id_with_http_info(job_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_security_monitoring_histsignals_by_job_id".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_security_monitoring_histsignals_by_job_id")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_security_monitoring_histsignals_by_job_id"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_security_monitoring_histsignals_by_job_id ...'
+      end
+      # verify the required parameter 'job_id' is set
+      if @api_client.config.client_side_validation && job_id.nil?
+        fail ArgumentError, "Missing the required parameter 'job_id' when calling SecurityMonitoringAPI.get_security_monitoring_histsignals_by_job_id"
+      end
+      allowable_values = ['timestamp', '-timestamp']
+      if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
+        fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_limit'].nil? && opts[:'page_limit'] > 1000
+        fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling SecurityMonitoringAPI.get_security_monitoring_histsignals_by_job_id, must be smaller than or equal to 1000.'
+      end
+      # resource path
+      local_var_path = '/api/v2/siem-historical-detections/jobs/{job_id}/histsignals'.sub('{job_id}', CGI.escape(job_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter[query]'] = opts[:'filter_query'] if !opts[:'filter_query'].nil?
+      query_params[:'filter[from]'] = opts[:'filter_from'] if !opts[:'filter_from'].nil?
+      query_params[:'filter[to]'] = opts[:'filter_to'] if !opts[:'filter_to'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+      query_params[:'page[cursor]'] = opts[:'page_cursor'] if !opts[:'page_cursor'].nil?
+      query_params[:'page[limit]'] = opts[:'page_limit'] if !opts[:'page_limit'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityMonitoringSignalsListResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_security_monitoring_histsignals_by_job_id,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#get_security_monitoring_histsignals_by_job_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get a rule's details.
     #
     # @see #get_security_monitoring_rule_with_http_info
@@ -2894,6 +3055,91 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # List hist signals.
+    #
+    # @see #list_security_monitoring_histsignals_with_http_info
+    def list_security_monitoring_histsignals(opts = {})
+      data, _status_code, _headers = list_security_monitoring_histsignals_with_http_info(opts)
+      data
+    end
+
+    # List hist signals.
+    #
+    # List hist signals.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :filter_query The search query for security signals.
+    # @option opts [Time] :filter_from The minimum timestamp for requested security signals.
+    # @option opts [Time] :filter_to The maximum timestamp for requested security signals.
+    # @option opts [SecurityMonitoringSignalsSort] :sort The order of the security signals in results.
+    # @option opts [String] :page_cursor A list of results using the cursor provided in the previous query.
+    # @option opts [Integer] :page_limit The maximum number of security signals in the response.
+    # @return [Array<(SecurityMonitoringSignalsListResponse, Integer, Hash)>] SecurityMonitoringSignalsListResponse data, response status code and response headers
+    def list_security_monitoring_histsignals_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_security_monitoring_histsignals".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_security_monitoring_histsignals")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_security_monitoring_histsignals"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.list_security_monitoring_histsignals ...'
+      end
+      allowable_values = ['timestamp', '-timestamp']
+      if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
+        fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_limit'].nil? && opts[:'page_limit'] > 1000
+        fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling SecurityMonitoringAPI.list_security_monitoring_histsignals, must be smaller than or equal to 1000.'
+      end
+      # resource path
+      local_var_path = '/api/v2/siem-historical-detections/histsignals'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter[query]'] = opts[:'filter_query'] if !opts[:'filter_query'].nil?
+      query_params[:'filter[from]'] = opts[:'filter_from'] if !opts[:'filter_from'].nil?
+      query_params[:'filter[to]'] = opts[:'filter_to'] if !opts[:'filter_to'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+      query_params[:'page[cursor]'] = opts[:'page_cursor'] if !opts[:'page_cursor'].nil?
+      query_params[:'page[limit]'] = opts[:'page_limit'] if !opts[:'page_limit'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityMonitoringSignalsListResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_security_monitoring_histsignals,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#list_security_monitoring_histsignals\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List rules.
     #
     # @see #list_security_monitoring_rules_with_http_info
@@ -3809,6 +4055,75 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SecurityMonitoringAPI#run_historical_job\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Search hist signals.
+    #
+    # @see #search_security_monitoring_histsignals_with_http_info
+    def search_security_monitoring_histsignals(opts = {})
+      data, _status_code, _headers = search_security_monitoring_histsignals_with_http_info(opts)
+      data
+    end
+
+    # Search hist signals.
+    #
+    # Search hist signals.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [SecurityMonitoringSignalListRequest] :body 
+    # @return [Array<(SecurityMonitoringSignalsListResponse, Integer, Hash)>] SecurityMonitoringSignalsListResponse data, response status code and response headers
+    def search_security_monitoring_histsignals_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.search_security_monitoring_histsignals".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.search_security_monitoring_histsignals")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.search_security_monitoring_histsignals"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.search_security_monitoring_histsignals ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/siem-historical-detections/histsignals/search'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'body'])
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityMonitoringSignalsListResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :search_security_monitoring_histsignals,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#search_security_monitoring_histsignals\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

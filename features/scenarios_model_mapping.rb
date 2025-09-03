@@ -1437,6 +1437,20 @@ ScenariosModelMappings = {
             "signal_id" => "String",
             "body" => "SecurityMonitoringSignalStateUpdateRequest",
     },
+    "v2.ListSecurityMonitoringHistsignals" => {
+            "filter_query" => "String",
+            "filter_from" => "Time",
+            "filter_to" => "Time",
+            "sort" => "SecurityMonitoringSignalsSort",
+            "page_cursor" => "String",
+            "page_limit" => "Integer",
+    },
+    "v2.SearchSecurityMonitoringHistsignals" => {
+            "body" => "SecurityMonitoringSignalListRequest",
+    },
+    "v2.GetSecurityMonitoringHistsignal" => {
+            "histsignal_id" => "String",
+    },
     "v2.ListHistoricalJobs" => {
             "page_size" => "Integer",
             "page_number" => "Integer",
@@ -1457,6 +1471,15 @@ ScenariosModelMappings = {
     },
     "v2.CancelHistoricalJob" => {
             "job_id" => "String",
+    },
+    "v2.GetSecurityMonitoringHistsignalsByJobId" => {
+            "job_id" => "String",
+            "filter_query" => "String",
+            "filter_from" => "Time",
+            "filter_to" => "Time",
+            "sort" => "SecurityMonitoringSignalsSort",
+            "page_cursor" => "String",
+            "page_limit" => "Integer",
     },
     "v2.ListContainerImages" => {
             "filter_tags" => "String",
