@@ -21,6 +21,9 @@ module DatadogAPIClient::V1
   class SyntheticsAPIWaitStep
     include BaseGenericModel
 
+    # ID of the step.
+    attr_accessor :id
+
     # The name of the step.
     attr_reader :name
 
@@ -36,6 +39,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.attribute_map
       {
+        :'id' => :'id',
         :'name' => :'name',
         :'subtype' => :'subtype',
         :'value' => :'value'
@@ -46,6 +50,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
+        :'id' => :'String',
         :'name' => :'String',
         :'subtype' => :'SyntheticsAPIWaitStepSubtype',
         :'value' => :'Integer'
@@ -69,6 +74,10 @@ module DatadogAPIClient::V1
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
+      end
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
@@ -157,6 +166,7 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          id == o.id &&
           name == o.name &&
           subtype == o.subtype &&
           value == o.value &&
@@ -167,7 +177,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [name, subtype, value, additional_properties].hash
+      [id, name, subtype, value, additional_properties].hash
     end
   end
 end
