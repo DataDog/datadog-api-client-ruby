@@ -1671,6 +1671,9 @@ ScenariosModelMappings = {
     "v2.ListDORADeployments" => {
             "body" => "DORAListDeploymentsRequest",
     },
+    "v2.DeleteDORADeployment" => {
+            "deployment_id" => "String",
+    },
     "v2.GetDORADeployment" => {
             "deployment_id" => "String",
     },
@@ -1679,6 +1682,9 @@ ScenariosModelMappings = {
     },
     "v2.ListDORAFailures" => {
             "body" => "DORAListFailuresRequest",
+    },
+    "v2.DeleteDORAFailure" => {
+            "failure_id" => "String",
     },
     "v2.GetDORAFailure" => {
             "failure_id" => "String",
