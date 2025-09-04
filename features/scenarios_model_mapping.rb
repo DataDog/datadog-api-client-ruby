@@ -2309,6 +2309,16 @@ ScenariosModelMappings = {
     "v2.UploadIdPMetadata" => {
             "idp_file" => "File",
     },
+    "v2.CreateOrgConnections" => {
+            "body" => "OrgConnectionCreateRequest",
+    },
+    "v2.DeleteOrgConnections" => {
+            "connection_id" => "UUID",
+    },
+    "v2.UpdateOrgConnections" => {
+            "connection_id" => "UUID",
+            "body" => "OrgConnectionUpdateRequest",
+    },
     "v2.ListRoles" => {
             "page_size" => "Integer",
             "page_number" => "Integer",
