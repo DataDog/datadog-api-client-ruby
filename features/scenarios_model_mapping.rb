@@ -1361,7 +1361,7 @@ ScenariosModelMappings = {
             "rule_id" => "String",
     },
     "v2.ValidateSecurityMonitoringSuppression" => {
-            "body" => "SecurityMonitoringSuppressionUpdateRequest",
+            "body" => "SecurityMonitoringSuppressionCreateRequest",
     },
     "v2.DeleteSecurityMonitoringSuppression" => {
             "suppression_id" => "String",

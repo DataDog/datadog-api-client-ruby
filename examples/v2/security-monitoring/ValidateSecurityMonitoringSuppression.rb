@@ -3,9 +3,9 @@
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::SecurityMonitoringAPI.new
 
-body = DatadogAPIClient::V2::SecurityMonitoringSuppressionUpdateRequest.new({
-  data: DatadogAPIClient::V2::SecurityMonitoringSuppressionUpdateData.new({
-    attributes: DatadogAPIClient::V2::SecurityMonitoringSuppressionUpdateAttributes.new({
+body = DatadogAPIClient::V2::SecurityMonitoringSuppressionCreateRequest.new({
+  data: DatadogAPIClient::V2::SecurityMonitoringSuppressionCreateData.new({
+    attributes: DatadogAPIClient::V2::SecurityMonitoringSuppressionCreateAttributes.new({
       data_exclusion_query: "source:cloudtrail account_id:12345",
       description: "This rule suppresses low-severity signals in staging environments.",
       enabled: true,
