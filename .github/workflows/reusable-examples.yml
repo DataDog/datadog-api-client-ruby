@@ -1,0 +1,45 @@
+name: Reusable Examples Workflow
+
+on:
+  workflow_call:
+    inputs:
+      target-branch:
+        description: 'Branch to checkout and test (defaults to the calling branch)'
+        required: false
+        type: string
+        default: ''
+      examples-script:
+        description: 'Examples script to execute'
+        required: false
+        type: string
+        default: './check-examples.sh'
+      cache-version:
+        description: 'Cache version for gem dependencies'
+        required: false
+        type: string
+        default: ''
+
+jobs:
+  examples:
+    runs-on: ubuntu-latest
+    if: >
+      (github.event.pull_request.draft == false &&
+       !contains(github.event.pull_request.labels.*.name, 'ci/skip') &&
+       !contains(github.event.pull_request.head.ref, 'datadog-api-spec/test/')) ||
+      github.event_name == 'schedule'
+    env:
+      DD_PROFILING_NO_EXTENSION: true
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          repository: DataDog/datadog-api-client-ruby
+          ref: ${{ inputs.target-branch || github.ref }}
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "2.7"
+          bundler-cache: true
+          cache-version: ${{ inputs.cache-version }}
+      - name: Check examples
+        run: ${{ inputs.examples-script }}
+        shell: bash
