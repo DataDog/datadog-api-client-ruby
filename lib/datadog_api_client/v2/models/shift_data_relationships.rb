@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `ShiftDataRelationships` object.
+  # Relationships for an on-call shift.
   class ShiftDataRelationships
     include BaseGenericModel
 

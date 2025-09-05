@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `ShiftData` object.
+  # Data for an on-call shift.
   class ShiftData
     include BaseGenericModel
 
-    # The definition of `ShiftDataAttributes` object.
+    # Attributes for an on-call shift.
     attr_accessor :attributes
 
     # The `ShiftData` `id`.
     attr_accessor :id
 
-    # The definition of `ShiftDataRelationships` object.
+    # Relationships for an on-call shift.
     attr_accessor :relationships
 
     # Indicates that the resource is of type 'shifts'.
