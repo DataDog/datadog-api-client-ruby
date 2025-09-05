@@ -1,0 +1,106 @@
+http_interactions:
+- recorded_at: Fri, 05 Sep 2025 02:19:08 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"description":"Any incidents that harm (or have
+        the potential to) the confidentiality, integrity, or availability of our data.","is_default":false,"name":"Security
+        Incident"},"type":"incident_types"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/incidents/config/types
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"d067e172-1ce4-4b59-ae6e-3f867e98c81e","type":"incident_types","attributes":{"createdAt":"2025-09-05T02:19:08.514411675Z","createdBy":"3ad549bf-eba0-11e9-a77a-0705486660d0","description":"Any
+        incidents that harm (or have the potential to) the confidentiality, integrity,
+        or availability of our data.","is_default":false,"lastModifiedBy":"3ad549bf-eba0-11e9-a77a-0705486660d0","modifiedAt":"2025-09-05T02:19:08.514411774Z","name":"Security
+        Incident","prefix":"IR"},"relationships":{"created_by_user":{"data":{"id":"3ad549bf-eba0-11e9-a77a-0705486660d0","type":"users"}},"google_meet_configuration":{"data":null},"last_modified_by_user":{"data":{"id":"3ad549bf-eba0-11e9-a77a-0705486660d0","type":"users"}},"microsoft_teams_configuration":{"data":null},"zoom_configuration":{"data":null}}}}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 201
+      message: Created
+- recorded_at: Fri, 05 Sep 2025 02:19:08 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"category":"alert","content":"Test notification
+        template","name":"Test Template Test-Delete_incident_notification_template_returns_No_Content_response-1757038748","subject":"Test
+        Subject"},"relationships":{"incident_type":{"data":{"id":"d067e172-1ce4-4b59-ae6e-3f867e98c81e","type":"incident_types"}}},"type":"notification_templates"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/incidents/config/notification-templates
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"15bb5f88-fdc8-45be-9b38-348cb42d421e","type":"notification_templates","attributes":{"category":"alert","content":"Test
+        notification template","created":"2025-09-05T02:19:08.730505Z","modified":"2025-09-05T02:19:08.730505Z","name":"Test
+        Template Test-Delete_incident_notification_template_returns_No_Content_response-1757038748","subject":"Test
+        Subject"},"relationships":{"created_by_user":{"data":{"id":"3ad549bf-eba0-11e9-a77a-0705486660d0","type":"users"}},"incident_type":{"data":{"id":"d067e172-1ce4-4b59-ae6e-3f867e98c81e","type":"incident_types"}},"last_modified_by_user":{"data":{"id":"3ad549bf-eba0-11e9-a77a-0705486660d0","type":"users"}}}}}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 201
+      message: Created
+- recorded_at: Fri, 05 Sep 2025 02:19:08 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/incidents/config/notification-templates/15bb5f88-fdc8-45be-9b38-348cb42d421e
+  response:
+    body:
+      encoding: UTF-8
+      string: ''
+    headers: {}
+    status:
+      code: 204
+      message: No Content
+- recorded_at: Fri, 05 Sep 2025 02:19:08 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/incidents/config/notification-templates/15bb5f88-fdc8-45be-9b38-348cb42d421e
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"status":"404","title":"Not Found"}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 404
+      message: Not Found
+- recorded_at: Fri, 05 Sep 2025 02:19:08 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/incidents/config/types/d067e172-1ce4-4b59-ae6e-3f867e98c81e
+  response:
+    body:
+      encoding: UTF-8
+      string: ''
+    headers: {}
+    status:
+      code: 204
+      message: No Content
+recorded_with: VCR 6.0.0
