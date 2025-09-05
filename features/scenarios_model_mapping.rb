@@ -2153,6 +2153,10 @@ ScenariosModelMappings = {
             "body" => "MetricPayload",
     },
     "v2.GetMonitorNotificationRules" => {
+            "page" => "Integer",
+            "per_page" => "Integer",
+            "sort" => "String",
+            "filters" => "String",
             "include" => "String",
     },
     "v2.CreateMonitorNotificationRule" => {
