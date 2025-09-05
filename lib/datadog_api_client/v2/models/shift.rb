@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `Shift` object.
+  # An on-call shift with its associated data and relationships.
   class Shift
     include BaseGenericModel
 
-    # The definition of `ShiftData` object.
+    # Data for an on-call shift.
     attr_accessor :data
 
     # The `Shift` `included`.
