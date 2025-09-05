@@ -17,12 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Relationships for an on-call shift.
-  class ShiftDataRelationships
+  # Org connection attributes.
+  class OrgConnectionAttributes
     include BaseGenericModel
 
-    # Defines the relationship between a shift and the user who is working that shift.
-    attr_accessor :user
+    # List of connection types.
+    attr_reader :connection_types
+
+    # Timestamp when the connection was created.
+    attr_reader :created_at
 
     attr_accessor :additional_properties
 
@@ -30,7 +33,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'user' => :'user'
+        :'connection_types' => :'connection_types',
+        :'created_at' => :'created_at'
       }
     end
 
@@ -38,7 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'user' => :'ShiftDataRelationshipsUser'
+        :'connection_types' => :'Array<OrgConnectionTypeEnum>',
+        :'created_at' => :'Time'
       }
     end
 
@@ -47,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ShiftDataRelationships` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::OrgConnectionAttributes` initialize method"
       end
 
       self.additional_properties = {}
@@ -60,9 +65,44 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'user')
-        self.user = attributes[:'user']
+      if attributes.key?(:'connection_types')
+        if (value = attributes[:'connection_types']).is_a?(Array)
+          self.connection_types = value
+        end
       end
+
+      if attributes.key?(:'created_at')
+        self.created_at = attributes[:'created_at']
+      end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @connection_types.nil?
+      return false if @created_at.nil?
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param connection_types [Object] Object to be assigned
+    # @!visibility private
+    def connection_types=(connection_types)
+      if connection_types.nil?
+        fail ArgumentError, 'invalid value for "connection_types", connection_types cannot be nil.'
+      end
+      @connection_types = connection_types
+    end
+
+    # Custom attribute writer method with validation
+    # @param created_at [Object] Object to be assigned
+    # @!visibility private
+    def created_at=(created_at)
+      if created_at.nil?
+        fail ArgumentError, 'invalid value for "created_at", created_at cannot be nil.'
+      end
+      @created_at = created_at
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -91,7 +131,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          user == o.user &&
+          connection_types == o.connection_types &&
+          created_at == o.created_at &&
           additional_properties == o.additional_properties
     end
 
@@ -99,7 +140,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [user, additional_properties].hash
+      [connection_types, created_at, additional_properties].hash
     end
   end
 end

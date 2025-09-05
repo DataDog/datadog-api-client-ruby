@@ -17,12 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Relationships for an on-call shift.
-  class ShiftDataRelationships
+  # Response containing a single org connection.
+  class OrgConnectionResponse
     include BaseGenericModel
 
-    # Defines the relationship between a shift and the user who is working that shift.
-    attr_accessor :user
+    # An org connection.
+    attr_reader :data
 
     attr_accessor :additional_properties
 
@@ -30,7 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'user' => :'user'
+        :'data' => :'data'
       }
     end
 
@@ -38,7 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'user' => :'ShiftDataRelationshipsUser'
+        :'data' => :'OrgConnection'
       }
     end
 
@@ -47,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ShiftDataRelationships` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::OrgConnectionResponse` initialize method"
       end
 
       self.additional_properties = {}
@@ -60,9 +60,27 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'user')
-        self.user = attributes[:'user']
+      if attributes.key?(:'data')
+        self.data = attributes[:'data']
       end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @data.nil?
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param data [Object] Object to be assigned
+    # @!visibility private
+    def data=(data)
+      if data.nil?
+        fail ArgumentError, 'invalid value for "data", data cannot be nil.'
+      end
+      @data = data
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -91,7 +109,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          user == o.user &&
+          data == o.data &&
           additional_properties == o.additional_properties
     end
 
@@ -99,7 +117,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [user, additional_properties].hash
+      [data, additional_properties].hash
     end
   end
 end

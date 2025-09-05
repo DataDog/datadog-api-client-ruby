@@ -17,12 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Relationships for an on-call shift.
-  class ShiftDataRelationships
+  # Org connection creation data.
+  class OrgConnectionCreate
     include BaseGenericModel
 
-    # Defines the relationship between a shift and the user who is working that shift.
-    attr_accessor :user
+    # Attributes for creating an org connection.
+    attr_reader :attributes
+
+    # Relationships for org connection creation.
+    attr_reader :relationships
+
+    # Org connection type.
+    attr_reader :type
 
     attr_accessor :additional_properties
 
@@ -30,7 +36,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'user' => :'user'
+        :'attributes' => :'attributes',
+        :'relationships' => :'relationships',
+        :'type' => :'type'
       }
     end
 
@@ -38,7 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'user' => :'ShiftDataRelationshipsUser'
+        :'attributes' => :'OrgConnectionCreateAttributes',
+        :'relationships' => :'OrgConnectionCreateRelationships',
+        :'type' => :'OrgConnectionType'
       }
     end
 
@@ -47,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ShiftDataRelationships` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::OrgConnectionCreate` initialize method"
       end
 
       self.additional_properties = {}
@@ -60,9 +70,57 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'user')
-        self.user = attributes[:'user']
+      if attributes.key?(:'attributes')
+        self.attributes = attributes[:'attributes']
       end
+
+      if attributes.key?(:'relationships')
+        self.relationships = attributes[:'relationships']
+      end
+
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
+      end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @attributes.nil?
+      return false if @relationships.nil?
+      return false if @type.nil?
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param attributes [Object] Object to be assigned
+    # @!visibility private
+    def attributes=(attributes)
+      if attributes.nil?
+        fail ArgumentError, 'invalid value for "attributes", attributes cannot be nil.'
+      end
+      @attributes = attributes
+    end
+
+    # Custom attribute writer method with validation
+    # @param relationships [Object] Object to be assigned
+    # @!visibility private
+    def relationships=(relationships)
+      if relationships.nil?
+        fail ArgumentError, 'invalid value for "relationships", relationships cannot be nil.'
+      end
+      @relationships = relationships
+    end
+
+    # Custom attribute writer method with validation
+    # @param type [Object] Object to be assigned
+    # @!visibility private
+    def type=(type)
+      if type.nil?
+        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+      end
+      @type = type
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -91,7 +149,9 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          user == o.user &&
+          attributes == o.attributes &&
+          relationships == o.relationships &&
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -99,7 +159,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [user, additional_properties].hash
+      [attributes, relationships, type, additional_properties].hash
     end
   end
 end

@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `ShiftIncluded` object.
+  # Included data for shift operations.
   module ShiftIncluded
     class << self
       include BaseOneOfModel

@@ -1361,7 +1361,7 @@ ScenariosModelMappings = {
             "rule_id" => "String",
     },
     "v2.ValidateSecurityMonitoringSuppression" => {
-            "body" => "SecurityMonitoringSuppressionUpdateRequest",
+            "body" => "SecurityMonitoringSuppressionCreateRequest",
     },
     "v2.DeleteSecurityMonitoringSuppression" => {
             "suppression_id" => "String",
@@ -2153,6 +2153,10 @@ ScenariosModelMappings = {
             "body" => "MetricPayload",
     },
     "v2.GetMonitorNotificationRules" => {
+            "page" => "Integer",
+            "per_page" => "Integer",
+            "sort" => "String",
+            "filters" => "String",
             "include" => "String",
     },
     "v2.CreateMonitorNotificationRule" => {
@@ -2308,6 +2312,16 @@ ScenariosModelMappings = {
     },
     "v2.UploadIdPMetadata" => {
             "idp_file" => "File",
+    },
+    "v2.CreateOrgConnections" => {
+            "body" => "OrgConnectionCreateRequest",
+    },
+    "v2.DeleteOrgConnections" => {
+            "connection_id" => "UUID",
+    },
+    "v2.UpdateOrgConnections" => {
+            "connection_id" => "UUID",
+            "body" => "OrgConnectionUpdateRequest",
     },
     "v2.ListRoles" => {
             "page_size" => "Integer",

@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `ShiftDataAttributes` object.
+  # Attributes for an on-call shift.
   class ShiftDataAttributes
     include BaseGenericModel
 

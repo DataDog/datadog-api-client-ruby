@@ -17,12 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Relationships for an on-call shift.
-  class ShiftDataRelationships
+  # Pagination metadata.
+  class OrgConnectionListResponseMeta
     include BaseGenericModel
 
-    # Defines the relationship between a shift and the user who is working that shift.
-    attr_accessor :user
+    # Page information.
+    attr_accessor :page
 
     attr_accessor :additional_properties
 
@@ -30,7 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'user' => :'user'
+        :'page' => :'page'
       }
     end
 
@@ -38,7 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'user' => :'ShiftDataRelationshipsUser'
+        :'page' => :'OrgConnectionListResponseMetaPage'
       }
     end
 
@@ -47,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ShiftDataRelationships` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::OrgConnectionListResponseMeta` initialize method"
       end
 
       self.additional_properties = {}
@@ -60,8 +60,8 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'user')
-        self.user = attributes[:'user']
+      if attributes.key?(:'page')
+        self.page = attributes[:'page']
       end
     end
 
@@ -91,7 +91,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          user == o.user &&
+          page == o.page &&
           additional_properties == o.additional_properties
     end
 
@@ -99,7 +99,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [user, additional_properties].hash
+      [page, additional_properties].hash
     end
   end
 end

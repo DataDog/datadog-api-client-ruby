@@ -17,12 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Relationships for an on-call shift.
-  class ShiftDataRelationships
+  # Related organizations and user.
+  class OrgConnectionRelationships
     include BaseGenericModel
 
-    # Defines the relationship between a shift and the user who is working that shift.
-    attr_accessor :user
+    # User relationship.
+    attr_accessor :created_by
+
+    # Org relationship.
+    attr_accessor :sink_org
+
+    # Org relationship.
+    attr_accessor :source_org
 
     attr_accessor :additional_properties
 
@@ -30,7 +36,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'user' => :'user'
+        :'created_by' => :'created_by',
+        :'sink_org' => :'sink_org',
+        :'source_org' => :'source_org'
       }
     end
 
@@ -38,7 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'user' => :'ShiftDataRelationshipsUser'
+        :'created_by' => :'OrgConnectionUserRelationship',
+        :'sink_org' => :'OrgConnectionOrgRelationship',
+        :'source_org' => :'OrgConnectionOrgRelationship'
       }
     end
 
@@ -47,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ShiftDataRelationships` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::OrgConnectionRelationships` initialize method"
       end
 
       self.additional_properties = {}
@@ -60,8 +70,16 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'user')
-        self.user = attributes[:'user']
+      if attributes.key?(:'created_by')
+        self.created_by = attributes[:'created_by']
+      end
+
+      if attributes.key?(:'sink_org')
+        self.sink_org = attributes[:'sink_org']
+      end
+
+      if attributes.key?(:'source_org')
+        self.source_org = attributes[:'source_org']
       end
     end
 
@@ -91,7 +109,9 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          user == o.user &&
+          created_by == o.created_by &&
+          sink_org == o.sink_org &&
+          source_org == o.source_org &&
           additional_properties == o.additional_properties
     end
 
@@ -99,7 +119,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [user, additional_properties].hash
+      [created_by, sink_org, source_org, additional_properties].hash
     end
   end
 end

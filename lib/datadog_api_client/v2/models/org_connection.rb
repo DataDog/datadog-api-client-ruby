@@ -17,20 +17,20 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Data for an on-call shift.
-  class ShiftData
+  # An org connection.
+  class OrgConnection
     include BaseGenericModel
 
-    # Attributes for an on-call shift.
-    attr_accessor :attributes
+    # Org connection attributes.
+    attr_reader :attributes
 
-    # The `ShiftData` `id`.
-    attr_accessor :id
+    # The unique identifier of the org connection.
+    attr_reader :id
 
-    # Relationships for an on-call shift.
-    attr_accessor :relationships
+    # Related organizations and user.
+    attr_reader :relationships
 
-    # Indicates that the resource is of type 'shifts'.
+    # Org connection type.
     attr_reader :type
 
     attr_accessor :additional_properties
@@ -50,10 +50,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'ShiftDataAttributes',
-        :'id' => :'String',
-        :'relationships' => :'ShiftDataRelationships',
-        :'type' => :'ShiftDataType'
+        :'attributes' => :'OrgConnectionAttributes',
+        :'id' => :'UUID',
+        :'relationships' => :'OrgConnectionRelationships',
+        :'type' => :'OrgConnectionType'
       }
     end
 
@@ -62,7 +62,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ShiftData` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::OrgConnection` initialize method"
       end
 
       self.additional_properties = {}
@@ -96,8 +96,41 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
+      return false if @attributes.nil?
+      return false if @id.nil?
+      return false if @relationships.nil?
       return false if @type.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param attributes [Object] Object to be assigned
+    # @!visibility private
+    def attributes=(attributes)
+      if attributes.nil?
+        fail ArgumentError, 'invalid value for "attributes", attributes cannot be nil.'
+      end
+      @attributes = attributes
+    end
+
+    # Custom attribute writer method with validation
+    # @param id [Object] Object to be assigned
+    # @!visibility private
+    def id=(id)
+      if id.nil?
+        fail ArgumentError, 'invalid value for "id", id cannot be nil.'
+      end
+      @id = id
+    end
+
+    # Custom attribute writer method with validation
+    # @param relationships [Object] Object to be assigned
+    # @!visibility private
+    def relationships=(relationships)
+      if relationships.nil?
+        fail ArgumentError, 'invalid value for "relationships", relationships cannot be nil.'
+      end
+      @relationships = relationships
     end
 
     # Custom attribute writer method with validation
