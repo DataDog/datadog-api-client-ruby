@@ -1,0 +1,61 @@
+http_interactions:
+- recorded_at: Thu, 04 Sep 2025 09:11:58 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: "{\"data\":{\"attributes\":{\"description\":\"Worldwide case type\"\
+        ,\"emoji\":\"\U0001F30D\",\"name\":\"World\"},\"type\":\"case_type\"}}"
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/cases/types
+  response:
+    body:
+      encoding: UTF-8
+      string: "{\"data\":{\"id\":\"cf9dfa09-a302-428a-83c0-cd9a61ca3308\",\"type\"\
+        :\"case_type\",\"attributes\":{\"description\":\"Worldwide case type\",\"\
+        emoji\":\"\U0001F30D\",\"name\":\"World\"}}}"
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 201
+      message: Created
+- recorded_at: Thu, 04 Sep 2025 09:11:58 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+    method: GET
+    uri: https://api.datadoghq.com/api/v2/cases/types/cf9dfa09-a302-428a-83c0-cd9a61ca3308/custom_attributes
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":[]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 200
+      message: OK
+- recorded_at: Thu, 04 Sep 2025 09:11:58 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/cases/types/cf9dfa09-a302-428a-83c0-cd9a61ca3308
+  response:
+    body:
+      encoding: UTF-8
+      string: ''
+    headers: {}
+    status:
+      code: 204
+      message: No Content
+recorded_with: VCR 6.0.0

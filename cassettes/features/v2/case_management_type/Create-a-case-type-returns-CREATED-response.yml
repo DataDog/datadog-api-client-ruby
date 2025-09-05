@@ -1,0 +1,44 @@
+http_interactions:
+- recorded_at: Thu, 04 Sep 2025 09:10:57 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: "{\"data\":{\"attributes\":{\"description\":\"Investigations done in\
+        \ case management\",\"emoji\":\"\U0001F451\",\"name\":\"Investigation\"},\"\
+        type\":\"case_type\"}}"
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/cases/types
+  response:
+    body:
+      encoding: UTF-8
+      string: "{\"data\":{\"id\":\"fd1c8062-ecc0-4b79-b466-3ab057b54018\",\"type\"\
+        :\"case_type\",\"attributes\":{\"description\":\"Investigations done in case\
+        \ management\",\"emoji\":\"\U0001F451\",\"name\":\"Investigation\"}}}"
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 201
+      message: Created
+- recorded_at: Thu, 04 Sep 2025 09:10:57 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/cases/types/fd1c8062-ecc0-4b79-b466-3ab057b54018
+  response:
+    body:
+      encoding: UTF-8
+      string: ''
+    headers: {}
+    status:
+      code: 204
+      message: No Content
+recorded_with: VCR 6.0.0
