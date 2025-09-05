@@ -576,6 +576,10 @@ module DatadogAPIClient::V2
     # Returns a list of all monitor notification rules.
     #
     # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :page The page to start paginating from. If `page` is not specified, the argument defaults to the first page.
+    # @option opts [Integer] :per_page The number of rules to return per page. If `per_page` is not specified, the argument defaults to 100.
+    # @option opts [String] :sort String for sort order, composed of field and sort order separated by a colon, for example `name:asc`. Supported sort directions: `asc`, `desc`. Supported fields: `name`, `created_at`.
+    # @option opts [String] :filters JSON-encoded filter object. Supported keys: * `text`: Free-text query matched against rule name, tags, and recipients. * `tags`: Array of strings. Return rules that have any of these tags. * `recipients`: Array of strings. Return rules that have any of these recipients.
     # @option opts [String] :include Comma-separated list of resource paths for related resources to include in the response. Supported resource path is `created_by`.
     # @return [Array<(MonitorNotificationRuleListResponse, Integer, Hash)>] MonitorNotificationRuleListResponse data, response status code and response headers
     def get_monitor_notification_rules_with_http_info(opts = {})
@@ -583,11 +587,27 @@ module DatadogAPIClient::V2
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MonitorsAPI.get_monitor_notification_rules ...'
       end
+      if @api_client.config.client_side_validation && !opts[:'page'].nil? && opts[:'page'] > 1000000
+        fail ArgumentError, 'invalid value for "opts[:"page"]" when calling MonitorsAPI.get_monitor_notification_rules, must be smaller than or equal to 1000000.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page'].nil? && opts[:'page'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"page"]" when calling MonitorsAPI.get_monitor_notification_rules, must be greater than or equal to 0.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'per_page'].nil? && opts[:'per_page'] > 1000
+        fail ArgumentError, 'invalid value for "opts[:"per_page"]" when calling MonitorsAPI.get_monitor_notification_rules, must be smaller than or equal to 1000.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'per_page'].nil? && opts[:'per_page'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"per_page"]" when calling MonitorsAPI.get_monitor_notification_rules, must be greater than or equal to 1.'
+      end
       # resource path
       local_var_path = '/api/v2/monitor/notification_rule'
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
+      query_params[:'per_page'] = opts[:'per_page'] if !opts[:'per_page'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+      query_params[:'filters'] = opts[:'filters'] if !opts[:'filters'].nil?
       query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
 
       # header parameters
