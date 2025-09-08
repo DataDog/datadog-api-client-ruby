@@ -17,20 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Incident type response data.
-  class IncidentTypeObject
+  # Notification template data for an update request.
+  class IncidentNotificationTemplateUpdateData
     include BaseGenericModel
 
-    # Incident type's attributes.
+    # The attributes to update on a notification template.
     attr_accessor :attributes
 
-    # The incident type's ID.
+    # The unique identifier of the notification template.
     attr_reader :id
 
-    # The incident type's resource relationships.
-    attr_accessor :relationships
-
-    # Incident type resource type.
+    # Notification templates resource type.
     attr_reader :type
 
     attr_accessor :additional_properties
@@ -41,7 +38,6 @@ module DatadogAPIClient::V2
       {
         :'attributes' => :'attributes',
         :'id' => :'id',
-        :'relationships' => :'relationships',
         :'type' => :'type'
       }
     end
@@ -50,10 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'IncidentTypeAttributes',
-        :'id' => :'String',
-        :'relationships' => :'IncidentTypeRelationships',
-        :'type' => :'IncidentTypeType'
+        :'attributes' => :'IncidentNotificationTemplateUpdateAttributes',
+        :'id' => :'UUID',
+        :'type' => :'IncidentNotificationTemplateType'
       }
     end
 
@@ -62,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::IncidentTypeObject` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::IncidentNotificationTemplateUpdateData` initialize method"
       end
 
       self.additional_properties = {}
@@ -81,10 +76,6 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'id')
         self.id = attributes[:'id']
-      end
-
-      if attributes.key?(:'relationships')
-        self.relationships = attributes[:'relationships']
       end
 
       if attributes.key?(:'type')
@@ -149,7 +140,6 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           attributes == o.attributes &&
           id == o.id &&
-          relationships == o.relationships &&
           type == o.type &&
           additional_properties == o.additional_properties
     end
@@ -158,7 +148,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, id, relationships, type, additional_properties].hash
+      [attributes, id, type, additional_properties].hash
     end
   end
 end
