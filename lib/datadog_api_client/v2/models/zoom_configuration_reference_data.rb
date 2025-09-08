@@ -17,20 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Incident type response data.
-  class IncidentTypeObject
+  # The Zoom configuration relationship data object.
+  class ZoomConfigurationReferenceData
     include BaseGenericModel
 
-    # Incident type's attributes.
-    attr_accessor :attributes
-
-    # The incident type's ID.
+    # The unique identifier of the Zoom configuration.
     attr_reader :id
 
-    # The incident type's resource relationships.
-    attr_accessor :relationships
-
-    # Incident type resource type.
+    # The type of the Zoom configuration.
     attr_reader :type
 
     attr_accessor :additional_properties
@@ -39,9 +33,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'attributes' => :'attributes',
         :'id' => :'id',
-        :'relationships' => :'relationships',
         :'type' => :'type'
       }
     end
@@ -50,10 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'IncidentTypeAttributes',
         :'id' => :'String',
-        :'relationships' => :'IncidentTypeRelationships',
-        :'type' => :'IncidentTypeType'
+        :'type' => :'String'
       }
     end
 
@@ -62,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::IncidentTypeObject` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ZoomConfigurationReferenceData` initialize method"
       end
 
       self.additional_properties = {}
@@ -75,16 +65,8 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'attributes')
-        self.attributes = attributes[:'attributes']
-      end
-
       if attributes.key?(:'id')
         self.id = attributes[:'id']
-      end
-
-      if attributes.key?(:'relationships')
-        self.relationships = attributes[:'relationships']
       end
 
       if attributes.key?(:'type')
@@ -147,9 +129,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          attributes == o.attributes &&
           id == o.id &&
-          relationships == o.relationships &&
           type == o.type &&
           additional_properties == o.additional_properties
     end
@@ -158,7 +138,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, id, relationships, type, additional_properties].hash
+      [id, type, additional_properties].hash
     end
   end
 end

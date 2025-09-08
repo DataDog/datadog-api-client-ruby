@@ -17,20 +17,20 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Incident type response data.
-  class IncidentTypeObject
+  # Notification template data from a response.
+  class IncidentNotificationTemplateResponseData
     include BaseGenericModel
 
-    # Incident type's attributes.
+    # The notification template's attributes.
     attr_accessor :attributes
 
-    # The incident type's ID.
+    # The unique identifier of the notification template.
     attr_reader :id
 
-    # The incident type's resource relationships.
+    # The notification template's resource relationships.
     attr_accessor :relationships
 
-    # Incident type resource type.
+    # Notification templates resource type.
     attr_reader :type
 
     attr_accessor :additional_properties
@@ -50,10 +50,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'IncidentTypeAttributes',
-        :'id' => :'String',
-        :'relationships' => :'IncidentTypeRelationships',
-        :'type' => :'IncidentTypeType'
+        :'attributes' => :'IncidentNotificationTemplateAttributes',
+        :'id' => :'UUID',
+        :'relationships' => :'IncidentNotificationTemplateRelationships',
+        :'type' => :'IncidentNotificationTemplateType'
       }
     end
 
@@ -62,7 +62,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::IncidentTypeObject` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::IncidentNotificationTemplateResponseData` initialize method"
       end
 
       self.additional_properties = {}
