@@ -319,10 +319,13 @@ module DatadogAPIClient::V1
     #
     # Enable automatic log collection for a list of services. This should be run after running `CreateAWSLambdaARN` to save the configuration.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param body [AWSLogsServicesRequest] Enable AWS Log Services request body.
     # @param opts [Hash] the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def enable_aws_log_services_with_http_info(body, opts = {})
+      warn "[DEPRECATION] `EnableAWSLogServices` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AWSLogsIntegrationAPI.enable_aws_log_services ...'
@@ -386,9 +389,12 @@ module DatadogAPIClient::V1
     #
     # List all Datadog-AWS Logs integrations configured in your Datadog account.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param opts [Hash] the optional parameters
     # @return [Array<(Array<AWSLogsListResponse>, Integer, Hash)>] Array<AWSLogsListResponse> data, response status code and response headers
     def list_aws_logs_integrations_with_http_info(opts = {})
+      warn "[DEPRECATION] `ListAWSLogsIntegrations` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AWSLogsIntegrationAPI.list_aws_logs_integrations ...'
@@ -446,9 +452,12 @@ module DatadogAPIClient::V1
     #
     # Get the list of current AWS services that Datadog offers automatic log collection. Use returned service IDs with the services parameter for the Enable an AWS service log collection API endpoint.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param opts [Hash] the optional parameters
     # @return [Array<(Array<AWSLogsListServicesResponse>, Integer, Hash)>] Array<AWSLogsListServicesResponse> data, response status code and response headers
     def list_aws_logs_services_with_http_info(opts = {})
+      warn "[DEPRECATION] `ListAWSLogsServices` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AWSLogsIntegrationAPI.list_aws_logs_services ...'
