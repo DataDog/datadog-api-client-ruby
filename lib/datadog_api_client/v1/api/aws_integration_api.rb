@@ -38,10 +38,13 @@ module DatadogAPIClient::V1
     # by adding your new configuration to the existing one in your Datadog organization.
     # A unique AWS Account ID for role based authentication.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param body [AWSAccount] AWS Request Object
     # @param opts [Hash] the optional parameters
     # @return [Array<(AWSAccountCreateResponse, Integer, Hash)>] AWSAccountCreateResponse data, response status code and response headers
     def create_aws_account_with_http_info(body, opts = {})
+      warn "[DEPRECATION] `CreateAWSAccount` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AWSIntegrationAPI.create_aws_account ...'
@@ -172,10 +175,13 @@ module DatadogAPIClient::V1
     #
     # Set an AWS tag filter.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param body [AWSTagFilterCreateRequest] Set an AWS tag filter using an `aws_account_identifier`, `namespace`, and filtering string. Namespace options are `application_elb`, `elb`, `lambda`, `network_elb`, `rds`, `sqs`, and `custom`.
     # @param opts [Hash] the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def create_aws_tag_filter_with_http_info(body, opts = {})
+      warn "[DEPRECATION] `CreateAWSTagFilter` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AWSIntegrationAPI.create_aws_tag_filter ...'
@@ -239,10 +245,13 @@ module DatadogAPIClient::V1
     #
     # Generate a new AWS external ID for a given AWS account ID and role name pair.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param body [AWSAccount] Your Datadog role delegation name. For more information about your AWS account Role name, see the [Datadog AWS integration configuration info](https://docs.datadoghq.com/integrations/amazon_web_services/#setup).
     # @param opts [Hash] the optional parameters
     # @return [Array<(AWSAccountCreateResponse, Integer, Hash)>] AWSAccountCreateResponse data, response status code and response headers
     def create_new_aws_external_id_with_http_info(body, opts = {})
+      warn "[DEPRECATION] `CreateNewAWSExternalID` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AWSIntegrationAPI.create_new_aws_external_id ...'
@@ -306,10 +315,13 @@ module DatadogAPIClient::V1
     #
     # Delete a Datadog-AWS integration matching the specified `account_id` and `role_name parameters`.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param body [AWSAccountDeleteRequest] AWS request object
     # @param opts [Hash] the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def delete_aws_account_with_http_info(body, opts = {})
+      warn "[DEPRECATION] `DeleteAWSAccount` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AWSIntegrationAPI.delete_aws_account ...'
@@ -440,10 +452,13 @@ module DatadogAPIClient::V1
     #
     # Delete a tag filtering entry.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param body [AWSTagFilterDeleteRequest] Delete a tag filtering entry for a given AWS account and `dd-aws` namespace.
     # @param opts [Hash] the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def delete_aws_tag_filter_with_http_info(body, opts = {})
+      warn "[DEPRECATION] `DeleteAWSTagFilter` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AWSIntegrationAPI.delete_aws_tag_filter ...'
@@ -507,9 +522,12 @@ module DatadogAPIClient::V1
     #
     # List all namespace rules for a given Datadog-AWS integration. This endpoint takes no arguments.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param opts [Hash] the optional parameters
     # @return [Array<(Array<String>, Integer, Hash)>] Array<String> data, response status code and response headers
     def list_available_aws_namespaces_with_http_info(opts = {})
+      warn "[DEPRECATION] `ListAvailableAWSNamespaces` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AWSIntegrationAPI.list_available_aws_namespaces ...'
@@ -567,12 +585,15 @@ module DatadogAPIClient::V1
     #
     # List all Datadog-AWS integrations available in your Datadog organization.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param opts [Hash] the optional parameters
     # @option opts [String] :account_id Only return AWS accounts that matches this `account_id`.
     # @option opts [String] :role_name Only return AWS accounts that matches this role_name.
     # @option opts [String] :access_key_id Only return AWS accounts that matches this `access_key_id`.
     # @return [Array<(AWSAccountListResponse, Integer, Hash)>] AWSAccountListResponse data, response status code and response headers
     def list_aws_accounts_with_http_info(opts = {})
+      warn "[DEPRECATION] `ListAWSAccounts` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AWSIntegrationAPI.list_aws_accounts ...'
@@ -693,10 +714,13 @@ module DatadogAPIClient::V1
     #
     # Get all AWS tag filters.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param account_id [String] Only return AWS filters that matches this `account_id`.
     # @param opts [Hash] the optional parameters
     # @return [Array<(AWSTagFilterListResponse, Integer, Hash)>] AWSTagFilterListResponse data, response status code and response headers
     def list_aws_tag_filters_with_http_info(account_id, opts = {})
+      warn "[DEPRECATION] `ListAWSTagFilters` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AWSIntegrationAPI.list_aws_tag_filters ...'
@@ -759,6 +783,8 @@ module DatadogAPIClient::V1
     #
     # Update a Datadog-Amazon Web Services integration.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param body [AWSAccount] AWS request object
     # @param opts [Hash] the optional parameters
     # @option opts [String] :account_id Only return AWS accounts that matches this `account_id`.
@@ -766,6 +792,7 @@ module DatadogAPIClient::V1
     # @option opts [String] :access_key_id Only return AWS accounts that matches this `access_key_id`. Required if none of the other two options are specified.
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def update_aws_account_with_http_info(body, opts = {})
+      warn "[DEPRECATION] `UpdateAWSAccount` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AWSIntegrationAPI.update_aws_account ...'

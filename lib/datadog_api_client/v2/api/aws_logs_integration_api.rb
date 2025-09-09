@@ -38,12 +38,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(AWSLogsServicesResponse, Integer, Hash)>] AWSLogsServicesResponse data, response status code and response headers
     def list_aws_logs_services_with_http_info(opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.list_aws_logs_services".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_aws_logs_services")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_aws_logs_services"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AWSLogsIntegrationAPI.list_aws_logs_services ...'
