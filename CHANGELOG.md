@@ -1,5 +1,35 @@
 # CHANGELOG
 
+## 2.41.0/2025-09-09
+
+### Added
+* Add Incident Notification Template Public Docs [#2651](https://github.com/DataDog/datadog-api-client-ruby/pull/2651)
+* Add Cross Org API to Open API specs [#2650](https://github.com/DataDog/datadog-api-client-ruby/pull/2650)
+* Add readonly ID of synthetics test steps [#2646](https://github.com/DataDog/datadog-api-client-ruby/pull/2646)
+* Create Cloud SIEM histsignals endpoints [#2645](https://github.com/DataDog/datadog-api-client-ruby/pull/2645)
+* Security Monitoring - Validation Endpoint for Suppressions [#2642](https://github.com/DataDog/datadog-api-client-ruby/pull/2642)
+* Update Get All Notification Rules API docs to include pagination, sorting, and filtering params [#2640](https://github.com/DataDog/datadog-api-client-ruby/pull/2640)
+* Security Monitoring - Related Suppressions for a Rule [#2638](https://github.com/DataDog/datadog-api-client-ruby/pull/2638)
+* Extend Widget time schema with support for hide_incomplete_cost_data [#2625](https://github.com/DataDog/datadog-api-client-ruby/pull/2625)
+* Add SDS rule `should_save_match` field [#2623](https://github.com/DataDog/datadog-api-client-ruby/pull/2623)
+* Add spec for Agentless GetAwsScanOptions [#2620](https://github.com/DataDog/datadog-api-client-ruby/pull/2620)
+* Add DNAP Spark Pod Autosizing service to API client [#2614](https://github.com/DataDog/datadog-api-client-ruby/pull/2614)
+* Add version parameter to synthetic test trigger ci endpoint [#2613](https://github.com/DataDog/datadog-api-client-ruby/pull/2613)
+* Document Error Tracking public APIs [#2611](https://github.com/DataDog/datadog-api-client-ruby/pull/2611)
+* Add docs for 404 not found error in cost-onboarding-api [#2606](https://github.com/DataDog/datadog-api-client-ruby/pull/2606)
+* Adds async Scorecard outcomes batch update endpoint [#2597](https://github.com/DataDog/datadog-api-client-ruby/pull/2597)
+* Update v2 API spec to reflect default AWS metric collection behavior [#2588](https://github.com/DataDog/datadog-api-client-ruby/pull/2588)
+
+### Fixed
+* Security Monitoring - Fix payload of Validation Endpoint for Suppressions [#2647](https://github.com/DataDog/datadog-api-client-ruby/pull/2647)
+* [CCA-938][CCC-883] Audit existing CCM endpoints in OpenAPI spec [#2602](https://github.com/DataDog/datadog-api-client-ruby/pull/2602)
+* Add enum Dataset type to Dataset API spec [#2600](https://github.com/DataDog/datadog-api-client-ruby/pull/2600)
+* Correct Error Response of Metric Tag Cardinalities Endpoint [#2591](https://github.com/DataDog/datadog-api-client-ruby/pull/2591)
+
+### Changed
+* Update public cost permissions [#2622](https://github.com/DataDog/datadog-api-client-ruby/pull/2622)
+* Add Product Scales support to RUM v2 Applications API [#2604](https://github.com/DataDog/datadog-api-client-ruby/pull/2604)
+
 ## 2.40.0/2025-08-12
 
 ### Added
