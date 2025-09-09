@@ -103,6 +103,7 @@ module DatadogAPIClient::V2
     # Send your pipeline event to your Datadog platform over HTTP. For details about how pipeline executions are modeled and what execution types we support, see [Pipeline Data Model And Execution Types](https://docs.datadoghq.com/continuous_integration/guides/pipeline_data_model/).
     #
     # Pipeline events can be submitted with a timestamp that is up to 18 hours in the past.
+    # The duration between the event start and end times cannot exceed 1 year.
     #
     # @param body [CIAppCreatePipelineEventRequest] 
     # @param opts [Hash] the optional parameters
