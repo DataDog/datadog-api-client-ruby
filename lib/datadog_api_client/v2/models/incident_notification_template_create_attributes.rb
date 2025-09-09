@@ -17,21 +17,21 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Incident type response data.
-  class IncidentTypeObject
+  # The attributes for creating a notification template.
+  class IncidentNotificationTemplateCreateAttributes
     include BaseGenericModel
 
-    # Incident type's attributes.
-    attr_accessor :attributes
+    # The category of the notification template.
+    attr_reader :category
 
-    # The incident type's ID.
-    attr_reader :id
+    # The content body of the notification template.
+    attr_reader :content
 
-    # The incident type's resource relationships.
-    attr_accessor :relationships
+    # The name of the notification template.
+    attr_reader :name
 
-    # Incident type resource type.
-    attr_reader :type
+    # The subject line of the notification template.
+    attr_reader :subject
 
     attr_accessor :additional_properties
 
@@ -39,10 +39,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'attributes' => :'attributes',
-        :'id' => :'id',
-        :'relationships' => :'relationships',
-        :'type' => :'type'
+        :'category' => :'category',
+        :'content' => :'content',
+        :'name' => :'name',
+        :'subject' => :'subject'
       }
     end
 
@@ -50,10 +50,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'IncidentTypeAttributes',
-        :'id' => :'String',
-        :'relationships' => :'IncidentTypeRelationships',
-        :'type' => :'IncidentTypeType'
+        :'category' => :'String',
+        :'content' => :'String',
+        :'name' => :'String',
+        :'subject' => :'String'
       }
     end
 
@@ -62,7 +62,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::IncidentTypeObject` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::IncidentNotificationTemplateCreateAttributes` initialize method"
       end
 
       self.additional_properties = {}
@@ -75,20 +75,20 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'attributes')
-        self.attributes = attributes[:'attributes']
+      if attributes.key?(:'category')
+        self.category = attributes[:'category']
       end
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.key?(:'content')
+        self.content = attributes[:'content']
       end
 
-      if attributes.key?(:'relationships')
-        self.relationships = attributes[:'relationships']
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
 
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
+      if attributes.key?(:'subject')
+        self.subject = attributes[:'subject']
       end
     end
 
@@ -96,29 +96,51 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @id.nil?
-      return false if @type.nil?
+      return false if @category.nil?
+      return false if @content.nil?
+      return false if @name.nil?
+      return false if @subject.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param id [Object] Object to be assigned
+    # @param category [Object] Object to be assigned
     # @!visibility private
-    def id=(id)
-      if id.nil?
-        fail ArgumentError, 'invalid value for "id", id cannot be nil.'
+    def category=(category)
+      if category.nil?
+        fail ArgumentError, 'invalid value for "category", category cannot be nil.'
       end
-      @id = id
+      @category = category
     end
 
     # Custom attribute writer method with validation
-    # @param type [Object] Object to be assigned
+    # @param content [Object] Object to be assigned
     # @!visibility private
-    def type=(type)
-      if type.nil?
-        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+    def content=(content)
+      if content.nil?
+        fail ArgumentError, 'invalid value for "content", content cannot be nil.'
       end
-      @type = type
+      @content = content
+    end
+
+    # Custom attribute writer method with validation
+    # @param name [Object] Object to be assigned
+    # @!visibility private
+    def name=(name)
+      if name.nil?
+        fail ArgumentError, 'invalid value for "name", name cannot be nil.'
+      end
+      @name = name
+    end
+
+    # Custom attribute writer method with validation
+    # @param subject [Object] Object to be assigned
+    # @!visibility private
+    def subject=(subject)
+      if subject.nil?
+        fail ArgumentError, 'invalid value for "subject", subject cannot be nil.'
+      end
+      @subject = subject
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -147,10 +169,10 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          attributes == o.attributes &&
-          id == o.id &&
-          relationships == o.relationships &&
-          type == o.type &&
+          category == o.category &&
+          content == o.content &&
+          name == o.name &&
+          subject == o.subject &&
           additional_properties == o.additional_properties
     end
 
@@ -158,7 +180,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, id, relationships, type, additional_properties].hash
+      [category, content, name, subject, additional_properties].hash
     end
   end
 end

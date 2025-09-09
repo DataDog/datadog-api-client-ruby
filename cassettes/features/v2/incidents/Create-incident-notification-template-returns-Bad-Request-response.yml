@@ -1,0 +1,27 @@
+http_interactions:
+- recorded_at: Fri, 05 Sep 2025 02:18:37 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"category":"alert","content":"An incident has
+        been declared. Please join the incident channel for updates.","name":"Test
+        Template","subject":"Incident Alert"},"type":"invalid_type"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/incidents/config/notification-templates
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"status":"400","title":"Bad Request","detail":"got type
+        \"invalid_type\" expected one of \"notification_templates\""}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 400
+      message: Bad Request
+recorded_with: VCR 6.0.0
