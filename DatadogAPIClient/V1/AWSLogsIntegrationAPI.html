@@ -6,7 +6,7 @@
 <title>
   Class: DatadogAPIClient::V1::AWSLogsIntegrationAPI
   
-    &mdash; datadog-api-client 2.30.0.dev.1 documentation
+    &mdash; datadog-api-client 2.41.0 documentation
   
 </title>
 
@@ -352,7 +352,7 @@
 </li>
 
       
-        <li class="public ">
+        <li class="public deprecated">
   <span class="summary_signature">
     
       <a href="#enable_aws_log_services_with_http_info-instance_method" title="#enable_aws_log_services_with_http_info (instance method)">#<strong>enable_aws_log_services_with_http_info</strong>(body, opts = {})  &#x21d2; Array&lt;(Object, Integer, Hash)&gt; </a>
@@ -365,11 +365,11 @@
   
   
   
-  
+  <span class="deprecated note title">deprecated</span>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Enable an AWS Logs integration.</p>
+    <span class="summary_desc"><strong>Deprecated.</strong> <div class='inline'><p>This API is deprecated.</p>
 </div></span>
   
 </li>
@@ -423,7 +423,7 @@
 </li>
 
       
-        <li class="public ">
+        <li class="public deprecated">
   <span class="summary_signature">
     
       <a href="#list_aws_logs_integrations_with_http_info-instance_method" title="#list_aws_logs_integrations_with_http_info (instance method)">#<strong>list_aws_logs_integrations_with_http_info</strong>(opts = {})  &#x21d2; Array&lt;(Array&lt;AWSLogsListResponse&gt;, Integer, Hash)&gt; </a>
@@ -436,11 +436,11 @@
   
   
   
-  
+  <span class="deprecated note title">deprecated</span>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>List all AWS Logs integrations.</p>
+    <span class="summary_desc"><strong>Deprecated.</strong> <div class='inline'><p>This API is deprecated.</p>
 </div></span>
   
 </li>
@@ -469,7 +469,7 @@
 </li>
 
       
-        <li class="public ">
+        <li class="public deprecated">
   <span class="summary_signature">
     
       <a href="#list_aws_logs_services_with_http_info-instance_method" title="#list_aws_logs_services_with_http_info (instance method)">#<strong>list_aws_logs_services_with_http_info</strong>(opts = {})  &#x21d2; Array&lt;(Array&lt;AWSLogsListServicesResponse&gt;, Integer, Hash)&gt; </a>
@@ -482,11 +482,11 @@
   
   
   
-  
+  <span class="deprecated note title">deprecated</span>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Get list of AWS log ready services.</p>
+    <span class="summary_desc"><strong>Deprecated.</strong> <div class='inline'><p>This API is deprecated.</p>
 </div></span>
   
 </li>
@@ -1632,7 +1632,9 @@ in the AWS account.</li>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Enable an AWS Logs integration.</p>
+    <div class="note deprecated"><strong>Deprecated.</strong> <div class='inline'><p>This API is deprecated.</p>
+</div></div>
+<p>Enable an AWS Logs integration.</p>
 
 <p>Enable automatic log collection for a list of services. This should be run after running <code>CreateAWSLambdaARN</code> to save the configuration.</p>
 
@@ -1872,7 +1874,9 @@ in the AWS account.</li>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>List all AWS Logs integrations.</p>
+    <div class="note deprecated"><strong>Deprecated.</strong> <div class='inline'><p>This API is deprecated.</p>
+</div></div>
+<p>List all AWS Logs integrations.</p>
 
 <p>List all Datadog-AWS Logs integrations configured in your Datadog account.</p>
 
@@ -2085,7 +2089,9 @@ in the AWS account.</li>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Get list of AWS log ready services.</p>
+    <div class="note deprecated"><strong>Deprecated.</strong> <div class='inline'><p>This API is deprecated.</p>
+</div></div>
+<p>Get list of AWS log ready services.</p>
 
 <p>Get the list of current AWS services that Datadog offers automatic log collection. Use returned service IDs with the services parameter for the Enable an AWS service log collection API endpoint.</p>
 
@@ -2243,7 +2249,7 @@ in the AWS account.</li>
 </div>
 
       <div id="footer">
-  Generated on Tue Feb 18 21:07:24 2025 by
+  Generated on Tue Sep  9 17:43:50 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>
