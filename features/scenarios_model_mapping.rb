@@ -1752,6 +1752,25 @@ ScenariosModelMappings = {
     "v2.CreateIncident" => {
             "body" => "IncidentCreateRequest",
     },
+    "v2.ListIncidentNotificationRules" => {
+            "include" => "String",
+    },
+    "v2.CreateIncidentNotificationRule" => {
+            "body" => "CreateIncidentNotificationRuleRequest",
+    },
+    "v2.DeleteIncidentNotificationRule" => {
+            "id" => "UUID",
+            "include" => "String",
+    },
+    "v2.GetIncidentNotificationRule" => {
+            "id" => "UUID",
+            "include" => "String",
+    },
+    "v2.UpdateIncidentNotificationRule" => {
+            "id" => "UUID",
+            "include" => "String",
+            "body" => "PutIncidentNotificationRuleRequest",
+    },
     "v2.ListIncidentNotificationTemplates" => {
             "filter_incident_type" => "UUID",
             "include" => "String",
