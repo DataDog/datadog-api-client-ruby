@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class ObservabilityPipelineThrottleProcessor
     include BaseGenericModel
 
+    # The processor passes through all events if it is set to `false`. Defaults to `true`.
+    attr_accessor :enabled
+
     # Optional list of fields used to group events before the threshold has been reached.
     attr_accessor :group_by
 
@@ -48,6 +51,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'enabled' => :'enabled',
         :'group_by' => :'group_by',
         :'id' => :'id',
         :'include' => :'include',
@@ -62,6 +66,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'enabled' => :'Boolean',
         :'group_by' => :'Array<String>',
         :'id' => :'String',
         :'include' => :'String',
@@ -89,6 +94,10 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'enabled')
+        self.enabled = attributes[:'enabled']
+      end
 
       if attributes.key?(:'group_by')
         if (value = attributes[:'group_by']).is_a?(Array)
@@ -222,6 +231,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          enabled == o.enabled &&
           group_by == o.group_by &&
           id == o.id &&
           include == o.include &&
@@ -236,7 +246,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [group_by, id, include, inputs, threshold, type, window, additional_properties].hash
+      [enabled, group_by, id, include, inputs, threshold, type, window, additional_properties].hash
     end
   end
 end

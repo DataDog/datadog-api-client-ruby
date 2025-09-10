@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class ObservabilityPipelineSensitiveDataScannerProcessor
     include BaseGenericModel
 
+    # The processor passes through all events if it is set to `false`. Defaults to `true`.
+    attr_accessor :enabled
+
     # The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
     attr_reader :id
 
@@ -42,6 +45,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'enabled' => :'enabled',
         :'id' => :'id',
         :'include' => :'include',
         :'inputs' => :'inputs',
@@ -54,6 +58,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'enabled' => :'Boolean',
         :'id' => :'String',
         :'include' => :'String',
         :'inputs' => :'Array<String>',
@@ -79,6 +84,10 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'enabled')
+        self.enabled = attributes[:'enabled']
+      end
 
       if attributes.key?(:'id')
         self.id = attributes[:'id']
@@ -193,6 +202,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          enabled == o.enabled &&
           id == o.id &&
           include == o.include &&
           inputs == o.inputs &&
@@ -205,7 +215,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [id, include, inputs, rules, type, additional_properties].hash
+      [enabled, id, include, inputs, rules, type, additional_properties].hash
     end
   end
 end

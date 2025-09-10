@@ -24,6 +24,9 @@ module DatadogAPIClient::V2
     # The action to take on tags with matching keys.
     attr_reader :action
 
+    # The processor passes through all events if it is set to `false`. Defaults to `true`.
+    attr_accessor :enabled
+
     # The unique identifier for this component. Used to reference this component in other parts of the pipeline (for example, as the `input` to downstream components).
     attr_reader :id
 
@@ -49,6 +52,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'action' => :'action',
+        :'enabled' => :'enabled',
         :'id' => :'id',
         :'include' => :'include',
         :'inputs' => :'inputs',
@@ -63,6 +67,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'action' => :'ObservabilityPipelineDatadogTagsProcessorAction',
+        :'enabled' => :'Boolean',
         :'id' => :'String',
         :'include' => :'String',
         :'inputs' => :'Array<String>',
@@ -92,6 +97,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'action')
         self.action = attributes[:'action']
+      end
+
+      if attributes.key?(:'enabled')
+        self.enabled = attributes[:'enabled']
       end
 
       if attributes.key?(:'id')
@@ -234,6 +243,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           action == o.action &&
+          enabled == o.enabled &&
           id == o.id &&
           include == o.include &&
           inputs == o.inputs &&
@@ -247,7 +257,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [action, id, include, inputs, keys, mode, type, additional_properties].hash
+      [action, enabled, id, include, inputs, keys, mode, type, additional_properties].hash
     end
   end
 end

@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class ObservabilityPipelineEnrichmentTableProcessor
     include BaseGenericModel
 
+    # The processor passes through all events if it is set to `false`. Defaults to `true`.
+    attr_accessor :enabled
+
     # Defines a static enrichment table loaded from a CSV file.
     attr_accessor :file
 
@@ -48,6 +51,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'enabled' => :'enabled',
         :'file' => :'file',
         :'geoip' => :'geoip',
         :'id' => :'id',
@@ -62,6 +66,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'enabled' => :'Boolean',
         :'file' => :'ObservabilityPipelineEnrichmentTableFile',
         :'geoip' => :'ObservabilityPipelineEnrichmentTableGeoIp',
         :'id' => :'String',
@@ -89,6 +94,10 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'enabled')
+        self.enabled = attributes[:'enabled']
+      end
 
       if attributes.key?(:'file')
         self.file = attributes[:'file']
@@ -209,6 +218,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          enabled == o.enabled &&
           file == o.file &&
           geoip == o.geoip &&
           id == o.id &&
@@ -223,7 +233,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [file, geoip, id, include, inputs, target, type, additional_properties].hash
+      [enabled, file, geoip, id, include, inputs, target, type, additional_properties].hash
     end
   end
 end

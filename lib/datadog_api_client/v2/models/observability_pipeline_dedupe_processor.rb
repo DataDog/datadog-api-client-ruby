@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class ObservabilityPipelineDedupeProcessor
     include BaseGenericModel
 
+    # The processor passes through all events if it is set to `false`. Defaults to `true`.
+    attr_accessor :enabled
+
     # A list of log field paths to check for duplicates.
     attr_reader :fields
 
@@ -45,6 +48,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'enabled' => :'enabled',
         :'fields' => :'fields',
         :'id' => :'id',
         :'include' => :'include',
@@ -58,6 +62,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'enabled' => :'Boolean',
         :'fields' => :'Array<String>',
         :'id' => :'String',
         :'include' => :'String',
@@ -84,6 +89,10 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'enabled')
+        self.enabled = attributes[:'enabled']
+      end
 
       if attributes.key?(:'fields')
         if (value = attributes[:'fields']).is_a?(Array)
@@ -213,6 +222,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          enabled == o.enabled &&
           fields == o.fields &&
           id == o.id &&
           include == o.include &&
@@ -226,7 +236,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [fields, id, include, inputs, mode, type, additional_properties].hash
+      [enabled, fields, id, include, inputs, mode, type, additional_properties].hash
     end
   end
 end

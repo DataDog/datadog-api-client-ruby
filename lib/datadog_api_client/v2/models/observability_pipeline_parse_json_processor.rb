@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class ObservabilityPipelineParseJSONProcessor
     include BaseGenericModel
 
+    # The processor passes through all events if it is set to `false`. Defaults to `true`.
+    attr_accessor :enabled
+
     # The name of the log field that contains a JSON string.
     attr_reader :field
 
@@ -42,6 +45,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'enabled' => :'enabled',
         :'field' => :'field',
         :'id' => :'id',
         :'include' => :'include',
@@ -54,6 +58,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'enabled' => :'Boolean',
         :'field' => :'String',
         :'id' => :'String',
         :'include' => :'String',
@@ -79,6 +84,10 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'enabled')
+        self.enabled = attributes[:'enabled']
+      end
 
       if attributes.key?(:'field')
         self.field = attributes[:'field']
@@ -191,6 +200,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          enabled == o.enabled &&
           field == o.field &&
           id == o.id &&
           include == o.include &&
@@ -203,7 +213,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [field, id, include, inputs, type, additional_properties].hash
+      [enabled, field, id, include, inputs, type, additional_properties].hash
     end
   end
 end
