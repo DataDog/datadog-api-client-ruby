@@ -1,0 +1,25 @@
+http_interactions:
+- recorded_at: Sat, 06 Sep 2025 19:03:18 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"item_key":"primaryKey"},"type":"items"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/actions-datastores/70b87c26-886f-497a-bd9d-09f53bc9b40c/items
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"status":"404","id":"38b88198-bd74-4494-8571-f689b21cd216","title":"datastore
+        not found"}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 404
+      message: Not Found
+recorded_with: VCR 6.0.0

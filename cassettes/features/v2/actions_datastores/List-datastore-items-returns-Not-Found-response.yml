@@ -1,0 +1,21 @@
+http_interactions:
+- recorded_at: Fri, 05 Sep 2025 22:54:10 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+    method: GET
+    uri: https://api.datadoghq.com/api/v2/actions-datastores/3cfdd0b8-c490-4969-8d51-69add64a70ea/items
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"status":"404","id":"1fe0de3f-9e9c-475b-8cb4-6ea831aa167f","title":"datastore
+        not found"}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 404
+      message: Not Found
+recorded_with: VCR 6.0.0
