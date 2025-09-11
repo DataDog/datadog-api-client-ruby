@@ -27,7 +27,7 @@ module DatadogAPIClient::V2
     # Environment name that was impacted by the failure.
     attr_accessor :env
 
-    # Unix timestamp when the failure finished. It must be in nanoseconds, milliseconds, or seconds, and it should not be older than 1 hour.
+    # Unix timestamp when the failure finished. It must be in nanoseconds, milliseconds, or seconds.
     attr_accessor :finished_at
 
     # Git info for DORA Metrics events.
