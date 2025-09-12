@@ -1324,6 +1324,7 @@ module DatadogAPIClient
           "v2.ci_app_create_pipeline_event_request_attributes" => "CIAppCreatePipelineEventRequestAttributes",
           "v2.ci_app_create_pipeline_event_request_attributes_resource" => "CIAppCreatePipelineEventRequestAttributesResource",
           "v2.ci_app_create_pipeline_event_request_data" => "CIAppCreatePipelineEventRequestData",
+          "v2.ci_app_create_pipeline_event_request_data_single_or_array" => "CIAppCreatePipelineEventRequestDataSingleOrArray",
           "v2.ci_app_create_pipeline_event_request_data_type" => "CIAppCreatePipelineEventRequestDataType",
           "v2.ci_app_event_attributes" => "CIAppEventAttributes",
           "v2.ci_app_git_info" => "CIAppGitInfo",
