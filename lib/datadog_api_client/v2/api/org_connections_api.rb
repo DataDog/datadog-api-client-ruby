@@ -168,6 +168,10 @@ module DatadogAPIClient::V2
     # Returns a list of org connections.
     #
     # @param opts [Hash] the optional parameters
+    # @option opts [String] :sink_org_id The Org ID of the sink org.
+    # @option opts [String] :source_org_id The Org ID of the source org.
+    # @option opts [Integer] :limit The limit of number of entries you want to return. Default is 1000.
+    # @option opts [Integer] :offset The pagination offset which you want to query from. Default is 0.
     # @return [Array<(OrgConnectionListResponse, Integer, Hash)>] OrgConnectionListResponse data, response status code and response headers
     def list_org_connections_with_http_info(opts = {})
 
@@ -179,6 +183,10 @@ module DatadogAPIClient::V2
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'sink_org_id'] = opts[:'sink_org_id'] if !opts[:'sink_org_id'].nil?
+      query_params[:'source_org_id'] = opts[:'source_org_id'] if !opts[:'source_org_id'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

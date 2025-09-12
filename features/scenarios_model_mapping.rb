@@ -2385,6 +2385,12 @@ ScenariosModelMappings = {
     "v2.UploadIdPMetadata" => {
             "idp_file" => "File",
     },
+    "v2.ListOrgConnections" => {
+            "sink_org_id" => "String",
+            "source_org_id" => "String",
+            "limit" => "Integer",
+            "offset" => "Integer",
+    },
     "v2.CreateOrgConnections" => {
             "body" => "OrgConnectionCreateRequest",
     },
