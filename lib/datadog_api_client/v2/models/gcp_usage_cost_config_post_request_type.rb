@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Type of GCP Usage Cost config post request.
+  # Type of Google Cloud Usage Cost config post request.
   class GCPUsageCostConfigPostRequestType
     include BaseEnumModel
 

@@ -1528,10 +1528,29 @@ ScenariosModelMappings = {
             "page_size" => "Integer",
             "page_cursor" => "String",
     },
+    "v2.CreateArbitraryCostRule" => {
+            "body" => "ArbitraryCostUpsertRequest",
+    },
+    "v2.ReorderArbitraryCostRules" => {
+            "body" => "ReorderRuleResourceArray",
+    },
+    "v2.DeleteArbitraryCostRule" => {
+            "rule_id" => "Integer",
+    },
+    "v2.GetArbitraryCostRule" => {
+            "rule_id" => "Integer",
+    },
+    "v2.UpdateArbitraryCostRule" => {
+            "rule_id" => "Integer",
+            "body" => "ArbitraryCostUpsertRequest",
+    },
     "v2.CreateCostAWSCURConfig" => {
             "body" => "AwsCURConfigPostRequest",
     },
     "v2.DeleteCostAWSCURConfig" => {
+            "cloud_account_id" => "Integer",
+    },
+    "v2.GetCostAWSCURConfig" => {
             "cloud_account_id" => "Integer",
     },
     "v2.UpdateCostAWSCURConfig" => {
@@ -1542,6 +1561,9 @@ ScenariosModelMappings = {
             "body" => "AzureUCConfigPostRequest",
     },
     "v2.DeleteCostAzureUCConfig" => {
+            "cloud_account_id" => "Integer",
+    },
+    "v2.GetCostAzureUCConfig" => {
             "cloud_account_id" => "Integer",
     },
     "v2.UpdateCostAzureUCConfigs" => {
@@ -1578,9 +1600,31 @@ ScenariosModelMappings = {
     "v2.DeleteCostGCPUsageCostConfig" => {
             "cloud_account_id" => "Integer",
     },
+    "v2.GetCostGCPUsageCostConfig" => {
+            "cloud_account_id" => "Integer",
+    },
     "v2.UpdateCostGCPUsageCostConfig" => {
             "cloud_account_id" => "Integer",
             "body" => "GCPUsageCostConfigPatchRequest",
+    },
+    "v2.CreateRuleset" => {
+            "body" => "CreateRulesetRequest",
+    },
+    "v2.ReorderRulesets" => {
+            "body" => "ReorderRulesetResourceArray",
+    },
+    "v2.ValidateQuery" => {
+            "body" => "RulesValidateQueryRequest",
+    },
+    "v2.DeleteRuleset" => {
+            "ruleset_id" => "String",
+    },
+    "v2.GetRuleset" => {
+            "ruleset_id" => "String",
+    },
+    "v2.UpdateRuleset" => {
+            "ruleset_id" => "String",
+            "body" => "UpdateRulesetRequest",
     },
     "v2.GetMonthlyCostAttribution" => {
             "start_month" => "Time",

@@ -1,4 +1,4 @@
-# Delete Cloud Cost Management GCP Usage Cost config returns "No Content" response
+# Delete Google Cloud Usage Cost config returns "No Content" response
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::CloudCostManagementAPI.new

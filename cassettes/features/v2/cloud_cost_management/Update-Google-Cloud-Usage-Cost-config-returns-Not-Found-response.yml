@@ -10,7 +10,7 @@ http_interactions:
       Content-Type:
       - application/json
     method: PATCH
-    uri: https://api.datadoghq.com/api/v2/cost/gcp_uc_config/12345678
+    uri: https://api.datadoghq.com/api/v2/cost/gcp_uc_config/123456
   response:
     body:
       encoding: UTF-8

@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # GCP Usage Cost config.
+  # Google Cloud Usage Cost config.
   class GCPUsageCostConfig
     include BaseGenericModel
 
-    # Attributes for a GCP Usage Cost config.
+    # Attributes for a Google Cloud Usage Cost config.
     attr_reader :attributes
 
-    # The ID of the GCP Usage Cost config.
+    # The ID of the Google Cloud Usage Cost config.
     attr_accessor :id
 
-    # Type of GCP Usage Cost config.
+    # Type of Google Cloud Usage Cost config.
     attr_reader :type
 
     attr_accessor :additional_properties

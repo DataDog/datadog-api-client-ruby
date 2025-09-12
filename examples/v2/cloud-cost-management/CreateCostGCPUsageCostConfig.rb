@@ -1,4 +1,4 @@
-# Create Cloud Cost Management GCP Usage Cost config returns "OK" response
+# Create Google Cloud Usage Cost config returns "OK" response
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::CloudCostManagementAPI.new
