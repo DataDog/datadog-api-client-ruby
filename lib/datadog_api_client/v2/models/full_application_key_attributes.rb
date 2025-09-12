@@ -30,6 +30,9 @@ module DatadogAPIClient::V2
     # The last four characters of the application key.
     attr_reader :last4
 
+    # Last usage timestamp of the application key.
+    attr_accessor :last_used_at
+
     # Name of the application key.
     attr_accessor :name
 
@@ -45,6 +48,7 @@ module DatadogAPIClient::V2
         :'created_at' => :'created_at',
         :'key' => :'key',
         :'last4' => :'last4',
+        :'last_used_at' => :'last_used_at',
         :'name' => :'name',
         :'scopes' => :'scopes'
       }
@@ -57,6 +61,7 @@ module DatadogAPIClient::V2
         :'created_at' => :'Time',
         :'key' => :'String',
         :'last4' => :'String',
+        :'last_used_at' => :'Time',
         :'name' => :'String',
         :'scopes' => :'Array<String>'
       }
@@ -66,6 +71,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_nullable
       Set.new([
+        :'last_used_at',
         :'scopes',
       ])
     end
@@ -98,6 +104,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'last4')
         self.last4 = attributes[:'last4']
+      end
+
+      if attributes.key?(:'last_used_at')
+        self.last_used_at = attributes[:'last_used_at']
       end
 
       if attributes.key?(:'name')
@@ -162,6 +172,7 @@ module DatadogAPIClient::V2
           created_at == o.created_at &&
           key == o.key &&
           last4 == o.last4 &&
+          last_used_at == o.last_used_at &&
           name == o.name &&
           scopes == o.scopes &&
           additional_properties == o.additional_properties
@@ -171,7 +182,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created_at, key, last4, name, scopes, additional_properties].hash
+      [created_at, key, last4, last_used_at, name, scopes, additional_properties].hash
     end
   end
 end
