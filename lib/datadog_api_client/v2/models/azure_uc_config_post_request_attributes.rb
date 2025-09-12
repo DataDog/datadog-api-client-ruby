@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class AzureUCConfigPostRequestAttributes
     include BaseGenericModel
 
-    # The tenant ID of the azure account.
+    # The tenant ID of the Azure account.
     attr_reader :account_id
 
     # Bill config.
@@ -30,11 +30,8 @@ module DatadogAPIClient::V2
     # Bill config.
     attr_reader :amortized_bill_config
 
-    # The client ID of the azure account.
+    # The client ID of the Azure account.
     attr_reader :client_id
-
-    # Whether or not the Cloud Cost Management account is enabled.
-    attr_accessor :is_enabled
 
     # The scope of your observed subscription.
     attr_reader :scope
@@ -49,7 +46,6 @@ module DatadogAPIClient::V2
         :'actual_bill_config' => :'actual_bill_config',
         :'amortized_bill_config' => :'amortized_bill_config',
         :'client_id' => :'client_id',
-        :'is_enabled' => :'is_enabled',
         :'scope' => :'scope'
       }
     end
@@ -62,7 +58,6 @@ module DatadogAPIClient::V2
         :'actual_bill_config' => :'BillConfig',
         :'amortized_bill_config' => :'BillConfig',
         :'client_id' => :'String',
-        :'is_enabled' => :'Boolean',
         :'scope' => :'String'
       }
     end
@@ -99,10 +94,6 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'client_id')
         self.client_id = attributes[:'client_id']
-      end
-
-      if attributes.key?(:'is_enabled')
-        self.is_enabled = attributes[:'is_enabled']
       end
 
       if attributes.key?(:'scope')
@@ -202,7 +193,6 @@ module DatadogAPIClient::V2
           actual_bill_config == o.actual_bill_config &&
           amortized_bill_config == o.amortized_bill_config &&
           client_id == o.client_id &&
-          is_enabled == o.is_enabled &&
           scope == o.scope &&
           additional_properties == o.additional_properties
     end
@@ -211,7 +201,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [account_id, actual_bill_config, amortized_bill_config, client_id, is_enabled, scope, additional_properties].hash
+      [account_id, actual_bill_config, amortized_bill_config, client_id, scope, additional_properties].hash
     end
   end
 end

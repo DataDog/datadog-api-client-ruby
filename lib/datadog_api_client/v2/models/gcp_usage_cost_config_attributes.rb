@@ -17,47 +17,47 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes for a GCP Usage Cost config.
+  # Attributes for a Google Cloud Usage Cost config.
   class GCPUsageCostConfigAttributes
     include BaseGenericModel
 
-    # The GCP account ID.
+    # The Google Cloud account ID.
     attr_reader :account_id
 
-    # The GCP bucket name used to store the Usage Cost export.
+    # The Google Cloud bucket name used to store the Usage Cost export.
     attr_reader :bucket_name
 
-    # The timestamp when the GCP Usage Cost config was created.
+    # The timestamp when the Google Cloud Usage Cost config was created.
     attr_reader :created_at
 
-    # The export dataset name used for the GCP Usage Cost Report.
+    # The export dataset name used for the Google Cloud Usage Cost Report.
     attr_reader :dataset
 
-    # The error messages for the GCP Usage Cost config.
+    # The error messages for the Google Cloud Usage Cost config.
     attr_accessor :error_messages
 
-    # The export prefix used for the GCP Usage Cost Report.
+    # The export prefix used for the Google Cloud Usage Cost Report.
     attr_reader :export_prefix
 
-    # The name of the GCP Usage Cost Report.
+    # The name of the Google Cloud Usage Cost Report.
     attr_reader :export_project_name
 
     # The number of months the report has been backfilled.
     attr_reader :months
 
-    # The `project_id` of the GCP Usage Cost report.
+    # The `project_id` of the Google Cloud Usage Cost report.
     attr_accessor :project_id
 
-    # The unique GCP service account email.
+    # The unique Google Cloud service account email.
     attr_reader :service_account
 
-    # The status of the GCP Usage Cost config.
+    # The status of the Google Cloud Usage Cost config.
     attr_reader :status
 
-    # The timestamp when the GCP Usage Cost config status was updated.
+    # The timestamp when the Google Cloud Usage Cost config status was updated.
     attr_reader :status_updated_at
 
-    # The timestamp when the GCP Usage Cost config status was updated.
+    # The timestamp when the Google Cloud Usage Cost config status was updated.
     attr_reader :updated_at
 
     attr_accessor :additional_properties

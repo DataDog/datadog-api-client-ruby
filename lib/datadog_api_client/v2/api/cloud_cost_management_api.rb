@@ -23,6 +23,85 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
+    # Create arbitrary cost rule.
+    #
+    # @see #create_arbitrary_cost_rule_with_http_info
+    def create_arbitrary_cost_rule(body, opts = {})
+      data, _status_code, _headers = create_arbitrary_cost_rule_with_http_info(body, opts)
+      data
+    end
+
+    # Create arbitrary cost rule.
+    #
+    # Create a new arbitrary cost rule with the specified filters and allocation strategy.
+    #
+    # **Strategy Methods:**
+    # - **PROPORTIONAL/EVEN**: Allocates costs proportionally/evenly based on existing costs. Requires: granularity, allocated_by_tag_keys. Optional: based_on_costs, allocated_by_filters, evaluate_grouped_by_tag_keys, evaluate_grouped_by_filters.
+    # - **PROPORTIONAL_TIMESERIES/EVEN_TIMESERIES**: Allocates based on timeseries data. Requires: granularity, based_on_timeseries. Optional: evaluate_grouped_by_tag_keys.
+    # - **PERCENT**: Allocates fixed percentages to specific tags. Requires: allocated_by (array of percentage allocations).
+    #
+    # **Filter Conditions:**
+    # - Use **value** for single-value conditions: "is", "is not", "contains", "does not contain", "=", "!=", "like", "not like", "is all values", "is untagged"
+    # - Use **values** for multi-value conditions: "in", "not in"
+    # - Cannot use both value and values simultaneously.
+    #
+    # **Supported operators**: is, is not, is all values, is untagged, contains, does not contain, in, not in, =, !=, like, not like
+    #
+    # @param body [ArbitraryCostUpsertRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(ArbitraryRuleResponse, Integer, Hash)>] ArbitraryRuleResponse data, response status code and response headers
+    def create_arbitrary_cost_rule_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.create_arbitrary_cost_rule ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CloudCostManagementAPI.create_arbitrary_cost_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/arbitrary_rule'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ArbitraryRuleResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_arbitrary_cost_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#create_arbitrary_cost_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create Cloud Cost Management AWS CUR config.
     #
     # @see #create_cost_awscur_config_with_http_info
@@ -37,7 +116,7 @@ module DatadogAPIClient::V2
     #
     # @param body [AwsCURConfigPostRequest] 
     # @param opts [Hash] the optional parameters
-    # @return [Array<(AwsCURConfigResponse, Integer, Hash)>] AwsCURConfigResponse data, response status code and response headers
+    # @return [Array<(AwsCurConfigResponse, Integer, Hash)>] AwsCurConfigResponse data, response status code and response headers
     def create_cost_awscur_config_with_http_info(body, opts = {})
 
       if @api_client.config.debugging
@@ -67,7 +146,7 @@ module DatadogAPIClient::V2
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'AwsCURConfigResponse'
+      return_type = opts[:debug_return_type] || 'AwsCurConfigResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
@@ -157,7 +236,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Create Cloud Cost Management GCP Usage Cost config.
+    # Create Google Cloud Usage Cost config.
     #
     # @see #create_cost_gcp_usage_cost_config_with_http_info
     def create_cost_gcp_usage_cost_config(body, opts = {})
@@ -165,9 +244,9 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Create Cloud Cost Management GCP Usage Cost config.
+    # Create Google Cloud Usage Cost config.
     #
-    # Create a Cloud Cost Management account for an GCP Usage Cost config.
+    # Create a Cloud Cost Management account for an Google Cloud Usage Cost config.
     #
     # @param body [GCPUsageCostConfigPostRequest] 
     # @param opts [Hash] the optional parameters
@@ -220,6 +299,138 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CloudCostManagementAPI#create_cost_gcp_usage_cost_config\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create ruleset.
+    #
+    # @see #create_ruleset_with_http_info
+    def create_ruleset(body, opts = {})
+      data, _status_code, _headers = create_ruleset_with_http_info(body, opts)
+      data
+    end
+
+    # Create ruleset.
+    #
+    # Create a new tag pipeline ruleset with the specified rules and configuration
+    #
+    # @param body [CreateRulesetRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(RulesetResp, Integer, Hash)>] RulesetResp data, response status code and response headers
+    def create_ruleset_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.create_ruleset ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CloudCostManagementAPI.create_ruleset"
+      end
+      # resource path
+      local_var_path = '/api/v2/tags/enrichment'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'RulesetResp'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_ruleset,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#create_ruleset\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete arbitrary cost rule.
+    #
+    # @see #delete_arbitrary_cost_rule_with_http_info
+    def delete_arbitrary_cost_rule(rule_id, opts = {})
+      delete_arbitrary_cost_rule_with_http_info(rule_id, opts)
+      nil
+    end
+
+    # Delete arbitrary cost rule.
+    #
+    # Delete an arbitrary cost rule - Delete an existing arbitrary cost rule by its ID
+    #
+    # @param rule_id [Integer] The unique identifier of the arbitrary cost rule
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_arbitrary_cost_rule_with_http_info(rule_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.delete_arbitrary_cost_rule ...'
+      end
+      # verify the required parameter 'rule_id' is set
+      if @api_client.config.client_side_validation && rule_id.nil?
+        fail ArgumentError, "Missing the required parameter 'rule_id' when calling CloudCostManagementAPI.delete_arbitrary_cost_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/arbitrary_rule/{rule_id}'.sub('{rule_id}', CGI.escape(rule_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_arbitrary_cost_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#delete_arbitrary_cost_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -419,7 +630,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Delete Cloud Cost Management GCP Usage Cost config.
+    # Delete Google Cloud Usage Cost config.
     #
     # @see #delete_cost_gcp_usage_cost_config_with_http_info
     def delete_cost_gcp_usage_cost_config(cloud_account_id, opts = {})
@@ -427,7 +638,7 @@ module DatadogAPIClient::V2
       nil
     end
 
-    # Delete Cloud Cost Management GCP Usage Cost config.
+    # Delete Google Cloud Usage Cost config.
     #
     # Archive a Cloud Cost Management account.
     #
@@ -549,6 +760,136 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Delete ruleset.
+    #
+    # @see #delete_ruleset_with_http_info
+    def delete_ruleset(ruleset_id, opts = {})
+      delete_ruleset_with_http_info(ruleset_id, opts)
+      nil
+    end
+
+    # Delete ruleset.
+    #
+    # Delete a tag pipeline ruleset - Delete an existing tag pipeline ruleset by its ID
+    #
+    # @param ruleset_id [String] The unique identifier of the ruleset
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_ruleset_with_http_info(ruleset_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.delete_ruleset ...'
+      end
+      # verify the required parameter 'ruleset_id' is set
+      if @api_client.config.client_side_validation && ruleset_id.nil?
+        fail ArgumentError, "Missing the required parameter 'ruleset_id' when calling CloudCostManagementAPI.delete_ruleset"
+      end
+      # resource path
+      local_var_path = '/api/v2/tags/enrichment/{ruleset_id}'.sub('{ruleset_id}', CGI.escape(ruleset_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_ruleset,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#delete_ruleset\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get arbitrary cost rule.
+    #
+    # @see #get_arbitrary_cost_rule_with_http_info
+    def get_arbitrary_cost_rule(rule_id, opts = {})
+      data, _status_code, _headers = get_arbitrary_cost_rule_with_http_info(rule_id, opts)
+      data
+    end
+
+    # Get arbitrary cost rule.
+    #
+    # Get a specific arbitrary cost rule - Retrieve a specific arbitrary cost rule by its ID
+    #
+    # @param rule_id [Integer] The unique identifier of the arbitrary cost rule
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(ArbitraryRuleResponse, Integer, Hash)>] ArbitraryRuleResponse data, response status code and response headers
+    def get_arbitrary_cost_rule_with_http_info(rule_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.get_arbitrary_cost_rule ...'
+      end
+      # verify the required parameter 'rule_id' is set
+      if @api_client.config.client_side_validation && rule_id.nil?
+        fail ArgumentError, "Missing the required parameter 'rule_id' when calling CloudCostManagementAPI.get_arbitrary_cost_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/arbitrary_rule/{rule_id}'.sub('{rule_id}', CGI.escape(rule_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ArbitraryRuleResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_arbitrary_cost_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#get_arbitrary_cost_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get a budget.
     #
     # @see #get_budget_with_http_info
@@ -614,6 +955,201 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get cost AWS CUR config.
+    #
+    # @see #get_cost_awscur_config_with_http_info
+    def get_cost_awscur_config(cloud_account_id, opts = {})
+      data, _status_code, _headers = get_cost_awscur_config_with_http_info(cloud_account_id, opts)
+      data
+    end
+
+    # Get cost AWS CUR config.
+    #
+    # Get a specific AWS CUR config.
+    #
+    # @param cloud_account_id [Integer] The unique identifier of the cloud account
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(AwsCurConfigResponse, Integer, Hash)>] AwsCurConfigResponse data, response status code and response headers
+    def get_cost_awscur_config_with_http_info(cloud_account_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.get_cost_awscur_config ...'
+      end
+      # verify the required parameter 'cloud_account_id' is set
+      if @api_client.config.client_side_validation && cloud_account_id.nil?
+        fail ArgumentError, "Missing the required parameter 'cloud_account_id' when calling CloudCostManagementAPI.get_cost_awscur_config"
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/aws_cur_config/{cloud_account_id}'.sub('{cloud_account_id}', CGI.escape(cloud_account_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AwsCurConfigResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_cost_awscur_config,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#get_cost_awscur_config\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get cost Azure UC config.
+    #
+    # @see #get_cost_azure_uc_config_with_http_info
+    def get_cost_azure_uc_config(cloud_account_id, opts = {})
+      data, _status_code, _headers = get_cost_azure_uc_config_with_http_info(cloud_account_id, opts)
+      data
+    end
+
+    # Get cost Azure UC config.
+    #
+    # Get a specific Azure config.
+    #
+    # @param cloud_account_id [Integer] The unique identifier of the cloud account
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(UCConfigPair, Integer, Hash)>] UCConfigPair data, response status code and response headers
+    def get_cost_azure_uc_config_with_http_info(cloud_account_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.get_cost_azure_uc_config ...'
+      end
+      # verify the required parameter 'cloud_account_id' is set
+      if @api_client.config.client_side_validation && cloud_account_id.nil?
+        fail ArgumentError, "Missing the required parameter 'cloud_account_id' when calling CloudCostManagementAPI.get_cost_azure_uc_config"
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/azure_uc_config/{cloud_account_id}'.sub('{cloud_account_id}', CGI.escape(cloud_account_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'UCConfigPair'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_cost_azure_uc_config,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#get_cost_azure_uc_config\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get Google Cloud Usage Cost config.
+    #
+    # @see #get_cost_gcp_usage_cost_config_with_http_info
+    def get_cost_gcp_usage_cost_config(cloud_account_id, opts = {})
+      data, _status_code, _headers = get_cost_gcp_usage_cost_config_with_http_info(cloud_account_id, opts)
+      data
+    end
+
+    # Get Google Cloud Usage Cost config.
+    #
+    # Get a specific Google Cloud Usage Cost config.
+    #
+    # @param cloud_account_id [Integer] The unique identifier of the cloud account
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(GcpUcConfigResponse, Integer, Hash)>] GcpUcConfigResponse data, response status code and response headers
+    def get_cost_gcp_usage_cost_config_with_http_info(cloud_account_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.get_cost_gcp_usage_cost_config ...'
+      end
+      # verify the required parameter 'cloud_account_id' is set
+      if @api_client.config.client_side_validation && cloud_account_id.nil?
+        fail ArgumentError, "Missing the required parameter 'cloud_account_id' when calling CloudCostManagementAPI.get_cost_gcp_usage_cost_config"
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/gcp_uc_config/{cloud_account_id}'.sub('{cloud_account_id}', CGI.escape(cloud_account_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GcpUcConfigResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_cost_gcp_usage_cost_config,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#get_cost_gcp_usage_cost_config\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get Custom Costs file.
     #
     # @see #get_custom_costs_file_with_http_info
@@ -675,6 +1211,131 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CloudCostManagementAPI#get_custom_costs_file\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get ruleset.
+    #
+    # @see #get_ruleset_with_http_info
+    def get_ruleset(ruleset_id, opts = {})
+      data, _status_code, _headers = get_ruleset_with_http_info(ruleset_id, opts)
+      data
+    end
+
+    # Get ruleset.
+    #
+    # Get a specific tag pipeline ruleset - Retrieve a specific tag pipeline ruleset by its ID
+    #
+    # @param ruleset_id [String] The unique identifier of the ruleset
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(RulesetResp, Integer, Hash)>] RulesetResp data, response status code and response headers
+    def get_ruleset_with_http_info(ruleset_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.get_ruleset ...'
+      end
+      # verify the required parameter 'ruleset_id' is set
+      if @api_client.config.client_side_validation && ruleset_id.nil?
+        fail ArgumentError, "Missing the required parameter 'ruleset_id' when calling CloudCostManagementAPI.get_ruleset"
+      end
+      # resource path
+      local_var_path = '/api/v2/tags/enrichment/{ruleset_id}'.sub('{ruleset_id}', CGI.escape(ruleset_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'RulesetResp'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_ruleset,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#get_ruleset\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List arbitrary cost rules.
+    #
+    # @see #list_arbitrary_cost_rules_with_http_info
+    def list_arbitrary_cost_rules(opts = {})
+      data, _status_code, _headers = list_arbitrary_cost_rules_with_http_info(opts)
+      data
+    end
+
+    # List arbitrary cost rules.
+    #
+    # List all arbitrary cost rules - Retrieve a list of all arbitrary cost rules for the organization
+    #
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(ArbitraryRuleResponseArray, Integer, Hash)>] ArbitraryRuleResponseArray data, response status code and response headers
+    def list_arbitrary_cost_rules_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.list_arbitrary_cost_rules ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/arbitrary_rule'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ArbitraryRuleResponseArray'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_arbitrary_cost_rules,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#list_arbitrary_cost_rules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -859,7 +1520,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # List Cloud Cost Management GCP Usage Cost configs.
+    # List Google Cloud Usage Cost configs.
     #
     # @see #list_cost_gcp_usage_cost_configs_with_http_info
     def list_cost_gcp_usage_cost_configs(opts = {})
@@ -867,9 +1528,9 @@ module DatadogAPIClient::V2
       data
     end
 
-    # List Cloud Cost Management GCP Usage Cost configs.
+    # List Google Cloud Usage Cost configs.
     #
-    # List the GCP Usage Cost configs.
+    # List the Google Cloud Usage Cost configs.
     #
     # @param opts [Hash] the optional parameters
     # @return [Array<(GCPUsageCostConfigsResponse, Integer, Hash)>] GCPUsageCostConfigsResponse data, response status code and response headers
@@ -983,6 +1644,291 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CloudCostManagementAPI#list_custom_costs_files\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List rulesets.
+    #
+    # @see #list_rulesets_with_http_info
+    def list_rulesets(opts = {})
+      data, _status_code, _headers = list_rulesets_with_http_info(opts)
+      data
+    end
+
+    # List rulesets.
+    #
+    # List all tag pipeline rulesets - Retrieve a list of all tag pipeline rulesets for the organization
+    #
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(RulesetRespArray, Integer, Hash)>] RulesetRespArray data, response status code and response headers
+    def list_rulesets_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.list_rulesets ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/tags/enrichment'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'RulesetRespArray'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_rulesets,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#list_rulesets\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Reorder arbitrary cost rules.
+    #
+    # @see #reorder_arbitrary_cost_rules_with_http_info
+    def reorder_arbitrary_cost_rules(body, opts = {})
+      reorder_arbitrary_cost_rules_with_http_info(body, opts)
+      nil
+    end
+
+    # Reorder arbitrary cost rules.
+    #
+    # Reorder arbitrary cost rules - Change the execution order of arbitrary cost rules.
+    #
+    # **Important**: You must provide the **complete list** of all rule IDs in the desired execution order. The API will reorder ALL rules according to the provided sequence.
+    #
+    # Rules are executed in the order specified, with lower indices (earlier in the array) having higher priority.
+    #
+    # **Example**: If you have rules with IDs [123, 456, 789] and want to change order from 123→456→789 to 456→123→789, send: [{"id": "456"}, {"id": "123"}, {"id": "789"}]
+    #
+    # @param body [ReorderRuleResourceArray] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def reorder_arbitrary_cost_rules_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.reorder_arbitrary_cost_rules ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CloudCostManagementAPI.reorder_arbitrary_cost_rules"
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/arbitrary_rule/reorder'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :reorder_arbitrary_cost_rules,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#reorder_arbitrary_cost_rules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Reorder rulesets.
+    #
+    # @see #reorder_rulesets_with_http_info
+    def reorder_rulesets(body, opts = {})
+      reorder_rulesets_with_http_info(body, opts)
+      nil
+    end
+
+    # Reorder rulesets.
+    #
+    # Reorder tag pipeline rulesets - Change the execution order of tag pipeline rulesets
+    #
+    # @param body [ReorderRulesetResourceArray] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def reorder_rulesets_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.reorder_rulesets ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CloudCostManagementAPI.reorder_rulesets"
+      end
+      # resource path
+      local_var_path = '/api/v2/tags/enrichment/reorder'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :reorder_rulesets,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#reorder_rulesets\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update arbitrary cost rule.
+    #
+    # @see #update_arbitrary_cost_rule_with_http_info
+    def update_arbitrary_cost_rule(rule_id, body, opts = {})
+      data, _status_code, _headers = update_arbitrary_cost_rule_with_http_info(rule_id, body, opts)
+      data
+    end
+
+    # Update arbitrary cost rule.
+    #
+    # Update an existing arbitrary cost rule with new filters and allocation strategy.
+    #
+    # **Strategy Methods:**
+    # - **PROPORTIONAL/EVEN**: Allocates costs proportionally/evenly based on existing costs. Requires: granularity, allocated_by_tag_keys. Optional: based_on_costs, allocated_by_filters, evaluate_grouped_by_tag_keys, evaluate_grouped_by_filters.
+    # - **PROPORTIONAL_TIMESERIES/EVEN_TIMESERIES**: Allocates based on timeseries data. Requires: granularity, based_on_timeseries. Optional: evaluate_grouped_by_tag_keys.
+    # - **PERCENT**: Allocates fixed percentages to specific tags. Requires: allocated_by (array of percentage allocations).
+    # - **USAGE_METRIC**: Allocates based on usage metrics (implementation varies).
+    #
+    # **Filter Conditions:**
+    # - Use **value** for single-value conditions: "is", "is not", "contains", "does not contain", "=", "!=", "like", "not like", "is all values", "is untagged"
+    # - Use **values** for multi-value conditions: "in", "not in"
+    # - Cannot use both value and values simultaneously.
+    #
+    # **Supported operators**: is, is not, is all values, is untagged, contains, does not contain, in, not in, =, !=, like, not like
+    #
+    # @param rule_id [Integer] The unique identifier of the arbitrary cost rule
+    # @param body [ArbitraryCostUpsertRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(ArbitraryRuleResponse, Integer, Hash)>] ArbitraryRuleResponse data, response status code and response headers
+    def update_arbitrary_cost_rule_with_http_info(rule_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.update_arbitrary_cost_rule ...'
+      end
+      # verify the required parameter 'rule_id' is set
+      if @api_client.config.client_side_validation && rule_id.nil?
+        fail ArgumentError, "Missing the required parameter 'rule_id' when calling CloudCostManagementAPI.update_arbitrary_cost_rule"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CloudCostManagementAPI.update_arbitrary_cost_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/arbitrary_rule/{rule_id}'.sub('{rule_id}', CGI.escape(rule_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ArbitraryRuleResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_arbitrary_cost_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#update_arbitrary_cost_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1131,7 +2077,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Update Cloud Cost Management GCP Usage Cost config.
+    # Update Google Cloud Usage Cost config.
     #
     # @see #update_cost_gcp_usage_cost_config_with_http_info
     def update_cost_gcp_usage_cost_config(cloud_account_id, body, opts = {})
@@ -1139,9 +2085,9 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Update Cloud Cost Management GCP Usage Cost config.
+    # Update Google Cloud Usage Cost config.
     #
-    # Update the status of an GCP Usage Cost config (active/archived).
+    # Update the status of an Google Cloud Usage Cost config (active/archived).
     #
     # @param cloud_account_id [Integer] Cloud Account id.
     # @param body [GCPUsageCostConfigPatchRequest] 
@@ -1199,6 +2145,78 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CloudCostManagementAPI#update_cost_gcp_usage_cost_config\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update ruleset.
+    #
+    # @see #update_ruleset_with_http_info
+    def update_ruleset(ruleset_id, body, opts = {})
+      data, _status_code, _headers = update_ruleset_with_http_info(ruleset_id, body, opts)
+      data
+    end
+
+    # Update ruleset.
+    #
+    # Update a tag pipeline ruleset - Update an existing tag pipeline ruleset with new rules and configuration
+    #
+    # @param ruleset_id [String] The unique identifier of the ruleset
+    # @param body [UpdateRulesetRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(RulesetResp, Integer, Hash)>] RulesetResp data, response status code and response headers
+    def update_ruleset_with_http_info(ruleset_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.update_ruleset ...'
+      end
+      # verify the required parameter 'ruleset_id' is set
+      if @api_client.config.client_side_validation && ruleset_id.nil?
+        fail ArgumentError, "Missing the required parameter 'ruleset_id' when calling CloudCostManagementAPI.update_ruleset"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CloudCostManagementAPI.update_ruleset"
+      end
+      # resource path
+      local_var_path = '/api/v2/tags/enrichment/{ruleset_id}'.sub('{ruleset_id}', CGI.escape(ruleset_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'RulesetResp'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_ruleset,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#update_ruleset\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1333,6 +2351,73 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CloudCostManagementAPI#upsert_budget\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Validate query.
+    #
+    # @see #validate_query_with_http_info
+    def validate_query(body, opts = {})
+      data, _status_code, _headers = validate_query_with_http_info(body, opts)
+      data
+    end
+
+    # Validate query.
+    #
+    # Validate a tag pipeline query - Validate the syntax and structure of a tag pipeline query
+    #
+    # @param body [RulesValidateQueryRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(RulesValidateQueryResponse, Integer, Hash)>] RulesValidateQueryResponse data, response status code and response headers
+    def validate_query_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.validate_query ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CloudCostManagementAPI.validate_query"
+      end
+      # resource path
+      local_var_path = '/api/v2/tags/enrichment/validate-query'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'RulesValidateQueryResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :validate_query,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#validate_query\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
