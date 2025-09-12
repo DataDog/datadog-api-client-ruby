@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class CIAppCreatePipelineEventRequest
     include BaseGenericModel
 
-    # Data of the pipeline event to create.
+    # Data of the pipeline events to create.
     attr_accessor :data
 
     attr_accessor :additional_properties
@@ -38,7 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'CIAppCreatePipelineEventRequestData'
+        :'data' => :'CIAppCreatePipelineEventRequestDataSingleOrArray'
       }
     end
 
