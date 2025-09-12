@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class SecurityMonitoringRuleConvertResponse
     include BaseGenericModel
 
+    # the ID of the rule.
+    attr_accessor :rule_id
+
     # Terraform string as a result of converting the rule from JSON.
     attr_accessor :terraform_content
 
@@ -30,6 +33,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'rule_id' => :'ruleId',
         :'terraform_content' => :'terraformContent'
       }
     end
@@ -38,6 +42,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'rule_id' => :'String',
         :'terraform_content' => :'String'
       }
     end
@@ -59,6 +64,10 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'rule_id')
+        self.rule_id = attributes[:'rule_id']
+      end
 
       if attributes.key?(:'terraform_content')
         self.terraform_content = attributes[:'terraform_content']
@@ -91,6 +100,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          rule_id == o.rule_id &&
           terraform_content == o.terraform_content &&
           additional_properties == o.additional_properties
     end
@@ -99,7 +109,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [terraform_content, additional_properties].hash
+      [rule_id, terraform_content, additional_properties].hash
     end
   end
 end
