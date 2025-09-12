@@ -28,5 +28,6 @@ module DatadogAPIClient::V2
     HARDCODED = "hardcoded".freeze
     THIRD_PARTY = "third_party".freeze
     ANOMALY_THRESHOLD = "anomaly_threshold".freeze
+    SEQUENCE_DETECTION = "sequence_detection".freeze
   end
 end

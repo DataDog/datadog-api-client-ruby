@@ -55,6 +55,9 @@ module DatadogAPIClient::V2
     # Options on new value detection method.
     attr_accessor :new_value_options
 
+    # Options on sequence detection method.
+    attr_accessor :sequence_detection_options
+
     # Options on third party detection method.
     attr_accessor :third_party_rule_options
 
@@ -73,6 +76,7 @@ module DatadogAPIClient::V2
         :'keep_alive' => :'keepAlive',
         :'max_signal_duration' => :'maxSignalDuration',
         :'new_value_options' => :'newValueOptions',
+        :'sequence_detection_options' => :'sequenceDetectionOptions',
         :'third_party_rule_options' => :'thirdPartyRuleOptions'
       }
     end
@@ -90,6 +94,7 @@ module DatadogAPIClient::V2
         :'keep_alive' => :'SecurityMonitoringRuleKeepAlive',
         :'max_signal_duration' => :'SecurityMonitoringRuleMaxSignalDuration',
         :'new_value_options' => :'SecurityMonitoringRuleNewValueOptions',
+        :'sequence_detection_options' => :'SecurityMonitoringRuleSequenceDetectionOptions',
         :'third_party_rule_options' => :'SecurityMonitoringRuleThirdPartyOptions'
       }
     end
@@ -148,6 +153,10 @@ module DatadogAPIClient::V2
         self.new_value_options = attributes[:'new_value_options']
       end
 
+      if attributes.key?(:'sequence_detection_options')
+        self.sequence_detection_options = attributes[:'sequence_detection_options']
+      end
+
       if attributes.key?(:'third_party_rule_options')
         self.third_party_rule_options = attributes[:'third_party_rule_options']
       end
@@ -188,6 +197,7 @@ module DatadogAPIClient::V2
           keep_alive == o.keep_alive &&
           max_signal_duration == o.max_signal_duration &&
           new_value_options == o.new_value_options &&
+          sequence_detection_options == o.sequence_detection_options &&
           third_party_rule_options == o.third_party_rule_options &&
           additional_properties == o.additional_properties
     end
@@ -196,7 +206,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [compliance_rule_options, decrease_criticality_based_on_env, detection_method, evaluation_window, hardcoded_evaluator_type, impossible_travel_options, keep_alive, max_signal_duration, new_value_options, third_party_rule_options, additional_properties].hash
+      [compliance_rule_options, decrease_criticality_based_on_env, detection_method, evaluation_window, hardcoded_evaluator_type, impossible_travel_options, keep_alive, max_signal_duration, new_value_options, sequence_detection_options, third_party_rule_options, additional_properties].hash
     end
   end
 end
