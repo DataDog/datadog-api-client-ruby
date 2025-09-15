@@ -1,5 +1,20 @@
 # CHANGELOG
 
+## 2.42.0/2025-09-15
+
+### Added
+* Add Query Parameters to ListOrgConnections Endpoint [#2663](https://github.com/DataDog/datadog-api-client-ruby/pull/2663)
+* Add Incident Notification Rules Public Spec [#2658](https://github.com/DataDog/datadog-api-client-ruby/pull/2658)
+* Update v1 and v2 GCP API specs to support `monitored_resource_configs` [#2656](https://github.com/DataDog/datadog-api-client-ruby/pull/2656)
+* Add action datastore API [#2636](https://github.com/DataDog/datadog-api-client-ruby/pull/2636)
+* Security Monitoring - Make hasOptionalGroupByFields updatable [#2594](https://github.com/DataDog/datadog-api-client-ruby/pull/2594)
+
+### Deprecated
+* Promote unstable aws v2 APIs and deprecate v1 [#2655](https://github.com/DataDog/datadog-api-client-ruby/pull/2655)
+
+### Changed
+* Allow to send batches of events in pipelines API [#2639](https://github.com/DataDog/datadog-api-client-ruby/pull/2639)
+
 ## 2.41.0/2025-09-09
 
 ### Added
