@@ -2839,6 +2839,8 @@ module DatadogAPIClient
           "v2.observability_pipeline_ocsf_mapping_library" => "ObservabilityPipelineOcsfMappingLibrary",
           "v2.observability_pipeline_open_search_destination" => "ObservabilityPipelineOpenSearchDestination",
           "v2.observability_pipeline_open_search_destination_type" => "ObservabilityPipelineOpenSearchDestinationType",
+          "v2.observability_pipeline_opentelemetry_source" => "ObservabilityPipelineOpentelemetrySource",
+          "v2.observability_pipeline_opentelemetry_source_type" => "ObservabilityPipelineOpentelemetrySourceType",
           "v2.observability_pipeline_parse_grok_processor" => "ObservabilityPipelineParseGrokProcessor",
           "v2.observability_pipeline_parse_grok_processor_rule" => "ObservabilityPipelineParseGrokProcessorRule",
           "v2.observability_pipeline_parse_grok_processor_rule_match_rule" => "ObservabilityPipelineParseGrokProcessorRuleMatchRule",
