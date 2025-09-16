@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class AwsCURConfigPatchRequestAttributes
     include BaseGenericModel
 
-    # The account filtering configuration.
+    # The account filtering configuration object.
     attr_accessor :account_filters
 
     # Whether or not the Cloud Cost Management account is enabled.

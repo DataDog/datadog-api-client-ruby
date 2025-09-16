@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class AwsCURConfigAttributes
     include BaseGenericModel
 
-    # The account filtering configuration.
+    # The account filtering configuration object.
     attr_accessor :account_filters
 
     # The AWS account ID.

@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The account filtering configuration.
+  # The account filtering configuration object.
   class AccountFilteringConfig
     include BaseGenericModel
 
