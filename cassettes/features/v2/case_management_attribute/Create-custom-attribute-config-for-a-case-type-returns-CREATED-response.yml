@@ -1,0 +1,66 @@
+http_interactions:
+- recorded_at: Thu, 04 Sep 2025 09:11:55 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: "{\"data\":{\"attributes\":{\"description\":\"Worldwide case type\"\
+        ,\"emoji\":\"\U0001F30D\",\"name\":\"World\"},\"type\":\"case_type\"}}"
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/cases/types
+  response:
+    body:
+      encoding: UTF-8
+      string: "{\"data\":{\"id\":\"1fab87e4-341d-4a79-a294-171b4e2c22f8\",\"type\"\
+        :\"case_type\",\"attributes\":{\"description\":\"Worldwide case type\",\"\
+        emoji\":\"\U0001F30D\",\"name\":\"World\"}}}"
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 201
+      message: Created
+- recorded_at: Thu, 04 Sep 2025 09:11:55 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"display_name":"AWS Region 17569771-0000-0000-0000-175697711500","is_multi":true,"key":"region_eaa423ff52828a39","type":"NUMBER"},"type":"custom_attribute"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/cases/types/1fab87e4-341d-4a79-a294-171b4e2c22f8/custom_attributes
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"0dc4a14f-f96b-4a27-893a-72341da7ce1d","type":"custom_attribute","attributes":{"case_type":"TUNKNOWN","case_type_id":"1fab87e4-341d-4a79-a294-171b4e2c22f8","display_name":"AWS
+        Region 17569771-0000-0000-0000-175697711500","is_multi":true,"key":"region_eaa423ff52828a39","type":"NUMBER"}}}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 201
+      message: Created
+- recorded_at: Thu, 04 Sep 2025 09:11:55 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/cases/types/1fab87e4-341d-4a79-a294-171b4e2c22f8
+  response:
+    body:
+      encoding: UTF-8
+      string: ''
+    headers: {}
+    status:
+      code: 204
+      message: No Content
+recorded_with: VCR 6.0.0
