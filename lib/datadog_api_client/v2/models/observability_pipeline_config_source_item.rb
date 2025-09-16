@@ -41,6 +41,7 @@ module DatadogAPIClient::V2
           :'ObservabilityPipelineGooglePubSubSource',
           :'ObservabilityPipelineHttpClientSource',
           :'ObservabilityPipelineLogstashSource',
+          :'ObservabilityPipelineOpentelemetrySource',
           :'ObservabilityPipelineSocketSource'
         ]
       end
