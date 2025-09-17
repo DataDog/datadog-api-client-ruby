@@ -569,7 +569,7 @@ module DatadogAPIClient::V2
     # Search cases.
     #
     # @param opts [Hash] the optional parameters
-    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 100.
+    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 100. Test change to trigger client generation.
     # @option opts [Integer] :page_number Specific page number to return.
     # @option opts [CaseSortableField] :sort_field Specify which field to sort
     # @option opts [String] :filter Search query

@@ -446,7 +446,7 @@ module DatadogAPIClient::V2
     #
     # @param workflow_id [String] The ID of the workflow.
     # @param opts [Hash] the optional parameters
-    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 100.
+    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 100. Test change to trigger client generation.
     # @option opts [Integer] :page_number Specific page number to return.
     # @return [Array<(WorkflowListInstancesResponse, Integer, Hash)>] WorkflowListInstancesResponse data, response status code and response headers
     def list_workflow_instances_with_http_info(workflow_id, opts = {})

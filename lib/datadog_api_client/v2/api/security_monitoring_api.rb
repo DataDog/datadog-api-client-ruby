@@ -1685,7 +1685,7 @@ module DatadogAPIClient::V2
     #
     # @param rule_id [String] The ID of the rule.
     # @param opts [Hash] the optional parameters
-    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 100.
+    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 100. Test change to trigger client generation.
     # @option opts [Integer] :page_number Specific page number to return.
     # @return [Array<(GetRuleVersionHistoryResponse, Integer, Hash)>] GetRuleVersionHistoryResponse data, response status code and response headers
     def get_rule_version_history_with_http_info(rule_id, opts = {})
@@ -2934,7 +2934,7 @@ module DatadogAPIClient::V2
     # List historical jobs.
     #
     # @param opts [Hash] the optional parameters
-    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 100.
+    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 100. Test change to trigger client generation.
     # @option opts [Integer] :page_number Specific page number to return.
     # @option opts [String] :sort The order of the jobs in results.
     # @option opts [String] :filter_query Query used to filter items from the fetched list.
@@ -3153,7 +3153,7 @@ module DatadogAPIClient::V2
     # List rules.
     #
     # @param opts [Hash] the optional parameters
-    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 100.
+    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 100. Test change to trigger client generation.
     # @option opts [Integer] :page_number Specific page number to return.
     # @return [Array<(SecurityMonitoringListRulesResponse, Integer, Hash)>] SecurityMonitoringListRulesResponse data, response status code and response headers
     def list_security_monitoring_rules_with_http_info(opts = {})
