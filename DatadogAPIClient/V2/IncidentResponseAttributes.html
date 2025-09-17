@@ -358,6 +358,84 @@
       <li class="public ">
   <span class="summary_signature">
     
+      <a href="#declared-instance_method" title="#declared (instance method)">#<strong>declared</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Timestamp when the incident was declared.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#declared_by-instance_method" title="#declared_by (instance method)">#<strong>declared_by</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Incident&#39;s non Datadog creator.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#declared_by_uuid-instance_method" title="#declared_by_uuid (instance method)">#<strong>declared_by_uuid</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>UUID of the user who declared the incident.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#detected-instance_method" title="#detected (instance method)">#<strong>detected</strong>  &#x21d2; Object </a>
     
 
@@ -1199,6 +1277,132 @@ Equals the difference between <code>customer_impact_start</code> and <code>custo
 </div>
     
       
+      <span id="declared=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="declared-instance_method">
+  
+    #<strong>declared</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Timestamp when the incident was declared.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+50
+51
+52</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/incident_response_attributes.rb', line 50</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_declared'>declared</span>
+  <span class='ivar'>@declared</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="declared_by=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="declared_by-instance_method">
+  
+    #<strong>declared_by</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Incident&#39;s non Datadog creator.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+53
+54
+55</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/incident_response_attributes.rb', line 53</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_declared_by'>declared_by</span>
+  <span class='ivar'>@declared_by</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="declared_by_uuid=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="declared_by_uuid-instance_method">
+  
+    #<strong>declared_by_uuid</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>UUID of the user who declared the incident.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+56
+57
+58</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/incident_response_attributes.rb', line 56</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_declared_by_uuid'>declared_by_uuid</span>
+  <span class='ivar'>@declared_by_uuid</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
       <span id="detected=-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="detected-instance_method">
@@ -1351,12 +1555,12 @@ Equals the difference between <code>customer_impact_start</code> and <code>custo
       <pre class="lines">
 
 
-59
-60
-61</pre>
+68
+69
+70</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/incident_response_attributes.rb', line 59</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/incident_response_attributes.rb', line 68</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_is_test'>is_test</span>
   <span class='ivar'>@is_test</span>
@@ -1919,7 +2123,7 @@ Equals the difference between <code>customer_impact_start</code> and <code>detec
 </div>
 
       <div id="footer">
-  Generated on Mon Sep 15 09:42:56 2025 by
+  Generated on Wed Sep 17 18:04:40 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>
