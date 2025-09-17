@@ -17,24 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The action the rule can perform if triggered
-  class CloudWorkloadSecurityAgentRuleAction
+  # An empty object indicating the hash action
+  class CloudWorkloadSecurityAgentRuleActionHash
     include BaseGenericModel
 
-    # SECL expression used to target the container to apply the action on
-    attr_accessor :filter
-
-    # An empty object indicating the hash action
-    attr_accessor :_hash
-
-    # Kill system call applied on the container matching the rule
-    attr_accessor :kill
-
-    # The metadata action applied on the scope matching the rule
-    attr_accessor :metadata
-
-    # The set action applied on the scope matching the rule
-    attr_accessor :set
+    # Event field to use for the hash computation.
+    attr_accessor :field
 
     attr_accessor :additional_properties
 
@@ -42,11 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'filter' => :'filter',
-        :'_hash' => :'hash',
-        :'kill' => :'kill',
-        :'metadata' => :'metadata',
-        :'set' => :'set'
+        :'field' => :'field'
       }
     end
 
@@ -54,11 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'filter' => :'String',
-        :'_hash' => :'CloudWorkloadSecurityAgentRuleActionHash',
-        :'kill' => :'CloudWorkloadSecurityAgentRuleKill',
-        :'metadata' => :'CloudWorkloadSecurityAgentRuleActionMetadata',
-        :'set' => :'CloudWorkloadSecurityAgentRuleActionSet'
+        :'field' => :'String'
       }
     end
 
@@ -67,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::CloudWorkloadSecurityAgentRuleAction` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::CloudWorkloadSecurityAgentRuleActionHash` initialize method"
       end
 
       self.additional_properties = {}
@@ -80,24 +60,8 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'filter')
-        self.filter = attributes[:'filter']
-      end
-
-      if attributes.key?(:'_hash')
-        self._hash = attributes[:'_hash']
-      end
-
-      if attributes.key?(:'kill')
-        self.kill = attributes[:'kill']
-      end
-
-      if attributes.key?(:'metadata')
-        self.metadata = attributes[:'metadata']
-      end
-
-      if attributes.key?(:'set')
-        self.set = attributes[:'set']
+      if attributes.key?(:'field')
+        self.field = attributes[:'field']
       end
     end
 
@@ -127,11 +91,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          filter == o.filter &&
-          _hash == o._hash &&
-          kill == o.kill &&
-          metadata == o.metadata &&
-          set == o.set &&
+          field == o.field &&
           additional_properties == o.additional_properties
     end
 
@@ -139,7 +99,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [filter, _hash, kill, metadata, set, additional_properties].hash
+      [field, additional_properties].hash
     end
   end
 end
