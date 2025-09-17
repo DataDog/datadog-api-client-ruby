@@ -17,36 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The incident's relationships from a response.
-  class IncidentResponseRelationships
+  # The incident impact's resource relationships.
+  class IncidentImpactRelationships
     include BaseGenericModel
-
-    # A relationship reference for attachments.
-    attr_accessor :attachments
-
-    # Relationship to user.
-    attr_accessor :commander_user
 
     # Relationship to user.
     attr_accessor :created_by_user
 
-    # Relationship to user.
-    attr_accessor :declared_by_user
-
-    # Relationship to impacts.
-    attr_accessor :impacts
-
-    # A relationship reference for multiple integration metadata objects.
-    attr_accessor :integrations
+    # Relationship to incident.
+    attr_accessor :incident
 
     # Relationship to user.
     attr_accessor :last_modified_by_user
-
-    # Relationship to incident responders.
-    attr_accessor :responders
-
-    # Relationship to incident user defined fields.
-    attr_accessor :user_defined_fields
 
     attr_accessor :additional_properties
 
@@ -54,15 +36,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'attachments' => :'attachments',
-        :'commander_user' => :'commander_user',
         :'created_by_user' => :'created_by_user',
-        :'declared_by_user' => :'declared_by_user',
-        :'impacts' => :'impacts',
-        :'integrations' => :'integrations',
-        :'last_modified_by_user' => :'last_modified_by_user',
-        :'responders' => :'responders',
-        :'user_defined_fields' => :'user_defined_fields'
+        :'incident' => :'incident',
+        :'last_modified_by_user' => :'last_modified_by_user'
       }
     end
 
@@ -70,24 +46,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attachments' => :'RelationshipToIncidentAttachment',
-        :'commander_user' => :'NullableRelationshipToUser',
         :'created_by_user' => :'RelationshipToUser',
-        :'declared_by_user' => :'RelationshipToUser',
-        :'impacts' => :'RelationshipToIncidentImpacts',
-        :'integrations' => :'RelationshipToIncidentIntegrationMetadatas',
-        :'last_modified_by_user' => :'RelationshipToUser',
-        :'responders' => :'RelationshipToIncidentResponders',
-        :'user_defined_fields' => :'RelationshipToIncidentUserDefinedFields'
+        :'incident' => :'RelationshipToIncident',
+        :'last_modified_by_user' => :'RelationshipToUser'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-        :'commander_user',
-      ])
     end
 
     # Initializes the object
@@ -95,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::IncidentResponseRelationships` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::IncidentImpactRelationships` initialize method"
       end
 
       self.additional_properties = {}
@@ -108,40 +70,16 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'attachments')
-        self.attachments = attributes[:'attachments']
-      end
-
-      if attributes.key?(:'commander_user')
-        self.commander_user = attributes[:'commander_user']
-      end
-
       if attributes.key?(:'created_by_user')
         self.created_by_user = attributes[:'created_by_user']
       end
 
-      if attributes.key?(:'declared_by_user')
-        self.declared_by_user = attributes[:'declared_by_user']
-      end
-
-      if attributes.key?(:'impacts')
-        self.impacts = attributes[:'impacts']
-      end
-
-      if attributes.key?(:'integrations')
-        self.integrations = attributes[:'integrations']
+      if attributes.key?(:'incident')
+        self.incident = attributes[:'incident']
       end
 
       if attributes.key?(:'last_modified_by_user')
         self.last_modified_by_user = attributes[:'last_modified_by_user']
-      end
-
-      if attributes.key?(:'responders')
-        self.responders = attributes[:'responders']
-      end
-
-      if attributes.key?(:'user_defined_fields')
-        self.user_defined_fields = attributes[:'user_defined_fields']
       end
     end
 
@@ -171,15 +109,9 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          attachments == o.attachments &&
-          commander_user == o.commander_user &&
           created_by_user == o.created_by_user &&
-          declared_by_user == o.declared_by_user &&
-          impacts == o.impacts &&
-          integrations == o.integrations &&
+          incident == o.incident &&
           last_modified_by_user == o.last_modified_by_user &&
-          responders == o.responders &&
-          user_defined_fields == o.user_defined_fields &&
           additional_properties == o.additional_properties
     end
 
@@ -187,7 +119,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attachments, commander_user, created_by_user, declared_by_user, impacts, integrations, last_modified_by_user, responders, user_defined_fields, additional_properties].hash
+      [created_by_user, incident, last_modified_by_user, additional_properties].hash
     end
   end
 end

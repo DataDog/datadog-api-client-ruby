@@ -46,6 +46,15 @@ module DatadogAPIClient::V2
     # A flag indicating whether the incident caused customer impact.
     attr_accessor :customer_impacted
 
+    # Timestamp when the incident was declared.
+    attr_accessor :declared
+
+    # Incident's non Datadog creator.
+    attr_accessor :declared_by
+
+    # UUID of the user who declared the incident.
+    attr_accessor :declared_by_uuid
+
     # Timestamp when the incident was detected.
     attr_accessor :detected
 
@@ -112,6 +121,9 @@ module DatadogAPIClient::V2
         :'customer_impact_scope' => :'customer_impact_scope',
         :'customer_impact_start' => :'customer_impact_start',
         :'customer_impacted' => :'customer_impacted',
+        :'declared' => :'declared',
+        :'declared_by' => :'declared_by',
+        :'declared_by_uuid' => :'declared_by_uuid',
         :'detected' => :'detected',
         :'fields' => :'fields',
         :'incident_type_uuid' => :'incident_type_uuid',
@@ -144,6 +156,9 @@ module DatadogAPIClient::V2
         :'customer_impact_scope' => :'String',
         :'customer_impact_start' => :'Time',
         :'customer_impacted' => :'Boolean',
+        :'declared' => :'Time',
+        :'declared_by' => :'IncidentNonDatadogCreator',
+        :'declared_by_uuid' => :'String',
         :'detected' => :'Time',
         :'fields' => :'Hash<String, IncidentFieldAttributes>',
         :'incident_type_uuid' => :'String',
@@ -173,6 +188,8 @@ module DatadogAPIClient::V2
         :'customer_impact_end',
         :'customer_impact_scope',
         :'customer_impact_start',
+        :'declared_by',
+        :'declared_by_uuid',
         :'detected',
         :'non_datadog_creator',
         :'notification_handles',
@@ -230,6 +247,18 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'customer_impacted')
         self.customer_impacted = attributes[:'customer_impacted']
+      end
+
+      if attributes.key?(:'declared')
+        self.declared = attributes[:'declared']
+      end
+
+      if attributes.key?(:'declared_by')
+        self.declared_by = attributes[:'declared_by']
+      end
+
+      if attributes.key?(:'declared_by_uuid')
+        self.declared_by_uuid = attributes[:'declared_by_uuid']
       end
 
       if attributes.key?(:'detected')
@@ -355,6 +384,9 @@ module DatadogAPIClient::V2
           customer_impact_scope == o.customer_impact_scope &&
           customer_impact_start == o.customer_impact_start &&
           customer_impacted == o.customer_impacted &&
+          declared == o.declared &&
+          declared_by == o.declared_by &&
+          declared_by_uuid == o.declared_by_uuid &&
           detected == o.detected &&
           fields == o.fields &&
           incident_type_uuid == o.incident_type_uuid &&
@@ -379,7 +411,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [archived, case_id, created, customer_impact_duration, customer_impact_end, customer_impact_scope, customer_impact_start, customer_impacted, detected, fields, incident_type_uuid, is_test, modified, non_datadog_creator, notification_handles, public_id, resolved, severity, state, time_to_detect, time_to_internal_response, time_to_repair, time_to_resolve, title, visibility, additional_properties].hash
+      [archived, case_id, created, customer_impact_duration, customer_impact_end, customer_impact_scope, customer_impact_start, customer_impacted, declared, declared_by, declared_by_uuid, detected, fields, incident_type_uuid, is_test, modified, non_datadog_creator, notification_handles, public_id, resolved, severity, state, time_to_detect, time_to_internal_response, time_to_repair, time_to_resolve, title, visibility, additional_properties].hash
     end
   end
 end

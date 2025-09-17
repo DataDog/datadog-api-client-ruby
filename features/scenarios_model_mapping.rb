@@ -1869,6 +1869,19 @@ ScenariosModelMappings = {
             "include" => "Array<IncidentAttachmentRelatedObject>",
             "body" => "IncidentAttachmentUpdateRequest",
     },
+    "v2.ListIncidentImpacts" => {
+            "incident_id" => "String",
+            "include" => "Array<IncidentImpactRelatedObject>",
+    },
+    "v2.CreateIncidentImpact" => {
+            "incident_id" => "String",
+            "include" => "Array<IncidentImpactRelatedObject>",
+            "body" => "IncidentImpactCreateRequest",
+    },
+    "v2.DeleteIncidentImpact" => {
+            "incident_id" => "String",
+            "impact_id" => "String",
+    },
     "v2.ListIncidentIntegrations" => {
             "incident_id" => "String",
     },
