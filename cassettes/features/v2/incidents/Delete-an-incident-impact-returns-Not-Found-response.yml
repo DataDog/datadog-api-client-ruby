@@ -1,0 +1,21 @@
+http_interactions:
+- recorded_at: Tue, 16 Sep 2025 19:47:29 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/incidents/00000000-0000-0000-0000-000000000001/impacts/00000000-0000-0000-0000-000000000001
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"title":"Generic Error","detail":"rpc error: code = NotFound
+        desc = impact not found: impact not found"}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 404
+      message: Not Found
+recorded_with: VCR 6.0.0
