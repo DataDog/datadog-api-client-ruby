@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # GCP Usage Cost config post request.
+  # Google Cloud Usage Cost config post request.
   class GCPUsageCostConfigPostRequest
     include BaseGenericModel
 
-    # GCP Usage Cost config post data.
+    # Google Cloud Usage Cost config post data.
     attr_reader :data
 
     attr_accessor :additional_properties

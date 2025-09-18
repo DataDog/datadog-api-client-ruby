@@ -17,12 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # List of GCP Usage Cost configs.
+  # List of Google Cloud Usage Cost configs.
   class GCPUsageCostConfigsResponse
     include BaseGenericModel
 
-    # A GCP Usage Cost config.
-    attr_accessor :data
+    # A Google Cloud Usage Cost config.
+    attr_reader :data
 
     attr_accessor :additional_properties
 
@@ -65,6 +65,24 @@ module DatadogAPIClient::V2
           self.data = value
         end
       end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @data.nil?
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param data [Object] Object to be assigned
+    # @!visibility private
+    def data=(data)
+      if data.nil?
+        fail ArgumentError, 'invalid value for "data", data cannot be nil.'
+      end
+      @data = data
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
