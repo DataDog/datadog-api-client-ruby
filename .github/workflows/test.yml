@@ -40,7 +40,7 @@ jobs:
           token: ${{ steps.get_token.outputs.token }}
       - uses: actions/setup-python@v4
         with:
-          python-version: '3.11'
+          python-version: "3.11"
       - name: Install pre-commit
         run: python -m pip install pre-commit
       - name: set PY
@@ -77,7 +77,7 @@ jobs:
   test:
     strategy:
       matrix:
-        ruby-version: ["2.7", "3.2", "jruby-9.4.12.0"]
+        ruby-bundle list | sort: ["2.7", "3.2", "jruby-9.4.12.0"]
         platform: [ubuntu-latest]
     runs-on: ${{ matrix.platform }}
     if: (github.event.pull_request.draft == false && !contains(github.event.pull_request.labels.*.name, 'ci/skip') && !contains(github.event.pull_request.head.ref, 'datadog-api-spec/test/')) || github.event_name == 'schedule'
@@ -97,7 +97,7 @@ jobs:
           # modify repository variable when there are problems with installing gems
           cache-version: ${{ vars.CACHE_VERSION }}
       - name: Test
-        run: ./run-tests.sh
+        run: RUBYOPT="-rjson/pure" ./run-tests.sh
         shell: bash
 
   examples:
