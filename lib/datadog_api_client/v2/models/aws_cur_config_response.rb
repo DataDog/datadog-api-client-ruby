@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Response of AWS CUR config.
-  class AwsCURConfigResponse
+  # The definition of `AwsCurConfigResponse` object.
+  class AwsCurConfigResponse
     include BaseGenericModel
 
-    # AWS CUR config.
+    # The definition of `AwsCurConfigResponseData` object.
     attr_accessor :data
 
     attr_accessor :additional_properties
@@ -38,7 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'AwsCURConfig'
+        :'data' => :'AwsCurConfigResponseData'
       }
     end
 
@@ -47,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::AwsCURConfigResponse` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::AwsCurConfigResponse` initialize method"
       end
 
       self.additional_properties = {}
