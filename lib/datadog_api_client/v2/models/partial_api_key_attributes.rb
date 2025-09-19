@@ -27,6 +27,9 @@ module DatadogAPIClient::V2
     # Creation date of the API key.
     attr_accessor :created_at
 
+    # Date the API Key was last used.
+    attr_accessor :date_last_used
+
     # The last four characters of the API key.
     attr_reader :last4
 
@@ -47,6 +50,7 @@ module DatadogAPIClient::V2
       {
         :'category' => :'category',
         :'created_at' => :'created_at',
+        :'date_last_used' => :'date_last_used',
         :'last4' => :'last4',
         :'modified_at' => :'modified_at',
         :'name' => :'name',
@@ -60,11 +64,20 @@ module DatadogAPIClient::V2
       {
         :'category' => :'String',
         :'created_at' => :'String',
+        :'date_last_used' => :'Time',
         :'last4' => :'String',
         :'modified_at' => :'String',
         :'name' => :'String',
         :'remote_config_read_enabled' => :'Boolean'
       }
+    end
+
+    # List of attributes with nullable: true
+    # @!visibility private
+    def self.openapi_nullable
+      Set.new([
+        :'date_last_used',
+      ])
     end
 
     # Initializes the object
@@ -91,6 +104,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'created_at')
         self.created_at = attributes[:'created_at']
+      end
+
+      if attributes.key?(:'date_last_used')
+        self.date_last_used = attributes[:'date_last_used']
       end
 
       if attributes.key?(:'last4')
@@ -160,6 +177,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           category == o.category &&
           created_at == o.created_at &&
+          date_last_used == o.date_last_used &&
           last4 == o.last4 &&
           modified_at == o.modified_at &&
           name == o.name &&
@@ -171,7 +189,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [category, created_at, last4, modified_at, name, remote_config_read_enabled, additional_properties].hash
+      [category, created_at, date_last_used, last4, modified_at, name, remote_config_read_enabled, additional_properties].hash
     end
   end
 end
