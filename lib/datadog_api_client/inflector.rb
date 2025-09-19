@@ -1753,6 +1753,8 @@ module DatadogAPIClient
           "v2.datastore_item_conflict_mode" => "DatastoreItemConflictMode",
           "v2.datastore_items_data_type" => "DatastoreItemsDataType",
           "v2.datastore_primary_key_generation_strategy" => "DatastorePrimaryKeyGenerationStrategy",
+          "v2.datastore_trigger" => "DatastoreTrigger",
+          "v2.datastore_trigger_wrapper" => "DatastoreTriggerWrapper",
           "v2.data_transform" => "DataTransform",
           "v2.data_transform_properties" => "DataTransformProperties",
           "v2.data_transform_type" => "DataTransformType",
