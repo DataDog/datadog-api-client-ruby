@@ -105,6 +105,7 @@ module DatadogAPIClient::V2
     # Multiple events can be sent in an array (up to 1000).
     #
     # Pipeline events can be submitted with a timestamp that is up to 18 hours in the past.
+    # The duration between the event start and end times cannot exceed 1 year.
     #
     # @param body [CIAppCreatePipelineEventRequest] 
     # @param opts [Hash] the optional parameters
