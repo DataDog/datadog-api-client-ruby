@@ -31,6 +31,7 @@ module DatadogAPIClient::V2
           :'CaseTriggerWrapper',
           :'ChangeEventTriggerWrapper',
           :'DatabaseMonitoringTriggerWrapper',
+          :'DatastoreTriggerWrapper',
           :'DashboardTriggerWrapper',
           :'GithubWebhookTriggerWrapper',
           :'IncidentTriggerWrapper',
