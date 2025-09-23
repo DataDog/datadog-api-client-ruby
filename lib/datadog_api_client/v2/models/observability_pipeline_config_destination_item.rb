@@ -43,7 +43,8 @@ module DatadogAPIClient::V2
           :'ObservabilityPipelineAmazonOpenSearchDestination',
           :'ObservabilityPipelineSocketDestination',
           :'ObservabilityPipelineAmazonSecurityLakeDestination',
-          :'ObservabilityPipelineCrowdStrikeNextGenSiemDestination'
+          :'ObservabilityPipelineCrowdStrikeNextGenSiemDestination',
+          :'ObservabilityPipelineGooglePubSubDestination'
         ]
       end
       # Builds the object
