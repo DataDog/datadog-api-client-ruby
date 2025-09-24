@@ -43,6 +43,11 @@ on:
         required: false
         type: string
         default: ''
+      has-integration-label:
+        description: 'Whether the calling PR has ci/integrations label'
+        required: false
+        type: boolean
+        default: false
     secrets:
       PIPELINE_GITHUB_APP_ID:
         required: false
@@ -70,7 +75,8 @@ jobs:
       !contains(github.event.pull_request.labels.*.name, 'ci/skip') &&
       !contains(github.event.pull_request.head.ref, 'datadog-api-spec/test/') &&
       contains(github.event.pull_request.labels.*.name, 'ci/integrations')) ||
-      github.event_name == 'schedule'
+      github.event_name == 'schedule' ||
+      (github.event_name == 'workflow_call' && inputs.has-integration-label)
     services:
       datadog-agent:
         image: gcr.io/datadoghq/agent:latest
