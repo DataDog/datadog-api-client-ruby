@@ -43,7 +43,6 @@ jobs:
         ruby-version: ${{ fromJSON(inputs.ruby-versions) }}
         platform: ${{ fromJSON(inputs.platforms) }}
     runs-on: ${{ matrix.platform }}
-    if: (github.event.pull_request.draft == false && !contains(github.event.pull_request.labels.*.name, 'ci/skip') && !contains(github.event.pull_request.head.ref, 'datadog-api-spec/test/')) || github.event_name == 'schedule'
     env:
       BUNDLE_WITHOUT: docs
       DD_PROFILING_NO_EXTENSION: true
