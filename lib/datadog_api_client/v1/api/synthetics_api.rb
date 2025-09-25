@@ -1785,12 +1785,11 @@ module DatadogAPIClient::V1
 
     # Search Synthetic tests.
     #
-    # Search for Synthetic tests and Test Suites.
+    # Search for Synthetic tests.
     #
     # @param opts [Hash] the optional parameters
     # @option opts [String] :text The search query.
     # @option opts [Boolean] :include_full_config If true, include the full configuration for each test in the response.
-    # @option opts [Boolean] :search_suites If true, returns suites instead of tests.
     # @option opts [Boolean] :facets_only If true, return only facets instead of full test details.
     # @option opts [Integer] :start The offset from which to start returning results.
     # @option opts [Integer] :count The maximum number of results to return.
@@ -1808,7 +1807,6 @@ module DatadogAPIClient::V1
       query_params = opts[:query_params] || {}
       query_params[:'text'] = opts[:'text'] if !opts[:'text'].nil?
       query_params[:'include_full_config'] = opts[:'include_full_config'] if !opts[:'include_full_config'].nil?
-      query_params[:'search_suites'] = opts[:'search_suites'] if !opts[:'search_suites'].nil?
       query_params[:'facets_only'] = opts[:'facets_only'] if !opts[:'facets_only'].nil?
       query_params[:'start'] = opts[:'start'] if !opts[:'start'].nil?
       query_params[:'count'] = opts[:'count'] if !opts[:'count'].nil?
