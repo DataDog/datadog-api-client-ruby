@@ -27,7 +27,7 @@ module DatadogAPIClient::V2
     # The `AWSLogsServicesResponseData` `id`.
     attr_reader :id
 
-    # The `AWSLogsServicesResponseData` `type`.
+    # The `AWSLogsServicesResponseData` `type`. Test to trigger client generation.
     attr_reader :type
 
     attr_accessor :additional_properties
