@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The `AWSLogsServicesResponseData` `type`.
+  # The `AWSLogsServicesResponseData` `type`. Test to trigger client generation.
   class AWSLogsServicesResponseDataType
     include BaseEnumModel
 
