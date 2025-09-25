@@ -1791,7 +1791,7 @@ module DatadogAPIClient::V1
     # @option opts [String] :text The search query.
     # @option opts [Boolean] :include_full_config If true, include the full configuration for each test in the response.
     # @option opts [Boolean] :facets_only If true, return only facets instead of full test details.
-    # @option opts [Integer] :start The offset from which to start returning results.
+    # @option opts [Integer] :start (Only available on legacy search backend. Contact support for more info.) The offset from which to start returning results.
     # @option opts [Integer] :count The maximum number of results to return.
     # @option opts [String] :sort The sort order for the results (e.g., `name,asc` or `name,desc`).
     # @return [Array<(SyntheticsListTestsResponse, Integer, Hash)>] SyntheticsListTestsResponse data, response status code and response headers
