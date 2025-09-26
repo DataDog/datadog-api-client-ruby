@@ -1383,6 +1383,9 @@ ScenariosModelMappings = {
             "security_filter_id" => "String",
             "body" => "SecurityFilterUpdateRequest",
     },
+    "v2.ListSecurityMonitoringSuppressions" => {
+            "query" => "String",
+    },
     "v2.CreateSecurityMonitoringSuppression" => {
             "body" => "SecurityMonitoringSuppressionCreateRequest",
     },
