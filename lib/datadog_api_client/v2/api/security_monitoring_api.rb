@@ -3319,6 +3319,7 @@ module DatadogAPIClient::V2
     # Get the list of all suppression rules.
     #
     # @param opts [Hash] the optional parameters
+    # @option opts [String] :query Query string.
     # @return [Array<(SecurityMonitoringSuppressionsResponse, Integer, Hash)>] SecurityMonitoringSuppressionsResponse data, response status code and response headers
     def list_security_monitoring_suppressions_with_http_info(opts = {})
 
@@ -3330,6 +3331,7 @@ module DatadogAPIClient::V2
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'query'] = opts[:'query'] if !opts[:'query'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

@@ -30,6 +30,9 @@ module DatadogAPIClient::V2
     # Relationship to user.
     attr_accessor :created_by_user
 
+    # Relationship to user.
+    attr_accessor :declared_by_user
+
     # Relationship to impacts.
     attr_accessor :impacts
 
@@ -54,6 +57,7 @@ module DatadogAPIClient::V2
         :'attachments' => :'attachments',
         :'commander_user' => :'commander_user',
         :'created_by_user' => :'created_by_user',
+        :'declared_by_user' => :'declared_by_user',
         :'impacts' => :'impacts',
         :'integrations' => :'integrations',
         :'last_modified_by_user' => :'last_modified_by_user',
@@ -69,6 +73,7 @@ module DatadogAPIClient::V2
         :'attachments' => :'RelationshipToIncidentAttachment',
         :'commander_user' => :'NullableRelationshipToUser',
         :'created_by_user' => :'RelationshipToUser',
+        :'declared_by_user' => :'RelationshipToUser',
         :'impacts' => :'RelationshipToIncidentImpacts',
         :'integrations' => :'RelationshipToIncidentIntegrationMetadatas',
         :'last_modified_by_user' => :'RelationshipToUser',
@@ -113,6 +118,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'created_by_user')
         self.created_by_user = attributes[:'created_by_user']
+      end
+
+      if attributes.key?(:'declared_by_user')
+        self.declared_by_user = attributes[:'declared_by_user']
       end
 
       if attributes.key?(:'impacts')
@@ -165,6 +174,7 @@ module DatadogAPIClient::V2
           attachments == o.attachments &&
           commander_user == o.commander_user &&
           created_by_user == o.created_by_user &&
+          declared_by_user == o.declared_by_user &&
           impacts == o.impacts &&
           integrations == o.integrations &&
           last_modified_by_user == o.last_modified_by_user &&
@@ -177,7 +187,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attachments, commander_user, created_by_user, impacts, integrations, last_modified_by_user, responders, user_defined_fields, additional_properties].hash
+      [attachments, commander_user, created_by_user, declared_by_user, impacts, integrations, last_modified_by_user, responders, user_defined_fields, additional_properties].hash
     end
   end
 end

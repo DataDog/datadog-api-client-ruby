@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class RUMApplicationAttributes
     include BaseGenericModel
 
+    # ID of the API key associated with the application.
+    attr_reader :api_key_id
+
     # ID of the RUM application.
     attr_reader :application_id
 
@@ -63,6 +66,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'api_key_id' => :'api_key_id',
         :'application_id' => :'application_id',
         :'client_token' => :'client_token',
         :'created_at' => :'created_at',
@@ -82,6 +86,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'api_key_id' => :'Integer',
         :'application_id' => :'String',
         :'client_token' => :'String',
         :'created_at' => :'Integer',
@@ -114,6 +119,10 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'api_key_id')
+        self.api_key_id = attributes[:'api_key_id']
+      end
 
       if attributes.key?(:'application_id')
         self.application_id = attributes[:'application_id']
@@ -168,6 +177,7 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
+      return false if !@api_key_id.nil? && @api_key_id > 2147483647
       return false if @application_id.nil?
       return false if @client_token.nil?
       return false if @created_at.nil?
@@ -179,6 +189,16 @@ module DatadogAPIClient::V2
       return false if @updated_at.nil?
       return false if @updated_by_handle.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param api_key_id [Object] Object to be assigned
+    # @!visibility private
+    def api_key_id=(api_key_id)
+      if !api_key_id.nil? && api_key_id > 2147483647
+        fail ArgumentError, 'invalid value for "api_key_id", must be smaller than or equal to 2147483647.'
+      end
+      @api_key_id = api_key_id
     end
 
     # Custom attribute writer method with validation
@@ -300,6 +320,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          api_key_id == o.api_key_id &&
           application_id == o.application_id &&
           client_token == o.client_token &&
           created_at == o.created_at &&
@@ -319,7 +340,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [application_id, client_token, created_at, created_by_handle, _hash, is_active, name, org_id, product_scales, type, updated_at, updated_by_handle, additional_properties].hash
+      [api_key_id, application_id, client_token, created_at, created_by_handle, _hash, is_active, name, org_id, product_scales, type, updated_at, updated_by_handle, additional_properties].hash
     end
   end
 end

@@ -32,9 +32,12 @@ module DatadogAPIClient::V2
 
     # List of filters to limit the Cloud Run revisions that are pulled into Datadog by using tags.
     # Only Cloud Run revision resources that apply to specified filters are imported into Datadog.
+    # **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=cloud_run_revision`
     attr_accessor :cloud_run_revision_filters
 
-    # Your Host Filters.
+    # List of filters to limit the VM instances that are pulled into Datadog by using tags.
+    # Only VM instance resources that apply to specified filters are imported into Datadog.
+    # **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=gce_instance`
     attr_accessor :host_filters
 
     # When enabled, Datadog will activate the Cloud Security Monitoring product for this service account. Note: This requires resource_collection_enabled to be set to true.
@@ -51,6 +54,9 @@ module DatadogAPIClient::V2
 
     # Configurations for GCP metric namespaces.
     attr_accessor :metric_namespace_configs
+
+    # Configurations for GCP monitored resources.
+    attr_accessor :monitored_resource_configs
 
     # When enabled, Datadog scans for all resources in your GCP environment.
     attr_accessor :resource_collection_enabled
@@ -71,6 +77,7 @@ module DatadogAPIClient::V2
         :'is_resource_change_collection_enabled' => :'is_resource_change_collection_enabled',
         :'is_security_command_center_enabled' => :'is_security_command_center_enabled',
         :'metric_namespace_configs' => :'metric_namespace_configs',
+        :'monitored_resource_configs' => :'monitored_resource_configs',
         :'resource_collection_enabled' => :'resource_collection_enabled'
       }
     end
@@ -89,6 +96,7 @@ module DatadogAPIClient::V2
         :'is_resource_change_collection_enabled' => :'Boolean',
         :'is_security_command_center_enabled' => :'Boolean',
         :'metric_namespace_configs' => :'Array<GCPMetricNamespaceConfig>',
+        :'monitored_resource_configs' => :'Array<GCPMonitoredResourceConfig>',
         :'resource_collection_enabled' => :'Boolean'
       }
     end
@@ -159,6 +167,12 @@ module DatadogAPIClient::V2
         end
       end
 
+      if attributes.key?(:'monitored_resource_configs')
+        if (value = attributes[:'monitored_resource_configs']).is_a?(Array)
+          self.monitored_resource_configs = value
+        end
+      end
+
       if attributes.key?(:'resource_collection_enabled')
         self.resource_collection_enabled = attributes[:'resource_collection_enabled']
       end
@@ -200,6 +214,7 @@ module DatadogAPIClient::V2
           is_resource_change_collection_enabled == o.is_resource_change_collection_enabled &&
           is_security_command_center_enabled == o.is_security_command_center_enabled &&
           metric_namespace_configs == o.metric_namespace_configs &&
+          monitored_resource_configs == o.monitored_resource_configs &&
           resource_collection_enabled == o.resource_collection_enabled &&
           additional_properties == o.additional_properties
     end
@@ -208,7 +223,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [account_tags, automute, client_email, cloud_run_revision_filters, host_filters, is_cspm_enabled, is_per_project_quota_enabled, is_resource_change_collection_enabled, is_security_command_center_enabled, metric_namespace_configs, resource_collection_enabled, additional_properties].hash
+      [account_tags, automute, client_email, cloud_run_revision_filters, host_filters, is_cspm_enabled, is_per_project_quota_enabled, is_resource_change_collection_enabled, is_security_command_center_enabled, metric_namespace_configs, monitored_resource_configs, resource_collection_enabled, additional_properties].hash
     end
   end
 end

@@ -242,6 +242,136 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Delete a deployment event.
+    #
+    # @see #delete_dora_deployment_with_http_info
+    def delete_dora_deployment(deployment_id, opts = {})
+      delete_dora_deployment_with_http_info(deployment_id, opts)
+      nil
+    end
+
+    # Delete a deployment event.
+    #
+    # Use this API endpoint to delete a deployment event.
+    #
+    # @param deployment_id [String] The ID of the deployment event to delete.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_dora_deployment_with_http_info(deployment_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DORAMetricsAPI.delete_dora_deployment ...'
+      end
+      # verify the required parameter 'deployment_id' is set
+      if @api_client.config.client_side_validation && deployment_id.nil?
+        fail ArgumentError, "Missing the required parameter 'deployment_id' when calling DORAMetricsAPI.delete_dora_deployment"
+      end
+      # resource path
+      local_var_path = '/api/v2/dora/deployment/{deployment_id}'.sub('{deployment_id}', CGI.escape(deployment_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :delete_dora_deployment,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DORAMetricsAPI#delete_dora_deployment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete a failure event.
+    #
+    # @see #delete_dora_failure_with_http_info
+    def delete_dora_failure(failure_id, opts = {})
+      delete_dora_failure_with_http_info(failure_id, opts)
+      nil
+    end
+
+    # Delete a failure event.
+    #
+    # Use this API endpoint to delete a failure event.
+    #
+    # @param failure_id [String] The ID of the failure event to delete.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_dora_failure_with_http_info(failure_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DORAMetricsAPI.delete_dora_failure ...'
+      end
+      # verify the required parameter 'failure_id' is set
+      if @api_client.config.client_side_validation && failure_id.nil?
+        fail ArgumentError, "Missing the required parameter 'failure_id' when calling DORAMetricsAPI.delete_dora_failure"
+      end
+      # resource path
+      local_var_path = '/api/v2/dora/failure/{failure_id}'.sub('{failure_id}', CGI.escape(failure_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :delete_dora_failure,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DORAMetricsAPI#delete_dora_failure\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get a deployment event.
     #
     # @see #get_dora_deployment_with_http_info

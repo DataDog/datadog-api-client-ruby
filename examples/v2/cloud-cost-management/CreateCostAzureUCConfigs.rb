@@ -20,7 +20,6 @@ body = DatadogAPIClient::V2::AzureUCConfigPostRequest.new({
         storage_container: "dd-storage-container",
       }),
       client_id: "1234abcd-1234-abcd-1234-1234abcd1234",
-      is_enabled: true,
       scope: "subscriptions/1234abcd-1234-abcd-1234-1234abcd1234",
     }),
     type: DatadogAPIClient::V2::AzureUCConfigPostRequestType::AZURE_UC_CONFIG_POST_REQUEST,

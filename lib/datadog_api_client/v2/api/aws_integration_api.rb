@@ -39,12 +39,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(AWSAccountResponse, Integer, Hash)>] AWSAccountResponse data, response status code and response headers
     def create_aws_account_with_http_info(body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.create_aws_account".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_aws_account")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_aws_account"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AWSIntegrationAPI.create_aws_account ...'
@@ -111,12 +105,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(AWSNewExternalIDResponse, Integer, Hash)>] AWSNewExternalIDResponse data, response status code and response headers
     def create_new_aws_external_id_with_http_info(opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.create_new_aws_external_id".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_new_aws_external_id")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_new_aws_external_id"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AWSIntegrationAPI.create_new_aws_external_id ...'
@@ -178,12 +166,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_aws_account_with_http_info(aws_account_config_id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.delete_aws_account".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_aws_account")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_aws_account"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AWSIntegrationAPI.delete_aws_account ...'
@@ -249,12 +231,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(AWSAccountResponse, Integer, Hash)>] AWSAccountResponse data, response status code and response headers
     def get_aws_account_with_http_info(aws_account_config_id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.get_aws_account".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_aws_account")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_aws_account"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AWSIntegrationAPI.get_aws_account ...'
@@ -364,6 +340,126 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get resource collection IAM permissions.
+    #
+    # @see #get_aws_integration_iam_permissions_resource_collection_with_http_info
+    def get_aws_integration_iam_permissions_resource_collection(opts = {})
+      data, _status_code, _headers = get_aws_integration_iam_permissions_resource_collection_with_http_info(opts)
+      data
+    end
+
+    # Get resource collection IAM permissions.
+    #
+    # Get all resource collection AWS IAM permissions required for the AWS integration.
+    #
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(AWSIntegrationIamPermissionsResponse, Integer, Hash)>] AWSIntegrationIamPermissionsResponse data, response status code and response headers
+    def get_aws_integration_iam_permissions_resource_collection_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AWSIntegrationAPI.get_aws_integration_iam_permissions_resource_collection ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/integration/aws/iam_permissions/resource_collection'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AWSIntegrationIamPermissionsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_aws_integration_iam_permissions_resource_collection,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AWSIntegrationAPI#get_aws_integration_iam_permissions_resource_collection\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get AWS integration standard IAM permissions.
+    #
+    # @see #get_aws_integration_iam_permissions_standard_with_http_info
+    def get_aws_integration_iam_permissions_standard(opts = {})
+      data, _status_code, _headers = get_aws_integration_iam_permissions_standard_with_http_info(opts)
+      data
+    end
+
+    # Get AWS integration standard IAM permissions.
+    #
+    # Get all standard AWS IAM permissions required for the AWS integration.
+    #
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(AWSIntegrationIamPermissionsResponse, Integer, Hash)>] AWSIntegrationIamPermissionsResponse data, response status code and response headers
+    def get_aws_integration_iam_permissions_standard_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AWSIntegrationAPI.get_aws_integration_iam_permissions_standard ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/integration/aws/iam_permissions/standard'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AWSIntegrationIamPermissionsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_aws_integration_iam_permissions_standard,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AWSIntegrationAPI#get_aws_integration_iam_permissions_standard\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List all AWS integrations.
     #
     # @see #list_aws_accounts_with_http_info
@@ -380,12 +476,6 @@ module DatadogAPIClient::V2
     # @option opts [String] :aws_account_id Optional query parameter to filter accounts by AWS Account ID. If not provided, all accounts are returned.
     # @return [Array<(AWSAccountsResponse, Integer, Hash)>] AWSAccountsResponse data, response status code and response headers
     def list_aws_accounts_with_http_info(opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.list_aws_accounts".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_aws_accounts")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_aws_accounts"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AWSIntegrationAPI.list_aws_accounts ...'
@@ -447,12 +537,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(AWSNamespacesResponse, Integer, Hash)>] AWSNamespacesResponse data, response status code and response headers
     def list_aws_namespaces_with_http_info(opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.list_aws_namespaces".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_aws_namespaces")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_aws_namespaces"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AWSIntegrationAPI.list_aws_namespaces ...'
@@ -515,12 +599,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(AWSAccountResponse, Integer, Hash)>] AWSAccountResponse data, response status code and response headers
     def update_aws_account_with_http_info(aws_account_config_id, body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.update_aws_account".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_aws_account")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_aws_account"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AWSIntegrationAPI.update_aws_account ...'

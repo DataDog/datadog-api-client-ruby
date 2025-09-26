@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class AzureUCConfig
     include BaseGenericModel
 
-    # The tenant ID of the azure account.
+    # The tenant ID of the Azure account.
     attr_reader :account_id
 
     # The client ID of the Azure account.
@@ -110,6 +110,14 @@ module DatadogAPIClient::V2
         :'storage_container' => :'String',
         :'updated_at' => :'String'
       }
+    end
+
+    # List of attributes with nullable: true
+    # @!visibility private
+    def self.openapi_nullable
+      Set.new([
+        :'error_messages',
+      ])
     end
 
     # Initializes the object

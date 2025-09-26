@@ -756,7 +756,6 @@ ScenariosModelMappings = {
     "v1.SearchTests" => {
             "text" => "String",
             "include_full_config" => "Boolean",
-            "search_suites" => "Boolean",
             "facets_only" => "Boolean",
             "start" => "Integer",
             "count" => "Integer",
@@ -838,6 +837,39 @@ ScenariosModelMappings = {
     "v1.UpdateUser" => {
             "user_handle" => "String",
             "body" => "User",
+    },
+    "v2.CreateDatastore" => {
+            "body" => "CreateAppsDatastoreRequest",
+    },
+    "v2.DeleteDatastore" => {
+            "datastore_id" => "String",
+    },
+    "v2.GetDatastore" => {
+            "datastore_id" => "String",
+    },
+    "v2.UpdateDatastore" => {
+            "datastore_id" => "String",
+            "body" => "UpdateAppsDatastoreRequest",
+    },
+    "v2.DeleteDatastoreItem" => {
+            "datastore_id" => "String",
+            "body" => "DeleteAppsDatastoreItemRequest",
+    },
+    "v2.ListDatastoreItems" => {
+            "datastore_id" => "String",
+            "filter" => "String",
+            "item_key" => "String",
+            "page_limit" => "Integer",
+            "page_offset" => "Integer",
+            "sort" => "String",
+    },
+    "v2.UpdateDatastoreItem" => {
+            "datastore_id" => "String",
+            "body" => "UpdateAppsDatastoreItemRequest",
+    },
+    "v2.BulkWriteDatastoreItems" => {
+            "datastore_id" => "String",
+            "body" => "BulkPutAppsDatastoreItemsRequest",
     },
     "v2.ListAppKeyRegistrations" => {
             "page_size" => "Integer",
@@ -1351,6 +1383,9 @@ ScenariosModelMappings = {
             "security_filter_id" => "String",
             "body" => "SecurityFilterUpdateRequest",
     },
+    "v2.ListSecurityMonitoringSuppressions" => {
+            "query" => "String",
+    },
     "v2.CreateSecurityMonitoringSuppression" => {
             "body" => "SecurityMonitoringSuppressionCreateRequest",
     },
@@ -1495,10 +1530,29 @@ ScenariosModelMappings = {
             "page_size" => "Integer",
             "page_cursor" => "String",
     },
+    "v2.CreateArbitraryCostRule" => {
+            "body" => "ArbitraryCostUpsertRequest",
+    },
+    "v2.ReorderArbitraryCostRules" => {
+            "body" => "ReorderRuleResourceArray",
+    },
+    "v2.DeleteArbitraryCostRule" => {
+            "rule_id" => "Integer",
+    },
+    "v2.GetArbitraryCostRule" => {
+            "rule_id" => "Integer",
+    },
+    "v2.UpdateArbitraryCostRule" => {
+            "rule_id" => "Integer",
+            "body" => "ArbitraryCostUpsertRequest",
+    },
     "v2.CreateCostAWSCURConfig" => {
             "body" => "AwsCURConfigPostRequest",
     },
     "v2.DeleteCostAWSCURConfig" => {
+            "cloud_account_id" => "Integer",
+    },
+    "v2.GetCostAWSCURConfig" => {
             "cloud_account_id" => "Integer",
     },
     "v2.UpdateCostAWSCURConfig" => {
@@ -1509,6 +1563,9 @@ ScenariosModelMappings = {
             "body" => "AzureUCConfigPostRequest",
     },
     "v2.DeleteCostAzureUCConfig" => {
+            "cloud_account_id" => "Integer",
+    },
+    "v2.GetCostAzureUCConfig" => {
             "cloud_account_id" => "Integer",
     },
     "v2.UpdateCostAzureUCConfigs" => {
@@ -1545,9 +1602,31 @@ ScenariosModelMappings = {
     "v2.DeleteCostGCPUsageCostConfig" => {
             "cloud_account_id" => "Integer",
     },
+    "v2.GetCostGCPUsageCostConfig" => {
+            "cloud_account_id" => "Integer",
+    },
     "v2.UpdateCostGCPUsageCostConfig" => {
             "cloud_account_id" => "Integer",
             "body" => "GCPUsageCostConfigPatchRequest",
+    },
+    "v2.CreateRuleset" => {
+            "body" => "CreateRulesetRequest",
+    },
+    "v2.ReorderRulesets" => {
+            "body" => "ReorderRulesetResourceArray",
+    },
+    "v2.ValidateQuery" => {
+            "body" => "RulesValidateQueryRequest",
+    },
+    "v2.DeleteRuleset" => {
+            "ruleset_id" => "String",
+    },
+    "v2.GetRuleset" => {
+            "ruleset_id" => "String",
+    },
+    "v2.UpdateRuleset" => {
+            "ruleset_id" => "String",
+            "body" => "UpdateRulesetRequest",
     },
     "v2.GetMonthlyCostAttribution" => {
             "start_month" => "Time",
@@ -1668,6 +1747,9 @@ ScenariosModelMappings = {
     "v2.CreateDORADeployment" => {
             "body" => "DORADeploymentRequest",
     },
+    "v2.DeleteDORADeployment" => {
+            "deployment_id" => "String",
+    },
     "v2.ListDORADeployments" => {
             "body" => "DORAListDeploymentsRequest",
     },
@@ -1676,6 +1758,9 @@ ScenariosModelMappings = {
     },
     "v2.CreateDORAFailure" => {
             "body" => "DORAFailureRequest",
+    },
+    "v2.DeleteDORAFailure" => {
+            "failure_id" => "String",
     },
     "v2.ListDORAFailures" => {
             "body" => "DORAListFailuresRequest",
@@ -1752,6 +1837,25 @@ ScenariosModelMappings = {
     "v2.CreateIncident" => {
             "body" => "IncidentCreateRequest",
     },
+    "v2.ListIncidentNotificationRules" => {
+            "include" => "String",
+    },
+    "v2.CreateIncidentNotificationRule" => {
+            "body" => "CreateIncidentNotificationRuleRequest",
+    },
+    "v2.DeleteIncidentNotificationRule" => {
+            "id" => "UUID",
+            "include" => "String",
+    },
+    "v2.GetIncidentNotificationRule" => {
+            "id" => "UUID",
+            "include" => "String",
+    },
+    "v2.UpdateIncidentNotificationRule" => {
+            "id" => "UUID",
+            "include" => "String",
+            "body" => "PutIncidentNotificationRuleRequest",
+    },
     "v2.ListIncidentNotificationTemplates" => {
             "filter_incident_type" => "UUID",
             "include" => "String",
@@ -1816,6 +1920,19 @@ ScenariosModelMappings = {
             "incident_id" => "String",
             "include" => "Array<IncidentAttachmentRelatedObject>",
             "body" => "IncidentAttachmentUpdateRequest",
+    },
+    "v2.ListIncidentImpacts" => {
+            "incident_id" => "String",
+            "include" => "Array<IncidentImpactRelatedObject>",
+    },
+    "v2.CreateIncidentImpact" => {
+            "incident_id" => "String",
+            "include" => "Array<IncidentImpactRelatedObject>",
+            "body" => "IncidentImpactCreateRequest",
+    },
+    "v2.DeleteIncidentImpact" => {
+            "incident_id" => "String",
+            "impact_id" => "String",
     },
     "v2.ListIncidentIntegrations" => {
             "incident_id" => "String",
@@ -2332,6 +2449,12 @@ ScenariosModelMappings = {
     },
     "v2.UploadIdPMetadata" => {
             "idp_file" => "File",
+    },
+    "v2.ListOrgConnections" => {
+            "sink_org_id" => "String",
+            "source_org_id" => "String",
+            "limit" => "Integer",
+            "offset" => "Integer",
     },
     "v2.CreateOrgConnections" => {
             "body" => "OrgConnectionCreateRequest",
