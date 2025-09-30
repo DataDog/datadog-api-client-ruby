@@ -1,5 +1,24 @@
 # CHANGELOG
 
+## 2.43.0/2025-09-30
+
+### Added
+* Add API Key ID to rum application response [#2690](https://github.com/DataDog/datadog-api-client-ruby/pull/2690)
+* Add suppression list query string parameter [#2689](https://github.com/DataDog/datadog-api-client-ruby/pull/2689)
+* Add datastore trigger to workflows public API  [#2686](https://github.com/DataDog/datadog-api-client-ruby/pull/2686)
+* Add Google PubSub destination to the Observability Pipelines API [#2677](https://github.com/DataDog/datadog-api-client-ruby/pull/2677)
+* Add API spec for AWS Integrations standard and resource collection IAM permissions [#2674](https://github.com/DataDog/datadog-api-client-ruby/pull/2674)
+* Publish new incident impact APIs [#2670](https://github.com/DataDog/datadog-api-client-ruby/pull/2670)
+* Add product analytics to FormulaAndFunctionEventsDataSource [#2669](https://github.com/DataDog/datadog-api-client-ruby/pull/2669)
+* Add sequence detection to security monitoring rules [#2666](https://github.com/DataDog/datadog-api-client-ruby/pull/2666)
+* Add Public Delete Dora Events Endpoints [#2649](https://github.com/DataDog/datadog-api-client-ruby/pull/2649)
+
+### Fixed
+* Remove any references to synthetics test suites [#2681](https://github.com/DataDog/datadog-api-client-ruby/pull/2681)
+
+### Changed
+* Add tag pipeline, custom allocation rule and get cloud account by id for AWS/Azure/GCP configs APIs [#2664](https://github.com/DataDog/datadog-api-client-ruby/pull/2664)
+
 ## 2.42.0/2025-09-15
 
 ### Added
