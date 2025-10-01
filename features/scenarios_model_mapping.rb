@@ -910,6 +910,16 @@ ScenariosModelMappings = {
             "account_id" => "String",
             "body" => "AwsScanOptionsUpdateRequest",
     },
+    "v2.CreateAzureScanOptions" => {
+            "body" => "AzureScanOptions",
+    },
+    "v2.DeleteAzureScanOptions" => {
+            "subscription_id" => "String",
+    },
+    "v2.UpdateAzureScanOptions" => {
+            "subscription_id" => "String",
+            "body" => "AzureScanOptionsInputUpdate",
+    },
     "v2.CreateAwsOnDemandTask" => {
             "body" => "AwsOnDemandCreateRequest",
     },
