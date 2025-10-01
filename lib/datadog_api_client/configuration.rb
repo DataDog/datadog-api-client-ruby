@@ -227,6 +227,7 @@ module DatadogAPIClient
             "v2.create_incident_notification_template": false,
             "v2.create_incident_todo": false,
             "v2.create_incident_type": false,
+            "v2.create_page_from_incident": false,
             "v2.delete_incident": false,
             "v2.delete_incident_impact": false,
             "v2.delete_incident_integration": false,
