@@ -25,7 +25,6 @@ module DatadogAPIClient::V2
     # They allow users to define the conditions under which a notification should be generated (based on rule severities,
     # rule types, rule tags, and so on), and the targets to notify.
     # A notification rule is composed of a rule ID, a rule type, and the rule attributes. All fields are required.
-    #
     attr_accessor :data
 
     attr_accessor :additional_properties

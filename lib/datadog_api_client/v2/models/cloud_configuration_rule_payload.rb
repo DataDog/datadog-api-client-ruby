@@ -22,7 +22,6 @@ module DatadogAPIClient::V2
     include BaseGenericModel
 
     # Description of generated findings and signals (severity and channels to be notified in case of a signal). Must contain exactly one item.
-    #
     attr_reader :cases
 
     # How to generate compliance signals. Useful for cloud_configuration rules only.

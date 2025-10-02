@@ -399,7 +399,6 @@ module DatadogAPIClient::V2
     # Validates a pipeline configuration without creating or updating any resources.
     # Returns a list of validation errors, if any.
     #
-    #
     # @param body [ObservabilityPipelineSpec] 
     # @param opts [Hash] the optional parameters
     # @return [Array<(ValidationResponse, Integer, Hash)>] ValidationResponse data, response status code and response headers

@@ -23,7 +23,6 @@ module DatadogAPIClient::V2
 
     # Options for cloud_configuration rules.
     # Fields `resourceType` and `regoRule` are mandatory when managing custom `cloud_configuration` rules.
-    #
     attr_reader :compliance_rule_options
 
     attr_accessor :additional_properties

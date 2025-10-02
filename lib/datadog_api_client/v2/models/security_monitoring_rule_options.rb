@@ -23,7 +23,6 @@ module DatadogAPIClient::V2
 
     # Options for cloud_configuration rules.
     # Fields `resourceType` and `regoRule` are mandatory when managing custom `cloud_configuration` rules.
-    #
     attr_accessor :compliance_rule_options
 
     # If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce signal noise.

@@ -26,7 +26,6 @@ module DatadogAPIClient::V2
     attr_reader :acl
 
     # GCP credentials used to authenticate with Google Cloud Storage.
-    #
     attr_reader :auth
 
     # Name of the GCS bucket.

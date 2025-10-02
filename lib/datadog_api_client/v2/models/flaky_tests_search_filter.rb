@@ -32,7 +32,6 @@ module DatadogAPIClient::V2
     # - `@git.branch`
     # - `@test.codeowners`
     # - `env`
-    #
     attr_accessor :query
 
     attr_accessor :additional_properties
