@@ -22,6 +22,7 @@ body = DatadogAPIClient::V2::CloudWorkloadSecurityAgentRuleCreateRequest.new({
             name: "test_set",
             value: "test_value",
             scope: "process",
+            inherited: true,
           }),
         }),
         DatadogAPIClient::V2::CloudWorkloadSecurityAgentRuleAction.new({
