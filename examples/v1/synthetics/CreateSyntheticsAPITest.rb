@@ -23,6 +23,7 @@ body = DatadogAPIClient::V1::SyntheticsAPITest.new({
   message: "Notification message",
   name: "Example test name",
   options: DatadogAPIClient::V1::SyntheticsTestOptions.new({
+    blocked_request_patterns: [],
     ci: DatadogAPIClient::V1::SyntheticsTestCiOptions.new({
       execution_rule: DatadogAPIClient::V1::SyntheticsTestExecutionRule::BLOCKING,
     }),
