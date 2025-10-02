@@ -33,6 +33,9 @@ module DatadogAPIClient::V2
     # Timestamp of when the case was created
     attr_accessor :created_at
 
+    # Case custom attributes
+    attr_accessor :custom_attributes
+
     # Description
     attr_accessor :description
 
@@ -60,6 +63,9 @@ module DatadogAPIClient::V2
     # Case type
     attr_accessor :type
 
+    # Case type UUID
+    attr_accessor :type_id
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -70,6 +76,7 @@ module DatadogAPIClient::V2
         :'attributes' => :'attributes',
         :'closed_at' => :'closed_at',
         :'created_at' => :'created_at',
+        :'custom_attributes' => :'custom_attributes',
         :'description' => :'description',
         :'jira_issue' => :'jira_issue',
         :'key' => :'key',
@@ -78,7 +85,8 @@ module DatadogAPIClient::V2
         :'service_now_ticket' => :'service_now_ticket',
         :'status' => :'status',
         :'title' => :'title',
-        :'type' => :'type'
+        :'type' => :'type',
+        :'type_id' => :'type_id'
       }
     end
 
@@ -90,6 +98,7 @@ module DatadogAPIClient::V2
         :'attributes' => :'Hash<String, Array<String>>',
         :'closed_at' => :'Time',
         :'created_at' => :'Time',
+        :'custom_attributes' => :'Hash<String, CustomAttributeValue>',
         :'description' => :'String',
         :'jira_issue' => :'JiraIssue',
         :'key' => :'String',
@@ -98,7 +107,8 @@ module DatadogAPIClient::V2
         :'service_now_ticket' => :'ServiceNowTicket',
         :'status' => :'CaseStatus',
         :'title' => :'String',
-        :'type' => :'CaseType'
+        :'type' => :'CaseType',
+        :'type_id' => :'String'
       }
     end
 
@@ -148,6 +158,10 @@ module DatadogAPIClient::V2
         self.created_at = attributes[:'created_at']
       end
 
+      if attributes.key?(:'custom_attributes')
+        self.custom_attributes = attributes[:'custom_attributes']
+      end
+
       if attributes.key?(:'description')
         self.description = attributes[:'description']
       end
@@ -183,6 +197,10 @@ module DatadogAPIClient::V2
       if attributes.key?(:'type')
         self.type = attributes[:'type']
       end
+
+      if attributes.key?(:'type_id')
+        self.type_id = attributes[:'type_id']
+      end
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -215,6 +233,7 @@ module DatadogAPIClient::V2
           attributes == o.attributes &&
           closed_at == o.closed_at &&
           created_at == o.created_at &&
+          custom_attributes == o.custom_attributes &&
           description == o.description &&
           jira_issue == o.jira_issue &&
           key == o.key &&
@@ -224,6 +243,7 @@ module DatadogAPIClient::V2
           status == o.status &&
           title == o.title &&
           type == o.type &&
+          type_id == o.type_id &&
           additional_properties == o.additional_properties
     end
 
@@ -231,7 +251,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [archived_at, attributes, closed_at, created_at, description, jira_issue, key, modified_at, priority, service_now_ticket, status, title, type, additional_properties].hash
+      [archived_at, attributes, closed_at, created_at, custom_attributes, description, jira_issue, key, modified_at, priority, service_now_ticket, status, title, type, type_id, additional_properties].hash
     end
   end
 end
