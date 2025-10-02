@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Tue, 27 May 2025 10:25:22 GMT
+- recorded_at: Thu, 02 Oct 2025 12:41:00 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"description":"My agent policy","enabled":true,"hostTags":["env:staging"],"name":"testupdateaworkloadprotectionpolicyreturnsbadrequestresponse1748341522"},"type":"policy"}}'
+      string: '{"data":{"attributes":{"description":"My agent policy","enabled":true,"hostTags":["env:staging"],"name":"testupdateaworkloadprotectionpolicyreturnsbadrequestresponse1759408860"},"type":"policy"}}'
     headers:
       Accept:
       - application/json
@@ -14,26 +14,26 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"ihh-rif-yh3","type":"policy","attributes":{"blockingRulesCount":0,"datadogManaged":false,"description":"My
-        agent policy","disabledRulesCount":1,"enabled":true,"hostTags":["env:staging"],"monitoringRulesCount":225,"name":"testupdateaworkloadprotectionpolicyreturnsbadrequestresponse1748341522","policyVersion":"1","priority":1000000011,"ruleCount":226,"updateDate":1748341522393,"updater":{"name":"frog","handle":"frog@datadoghq.com"}}}}'
+      string: '{"data":{"id":"ijr-o1n-ljg","type":"policy","attributes":{"blockingRulesCount":0,"datadogManaged":false,"description":"My
+        agent policy","disabledRulesCount":1,"enabled":true,"hostTagsLists":[["env:staging"]],"monitoringRulesCount":7,"name":"testupdateaworkloadprotectionpolicyreturnsbadrequestresponse1759408860","pinned":false,"policyVersion":"1","ruleCount":8,"updateDate":1759408861137,"updater":{"name":"frog","handle":"frog@datadoghq.com"}}}}'
     headers:
       Content-Type:
       - application/json
     status:
       code: 200
       message: OK
-- recorded_at: Tue, 27 May 2025 10:25:22 GMT
+- recorded_at: Thu, 02 Oct 2025 12:41:00 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"description":"My agent policy","enabled":true,"hostTags":["env:test"],"hostTagsLists":[["env:test"]],"name":""},"id":"ihh-rif-yh3","type":"policy"}}'
+      string: '{"data":{"attributes":{"description":"My agent policy","enabled":true,"hostTags":["env:test"],"hostTagsLists":[["env:test"]],"name":""},"id":"ijr-o1n-ljg","type":"policy"}}'
     headers:
       Accept:
       - application/json
       Content-Type:
       - application/json
     method: PATCH
-    uri: https://api.datadoghq.com/api/v2/remote_config/products/cws/policy/ihh-rif-yh3
+    uri: https://api.datadoghq.com/api/v2/remote_config/products/cws/policy/ijr-o1n-ljg
   response:
     body:
       encoding: UTF-8
@@ -45,14 +45,14 @@ http_interactions:
     status:
       code: 400
       message: Bad Request
-- recorded_at: Tue, 27 May 2025 10:25:22 GMT
+- recorded_at: Thu, 02 Oct 2025 12:41:00 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/remote_config/products/cws/policy/ihh-rif-yh3
+    uri: https://api.datadoghq.com/api/v2/remote_config/products/cws/policy/ijr-o1n-ljg
   response:
     body:
       encoding: UTF-8
