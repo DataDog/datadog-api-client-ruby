@@ -228,6 +228,32 @@
       <li class="public ">
   <span class="summary_signature">
     
+      <a href="#blocked_request_patterns-instance_method" title="#blocked_request_patterns (instance method)">#<strong>blocked_request_patterns</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Array of URL patterns to block.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#check_certificate_revocation-instance_method" title="#check_certificate_revocation (instance method)">#<strong>check_certificate_revocation</strong>  &#x21d2; Object </a>
     
 
@@ -991,6 +1017,48 @@ certificates.</p>
 </div>
     
       
+      <span id="blocked_request_patterns=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="blocked_request_patterns-instance_method">
+  
+    #<strong>blocked_request_patterns</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Array of URL patterns to block.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+32
+33
+34</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/synthetics_test_options.rb', line 32</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_blocked_request_patterns'>blocked_request_patterns</span>
+  <span class='ivar'>@blocked_request_patterns</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
       <span id="check_certificate_revocation=-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="check_certificate_revocation-instance_method">
@@ -1143,12 +1211,12 @@ certificates.</p>
       <pre class="lines">
 
 
-41
-42
-43</pre>
+44
+45
+46</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/synthetics_test_options.rb', line 41</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/synthetics_test_options.rb', line 44</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_disable_aia_intermediate_fetching'>disable_aia_intermediate_fetching</span>
   <span class='ivar'>@disable_aia_intermediate_fetching</span>
@@ -1932,7 +2000,7 @@ RUM data is collected using the specified application.</p>
 </div>
 
       <div id="footer">
-  Generated on Wed Oct  1 20:53:02 2025 by
+  Generated on Thu Oct  2 13:42:04 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>
