@@ -584,7 +584,7 @@ module DatadogAPIClient::V2
     #
     # Create a new notification rule for security signals and return the created rule.
     #
-    # @param body [CreateNotificationRuleParameters] The body of the create notification rule request is composed of the rule type and the rule attributes: the rule name, the selectors, the notification targets, and the rule enabled status. 
+    # @param body [CreateNotificationRuleParameters] The body of the create notification rule request is composed of the rule type and the rule attributes: the rule name, the selectors, the notification targets, and the rule enabled status.
     # @param opts [Hash] the optional parameters
     # @return [Array<(NotificationRuleResponse, Integer, Hash)>] NotificationRuleResponse data, response status code and response headers
     def create_signal_notification_rule_with_http_info(body, opts = {})
@@ -651,7 +651,7 @@ module DatadogAPIClient::V2
     #
     # Create a new notification rule for security vulnerabilities and return the created rule.
     #
-    # @param body [CreateNotificationRuleParameters] The body of the create notification rule request is composed of the rule type and the rule attributes: the rule name, the selectors, the notification targets, and the rule enabled status. 
+    # @param body [CreateNotificationRuleParameters] The body of the create notification rule request is composed of the rule type and the rule attributes: the rule name, the selectors, the notification targets, and the rule enabled status.
     # @param opts [Hash] the optional parameters
     # @return [Array<(NotificationRuleResponse, Integer, Hash)>] NotificationRuleResponse data, response status code and response headers
     def create_vulnerability_notification_rule_with_http_info(body, opts = {})
@@ -1758,7 +1758,6 @@ module DatadogAPIClient::V2
     #
     # Get a single SBOM related to an asset by its type and name.
     #
-    #
     # @param asset_type [AssetType] The type of the asset for the SBOM request.
     # @param filter_asset_name [String] The name of the asset for the SBOM request.
     # @param opts [Hash] the optional parameters
@@ -2797,7 +2796,6 @@ module DatadogAPIClient::V2
     # - `evaluation_changed_at` and `resource_discovery_date` time stamps.
     # - An array of associated tags.
     #
-    #
     # @param opts [Hash] the optional parameters
     # @option opts [Integer] :page_limit Limit the number of findings returned. Must be <= 1000.
     # @option opts [Integer] :snapshot_timestamp Return findings for a given snapshot of time (Unix ms).
@@ -3459,7 +3457,6 @@ module DatadogAPIClient::V2
     # }
     # ```
     #
-    #
     # @param opts [Hash] the optional parameters
     # @option opts [String] :page_token Its value must come from the `links` section of the response of the first request. Do not manually edit it.
     # @option opts [Integer] :page_number The page number to be retrieved. It should be equal or greater than `1`
@@ -3675,7 +3672,6 @@ module DatadogAPIClient::V2
     #
     # Please review the [Metadata section for the "List Vulnerabilities"](#metadata) endpoint.
     #
-    #
     # @param opts [Hash] the optional parameters
     # @option opts [String] :page_token Its value must come from the `links` section of the response of the first request. Do not manually edit it.
     # @option opts [Integer] :page_number The page number to be retrieved. It should be equal or greater than `1`
@@ -3783,7 +3779,7 @@ module DatadogAPIClient::V2
     #
     # Mute or unmute findings.
     #
-    # @param body [BulkMuteFindingsRequest] ### Attributes  All findings are updated with the same attributes. The request body must include at least two attributes: `muted` and `reason`. The allowed reasons depend on whether the finding is being muted or unmuted:   - To mute a finding: `PENDING_FIX`, `FALSE_POSITIVE`, `ACCEPTED_RISK`, `OTHER`.   - To unmute a finding : `NO_PENDING_FIX`, `HUMAN_ERROR`, `NO_LONGER_ACCEPTED_RISK`, `OTHER`.  ### Meta  The request body must include a list of the finding IDs to be updated. 
+    # @param body [BulkMuteFindingsRequest] ### Attributes  All findings are updated with the same attributes. The request body must include at least two attributes: `muted` and `reason`. The allowed reasons depend on whether the finding is being muted or unmuted:   - To mute a finding: `PENDING_FIX`, `FALSE_POSITIVE`, `ACCEPTED_RISK`, `OTHER`.   - To unmute a finding : `NO_PENDING_FIX`, `HUMAN_ERROR`, `NO_LONGER_ACCEPTED_RISK`, `OTHER`.  ### Meta  The request body must include a list of the finding IDs to be updated.
     # @param opts [Hash] the optional parameters
     # @return [Array<(BulkMuteFindingsResponse, Integer, Hash)>] BulkMuteFindingsResponse data, response status code and response headers
     def mute_findings_with_http_info(body, opts = {})

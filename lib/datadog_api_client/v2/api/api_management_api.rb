@@ -38,7 +38,6 @@ module DatadogAPIClient::V2
     # information about the possible metadata.
     # It returns the created API ID.
     #
-    #
     # @deprecated This API is deprecated.
     #
     # @param opts [Hash] the optional parameters
@@ -341,7 +340,6 @@ module DatadogAPIClient::V2
     #
     # Update information about a specific API. The given content will replace all API content of the given ID.
     # The ID is returned by the create API, or can be found in the URL in the API catalog UI.
-    #
     #
     # @deprecated This API is deprecated.
     #

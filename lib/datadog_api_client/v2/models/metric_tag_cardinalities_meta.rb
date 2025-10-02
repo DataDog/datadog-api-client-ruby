@@ -23,7 +23,6 @@ module DatadogAPIClient::V2
 
     # The name of metric for which the tag cardinalities are returned.
     # This matches the metric name provided in the request.
-    #
     attr_accessor :metric_name
 
     attr_accessor :additional_properties

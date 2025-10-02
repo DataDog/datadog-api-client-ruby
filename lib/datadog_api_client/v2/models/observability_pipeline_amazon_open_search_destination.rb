@@ -23,7 +23,6 @@ module DatadogAPIClient::V2
 
     # Authentication settings for the Amazon OpenSearch destination.
     # The `strategy` field determines whether basic or AWS-based authentication is used.
-    #
     attr_reader :auth
 
     # The index to write logs to.

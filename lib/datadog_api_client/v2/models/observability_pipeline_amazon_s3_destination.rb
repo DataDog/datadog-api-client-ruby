@@ -23,7 +23,6 @@ module DatadogAPIClient::V2
 
     # AWS authentication credentials used for accessing AWS services such as S3.
     # If omitted, the system’s default credentials are used (for example, the IAM role and environment variables).
-    #
     attr_accessor :auth
 
     # S3 bucket name.

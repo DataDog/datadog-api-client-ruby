@@ -35,7 +35,6 @@ module DatadogAPIClient::V2
     #
     # Acknowledges an On-Call Page.
     #
-    #
     # @param page_id [UUID] The page ID.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
@@ -100,7 +99,6 @@ module DatadogAPIClient::V2
     # Create On-Call Page.
     #
     # Trigger a new On-Call Page.
-    #
     #
     # @param body [CreatePageRequest] 
     # @param opts [Hash] the optional parameters
@@ -169,7 +167,6 @@ module DatadogAPIClient::V2
     #
     # Escalates an On-Call Page.
     #
-    #
     # @param page_id [UUID] The page ID.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
@@ -234,7 +231,6 @@ module DatadogAPIClient::V2
     # Resolve On-Call Page.
     #
     # Resolves an On-Call Page.
-    #
     #
     # @param page_id [UUID] The page ID.
     # @param opts [Hash] the optional parameters

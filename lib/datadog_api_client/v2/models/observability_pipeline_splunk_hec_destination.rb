@@ -23,7 +23,6 @@ module DatadogAPIClient::V2
 
     # If `true`, Splunk tries to extract timestamps from incoming log events.
     # If `false`, Splunk assigns the time the event was received.
-    #
     attr_accessor :auto_extract_timestamp
 
     # Encoding format for log events.

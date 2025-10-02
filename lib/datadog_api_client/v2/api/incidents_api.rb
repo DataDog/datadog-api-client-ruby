@@ -788,7 +788,7 @@ module DatadogAPIClient::V2
     #
     # @param id [UUID] The ID of the notification rule.
     # @param opts [Hash] the optional parameters
-    # @option opts [String] :include Comma-separated list of resources to include. Supported values: `created_by_user`, `last_modified_by_user`, `incident_type`, `notification_template` 
+    # @option opts [String] :include Comma-separated list of resources to include. Supported values: `created_by_user`, `last_modified_by_user`, `incident_type`, `notification_template`
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_incident_notification_rule_with_http_info(id, opts = {})
       unstable_enabled = @api_client.config.unstable_operations["v2.delete_incident_notification_rule".to_sym]
@@ -861,7 +861,7 @@ module DatadogAPIClient::V2
     #
     # @param id [UUID] The ID of the notification template.
     # @param opts [Hash] the optional parameters
-    # @option opts [String] :include Comma-separated list of relationships to include. Supported values: `created_by_user`, `last_modified_by_user`, `incident_type` 
+    # @option opts [String] :include Comma-separated list of relationships to include. Supported values: `created_by_user`, `last_modified_by_user`, `incident_type`
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_incident_notification_template_with_http_info(id, opts = {})
       unstable_enabled = @api_client.config.unstable_operations["v2.delete_incident_notification_template".to_sym]
@@ -1230,7 +1230,7 @@ module DatadogAPIClient::V2
     #
     # @param id [UUID] The ID of the notification rule.
     # @param opts [Hash] the optional parameters
-    # @option opts [String] :include Comma-separated list of resources to include. Supported values: `created_by_user`, `last_modified_by_user`, `incident_type`, `notification_template` 
+    # @option opts [String] :include Comma-separated list of resources to include. Supported values: `created_by_user`, `last_modified_by_user`, `incident_type`, `notification_template`
     # @return [Array<(IncidentNotificationRule, Integer, Hash)>] IncidentNotificationRule data, response status code and response headers
     def get_incident_notification_rule_with_http_info(id, opts = {})
       unstable_enabled = @api_client.config.unstable_operations["v2.get_incident_notification_rule".to_sym]
@@ -1303,7 +1303,7 @@ module DatadogAPIClient::V2
     #
     # @param id [UUID] The ID of the notification template.
     # @param opts [Hash] the optional parameters
-    # @option opts [String] :include Comma-separated list of relationships to include. Supported values: `created_by_user`, `last_modified_by_user`, `incident_type` 
+    # @option opts [String] :include Comma-separated list of relationships to include. Supported values: `created_by_user`, `last_modified_by_user`, `incident_type`
     # @return [Array<(IncidentNotificationTemplate, Integer, Hash)>] IncidentNotificationTemplate data, response status code and response headers
     def get_incident_notification_template_with_http_info(id, opts = {})
       unstable_enabled = @api_client.config.unstable_operations["v2.get_incident_notification_template".to_sym]
@@ -1741,7 +1741,7 @@ module DatadogAPIClient::V2
     # Lists all notification rules for the organization. Optionally filter by incident type.
     #
     # @param opts [Hash] the optional parameters
-    # @option opts [String] :include Comma-separated list of resources to include. Supported values: `created_by_user`, `last_modified_by_user`, `incident_type`, `notification_template` 
+    # @option opts [String] :include Comma-separated list of resources to include. Supported values: `created_by_user`, `last_modified_by_user`, `incident_type`, `notification_template`
     # @return [Array<(IncidentNotificationRuleArray, Integer, Hash)>] IncidentNotificationRuleArray data, response status code and response headers
     def list_incident_notification_rules_with_http_info(opts = {})
       unstable_enabled = @api_client.config.unstable_operations["v2.list_incident_notification_rules".to_sym]
@@ -1810,7 +1810,7 @@ module DatadogAPIClient::V2
     #
     # @param opts [Hash] the optional parameters
     # @option opts [UUID] :filter_incident_type Optional incident type ID filter.
-    # @option opts [String] :include Comma-separated list of relationships to include. Supported values: `created_by_user`, `last_modified_by_user`, `incident_type` 
+    # @option opts [String] :include Comma-separated list of relationships to include. Supported values: `created_by_user`, `last_modified_by_user`, `incident_type`
     # @return [Array<(IncidentNotificationTemplateArray, Integer, Hash)>] IncidentNotificationTemplateArray data, response status code and response headers
     def list_incident_notification_templates_with_http_info(opts = {})
       unstable_enabled = @api_client.config.unstable_operations["v2.list_incident_notification_templates".to_sym]
@@ -2465,7 +2465,7 @@ module DatadogAPIClient::V2
     # @param id [UUID] The ID of the notification rule.
     # @param body [PutIncidentNotificationRuleRequest] 
     # @param opts [Hash] the optional parameters
-    # @option opts [String] :include Comma-separated list of resources to include. Supported values: `created_by_user`, `last_modified_by_user`, `incident_type`, `notification_template` 
+    # @option opts [String] :include Comma-separated list of resources to include. Supported values: `created_by_user`, `last_modified_by_user`, `incident_type`, `notification_template`
     # @return [Array<(IncidentNotificationRule, Integer, Hash)>] IncidentNotificationRule data, response status code and response headers
     def update_incident_notification_rule_with_http_info(id, body, opts = {})
       unstable_enabled = @api_client.config.unstable_operations["v2.update_incident_notification_rule".to_sym]
@@ -2545,7 +2545,7 @@ module DatadogAPIClient::V2
     # @param id [UUID] The ID of the notification template.
     # @param body [PatchIncidentNotificationTemplateRequest] 
     # @param opts [Hash] the optional parameters
-    # @option opts [String] :include Comma-separated list of relationships to include. Supported values: `created_by_user`, `last_modified_by_user`, `incident_type` 
+    # @option opts [String] :include Comma-separated list of relationships to include. Supported values: `created_by_user`, `last_modified_by_user`, `incident_type`
     # @return [Array<(IncidentNotificationTemplate, Integer, Hash)>] IncidentNotificationTemplate data, response status code and response headers
     def update_incident_notification_template_with_http_info(id, body, opts = {})
       unstable_enabled = @api_client.config.unstable_operations["v2.update_incident_notification_template".to_sym]

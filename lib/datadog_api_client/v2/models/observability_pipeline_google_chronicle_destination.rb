@@ -22,7 +22,6 @@ module DatadogAPIClient::V2
     include BaseGenericModel
 
     # GCP credentials used to authenticate with Google Cloud Storage.
-    #
     attr_reader :auth
 
     # The Google Chronicle customer ID.
