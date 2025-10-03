@@ -867,6 +867,10 @@ ScenariosModelMappings = {
             "datastore_id" => "String",
             "body" => "UpdateAppsDatastoreItemRequest",
     },
+    "v2.BulkDeleteDatastoreItems" => {
+            "datastore_id" => "String",
+            "body" => "BulkDeleteAppsDatastoreItemsRequest",
+    },
     "v2.BulkWriteDatastoreItems" => {
             "datastore_id" => "String",
             "body" => "BulkPutAppsDatastoreItemsRequest",
