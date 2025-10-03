@@ -23,6 +23,78 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
+    # Bulk delete datastore items.
+    #
+    # @see #bulk_delete_datastore_items_with_http_info
+    def bulk_delete_datastore_items(datastore_id, body, opts = {})
+      data, _status_code, _headers = bulk_delete_datastore_items_with_http_info(datastore_id, body, opts)
+      data
+    end
+
+    # Bulk delete datastore items.
+    #
+    # Deletes multiple items from a datastore by their keys in a single operation.
+    #
+    # @param datastore_id [String] The ID of the datastore.
+    # @param body [BulkDeleteAppsDatastoreItemsRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(DeleteAppsDatastoreItemResponseArray, Integer, Hash)>] DeleteAppsDatastoreItemResponseArray data, response status code and response headers
+    def bulk_delete_datastore_items_with_http_info(datastore_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ActionsDatastoresAPI.bulk_delete_datastore_items ...'
+      end
+      # verify the required parameter 'datastore_id' is set
+      if @api_client.config.client_side_validation && datastore_id.nil?
+        fail ArgumentError, "Missing the required parameter 'datastore_id' when calling ActionsDatastoresAPI.bulk_delete_datastore_items"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling ActionsDatastoresAPI.bulk_delete_datastore_items"
+      end
+      # resource path
+      local_var_path = '/api/v2/actions-datastores/{datastore_id}/items/bulk'.sub('{datastore_id}', CGI.escape(datastore_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DeleteAppsDatastoreItemResponseArray'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :bulk_delete_datastore_items,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ActionsDatastoresAPI#bulk_delete_datastore_items\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Bulk write datastore items.
     #
     # @see #bulk_write_datastore_items_with_http_info
