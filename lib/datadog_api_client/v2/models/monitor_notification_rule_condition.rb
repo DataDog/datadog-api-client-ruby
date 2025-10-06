@@ -17,27 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes of the monitor notification rule.
-  class MonitorNotificationRuleResponseAttributes
+  # Conditions for `conditional_recipients`.
+  class MonitorNotificationRuleCondition
     include BaseGenericModel
-
-    # Use conditional recipients to define different recipients for different situations.
-    attr_accessor :conditional_recipients
-
-    # Creation time of the monitor notification rule.
-    attr_accessor :created
-
-    # Filter used to associate the notification rule with monitors.
-    attr_accessor :filter
-
-    # Time the monitor notification rule was last modified.
-    attr_accessor :modified
-
-    # The name of the monitor notification rule.
-    attr_reader :name
 
     # A list of recipients to notify. Uses the same format as the monitor `message` field. Must not start with an '@'.
     attr_reader :recipients
+
+    # The scope to which the monitor applied.
+    attr_reader :scope
 
     attr_accessor :additional_properties
 
@@ -45,12 +33,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'conditional_recipients' => :'conditional_recipients',
-        :'created' => :'created',
-        :'filter' => :'filter',
-        :'modified' => :'modified',
-        :'name' => :'name',
-        :'recipients' => :'recipients'
+        :'recipients' => :'recipients',
+        :'scope' => :'scope'
       }
     end
 
@@ -58,12 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'conditional_recipients' => :'MonitorNotificationRuleConditionalRecipients',
-        :'created' => :'Time',
-        :'filter' => :'MonitorNotificationRuleFilter',
-        :'modified' => :'Time',
-        :'name' => :'String',
-        :'recipients' => :'Array<String>'
+        :'recipients' => :'Array<String>',
+        :'scope' => :'String'
       }
     end
 
@@ -72,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::MonitorNotificationRuleResponseAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::MonitorNotificationRuleCondition` initialize method"
       end
 
       self.additional_properties = {}
@@ -85,30 +65,14 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'conditional_recipients')
-        self.conditional_recipients = attributes[:'conditional_recipients']
-      end
-
-      if attributes.key?(:'created')
-        self.created = attributes[:'created']
-      end
-
-      if attributes.key?(:'filter')
-        self.filter = attributes[:'filter']
-      end
-
-      if attributes.key?(:'modified')
-        self.modified = attributes[:'modified']
-      end
-
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
-      end
-
       if attributes.key?(:'recipients')
         if (value = attributes[:'recipients']).is_a?(Array)
           self.recipients = value
         end
+      end
+
+      if attributes.key?(:'scope')
+        self.scope = attributes[:'scope']
       end
     end
 
@@ -116,37 +80,45 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if !@name.nil? && @name.to_s.length > 1000
-      return false if !@name.nil? && @name.to_s.length < 1
-      return false if !@recipients.nil? && @recipients.length > 20
-      return false if !@recipients.nil? && @recipients.length < 1
+      return false if @recipients.nil?
+      return false if @recipients.length > 20
+      return false if @recipients.length < 1
+      return false if @scope.nil?
+      return false if @scope.to_s.length > 3000
+      return false if @scope.to_s.length < 1
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param name [Object] Object to be assigned
-    # @!visibility private
-    def name=(name)
-      if !name.nil? && name.to_s.length > 1000
-        fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 1000.'
-      end
-      if !name.nil? && name.to_s.length < 1
-        fail ArgumentError, 'invalid value for "name", the character length must be great than or equal to 1.'
-      end
-      @name = name
     end
 
     # Custom attribute writer method with validation
     # @param recipients [Object] Object to be assigned
     # @!visibility private
     def recipients=(recipients)
-      if !recipients.nil? && recipients.length > 20
+      if recipients.nil?
+        fail ArgumentError, 'invalid value for "recipients", recipients cannot be nil.'
+      end
+      if recipients.length > 20
         fail ArgumentError, 'invalid value for "recipients", number of items must be less than or equal to 20.'
       end
-      if !recipients.nil? && recipients.length < 1
+      if recipients.length < 1
         fail ArgumentError, 'invalid value for "recipients", number of items must be greater than or equal to 1.'
       end
       @recipients = recipients
+    end
+
+    # Custom attribute writer method with validation
+    # @param scope [Object] Object to be assigned
+    # @!visibility private
+    def scope=(scope)
+      if scope.nil?
+        fail ArgumentError, 'invalid value for "scope", scope cannot be nil.'
+      end
+      if scope.to_s.length > 3000
+        fail ArgumentError, 'invalid value for "scope", the character length must be smaller than or equal to 3000.'
+      end
+      if scope.to_s.length < 1
+        fail ArgumentError, 'invalid value for "scope", the character length must be great than or equal to 1.'
+      end
+      @scope = scope
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -175,12 +147,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          conditional_recipients == o.conditional_recipients &&
-          created == o.created &&
-          filter == o.filter &&
-          modified == o.modified &&
-          name == o.name &&
           recipients == o.recipients &&
+          scope == o.scope &&
           additional_properties == o.additional_properties
     end
 
@@ -188,7 +156,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [conditional_recipients, created, filter, modified, name, recipients, additional_properties].hash
+      [recipients, scope, additional_properties].hash
     end
   end
 end
