@@ -2581,6 +2581,19 @@ ScenariosModelMappings = {
             "exclusion_filter_id" => "String",
             "body" => "ApplicationSecurityWafExclusionFilterUpdateRequest",
     },
+    "v2.CreateApplicationSecurityWafPolicy" => {
+            "body" => "ApplicationSecurityPolicyCreateRequest",
+    },
+    "v2.DeleteApplicationSecurityWafPolicy" => {
+            "policy_id" => "String",
+    },
+    "v2.GetApplicationSecurityWafPolicy" => {
+            "policy_id" => "String",
+    },
+    "v2.UpdateApplicationSecurityWafPolicy" => {
+            "policy_id" => "String",
+            "body" => "ApplicationSecurityPolicyUpdateRequest",
+    },
     "v2.ListCSMThreatsAgentRules" => {
             "policy_id" => "String",
     },
