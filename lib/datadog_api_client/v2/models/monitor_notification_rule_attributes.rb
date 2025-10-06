@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class MonitorNotificationRuleAttributes
     include BaseGenericModel
 
+    # Use conditional recipients to define different recipients for different situations.
+    attr_accessor :conditional_recipients
+
     # Filter used to associate the notification rule with monitors.
     attr_accessor :filter
 
@@ -34,6 +37,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'conditional_recipients' => :'conditional_recipients',
         :'filter' => :'filter',
         :'name' => :'name',
         :'recipients' => :'recipients'
@@ -44,6 +48,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'conditional_recipients' => :'MonitorNotificationRuleConditionalRecipients',
         :'filter' => :'MonitorNotificationRuleFilter',
         :'name' => :'String',
         :'recipients' => :'Array<String>'
@@ -65,6 +70,10 @@ module DatadogAPIClient::V2
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'conditional_recipients')
+        self.conditional_recipients = attributes[:'conditional_recipients']
+      end
 
       if attributes.key?(:'filter')
         self.filter = attributes[:'filter']
@@ -88,9 +97,8 @@ module DatadogAPIClient::V2
       return false if @name.nil?
       return false if @name.to_s.length > 1000
       return false if @name.to_s.length < 1
-      return false if @recipients.nil?
-      return false if @recipients.length > 20
-      return false if @recipients.length < 1
+      return false if !@recipients.nil? && @recipients.length > 20
+      return false if !@recipients.nil? && @recipients.length < 1
       true
     end
 
@@ -114,13 +122,10 @@ module DatadogAPIClient::V2
     # @param recipients [Object] Object to be assigned
     # @!visibility private
     def recipients=(recipients)
-      if recipients.nil?
-        fail ArgumentError, 'invalid value for "recipients", recipients cannot be nil.'
-      end
-      if recipients.length > 20
+      if !recipients.nil? && recipients.length > 20
         fail ArgumentError, 'invalid value for "recipients", number of items must be less than or equal to 20.'
       end
-      if recipients.length < 1
+      if !recipients.nil? && recipients.length < 1
         fail ArgumentError, 'invalid value for "recipients", number of items must be greater than or equal to 1.'
       end
       @recipients = recipients
@@ -132,6 +137,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          conditional_recipients == o.conditional_recipients &&
           filter == o.filter &&
           name == o.name &&
           recipients == o.recipients
@@ -141,7 +147,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [filter, name, recipients].hash
+      [conditional_recipients, filter, name, recipients].hash
     end
   end
 end
