@@ -11,8 +11,8 @@ body = DatadogAPIClient::V1::LogsPipeline.new({
   processors: [
     DatadogAPIClient::V1::LogsGrokParser.new({
       grok: DatadogAPIClient::V1::LogsGrokParserRules.new({
-        match_rules: 'rule_name_1 foo\nrule_name_2 bar\n',
-        support_rules: 'rule_name_1 foo\nrule_name_2 bar\n',
+        match_rules: 'rule_name_1 foo\nrule_name_2 bar',
+        support_rules: 'rule_name_1 foo\nrule_name_2 bar',
       }),
       is_enabled: false,
       samples: [],
