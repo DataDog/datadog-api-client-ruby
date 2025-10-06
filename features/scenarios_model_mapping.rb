@@ -1530,6 +1530,9 @@ ScenariosModelMappings = {
             "page_cursor" => "String",
             "page_limit" => "Integer",
     },
+    "v2.ListMultipleRulesets" => {
+            "body" => "GetMultipleRulesetsRequest",
+    },
     "v2.ListContainerImages" => {
             "filter_tags" => "String",
             "group_by" => "String",
