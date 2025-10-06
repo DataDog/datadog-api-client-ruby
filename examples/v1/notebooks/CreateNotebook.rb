@@ -10,7 +10,7 @@ body = DatadogAPIClient::V1::NotebookCreateRequest.new({
         DatadogAPIClient::V1::NotebookCellCreateRequest.new({
           attributes: DatadogAPIClient::V1::NotebookMarkdownCellAttributes.new({
             definition: DatadogAPIClient::V1::NotebookMarkdownCellDefinition.new({
-              text: '## Some test markdown\n\n```js\nvar x, y;\nx = 5;\ny = 6;\n```',
+              text: '## Some test markdown\n\n```\nvar x, y;\nx = 5;\ny = 6;\n```',
               type: DatadogAPIClient::V1::NotebookMarkdownCellDefinitionType::MARKDOWN,
             }),
           }),
