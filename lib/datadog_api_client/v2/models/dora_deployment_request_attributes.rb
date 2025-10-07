@@ -27,7 +27,7 @@ module DatadogAPIClient::V2
     # Environment name to where the service was deployed.
     attr_accessor :env
 
-    # Unix timestamp when the deployment finished. It must be in nanoseconds, milliseconds, or seconds, and it should not be older than 1 hour.
+    # Unix timestamp when the deployment finished. It must be in nanoseconds, milliseconds, or seconds.
     attr_reader :finished_at
 
     # Git info for DORA Metrics events.
