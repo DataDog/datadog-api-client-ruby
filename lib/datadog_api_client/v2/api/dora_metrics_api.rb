@@ -23,7 +23,7 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
-    # Send a deployment event for DORA Metrics.
+    # Send a deployment event.
     #
     # @see #create_dora_deployment_with_http_info
     def create_dora_deployment(body, opts = {})
@@ -31,9 +31,9 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Send a deployment event for DORA Metrics.
+    # Send a deployment event.
     #
-    # Use this API endpoint to provide data about deployments for DORA metrics.
+    # Use this API endpoint to provide deployment data.
     #
     # This is necessary for:
     # - Deployment Frequency
@@ -95,7 +95,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Send a failure event for DORA Metrics.
+    # Send a failure event.
     #
     # @see #create_dora_failure_with_http_info
     def create_dora_failure(body, opts = {})
@@ -103,9 +103,9 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Send a failure event for DORA Metrics.
+    # Send a failure event.
     #
-    # Use this API endpoint to provide failure data for DORA metrics.
+    # Use this API endpoint to provide failure data.
     #
     # This is necessary for:
     # - Change Failure Rate
@@ -166,7 +166,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Send an incident event for DORA Metrics.
+    # Send an incident event.
     #
     # @see #create_dora_incident_with_http_info
     def create_dora_incident(body, opts = {})
@@ -174,11 +174,11 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Send an incident event for DORA Metrics.
+    # Send an incident event.
     #
     # **Note**: This endpoint is deprecated. Please use `/api/v2/dora/failure` instead.
     #
-    # Use this API endpoint to provide failure data for DORA metrics.
+    # Use this API endpoint to provide failure data.
     #
     # This is necessary for:
     # - Change Failure Rate
