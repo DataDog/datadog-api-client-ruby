@@ -39,6 +39,9 @@ module DatadogAPIClient::V1
     # Whether to show increase as good.
     attr_accessor :increase_good
 
+    # The number of items to show.
+    attr_accessor :limit
+
     # The log query.
     attr_accessor :log_query
 
@@ -87,6 +90,7 @@ module DatadogAPIClient::V1
         :'event_query' => :'event_query',
         :'formulas' => :'formulas',
         :'increase_good' => :'increase_good',
+        :'limit' => :'limit',
         :'log_query' => :'log_query',
         :'network_query' => :'network_query',
         :'order_by' => :'order_by',
@@ -112,6 +116,7 @@ module DatadogAPIClient::V1
         :'event_query' => :'LogQueryDefinition',
         :'formulas' => :'Array<WidgetFormula>',
         :'increase_good' => :'Boolean',
+        :'limit' => :'Integer',
         :'log_query' => :'LogQueryDefinition',
         :'network_query' => :'LogQueryDefinition',
         :'order_by' => :'WidgetOrderBy',
@@ -169,6 +174,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'increase_good')
         self.increase_good = attributes[:'increase_good']
+      end
+
+      if attributes.key?(:'limit')
+        self.limit = attributes[:'limit']
       end
 
       if attributes.key?(:'log_query')
@@ -254,6 +263,7 @@ module DatadogAPIClient::V1
           event_query == o.event_query &&
           formulas == o.formulas &&
           increase_good == o.increase_good &&
+          limit == o.limit &&
           log_query == o.log_query &&
           network_query == o.network_query &&
           order_by == o.order_by &&
@@ -273,7 +283,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [apm_query, change_type, compare_to, event_query, formulas, increase_good, log_query, network_query, order_by, order_dir, process_query, profile_metrics_query, q, queries, response_format, rum_query, security_query, show_present, additional_properties].hash
+      [apm_query, change_type, compare_to, event_query, formulas, increase_good, limit, log_query, network_query, order_by, order_dir, process_query, profile_metrics_query, q, queries, response_format, rum_query, security_query, show_present, additional_properties].hash
     end
   end
 end
