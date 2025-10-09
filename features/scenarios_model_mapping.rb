@@ -2555,6 +2555,34 @@ ScenariosModelMappings = {
             "page_limit" => "Integer",
             "page_cursor" => "String",
     },
+    "v2.ListTables" => {
+            "limit" => "Integer",
+            "offset" => "Integer",
+            "sort" => "ReferenceTableSortType",
+            "filter_status" => "String",
+            "filter_table_name_exact" => "String",
+            "filter_table_name_contains" => "String",
+    },
+    "v2.CreateReferenceTable" => {
+            "body" => "CreateTableRequest",
+    },
+    "v2.DeleteTable" => {
+            "id" => "String",
+    },
+    "v2.GetTable" => {
+            "id" => "String",
+    },
+    "v2.UpdateReferenceTable" => {
+            "id" => "String",
+            "body" => "PatchTableRequest",
+    },
+    "v2.GetRowsByID" => {
+            "id" => "String",
+            "row_id" => "Array<String>",
+    },
+    "v2.CreateReferenceTableUpload" => {
+            "body" => "CreateUploadRequest",
+    },
     "v2.CreateApplicationSecurityWafCustomRule" => {
             "body" => "ApplicationSecurityWafCustomRuleCreateRequest",
     },
