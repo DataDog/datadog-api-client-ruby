@@ -1,0 +1,18 @@
+http_interactions:
+- recorded_at: Wed, 08 Oct 2025 19:35:19 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/cost/arbitrary_rule/683
+  response:
+    body:
+      encoding: UTF-8
+      string: ''
+    headers: {}
+    status:
+      code: 204
+      message: No Content
+recorded_with: VCR 6.0.0

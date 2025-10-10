@@ -17,15 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `ArbitraryRuleResponseArray` object.
-  class ArbitraryRuleResponseArray
+  # The `ArbitraryRuleResponseArray` `meta`.
+  class ArbitraryRuleResponseArrayMeta
     include BaseGenericModel
 
-    # The `ArbitraryRuleResponseArray` `data`.
-    attr_reader :data
-
-    # The `ArbitraryRuleResponseArray` `meta`.
-    attr_accessor :meta
+    # The `meta` `total_count`.
+    attr_accessor :total_count
 
     attr_accessor :additional_properties
 
@@ -33,8 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data',
-        :'meta' => :'meta'
+        :'total_count' => :'total_count'
       }
     end
 
@@ -42,8 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'Array<ArbitraryRuleResponseData>',
-        :'meta' => :'ArbitraryRuleResponseArrayMeta'
+        :'total_count' => :'Integer'
       }
     end
 
@@ -52,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ArbitraryRuleResponseArray` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ArbitraryRuleResponseArrayMeta` initialize method"
       end
 
       self.additional_properties = {}
@@ -65,33 +60,9 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'data')
-        if (value = attributes[:'data']).is_a?(Array)
-          self.data = value
-        end
+      if attributes.key?(:'total_count')
+        self.total_count = attributes[:'total_count']
       end
-
-      if attributes.key?(:'meta')
-        self.meta = attributes[:'meta']
-      end
-    end
-
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    # @!visibility private
-    def valid?
-      return false if @data.nil?
-      true
-    end
-
-    # Custom attribute writer method with validation
-    # @param data [Object] Object to be assigned
-    # @!visibility private
-    def data=(data)
-      if data.nil?
-        fail ArgumentError, 'invalid value for "data", data cannot be nil.'
-      end
-      @data = data
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -120,8 +91,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data &&
-          meta == o.meta &&
+          total_count == o.total_count &&
           additional_properties == o.additional_properties
     end
 
@@ -129,7 +99,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, meta, additional_properties].hash
+      [total_count, additional_properties].hash
     end
   end
 end
