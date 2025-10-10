@@ -1091,6 +1091,7 @@ module DatadogAPIClient
           "v2.arbitrary_cost_upsert_request_data_type" => "ArbitraryCostUpsertRequestDataType",
           "v2.arbitrary_rule_response" => "ArbitraryRuleResponse",
           "v2.arbitrary_rule_response_array" => "ArbitraryRuleResponseArray",
+          "v2.arbitrary_rule_response_array_meta" => "ArbitraryRuleResponseArrayMeta",
           "v2.arbitrary_rule_response_data" => "ArbitraryRuleResponseData",
           "v2.arbitrary_rule_response_data_attributes" => "ArbitraryRuleResponseDataAttributes",
           "v2.arbitrary_rule_response_data_attributes_costs_to_allocate_items" => "ArbitraryRuleResponseDataAttributesCostsToAllocateItems",

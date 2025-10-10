@@ -1544,19 +1544,19 @@ ScenariosModelMappings = {
             "page_size" => "Integer",
             "page_cursor" => "String",
     },
-    "v2.CreateArbitraryCostRule" => {
+    "v2.CreateCustomAllocationRule" => {
             "body" => "ArbitraryCostUpsertRequest",
     },
-    "v2.ReorderArbitraryCostRules" => {
+    "v2.ReorderCustomAllocationRules" => {
             "body" => "ReorderRuleResourceArray",
     },
-    "v2.DeleteArbitraryCostRule" => {
+    "v2.DeleteCustomAllocationRule" => {
             "rule_id" => "Integer",
     },
-    "v2.GetArbitraryCostRule" => {
+    "v2.GetCustomAllocationRule" => {
             "rule_id" => "Integer",
     },
-    "v2.UpdateArbitraryCostRule" => {
+    "v2.UpdateCustomAllocationRule" => {
             "rule_id" => "Integer",
             "body" => "ArbitraryCostUpsertRequest",
     },
@@ -1623,22 +1623,22 @@ ScenariosModelMappings = {
             "cloud_account_id" => "Integer",
             "body" => "GCPUsageCostConfigPatchRequest",
     },
-    "v2.CreateRuleset" => {
+    "v2.CreateTagPipelinesRuleset" => {
             "body" => "CreateRulesetRequest",
     },
-    "v2.ReorderRulesets" => {
+    "v2.ReorderTagPipelinesRulesets" => {
             "body" => "ReorderRulesetResourceArray",
     },
     "v2.ValidateQuery" => {
             "body" => "RulesValidateQueryRequest",
     },
-    "v2.DeleteRuleset" => {
+    "v2.DeleteTagPipelinesRuleset" => {
             "ruleset_id" => "String",
     },
-    "v2.GetRuleset" => {
+    "v2.GetTagPipelinesRuleset" => {
             "ruleset_id" => "String",
     },
-    "v2.UpdateRuleset" => {
+    "v2.UpdateTagPipelinesRuleset" => {
             "ruleset_id" => "String",
             "body" => "UpdateRulesetRequest",
     },

@@ -23,85 +23,6 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
-    # Create arbitrary cost rule.
-    #
-    # @see #create_arbitrary_cost_rule_with_http_info
-    def create_arbitrary_cost_rule(body, opts = {})
-      data, _status_code, _headers = create_arbitrary_cost_rule_with_http_info(body, opts)
-      data
-    end
-
-    # Create arbitrary cost rule.
-    #
-    # Create a new arbitrary cost rule with the specified filters and allocation strategy.
-    #
-    # **Strategy Methods:**
-    # - **PROPORTIONAL/EVEN**: Allocates costs proportionally/evenly based on existing costs. Requires: granularity, allocated_by_tag_keys. Optional: based_on_costs, allocated_by_filters, evaluate_grouped_by_tag_keys, evaluate_grouped_by_filters.
-    # - **PROPORTIONAL_TIMESERIES/EVEN_TIMESERIES**: Allocates based on timeseries data. Requires: granularity, based_on_timeseries. Optional: evaluate_grouped_by_tag_keys.
-    # - **PERCENT**: Allocates fixed percentages to specific tags. Requires: allocated_by (array of percentage allocations).
-    #
-    # **Filter Conditions:**
-    # - Use **value** for single-value conditions: "is", "is not", "contains", "does not contain", "=", "!=", "like", "not like", "is all values", "is untagged"
-    # - Use **values** for multi-value conditions: "in", "not in"
-    # - Cannot use both value and values simultaneously.
-    #
-    # **Supported operators**: is, is not, is all values, is untagged, contains, does not contain, in, not in, =, !=, like, not like
-    #
-    # @param body [ArbitraryCostUpsertRequest] 
-    # @param opts [Hash] the optional parameters
-    # @return [Array<(ArbitraryRuleResponse, Integer, Hash)>] ArbitraryRuleResponse data, response status code and response headers
-    def create_arbitrary_cost_rule_with_http_info(body, opts = {})
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.create_arbitrary_cost_rule ...'
-      end
-      # verify the required parameter 'body' is set
-      if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling CloudCostManagementAPI.create_arbitrary_cost_rule"
-      end
-      # resource path
-      local_var_path = '/api/v2/cost/arbitrary_rule'
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'ArbitraryRuleResponse'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
-
-      new_options = opts.merge(
-        :operation => :create_arbitrary_cost_rule,
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type,
-        :api_version => "V2"
-      )
-
-      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CloudCostManagementAPI#create_arbitrary_cost_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
     # Create Cloud Cost Management AWS CUR config.
     #
     # @see #create_cost_awscur_config_with_http_info
@@ -303,29 +224,108 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Create ruleset.
+    # Create custom allocation rule.
     #
-    # @see #create_ruleset_with_http_info
-    def create_ruleset(body, opts = {})
-      data, _status_code, _headers = create_ruleset_with_http_info(body, opts)
+    # @see #create_custom_allocation_rule_with_http_info
+    def create_custom_allocation_rule(body, opts = {})
+      data, _status_code, _headers = create_custom_allocation_rule_with_http_info(body, opts)
       data
     end
 
-    # Create ruleset.
+    # Create custom allocation rule.
+    #
+    # Create a new custom allocation rule with the specified filters and allocation strategy.
+    #
+    # **Strategy Methods:**
+    # - **PROPORTIONAL/EVEN**: Allocates costs proportionally/evenly based on existing costs. Requires: granularity, allocated_by_tag_keys. Optional: based_on_costs, allocated_by_filters, evaluate_grouped_by_tag_keys, evaluate_grouped_by_filters.
+    # - **PROPORTIONAL_TIMESERIES/EVEN_TIMESERIES**: Allocates based on timeseries data. Requires: granularity, based_on_timeseries. Optional: evaluate_grouped_by_tag_keys.
+    # - **PERCENT**: Allocates fixed percentages to specific tags. Requires: allocated_by (array of percentage allocations).
+    #
+    # **Filter Conditions:**
+    # - Use **value** for single-value conditions: "is", "is not", "contains", "does not contain", "=", "!=", "like", "not like", "is all values", "is untagged"
+    # - Use **values** for multi-value conditions: "in", "not in"
+    # - Cannot use both value and values simultaneously.
+    #
+    # **Supported operators**: is, is not, is all values, is untagged, contains, does not contain, in, not in, =, !=, like, not like
+    #
+    # @param body [ArbitraryCostUpsertRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(ArbitraryRuleResponse, Integer, Hash)>] ArbitraryRuleResponse data, response status code and response headers
+    def create_custom_allocation_rule_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.create_custom_allocation_rule ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CloudCostManagementAPI.create_custom_allocation_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/arbitrary_rule'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ArbitraryRuleResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_custom_allocation_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#create_custom_allocation_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create tag pipeline ruleset.
+    #
+    # @see #create_tag_pipelines_ruleset_with_http_info
+    def create_tag_pipelines_ruleset(body, opts = {})
+      data, _status_code, _headers = create_tag_pipelines_ruleset_with_http_info(body, opts)
+      data
+    end
+
+    # Create tag pipeline ruleset.
     #
     # Create a new tag pipeline ruleset with the specified rules and configuration
     #
     # @param body [CreateRulesetRequest] 
     # @param opts [Hash] the optional parameters
     # @return [Array<(RulesetResp, Integer, Hash)>] RulesetResp data, response status code and response headers
-    def create_ruleset_with_http_info(body, opts = {})
+    def create_tag_pipelines_ruleset_with_http_info(body, opts = {})
 
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.create_ruleset ...'
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.create_tag_pipelines_ruleset ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling CloudCostManagementAPI.create_ruleset"
+        fail ArgumentError, "Missing the required parameter 'body' when calling CloudCostManagementAPI.create_tag_pipelines_ruleset"
       end
       # resource path
       local_var_path = '/api/v2/tags/enrichment'
@@ -353,7 +353,7 @@ module DatadogAPIClient::V2
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
-        :operation => :create_ruleset,
+        :operation => :create_tag_pipelines_ruleset,
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -365,72 +365,7 @@ module DatadogAPIClient::V2
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CloudCostManagementAPI#create_ruleset\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Delete arbitrary cost rule.
-    #
-    # @see #delete_arbitrary_cost_rule_with_http_info
-    def delete_arbitrary_cost_rule(rule_id, opts = {})
-      delete_arbitrary_cost_rule_with_http_info(rule_id, opts)
-      nil
-    end
-
-    # Delete arbitrary cost rule.
-    #
-    # Delete an arbitrary cost rule - Delete an existing arbitrary cost rule by its ID
-    #
-    # @param rule_id [Integer] The unique identifier of the arbitrary cost rule
-    # @param opts [Hash] the optional parameters
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def delete_arbitrary_cost_rule_with_http_info(rule_id, opts = {})
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.delete_arbitrary_cost_rule ...'
-      end
-      # verify the required parameter 'rule_id' is set
-      if @api_client.config.client_side_validation && rule_id.nil?
-        fail ArgumentError, "Missing the required parameter 'rule_id' when calling CloudCostManagementAPI.delete_arbitrary_cost_rule"
-      end
-      # resource path
-      local_var_path = '/api/v2/cost/arbitrary_rule/{rule_id}'.sub('{rule_id}', CGI.escape(rule_id.to_s).gsub('%2F', '/'))
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type]
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
-
-      new_options = opts.merge(
-        :operation => :delete_arbitrary_cost_rule,
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type,
-        :api_version => "V2"
-      )
-
-      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CloudCostManagementAPI#delete_arbitrary_cost_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#create_tag_pipelines_ruleset\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -695,6 +630,71 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Delete custom allocation rule.
+    #
+    # @see #delete_custom_allocation_rule_with_http_info
+    def delete_custom_allocation_rule(rule_id, opts = {})
+      delete_custom_allocation_rule_with_http_info(rule_id, opts)
+      nil
+    end
+
+    # Delete custom allocation rule.
+    #
+    # Delete a custom allocation rule - Delete an existing custom allocation rule by its ID
+    #
+    # @param rule_id [Integer] The unique identifier of the custom allocation rule
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_custom_allocation_rule_with_http_info(rule_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.delete_custom_allocation_rule ...'
+      end
+      # verify the required parameter 'rule_id' is set
+      if @api_client.config.client_side_validation && rule_id.nil?
+        fail ArgumentError, "Missing the required parameter 'rule_id' when calling CloudCostManagementAPI.delete_custom_allocation_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/arbitrary_rule/{rule_id}'.sub('{rule_id}', CGI.escape(rule_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_custom_allocation_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#delete_custom_allocation_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Delete Custom Costs file.
     #
     # @see #delete_custom_costs_file_with_http_info
@@ -760,29 +760,29 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Delete ruleset.
+    # Delete tag pipeline ruleset.
     #
-    # @see #delete_ruleset_with_http_info
-    def delete_ruleset(ruleset_id, opts = {})
-      delete_ruleset_with_http_info(ruleset_id, opts)
+    # @see #delete_tag_pipelines_ruleset_with_http_info
+    def delete_tag_pipelines_ruleset(ruleset_id, opts = {})
+      delete_tag_pipelines_ruleset_with_http_info(ruleset_id, opts)
       nil
     end
 
-    # Delete ruleset.
+    # Delete tag pipeline ruleset.
     #
     # Delete a tag pipeline ruleset - Delete an existing tag pipeline ruleset by its ID
     #
     # @param ruleset_id [String] The unique identifier of the ruleset
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def delete_ruleset_with_http_info(ruleset_id, opts = {})
+    def delete_tag_pipelines_ruleset_with_http_info(ruleset_id, opts = {})
 
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.delete_ruleset ...'
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.delete_tag_pipelines_ruleset ...'
       end
       # verify the required parameter 'ruleset_id' is set
       if @api_client.config.client_side_validation && ruleset_id.nil?
-        fail ArgumentError, "Missing the required parameter 'ruleset_id' when calling CloudCostManagementAPI.delete_ruleset"
+        fail ArgumentError, "Missing the required parameter 'ruleset_id' when calling CloudCostManagementAPI.delete_tag_pipelines_ruleset"
       end
       # resource path
       local_var_path = '/api/v2/tags/enrichment/{ruleset_id}'.sub('{ruleset_id}', CGI.escape(ruleset_id.to_s).gsub('%2F', '/'))
@@ -808,7 +808,7 @@ module DatadogAPIClient::V2
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
-        :operation => :delete_ruleset,
+        :operation => :delete_tag_pipelines_ruleset,
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -820,72 +820,7 @@ module DatadogAPIClient::V2
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CloudCostManagementAPI#delete_ruleset\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Get arbitrary cost rule.
-    #
-    # @see #get_arbitrary_cost_rule_with_http_info
-    def get_arbitrary_cost_rule(rule_id, opts = {})
-      data, _status_code, _headers = get_arbitrary_cost_rule_with_http_info(rule_id, opts)
-      data
-    end
-
-    # Get arbitrary cost rule.
-    #
-    # Get a specific arbitrary cost rule - Retrieve a specific arbitrary cost rule by its ID
-    #
-    # @param rule_id [Integer] The unique identifier of the arbitrary cost rule
-    # @param opts [Hash] the optional parameters
-    # @return [Array<(ArbitraryRuleResponse, Integer, Hash)>] ArbitraryRuleResponse data, response status code and response headers
-    def get_arbitrary_cost_rule_with_http_info(rule_id, opts = {})
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.get_arbitrary_cost_rule ...'
-      end
-      # verify the required parameter 'rule_id' is set
-      if @api_client.config.client_side_validation && rule_id.nil?
-        fail ArgumentError, "Missing the required parameter 'rule_id' when calling CloudCostManagementAPI.get_arbitrary_cost_rule"
-      end
-      # resource path
-      local_var_path = '/api/v2/cost/arbitrary_rule/{rule_id}'.sub('{rule_id}', CGI.escape(rule_id.to_s).gsub('%2F', '/'))
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'ArbitraryRuleResponse'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
-
-      new_options = opts.merge(
-        :operation => :get_arbitrary_cost_rule,
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type,
-        :api_version => "V2"
-      )
-
-      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CloudCostManagementAPI#get_arbitrary_cost_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#delete_tag_pipelines_ruleset\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1150,6 +1085,71 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get custom allocation rule.
+    #
+    # @see #get_custom_allocation_rule_with_http_info
+    def get_custom_allocation_rule(rule_id, opts = {})
+      data, _status_code, _headers = get_custom_allocation_rule_with_http_info(rule_id, opts)
+      data
+    end
+
+    # Get custom allocation rule.
+    #
+    # Get a specific custom allocation rule - Retrieve a specific custom allocation rule by its ID
+    #
+    # @param rule_id [Integer] The unique identifier of the custom allocation rule
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(ArbitraryRuleResponse, Integer, Hash)>] ArbitraryRuleResponse data, response status code and response headers
+    def get_custom_allocation_rule_with_http_info(rule_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.get_custom_allocation_rule ...'
+      end
+      # verify the required parameter 'rule_id' is set
+      if @api_client.config.client_side_validation && rule_id.nil?
+        fail ArgumentError, "Missing the required parameter 'rule_id' when calling CloudCostManagementAPI.get_custom_allocation_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/arbitrary_rule/{rule_id}'.sub('{rule_id}', CGI.escape(rule_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ArbitraryRuleResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_custom_allocation_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#get_custom_allocation_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get Custom Costs file.
     #
     # @see #get_custom_costs_file_with_http_info
@@ -1217,9 +1217,9 @@ module DatadogAPIClient::V2
 
     # Get ruleset.
     #
-    # @see #get_ruleset_with_http_info
-    def get_ruleset(ruleset_id, opts = {})
-      data, _status_code, _headers = get_ruleset_with_http_info(ruleset_id, opts)
+    # @see #get_tag_pipelines_ruleset_with_http_info
+    def get_tag_pipelines_ruleset(ruleset_id, opts = {})
+      data, _status_code, _headers = get_tag_pipelines_ruleset_with_http_info(ruleset_id, opts)
       data
     end
 
@@ -1230,14 +1230,14 @@ module DatadogAPIClient::V2
     # @param ruleset_id [String] The unique identifier of the ruleset
     # @param opts [Hash] the optional parameters
     # @return [Array<(RulesetResp, Integer, Hash)>] RulesetResp data, response status code and response headers
-    def get_ruleset_with_http_info(ruleset_id, opts = {})
+    def get_tag_pipelines_ruleset_with_http_info(ruleset_id, opts = {})
 
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.get_ruleset ...'
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.get_tag_pipelines_ruleset ...'
       end
       # verify the required parameter 'ruleset_id' is set
       if @api_client.config.client_side_validation && ruleset_id.nil?
-        fail ArgumentError, "Missing the required parameter 'ruleset_id' when calling CloudCostManagementAPI.get_ruleset"
+        fail ArgumentError, "Missing the required parameter 'ruleset_id' when calling CloudCostManagementAPI.get_tag_pipelines_ruleset"
       end
       # resource path
       local_var_path = '/api/v2/tags/enrichment/{ruleset_id}'.sub('{ruleset_id}', CGI.escape(ruleset_id.to_s).gsub('%2F', '/'))
@@ -1263,7 +1263,7 @@ module DatadogAPIClient::V2
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
-        :operation => :get_ruleset,
+        :operation => :get_tag_pipelines_ruleset,
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1275,67 +1275,7 @@ module DatadogAPIClient::V2
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CloudCostManagementAPI#get_ruleset\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # List arbitrary cost rules.
-    #
-    # @see #list_arbitrary_cost_rules_with_http_info
-    def list_arbitrary_cost_rules(opts = {})
-      data, _status_code, _headers = list_arbitrary_cost_rules_with_http_info(opts)
-      data
-    end
-
-    # List arbitrary cost rules.
-    #
-    # List all arbitrary cost rules - Retrieve a list of all arbitrary cost rules for the organization
-    #
-    # @param opts [Hash] the optional parameters
-    # @return [Array<(ArbitraryRuleResponseArray, Integer, Hash)>] ArbitraryRuleResponseArray data, response status code and response headers
-    def list_arbitrary_cost_rules_with_http_info(opts = {})
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.list_arbitrary_cost_rules ...'
-      end
-      # resource path
-      local_var_path = '/api/v2/cost/arbitrary_rule'
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'ArbitraryRuleResponseArray'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
-
-      new_options = opts.merge(
-        :operation => :list_arbitrary_cost_rules,
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type,
-        :api_version => "V2"
-      )
-
-      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CloudCostManagementAPI#list_arbitrary_cost_rules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#get_tag_pipelines_ruleset\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1580,6 +1520,66 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # List custom allocation rules.
+    #
+    # @see #list_custom_allocation_rules_with_http_info
+    def list_custom_allocation_rules(opts = {})
+      data, _status_code, _headers = list_custom_allocation_rules_with_http_info(opts)
+      data
+    end
+
+    # List custom allocation rules.
+    #
+    # List all custom allocation rules - Retrieve a list of all custom allocation rules for the organization
+    #
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(ArbitraryRuleResponseArray, Integer, Hash)>] ArbitraryRuleResponseArray data, response status code and response headers
+    def list_custom_allocation_rules_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.list_custom_allocation_rules ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/arbitrary_rule'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ArbitraryRuleResponseArray'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_custom_allocation_rules,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#list_custom_allocation_rules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List Custom Costs files.
     #
     # @see #list_custom_costs_files_with_http_info
@@ -1648,24 +1648,24 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # List rulesets.
+    # List tag pipeline rulesets.
     #
-    # @see #list_rulesets_with_http_info
-    def list_rulesets(opts = {})
-      data, _status_code, _headers = list_rulesets_with_http_info(opts)
+    # @see #list_tag_pipelines_rulesets_with_http_info
+    def list_tag_pipelines_rulesets(opts = {})
+      data, _status_code, _headers = list_tag_pipelines_rulesets_with_http_info(opts)
       data
     end
 
-    # List rulesets.
+    # List tag pipeline rulesets.
     #
     # List all tag pipeline rulesets - Retrieve a list of all tag pipeline rulesets for the organization
     #
     # @param opts [Hash] the optional parameters
     # @return [Array<(RulesetRespArray, Integer, Hash)>] RulesetRespArray data, response status code and response headers
-    def list_rulesets_with_http_info(opts = {})
+    def list_tag_pipelines_rulesets_with_http_info(opts = {})
 
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.list_rulesets ...'
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.list_tag_pipelines_rulesets ...'
       end
       # resource path
       local_var_path = '/api/v2/tags/enrichment'
@@ -1691,7 +1691,7 @@ module DatadogAPIClient::V2
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
-        :operation => :list_rulesets,
+        :operation => :list_tag_pipelines_rulesets,
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1703,22 +1703,22 @@ module DatadogAPIClient::V2
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CloudCostManagementAPI#list_rulesets\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#list_tag_pipelines_rulesets\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
 
-    # Reorder arbitrary cost rules.
+    # Reorder custom allocation rules.
     #
-    # @see #reorder_arbitrary_cost_rules_with_http_info
-    def reorder_arbitrary_cost_rules(body, opts = {})
-      reorder_arbitrary_cost_rules_with_http_info(body, opts)
+    # @see #reorder_custom_allocation_rules_with_http_info
+    def reorder_custom_allocation_rules(body, opts = {})
+      reorder_custom_allocation_rules_with_http_info(body, opts)
       nil
     end
 
-    # Reorder arbitrary cost rules.
+    # Reorder custom allocation rules.
     #
-    # Reorder arbitrary cost rules - Change the execution order of arbitrary cost rules.
+    # Reorder custom allocation rules - Change the execution order of custom allocation rules.
     #
     # **Important**: You must provide the **complete list** of all rule IDs in the desired execution order. The API will reorder ALL rules according to the provided sequence.
     #
@@ -1729,14 +1729,14 @@ module DatadogAPIClient::V2
     # @param body [ReorderRuleResourceArray] 
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def reorder_arbitrary_cost_rules_with_http_info(body, opts = {})
+    def reorder_custom_allocation_rules_with_http_info(body, opts = {})
 
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.reorder_arbitrary_cost_rules ...'
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.reorder_custom_allocation_rules ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling CloudCostManagementAPI.reorder_arbitrary_cost_rules"
+        fail ArgumentError, "Missing the required parameter 'body' when calling CloudCostManagementAPI.reorder_custom_allocation_rules"
       end
       # resource path
       local_var_path = '/api/v2/cost/arbitrary_rule/reorder'
@@ -1764,7 +1764,7 @@ module DatadogAPIClient::V2
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
-        :operation => :reorder_arbitrary_cost_rules,
+        :operation => :reorder_custom_allocation_rules,
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1776,34 +1776,34 @@ module DatadogAPIClient::V2
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CloudCostManagementAPI#reorder_arbitrary_cost_rules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#reorder_custom_allocation_rules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
 
-    # Reorder rulesets.
+    # Reorder tag pipeline rulesets.
     #
-    # @see #reorder_rulesets_with_http_info
-    def reorder_rulesets(body, opts = {})
-      reorder_rulesets_with_http_info(body, opts)
+    # @see #reorder_tag_pipelines_rulesets_with_http_info
+    def reorder_tag_pipelines_rulesets(body, opts = {})
+      reorder_tag_pipelines_rulesets_with_http_info(body, opts)
       nil
     end
 
-    # Reorder rulesets.
+    # Reorder tag pipeline rulesets.
     #
     # Reorder tag pipeline rulesets - Change the execution order of tag pipeline rulesets
     #
     # @param body [ReorderRulesetResourceArray] 
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def reorder_rulesets_with_http_info(body, opts = {})
+    def reorder_tag_pipelines_rulesets_with_http_info(body, opts = {})
 
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.reorder_rulesets ...'
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.reorder_tag_pipelines_rulesets ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling CloudCostManagementAPI.reorder_rulesets"
+        fail ArgumentError, "Missing the required parameter 'body' when calling CloudCostManagementAPI.reorder_tag_pipelines_rulesets"
       end
       # resource path
       local_var_path = '/api/v2/tags/enrichment/reorder'
@@ -1831,7 +1831,7 @@ module DatadogAPIClient::V2
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
-        :operation => :reorder_rulesets,
+        :operation => :reorder_tag_pipelines_rulesets,
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1843,92 +1843,7 @@ module DatadogAPIClient::V2
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CloudCostManagementAPI#reorder_rulesets\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Update arbitrary cost rule.
-    #
-    # @see #update_arbitrary_cost_rule_with_http_info
-    def update_arbitrary_cost_rule(rule_id, body, opts = {})
-      data, _status_code, _headers = update_arbitrary_cost_rule_with_http_info(rule_id, body, opts)
-      data
-    end
-
-    # Update arbitrary cost rule.
-    #
-    # Update an existing arbitrary cost rule with new filters and allocation strategy.
-    #
-    # **Strategy Methods:**
-    # - **PROPORTIONAL/EVEN**: Allocates costs proportionally/evenly based on existing costs. Requires: granularity, allocated_by_tag_keys. Optional: based_on_costs, allocated_by_filters, evaluate_grouped_by_tag_keys, evaluate_grouped_by_filters.
-    # - **PROPORTIONAL_TIMESERIES/EVEN_TIMESERIES**: Allocates based on timeseries data. Requires: granularity, based_on_timeseries. Optional: evaluate_grouped_by_tag_keys.
-    # - **PERCENT**: Allocates fixed percentages to specific tags. Requires: allocated_by (array of percentage allocations).
-    # - **USAGE_METRIC**: Allocates based on usage metrics (implementation varies).
-    #
-    # **Filter Conditions:**
-    # - Use **value** for single-value conditions: "is", "is not", "contains", "does not contain", "=", "!=", "like", "not like", "is all values", "is untagged"
-    # - Use **values** for multi-value conditions: "in", "not in"
-    # - Cannot use both value and values simultaneously.
-    #
-    # **Supported operators**: is, is not, is all values, is untagged, contains, does not contain, in, not in, =, !=, like, not like
-    #
-    # @param rule_id [Integer] The unique identifier of the arbitrary cost rule
-    # @param body [ArbitraryCostUpsertRequest] 
-    # @param opts [Hash] the optional parameters
-    # @return [Array<(ArbitraryRuleResponse, Integer, Hash)>] ArbitraryRuleResponse data, response status code and response headers
-    def update_arbitrary_cost_rule_with_http_info(rule_id, body, opts = {})
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.update_arbitrary_cost_rule ...'
-      end
-      # verify the required parameter 'rule_id' is set
-      if @api_client.config.client_side_validation && rule_id.nil?
-        fail ArgumentError, "Missing the required parameter 'rule_id' when calling CloudCostManagementAPI.update_arbitrary_cost_rule"
-      end
-      # verify the required parameter 'body' is set
-      if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling CloudCostManagementAPI.update_arbitrary_cost_rule"
-      end
-      # resource path
-      local_var_path = '/api/v2/cost/arbitrary_rule/{rule_id}'.sub('{rule_id}', CGI.escape(rule_id.to_s).gsub('%2F', '/'))
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'ArbitraryRuleResponse'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
-
-      new_options = opts.merge(
-        :operation => :update_arbitrary_cost_rule,
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type,
-        :api_version => "V2"
-      )
-
-      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CloudCostManagementAPI#update_arbitrary_cost_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#reorder_tag_pipelines_rulesets\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2149,15 +2064,100 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Update ruleset.
+    # Update custom allocation rule.
     #
-    # @see #update_ruleset_with_http_info
-    def update_ruleset(ruleset_id, body, opts = {})
-      data, _status_code, _headers = update_ruleset_with_http_info(ruleset_id, body, opts)
+    # @see #update_custom_allocation_rule_with_http_info
+    def update_custom_allocation_rule(rule_id, body, opts = {})
+      data, _status_code, _headers = update_custom_allocation_rule_with_http_info(rule_id, body, opts)
       data
     end
 
-    # Update ruleset.
+    # Update custom allocation rule.
+    #
+    # Update an existing custom allocation rule with new filters and allocation strategy.
+    #
+    # **Strategy Methods:**
+    # - **PROPORTIONAL/EVEN**: Allocates costs proportionally/evenly based on existing costs. Requires: granularity, allocated_by_tag_keys. Optional: based_on_costs, allocated_by_filters, evaluate_grouped_by_tag_keys, evaluate_grouped_by_filters.
+    # - **PROPORTIONAL_TIMESERIES/EVEN_TIMESERIES**: Allocates based on timeseries data. Requires: granularity, based_on_timeseries. Optional: evaluate_grouped_by_tag_keys.
+    # - **PERCENT**: Allocates fixed percentages to specific tags. Requires: allocated_by (array of percentage allocations).
+    # - **USAGE_METRIC**: Allocates based on usage metrics (implementation varies).
+    #
+    # **Filter Conditions:**
+    # - Use **value** for single-value conditions: "is", "is not", "contains", "does not contain", "=", "!=", "like", "not like", "is all values", "is untagged"
+    # - Use **values** for multi-value conditions: "in", "not in"
+    # - Cannot use both value and values simultaneously.
+    #
+    # **Supported operators**: is, is not, is all values, is untagged, contains, does not contain, in, not in, =, !=, like, not like
+    #
+    # @param rule_id [Integer] The unique identifier of the custom allocation rule
+    # @param body [ArbitraryCostUpsertRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(ArbitraryRuleResponse, Integer, Hash)>] ArbitraryRuleResponse data, response status code and response headers
+    def update_custom_allocation_rule_with_http_info(rule_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.update_custom_allocation_rule ...'
+      end
+      # verify the required parameter 'rule_id' is set
+      if @api_client.config.client_side_validation && rule_id.nil?
+        fail ArgumentError, "Missing the required parameter 'rule_id' when calling CloudCostManagementAPI.update_custom_allocation_rule"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CloudCostManagementAPI.update_custom_allocation_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/cost/arbitrary_rule/{rule_id}'.sub('{rule_id}', CGI.escape(rule_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ArbitraryRuleResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_custom_allocation_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#update_custom_allocation_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update tag pipeline ruleset.
+    #
+    # @see #update_tag_pipelines_ruleset_with_http_info
+    def update_tag_pipelines_ruleset(ruleset_id, body, opts = {})
+      data, _status_code, _headers = update_tag_pipelines_ruleset_with_http_info(ruleset_id, body, opts)
+      data
+    end
+
+    # Update tag pipeline ruleset.
     #
     # Update a tag pipeline ruleset - Update an existing tag pipeline ruleset with new rules and configuration
     #
@@ -2165,18 +2165,18 @@ module DatadogAPIClient::V2
     # @param body [UpdateRulesetRequest] 
     # @param opts [Hash] the optional parameters
     # @return [Array<(RulesetResp, Integer, Hash)>] RulesetResp data, response status code and response headers
-    def update_ruleset_with_http_info(ruleset_id, body, opts = {})
+    def update_tag_pipelines_ruleset_with_http_info(ruleset_id, body, opts = {})
 
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.update_ruleset ...'
+        @api_client.config.logger.debug 'Calling API: CloudCostManagementAPI.update_tag_pipelines_ruleset ...'
       end
       # verify the required parameter 'ruleset_id' is set
       if @api_client.config.client_side_validation && ruleset_id.nil?
-        fail ArgumentError, "Missing the required parameter 'ruleset_id' when calling CloudCostManagementAPI.update_ruleset"
+        fail ArgumentError, "Missing the required parameter 'ruleset_id' when calling CloudCostManagementAPI.update_tag_pipelines_ruleset"
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling CloudCostManagementAPI.update_ruleset"
+        fail ArgumentError, "Missing the required parameter 'body' when calling CloudCostManagementAPI.update_tag_pipelines_ruleset"
       end
       # resource path
       local_var_path = '/api/v2/tags/enrichment/{ruleset_id}'.sub('{ruleset_id}', CGI.escape(ruleset_id.to_s).gsub('%2F', '/'))
@@ -2204,7 +2204,7 @@ module DatadogAPIClient::V2
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
-        :operation => :update_ruleset,
+        :operation => :update_tag_pipelines_ruleset,
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -2216,7 +2216,7 @@ module DatadogAPIClient::V2
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CloudCostManagementAPI#update_ruleset\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CloudCostManagementAPI#update_tag_pipelines_ruleset\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

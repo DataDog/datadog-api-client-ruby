@@ -39,6 +39,9 @@ module DatadogAPIClient::V2
     # The `attributes` `position`.
     attr_reader :position
 
+    # The `attributes` `processing_status`.
+    attr_accessor :processing_status
+
     # The `attributes` `rules`.
     attr_reader :rules
 
@@ -57,6 +60,7 @@ module DatadogAPIClient::V2
         :'modified' => :'modified',
         :'name' => :'name',
         :'position' => :'position',
+        :'processing_status' => :'processing_status',
         :'rules' => :'rules',
         :'version' => :'version'
       }
@@ -72,6 +76,7 @@ module DatadogAPIClient::V2
         :'modified' => :'RulesetRespDataAttributesModified',
         :'name' => :'String',
         :'position' => :'Integer',
+        :'processing_status' => :'String',
         :'rules' => :'Array<RulesetRespDataAttributesRulesItems>',
         :'version' => :'Integer'
       }
@@ -117,6 +122,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'position')
         self.position = attributes[:'position']
+      end
+
+      if attributes.key?(:'processing_status')
+        self.processing_status = attributes[:'processing_status']
       end
 
       if attributes.key?(:'rules')
@@ -261,6 +270,7 @@ module DatadogAPIClient::V2
           modified == o.modified &&
           name == o.name &&
           position == o.position &&
+          processing_status == o.processing_status &&
           rules == o.rules &&
           version == o.version &&
           additional_properties == o.additional_properties
@@ -270,7 +280,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created, enabled, last_modified_user_uuid, modified, name, position, rules, version, additional_properties].hash
+      [created, enabled, last_modified_user_uuid, modified, name, position, processing_status, rules, version, additional_properties].hash
     end
   end
 end

@@ -36,6 +36,9 @@ module DatadogAPIClient::V2
     # The `attributes` `order_id`.
     attr_reader :order_id
 
+    # The `attributes` `processing_status`.
+    attr_accessor :processing_status
+
     # The `attributes` `provider`.
     attr_reader :provider
 
@@ -68,6 +71,7 @@ module DatadogAPIClient::V2
         :'enabled' => :'enabled',
         :'last_modified_user_uuid' => :'last_modified_user_uuid',
         :'order_id' => :'order_id',
+        :'processing_status' => :'processing_status',
         :'provider' => :'provider',
         :'rejected' => :'rejected',
         :'rule_name' => :'rule_name',
@@ -87,6 +91,7 @@ module DatadogAPIClient::V2
         :'enabled' => :'Boolean',
         :'last_modified_user_uuid' => :'String',
         :'order_id' => :'Integer',
+        :'processing_status' => :'String',
         :'provider' => :'Array<String>',
         :'rejected' => :'Boolean',
         :'rule_name' => :'String',
@@ -135,6 +140,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'order_id')
         self.order_id = attributes[:'order_id']
+      end
+
+      if attributes.key?(:'processing_status')
+        self.processing_status = attributes[:'processing_status']
       end
 
       if attributes.key?(:'provider')
@@ -331,6 +340,7 @@ module DatadogAPIClient::V2
           enabled == o.enabled &&
           last_modified_user_uuid == o.last_modified_user_uuid &&
           order_id == o.order_id &&
+          processing_status == o.processing_status &&
           provider == o.provider &&
           rejected == o.rejected &&
           rule_name == o.rule_name &&
@@ -345,7 +355,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [costs_to_allocate, created, enabled, last_modified_user_uuid, order_id, provider, rejected, rule_name, strategy, type, updated, version, additional_properties].hash
+      [costs_to_allocate, created, enabled, last_modified_user_uuid, order_id, processing_status, provider, rejected, rule_name, strategy, type, updated, version, additional_properties].hash
     end
   end
 end
