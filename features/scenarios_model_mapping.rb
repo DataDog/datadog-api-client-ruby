@@ -1948,6 +1948,10 @@ ScenariosModelMappings = {
             "incident_id" => "String",
             "impact_id" => "String",
     },
+    "v2.CreatePageFromIncident" => {
+            "incident_id" => "String",
+            "body" => "IncidentCreatePageFromIncidentRequest",
+    },
     "v2.ListIncidentIntegrations" => {
             "incident_id" => "String",
     },
