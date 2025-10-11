@@ -69,6 +69,9 @@ module DatadogAPIClient::V2
     # The list of product tags associated with the rule
     attr_accessor :product_tags
 
+    # Whether the rule is silent.
+    attr_accessor :silent
+
     # The ID of the user who updated the rule
     attr_accessor :update_author_uu_id
 
@@ -106,6 +109,7 @@ module DatadogAPIClient::V2
         :'monitoring' => :'monitoring',
         :'name' => :'name',
         :'product_tags' => :'product_tags',
+        :'silent' => :'silent',
         :'update_author_uu_id' => :'updateAuthorUuId',
         :'update_date' => :'updateDate',
         :'updated_at' => :'updatedAt',
@@ -134,6 +138,7 @@ module DatadogAPIClient::V2
         :'monitoring' => :'Array<String>',
         :'name' => :'String',
         :'product_tags' => :'Array<String>',
+        :'silent' => :'Boolean',
         :'update_author_uu_id' => :'String',
         :'update_date' => :'Integer',
         :'updated_at' => :'Integer',
@@ -244,6 +249,10 @@ module DatadogAPIClient::V2
         end
       end
 
+      if attributes.key?(:'silent')
+        self.silent = attributes[:'silent']
+      end
+
       if attributes.key?(:'update_author_uu_id')
         self.update_author_uu_id = attributes[:'update_author_uu_id']
       end
@@ -307,6 +316,7 @@ module DatadogAPIClient::V2
           monitoring == o.monitoring &&
           name == o.name &&
           product_tags == o.product_tags &&
+          silent == o.silent &&
           update_author_uu_id == o.update_author_uu_id &&
           update_date == o.update_date &&
           updated_at == o.updated_at &&
@@ -319,7 +329,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [actions, agent_constraint, blocking, category, creation_author_uu_id, creation_date, creator, default_rule, description, disabled, enabled, expression, filters, monitoring, name, product_tags, update_author_uu_id, update_date, updated_at, updater, version, additional_properties].hash
+      [actions, agent_constraint, blocking, category, creation_author_uu_id, creation_date, creator, default_rule, description, disabled, enabled, expression, filters, monitoring, name, product_tags, silent, update_author_uu_id, update_date, updated_at, updater, version, additional_properties].hash
     end
   end
 end

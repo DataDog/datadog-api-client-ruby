@@ -24,35 +24,41 @@ module DatadogAPIClient::V2
     # The array of actions the rule can perform if triggered
     attr_accessor :actions
 
-    # The blocking policies that the rule belongs to
+    # Constrain the rule to specific versions of the Datadog Agent.
+    attr_accessor :agent_version
+
+    # The blocking policies that the rule belongs to.
     attr_accessor :blocking
 
     # The description of the Agent rule.
     attr_accessor :description
 
-    # The disabled policies that the rule belongs to
+    # The disabled policies that the rule belongs to.
     attr_accessor :disabled
 
-    # Whether the Agent rule is enabled
+    # Whether the Agent rule is enabled.
     attr_accessor :enabled
 
     # The SECL expression of the Agent rule.
     attr_reader :expression
 
-    # The platforms the Agent rule is supported on
+    # The platforms the Agent rule is supported on.
     attr_accessor :filters
 
-    # The monitoring policies that the rule belongs to
+    # The monitoring policies that the rule belongs to.
     attr_accessor :monitoring
 
     # The name of the Agent rule.
     attr_reader :name
 
-    # The ID of the policy where the Agent rule is saved
+    # The ID of the policy where the Agent rule is saved.
     attr_accessor :policy_id
 
-    # The list of product tags associated with the rule
+    # The list of product tags associated with the rule.
     attr_accessor :product_tags
+
+    # Whether the rule is silent.
+    attr_accessor :silent
 
     attr_accessor :additional_properties
 
@@ -61,6 +67,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'actions' => :'actions',
+        :'agent_version' => :'agent_version',
         :'blocking' => :'blocking',
         :'description' => :'description',
         :'disabled' => :'disabled',
@@ -70,7 +77,8 @@ module DatadogAPIClient::V2
         :'monitoring' => :'monitoring',
         :'name' => :'name',
         :'policy_id' => :'policy_id',
-        :'product_tags' => :'product_tags'
+        :'product_tags' => :'product_tags',
+        :'silent' => :'silent'
       }
     end
 
@@ -79,6 +87,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'actions' => :'Array<CloudWorkloadSecurityAgentRuleAction>',
+        :'agent_version' => :'String',
         :'blocking' => :'Array<String>',
         :'description' => :'String',
         :'disabled' => :'Array<String>',
@@ -88,7 +97,8 @@ module DatadogAPIClient::V2
         :'monitoring' => :'Array<String>',
         :'name' => :'String',
         :'policy_id' => :'String',
-        :'product_tags' => :'Array<String>'
+        :'product_tags' => :'Array<String>',
+        :'silent' => :'Boolean'
       }
     end
 
@@ -122,6 +132,10 @@ module DatadogAPIClient::V2
         if (value = attributes[:'actions']).is_a?(Array)
           self.actions = value
         end
+      end
+
+      if attributes.key?(:'agent_version')
+        self.agent_version = attributes[:'agent_version']
       end
 
       if attributes.key?(:'blocking')
@@ -172,6 +186,10 @@ module DatadogAPIClient::V2
         if (value = attributes[:'product_tags']).is_a?(Array)
           self.product_tags = value
         end
+      end
+
+      if attributes.key?(:'silent')
+        self.silent = attributes[:'silent']
       end
     end
 
@@ -231,6 +249,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           actions == o.actions &&
+          agent_version == o.agent_version &&
           blocking == o.blocking &&
           description == o.description &&
           disabled == o.disabled &&
@@ -241,6 +260,7 @@ module DatadogAPIClient::V2
           name == o.name &&
           policy_id == o.policy_id &&
           product_tags == o.product_tags &&
+          silent == o.silent &&
           additional_properties == o.additional_properties
     end
 
@@ -248,7 +268,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [actions, blocking, description, disabled, enabled, expression, filters, monitoring, name, policy_id, product_tags, additional_properties].hash
+      [actions, agent_version, blocking, description, disabled, enabled, expression, filters, monitoring, name, policy_id, product_tags, silent, additional_properties].hash
     end
   end
 end

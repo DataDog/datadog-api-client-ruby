@@ -1481,6 +1481,7 @@ module DatadogAPIClient
           "v2.cloud_workload_security_agent_policy_update_data" => "CloudWorkloadSecurityAgentPolicyUpdateData",
           "v2.cloud_workload_security_agent_policy_updater_attributes" => "CloudWorkloadSecurityAgentPolicyUpdaterAttributes",
           "v2.cloud_workload_security_agent_policy_update_request" => "CloudWorkloadSecurityAgentPolicyUpdateRequest",
+          "v2.cloud_workload_security_agent_policy_version" => "CloudWorkloadSecurityAgentPolicyVersion",
           "v2.cloud_workload_security_agent_rule_action" => "CloudWorkloadSecurityAgentRuleAction",
           "v2.cloud_workload_security_agent_rule_action_metadata" => "CloudWorkloadSecurityAgentRuleActionMetadata",
           "v2.cloud_workload_security_agent_rule_action_set" => "CloudWorkloadSecurityAgentRuleActionSet",

@@ -1,12 +1,12 @@
 http_interactions:
-- recorded_at: Tue, 27 May 2025 10:25:10 GMT
+- recorded_at: Fri, 10 Oct 2025 15:21:10 GMT
   request:
     body: null
     headers:
       Accept:
       - application/json
     method: GET
-    uri: https://api.datadoghq.com/api/v2/remote_config/products/cws/agent_rules/non-existent-rule-id
+    uri: https://api.datadoghq.com/api/v2/remote_config/products/cws/agent_rules/abc-def-ghi
   response:
     body:
       encoding: UTF-8
