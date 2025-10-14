@@ -48,6 +48,9 @@ module DatadogAPIClient::V2
     # The name of the policy
     attr_accessor :name
 
+    # Whether the policy is pinned
+    attr_accessor :pinned
+
     # The version of the policy
     attr_accessor :policy_version
 
@@ -66,6 +69,9 @@ module DatadogAPIClient::V2
     # The attributes of the user who last updated the policy
     attr_accessor :updater
 
+    # The versions of the policy
+    attr_accessor :versions
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -81,12 +87,14 @@ module DatadogAPIClient::V2
         :'host_tags_lists' => :'hostTagsLists',
         :'monitoring_rules_count' => :'monitoringRulesCount',
         :'name' => :'name',
+        :'pinned' => :'pinned',
         :'policy_version' => :'policyVersion',
         :'priority' => :'priority',
         :'rule_count' => :'ruleCount',
         :'update_date' => :'updateDate',
         :'updated_at' => :'updatedAt',
-        :'updater' => :'updater'
+        :'updater' => :'updater',
+        :'versions' => :'versions'
       }
     end
 
@@ -103,12 +111,14 @@ module DatadogAPIClient::V2
         :'host_tags_lists' => :'Array<Array<String>>',
         :'monitoring_rules_count' => :'Integer',
         :'name' => :'String',
+        :'pinned' => :'Boolean',
         :'policy_version' => :'String',
         :'priority' => :'Integer',
         :'rule_count' => :'Integer',
         :'update_date' => :'Integer',
         :'updated_at' => :'Integer',
-        :'updater' => :'CloudWorkloadSecurityAgentPolicyUpdaterAttributes'
+        :'updater' => :'CloudWorkloadSecurityAgentPolicyUpdaterAttributes',
+        :'versions' => :'Array<CloudWorkloadSecurityAgentPolicyVersion>'
       }
     end
 
@@ -170,6 +180,10 @@ module DatadogAPIClient::V2
         self.name = attributes[:'name']
       end
 
+      if attributes.key?(:'pinned')
+        self.pinned = attributes[:'pinned']
+      end
+
       if attributes.key?(:'policy_version')
         self.policy_version = attributes[:'policy_version']
       end
@@ -192,6 +206,12 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'updater')
         self.updater = attributes[:'updater']
+      end
+
+      if attributes.key?(:'versions')
+        if (value = attributes[:'versions']).is_a?(Array)
+          self.versions = value
+        end
       end
     end
 
@@ -281,12 +301,14 @@ module DatadogAPIClient::V2
           host_tags_lists == o.host_tags_lists &&
           monitoring_rules_count == o.monitoring_rules_count &&
           name == o.name &&
+          pinned == o.pinned &&
           policy_version == o.policy_version &&
           priority == o.priority &&
           rule_count == o.rule_count &&
           update_date == o.update_date &&
           updated_at == o.updated_at &&
           updater == o.updater &&
+          versions == o.versions &&
           additional_properties == o.additional_properties
     end
 
@@ -294,7 +316,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [blocking_rules_count, datadog_managed, description, disabled_rules_count, enabled, host_tags, host_tags_lists, monitoring_rules_count, name, policy_version, priority, rule_count, update_date, updated_at, updater, additional_properties].hash
+      [blocking_rules_count, datadog_managed, description, disabled_rules_count, enabled, host_tags, host_tags_lists, monitoring_rules_count, name, pinned, policy_version, priority, rule_count, update_date, updated_at, updater, versions, additional_properties].hash
     end
   end
 end
