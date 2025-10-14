@@ -176,6 +176,32 @@
       <li class="public ">
   <span class="summary_signature">
     
+      <a href="#agent_version-instance_method" title="#agent_version (instance method)">#<strong>agent_version</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Constrain the rule to specific versions of the Datadog Agent.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#blocking-instance_method" title="#blocking (instance method)">#<strong>blocking</strong>  &#x21d2; Object </a>
     
 
@@ -437,6 +463,32 @@
 </li>
 
     
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#silent-instance_method" title="#silent (instance method)">#<strong>silent</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Whether the rule is silent.</p>
+</div></span>
+  
+</li>
+
+    
   </ul>
 
 
@@ -542,11 +594,11 @@
 </div>
     
       
-      <span id="blocking=-instance_method"></span>
+      <span id="agent_version=-instance_method"></span>
       <div class="method_details ">
-  <h3 class="signature " id="blocking-instance_method">
+  <h3 class="signature " id="agent_version-instance_method">
   
-    #<strong>blocking</strong>  &#x21d2; <tt>Object</tt> 
+    #<strong>agent_version</strong>  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -554,7 +606,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>The blocking policies that the rule belongs to</p>
+    <p>Constrain the rule to specific versions of the Datadog Agent.</p>
 
 
   </div>
@@ -574,6 +626,48 @@
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/cloud_workload_security_agent_rule_create_attributes.rb', line 28</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_agent_version'>agent_version</span>
+  <span class='ivar'>@agent_version</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="blocking=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="blocking-instance_method">
+  
+    #<strong>blocking</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>The blocking policies that the rule belongs to.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+31
+32
+33</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/cloud_workload_security_agent_rule_create_attributes.rb', line 31</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_blocking'>blocking</span>
   <span class='ivar'>@blocking</span>
@@ -638,7 +732,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>The disabled policies that the rule belongs to</p>
+    <p>The disabled policies that the rule belongs to.</p>
 
 
   </div>
@@ -652,12 +746,12 @@
       <pre class="lines">
 
 
-34
-35
-36</pre>
+37
+38
+39</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/cloud_workload_security_agent_rule_create_attributes.rb', line 34</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/cloud_workload_security_agent_rule_create_attributes.rb', line 37</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_disabled'>disabled</span>
   <span class='ivar'>@disabled</span>
@@ -680,7 +774,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Whether the Agent rule is enabled</p>
+    <p>Whether the Agent rule is enabled.</p>
 
 
   </div>
@@ -764,7 +858,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>The platforms the Agent rule is supported on</p>
+    <p>The platforms the Agent rule is supported on.</p>
 
 
   </div>
@@ -806,7 +900,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>The monitoring policies that the rule belongs to</p>
+    <p>The monitoring policies that the rule belongs to.</p>
 
 
   </div>
@@ -820,12 +914,12 @@
       <pre class="lines">
 
 
-46
-47
-48</pre>
+49
+50
+51</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/cloud_workload_security_agent_rule_create_attributes.rb', line 46</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/cloud_workload_security_agent_rule_create_attributes.rb', line 49</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_monitoring'>monitoring</span>
   <span class='ivar'>@monitoring</span>
@@ -890,7 +984,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>The ID of the policy where the Agent rule is saved</p>
+    <p>The ID of the policy where the Agent rule is saved.</p>
 
 
   </div>
@@ -904,12 +998,12 @@
       <pre class="lines">
 
 
-52
-53
-54</pre>
+55
+56
+57</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/cloud_workload_security_agent_rule_create_attributes.rb', line 52</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/cloud_workload_security_agent_rule_create_attributes.rb', line 55</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_policy_id'>policy_id</span>
   <span class='ivar'>@policy_id</span>
@@ -932,7 +1026,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>The list of product tags associated with the rule</p>
+    <p>The list of product tags associated with the rule.</p>
 
 
   </div>
@@ -946,15 +1040,57 @@
       <pre class="lines">
 
 
-55
-56
-57</pre>
+58
+59
+60</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/cloud_workload_security_agent_rule_create_attributes.rb', line 55</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/cloud_workload_security_agent_rule_create_attributes.rb', line 58</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_product_tags'>product_tags</span>
   <span class='ivar'>@product_tags</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="silent=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="silent-instance_method">
+  
+    #<strong>silent</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Whether the rule is silent.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+61
+62
+63</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/cloud_workload_security_agent_rule_create_attributes.rb', line 61</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_silent'>silent</span>
+  <span class='ivar'>@silent</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -967,7 +1103,7 @@
 </div>
 
       <div id="footer">
-  Generated on Fri Oct 10 17:38:04 2025 by
+  Generated on Tue Oct 14 14:01:03 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>
