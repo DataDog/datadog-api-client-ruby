@@ -1,5 +1,5 @@
 http_interactions:
-- recorded_at: Sat, 01 Mar 2025 20:02:08 GMT
+- recorded_at: Sun, 12 Oct 2025 15:49:47 GMT
   request:
     body: null
     headers:
@@ -11,7 +11,7 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"errors":[{"status":"404","detail":"no aws scan options found for
-        subscription 000000000005"}]}'
+        account 000000000005"}]}'
     headers:
       Content-Type:
       - application/vnd.api+json

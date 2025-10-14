@@ -1,0 +1,21 @@
+http_interactions:
+- recorded_at: Sun, 12 Oct 2025 14:43:00 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+    method: GET
+    uri: https://api.datadoghq.com/api/v2/agentless_scanning/accounts/azure/invalid%20uuid
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"title":"Generic Error","detail":"missing or invalid url
+        parameter ''subscriptionId'', expected uuid format ''12345678-90ab-cdef-1234-567890abcdef''"}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 400
+      message: Bad Request
+recorded_with: VCR 6.0.0

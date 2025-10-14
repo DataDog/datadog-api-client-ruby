@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `AzureScanOptionsInputUpdate` object.
+  # Request object for updating Azure scan options.
   class AzureScanOptionsInputUpdate
     include BaseGenericModel
 
-    # The definition of `AzureScanOptionsInputUpdateData` object.
+    # Data object for updating the scan options of a single Azure subscription.
     attr_accessor :data
 
     attr_accessor :additional_properties

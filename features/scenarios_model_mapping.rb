@@ -920,9 +920,25 @@ ScenariosModelMappings = {
     "v2.DeleteAzureScanOptions" => {
             "subscription_id" => "String",
     },
+    "v2.GetAzureScanOptions" => {
+            "subscription_id" => "String",
+    },
     "v2.UpdateAzureScanOptions" => {
             "subscription_id" => "String",
             "body" => "AzureScanOptionsInputUpdate",
+    },
+    "v2.CreateGcpScanOptions" => {
+            "body" => "GcpScanOptions",
+    },
+    "v2.DeleteGcpScanOptions" => {
+            "project_id" => "String",
+    },
+    "v2.GetGcpScanOptions" => {
+            "project_id" => "String",
+    },
+    "v2.UpdateGcpScanOptions" => {
+            "project_id" => "String",
+            "body" => "GcpScanOptionsInputUpdate",
     },
     "v2.CreateAwsOnDemandTask" => {
             "body" => "AwsOnDemandCreateRequest",

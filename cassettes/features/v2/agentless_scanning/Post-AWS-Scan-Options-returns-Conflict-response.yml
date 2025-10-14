@@ -1,5 +1,5 @@
 http_interactions:
-- recorded_at: Thu, 06 Mar 2025 11:57:47 GMT
+- recorded_at: Sun, 12 Oct 2025 15:50:00 GMT
   request:
     body:
       encoding: UTF-8
@@ -15,7 +15,7 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"errors":[{"status":"409","detail":"aws scan options already exist
-        for subscription 000000000002"}]}'
+        for account 000000000002"}]}'
     headers:
       Content-Type:
       - application/vnd.api+json

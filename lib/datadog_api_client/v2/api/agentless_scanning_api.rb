@@ -224,6 +224,73 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Post GCP Scan Options.
+    #
+    # @see #create_gcp_scan_options_with_http_info
+    def create_gcp_scan_options(body, opts = {})
+      data, _status_code, _headers = create_gcp_scan_options_with_http_info(body, opts)
+      data
+    end
+
+    # Post GCP Scan Options.
+    #
+    # Activate Agentless scan options for a GCP project.
+    #
+    # @param body [GcpScanOptions] The definition of the new scan options.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(GcpScanOptions, Integer, Hash)>] GcpScanOptions data, response status code and response headers
+    def create_gcp_scan_options_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AgentlessScanningAPI.create_gcp_scan_options ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling AgentlessScanningAPI.create_gcp_scan_options"
+      end
+      # resource path
+      local_var_path = '/api/v2/agentless_scanning/accounts/gcp'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GcpScanOptions'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_gcp_scan_options,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AgentlessScanningAPI#create_gcp_scan_options\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Delete AWS Scan Options.
     #
     # @see #delete_aws_scan_options_with_http_info
@@ -354,6 +421,71 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Delete GCP Scan Options.
+    #
+    # @see #delete_gcp_scan_options_with_http_info
+    def delete_gcp_scan_options(project_id, opts = {})
+      delete_gcp_scan_options_with_http_info(project_id, opts)
+      nil
+    end
+
+    # Delete GCP Scan Options.
+    #
+    # Delete Agentless scan options for a GCP project.
+    #
+    # @param project_id [String] The GCP project ID.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_gcp_scan_options_with_http_info(project_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AgentlessScanningAPI.delete_gcp_scan_options ...'
+      end
+      # verify the required parameter 'project_id' is set
+      if @api_client.config.client_side_validation && project_id.nil?
+        fail ArgumentError, "Missing the required parameter 'project_id' when calling AgentlessScanningAPI.delete_gcp_scan_options"
+      end
+      # resource path
+      local_var_path = '/api/v2/agentless_scanning/accounts/gcp/{project_id}'.sub('{project_id}', CGI.escape(project_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_gcp_scan_options,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AgentlessScanningAPI#delete_gcp_scan_options\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get AWS On Demand task by id.
     #
     # @see #get_aws_on_demand_task_with_http_info
@@ -480,6 +612,136 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AgentlessScanningAPI#get_aws_scan_options\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get Azure scan options.
+    #
+    # @see #get_azure_scan_options_with_http_info
+    def get_azure_scan_options(subscription_id, opts = {})
+      data, _status_code, _headers = get_azure_scan_options_with_http_info(subscription_id, opts)
+      data
+    end
+
+    # Get Azure scan options.
+    #
+    # Fetches the Agentless scan options for an activated subscription.
+    #
+    # @param subscription_id [String] The Azure subscription ID.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(AzureScanOptions, Integer, Hash)>] AzureScanOptions data, response status code and response headers
+    def get_azure_scan_options_with_http_info(subscription_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AgentlessScanningAPI.get_azure_scan_options ...'
+      end
+      # verify the required parameter 'subscription_id' is set
+      if @api_client.config.client_side_validation && subscription_id.nil?
+        fail ArgumentError, "Missing the required parameter 'subscription_id' when calling AgentlessScanningAPI.get_azure_scan_options"
+      end
+      # resource path
+      local_var_path = '/api/v2/agentless_scanning/accounts/azure/{subscription_id}'.sub('{subscription_id}', CGI.escape(subscription_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AzureScanOptions'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_azure_scan_options,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AgentlessScanningAPI#get_azure_scan_options\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get GCP scan options.
+    #
+    # @see #get_gcp_scan_options_with_http_info
+    def get_gcp_scan_options(project_id, opts = {})
+      data, _status_code, _headers = get_gcp_scan_options_with_http_info(project_id, opts)
+      data
+    end
+
+    # Get GCP scan options.
+    #
+    # Fetches the Agentless scan options for an activated GCP project.
+    #
+    # @param project_id [String] The GCP project ID.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(GcpScanOptions, Integer, Hash)>] GcpScanOptions data, response status code and response headers
+    def get_gcp_scan_options_with_http_info(project_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AgentlessScanningAPI.get_gcp_scan_options ...'
+      end
+      # verify the required parameter 'project_id' is set
+      if @api_client.config.client_side_validation && project_id.nil?
+        fail ArgumentError, "Missing the required parameter 'project_id' when calling AgentlessScanningAPI.get_gcp_scan_options"
+      end
+      # resource path
+      local_var_path = '/api/v2/agentless_scanning/accounts/gcp/{project_id}'.sub('{project_id}', CGI.escape(project_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GcpScanOptions'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_gcp_scan_options,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AgentlessScanningAPI#get_gcp_scan_options\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -664,6 +926,66 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # List GCP Scan Options.
+    #
+    # @see #list_gcp_scan_options_with_http_info
+    def list_gcp_scan_options(opts = {})
+      data, _status_code, _headers = list_gcp_scan_options_with_http_info(opts)
+      data
+    end
+
+    # List GCP Scan Options.
+    #
+    # Fetches the scan options configured for all GCP projects.
+    #
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(GcpScanOptionsArray, Integer, Hash)>] GcpScanOptionsArray data, response status code and response headers
+    def list_gcp_scan_options_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AgentlessScanningAPI.list_gcp_scan_options ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/agentless_scanning/accounts/gcp'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GcpScanOptionsArray'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_gcp_scan_options,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AgentlessScanningAPI#list_gcp_scan_options\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Patch AWS Scan Options.
     #
     # @see #update_aws_scan_options_with_http_info
@@ -804,6 +1126,78 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AgentlessScanningAPI#update_azure_scan_options\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Patch GCP Scan Options.
+    #
+    # @see #update_gcp_scan_options_with_http_info
+    def update_gcp_scan_options(project_id, body, opts = {})
+      data, _status_code, _headers = update_gcp_scan_options_with_http_info(project_id, body, opts)
+      data
+    end
+
+    # Patch GCP Scan Options.
+    #
+    # Update the Agentless scan options for an activated GCP project.
+    #
+    # @param project_id [String] The GCP project ID.
+    # @param body [GcpScanOptionsInputUpdate] New definition of the scan options.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(GcpScanOptions, Integer, Hash)>] GcpScanOptions data, response status code and response headers
+    def update_gcp_scan_options_with_http_info(project_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AgentlessScanningAPI.update_gcp_scan_options ...'
+      end
+      # verify the required parameter 'project_id' is set
+      if @api_client.config.client_side_validation && project_id.nil?
+        fail ArgumentError, "Missing the required parameter 'project_id' when calling AgentlessScanningAPI.update_gcp_scan_options"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling AgentlessScanningAPI.update_gcp_scan_options"
+      end
+      # resource path
+      local_var_path = '/api/v2/agentless_scanning/accounts/gcp/{project_id}'.sub('{project_id}', CGI.escape(project_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GcpScanOptions'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_gcp_scan_options,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AgentlessScanningAPI#update_gcp_scan_options\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

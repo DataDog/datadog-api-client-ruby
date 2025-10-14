@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `AzureScanOptionsData` object.
+  # Single Azure scan options entry.
   class AzureScanOptionsData
     include BaseGenericModel
 
-    # The definition of `AzureScanOptionsDataAttributes` object.
+    # Attributes for Azure scan options configuration.
     attr_accessor :attributes
 
-    # The `AzureScanOptionsData` `id`.
+    # The Azure subscription ID.
     attr_reader :id
 
     # The type of the resource. The value should always be `azure_scan_options`.
