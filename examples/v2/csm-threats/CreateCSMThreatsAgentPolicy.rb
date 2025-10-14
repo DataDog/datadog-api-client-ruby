@@ -13,7 +13,7 @@ body = DatadogAPIClient::V2::CloudWorkloadSecurityAgentPolicyCreateRequest.new({
           "env:test",
         ],
       ],
-      name: "my_agent_policy",
+      name: "my_agent_policy_2",
     }),
     type: DatadogAPIClient::V2::CloudWorkloadSecurityAgentPolicyType::POLICY,
   }),

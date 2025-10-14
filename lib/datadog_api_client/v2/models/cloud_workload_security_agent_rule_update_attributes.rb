@@ -24,6 +24,9 @@ module DatadogAPIClient::V2
     # The array of actions the rule can perform if triggered
     attr_accessor :actions
 
+    # Constrain the rule to specific versions of the Datadog Agent
+    attr_accessor :agent_version
+
     # The blocking policies that the rule belongs to
     attr_accessor :blocking
 
@@ -48,6 +51,9 @@ module DatadogAPIClient::V2
     # The list of product tags associated with the rule
     attr_accessor :product_tags
 
+    # Whether the rule is silent.
+    attr_accessor :silent
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -55,6 +61,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'actions' => :'actions',
+        :'agent_version' => :'agent_version',
         :'blocking' => :'blocking',
         :'description' => :'description',
         :'disabled' => :'disabled',
@@ -62,7 +69,8 @@ module DatadogAPIClient::V2
         :'expression' => :'expression',
         :'monitoring' => :'monitoring',
         :'policy_id' => :'policy_id',
-        :'product_tags' => :'product_tags'
+        :'product_tags' => :'product_tags',
+        :'silent' => :'silent'
       }
     end
 
@@ -71,6 +79,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'actions' => :'Array<CloudWorkloadSecurityAgentRuleAction>',
+        :'agent_version' => :'String',
         :'blocking' => :'Array<String>',
         :'description' => :'String',
         :'disabled' => :'Array<String>',
@@ -78,7 +87,8 @@ module DatadogAPIClient::V2
         :'expression' => :'String',
         :'monitoring' => :'Array<String>',
         :'policy_id' => :'String',
-        :'product_tags' => :'Array<String>'
+        :'product_tags' => :'Array<String>',
+        :'silent' => :'Boolean'
       }
     end
 
@@ -112,6 +122,10 @@ module DatadogAPIClient::V2
         if (value = attributes[:'actions']).is_a?(Array)
           self.actions = value
         end
+      end
+
+      if attributes.key?(:'agent_version')
+        self.agent_version = attributes[:'agent_version']
       end
 
       if attributes.key?(:'blocking')
@@ -153,6 +167,10 @@ module DatadogAPIClient::V2
           self.product_tags = value
         end
       end
+
+      if attributes.key?(:'silent')
+        self.silent = attributes[:'silent']
+      end
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -182,6 +200,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           actions == o.actions &&
+          agent_version == o.agent_version &&
           blocking == o.blocking &&
           description == o.description &&
           disabled == o.disabled &&
@@ -190,6 +209,7 @@ module DatadogAPIClient::V2
           monitoring == o.monitoring &&
           policy_id == o.policy_id &&
           product_tags == o.product_tags &&
+          silent == o.silent &&
           additional_properties == o.additional_properties
     end
 
@@ -197,7 +217,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [actions, blocking, description, disabled, enabled, expression, monitoring, policy_id, product_tags, additional_properties].hash
+      [actions, agent_version, blocking, description, disabled, enabled, expression, monitoring, policy_id, product_tags, silent, additional_properties].hash
     end
   end
 end

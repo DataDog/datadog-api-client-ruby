@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Fri, 13 Jun 2025 15:16:09 GMT
+- recorded_at: Fri, 10 Oct 2025 15:21:10 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"description":"My agent policy","enabled":true,"hostTags":["env:staging"],"name":"testgetaworkloadprotectionagentrulereturnsokresponse1749827769"},"type":"policy"}}'
+      string: '{"data":{"attributes":{"description":"My agent policy","enabled":true,"hostTags":["env:staging"],"name":"testgetaworkloadprotectionagentrulereturnsokresponse1760109670"},"type":"policy"}}'
     headers:
       Accept:
       - application/json
@@ -14,20 +14,20 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"8ps-fwp-o64","type":"policy","attributes":{"blockingRulesCount":0,"datadogManaged":false,"description":"My
-        agent policy","disabledRulesCount":1,"enabled":true,"hostTags":["env:staging"],"monitoringRulesCount":225,"name":"testgetaworkloadprotectionagentrulereturnsokresponse1749827769","policyVersion":"1","priority":1000000013,"ruleCount":226,"updateDate":1749827769724,"updater":{"name":"frog","handle":"frog@datadoghq.com"}}}}'
+      string: '{"data":{"id":"03k-bzr-nas","type":"policy","attributes":{"blockingRulesCount":0,"datadogManaged":false,"description":"My
+        agent policy","disabledRulesCount":1,"enabled":true,"hostTagsLists":[["env:staging"]],"monitoringRulesCount":7,"name":"testgetaworkloadprotectionagentrulereturnsokresponse1760109670","pinned":false,"policyVersion":"1","ruleCount":8,"updateDate":1760109671322,"updater":{"name":"frog","handle":"frog@datadoghq.com"}}}}'
     headers:
       Content-Type:
       - application/json
     status:
       code: 200
       message: OK
-- recorded_at: Fri, 13 Jun 2025 15:16:09 GMT
+- recorded_at: Fri, 10 Oct 2025 15:21:10 GMT
   request:
     body:
       encoding: UTF-8
       string: '{"data":{"attributes":{"actions":[{"set":{"name":"test_set","scope":"process","value":"test_value"}},{"hash":{}}],"description":"My
-        Agent rule","enabled":true,"expression":"exec.file.name == \"sh\"","name":"testgetaworkloadprotectionagentrulereturnsokresponse1749827769","policy_id":"8ps-fwp-o64","product_tags":["security:attack","technique:T1059"]},"type":"agent_rule"}}'
+        Agent rule","enabled":true,"expression":"exec.file.name == \"sh\"","name":"testgetaworkloadprotectionagentrulereturnsokresponse1760109670","policy_id":"03k-bzr-nas","product_tags":["security:attack","technique:T1059"]},"type":"agent_rule"}}'
     headers:
       Accept:
       - application/json
@@ -38,45 +38,45 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"onw-c2u-mha","type":"agent_rule","attributes":{"actions":[{"set":{"name":"test_set","value":"test_value","scope":"process"},"disabled":false},{"hash":{},"disabled":false}],"category":"Process
-        Activity","creationDate":1749827770435,"creator":{"name":"frog","handle":"frog@datadoghq.com"},"defaultRule":false,"description":"My
+      string: '{"data":{"id":"ftd-agj-4eh","type":"agent_rule","attributes":{"actions":[{"set":{"name":"test_set","value":"test_value","scope":"process","inherited":false},"disabled":false},{"hash":{},"disabled":false}],"category":"Process
+        Activity","creationDate":1760109672543,"creator":{"name":"frog","handle":"frog@datadoghq.com"},"defaultRule":false,"description":"My
         Agent rule","enabled":true,"expression":"exec.file.name == \"sh\"","filters":["os
-        == \"linux\""],"monitoring":["8ps-fwp-o64"],"name":"testgetaworkloadprotectionagentrulereturnsokresponse1749827769","product_tags":["security:attack","technique:T1059"],"updateDate":1749827770435,"updater":{"name":"frog","handle":"frog@datadoghq.com"}}}}'
+        == \"linux\""],"monitoring":["03k-bzr-nas"],"name":"testgetaworkloadprotectionagentrulereturnsokresponse1760109670","product_tags":["security:attack","technique:T1059"],"updateDate":1760109672543,"updater":{"name":"frog","handle":"frog@datadoghq.com"}}}}'
     headers:
       Content-Type:
       - application/json
     status:
       code: 200
       message: OK
-- recorded_at: Fri, 13 Jun 2025 15:16:09 GMT
+- recorded_at: Fri, 10 Oct 2025 15:21:10 GMT
   request:
     body: null
     headers:
       Accept:
       - application/json
     method: GET
-    uri: https://api.datadoghq.com/api/v2/remote_config/products/cws/agent_rules/onw-c2u-mha?policy_id=8ps-fwp-o64
+    uri: https://api.datadoghq.com/api/v2/remote_config/products/cws/agent_rules/ftd-agj-4eh?policy_id=03k-bzr-nas
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"onw-c2u-mha","type":"agent_rule","attributes":{"actions":[{"set":{"name":"test_set","value":"test_value","scope":"process"},"disabled":false},{"hash":{},"disabled":false}],"category":"Process
-        Activity","creationDate":1749827770435,"creator":{"name":"frog","handle":"frog@datadoghq.com"},"defaultRule":false,"description":"My
+      string: '{"data":{"id":"ftd-agj-4eh","type":"agent_rule","attributes":{"actions":[{"set":{"name":"test_set","value":"test_value","scope":"process","inherited":false},"disabled":false},{"hash":{},"disabled":false}],"category":"Process
+        Activity","creationDate":1760109672543,"creator":{"name":"frog","handle":"frog@datadoghq.com"},"defaultRule":false,"description":"My
         Agent rule","enabled":true,"expression":"exec.file.name == \"sh\"","filters":["os
-        == \"linux\""],"monitoring":["8ps-fwp-o64"],"name":"testgetaworkloadprotectionagentrulereturnsokresponse1749827769","product_tags":["security:attack","technique:T1059"],"updateDate":1749827770435,"updater":{"name":"frog","handle":"frog@datadoghq.com"}}}}'
+        == \"linux\""],"monitoring":["03k-bzr-nas"],"name":"testgetaworkloadprotectionagentrulereturnsokresponse1760109670","product_tags":["security:attack","technique:T1059"],"updateDate":1760109672543,"updater":{"name":"frog","handle":"frog@datadoghq.com"}}}}'
     headers:
       Content-Type:
       - application/json
     status:
       code: 200
       message: OK
-- recorded_at: Fri, 13 Jun 2025 15:16:09 GMT
+- recorded_at: Fri, 10 Oct 2025 15:21:10 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/remote_config/products/cws/agent_rules/onw-c2u-mha
+    uri: https://api.datadoghq.com/api/v2/remote_config/products/cws/agent_rules/ftd-agj-4eh
   response:
     body:
       encoding: UTF-8
@@ -87,14 +87,14 @@ http_interactions:
     status:
       code: 204
       message: No Content
-- recorded_at: Fri, 13 Jun 2025 15:16:09 GMT
+- recorded_at: Fri, 10 Oct 2025 15:21:10 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/remote_config/products/cws/policy/8ps-fwp-o64
+    uri: https://api.datadoghq.com/api/v2/remote_config/products/cws/policy/03k-bzr-nas
   response:
     body:
       encoding: UTF-8

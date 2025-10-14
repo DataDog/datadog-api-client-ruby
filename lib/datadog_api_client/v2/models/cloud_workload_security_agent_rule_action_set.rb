@@ -21,22 +21,31 @@ module DatadogAPIClient::V2
   class CloudWorkloadSecurityAgentRuleActionSet
     include BaseGenericModel
 
-    # Whether the value should be appended to the field
+    # Whether the value should be appended to the field.
     attr_accessor :append
+
+    # The default value of the set action
+    attr_accessor :default_value
+
+    # The expression of the set action.
+    attr_accessor :expression
 
     # The field of the set action
     attr_accessor :field
 
+    # Whether the value should be inherited.
+    attr_accessor :inherited
+
     # The name of the set action
     attr_accessor :name
 
-    # The scope of the set action
+    # The scope of the set action.
     attr_accessor :scope
 
-    # The size of the set action
+    # The size of the set action.
     attr_accessor :size
 
-    # The time to live of the set action
+    # The time to live of the set action.
     attr_accessor :ttl
 
     # The value of the set action
@@ -49,7 +58,10 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'append' => :'append',
+        :'default_value' => :'default_value',
+        :'expression' => :'expression',
         :'field' => :'field',
+        :'inherited' => :'inherited',
         :'name' => :'name',
         :'scope' => :'scope',
         :'size' => :'size',
@@ -63,7 +75,10 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'append' => :'Boolean',
+        :'default_value' => :'String',
+        :'expression' => :'String',
         :'field' => :'String',
+        :'inherited' => :'Boolean',
         :'name' => :'String',
         :'scope' => :'String',
         :'size' => :'Integer',
@@ -94,8 +109,20 @@ module DatadogAPIClient::V2
         self.append = attributes[:'append']
       end
 
+      if attributes.key?(:'default_value')
+        self.default_value = attributes[:'default_value']
+      end
+
+      if attributes.key?(:'expression')
+        self.expression = attributes[:'expression']
+      end
+
       if attributes.key?(:'field')
         self.field = attributes[:'field']
+      end
+
+      if attributes.key?(:'inherited')
+        self.inherited = attributes[:'inherited']
       end
 
       if attributes.key?(:'name')
@@ -146,7 +173,10 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           append == o.append &&
+          default_value == o.default_value &&
+          expression == o.expression &&
           field == o.field &&
+          inherited == o.inherited &&
           name == o.name &&
           scope == o.scope &&
           size == o.size &&
@@ -159,7 +189,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [append, field, name, scope, size, ttl, value, additional_properties].hash
+      [append, default_value, expression, field, inherited, name, scope, size, ttl, value, additional_properties].hash
     end
   end
 end
