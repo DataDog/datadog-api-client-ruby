@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `AzureScanOptionsInputUpdateDataAttributes` object.
+  # Attributes for updating Azure scan options configuration.
   class AzureScanOptionsInputUpdateDataAttributes
     include BaseGenericModel
 
-    # The `attributes` `vuln_containers_os`.
+    # Indicates if scanning for vulnerabilities in containers is enabled.
     attr_accessor :vuln_containers_os
 
-    # The `attributes` `vuln_host_os`.
+    # Indicates if scanning for vulnerabilities in hosts is enabled.
     attr_accessor :vuln_host_os
 
     attr_accessor :additional_properties

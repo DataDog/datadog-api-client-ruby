@@ -1,5 +1,5 @@
 http_interactions:
-- recorded_at: Wed, 05 Mar 2025 15:30:09 GMT
+- recorded_at: Sun, 12 Oct 2025 15:50:03 GMT
   request:
     body:
       encoding: UTF-8
@@ -14,8 +14,7 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"errors":[{"title":"Generic Error","detail":"invalid aws resource
-        arn"}]}'
+      string: '{"errors":[{"title":"Generic Error","detail":"invalid aws arn"}]}'
     headers:
       Content-Type:
       - application/vnd.api+json
