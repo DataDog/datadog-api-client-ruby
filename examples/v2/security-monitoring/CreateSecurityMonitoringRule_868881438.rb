@@ -11,7 +11,9 @@ body = DatadogAPIClient::V2::SecurityMonitoringStandardRuleCreatePayload.new({
       aggregation: DatadogAPIClient::V2::SecurityMonitoringRuleQueryAggregation::COUNT,
       group_by_fields: [],
       distinct_fields: [],
-      index: "main",
+      indexes: [
+        "main",
+      ],
     }),
   ],
   filters: [],

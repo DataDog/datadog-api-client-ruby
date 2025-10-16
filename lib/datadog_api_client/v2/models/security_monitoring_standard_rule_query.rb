@@ -43,6 +43,9 @@ module DatadogAPIClient::V2
     # The index to run the query on, if the `dataSource` is `logs`. Only used for scheduled rules - in other words, when the `schedulingOptions` field is present in the rule payload.
     attr_accessor :index
 
+    # List of indexes to query when the `dataSource` is `logs`. Only used for scheduled rules, such as when the `schedulingOptions` field is present in the rule payload.
+    attr_accessor :indexes
+
     # (Deprecated) The target field to aggregate over when using the sum or max
     # aggregations. `metrics` field should be used instead.
     attr_accessor :metric
@@ -69,6 +72,7 @@ module DatadogAPIClient::V2
         :'group_by_fields' => :'groupByFields',
         :'has_optional_group_by_fields' => :'hasOptionalGroupByFields',
         :'index' => :'index',
+        :'indexes' => :'indexes',
         :'metric' => :'metric',
         :'metrics' => :'metrics',
         :'name' => :'name',
@@ -87,6 +91,7 @@ module DatadogAPIClient::V2
         :'group_by_fields' => :'Array<String>',
         :'has_optional_group_by_fields' => :'Boolean',
         :'index' => :'String',
+        :'indexes' => :'Array<String>',
         :'metric' => :'String',
         :'metrics' => :'Array<String>',
         :'name' => :'String',
@@ -144,6 +149,12 @@ module DatadogAPIClient::V2
         self.index = attributes[:'index']
       end
 
+      if attributes.key?(:'indexes')
+        if (value = attributes[:'indexes']).is_a?(Array)
+          self.indexes = value
+        end
+      end
+
       if attributes.key?(:'metric')
         self.metric = attributes[:'metric']
       end
@@ -196,6 +207,7 @@ module DatadogAPIClient::V2
           group_by_fields == o.group_by_fields &&
           has_optional_group_by_fields == o.has_optional_group_by_fields &&
           index == o.index &&
+          indexes == o.indexes &&
           metric == o.metric &&
           metrics == o.metrics &&
           name == o.name &&
@@ -207,7 +219,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [aggregation, custom_query_extension, data_source, distinct_fields, group_by_fields, has_optional_group_by_fields, index, metric, metrics, name, query, additional_properties].hash
+      [aggregation, custom_query_extension, data_source, distinct_fields, group_by_fields, has_optional_group_by_fields, index, indexes, metric, metrics, name, query, additional_properties].hash
     end
   end
 end
