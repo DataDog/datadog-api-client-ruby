@@ -1,12 +1,12 @@
 http_interactions:
-- recorded_at: Tue, 14 Oct 2025 13:43:32 GMT
+- recorded_at: Wed, 15 Oct 2025 08:41:14 GMT
   request:
     body: null
     headers:
       Accept:
       - application/json
     method: GET
-    uri: https://api.datadoghq.com/api/v2/security/vulnerable-assets?page%5Btoken%5D=unknown&page%5Bnumber%5D=1
+    uri: https://api.datadoghq.com/api/v2/security/scanned-assets-metadata?page%5Btoken%5D=unknown&page%5Bnumber%5D=1
   response:
     body:
       encoding: UTF-8
