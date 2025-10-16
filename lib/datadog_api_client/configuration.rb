@@ -206,6 +206,7 @@ module DatadogAPIClient
             "v2.list_assets_sbo_ms": false,
             "v2.list_findings": false,
             "v2.list_historical_jobs": false,
+            "v2.list_scanned_assets_metadata": false,
             "v2.list_security_monitoring_histsignals": false,
             "v2.list_vulnerabilities": false,
             "v2.list_vulnerable_assets": false,

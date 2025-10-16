@@ -1762,6 +1762,7 @@ module DatadogAPIClient::V2
     # @param filter_asset_name [String] The name of the asset for the SBOM request.
     # @param opts [Hash] the optional parameters
     # @option opts [String] :filter_repo_digest The container image `repo_digest` for the SBOM request. When the requested asset type is 'Image', this filter is mandatory.
+    # @option opts [SBOMFormat] :ext_format The standard of the SBOM.
     # @return [Array<(GetSBOMResponse, Integer, Hash)>] GetSBOMResponse data, response status code and response headers
     def get_sbom_with_http_info(asset_type, filter_asset_name, opts = {})
       unstable_enabled = @api_client.config.unstable_operations["v2.get_sbom".to_sym]
@@ -1787,6 +1788,10 @@ module DatadogAPIClient::V2
       if @api_client.config.client_side_validation && filter_asset_name.nil?
         fail ArgumentError, "Missing the required parameter 'filter_asset_name' when calling SecurityMonitoringAPI.get_sbom"
       end
+      allowable_values = ['CycloneDX', 'SPDX']
+      if @api_client.config.client_side_validation && opts[:'ext_format'] && !allowable_values.include?(opts[:'ext_format'])
+        fail ArgumentError, "invalid value for \"ext_format\", must be one of #{allowable_values}"
+      end
       # resource path
       local_var_path = '/api/v2/security/sboms/{asset_type}'.sub('{asset_type}', CGI.escape(asset_type.to_s).gsub('%2F', '/'))
 
@@ -1794,6 +1799,7 @@ module DatadogAPIClient::V2
       query_params = opts[:query_params] || {}
       query_params[:'filter[asset_name]'] = filter_asset_name
       query_params[:'filter[repo_digest]'] = opts[:'filter_repo_digest'] if !opts[:'filter_repo_digest'].nil?
+      query_params[:'ext:format'] = opts[:'ext_format'] if !opts[:'ext_format'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -2993,6 +2999,134 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # List scanned assets metadata.
+    #
+    # @see #list_scanned_assets_metadata_with_http_info
+    def list_scanned_assets_metadata(opts = {})
+      data, _status_code, _headers = list_scanned_assets_metadata_with_http_info(opts)
+      data
+    end
+
+    # List scanned assets metadata.
+    #
+    # Get a list of security scanned assets metadata for an organization.
+    #
+    # ### Pagination
+    #
+    # For the "List Vulnerabilities" endpoint, see the [Pagination section](#pagination).
+    #
+    # ### Filtering
+    #
+    # For the "List Vulnerabilities" endpoint, see the [Filtering section](#filtering).
+    #
+    # ### Metadata
+    #
+    #  For the "List Vulnerabilities" endpoint, see the [Metadata section](#metadata).
+    #
+    # ### Related endpoints
+    #
+    # This endpoint returns additional metadata for cloud resources that is not available from the standard resource endpoints. To access a richer dataset, call this endpoint together with the relevant resource endpoint(s) and merge (join) their results using the resource identifier.
+    #
+    # **Hosts**
+    #
+    # To enrich host data, join the response from the [Hosts](https://docs.datadoghq.com/api/latest/hosts/) endpoint with the response from the scanned-assets-metadata endpoint on the following key fields:
+    #
+    # | ENDPOINT | JOIN KEY | TYPE |
+    # | --- | --- | --- |
+    # | [/api/v1/hosts](https://docs.datadoghq.com/api/latest/hosts/) | host_list.host_name | string |
+    # | /api/v2/security/scanned-assets-metadata | data.attributes.asset.name | string |
+    #
+    # **Host Images**
+    #
+    # To enrich host image data, join the response from the [Hosts](https://docs.datadoghq.com/api/latest/hosts/) endpoint with the response from the scanned-assets-metadata endpoint on the following key fields:
+    #
+    # | ENDPOINT | JOIN KEY | TYPE |
+    # | --- | --- | --- |
+    # | [/api/v1/hosts](https://docs.datadoghq.com/api/latest/hosts/) | host_list.tags_by_source["Amazon Web Services"]["image"] | string |
+    # | /api/v2/security/scanned-assets-metadata | data.attributes.asset.name | string |
+    #
+    # **Container Images**
+    #
+    # To enrich container image data, join the response from the [Container Images](https://docs.datadoghq.com/api/latest/container-images/) endpoint with the response from the scanned-assets-metadata endpoint on the following key fields:
+    #
+    # | ENDPOINT | JOIN KEY | TYPE |
+    # | --- | --- | --- |
+    # | [/api/v2/container_images](https://docs.datadoghq.com/api/latest/container-images/) | `data.attributes.name`@`data.attributes.repo_digest` | string |
+    # | /api/v2/security/scanned-assets-metadata | data.attributes.asset.name | string |
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :page_token Its value must come from the `links` section of the response of the first request. Do not manually edit it.
+    # @option opts [Integer] :page_number The page number to be retrieved. It should be equal to or greater than 1.
+    # @option opts [CloudAssetType] :filter_asset_type The type of the scanned asset.
+    # @option opts [String] :filter_asset_name The name of the scanned asset.
+    # @option opts [String] :filter_last_success_origin The origin of last success scan.
+    # @option opts [String] :filter_last_success_env The environment of last success scan.
+    # @return [Array<(ScannedAssetsMetadata, Integer, Hash)>] ScannedAssetsMetadata data, response status code and response headers
+    def list_scanned_assets_metadata_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_scanned_assets_metadata".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_scanned_assets_metadata")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_scanned_assets_metadata"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.list_scanned_assets_metadata ...'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_number'].nil? && opts[:'page_number'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"page_number"]" when calling SecurityMonitoringAPI.list_scanned_assets_metadata, must be greater than or equal to 1.'
+      end
+      allowable_values = ['Host', 'HostImage', 'Image']
+      if @api_client.config.client_side_validation && opts[:'filter_asset_type'] && !allowable_values.include?(opts[:'filter_asset_type'])
+        fail ArgumentError, "invalid value for \"filter_asset_type\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/api/v2/security/scanned-assets-metadata'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'page[token]'] = opts[:'page_token'] if !opts[:'page_token'].nil?
+      query_params[:'page[number]'] = opts[:'page_number'] if !opts[:'page_number'].nil?
+      query_params[:'filter[asset.type]'] = opts[:'filter_asset_type'] if !opts[:'filter_asset_type'].nil?
+      query_params[:'filter[asset.name]'] = opts[:'filter_asset_name'] if !opts[:'filter_asset_name'].nil?
+      query_params[:'filter[last_success.origin]'] = opts[:'filter_last_success_origin'] if !opts[:'filter_last_success_origin'].nil?
+      query_params[:'filter[last_success.env]'] = opts[:'filter_last_success_env'] if !opts[:'filter_last_success_env'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ScannedAssetsMetadata'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :list_scanned_assets_metadata,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#list_scanned_assets_metadata\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get all security filters.
     #
     # @see #list_security_filters_with_http_info
@@ -3417,6 +3551,8 @@ module DatadogAPIClient::V2
     #
     # This token can then be used in the subsequent paginated requests.
     #
+    # *Note: The first request may take longer to complete than subsequent requests.*
+    #
     # #### Subsequent requests
     #
     # Any request containing valid `page[token]` and `page[number]` parameters will be considered a subsequent request.
@@ -3424,6 +3560,8 @@ module DatadogAPIClient::V2
     # If the `token` is invalid, a `404` response will be returned.
     #
     # If the page `number` is invalid, a `400` response will be returned.
+    #
+    # The returned `token` is valid for all requests in the pagination sequence. To send paginated requests in parallel, reuse the same `token` and change only the `page[number]` parameter.
     #
     # ### Filtering
     #
@@ -3456,6 +3594,11 @@ module DatadogAPIClient::V2
     #   "links": {...}
     # }
     # ```
+    # ### Extensions
+    #
+    # Requests may include extensions to modify the behavior of the requested endpoint. The filter parameters follow the [JSON:API format](https://jsonapi.org/extensions/#extensions) format: `ext:$extension_name`, where `extension_name` is the name of the modifier that is being applied.
+    #
+    # Extensions can only include one value: `ext:modifier=value`.
     #
     # @param opts [Hash] the optional parameters
     # @option opts [String] :page_token Its value must come from the `links` section of the response of the first request. Do not manually edit it.
@@ -3485,7 +3628,7 @@ module DatadogAPIClient::V2
     # @option opts [Boolean] :filter_fix_available Filter by fix availability.
     # @option opts [String] :filter_repo_digests Filter by vulnerability `repo_digest` (when the vulnerability is related to `Image` asset).
     # @option opts [String] :filter_origin Filter by origin.
-    # @option opts [String] :filter_asset_name Filter by asset name.
+    # @option opts [String] :filter_asset_name Filter by asset name. This field supports the usage of wildcards (*).
     # @option opts [AssetType] :filter_asset_type Filter by asset type.
     # @option opts [String] :filter_asset_version_first Filter by the first version of the asset this vulnerability has been detected on.
     # @option opts [String] :filter_asset_version_last Filter by the last version of the asset this vulnerability has been detected on.
@@ -3583,7 +3726,7 @@ module DatadogAPIClient::V2
       query_params[:'filter[tool]'] = opts[:'filter_tool'] if !opts[:'filter_tool'].nil?
       query_params[:'filter[library.name]'] = opts[:'filter_library_name'] if !opts[:'filter_library_name'].nil?
       query_params[:'filter[library.version]'] = opts[:'filter_library_version'] if !opts[:'filter_library_version'].nil?
-      query_params[:'filter[advisory_id]'] = opts[:'filter_advisory_id'] if !opts[:'filter_advisory_id'].nil?
+      query_params[:'filter[advisory.id]'] = opts[:'filter_advisory_id'] if !opts[:'filter_advisory_id'].nil?
       query_params[:'filter[risks.exploitation_probability]'] = opts[:'filter_risks_exploitation_probability'] if !opts[:'filter_risks_exploitation_probability'].nil?
       query_params[:'filter[risks.poc_exploit_available]'] = opts[:'filter_risks_poc_exploit_available'] if !opts[:'filter_risks_poc_exploit_available'].nil?
       query_params[:'filter[risks.exploit_available]'] = opts[:'filter_risks_exploit_available'] if !opts[:'filter_risks_exploit_available'].nil?
@@ -3675,7 +3818,7 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @option opts [String] :page_token Its value must come from the `links` section of the response of the first request. Do not manually edit it.
     # @option opts [Integer] :page_number The page number to be retrieved. It should be equal or greater than `1`
-    # @option opts [String] :filter_name Filter by name.
+    # @option opts [String] :filter_name Filter by name. This field supports the usage of wildcards (*).
     # @option opts [AssetType] :filter_type Filter by type.
     # @option opts [String] :filter_version_first Filter by the first version of the asset since it has been vulnerable.
     # @option opts [String] :filter_version_last Filter by the last detected version of the asset.
@@ -3710,7 +3853,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "invalid value for \"filter_type\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/v2/security/assets'
+      local_var_path = '/api/v2/security/vulnerable-assets'
 
       # query parameters
       query_params = opts[:query_params] || {}
