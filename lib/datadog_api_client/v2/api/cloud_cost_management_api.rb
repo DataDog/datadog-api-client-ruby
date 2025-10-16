@@ -1215,7 +1215,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Get ruleset.
+    # Get a tag pipeline ruleset.
     #
     # @see #get_tag_pipelines_ruleset_with_http_info
     def get_tag_pipelines_ruleset(ruleset_id, opts = {})
@@ -1223,7 +1223,7 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Get ruleset.
+    # Get a tag pipeline ruleset.
     #
     # Get a specific tag pipeline ruleset - Retrieve a specific tag pipeline ruleset by its ID
     #
