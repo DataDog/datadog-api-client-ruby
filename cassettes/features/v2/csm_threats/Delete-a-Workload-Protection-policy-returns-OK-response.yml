@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Fri, 10 Oct 2025 15:21:03 GMT
+- recorded_at: Thu, 16 Oct 2025 16:03:01 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"description":"My agent policy","enabled":true,"hostTags":["env:staging"],"name":"testdeleteaworkloadprotectionpolicyreturnsokresponse1760109663"},"type":"policy"}}'
+      string: '{"data":{"attributes":{"description":"My agent policy","enabled":true,"hostTags":["env:staging"],"name":"testdeleteaworkloadprotectionpolicyreturnsokresponse1760630581"},"type":"policy"}}'
     headers:
       Accept:
       - application/json
@@ -14,22 +14,22 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"qdn-itt-2ed","type":"policy","attributes":{"blockingRulesCount":0,"datadogManaged":false,"description":"My
-        agent policy","disabledRulesCount":1,"enabled":true,"hostTagsLists":[["env:staging"]],"monitoringRulesCount":7,"name":"testdeleteaworkloadprotectionpolicyreturnsokresponse1760109663","pinned":false,"policyVersion":"1","ruleCount":8,"updateDate":1760109664181,"updater":{"name":"frog","handle":"frog@datadoghq.com"}}}}'
+      string: '{"data":{"id":"luu-tiz-w3q","type":"policy","attributes":{"blockingRulesCount":0,"datadogManaged":false,"description":"My
+        agent policy","disabledRulesCount":1,"enabled":true,"hostTagsLists":[["env:staging"]],"monitoringRulesCount":7,"name":"testdeleteaworkloadprotectionpolicyreturnsokresponse1760630581","pinned":false,"policyVersion":"1","ruleCount":8,"updateDate":1760630581737,"updater":{"name":"frog","handle":"frog@datadoghq.com"}}}}'
     headers:
       Content-Type:
       - application/json
     status:
       code: 200
       message: OK
-- recorded_at: Fri, 10 Oct 2025 15:21:03 GMT
+- recorded_at: Thu, 16 Oct 2025 16:03:01 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/remote_config/products/cws/policy/qdn-itt-2ed
+    uri: https://api.datadoghq.com/api/v2/remote_config/products/cws/policy/luu-tiz-w3q
   response:
     body:
       encoding: UTF-8
@@ -40,14 +40,14 @@ http_interactions:
     status:
       code: 204
       message: No Content
-- recorded_at: Fri, 10 Oct 2025 15:21:03 GMT
+- recorded_at: Thu, 16 Oct 2025 16:03:01 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/remote_config/products/cws/policy/qdn-itt-2ed
+    uri: https://api.datadoghq.com/api/v2/remote_config/products/cws/policy/luu-tiz-w3q
   response:
     body:
       encoding: UTF-8
