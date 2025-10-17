@@ -18,6 +18,8 @@ require 'time'
 
 module DatadogAPIClient::V2
   # Case type
+  #
+  # @deprecated This model is deprecated.
   class CaseType
     include BaseEnumModel
 

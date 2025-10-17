@@ -167,6 +167,78 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Comment case.
+    #
+    # @see #comment_case_with_http_info
+    def comment_case(case_id, body, opts = {})
+      data, _status_code, _headers = comment_case_with_http_info(case_id, body, opts)
+      data
+    end
+
+    # Comment case.
+    #
+    # Comment case
+    #
+    # @param case_id [String] Case's UUID or key
+    # @param body [CaseCommentRequest] Case comment payload
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(TimelineResponse, Integer, Hash)>] TimelineResponse data, response status code and response headers
+    def comment_case_with_http_info(case_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CaseManagementAPI.comment_case ...'
+      end
+      # verify the required parameter 'case_id' is set
+      if @api_client.config.client_side_validation && case_id.nil?
+        fail ArgumentError, "Missing the required parameter 'case_id' when calling CaseManagementAPI.comment_case"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CaseManagementAPI.comment_case"
+      end
+      # resource path
+      local_var_path = '/api/v2/cases/{case_id}/comment'.sub('{case_id}', CGI.escape(case_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TimelineResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :comment_case,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CaseManagementAPI#comment_case\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create a case.
     #
     # @see #create_case_with_http_info
@@ -297,6 +369,146 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CaseManagementAPI#create_project\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete case comment.
+    #
+    # @see #delete_case_comment_with_http_info
+    def delete_case_comment(case_id, cell_id, opts = {})
+      delete_case_comment_with_http_info(case_id, cell_id, opts)
+      nil
+    end
+
+    # Delete case comment.
+    #
+    # Delete case comment
+    #
+    # @param case_id [String] Case's UUID or key
+    # @param cell_id [String] Timeline cell's UUID
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_case_comment_with_http_info(case_id, cell_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CaseManagementAPI.delete_case_comment ...'
+      end
+      # verify the required parameter 'case_id' is set
+      if @api_client.config.client_side_validation && case_id.nil?
+        fail ArgumentError, "Missing the required parameter 'case_id' when calling CaseManagementAPI.delete_case_comment"
+      end
+      # verify the required parameter 'cell_id' is set
+      if @api_client.config.client_side_validation && cell_id.nil?
+        fail ArgumentError, "Missing the required parameter 'cell_id' when calling CaseManagementAPI.delete_case_comment"
+      end
+      # resource path
+      local_var_path = '/api/v2/cases/{case_id}/comment/{cell_id}'.sub('{case_id}', CGI.escape(case_id.to_s).gsub('%2F', '/')).sub('{cell_id}', CGI.escape(cell_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :delete_case_comment,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CaseManagementAPI#delete_case_comment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete custom attribute from case.
+    #
+    # @see #delete_case_custom_attribute_with_http_info
+    def delete_case_custom_attribute(case_id, custom_attribute_key, opts = {})
+      data, _status_code, _headers = delete_case_custom_attribute_with_http_info(case_id, custom_attribute_key, opts)
+      data
+    end
+
+    # Delete custom attribute from case.
+    #
+    # Delete custom attribute from case
+    #
+    # @param case_id [String] Case's UUID or key
+    # @param custom_attribute_key [String] Case Custom attribute's key
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(CaseResponse, Integer, Hash)>] CaseResponse data, response status code and response headers
+    def delete_case_custom_attribute_with_http_info(case_id, custom_attribute_key, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CaseManagementAPI.delete_case_custom_attribute ...'
+      end
+      # verify the required parameter 'case_id' is set
+      if @api_client.config.client_side_validation && case_id.nil?
+        fail ArgumentError, "Missing the required parameter 'case_id' when calling CaseManagementAPI.delete_case_custom_attribute"
+      end
+      # verify the required parameter 'custom_attribute_key' is set
+      if @api_client.config.client_side_validation && custom_attribute_key.nil?
+        fail ArgumentError, "Missing the required parameter 'custom_attribute_key' when calling CaseManagementAPI.delete_case_custom_attribute"
+      end
+      # resource path
+      local_var_path = '/api/v2/cases/{case_id}/custom_attributes/{custom_attribute_key}'.sub('{case_id}', CGI.escape(case_id.to_s).gsub('%2F', '/')).sub('{custom_attribute_key}', CGI.escape(custom_attribute_key.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CaseResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_case_custom_attribute,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CaseManagementAPI#delete_case_custom_attribute\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -864,6 +1076,227 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CaseManagementAPI#update_attributes\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update case custom attribute.
+    #
+    # @see #update_case_custom_attribute_with_http_info
+    def update_case_custom_attribute(case_id, custom_attribute_key, body, opts = {})
+      data, _status_code, _headers = update_case_custom_attribute_with_http_info(case_id, custom_attribute_key, body, opts)
+      data
+    end
+
+    # Update case custom attribute.
+    #
+    # Update case custom attribute
+    #
+    # @param case_id [String] Case's UUID or key
+    # @param custom_attribute_key [String] Case Custom attribute's key
+    # @param body [CaseUpdateCustomAttributeRequest] Update case custom attribute payload
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(CaseResponse, Integer, Hash)>] CaseResponse data, response status code and response headers
+    def update_case_custom_attribute_with_http_info(case_id, custom_attribute_key, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CaseManagementAPI.update_case_custom_attribute ...'
+      end
+      # verify the required parameter 'case_id' is set
+      if @api_client.config.client_side_validation && case_id.nil?
+        fail ArgumentError, "Missing the required parameter 'case_id' when calling CaseManagementAPI.update_case_custom_attribute"
+      end
+      # verify the required parameter 'custom_attribute_key' is set
+      if @api_client.config.client_side_validation && custom_attribute_key.nil?
+        fail ArgumentError, "Missing the required parameter 'custom_attribute_key' when calling CaseManagementAPI.update_case_custom_attribute"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CaseManagementAPI.update_case_custom_attribute"
+      end
+      # resource path
+      local_var_path = '/api/v2/cases/{case_id}/custom_attributes/{custom_attribute_key}'.sub('{case_id}', CGI.escape(case_id.to_s).gsub('%2F', '/')).sub('{custom_attribute_key}', CGI.escape(custom_attribute_key.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CaseResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_case_custom_attribute,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CaseManagementAPI#update_case_custom_attribute\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update case description.
+    #
+    # @see #update_case_description_with_http_info
+    def update_case_description(case_id, body, opts = {})
+      data, _status_code, _headers = update_case_description_with_http_info(case_id, body, opts)
+      data
+    end
+
+    # Update case description.
+    #
+    # Update case description
+    #
+    # @param case_id [String] Case's UUID or key
+    # @param body [CaseUpdateDescriptionRequest] Case description update payload
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(CaseResponse, Integer, Hash)>] CaseResponse data, response status code and response headers
+    def update_case_description_with_http_info(case_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CaseManagementAPI.update_case_description ...'
+      end
+      # verify the required parameter 'case_id' is set
+      if @api_client.config.client_side_validation && case_id.nil?
+        fail ArgumentError, "Missing the required parameter 'case_id' when calling CaseManagementAPI.update_case_description"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CaseManagementAPI.update_case_description"
+      end
+      # resource path
+      local_var_path = '/api/v2/cases/{case_id}/description'.sub('{case_id}', CGI.escape(case_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CaseResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_case_description,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CaseManagementAPI#update_case_description\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update case title.
+    #
+    # @see #update_case_title_with_http_info
+    def update_case_title(case_id, body, opts = {})
+      data, _status_code, _headers = update_case_title_with_http_info(case_id, body, opts)
+      data
+    end
+
+    # Update case title.
+    #
+    # Update case title
+    #
+    # @param case_id [String] Case's UUID or key
+    # @param body [CaseUpdateTitleRequest] Case title update payload
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(CaseResponse, Integer, Hash)>] CaseResponse data, response status code and response headers
+    def update_case_title_with_http_info(case_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CaseManagementAPI.update_case_title ...'
+      end
+      # verify the required parameter 'case_id' is set
+      if @api_client.config.client_side_validation && case_id.nil?
+        fail ArgumentError, "Missing the required parameter 'case_id' when calling CaseManagementAPI.update_case_title"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CaseManagementAPI.update_case_title"
+      end
+      # resource path
+      local_var_path = '/api/v2/cases/{case_id}/title'.sub('{case_id}', CGI.escape(case_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CaseResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_case_title,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CaseManagementAPI#update_case_title\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

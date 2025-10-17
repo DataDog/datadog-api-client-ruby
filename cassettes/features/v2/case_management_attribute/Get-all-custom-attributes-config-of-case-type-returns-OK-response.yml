@@ -1,0 +1,49 @@
+http_interactions:
+- recorded_at: Wed, 01 Oct 2025 12:50:14 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: "{\"data\":{\"attributes\":{\"description\":\"Worldwide case type\"\
+        ,\"emoji\":\"\U0001F30D\",\"name\":\"World\"},\"type\":\"case_type\"}}"
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/cases/types
+  response:
+    body:
+      encoding: UTF-8
+      string: "{\"data\":{\"id\":\"f91c5f4a-53c4-4f18-a21d-9f82fd7bd3e9\",\"type\"\
+        :\"case_type\",\"attributes\":{\"description\":\"Worldwide case type\",\"\
+        emoji\":\"\U0001F30D\",\"internal\":false,\"name\":\"World\",\"statuses_config\"\
+        :{\"open\":{\"status_options\":[{\"name\":\"Open\"}],\"default\":\"Open\"\
+        },\"in_progress\":{\"status_options\":[{\"name\":\"In Progress\"}],\"default\"\
+        :\"In Progress\"},\"closed\":{\"status_options\":[{\"name\":\"Closed\"}],\"\
+        default\":\"Closed\"}}}}}"
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 201
+      message: Created
+- recorded_at: Wed, 01 Oct 2025 12:50:14 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+    method: GET
+    uri: https://api.datadoghq.com/api/v2/cases/types/f91c5f4a-53c4-4f18-a21d-9f82fd7bd3e9/custom_attributes
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":[]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 200
+      message: OK
+recorded_with: VCR 6.0.0
