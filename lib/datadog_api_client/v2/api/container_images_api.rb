@@ -34,6 +34,7 @@ module DatadogAPIClient::V2
     # Get all Container Images.
     #
     # Get all Container Images for your organization.
+    # **Note**: To enrich the data returned by this endpoint with security scans, see the new [api/v2/security/scanned-assets-metadata](https://docs.datadoghq.com/api/latest/security-monitoring/#list-scanned-assets-metadata) endpoint.
     #
     # @param opts [Hash] the optional parameters
     # @option opts [String] :filter_tags Comma-separated list of tags to filter Container Images by.
