@@ -11,7 +11,7 @@ body = DatadogAPIClient::V2::CaseCreateRequest.new({
     attributes: DatadogAPIClient::V2::CaseCreateAttributes.new({
       priority: DatadogAPIClient::V2::CasePriority::NOT_DEFINED,
       title: "Security breach investigation in 0cfbc5cbc676ee71",
-      type: DatadogAPIClient::V2::CaseType::STANDARD,
+      type_id: "00000000-0000-0000-0000-000000000001",
     }),
     relationships: DatadogAPIClient::V2::CaseCreateRelationships.new({
       assignee: DatadogAPIClient::V2::NullableUserRelationship.new({

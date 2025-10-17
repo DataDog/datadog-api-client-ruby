@@ -30,8 +30,8 @@ module DatadogAPIClient::V2
     # Title
     attr_reader :title
 
-    # Case type
-    attr_reader :type
+    # Case type UUID
+    attr_reader :type_id
 
     attr_accessor :additional_properties
 
@@ -42,7 +42,7 @@ module DatadogAPIClient::V2
         :'description' => :'description',
         :'priority' => :'priority',
         :'title' => :'title',
-        :'type' => :'type'
+        :'type_id' => :'type_id'
       }
     end
 
@@ -53,7 +53,7 @@ module DatadogAPIClient::V2
         :'description' => :'String',
         :'priority' => :'CasePriority',
         :'title' => :'String',
-        :'type' => :'CaseType'
+        :'type_id' => :'String'
       }
     end
 
@@ -87,8 +87,8 @@ module DatadogAPIClient::V2
         self.title = attributes[:'title']
       end
 
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
+      if attributes.key?(:'type_id')
+        self.type_id = attributes[:'type_id']
       end
     end
 
@@ -97,7 +97,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @title.nil?
-      return false if @type.nil?
+      return false if @type_id.nil?
       true
     end
 
@@ -112,13 +112,13 @@ module DatadogAPIClient::V2
     end
 
     # Custom attribute writer method with validation
-    # @param type [Object] Object to be assigned
+    # @param type_id [Object] Object to be assigned
     # @!visibility private
-    def type=(type)
-      if type.nil?
-        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+    def type_id=(type_id)
+      if type_id.nil?
+        fail ArgumentError, 'invalid value for "type_id", type_id cannot be nil.'
       end
-      @type = type
+      @type_id = type_id
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -150,7 +150,7 @@ module DatadogAPIClient::V2
           description == o.description &&
           priority == o.priority &&
           title == o.title &&
-          type == o.type &&
+          type_id == o.type_id &&
           additional_properties == o.additional_properties
     end
 
@@ -158,7 +158,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [description, priority, title, type, additional_properties].hash
+      [description, priority, title, type_id, additional_properties].hash
     end
   end
 end

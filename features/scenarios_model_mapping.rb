@@ -1163,6 +1163,27 @@ ScenariosModelMappings = {
             "case_id" => "String",
             "body" => "CaseUpdateAttributesRequest",
     },
+    "v2.CommentCase" => {
+            "case_id" => "String",
+            "body" => "CaseCommentRequest",
+    },
+    "v2.DeleteCaseComment" => {
+            "case_id" => "String",
+            "cell_id" => "String",
+    },
+    "v2.DeleteCaseCustomAttribute" => {
+            "case_id" => "String",
+            "custom_attribute_key" => "String",
+    },
+    "v2.UpdateCaseCustomAttribute" => {
+            "case_id" => "String",
+            "custom_attribute_key" => "String",
+            "body" => "CaseUpdateCustomAttributeRequest",
+    },
+    "v2.UpdateCaseDescription" => {
+            "case_id" => "String",
+            "body" => "CaseUpdateDescriptionRequest",
+    },
     "v2.UpdatePriority" => {
             "case_id" => "String",
             "body" => "CaseUpdatePriorityRequest",
@@ -1171,6 +1192,10 @@ ScenariosModelMappings = {
             "case_id" => "String",
             "body" => "CaseUpdateStatusRequest",
     },
+    "v2.UpdateCaseTitle" => {
+            "case_id" => "String",
+            "body" => "CaseUpdateTitleRequest",
+    },
     "v2.UnarchiveCase" => {
             "case_id" => "String",
             "body" => "CaseEmptyRequest",
@@ -1178,6 +1203,23 @@ ScenariosModelMappings = {
     "v2.UnassignCase" => {
             "case_id" => "String",
             "body" => "CaseEmptyRequest",
+    },
+    "v2.CreateCaseType" => {
+            "body" => "CaseTypeCreateRequest",
+    },
+    "v2.DeleteCaseType" => {
+            "case_type_id" => "String",
+    },
+    "v2.GetAllCustomAttributeConfigsByCaseType" => {
+            "case_type_id" => "String",
+    },
+    "v2.CreateCustomAttributeConfig" => {
+            "case_type_id" => "String",
+            "body" => "CustomAttributeConfigCreateRequest",
+    },
+    "v2.DeleteCustomAttributeConfig" => {
+            "case_type_id" => "String",
+            "custom_attribute_id" => "String",
     },
     "v2.ListCatalogEntity" => {
             "page_offset" => "Integer",
