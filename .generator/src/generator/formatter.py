@@ -275,6 +275,16 @@ def format_data_with_schema_list(
     return f"[\n{parameters}]"
 
 
+def _is_valid_ruby_symbol(key):
+    """Check if a key can be used as a Ruby symbol without quotes."""
+    if not key:
+        return False
+    # Ruby symbols can start with letter or underscore, contain alphanumeric and underscores
+    if not (key[0].isalpha() or key[0] == '_'):
+        return False
+    return all(c.isalnum() or c == '_' for c in key)
+
+
 @format_data_with_schema.register(dict)
 def format_data_with_schema_dict(
     data,
@@ -318,7 +328,11 @@ def format_data_with_schema_dict(
                 name_prefix=name_prefix,
                 replace_values=replace_values,
             )
-            parameters += f"{k}: {value}, "
+            # Use hash rocket syntax for keys with special characters
+            if _is_valid_ruby_symbol(k):
+                parameters += f"{k}: {value}, "
+            else:
+                parameters += f'"{k}" => {value}, '
         if not has_properties:
             name = None
 
