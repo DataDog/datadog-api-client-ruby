@@ -20,19 +20,14 @@ module DatadogAPIClient::V1
   # Configuration object for a Synthetic browser test.
   class SyntheticsBrowserTestConfig
     include BaseGenericModel
-
     # Array of assertions used for the test.
     attr_reader :assertions
-
     # Array of variables used for the test.
     attr_accessor :config_variables
-
     # Object describing the Synthetic test request.
     attr_reader :request
-
     # Cookies to be used for the request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
     attr_accessor :set_cookie
-
     # Array of variables used for the test steps.
     attr_accessor :variables
 

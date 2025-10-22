@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Relationships for an on-call shift.
   class ShiftDataRelationships
     include BaseGenericModel
-
     # Defines the relationship between a shift and the user who is working that shift.
     attr_accessor :user
 

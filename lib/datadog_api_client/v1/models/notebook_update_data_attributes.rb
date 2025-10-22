@@ -20,19 +20,14 @@ module DatadogAPIClient::V1
   # The data attributes of a notebook.
   class NotebookUpdateDataAttributes
     include BaseGenericModel
-
     # List of cells to display in the notebook.
     attr_reader :cells
-
     # Metadata associated with the notebook.
     attr_accessor :metadata
-
     # The name of the notebook.
     attr_reader :name
-
     # Publication status of the notebook. For now, always "published".
     attr_accessor :status
-
     # Notebook global timeframe.
     attr_reader :time
 

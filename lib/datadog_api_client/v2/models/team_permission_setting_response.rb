@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Team permission setting response
   class TeamPermissionSettingResponse
     include BaseGenericModel
-
     # Team permission setting
     attr_accessor :data
 

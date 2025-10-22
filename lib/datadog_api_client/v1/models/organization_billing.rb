@@ -22,7 +22,6 @@ module DatadogAPIClient::V1
   # @deprecated This model is deprecated.
   class OrganizationBilling
     include BaseGenericModel
-
     # The type of billing. Only `parent_billing` is supported.
     attr_accessor :type
 

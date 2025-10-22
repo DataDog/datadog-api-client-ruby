@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Pagination object.
   class Pagination
     include BaseGenericModel
-
     # Total count.
     attr_accessor :total_count
-
     # Total count of elements matched by the filter.
     attr_accessor :total_filtered_count
 

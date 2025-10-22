@@ -20,13 +20,10 @@ module DatadogAPIClient::V1
   # The attributes of a notebook `log_stream` cell.
   class NotebookLogStreamCellAttributes
     include BaseGenericModel
-
     # The Log Stream displays a log flow matching the defined query. Only available on FREE layout dashboards.
     attr_reader :definition
-
     # The size of the graph.
     attr_accessor :graph_size
-
     # Timeframe for the notebook cell. When 'null', the notebook global time is used.
     attr_accessor :time
 

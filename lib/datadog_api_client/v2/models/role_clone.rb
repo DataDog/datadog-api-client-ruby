@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Data for the clone role request.
   class RoleClone
     include BaseGenericModel
-
     # Attributes required to create a new role by cloning an existing one.
     attr_reader :attributes
-
     # Roles type.
     attr_reader :type
 

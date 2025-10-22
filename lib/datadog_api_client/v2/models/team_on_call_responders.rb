@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Root object representing a team's on-call responder configuration.
   class TeamOnCallResponders
     include BaseGenericModel
-
     # Defines the main on-call responder object for a team, including relationships and metadata.
     attr_accessor :data
-
     # The `TeamOnCallResponders` `included`.
     attr_accessor :included
 

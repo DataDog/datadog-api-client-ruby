@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Uses a GeoIP database to enrich logs based on an IP field.
   class ObservabilityPipelineEnrichmentTableGeoIp
     include BaseGenericModel
-
     # Path to the IP field in the log.
     attr_reader :key_field
-
     # Locale used to resolve geographical names.
     attr_reader :locale
-
     # Path to the GeoIP database file.
     attr_reader :path
 

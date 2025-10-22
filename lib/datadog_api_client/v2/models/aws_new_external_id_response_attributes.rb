@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # AWS External ID response body.
   class AWSNewExternalIDResponseAttributes
     include BaseGenericModel
-
     # AWS IAM External ID for associated role.
     attr_reader :external_id
 

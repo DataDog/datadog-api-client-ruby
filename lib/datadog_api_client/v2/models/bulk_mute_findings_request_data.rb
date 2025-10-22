@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # Data object containing the new bulk mute properties of the finding.
   class BulkMuteFindingsRequestData
     include BaseGenericModel
-
     # The mute properties to be updated.
     attr_reader :attributes
-
     # UUID to identify the request
     attr_reader :id
-
     # Meta object containing the findings to be updated.
     attr_reader :meta
-
     # The JSON:API type for findings.
     attr_reader :type
 

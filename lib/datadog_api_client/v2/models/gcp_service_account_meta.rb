@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Additional information related to your service account.
   class GCPServiceAccountMeta
     include BaseGenericModel
-
     # The current list of projects accessible from your service account.
     attr_accessor :accessible_projects
 

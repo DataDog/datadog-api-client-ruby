@@ -20,40 +20,29 @@ module DatadogAPIClient::V2
   # The Quota Processor measures logging traffic for logs that match a specified filter. When the configured daily quota is met, the processor can drop or alert.
   class ObservabilityPipelineQuotaProcessor
     include BaseGenericModel
-
     # If set to `true`, logs that matched the quota filter and sent after the quota has been met are dropped; only logs that did not match the filter query continue through the pipeline.
     attr_reader :drop_events
-
     # The unique identifier for this component. Used to reference this component in other parts of the pipeline (for example, as the `input` to downstream components).
     attr_reader :id
-
     # If `true`, the processor skips quota checks when partition fields are missing from the logs.
     attr_accessor :ignore_when_missing_partitions
-
     # A Datadog search query used to determine which logs this processor targets.
     attr_reader :include
-
     # A list of component IDs whose output is used as the `input` for this component.
     attr_reader :inputs
-
     # The maximum amount of data or number of events allowed before the quota is enforced. Can be specified in bytes or events.
     attr_reader :limit
-
     # Name of the quota.
     attr_reader :name
-
     # The action to take when the quota is exceeded. Options:
     # - `drop`: Drop the event.
     # - `no_action`: Let the event pass through.
     # - `overflow_routing`: Route to an overflow destination.
     attr_accessor :overflow_action
-
     # A list of alternate quota rules that apply to specific sets of events, identified by matching field values. Each override can define a custom limit.
     attr_accessor :overrides
-
     # A list of fields used to segment log traffic for quota enforcement. Quotas are tracked independently by unique combinations of these field values.
     attr_accessor :partition_fields
-
     # The processor type. The value should always be `quota`.
     attr_reader :type
 

@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Response with a team
   class TeamResponse
     include BaseGenericModel
-
     # A team
     attr_accessor :data
 

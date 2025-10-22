@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Request containing the desired email domain allowlist configuration.
   class DomainAllowlistRequest
     include BaseGenericModel
-
     # The email domain allowlist for an org.
     attr_reader :data
 

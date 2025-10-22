@@ -20,13 +20,10 @@ module DatadogAPIClient::V1
   # Composed target for `validatesXPath` operator.
   class SyntheticsAssertionXPathTargetTarget
     include BaseGenericModel
-
     # The specific operator to use on the path.
     attr_accessor :operator
-
     # Value used by the operator in assertions. Can be either a number or string.
     attr_accessor :target_value
-
     # The X path to assert.
     attr_accessor :x_path
 

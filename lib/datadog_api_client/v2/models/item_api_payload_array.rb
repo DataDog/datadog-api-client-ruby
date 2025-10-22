@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # A collection of datastore items with pagination and schema metadata.
   class ItemApiPayloadArray
     include BaseGenericModel
-
     # An array of datastore items with their content and metadata.
     attr_reader :data
-
     # Additional metadata about a collection of datastore items, including pagination and schema information.
     attr_accessor :meta
 

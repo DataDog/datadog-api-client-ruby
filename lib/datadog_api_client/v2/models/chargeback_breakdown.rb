@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Charges breakdown.
   class ChargebackBreakdown
     include BaseGenericModel
-
     # The type of charge for a particular product.
     attr_accessor :charge_type
-
     # The cost for a particular product and charge type during a given month.
     attr_accessor :cost
-
     # The product for which cost is being reported.
     attr_accessor :product_name
 

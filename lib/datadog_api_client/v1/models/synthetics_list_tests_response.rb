@@ -20,7 +20,6 @@ module DatadogAPIClient::V1
   # Object containing an array of Synthetic tests configuration.
   class SyntheticsListTestsResponse
     include BaseGenericModel
-
     # Array of Synthetic tests configuration.
     attr_accessor :tests
 

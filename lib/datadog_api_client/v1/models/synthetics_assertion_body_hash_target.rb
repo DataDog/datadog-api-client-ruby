@@ -20,13 +20,10 @@ module DatadogAPIClient::V1
   # An assertion which targets body hash.
   class SyntheticsAssertionBodyHashTarget
     include BaseGenericModel
-
     # Assertion operator to apply.
     attr_reader :operator
-
     # Value used by the operator in assertions. Can be either a number or string.
     attr_reader :target
-
     # Type of the assertion.
     attr_reader :type
 

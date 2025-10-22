@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The definition of the `GreyNoiseAPIKey` object.
   class GreyNoiseAPIKeyUpdate
     include BaseGenericModel
-
     # The `GreyNoiseAPIKeyUpdate` `api_key`.
     attr_accessor :api_key
-
     # The definition of the `GreyNoiseAPIKey` object.
     attr_reader :type
 

@@ -20,13 +20,10 @@ module DatadogAPIClient::V1
   # The object containing document metadata.
   class UsageTopAvgMetricsMetadata
     include BaseGenericModel
-
     # The day value from the user request that contains the returned usage data. (If day was used the request)
     attr_accessor :day
-
     # The month value from the user request that contains the returned usage data. (If month was used the request)
     attr_accessor :month
-
     # The metadata for the current pagination.
     attr_accessor :pagination
 

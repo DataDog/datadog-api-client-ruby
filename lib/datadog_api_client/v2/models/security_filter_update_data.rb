@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The new security filter properties.
   class SecurityFilterUpdateData
     include BaseGenericModel
-
     # The security filters properties to be updated.
     attr_reader :attributes
-
     # The type of the resource. The value should always be `security_filters`.
     attr_reader :type
 

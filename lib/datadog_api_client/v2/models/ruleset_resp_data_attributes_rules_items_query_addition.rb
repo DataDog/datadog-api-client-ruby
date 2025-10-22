@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The definition of `RulesetRespDataAttributesRulesItemsQueryAddition` object.
   class RulesetRespDataAttributesRulesItemsQueryAddition
     include BaseGenericModel
-
     # The `addition` `key`.
     attr_reader :key
-
     # The `addition` `value`.
     attr_reader :value
 

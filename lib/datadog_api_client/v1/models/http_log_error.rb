@@ -20,10 +20,8 @@ module DatadogAPIClient::V1
   # Invalid query performed.
   class HTTPLogError
     include BaseGenericModel
-
     # Error code.
     attr_reader :code
-
     # Error message.
     attr_reader :message
 

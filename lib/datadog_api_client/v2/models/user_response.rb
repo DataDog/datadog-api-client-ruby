@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Response containing information about a single user.
   class UserResponse
     include BaseGenericModel
-
     # User object returned by the API.
     attr_accessor :data
-
     # Array of objects related to the user.
     attr_accessor :included
 

@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Include all services.
   class XRayServicesIncludeAll
     include BaseGenericModel
-
     # Include all services.
     attr_reader :include_all
 

@@ -20,28 +20,20 @@ module DatadogAPIClient::V1
   # A formula and functions events query.
   class FormulaAndFunctionEventQueryDefinition
     include BaseGenericModel
-
     # Compute options.
     attr_reader :compute
-
     # The source organization UUID for cross organization queries. Feature in Private Beta.
     attr_reader :cross_org_uuids
-
     # Data source for event platform-based queries.
     attr_reader :data_source
-
     # Group by options.
     attr_accessor :group_by
-
     # An array of index names to query in the stream. Omit or use `[]` to query all indexes at once.
     attr_accessor :indexes
-
     # Name of the query for use in formulas.
     attr_reader :name
-
     # Search options.
     attr_accessor :search
-
     # Option for storage location. Feature in Private Beta.
     attr_accessor :storage
 

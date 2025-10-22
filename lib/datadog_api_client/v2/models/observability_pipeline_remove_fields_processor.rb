@@ -20,19 +20,14 @@ module DatadogAPIClient::V2
   # The `remove_fields` processor deletes specified fields from logs.
   class ObservabilityPipelineRemoveFieldsProcessor
     include BaseGenericModel
-
     # A list of field names to be removed from each log event.
     attr_reader :fields
-
     # The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
     attr_reader :id
-
     # A Datadog search query used to determine which logs this processor targets.
     attr_reader :include
-
     # The `PipelineRemoveFieldsProcessor` `inputs`.
     attr_reader :inputs
-
     # The processor type. The value should always be `remove_fields`.
     attr_reader :type
 

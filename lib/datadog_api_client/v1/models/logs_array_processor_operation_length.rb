@@ -20,13 +20,10 @@ module DatadogAPIClient::V1
   # Operation that computes the length of a `source` array and stores the result in the `target` attribute.
   class LogsArrayProcessorOperationLength
     include BaseGenericModel
-
     # Attribute path of the array to measure.
     attr_reader :source
-
     # Attribute that receives the computed length.
     attr_reader :target
-
     # Operation type.
     attr_reader :type
 

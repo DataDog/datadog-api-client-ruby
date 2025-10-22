@@ -20,19 +20,14 @@ module DatadogAPIClient::V2
   # The `add_env_vars` processor adds environment variable values to log events.
   class ObservabilityPipelineAddEnvVarsProcessor
     include BaseGenericModel
-
     # The unique identifier for this component. Used to reference this processor in the pipeline.
     attr_reader :id
-
     # A Datadog search query used to determine which logs this processor targets.
     attr_reader :include
-
     # A list of component IDs whose output is used as the input for this processor.
     attr_reader :inputs
-
     # The processor type. The value should always be `add_env_vars`.
     attr_reader :type
-
     # A list of environment variable mappings to apply to log fields.
     attr_reader :variables
 

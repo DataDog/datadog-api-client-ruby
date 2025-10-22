@@ -20,25 +20,18 @@ module DatadogAPIClient::V2
   # The JSON:API attributes of the SBOM.
   class SBOMAttributes
     include BaseGenericModel
-
     # Specifies the format of the BOM. This helps to identify the file as CycloneDX since BOM do not have a filename convention nor does JSON schema support namespaces. This value MUST be `CycloneDX`.
     attr_reader :bom_format
-
     # A list of software and hardware components.
     attr_reader :components
-
     # List of dependencies between components of the SBOM.
     attr_reader :dependencies
-
     # Provides additional information about a BOM.
     attr_reader :metadata
-
     # Every BOM generated has a unique serial number, even if the contents of the BOM have not changed overt time. The serial number follows [RFC-4122](https://datatracker.ietf.org/doc/html/rfc4122)
     attr_reader :serial_number
-
     # The version of the CycloneDX specification a BOM conforms to.
     attr_reader :spec_version
-
     # It increments when a BOM is modified. The default value is 1.
     attr_reader :version
 

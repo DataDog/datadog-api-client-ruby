@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The definition of `OutboundEdge` object.
   class OutboundEdge
     include BaseGenericModel
-
     # The `OutboundEdge` `branchName`.
     attr_reader :branch_name
-
     # The `OutboundEdge` `nextStepName`.
     attr_reader :next_step_name
 

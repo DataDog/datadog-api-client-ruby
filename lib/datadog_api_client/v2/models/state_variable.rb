@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # A variable, which can be set and read by other components in the app.
   class StateVariable
     include BaseGenericModel
-
     # The ID of the state variable.
     attr_reader :id
-
     # A unique identifier for this state variable. This name is also used to access the variable's value throughout the app.
     attr_reader :name
-
     # The properties of the state variable.
     attr_reader :properties
-
     # The state variable type.
     attr_reader :type
 

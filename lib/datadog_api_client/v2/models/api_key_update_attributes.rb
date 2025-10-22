@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Attributes used to update an API Key.
   class APIKeyUpdateAttributes
     include BaseGenericModel
-
     # The APIKeyUpdateAttributes category.
     attr_accessor :category
-
     # Name of the API key.
     attr_reader :name
-
     # The APIKeyUpdateAttributes remote_config_read_enabled.
     attr_accessor :remote_config_read_enabled
 

@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # A warning message indicating something is wrong with the query.
   class EventsWarning
     include BaseGenericModel
-
     # A unique code for this type of warning.
     attr_accessor :code
-
     # A detailed explanation of this specific warning.
     attr_accessor :detail
-
     # A short human-readable summary of the warning.
     attr_accessor :title
 

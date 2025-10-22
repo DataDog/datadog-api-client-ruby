@@ -20,25 +20,18 @@ module DatadogAPIClient::V2
   # Incident todo's attributes.
   class IncidentTodoAttributes
     include BaseGenericModel
-
     # Array of todo assignees.
     attr_reader :assignees
-
     # Timestamp when the todo was completed.
     attr_accessor :completed
-
     # The follow-up task's content.
     attr_reader :content
-
     # Timestamp when the incident todo was created.
     attr_accessor :created
-
     # Timestamp when the todo should be completed by.
     attr_accessor :due_date
-
     # UUID of the incident this todo is connected to.
     attr_accessor :incident_id
-
     # Timestamp when the incident todo was last modified.
     attr_accessor :modified
 

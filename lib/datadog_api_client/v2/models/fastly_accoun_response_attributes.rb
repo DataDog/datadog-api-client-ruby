@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Attributes object of a Fastly account.
   class FastlyAccounResponseAttributes
     include BaseGenericModel
-
     # The name of the Fastly account.
     attr_reader :name
-
     # A list of services belonging to the parent account.
     attr_accessor :services
 

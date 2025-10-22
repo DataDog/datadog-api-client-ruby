@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # The definition of `TableResultV2DataAttributesFileMetadataOneOfAccessDetails` object.
   class TableResultV2DataAttributesFileMetadataOneOfAccessDetails
     include BaseGenericModel
-
     # The definition of `TableResultV2DataAttributesFileMetadataOneOfAccessDetailsAwsDetail` object.
     attr_accessor :aws_detail
-
     # The definition of `TableResultV2DataAttributesFileMetadataOneOfAccessDetailsAzureDetail` object.
     attr_accessor :azure_detail
-
     # The definition of `TableResultV2DataAttributesFileMetadataOneOfAccessDetailsGcpDetail` object.
     attr_accessor :gcp_detail
 

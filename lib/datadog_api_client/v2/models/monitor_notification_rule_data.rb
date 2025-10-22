@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # Monitor notification rule data.
   class MonitorNotificationRuleData
     include BaseGenericModel
-
     # Attributes of the monitor notification rule.
     attr_accessor :attributes
-
     # The ID of the monitor notification rule.
     attr_accessor :id
-
     # All relationships associated with monitor notification rule.
     attr_accessor :relationships
-
     # Monitor notification rule resource type.
     attr_accessor :type
 

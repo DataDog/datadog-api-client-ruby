@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Input from the request on which the condition should apply.
   class ApplicationSecurityWafCustomRuleConditionInput
     include BaseGenericModel
-
     # Input from the request on which the condition should apply.
     attr_reader :address
-
     # Specific path for the input.
     attr_accessor :key_path
 

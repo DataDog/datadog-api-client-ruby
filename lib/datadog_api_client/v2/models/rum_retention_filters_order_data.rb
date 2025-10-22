@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The RUM retention filter data for ordering.
   class RumRetentionFiltersOrderData
     include BaseGenericModel
-
     # ID of retention filter in UUID.
     attr_reader :id
-
     # The type of the resource. The value should always be retention_filters.
     attr_reader :type
 

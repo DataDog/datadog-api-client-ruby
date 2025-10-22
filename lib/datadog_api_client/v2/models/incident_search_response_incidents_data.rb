@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Incident returned by the search.
   class IncidentSearchResponseIncidentsData
     include BaseGenericModel
-
     # Incident data from a response.
     attr_reader :data
 

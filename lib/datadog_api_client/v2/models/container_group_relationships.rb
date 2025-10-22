@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Relationships to containers inside a container group.
   class ContainerGroupRelationships
     include BaseGenericModel
-
     # Relationships to Containers inside a Container Group.
     attr_accessor :containers
 

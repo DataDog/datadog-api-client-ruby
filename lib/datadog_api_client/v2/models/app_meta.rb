@@ -20,31 +20,22 @@ module DatadogAPIClient::V2
   # Metadata of an app.
   class AppMeta
     include BaseGenericModel
-
     # Timestamp of when the app was created.
     attr_accessor :created_at
-
     # Timestamp of when the app was deleted.
     attr_accessor :deleted_at
-
     # The Datadog organization ID that owns the app.
     attr_accessor :org_id
-
     # Timestamp of when the app was last updated.
     attr_accessor :updated_at
-
     # Whether the app was updated since it was last published. Published apps are pinned to a specific version and do not automatically update when the app is updated.
     attr_accessor :updated_since_deployment
-
     # The ID of the user who created the app.
     attr_accessor :user_id
-
     # The name (or email address) of the user who created the app.
     attr_accessor :user_name
-
     # The UUID of the user who created the app.
     attr_accessor :user_uuid
-
     # The version number of the app. This starts at 1 and increments with each update.
     attr_accessor :version
 

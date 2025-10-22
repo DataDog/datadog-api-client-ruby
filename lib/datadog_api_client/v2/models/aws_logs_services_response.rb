@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # AWS Logs Services response body
   class AWSLogsServicesResponse
     include BaseGenericModel
-
     # AWS Logs Services response body
     attr_reader :data
 

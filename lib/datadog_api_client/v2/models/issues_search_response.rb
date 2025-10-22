@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Search issues response payload.
   class IssuesSearchResponse
     include BaseGenericModel
-
     # Array of results matching the search query.
     attr_accessor :data
-
     # Array of resources related to the search results.
     attr_accessor :included
 

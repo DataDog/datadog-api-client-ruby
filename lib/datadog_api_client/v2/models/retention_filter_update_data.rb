@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # The body of the retention filter to be updated.
   class RetentionFilterUpdateData
     include BaseGenericModel
-
     # The object describing the configuration of the retention filter to create/update.
     attr_reader :attributes
-
     # The ID of the retention filter.
     attr_reader :id
-
     # The type of the resource.
     attr_reader :type
 

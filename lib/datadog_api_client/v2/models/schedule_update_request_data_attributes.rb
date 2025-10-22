@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Defines the updatable attributes for a schedule, such as name, time zone, and layers.
   class ScheduleUpdateRequestDataAttributes
     include BaseGenericModel
-
     # The updated list of layers (rotations) for this schedule.
     attr_reader :layers
-
     # A short name for the schedule.
     attr_reader :name
-
     # The time zone used when interpreting rotation times.
     attr_reader :time_zone
 

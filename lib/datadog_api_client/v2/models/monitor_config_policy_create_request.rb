@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Request for creating a monitor configuration policy.
   class MonitorConfigPolicyCreateRequest
     include BaseGenericModel
-
     # A monitor configuration policy data.
     attr_reader :data
 

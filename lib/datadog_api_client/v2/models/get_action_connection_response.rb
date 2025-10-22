@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # The response for found connection
   class GetActionConnectionResponse
     include BaseGenericModel
-
     # Data related to the connection.
     attr_accessor :data
 

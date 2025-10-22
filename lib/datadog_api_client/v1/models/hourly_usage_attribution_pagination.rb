@@ -20,7 +20,6 @@ module DatadogAPIClient::V1
   # The metadata for the current pagination.
   class HourlyUsageAttributionPagination
     include BaseGenericModel
-
     # The cursor to get the next results (if any). To make the next request, use the same parameters and add `next_record_id`.
     attr_accessor :next_record_id
 

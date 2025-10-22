@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Relationship to organization object.
   class RelationshipToOrganizationData
     include BaseGenericModel
-
     # ID of the organization.
     attr_reader :id
-
     # Organizations resource type.
     attr_reader :type
 

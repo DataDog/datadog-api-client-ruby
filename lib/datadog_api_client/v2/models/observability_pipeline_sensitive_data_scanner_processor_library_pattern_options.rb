@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Options for selecting a predefined library pattern and enabling keyword support.
   class ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternOptions
     include BaseGenericModel
-
     # Identifier for a predefined pattern from the sensitive data scanner pattern library.
     attr_reader :id
-
     # Whether to augment the pattern with recommended keywords (optional).
     attr_accessor :use_recommended_keywords
 

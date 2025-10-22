@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Data related to the connection.
   class ActionConnectionData
     include BaseGenericModel
-
     # The definition of `ActionConnectionAttributes` object.
     attr_reader :attributes
-
     # The connection identifier
     attr_accessor :id
-
     # The definition of `ActionConnectionDataType` object.
     attr_reader :type
 

@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Product Analytics retention scale configuration.
   class RUMProductAnalyticsRetentionScale
     include BaseGenericModel
-
     # Timestamp in milliseconds when this scale was last modified.
     attr_accessor :last_modified_at
-
     # Controls the retention policy for Product Analytics data derived from RUM events.
     attr_accessor :state
 

@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Data containing the identifier of the datastore item that was successfully deleted.
   class DeleteAppsDatastoreItemResponseData
     include BaseGenericModel
-
     # The unique identifier of the item that was deleted.
     attr_accessor :id
-
     # The resource type for datastore items.
     attr_reader :type
 

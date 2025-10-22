@@ -20,13 +20,10 @@ module DatadogAPIClient::V1
   # Template variables saved views.
   class DashboardTemplateVariablePresetValue
     include BaseGenericModel
-
     # The name of the variable.
     attr_accessor :name
-
     # (deprecated) The value of the template variable within the saved view. Cannot be used in conjunction with `values`.
     attr_accessor :value
-
     # One or many template variable values within the saved view, which will be unioned together using `OR` if more than one is specified. Cannot be used in conjunction with `value`.
     attr_reader :values
 

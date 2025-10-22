@@ -20,13 +20,10 @@ module DatadogAPIClient::V1
   # Updated funnel widget.
   class FunnelQuery
     include BaseGenericModel
-
     # Source from which to query items to display in the funnel.
     attr_reader :data_source
-
     # The widget query.
     attr_reader :query_string
-
     # List of funnel steps.
     attr_reader :steps
 

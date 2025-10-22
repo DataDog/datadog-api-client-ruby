@@ -20,19 +20,14 @@ module DatadogAPIClient::V2
   # Static library vulnerability location.
   class DependencyLocation
     include BaseGenericModel
-
     # Location column end.
     attr_reader :column_end
-
     # Location column start.
     attr_reader :column_start
-
     # Location file name.
     attr_reader :file_name
-
     # Location line end.
     attr_reader :line_end
-
     # Location line start.
     attr_reader :line_start
 

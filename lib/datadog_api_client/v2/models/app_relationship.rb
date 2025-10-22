@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The app's publication relationship and custom connections.
   class AppRelationship
     include BaseGenericModel
-
     # Array of custom connections used by the app.
     attr_accessor :connections
-
     # Information pointing to the app's publication status.
     attr_accessor :deployment
 

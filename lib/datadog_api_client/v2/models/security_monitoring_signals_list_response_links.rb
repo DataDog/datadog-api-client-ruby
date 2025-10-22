@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Links attributes.
   class SecurityMonitoringSignalsListResponseLinks
     include BaseGenericModel
-
     # The link for the next set of results. **Note**: The request can also be made using the
     # POST endpoint.
     attr_accessor :_next

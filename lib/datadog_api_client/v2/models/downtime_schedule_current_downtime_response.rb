@@ -22,10 +22,8 @@ module DatadogAPIClient::V2
   # downtimes it is the upcoming downtime.
   class DowntimeScheduleCurrentDowntimeResponse
     include BaseGenericModel
-
     # The end of the current downtime.
     attr_accessor :_end
-
     # The start of the current downtime.
     attr_accessor :start
 

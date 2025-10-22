@@ -20,19 +20,14 @@ module DatadogAPIClient::V2
   # The object describing a Datadog rum-based metric.
   class RumMetricResponseAttributes
     include BaseGenericModel
-
     # The compute rule to compute the rum-based metric.
     attr_accessor :compute
-
     # The type of RUM events to filter on.
     attr_accessor :event_type
-
     # The rum-based metric filter. RUM events matching this filter will be aggregated in this metric.
     attr_accessor :filter
-
     # The rules for the group by.
     attr_accessor :group_by
-
     # The rule to count updatable events. Is only set if `event_type` is `session` or `view`.
     attr_accessor :uniqueness
 

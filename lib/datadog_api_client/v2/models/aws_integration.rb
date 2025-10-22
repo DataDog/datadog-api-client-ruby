@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The definition of `AWSIntegration` object.
   class AWSIntegration
     include BaseGenericModel
-
     # The definition of `AWSCredentials` object.
     attr_reader :credentials
-
     # The definition of `AWSIntegrationType` object.
     attr_reader :type
 

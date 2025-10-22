@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The incident service's relationships.
   class IncidentServiceRelationships
     include BaseGenericModel
-
     # Relationship to user.
     attr_accessor :created_by
-
     # Relationship to user.
     attr_accessor :last_modified_by
 

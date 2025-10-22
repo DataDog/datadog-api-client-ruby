@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # A budget.
   class Budget
     include BaseGenericModel
-
     # The attributes of a budget.
     attr_accessor :attributes
-
     # The id of the budget.
     attr_accessor :id
-
     # The type of the object, must be `budget`.
     attr_accessor :type
 

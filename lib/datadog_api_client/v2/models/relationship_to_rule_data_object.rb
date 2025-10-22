@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Rule relationship data.
   class RelationshipToRuleDataObject
     include BaseGenericModel
-
     # The unique ID for a scorecard.
     attr_accessor :id
-
     # The JSON:API type for scorecard.
     attr_accessor :type
 

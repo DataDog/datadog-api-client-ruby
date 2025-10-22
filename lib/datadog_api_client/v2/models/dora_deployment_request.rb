@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Request to create a DORA deployment event.
   class DORADeploymentRequest
     include BaseGenericModel
-
     # The JSON:API data.
     attr_reader :data
 

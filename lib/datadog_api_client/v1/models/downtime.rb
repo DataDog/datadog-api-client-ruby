@@ -23,79 +23,59 @@ module DatadogAPIClient::V1
   # prevent all alerting related to specified Datadog tags.
   class Downtime
     include BaseGenericModel
-
     # If a scheduled downtime currently exists.
     attr_accessor :active
-
     # The downtime object definition of the active child for the original parent recurring downtime. This
     # field will only exist on recurring downtimes.
     attr_accessor :active_child
-
     # If a scheduled downtime is canceled.
     attr_accessor :canceled
-
     # User ID of the downtime creator.
     attr_reader :creator_id
-
     # If a downtime has been disabled.
     attr_accessor :disabled
-
     # `0` for a downtime applied on `*` or all,
     # `1` when the downtime is only scoped to hosts,
     # or `2` when the downtime is scoped to anything but hosts.
     attr_reader :downtime_type
-
     # POSIX timestamp to end the downtime. If not provided,
     # the downtime is in effect indefinitely until you cancel it.
     attr_accessor :_end
-
     # The downtime ID.
     attr_accessor :id
-
     # A message to include with notifications for this downtime.
     # Email notifications can be sent to specific users by using the same `@username` notation as events.
     attr_accessor :message
-
     # A single monitor to which the downtime applies.
     # If not provided, the downtime applies to all monitors.
     attr_accessor :monitor_id
-
     # A comma-separated list of monitor tags. For example, tags that are applied directly to monitors,
     # not tags that are used in monitor queries (which are filtered by the scope parameter), to which the downtime applies.
     # The resulting downtime applies to monitors that match ALL provided monitor tags.
     # For example, `service:postgres` **AND** `team:frontend`.
     attr_accessor :monitor_tags
-
     # If the first recovery notification during a downtime should be muted.
     attr_accessor :mute_first_recovery_notification
-
     # States for which `notify_end_types` sends out notifications for.
     attr_accessor :notify_end_states
-
     # If set, notifies if a monitor is in an alert-worthy state (`ALERT`, `WARNING`, or `NO DATA`)
     # when this downtime expires or is canceled. Applied to monitors that change states during
     # the downtime (such as from `OK` to `ALERT`, `WARNING`, or `NO DATA`), and to monitors that
     # already have an alert-worthy state when downtime begins.
     attr_accessor :notify_end_types
-
     # ID of the parent Downtime.
     attr_accessor :parent_id
-
     # An object defining the recurrence of the downtime.
     attr_accessor :recurrence
-
     # The scope(s) to which the downtime applies and must be in `key:value` format. For example, `host:app2`.
     # Provide multiple scopes as a comma-separated list like `env:dev,env:prod`.
     # The resulting downtime applies to sources that matches ALL provided scopes (`env:dev` **AND** `env:prod`).
     attr_accessor :scope
-
     # POSIX timestamp to start the downtime.
     # If not provided, the downtime starts the moment it is created.
     attr_accessor :start
-
     # The timezone in which to display the downtime's start and end times in Datadog applications.
     attr_accessor :timezone
-
     # ID of the last user that updated the downtime.
     attr_reader :updater_id
 

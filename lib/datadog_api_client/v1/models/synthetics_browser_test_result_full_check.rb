@@ -20,7 +20,6 @@ module DatadogAPIClient::V1
   # Object describing the browser test configuration.
   class SyntheticsBrowserTestResultFullCheck
     include BaseGenericModel
-
     # Configuration object for a Synthetic test.
     attr_reader :config
 

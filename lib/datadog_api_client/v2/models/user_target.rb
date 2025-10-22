@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Represents a user target for an escalation policy step, including the user's ID and resource type.
   class UserTarget
     include BaseGenericModel
-
     # Specifies the unique identifier of the user resource.
     attr_reader :id
-
     # Indicates that the resource is of type `users`.
     attr_reader :type
 

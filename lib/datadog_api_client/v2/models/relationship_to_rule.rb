@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Scorecard create rule response relationship.
   class RelationshipToRule
     include BaseGenericModel
-
     # Relationship data for a rule.
     attr_accessor :scorecard
 

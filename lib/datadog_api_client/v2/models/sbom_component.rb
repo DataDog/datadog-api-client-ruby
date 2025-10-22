@@ -20,28 +20,20 @@ module DatadogAPIClient::V2
   # Software or hardware component.
   class SBOMComponent
     include BaseGenericModel
-
     # An optional identifier that can be used to reference the component elsewhere in the BOM.
     attr_accessor :bom_ref
-
     # The software licenses of the SBOM component.
     attr_accessor :licenses
-
     # The name of the component. This will often be a shortened, single name of the component.
     attr_reader :name
-
     # The custom properties of the component of the SBOM.
     attr_accessor :properties
-
     # Specifies the package-url (purl). The purl, if specified, MUST be valid and conform to the [specification](https://github.com/package-url/purl-spec).
     attr_accessor :purl
-
     # The supplier of the component.
     attr_reader :supplier
-
     # The SBOM component type
     attr_reader :type
-
     # The component version.
     attr_reader :version
 

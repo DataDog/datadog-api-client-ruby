@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Each log event is separated using the specified delimiter character.
   class ObservabilityPipelineSocketDestinationFramingCharacterDelimited
     include BaseGenericModel
-
     # A single ASCII character used as a delimiter.
     attr_reader :delimiter
-
     # The definition of `ObservabilityPipelineSocketDestinationFramingCharacterDelimitedMethod` object.
     attr_reader :method
 

@@ -20,10 +20,8 @@ module DatadogAPIClient::V1
   # Object containing options to override the default daily limit reset time.
   class LogsDailyLimitReset
     include BaseGenericModel
-
     # String in `HH:00` format representing the time of day the daily limit should be reset. The hours must be between 00 and 23 (inclusive).
     attr_accessor :reset_time
-
     # String in `(-|+)HH:00` format representing the UTC offset to apply to the given reset time. The hours must be between -12 and +14 (inclusive).
     attr_accessor :reset_utc_offset
 

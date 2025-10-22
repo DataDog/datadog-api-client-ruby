@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Data related to the connection update.
   class ActionConnectionDataUpdate
     include BaseGenericModel
-
     # The definition of `ActionConnectionAttributesUpdate` object.
     attr_reader :attributes
-
     # The definition of `ActionConnectionDataType` object.
     attr_reader :type
 

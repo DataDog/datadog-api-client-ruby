@@ -20,23 +20,17 @@ module DatadogAPIClient::V2
   # The scope of the WAF custom rule.
   class ApplicationSecurityWafCustomRuleConditionParameters
     include BaseGenericModel
-
     # Identifier of a list of data from the denylist. Can only be used as substitution from the list parameter.
     attr_accessor :data
-
     # List of inputs on which at least one should match with the given operator.
     attr_reader :inputs
-
     # List of value to use with the condition. Only used with the phrase_match, !phrase_match, exact_match and
     # !exact_match operator.
     attr_accessor :list
-
     # Options for the operator of this condition.
     attr_accessor :options
-
     # Regex to use with the condition. Only used with match_regex and !match_regex operator.
     attr_accessor :regex
-
     # Store the captured value in the specified tag name. Only used with the capture_data operator.
     attr_accessor :value
 

@@ -20,22 +20,16 @@ module DatadogAPIClient::V1
   # Object defining a variable that can be used in your test configuration.
   class SyntheticsConfigVariable
     include BaseGenericModel
-
     # Example for the variable.
     attr_accessor :example
-
     # ID of the variable for global variables.
     attr_accessor :id
-
     # Name of the variable.
     attr_reader :name
-
     # Pattern of the variable.
     attr_accessor :pattern
-
     # Whether the value of this variable will be obfuscated in test results. Only for config variables of type `text`.
     attr_accessor :secure
-
     # Type of the configuration variable.
     attr_reader :type
 

@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # A timeseries point
   class LogsAggregateBucketValueTimeseriesPoint
     include BaseGenericModel
-
     # The time value for this point
     attr_accessor :time
-
     # The value for this point
     attr_accessor :value
 

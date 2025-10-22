@@ -21,10 +21,8 @@ module DatadogAPIClient::V2
   # Note: You should only supply timezone or time offset but not both otherwise the query will fail.
   class SpansQueryOptions
     include BaseGenericModel
-
     # The time offset (in seconds) to apply to the query.
     attr_accessor :time_offset
-
     # The timezone can be specified as GMT, UTC, an offset from UTC (like UTC+1), or as a Timezone Database identifier (like America/New_York).
     attr_accessor :timezone
 

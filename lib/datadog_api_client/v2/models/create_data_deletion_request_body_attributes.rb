@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # Attributes for creating a data deletion request.
   class CreateDataDeletionRequestBodyAttributes
     include BaseGenericModel
-
     # Start of requested time window, milliseconds since Unix epoch.
     attr_reader :from
-
     # List of indexes for the search. If not provided, the search is performed in all indexes.
     attr_accessor :indexes
-
     # Query for creating a data deletion request.
     attr_reader :query
-
     # End of requested time window, milliseconds since Unix epoch.
     attr_reader :to
 

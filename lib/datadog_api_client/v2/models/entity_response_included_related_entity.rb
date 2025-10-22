@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # Included related entity.
   class EntityResponseIncludedRelatedEntity
     include BaseGenericModel
-
     # Related entity attributes.
     attr_accessor :attributes
-
     # Entity UUID.
     attr_accessor :id
-
     # Included related entity meta.
     attr_accessor :meta
-
     # Related entity.
     attr_accessor :type
 

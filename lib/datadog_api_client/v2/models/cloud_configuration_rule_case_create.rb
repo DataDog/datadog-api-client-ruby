@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Description of signals.
   class CloudConfigurationRuleCaseCreate
     include BaseGenericModel
-
     # Notification targets for each rule case.
     attr_accessor :notifications
-
     # Severity of the Security Signal.
     attr_reader :status
 

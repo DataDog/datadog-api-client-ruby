@@ -20,25 +20,18 @@ module DatadogAPIClient::V2
   # Team creation attributes
   class TeamCreateAttributes
     include BaseGenericModel
-
     # Unicode representation of the avatar for the team, limited to a single grapheme
     attr_accessor :avatar
-
     # Banner selection for the team
     attr_accessor :banner
-
     # Free-form markdown description/content for the team's homepage
     attr_accessor :description
-
     # The team's identifier
     attr_reader :handle
-
     # Collection of hidden modules for the team
     attr_accessor :hidden_modules
-
     # The name of the team
     attr_reader :name
-
     # Collection of visible modules for the team
     attr_accessor :visible_modules
 

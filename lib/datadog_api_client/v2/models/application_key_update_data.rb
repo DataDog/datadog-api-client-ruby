@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Object used to update an application key.
   class ApplicationKeyUpdateData
     include BaseGenericModel
-
     # Attributes used to update an application Key.
     attr_reader :attributes
-
     # ID of the application key.
     attr_reader :id
-
     # Application Keys resource type.
     attr_reader :type
 

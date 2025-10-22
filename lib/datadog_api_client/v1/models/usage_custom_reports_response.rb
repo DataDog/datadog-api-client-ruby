@@ -20,10 +20,8 @@ module DatadogAPIClient::V1
   # Response containing available custom reports.
   class UsageCustomReportsResponse
     include BaseGenericModel
-
     # An array of available custom reports.
     attr_accessor :data
-
     # The object containing document metadata.
     attr_accessor :meta
 

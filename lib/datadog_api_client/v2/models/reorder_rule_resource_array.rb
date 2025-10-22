@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # The definition of `ReorderRuleResourceArray` object.
   class ReorderRuleResourceArray
     include BaseGenericModel
-
     # The `ReorderRuleResourceArray` `data`.
     attr_reader :data
 

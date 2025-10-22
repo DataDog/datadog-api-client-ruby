@@ -20,34 +20,24 @@ module DatadogAPIClient::V1
   # The notes and links widget is similar to free text widget, but allows for more formatting options.
   class NoteWidgetDefinition
     include BaseGenericModel
-
     # Background color of the note.
     attr_accessor :background_color
-
     # Content of the note.
     attr_reader :content
-
     # Size of the text.
     attr_accessor :font_size
-
     # Whether to add padding or not.
     attr_accessor :has_padding
-
     # Whether to show a tick or not.
     attr_accessor :show_tick
-
     # How to align the text on the widget.
     attr_accessor :text_align
-
     # Define how you want to align the text on the widget.
     attr_accessor :tick_edge
-
     # Where to position the tick on an edge.
     attr_accessor :tick_pos
-
     # Type of the note widget.
     attr_reader :type
-
     # Vertical alignment.
     attr_accessor :vertical_align
 

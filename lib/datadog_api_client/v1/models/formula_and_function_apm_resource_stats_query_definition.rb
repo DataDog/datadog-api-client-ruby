@@ -20,37 +20,26 @@ module DatadogAPIClient::V1
   # APM resource stats query using formulas and functions.
   class FormulaAndFunctionApmResourceStatsQueryDefinition
     include BaseGenericModel
-
     # The source organization UUID for cross organization queries. Feature in Private Beta.
     attr_reader :cross_org_uuids
-
     # Data source for APM resource stats queries.
     attr_reader :data_source
-
     # APM environment.
     attr_reader :env
-
     # Array of fields to group results by.
     attr_accessor :group_by
-
     # Name of this query to use in formulas.
     attr_reader :name
-
     # Name of operation on service.
     attr_accessor :operation_name
-
     # Name of the second primary tag used within APM. Required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog
     attr_accessor :primary_tag_name
-
     # Value of the second primary tag by which to filter APM data. `primary_tag_name` must also be specified.
     attr_accessor :primary_tag_value
-
     # APM resource name.
     attr_accessor :resource_name
-
     # APM service name.
     attr_reader :service
-
     # APM resource stat name.
     attr_reader :stat
 

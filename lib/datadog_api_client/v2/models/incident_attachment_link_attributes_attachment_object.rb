@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The link attachment.
   class IncidentAttachmentLinkAttributesAttachmentObject
     include BaseGenericModel
-
     # The URL of this link attachment.
     attr_reader :document_url
-
     # The title of this link attachment.
     attr_reader :title
 

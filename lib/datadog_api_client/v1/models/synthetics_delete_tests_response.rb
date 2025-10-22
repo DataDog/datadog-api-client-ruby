@@ -20,7 +20,6 @@ module DatadogAPIClient::V1
   # Response object for deleting Synthetic tests.
   class SyntheticsDeleteTestsResponse
     include BaseGenericModel
-
     # Array of objects containing a deleted Synthetic test ID with
     # the associated deletion timestamp.
     attr_accessor :deleted_tests

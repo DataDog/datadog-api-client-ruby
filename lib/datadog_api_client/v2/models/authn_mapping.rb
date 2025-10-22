@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # The AuthN Mapping object returned by API.
   class AuthNMapping
     include BaseGenericModel
-
     # Attributes of AuthN Mapping.
     attr_accessor :attributes
-
     # ID of the AuthN Mapping.
     attr_reader :id
-
     # All relationships associated with AuthN Mapping.
     attr_accessor :relationships
-
     # AuthN Mappings resource type.
     attr_reader :type
 

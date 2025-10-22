@@ -20,28 +20,20 @@ module DatadogAPIClient::V1
   # The table visualization is available on timeboards and screenboards. It displays columns of metrics grouped by tag key.
   class TableWidgetDefinition
     include BaseGenericModel
-
     # List of custom links.
     attr_accessor :custom_links
-
     # Controls the display of the search bar.
     attr_accessor :has_search_bar
-
     # Widget definition.
     attr_reader :requests
-
     # Time setting for the widget.
     attr_accessor :time
-
     # Title of your widget.
     attr_accessor :title
-
     # How to align the text on the widget.
     attr_accessor :title_align
-
     # Size of the title.
     attr_accessor :title_size
-
     # Type of the table widget.
     attr_reader :type
 

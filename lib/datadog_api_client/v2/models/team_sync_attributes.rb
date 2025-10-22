@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Team sync attributes.
   class TeamSyncAttributes
     include BaseGenericModel
-
     # The external source platform for team synchronization. Only "github" is supported.
     attr_reader :source
-
     # The type of synchronization operation. Only "link" is supported, which links existing teams by matching names.
     attr_reader :type
 

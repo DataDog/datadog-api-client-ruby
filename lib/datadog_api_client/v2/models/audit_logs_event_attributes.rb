@@ -20,21 +20,16 @@ module DatadogAPIClient::V2
   # JSON object containing all event attributes and their associated values.
   class AuditLogsEventAttributes
     include BaseGenericModel
-
     # JSON object of attributes from Audit Logs events.
     attr_accessor :attributes
-
     # Message of the event.
     attr_accessor :message
-
     # Name of the application or service generating Audit Logs events.
     # This name is used to correlate Audit Logs to APM, so make sure you specify the same
     # value when you use both products.
     attr_accessor :service
-
     # Array of tags associated with your event.
     attr_accessor :tags
-
     # Timestamp of your event.
     attr_accessor :timestamp
 

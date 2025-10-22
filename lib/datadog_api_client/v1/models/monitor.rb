@@ -20,16 +20,12 @@ module DatadogAPIClient::V1
   # Object describing a monitor.
   class Monitor
     include BaseGenericModel
-
     # Timestamp of the monitor creation.
     attr_accessor :created
-
     # Object describing the creator of the shared element.
     attr_accessor :creator
-
     # Whether or not the monitor is deleted. (Always `null`)
     attr_accessor :deleted
-
     # Indicates whether the monitor is in a draft or published state.
     #
     # `draft`: The monitor appears as Draft and does not send notifications.
@@ -37,46 +33,32 @@ module DatadogAPIClient::V1
     #
     # This field is in preview. The draft value is only available to customers with the feature enabled.
     attr_accessor :draft_status
-
     # ID of this monitor.
     attr_accessor :id
-
     # A list of active v1 downtimes that match this monitor.
     attr_accessor :matching_downtimes
-
     # A message to include with notifications for this monitor.
     attr_accessor :message
-
     # Last timestamp when the monitor was edited.
     attr_accessor :modified
-
     # Whether or not the monitor is broken down on different groups.
     attr_accessor :multi
-
     # The monitor name.
     attr_accessor :name
-
     # List of options associated with your monitor.
     attr_accessor :options
-
     # The different states your monitor can be in.
     attr_accessor :overall_state
-
     # Integer from 1 (high) to 5 (low) indicating alert severity.
     attr_accessor :priority
-
     # The monitor query.
     attr_reader :query
-
     # A list of unique role identifiers to define which roles are allowed to edit the monitor. The unique identifiers for all roles can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) and are located in the `data.id` field. Editing a monitor includes any updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. You can use the [Restriction Policies API](https://docs.datadoghq.com/api/latest/restriction-policies/) to manage write authorization for individual monitors by teams and users, in addition to roles.
     attr_accessor :restricted_roles
-
     # Wrapper object with the different monitor states.
     attr_accessor :state
-
     # Tags associated to your monitor.
     attr_accessor :tags
-
     # The type of the monitor. For more information about `type`, see the [monitor options](https://docs.datadoghq.com/monitors/guide/monitor_api_options/) docs.
     attr_reader :type
 

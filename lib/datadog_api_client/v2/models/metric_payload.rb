@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # The metrics' payload.
   class MetricPayload
     include BaseGenericModel
-
     # A list of timeseries to submit to Datadog.
     attr_reader :series
 

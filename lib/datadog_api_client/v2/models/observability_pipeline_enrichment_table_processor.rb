@@ -20,25 +20,18 @@ module DatadogAPIClient::V2
   # The `enrichment_table` processor enriches logs using a static CSV file or GeoIP database.
   class ObservabilityPipelineEnrichmentTableProcessor
     include BaseGenericModel
-
     # Defines a static enrichment table loaded from a CSV file.
     attr_accessor :file
-
     # Uses a GeoIP database to enrich logs based on an IP field.
     attr_accessor :geoip
-
     # The unique identifier for this processor.
     attr_reader :id
-
     # A Datadog search query used to determine which logs this processor targets.
     attr_reader :include
-
     # A list of component IDs whose output is used as the input for this processor.
     attr_reader :inputs
-
     # Path where enrichment results should be stored in the log.
     attr_reader :target
-
     # The processor type. The value should always be `enrichment_table`.
     attr_reader :type
 

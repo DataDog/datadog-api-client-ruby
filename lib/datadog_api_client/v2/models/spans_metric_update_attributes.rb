@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # The span-based metric properties that will be updated.
   class SpansMetricUpdateAttributes
     include BaseGenericModel
-
     # The compute rule to compute the span-based metric.
     attr_accessor :compute
-
     # The span-based metric filter. Spans matching this filter will be aggregated in this metric.
     attr_accessor :filter
-
     # The rules for the group by.
     attr_accessor :group_by
 

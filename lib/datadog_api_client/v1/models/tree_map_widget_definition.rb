@@ -20,28 +20,20 @@ module DatadogAPIClient::V1
   # The treemap visualization enables you to display hierarchical and nested data. It is well suited for queries that describe part-whole relationships, such as resource usage by availability zone, data center, or team.
   class TreeMapWidgetDefinition
     include BaseGenericModel
-
     # (deprecated) The attribute formerly used to determine color in the widget.
     attr_accessor :color_by
-
     # List of custom links.
     attr_accessor :custom_links
-
     # (deprecated) The attribute formerly used to group elements in the widget.
     attr_accessor :group_by
-
     # List of treemap widget requests.
     attr_reader :requests
-
     # (deprecated) The attribute formerly used to determine size in the widget.
     attr_accessor :size_by
-
     # Time setting for the widget.
     attr_accessor :time
-
     # Title of your widget.
     attr_accessor :title
-
     # Type of the treemap widget.
     attr_reader :type
 

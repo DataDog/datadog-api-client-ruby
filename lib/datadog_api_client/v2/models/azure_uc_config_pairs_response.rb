@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Response of Azure config pair.
   class AzureUCConfigPairsResponse
     include BaseGenericModel
-
     # Azure config pair.
     attr_accessor :data
 

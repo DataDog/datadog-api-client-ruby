@@ -20,19 +20,14 @@ module DatadogAPIClient::V2
   # Entity data.
   class EntityData
     include BaseGenericModel
-
     # Entity attributes.
     attr_accessor :attributes
-
     # Entity ID.
     attr_accessor :id
-
     # Entity metadata.
     attr_accessor :meta
-
     # Entity relationships.
     attr_accessor :relationships
-
     # Entity.
     attr_accessor :type
 

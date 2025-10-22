@@ -20,25 +20,18 @@ module DatadogAPIClient::V2
   # Vulnerability counts associated with the Container Image.
   class ContainerImageVulnerabilities
     include BaseGenericModel
-
     # ID of the Container Image.
     attr_accessor :asset_id
-
     # Number of vulnerabilities with CVSS Critical severity.
     attr_accessor :critical
-
     # Number of vulnerabilities with CVSS High severity.
     attr_accessor :high
-
     # Number of vulnerabilities with CVSS Low severity.
     attr_accessor :low
-
     # Number of vulnerabilities with CVSS Medium severity.
     attr_accessor :medium
-
     # Number of vulnerabilities with CVSS None severity.
     attr_accessor :none
-
     # Number of vulnerabilities with an unknown CVSS severity.
     attr_accessor :unknown
 

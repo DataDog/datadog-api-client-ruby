@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The data object containing the app definition.
   class CreateAppRequestData
     include BaseGenericModel
-
     # App definition attributes such as name, description, and components.
     attr_accessor :attributes
-
     # The app definition type.
     attr_reader :type
 

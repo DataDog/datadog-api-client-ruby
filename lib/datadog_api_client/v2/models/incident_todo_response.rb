@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Response with an incident todo.
   class IncidentTodoResponse
     include BaseGenericModel
-
     # Incident todo response data.
     attr_reader :data
-
     # Included related resources that the user requested.
     attr_accessor :included
 

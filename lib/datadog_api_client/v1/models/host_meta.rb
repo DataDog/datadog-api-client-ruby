@@ -20,49 +20,34 @@ module DatadogAPIClient::V1
   # Metadata associated with your host.
   class HostMeta
     include BaseGenericModel
-
     # A list of Agent checks running on the host.
     attr_accessor :agent_checks
-
     # The Datadog Agent version.
     attr_accessor :agent_version
-
     # The number of cores.
     attr_accessor :cpu_cores
-
     # An array of Mac versions.
     attr_accessor :fbsd_v
-
     # JSON string containing system information.
     attr_accessor :gohai
-
     # Agent install method.
     attr_accessor :install_method
-
     # An array of Mac versions.
     attr_accessor :mac_v
-
     # The machine architecture.
     attr_accessor :machine
-
     # Array of Unix versions.
     attr_accessor :nix_v
-
     # The OS platform.
     attr_accessor :platform
-
     # The processor.
     attr_accessor :processor
-
     # The Python version.
     attr_accessor :python_v
-
     # The socket fqdn.
     attr_accessor :socket_fqdn
-
     # The socket hostname.
     attr_accessor :socket_hostname
-
     # An array of Windows versions.
     attr_accessor :win_v
 

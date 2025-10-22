@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Usage timeseries data.
   class UsageTimeSeriesObject
     include BaseGenericModel
-
     # Datetime in ISO-8601 format, UTC. The hour for the usage.
     attr_accessor :timestamp
-
     # Contains the number measured for the given usage_type during the hour.
     attr_accessor :value
 

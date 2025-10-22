@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Service owner's Slack channel.
   class ServiceDefinitionV2Dot1Slack
     include BaseGenericModel
-
     # Slack Channel.
     attr_reader :contact
-
     # Contact Slack.
     attr_accessor :name
-
     # Contact type.
     attr_reader :type
 

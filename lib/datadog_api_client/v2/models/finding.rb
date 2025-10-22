@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # A single finding without the message and resource configuration.
   class Finding
     include BaseGenericModel
-
     # The JSON:API attributes of the finding.
     attr_accessor :attributes
-
     # The unique ID for this finding.
     attr_accessor :id
-
     # The JSON:API type for findings.
     attr_accessor :type
 

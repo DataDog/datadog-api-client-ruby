@@ -20,25 +20,18 @@ module DatadogAPIClient::V1
   # The split graph widget allows you to create repeating units of a graph - one for each value in a group (for example: one per service)
   class SplitGraphWidgetDefinition
     include BaseGenericModel
-
     # Normalize y axes across graphs
     attr_accessor :has_uniform_y_axes
-
     # Size of the individual graphs in the split.
     attr_reader :size
-
     # The original widget we are splitting on.
     attr_reader :source_widget_definition
-
     # Encapsulates all user choices about how to split a graph.
     attr_reader :split_config
-
     # Time setting for the widget.
     attr_accessor :time
-
     # Title of your widget.
     attr_accessor :title
-
     # Type of the split graph widget
     attr_reader :type
 

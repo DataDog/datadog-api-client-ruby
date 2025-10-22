@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Facet value and number of occurrences for a property field of an incident.
   class IncidentSearchResponseFieldFacetData
     include BaseGenericModel
-
     # Count of the facet value appearing in search results.
     attr_reader :count
-
     # The facet value appearing in search results.
     attr_accessor :name
 

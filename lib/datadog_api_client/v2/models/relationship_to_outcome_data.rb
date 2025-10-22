@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The JSON:API relationship to an outcome, which returns the related rule id.
   class RelationshipToOutcomeData
     include BaseGenericModel
-
     # The unique ID for a scorecard rule.
     attr_accessor :id
-
     # The JSON:API type for scorecard rules.
     attr_accessor :type
 

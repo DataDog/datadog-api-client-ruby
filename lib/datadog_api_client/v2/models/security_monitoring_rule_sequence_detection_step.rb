@@ -20,14 +20,11 @@ module DatadogAPIClient::V2
   # Step definition for sequence detection containing the step name, condition, and evaluation window.
   class SecurityMonitoringRuleSequenceDetectionStep
     include BaseGenericModel
-
     # Condition referencing rule queries (e.g., `a > 0`).
     attr_accessor :condition
-
     # A time window is specified to match when at least one of the cases matches true. This is a sliding window
     # and evaluates in real time. For third party detection method, this field is not used.
     attr_accessor :evaluation_window
-
     # Unique name identifying the step.
     attr_accessor :name
 

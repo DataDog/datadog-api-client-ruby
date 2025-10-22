@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # The definition of `UCConfigPair` object.
   class UCConfigPair
     include BaseGenericModel
-
     # The definition of `UCConfigPairData` object.
     attr_accessor :data
 

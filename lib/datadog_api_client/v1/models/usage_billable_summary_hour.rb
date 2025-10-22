@@ -20,37 +20,26 @@ module DatadogAPIClient::V1
   # Response with monthly summary of data billed by Datadog.
   class UsageBillableSummaryHour
     include BaseGenericModel
-
     # The account name.
     attr_accessor :account_name
-
     # The account public ID.
     attr_accessor :account_public_id
-
     # The billing plan.
     attr_accessor :billing_plan
-
     # Shows the last date of usage.
     attr_accessor :end_date
-
     # The number of organizations.
     attr_accessor :num_orgs
-
     # The organization name.
     attr_accessor :org_name
-
     # The organization public ID.
     attr_accessor :public_id
-
     # Shows usage aggregation for a billing period.
     attr_accessor :ratio_in_month
-
     # The region of the organization.
     attr_accessor :region
-
     # Shows the first date of usage.
     attr_accessor :start_date
-
     # Response with aggregated usage types.
     attr_accessor :usage
 

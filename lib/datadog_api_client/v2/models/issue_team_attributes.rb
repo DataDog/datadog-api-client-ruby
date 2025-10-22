@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Object containing the information of a team.
   class IssueTeamAttributes
     include BaseGenericModel
-
     # The team's identifier.
     attr_accessor :handle
-
     # The name of the team.
     attr_accessor :name
-
     # A brief summary of the team, derived from its description.
     attr_accessor :summary
 

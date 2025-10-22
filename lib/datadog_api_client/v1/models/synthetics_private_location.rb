@@ -20,22 +20,16 @@ module DatadogAPIClient::V1
   # Object containing information about the private location to create.
   class SyntheticsPrivateLocation
     include BaseGenericModel
-
     # Description of the private location.
     attr_reader :description
-
     # Unique identifier of the private location.
     attr_accessor :id
-
     # Object containing metadata about the private location.
     attr_accessor :metadata
-
     # Name of the private location.
     attr_reader :name
-
     # Secrets for the private location. Only present in the response when creating the private location.
     attr_accessor :secrets
-
     # Array of tags attached to the private location.
     attr_reader :tags
 

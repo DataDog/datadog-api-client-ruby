@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Request object that includes the Agent policy to create
   class CloudWorkloadSecurityAgentPolicyCreateRequest
     include BaseGenericModel
-
     # Object for a single Agent rule
     attr_reader :data
 

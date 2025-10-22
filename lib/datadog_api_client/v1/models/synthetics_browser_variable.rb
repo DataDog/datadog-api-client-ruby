@@ -21,22 +21,16 @@ module DatadogAPIClient::V1
   # See the [Recording Steps documentation](https://docs.datadoghq.com/synthetics/browser_tests/actions/?tab=testanelementontheactivepage#variables).
   class SyntheticsBrowserVariable
     include BaseGenericModel
-
     # Example for the variable.
     attr_accessor :example
-
     # ID for the variable. Global variables require an ID.
     attr_accessor :id
-
     # Name of the variable.
     attr_reader :name
-
     # Pattern of the variable.
     attr_accessor :pattern
-
     # Determines whether or not the browser test variable is obfuscated. Can only be used with browser variables of type `text`.
     attr_accessor :secure
-
     # Type of browser test variable.
     attr_reader :type
 

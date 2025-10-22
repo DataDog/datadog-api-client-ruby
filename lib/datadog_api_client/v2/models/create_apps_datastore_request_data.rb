@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Data wrapper containing the configuration needed to create a new datastore.
   class CreateAppsDatastoreRequestData
     include BaseGenericModel
-
     # Configuration and metadata to create a new datastore.
     attr_accessor :attributes
-
     # Optional ID for the new datastore. If not provided, one will be generated automatically.
     attr_accessor :id
-
     # The resource type for datastores.
     attr_reader :type
 

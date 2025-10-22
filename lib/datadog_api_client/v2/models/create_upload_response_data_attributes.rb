@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # The definition of `CreateUploadResponseDataAttributes` object.
   class CreateUploadResponseDataAttributes
     include BaseGenericModel
-
     # The URLs of the parts in the upload.
     attr_accessor :part_urls
 

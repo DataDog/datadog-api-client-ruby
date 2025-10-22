@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Cases response metadata
   class CasesResponseMeta
     include BaseGenericModel
-
     # Pagination metadata
     attr_accessor :page
 

@@ -20,7 +20,6 @@ module DatadogAPIClient::V1
   # Object describing meta attributes of response.
   class ResponseMetaAttributes
     include BaseGenericModel
-
     # Pagination object.
     attr_accessor :page
 

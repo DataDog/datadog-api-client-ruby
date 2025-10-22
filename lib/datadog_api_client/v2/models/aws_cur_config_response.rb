@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # The definition of `AwsCurConfigResponse` object.
   class AwsCurConfigResponse
     include BaseGenericModel
-
     # The definition of `AwsCurConfigResponseData` object.
     attr_accessor :data
 

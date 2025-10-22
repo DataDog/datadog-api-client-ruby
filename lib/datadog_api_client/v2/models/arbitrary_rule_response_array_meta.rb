@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # The `ArbitraryRuleResponseArray` `meta`.
   class ArbitraryRuleResponseArrayMeta
     include BaseGenericModel
-
     # The `meta` `total_count`.
     attr_accessor :total_count
 

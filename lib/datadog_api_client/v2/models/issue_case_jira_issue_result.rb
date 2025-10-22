@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # Contains the identifiers and URL for a successfully created Jira issue.
   class IssueCaseJiraIssueResult
     include BaseGenericModel
-
     # Jira issue identifier.
     attr_accessor :issue_id
-
     # Jira issue key.
     attr_accessor :issue_key
-
     # Jira issue URL.
     attr_accessor :issue_url
-
     # Jira project key.
     attr_accessor :project_key
 

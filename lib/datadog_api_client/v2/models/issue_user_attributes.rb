@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Object containing the information of a user.
   class IssueUserAttributes
     include BaseGenericModel
-
     # Email of the user.
     attr_accessor :email
-
     # Handle of the user.
     attr_accessor :handle
-
     # Name of the user.
     attr_accessor :name
 

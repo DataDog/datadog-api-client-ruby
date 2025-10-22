@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Update group response.
   class SensitiveDataScannerGroupUpdateResponse
     include BaseGenericModel
-
     # Meta payload containing information about the API.
     attr_accessor :meta
 

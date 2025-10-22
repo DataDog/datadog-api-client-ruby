@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Payload schema when updating a Cloudflare account.
   class CloudflareAccountUpdateRequest
     include BaseGenericModel
-
     # Data object for updating a Cloudflare account.
     attr_reader :data
 

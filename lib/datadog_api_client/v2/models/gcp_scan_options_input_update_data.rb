@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Data object for updating the scan options of a single GCP project.
   class GcpScanOptionsInputUpdateData
     include BaseGenericModel
-
     # Attributes for updating GCP scan options configuration.
     attr_accessor :attributes
-
     # The GCP project ID.
     attr_reader :id
-
     # GCP scan options resource type.
     attr_reader :type
 

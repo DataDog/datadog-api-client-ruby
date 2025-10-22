@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # The `GetDevice` operation's response.
   class GetDeviceResponse
     include BaseGenericModel
-
     # Get device response data.
     attr_accessor :data
 

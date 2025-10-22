@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The entity that made the change. Optional, if provided it must include `type` and `name`.
   class ChangeEventCustomAttributesAuthor
     include BaseGenericModel
-
     # The name of the user or system that made the change. Limited to 128 characters.
     attr_reader :name
-
     # Author's type.
     attr_reader :type
 

@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # The version of the app that was published.
   class Deployment
     include BaseGenericModel
-
     # The attributes object containing the version ID of the published app.
     attr_accessor :attributes
-
     # The deployment ID.
     attr_accessor :id
-
     # Metadata object containing the publication creation information.
     attr_accessor :meta
-
     # The deployment type.
     attr_accessor :type
 

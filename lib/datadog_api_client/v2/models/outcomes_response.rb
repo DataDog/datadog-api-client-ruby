@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Scorecard outcomes - the result of a rule for a service.
   class OutcomesResponse
     include BaseGenericModel
-
     # List of rule outcomes.
     attr_accessor :data
-
     # Array of rule details.
     attr_accessor :included
-
     # Links attributes.
     attr_accessor :links
 

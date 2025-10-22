@@ -20,22 +20,17 @@ module DatadogAPIClient::V2
   # The object describing a timeseries formula request.
   class TimeseriesFormulaRequestAttributes
     include BaseGenericModel
-
     # List of formulas to be calculated and returned as responses.
     attr_accessor :formulas
-
     # Start date (inclusive) of the query in milliseconds since the Unix epoch.
     attr_reader :from
-
     # A time interval in milliseconds.
     # May be overridden by a larger interval if the query would result in
     # too many points for the specified timeframe.
     # Defaults to a reasonable interval for the given timeframe.
     attr_accessor :interval
-
     # List of queries to be run and used as inputs to the formulas.
     attr_reader :queries
-
     # End date (exclusive) of the query in milliseconds since the Unix epoch.
     attr_reader :to
 

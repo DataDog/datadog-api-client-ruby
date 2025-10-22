@@ -20,10 +20,8 @@ module DatadogAPIClient::V1
   # Styling options for widget formulas.
   class WidgetFormulaStyle
     include BaseGenericModel
-
     # The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors
     attr_accessor :palette
-
     # Index specifying which color to use within the palette.
     attr_accessor :palette_index
 

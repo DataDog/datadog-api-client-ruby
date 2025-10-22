@@ -20,7 +20,6 @@ module DatadogAPIClient::V1
   # Response with the list of organizations.
   class OrganizationListResponse
     include BaseGenericModel
-
     # Array of organization objects.
     attr_accessor :orgs
 

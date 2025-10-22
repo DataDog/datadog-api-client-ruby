@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # The definition of `CaseType` object.
   class CaseTypeResource
     include BaseGenericModel
-
     # Case Type resource attributes
     attr_accessor :attributes
-
     # Case type's identifier
     attr_accessor :id
-
     # Case type resource type
     attr_accessor :type
 

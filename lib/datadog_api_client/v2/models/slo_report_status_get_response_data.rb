@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # The data portion of the SLO report status response.
   class SLOReportStatusGetResponseData
     include BaseGenericModel
-
     # The attributes portion of the SLO report status response.
     attr_accessor :attributes
-
     # The ID of the report job.
     attr_accessor :id
-
     # The type of ID.
     attr_accessor :type
 

@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The postmortem relationship data.
   class RelationshipToIncidentPostmortemData
     include BaseGenericModel
-
     # A unique identifier that represents the postmortem.
     attr_reader :id
-
     # Incident postmortem resource type.
     attr_reader :type
 

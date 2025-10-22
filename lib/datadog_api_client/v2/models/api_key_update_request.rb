@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Request used to update an API key.
   class APIKeyUpdateRequest
     include BaseGenericModel
-
     # Object used to update an API key.
     attr_reader :data
 

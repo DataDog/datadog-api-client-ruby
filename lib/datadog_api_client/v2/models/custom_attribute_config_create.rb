@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Custom attribute config
   class CustomAttributeConfigCreate
     include BaseGenericModel
-
     # Custom attribute config resource attributes
     attr_reader :attributes
-
     # Custom attributes config JSON:API resource type
     attr_reader :type
 

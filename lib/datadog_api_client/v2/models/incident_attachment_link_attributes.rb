@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # The attributes object for a link attachment.
   class IncidentAttachmentLinkAttributes
     include BaseGenericModel
-
     # The link attachment.
     attr_reader :attachment
-
     # The type of link attachment attributes.
     attr_reader :attachment_type
-
     # Timestamp when the incident attachment link was last modified.
     attr_accessor :modified
 

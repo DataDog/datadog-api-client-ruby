@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Response containing information about a single role.
   class RoleResponse
     include BaseGenericModel
-
     # Role object returned by the API.
     attr_accessor :data
 

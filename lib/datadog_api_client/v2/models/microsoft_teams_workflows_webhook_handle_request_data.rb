@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Workflows Webhook handle data from a response.
   class MicrosoftTeamsWorkflowsWebhookHandleRequestData
     include BaseGenericModel
-
     # Workflows Webhook handle attributes.
     attr_reader :attributes
-
     # Specifies the Workflows webhook handle resource type.
     attr_reader :type
 

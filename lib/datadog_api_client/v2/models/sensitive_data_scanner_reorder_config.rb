@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Data related to the reordering of scanning groups.
   class SensitiveDataScannerReorderConfig
     include BaseGenericModel
-
     # ID of the configuration.
     attr_accessor :id
-
     # Relationships of the configuration.
     attr_accessor :relationships
-
     # Sensitive Data Scanner configuration type.
     attr_accessor :type
 

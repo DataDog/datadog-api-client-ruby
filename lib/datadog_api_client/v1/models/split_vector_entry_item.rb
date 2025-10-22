@@ -20,10 +20,8 @@ module DatadogAPIClient::V1
   # The split graph list contains a graph for each value of the split dimension.
   class SplitVectorEntryItem
     include BaseGenericModel
-
     # The tag key.
     attr_reader :tag_key
-
     # The tag values.
     attr_reader :tag_values
 

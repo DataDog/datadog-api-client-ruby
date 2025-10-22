@@ -23,10 +23,8 @@ module DatadogAPIClient::V2
   # For more information on resource tag filter syntax, [see AWS resource exclusion](https://docs.datadoghq.com/account_management/billing/aws/#aws-resource-exclusion) in the AWS integration billing page.
   class AWSLogSourceTagFilter
     include BaseGenericModel
-
     # The AWS log source to which the tag filters defined in `tags` are applied.
     attr_accessor :source
-
     # The AWS resource tags to filter on for the log source specified by `source`.
     attr_accessor :tags
 

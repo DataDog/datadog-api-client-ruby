@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Data wrapper containing the items to insert and their configuration for the bulk insert operation.
   class BulkPutAppsDatastoreItemsRequestData
     include BaseGenericModel
-
     # Configuration for bulk inserting multiple items into a datastore.
     attr_accessor :attributes
-
     # The resource type for datastore items.
     attr_reader :type
 

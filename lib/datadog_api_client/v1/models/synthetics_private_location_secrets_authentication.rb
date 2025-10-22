@@ -20,10 +20,8 @@ module DatadogAPIClient::V1
   # Authentication part of the secrets.
   class SyntheticsPrivateLocationSecretsAuthentication
     include BaseGenericModel
-
     # Access key for the private location.
     attr_accessor :id
-
     # Secret access key for the private location.
     attr_accessor :key
 

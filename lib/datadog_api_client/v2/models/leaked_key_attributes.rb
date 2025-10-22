@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The definition of LeakedKeyAttributes object.
   class LeakedKeyAttributes
     include BaseGenericModel
-
     # The LeakedKeyAttributes date.
     attr_reader :date
-
     # The LeakedKeyAttributes leak_source.
     attr_accessor :leak_source
 

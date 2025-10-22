@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Defines a custom quota limit that applies to specific log events based on matching field values.
   class ObservabilityPipelineQuotaProcessorOverride
     include BaseGenericModel
-
     # A list of field matchers used to apply a specific override. If an event matches all listed key-value pairs, the corresponding override limit is enforced.
     attr_reader :fields
-
     # The maximum amount of data or number of events allowed before the quota is enforced. Can be specified in bytes or events.
     attr_reader :limit
 

@@ -20,37 +20,26 @@ module DatadogAPIClient::V1
   # Hour usage for logs.
   class UsageLogsHour
     include BaseGenericModel
-
     # Contains the number of billable log bytes ingested.
     attr_accessor :billable_ingested_bytes
-
     # The hour for the usage.
     attr_accessor :hour
-
     # Contains the number of log events indexed.
     attr_accessor :indexed_events_count
-
     # Contains the number of log bytes ingested.
     attr_accessor :ingested_events_bytes
-
     # Contains the number of logs forwarded bytes (data available as of April 1st 2023)
     attr_accessor :logs_forwarding_events_bytes
-
     # Contains the number of live log events indexed (data available as of December 1, 2020).
     attr_accessor :logs_live_indexed_count
-
     # Contains the number of live log bytes ingested (data available as of December 1, 2020).
     attr_accessor :logs_live_ingested_bytes
-
     # Contains the number of rehydrated log events indexed (data available as of December 1, 2020).
     attr_accessor :logs_rehydrated_indexed_count
-
     # Contains the number of rehydrated log bytes ingested (data available as of December 1, 2020).
     attr_accessor :logs_rehydrated_ingested_bytes
-
     # The organization name.
     attr_accessor :org_name
-
     # The organization public ID.
     attr_accessor :public_id
 

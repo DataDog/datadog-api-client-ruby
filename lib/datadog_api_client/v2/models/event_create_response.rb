@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Event object.
   class EventCreateResponse
     include BaseGenericModel
-
     # Event attributes.
     attr_accessor :attributes
-
     # Entity type.
     attr_accessor :type
 

@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The definition of a custom destination.
   class CustomDestinationCreateRequestDefinition
     include BaseGenericModel
-
     # The attributes associated with the custom destination.
     attr_reader :attributes
-
     # The type of the resource. The value should always be `custom_destination`.
     attr_reader :type
 

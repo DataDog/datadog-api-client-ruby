@@ -20,22 +20,16 @@ module DatadogAPIClient::V2
   # The definition of `RulesetRespDataAttributesRulesItems` object.
   class RulesetRespDataAttributesRulesItems
     include BaseGenericModel
-
     # The `items` `enabled`.
     attr_reader :enabled
-
     # The definition of `RulesetRespDataAttributesRulesItemsMapping` object.
     attr_accessor :mapping
-
     # The `items` `metadata`.
     attr_accessor :metadata
-
     # The `items` `name`.
     attr_reader :name
-
     # The definition of `RulesetRespDataAttributesRulesItemsQuery` object.
     attr_accessor :query
-
     # The definition of `RulesetRespDataAttributesRulesItemsReferenceTable` object.
     attr_accessor :reference_table
 

@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # List of aggregated DNS flows.
   class SingleAggregatedDnsResponseArray
     include BaseGenericModel
-
     # Array of aggregated DNS objects.
     attr_accessor :data
 

@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Request to update a datastore's configuration such as its name or description.
   class UpdateAppsDatastoreRequest
     include BaseGenericModel
-
     # Data wrapper containing the datastore identifier and the attributes to update.
     attr_accessor :data
 

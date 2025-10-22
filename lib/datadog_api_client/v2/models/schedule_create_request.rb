@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # The top-level request body for schedule creation, wrapping a `data` object.
   class ScheduleCreateRequest
     include BaseGenericModel
-
     # The core data wrapper for creating a schedule, encompassing attributes, relationships, and the resource type.
     attr_reader :data
 

@@ -20,19 +20,14 @@ module DatadogAPIClient::V2
   # The `syslog_ng` destination forwards logs to an external `syslog-ng` server over TCP or UDP using the syslog protocol.
   class ObservabilityPipelineSyslogNgDestination
     include BaseGenericModel
-
     # The unique identifier for this component.
     attr_reader :id
-
     # A list of component IDs whose output is used as the `input` for this component.
     attr_reader :inputs
-
     # Optional socket keepalive duration in milliseconds.
     attr_reader :keepalive
-
     # Configuration for enabling TLS encryption between the pipeline component and external services.
     attr_accessor :tls
-
     # The destination type. The value should always be `syslog_ng`.
     attr_reader :type
 

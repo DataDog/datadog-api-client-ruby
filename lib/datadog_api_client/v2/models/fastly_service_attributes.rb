@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Attributes object for Fastly service requests.
   class FastlyServiceAttributes
     include BaseGenericModel
-
     # A list of tags for the Fastly service.
     attr_accessor :tags
 

@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # Represents the primary data object for a schedule, linking attributes and relationships.
   class ScheduleData
     include BaseGenericModel
-
     # Provides core properties of a schedule object such as its name and time zone.
     attr_accessor :attributes
-
     # The schedule's unique identifier.
     attr_accessor :id
-
     # Groups the relationships for a schedule object, referencing layers and teams.
     attr_accessor :relationships
-
     # Schedules resource type.
     attr_reader :type
 

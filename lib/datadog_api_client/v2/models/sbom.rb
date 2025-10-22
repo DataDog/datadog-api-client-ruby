@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # A single SBOM
   class SBOM
     include BaseGenericModel
-
     # The JSON:API attributes of the SBOM.
     attr_accessor :attributes
-
     # The unique ID for this SBOM (it is equivalent to the `asset_name` or `asset_name@repo_digest` (Image)
     attr_accessor :id
-
     # The JSON:API type.
     attr_accessor :type
 

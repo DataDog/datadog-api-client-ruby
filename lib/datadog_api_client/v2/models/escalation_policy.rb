@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Represents a complete escalation policy response, including policy data and optionally included related resources.
   class EscalationPolicy
     include BaseGenericModel
-
     # Represents the data for a single escalation policy, including its attributes, ID, relationships, and resource type.
     attr_accessor :data
-
     # Provides any included related resources, such as steps or targets, returned with the policy.
     attr_accessor :included
 

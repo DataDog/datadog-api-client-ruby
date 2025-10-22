@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Relationship to permission object.
   class RelationshipToPermissionData
     include BaseGenericModel
-
     # ID of the permission.
     attr_accessor :id
-
     # Permissions resource type.
     attr_accessor :type
 

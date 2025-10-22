@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Object to create a user invitation.
   class UserInvitationData
     include BaseGenericModel
-
     # Relationships data for user invitation.
     attr_reader :relationships
-
     # User invitations type.
     attr_reader :type
 

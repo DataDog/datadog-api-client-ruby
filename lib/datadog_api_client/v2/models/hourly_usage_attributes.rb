@@ -20,28 +20,20 @@ module DatadogAPIClient::V2
   # Attributes of hourly usage for a product family for an org for a time period.
   class HourlyUsageAttributes
     include BaseGenericModel
-
     # The account name.
     attr_accessor :account_name
-
     # The account public ID.
     attr_accessor :account_public_id
-
     # List of the measured usage values for the product family for the org for the time period.
     attr_accessor :measurements
-
     # The organization name.
     attr_accessor :org_name
-
     # The product for which usage is being reported.
     attr_accessor :product_family
-
     # The organization public ID.
     attr_accessor :public_id
-
     # The region of the Datadog instance that the organization belongs to.
     attr_accessor :region
-
     # Datetime in ISO-8601 format, UTC. The hour for the usage.
     attr_accessor :timestamp
 

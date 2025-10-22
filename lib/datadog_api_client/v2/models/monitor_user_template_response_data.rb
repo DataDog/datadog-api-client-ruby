@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Monitor user template list response data.
   class MonitorUserTemplateResponseData
     include BaseGenericModel
-
     # Attributes for a monitor user template.
     attr_accessor :attributes
-
     # The unique identifier.
     attr_accessor :id
-
     # Monitor user template resource type.
     attr_accessor :type
 

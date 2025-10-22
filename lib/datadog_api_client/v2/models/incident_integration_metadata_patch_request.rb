@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Patch request for an incident integration metadata.
   class IncidentIntegrationMetadataPatchRequest
     include BaseGenericModel
-
     # Incident integration metadata data for a patch request.
     attr_reader :data
 

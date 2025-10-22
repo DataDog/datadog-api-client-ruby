@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # The `sentinel_one` destination sends logs to SentinelOne.
   class ObservabilityPipelineSentinelOneDestination
     include BaseGenericModel
-
     # The unique identifier for this component.
     attr_reader :id
-
     # A list of component IDs whose output is used as the `input` for this component.
     attr_reader :inputs
-
     # The SentinelOne region to send logs to.
     attr_reader :region
-
     # The destination type. The value should always be `sentinel_one`.
     attr_reader :type
 

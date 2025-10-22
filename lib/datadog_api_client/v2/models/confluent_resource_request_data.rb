@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # JSON:API request for updating a Confluent resource.
   class ConfluentResourceRequestData
     include BaseGenericModel
-
     # Attributes object for updating a Confluent resource.
     attr_reader :attributes
-
     # The ID associated with a Confluent resource.
     attr_reader :id
-
     # The JSON:API type for this request.
     attr_reader :type
 

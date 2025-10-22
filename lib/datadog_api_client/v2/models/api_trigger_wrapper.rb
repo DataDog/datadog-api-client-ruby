@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Schema for an API-based trigger.
   class APITriggerWrapper
     include BaseGenericModel
-
     # Trigger a workflow from an API request. The workflow must be published.
     attr_reader :api_trigger
-
     # A list of steps that run first after a trigger fires.
     attr_accessor :start_step_names
 

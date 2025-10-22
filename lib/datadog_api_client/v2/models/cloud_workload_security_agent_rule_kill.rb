@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Kill system call applied on the container matching the rule
   class CloudWorkloadSecurityAgentRuleKill
     include BaseGenericModel
-
     # Supported signals for the kill system call
     attr_accessor :signal
 

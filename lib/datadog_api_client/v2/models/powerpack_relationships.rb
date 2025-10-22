@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Powerpack relationship object.
   class PowerpackRelationships
     include BaseGenericModel
-
     # Relationship to user.
     attr_accessor :author
 

@@ -20,10 +20,8 @@ module DatadogAPIClient::V1
   # Cell display mode options for the widget formula. (only if `cell_display_mode` is set to `trend`).
   class WidgetFormulaCellDisplayModeOptions
     include BaseGenericModel
-
     # Trend type for the cell display mode options.
     attr_accessor :trend_type
-
     # Y scale for the cell display mode options.
     attr_accessor :y_scale
 

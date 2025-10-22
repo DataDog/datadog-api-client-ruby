@@ -20,22 +20,16 @@ module DatadogAPIClient::V2
   # Meta response containing information about the API.
   class SensitiveDataScannerMeta
     include BaseGenericModel
-
     # Maximum number of scanning rules allowed for the org.
     attr_accessor :count_limit
-
     # Maximum number of scanning groups allowed for the org.
     attr_accessor :group_count_limit
-
     # (Deprecated) Whether or not scanned events are highlighted in Logs or RUM for the org.
     attr_accessor :has_highlight_enabled
-
     # (Deprecated) Whether or not scanned events have multi-pass enabled.
     attr_accessor :has_multi_pass_enabled
-
     # Whether or not the org is compliant to the payment card industry standard.
     attr_accessor :is_pci_compliant
-
     # Version of the API.
     attr_reader :version
 

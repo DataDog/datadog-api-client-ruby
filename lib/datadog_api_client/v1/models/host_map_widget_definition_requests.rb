@@ -20,10 +20,8 @@ module DatadogAPIClient::V1
   # List of definitions.
   class HostMapWidgetDefinitionRequests
     include BaseGenericModel
-
     # Updated host map.
     attr_accessor :fill
-
     # Updated host map.
     attr_accessor :size
 

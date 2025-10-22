@@ -20,7 +20,6 @@ module DatadogAPIClient::V1
   # Indexed logs usage summary for each organization for each retention period with usage.
   class LogsByRetentionOrgs
     include BaseGenericModel
-
     # Indexed logs usage summary for each organization.
     attr_accessor :usage
 

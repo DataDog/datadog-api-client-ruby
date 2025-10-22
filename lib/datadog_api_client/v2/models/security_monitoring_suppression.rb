@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # The suppression rule's properties.
   class SecurityMonitoringSuppression
     include BaseGenericModel
-
     # The attributes of the suppression rule.
     attr_accessor :attributes
-
     # The ID of the suppression rule.
     attr_accessor :id
-
     # The type of the resource. The value should always be `suppressions`.
     attr_accessor :type
 

@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # The issue matching the request.
   class Issue
     include BaseGenericModel
-
     # Object containing the information of an issue.
     attr_reader :attributes
-
     # Issue identifier.
     attr_reader :id
-
     # Relationship between the issue and an assignee, case and/or teams.
     attr_accessor :relationships
-
     # Type of the object.
     attr_reader :type
 

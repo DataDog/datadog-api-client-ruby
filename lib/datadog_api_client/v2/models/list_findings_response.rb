@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The expected response schema when listing findings.
   class ListFindingsResponse
     include BaseGenericModel
-
     # Array of findings.
     attr_reader :data
-
     # Metadata for pagination.
     attr_reader :meta
 

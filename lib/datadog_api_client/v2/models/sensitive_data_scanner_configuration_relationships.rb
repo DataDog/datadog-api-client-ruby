@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Relationships of the configuration.
   class SensitiveDataScannerConfigurationRelationships
     include BaseGenericModel
-
     # List of groups, ordered.
     attr_accessor :groups
 

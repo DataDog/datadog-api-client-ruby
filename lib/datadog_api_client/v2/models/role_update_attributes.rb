@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # Attributes of the role.
   class RoleUpdateAttributes
     include BaseGenericModel
-
     # Creation time of the role.
     attr_accessor :created_at
-
     # Time of last role modification.
     attr_accessor :modified_at
-
     # Name of the role.
     attr_accessor :name
-
     # The user count.
     attr_reader :user_count
 

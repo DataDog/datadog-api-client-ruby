@@ -20,13 +20,11 @@ module DatadogAPIClient::V2
   # Product-specific filters for the dataset.
   class FiltersPerProduct
     include BaseGenericModel
-
     # Defines the list of tag-based filters used to restrict access to telemetry data for a specific product.
     # These filters act as access control rules. Each filter must follow the tag query syntax used by
     # Datadog (such as `@tag.key:value`), and only one tag or attribute may be used to define the access strategy
     # per telemetry type.
     attr_reader :filters
-
     # Name of the product the dataset is for. Possible values are 'apm', 'rum',
     # 'metrics', 'logs', 'error_tracking', and 'cloud_cost'.
     attr_reader :product

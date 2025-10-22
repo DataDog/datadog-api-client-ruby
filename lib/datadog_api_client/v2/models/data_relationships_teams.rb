@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Associates teams with this schedule in a data structure.
   class DataRelationshipsTeams
     include BaseGenericModel
-
     # An array of team references for this schedule.
     attr_accessor :data
 

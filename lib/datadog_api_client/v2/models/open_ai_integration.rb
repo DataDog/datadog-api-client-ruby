@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The definition of the `OpenAIIntegration` object.
   class OpenAIIntegration
     include BaseGenericModel
-
     # The definition of the `OpenAICredentials` object.
     attr_reader :credentials
-
     # The definition of the `OpenAIIntegrationType` object.
     attr_reader :type
 

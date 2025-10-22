@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # CSM Coverage Analysis.
   class CsmCoverageAnalysis
     include BaseGenericModel
-
     # The number of fully configured resources.
     attr_accessor :configured_resources_count
-
     # The coverage percentage.
     attr_accessor :coverage
-
     # The number of partially configured resources.
     attr_accessor :partially_configured_resources_count
-
     # The total number of resources.
     attr_accessor :total_resources_count
 

@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Relationship to organizations.
   class RelationshipToOrganizations
     include BaseGenericModel
-
     # Relationships to organization objects.
     attr_reader :data
 

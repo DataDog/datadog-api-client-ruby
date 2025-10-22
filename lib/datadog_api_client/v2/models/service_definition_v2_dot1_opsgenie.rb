@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Opsgenie integration for the service.
   class ServiceDefinitionV2Dot1Opsgenie
     include BaseGenericModel
-
     # Opsgenie instance region.
     attr_accessor :region
-
     # Opsgenie service url.
     attr_reader :service_url
 

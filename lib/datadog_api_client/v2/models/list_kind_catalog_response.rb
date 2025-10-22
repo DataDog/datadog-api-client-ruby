@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # List kind response.
   class ListKindCatalogResponse
     include BaseGenericModel
-
     # List of kind responses.
     attr_accessor :data
-
     # Kind response metadata.
     attr_accessor :meta
 

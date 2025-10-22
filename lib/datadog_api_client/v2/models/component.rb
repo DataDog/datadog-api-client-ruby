@@ -20,19 +20,14 @@ module DatadogAPIClient::V2
   # [Definition of a UI component in the app](https://docs.datadoghq.com/service_management/app_builder/components/)
   class Component
     include BaseGenericModel
-
     # Events to listen for on the UI component.
     attr_accessor :events
-
     # The ID of the UI component. This property is deprecated; use `name` to identify individual components instead.
     attr_accessor :id
-
     # A unique identifier for this UI component. This name is also visible in the app editor.
     attr_reader :name
-
     # Properties of a UI component. Different component types can have their own additional unique properties. See the [components documentation](https://docs.datadoghq.com/service_management/app_builder/components/) for more detail on each component type and its properties.
     attr_reader :properties
-
     # The UI component type.
     attr_reader :type
 

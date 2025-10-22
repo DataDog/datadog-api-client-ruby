@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Schema for a Case-based trigger.
   class CaseTriggerWrapper
     include BaseGenericModel
-
     # Trigger a workflow from a Case. For automatic triggering a handle must be configured and the workflow must be published.
     attr_reader :case_trigger
-
     # A list of steps that run first after a trigger fires.
     attr_accessor :start_step_names
 

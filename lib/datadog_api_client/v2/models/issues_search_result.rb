@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # Result matching the search query.
   class IssuesSearchResult
     include BaseGenericModel
-
     # Object containing the information of a search result.
     attr_reader :attributes
-
     # Search result identifier (matches the nested issue's identifier).
     attr_reader :id
-
     # Relationships between the search result and other resources.
     attr_accessor :relationships
-
     # Type of the object.
     attr_reader :type
 

@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Properties of a UI component. Different component types can have their own additional unique properties. See the [components documentation](https://docs.datadoghq.com/service_management/app_builder/components/) for more detail on each component type and its properties.
   class ComponentProperties
     include BaseGenericModel
-
     # The child components of the UI component.
     attr_accessor :children
-
     # Whether the UI component is visible. If this is a string, it must be a valid JavaScript expression that evaluates to a boolean.
     attr_accessor :is_visible
 

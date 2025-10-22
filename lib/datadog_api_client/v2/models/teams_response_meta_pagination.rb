@@ -20,28 +20,20 @@ module DatadogAPIClient::V2
   # Teams response metadata.
   class TeamsResponseMetaPagination
     include BaseGenericModel
-
     # The first offset.
     attr_accessor :first_offset
-
     # The last offset.
     attr_accessor :last_offset
-
     # Pagination limit.
     attr_accessor :limit
-
     # The next offset.
     attr_accessor :next_offset
-
     # The offset.
     attr_accessor :offset
-
     # The previous offset.
     attr_accessor :prev_offset
-
     # Total results.
     attr_accessor :total
-
     # Offset type.
     attr_accessor :type
 

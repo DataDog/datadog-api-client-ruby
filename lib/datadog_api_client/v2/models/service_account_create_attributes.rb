@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # Attributes of the created user.
   class ServiceAccountCreateAttributes
     include BaseGenericModel
-
     # The email of the user.
     attr_reader :email
-
     # The name of the user.
     attr_accessor :name
-
     # Whether the user is a service account. Must be true.
     attr_reader :service_account
-
     # The title of the user.
     attr_accessor :title
 

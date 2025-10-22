@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The definition of `ArbitraryRuleResponseDataAttributesStrategyAllocatedByItems` object.
   class ArbitraryRuleResponseDataAttributesStrategyAllocatedByItems
     include BaseGenericModel
-
     # The `items` `allocated_tags`.
     attr_reader :allocated_tags
-
     # The `items` `percentage`. The numeric value format should be a 32bit float value.
     attr_reader :percentage
 

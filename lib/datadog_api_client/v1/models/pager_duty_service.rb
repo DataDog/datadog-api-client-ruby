@@ -20,10 +20,8 @@ module DatadogAPIClient::V1
   # The PagerDuty service that is available for integration with Datadog.
   class PagerDutyService
     include BaseGenericModel
-
     # Your service key in PagerDuty.
     attr_reader :service_key
-
     # Your service name associated with a service key in PagerDuty.
     attr_reader :service_name
 

@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Links attributes.
   class TeamRelationshipsLinks
     include BaseGenericModel
-
     # Related link.
     attr_accessor :related
 

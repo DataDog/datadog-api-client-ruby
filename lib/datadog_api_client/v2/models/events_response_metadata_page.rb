@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Pagination attributes.
   class EventsResponseMetadataPage
     include BaseGenericModel
-
     # The cursor to use to get the next results, if any. To make the next request, use the same
     # parameters with the addition of the `page[cursor]`.
     attr_accessor :after

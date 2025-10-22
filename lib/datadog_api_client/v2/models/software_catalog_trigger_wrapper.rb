@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Schema for a Software Catalog-based trigger.
   class SoftwareCatalogTriggerWrapper
     include BaseGenericModel
-
     # Trigger a workflow from Software Catalog.
     attr_reader :software_catalog_trigger
-
     # A list of steps that run first after a trigger fires.
     attr_accessor :start_step_names
 

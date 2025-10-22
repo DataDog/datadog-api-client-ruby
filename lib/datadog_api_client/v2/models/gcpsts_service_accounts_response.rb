@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Object containing all your STS enabled accounts.
   class GCPSTSServiceAccountsResponse
     include BaseGenericModel
-
     # Array of GCP STS enabled service accounts.
     attr_accessor :data
 

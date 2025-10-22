@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Org relationship.
   class OrgConnectionOrgRelationship
     include BaseGenericModel
-
     # The definition of `OrgConnectionOrgRelationshipData` object.
     attr_accessor :data
 

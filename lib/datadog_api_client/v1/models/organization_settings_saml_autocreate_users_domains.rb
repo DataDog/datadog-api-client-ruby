@@ -20,10 +20,8 @@ module DatadogAPIClient::V1
   # Has two properties, `enabled` (boolean) and `domains`, which is a list of domains without the @ symbol.
   class OrganizationSettingsSamlAutocreateUsersDomains
     include BaseGenericModel
-
     # List of domains where the SAML automated user creation is enabled.
     attr_accessor :domains
-
     # Whether or not the automated user creation based on SAML domain is enabled.
     attr_accessor :enabled
 

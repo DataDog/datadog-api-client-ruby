@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Response of Google Cloud Usage Cost config.
   class GCPUsageCostConfigResponse
     include BaseGenericModel
-
     # Google Cloud Usage Cost config.
     attr_accessor :data
 

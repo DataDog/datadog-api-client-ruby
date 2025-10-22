@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # The expected response schema when listing vulnerabilities.
   class ListVulnerabilitiesResponse
     include BaseGenericModel
-
     # List of vulnerabilities.
     attr_reader :data
-
     # The JSON:API links related to pagination.
     attr_accessor :links
-
     # The metadata related to this request.
     attr_accessor :meta
 

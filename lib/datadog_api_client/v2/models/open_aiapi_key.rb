@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The definition of the `OpenAIAPIKey` object.
   class OpenAIAPIKey
     include BaseGenericModel
-
     # The `OpenAIAPIKey` `api_token`.
     attr_reader :api_token
-
     # The definition of the `OpenAIAPIKey` object.
     attr_reader :type
 

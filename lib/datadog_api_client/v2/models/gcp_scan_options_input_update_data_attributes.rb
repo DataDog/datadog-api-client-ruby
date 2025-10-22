@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Attributes for updating GCP scan options configuration.
   class GcpScanOptionsInputUpdateDataAttributes
     include BaseGenericModel
-
     # Indicates if scanning for vulnerabilities in containers is enabled.
     attr_accessor :vuln_containers_os
-
     # Indicates if scanning for vulnerabilities in hosts is enabled.
     attr_accessor :vuln_host_os
 

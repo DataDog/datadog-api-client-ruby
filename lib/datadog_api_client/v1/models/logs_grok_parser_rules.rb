@@ -20,10 +20,8 @@ module DatadogAPIClient::V1
   # Set of rules for the grok parser.
   class LogsGrokParserRules
     include BaseGenericModel
-
     # List of match rules for the grok parser, separated by a new line.
     attr_reader :match_rules
-
     # List of support rules for the grok parser, separated by a new line.
     attr_accessor :support_rules
 

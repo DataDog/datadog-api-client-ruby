@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Group reorder response.
   class SensitiveDataScannerReorderGroupsResponse
     include BaseGenericModel
-
     # Meta response containing information about the API.
     attr_accessor :meta
 

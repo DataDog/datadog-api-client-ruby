@@ -20,13 +20,10 @@ module DatadogAPIClient::V1
   # Updated list stream widget.
   class ListStreamWidgetRequest
     include BaseGenericModel
-
     # Widget columns.
     attr_reader :columns
-
     # Updated list stream widget.
     attr_reader :query
-
     # Widget response format.
     attr_reader :response_format
 

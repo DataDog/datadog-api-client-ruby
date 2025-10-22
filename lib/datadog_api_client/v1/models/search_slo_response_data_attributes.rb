@@ -20,10 +20,8 @@ module DatadogAPIClient::V1
   # Attributes
   class SearchSLOResponseDataAttributes
     include BaseGenericModel
-
     # Facets
     attr_accessor :facets
-
     # SLOs
     attr_accessor :slos
 

@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Tag attributes of a monitor configuration policy.
   class MonitorConfigPolicyTagPolicy
     include BaseGenericModel
-
     # The key of the tag.
     attr_reader :tag_key
-
     # If a tag key is required for monitor creation.
     attr_accessor :tag_key_required
-
     # Valid values for the tag.
     attr_accessor :valid_tag_values
 

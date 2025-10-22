@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Options for the operator of this condition.
   class ApplicationSecurityWafCustomRuleConditionOptions
     include BaseGenericModel
-
     # Evaluate the value as case sensitive.
     attr_accessor :case_sensitive
-
     # Only evaluate this condition if the value has a minimum amount of characters.
     attr_accessor :min_length
 

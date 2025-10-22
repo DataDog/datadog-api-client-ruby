@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # The definition of `CreateTableRequestDataAttributesFileMetadataOneOfAccessDetails` object.
   class CreateTableRequestDataAttributesFileMetadataOneOfAccessDetails
     include BaseGenericModel
-
     # The definition of `CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsAwsDetail` object.
     attr_accessor :aws_detail
-
     # The definition of `CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail` object.
     attr_accessor :azure_detail
-
     # The definition of `CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsGcpDetail` object.
     attr_accessor :gcp_detail
 

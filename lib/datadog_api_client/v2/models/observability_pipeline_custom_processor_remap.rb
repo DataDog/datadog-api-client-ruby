@@ -20,19 +20,14 @@ module DatadogAPIClient::V2
   # Defines a single VRL remap rule with its own filtering and transformation logic.
   class ObservabilityPipelineCustomProcessorRemap
     include BaseGenericModel
-
     # Whether to drop events that caused errors during processing.
     attr_reader :drop_on_error
-
     # Whether this remap rule is enabled.
     attr_reader :enabled
-
     # A Datadog search query used to filter events for this specific remap rule.
     attr_reader :include
-
     # A descriptive name for this remap rule.
     attr_reader :name
-
     # The VRL script source code that defines the processing logic.
     attr_reader :source
 

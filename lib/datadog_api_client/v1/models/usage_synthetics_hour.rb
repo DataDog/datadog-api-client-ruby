@@ -20,16 +20,12 @@ module DatadogAPIClient::V1
   # The number of synthetics tests run for each hour for a given organization.
   class UsageSyntheticsHour
     include BaseGenericModel
-
     # Contains the number of Synthetics API tests run.
     attr_accessor :check_calls_count
-
     # The hour for the usage.
     attr_accessor :hour
-
     # The organization name.
     attr_accessor :org_name
-
     # The organization public ID.
     attr_accessor :public_id
 

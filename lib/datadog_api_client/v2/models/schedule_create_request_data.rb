@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # The core data wrapper for creating a schedule, encompassing attributes, relationships, and the resource type.
   class ScheduleCreateRequestData
     include BaseGenericModel
-
     # Describes the main attributes for creating a new schedule, including name, layers, and time zone.
     attr_reader :attributes
-
     # Gathers relationship objects for the schedule creation request, including the teams to associate.
     attr_accessor :relationships
-
     # Schedules resource type.
     attr_reader :type
 

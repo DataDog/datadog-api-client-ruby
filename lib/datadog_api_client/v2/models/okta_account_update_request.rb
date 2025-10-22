@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Payload schema when updating an Okta account.
   class OktaAccountUpdateRequest
     include BaseGenericModel
-
     # Data object for updating an Okta account.
     attr_reader :data
 

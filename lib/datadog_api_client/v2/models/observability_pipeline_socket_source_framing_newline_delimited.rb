@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Byte frames which are delimited by a newline character.
   class ObservabilityPipelineSocketSourceFramingNewlineDelimited
     include BaseGenericModel
-
     # Byte frames which are delimited by a newline character.
     attr_reader :method
 

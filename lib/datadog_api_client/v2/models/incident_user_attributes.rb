@@ -20,19 +20,14 @@ module DatadogAPIClient::V2
   # Attributes of user object returned by the API.
   class IncidentUserAttributes
     include BaseGenericModel
-
     # Email of the user.
     attr_accessor :email
-
     # Handle of the user.
     attr_accessor :handle
-
     # URL of the user's icon.
     attr_accessor :icon
-
     # Name of the user.
     attr_accessor :name
-
     # UUID of the user.
     attr_accessor :uuid
 

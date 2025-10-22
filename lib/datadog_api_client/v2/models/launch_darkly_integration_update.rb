@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The definition of the `LaunchDarklyIntegrationUpdate` object.
   class LaunchDarklyIntegrationUpdate
     include BaseGenericModel
-
     # The definition of the `LaunchDarklyCredentialsUpdate` object.
     attr_accessor :credentials
-
     # The definition of the `LaunchDarklyIntegrationType` object.
     attr_reader :type
 

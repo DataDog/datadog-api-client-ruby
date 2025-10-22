@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Relation to entity.
   class RelationToEntity
     include BaseGenericModel
-
     # Relationship entry.
     attr_accessor :data
-
     # Entity metadata.
     attr_accessor :meta
 

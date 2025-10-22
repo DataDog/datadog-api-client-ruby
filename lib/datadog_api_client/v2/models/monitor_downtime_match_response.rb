@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Response for retrieving all downtime matches for a monitor.
   class MonitorDowntimeMatchResponse
     include BaseGenericModel
-
     # An array of downtime matches.
     attr_accessor :data
-
     # Pagination metadata returned by the API.
     attr_accessor :meta
 

@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # The RUM retention filter body to create.
   class RumRetentionFilterCreateRequest
     include BaseGenericModel
-
     # The new RUM retention filter properties to create.
     attr_reader :data
 

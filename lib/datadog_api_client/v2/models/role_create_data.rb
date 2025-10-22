@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Data related to the creation of a role.
   class RoleCreateData
     include BaseGenericModel
-
     # Attributes of the created role.
     attr_reader :attributes
-
     # Relationships of the role object.
     attr_accessor :relationships
-
     # Roles type.
     attr_accessor :type
 

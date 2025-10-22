@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Core information about a datastore, including its unique identifier and attributes.
   class DatastoreData
     include BaseGenericModel
-
     # Detailed information about a datastore.
     attr_accessor :attributes
-
     # The unique identifier of the datastore.
     attr_accessor :id
-
     # The resource type for datastores.
     attr_reader :type
 

@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # Data related to the update of a role.
   class RoleUpdateData
     include BaseGenericModel
-
     # Attributes of the role.
     attr_reader :attributes
-
     # The unique identifier of the role.
     attr_reader :id
-
     # Relationships of the role object.
     attr_accessor :relationships
-
     # Roles type.
     attr_reader :type
 

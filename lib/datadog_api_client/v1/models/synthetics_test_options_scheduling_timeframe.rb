@@ -20,13 +20,10 @@ module DatadogAPIClient::V1
   # Object describing a timeframe.
   class SyntheticsTestOptionsSchedulingTimeframe
     include BaseGenericModel
-
     # Number representing the day of the week.
     attr_reader :day
-
     # The hour of the day on which scheduling starts.
     attr_reader :from
-
     # The hour of the day on which scheduling ends.
     attr_reader :to
 

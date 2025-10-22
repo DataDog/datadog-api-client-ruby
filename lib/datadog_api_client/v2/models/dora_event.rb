@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # A DORA event.
   class DORAEvent
     include BaseGenericModel
-
     # The attributes of the event.
     attr_accessor :attributes
-
     # The ID of the event.
     attr_accessor :id
-
     # The type of the event.
     attr_accessor :type
 

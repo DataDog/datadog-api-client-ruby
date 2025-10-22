@@ -20,13 +20,10 @@ module DatadogAPIClient::V1
   # Agent install method.
   class HostMetaInstallMethod
     include BaseGenericModel
-
     # The installer version.
     attr_accessor :installer_version
-
     # Tool used to install the agent.
     attr_accessor :tool
-
     # The tool version.
     attr_accessor :tool_version
 

@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Jira issue of the case.
   class IssueCaseJiraIssue
     include BaseGenericModel
-
     # Contains the identifiers and URL for a successfully created Jira issue.
     attr_accessor :result
-
     # Creation status of the Jira issue.
     attr_accessor :status
 

@@ -20,7 +20,6 @@ module DatadogAPIClient::V1
   # Response containing the number of active NPM hosts for each hour for a given organization.
   class UsageNetworkHostsResponse
     include BaseGenericModel
-
     # Get hourly usage for NPM hosts.
     attr_accessor :usage
 

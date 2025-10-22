@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Response for retrieving all downtimes.
   class ListDowntimesResponse
     include BaseGenericModel
-
     # An array of downtimes.
     attr_accessor :data
-
     # Array of objects related to the downtimes.
     attr_accessor :included
-
     # Pagination metadata returned by the API.
     attr_accessor :meta
 

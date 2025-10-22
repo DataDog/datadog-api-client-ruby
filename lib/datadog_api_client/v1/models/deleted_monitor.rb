@@ -20,7 +20,6 @@ module DatadogAPIClient::V1
   # Response from the delete monitor call.
   class DeletedMonitor
     include BaseGenericModel
-
     # ID of the deleted monitor.
     attr_accessor :deleted_monitor_id
 

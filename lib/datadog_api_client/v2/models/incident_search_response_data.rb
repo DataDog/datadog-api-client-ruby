@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Data returned by an incident search.
   class IncidentSearchResponseData
     include BaseGenericModel
-
     # Attributes returned by an incident search.
     attr_accessor :attributes
-
     # Incident search result type.
     attr_accessor :type
 

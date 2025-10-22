@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # The attributes object containing the version ID of the published app.
   class DeploymentAttributes
     include BaseGenericModel
-
     # The version ID of the app that was published. For an unpublished app, this is always the nil UUID (`00000000-0000-0000-0000-000000000000`).
     attr_accessor :app_version_id
 

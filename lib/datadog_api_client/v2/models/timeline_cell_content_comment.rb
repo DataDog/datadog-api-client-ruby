@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # comment content
   class TimelineCellContentComment
     include BaseGenericModel
-
     # comment message
     attr_accessor :message
 

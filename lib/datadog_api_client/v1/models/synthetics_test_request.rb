@@ -20,108 +20,74 @@ module DatadogAPIClient::V1
   # Object describing the Synthetic test request.
   class SyntheticsTestRequest
     include BaseGenericModel
-
     # Allows loading insecure content for an HTTP request in a multistep test step.
     attr_accessor :allow_insecure
-
     # Object to handle basic authentication when performing the test.
     attr_accessor :basic_auth
-
     # Body to include in the test.
     attr_accessor :body
-
     # Type of the request body.
     attr_accessor :body_type
-
     # The type of gRPC call to perform.
     attr_accessor :call_type
-
     # Client certificate to use when performing the test request.
     attr_accessor :certificate
-
     # By default, the client certificate is applied on the domain of the starting URL for browser tests. If you want your client certificate to be applied on other domains instead, add them in `certificateDomains`.
     attr_accessor :certificate_domains
-
     # Check for certificate revocation.
     attr_accessor :check_certificate_revocation
-
     # A protobuf JSON descriptor that needs to be gzipped first then base64 encoded.
     attr_accessor :compressed_json_descriptor
-
     # A protobuf file that needs to be gzipped first then base64 encoded.
     attr_accessor :compressed_proto_file
-
     # Disable fetching intermediate certificates from AIA.
     attr_accessor :disable_aia_intermediate_fetching
-
     # DNS server to use for DNS tests.
     attr_accessor :dns_server
-
     # DNS server port to use for DNS tests.
     attr_accessor :dns_server_port
-
     # Files to be used as part of the request in the test. Only valid if `bodyType` is `multipart/form-data`.
     attr_accessor :files
-
     # Specifies whether or not the request follows redirects.
     attr_accessor :follow_redirects
-
     # Form to be used as part of the request in the test. Only valid if `bodyType` is `multipart/form-data`.
     attr_accessor :form
-
     # Headers to include when performing the test.
     attr_accessor :headers
-
     # Host name to perform the test with.
     attr_accessor :host
-
     # HTTP version to use for a Synthetic test.
     attr_accessor :http_version
-
     # Whether the message is base64 encoded.
     attr_accessor :is_message_base64_encoded
-
     # Message to send for UDP or WebSocket tests.
     attr_accessor :message
-
     # Metadata to include when performing the gRPC test.
     attr_accessor :metadata
-
     # Either the HTTP method/verb to use or a gRPC method available on the service set in the `service` field. Required if `subtype` is `HTTP` or if `subtype` is `grpc` and `callType` is `unary`.
     attr_accessor :method
-
     # Determines whether or not to save the response body.
     attr_accessor :no_saving_response_body
-
     # Number of pings to use per test.
     attr_reader :number_of_packets
-
     # Persist cookies across redirects.
     attr_accessor :persist_cookies
-
     # Port to use when performing the test.
     attr_accessor :port
-
     # The proxy to perform the test.
     attr_accessor :proxy
-
     # Query to use for the test.
     attr_accessor :query
-
     # For SSL tests, it specifies on which server you want to initiate the TLS handshake,
     # allowing the server to present one of multiple possible certificates on
     # the same IP address and TCP port number.
     attr_accessor :servername
-
     # The gRPC service on which you want to perform the gRPC call.
     attr_accessor :service
-
     # Turns on a traceroute probe to discover all gateways along the path to the host destination.
     attr_accessor :should_track_hops
-
     # Timeout in seconds for the test.
     attr_accessor :timeout
-
     # URL to perform the test with.
     attr_accessor :url
 

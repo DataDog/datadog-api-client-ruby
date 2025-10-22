@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # Attributes associated with the account creation request.
   class ConfluentAccountCreateRequestAttributes
     include BaseGenericModel
-
     # The API key associated with your Confluent account.
     attr_reader :api_key
-
     # The API secret associated with your Confluent account.
     attr_reader :api_secret
-
     # A list of Confluent resources associated with the Confluent account.
     attr_accessor :resources
-
     # A list of strings representing tags. Can be a single key, or key-value pairs separated by a colon.
     attr_accessor :tags
 

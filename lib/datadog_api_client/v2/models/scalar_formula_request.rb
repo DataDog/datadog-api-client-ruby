@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # A single scalar query to be executed.
   class ScalarFormulaRequest
     include BaseGenericModel
-
     # The object describing a scalar formula request.
     attr_reader :attributes
-
     # The type of the resource. The value should always be scalar_request.
     attr_reader :type
 

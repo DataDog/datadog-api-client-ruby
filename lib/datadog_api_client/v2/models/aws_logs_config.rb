@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # AWS Logs Collection config.
   class AWSLogsConfig
     include BaseGenericModel
-
     # Log Autosubscription configuration for Datadog Forwarder Lambda functions. Automatically set up triggers for existing
     # and new logs for some services, ensuring no logs from new resources are missed and saving time spent on manual configuration.
     attr_accessor :lambda_forwarder

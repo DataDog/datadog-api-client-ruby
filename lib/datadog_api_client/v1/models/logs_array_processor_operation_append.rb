@@ -20,16 +20,12 @@ module DatadogAPIClient::V1
   # Operation that appends a value to a target array attribute.
   class LogsArrayProcessorOperationAppend
     include BaseGenericModel
-
     # Remove or preserve the remapped source element.
     attr_accessor :preserve_source
-
     # Attribute path containing the value to append.
     attr_reader :source
-
     # Attribute path of the array to append to.
     attr_reader :target
-
     # Operation type.
     attr_reader :type
 

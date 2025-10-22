@@ -20,38 +20,27 @@ module DatadogAPIClient::V1
   # Object containing details about a Synthetic mobile test.
   class SyntheticsMobileTest
     include BaseGenericModel
-
     # Configuration object for a Synthetic mobile test.
     attr_reader :config
-
     # Array with the different device IDs used to run the test.
     attr_accessor :device_ids
-
     # Notification message associated with the test.
     attr_reader :message
-
     # The associated monitor ID.
     attr_accessor :monitor_id
-
     # Name of the test.
     attr_reader :name
-
     # Object describing the extra options for a Synthetic test.
     attr_reader :options
-
     # The public ID of the test.
     attr_accessor :public_id
-
     # Define whether you want to start (`live`) or pause (`paused`) a
     # Synthetic test.
     attr_accessor :status
-
     # Array of steps for the test.
     attr_accessor :steps
-
     # Array of tags attached to the test.
     attr_accessor :tags
-
     # Type of the Synthetic test, `mobile`.
     attr_reader :type
 

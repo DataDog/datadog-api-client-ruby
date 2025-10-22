@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Represents the policy data reference, containing the policy's ID and resource type.
   class RoutingRuleRelationshipsPolicyData
     include BaseGenericModel
-
     # Specifies the unique identifier of the policy.
     attr_reader :id
-
     # Indicates that the resource is of type 'policies'.
     attr_reader :type
 

@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Data containing the patch for changing the related incidents of a signal.
   class SecurityMonitoringSignalIncidentsUpdateData
     include BaseGenericModel
-
     # Attributes describing the new list of related signals for a security signal.
     attr_reader :attributes
 

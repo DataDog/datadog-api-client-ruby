@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # Partial Datadog application key.
   class PartialApplicationKey
     include BaseGenericModel
-
     # Attributes of a partial application key.
     attr_accessor :attributes
-
     # ID of the application key.
     attr_accessor :id
-
     # Resources related to the application key.
     attr_accessor :relationships
-
     # Application Keys resource type.
     attr_accessor :type
 

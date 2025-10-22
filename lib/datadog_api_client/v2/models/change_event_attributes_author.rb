@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The entity that made the change.
   class ChangeEventAttributesAuthor
     include BaseGenericModel
-
     # The name of the user or system that made the change.
     attr_accessor :name
-
     # The type of the author.
     attr_accessor :type
 

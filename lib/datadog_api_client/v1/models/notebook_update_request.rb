@@ -20,7 +20,6 @@ module DatadogAPIClient::V1
   # The description of a notebook update request.
   class NotebookUpdateRequest
     include BaseGenericModel
-
     # The data for a notebook update request.
     attr_reader :data
 

@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Request to add a member team to super team's hierarchy
   class AddMemberTeamRequest
     include BaseGenericModel
-
     # A member team
     attr_reader :data
 

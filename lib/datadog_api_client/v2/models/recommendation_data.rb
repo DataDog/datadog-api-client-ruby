@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # JSON:API resource object for SPA Recommendation. Includes type, optional ID, and resource attributes with structured recommendations.
   class RecommendationData
     include BaseGenericModel
-
     # Attributes of the SPA Recommendation resource. Contains recommendations for both driver and executor components.
     attr_reader :attributes
-
     # Resource identifier for the recommendation. Optional in responses.
     attr_accessor :id
-
     # JSON:API resource type for Spark Pod Autosizing recommendations. Identifies the Recommendation resource returned by SPA.
     attr_reader :type
 

@@ -20,7 +20,6 @@ module DatadogAPIClient::V1
   # Pagination metadata returned by the API.
   class SharedDashboardInvitesMeta
     include BaseGenericModel
-
     # Object containing the total count of invitations across all pages
     attr_accessor :page
 

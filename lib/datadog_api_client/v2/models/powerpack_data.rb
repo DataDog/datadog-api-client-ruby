@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # Powerpack data object.
   class PowerpackData
     include BaseGenericModel
-
     # Powerpack attribute object.
     attr_accessor :attributes
-
     # ID of the powerpack.
     attr_accessor :id
-
     # Powerpack relationship object.
     attr_accessor :relationships
-
     # Type of widget, must be powerpack.
     attr_accessor :type
 

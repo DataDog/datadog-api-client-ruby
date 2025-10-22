@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Timeline cell JSON:API resource
   class TimelineCellResource
     include BaseGenericModel
-
     # timeline cell
     attr_reader :attributes
-
     # Timeline cell's identifier
     attr_reader :id
-
     # Timeline cell JSON:API resource type
     attr_reader :type
 

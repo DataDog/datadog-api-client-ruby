@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Request object to create a custom framework.
   class CreateCustomFrameworkRequest
     include BaseGenericModel
-
     # Contains type and attributes for custom frameworks.
     attr_reader :data
 

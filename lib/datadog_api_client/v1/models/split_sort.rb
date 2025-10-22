@@ -20,10 +20,8 @@ module DatadogAPIClient::V1
   # Controls the order in which graphs appear in the split.
   class SplitSort
     include BaseGenericModel
-
     # Defines the metric and aggregation used as the sort value.
     attr_accessor :compute
-
     # Widget sorting methods.
     attr_reader :order
 

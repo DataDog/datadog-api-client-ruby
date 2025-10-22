@@ -20,25 +20,18 @@ module DatadogAPIClient::V1
   # Alert graphs are timeseries graphs showing the current status of any monitor defined on your system.
   class AlertGraphWidgetDefinition
     include BaseGenericModel
-
     # ID of the alert to use in the widget.
     attr_reader :alert_id
-
     # Time setting for the widget.
     attr_accessor :time
-
     # The title of the widget.
     attr_accessor :title
-
     # How to align the text on the widget.
     attr_accessor :title_align
-
     # Size of the title.
     attr_accessor :title_size
-
     # Type of the alert graph widget.
     attr_reader :type
-
     # Whether to display the Alert Graph as a timeseries or a top list.
     attr_reader :viz_type
 

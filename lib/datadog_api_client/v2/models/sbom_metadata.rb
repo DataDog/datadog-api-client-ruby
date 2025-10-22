@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Provides additional information about a BOM.
   class SBOMMetadata
     include BaseGenericModel
-
     # List of authors of the SBOM.
     attr_accessor :authors
-
     # The component that the BOM describes.
     attr_accessor :component
-
     # The timestamp of the SBOM creation.
     attr_accessor :timestamp
 

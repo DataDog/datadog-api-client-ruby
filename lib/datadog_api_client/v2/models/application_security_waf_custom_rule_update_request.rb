@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Request object that includes the Custom Rule to update.
   class ApplicationSecurityWafCustomRuleUpdateRequest
     include BaseGenericModel
-
     # Object for a single WAF Custom Rule.
     attr_reader :data
 

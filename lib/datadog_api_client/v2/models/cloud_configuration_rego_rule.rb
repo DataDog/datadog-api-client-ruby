@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Rule details.
   class CloudConfigurationRegoRule
     include BaseGenericModel
-
     # The policy written in `rego`, see: https://www.openpolicyagent.org/docs/latest/policy-language/
     attr_reader :policy
-
     # List of resource types that will be evaluated upon. Must have at least one element.
     attr_reader :resource_types
 

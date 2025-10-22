@@ -20,25 +20,18 @@ module DatadogAPIClient::V1
   # The powerpack widget allows you to keep similar graphs together on your timeboard. Each group has a custom header, can hold one to many graphs, and is collapsible.
   class PowerpackWidgetDefinition
     include BaseGenericModel
-
     # Background color of the powerpack title.
     attr_accessor :background_color
-
     # URL of image to display as a banner for the powerpack.
     attr_accessor :banner_img
-
     # UUID of the associated powerpack.
     attr_reader :powerpack_id
-
     # Whether to show the title or not.
     attr_accessor :show_title
-
     # Powerpack template variables.
     attr_accessor :template_variables
-
     # Title of the widget.
     attr_accessor :title
-
     # Type of the powerpack widget.
     attr_reader :type
 

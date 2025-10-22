@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Data object containing the ID of the request that was updated.
   class BulkMuteFindingsResponseData
     include BaseGenericModel
-
     # UUID used to identify the request
     attr_accessor :id
-
     # The JSON:API type for findings.
     attr_accessor :type
 

@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Represents an escalation policy step.
   class Escalation
     include BaseGenericModel
-
     # Unique identifier of the escalation step.
     attr_accessor :id
-
     # Contains the relationships of an escalation object, including its responders.
     attr_accessor :relationships
-
     # Represents the resource type for individual steps in an escalation policy used during incident response.
     attr_reader :type
 

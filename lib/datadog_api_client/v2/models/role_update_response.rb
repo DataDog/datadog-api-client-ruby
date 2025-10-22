@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Response containing information about an updated role.
   class RoleUpdateResponse
     include BaseGenericModel
-
     # Role object returned by the API.
     attr_accessor :data
 

@@ -20,13 +20,10 @@ module DatadogAPIClient::V1
   # Defined items in the group.
   class LogQueryDefinitionGroupBy
     include BaseGenericModel
-
     # Facet name.
     attr_reader :facet
-
     # Maximum number of items in the group.
     attr_accessor :limit
-
     # Define a sorting method.
     attr_accessor :sort
 

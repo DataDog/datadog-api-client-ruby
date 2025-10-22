@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # A list of escalation targets for a step
   class EscalationTargets
     include BaseGenericModel
-
     # The `EscalationTargets` `data`.
     attr_accessor :data
 

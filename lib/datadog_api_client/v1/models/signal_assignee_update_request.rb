@@ -20,10 +20,8 @@ module DatadogAPIClient::V1
   # Attributes describing an assignee update operation over a security signal.
   class SignalAssigneeUpdateRequest
     include BaseGenericModel
-
     # The UUID of the user being assigned. Use empty string to return signal to unassigned.
     attr_reader :assignee
-
     # Version of the updated signal. If server side version is higher, update will be rejected.
     attr_accessor :version
 

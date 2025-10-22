@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # The retention filters definition.
   class RetentionFilterCreateResponse
     include BaseGenericModel
-
     # The definition of the retention filter.
     attr_accessor :data
 

@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The body of the retention filter to be created.
   class RetentionFilterCreateData
     include BaseGenericModel
-
     # The object describing the configuration of the retention filter to create/update.
     attr_reader :attributes
-
     # The type of the resource.
     attr_reader :type
 

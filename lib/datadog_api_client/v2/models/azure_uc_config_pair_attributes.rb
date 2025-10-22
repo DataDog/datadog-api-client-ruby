@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Attributes for Azure config pair.
   class AzureUCConfigPairAttributes
     include BaseGenericModel
-
     # An Azure config.
     attr_reader :configs
-
     # The ID of the Azure config pair.
     attr_accessor :id
 

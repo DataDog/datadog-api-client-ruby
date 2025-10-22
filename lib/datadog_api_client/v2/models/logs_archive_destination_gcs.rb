@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # The GCS archive destination.
   class LogsArchiveDestinationGCS
     include BaseGenericModel
-
     # The bucket where the archive will be stored.
     attr_reader :bucket
-
     # The GCS archive's integration destination.
     attr_reader :integration
-
     # The archive path.
     attr_accessor :path
-
     # Type of the GCS archive destination.
     attr_reader :type
 

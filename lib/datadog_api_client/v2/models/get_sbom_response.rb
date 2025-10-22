@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # The expected response schema when getting an SBOM.
   class GetSBOMResponse
     include BaseGenericModel
-
     # A single SBOM
     attr_reader :data
 

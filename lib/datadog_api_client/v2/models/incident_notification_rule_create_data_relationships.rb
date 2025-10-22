@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The definition of `NotificationRuleCreateDataRelationships` object.
   class IncidentNotificationRuleCreateDataRelationships
     include BaseGenericModel
-
     # Relationship to an incident type.
     attr_accessor :incident_type
-
     # A relationship reference to a notification template.
     attr_accessor :notification_template
 

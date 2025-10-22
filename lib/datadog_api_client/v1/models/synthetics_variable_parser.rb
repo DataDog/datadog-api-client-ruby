@@ -20,10 +20,8 @@ module DatadogAPIClient::V1
   # Details of the parser to use for the global variable.
   class SyntheticsVariableParser
     include BaseGenericModel
-
     # Type of parser for a Synthetic global variable from a synthetics test.
     attr_reader :type
-
     # Regex or JSON path used for the parser. Not used with type `raw`.
     attr_accessor :value
 

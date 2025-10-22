@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Response for retrieving a partial application key.
   class PartialApplicationKeyResponse
     include BaseGenericModel
-
     # Partial Datadog application key.
     attr_accessor :data
-
     # Array of objects related to the application key.
     attr_accessor :included
 

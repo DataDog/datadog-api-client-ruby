@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # The definition of `AnnotationMarkdownTextAnnotation` object.
   class AnnotationMarkdownTextAnnotation
     include BaseGenericModel
-
     # The `markdownTextAnnotation` `text`.
     attr_accessor :text
 

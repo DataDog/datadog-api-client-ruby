@@ -20,19 +20,14 @@ module DatadogAPIClient::V2
   # The definition of `PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail` object.
   class PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail
     include BaseGenericModel
-
     # The Azure client ID.
     attr_accessor :azure_client_id
-
     # The name of the Azure container.
     attr_accessor :azure_container_name
-
     # The name of the Azure storage account.
     attr_accessor :azure_storage_account_name
-
     # The ID of the Azure tenant.
     attr_accessor :azure_tenant_id
-
     # The relative file path from the Azure container root to the CSV file.
     attr_accessor :file_path
 

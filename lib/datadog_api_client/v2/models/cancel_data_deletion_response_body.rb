@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The response from the cancel data deletion request endpoint.
   class CancelDataDeletionResponseBody
     include BaseGenericModel
-
     # The created data deletion request information.
     attr_accessor :data
-
     # The metadata of the data deletion response.
     attr_accessor :meta
 

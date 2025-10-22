@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Team membership response
   class UserTeamResponse
     include BaseGenericModel
-
     # A user's relationship with a team
     attr_accessor :data
-
     # Resources related to the team memberships
     attr_accessor :included
 

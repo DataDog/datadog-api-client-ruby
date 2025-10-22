@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Object for a single tag configuration to be edited.
   class MetricTagConfigurationUpdateData
     include BaseGenericModel
-
     # Object containing the definition of a metric tag configuration to be updated.
     attr_accessor :attributes
-
     # The metric name for this resource.
     attr_reader :id
-
     # The metric tag configuration resource type.
     attr_reader :type
 

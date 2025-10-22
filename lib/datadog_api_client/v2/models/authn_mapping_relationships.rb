@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # All relationships associated with AuthN Mapping.
   class AuthNMappingRelationships
     include BaseGenericModel
-
     # Relationship to role.
     attr_accessor :role
-
     # AuthN Mapping relationship to SAML Assertion Attribute.
     attr_accessor :saml_assertion_attribute
-
     # Relationship to team.
     attr_accessor :team
 

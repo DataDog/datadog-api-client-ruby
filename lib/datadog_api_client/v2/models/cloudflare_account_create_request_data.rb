@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Data object for creating a Cloudflare account.
   class CloudflareAccountCreateRequestData
     include BaseGenericModel
-
     # Attributes object for creating a Cloudflare account.
     attr_reader :attributes
-
     # The JSON:API type for this API. Should always be `cloudflare-accounts`.
     attr_reader :type
 

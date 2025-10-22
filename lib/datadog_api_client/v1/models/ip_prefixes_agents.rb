@@ -20,10 +20,8 @@ module DatadogAPIClient::V1
   # Available prefix information for the Agent endpoints.
   class IPPrefixesAgents
     include BaseGenericModel
-
     # List of IPv4 prefixes.
     attr_accessor :prefixes_ipv4
-
     # List of IPv6 prefixes.
     attr_accessor :prefixes_ipv6
 

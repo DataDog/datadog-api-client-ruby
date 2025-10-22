@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Relates a team to this schedule, identified by `id` and `type` (must be `teams`).
   class DataRelationshipsTeamsDataItems
     include BaseGenericModel
-
     # The unique identifier of the team in this relationship.
     attr_reader :id
-
     # Teams resource type.
     attr_reader :type
 

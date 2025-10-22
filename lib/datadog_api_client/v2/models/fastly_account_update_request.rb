@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Payload schema when updating a Fastly account.
   class FastlyAccountUpdateRequest
     include BaseGenericModel
-
     # Data object for updating a Fastly account.
     attr_reader :data
 

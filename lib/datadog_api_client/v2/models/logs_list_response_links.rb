@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Links attributes.
   class LogsListResponseLinks
     include BaseGenericModel
-
     # Link for the next set of results. Note that the request can also be made using the
     # POST endpoint.
     attr_accessor :_next

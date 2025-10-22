@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Edit request for a dataset.
   class DatasetUpdateRequest
     include BaseGenericModel
-
     # **Datasets Object Constraints**
     # - **Tag limit per dataset**:
     #   - Each restricted dataset supports a maximum of 10 key:value pairs per product.

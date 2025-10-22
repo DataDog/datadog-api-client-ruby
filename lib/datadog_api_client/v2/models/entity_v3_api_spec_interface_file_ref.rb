@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # The definition of `EntityV3APISpecInterfaceFileRef` object.
   class EntityV3APISpecInterfaceFileRef
     include BaseGenericModel
-
     # The reference to the API definition file.
     attr_accessor :file_ref
 

@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # The definition of `ArbitraryCostUpsertRequestData` object.
   class ArbitraryCostUpsertRequestData
     include BaseGenericModel
-
     # The definition of `ArbitraryCostUpsertRequestDataAttributes` object.
     attr_accessor :attributes
-
     # The `ArbitraryCostUpsertRequestData` `id`.
     attr_accessor :id
-
     # Upsert arbitrary rule resource type.
     attr_reader :type
 

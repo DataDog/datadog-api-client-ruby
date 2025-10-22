@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Response object which includes a single metric's volume.
   class MetricVolumesResponse
     include BaseGenericModel
-
     # Possible response objects for a metric's volume.
     attr_accessor :data
 

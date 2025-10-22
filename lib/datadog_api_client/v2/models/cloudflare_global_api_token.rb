@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # The definition of the `CloudflareGlobalAPIToken` object.
   class CloudflareGlobalAPIToken
     include BaseGenericModel
-
     # The `CloudflareGlobalAPIToken` `auth_email`.
     attr_reader :auth_email
-
     # The `CloudflareGlobalAPIToken` `global_api_key`.
     attr_reader :global_api_key
-
     # The definition of the `CloudflareGlobalAPIToken` object.
     attr_reader :type
 

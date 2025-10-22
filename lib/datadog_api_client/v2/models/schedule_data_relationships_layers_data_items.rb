@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Relates a layer to this schedule, identified by `id` and `type` (must be `layers`).
   class ScheduleDataRelationshipsLayersDataItems
     include BaseGenericModel
-
     # The unique identifier of the layer in this relationship.
     attr_reader :id
-
     # Layers resource type.
     attr_reader :type
 

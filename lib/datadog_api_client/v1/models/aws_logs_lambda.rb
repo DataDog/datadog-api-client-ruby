@@ -20,7 +20,6 @@ module DatadogAPIClient::V1
   # Description of the Lambdas.
   class AWSLogsLambda
     include BaseGenericModel
-
     # Available ARN IDs.
     attr_accessor :arn
 

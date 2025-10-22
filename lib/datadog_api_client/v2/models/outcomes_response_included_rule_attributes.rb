@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Details of a rule.
   class OutcomesResponseIncludedRuleAttributes
     include BaseGenericModel
-
     # Name of the rule.
     attr_accessor :name
-
     # The scorecard name to which this rule must belong.
     attr_accessor :scorecard_name
 

@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Org related information about the service.
   class ServiceDefinitionV1Org
     include BaseGenericModel
-
     # App feature this service supports.
     attr_accessor :application
-
     # Team that owns the service.
     attr_accessor :team
 

@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # A time and space aggregation combination for use in query.
   class MetricCustomAggregation
     include BaseGenericModel
-
     # A space aggregation for use in query.
     attr_reader :space
-
     # A time aggregation for use in query.
     attr_reader :time
 

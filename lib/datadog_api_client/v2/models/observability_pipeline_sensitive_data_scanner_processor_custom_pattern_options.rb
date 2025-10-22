@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Options for defining a custom regex pattern.
   class ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOptions
     include BaseGenericModel
-
     # A regular expression used to detect sensitive values. Must be a valid regex.
     attr_reader :rule
 

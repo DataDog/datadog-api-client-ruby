@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Historical job response.
   class HistoricalJobResponse
     include BaseGenericModel
-
     # Historical job response data.
     attr_accessor :data
 

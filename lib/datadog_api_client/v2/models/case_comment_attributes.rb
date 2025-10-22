@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Case comment attributes
   class CaseCommentAttributes
     include BaseGenericModel
-
     # The `CaseCommentAttributes` `message`.
     attr_reader :comment
 

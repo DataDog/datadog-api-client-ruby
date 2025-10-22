@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # A single Org Config.
   class OrgConfigRead
     include BaseGenericModel
-
     # Readable attributes of an Org Config.
     attr_reader :attributes
-
     # A unique identifier for an Org Config.
     attr_reader :id
-
     # Data type of an Org Config.
     attr_reader :type
 

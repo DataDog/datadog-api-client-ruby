@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Provides a reference to a team, including ID, type, and basic attributes/relationships.
   class TeamReference
     include BaseGenericModel
-
     # Encapsulates the basic attributes of a Team reference, such as name, handle, and an optional avatar or description.
     attr_accessor :attributes
-
     # The team's unique identifier.
     attr_accessor :id
-
     # Teams resource type.
     attr_reader :type
 

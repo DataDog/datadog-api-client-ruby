@@ -20,10 +20,8 @@ module DatadogAPIClient::V1
   # Updated funnel widget.
   class FunnelWidgetRequest
     include BaseGenericModel
-
     # Updated funnel widget.
     attr_reader :query
-
     # Widget request type.
     attr_reader :request_type
 

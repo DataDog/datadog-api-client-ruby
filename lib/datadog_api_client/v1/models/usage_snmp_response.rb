@@ -20,7 +20,6 @@ module DatadogAPIClient::V1
   # Response containing the number of SNMP devices for each hour for a given organization.
   class UsageSNMPResponse
     include BaseGenericModel
-
     # Get hourly usage for SNMP devices.
     attr_accessor :usage
 

@@ -20,62 +20,43 @@ module DatadogAPIClient::V2
   # Details of a CI step.
   class CIAppPipelineEventStep
     include BaseGenericModel
-
     # Time when the step run finished. The time format must be RFC3339.
     attr_reader :_end
-
     # Contains information of the CI error.
     attr_accessor :error
-
     # If pipelines are triggered due to actions to a Git repository, then all payloads must contain this.
     # Note that either `tag` or `branch` has to be provided, but not both.
     attr_accessor :git
-
     # UUID for the step. It has to be unique within each pipeline execution.
     attr_reader :id
-
     # The parent job UUID (if applicable).
     attr_accessor :job_id
-
     # The parent job name (if applicable).
     attr_accessor :job_name
-
     # Used to distinguish between pipelines, stages, jobs and steps.
     attr_reader :level
-
     # A list of user-defined metrics. The metrics must follow the `key:value` pattern and the value must be numeric.
     attr_accessor :metrics
-
     # The name for the step.
     attr_reader :name
-
     # Contains information of the host running the pipeline, stage, job, or step.
     attr_accessor :node
-
     # A map of key-value parameters or environment variables that were defined for the pipeline.
     attr_accessor :parameters
-
     # The parent pipeline name.
     attr_reader :pipeline_name
-
     # The parent pipeline UUID.
     attr_reader :pipeline_unique_id
-
     # The parent stage UUID (if applicable).
     attr_accessor :stage_id
-
     # The parent stage name (if applicable).
     attr_accessor :stage_name
-
     # Time when the step run started. The time format must be RFC3339.
     attr_reader :start
-
     # The final status of the step.
     attr_reader :status
-
     # A list of user-defined tags. The tags must follow the `key:value` pattern.
     attr_accessor :tags
-
     # The URL to look at the step in the CI provider UI.
     attr_accessor :url
 

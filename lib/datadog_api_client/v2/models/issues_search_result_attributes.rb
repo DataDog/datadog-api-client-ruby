@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Object containing the information of a search result.
   class IssuesSearchResultAttributes
     include BaseGenericModel
-
     # Count of sessions impacted by the issue over the queried time window.
     attr_accessor :impacted_sessions
-
     # Count of users impacted by the issue over the queried time window.
     attr_accessor :impacted_users
-
     # Total count of errors that match the issue over the queried time window.
     attr_accessor :total_count
 

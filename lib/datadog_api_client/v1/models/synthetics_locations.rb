@@ -20,7 +20,6 @@ module DatadogAPIClient::V1
   # List of Synthetic locations.
   class SyntheticsLocations
     include BaseGenericModel
-
     # List of Synthetic locations.
     attr_accessor :locations
 

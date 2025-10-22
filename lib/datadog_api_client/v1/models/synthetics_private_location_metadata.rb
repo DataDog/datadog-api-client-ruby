@@ -20,7 +20,6 @@ module DatadogAPIClient::V1
   # Object containing metadata about the private location.
   class SyntheticsPrivateLocationMetadata
     include BaseGenericModel
-
     # A list of role identifiers that can be pulled from the Roles API, for restricting read and write access.
     attr_accessor :restricted_roles
 

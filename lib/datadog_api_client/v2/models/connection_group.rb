@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # The definition of `ConnectionGroup` object.
   class ConnectionGroup
     include BaseGenericModel
-
     # The `ConnectionGroup` `connectionGroupId`.
     attr_reader :connection_group_id
-
     # The `ConnectionGroup` `label`.
     attr_reader :label
-
     # The `ConnectionGroup` `tags`.
     attr_reader :tags
 

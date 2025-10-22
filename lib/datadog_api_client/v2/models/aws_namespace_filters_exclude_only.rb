@@ -21,7 +21,6 @@ module DatadogAPIClient::V2
   # `AWS/SQS`, `AWS/ElasticMapReduce`, and `AWS/Usage` are excluded by default to reduce your AWS CloudWatch costs from `GetMetricData` API calls.
   class AWSNamespaceFiltersExcludeOnly
     include BaseGenericModel
-
     # Exclude only these namespaces from metrics collection. Defaults to `["AWS/SQS", "AWS/ElasticMapReduce", "AWS/Usage"]`.
     # `AWS/SQS`, `AWS/ElasticMapReduce`, and `AWS/Usage` are excluded by default to reduce your AWS CloudWatch costs from `GetMetricData` API calls.
     attr_reader :exclude_only

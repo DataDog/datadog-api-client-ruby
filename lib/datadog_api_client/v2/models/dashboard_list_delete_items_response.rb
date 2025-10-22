@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Response containing a list of deleted dashboards.
   class DashboardListDeleteItemsResponse
     include BaseGenericModel
-
     # List of dashboards deleted from the dashboard list.
     attr_accessor :deleted_dashboards_from_list
 

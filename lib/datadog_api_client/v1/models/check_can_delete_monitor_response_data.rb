@@ -20,7 +20,6 @@ module DatadogAPIClient::V1
   # Wrapper object with the list of monitor IDs.
   class CheckCanDeleteMonitorResponseData
     include BaseGenericModel
-
     # An array of Monitor IDs that can be safely deleted.
     attr_accessor :ok
 

@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Holds an array of references to the members of a Layer, each containing member IDs.
   class LayerRelationshipsMembers
     include BaseGenericModel
-
     # The list of members who belong to this layer.
     attr_accessor :data
 

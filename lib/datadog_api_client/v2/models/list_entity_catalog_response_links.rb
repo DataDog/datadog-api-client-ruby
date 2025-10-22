@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # List entity response links.
   class ListEntityCatalogResponseLinks
     include BaseGenericModel
-
     # Next link.
     attr_accessor :_next
-
     # Previous link.
     attr_accessor :previous
-
     # Current link.
     attr_accessor :_self
 

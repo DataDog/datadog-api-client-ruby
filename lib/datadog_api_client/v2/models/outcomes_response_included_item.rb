@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Attributes of the included rule.
   class OutcomesResponseIncludedItem
     include BaseGenericModel
-
     # Details of a rule.
     attr_accessor :attributes
-
     # The unique ID for a scorecard rule.
     attr_accessor :id
-
     # The JSON:API type for scorecard rules.
     attr_accessor :type
 

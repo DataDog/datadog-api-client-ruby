@@ -24,10 +24,8 @@ module DatadogAPIClient::V2
   # For example, `env:production,instance-type:c?.*,!region:us-east-1`.
   class AWSNamespaceTagFilter
     include BaseGenericModel
-
     # The AWS service for which the tag filters defined in `tags` will be applied.
     attr_accessor :namespace
-
     # The AWS resource tags to filter on for the service specified by `namespace`.
     attr_accessor :tags
 

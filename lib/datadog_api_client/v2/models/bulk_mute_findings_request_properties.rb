@@ -20,17 +20,13 @@ module DatadogAPIClient::V2
   # Object containing the new mute properties of the findings.
   class BulkMuteFindingsRequestProperties
     include BaseGenericModel
-
     # Additional information about the reason why those findings are muted or unmuted. This field has a maximum limit of 280 characters.
     attr_accessor :description
-
     # The expiration date of the mute or unmute action (Unix ms). It must be set to a value greater than the current timestamp.
     # If this field is not provided, the finding will be muted or unmuted indefinitely, which is equivalent to setting the expiration date to 9999999999999.
     attr_accessor :expiration_date
-
     # Whether those findings should be muted or unmuted.
     attr_reader :muted
-
     # The reason why this finding is muted or unmuted.
     attr_reader :reason
 

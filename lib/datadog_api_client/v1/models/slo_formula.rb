@@ -20,7 +20,6 @@ module DatadogAPIClient::V1
   # A formula that specifies how to combine the results of multiple queries.
   class SLOFormula
     include BaseGenericModel
-
     # The formula string, which is an expression involving named queries.
     attr_reader :formula
 

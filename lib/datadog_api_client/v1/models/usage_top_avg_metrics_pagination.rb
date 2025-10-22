@@ -20,13 +20,10 @@ module DatadogAPIClient::V1
   # The metadata for the current pagination.
   class UsageTopAvgMetricsPagination
     include BaseGenericModel
-
     # Maximum amount of records to be returned.
     attr_accessor :limit
-
     # The cursor to get the next results (if any). To make the next request, use the same parameters and add `next_record_id`.
     attr_accessor :next_record_id
-
     # Total number of records.
     attr_accessor :total_number_of_records
 

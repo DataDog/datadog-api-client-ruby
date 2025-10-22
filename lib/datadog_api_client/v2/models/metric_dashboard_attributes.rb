@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # Attributes related to the dashboard, including title, popularity, and url.
   class MetricDashboardAttributes
     include BaseGenericModel
-
     # Value from 0 to 5 that ranks popularity of the dashboard.
     attr_reader :popularity
-
     # List of tag keys used in the asset.
     attr_accessor :tags
-
     # Title of the asset.
     attr_accessor :title
-
     # URL path of the asset.
     attr_accessor :url
 

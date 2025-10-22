@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Metadata of the user that has uploaded the Custom Costs file.
   class CustomCostsUser
     include BaseGenericModel
-
     # The name of the Custom Costs file.
     attr_accessor :email
-
     # The name of the Custom Costs file.
     attr_accessor :icon
-
     # Name of the user.
     attr_accessor :name
 

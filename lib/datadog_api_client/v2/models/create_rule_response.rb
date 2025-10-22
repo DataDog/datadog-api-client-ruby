@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Created rule in response.
   class CreateRuleResponse
     include BaseGenericModel
-
     # Create rule response data.
     attr_accessor :data
 

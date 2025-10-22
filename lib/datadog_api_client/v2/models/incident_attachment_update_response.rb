@@ -20,11 +20,9 @@ module DatadogAPIClient::V2
   # The response object containing the created or updated incident attachments.
   class IncidentAttachmentUpdateResponse
     include BaseGenericModel
-
     # An array of incident attachments. Only the attachments that were created or updated by the request are
     # returned.
     attr_reader :data
-
     # Included related resources that the user requested.
     attr_accessor :included
 

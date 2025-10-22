@@ -20,11 +20,9 @@ module DatadogAPIClient::V1
   # Configuration for a GCP monitored resource.
   class GCPMonitoredResourceConfig
     include BaseGenericModel
-
     # List of filters to limit the monitored resources that are pulled into Datadog by using tags.
     # Only monitored resources that apply to specified filters are imported into Datadog.
     attr_accessor :filters
-
     # The GCP monitored resource type. Only a subset of resource types are supported.
     attr_accessor :type
 

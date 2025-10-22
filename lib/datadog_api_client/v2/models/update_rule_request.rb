@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Request to update a scorecard rule.
   class UpdateRuleRequest
     include BaseGenericModel
-
     # Data for the request to update a scorecard rule.
     attr_accessor :data
 

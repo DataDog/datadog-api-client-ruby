@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Attributes describing the new assignee of a security signal.
   class SecurityMonitoringSignalAssigneeUpdateAttributes
     include BaseGenericModel
-
     # Object representing a given user entity.
     attr_reader :assignee
-
     # Version of the updated signal. If server side version is higher, update will be rejected.
     attr_accessor :version
 

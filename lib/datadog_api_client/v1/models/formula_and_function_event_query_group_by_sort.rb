@@ -20,13 +20,10 @@ module DatadogAPIClient::V1
   # Options for sorting group by results.
   class FormulaAndFunctionEventQueryGroupBySort
     include BaseGenericModel
-
     # Aggregation methods for event platform queries.
     attr_reader :aggregation
-
     # Metric used for sorting group by results.
     attr_accessor :metric
-
     # Direction of sort.
     attr_accessor :order
 

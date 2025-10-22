@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Relationship of AuthN Mapping to a Role.
   class AuthNMappingRelationshipToRole
     include BaseGenericModel
-
     # Relationship to role.
     attr_reader :role
 

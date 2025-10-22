@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Pagination metadata returned by the API.
   class DowntimeMeta
     include BaseGenericModel
-
     # Object containing the total filtered count.
     attr_accessor :page
 

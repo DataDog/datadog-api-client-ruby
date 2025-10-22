@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # Defines a single escalation step within an escalation policy update request. Contains assignment strategy, escalation timeout, an optional step ID, and a list of targets.
   class EscalationPolicyUpdateRequestDataAttributesStepsItems
     include BaseGenericModel
-
     # Specifies how this escalation step will assign targets (example `default` or `round-robin`).
     attr_accessor :assignment
-
     # Defines how many seconds to wait before escalating to the next step.
     attr_accessor :escalate_after_seconds
-
     # Specifies the unique identifier of this step.
     attr_accessor :id
-
     # Specifies the collection of escalation targets for this step.
     attr_reader :targets
 

@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # The new log-based metric properties.
   class LogsMetricCreateData
     include BaseGenericModel
-
     # The object describing the Datadog log-based metric to create.
     attr_reader :attributes
-
     # The name of the log-based metric.
     attr_reader :id
-
     # The type of the resource. The value should always be logs_metrics.
     attr_reader :type
 

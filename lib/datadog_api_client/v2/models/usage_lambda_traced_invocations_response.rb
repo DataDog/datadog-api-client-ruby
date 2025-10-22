@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Lambda Traced Invocations usage response.
   class UsageLambdaTracedInvocationsResponse
     include BaseGenericModel
-
     # Response containing Lambda Traced Invocations usage.
     attr_accessor :data
 

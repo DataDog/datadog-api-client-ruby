@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Meta object containing the findings to be updated.
   class BulkMuteFindingsRequestMeta
     include BaseGenericModel
-
     # Array of findings.
     attr_accessor :findings
 

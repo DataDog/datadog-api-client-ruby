@@ -20,7 +20,6 @@ module DatadogAPIClient::V1
   # Object with all Index configurations for a given organization.
   class LogsIndexListResponse
     include BaseGenericModel
-
     # Array of Log index configurations.
     attr_accessor :indexes
 

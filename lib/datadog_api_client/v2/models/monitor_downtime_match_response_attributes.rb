@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # Downtime match details.
   class MonitorDowntimeMatchResponseAttributes
     include BaseGenericModel
-
     # The end of the downtime.
     attr_accessor :_end
-
     # An array of groups associated with the downtime.
     attr_accessor :groups
-
     # The scope to which the downtime applies. Must follow the [common search syntax](https://docs.datadoghq.com/logs/explorer/search_syntax/).
     attr_accessor :scope
-
     # The start of the downtime.
     attr_accessor :start
 

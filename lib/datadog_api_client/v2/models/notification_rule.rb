@@ -23,13 +23,10 @@ module DatadogAPIClient::V2
   # A notification rule is composed of a rule ID, a rule type, and the rule attributes. All fields are required.
   class NotificationRule
     include BaseGenericModel
-
     # Attributes of the notification rule.
     attr_reader :attributes
-
     # The ID of a notification rule.
     attr_reader :id
-
     # The rule type associated to notification rules.
     attr_reader :type
 

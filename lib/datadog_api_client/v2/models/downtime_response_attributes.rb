@@ -20,44 +20,32 @@ module DatadogAPIClient::V2
   # Downtime details.
   class DowntimeResponseAttributes
     include BaseGenericModel
-
     # Time that the downtime was canceled.
     attr_accessor :canceled
-
     # Creation time of the downtime.
     attr_accessor :created
-
     # The timezone in which to display the downtime's start and end times in Datadog applications. This is not used
     # as an offset for scheduling.
     attr_accessor :display_timezone
-
     # A message to include with notifications for this downtime. Email notifications can be sent to specific users
     # by using the same `@username` notation as events.
     attr_accessor :message
-
     # Time that the downtime was last modified.
     attr_accessor :modified
-
     # Monitor identifier for the downtime.
     attr_accessor :monitor_identifier
-
     # If the first recovery notification during a downtime should be muted.
     attr_accessor :mute_first_recovery_notification
-
     # States that will trigger a monitor notification when the `notify_end_types` action occurs.
     attr_accessor :notify_end_states
-
     # Actions that will trigger a monitor notification if the downtime is in the `notify_end_types` state.
     attr_accessor :notify_end_types
-
     # The schedule that defines when the monitor starts, stops, and recurs. There are two types of schedules:
     # one-time and recurring. Recurring schedules may have up to five RRULE-based recurrences. If no schedules are
     # provided, the downtime will begin immediately and never end.
     attr_accessor :schedule
-
     # The scope to which the downtime applies. Must follow the [common search syntax](https://docs.datadoghq.com/logs/explorer/search_syntax/).
     attr_accessor :scope
-
     # The current status of the downtime.
     attr_accessor :status
 

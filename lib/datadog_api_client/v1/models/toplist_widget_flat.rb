@@ -20,7 +20,6 @@ module DatadogAPIClient::V1
   # Top list widget flat display.
   class ToplistWidgetFlat
     include BaseGenericModel
-
     # Top list widget flat display type.
     attr_reader :type
 

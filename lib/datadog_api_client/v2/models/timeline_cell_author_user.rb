@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # timeline cell user author
   class TimelineCellAuthorUser
     include BaseGenericModel
-
     # user author content.
     attr_accessor :content
-
     # user author type.
     attr_accessor :type
 

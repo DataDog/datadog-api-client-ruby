@@ -20,16 +20,12 @@ module DatadogAPIClient::V1
   # Incident management usage for a given organization for a given hour.
   class UsageIncidentManagementHour
     include BaseGenericModel
-
     # The hour for the usage.
     attr_accessor :hour
-
     # Contains the total number monthly active users from the start of the given hour's month until the given hour.
     attr_accessor :monthly_active_users
-
     # The organization name.
     attr_accessor :org_name
-
     # The organization public ID.
     attr_accessor :public_id
 

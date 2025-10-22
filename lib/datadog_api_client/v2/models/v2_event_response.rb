@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Get an event response.
   class V2EventResponse
     include BaseGenericModel
-
     # An event object.
     attr_accessor :data
 

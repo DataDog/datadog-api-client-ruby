@@ -20,31 +20,22 @@ module DatadogAPIClient::V1
   # The steps used in a Synthetic mobile test.
   class SyntheticsMobileStep
     include BaseGenericModel
-
     # A boolean set to allow this step to fail.
     attr_accessor :allow_failure
-
     # A boolean set to determine if the step has a new step element.
     attr_accessor :has_new_step_element
-
     # A boolean to use in addition to `allowFailure` to determine if the test should be marked as failed when the step fails.
     attr_accessor :is_critical
-
     # The name of the step.
     attr_reader :name
-
     # A boolean set to not take a screenshot for the step.
     attr_accessor :no_screenshot
-
     # The parameters of a mobile step.
     attr_reader :params
-
     # The public ID of the step.
     attr_accessor :public_id
-
     # The time before declaring a step failed.
     attr_accessor :timeout
-
     # Step type used in your mobile Synthetic test.
     attr_reader :type
 

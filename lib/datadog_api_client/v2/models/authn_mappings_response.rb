@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Array of AuthN Mappings response.
   class AuthNMappingsResponse
     include BaseGenericModel
-
     # Array of returned AuthN Mappings.
     attr_accessor :data
-
     # Included data in the AuthN Mapping response.
     attr_accessor :included
-
     # Object describing meta attributes of response.
     attr_accessor :meta
 

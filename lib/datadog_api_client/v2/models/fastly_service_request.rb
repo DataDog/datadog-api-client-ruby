@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Payload schema for Fastly service requests.
   class FastlyServiceRequest
     include BaseGenericModel
-
     # Data object for Fastly service requests.
     attr_reader :data
 

@@ -20,7 +20,6 @@ module DatadogAPIClient::V1
   # Represent validation endpoint responses.
   class AuthenticationValidationResponse
     include BaseGenericModel
-
     # Return `true` if the authentication response is valid.
     attr_accessor :valid
 

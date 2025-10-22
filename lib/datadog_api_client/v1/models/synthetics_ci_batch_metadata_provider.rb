@@ -20,7 +20,6 @@ module DatadogAPIClient::V1
   # Description of the CI provider.
   class SyntheticsCIBatchMetadataProvider
     include BaseGenericModel
-
     # Name of the CI provider.
     attr_accessor :name
 

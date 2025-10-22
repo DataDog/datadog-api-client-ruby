@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # Encapsulates the basic attributes of a Team reference, such as name, handle, and an optional avatar or description.
   class TeamReferenceAttributes
     include BaseGenericModel
-
     # URL or reference for the team's avatar (if available).
     attr_accessor :avatar
-
     # A short text describing the team.
     attr_accessor :description
-
     # A unique handle/slug for the team.
     attr_accessor :handle
-
     # The full, human-readable name of the team.
     attr_accessor :name
 

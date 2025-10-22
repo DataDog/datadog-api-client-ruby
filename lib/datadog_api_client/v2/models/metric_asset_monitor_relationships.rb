@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # A object containing the list of monitors that can be referenced in the `included` data.
   class MetricAssetMonitorRelationships
     include BaseGenericModel
-
     # A list of monitors that can be referenced in the `included` data.
     attr_accessor :data
 

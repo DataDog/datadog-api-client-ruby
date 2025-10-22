@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # A uniquely identified resource.
   class ChangeEventAttributesImpactedResourcesItem
     include BaseGenericModel
-
     # The name of the impacted resource.
     attr_accessor :name
-
     # The type of the impacted resource.
     attr_accessor :type
 

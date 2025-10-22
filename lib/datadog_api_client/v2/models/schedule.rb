@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Top-level container for a schedule object, including both the `data` payload and any related `included` resources (such as teams, layers, or members).
   class Schedule
     include BaseGenericModel
-
     # Represents the primary data object for a schedule, linking attributes and relationships.
     attr_accessor :data
-
     # Any additional resources related to this schedule, such as teams and layers.
     attr_accessor :included
 

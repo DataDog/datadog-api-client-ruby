@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Relationship to incident user defined fields.
   class RelationshipToIncidentUserDefinedFields
     include BaseGenericModel
-
     # An array of user defined fields.
     attr_reader :data
 

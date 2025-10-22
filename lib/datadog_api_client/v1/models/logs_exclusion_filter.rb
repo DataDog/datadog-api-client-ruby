@@ -20,11 +20,9 @@ module DatadogAPIClient::V1
   # Exclusion filter is defined by a query, a sampling rule, and a active/inactive toggle.
   class LogsExclusionFilter
     include BaseGenericModel
-
     # Default query is `*`, meaning all logs flowing in the index would be excluded.
     # Scope down exclusion filter to only a subset of logs with a log query.
     attr_accessor :query
-
     # Sample rate to apply to logs going through this exclusion filter,
     # a value of 1.0 excludes all logs matching the query.
     attr_reader :sample_rate

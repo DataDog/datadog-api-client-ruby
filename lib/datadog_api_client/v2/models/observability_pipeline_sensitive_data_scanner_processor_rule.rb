@@ -20,22 +20,16 @@ module DatadogAPIClient::V2
   # Defines a rule for detecting sensitive data, including matching pattern, scope, and the action to take.
   class ObservabilityPipelineSensitiveDataScannerProcessorRule
     include BaseGenericModel
-
     # Configuration for keywords used to reinforce sensitive data pattern detection.
     attr_accessor :keyword_options
-
     # A name identifying the rule.
     attr_reader :name
-
     # Defines what action to take when sensitive data is matched.
     attr_reader :on_match
-
     # Pattern detection configuration for identifying sensitive data using either a custom regex or a library reference.
     attr_reader :pattern
-
     # Determines which parts of the log the pattern-matching rule should be applied to.
     attr_reader :scope
-
     # Tags assigned to this rule for filtering and classification.
     attr_reader :tags
 

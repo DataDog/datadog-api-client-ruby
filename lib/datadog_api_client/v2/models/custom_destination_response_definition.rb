@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # The definition of a custom destination.
   class CustomDestinationResponseDefinition
     include BaseGenericModel
-
     # The attributes associated with the custom destination.
     attr_accessor :attributes
-
     # The custom destination ID.
     attr_accessor :id
-
     # The type of the resource. The value should always be `custom_destination`.
     attr_accessor :type
 

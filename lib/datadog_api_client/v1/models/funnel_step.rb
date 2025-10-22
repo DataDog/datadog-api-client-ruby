@@ -20,10 +20,8 @@ module DatadogAPIClient::V1
   # The funnel step.
   class FunnelStep
     include BaseGenericModel
-
     # The facet of the step.
     attr_reader :facet
-
     # The value of the step.
     attr_reader :value
 

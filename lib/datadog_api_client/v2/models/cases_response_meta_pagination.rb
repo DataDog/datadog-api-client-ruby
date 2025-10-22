@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Pagination metadata
   class CasesResponseMetaPagination
     include BaseGenericModel
-
     # Current page number
     attr_accessor :current
-
     # Number of cases in current page
     attr_accessor :size
-
     # Total number of pages
     attr_accessor :total
 

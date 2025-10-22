@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Single AWS Scan Options entry.
   class AwsScanOptionsData
     include BaseGenericModel
-
     # Attributes for the AWS scan options.
     attr_accessor :attributes
-
     # The ID of the AWS account.
     attr_accessor :id
-
     # The type of the resource. The value should always be `aws_scan_options`.
     attr_accessor :type
 

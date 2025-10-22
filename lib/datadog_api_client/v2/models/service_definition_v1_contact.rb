@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Contact information about the service.
   class ServiceDefinitionV1Contact
     include BaseGenericModel
-
     # Service owner’s email.
     attr_accessor :email
-
     # Service owner’s Slack channel.
     attr_accessor :slack
 

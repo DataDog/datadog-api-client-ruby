@@ -20,7 +20,6 @@ module DatadogAPIClient::V1
   # The Response returned by the AWS Create Account call.
   class AWSAccountCreateResponse
     include BaseGenericModel
-
     # AWS external_id.
     attr_accessor :external_id
 

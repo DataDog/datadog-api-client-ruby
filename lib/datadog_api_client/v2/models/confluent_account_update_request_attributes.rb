@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Attributes object for updating a Confluent account.
   class ConfluentAccountUpdateRequestAttributes
     include BaseGenericModel
-
     # The API key associated with your Confluent account.
     attr_reader :api_key
-
     # The API secret associated with your Confluent account.
     attr_reader :api_secret
-
     # A list of strings representing tags. Can be a single key, or key-value pairs separated by a colon.
     attr_accessor :tags
 

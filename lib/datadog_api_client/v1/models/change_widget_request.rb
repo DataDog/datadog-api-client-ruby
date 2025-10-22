@@ -20,58 +20,40 @@ module DatadogAPIClient::V1
   # Updated change widget.
   class ChangeWidgetRequest
     include BaseGenericModel
-
     # The log query.
     attr_accessor :apm_query
-
     # Show the absolute or the relative change.
     attr_accessor :change_type
-
     # Timeframe used for the change comparison.
     attr_accessor :compare_to
-
     # The log query.
     attr_accessor :event_query
-
     # List of formulas that operate on queries.
     attr_accessor :formulas
-
     # Whether to show increase as good.
     attr_accessor :increase_good
-
     # The log query.
     attr_accessor :log_query
-
     # The log query.
     attr_accessor :network_query
-
     # What to order by.
     attr_accessor :order_by
-
     # Widget sorting methods.
     attr_accessor :order_dir
-
     # The process query to use in the widget.
     attr_accessor :process_query
-
     # The log query.
     attr_accessor :profile_metrics_query
-
     # Query definition.
     attr_accessor :q
-
     # List of queries that can be returned directly or used in formulas.
     attr_accessor :queries
-
     # Timeseries, scalar, or event list response. Event list response formats are supported by Geomap widgets.
     attr_accessor :response_format
-
     # The log query.
     attr_accessor :rum_query
-
     # The log query.
     attr_accessor :security_query
-
     # Whether to show the present value.
     attr_accessor :show_present
 

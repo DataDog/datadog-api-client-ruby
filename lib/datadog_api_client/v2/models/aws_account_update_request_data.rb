@@ -20,15 +20,12 @@ module DatadogAPIClient::V2
   # AWS Account Update Request data.
   class AWSAccountUpdateRequestData
     include BaseGenericModel
-
     # The AWS Account Integration Config to be updated.
     attr_reader :attributes
-
     # Unique Datadog ID of the AWS Account Integration Config.
     # To get the config ID for an account, use the [List all AWS integrations](https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations)
     # endpoint and query by AWS Account ID.
     attr_accessor :id
-
     # AWS Account resource type.
     attr_reader :type
 

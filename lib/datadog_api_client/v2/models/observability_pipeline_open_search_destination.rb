@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # The `opensearch` destination writes logs to an OpenSearch cluster.
   class ObservabilityPipelineOpenSearchDestination
     include BaseGenericModel
-
     # The index to write logs to.
     attr_accessor :bulk_index
-
     # The unique identifier for this component.
     attr_reader :id
-
     # A list of component IDs whose output is used as the `input` for this component.
     attr_reader :inputs
-
     # The destination type. The value should always be `opensearch`.
     attr_reader :type
 

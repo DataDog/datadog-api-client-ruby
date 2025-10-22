@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # Represents a routing rule, including its attributes, relationships, and unique identifier.
   class RoutingRule
     include BaseGenericModel
-
     # Defines the configurable attributes of a routing rule, such as actions, query, time restriction, and urgency.
     attr_accessor :attributes
-
     # Specifies the unique identifier of this routing rule.
     attr_accessor :id
-
     # Specifies relationships for a routing rule, linking to associated policy resources.
     attr_accessor :relationships
-
     # Team routing rules resource type.
     attr_reader :type
 

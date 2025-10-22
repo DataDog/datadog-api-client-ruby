@@ -20,10 +20,8 @@ module DatadogAPIClient::V1
   # Description of errors.
   class AWSLogsAsyncError
     include BaseGenericModel
-
     # Code properties
     attr_accessor :code
-
     # Message content.
     attr_accessor :message
 

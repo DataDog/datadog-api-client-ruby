@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Options for scheduled rules. When this field is present, the rule runs based on the schedule. When absent, it runs real-time on ingested logs.
   class SecurityMonitoringSchedulingOptions
     include BaseGenericModel
-
     # Schedule for the rule queries, written in RRULE syntax. See [RFC](https://icalendar.org/iCalendar-RFC-5545/3-8-5-3-recurrence-rule.html) for syntax reference.
     attr_accessor :rrule
-
     # Start date for the schedule, in ISO 8601 format without timezone.
     attr_accessor :start
-
     # Time zone of the start date, in the [tz database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) format.
     attr_accessor :timezone
 

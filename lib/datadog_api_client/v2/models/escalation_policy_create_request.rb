@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Represents a request to create a new escalation policy, including the policy data.
   class EscalationPolicyCreateRequest
     include BaseGenericModel
-
     # Represents the data for creating an escalation policy, including its attributes, relationships, and resource type.
     attr_reader :data
 

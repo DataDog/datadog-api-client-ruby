@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Single Azure scan options entry.
   class AzureScanOptionsData
     include BaseGenericModel
-
     # Attributes for Azure scan options configuration.
     attr_accessor :attributes
-
     # The Azure subscription ID.
     attr_reader :id
-
     # The type of the resource. The value should always be `azure_scan_options`.
     attr_reader :type
 

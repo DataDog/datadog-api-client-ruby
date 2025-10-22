@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Defines a relationship item to link a routing rule by its ID and type.
   class TeamRoutingRulesDataRelationshipsRulesDataItems
     include BaseGenericModel
-
     # Specifies the unique identifier for the related routing rule.
     attr_reader :id
-
     # Indicates that the resource is of type 'team_routing_rules'.
     attr_reader :type
 

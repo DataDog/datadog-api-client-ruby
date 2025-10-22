@@ -21,10 +21,8 @@ module DatadogAPIClient::V2
   # Only supply timezone or time offset, not both. Otherwise, the query fails.
   class CIAppQueryOptions
     include BaseGenericModel
-
     # The time offset (in seconds) to apply to the query.
     attr_accessor :time_offset
-
     # The timezone can be specified as GMT, UTC, an offset from UTC (like UTC+1), or as a Timezone Database identifier (like America/New_York).
     attr_accessor :timezone
 

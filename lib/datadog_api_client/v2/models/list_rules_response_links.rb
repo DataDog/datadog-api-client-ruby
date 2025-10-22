@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Links attributes.
   class ListRulesResponseLinks
     include BaseGenericModel
-
     # Link for the next set of rules.
     attr_accessor :_next
 

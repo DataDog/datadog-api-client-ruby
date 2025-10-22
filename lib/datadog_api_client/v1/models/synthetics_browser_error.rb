@@ -20,16 +20,12 @@ module DatadogAPIClient::V1
   # Error response object for a browser test.
   class SyntheticsBrowserError
     include BaseGenericModel
-
     # Description of the error.
     attr_reader :description
-
     # Name of the error.
     attr_reader :name
-
     # Status Code of the error.
     attr_accessor :status
-
     # Error type returned by a browser test.
     attr_reader :type
 

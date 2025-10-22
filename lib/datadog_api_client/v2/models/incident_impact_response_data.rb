@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # Incident impact data from a response.
   class IncidentImpactResponseData
     include BaseGenericModel
-
     # The incident impact's attributes.
     attr_accessor :attributes
-
     # The incident impact's ID.
     attr_reader :id
-
     # The incident impact's resource relationships.
     attr_accessor :relationships
-
     # Incident impact resource type.
     attr_reader :type
 

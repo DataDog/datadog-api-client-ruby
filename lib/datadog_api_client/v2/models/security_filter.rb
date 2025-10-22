@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # The security filter's properties.
   class SecurityFilter
     include BaseGenericModel
-
     # The object describing a security filter.
     attr_accessor :attributes
-
     # The ID of the security filter.
     attr_accessor :id
-
     # The type of the resource. The value should always be `security_filters`.
     attr_accessor :type
 

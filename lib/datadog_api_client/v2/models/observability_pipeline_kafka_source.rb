@@ -20,25 +20,18 @@ module DatadogAPIClient::V2
   # The `kafka` source ingests data from Apache Kafka topics.
   class ObservabilityPipelineKafkaSource
     include BaseGenericModel
-
     # Consumer group ID used by the Kafka client.
     attr_reader :group_id
-
     # The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
     attr_reader :id
-
     # Optional list of advanced Kafka client configuration options, defined as key-value pairs.
     attr_accessor :librdkafka_options
-
     # Specifies the SASL mechanism for authenticating with a Kafka cluster.
     attr_accessor :sasl
-
     # Configuration for enabling TLS encryption between the pipeline component and external services.
     attr_accessor :tls
-
     # A list of Kafka topic names to subscribe to. The source ingests messages from each topic specified.
     attr_reader :topics
-
     # The source type. The value should always be `kafka`.
     attr_reader :type
 

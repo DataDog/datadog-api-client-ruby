@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Service owner's contacts information.
   class ServiceDefinitionV2Dot2Contact
     include BaseGenericModel
-
     # Contact value.
     attr_reader :contact
-
     # Contact Name.
     attr_accessor :name
-
     # Contact type. Datadog recognizes the following types: `email`, `slack`, and `microsoft-teams`.
     attr_reader :type
 

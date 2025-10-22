@@ -20,19 +20,14 @@ module DatadogAPIClient::V2
   # Entity relationships.
   class EntityRelationships
     include BaseGenericModel
-
     # Entity to incidents relationship.
     attr_accessor :incidents
-
     # Entity to oncalls relationship.
     attr_accessor :oncall
-
     # Entity to raw schema relationship.
     attr_accessor :raw_schema
-
     # Entity to related entities relationship.
     attr_accessor :related_entities
-
     # Entity to detail schema relationship.
     attr_accessor :schema
 

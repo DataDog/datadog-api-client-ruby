@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # A notebook object with title.
   class MetricNotebookAsset
     include BaseGenericModel
-
     # Assets related to the object, including title, url, and tags.
     attr_accessor :attributes
-
     # The related notebook's ID.
     attr_reader :id
-
     # Notebook resource type.
     attr_reader :type
 

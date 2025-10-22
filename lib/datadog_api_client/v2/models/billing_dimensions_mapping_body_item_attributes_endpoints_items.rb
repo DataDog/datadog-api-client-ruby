@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # An endpoint's keys mapped to the billing_dimension.
   class BillingDimensionsMappingBodyItemAttributesEndpointsItems
     include BaseGenericModel
-
     # The URL for the endpoint.
     attr_accessor :id
-
     # The billing dimension.
     attr_accessor :keys
-
     # Denotes whether mapping keys were available for this endpoint.
     attr_accessor :status
 

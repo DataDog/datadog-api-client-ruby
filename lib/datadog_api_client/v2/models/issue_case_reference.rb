@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The case the issue is attached to.
   class IssueCaseReference
     include BaseGenericModel
-
     # Case identifier.
     attr_reader :id
-
     # Type of the object.
     attr_reader :type
 

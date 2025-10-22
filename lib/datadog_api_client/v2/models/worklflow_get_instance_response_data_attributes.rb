@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # The attributes of the instance response data.
   class WorklflowGetInstanceResponseDataAttributes
     include BaseGenericModel
-
     # The id of the instance.
     attr_accessor :id
 

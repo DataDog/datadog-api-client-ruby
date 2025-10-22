@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Data containing the patch for changing the state of a signal.
   class SecurityMonitoringSignalStateUpdateData
     include BaseGenericModel
-
     # Attributes describing the change of state of a security signal.
     attr_reader :attributes
-
     # The unique ID of the security signal.
     attr_accessor :id
-
     # The type of event.
     attr_accessor :type
 

@@ -20,19 +20,14 @@ module DatadogAPIClient::V1
   # Free text is a widget that allows you to add headings to your screenboard. Commonly used to state the overall purpose of the dashboard. Only available on FREE layout dashboards.
   class FreeTextWidgetDefinition
     include BaseGenericModel
-
     # Color of the text.
     attr_accessor :color
-
     # Size of the text.
     attr_accessor :font_size
-
     # Text to display.
     attr_reader :text
-
     # How to align the text on the widget.
     attr_accessor :text_align
-
     # Type of the free text widget.
     attr_reader :type
 

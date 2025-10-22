@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Schema for a Self Service-based trigger.
   class SelfServiceTriggerWrapper
     include BaseGenericModel
-
     # Trigger a workflow from Self Service.
     attr_reader :self_service_trigger
-
     # A list of steps that run first after a trigger fires.
     attr_accessor :start_step_names
 

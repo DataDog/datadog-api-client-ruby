@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Defines the relationship to a collection of steps within an escalation policy. Contains an array of step data references.
   class EscalationPolicyDataRelationshipsSteps
     include BaseGenericModel
-
     # An array of references to the steps defined in this escalation policy.
     attr_accessor :data
 

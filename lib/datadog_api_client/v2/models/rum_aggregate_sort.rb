@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # A sort rule.
   class RUMAggregateSort
     include BaseGenericModel
-
     # An aggregation function.
     attr_accessor :aggregation
-
     # The metric to sort by (only used for `type=measure`).
     attr_accessor :metric
-
     # The order to use, ascending or descending.
     attr_accessor :order
-
     # The type of sorting algorithm.
     attr_accessor :type
 

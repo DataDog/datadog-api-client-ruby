@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # All RUM retention filters for a RUM application.
   class RumRetentionFiltersResponse
     include BaseGenericModel
-
     # A list of RUM retention filters.
     attr_accessor :data
 

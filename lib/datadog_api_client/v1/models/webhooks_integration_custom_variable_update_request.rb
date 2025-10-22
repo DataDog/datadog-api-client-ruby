@@ -22,14 +22,11 @@ module DatadogAPIClient::V1
   # *All properties are optional.*
   class WebhooksIntegrationCustomVariableUpdateRequest
     include BaseGenericModel
-
     # Make custom variable is secret or not.
     # If the custom variable is secret, the value is not returned in the response payload.
     attr_accessor :is_secret
-
     # The name of the variable. It corresponds with `<CUSTOM_VARIABLE_NAME>`. It must only contains upper-case characters, integers or underscores.
     attr_accessor :name
-
     # Value of the custom variable.
     attr_accessor :value
 

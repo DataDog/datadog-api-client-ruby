@@ -20,16 +20,13 @@ module DatadogAPIClient::V1
   # A service level objective ID and attributes.
   class SearchServiceLevelObjectiveData
     include BaseGenericModel
-
     # A service level objective object includes a service level indicator, thresholds
     # for one or more timeframes, and metadata (`name`, `description`, and `tags`).
     attr_accessor :attributes
-
     # A unique identifier for the service level objective object.
     #
     # Always included in service level objective responses.
     attr_accessor :id
-
     # The type of the object, must be `slo`.
     attr_accessor :type
 

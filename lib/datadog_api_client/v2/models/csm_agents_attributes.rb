@@ -20,55 +20,38 @@ module DatadogAPIClient::V2
   # A CSM Agent returned by the API.
   class CsmAgentsAttributes
     include BaseGenericModel
-
     # Version of the Datadog Agent.
     attr_accessor :agent_version
-
     # AWS Fargate details.
     attr_accessor :aws_fargate
-
     # List of cluster names associated with the Agent.
     attr_accessor :cluster_name
-
     # Unique identifier for the Datadog Agent.
     attr_accessor :datadog_agent
-
     # ARN of the ECS Fargate task.
     attr_accessor :ecs_fargate_task_arn
-
     # List of environments associated with the Agent.
     attr_accessor :envs
-
     # ID of the host.
     attr_accessor :host_id
-
     # Name of the host.
     attr_accessor :hostname
-
     # Version of the installer used for installing the Datadog Agent.
     attr_accessor :install_method_installer_version
-
     # Tool used for installing the Datadog Agent.
     attr_accessor :install_method_tool
-
     # Indicates if CSM VM Containers is enabled.
     attr_accessor :is_csm_vm_containers_enabled
-
     # Indicates if CSM VM Hosts is enabled.
     attr_accessor :is_csm_vm_hosts_enabled
-
     # Indicates if CSPM is enabled.
     attr_accessor :is_cspm_enabled
-
     # Indicates if CWS is enabled.
     attr_accessor :is_cws_enabled
-
     # Indicates if CWS Remote Configuration is enabled.
     attr_accessor :is_cws_remote_configuration_enabled
-
     # Indicates if Remote Configuration is enabled.
     attr_accessor :is_remote_configuration_enabled
-
     # Operating system of the host.
     attr_accessor :os
 

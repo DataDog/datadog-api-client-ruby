@@ -20,49 +20,34 @@ module DatadogAPIClient::V2
   # Case resource attributes
   class CaseAttributes
     include BaseGenericModel
-
     # Timestamp of when the case was archived
     attr_accessor :archived_at
-
     # The definition of `CaseObjectAttributes` object.
     attr_accessor :attributes
-
     # Timestamp of when the case was closed
     attr_accessor :closed_at
-
     # Timestamp of when the case was created
     attr_accessor :created_at
-
     # Case custom attributes
     attr_accessor :custom_attributes
-
     # Description
     attr_accessor :description
-
     # Jira issue attached to case
     attr_accessor :jira_issue
-
     # Key
     attr_accessor :key
-
     # Timestamp of when the case was last modified
     attr_accessor :modified_at
-
     # Case priority
     attr_accessor :priority
-
     # ServiceNow ticket attached to case
     attr_accessor :service_now_ticket
-
     # Case status
     attr_accessor :status
-
     # Title
     attr_accessor :title
-
     # Case type
     attr_accessor :type
-
     # Case type UUID
     attr_accessor :type_id
 

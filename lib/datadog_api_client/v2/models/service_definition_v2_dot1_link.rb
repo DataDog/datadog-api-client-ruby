@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # Service's external links.
   class ServiceDefinitionV2Dot1Link
     include BaseGenericModel
-
     # Link name.
     attr_reader :name
-
     # Link provider.
     attr_accessor :provider
-
     # Link type.
     attr_reader :type
-
     # Link URL.
     attr_reader :url
 

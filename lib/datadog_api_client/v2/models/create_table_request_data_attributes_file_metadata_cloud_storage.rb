@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Cloud storage file metadata for create requests. Both access_details and sync_enabled are required.
   class CreateTableRequestDataAttributesFileMetadataCloudStorage
     include BaseGenericModel
-
     # The definition of `CreateTableRequestDataAttributesFileMetadataOneOfAccessDetails` object.
     attr_reader :access_details
-
     # Whether this table is synced automatically.
     attr_reader :sync_enabled
 

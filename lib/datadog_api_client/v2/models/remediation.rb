@@ -20,28 +20,20 @@ module DatadogAPIClient::V2
   # Vulnerability remediation.
   class Remediation
     include BaseGenericModel
-
     # Whether the vulnerability can be resolved when recompiling the package or not.
     attr_reader :auto_solvable
-
     # Avoided advisories.
     attr_reader :avoided_advisories
-
     # Remediation fixed advisories.
     attr_reader :fixed_advisories
-
     # Library name remediating the vulnerability.
     attr_reader :library_name
-
     # Library version remediating the vulnerability.
     attr_reader :library_version
-
     # New advisories.
     attr_reader :new_advisories
-
     # Remaining advisories.
     attr_reader :remaining_advisories
-
     # Remediation type.
     attr_reader :type
 

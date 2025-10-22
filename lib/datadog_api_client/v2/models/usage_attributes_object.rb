@@ -20,22 +20,16 @@ module DatadogAPIClient::V2
   # Usage attributes data.
   class UsageAttributesObject
     include BaseGenericModel
-
     # The organization name.
     attr_accessor :org_name
-
     # The product for which usage is being reported.
     attr_accessor :product_family
-
     # The organization public ID.
     attr_accessor :public_id
-
     # The region of the Datadog instance that the organization belongs to.
     attr_accessor :region
-
     # List of usage data reported for each requested hour.
     attr_accessor :timeseries
-
     # Usage type that is being measured.
     attr_accessor :usage_type
 

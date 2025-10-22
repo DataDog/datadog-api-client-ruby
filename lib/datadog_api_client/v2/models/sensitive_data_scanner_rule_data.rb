@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Rules included in the group.
   class SensitiveDataScannerRuleData
     include BaseGenericModel
-
     # Rules included in the group. The order is important.
     attr_accessor :data
 

@@ -21,7 +21,6 @@ module DatadogAPIClient::V1
   # for each hour for a given organization.
   class UsageLambdaResponse
     include BaseGenericModel
-
     # Get hourly usage for Lambda.
     attr_accessor :usage
 

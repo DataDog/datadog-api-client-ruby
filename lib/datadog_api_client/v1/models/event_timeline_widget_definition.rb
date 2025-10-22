@@ -20,25 +20,18 @@ module DatadogAPIClient::V1
   # The event timeline is a widget version of the timeline that appears at the top of the Event Stream view. Only available on FREE layout dashboards.
   class EventTimelineWidgetDefinition
     include BaseGenericModel
-
     # Query to filter the event timeline with.
     attr_reader :query
-
     # The execution method for multi-value filters. Can be either and or or.
     attr_accessor :tags_execution
-
     # Time setting for the widget.
     attr_accessor :time
-
     # Title of the widget.
     attr_accessor :title
-
     # How to align the text on the widget.
     attr_accessor :title_align
-
     # Size of the title.
     attr_accessor :title_size
-
     # Type of the event timeline widget.
     attr_reader :type
 

@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Meta for the response from the List Custom Costs endpoints.
   class CustomCostListResponseMeta
     include BaseGenericModel
-
     # Number of Custom Costs files returned by the List Custom Costs endpoint
     attr_accessor :total_filtered_count
-
     # Version of Custom Costs file
     attr_accessor :version
 

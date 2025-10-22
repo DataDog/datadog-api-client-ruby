@@ -20,10 +20,8 @@ module DatadogAPIClient::V1
   # Git information.
   class SyntheticsCIBatchMetadataGit
     include BaseGenericModel
-
     # Branch name.
     attr_accessor :branch
-
     # The commit SHA.
     attr_accessor :commit_sha
 

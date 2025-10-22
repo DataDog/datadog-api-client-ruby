@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Object to create a user.
   class UserCreateData
     include BaseGenericModel
-
     # Attributes of the created user.
     attr_reader :attributes
-
     # Relationships of the user object.
     attr_accessor :relationships
-
     # Users resource type.
     attr_reader :type
 

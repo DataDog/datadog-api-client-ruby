@@ -21,55 +21,43 @@ module DatadogAPIClient::V1
   # for one or more timeframes, and metadata (`name`, `description`, `tags`, etc.).
   class ServiceLevelObjectiveRequest
     include BaseGenericModel
-
     # A user-defined description of the service level objective.
     #
     # Always included in service level objective responses (but may be `null`).
     # Optional in create/update requests.
     attr_accessor :description
-
     # A list of (up to 100) monitor groups that narrow the scope of a monitor service level objective.
     #
     # Included in service level objective responses if it is not empty. Optional in
     # create/update requests for monitor service level objectives, but may only be
     # used when then length of the `monitor_ids` field is one.
     attr_accessor :groups
-
     # A list of monitor IDs that defines the scope of a monitor service level
     # objective. **Required if type is `monitor`**.
     attr_accessor :monitor_ids
-
     # The name of the service level objective object.
     attr_reader :name
-
     # A metric-based SLO. **Required if type is `metric`**. Note that Datadog only allows the sum by aggregator
     # to be used because this will sum up all request counts instead of averaging them, or taking the max or
     # min of all of those requests.
     attr_accessor :query
-
     # A generic SLI specification. This is currently used for time-slice SLOs only.
     attr_accessor :sli_specification
-
     # A list of tags associated with this service level objective.
     # Always included in service level objective responses (but may be empty).
     # Optional in create/update requests.
     attr_accessor :tags
-
     # The target threshold such that when the service level indicator is above this
     # threshold over the given timeframe, the objective is being met.
     attr_accessor :target_threshold
-
     # The thresholds (timeframes and associated targets) for this service level
     # objective object.
     attr_reader :thresholds
-
     # The SLO time window options. Note that "custom" is not a valid option for creating
     # or updating SLOs. It is only used when querying SLO history over custom timeframes.
     attr_accessor :timeframe
-
     # The type of the service level objective.
     attr_reader :type
-
     # The optional warning threshold such that when the service level indicator is
     # below this value for the given threshold, but above the target threshold, the
     # objective appears in a "warning" state. This value must be greater than the target

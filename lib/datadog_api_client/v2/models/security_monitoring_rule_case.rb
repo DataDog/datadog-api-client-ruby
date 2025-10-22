@@ -20,23 +20,17 @@ module DatadogAPIClient::V2
   # Case when signal is generated.
   class SecurityMonitoringRuleCase
     include BaseGenericModel
-
     # Action to perform for each rule case.
     attr_accessor :actions
-
     # A rule case contains logical operations (`>`,`>=`, `&&`, `||`) to determine if a signal should be generated
     # based on the event counts in the previously defined queries.
     attr_accessor :condition
-
     # Severity of the Security Signal.
     attr_accessor :custom_status
-
     # Name of the case.
     attr_accessor :name
-
     # Notification targets for each rule case.
     attr_accessor :notifications
-
     # Severity of the Security Signal.
     attr_accessor :status
 

@@ -20,13 +20,11 @@ module DatadogAPIClient::V2
   # Specifies which principals are associated with a relation.
   class RestrictionPolicyBinding
     include BaseGenericModel
-
     # An array of principals. A principal is a subject or group of subjects.
     # Each principal is formatted as `type:id`. Supported types: `role`, `team`, `user`, and `org`.
     # The org ID can be obtained through the api/v2/current_user API.
     # The user principal type accepts service account IDs.
     attr_reader :principals
-
     # The role/level of access.
     attr_reader :relation
 

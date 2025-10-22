@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Object used to create an application key.
   class ApplicationKeyCreateData
     include BaseGenericModel
-
     # Attributes used to create an application Key.
     attr_reader :attributes
-
     # Application Keys resource type.
     attr_reader :type
 

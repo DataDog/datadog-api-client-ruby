@@ -20,16 +20,12 @@ module DatadogAPIClient::V1
   # Used for fixed span times, such as 'March 1 to March 7'.
   class WidgetNewFixedSpan
     include BaseGenericModel
-
     # Start time in seconds since epoch.
     attr_reader :from
-
     # Whether to hide incomplete cost data in the widget.
     attr_accessor :hide_incomplete_cost_data
-
     # End time in seconds since epoch.
     attr_reader :to
-
     # Type "fixed" denotes a fixed span.
     attr_reader :type
 

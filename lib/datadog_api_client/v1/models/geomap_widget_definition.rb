@@ -20,34 +20,25 @@ module DatadogAPIClient::V1
   # This visualization displays a series of values by country on a world map.
   class GeomapWidgetDefinition
     include BaseGenericModel
-
     # A list of custom links.
     attr_accessor :custom_links
-
     # Array of one request object to display in the widget. The request must contain a `group-by` tag whose value is a country ISO code.
     #
     # See the [Request JSON schema documentation](https://docs.datadoghq.com/dashboards/graphing_json/request_json)
     # for information about building the `REQUEST_SCHEMA`.
     attr_reader :requests
-
     # The style to apply to the widget.
     attr_reader :style
-
     # Time setting for the widget.
     attr_accessor :time
-
     # The title of your widget.
     attr_accessor :title
-
     # How to align the text on the widget.
     attr_accessor :title_align
-
     # The size of the title.
     attr_accessor :title_size
-
     # Type of the geomap widget.
     attr_reader :type
-
     # The view of the world that the map should render.
     attr_reader :view
 

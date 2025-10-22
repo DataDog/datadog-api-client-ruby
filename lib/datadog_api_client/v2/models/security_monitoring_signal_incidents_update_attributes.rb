@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Attributes describing the new list of related signals for a security signal.
   class SecurityMonitoringSignalIncidentsUpdateAttributes
     include BaseGenericModel
-
     # Array of incidents that are associated with this signal.
     attr_reader :incident_ids
-
     # Version of the updated signal. If server side version is higher, update will be rejected.
     attr_accessor :version
 

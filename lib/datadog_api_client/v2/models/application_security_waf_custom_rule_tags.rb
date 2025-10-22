@@ -21,10 +21,8 @@ module DatadogAPIClient::V2
   # activity field associated with the traces.
   class ApplicationSecurityWafCustomRuleTags
     include BaseGenericModel
-
     # The category of the WAF Rule, can be either `business_logic`, `attack_attempt` or `security_response`.
     attr_reader :category
-
     # The type of the WAF rule, associated with the category will form the security activity.
     attr_reader :type
 

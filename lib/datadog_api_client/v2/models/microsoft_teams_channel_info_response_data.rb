@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Channel data from a response.
   class MicrosoftTeamsChannelInfoResponseData
     include BaseGenericModel
-
     # Channel attributes.
     attr_accessor :attributes
-
     # The ID of the channel.
     attr_reader :id
-
     # Channel info resource type.
     attr_accessor :type
 

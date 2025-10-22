@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The Grok helper rule referenced in the parsing rules.
   class ObservabilityPipelineParseGrokProcessorRuleSupportRule
     include BaseGenericModel
-
     # The name of the Grok helper rule.
     attr_reader :name
-
     # The definition of the Grok helper rule.
     attr_reader :rule
 

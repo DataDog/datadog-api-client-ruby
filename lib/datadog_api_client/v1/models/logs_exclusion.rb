@@ -20,13 +20,10 @@ module DatadogAPIClient::V1
   # Represents the index exclusion filter object from configuration API.
   class LogsExclusion
     include BaseGenericModel
-
     # Exclusion filter is defined by a query, a sampling rule, and a active/inactive toggle.
     attr_accessor :filter
-
     # Whether or not the exclusion filter is active.
     attr_accessor :is_enabled
-
     # Name of the index exclusion filter.
     attr_reader :name
 

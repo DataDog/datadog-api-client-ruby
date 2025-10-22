@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The scope of the WAF custom rule.
   class ApplicationSecurityWafCustomRuleScope
     include BaseGenericModel
-
     # The environment scope for the WAF custom rule.
     attr_reader :env
-
     # The service scope for the WAF custom rule.
     attr_reader :service
 

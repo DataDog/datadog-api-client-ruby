@@ -20,7 +20,6 @@ module DatadogAPIClient::V1
   # The IdP response object.
   class IdpResponse
     include BaseGenericModel
-
     # Identity provider response.
     attr_reader :message
 

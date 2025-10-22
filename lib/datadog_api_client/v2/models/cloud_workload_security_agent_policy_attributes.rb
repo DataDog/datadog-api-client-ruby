@@ -20,55 +20,38 @@ module DatadogAPIClient::V2
   # A Cloud Workload Security Agent policy returned by the API
   class CloudWorkloadSecurityAgentPolicyAttributes
     include BaseGenericModel
-
     # The number of rules with the blocking feature in this policy
     attr_reader :blocking_rules_count
-
     # Whether the policy is managed by Datadog
     attr_accessor :datadog_managed
-
     # The description of the policy
     attr_accessor :description
-
     # The number of rules that are disabled in this policy
     attr_reader :disabled_rules_count
-
     # Whether the Agent policy is enabled
     attr_accessor :enabled
-
     # The host tags defining where this policy is deployed
     attr_accessor :host_tags
-
     # The host tags defining where this policy is deployed, the inner values are linked with AND, the outer values are linked with OR
     attr_accessor :host_tags_lists
-
     # The number of rules in the monitoring state in this policy
     attr_reader :monitoring_rules_count
-
     # The name of the policy
     attr_accessor :name
-
     # Whether the policy is pinned
     attr_accessor :pinned
-
     # The version of the policy
     attr_accessor :policy_version
-
     # The priority of the policy
     attr_accessor :priority
-
     # The number of rules in this policy
     attr_reader :rule_count
-
     # Timestamp in milliseconds when the policy was last updated
     attr_accessor :update_date
-
     # When the policy was last updated, timestamp in milliseconds
     attr_accessor :updated_at
-
     # The attributes of the user who last updated the policy
     attr_accessor :updater
-
     # The versions of the policy
     attr_accessor :versions
 

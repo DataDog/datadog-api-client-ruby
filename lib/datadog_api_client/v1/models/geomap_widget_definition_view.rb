@@ -20,7 +20,6 @@ module DatadogAPIClient::V1
   # The view of the world that the map should render.
   class GeomapWidgetDefinitionView
     include BaseGenericModel
-
     # The 2-letter ISO code of a country to focus the map on. Or `WORLD`.
     attr_reader :focus
 

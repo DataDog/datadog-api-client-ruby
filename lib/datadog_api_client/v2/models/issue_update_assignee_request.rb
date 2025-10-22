@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Update issue assignee request payload.
   class IssueUpdateAssigneeRequest
     include BaseGenericModel
-
     # Update issue assignee request.
     attr_reader :data
 

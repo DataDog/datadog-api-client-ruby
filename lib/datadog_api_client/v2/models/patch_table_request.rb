@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # The definition of `PatchTableRequest` object.
   class PatchTableRequest
     include BaseGenericModel
-
     # The definition of `PatchTableRequestData` object.
     attr_accessor :data
 

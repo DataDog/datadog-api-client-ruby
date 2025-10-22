@@ -20,14 +20,11 @@ module DatadogAPIClient::V2
   # Transition from a parent step to a child step within a sequence detection rule.
   class SecurityMonitoringRuleSequenceDetectionStepTransition
     include BaseGenericModel
-
     # Name of the child step.
     attr_accessor :child
-
     # A time window is specified to match when at least one of the cases matches true. This is a sliding window
     # and evaluates in real time. For third party detection method, this field is not used.
     attr_accessor :evaluation_window
-
     # Name of the parent step.
     attr_accessor :parent
 

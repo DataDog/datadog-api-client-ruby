@@ -20,13 +20,10 @@ module DatadogAPIClient::V1
   # The response containing the date and type for custom reports.
   class UsageCustomReportsData
     include BaseGenericModel
-
     # The response containing attributes for custom reports.
     attr_accessor :attributes
-
     # The date for specified custom reports.
     attr_accessor :id
-
     # The type of reports.
     attr_accessor :type
 

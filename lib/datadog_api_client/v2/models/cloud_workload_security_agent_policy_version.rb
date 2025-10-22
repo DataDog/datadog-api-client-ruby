@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The versions of the policy
   class CloudWorkloadSecurityAgentPolicyVersion
     include BaseGenericModel
-
     # The date and time the version was created
     attr_accessor :date
-
     # The version of the policy
     attr_accessor :name
 

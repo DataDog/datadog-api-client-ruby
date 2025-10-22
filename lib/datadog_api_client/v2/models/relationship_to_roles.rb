@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Relationship to roles.
   class RelationshipToRoles
     include BaseGenericModel
-
     # An array containing type and the unique identifier of a role.
     attr_accessor :data
 

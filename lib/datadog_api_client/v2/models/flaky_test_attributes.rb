@@ -20,43 +20,31 @@ module DatadogAPIClient::V2
   # Attributes of a flaky test.
   class FlakyTestAttributes
     include BaseGenericModel
-
     # Unique identifier for the attempt to fix this flaky test. Use this ID in the Git commit message in order to trigger the attempt to fix workflow.
     #
     # When the workflow is triggered the test is automatically retried by the tracer a certain number of configurable times. When all retries pass, the test is automatically marked as fixed in Flaky Test Management.
     # Test runs are tagged with @test.test_management.attempt_to_fix_passed and @test.test_management.is_attempt_to_fix when the attempt to fix workflow is triggered.
     attr_accessor :attempt_to_fix_id
-
     # The name of the test's code owners as inferred from the repository configuration.
     attr_accessor :codeowners
-
     # List of environments where this test has been flaky.
     attr_accessor :envs
-
     # The branch name where the test exhibited flakiness for the first time.
     attr_accessor :first_flaked_branch
-
     # The commit SHA where the test exhibited flakiness for the first time.
     attr_accessor :first_flaked_sha
-
     # Unix timestamp when the test exhibited flakiness for the first time.
     attr_accessor :first_flaked_ts
-
     # The category of a flaky test.
     attr_accessor :flaky_category
-
     # The current state of the flaky test.
     attr_accessor :flaky_state
-
     # The branch name where the test exhibited flakiness for the last time.
     attr_accessor :last_flaked_branch
-
     # The commit SHA where the test exhibited flakiness for the last time.
     attr_accessor :last_flaked_sha
-
     # Unix timestamp when the test exhibited flakiness for the last time.
     attr_accessor :last_flaked_ts
-
     # The name of the test module. The definition of module changes slightly per language:
     # - In .NET, a test module groups every test that is run under the same unit test project.
     # - In Swift, a test module groups every test that is run for a given bundle.
@@ -65,24 +53,18 @@ module DatadogAPIClient::V2
     # - In Python, a test module groups every test that is run under the same `.py` file as part of a test suite, which is typically managed by a framework like `unittest` or `pytest`.
     # - In Ruby, a test module groups every test that is run within the same test file, which is typically managed by a framework like `RSpec` or `Minitest`.
     attr_accessor :_module
-
     # The test name. A concise name for a test case. Defined in the test itself.
     attr_accessor :name
-
     # CI pipeline related statistics for the flaky test. This information is only available if test runs are associated with CI pipeline events from CI Visibility.
     attr_accessor :pipeline_stats
-
     # List of test service names where this test has been flaky.
     #
     # A test service is a group of tests associated with a project or repository. It contains all the individual tests for your code, optionally organized into test suites, which are like folders for your tests.
     attr_accessor :services
-
     # The name of the test suite. A group of tests exercising the same unit of code depending on your language and testing framework.
     attr_accessor :suite
-
     # Metadata about the latest failed test run of the flaky test.
     attr_accessor :test_run_metadata
-
     # Test statistics for the flaky test.
     attr_accessor :test_stats
 

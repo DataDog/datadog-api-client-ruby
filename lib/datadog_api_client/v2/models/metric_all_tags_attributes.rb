@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Object containing the definition of a metric's tags.
   class MetricAllTagsAttributes
     include BaseGenericModel
-
     # List of indexed tag value pairs.
     attr_accessor :tags
 

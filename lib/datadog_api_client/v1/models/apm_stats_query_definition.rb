@@ -20,25 +20,18 @@ module DatadogAPIClient::V1
   # The APM stats query for table and distributions widgets.
   class ApmStatsQueryDefinition
     include BaseGenericModel
-
     # Column properties used by the front end for display.
     attr_accessor :columns
-
     # Environment name.
     attr_reader :env
-
     # Operation name associated with service.
     attr_reader :name
-
     # The organization's host group name and value.
     attr_reader :primary_tag
-
     # Resource name.
     attr_accessor :resource
-
     # The level of detail for the request.
     attr_reader :row_type
-
     # Service name.
     attr_reader :service
 

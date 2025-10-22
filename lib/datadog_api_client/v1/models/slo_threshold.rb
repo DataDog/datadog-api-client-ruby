@@ -20,25 +20,20 @@ module DatadogAPIClient::V1
   # SLO thresholds (target and optionally warning) for a single time window.
   class SLOThreshold
     include BaseGenericModel
-
     # The target value for the service level indicator within the corresponding
     # timeframe.
     attr_reader :target
-
     # A string representation of the target that indicates its precision.
     # It uses trailing zeros to show significant decimal places (for example `98.00`).
     #
     # Always included in service level objective responses. Ignored in
     # create/update requests.
     attr_accessor :target_display
-
     # The SLO time window options. Note that "custom" is not a valid option for creating
     # or updating SLOs. It is only used when querying SLO history over custom timeframes.
     attr_reader :timeframe
-
     # The warning value for the service level objective.
     attr_accessor :warning
-
     # A string representation of the warning target (see the description of
     # the `target_display` field for details).
     #

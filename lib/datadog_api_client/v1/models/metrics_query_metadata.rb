@@ -20,43 +20,30 @@ module DatadogAPIClient::V1
   # Object containing all metric names returned and their associated metadata.
   class MetricsQueryMetadata
     include BaseGenericModel
-
     # Aggregation type.
     attr_accessor :aggr
-
     # Display name of the metric.
     attr_accessor :display_name
-
     # End of the time window, milliseconds since Unix epoch.
     attr_accessor :_end
-
     # Metric expression.
     attr_accessor :expression
-
     # Number of milliseconds between data samples.
     attr_accessor :interval
-
     # Number of data samples.
     attr_accessor :length
-
     # Metric name.
     attr_accessor :metric
-
     # List of points of the timeseries in milliseconds.
     attr_accessor :pointlist
-
     # The index of the series' query within the request.
     attr_accessor :query_index
-
     # Metric scope, comma separated list of tags.
     attr_accessor :scope
-
     # Start of the time window, milliseconds since Unix epoch.
     attr_accessor :start
-
     # Unique tags identifying this series.
     attr_accessor :tag_set
-
     # Detailed information about the metric unit.
     # The first element describes the "primary unit" (for example, `bytes` in `bytes per second`).
     # The second element describes the "per unit" (for example, `second` in `bytes per second`).

@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Represents a user object in the context of a schedule, including their `id`, type, and basic attributes.
   class ScheduleUser
     include BaseGenericModel
-
     # Provides basic user information for a schedule, including a name and email address.
     attr_accessor :attributes
-
     # The unique user identifier.
     attr_accessor :id
-
     # Users resource type.
     attr_reader :type
 

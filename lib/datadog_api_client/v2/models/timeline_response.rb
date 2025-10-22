@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Timeline response
   class TimelineResponse
     include BaseGenericModel
-
     # The `TimelineResponse` `data`.
     attr_accessor :data
 

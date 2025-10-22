@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Entity to incidents relationship.
   class EntityToIncidents
     include BaseGenericModel
-
     # Relationships.
     attr_accessor :data
 

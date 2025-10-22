@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # The definition of `TableResultV2` object.
   class TableResultV2
     include BaseGenericModel
-
     # The definition of `TableResultV2Data` object.
     attr_accessor :data
 

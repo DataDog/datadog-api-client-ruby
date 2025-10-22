@@ -20,13 +20,10 @@ module DatadogAPIClient::V1
   # An object used to delete an EventBridge source.
   class AWSEventBridgeDeleteRequest
     include BaseGenericModel
-
     # Your AWS Account ID without dashes.
     attr_accessor :account_id
-
     # The event source name.
     attr_accessor :event_generator_name
-
     # The event source's [AWS region](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints).
     attr_accessor :region
 

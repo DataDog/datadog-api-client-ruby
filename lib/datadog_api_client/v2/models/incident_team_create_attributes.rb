@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # The incident team's attributes for a create request.
   class IncidentTeamCreateAttributes
     include BaseGenericModel
-
     # Name of the incident team.
     attr_reader :name
 

@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Service owner's email.
   class ServiceDefinitionV2Email
     include BaseGenericModel
-
     # Contact value.
     attr_reader :contact
-
     # Contact email.
     attr_accessor :name
-
     # Contact type.
     attr_reader :type
 

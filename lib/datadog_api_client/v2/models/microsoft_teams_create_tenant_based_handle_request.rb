@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Create tenant-based handle request.
   class MicrosoftTeamsCreateTenantBasedHandleRequest
     include BaseGenericModel
-
     # Tenant-based handle data from a response.
     attr_reader :data
 

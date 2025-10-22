@@ -20,7 +20,6 @@ module DatadogAPIClient::V1
   # Response from the delete dashboard call.
   class DashboardDeleteResponse
     include BaseGenericModel
-
     # ID of the deleted dashboard.
     attr_accessor :deleted_dashboard_id
 

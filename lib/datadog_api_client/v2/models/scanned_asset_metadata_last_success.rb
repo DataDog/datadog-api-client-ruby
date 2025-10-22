@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Metadata for the last successful scan of an asset.
   class ScannedAssetMetadataLastSuccess
     include BaseGenericModel
-
     # The environment of the last success scan of the asset.
     attr_accessor :env
-
     # The list of origins of the last success scan of the asset.
     attr_accessor :origin
-
     # The timestamp of the last success scan of the asset.
     attr_reader :timestamp
 

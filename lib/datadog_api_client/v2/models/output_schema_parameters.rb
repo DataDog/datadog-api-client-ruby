@@ -20,22 +20,16 @@ module DatadogAPIClient::V2
   # The definition of `OutputSchemaParameters` object.
   class OutputSchemaParameters
     include BaseGenericModel
-
     # The `OutputSchemaParameters` `defaultValue`.
     attr_accessor :default_value
-
     # The `OutputSchemaParameters` `description`.
     attr_accessor :description
-
     # The `OutputSchemaParameters` `label`.
     attr_accessor :label
-
     # The `OutputSchemaParameters` `name`.
     attr_reader :name
-
     # The definition of `OutputSchemaParametersType` object.
     attr_reader :type
-
     # The `OutputSchemaParameters` `value`.
     attr_accessor :value
 

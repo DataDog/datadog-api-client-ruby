@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Metrics associated with an aggregated DNS flow.
   class SingleAggregatedDnsResponseDataAttributesMetricsItems
     include BaseGenericModel
-
     # The metric key for DNS metrics.
     attr_accessor :key
-
     # The metric value.
     attr_accessor :value
 

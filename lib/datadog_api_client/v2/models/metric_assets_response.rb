@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Response object that includes related dashboards, monitors, notebooks, and SLOs.
   class MetricAssetsResponse
     include BaseGenericModel
-
     # Metric assets response data.
     attr_accessor :data
-
     # Array of objects related to the metric assets.
     attr_accessor :included
 

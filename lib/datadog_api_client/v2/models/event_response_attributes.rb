@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # The object description of an event response attribute.
   class EventResponseAttributes
     include BaseGenericModel
-
     # Object description of attributes from your event.
     attr_accessor :attributes
-
     # The message of the event.
     attr_accessor :message
-
     # An array of tags associated with the event.
     attr_accessor :tags
-
     # The timestamp of the event.
     attr_accessor :timestamp
 

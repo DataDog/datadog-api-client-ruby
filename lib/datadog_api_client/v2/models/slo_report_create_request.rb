@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # The SLO report request body.
   class SloReportCreateRequest
     include BaseGenericModel
-
     # The data portion of the SLO report request.
     attr_reader :data
 

@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Object used to create an API key.
   class APIKeyCreateData
     include BaseGenericModel
-
     # Attributes used to create an API Key.
     attr_reader :attributes
-
     # API Keys resource type.
     attr_reader :type
 

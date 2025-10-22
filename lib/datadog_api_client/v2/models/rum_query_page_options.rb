@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Paging attributes for listing events.
   class RUMQueryPageOptions
     include BaseGenericModel
-
     # List following results with a cursor provided in the previous query.
     attr_accessor :cursor
-
     # Maximum number of events in the response.
     attr_reader :limit
 

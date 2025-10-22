@@ -20,28 +20,20 @@ module DatadogAPIClient::V1
   # A formula and functions metrics query.
   class FormulaAndFunctionSLOQueryDefinition
     include BaseGenericModel
-
     # Additional filters applied to the SLO query.
     attr_accessor :additional_query_filters
-
     # The source organization UUID for cross organization queries. Feature in Private Beta.
     attr_reader :cross_org_uuids
-
     # Data source for SLO measures queries.
     attr_reader :data_source
-
     # Group mode to query measures.
     attr_accessor :group_mode
-
     # SLO measures queries.
     attr_reader :measure
-
     # Name of the query for use in formulas.
     attr_accessor :name
-
     # ID of an SLO to query measures.
     attr_reader :slo_id
-
     # Name of the query for use in formulas.
     attr_accessor :slo_query_type
 

@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Response containing information about a created role.
   class RoleCreateResponse
     include BaseGenericModel
-
     # Role object returned by the API.
     attr_accessor :data
 

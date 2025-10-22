@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Case empty request data
   class CaseEmpty
     include BaseGenericModel
-
     # Case resource type
     attr_reader :type
 

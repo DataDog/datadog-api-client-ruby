@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Powerpack response metadata.
   class PowerpacksResponseMeta
     include BaseGenericModel
-
     # Powerpack response pagination metadata.
     attr_accessor :pagination
 

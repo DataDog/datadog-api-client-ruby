@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # Contains information of the host running the pipeline, stage, job, or step.
   class CIAppHostInfo
     include BaseGenericModel
-
     # FQDN of the host.
     attr_accessor :hostname
-
     # A list of labels used to select or identify the node.
     attr_accessor :labels
-
     # Name for the host.
     attr_accessor :name
-
     # The path where the code is checked out.
     attr_accessor :workspace
 

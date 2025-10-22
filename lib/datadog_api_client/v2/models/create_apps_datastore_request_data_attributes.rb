@@ -20,21 +20,16 @@ module DatadogAPIClient::V2
   # Configuration and metadata to create a new datastore.
   class CreateAppsDatastoreRequestDataAttributes
     include BaseGenericModel
-
     # A human-readable description about the datastore.
     attr_accessor :description
-
     # The display name for the new datastore.
     attr_reader :name
-
     # The organization access level for the datastore. For example, 'contributor'.
     attr_accessor :org_access
-
     # The name of the primary key column for this datastore. Primary column names:
     #   - Must abide by both [PostgreSQL naming conventions](https://www.postgresql.org/docs/7.0/syntax525.htm)
     #   - Cannot exceed 63 characters
     attr_reader :primary_column_name
-
     # Can be set to `uuid` to automatically generate primary keys when new items are added. Default value is `none`, which requires you to supply a primary key for each new item.
     attr_accessor :primary_key_generation_strategy
 

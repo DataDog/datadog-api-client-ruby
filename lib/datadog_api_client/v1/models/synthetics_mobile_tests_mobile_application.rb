@@ -20,13 +20,10 @@ module DatadogAPIClient::V1
   # Mobile application for mobile synthetics test.
   class SyntheticsMobileTestsMobileApplication
     include BaseGenericModel
-
     # Application ID of the mobile application.
     attr_reader :application_id
-
     # Reference ID of the mobile application.
     attr_reader :reference_id
-
     # Reference type for the mobile application for a mobile synthetics test.
     attr_reader :reference_type
 

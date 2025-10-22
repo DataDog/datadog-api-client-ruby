@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Third party integrations that Datadog supports.
   class ServiceDefinitionV2Integrations
     include BaseGenericModel
-
     # Opsgenie integration for the service.
     attr_accessor :opsgenie
-
     # PagerDuty service URL for the service.
     attr_accessor :pagerduty
 

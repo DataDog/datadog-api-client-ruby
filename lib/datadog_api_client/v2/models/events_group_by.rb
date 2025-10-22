@@ -20,14 +20,11 @@ module DatadogAPIClient::V2
   # A dimension on which to split a query's results.
   class EventsGroupBy
     include BaseGenericModel
-
     # The facet by which to split groups.
     attr_reader :facet
-
     # The maximum buckets to return for this group by. Note: at most 10000 buckets are allowed.
     # If grouping by multiple facets, the product of limits must not exceed 10000.
     attr_reader :limit
-
     # The dimension by which to sort a query's results.
     attr_accessor :sort
 

@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Metadata related to the paginated response.
   class CSMAgentsMetadata
     include BaseGenericModel
-
     # The index of the current page in the paginated results.
     attr_accessor :page_index
-
     # The number of items per page in the paginated results.
     attr_accessor :page_size
-
     # Total number of items that match the filter criteria.
     attr_accessor :total_filtered
 

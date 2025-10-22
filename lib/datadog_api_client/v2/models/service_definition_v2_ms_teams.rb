@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Service owner's Microsoft Teams.
   class ServiceDefinitionV2MSTeams
     include BaseGenericModel
-
     # Contact value.
     attr_reader :contact
-
     # Contact Microsoft Teams.
     attr_accessor :name
-
     # Contact type.
     attr_reader :type
 

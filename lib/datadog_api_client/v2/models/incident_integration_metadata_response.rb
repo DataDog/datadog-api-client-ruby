@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Response with an incident integration metadata.
   class IncidentIntegrationMetadataResponse
     include BaseGenericModel
-
     # Incident integration metadata from a response.
     attr_reader :data
-
     # Included related resources that the user requested.
     attr_accessor :included
 

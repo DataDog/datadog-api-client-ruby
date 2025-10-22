@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # AWS Accounts response body.
   class AWSAccountsResponse
     include BaseGenericModel
-
     # List of AWS Account Integration Configs.
     attr_reader :data
 

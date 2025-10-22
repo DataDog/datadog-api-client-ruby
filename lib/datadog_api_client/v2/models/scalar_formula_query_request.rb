@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # A wrapper request around one scalar query to be executed.
   class ScalarFormulaQueryRequest
     include BaseGenericModel
-
     # A single scalar query to be executed.
     attr_reader :data
 

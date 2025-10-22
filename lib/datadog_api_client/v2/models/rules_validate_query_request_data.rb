@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # The definition of `RulesValidateQueryRequestData` object.
   class RulesValidateQueryRequestData
     include BaseGenericModel
-
     # The definition of `RulesValidateQueryRequestDataAttributes` object.
     attr_accessor :attributes
-
     # The `RulesValidateQueryRequestData` `id`.
     attr_accessor :id
-
     # Validate query resource type.
     attr_reader :type
 

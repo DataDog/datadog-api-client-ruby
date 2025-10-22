@@ -20,19 +20,14 @@ module DatadogAPIClient::V2
   # The `rename_fields` processor changes field names.
   class ObservabilityPipelineRenameFieldsProcessor
     include BaseGenericModel
-
     # A list of rename rules specifying which fields to rename in the event, what to rename them to, and whether to preserve the original fields.
     attr_reader :fields
-
     # A unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
     attr_reader :id
-
     # A Datadog search query used to determine which logs this processor targets.
     attr_reader :include
-
     # A list of component IDs whose output is used as the `input` for this component.
     attr_reader :inputs
-
     # The processor type. The value should always be `rename_fields`.
     attr_reader :type
 

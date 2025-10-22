@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The Zoom configuration relationship data object.
   class ZoomConfigurationReferenceData
     include BaseGenericModel
-
     # The unique identifier of the Zoom configuration.
     attr_reader :id
-
     # The type of the Zoom configuration.
     attr_reader :type
 

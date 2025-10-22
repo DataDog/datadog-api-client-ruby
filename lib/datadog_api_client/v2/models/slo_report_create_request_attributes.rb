@@ -20,19 +20,14 @@ module DatadogAPIClient::V2
   # The attributes portion of the SLO report request.
   class SloReportCreateRequestAttributes
     include BaseGenericModel
-
     # The `from` timestamp for the report in epoch seconds.
     attr_reader :from_ts
-
     # The frequency at which report data is to be generated.
     attr_accessor :interval
-
     # The query string used to filter SLO results. Some examples of queries include `service:<service-name>` and `slo-name`.
     attr_reader :query
-
     # The timezone used to determine the start and end of each interval. For example, weekly intervals start at 12am on Sunday in the specified timezone.
     attr_accessor :timezone
-
     # The `to` timestamp for the report in epoch seconds.
     attr_reader :to_ts
 

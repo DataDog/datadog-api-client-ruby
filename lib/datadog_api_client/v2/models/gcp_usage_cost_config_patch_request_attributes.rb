@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Attributes for Google Cloud Usage Cost config patch request.
   class GCPUsageCostConfigPatchRequestAttributes
     include BaseGenericModel
-
     # Whether or not the Cloud Cost Management account is enabled.
     attr_reader :is_enabled
 

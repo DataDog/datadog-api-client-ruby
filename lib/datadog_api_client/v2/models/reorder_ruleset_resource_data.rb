@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The definition of `ReorderRulesetResourceData` object.
   class ReorderRulesetResourceData
     include BaseGenericModel
-
     # The `ReorderRulesetResourceData` `id`.
     attr_accessor :id
-
     # Ruleset resource type.
     attr_reader :type
 

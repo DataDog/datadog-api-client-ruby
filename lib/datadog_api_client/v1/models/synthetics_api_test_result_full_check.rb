@@ -20,7 +20,6 @@ module DatadogAPIClient::V1
   # Object describing the API test configuration.
   class SyntheticsAPITestResultFullCheck
     include BaseGenericModel
-
     # Configuration object for a Synthetic test.
     attr_reader :config
 

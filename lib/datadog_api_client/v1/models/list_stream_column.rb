@@ -20,10 +20,8 @@ module DatadogAPIClient::V1
   # Widget column.
   class ListStreamColumn
     include BaseGenericModel
-
     # Widget column field.
     attr_reader :field
-
     # Widget column width.
     attr_reader :width
 

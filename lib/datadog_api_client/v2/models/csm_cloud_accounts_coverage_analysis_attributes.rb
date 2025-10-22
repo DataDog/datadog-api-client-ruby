@@ -20,19 +20,14 @@ module DatadogAPIClient::V2
   # CSM Cloud Accounts Coverage Analysis attributes.
   class CsmCloudAccountsCoverageAnalysisAttributes
     include BaseGenericModel
-
     # CSM Coverage Analysis.
     attr_accessor :aws_coverage
-
     # CSM Coverage Analysis.
     attr_accessor :azure_coverage
-
     # CSM Coverage Analysis.
     attr_accessor :gcp_coverage
-
     # The ID of your organization.
     attr_accessor :org_id
-
     # CSM Coverage Analysis.
     attr_accessor :total_coverage
 

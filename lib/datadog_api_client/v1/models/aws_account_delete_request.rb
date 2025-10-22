@@ -20,13 +20,10 @@ module DatadogAPIClient::V1
   # List of AWS accounts to delete.
   class AWSAccountDeleteRequest
     include BaseGenericModel
-
     # Your AWS access key ID. Only required if your AWS account is a GovCloud or China account.
     attr_accessor :access_key_id
-
     # Your AWS Account ID without dashes.
     attr_accessor :account_id
-
     # Your Datadog role delegation name.
     attr_accessor :role_name
 

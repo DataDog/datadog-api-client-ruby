@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The postmortem attachment.
   class IncidentAttachmentsPostmortemAttributesAttachmentObject
     include BaseGenericModel
-
     # The URL of this notebook attachment.
     attr_reader :document_url
-
     # The title of this postmortem attachment.
     attr_reader :title
 

@@ -22,10 +22,8 @@ module DatadogAPIClient::V1
   # min of all of those requests.
   class ServiceLevelObjectiveQuery
     include BaseGenericModel
-
     # A Datadog metric query for total (valid) events.
     attr_reader :denominator
-
     # A Datadog metric query for good events.
     attr_reader :numerator
 

@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # Represents the data for updating an existing escalation policy, including its ID, attributes, relationships, and resource type.
   class EscalationPolicyUpdateRequestData
     include BaseGenericModel
-
     # Defines the attributes that can be updated for an escalation policy, such as description, name, resolution behavior, retries, and steps.
     attr_reader :attributes
-
     # Specifies the unique identifier of the escalation policy being updated.
     attr_reader :id
-
     # Represents relationships in an escalation policy update request, including references to teams.
     attr_accessor :relationships
-
     # Indicates that the resource is of type `policies`.
     attr_reader :type
 

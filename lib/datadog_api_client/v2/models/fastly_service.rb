@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The schema representation of a Fastly service.
   class FastlyService
     include BaseGenericModel
-
     # The ID of the Fastly service
     attr_reader :id
-
     # A list of tags for the Fastly service.
     attr_accessor :tags
 

@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Payload for creating an event.
   class EventCreateRequestPayload
     include BaseGenericModel
-
     # An event object.
     attr_reader :data
 

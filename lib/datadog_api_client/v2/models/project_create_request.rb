@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Project create request
   class ProjectCreateRequest
     include BaseGenericModel
-
     # Project create
     attr_reader :data
 

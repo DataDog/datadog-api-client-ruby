@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Metric resource.
   class MetricResource
     include BaseGenericModel
-
     # The name of the resource.
     attr_accessor :name
-
     # The type of the resource.
     attr_accessor :type
 

@@ -20,13 +20,10 @@ module DatadogAPIClient::V1
   # The formula to sort the widget by.
   class WidgetFormulaSort
     include BaseGenericModel
-
     # The index of the formula to sort by.
     attr_reader :index
-
     # Widget sorting methods.
     attr_reader :order
-
     # Set the sort type to formula.
     attr_reader :type
 

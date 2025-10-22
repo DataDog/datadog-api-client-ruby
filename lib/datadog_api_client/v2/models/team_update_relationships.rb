@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Team update relationships
   class TeamUpdateRelationships
     include BaseGenericModel
-
     # Relationship between a team and a team link
     attr_accessor :team_links
 

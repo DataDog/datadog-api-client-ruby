@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # The app's publication information.
   class ListAppsResponseDataItemsRelationships
     include BaseGenericModel
-
     # Information pointing to the app's publication status.
     attr_accessor :deployment
 

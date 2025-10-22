@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # Scorecard outcome for a single entity and rule.
   class UpdateOutcomesAsyncRequestItem
     include BaseGenericModel
-
     # The unique reference for an IDP entity.
     attr_reader :entity_reference
-
     # Any remarks regarding the scorecard rule's evaluation. Supports HTML hyperlinks.
     attr_accessor :remarks
-
     # The unique ID for a scorecard rule.
     attr_reader :rule_id
-
     # The state of the rule evaluation.
     attr_reader :state
 

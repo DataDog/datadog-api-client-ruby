@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Resources related to the application key.
   class ApplicationKeyRelationships
     include BaseGenericModel
-
     # Relationship to user.
     attr_accessor :owned_by
 

@@ -20,25 +20,18 @@ module DatadogAPIClient::V2
   # Attributes for AWS CUR config Post Request.
   class AwsCURConfigPostRequestAttributes
     include BaseGenericModel
-
     # The account filtering configuration.
     attr_accessor :account_filters
-
     # The AWS account ID.
     attr_reader :account_id
-
     # The AWS bucket name used to store the Cost and Usage Report.
     attr_reader :bucket_name
-
     # The region the bucket is located in.
     attr_accessor :bucket_region
-
     # The month of the report.
     attr_reader :months
-
     # The name of the Cost and Usage Report.
     attr_reader :report_name
-
     # The report prefix used for the Cost and Usage Report.
     attr_reader :report_prefix
 

@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Data envelope for `UpdateOpenAPIResponse`.
   class UpdateOpenAPIResponseData
     include BaseGenericModel
-
     # Attributes for `UpdateOpenAPI`.
     attr_accessor :attributes
-
     # API identifier.
     attr_accessor :id
 

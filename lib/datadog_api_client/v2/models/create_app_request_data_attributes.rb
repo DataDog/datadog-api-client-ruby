@@ -20,22 +20,16 @@ module DatadogAPIClient::V2
   # App definition attributes such as name, description, and components.
   class CreateAppRequestDataAttributes
     include BaseGenericModel
-
     # The UI components that make up the app.
     attr_accessor :components
-
     # A human-readable description for the app.
     attr_accessor :description
-
     # The name of the app.
     attr_accessor :name
-
     # An array of queries, such as external actions and state variables, that the app uses.
     attr_accessor :queries
-
     # The name of the root component of the app. This must be a `grid` component that contains all other components.
     attr_accessor :root_instance_name
-
     # A list of tags for the app, which can be used to filter apps.
     attr_accessor :tags
 

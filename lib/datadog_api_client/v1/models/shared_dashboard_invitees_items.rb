@@ -20,13 +20,10 @@ module DatadogAPIClient::V1
   # The allowlisted invitees for an INVITE-only shared dashboard.
   class SharedDashboardInviteesItems
     include BaseGenericModel
-
     # Time of the invitee expiration. Null means the invite will not expire.
     attr_accessor :access_expiration
-
     # Time that the invitee was created.
     attr_accessor :created_at
-
     # Email of the invitee.
     attr_reader :email
 

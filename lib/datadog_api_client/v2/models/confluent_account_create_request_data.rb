@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The data body for adding a Confluent account.
   class ConfluentAccountCreateRequestData
     include BaseGenericModel
-
     # Attributes associated with the account creation request.
     attr_reader :attributes
-
     # The JSON:API type for this API. Should always be `confluent-cloud-accounts`.
     attr_reader :type
 

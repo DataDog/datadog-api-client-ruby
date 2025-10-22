@@ -20,28 +20,20 @@ module DatadogAPIClient::V2
   # A simplified version of a monitor user template.
   class SimpleMonitorUserTemplate
     include BaseGenericModel
-
     # The created timestamp of the template.
     attr_accessor :created
-
     # A brief description of the monitor user template.
     attr_accessor :description
-
     # The unique identifier. The initial version will match the template ID.
     attr_accessor :id
-
     # A valid monitor definition in the same format as the [V1 Monitor API](https://docs.datadoghq.com/api/latest/monitors/#create-a-monitor).
     attr_accessor :monitor_definition
-
     # The definition of `MonitorUserTemplateTags` object.
     attr_accessor :tags
-
     # The definition of `MonitorUserTemplateTemplateVariables` object.
     attr_accessor :template_variables
-
     # The title of the monitor user template.
     attr_accessor :title
-
     # The version of the monitor user template.
     attr_accessor :version
 

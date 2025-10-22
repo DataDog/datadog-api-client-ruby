@@ -20,10 +20,8 @@ module DatadogAPIClient::V1
   # The data object associated with the SLO correction to be created.
   class SLOCorrectionCreateData
     include BaseGenericModel
-
     # The attribute object associated with the SLO correction to be created.
     attr_accessor :attributes
-
     # SLO correction resource type.
     attr_reader :type
 

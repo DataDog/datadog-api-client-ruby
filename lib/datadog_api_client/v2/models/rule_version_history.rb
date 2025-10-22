@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Response object containing the version history of a rule.
   class RuleVersionHistory
     include BaseGenericModel
-
     # The number of rule versions.
     attr_reader :count
-
     # The `RuleVersionHistory` `data`.
     attr_accessor :data
 

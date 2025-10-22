@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Azure config pair.
   class AzureUCConfigPair
     include BaseGenericModel
-
     # Attributes for Azure config pair.
     attr_reader :attributes
-
     # The ID of Cloud Cost Management account.
     attr_accessor :id
-
     # Type of Azure config pair.
     attr_reader :type
 

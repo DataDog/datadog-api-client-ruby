@@ -20,10 +20,8 @@ module DatadogAPIClient::V1
   # Object describing the logs filter.
   class LogsCategoryProcessorCategory
     include BaseGenericModel
-
     # Filter for logs.
     attr_accessor :filter
-
     # Value to assign to the target attribute.
     attr_accessor :name
 

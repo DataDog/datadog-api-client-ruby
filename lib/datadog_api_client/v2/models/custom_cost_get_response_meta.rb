@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Meta for the response from the Get Custom Costs endpoints.
   class CustomCostGetResponseMeta
     include BaseGenericModel
-
     # Version of Custom Costs file
     attr_accessor :version
 

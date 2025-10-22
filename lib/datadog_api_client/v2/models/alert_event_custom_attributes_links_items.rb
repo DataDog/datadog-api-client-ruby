@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # A link.
   class AlertEventCustomAttributesLinksItems
     include BaseGenericModel
-
     # The category of the link.
     attr_reader :category
-
     # The display text of the link. Limited to 300 characters.
     attr_reader :title
-
     # The URL of the link. Limited to 2048 characters.
     attr_reader :url
 

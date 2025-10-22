@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Request object that includes the metric that you would like to edit the tag configuration on.
   class MetricTagConfigurationUpdateRequest
     include BaseGenericModel
-
     # Object for a single tag configuration to be edited.
     attr_reader :data
 

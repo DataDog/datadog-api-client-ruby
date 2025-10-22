@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Confluent Cloud resource data.
   class ConfluentResourceResponseData
     include BaseGenericModel
-
     # Model representation of a Confluent Cloud resource.
     attr_reader :attributes
-
     # The ID associated with the Confluent resource.
     attr_reader :id
-
     # The JSON:API type for this request.
     attr_reader :type
 

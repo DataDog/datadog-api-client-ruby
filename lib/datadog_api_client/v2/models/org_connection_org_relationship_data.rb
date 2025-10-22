@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # The definition of `OrgConnectionOrgRelationshipData` object.
   class OrgConnectionOrgRelationshipData
     include BaseGenericModel
-
     # Org UUID.
     attr_accessor :id
-
     # Org name.
     attr_accessor :name
-
     # The type of the organization relationship.
     attr_accessor :type
 

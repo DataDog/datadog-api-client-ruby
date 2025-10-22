@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Groups the relationships for a schedule object, referencing layers and teams.
   class ScheduleDataRelationships
     include BaseGenericModel
-
     # Associates layers with this schedule in a data structure.
     attr_accessor :layers
-
     # Associates teams with this schedule in a data structure.
     attr_accessor :teams
 

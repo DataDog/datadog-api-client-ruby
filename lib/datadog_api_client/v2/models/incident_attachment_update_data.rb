@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # A single incident attachment.
   class IncidentAttachmentUpdateData
     include BaseGenericModel
-
     # Incident attachment attributes.
     attr_accessor :attributes
-
     # A unique identifier that represents the incident attachment.
     attr_accessor :id
-
     # The incident attachment resource type.
     attr_reader :type
 

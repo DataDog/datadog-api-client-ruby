@@ -20,58 +20,40 @@ module DatadogAPIClient::V1
   # The metadata object associated with how a dashboard has been/will be shared.
   class SharedDashboard
     include BaseGenericModel
-
     # User who shared the dashboard.
     attr_accessor :author
-
     # Date the dashboard was shared.
     attr_accessor :created
-
     # ID of the dashboard to share.
     attr_reader :dashboard_id
-
     # The type of the associated private dashboard.
     attr_reader :dashboard_type
-
     # The `SharedDashboard` `embeddable_domains`.
     attr_accessor :embeddable_domains
-
     # The time when an OPEN shared dashboard becomes publicly unavailable.
     attr_accessor :expiration
-
     # Object containing the live span selection for the dashboard.
     attr_accessor :global_time
-
     # Whether to allow viewers to select a different global time setting for the shared dashboard.
     attr_accessor :global_time_selectable_enabled
-
     # The `SharedDashboard` `invitees`.
     attr_accessor :invitees
-
     # The last time the shared dashboard was accessed. Null if never accessed.
     attr_accessor :last_accessed
-
     # URL of the shared dashboard.
     attr_accessor :public_url
-
     # List of objects representing template variables on the shared dashboard which can have selectable values.
     attr_accessor :selectable_template_vars
-
     # List of email addresses that can receive an invitation to access to the shared dashboard.
     attr_accessor :share_list
-
     # Type of sharing access (either open to anyone who has the public URL or invite-only).
     attr_accessor :share_type
-
     # Active means the dashboard is publicly available. Paused means the dashboard is not publicly available.
     attr_accessor :status
-
     # Title of the shared dashboard.
     attr_accessor :title
-
     # A unique token assigned to the shared dashboard.
     attr_accessor :token
-
     # The viewing preferences for a shared dashboard.
     attr_accessor :viewing_preferences
 

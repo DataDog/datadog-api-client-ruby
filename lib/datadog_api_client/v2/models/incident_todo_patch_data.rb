@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Incident todo data for a patch request.
   class IncidentTodoPatchData
     include BaseGenericModel
-
     # Incident todo's attributes.
     attr_reader :attributes
-
     # Todo resource type.
     attr_reader :type
 

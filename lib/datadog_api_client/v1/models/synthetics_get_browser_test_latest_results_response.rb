@@ -20,10 +20,8 @@ module DatadogAPIClient::V1
   # Object with the latest Synthetic browser test run.
   class SyntheticsGetBrowserTestLatestResultsResponse
     include BaseGenericModel
-
     # Timestamp of the latest browser test run.
     attr_accessor :last_timestamp_fetched
-
     # Result of the latest browser test run.
     attr_accessor :results
 

@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # The form data submitted to upload IdP metadata
   class IdPMetadataFormData
     include BaseGenericModel
-
     # The IdP metadata XML file
     attr_accessor :idp_file
 

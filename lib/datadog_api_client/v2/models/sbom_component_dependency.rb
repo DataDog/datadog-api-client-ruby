@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The dependencies of a component of the SBOM.
   class SBOMComponentDependency
     include BaseGenericModel
-
     # The components that are dependencies of the ref component.
     attr_accessor :depends_on
-
     # The identifier for the related component.
     attr_accessor :ref
 

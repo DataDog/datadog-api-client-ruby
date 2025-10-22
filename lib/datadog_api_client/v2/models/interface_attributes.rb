@@ -20,25 +20,18 @@ module DatadogAPIClient::V2
   # The interface attributes
   class InterfaceAttributes
     include BaseGenericModel
-
     # The interface alias
     attr_accessor :_alias
-
     # The interface description
     attr_accessor :description
-
     # The interface index
     attr_accessor :index
-
     # The interface IP addresses
     attr_accessor :ip_addresses
-
     # The interface MAC address
     attr_accessor :mac_address
-
     # The interface name
     attr_accessor :name
-
     # The interface status
     attr_accessor :status
 

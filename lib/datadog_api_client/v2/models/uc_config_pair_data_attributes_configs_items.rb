@@ -20,49 +20,34 @@ module DatadogAPIClient::V2
   # The definition of `UCConfigPairDataAttributesConfigsItems` object.
   class UCConfigPairDataAttributesConfigsItems
     include BaseGenericModel
-
     # The `items` `account_id`.
     attr_accessor :account_id
-
     # The `items` `client_id`.
     attr_accessor :client_id
-
     # The `items` `created_at`.
     attr_accessor :created_at
-
     # The `items` `dataset_type`.
     attr_accessor :dataset_type
-
     # The `items` `error_messages`.
     attr_accessor :error_messages
-
     # The `items` `export_name`.
     attr_accessor :export_name
-
     # The `items` `export_path`.
     attr_accessor :export_path
-
     # The `items` `id`.
     attr_accessor :id
-
     # The `items` `months`.
     attr_accessor :months
-
     # The `items` `scope`.
     attr_accessor :scope
-
     # The `items` `status`.
     attr_accessor :status
-
     # The `items` `status_updated_at`.
     attr_accessor :status_updated_at
-
     # The `items` `storage_account`.
     attr_accessor :storage_account
-
     # The `items` `storage_container`.
     attr_accessor :storage_container
-
     # The `items` `updated_at`.
     attr_accessor :updated_at
 

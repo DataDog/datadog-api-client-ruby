@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Errors occurred.
   class HTTPCIAppErrors
     include BaseGenericModel
-
     # Structured errors.
     attr_accessor :errors
 

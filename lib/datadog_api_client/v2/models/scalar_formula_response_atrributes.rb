@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # The object describing a scalar response.
   class ScalarFormulaResponseAtrributes
     include BaseGenericModel
-
     # List of response columns, each corresponding to an individual formula or query in the request and with values in parallel arrays matching the series list.
     attr_accessor :columns
 

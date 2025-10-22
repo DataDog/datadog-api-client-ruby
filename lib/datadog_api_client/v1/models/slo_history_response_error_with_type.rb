@@ -20,10 +20,8 @@ module DatadogAPIClient::V1
   # An object describing the error with error type and error message.
   class SLOHistoryResponseErrorWithType
     include BaseGenericModel
-
     # A message with more details about the error.
     attr_reader :error_message
-
     # Type of the error.
     attr_reader :error_type
 

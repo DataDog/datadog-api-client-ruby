@@ -20,7 +20,6 @@ module DatadogAPIClient::V1
   # Object describing the IdP configuration.
   class IdpFormData
     include BaseGenericModel
-
     # The path to the XML metadata file you wish to upload.
     attr_reader :idp_file
 

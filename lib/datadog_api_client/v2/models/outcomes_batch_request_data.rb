@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Scorecard outcomes batch request data.
   class OutcomesBatchRequestData
     include BaseGenericModel
-
     # The JSON:API attributes for a batched set of scorecard outcomes.
     attr_accessor :attributes
-
     # The JSON:API type for scorecard outcomes.
     attr_accessor :type
 

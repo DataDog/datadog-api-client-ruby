@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Configuration for enabling TLS encryption between the pipeline component and external services.
   class ObservabilityPipelineTls
     include BaseGenericModel
-
     # Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
     attr_accessor :ca_file
-
     # Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
     attr_reader :crt_file
-
     # Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
     attr_accessor :key_file
 

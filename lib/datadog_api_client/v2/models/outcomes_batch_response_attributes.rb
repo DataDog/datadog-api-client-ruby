@@ -20,19 +20,14 @@ module DatadogAPIClient::V2
   # The JSON:API attributes for an outcome.
   class OutcomesBatchResponseAttributes
     include BaseGenericModel
-
     # Creation time of the rule outcome.
     attr_accessor :created_at
-
     # Time of last rule outcome modification.
     attr_accessor :modified_at
-
     # Any remarks regarding the scorecard rule's evaluation, and supports HTML hyperlinks.
     attr_accessor :remarks
-
     # The unique name for a service in the catalog.
     attr_accessor :service_name
-
     # The state of the rule evaluation.
     attr_accessor :state
 

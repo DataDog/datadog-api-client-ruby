@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Represents a single validation error, including a human-readable title and metadata.
   class ValidationError
     include BaseGenericModel
-
     # Describes additional metadata for validation errors, including field names and error messages.
     attr_reader :meta
-
     # A short, human-readable summary of the error.
     attr_reader :title
 

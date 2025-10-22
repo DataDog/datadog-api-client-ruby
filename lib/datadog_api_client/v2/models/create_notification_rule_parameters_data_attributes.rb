@@ -20,23 +20,18 @@ module DatadogAPIClient::V2
   # Attributes of the notification rule create request.
   class CreateNotificationRuleParametersDataAttributes
     include BaseGenericModel
-
     # Field used to enable or disable the rule.
     attr_accessor :enabled
-
     # Name of the notification rule.
     attr_reader :name
-
     # Selectors are used to filter security issues for which notifications should be generated.
     # Users can specify rule severities, rule types, a query to filter security issues on tags and attributes, and the trigger source.
     # Only the trigger_source field is required.
     attr_reader :selectors
-
     # List of recipients to notify when a notification rule is triggered. Many different target types are supported,
     # such as email addresses, Slack channels, and PagerDuty services.
     # The appropriate integrations need to be properly configured to send notifications to the specified targets.
     attr_reader :targets
-
     # Time aggregation period (in seconds) is used to aggregate the results of the notification rule evaluation.
     # Results are aggregated over a selected time frame using a rolling window, which updates with each new evaluation.
     # Notifications are only sent for new issues discovered during the window.

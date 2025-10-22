@@ -20,10 +20,8 @@ module DatadogAPIClient::V1
   # Client certificate to use when performing the test request.
   class SyntheticsTestRequestCertificate
     include BaseGenericModel
-
     # Define a request certificate.
     attr_accessor :cert
-
     # Define a request certificate.
     attr_accessor :key
 

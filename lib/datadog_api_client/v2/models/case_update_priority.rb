@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Case priority status
   class CaseUpdatePriority
     include BaseGenericModel
-
     # Case update priority attributes
     attr_reader :attributes
-
     # Case resource type
     attr_reader :type
 

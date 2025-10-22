@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # The definition of Entity V3 Metadata Contacts Items object.
   class EntityV3MetadataContactsItems
     include BaseGenericModel
-
     # Contact value.
     attr_reader :contact
-
     # Contact name.
     attr_reader :name
-
     # Contact type.
     attr_reader :type
 

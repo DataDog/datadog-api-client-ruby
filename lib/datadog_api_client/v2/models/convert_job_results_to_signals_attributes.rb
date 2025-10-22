@@ -20,19 +20,14 @@ module DatadogAPIClient::V2
   # Attributes for converting historical job results to signals.
   class ConvertJobResultsToSignalsAttributes
     include BaseGenericModel
-
     # Request ID.
     attr_accessor :id
-
     # Job result IDs.
     attr_reader :job_result_ids
-
     # Notifications sent.
     attr_reader :notifications
-
     # Message of generated signals.
     attr_reader :signal_message
-
     # Severity of the Security Signal.
     attr_reader :signal_severity
 

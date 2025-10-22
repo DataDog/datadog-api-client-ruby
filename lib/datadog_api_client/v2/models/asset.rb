@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # A single vulnerable asset
   class Asset
     include BaseGenericModel
-
     # The JSON:API attributes of the asset.
     attr_reader :attributes
-
     # The unique ID for this asset.
     attr_reader :id
-
     # The JSON:API type.
     attr_reader :type
 

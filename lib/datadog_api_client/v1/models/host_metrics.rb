@@ -20,13 +20,10 @@ module DatadogAPIClient::V1
   # Host Metrics collected.
   class HostMetrics
     include BaseGenericModel
-
     # The percent of CPU used (everything but idle).
     attr_accessor :cpu
-
     # The percent of CPU spent waiting on the IO (not reported for all platforms).
     attr_accessor :iowait
-
     # The system load over the last 15 minutes.
     attr_accessor :load
 

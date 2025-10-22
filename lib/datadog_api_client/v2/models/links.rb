@@ -20,19 +20,14 @@ module DatadogAPIClient::V2
   # The JSON:API links related to pagination.
   class Links
     include BaseGenericModel
-
     # First page link.
     attr_reader :first
-
     # Last page link.
     attr_reader :last
-
     # Next page link.
     attr_accessor :_next
-
     # Previous page link.
     attr_accessor :previous
-
     # Request link.
     attr_reader :_self
 

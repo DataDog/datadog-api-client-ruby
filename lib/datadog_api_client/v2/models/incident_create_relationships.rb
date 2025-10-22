@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # The relationships the incident will have with other resources once created.
   class IncidentCreateRelationships
     include BaseGenericModel
-
     # Relationship to user.
     attr_accessor :commander_user
 

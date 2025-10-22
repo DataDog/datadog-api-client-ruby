@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # The interfaces list data
   class GetInterfacesData
     include BaseGenericModel
-
     # The interface attributes
     attr_accessor :attributes
-
     # The interface ID
     attr_accessor :id
-
     # The type of the resource. The value should always be interface.
     attr_accessor :type
 

@@ -20,28 +20,20 @@ module DatadogAPIClient::V2
   # The notification rule's attributes.
   class IncidentNotificationRuleAttributes
     include BaseGenericModel
-
     # The conditions that trigger this notification rule.
     attr_reader :conditions
-
     # Timestamp when the notification rule was created.
     attr_reader :created
-
     # Whether the notification rule is enabled.
     attr_reader :enabled
-
     # The notification handles (targets) for this rule.
     attr_reader :handles
-
     # Timestamp when the notification rule was last modified.
     attr_reader :modified
-
     # List of incident fields that trigger re-notification when changed.
     attr_accessor :renotify_on
-
     # The trigger event for this notification rule.
     attr_reader :trigger
-
     # The visibility of the notification rule.
     attr_reader :visibility
 

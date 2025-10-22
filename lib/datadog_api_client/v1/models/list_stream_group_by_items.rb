@@ -20,7 +20,6 @@ module DatadogAPIClient::V1
   # List of facets on which to group.
   class ListStreamGroupByItems
     include BaseGenericModel
-
     # Facet name.
     attr_reader :facet
 

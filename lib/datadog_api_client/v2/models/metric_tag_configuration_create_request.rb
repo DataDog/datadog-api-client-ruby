@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Request object that includes the metric that you would like to configure tags for.
   class MetricTagConfigurationCreateRequest
     include BaseGenericModel
-
     # Object for a single metric to be configure tags on.
     attr_reader :data
 

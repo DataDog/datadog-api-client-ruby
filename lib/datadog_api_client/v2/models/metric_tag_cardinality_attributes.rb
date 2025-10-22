@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # An object containing properties related to the tag key
   class MetricTagCardinalityAttributes
     include BaseGenericModel
-
     # This describes the recent change in the tag keys cardinality
     attr_accessor :cardinality_delta
 

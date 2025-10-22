@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # CSM Serverless Resources Coverage Analysis response.
   class CsmServerlessCoverageAnalysisResponse
     include BaseGenericModel
-
     # CSM Serverless Resources Coverage Analysis data.
     attr_accessor :data
 

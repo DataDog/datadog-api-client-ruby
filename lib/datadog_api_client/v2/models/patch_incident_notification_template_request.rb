@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Update request for a notification template.
   class PatchIncidentNotificationTemplateRequest
     include BaseGenericModel
-
     # Notification template data for an update request.
     attr_reader :data
 

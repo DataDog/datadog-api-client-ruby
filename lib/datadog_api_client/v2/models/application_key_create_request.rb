@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Request used to create an application key.
   class ApplicationKeyCreateRequest
     include BaseGenericModel
-
     # Object used to create an application key.
     attr_reader :data
 

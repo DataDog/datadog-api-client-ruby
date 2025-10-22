@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Pagination properties.
   class IncidentResponseMetaPagination
     include BaseGenericModel
-
     # The index of the first element in the next page of results. Equal to page size added to the current offset.
     attr_accessor :next_offset
-
     # The index of the first element in the results.
     attr_accessor :offset
-
     # Maximum size of pages to return.
     attr_accessor :size
 

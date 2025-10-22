@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The definition of the `ClickupIntegration` object.
   class ClickupIntegration
     include BaseGenericModel
-
     # The definition of the `ClickupCredentials` object.
     attr_reader :credentials
-
     # The definition of the `ClickupIntegrationType` object.
     attr_reader :type
 

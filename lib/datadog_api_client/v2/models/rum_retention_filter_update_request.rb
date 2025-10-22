@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # The RUM retention filter body to update.
   class RumRetentionFilterUpdateRequest
     include BaseGenericModel
-
     # The new RUM retention filter properties to update.
     attr_reader :data
 

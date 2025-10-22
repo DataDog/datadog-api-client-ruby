@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Finding object containing the finding information.
   class BulkMuteFindingsRequestMetaFindings
     include BaseGenericModel
-
     # The unique ID for this finding.
     attr_accessor :finding_id
 

@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Run a historical job request.
   class RunHistoricalJobRequestAttributes
     include BaseGenericModel
-
     # Definition of a historical job based on a security monitoring rule.
     attr_accessor :from_rule
-
     # Request ID.
     attr_accessor :id
-
     # Definition of a historical job.
     attr_accessor :job_definition
 

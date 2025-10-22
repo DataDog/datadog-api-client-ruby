@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Response object that includes an AWS on demand task.
   class AwsOnDemandResponse
     include BaseGenericModel
-
     # Single AWS on demand task.
     attr_accessor :data
 

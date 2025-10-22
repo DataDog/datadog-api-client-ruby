@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Object containing the definition of a metric's distinct volume.
   class MetricDistinctVolumeAttributes
     include BaseGenericModel
-
     # Distinct volume for the given metric.
     attr_accessor :distinct_volume
 

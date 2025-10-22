@@ -24,31 +24,22 @@ module DatadogAPIClient::V1
   # Make sure to use an application key created by an admin.
   class LogsPipeline
     include BaseGenericModel
-
     # A description of the pipeline.
     attr_accessor :description
-
     # Filter for logs.
     attr_accessor :filter
-
     # ID of the pipeline.
     attr_accessor :id
-
     # Whether or not the pipeline is enabled.
     attr_accessor :is_enabled
-
     # Whether or not the pipeline can be edited.
     attr_accessor :is_read_only
-
     # Name of the pipeline.
     attr_reader :name
-
     # Ordered list of processors in this pipeline.
     attr_accessor :processors
-
     # A list of tags associated with the pipeline.
     attr_accessor :tags
-
     # Type of pipeline.
     attr_accessor :type
 

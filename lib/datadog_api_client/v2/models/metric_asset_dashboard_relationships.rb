@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # An object containing the list of dashboards that can be referenced in the `included` data.
   class MetricAssetDashboardRelationships
     include BaseGenericModel
-
     # A list of dashboards that can be referenced in the `included` data.
     attr_accessor :data
 

@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Attributes that can be updated on a datastore.
   class UpdateAppsDatastoreRequestDataAttributes
     include BaseGenericModel
-
     # A human-readable description about the datastore.
     attr_accessor :description
-
     # The display name of the datastore.
     attr_accessor :name
 

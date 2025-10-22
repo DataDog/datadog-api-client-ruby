@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Schema for a Notebook-based trigger.
   class NotebookTriggerWrapper
     include BaseGenericModel
-
     # Trigger a workflow from a Notebook.
     attr_reader :notebook_trigger
-
     # A list of steps that run first after a trigger fires.
     attr_accessor :start_step_names
 

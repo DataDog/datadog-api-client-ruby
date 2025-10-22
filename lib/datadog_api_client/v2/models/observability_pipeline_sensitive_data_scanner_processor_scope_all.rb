@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Applies scanning across all available fields.
   class ObservabilityPipelineSensitiveDataScannerProcessorScopeAll
     include BaseGenericModel
-
     # Applies the rule to all fields.
     attr_reader :target
 

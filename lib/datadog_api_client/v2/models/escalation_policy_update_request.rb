@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Represents a request to update an existing escalation policy, including the updated policy data.
   class EscalationPolicyUpdateRequest
     include BaseGenericModel
-
     # Represents the data for updating an existing escalation policy, including its ID, attributes, relationships, and resource type.
     attr_reader :data
 

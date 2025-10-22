@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The definition of the `OktaIntegration` object.
   class OktaIntegration
     include BaseGenericModel
-
     # The definition of the `OktaCredentials` object.
     attr_reader :credentials
-
     # The definition of the `OktaIntegrationType` object.
     attr_reader :type
 

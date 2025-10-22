@@ -20,25 +20,18 @@ module DatadogAPIClient::V2
   # Line item details from a Custom Costs file.
   class CustomCostsFileLineItem
     include BaseGenericModel
-
     # Total cost in the cost file.
     attr_accessor :billed_cost
-
     # Currency used in the Custom Costs file.
     attr_accessor :billing_currency
-
     # Description for the line item cost.
     attr_accessor :charge_description
-
     # End date of the usage charge.
     attr_reader :charge_period_end
-
     # Start date of the usage charge.
     attr_reader :charge_period_start
-
     # Name of the provider for the line item.
     attr_accessor :provider_name
-
     # Additional tags for the line item.
     attr_accessor :tags
 

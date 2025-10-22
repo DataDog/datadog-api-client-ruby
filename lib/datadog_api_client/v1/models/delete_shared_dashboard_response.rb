@@ -20,7 +20,6 @@ module DatadogAPIClient::V1
   # Response containing token of deleted shared dashboard.
   class DeleteSharedDashboardResponse
     include BaseGenericModel
-
     # Token associated with the shared dashboard that was revoked.
     attr_accessor :deleted_public_dashboard_token
 

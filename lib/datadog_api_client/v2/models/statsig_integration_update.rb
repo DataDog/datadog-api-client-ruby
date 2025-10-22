@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The definition of the `StatsigIntegrationUpdate` object.
   class StatsigIntegrationUpdate
     include BaseGenericModel
-
     # The definition of the `StatsigCredentialsUpdate` object.
     attr_accessor :credentials
-
     # The definition of the `StatsigIntegrationType` object.
     attr_reader :type
 

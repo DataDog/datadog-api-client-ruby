@@ -20,7 +20,6 @@ module DatadogAPIClient::V1
   # Options for the Global Variable for MFA.
   class SyntheticsGlobalVariableOptions
     include BaseGenericModel
-
     # Parameters for the TOTP/MFA variable
     attr_accessor :totp_parameters
 

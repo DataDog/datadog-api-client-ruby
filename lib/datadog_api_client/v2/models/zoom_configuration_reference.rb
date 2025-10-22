@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # A reference to a Zoom configuration resource.
   class ZoomConfigurationReference
     include BaseGenericModel
-
     # The Zoom configuration relationship data object.
     attr_accessor :data
 

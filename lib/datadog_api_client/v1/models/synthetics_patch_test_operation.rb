@@ -20,13 +20,10 @@ module DatadogAPIClient::V1
   # A single [JSON Patch](https://jsonpatch.com) operation to perform on the test
   class SyntheticsPatchTestOperation
     include BaseGenericModel
-
     # The operation to perform
     attr_accessor :op
-
     # The path to the value to modify
     attr_accessor :path
-
     # A value to use in a [JSON Patch](https://jsonpatch.com) operation
     attr_accessor :value
 

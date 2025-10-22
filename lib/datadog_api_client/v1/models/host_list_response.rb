@@ -20,13 +20,10 @@ module DatadogAPIClient::V1
   # Response with Host information from Datadog.
   class HostListResponse
     include BaseGenericModel
-
     # Array of hosts.
     attr_accessor :host_list
-
     # Number of host matching the query.
     attr_accessor :total_matching
-
     # Number of host returned.
     attr_accessor :total_returned
 

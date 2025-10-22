@@ -30,13 +30,10 @@ module DatadogAPIClient::V1
   # RUM data is collected using the specified application.
   class SyntheticsBrowserTestRumSettings
     include BaseGenericModel
-
     # RUM application ID used to collect RUM data for the browser test.
     attr_accessor :application_id
-
     # RUM application API key ID used to collect RUM data for the browser test.
     attr_accessor :client_token_id
-
     # Determines whether RUM data is collected during test runs.
     attr_reader :is_enabled
 

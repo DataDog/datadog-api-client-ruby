@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Incident integration metadata for the Jira integration.
   class JiraIntegrationMetadata
     include BaseGenericModel
-
     # Array of Jira issues in this integration metadata.
     attr_reader :issues
 

@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Confluent account returned by the API.
   class ConfluentAccountsResponse
     include BaseGenericModel
-
     # The Confluent account.
     attr_accessor :data
 

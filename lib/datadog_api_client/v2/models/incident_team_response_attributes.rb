@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # The incident team's attributes from a response.
   class IncidentTeamResponseAttributes
     include BaseGenericModel
-
     # Timestamp of when the incident team was created.
     attr_accessor :created
-
     # Timestamp of when the incident team was modified.
     attr_accessor :modified
-
     # Name of the incident team.
     attr_accessor :name
 

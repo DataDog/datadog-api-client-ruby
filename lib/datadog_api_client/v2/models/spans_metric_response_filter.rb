@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # The span-based metric filter. Spans matching this filter will be aggregated in this metric.
   class SpansMetricResponseFilter
     include BaseGenericModel
-
     # The search query - following the span search syntax.
     attr_accessor :query
 

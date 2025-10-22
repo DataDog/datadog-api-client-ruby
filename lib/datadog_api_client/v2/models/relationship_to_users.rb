@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Relationship to users.
   class RelationshipToUsers
     include BaseGenericModel
-
     # Relationships to user objects.
     attr_reader :data
 

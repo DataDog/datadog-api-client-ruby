@@ -20,10 +20,8 @@ module DatadogAPIClient::V1
   # Invitations data and metadata that exists for a shared dashboard returned by the API.
   class SharedDashboardInvites
     include BaseGenericModel
-
     # An object or list of objects containing the information for an invitation to a shared dashboard.
     attr_reader :data
-
     # Pagination metadata returned by the API.
     attr_accessor :meta
 

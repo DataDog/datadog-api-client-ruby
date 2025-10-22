@@ -20,7 +20,6 @@ module DatadogAPIClient::V1
   # Widget style definition.
   class WidgetStyle
     include BaseGenericModel
-
     # Color palette to apply to the widget.
     attr_accessor :palette
 

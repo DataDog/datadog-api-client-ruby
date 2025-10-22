@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Relationship between the search result and the corresponding issue.
   class IssuesSearchResultIssueRelationship
     include BaseGenericModel
-
     # The issue the search result corresponds to.
     attr_reader :data
 

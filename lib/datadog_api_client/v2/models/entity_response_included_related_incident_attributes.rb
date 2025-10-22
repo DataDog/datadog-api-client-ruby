@@ -20,19 +20,14 @@ module DatadogAPIClient::V2
   # Incident attributes.
   class EntityResponseIncludedRelatedIncidentAttributes
     include BaseGenericModel
-
     # Incident creation time.
     attr_accessor :created_at
-
     # Incident URL.
     attr_accessor :html_url
-
     # Incident provider.
     attr_accessor :provider
-
     # Incident status.
     attr_accessor :status
-
     # Incident title.
     attr_accessor :title
 

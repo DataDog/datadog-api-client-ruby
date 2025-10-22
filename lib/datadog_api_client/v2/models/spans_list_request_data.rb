@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The object containing the query content.
   class SpansListRequestData
     include BaseGenericModel
-
     # The object containing all the query parameters.
     attr_accessor :attributes
-
     # The type of resource. The value should always be search_request.
     attr_accessor :type
 

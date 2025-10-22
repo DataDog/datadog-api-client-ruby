@@ -20,10 +20,8 @@ module DatadogAPIClient::V1
   # Public key for the result encryption.
   class SyntheticsPrivateLocationCreationResponseResultEncryption
     include BaseGenericModel
-
     # Fingerprint for the encryption key.
     attr_accessor :id
-
     # Public key for result encryption.
     attr_accessor :key
 

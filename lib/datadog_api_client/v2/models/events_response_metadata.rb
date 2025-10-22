@@ -20,19 +20,14 @@ module DatadogAPIClient::V2
   # The metadata associated with a request.
   class EventsResponseMetadata
     include BaseGenericModel
-
     # The time elapsed in milliseconds.
     attr_accessor :elapsed
-
     # Pagination attributes.
     attr_accessor :page
-
     # The identifier of the request.
     attr_accessor :request_id
-
     # The request status.
     attr_accessor :status
-
     # A list of warnings (non-fatal errors) encountered. Partial results might be returned if
     # warnings are present in the response.
     attr_accessor :warnings

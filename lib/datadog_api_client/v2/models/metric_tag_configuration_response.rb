@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Response object which includes a single metric's tag configuration.
   class MetricTagConfigurationResponse
     include BaseGenericModel
-
     # Object for a single metric tag configuration.
     attr_accessor :data
 

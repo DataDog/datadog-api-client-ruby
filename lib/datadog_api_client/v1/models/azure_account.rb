@@ -20,59 +20,42 @@ module DatadogAPIClient::V1
   # Datadog-Azure integrations configured for your organization.
   class AzureAccount
     include BaseGenericModel
-
     # Limit the Azure app service plans that are pulled into Datadog using tags.
     # Only app service plans that match one of the defined tags are imported into Datadog.
     attr_accessor :app_service_plan_filters
-
     # Silence monitors for expected Azure VM shutdowns.
     attr_accessor :automute
-
     # Your Azure web application ID.
     attr_accessor :client_id
-
     # Your Azure web application secret key.
     attr_accessor :client_secret
-
     # Limit the Azure container apps that are pulled into Datadog using tags.
     # Only container apps that match one of the defined tags are imported into Datadog.
     attr_accessor :container_app_filters
-
     # When enabled, Datadog’s Cloud Security Management product scans resource configurations monitored by this app registration.
     # Note: This requires resource_collection_enabled to be set to true.
     attr_accessor :cspm_enabled
-
     # Enable custom metrics for your organization.
     attr_accessor :custom_metrics_enabled
-
     # Errors in your configuration.
     attr_accessor :errors
-
     # Limit the Azure instances that are pulled into Datadog by using tags.
     # Only hosts that match one of the defined tags are imported into Datadog.
     attr_accessor :host_filters
-
     # Enable Azure metrics for your organization.
     attr_accessor :metrics_enabled
-
     # Enable Azure metrics for your organization for resource providers where no resource provider config is specified.
     attr_accessor :metrics_enabled_default
-
     # Your New Azure web application ID.
     attr_accessor :new_client_id
-
     # Your New Azure Active Directory ID.
     attr_accessor :new_tenant_name
-
     # When enabled, Datadog collects metadata and configuration info from cloud resources (compute instances, databases, load balancers, etc.) monitored by this app registration.
     attr_accessor :resource_collection_enabled
-
     # Configuration settings applied to resources from the specified Azure resource providers.
     attr_accessor :resource_provider_configs
-
     # Your Azure Active Directory ID.
     attr_accessor :tenant_name
-
     # Enable azure.usage metrics for your organization.
     attr_accessor :usage_metrics_enabled
 

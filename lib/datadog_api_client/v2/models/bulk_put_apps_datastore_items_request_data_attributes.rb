@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Configuration for bulk inserting multiple items into a datastore.
   class BulkPutAppsDatastoreItemsRequestDataAttributes
     include BaseGenericModel
-
     # How to handle conflicts when inserting items that already exist in the datastore.
     attr_accessor :conflict_mode
-
     # An array of items to add to the datastore, where each item is a set of key-value pairs representing the item's data. Up to 100 items can be updated in a single request.
     attr_reader :values
 

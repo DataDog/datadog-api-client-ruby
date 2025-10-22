@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # JSON object for category-specific attributes.
   class EventCreateResponseAttributesAttributes
     include BaseGenericModel
-
     # JSON object of event system attributes.
     attr_accessor :evt
 

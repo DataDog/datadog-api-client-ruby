@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # User object returned by the API.
   class User
     include BaseGenericModel
-
     # Attributes of user object returned by the API.
     attr_accessor :attributes
-
     # ID of the user.
     attr_accessor :id
-
     # Relationships of the user object returned by the API.
     attr_accessor :relationships
-
     # Users resource type.
     attr_accessor :type
 

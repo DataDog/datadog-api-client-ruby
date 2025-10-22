@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Restriction policy object.
   class RestrictionPolicy
     include BaseGenericModel
-
     # Restriction policy attributes.
     attr_reader :attributes
-
     # The identifier, always equivalent to the value specified in the `resource_id` path parameter.
     attr_reader :id
-
     # Restriction policy type.
     attr_reader :type
 

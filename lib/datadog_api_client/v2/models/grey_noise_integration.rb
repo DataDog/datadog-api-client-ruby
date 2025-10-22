@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The definition of the `GreyNoiseIntegration` object.
   class GreyNoiseIntegration
     include BaseGenericModel
-
     # The definition of the `GreyNoiseCredentials` object.
     attr_reader :credentials
-
     # The definition of the `GreyNoiseIntegrationType` object.
     attr_reader :type
 

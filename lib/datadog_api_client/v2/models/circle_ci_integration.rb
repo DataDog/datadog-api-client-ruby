@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The definition of the `CircleCIIntegration` object.
   class CircleCIIntegration
     include BaseGenericModel
-
     # The definition of the `CircleCICredentials` object.
     attr_reader :credentials
-
     # The definition of the `CircleCIIntegrationType` object.
     attr_reader :type
 

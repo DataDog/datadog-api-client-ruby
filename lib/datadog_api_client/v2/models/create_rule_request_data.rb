@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Scorecard create rule request data.
   class CreateRuleRequestData
     include BaseGenericModel
-
     # Details of a rule.
     attr_accessor :attributes
-
     # The JSON:API type for scorecard rules.
     attr_accessor :type
 

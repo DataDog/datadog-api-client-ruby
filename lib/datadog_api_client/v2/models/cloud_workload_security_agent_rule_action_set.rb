@@ -20,34 +20,24 @@ module DatadogAPIClient::V2
   # The set action applied on the scope matching the rule
   class CloudWorkloadSecurityAgentRuleActionSet
     include BaseGenericModel
-
     # Whether the value should be appended to the field.
     attr_accessor :append
-
     # The default value of the set action
     attr_accessor :default_value
-
     # The expression of the set action.
     attr_accessor :expression
-
     # The field of the set action
     attr_accessor :field
-
     # Whether the value should be inherited.
     attr_accessor :inherited
-
     # The name of the set action
     attr_accessor :name
-
     # The scope of the set action.
     attr_accessor :scope
-
     # The size of the set action.
     attr_accessor :size
-
     # The time to live of the set action.
     attr_accessor :ttl
-
     # The value of the set action
     attr_accessor :value
 

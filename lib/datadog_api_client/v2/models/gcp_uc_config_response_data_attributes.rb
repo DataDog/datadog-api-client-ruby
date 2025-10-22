@@ -20,43 +20,30 @@ module DatadogAPIClient::V2
   # The definition of `GcpUcConfigResponseDataAttributes` object.
   class GcpUcConfigResponseDataAttributes
     include BaseGenericModel
-
     # The `attributes` `account_id`.
     attr_accessor :account_id
-
     # The `attributes` `bucket_name`.
     attr_accessor :bucket_name
-
     # The `attributes` `created_at`.
     attr_accessor :created_at
-
     # The `attributes` `dataset`.
     attr_accessor :dataset
-
     # The `attributes` `error_messages`.
     attr_accessor :error_messages
-
     # The `attributes` `export_prefix`.
     attr_accessor :export_prefix
-
     # The `attributes` `export_project_name`.
     attr_accessor :export_project_name
-
     # The `attributes` `months`.
     attr_accessor :months
-
     # The `attributes` `project_id`.
     attr_accessor :project_id
-
     # The `attributes` `service_account`.
     attr_accessor :service_account
-
     # The `attributes` `status`.
     attr_accessor :status
-
     # The `attributes` `status_updated_at`.
     attr_accessor :status_updated_at
-
     # The `attributes` `updated_at`.
     attr_accessor :updated_at
 

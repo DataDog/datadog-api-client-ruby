@@ -20,19 +20,14 @@ module DatadogAPIClient::V2
   # Teams response links.
   class TeamsResponseLinks
     include BaseGenericModel
-
     # First link.
     attr_accessor :first
-
     # Last link.
     attr_accessor :last
-
     # Next link.
     attr_accessor :_next
-
     # Previous link.
     attr_accessor :prev
-
     # Current link.
     attr_accessor :_self
 

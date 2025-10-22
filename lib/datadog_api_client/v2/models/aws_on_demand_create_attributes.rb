@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Attributes for the AWS on demand task.
   class AwsOnDemandCreateAttributes
     include BaseGenericModel
-
     # The arn of the resource to scan. Agentless supports the scan of EC2 instances, lambda functions, AMI, ECR, RDS and S3 buckets.
     attr_reader :arn
 

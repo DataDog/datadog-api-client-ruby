@@ -20,31 +20,22 @@ module DatadogAPIClient::V1
   # Updated list stream widget.
   class ListStreamQuery
     include BaseGenericModel
-
     # Specifies the field for logs pattern clustering. Usable only with logs_pattern_stream.
     attr_accessor :clustering_pattern_field_path
-
     # Compute configuration for the List Stream Widget. Compute can be used only with the logs_transaction_stream (from 1 to 5 items) list stream source.
     attr_reader :compute
-
     # Source from which to query items to display in the stream.
     attr_reader :data_source
-
     # Size to use to display an event.
     attr_accessor :event_size
-
     # Group by configuration for the List Stream Widget. Group by can be used only with logs_pattern_stream (up to 4 items) or logs_transaction_stream (one group by item is required) list stream source.
     attr_reader :group_by
-
     # List of indexes.
     attr_accessor :indexes
-
     # Widget query.
     attr_reader :query_string
-
     # Which column and order to sort by
     attr_accessor :sort
-
     # Option for storage location. Feature in Private Beta.
     attr_accessor :storage
 

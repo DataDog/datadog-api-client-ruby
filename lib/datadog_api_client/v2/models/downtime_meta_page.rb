@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Object containing the total filtered count.
   class DowntimeMetaPage
     include BaseGenericModel
-
     # Total count of elements matched by the filter.
     attr_accessor :total_filtered_count
 

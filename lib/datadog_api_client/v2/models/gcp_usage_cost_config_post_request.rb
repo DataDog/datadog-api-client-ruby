@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Google Cloud Usage Cost config post request.
   class GCPUsageCostConfigPostRequest
     include BaseGenericModel
-
     # Google Cloud Usage Cost config post data.
     attr_reader :data
 

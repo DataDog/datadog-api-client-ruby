@@ -20,16 +20,12 @@ module DatadogAPIClient::V1
   # An assertion for the `validatesJSONPath` operator.
   class SyntheticsAssertionJSONPathTarget
     include BaseGenericModel
-
     # Assertion operator to apply.
     attr_reader :operator
-
     # The associated assertion property.
     attr_accessor :property
-
     # Composed target for `validatesJSONPath` operator.
     attr_accessor :target
-
     # Type of the assertion.
     attr_reader :type
 

@@ -20,44 +20,32 @@ module DatadogAPIClient::V2
   # Attributes associated with your service account.
   class GCPSTSServiceAccountAttributes
     include BaseGenericModel
-
     # Tags to be associated with GCP metrics and service checks from your account.
     attr_accessor :account_tags
-
     # Silence monitors for expected GCE instance shutdowns.
     attr_accessor :automute
-
     # Your service account email address.
     attr_accessor :client_email
-
     # List of filters to limit the Cloud Run revisions that are pulled into Datadog by using tags.
     # Only Cloud Run revision resources that apply to specified filters are imported into Datadog.
     # **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=cloud_run_revision`
     attr_accessor :cloud_run_revision_filters
-
     # List of filters to limit the VM instances that are pulled into Datadog by using tags.
     # Only VM instance resources that apply to specified filters are imported into Datadog.
     # **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=gce_instance`
     attr_accessor :host_filters
-
     # When enabled, Datadog will activate the Cloud Security Monitoring product for this service account. Note: This requires resource_collection_enabled to be set to true.
     attr_accessor :is_cspm_enabled
-
     # When enabled, Datadog applies the `X-Goog-User-Project` header, attributing Google Cloud billing and quota usage to the project being monitored rather than the default service account project.
     attr_accessor :is_per_project_quota_enabled
-
     # When enabled, Datadog scans for all resource change data in your Google Cloud environment.
     attr_accessor :is_resource_change_collection_enabled
-
     # When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account.
     attr_accessor :is_security_command_center_enabled
-
     # Configurations for GCP metric namespaces.
     attr_accessor :metric_namespace_configs
-
     # Configurations for GCP monitored resources.
     attr_accessor :monitored_resource_configs
-
     # When enabled, Datadog scans for all resources in your GCP environment.
     attr_accessor :resource_collection_enabled
 

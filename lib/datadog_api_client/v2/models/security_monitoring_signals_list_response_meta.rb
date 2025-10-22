@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Meta attributes.
   class SecurityMonitoringSignalsListResponseMeta
     include BaseGenericModel
-
     # Paging attributes.
     attr_accessor :page
 

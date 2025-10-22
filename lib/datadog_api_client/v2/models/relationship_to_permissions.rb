@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Relationship to multiple permissions objects.
   class RelationshipToPermissions
     include BaseGenericModel
-
     # Relationships to permission objects.
     attr_accessor :data
 

@@ -20,22 +20,16 @@ module DatadogAPIClient::V1
   # Attributes of the shared dashboard invitation
   class SharedDashboardInvitesDataObjectAttributes
     include BaseGenericModel
-
     # When the invitation was sent.
     attr_accessor :created_at
-
     # An email address that an invitation has been (or if used in invitation request, will be) sent to.
     attr_accessor :email
-
     # Indicates whether an active session exists for the invitation (produced when a user clicks the link in the email).
     attr_accessor :has_session
-
     # When the invitation expires.
     attr_accessor :invitation_expiry
-
     # When the invited user's session expires. null if the invitation has no associated session.
     attr_accessor :session_expiry
-
     # The unique token of the shared dashboard that was (or is to be) shared.
     attr_accessor :share_token
 

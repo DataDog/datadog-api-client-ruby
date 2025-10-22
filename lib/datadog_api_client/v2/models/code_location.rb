@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Code vulnerability location.
   class CodeLocation
     include BaseGenericModel
-
     # Vulnerability location file path.
     attr_accessor :file_path
-
     # Vulnerability extracted location.
     attr_reader :location
-
     # Vulnerability location method.
     attr_accessor :method
 

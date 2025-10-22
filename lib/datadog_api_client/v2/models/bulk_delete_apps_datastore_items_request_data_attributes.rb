@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Attributes of request data to delete items from a datastore.
   class BulkDeleteAppsDatastoreItemsRequestDataAttributes
     include BaseGenericModel
-
     # List of primary keys identifying items to delete from datastore. Up to 100 items can be deleted in a single request.
     attr_reader :item_keys
 

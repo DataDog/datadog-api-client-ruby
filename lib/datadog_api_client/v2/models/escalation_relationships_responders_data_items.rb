@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Represents a user assigned to an escalation step.
   class EscalationRelationshipsRespondersDataItems
     include BaseGenericModel
-
     # Unique identifier of the user assigned to the escalation step.
     attr_reader :id
-
     # Represents the resource type for users assigned as responders in an escalation step.
     attr_reader :type
 

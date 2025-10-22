@@ -20,25 +20,18 @@ module DatadogAPIClient::V2
   # Metadata about a service definition.
   class ServiceDefinitionMeta
     include BaseGenericModel
-
     # GitHub HTML URL.
     attr_accessor :github_html_url
-
     # Ingestion schema version.
     attr_accessor :ingested_schema_version
-
     # Ingestion source of the service definition.
     attr_accessor :ingestion_source
-
     # Last modified time of the service definition.
     attr_accessor :last_modified_time
-
     # User defined origin of the service definition.
     attr_accessor :origin
-
     # User defined origin's detail of the service definition.
     attr_accessor :origin_detail
-
     # A list of schema validation warnings.
     attr_accessor :warnings
 

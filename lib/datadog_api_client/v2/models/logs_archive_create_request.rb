@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # The logs archive.
   class LogsArchiveCreateRequest
     include BaseGenericModel
-
     # The definition of an archive.
     attr_accessor :data
 

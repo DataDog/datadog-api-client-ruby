@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # The definition of `PatchTableRequestDataAttributesFileMetadataOneOfAccessDetails` object.
   class PatchTableRequestDataAttributesFileMetadataOneOfAccessDetails
     include BaseGenericModel
-
     # The definition of `PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAwsDetail` object.
     attr_accessor :aws_detail
-
     # The definition of `PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail` object.
     attr_accessor :azure_detail
-
     # The definition of `PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsGcpDetail` object.
     attr_accessor :gcp_detail
 

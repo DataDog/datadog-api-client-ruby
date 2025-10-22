@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Payload schema when adding a Cloudflare account.
   class CloudflareAccountCreateRequest
     include BaseGenericModel
-
     # Data object for creating a Cloudflare account.
     attr_reader :data
 

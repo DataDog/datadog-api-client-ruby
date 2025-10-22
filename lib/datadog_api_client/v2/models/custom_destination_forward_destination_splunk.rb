@@ -20,14 +20,11 @@ module DatadogAPIClient::V2
   # The Splunk HTTP Event Collector (HEC) destination.
   class CustomDestinationForwardDestinationSplunk
     include BaseGenericModel
-
     # Access token of the Splunk HTTP Event Collector. This field is not returned by the API.
     attr_reader :access_token
-
     # The destination for which logs will be forwarded to.
     # Must have HTTPS scheme and forwarding back to Datadog is not allowed.
     attr_reader :endpoint
-
     # Type of the Splunk HTTP Event Collector (HEC) destination.
     attr_reader :type
 

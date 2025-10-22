@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Represents the relationships for an escalation policy, including references to steps and teams.
   class EscalationPolicyDataRelationships
     include BaseGenericModel
-
     # Defines the relationship to a collection of steps within an escalation policy. Contains an array of step data references.
     attr_reader :steps
-
     # Associates teams with this schedule in a data structure.
     attr_accessor :teams
 

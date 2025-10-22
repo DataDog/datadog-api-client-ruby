@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # The response object with all events matching the request and pagination information.
   class EventsListResponse
     include BaseGenericModel
-
     # An array of events matching the request.
     attr_accessor :data
-
     # Links attributes.
     attr_accessor :links
-
     # The metadata associated with a request.
     attr_accessor :meta
 

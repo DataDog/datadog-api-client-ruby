@@ -22,16 +22,12 @@ module DatadogAPIClient::V2
   # Only the trigger_source field is required.
   class Selectors
     include BaseGenericModel
-
     # The query is composed of one or several key:value pairs, which can be used to filter security issues on tags and attributes.
     attr_accessor :query
-
     # Security rule types used as filters in security rules.
     attr_accessor :rule_types
-
     # The security rules severities to consider.
     attr_accessor :severities
-
     # The type of security issues on which the rule applies. Notification rules based on security signals need to use the trigger source "security_signals",
     # while notification rules based on security vulnerabilities need to use the trigger source "security_findings".
     attr_reader :trigger_source

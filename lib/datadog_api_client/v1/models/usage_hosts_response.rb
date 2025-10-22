@@ -20,7 +20,6 @@ module DatadogAPIClient::V1
   # Host usage response.
   class UsageHostsResponse
     include BaseGenericModel
-
     # An array of objects related to host usage.
     attr_accessor :usage
 

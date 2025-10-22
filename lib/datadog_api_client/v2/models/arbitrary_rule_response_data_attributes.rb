@@ -20,43 +20,30 @@ module DatadogAPIClient::V2
   # The definition of `ArbitraryRuleResponseDataAttributes` object.
   class ArbitraryRuleResponseDataAttributes
     include BaseGenericModel
-
     # The `attributes` `costs_to_allocate`.
     attr_reader :costs_to_allocate
-
     # The `attributes` `created`.
     attr_reader :created
-
     # The `attributes` `enabled`.
     attr_reader :enabled
-
     # The `attributes` `last_modified_user_uuid`.
     attr_reader :last_modified_user_uuid
-
     # The `attributes` `order_id`.
     attr_reader :order_id
-
     # The `attributes` `processing_status`.
     attr_accessor :processing_status
-
     # The `attributes` `provider`.
     attr_reader :provider
-
     # The `attributes` `rejected`.
     attr_accessor :rejected
-
     # The `attributes` `rule_name`.
     attr_reader :rule_name
-
     # The definition of `ArbitraryRuleResponseDataAttributesStrategy` object.
     attr_reader :strategy
-
     # The `attributes` `type`.
     attr_reader :type
-
     # The `attributes` `updated`.
     attr_reader :updated
-
     # The `attributes` `version`.
     attr_reader :version
 

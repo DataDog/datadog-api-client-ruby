@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Channel attributes.
   class MicrosoftTeamsChannelInfoResponseAttributes
     include BaseGenericModel
-
     # Indicates if this is the primary channel.
     attr_reader :is_primary
-
     # Team id.
     attr_reader :team_id
-
     # Tenant id.
     attr_reader :tenant_id
 

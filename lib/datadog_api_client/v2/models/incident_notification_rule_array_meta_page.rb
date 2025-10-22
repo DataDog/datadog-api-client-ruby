@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Pagination metadata.
   class IncidentNotificationRuleArrayMetaPage
     include BaseGenericModel
-
     # The offset for the next page of results.
     attr_accessor :next_offset
-
     # The current offset in the results.
     attr_accessor :offset
-
     # The number of results returned per page.
     attr_accessor :size
 

@@ -20,22 +20,16 @@ module DatadogAPIClient::V2
   # The Microsoft Sentinel destination.
   class CustomDestinationForwardDestinationMicrosoftSentinel
     include BaseGenericModel
-
     # Client ID from the Datadog Azure integration.
     attr_reader :client_id
-
     # Azure data collection endpoint.
     attr_reader :data_collection_endpoint
-
     # Azure data collection rule ID.
     attr_reader :data_collection_rule_id
-
     # Azure stream name.
     attr_reader :stream_name
-
     # Tenant ID from the Datadog Azure integration.
     attr_reader :tenant_id
-
     # Type of the Microsoft Sentinel destination.
     attr_reader :type
 

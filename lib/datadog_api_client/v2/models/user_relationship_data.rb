@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Relationship to user object.
   class UserRelationshipData
     include BaseGenericModel
-
     # A unique identifier that represents the user.
     attr_reader :id
-
     # User resource type.
     attr_reader :type
 

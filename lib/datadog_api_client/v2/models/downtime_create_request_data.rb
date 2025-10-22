@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Object to create a downtime.
   class DowntimeCreateRequestData
     include BaseGenericModel
-
     # Downtime details.
     attr_reader :attributes
-
     # Downtime resource type.
     attr_reader :type
 

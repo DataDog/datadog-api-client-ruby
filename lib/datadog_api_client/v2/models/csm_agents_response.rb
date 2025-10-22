@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Response object that includes a list of CSM Agents.
   class CsmAgentsResponse
     include BaseGenericModel
-
     # A list of Agents.
     attr_accessor :data
-
     # Metadata related to the paginated response.
     attr_accessor :meta
 

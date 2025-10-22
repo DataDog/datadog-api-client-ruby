@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Response with projects
   class ProjectsResponse
     include BaseGenericModel
-
     # Projects response data
     attr_accessor :data
 

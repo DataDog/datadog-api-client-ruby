@@ -20,37 +20,26 @@ module DatadogAPIClient::V1
   # A formula and functions APM dependency stats query.
   class FormulaAndFunctionApmDependencyStatsQueryDefinition
     include BaseGenericModel
-
     # The source organization UUID for cross organization queries. Feature in Private Beta.
     attr_reader :cross_org_uuids
-
     # Data source for APM dependency stats queries.
     attr_reader :data_source
-
     # APM environment.
     attr_reader :env
-
     # Determines whether stats for upstream or downstream dependencies should be queried.
     attr_accessor :is_upstream
-
     # Name of query to use in formulas.
     attr_reader :name
-
     # Name of operation on service.
     attr_reader :operation_name
-
     # The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog.
     attr_accessor :primary_tag_name
-
     # Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
     attr_accessor :primary_tag_value
-
     # APM resource.
     attr_reader :resource_name
-
     # APM service.
     attr_reader :service
-
     # APM statistic.
     attr_reader :stat
 

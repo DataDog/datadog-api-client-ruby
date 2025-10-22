@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Third party integrations that Datadog supports.
   class ServiceDefinitionV1Integrations
     include BaseGenericModel
-
     # PagerDuty service URL for the service.
     attr_accessor :pagerduty
 

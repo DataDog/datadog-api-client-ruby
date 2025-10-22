@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The definition of the `AsanaAccessToken` object.
   class AsanaAccessTokenUpdate
     include BaseGenericModel
-
     # The `AsanaAccessTokenUpdate` `access_token`.
     attr_accessor :access_token
-
     # The definition of the `AsanaAccessToken` object.
     attr_reader :type
 

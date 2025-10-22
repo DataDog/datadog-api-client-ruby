@@ -20,11 +20,9 @@ module DatadogAPIClient::V1
   # A service level objective response containing a single service level objective.
   class SLOResponse
     include BaseGenericModel
-
     # A service level objective object includes a service level indicator, thresholds
     # for one or more timeframes, and metadata (`name`, `description`, `tags`, etc.).
     attr_accessor :data
-
     # An array of error messages. Each endpoint documents how/whether this field is
     # used.
     attr_accessor :errors

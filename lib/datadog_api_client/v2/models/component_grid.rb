@@ -20,19 +20,14 @@ module DatadogAPIClient::V2
   # A grid component. The grid component is the root canvas for an app and contains all other components.
   class ComponentGrid
     include BaseGenericModel
-
     # Events to listen for on the grid component.
     attr_accessor :events
-
     # The ID of the grid component. This property is deprecated; use `name` to identify individual components instead.
     attr_accessor :id
-
     # A unique identifier for this grid component. This name is also visible in the app editor.
     attr_reader :name
-
     # Properties of a grid component.
     attr_reader :properties
-
     # The grid component type.
     attr_reader :type
 

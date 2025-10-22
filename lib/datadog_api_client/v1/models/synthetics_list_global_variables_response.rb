@@ -20,7 +20,6 @@ module DatadogAPIClient::V1
   # Object containing an array of Synthetic global variables.
   class SyntheticsListGlobalVariablesResponse
     include BaseGenericModel
-
     # Array of Synthetic global variables.
     attr_accessor :variables
 

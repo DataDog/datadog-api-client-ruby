@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Workflows Webhook handle attributes.
   class MicrosoftTeamsWorkflowsWebhookHandleAttributes
     include BaseGenericModel
-
     # Workflows Webhook handle name.
     attr_reader :name
-
     # Workflows Webhook URL.
     attr_reader :url
 

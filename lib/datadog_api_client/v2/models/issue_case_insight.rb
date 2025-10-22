@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Insight of the case.
   class IssueCaseInsight
     include BaseGenericModel
-
     # Reference of the insight.
     attr_accessor :ref
-
     # Insight identifier.
     attr_accessor :resource_id
-
     # Type of the insight.
     attr_accessor :type
 

@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Powerpack group widget definition object.
   class PowerpackGroupWidget
     include BaseGenericModel
-
     # Powerpack group widget object.
     attr_reader :definition
-
     # Powerpack group widget layout.
     attr_accessor :layout
-
     # The available timeframes depend on the widget you are using.
     attr_accessor :live_span
 

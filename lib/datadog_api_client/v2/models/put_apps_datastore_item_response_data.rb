@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Data containing the identifier of a single item that was successfully inserted into the datastore.
   class PutAppsDatastoreItemResponseData
     include BaseGenericModel
-
     # The unique identifier assigned to the inserted item.
     attr_accessor :id
-
     # The resource type for datastore items.
     attr_reader :type
 

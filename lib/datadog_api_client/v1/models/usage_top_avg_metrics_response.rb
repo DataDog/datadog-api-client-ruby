@@ -20,10 +20,8 @@ module DatadogAPIClient::V1
   # Response containing the number of hourly recorded custom metrics for a given organization.
   class UsageTopAvgMetricsResponse
     include BaseGenericModel
-
     # The object containing document metadata.
     attr_accessor :metadata
-
     # Number of hourly recorded custom metrics for a given organization.
     attr_accessor :usage
 

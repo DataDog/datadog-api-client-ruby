@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Defines a rate limit for a trigger.
   class TriggerRateLimit
     include BaseGenericModel
-
     # The `TriggerRateLimit` `count`.
     attr_accessor :count
-
     # The `TriggerRateLimit` `interval`. The expected format is the number of seconds ending with an s. For example, 1 day is 86400s
     attr_accessor :interval
 

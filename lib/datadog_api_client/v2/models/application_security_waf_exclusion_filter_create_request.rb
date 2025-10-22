@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Request object for creating a single WAF exclusion filter.
   class ApplicationSecurityWafExclusionFilterCreateRequest
     include BaseGenericModel
-
     # Object for creating a single WAF exclusion filter.
     attr_reader :data
 

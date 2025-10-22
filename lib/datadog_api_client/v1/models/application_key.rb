@@ -20,13 +20,10 @@ module DatadogAPIClient::V1
   # An application key with its associated metadata.
   class ApplicationKey
     include BaseGenericModel
-
     # Hash of an application key.
     attr_reader :_hash
-
     # Name of an application key.
     attr_accessor :name
-
     # Owner of an application key.
     attr_accessor :owner
 

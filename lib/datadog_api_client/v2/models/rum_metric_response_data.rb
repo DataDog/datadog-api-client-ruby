@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # The rum-based metric properties.
   class RumMetricResponseData
     include BaseGenericModel
-
     # The object describing a Datadog rum-based metric.
     attr_accessor :attributes
-
     # The name of the rum-based metric.
     attr_accessor :id
-
     # The type of the resource. The value should always be rum_metrics.
     attr_accessor :type
 

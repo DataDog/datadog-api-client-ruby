@@ -20,16 +20,12 @@ module DatadogAPIClient::V1
   # Metadata about the response.
   class MonitorSearchResponseMetadata
     include BaseGenericModel
-
     # The page to start paginating from.
     attr_accessor :page
-
     # The number of pages.
     attr_accessor :page_count
-
     # The number of monitors to return per page.
     attr_accessor :per_page
-
     # The total number of monitors.
     attr_accessor :total_count
 

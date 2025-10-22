@@ -20,7 +20,6 @@ module DatadogAPIClient::V1
   # Response containing the audit logs usage for each hour for a given organization.
   class UsageAuditLogsResponse
     include BaseGenericModel
-
     # Get hourly usage for audit logs.
     attr_accessor :usage
 

@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Permission object.
   class Permission
     include BaseGenericModel
-
     # Attributes of a permission.
     attr_accessor :attributes
-
     # ID of the permission.
     attr_accessor :id
-
     # Permissions resource type.
     attr_reader :type
 

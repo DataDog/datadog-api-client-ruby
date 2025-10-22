@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Object for creating a single WAF exclusion filter.
   class ApplicationSecurityWafExclusionFilterCreateData
     include BaseGenericModel
-
     # Attributes for creating a WAF exclusion filter.
     attr_reader :attributes
-
     # Type of the resource. The value should always be `exclusion_filter`.
     attr_reader :type
 

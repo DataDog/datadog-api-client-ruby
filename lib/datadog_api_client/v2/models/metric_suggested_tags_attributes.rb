@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Object containing the definition of a metric's actively queried tags and aggregations.
   class MetricSuggestedTagsAttributes
     include BaseGenericModel
-
     # List of aggregation combinations that have been actively queried.
     attr_accessor :active_aggregations
-
     # List of tag keys that have been actively queried.
     attr_accessor :active_tags
 

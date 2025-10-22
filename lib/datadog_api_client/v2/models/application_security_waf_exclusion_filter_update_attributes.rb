@@ -20,28 +20,20 @@ module DatadogAPIClient::V2
   # Attributes for updating a WAF exclusion filter.
   class ApplicationSecurityWafExclusionFilterUpdateAttributes
     include BaseGenericModel
-
     # A description for the exclusion filter.
     attr_reader :description
-
     # Indicates whether the exclusion filter is enabled.
     attr_reader :enabled
-
     # The client IP addresses matched by the exclusion filter (CIDR notation is supported).
     attr_accessor :ip_list
-
     # The action taken when the exclusion filter matches. When set to `monitor`, security traces are emitted but the requests are not blocked. By default, security traces are not emitted and the requests are not blocked.
     attr_accessor :on_match
-
     # A list of parameters matched by the exclusion filter in the HTTP query string and HTTP request body. Nested parameters can be matched by joining fields with a dot character.
     attr_accessor :parameters
-
     # The HTTP path glob expression matched by the exclusion filter.
     attr_accessor :path_glob
-
     # The WAF rules targeted by the exclusion filter.
     attr_accessor :rules_target
-
     # The services where the exclusion filter is deployed.
     attr_accessor :scope
 

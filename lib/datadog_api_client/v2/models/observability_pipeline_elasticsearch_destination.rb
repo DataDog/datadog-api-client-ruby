@@ -20,19 +20,14 @@ module DatadogAPIClient::V2
   # The `elasticsearch` destination writes logs to an Elasticsearch cluster.
   class ObservabilityPipelineElasticsearchDestination
     include BaseGenericModel
-
     # The Elasticsearch API version to use. Set to `auto` to auto-detect.
     attr_accessor :api_version
-
     # The index to write logs to in Elasticsearch.
     attr_accessor :bulk_index
-
     # The unique identifier for this component.
     attr_reader :id
-
     # A list of component IDs whose output is used as the `input` for this component.
     attr_reader :inputs
-
     # The destination type. The value should always be `elasticsearch`.
     attr_reader :type
 

@@ -20,19 +20,14 @@ module DatadogAPIClient::V2
   # Attributes to get a list of deployments.
   class DORAListDeploymentsRequestAttributes
     include BaseGenericModel
-
     # Minimum timestamp for requested events.
     attr_accessor :from
-
     # Maximum number of events in the response.
     attr_reader :limit
-
     # Search query with event platform syntax.
     attr_accessor :query
-
     # Sort order (prefixed with `-` for descending).
     attr_accessor :sort
-
     # Maximum timestamp for requested events.
     attr_accessor :to
 

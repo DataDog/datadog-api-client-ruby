@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # Attributes for the AWS scan options to create.
   class AwsScanOptionsCreateAttributes
     include BaseGenericModel
-
     # Indicates if scanning of Lambda functions is enabled.
     attr_reader :lambda
-
     # Indicates if scanning for sensitive data is enabled.
     attr_reader :sensitive_data
-
     # Indicates if scanning for vulnerabilities in containers is enabled.
     attr_reader :vuln_containers_os
-
     # Indicates if scanning for vulnerabilities in hosts is enabled.
     attr_reader :vuln_host_os
 

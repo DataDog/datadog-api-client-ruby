@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Data object for updating a Confluent account.
   class ConfluentAccountUpdateRequestData
     include BaseGenericModel
-
     # Attributes object for updating a Confluent account.
     attr_reader :attributes
-
     # The JSON:API type for this API. Should always be `confluent-cloud-accounts`.
     attr_reader :type
 

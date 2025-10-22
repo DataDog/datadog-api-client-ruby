@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # Response with multiple teams
   class TeamsResponse
     include BaseGenericModel
-
     # Teams response data
     attr_accessor :data
-
     # Resources related to the team
     attr_accessor :included
-
     # Teams response links.
     attr_accessor :links
-
     # Teams response metadata.
     attr_accessor :meta
 

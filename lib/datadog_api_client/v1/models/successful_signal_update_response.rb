@@ -20,7 +20,6 @@ module DatadogAPIClient::V1
   # Updated signal data following a successfully performed update.
   class SuccessfulSignalUpdateResponse
     include BaseGenericModel
-
     # Status of the response.
     attr_accessor :status
 

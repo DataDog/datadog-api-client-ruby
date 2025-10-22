@@ -20,22 +20,16 @@ module DatadogAPIClient::V2
   # Attributes of the Sensitive Data Scanner group.
   class SensitiveDataScannerGroupAttributes
     include BaseGenericModel
-
     # Description of the group.
     attr_accessor :description
-
     # Filter for the Scanning Group.
     attr_accessor :filter
-
     # Whether or not the group is enabled.
     attr_accessor :is_enabled
-
     # Name of the group.
     attr_accessor :name
-
     # List of products the scanning group applies.
     attr_accessor :product_list
-
     # List of sampling rates per product type.
     attr_accessor :samplings
 

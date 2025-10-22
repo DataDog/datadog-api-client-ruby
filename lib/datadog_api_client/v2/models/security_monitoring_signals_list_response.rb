@@ -21,13 +21,10 @@ module DatadogAPIClient::V2
   # and pagination information.
   class SecurityMonitoringSignalsListResponse
     include BaseGenericModel
-
     # An array of security signals matching the request.
     attr_accessor :data
-
     # Links attributes.
     attr_accessor :links
-
     # Meta attributes.
     attr_accessor :meta
 

@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Response with channel, team, and tenant ID information.
   class MicrosoftTeamsGetChannelByNameResponse
     include BaseGenericModel
-
     # Channel data from a response.
     attr_accessor :data
 

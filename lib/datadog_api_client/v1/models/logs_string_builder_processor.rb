@@ -32,23 +32,17 @@ module DatadogAPIClient::V1
   # - Results of the template cannot exceed 256 characters.
   class LogsStringBuilderProcessor
     include BaseGenericModel
-
     # Whether or not the processor is enabled.
     attr_accessor :is_enabled
-
     # If true, it replaces all missing attributes of `template` by an empty string.
     # If `false` (default), skips the operation for missing attributes.
     attr_accessor :is_replace_missing
-
     # Name of the processor.
     attr_accessor :name
-
     # The name of the attribute that contains the result of the template.
     attr_reader :target
-
     # A formula with one or more attributes and raw text.
     attr_reader :template
-
     # Type of logs string builder processor.
     attr_reader :type
 

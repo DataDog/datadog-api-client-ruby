@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # Attributes of the pipeline event to create.
   class CIAppCreatePipelineEventRequestAttributes
     include BaseGenericModel
-
     # The Datadog environment.
     attr_accessor :env
-
     # The name of the CI provider. By default, this is "custom".
     attr_accessor :provider_name
-
     # Details of the CI pipeline event.
     attr_reader :resource
-
     # If the CI provider is SaaS, use this to differentiate between instances.
     attr_accessor :service
 

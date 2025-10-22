@@ -20,14 +20,11 @@ module DatadogAPIClient::V2
   # The HTTP destination.
   class CustomDestinationResponseForwardDestinationHttp
     include BaseGenericModel
-
     # Authentication method of the HTTP requests.
     attr_reader :auth
-
     # The destination for which logs will be forwarded to.
     # Must have HTTPS scheme and forwarding back to Datadog is not allowed.
     attr_reader :endpoint
-
     # Type of the HTTP destination.
     attr_reader :type
 

@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # PagerDuty integration for the service.
   class ServiceDefinitionV2Dot1Pagerduty
     include BaseGenericModel
-
     # PagerDuty service url.
     attr_accessor :service_url
 

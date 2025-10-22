@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # The definition of `DeleteAppsDatastoreItemResponseArray` object.
   class DeleteAppsDatastoreItemResponseArray
     include BaseGenericModel
-
     # The `DeleteAppsDatastoreItemResponseArray` `data`.
     attr_reader :data
 

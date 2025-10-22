@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Response containing information about multiple users.
   class UsersResponse
     include BaseGenericModel
-
     # Array of returned users.
     attr_accessor :data
-
     # Array of objects related to the users.
     attr_accessor :included
-
     # Object describing meta attributes of response.
     attr_accessor :meta
 

@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Defines how specific events are transformed to OCSF using a mapping configuration.
   class ObservabilityPipelineOcsfMapperProcessorMapping
     include BaseGenericModel
-
     # A Datadog search query used to select the logs that this mapping should apply to.
     attr_reader :include
-
     # Defines a single mapping rule for transforming logs into the OCSF schema.
     attr_reader :mapping
 

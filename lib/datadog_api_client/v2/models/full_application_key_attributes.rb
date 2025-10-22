@@ -20,22 +20,16 @@ module DatadogAPIClient::V2
   # Attributes of a full application key.
   class FullApplicationKeyAttributes
     include BaseGenericModel
-
     # Creation date of the application key.
     attr_accessor :created_at
-
     # The application key.
     attr_accessor :key
-
     # The last four characters of the application key.
     attr_reader :last4
-
     # Last usage timestamp of the application key.
     attr_accessor :last_used_at
-
     # Name of the application key.
     attr_accessor :name
-
     # Array of scopes to grant the application key.
     attr_accessor :scopes
 

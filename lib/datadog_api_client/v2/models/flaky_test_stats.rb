@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Test statistics for the flaky test.
   class FlakyTestStats
     include BaseGenericModel
-
     # The failure rate percentage of the test for the past 7 days. This is the number of failed test runs divided by the total number of test runs (excluding skipped test runs).
     attr_accessor :failure_rate_pct
 

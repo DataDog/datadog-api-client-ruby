@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Scorecard rules response.
   class ListRulesResponse
     include BaseGenericModel
-
     # Array of rule details.
     attr_accessor :data
-
     # Links attributes.
     attr_accessor :links
 

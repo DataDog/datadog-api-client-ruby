@@ -20,28 +20,20 @@ module DatadogAPIClient::V1
   # Your Datadog Dashboards.
   class DashboardList
     include BaseGenericModel
-
     # Object describing the creator of the shared element.
     attr_accessor :author
-
     # Date of creation of the dashboard list.
     attr_accessor :created
-
     # The number of dashboards in the list.
     attr_accessor :dashboard_count
-
     # The ID of the dashboard list.
     attr_accessor :id
-
     # Whether or not the list is in the favorites.
     attr_accessor :is_favorite
-
     # Date of last edition of the dashboard list.
     attr_accessor :modified
-
     # The name of the dashboard list.
     attr_reader :name
-
     # The type of dashboard list.
     attr_accessor :type
 

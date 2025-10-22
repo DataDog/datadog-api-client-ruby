@@ -20,31 +20,22 @@ module DatadogAPIClient::V1
   # Response Object that includes your query and the list of metrics retrieved.
   class MetricsQueryResponse
     include BaseGenericModel
-
     # Message indicating the errors if status is not `ok`.
     attr_accessor :error
-
     # Start of requested time window, milliseconds since Unix epoch.
     attr_accessor :from_date
-
     # List of tag keys on which to group.
     attr_accessor :group_by
-
     # Message indicating `success` if status is `ok`.
     attr_accessor :message
-
     # Query string
     attr_accessor :query
-
     # Type of response.
     attr_accessor :res_type
-
     # List of timeseries queried.
     attr_accessor :series
-
     # Status of the query.
     attr_accessor :status
-
     # End of requested time window, milliseconds since Unix epoch.
     attr_accessor :to_date
 

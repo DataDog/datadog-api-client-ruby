@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The definition of `Connection` object.
   class Connection
     include BaseGenericModel
-
     # The `Connection` `connectionId`.
     attr_reader :connection_id
-
     # The `Connection` `label`.
     attr_reader :label
 

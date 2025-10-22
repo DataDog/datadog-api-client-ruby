@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Relationships formed with the case on creation
   class CaseCreateRelationships
     include BaseGenericModel
-
     # Relationship to user.
     attr_accessor :assignee
-
     # Relationship to project
     attr_reader :project
 

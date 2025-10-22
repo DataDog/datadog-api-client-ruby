@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Represents a link to a specific escalation policy step associated with the on-call team.
   class TeamOnCallRespondersDataRelationshipsEscalationsDataItems
     include BaseGenericModel
-
     # Unique identifier of the escalation step.
     attr_reader :id
-
     # Identifies the resource type for escalation policy steps linked to a team's on-call configuration.
     attr_reader :type
 

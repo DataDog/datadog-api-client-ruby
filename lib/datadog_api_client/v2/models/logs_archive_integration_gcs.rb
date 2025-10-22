@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The GCS archive's integration destination.
   class LogsArchiveIntegrationGCS
     include BaseGenericModel
-
     # A client email.
     attr_reader :client_email
-
     # A project ID.
     attr_accessor :project_id
 

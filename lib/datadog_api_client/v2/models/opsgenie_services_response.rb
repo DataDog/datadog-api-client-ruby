@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Response with a list of Opsgenie services.
   class OpsgenieServicesResponse
     include BaseGenericModel
-
     # An array of Opsgenie services.
     attr_reader :data
 

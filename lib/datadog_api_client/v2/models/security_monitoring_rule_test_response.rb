@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Result of the test of the rule queries.
   class SecurityMonitoringRuleTestResponse
     include BaseGenericModel
-
     # Assert results are returned in the same order as the rule query payloads.
     # For each payload, it returns True if the result matched the expected result,
     # False otherwise.

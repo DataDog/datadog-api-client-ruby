@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # A custom metadata entry.
   class ObservabilityPipelineMetadataEntry
     include BaseGenericModel
-
     # The metadata key.
     attr_reader :name
-
     # The metadata value.
     attr_reader :value
 

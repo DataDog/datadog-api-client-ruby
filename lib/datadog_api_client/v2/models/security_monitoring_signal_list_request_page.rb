@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The paging attributes for listing security signals.
   class SecurityMonitoringSignalListRequestPage
     include BaseGenericModel
-
     # A list of results using the cursor provided in the previous query.
     attr_accessor :cursor
-
     # The maximum number of security signals in the response.
     attr_reader :limit
 

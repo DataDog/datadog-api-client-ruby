@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Invalid query performed.
   class HTTPLogErrors
     include BaseGenericModel
-
     # Structured errors.
     attr_accessor :errors
 

@@ -20,63 +20,46 @@ module DatadogAPIClient::V1
   # Number of hosts/containers recorded for each hour for a given organization.
   class UsageHostHour
     include BaseGenericModel
-
     # Contains the total number of infrastructure hosts reporting
     # during a given hour that were running the Datadog Agent.
     attr_accessor :agent_host_count
-
     # Contains the total number of hosts that reported through Alibaba integration
     # (and were NOT running the Datadog Agent).
     attr_accessor :alibaba_host_count
-
     # Contains the total number of Azure App Services hosts using APM.
     attr_accessor :apm_azure_app_service_host_count
-
     # Shows the total number of hosts using APM during the hour,
     # these are counted as billable (except during trial periods).
     attr_accessor :apm_host_count
-
     # Contains the total number of hosts that reported through the AWS integration
     # (and were NOT running the Datadog Agent).
     attr_accessor :aws_host_count
-
     # Contains the total number of hosts that reported through Azure integration
     # (and were NOT running the Datadog Agent).
     attr_accessor :azure_host_count
-
     # Shows the total number of containers reported by the Docker integration during the hour.
     attr_accessor :container_count
-
     # Contains the total number of hosts that reported through the Google Cloud integration
     # (and were NOT running the Datadog Agent).
     attr_accessor :gcp_host_count
-
     # Contains the total number of Heroku dynos reported by the Datadog Agent.
     attr_accessor :heroku_host_count
-
     # Contains the total number of billable infrastructure hosts reporting during a given hour.
     # This is the sum of `agent_host_count`, `aws_host_count`, and `gcp_host_count`.
     attr_accessor :host_count
-
     # The hour for the usage.
     attr_accessor :hour
-
     # Contains the total number of hosts that reported through the Azure App Services integration
     # (and were NOT running the Datadog Agent).
     attr_accessor :infra_azure_app_service
-
     # Contains the total number of hosts using APM reported by Datadog exporter for the OpenTelemetry Collector.
     attr_accessor :opentelemetry_apm_host_count
-
     # Contains the total number of hosts reported by Datadog exporter for the OpenTelemetry Collector.
     attr_accessor :opentelemetry_host_count
-
     # The organization name.
     attr_accessor :org_name
-
     # The organization public ID.
     attr_accessor :public_id
-
     # Contains the total number of hosts that reported through vSphere integration
     # (and were NOT running the Datadog Agent).
     attr_accessor :vsphere_host_count

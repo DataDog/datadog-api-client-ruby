@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The S3 encryption settings.
   class LogsArchiveEncryptionS3
     include BaseGenericModel
-
     # An Amazon Resource Name (ARN) used to identify an AWS KMS key.
     attr_accessor :key
-
     # Type of S3 encryption for a destination.
     attr_reader :type
 

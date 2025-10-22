@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # A request object for updating an existing workflow.
   class UpdateWorkflowRequest
     include BaseGenericModel
-
     # Data related to the workflow being updated.
     attr_reader :data
 

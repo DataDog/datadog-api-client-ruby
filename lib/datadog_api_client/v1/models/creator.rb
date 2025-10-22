@@ -20,13 +20,10 @@ module DatadogAPIClient::V1
   # Object describing the creator of the shared element.
   class Creator
     include BaseGenericModel
-
     # Email of the creator.
     attr_accessor :email
-
     # Handle of the creator.
     attr_accessor :handle
-
     # Name of the creator.
     attr_accessor :name
 

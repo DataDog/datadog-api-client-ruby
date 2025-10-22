@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Team membership request
   class UserTeamUpdateRequest
     include BaseGenericModel
-
     # A user's relationship with a team
     attr_reader :data
 

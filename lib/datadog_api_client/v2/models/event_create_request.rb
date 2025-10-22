@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # An event object.
   class EventCreateRequest
     include BaseGenericModel
-
     # Event attributes.
     attr_reader :attributes
-
     # Entity type.
     attr_reader :type
 

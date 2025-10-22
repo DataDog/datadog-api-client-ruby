@@ -20,22 +20,16 @@ module DatadogAPIClient::V2
   # Relation response data.
   class RelationResponse
     include BaseGenericModel
-
     # Relation attributes.
     attr_accessor :attributes
-
     # Relation ID.
     attr_accessor :id
-
     # Relation metadata.
     attr_accessor :meta
-
     # Relation relationships.
     attr_accessor :relationships
-
     # Relation subtype.
     attr_accessor :subtype
-
     # Relation type.
     attr_accessor :type
 

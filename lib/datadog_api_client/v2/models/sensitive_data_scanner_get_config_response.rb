@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Get all groups response.
   class SensitiveDataScannerGetConfigResponse
     include BaseGenericModel
-
     # Response data related to the scanning groups.
     attr_accessor :data
-
     # Included objects from relationships.
     attr_accessor :included
-
     # Meta response containing information about the API.
     attr_accessor :meta
 

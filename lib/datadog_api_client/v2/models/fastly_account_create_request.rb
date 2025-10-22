@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Payload schema when adding a Fastly account.
   class FastlyAccountCreateRequest
     include BaseGenericModel
-
     # Data object for creating a Fastly account.
     attr_reader :data
 

@@ -20,22 +20,16 @@ module DatadogAPIClient::V1
   # An object containing service check and status.
   class ServiceCheck
     include BaseGenericModel
-
     # The check.
     attr_reader :check
-
     # The host name correlated with the check.
     attr_reader :host_name
-
     # Message containing check status.
     attr_accessor :message
-
     # The status of a service check. Set to `0` for OK, `1` for warning, `2` for critical, and `3` for unknown.
     attr_reader :status
-
     # Tags related to a check.
     attr_reader :tags
-
     # Time of check.
     attr_accessor :timestamp
 

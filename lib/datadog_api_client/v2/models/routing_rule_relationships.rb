@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Specifies relationships for a routing rule, linking to associated policy resources.
   class RoutingRuleRelationships
     include BaseGenericModel
-
     # Defines the relationship that links a routing rule to a policy.
     attr_accessor :policy
 

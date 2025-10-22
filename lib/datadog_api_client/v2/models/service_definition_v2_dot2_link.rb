@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # Service's external links.
   class ServiceDefinitionV2Dot2Link
     include BaseGenericModel
-
     # Link name.
     attr_reader :name
-
     # Link provider.
     attr_accessor :provider
-
     # Link type. Datadog recognizes the following types: `runbook`, `doc`, `repo`, `dashboard`, and `other`.
     attr_reader :type
-
     # Link URL.
     attr_reader :url
 

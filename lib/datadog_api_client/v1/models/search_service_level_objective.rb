@@ -20,7 +20,6 @@ module DatadogAPIClient::V1
   # A service level objective data container.
   class SearchServiceLevelObjective
     include BaseGenericModel
-
     # A service level objective ID and attributes.
     attr_accessor :data
 

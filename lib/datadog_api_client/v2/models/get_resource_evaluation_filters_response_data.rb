@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # The definition of `GetResourceFilterResponseData` object.
   class GetResourceEvaluationFiltersResponseData
     include BaseGenericModel
-
     # Attributes of a resource filter.
     attr_accessor :attributes
-
     # The `data` `id`.
     attr_accessor :id
-
     # Constant string to identify the request type.
     attr_accessor :type
 

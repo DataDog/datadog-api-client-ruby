@@ -20,10 +20,8 @@ module DatadogAPIClient::V1
   # A single user locator object.
   class SyntheticsMobileStepParamsElementUserLocatorValuesItems
     include BaseGenericModel
-
     # Type of a user locator.
     attr_accessor :type
-
     # Value of a user locator.
     attr_accessor :value
 

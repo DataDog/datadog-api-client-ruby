@@ -20,10 +20,8 @@ module DatadogAPIClient::V1
   # Configuration object for a Synthetic mobile test.
   class SyntheticsMobileTestConfig
     include BaseGenericModel
-
     # Initial application arguments for a mobile test.
     attr_accessor :initial_application_arguments
-
     # Array of variables used for the test steps.
     attr_accessor :variables
 

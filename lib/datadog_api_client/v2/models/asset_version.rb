@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Asset version.
   class AssetVersion
     include BaseGenericModel
-
     # Asset first version.
     attr_accessor :first
-
     # Asset last version.
     attr_accessor :last
 

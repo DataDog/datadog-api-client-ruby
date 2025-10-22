@@ -20,10 +20,8 @@ module DatadogAPIClient::V1
   # Metadata for the Synthetic tests run.
   class SyntheticsCIBatchMetadata
     include BaseGenericModel
-
     # Description of the CI provider.
     attr_accessor :ci
-
     # Git information.
     attr_accessor :git
 

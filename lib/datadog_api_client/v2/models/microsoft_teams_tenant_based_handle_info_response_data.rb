@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Tenant-based handle data from a response.
   class MicrosoftTeamsTenantBasedHandleInfoResponseData
     include BaseGenericModel
-
     # Tenant-based handle attributes.
     attr_accessor :attributes
-
     # The ID of the tenant-based handle.
     attr_reader :id
-
     # Tenant-based handle resource type.
     attr_accessor :type
 

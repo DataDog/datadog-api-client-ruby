@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # A monitor configuration policy data.
   class MonitorConfigPolicyResponseData
     include BaseGenericModel
-
     # Policy and policy type for a monitor configuration policy.
     attr_accessor :attributes
-
     # ID of this monitor configuration policy.
     attr_accessor :id
-
     # Monitor configuration policy resource type.
     attr_accessor :type
 

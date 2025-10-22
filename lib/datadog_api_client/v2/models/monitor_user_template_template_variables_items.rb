@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # List of objects representing template variables on the monitor which can have selectable values.
   class MonitorUserTemplateTemplateVariablesItems
     include BaseGenericModel
-
     # Available values for the variable.
     attr_accessor :available_values
-
     # Default values of the template variable.
     attr_accessor :defaults
-
     # The name of the template variable.
     attr_reader :name
-
     # The tag key associated with the variable. This works the same as dashboard template variables.
     attr_accessor :tag_key
 

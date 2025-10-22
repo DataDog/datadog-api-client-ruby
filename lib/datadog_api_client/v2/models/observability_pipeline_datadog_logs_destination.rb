@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # The `datadog_logs` destination forwards logs to Datadog Log Management.
   class ObservabilityPipelineDatadogLogsDestination
     include BaseGenericModel
-
     # The unique identifier for this component.
     attr_reader :id
-
     # A list of component IDs whose output is used as the `input` for this component.
     attr_reader :inputs
-
     # The destination type. The value should always be `datadog_logs`.
     attr_reader :type
 

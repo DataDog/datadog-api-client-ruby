@@ -20,31 +20,22 @@ module DatadogAPIClient::V2
   # The incident's relationships from a response.
   class IncidentResponseRelationships
     include BaseGenericModel
-
     # A relationship reference for attachments.
     attr_accessor :attachments
-
     # Relationship to user.
     attr_accessor :commander_user
-
     # Relationship to user.
     attr_accessor :created_by_user
-
     # Relationship to user.
     attr_accessor :declared_by_user
-
     # Relationship to impacts.
     attr_accessor :impacts
-
     # A relationship reference for multiple integration metadata objects.
     attr_accessor :integrations
-
     # Relationship to user.
     attr_accessor :last_modified_by_user
-
     # Relationship to incident responders.
     attr_accessor :responders
-
     # Relationship to incident user defined fields.
     attr_accessor :user_defined_fields
 

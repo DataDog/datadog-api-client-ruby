@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Update the IP allowlist.
   class IPAllowlistUpdateRequest
     include BaseGenericModel
-
     # IP allowlist data.
     attr_reader :data
 

@@ -20,70 +20,48 @@ module DatadogAPIClient::V2
   # A Cloud Workload Security Agent rule returned by the API
   class CloudWorkloadSecurityAgentRuleAttributes
     include BaseGenericModel
-
     # The array of actions the rule can perform if triggered
     attr_accessor :actions
-
     # The version of the Agent
     attr_accessor :agent_constraint
-
     # The blocking policies that the rule belongs to
     attr_accessor :blocking
-
     # The category of the Agent rule
     attr_accessor :category
-
     # The ID of the user who created the rule
     attr_accessor :creation_author_uu_id
-
     # When the Agent rule was created, timestamp in milliseconds
     attr_accessor :creation_date
-
     # The attributes of the user who created the Agent rule
     attr_accessor :creator
-
     # Whether the rule is included by default
     attr_accessor :default_rule
-
     # The description of the Agent rule
     attr_accessor :description
-
     # The disabled policies that the rule belongs to
     attr_accessor :disabled
-
     # Whether the Agent rule is enabled
     attr_accessor :enabled
-
     # The SECL expression of the Agent rule
     attr_accessor :expression
-
     # The platforms the Agent rule is supported on
     attr_accessor :filters
-
     # The monitoring policies that the rule belongs to
     attr_accessor :monitoring
-
     # The name of the Agent rule
     attr_accessor :name
-
     # The list of product tags associated with the rule
     attr_accessor :product_tags
-
     # Whether the rule is silent.
     attr_accessor :silent
-
     # The ID of the user who updated the rule
     attr_accessor :update_author_uu_id
-
     # Timestamp in milliseconds when the Agent rule was last updated
     attr_accessor :update_date
-
     # When the Agent rule was last updated, timestamp in milliseconds
     attr_accessor :updated_at
-
     # The attributes of the user who last updated the Agent rule
     attr_accessor :updater
-
     # The version of the Agent rule
     attr_accessor :version
 

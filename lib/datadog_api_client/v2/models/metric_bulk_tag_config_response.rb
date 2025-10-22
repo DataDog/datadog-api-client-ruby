@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Wrapper for a single bulk tag configuration status response.
   class MetricBulkTagConfigResponse
     include BaseGenericModel
-
     # The status of a request to bulk configure metric tags.
     # It contains the fields from the original request for reference.
     attr_accessor :data

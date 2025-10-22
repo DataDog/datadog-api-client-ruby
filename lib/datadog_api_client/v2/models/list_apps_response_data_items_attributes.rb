@@ -20,19 +20,14 @@ module DatadogAPIClient::V2
   # Basic information about the app such as name, description, and tags.
   class ListAppsResponseDataItemsAttributes
     include BaseGenericModel
-
     # A human-readable description for the app.
     attr_accessor :description
-
     # Whether the app is marked as a favorite by the current user.
     attr_accessor :favorite
-
     # The name of the app.
     attr_accessor :name
-
     # Whether the app is enabled for use in the Datadog self-service hub.
     attr_accessor :self_service
-
     # A list of tags for the app, which can be used to filter apps.
     attr_accessor :tags
 

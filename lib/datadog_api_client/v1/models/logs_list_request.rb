@@ -20,27 +20,21 @@ module DatadogAPIClient::V1
   # Object to send with the request to retrieve a list of logs from your Organization.
   class LogsListRequest
     include BaseGenericModel
-
     # The log index on which the request is performed. For multi-index organizations,
     # the default is all live indexes. Historical indexes of rehydrated logs must be specified.
     attr_accessor :index
-
     # Number of logs return in the response.
     attr_reader :limit
-
     # The search query - following the log search syntax.
     attr_accessor :query
-
     # Time-ascending `asc` or time-descending `desc` results.
     attr_accessor :sort
-
     # Hash identifier of the first log to return in the list, available in a log `id` attribute.
     # This parameter is used for the pagination feature.
     #
     # **Note**: This parameter is ignored if the corresponding log
     # is out of the scope of the specified time window.
     attr_accessor :start_at
-
     # Timeframe to retrieve the log from.
     attr_reader :time
 

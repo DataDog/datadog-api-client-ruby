@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The component that the BOM describes.
   class SBOMMetadataComponent
     include BaseGenericModel
-
     # The name of the component. This will often be a shortened, single name of the component.
     attr_accessor :name
-
     # Specifies the type of the component.
     attr_accessor :type
 

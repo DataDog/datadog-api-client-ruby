@@ -20,28 +20,20 @@ module DatadogAPIClient::V2
   # Attributes of a full API key.
   class FullAPIKeyAttributes
     include BaseGenericModel
-
     # The category of the API key.
     attr_accessor :category
-
     # Creation date of the API key.
     attr_accessor :created_at
-
     # Date the API Key was last used
     attr_accessor :date_last_used
-
     # The API key.
     attr_accessor :key
-
     # The last four characters of the API key.
     attr_reader :last4
-
     # Date the API key was last modified.
     attr_accessor :modified_at
-
     # Name of the API key.
     attr_accessor :name
-
     # The remote config read enabled status.
     attr_accessor :remote_config_read_enabled
 

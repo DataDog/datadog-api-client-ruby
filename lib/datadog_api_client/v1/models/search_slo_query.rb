@@ -22,14 +22,11 @@ module DatadogAPIClient::V1
   # min of all of those requests.
   class SearchSLOQuery
     include BaseGenericModel
-
     # A Datadog metric query for total (valid) events.
     attr_accessor :denominator
-
     # Metric names used in the query's numerator and denominator.
     # This field will return null and will be implemented in the next version of this endpoint.
     attr_accessor :metrics
-
     # A Datadog metric query for good events.
     attr_accessor :numerator
 

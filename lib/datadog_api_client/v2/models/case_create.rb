@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Case creation data
   class CaseCreate
     include BaseGenericModel
-
     # Case creation attributes
     attr_reader :attributes
-
     # Relationships formed with the case on creation
     attr_accessor :relationships
-
     # Case resource type
     attr_reader :type
 

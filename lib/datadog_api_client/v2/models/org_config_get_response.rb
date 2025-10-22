@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # A response with a single Org Config.
   class OrgConfigGetResponse
     include BaseGenericModel
-
     # A single Org Config.
     attr_reader :data
 

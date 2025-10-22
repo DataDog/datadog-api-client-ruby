@@ -20,19 +20,14 @@ module DatadogAPIClient::V2
   # Powerpack attribute object.
   class PowerpackAttributes
     include BaseGenericModel
-
     # Description of this powerpack.
     attr_accessor :description
-
     # Powerpack group widget definition object.
     attr_reader :group_widget
-
     # Name of the powerpack.
     attr_reader :name
-
     # List of tags to identify this powerpack.
     attr_reader :tags
-
     # List of template variables for this powerpack.
     attr_accessor :template_variables
 

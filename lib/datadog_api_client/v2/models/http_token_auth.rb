@@ -20,19 +20,14 @@ module DatadogAPIClient::V2
   # The definition of `HTTPTokenAuth` object.
   class HTTPTokenAuth
     include BaseGenericModel
-
     # The definition of `HTTPBody` object.
     attr_accessor :body
-
     # The `HTTPTokenAuth` `headers`.
     attr_accessor :headers
-
     # The `HTTPTokenAuth` `tokens`.
     attr_accessor :tokens
-
     # The definition of `HTTPTokenAuthType` object.
     attr_reader :type
-
     # The `HTTPTokenAuth` `url_parameters`.
     attr_accessor :url_parameters
 

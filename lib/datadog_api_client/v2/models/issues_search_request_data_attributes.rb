@@ -20,22 +20,16 @@ module DatadogAPIClient::V2
   # Object describing a search issue request.
   class IssuesSearchRequestDataAttributes
     include BaseGenericModel
-
     # Start date (inclusive) of the query in milliseconds since the Unix epoch.
     attr_reader :from
-
     # The attribute to sort the search results by.
     attr_accessor :order_by
-
     # Persona for the search. Either track(s) or persona(s) must be specified.
     attr_accessor :persona
-
     # Search query following the event search syntax.
     attr_reader :query
-
     # End date (exclusive) of the query in milliseconds since the Unix epoch.
     attr_reader :to
-
     # Track of the events to query. Either track(s) or persona(s) must be specified.
     attr_accessor :track
 

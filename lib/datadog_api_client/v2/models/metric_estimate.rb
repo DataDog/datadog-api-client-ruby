@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Object for a metric cardinality estimate.
   class MetricEstimate
     include BaseGenericModel
-
     # Object containing the definition of a metric estimate attribute.
     attr_accessor :attributes
-
     # The metric name for this resource.
     attr_accessor :id
-
     # The metric estimate resource type.
     attr_accessor :type
 

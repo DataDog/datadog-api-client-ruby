@@ -20,16 +20,12 @@ module DatadogAPIClient::V1
   # The style to apply to the widget.
   class HostMapWidgetDefinitionStyle
     include BaseGenericModel
-
     # Max value to use to color the map.
     attr_accessor :fill_max
-
     # Min value to use to color the map.
     attr_accessor :fill_min
-
     # Color palette to apply to the widget.
     attr_accessor :palette
-
     # Whether to flip the palette tones.
     attr_accessor :palette_flip
 

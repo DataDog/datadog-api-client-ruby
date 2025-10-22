@@ -20,15 +20,12 @@ module DatadogAPIClient::V1
   # Object representing a graph snapshot.
   class GraphSnapshot
     include BaseGenericModel
-
     # A JSON document defining the graph. `graph_def` can be used instead of `metric_query`.
     # The JSON document uses the [grammar defined here](https://docs.datadoghq.com/graphing/graphing_json/#grammar)
     # and should be formatted to a single line then URL encoded.
     attr_accessor :graph_def
-
     # The metric query. One of `metric_query` or `graph_def` is required.
     attr_accessor :metric_query
-
     # URL of your [graph snapshot](https://docs.datadoghq.com/metrics/explorer/#snapshot).
     attr_accessor :snapshot_url
 

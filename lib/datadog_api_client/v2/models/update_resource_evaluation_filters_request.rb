@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Request object to update a resource filter.
   class UpdateResourceEvaluationFiltersRequest
     include BaseGenericModel
-
     # The definition of `UpdateResourceFilterRequestData` object.
     attr_reader :data
 

@@ -20,22 +20,16 @@ module DatadogAPIClient::V2
   # App definition attributes to be updated, such as name, description, and components.
   class UpdateAppRequestDataAttributes
     include BaseGenericModel
-
     # The new UI components that make up the app. If this field is set, all existing components are replaced with the new components under this field.
     attr_accessor :components
-
     # The new human-readable description for the app.
     attr_accessor :description
-
     # The new name of the app.
     attr_accessor :name
-
     # The new array of queries, such as external actions and state variables, that the app uses. If this field is set, all existing queries are replaced with the new queries under this field.
     attr_accessor :queries
-
     # The new name of the root component of the app. This must be a `grid` component that contains all other components.
     attr_accessor :root_instance_name
-
     # The new list of tags for the app, which can be used to filter apps. If this field is set, any existing tags not included in the request are removed.
     attr_accessor :tags
 

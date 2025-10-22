@@ -20,19 +20,14 @@ module DatadogAPIClient::V2
   # The action the rule can perform if triggered
   class CloudWorkloadSecurityAgentRuleAction
     include BaseGenericModel
-
     # SECL expression used to target the container to apply the action on
     attr_accessor :filter
-
     # An empty object indicating the hash action
     attr_accessor :_hash
-
     # Kill system call applied on the container matching the rule
     attr_accessor :kill
-
     # The metadata action applied on the scope matching the rule
     attr_accessor :metadata
-
     # The set action applied on the scope matching the rule
     attr_accessor :set
 

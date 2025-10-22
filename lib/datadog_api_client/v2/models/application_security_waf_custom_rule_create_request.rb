@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Request object that includes the custom rule to create.
   class ApplicationSecurityWafCustomRuleCreateRequest
     include BaseGenericModel
-
     # Object for a single WAF custom rule.
     attr_reader :data
 

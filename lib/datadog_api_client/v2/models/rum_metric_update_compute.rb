@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # The compute rule to compute the rum-based metric.
   class RumMetricUpdateCompute
     include BaseGenericModel
-
     # Toggle to include or exclude percentile aggregations for distribution metrics.
     # Only present when `aggregation_type` is `distribution`.
     attr_accessor :include_percentiles

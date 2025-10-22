@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Restriction policy attributes.
   class RestrictionPolicyAttributes
     include BaseGenericModel
-
     # An array of bindings.
     attr_reader :bindings
 

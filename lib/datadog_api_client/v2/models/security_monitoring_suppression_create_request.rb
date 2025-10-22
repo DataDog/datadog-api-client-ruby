@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Request object that includes the suppression rule that you would like to create.
   class SecurityMonitoringSuppressionCreateRequest
     include BaseGenericModel
-
     # Object for a single suppression rule.
     attr_reader :data
 

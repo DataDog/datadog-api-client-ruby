@@ -20,10 +20,8 @@ module DatadogAPIClient::V1
   # The browser test failure details.
   class SyntheticsBrowserTestResultFailure
     include BaseGenericModel
-
     # Error code that can be returned by a Synthetic test.
     attr_accessor :code
-
     # The browser test error message.
     attr_accessor :message
 

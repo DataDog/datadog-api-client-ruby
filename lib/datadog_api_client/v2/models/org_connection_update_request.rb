@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Request to update an org connection.
   class OrgConnectionUpdateRequest
     include BaseGenericModel
-
     # Org connection update data.
     attr_reader :data
 

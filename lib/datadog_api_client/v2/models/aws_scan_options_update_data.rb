@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Object for the scan options of a single AWS account.
   class AwsScanOptionsUpdateData
     include BaseGenericModel
-
     # Attributes for the AWS scan options to update.
     attr_reader :attributes
-
     # The ID of the AWS account.
     attr_reader :id
-
     # The type of the resource. The value should always be `aws_scan_options`.
     attr_reader :type
 

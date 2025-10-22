@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # The definition of `ArbitraryRuleResponseDataAttributesStrategyEvaluateGroupedByFiltersItems` object.
   class ArbitraryRuleResponseDataAttributesStrategyEvaluateGroupedByFiltersItems
     include BaseGenericModel
-
     # The `items` `condition`.
     attr_reader :condition
-
     # The `items` `tag`.
     attr_reader :tag
-
     # The `items` `value`.
     attr_accessor :value
-
     # The `items` `values`.
     attr_accessor :values
 

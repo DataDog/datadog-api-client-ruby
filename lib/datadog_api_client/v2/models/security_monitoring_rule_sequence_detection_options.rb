@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Options on sequence detection method.
   class SecurityMonitoringRuleSequenceDetectionOptions
     include BaseGenericModel
-
     # Transitions defining the allowed order of steps and their evaluation windows.
     attr_accessor :step_transitions
-
     # Steps that define the conditions to be matched in sequence.
     attr_accessor :steps
 

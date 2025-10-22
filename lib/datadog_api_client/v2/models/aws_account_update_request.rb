@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # AWS Account Update Request body.
   class AWSAccountUpdateRequest
     include BaseGenericModel
-
     # AWS Account Update Request data.
     attr_reader :data
 

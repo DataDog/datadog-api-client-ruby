@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Create request for an incident.
   class IncidentCreateRequest
     include BaseGenericModel
-
     # Incident data for a create request.
     attr_reader :data
 

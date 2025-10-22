@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Schema for a GitHub webhook-based trigger.
   class GithubWebhookTriggerWrapper
     include BaseGenericModel
-
     # Trigger a workflow from a GitHub webhook. To trigger a workflow from GitHub, you must set a `webhookSecret`. In your GitHub Webhook Settings, set the Payload URL to "base_url"/api/v2/workflows/"workflow_id"/webhook?orgId="org_id", select application/json for the content type, and be highly recommend enabling SSL verification for security. The workflow must be published.
     attr_reader :github_webhook_trigger
-
     # A list of steps that run first after a trigger fires.
     attr_accessor :start_step_names
 

@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Endpoint info extracted from an `OpenAPI` specification.
   class OpenAPIEndpoint
     include BaseGenericModel
-
     # The endpoint method.
     attr_accessor :method
-
     # The endpoint path.
     attr_accessor :path
 

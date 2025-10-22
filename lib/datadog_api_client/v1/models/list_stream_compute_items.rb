@@ -20,10 +20,8 @@ module DatadogAPIClient::V1
   # List of facets and aggregations which to compute.
   class ListStreamComputeItems
     include BaseGenericModel
-
     # Aggregation value.
     attr_reader :aggregation
-
     # Facet name.
     attr_accessor :facet
 

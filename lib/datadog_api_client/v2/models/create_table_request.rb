@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # The definition of `CreateTableRequest` object.
   class CreateTableRequest
     include BaseGenericModel
-
     # The definition of `CreateTableRequestData` object.
     attr_accessor :data
 

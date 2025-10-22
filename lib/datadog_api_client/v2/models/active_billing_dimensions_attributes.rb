@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # List of active billing dimensions.
   class ActiveBillingDimensionsAttributes
     include BaseGenericModel
-
     # Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]`.
     attr_accessor :month
-
     # List of active billing dimensions. Example: `[infra_host, apm_host, serverless_infra]`.
     attr_accessor :values
 

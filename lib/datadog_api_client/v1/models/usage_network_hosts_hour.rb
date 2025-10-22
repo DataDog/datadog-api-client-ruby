@@ -20,16 +20,12 @@ module DatadogAPIClient::V1
   # Number of active NPM hosts for each hour for a given organization.
   class UsageNetworkHostsHour
     include BaseGenericModel
-
     # Contains the number of active NPM hosts.
     attr_accessor :host_count
-
     # The hour for the usage.
     attr_accessor :hour
-
     # The organization name.
     attr_accessor :org_name
-
     # The organization public ID.
     attr_accessor :public_id
 

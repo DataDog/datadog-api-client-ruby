@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Attributes used to create an application Key.
   class ApplicationKeyCreateAttributes
     include BaseGenericModel
-
     # Name of the application key.
     attr_reader :name
-
     # Array of scopes to grant the application key.
     attr_accessor :scopes
 

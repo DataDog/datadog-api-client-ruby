@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # The definition of `PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAwsDetail` object.
   class PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAwsDetail
     include BaseGenericModel
-
     # The ID of the AWS account.
     attr_accessor :aws_account_id
-
     # The name of the AWS bucket.
     attr_accessor :aws_bucket_name
-
     # The relative file path from the S3 bucket root to the CSV file.
     attr_accessor :file_path
 

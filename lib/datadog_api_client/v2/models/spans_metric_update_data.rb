@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The new span-based metric properties.
   class SpansMetricUpdateData
     include BaseGenericModel
-
     # The span-based metric properties that will be updated.
     attr_reader :attributes
-
     # The type of resource. The value should always be spans_metrics.
     attr_reader :type
 

@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Metadata for `ListAPIsResponse`.
   class ListAPIsResponseMeta
     include BaseGenericModel
-
     # Pagination metadata information for `ListAPIsResponse`.
     attr_accessor :pagination
 

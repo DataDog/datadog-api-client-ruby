@@ -20,19 +20,14 @@ module DatadogAPIClient::V2
   # Details about the On-Call Page you want to create.
   class CreatePageRequestDataAttributes
     include BaseGenericModel
-
     # A short summary of the issue or context.
     attr_accessor :description
-
     # Tags to help categorize or filter the page.
     attr_accessor :tags
-
     # Information about the target to notify (such as a team or user).
     attr_reader :target
-
     # The title of the page.
     attr_reader :title
-
     # On-Call Page urgency level.
     attr_reader :urgency
 

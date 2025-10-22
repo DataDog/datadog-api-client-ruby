@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # Represents a single step in an escalation policy, including its attributes, relationships, and resource type.
   class EscalationPolicyStep
     include BaseGenericModel
-
     # Defines attributes for an escalation policy step, such as assignment strategy and escalation timeout.
     attr_accessor :attributes
-
     # Specifies the unique identifier of this escalation policy step.
     attr_accessor :id
-
     # Represents the relationship of an escalation policy step to its targets.
     attr_accessor :relationships
-
     # Indicates that the resource is of type `steps`.
     attr_reader :type
 

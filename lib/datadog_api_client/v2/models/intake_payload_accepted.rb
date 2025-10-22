@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # The payload accepted for intake.
   class IntakePayloadAccepted
     include BaseGenericModel
-
     # A list of errors.
     attr_accessor :errors
 

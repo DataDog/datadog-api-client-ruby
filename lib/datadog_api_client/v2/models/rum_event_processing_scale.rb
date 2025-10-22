@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # RUM event processing scale configuration.
   class RUMEventProcessingScale
     include BaseGenericModel
-
     # Timestamp in milliseconds when this scale was last modified.
     attr_accessor :last_modified_at
-
     # Configures which RUM events are processed and stored for the application.
     attr_accessor :state
 

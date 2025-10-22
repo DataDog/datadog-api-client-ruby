@@ -22,7 +22,6 @@ module DatadogAPIClient::V1
   # @deprecated This model is deprecated.
   class OrganizationSubscription
     include BaseGenericModel
-
     # The subscription type. Types available are `trial`, `free`, and `pro`.
     attr_accessor :type
 

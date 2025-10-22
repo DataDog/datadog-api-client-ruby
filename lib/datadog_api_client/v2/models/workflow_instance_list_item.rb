@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # An item in the workflow instances list.
   class WorkflowInstanceListItem
     include BaseGenericModel
-
     # The ID of the workflow instance
     attr_accessor :id
 

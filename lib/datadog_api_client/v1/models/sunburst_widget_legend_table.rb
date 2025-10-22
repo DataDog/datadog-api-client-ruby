@@ -20,7 +20,6 @@ module DatadogAPIClient::V1
   # Configuration of table-based legend.
   class SunburstWidgetLegendTable
     include BaseGenericModel
-
     # Whether or not to show a table legend.
     attr_reader :type
 

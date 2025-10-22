@@ -20,7 +20,6 @@ module DatadogAPIClient::V1
   # A response containing indexed spans usage.
   class UsageIndexedSpansResponse
     include BaseGenericModel
-
     # Array with the number of hourly traces indexed for a given organization.
     attr_accessor :usage
 

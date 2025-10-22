@@ -20,16 +20,12 @@ module DatadogAPIClient::V1
   # Encapsulates all user choices about how to split a graph.
   class SplitConfig
     include BaseGenericModel
-
     # Maximum number of graphs to display in the widget.
     attr_reader :limit
-
     # Controls the order in which graphs appear in the split.
     attr_reader :sort
-
     # The dimension(s) on which to split the graph
     attr_reader :split_dimensions
-
     # Manual selection of tags making split graph widget static
     attr_reader :static_splits
 

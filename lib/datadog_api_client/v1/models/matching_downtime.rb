@@ -20,18 +20,14 @@ module DatadogAPIClient::V1
   # Object describing a downtime that matches this monitor.
   class MatchingDowntime
     include BaseGenericModel
-
     # POSIX timestamp to end the downtime.
     attr_accessor :_end
-
     # The downtime ID.
     attr_reader :id
-
     # The scope(s) to which the downtime applies. Must be in `key:value` format. For example, `host:app2`.
     # Provide multiple scopes as a comma-separated list like `env:dev,env:prod`.
     # The resulting downtime applies to sources that matches ALL provided scopes (`env:dev` **AND** `env:prod`).
     attr_accessor :scope
-
     # POSIX timestamp to start the downtime.
     attr_accessor :start
 

@@ -20,10 +20,8 @@ module DatadogAPIClient::V1
   # Which column and order to sort by
   class WidgetFieldSort
     include BaseGenericModel
-
     # Facet path for the column
     attr_reader :column
-
     # Widget sorting methods.
     attr_reader :order
 

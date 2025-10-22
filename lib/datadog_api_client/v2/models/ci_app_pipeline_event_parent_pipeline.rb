@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # If the pipeline is triggered as child of another pipeline, this should contain the details of the parent pipeline.
   class CIAppPipelineEventParentPipeline
     include BaseGenericModel
-
     # UUID of a pipeline.
     attr_reader :id
-
     # The URL to look at the pipeline in the CI provider UI.
     attr_accessor :url
 

@@ -20,16 +20,12 @@ module DatadogAPIClient::V1
   # The attributes of a notebook `toplist` cell.
   class NotebookToplistCellAttributes
     include BaseGenericModel
-
     # The top list visualization enables you to display a list of Tag value like hostname or service with the most or least of any metric value, such as highest consumers of CPU, hosts with the least disk space, etc.
     attr_reader :definition
-
     # The size of the graph.
     attr_accessor :graph_size
-
     # Object describing how to split the graph to display multiple visualizations per request.
     attr_accessor :split_by
-
     # Timeframe for the notebook cell. When 'null', the notebook global time is used.
     attr_accessor :time
 

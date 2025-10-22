@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The definition of the `AsanaIntegration` object.
   class AsanaIntegration
     include BaseGenericModel
-
     # The definition of the `AsanaCredentials` object.
     attr_reader :credentials
-
     # The definition of the `AsanaIntegrationType` object.
     attr_reader :type
 

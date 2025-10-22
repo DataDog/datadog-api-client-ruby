@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # A single exclusion filter.
   class SecurityFilterExclusionFilterResponse
     include BaseGenericModel
-
     # The exclusion filter name.
     attr_accessor :name
-
     # The exclusion filter query.
     attr_accessor :query
 

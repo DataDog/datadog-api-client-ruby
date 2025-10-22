@@ -20,40 +20,28 @@ module DatadogAPIClient::V2
   # The definition of `AwsCurConfigResponseDataAttributes` object.
   class AwsCurConfigResponseDataAttributes
     include BaseGenericModel
-
     # The definition of `AwsCurConfigResponseDataAttributesAccountFilters` object.
     attr_accessor :account_filters
-
     # The `attributes` `account_id`.
     attr_accessor :account_id
-
     # The `attributes` `bucket_name`.
     attr_accessor :bucket_name
-
     # The `attributes` `bucket_region`.
     attr_accessor :bucket_region
-
     # The `attributes` `created_at`.
     attr_accessor :created_at
-
     # The `attributes` `error_messages`.
     attr_accessor :error_messages
-
     # The `attributes` `months`.
     attr_accessor :months
-
     # The `attributes` `report_name`.
     attr_accessor :report_name
-
     # The `attributes` `report_prefix`.
     attr_accessor :report_prefix
-
     # The `attributes` `status`.
     attr_accessor :status
-
     # The `attributes` `status_updated_at`.
     attr_accessor :status_updated_at
-
     # The `attributes` `updated_at`.
     attr_accessor :updated_at
 

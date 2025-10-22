@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Response object that includes metrics and metric tag configurations.
   class MetricsAndMetricTagConfigurationsResponse
     include BaseGenericModel
-
     # Array of metrics and metric tag configurations.
     attr_accessor :data
-
     # Pagination links. Only present if pagination query parameters were provided.
     attr_accessor :links
-
     # Response metadata object.
     attr_accessor :meta
 

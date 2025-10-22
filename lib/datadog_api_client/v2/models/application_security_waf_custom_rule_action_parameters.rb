@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The definition of `ApplicationSecurityWafCustomRuleActionParameters` object.
   class ApplicationSecurityWafCustomRuleActionParameters
     include BaseGenericModel
-
     # The location to redirect to when the WAF custom rule triggers.
     attr_accessor :location
-
     # The status code to return when the WAF custom rule triggers.
     attr_accessor :status_code
 

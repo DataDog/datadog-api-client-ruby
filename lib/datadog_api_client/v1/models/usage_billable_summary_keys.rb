@@ -20,271 +20,182 @@ module DatadogAPIClient::V1
   # Response with aggregated usage types.
   class UsageBillableSummaryKeys
     include BaseGenericModel
-
     # Response with properties for each aggregated usage type.
     attr_accessor :apm_fargate_average
-
     # Response with properties for each aggregated usage type.
     attr_accessor :apm_fargate_sum
-
     # Response with properties for each aggregated usage type.
     attr_accessor :apm_host_sum
-
     # Response with properties for each aggregated usage type.
     attr_accessor :apm_host_top99p
-
     # Response with properties for each aggregated usage type.
     attr_accessor :apm_profiler_host_sum
-
     # Response with properties for each aggregated usage type.
     attr_accessor :apm_profiler_host_top99p
-
     # Response with properties for each aggregated usage type.
     attr_accessor :apm_trace_search_sum
-
     # Response with properties for each aggregated usage type.
     attr_accessor :application_security_fargate_average
-
     # Response with properties for each aggregated usage type.
     attr_accessor :application_security_host_sum
-
     # Response with properties for each aggregated usage type.
     attr_accessor :application_security_host_top99p
-
     # Response with properties for each aggregated usage type.
     attr_accessor :ci_pipeline_indexed_spans_sum
-
     # Response with properties for each aggregated usage type.
     attr_accessor :ci_pipeline_maximum
-
     # Response with properties for each aggregated usage type.
     attr_accessor :ci_pipeline_sum
-
     # Response with properties for each aggregated usage type.
     attr_accessor :ci_test_indexed_spans_sum
-
     # Response with properties for each aggregated usage type.
     attr_accessor :ci_testing_maximum
-
     # Response with properties for each aggregated usage type.
     attr_accessor :ci_testing_sum
-
     # Response with properties for each aggregated usage type.
     attr_accessor :cloud_cost_management_average
-
     # Response with properties for each aggregated usage type.
     attr_accessor :cloud_cost_management_sum
-
     # Response with properties for each aggregated usage type.
     attr_accessor :cspm_container_sum
-
     # Response with properties for each aggregated usage type.
     attr_accessor :cspm_host_sum
-
     # Response with properties for each aggregated usage type.
     attr_accessor :cspm_host_top99p
-
     # Response with properties for each aggregated usage type.
     attr_accessor :custom_event_sum
-
     # Response with properties for each aggregated usage type.
     attr_accessor :cws_container_sum
-
     # Response with properties for each aggregated usage type.
     attr_accessor :cws_host_sum
-
     # Response with properties for each aggregated usage type.
     attr_accessor :cws_host_top99p
-
     # Response with properties for each aggregated usage type.
     attr_accessor :dbm_host_sum
-
     # Response with properties for each aggregated usage type.
     attr_accessor :dbm_host_top99p
-
     # Response with properties for each aggregated usage type.
     attr_accessor :dbm_normalized_queries_average
-
     # Response with properties for each aggregated usage type.
     attr_accessor :dbm_normalized_queries_sum
-
     # Response with properties for each aggregated usage type.
     attr_accessor :fargate_container_apm_and_profiler_average
-
     # Response with properties for each aggregated usage type.
     attr_accessor :fargate_container_apm_and_profiler_sum
-
     # Response with properties for each aggregated usage type.
     attr_accessor :fargate_container_average
-
     # Response with properties for each aggregated usage type.
     attr_accessor :fargate_container_profiler_average
-
     # Response with properties for each aggregated usage type.
     attr_accessor :fargate_container_profiler_sum
-
     # Response with properties for each aggregated usage type.
     attr_accessor :fargate_container_sum
-
     # Response with properties for each aggregated usage type.
     attr_accessor :incident_management_maximum
-
     # Response with properties for each aggregated usage type.
     attr_accessor :incident_management_sum
-
     # Response with properties for each aggregated usage type.
     attr_accessor :infra_and_apm_host_sum
-
     # Response with properties for each aggregated usage type.
     attr_accessor :infra_and_apm_host_top99p
-
     # Response with properties for each aggregated usage type.
     attr_accessor :infra_container_sum
-
     # Response with properties for each aggregated usage type.
     attr_accessor :infra_host_sum
-
     # Response with properties for each aggregated usage type.
     attr_accessor :infra_host_top99p
-
     # Response with properties for each aggregated usage type.
     attr_accessor :ingested_spans_sum
-
     # Response with properties for each aggregated usage type.
     attr_accessor :ingested_timeseries_average
-
     # Response with properties for each aggregated usage type.
     attr_accessor :ingested_timeseries_sum
-
     # Response with properties for each aggregated usage type.
     attr_accessor :iot_sum
-
     # Response with properties for each aggregated usage type.
     attr_accessor :iot_top99p
-
     # Response with properties for each aggregated usage type.
     attr_accessor :lambda_function_average
-
     # Response with properties for each aggregated usage type.
     attr_accessor :lambda_function_sum
-
     # Response with properties for each aggregated usage type.
     attr_accessor :logs_forwarding_sum
-
     # Response with properties for each aggregated usage type.
     attr_accessor :logs_indexed_15day_sum
-
     # Response with properties for each aggregated usage type.
     attr_accessor :logs_indexed_180day_sum
-
     # Response with properties for each aggregated usage type.
     attr_accessor :logs_indexed_1day_sum
-
     # Response with properties for each aggregated usage type.
     attr_accessor :logs_indexed_30day_sum
-
     # Response with properties for each aggregated usage type.
     attr_accessor :logs_indexed_360day_sum
-
     # Response with properties for each aggregated usage type.
     attr_accessor :logs_indexed_3day_sum
-
     # Response with properties for each aggregated usage type.
     attr_accessor :logs_indexed_45day_sum
-
     # Response with properties for each aggregated usage type.
     attr_accessor :logs_indexed_60day_sum
-
     # Response with properties for each aggregated usage type.
     attr_accessor :logs_indexed_7day_sum
-
     # Response with properties for each aggregated usage type.
     attr_accessor :logs_indexed_90day_sum
-
     # Response with properties for each aggregated usage type.
     attr_accessor :logs_indexed_custom_retention_sum
-
     # Response with properties for each aggregated usage type.
     attr_accessor :logs_indexed_sum
-
     # Response with properties for each aggregated usage type.
     attr_accessor :logs_ingested_sum
-
     # Response with properties for each aggregated usage type.
     attr_accessor :network_device_sum
-
     # Response with properties for each aggregated usage type.
     attr_accessor :network_device_top99p
-
     # Response with properties for each aggregated usage type.
     attr_accessor :npm_flow_sum
-
     # Response with properties for each aggregated usage type.
     attr_accessor :npm_host_sum
-
     # Response with properties for each aggregated usage type.
     attr_accessor :npm_host_top99p
-
     # Response with properties for each aggregated usage type.
     attr_accessor :observability_pipeline_sum
-
     # Response with properties for each aggregated usage type.
     attr_accessor :online_archive_sum
-
     # Response with properties for each aggregated usage type.
     attr_accessor :prof_container_sum
-
     # Response with properties for each aggregated usage type.
     attr_accessor :prof_host_sum
-
     # Response with properties for each aggregated usage type.
     attr_accessor :prof_host_top99p
-
     # Response with properties for each aggregated usage type.
     attr_accessor :rum_lite_sum
-
     # Response with properties for each aggregated usage type.
     attr_accessor :rum_replay_sum
-
     # Response with properties for each aggregated usage type.
     attr_accessor :rum_sum
-
     # Response with properties for each aggregated usage type.
     attr_accessor :rum_units_sum
-
     # Response with properties for each aggregated usage type.
     attr_accessor :sensitive_data_scanner_sum
-
     # Response with properties for each aggregated usage type.
     attr_accessor :serverless_apm_sum
-
     # Response with properties for each aggregated usage type.
     attr_accessor :serverless_infra_average
-
     # Response with properties for each aggregated usage type.
     attr_accessor :serverless_infra_sum
-
     # Response with properties for each aggregated usage type.
     attr_accessor :serverless_invocation_sum
-
     # Response with properties for each aggregated usage type.
     attr_accessor :siem_sum
-
     # Response with properties for each aggregated usage type.
     attr_accessor :standard_timeseries_average
-
     # Response with properties for each aggregated usage type.
     attr_accessor :synthetics_api_tests_sum
-
     # Response with properties for each aggregated usage type.
     attr_accessor :synthetics_app_testing_maximum
-
     # Response with properties for each aggregated usage type.
     attr_accessor :synthetics_browser_checks_sum
-
     # Response with properties for each aggregated usage type.
     attr_accessor :timeseries_average
-
     # Response with properties for each aggregated usage type.
     attr_accessor :timeseries_sum
 

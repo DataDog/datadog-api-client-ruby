@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Attributes associated with a group by
   class SingleAggregatedDnsResponseDataAttributesGroupByItems
     include BaseGenericModel
-
     # The group by key.
     attr_accessor :key
-
     # The group by value.
     attr_accessor :value
 

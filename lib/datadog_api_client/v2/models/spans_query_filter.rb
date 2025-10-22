@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # The search and filter query settings.
   class SpansQueryFilter
     include BaseGenericModel
-
     # The minimum time for the requested spans, supports date-time ISO8601, date math, and regular timestamps (milliseconds).
     attr_accessor :from
-
     # The search query - following the span search syntax.
     attr_accessor :query
-
     # The maximum time for the requested spans, supports date-time ISO8601, date math, and regular timestamps (milliseconds).
     attr_accessor :to
 

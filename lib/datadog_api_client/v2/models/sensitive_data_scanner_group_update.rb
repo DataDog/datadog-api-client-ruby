@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # Data related to the update of a group.
   class SensitiveDataScannerGroupUpdate
     include BaseGenericModel
-
     # Attributes of the Sensitive Data Scanner group.
     attr_accessor :attributes
-
     # ID of the group.
     attr_accessor :id
-
     # Relationships of the group.
     attr_accessor :relationships
-
     # Sensitive Data Scanner group type.
     attr_accessor :type
 

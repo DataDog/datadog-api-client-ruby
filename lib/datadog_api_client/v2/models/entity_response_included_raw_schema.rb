@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Included raw schema.
   class EntityResponseIncludedRawSchema
     include BaseGenericModel
-
     # Included raw schema attributes.
     attr_accessor :attributes
-
     # Raw schema ID.
     attr_accessor :id
-
     # Raw schema type.
     attr_accessor :type
 

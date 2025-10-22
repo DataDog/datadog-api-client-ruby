@@ -20,23 +20,17 @@ module DatadogAPIClient::V2
   # Change event attributes.
   class ChangeEventCustomAttributes
     include BaseGenericModel
-
     # The entity that made the change. Optional, if provided it must include `type` and `name`.
     attr_accessor :author
-
     # Free form JSON object with information related to the `change` event. Supports up to 100 properties per object and a maximum nesting depth of 10 levels.
     attr_accessor :change_metadata
-
     # A uniquely identified resource.
     attr_reader :changed_resource
-
     # A list of resources impacted by this change. It is recommended to provide an impacted resource to display
     # the change event at the correct location. Only resources of type `service` are supported. Maximum of 100 impacted resources allowed.
     attr_reader :impacted_resources
-
     # Free form JSON object representing the new state of the changed resource.
     attr_accessor :new_value
-
     # Free form JSON object representing the previous state of the changed resource.
     attr_accessor :prev_value
 

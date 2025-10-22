@@ -20,43 +20,30 @@ module DatadogAPIClient::V1
   # IP ranges.
   class IPRanges
     include BaseGenericModel
-
     # Available prefix information for the Agent endpoints.
     attr_accessor :agents
-
     # Available prefix information for the API endpoints.
     attr_accessor :api
-
     # Available prefix information for the APM endpoints.
     attr_accessor :apm
-
     # Available prefix information for all Datadog endpoints.
     attr_accessor :global
-
     # Available prefix information for the Logs endpoints.
     attr_accessor :logs
-
     # Date when last updated, in the form `YYYY-MM-DD-hh-mm-ss`.
     attr_accessor :modified
-
     # Available prefix information for the Orchestrator endpoints.
     attr_accessor :orchestrator
-
     # Available prefix information for the Process endpoints.
     attr_accessor :process
-
     # Available prefix information for the Remote Configuration endpoints.
     attr_accessor :remote_configuration
-
     # Available prefix information for the Synthetics endpoints.
     attr_accessor :synthetics
-
     # Available prefix information for the Synthetics Private Locations endpoints.
     attr_accessor :synthetics_private_locations
-
     # Version of the IP list.
     attr_accessor :version
-
     # Available prefix information for the Webhook endpoints.
     attr_accessor :webhooks
 

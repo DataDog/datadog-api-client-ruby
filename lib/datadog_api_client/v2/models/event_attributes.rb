@@ -20,67 +20,48 @@ module DatadogAPIClient::V2
   # Object description of attributes from your event.
   class EventAttributes
     include BaseGenericModel
-
     # Aggregation key of the event.
     attr_accessor :aggregation_key
-
     # POSIX timestamp of the event. Must be sent as an integer (no quotation marks).
     # Limited to events no older than 18 hours.
     attr_accessor :date_happened
-
     # A device name.
     attr_accessor :device_name
-
     # The duration between the triggering of the event and its recovery in nanoseconds.
     attr_accessor :duration
-
     # The event title.
     attr_accessor :event_object
-
     # The metadata associated with a request.
     attr_accessor :evt
-
     # Host name to associate with the event.
     # Any tags associated with the host are also applied to this event.
     attr_accessor :hostname
-
     # Attributes from the monitor that triggered the event.
     attr_accessor :monitor
-
     # List of groups referred to in the event.
     attr_accessor :monitor_groups
-
     # ID of the monitor that triggered the event. When an event isn't related to a monitor, this field is empty.
     attr_accessor :monitor_id
-
     # The priority of the event's monitor. For example, `normal` or `low`.
     attr_accessor :priority
-
     # Related event ID.
     attr_accessor :related_event_id
-
     # Service that triggered the event.
     attr_accessor :service
-
     # The type of event being posted.
     # For example, `nagios`, `hudson`, `jenkins`, `my_apps`, `chef`, `puppet`, `git` or `bitbucket`.
     # The list of standard source attribute values is [available here](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value).
     attr_accessor :source_type_name
-
     # Identifier for the source of the event, such as a monitor alert, an externally-submitted event, or an integration.
     attr_accessor :sourcecategory
-
     # If an alert event is enabled, its status is one of the following:
     # `failure`, `error`, `warning`, `info`, `success`, `user_update`,
     # `recommendation`, or `snapshot`.
     attr_accessor :status
-
     # A list of tags to apply to the event.
     attr_accessor :tags
-
     # POSIX timestamp of your event in milliseconds.
     attr_accessor :timestamp
-
     # The event title.
     attr_accessor :title
 

@@ -20,7 +20,6 @@ module DatadogAPIClient::V1
   # In this object, the key is the tag, the value is a list of host names that are reporting that tag.
   class TagToHosts
     include BaseGenericModel
-
     # A list of tags to apply to the host.
     attr_accessor :tags
 

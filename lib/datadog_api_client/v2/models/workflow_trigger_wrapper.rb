@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Schema for a Workflow-based trigger.
   class WorkflowTriggerWrapper
     include BaseGenericModel
-
     # A list of steps that run first after a trigger fires.
     attr_accessor :start_step_names
-
     # Trigger a workflow from the Datadog UI. Only required if no other trigger exists.
     attr_reader :workflow_trigger
 

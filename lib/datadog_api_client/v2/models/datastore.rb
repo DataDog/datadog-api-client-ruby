@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # A datastore's complete configuration and metadata.
   class Datastore
     include BaseGenericModel
-
     # Core information about a datastore, including its unique identifier and attributes.
     attr_accessor :data
 

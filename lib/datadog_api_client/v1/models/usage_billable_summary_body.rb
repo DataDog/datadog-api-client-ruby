@@ -20,31 +20,22 @@ module DatadogAPIClient::V1
   # Response with properties for each aggregated usage type.
   class UsageBillableSummaryBody
     include BaseGenericModel
-
     # The total account usage.
     attr_accessor :account_billable_usage
-
     # The total account committed usage.
     attr_accessor :account_committed_usage
-
     # The total account on-demand usage.
     attr_accessor :account_on_demand_usage
-
     # Elapsed usage hours for some billable product.
     attr_accessor :elapsed_usage_hours
-
     # The first billable hour for the org.
     attr_accessor :first_billable_usage_hour
-
     # The last billable hour for the org.
     attr_accessor :last_billable_usage_hour
-
     # The number of units used within the billable timeframe.
     attr_accessor :org_billable_usage
-
     # The percentage of account usage the org represents.
     attr_accessor :percentage_in_account
-
     # Units pertaining to the usage.
     attr_accessor :usage_unit
 

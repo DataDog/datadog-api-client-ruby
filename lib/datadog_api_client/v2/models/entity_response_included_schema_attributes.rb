@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Included schema.
   class EntityResponseIncludedSchemaAttributes
     include BaseGenericModel
-
     # Entity schema v3.
     attr_accessor :schema
 

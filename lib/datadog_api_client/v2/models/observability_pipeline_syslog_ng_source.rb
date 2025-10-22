@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # The `syslog_ng` source listens for logs over TCP or UDP from a `syslog-ng` server using the syslog protocol.
   class ObservabilityPipelineSyslogNgSource
     include BaseGenericModel
-
     # The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
     attr_reader :id
-
     # Protocol used by the syslog source to receive messages.
     attr_reader :mode
-
     # Configuration for enabling TLS encryption between the pipeline component and external services.
     attr_accessor :tls
-
     # The source type. The value should always be `syslog_ng`.
     attr_reader :type
 

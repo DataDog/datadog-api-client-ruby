@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Custom attribute values
   class CustomAttributeValue
     include BaseGenericModel
-
     # If true, value must be an array
     attr_reader :is_multi
-
     # Custom attributes type
     attr_reader :type
-
     # Union of supported value for a custom attribute
     attr_reader :value
 

@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # An on-call shift with its associated data and relationships.
   class Shift
     include BaseGenericModel
-
     # Data for an on-call shift.
     attr_accessor :data
-
     # The `Shift` `included`.
     attr_accessor :included
 

@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Additional information related to the application key response.
   class ApplicationKeyResponseMeta
     include BaseGenericModel
-
     # Max allowed number of application keys per user.
     attr_accessor :max_allowed_per_user
-
     # Additional information related to the application key response.
     attr_accessor :page
 

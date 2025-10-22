@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Attributes of the created user.
   class UserCreateAttributes
     include BaseGenericModel
-
     # The email of the user.
     attr_reader :email
-
     # The name of the user.
     attr_accessor :name
-
     # The title of the user.
     attr_accessor :title
 

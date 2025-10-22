@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Metadata for the metric.
   class MetricMetadata
     include BaseGenericModel
-
     # Metric origin information.
     attr_accessor :origin
 

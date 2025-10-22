@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # The definition of `EntityV3APISpecInterfaceDefinition` object.
   class EntityV3APISpecInterfaceDefinition
     include BaseGenericModel
-
     # The API definition.
     attr_accessor :definition
 

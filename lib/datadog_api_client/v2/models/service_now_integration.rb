@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The definition of the `ServiceNowIntegration` object.
   class ServiceNowIntegration
     include BaseGenericModel
-
     # The definition of the `ServiceNowCredentials` object.
     attr_reader :credentials
-
     # The definition of the `ServiceNowIntegrationType` object.
     attr_reader :type
 

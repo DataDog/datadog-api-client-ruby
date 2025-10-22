@@ -20,64 +20,44 @@ module DatadogAPIClient::V2
   # Rule.
   class SecurityMonitoringSignalRuleResponse
     include BaseGenericModel
-
     # Cases for generating signals.
     attr_accessor :cases
-
     # When the rule was created, timestamp in milliseconds.
     attr_accessor :created_at
-
     # User ID of the user who created the rule.
     attr_accessor :creation_author_id
-
     # Custom/Overridden message for generated signals (used in case of Default rule update).
     attr_accessor :custom_message
-
     # Custom/Overridden name of the rule (used in case of Default rule update).
     attr_accessor :custom_name
-
     # When the rule will be deprecated, timestamp in milliseconds.
     attr_accessor :deprecation_date
-
     # Additional queries to filter matched events before they are processed. This field is deprecated for log detection, signal correlation, and workload security rules.
     attr_accessor :filters
-
     # Whether the notifications include the triggering group-by values in their title.
     attr_accessor :has_extended_title
-
     # The ID of the rule.
     attr_accessor :id
-
     # Whether the rule is included by default.
     attr_accessor :is_default
-
     # Whether the rule has been deleted.
     attr_accessor :is_deleted
-
     # Whether the rule is enabled.
     attr_accessor :is_enabled
-
     # Message for generated signals.
     attr_accessor :message
-
     # The name of the rule.
     attr_accessor :name
-
     # Options.
     attr_accessor :options
-
     # Queries for selecting logs which are part of the rule.
     attr_accessor :queries
-
     # Tags for generated signals.
     attr_accessor :tags
-
     # The rule type.
     attr_accessor :type
-
     # User ID of the user who updated the rule.
     attr_accessor :update_author_id
-
     # The version of the rule.
     attr_accessor :version
 

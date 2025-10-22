@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # The expected response schema when getting a Confluent account.
   class ConfluentAccountResponse
     include BaseGenericModel
-
     # An API key and API secret pair that represents a Confluent account.
     attr_accessor :data
 

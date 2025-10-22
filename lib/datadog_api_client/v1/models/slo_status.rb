@@ -20,26 +20,19 @@ module DatadogAPIClient::V1
   # Status of the SLO's primary timeframe.
   class SLOStatus
     include BaseGenericModel
-
     # Error message if SLO status or error budget could not be calculated.
     attr_accessor :calculation_error
-
     # Remaining error budget of the SLO in percentage.
     attr_accessor :error_budget_remaining
-
     # timestamp (UNIX time in seconds) of when the SLO status and error budget
     # were calculated.
     attr_accessor :indexed_at
-
     # Error budget remaining for an SLO.
     attr_accessor :raw_error_budget_remaining
-
     # The current service level indicator (SLI) of the SLO, also known as 'status'. This is a percentage value from 0-100 (inclusive).
     attr_accessor :sli
-
     # The number of decimal places the SLI value is accurate to.
     attr_accessor :span_precision
-
     # State of the SLO.
     attr_accessor :state
 

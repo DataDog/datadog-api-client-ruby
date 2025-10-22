@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Team create
   class TeamCreate
     include BaseGenericModel
-
     # Team creation attributes
     attr_reader :attributes
-
     # Relationships formed with the team on creation
     attr_accessor :relationships
-
     # Team type
     attr_reader :type
 

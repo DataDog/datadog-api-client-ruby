@@ -21,13 +21,10 @@ module DatadogAPIClient::V2
   # If omitted, the system’s default credentials are used (for example, the IAM role and environment variables).
   class ObservabilityPipelineAwsAuth
     include BaseGenericModel
-
     # The Amazon Resource Name (ARN) of the role to assume.
     attr_accessor :assume_role
-
     # A unique identifier for cross-account role assumption.
     attr_accessor :external_id
-
     # A session identifier used for logging and tracing the assumed role session.
     attr_accessor :session_name
 

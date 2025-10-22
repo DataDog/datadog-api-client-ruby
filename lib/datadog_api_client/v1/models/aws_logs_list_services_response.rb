@@ -20,10 +20,8 @@ module DatadogAPIClient::V1
   # The list of current AWS services for which Datadog offers automatic log collection.
   class AWSLogsListServicesResponse
     include BaseGenericModel
-
     # Key value in returned object.
     attr_accessor :id
-
     # Name of service available for configuration with Datadog logs.
     attr_accessor :label
 

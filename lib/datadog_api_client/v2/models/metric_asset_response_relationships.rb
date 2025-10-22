@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # Relationships to assets related to the metric.
   class MetricAssetResponseRelationships
     include BaseGenericModel
-
     # An object containing the list of dashboards that can be referenced in the `included` data.
     attr_accessor :dashboards
-
     # A object containing the list of monitors that can be referenced in the `included` data.
     attr_accessor :monitors
-
     # An object containing the list of notebooks that can be referenced in the `included` data.
     attr_accessor :notebooks
-
     # An object containing a list of SLOs that can be referenced in the `included` data.
     attr_accessor :slos
 

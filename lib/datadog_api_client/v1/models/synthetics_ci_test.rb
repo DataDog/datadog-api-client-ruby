@@ -20,49 +20,34 @@ module DatadogAPIClient::V1
   # Configuration for Continuous Testing.
   class SyntheticsCITest
     include BaseGenericModel
-
     # Disable certificate checks in API tests.
     attr_accessor :allow_insecure_certificates
-
     # Object to handle basic authentication when performing the test.
     attr_accessor :basic_auth
-
     # Body to include in the test.
     attr_accessor :body
-
     # Type of the data sent in a Synthetic API test.
     attr_accessor :body_type
-
     # Cookies for the request.
     attr_accessor :cookies
-
     # For browser test, array with the different device IDs used to run the test.
     attr_accessor :device_ids
-
     # For API HTTP test, whether or not the test should follow redirects.
     attr_accessor :follow_redirects
-
     # Headers to include when performing the test.
     attr_accessor :headers
-
     # Array of locations used to run the test.
     attr_accessor :locations
-
     # Metadata for the Synthetic tests run.
     attr_accessor :metadata
-
     # The public ID of the Synthetic test to trigger.
     attr_reader :public_id
-
     # Object describing the retry strategy to apply to a Synthetic test.
     attr_accessor :_retry
-
     # Starting URL for the browser test.
     attr_accessor :start_url
-
     # Variables to replace in the test.
     attr_accessor :variables
-
     # The version number of the Synthetic test version to trigger.
     attr_accessor :version
 

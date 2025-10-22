@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # The data object containing the new app definition. Any fields not included in the request remain unchanged.
   class UpdateAppRequestData
     include BaseGenericModel
-
     # App definition attributes to be updated, such as name, description, and components.
     attr_accessor :attributes
-
     # The ID of the app to update. The app ID must match the ID in the URL path.
     attr_accessor :id
-
     # The app definition type.
     attr_reader :type
 

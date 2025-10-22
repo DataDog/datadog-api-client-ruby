@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Upsert entity response.
   class UpsertCatalogEntityResponse
     include BaseGenericModel
-
     # List of entity data.
     attr_accessor :data
-
     # Upsert entity response included.
     attr_accessor :included
-
     # Entity metadata.
     attr_accessor :meta
 

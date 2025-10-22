@@ -30,10 +30,8 @@ module DatadogAPIClient::V2
   #   - A tag value used in one dataset cannot be reused in another dataset of the same telemetry type.
   class DatasetRequest
     include BaseGenericModel
-
     # Dataset metadata and configurations.
     attr_reader :attributes
-
     # Resource type, always set to `dataset`.
     attr_reader :type
 

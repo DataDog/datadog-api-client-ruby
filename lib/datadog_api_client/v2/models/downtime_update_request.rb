@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Request for editing a downtime.
   class DowntimeUpdateRequest
     include BaseGenericModel
-
     # Object to update a downtime.
     attr_reader :data
 

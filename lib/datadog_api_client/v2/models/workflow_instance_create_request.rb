@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Request used to create a workflow instance.
   class WorkflowInstanceCreateRequest
     include BaseGenericModel
-
     # Additional information for creating a workflow instance.
     attr_accessor :meta
 

@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # RUM application update request.
   class RUMApplicationUpdateRequest
     include BaseGenericModel
-
     # RUM application update.
     attr_reader :data
 

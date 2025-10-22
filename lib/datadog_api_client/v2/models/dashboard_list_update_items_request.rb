@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Request containing the list of dashboards to update to.
   class DashboardListUpdateItemsRequest
     include BaseGenericModel
-
     # List of dashboards to update the dashboard list to.
     attr_accessor :dashboards
 

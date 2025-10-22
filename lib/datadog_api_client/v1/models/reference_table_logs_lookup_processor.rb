@@ -26,22 +26,16 @@ module DatadogAPIClient::V1
   # environment belongs to your list of stolen machines.
   class ReferenceTableLogsLookupProcessor
     include BaseGenericModel
-
     # Whether or not the processor is enabled.
     attr_accessor :is_enabled
-
     # Name of the Reference Table for the source attribute and their associated target attribute values.
     attr_reader :lookup_enrichment_table
-
     # Name of the processor.
     attr_accessor :name
-
     # Source attribute used to perform the lookup.
     attr_reader :source
-
     # Name of the attribute that contains the corresponding value in the mapping list.
     attr_reader :target
-
     # Type of logs lookup processor.
     attr_reader :type
 

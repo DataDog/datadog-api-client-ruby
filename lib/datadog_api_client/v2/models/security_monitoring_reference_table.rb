@@ -20,19 +20,14 @@ module DatadogAPIClient::V2
   # Reference tables used in the queries.
   class SecurityMonitoringReferenceTable
     include BaseGenericModel
-
     # Whether to include or exclude the matched values.
     attr_accessor :check_presence
-
     # The name of the column in the reference table.
     attr_accessor :column_name
-
     # The field in the log to match against the reference table.
     attr_accessor :log_field_path
-
     # The name of the query to apply the reference table to.
     attr_accessor :rule_query_name
-
     # The name of the reference table.
     attr_accessor :table_name
 

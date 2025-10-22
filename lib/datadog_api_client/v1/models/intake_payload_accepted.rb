@@ -20,7 +20,6 @@ module DatadogAPIClient::V1
   # The payload accepted for intake.
   class IntakePayloadAccepted
     include BaseGenericModel
-
     # The status of the intake payload.
     attr_accessor :status
 

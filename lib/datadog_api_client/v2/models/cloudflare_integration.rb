@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The definition of the `CloudflareIntegration` object.
   class CloudflareIntegration
     include BaseGenericModel
-
     # The definition of the `CloudflareCredentials` object.
     attr_reader :credentials
-
     # The definition of the `CloudflareIntegrationType` object.
     attr_reader :type
 

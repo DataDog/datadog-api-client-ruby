@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Entity to oncalls relationship.
   class EntityToOncalls
     include BaseGenericModel
-
     # Relationships.
     attr_accessor :data
 

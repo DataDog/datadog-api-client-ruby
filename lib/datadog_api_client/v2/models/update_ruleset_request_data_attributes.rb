@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # The definition of `UpdateRulesetRequestDataAttributes` object.
   class UpdateRulesetRequestDataAttributes
     include BaseGenericModel
-
     # The `attributes` `enabled`.
     attr_reader :enabled
-
     # The `attributes` `last_version`.
     attr_accessor :last_version
-
     # The `attributes` `rules`.
     attr_reader :rules
 

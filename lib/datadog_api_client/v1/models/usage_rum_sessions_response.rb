@@ -20,7 +20,6 @@ module DatadogAPIClient::V1
   # Response containing the number of RUM sessions for each hour for a given organization.
   class UsageRumSessionsResponse
     include BaseGenericModel
-
     # Get hourly usage for RUM sessions.
     attr_accessor :usage
 

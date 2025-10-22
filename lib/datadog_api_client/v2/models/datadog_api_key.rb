@@ -20,19 +20,14 @@ module DatadogAPIClient::V2
   # The definition of the `DatadogAPIKey` object.
   class DatadogAPIKey
     include BaseGenericModel
-
     # The `DatadogAPIKey` `api_key`.
     attr_reader :api_key
-
     # The `DatadogAPIKey` `app_key`.
     attr_reader :app_key
-
     # The `DatadogAPIKey` `datacenter`.
     attr_reader :datacenter
-
     # Custom subdomain used for Datadog URLs generated with this Connection. For example, if this org uses `https://acme.datadoghq.com` to access Datadog, set this field to `acme`. If this field is omitted, generated URLs will use the default site URL for its datacenter (see [https://docs.datadoghq.com/getting_started/site](https://docs.datadoghq.com/getting_started/site)).
     attr_accessor :subdomain
-
     # The definition of the `DatadogAPIKey` object.
     attr_reader :type
 

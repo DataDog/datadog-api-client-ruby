@@ -20,37 +20,26 @@ module DatadogAPIClient::V2
   # Attributes to create a DORA failure event.
   class DORAFailureRequestAttributes
     include BaseGenericModel
-
     # A list of user-defined tags. The tags must follow the `key:value` pattern. Up to 100 may be added per event.
     attr_accessor :custom_tags
-
     # Environment name that was impacted by the failure.
     attr_accessor :env
-
     # Unix timestamp when the failure finished. It must be in nanoseconds, milliseconds, or seconds.
     attr_accessor :finished_at
-
     # Git info for DORA Metrics events.
     attr_accessor :git
-
     # Failure ID. Must have at least 16 characters. Required to update a previously sent failure.
     attr_accessor :id
-
     # Failure name.
     attr_accessor :name
-
     # Service names impacted by the failure. If possible, use names registered in the Service Catalog. Required when the team field is not provided.
     attr_accessor :services
-
     # Failure severity.
     attr_accessor :severity
-
     # Unix timestamp when the failure started. It must be in nanoseconds, milliseconds, or seconds.
     attr_reader :started_at
-
     # Name of the team owning the services impacted. If possible, use team handles registered in Datadog. Required when the services field is not provided.
     attr_accessor :team
-
     # Version to correlate with [APM Deployment Tracking](https://docs.datadoghq.com/tracing/services/deployment_tracking/).
     attr_accessor :version
 

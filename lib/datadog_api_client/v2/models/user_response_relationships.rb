@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # Relationships of the user object returned by the API.
   class UserResponseRelationships
     include BaseGenericModel
-
     # Relationship to an organization.
     attr_accessor :org
-
     # Relationship to organizations.
     attr_accessor :other_orgs
-
     # Relationship to users.
     attr_accessor :other_users
-
     # Relationship to roles.
     attr_accessor :roles
 

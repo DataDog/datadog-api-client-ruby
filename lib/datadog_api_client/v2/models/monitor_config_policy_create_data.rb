@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # A monitor configuration policy data.
   class MonitorConfigPolicyCreateData
     include BaseGenericModel
-
     # Policy and policy type for a monitor configuration policy.
     attr_reader :attributes
-
     # Monitor configuration policy resource type.
     attr_reader :type
 

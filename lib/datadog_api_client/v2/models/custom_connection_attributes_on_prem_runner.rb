@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Information about the Private Action Runner used by the custom connection, if the custom connection is associated with a Private Action Runner.
   class CustomConnectionAttributesOnPremRunner
     include BaseGenericModel
-
     # The Private Action Runner ID.
     attr_accessor :id
-
     # The URL of the Private Action Runner.
     attr_accessor :url
 

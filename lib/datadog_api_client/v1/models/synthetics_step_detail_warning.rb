@@ -20,10 +20,8 @@ module DatadogAPIClient::V1
   # Object collecting warnings for a given step.
   class SyntheticsStepDetailWarning
     include BaseGenericModel
-
     # Message for the warning.
     attr_reader :message
-
     # User locator used.
     attr_reader :type
 

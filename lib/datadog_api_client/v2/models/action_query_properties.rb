@@ -20,31 +20,22 @@ module DatadogAPIClient::V2
   # The properties of the action query.
   class ActionQueryProperties
     include BaseGenericModel
-
     # Whether to run this query. If specified, the query will only run if this condition evaluates to `true` in JavaScript and all other conditions are also met.
     attr_accessor :condition
-
     # The minimum time in milliseconds that must pass before the query can be triggered again. This is useful for preventing accidental double-clicks from triggering the query multiple times.
     attr_accessor :debounce_in_ms
-
     # The mocked outputs of the action query. This is useful for testing the app without actually running the action.
     attr_accessor :mocked_outputs
-
     # Determines when this query is executed. If set to `false`, the query will run when the app loads and whenever any query arguments change. If set to `true`, the query will only run when manually triggered from elsewhere in the app.
     attr_accessor :only_trigger_manually
-
     # The post-query transformation function, which is a JavaScript function that changes the query's `.outputs` property after the query's execution.
     attr_accessor :outputs
-
     # If specified, the app will poll the query at the specified interval in milliseconds. The minimum polling interval is 15 seconds. The query will only poll when the app's browser tab is active.
     attr_accessor :polling_interval_in_ms
-
     # Whether to prompt the user to confirm this query before it runs.
     attr_accessor :requires_confirmation
-
     # Whether to display a toast to the user when the query returns an error.
     attr_accessor :show_toast_on_error
-
     # The definition of the action query.
     attr_reader :spec
 

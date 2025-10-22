@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Response with incidents and facets.
   class IncidentSearchResponse
     include BaseGenericModel
-
     # Data returned by an incident search.
     attr_reader :data
-
     # Included related resources that the user requested.
     attr_accessor :included
-
     # The metadata object containing pagination metadata.
     attr_accessor :meta
 

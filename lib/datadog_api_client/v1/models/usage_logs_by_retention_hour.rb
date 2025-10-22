@@ -20,22 +20,16 @@ module DatadogAPIClient::V1
   # The number of indexed logs for each hour for a given organization broken down by retention period.
   class UsageLogsByRetentionHour
     include BaseGenericModel
-
     # Total logs indexed with this retention period during a given hour.
     attr_accessor :indexed_events_count
-
     # Live logs indexed with this retention period during a given hour.
     attr_accessor :live_indexed_events_count
-
     # The organization name.
     attr_accessor :org_name
-
     # The organization public ID.
     attr_accessor :public_id
-
     # Rehydrated logs indexed with this retention period during a given hour.
     attr_accessor :rehydrated_indexed_events_count
-
     # The retention period in days or "custom" for all custom retention usage.
     attr_accessor :retention
 

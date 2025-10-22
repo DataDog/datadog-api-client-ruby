@@ -21,19 +21,14 @@ module DatadogAPIClient::V1
   # the Continent, Country, Subdivision, and City information in the target attribute path.
   class LogsGeoIPParser
     include BaseGenericModel
-
     # Whether or not the processor is enabled.
     attr_accessor :is_enabled
-
     # Name of the processor.
     attr_accessor :name
-
     # Array of source attributes.
     attr_reader :sources
-
     # Name of the parent attribute that contains all the extracted details from the `sources`.
     attr_reader :target
-
     # Type of GeoIP parser.
     attr_reader :type
 

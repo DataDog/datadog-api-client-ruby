@@ -21,22 +21,16 @@ module DatadogAPIClient::V1
   # See [Datadog metrics](https://docs.datadoghq.com/developers/metrics/#custom-metrics-properties).
   class Series
     include BaseGenericModel
-
     # The name of the host that produced the metric.
     attr_accessor :host
-
     # If the type of the metric is rate or count, define the corresponding interval in seconds.
     attr_accessor :interval
-
     # The name of the timeseries.
     attr_reader :metric
-
     # Points relating to a metric. All points must be tuples with timestamp and a scalar value (cannot be a string). Timestamps should be in POSIX time in seconds, and cannot be more than ten minutes in the future or more than one hour in the past.
     attr_reader :points
-
     # A list of tags associated with the metric.
     attr_accessor :tags
-
     # The type of the metric. Valid types are "",`count`, `gauge`, and `rate`.
     attr_accessor :type
 

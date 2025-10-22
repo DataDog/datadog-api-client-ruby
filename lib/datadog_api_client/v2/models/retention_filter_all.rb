@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # The definition of the retention filter.
   class RetentionFilterAll
     include BaseGenericModel
-
     # The attributes of the retention filter.
     attr_reader :attributes
-
     # The ID of the retention filter.
     attr_reader :id
-
     # The type of the resource.
     attr_reader :type
 

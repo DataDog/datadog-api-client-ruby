@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Warning message indicating something that went wrong with the query.
   class AuditLogsWarning
     include BaseGenericModel
-
     # Unique code for this type of warning.
     attr_accessor :code
-
     # Detailed explanation of this specific warning.
     attr_accessor :detail
-
     # Short human-readable summary of the warning.
     attr_accessor :title
 

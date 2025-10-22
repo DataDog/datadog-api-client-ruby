@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # The expected response schema when getting Cloudflare accounts.
   class CloudflareAccountsResponse
     include BaseGenericModel
-
     # The JSON:API data schema.
     attr_accessor :data
 

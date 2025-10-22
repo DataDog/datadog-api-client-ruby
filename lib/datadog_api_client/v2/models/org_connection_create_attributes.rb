@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Attributes for creating an org connection.
   class OrgConnectionCreateAttributes
     include BaseGenericModel
-
     # List of connection types to establish.
     attr_reader :connection_types
 

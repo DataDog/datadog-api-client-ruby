@@ -20,22 +20,16 @@ module DatadogAPIClient::V2
   # An individual timeseries events query.
   class EventsTimeseriesQuery
     include BaseGenericModel
-
     # The instructions for what to compute for this query.
     attr_reader :compute
-
     # A data source that is powered by the Events Platform.
     attr_reader :data_source
-
     # The list of facets on which to split results.
     attr_accessor :group_by
-
     # The indexes in which to search.
     attr_accessor :indexes
-
     # The variable name for use in formulas.
     attr_accessor :name
-
     # Configuration of the search/filter for an events query.
     attr_accessor :search
 

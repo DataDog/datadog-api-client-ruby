@@ -20,13 +20,10 @@ module DatadogAPIClient::V1
   # Match Sub-string definition.
   class TableWidgetTextFormatReplaceSubstring
     include BaseGenericModel
-
     # Text that will be replaced.
     attr_reader :substring
-
     # Table widget text format replace sub-string type.
     attr_reader :type
-
     # Text that will replace original sub-string.
     attr_reader :with
 

@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Notification template data for an update request.
   class IncidentNotificationTemplateUpdateData
     include BaseGenericModel
-
     # The attributes to update on a notification template.
     attr_accessor :attributes
-
     # The unique identifier of the notification template.
     attr_reader :id
-
     # Notification templates resource type.
     attr_reader :type
 

@@ -20,23 +20,17 @@ module DatadogAPIClient::V2
   # Incident integration metadata's attributes for a create request.
   class IncidentIntegrationMetadataAttributes
     include BaseGenericModel
-
     # Timestamp when the incident todo was created.
     attr_accessor :created
-
     # UUID of the incident this integration metadata is connected to.
     attr_accessor :incident_id
-
     # A number indicating the type of integration this metadata is for. 1 indicates Slack;
     # 8 indicates Jira.
     attr_reader :integration_type
-
     # Incident integration metadata's metadata attribute.
     attr_reader :metadata
-
     # Timestamp when the incident todo was last modified.
     attr_accessor :modified
-
     # A number indicating the status of this integration metadata. 0 indicates unknown;
     # 1 indicates pending; 2 indicates complete; 3 indicates manually created;
     # 4 indicates manually updated; 5 indicates failed.

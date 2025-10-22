@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Configuration of the search/filter for an events query.
   class EventsSearch
     include BaseGenericModel
-
     # The search/filter string for an events query.
     attr_accessor :query
 

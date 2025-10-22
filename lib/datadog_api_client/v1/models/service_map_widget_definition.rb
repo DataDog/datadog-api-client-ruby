@@ -20,25 +20,18 @@ module DatadogAPIClient::V1
   # This widget displays a map of a service to all of the services that call it, and all of the services that it calls.
   class ServiceMapWidgetDefinition
     include BaseGenericModel
-
     # List of custom links.
     attr_accessor :custom_links
-
     # Your environment and primary tag (or * if enabled for your account).
     attr_reader :filters
-
     # The ID of the service you want to map.
     attr_reader :service
-
     # The title of your widget.
     attr_accessor :title
-
     # How to align the text on the widget.
     attr_accessor :title_align
-
     # Size of the title.
     attr_accessor :title_size
-
     # Type of the service map widget.
     attr_reader :type
 

@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The response object for the spans aggregate API endpoint.
   class SpansAggregateResponse
     include BaseGenericModel
-
     # The list of matching buckets, one item per bucket.
     attr_accessor :data
-
     # The metadata associated with a request.
     attr_accessor :meta
 

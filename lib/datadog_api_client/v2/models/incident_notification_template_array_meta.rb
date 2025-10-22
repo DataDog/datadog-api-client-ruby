@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Response metadata.
   class IncidentNotificationTemplateArrayMeta
     include BaseGenericModel
-
     # Pagination metadata.
     attr_accessor :page
 

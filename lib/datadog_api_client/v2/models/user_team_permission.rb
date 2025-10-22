@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # A user's permissions for a given team
   class UserTeamPermission
     include BaseGenericModel
-
     # User team permission attributes
     attr_accessor :attributes
-
     # The user team permission's identifier
     attr_reader :id
-
     # User team permission type
     attr_reader :type
 

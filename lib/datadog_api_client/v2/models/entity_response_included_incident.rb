@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Included incident.
   class EntityResponseIncludedIncident
     include BaseGenericModel
-
     # Incident attributes.
     attr_accessor :attributes
-
     # Incident ID.
     attr_accessor :id
-
     # Incident description.
     attr_accessor :type
 

@@ -20,10 +20,8 @@ module DatadogAPIClient::V1
   # A list of  SLO correction objects.
   class SLOCorrectionListResponse
     include BaseGenericModel
-
     # The list of SLO corrections objects.
     attr_accessor :data
-
     # Object describing meta attributes of response.
     attr_accessor :meta
 

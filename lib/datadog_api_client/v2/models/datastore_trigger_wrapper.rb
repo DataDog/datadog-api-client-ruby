@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Schema for a Datastore-based trigger.
   class DatastoreTriggerWrapper
     include BaseGenericModel
-
     # Trigger a workflow from a Datastore. For automatic triggering a handle must be configured and the workflow must be published.
     attr_reader :datastore_trigger
-
     # A list of steps that run first after a trigger fires.
     attr_accessor :start_step_names
 

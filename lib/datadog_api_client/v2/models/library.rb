@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Vulnerability library.
   class Library
     include BaseGenericModel
-
     # Vulnerability library name.
     attr_reader :name
-
     # Vulnerability library version.
     attr_accessor :version
 

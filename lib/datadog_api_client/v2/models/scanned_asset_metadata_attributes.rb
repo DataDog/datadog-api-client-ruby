@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # The attributes of a scanned asset metadata.
   class ScannedAssetMetadataAttributes
     include BaseGenericModel
-
     # The asset of a scanned asset metadata.
     attr_reader :asset
-
     # The timestamp when the scan of the asset was performed for the first time.
     attr_reader :first_success_timestamp
-
     # Metadata for the last successful scan of an asset.
     attr_reader :last_success
 

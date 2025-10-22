@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # A monitor object with title.
   class MetricMonitorAsset
     include BaseGenericModel
-
     # Assets related to the object, including title, url, and tags.
     attr_accessor :attributes
-
     # The related monitor's ID.
     attr_reader :id
-
     # Monitor resource type.
     attr_reader :type
 

@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # User relationship.
   class OrgConnectionUserRelationship
     include BaseGenericModel
-
     # The data for a user relationship.
     attr_accessor :data
 

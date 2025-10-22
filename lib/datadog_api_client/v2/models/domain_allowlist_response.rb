@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Response containing information about the email domain allowlist.
   class DomainAllowlistResponse
     include BaseGenericModel
-
     # The email domain allowlist response for an org.
     attr_accessor :data
 

@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The definition of `HTTPBody` object.
   class HTTPBody
     include BaseGenericModel
-
     # Serialized body content
     attr_accessor :content
-
     # Content type of the body
     attr_accessor :content_type
 

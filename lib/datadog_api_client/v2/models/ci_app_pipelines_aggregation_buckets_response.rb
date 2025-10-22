@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # The query results.
   class CIAppPipelinesAggregationBucketsResponse
     include BaseGenericModel
-
     # The list of matching buckets, one item per bucket.
     attr_accessor :buckets
 

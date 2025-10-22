@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # The expected response schema when getting Okta accounts.
   class OktaAccountsResponse
     include BaseGenericModel
-
     # List of Okta accounts.
     attr_accessor :data
 

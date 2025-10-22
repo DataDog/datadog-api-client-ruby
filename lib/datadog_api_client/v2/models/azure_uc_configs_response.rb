@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # List of Azure accounts with configs.
   class AzureUCConfigsResponse
     include BaseGenericModel
-
     # An Azure config pair.
     attr_reader :data
 

@@ -20,25 +20,18 @@ module DatadogAPIClient::V2
   # The `socket` destination sends logs over TCP or UDP to a remote server.
   class ObservabilityPipelineSocketDestination
     include BaseGenericModel
-
     # Encoding format for log events.
     attr_reader :encoding
-
     # Framing method configuration.
     attr_reader :framing
-
     # The unique identifier for this component.
     attr_reader :id
-
     # A list of component IDs whose output is used as the `input` for this component.
     attr_reader :inputs
-
     # Protocol used to send logs.
     attr_reader :mode
-
     # Configuration for enabling TLS encryption between the pipeline component and external services.
     attr_accessor :tls
-
     # The destination type. The value should always be `socket`.
     attr_reader :type
 

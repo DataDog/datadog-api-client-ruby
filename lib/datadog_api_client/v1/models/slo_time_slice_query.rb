@@ -20,10 +20,8 @@ module DatadogAPIClient::V1
   # The queries and formula used to calculate the SLI value.
   class SLOTimeSliceQuery
     include BaseGenericModel
-
     # A list that contains exactly one formula, as only a single formula may be used in a time-slice SLO.
     attr_reader :formulas
-
     # A list of queries that are used to calculate the SLI value.
     attr_reader :queries
 

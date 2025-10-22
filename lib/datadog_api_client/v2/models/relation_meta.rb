@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # Relation metadata.
   class RelationMeta
     include BaseGenericModel
-
     # Relation creation time.
     attr_accessor :created_at
-
     # Relation defined by.
     attr_accessor :defined_by
-
     # Relation modification time.
     attr_accessor :modified_at
-
     # Relation source.
     attr_accessor :source
 

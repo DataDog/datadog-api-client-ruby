@@ -20,28 +20,20 @@ module DatadogAPIClient::V1
   # Facets
   class SearchSLOResponseDataAttributesFacets
     include BaseGenericModel
-
     # All tags associated with an SLO.
     attr_accessor :all_tags
-
     # Creator of an SLO.
     attr_accessor :creator_name
-
     # Tags with the `env` tag key.
     attr_accessor :env_tags
-
     # Tags with the `service` tag key.
     attr_accessor :service_tags
-
     # Type of SLO.
     attr_accessor :slo_type
-
     # SLO Target
     attr_accessor :target
-
     # Tags with the `team` tag key.
     attr_accessor :team_tags
-
     # Timeframes of SLOs.
     attr_accessor :timeframe
 

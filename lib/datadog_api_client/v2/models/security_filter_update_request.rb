@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # The new security filter body.
   class SecurityFilterUpdateRequest
     include BaseGenericModel
-
     # The new security filter properties.
     attr_reader :data
 

@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Data object for updating an Okta account.
   class OktaAccountUpdateRequestData
     include BaseGenericModel
-
     # Attributes object for updating an Okta account.
     attr_accessor :attributes
-
     # Account type for an Okta account.
     attr_accessor :type
 

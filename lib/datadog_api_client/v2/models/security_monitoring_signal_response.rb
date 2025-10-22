@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Security Signal response data object.
   class SecurityMonitoringSignalResponse
     include BaseGenericModel
-
     # Object description of a security signal.
     attr_accessor :data
 

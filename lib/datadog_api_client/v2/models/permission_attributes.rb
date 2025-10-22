@@ -20,25 +20,18 @@ module DatadogAPIClient::V2
   # Attributes of a permission.
   class PermissionAttributes
     include BaseGenericModel
-
     # Creation time of the permission.
     attr_accessor :created
-
     # Description of the permission.
     attr_accessor :description
-
     # Displayed name for the permission.
     attr_accessor :display_name
-
     # Display type.
     attr_accessor :display_type
-
     # Name of the permission group.
     attr_accessor :group_name
-
     # Name of the permission.
     attr_accessor :name
-
     # Whether or not the permission is restricted.
     attr_accessor :restricted
 

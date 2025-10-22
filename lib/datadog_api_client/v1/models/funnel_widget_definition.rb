@@ -20,22 +20,16 @@ module DatadogAPIClient::V1
   # The funnel visualization displays a funnel of user sessions that maps a sequence of view navigation and user interaction in your application.
   class FunnelWidgetDefinition
     include BaseGenericModel
-
     # Request payload used to query items.
     attr_reader :requests
-
     # Time setting for the widget.
     attr_accessor :time
-
     # The title of the widget.
     attr_accessor :title
-
     # How to align the text on the widget.
     attr_accessor :title_align
-
     # The size of the title.
     attr_accessor :title_size
-
     # Type of funnel widget.
     attr_reader :type
 

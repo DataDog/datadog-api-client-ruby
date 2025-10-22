@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # The definition of `CreateRulesetRequestData` object.
   class CreateRulesetRequestData
     include BaseGenericModel
-
     # The definition of `CreateRulesetRequestDataAttributes` object.
     attr_accessor :attributes
-
     # The `CreateRulesetRequestData` `id`.
     attr_accessor :id
-
     # Create ruleset resource type.
     attr_reader :type
 

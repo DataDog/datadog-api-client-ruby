@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # Included related entity meta.
   class EntityResponseIncludedRelatedEntityMeta
     include BaseGenericModel
-
     # Entity creation time.
     attr_accessor :created_at
-
     # Entity relation defined by.
     attr_accessor :defined_by
-
     # Entity modification time.
     attr_accessor :modified_at
-
     # Entity relation source.
     attr_accessor :source
 

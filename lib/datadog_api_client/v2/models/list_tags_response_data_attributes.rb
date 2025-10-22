@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # The definition of ListTagsResponseDataAttributes object.
   class ListTagsResponseDataAttributes
     include BaseGenericModel
-
     # The list of tags
     attr_accessor :tags
 

@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # The response object for the pipeline events aggregate API endpoint.
   class CIAppPipelinesAnalyticsAggregateResponse
     include BaseGenericModel
-
     # The query results.
     attr_accessor :data
-
     # Links attributes.
     attr_accessor :links
-
     # The metadata associated with a request.
     attr_accessor :meta
 

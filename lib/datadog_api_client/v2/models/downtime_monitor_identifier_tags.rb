@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Object of the monitor tags.
   class DowntimeMonitorIdentifierTags
     include BaseGenericModel
-
     # A list of monitor tags. For example, tags that are applied directly to monitors,
     # not tags that are used in monitor queries (which are filtered by the scope parameter), to which the downtime applies.
     # The resulting downtime applies to monitors that match **all** provided monitor tags. Setting `monitor_tags`

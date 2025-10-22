@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Datadog product integrations for the datastore entity.
   class EntityV3QueueDatadog
     include BaseGenericModel
-
     # Events associations.
     attr_accessor :events
-
     # Logs association.
     attr_accessor :logs
-
     # Performance stats association.
     attr_accessor :performance_data
 

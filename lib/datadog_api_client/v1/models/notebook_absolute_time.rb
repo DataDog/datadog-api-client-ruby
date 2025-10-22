@@ -20,13 +20,10 @@ module DatadogAPIClient::V1
   # Absolute timeframe.
   class NotebookAbsoluteTime
     include BaseGenericModel
-
     # The end time.
     attr_reader :_end
-
     # Indicates whether the timeframe should be shifted to end at the current time.
     attr_accessor :live
-
     # The start time.
     attr_reader :start
 

@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Defines how to map log fields to enrichment table columns during lookups.
   class ObservabilityPipelineEnrichmentTableFileKeyItems
     include BaseGenericModel
-
     # The `items` `column`.
     attr_reader :column
-
     # Defines how to compare key fields for enrichment table lookups.
     attr_reader :comparison
-
     # The `items` `field`.
     attr_reader :field
 

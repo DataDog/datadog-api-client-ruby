@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Included raw schema attributes.
   class EntityResponseIncludedRawSchemaAttributes
     include BaseGenericModel
-
     # Schema from user input in base64 encoding.
     attr_accessor :raw_schema
 

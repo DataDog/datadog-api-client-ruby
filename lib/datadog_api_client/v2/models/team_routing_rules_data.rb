@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Represents the top-level data object for team routing rules, containing the ID, relationships, and resource type.
   class TeamRoutingRulesData
     include BaseGenericModel
-
     # Specifies the unique identifier of this team routing rules record.
     attr_accessor :id
-
     # Specifies relationships for team routing rules, including rule references.
     attr_accessor :relationships
-
     # Team routing rules resource type.
     attr_reader :type
 

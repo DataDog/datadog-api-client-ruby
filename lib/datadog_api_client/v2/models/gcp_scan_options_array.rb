@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Response object containing a list of GCP scan options.
   class GcpScanOptionsArray
     include BaseGenericModel
-
     # A list of GCP scan options.
     attr_reader :data
 

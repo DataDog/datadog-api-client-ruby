@@ -20,10 +20,8 @@ module DatadogAPIClient::V1
   # Facet
   class SearchSLOResponseDataAttributesFacetsObjectInt
     include BaseGenericModel
-
     # Count
     attr_accessor :count
-
     # Facet
     attr_accessor :name
 

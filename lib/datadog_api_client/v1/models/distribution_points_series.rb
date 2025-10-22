@@ -20,19 +20,14 @@ module DatadogAPIClient::V1
   # A distribution points metric to submit to Datadog.
   class DistributionPointsSeries
     include BaseGenericModel
-
     # The name of the host that produced the distribution point metric.
     attr_accessor :host
-
     # The name of the distribution points metric.
     attr_reader :metric
-
     # Points relating to the distribution point metric. All points must be tuples with timestamp and a list of values (cannot be a string). Timestamps should be in POSIX time in seconds.
     attr_reader :points
-
     # A list of tags associated with the distribution point metric.
     attr_accessor :tags
-
     # The type of the distribution point.
     attr_accessor :type
 

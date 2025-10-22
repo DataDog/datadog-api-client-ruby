@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # The definition of `TableResultV2DataAttributesFileMetadataOneOfAccessDetailsGcpDetail` object.
   class TableResultV2DataAttributesFileMetadataOneOfAccessDetailsGcpDetail
     include BaseGenericModel
-
     # The relative file path from the GCS bucket root to the CSV file.
     attr_accessor :file_path
-
     # The name of the GCP bucket.
     attr_accessor :gcp_bucket_name
-
     # The ID of the GCP project.
     attr_accessor :gcp_project_id
-
     # The email of the GCP service account.
     attr_accessor :gcp_service_account_email
 

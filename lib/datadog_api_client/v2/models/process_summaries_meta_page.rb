@@ -20,11 +20,9 @@ module DatadogAPIClient::V2
   # Paging attributes.
   class ProcessSummariesMetaPage
     include BaseGenericModel
-
     # The cursor used to get the next results, if any. To make the next request, use the same
     # parameters with the addition of the `page[cursor]`.
     attr_accessor :after
-
     # Number of results returned.
     attr_reader :size
 

@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # ServiceNow ticket information
   class ServiceNowTicketResult
     include BaseGenericModel
-
     # Link to the Incident created on ServiceNow
     attr_accessor :sys_target_link
 

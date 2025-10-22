@@ -20,10 +20,8 @@ module DatadogAPIClient::V1
   # AWS account ID and Lambda ARN.
   class AWSAccountAndLambdaRequest
     include BaseGenericModel
-
     # Your AWS Account ID without dashes.
     attr_reader :account_id
-
     # ARN of the Datadog Lambda created during the Datadog-Amazon Web services Log collection setup.
     attr_reader :lambda_arn
 

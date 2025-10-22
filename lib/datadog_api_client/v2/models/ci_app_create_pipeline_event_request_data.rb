@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Data of the pipeline event to create.
   class CIAppCreatePipelineEventRequestData
     include BaseGenericModel
-
     # Attributes of the pipeline event to create.
     attr_accessor :attributes
-
     # Type of the event.
     attr_accessor :type
 

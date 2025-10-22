@@ -21,19 +21,14 @@ module DatadogAPIClient::V2
   # and optional grouping fields.
   class ObservabilityPipelineGeneratedMetric
     include BaseGenericModel
-
     # Optional fields used to group the metric series.
     attr_accessor :group_by
-
     # Datadog filter query to match logs for metric generation.
     attr_reader :include
-
     # Type of metric to create.
     attr_reader :metric_type
-
     # Name of the custom metric to be created.
     attr_reader :name
-
     # Specifies how the value of the generated metric is computed.
     attr_reader :value
 

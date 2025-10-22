@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # RUM application list.
   class RUMApplicationList
     include BaseGenericModel
-
     # RUM application list attributes.
     attr_reader :attributes
-
     # RUM application ID.
     attr_accessor :id
-
     # RUM application list type.
     attr_reader :type
 

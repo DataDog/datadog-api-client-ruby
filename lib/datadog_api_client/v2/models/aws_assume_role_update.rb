@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # The definition of `AWSAssumeRoleUpdate` object.
   class AWSAssumeRoleUpdate
     include BaseGenericModel
-
     # AWS account the connection is created for
     attr_reader :account_id
-
     # The `AWSAssumeRoleUpdate` `generate_new_external_id`.
     attr_accessor :generate_new_external_id
-
     # Role to assume
     attr_accessor :role
-
     # The definition of `AWSAssumeRoleType` object.
     attr_reader :type
 

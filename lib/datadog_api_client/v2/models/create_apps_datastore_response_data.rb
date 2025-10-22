@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The newly created datastore's data.
   class CreateAppsDatastoreResponseData
     include BaseGenericModel
-
     # The unique identifier assigned to the newly created datastore.
     attr_accessor :id
-
     # The resource type for datastores.
     attr_reader :type
 

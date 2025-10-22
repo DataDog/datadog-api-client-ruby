@@ -20,33 +20,24 @@ module DatadogAPIClient::V2
   # Detailed information about a datastore.
   class DatastoreDataAttributes
     include BaseGenericModel
-
     # Timestamp when the datastore was created.
     attr_accessor :created_at
-
     # The numeric ID of the user who created the datastore.
     attr_accessor :creator_user_id
-
     # The UUID of the user who created the datastore.
     attr_accessor :creator_user_uuid
-
     # A human-readable description about the datastore.
     attr_accessor :description
-
     # Timestamp when the datastore was last modified.
     attr_accessor :modified_at
-
     # The display name of the datastore.
     attr_accessor :name
-
     # The ID of the organization that owns this datastore.
     attr_accessor :org_id
-
     # The name of the primary key column for this datastore. Primary column names:
     #   - Must abide by both [PostgreSQL naming conventions](https://www.postgresql.org/docs/7.0/syntax525.htm)
     #   - Cannot exceed 63 characters
     attr_reader :primary_column_name
-
     # Can be set to `uuid` to automatically generate primary keys when new items are added. Default value is `none`, which requires you to supply a primary key for each new item.
     attr_accessor :primary_key_generation_strategy
 

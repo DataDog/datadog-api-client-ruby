@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The definition of `RetryStrategyLinear` object.
   class RetryStrategyLinear
     include BaseGenericModel
-
     # The `RetryStrategyLinear` `interval`. The expected format is the number of seconds ending with an s. For example, 1 day is 86400s
     attr_reader :interval
-
     # The `RetryStrategyLinear` `maxRetries`.
     attr_reader :max_retries
 

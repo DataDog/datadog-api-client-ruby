@@ -20,28 +20,20 @@ module DatadogAPIClient::V2
   # The incident's attributes for an update request.
   class IncidentUpdateAttributes
     include BaseGenericModel
-
     # Timestamp when customers were no longer impacted by the incident.
     attr_accessor :customer_impact_end
-
     # A summary of the impact customers experienced during the incident.
     attr_accessor :customer_impact_scope
-
     # Timestamp when customers began being impacted by the incident.
     attr_accessor :customer_impact_start
-
     # A flag indicating whether the incident caused customer impact.
     attr_accessor :customer_impacted
-
     # Timestamp when the incident was detected.
     attr_accessor :detected
-
     # A condensed view of the user-defined fields for which to update selections.
     attr_accessor :fields
-
     # Notification handles that will be notified of the incident during update.
     attr_accessor :notification_handles
-
     # The title of the incident, which summarizes what happened.
     attr_accessor :title
 

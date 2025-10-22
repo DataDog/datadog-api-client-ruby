@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # An object of type `slos` that can be referenced in the `included` data.
   class MetricAssetSLORelationship
     include BaseGenericModel
-
     # The SLO ID.
     attr_accessor :id
-
     # SLO resource type.
     attr_accessor :type
 

@@ -23,10 +23,8 @@ module DatadogAPIClient::V2
   # prevent all alerting related to specified Datadog tags.
   class DowntimeResponse
     include BaseGenericModel
-
     # Downtime data.
     attr_accessor :data
-
     # Array of objects related to the downtime that the user requested.
     attr_accessor :included
 

@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Mapping of billing dimensions to endpoint keys.
   class BillingDimensionsMappingBodyItemAttributes
     include BaseGenericModel
-
     # List of supported endpoints with their keys mapped to the billing_dimension.
     attr_accessor :endpoints
-
     # Label used for the billing dimension in the Plan & Usage charts.
     attr_accessor :in_app_label
-
     # Month in ISO-8601 format, UTC, and precise to the second: `[YYYY-MM-DDThh:mm:ss]`.
     attr_accessor :timestamp
 

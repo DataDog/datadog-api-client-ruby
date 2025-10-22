@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Schema validation warnings.
   class ServiceDefinitionMetaWarnings
     include BaseGenericModel
-
     # The warning instance location.
     attr_accessor :instance_location
-
     # The warning keyword location.
     attr_accessor :keyword_location
-
     # The warning message.
     attr_accessor :message
 

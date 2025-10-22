@@ -20,19 +20,14 @@ module DatadogAPIClient::V2
   # An action query. This query type is used to trigger an action, such as sending a HTTP request.
   class ActionQuery
     include BaseGenericModel
-
     # Events to listen for downstream of the action query.
     attr_accessor :events
-
     # The ID of the action query.
     attr_reader :id
-
     # A unique identifier for this action query. This name is also used to access the query's result throughout the app.
     attr_reader :name
-
     # The properties of the action query.
     attr_reader :properties
-
     # The action query type.
     attr_reader :type
 

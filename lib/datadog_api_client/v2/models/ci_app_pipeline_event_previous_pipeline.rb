@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # If the pipeline is a retry, this should contain the details of the previous attempt.
   class CIAppPipelineEventPreviousPipeline
     include BaseGenericModel
-
     # UUID of a pipeline.
     attr_reader :id
-
     # The URL to look at the pipeline in the CI provider UI.
     attr_accessor :url
 

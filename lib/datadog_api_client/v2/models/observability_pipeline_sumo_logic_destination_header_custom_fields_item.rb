@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Single key-value pair used as a custom log header for Sumo Logic.
   class ObservabilityPipelineSumoLogicDestinationHeaderCustomFieldsItem
     include BaseGenericModel
-
     # The header field name.
     attr_reader :name
-
     # The header field value.
     attr_reader :value
 

@@ -20,10 +20,8 @@ module DatadogAPIClient::V1
   # Composed target for `validatesJSONSchema` operator.
   class SyntheticsAssertionJSONSchemaTargetTarget
     include BaseGenericModel
-
     # The JSON Schema to assert.
     attr_accessor :json_schema
-
     # The JSON Schema meta-schema version used in the assertion.
     attr_accessor :meta_schema
 

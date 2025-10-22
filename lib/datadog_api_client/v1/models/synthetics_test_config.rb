@@ -20,16 +20,12 @@ module DatadogAPIClient::V1
   # Configuration object for a Synthetic test.
   class SyntheticsTestConfig
     include BaseGenericModel
-
     # Array of assertions used for the test. Required for single API tests.
     attr_accessor :assertions
-
     # Array of variables used for the test.
     attr_accessor :config_variables
-
     # Object describing the Synthetic test request.
     attr_accessor :request
-
     # Browser tests only - array of variables used for the test steps.
     attr_accessor :variables
 

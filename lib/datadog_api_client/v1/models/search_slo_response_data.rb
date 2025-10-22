@@ -20,10 +20,8 @@ module DatadogAPIClient::V1
   # Data from search SLO response.
   class SearchSLOResponseData
     include BaseGenericModel
-
     # Attributes
     attr_accessor :attributes
-
     # Type of service level objective result.
     attr_accessor :type
 

@@ -20,37 +20,26 @@ module DatadogAPIClient::V1
   # Update a shared dashboard's settings.
   class SharedDashboardUpdateRequest
     include BaseGenericModel
-
     # The `SharedDashboard` `embeddable_domains`.
     attr_accessor :embeddable_domains
-
     # The time when an OPEN shared dashboard becomes publicly unavailable.
     attr_accessor :expiration
-
     # Timeframe setting for the shared dashboard.
     attr_accessor :global_time
-
     # Whether to allow viewers to select a different global time setting for the shared dashboard.
     attr_accessor :global_time_selectable_enabled
-
     # The `SharedDashboard` `invitees`.
     attr_accessor :invitees
-
     # List of objects representing template variables on the shared dashboard which can have selectable values.
     attr_accessor :selectable_template_vars
-
     # List of email addresses that can be given access to the shared dashboard.
     attr_accessor :share_list
-
     # Type of sharing access (either open to anyone who has the public URL or invite-only).
     attr_accessor :share_type
-
     # Active means the dashboard is publicly available. Paused means the dashboard is not publicly available.
     attr_accessor :status
-
     # Title of the shared dashboard.
     attr_accessor :title
-
     # The viewing preferences for a shared dashboard.
     attr_accessor :viewing_preferences
 

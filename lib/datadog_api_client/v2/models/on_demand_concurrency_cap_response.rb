@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # On-demand concurrency cap response.
   class OnDemandConcurrencyCapResponse
     include BaseGenericModel
-
     # On-demand concurrency cap.
     attr_accessor :data
 

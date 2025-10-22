@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The response object for the logs aggregate API endpoint
   class LogsAggregateResponse
     include BaseGenericModel
-
     # The query results
     attr_accessor :data
-
     # The metadata associated with a request
     attr_accessor :meta
 

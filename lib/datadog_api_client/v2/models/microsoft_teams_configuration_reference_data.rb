@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The Microsoft Teams configuration relationship data object.
   class MicrosoftTeamsConfigurationReferenceData
     include BaseGenericModel
-
     # The unique identifier of the Microsoft Teams configuration.
     attr_reader :id
-
     # The type of the Microsoft Teams configuration.
     attr_reader :type
 

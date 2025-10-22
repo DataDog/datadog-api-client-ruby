@@ -20,19 +20,14 @@ module DatadogAPIClient::V2
   # The definition of the `AzureTenant` object.
   class AzureTenantUpdate
     include BaseGenericModel
-
     # The Client ID, also known as the Application ID in Azure, is a unique identifier for an application. It's used to identify the application during the authentication process. Your Application (client) ID is listed in the application's overview page. You can navigate to your application via the Azure Directory.
     attr_accessor :app_client_id
-
     # The Client Secret is a confidential piece of information known only to the application and Azure AD. It's used to prove the application's identity. Your Client Secret is available from the application’s secrets page. You can navigate to your application via the Azure Directory.
     attr_accessor :client_secret
-
     # If provided, the custom scope to be requested from Microsoft when acquiring an OAuth 2 access token. This custom scope is used only in conjunction with the HTTP action. A resource's scope is constructed by using the identifier URI for the resource and .default, separated by a forward slash (/) as follows:{identifierURI}/.default.
     attr_accessor :custom_scopes
-
     # The Tenant ID, also known as the Directory ID in Azure, is a unique identifier that represents an Azure AD instance. Your Tenant ID (Directory ID) is listed in your Active Directory overview page under the 'Tenant information' section.
     attr_accessor :tenant_id
-
     # The definition of the `AzureTenant` object.
     attr_reader :type
 

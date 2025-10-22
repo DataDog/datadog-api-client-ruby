@@ -20,13 +20,10 @@ module DatadogAPIClient::V1
   # Object to handle digest authentication when performing the test.
   class SyntheticsBasicAuthDigest
     include BaseGenericModel
-
     # Password to use for the digest authentication.
     attr_reader :password
-
     # The type of basic authentication to use when performing the test.
     attr_reader :type
-
     # Username to use for the digest authentication.
     attr_reader :username
 

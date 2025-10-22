@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # A downtime match.
   class MonitorDowntimeMatchResponseData
     include BaseGenericModel
-
     # Downtime match details.
     attr_accessor :attributes
-
     # The downtime ID.
     attr_accessor :id
-
     # Monitor Downtime Match resource type.
     attr_accessor :type
 

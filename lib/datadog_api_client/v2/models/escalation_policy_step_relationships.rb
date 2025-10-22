@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Represents the relationship of an escalation policy step to its targets.
   class EscalationPolicyStepRelationships
     include BaseGenericModel
-
     # A list of escalation targets for a step
     attr_accessor :targets
 

@@ -20,7 +20,6 @@ module DatadogAPIClient::V1
   # Response with monthly summary of data billed by Datadog.
   class UsageBillableSummaryResponse
     include BaseGenericModel
-
     # An array of objects regarding usage of billable summary.
     attr_accessor :usage
 

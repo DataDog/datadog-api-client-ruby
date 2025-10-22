@@ -20,25 +20,18 @@ module DatadogAPIClient::V1
   # CI visibility usage in a given hour.
   class UsageCIVisibilityHour
     include BaseGenericModel
-
     # The number of spans for pipelines in the queried hour.
     attr_accessor :ci_pipeline_indexed_spans
-
     # The number of spans for tests in the queried hour.
     attr_accessor :ci_test_indexed_spans
-
     # Shows the total count of all active Git committers for Intelligent Test Runner in the current month. A committer is active if they commit at least 3 times in a given month.
     attr_accessor :ci_visibility_itr_committers
-
     # Shows the total count of all active Git committers for Pipelines in the current month. A committer is active if they commit at least 3 times in a given month.
     attr_accessor :ci_visibility_pipeline_committers
-
     # The total count of all active Git committers for tests in the current month. A committer is active if they commit at least 3 times in a given month.
     attr_accessor :ci_visibility_test_committers
-
     # The organization name.
     attr_accessor :org_name
-
     # The organization public ID.
     attr_accessor :public_id
 

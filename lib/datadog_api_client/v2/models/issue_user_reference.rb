@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The user the issue is assigned to.
   class IssueUserReference
     include BaseGenericModel
-
     # User identifier.
     attr_reader :id
-
     # Type of the object
     attr_reader :type
 

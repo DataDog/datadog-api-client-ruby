@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Specifies relationships for team routing rules, including rule references.
   class TeamRoutingRulesDataRelationships
     include BaseGenericModel
-
     # Holds references to a set of routing rules in a relationship.
     attr_accessor :rules
 

@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The definition of the `AsanaIntegrationUpdate` object.
   class AsanaIntegrationUpdate
     include BaseGenericModel
-
     # The definition of the `AsanaCredentialsUpdate` object.
     attr_accessor :credentials
-
     # The definition of the `AsanaIntegrationType` object.
     attr_reader :type
 

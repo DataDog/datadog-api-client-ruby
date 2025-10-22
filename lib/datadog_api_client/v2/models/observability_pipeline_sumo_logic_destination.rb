@@ -20,28 +20,20 @@ module DatadogAPIClient::V2
   # The `sumo_logic` destination forwards logs to Sumo Logic.
   class ObservabilityPipelineSumoLogicDestination
     include BaseGenericModel
-
     # The output encoding format.
     attr_accessor :encoding
-
     # A list of custom headers to include in the request to Sumo Logic.
     attr_accessor :header_custom_fields
-
     # Optional override for the host name header.
     attr_accessor :header_host_name
-
     # Optional override for the source category header.
     attr_accessor :header_source_category
-
     # Optional override for the source name header.
     attr_accessor :header_source_name
-
     # The unique identifier for this component.
     attr_reader :id
-
     # A list of component IDs whose output is used as the `input` for this component.
     attr_reader :inputs
-
     # The destination type. The value should always be `sumo_logic`.
     attr_reader :type
 

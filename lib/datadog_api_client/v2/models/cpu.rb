@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # CPU usage statistics derived from historical Spark job metrics. Provides multiple estimates so users can choose between conservative and cost-saving risk profiles.
   class Cpu
     include BaseGenericModel
-
     # Maximum CPU usage observed for the job, expressed in millicores. This represents the upper bound of usage.
     attr_accessor :max
-
     # 75th percentile of CPU usage (millicores). Represents a cost-saving configuration while covering most workloads.
     attr_accessor :p75
-
     # 95th percentile of CPU usage (millicores). Balances performance and cost, providing a safer margin than p75.
     attr_accessor :p95
 

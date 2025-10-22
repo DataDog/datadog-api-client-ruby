@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Response object that includes a list of AWS scan options.
   class AwsScanOptionsListResponse
     include BaseGenericModel
-
     # A list of AWS scan options.
     attr_accessor :data
 

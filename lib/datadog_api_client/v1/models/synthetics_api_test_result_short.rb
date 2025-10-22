@@ -20,19 +20,14 @@ module DatadogAPIClient::V1
   # Object with the results of a single Synthetic API test.
   class SyntheticsAPITestResultShort
     include BaseGenericModel
-
     # Last time the API test was performed.
     attr_accessor :check_time
-
     # Location from which the API test was performed.
     attr_accessor :probe_dc
-
     # Result of the last API test run.
     attr_accessor :result
-
     # ID of the API test result.
     attr_accessor :result_id
-
     # The status of your Synthetic monitor.
     # * `O` for not triggered
     # * `1` for triggered

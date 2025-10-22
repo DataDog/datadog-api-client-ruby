@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Related organizations and user.
   class OrgConnectionRelationships
     include BaseGenericModel
-
     # User relationship.
     attr_accessor :created_by
-
     # Org relationship.
     attr_accessor :sink_org
-
     # Org relationship.
     attr_accessor :source_org
 

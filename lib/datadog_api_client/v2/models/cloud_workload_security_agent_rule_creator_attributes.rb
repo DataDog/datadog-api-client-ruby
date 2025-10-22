@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The attributes of the user who created the Agent rule
   class CloudWorkloadSecurityAgentRuleCreatorAttributes
     include BaseGenericModel
-
     # The handle of the user
     attr_accessor :handle
-
     # The name of the user
     attr_accessor :name
 

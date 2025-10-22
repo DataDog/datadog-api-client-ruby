@@ -21,10 +21,8 @@ module DatadogAPIClient::V1
   # deletion timestamp.
   class SyntheticsDeletedTest
     include BaseGenericModel
-
     # Deletion timestamp of the Synthetic test ID.
     attr_accessor :deleted_at
-
     # The Synthetic test ID deleted.
     attr_accessor :public_id
 

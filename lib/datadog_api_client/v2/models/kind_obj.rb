@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Schema for kind.
   class KindObj
     include BaseGenericModel
-
     # Short description of the kind.
     attr_accessor :description
-
     # The display name of the kind. Automatically generated if not provided.
     attr_accessor :display_name
-
     # The name of the kind to create or update. This must be in kebab-case format.
     attr_reader :kind
 

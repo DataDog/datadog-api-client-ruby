@@ -20,10 +20,8 @@ module DatadogAPIClient::V1
   # Object describing a log after being processed and stored by Datadog.
   class Log
     include BaseGenericModel
-
     # JSON object containing all log attributes and their associated values.
     attr_accessor :content
-
     # ID of the Log.
     attr_accessor :id
 

@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Data for the monitor.
   class DowntimeRelationshipsMonitorData
     include BaseGenericModel
-
     # Monitor ID of the downtime.
     attr_accessor :id
-
     # Monitor resource type.
     attr_accessor :type
 

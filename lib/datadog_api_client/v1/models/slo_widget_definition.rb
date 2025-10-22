@@ -20,37 +20,26 @@ module DatadogAPIClient::V1
   # Use the SLO and uptime widget to track your SLOs (Service Level Objectives) and uptime on screenboards and timeboards.
   class SLOWidgetDefinition
     include BaseGenericModel
-
     # Additional filters applied to the SLO query.
     attr_accessor :additional_query_filters
-
     # Defined global time target.
     attr_accessor :global_time_target
-
     # Defined error budget.
     attr_accessor :show_error_budget
-
     # ID of the SLO displayed.
     attr_accessor :slo_id
-
     # Times being monitored.
     attr_accessor :time_windows
-
     # Title of the widget.
     attr_accessor :title
-
     # How to align the text on the widget.
     attr_accessor :title_align
-
     # Size of the title.
     attr_accessor :title_size
-
     # Type of the SLO widget.
     attr_reader :type
-
     # Define how you want the SLO to be displayed.
     attr_accessor :view_mode
-
     # Type of view displayed by the widget.
     attr_reader :view_type
 

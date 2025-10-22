@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Each log event is delimited by a newline character.
   class ObservabilityPipelineSocketDestinationFramingNewlineDelimited
     include BaseGenericModel
-
     # The definition of `ObservabilityPipelineSocketDestinationFramingNewlineDelimitedMethod` object.
     attr_reader :method
 

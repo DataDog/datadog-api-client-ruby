@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The definition of `UrlParam` object.
   class UrlParam
     include BaseGenericModel
-
     # Name for tokens.
     attr_reader :name
-
     # The `UrlParam` `value`.
     attr_reader :value
 

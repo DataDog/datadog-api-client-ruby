@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Object describing an aggregated connection.
   class SingleAggregatedConnectionResponseData
     include BaseGenericModel
-
     # Attributes for an aggregated connection.
     attr_accessor :attributes
-
     # A unique identifier for the aggregated connection based on the group by values.
     attr_accessor :id
-
     # Aggregated connection resource type.
     attr_accessor :type
 

@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # The incident service's attributes for an update request.
   class IncidentServiceUpdateAttributes
     include BaseGenericModel
-
     # Name of the incident service.
     attr_reader :name
 

@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Data object of a Cloudflare account.
   class CloudflareAccountResponseData
     include BaseGenericModel
-
     # Attributes object of a Cloudflare account.
     attr_reader :attributes
-
     # The ID of the Cloudflare account, a hash of the account name.
     attr_reader :id
-
     # The JSON:API type for this API. Should always be `cloudflare-accounts`.
     attr_reader :type
 

@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # The request for a security signal list.
   class SecurityMonitoringSignalListRequest
     include BaseGenericModel
-
     # Search filters for listing security signals.
     attr_accessor :filter
-
     # The paging attributes for listing security signals.
     attr_accessor :page
-
     # The sort parameters used for querying security signals.
     attr_accessor :sort
 

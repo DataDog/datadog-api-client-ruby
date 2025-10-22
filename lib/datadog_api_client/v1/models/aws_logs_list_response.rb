@@ -20,13 +20,10 @@ module DatadogAPIClient::V1
   # A list of all Datadog-AWS logs integrations available in your Datadog organization.
   class AWSLogsListResponse
     include BaseGenericModel
-
     # Your AWS Account ID without dashes.
     attr_accessor :account_id
-
     # List of ARNs configured in your Datadog account.
     attr_accessor :lambdas
-
     # Array of services IDs.
     attr_accessor :services
 

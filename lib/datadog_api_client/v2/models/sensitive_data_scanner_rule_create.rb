@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Data related to the creation of a rule.
   class SensitiveDataScannerRuleCreate
     include BaseGenericModel
-
     # Attributes of the Sensitive Data Scanner rule.
     attr_reader :attributes
-
     # Relationships of a scanning rule.
     attr_reader :relationships
-
     # Sensitive Data Scanner rule type.
     attr_reader :type
 

@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Pagination information for a collection of datastore items.
   class ItemApiPayloadMetaPage
     include BaseGenericModel
-
     # Whether there are additional pages of items beyond the current page.
     attr_accessor :has_more
-
     # The total number of items in the datastore, ignoring any filters.
     attr_accessor :total_count
-
     # The total number of items that match the current filter criteria.
     attr_accessor :total_filtered_count
 

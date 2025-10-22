@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # The definition of `RulesetRespDataAttributesRulesItemsQuery` object.
   class RulesetRespDataAttributesRulesItemsQuery
     include BaseGenericModel
-
     # The definition of `RulesetRespDataAttributesRulesItemsQueryAddition` object.
     attr_accessor :addition
-
     # The `query` `case_insensitivity`.
     attr_accessor :case_insensitivity
-
     # The `query` `if_not_exists`.
     attr_reader :if_not_exists
-
     # The `query` `query`.
     attr_reader :query
 

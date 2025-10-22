@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Case types response.
   class CaseTypesResponse
     include BaseGenericModel
-
     # List of case types
     attr_accessor :data
 

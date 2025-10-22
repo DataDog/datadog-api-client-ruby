@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # The attributes to update on a notification template.
   class IncidentNotificationTemplateUpdateAttributes
     include BaseGenericModel
-
     # The category of the notification template.
     attr_accessor :category
-
     # The content body of the notification template.
     attr_accessor :content
-
     # The name of the notification template.
     attr_accessor :name
-
     # The subject line of the notification template.
     attr_accessor :subject
 

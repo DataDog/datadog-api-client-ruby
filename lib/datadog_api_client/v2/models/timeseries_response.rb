@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # A message containing the response to a timeseries query.
   class TimeseriesResponse
     include BaseGenericModel
-
     # The object describing a timeseries response.
     attr_accessor :attributes
-
     # The type of the resource. The value should always be timeseries_response.
     attr_accessor :type
 

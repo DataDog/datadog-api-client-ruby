@@ -20,17 +20,13 @@ module DatadogAPIClient::V2
   # The request for a logs list.
   class LogsListRequest
     include BaseGenericModel
-
     # The search and filter query settings
     attr_accessor :filter
-
     # Global query options that are used during the query.
     # Note: These fields are currently deprecated and do not affect the query results.
     attr_accessor :options
-
     # Paging attributes for listing logs.
     attr_accessor :page
-
     # Sort parameters when querying logs.
     attr_accessor :sort
 

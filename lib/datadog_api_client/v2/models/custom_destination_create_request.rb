@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # The custom destination.
   class CustomDestinationCreateRequest
     include BaseGenericModel
-
     # The definition of a custom destination.
     attr_accessor :data
 

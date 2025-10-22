@@ -20,16 +20,12 @@ module DatadogAPIClient::V1
   # Number of Synthetics Browser tests run for each hour for a given organization.
   class UsageSyntheticsBrowserHour
     include BaseGenericModel
-
     # Contains the number of Synthetics Browser tests run.
     attr_accessor :browser_check_calls_count
-
     # The hour for the usage.
     attr_accessor :hour
-
     # The organization name.
     attr_accessor :org_name
-
     # The organization public ID.
     attr_accessor :public_id
 

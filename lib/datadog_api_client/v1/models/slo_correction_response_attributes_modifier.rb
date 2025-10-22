@@ -20,13 +20,10 @@ module DatadogAPIClient::V1
   # Modifier of the object.
   class SLOCorrectionResponseAttributesModifier
     include BaseGenericModel
-
     # Email of the Modifier.
     attr_accessor :email
-
     # Handle of the Modifier.
     attr_accessor :handle
-
     # Name of the Modifier.
     attr_accessor :name
 

@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Kind response metadata.
   class KindResponseMeta
     include BaseGenericModel
-
     # Total kinds count.
     attr_accessor :count
 

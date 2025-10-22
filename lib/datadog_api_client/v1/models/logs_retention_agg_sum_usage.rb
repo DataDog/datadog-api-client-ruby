@@ -20,16 +20,12 @@ module DatadogAPIClient::V1
   # Object containing indexed logs usage aggregated across organizations and months for a retention period.
   class LogsRetentionAggSumUsage
     include BaseGenericModel
-
     # Total indexed logs for this retention period.
     attr_accessor :logs_indexed_logs_usage_agg_sum
-
     # Live indexed logs for this retention period.
     attr_accessor :logs_live_indexed_logs_usage_agg_sum
-
     # Rehydrated indexed logs for this retention period.
     attr_accessor :logs_rehydrated_indexed_logs_usage_agg_sum
-
     # The retention period in days or "custom" for all custom retention periods.
     attr_accessor :retention
 

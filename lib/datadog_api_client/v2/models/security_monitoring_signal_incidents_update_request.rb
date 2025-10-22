@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Request body for changing the related incidents of a given security monitoring signal.
   class SecurityMonitoringSignalIncidentsUpdateRequest
     include BaseGenericModel
-
     # Data containing the patch for changing the related incidents of a signal.
     attr_reader :data
 

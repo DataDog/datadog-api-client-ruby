@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The new suppression properties; partial updates are supported.
   class SecurityMonitoringSuppressionUpdateData
     include BaseGenericModel
-
     # The suppression rule properties to be updated.
     attr_reader :attributes
-
     # The type of the resource. The value should always be `suppressions`.
     attr_reader :type
 

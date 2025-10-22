@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Object to update a downtime.
   class DowntimeUpdateRequestData
     include BaseGenericModel
-
     # Attributes of the downtime to update.
     attr_reader :attributes
-
     # ID of this downtime.
     attr_reader :id
-
     # Downtime resource type.
     attr_reader :type
 

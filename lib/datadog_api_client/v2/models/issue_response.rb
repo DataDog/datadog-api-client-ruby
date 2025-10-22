@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Response containing error tracking issue data.
   class IssueResponse
     include BaseGenericModel
-
     # The issue matching the request.
     attr_accessor :data
-
     # Array of resources related to the issue.
     attr_accessor :included
 

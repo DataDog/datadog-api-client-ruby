@@ -20,10 +20,8 @@ module DatadogAPIClient::V1
   # Object containing the information for an invitation to a shared dashboard.
   class SharedDashboardInvitesDataObject
     include BaseGenericModel
-
     # Attributes of the shared dashboard invitation
     attr_reader :attributes
-
     # Type for shared dashboard invitation request body.
     attr_reader :type
 

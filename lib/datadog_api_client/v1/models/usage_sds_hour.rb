@@ -20,28 +20,20 @@ module DatadogAPIClient::V1
   # Sensitive Data Scanner usage for a given organization for a given hour.
   class UsageSDSHour
     include BaseGenericModel
-
     # The total number of bytes scanned of APM usage across all usage types by the Sensitive Data Scanner from the start of the given hour’s month until the given hour.
     attr_accessor :apm_scanned_bytes
-
     # The total number of bytes scanned of Events usage across all usage types by the Sensitive Data Scanner from the start of the given hour’s month until the given hour.
     attr_accessor :events_scanned_bytes
-
     # The hour for the usage.
     attr_accessor :hour
-
     # The total number of bytes scanned of logs usage by the Sensitive Data Scanner from the start of the given hour’s month until the given hour.
     attr_accessor :logs_scanned_bytes
-
     # The organization name.
     attr_accessor :org_name
-
     # The organization public ID.
     attr_accessor :public_id
-
     # The total number of bytes scanned of RUM usage across all usage types by the Sensitive Data Scanner from the start of the given hour’s month until the given hour.
     attr_accessor :rum_scanned_bytes
-
     # The total number of bytes scanned across all usage types by the Sensitive Data Scanner from the start of the given hour’s month until the given hour.
     attr_accessor :total_scanned_bytes
 

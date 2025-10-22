@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # The response object after an app is successfully updated.
   class UpdateAppResponse
     include BaseGenericModel
-
     # The data object containing the updated app definition.
     attr_accessor :data
-
     # Data on the version of the app that was published.
     attr_accessor :included
-
     # Metadata of an app.
     attr_accessor :meta
-
     # The app's publication relationship and custom connections.
     attr_accessor :relationship
 

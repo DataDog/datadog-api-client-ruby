@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Create request for a notification template.
   class CreateIncidentNotificationTemplateRequest
     include BaseGenericModel
-
     # Notification template data for a create request.
     attr_reader :data
 

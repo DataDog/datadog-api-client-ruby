@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # List of process summaries.
   class ProcessSummariesResponse
     include BaseGenericModel
-
     # Array of process summary objects.
     attr_accessor :data
-
     # Response metadata object.
     attr_accessor :meta
 

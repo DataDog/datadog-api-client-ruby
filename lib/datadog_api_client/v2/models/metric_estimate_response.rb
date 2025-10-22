@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Response object that includes metric cardinality estimates.
   class MetricEstimateResponse
     include BaseGenericModel
-
     # Object for a metric cardinality estimate.
     attr_accessor :data
 

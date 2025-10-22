@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Associates layers with this schedule in a data structure.
   class ScheduleDataRelationshipsLayers
     include BaseGenericModel
-
     # An array of layer references for this schedule.
     attr_accessor :data
 

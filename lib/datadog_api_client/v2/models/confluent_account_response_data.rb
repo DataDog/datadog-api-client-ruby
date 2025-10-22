@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # An API key and API secret pair that represents a Confluent account.
   class ConfluentAccountResponseData
     include BaseGenericModel
-
     # The attributes of a Confluent account.
     attr_reader :attributes
-
     # A randomly generated ID associated with a Confluent account.
     attr_reader :id
-
     # The JSON:API type for this API. Should always be `confluent-cloud-accounts`.
     attr_reader :type
 

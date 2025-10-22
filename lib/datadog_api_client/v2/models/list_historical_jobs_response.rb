@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # List of historical jobs.
   class ListHistoricalJobsResponse
     include BaseGenericModel
-
     # Array containing the list of historical jobs.
     attr_accessor :data
-
     # Metadata about the list of jobs.
     attr_accessor :meta
 

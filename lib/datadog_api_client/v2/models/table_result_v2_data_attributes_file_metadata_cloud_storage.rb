@@ -20,19 +20,14 @@ module DatadogAPIClient::V2
   # File metadata for reference tables created by cloud storage.
   class TableResultV2DataAttributesFileMetadataCloudStorage
     include BaseGenericModel
-
     # The definition of `TableResultV2DataAttributesFileMetadataOneOfAccessDetails` object.
     attr_accessor :access_details
-
     # The error message returned from the sync.
     attr_accessor :error_message
-
     # The number of rows that failed to sync.
     attr_accessor :error_row_count
-
     # The type of error that occurred during file processing. This field provides high-level error categories for easier troubleshooting and is only present when there are errors.
     attr_accessor :error_type
-
     # Whether this table is synced automatically.
     attr_accessor :sync_enabled
 

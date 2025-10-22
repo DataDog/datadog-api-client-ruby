@@ -20,13 +20,10 @@ module DatadogAPIClient::V1
   # Error returned by the Logs API
   class LogsAPIError
     include BaseGenericModel
-
     # Code identifying the error
     attr_accessor :code
-
     # Additional error details
     attr_accessor :details
-
     # Error message
     attr_accessor :message
 

@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Optional metadata associated to the response.
   class SecurityFilterMeta
     include BaseGenericModel
-
     # A warning message.
     attr_accessor :warning
 

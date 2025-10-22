@@ -20,10 +20,8 @@ module DatadogAPIClient::V1
   # Position of the action relative to the element.
   class SyntheticsMobileStepParamsElementRelativePosition
     include BaseGenericModel
-
     # The `relativePosition` on the `x` axis for the element.
     attr_accessor :x
-
     # The `relativePosition` on the `y` axis for the element.
     attr_accessor :y
 

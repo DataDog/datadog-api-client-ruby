@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Holds the data necessary to create or update team routing rules, including attributes, ID, and resource type.
   class TeamRoutingRulesRequestData
     include BaseGenericModel
-
     # Represents the attributes of a request to update or create team routing rules.
     attr_accessor :attributes
-
     # Specifies the unique identifier for this set of team routing rules.
     attr_accessor :id
-
     # Team routing rules resource type.
     attr_reader :type
 

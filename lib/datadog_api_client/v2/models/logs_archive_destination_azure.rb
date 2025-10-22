@@ -20,22 +20,16 @@ module DatadogAPIClient::V2
   # The Azure archive destination.
   class LogsArchiveDestinationAzure
     include BaseGenericModel
-
     # The container where the archive will be stored.
     attr_reader :container
-
     # The Azure archive's integration destination.
     attr_reader :integration
-
     # The archive path.
     attr_accessor :path
-
     # The region where the archive will be stored.
     attr_accessor :region
-
     # The associated storage account.
     attr_reader :storage_account
-
     # Type of the Azure archive destination.
     attr_reader :type
 

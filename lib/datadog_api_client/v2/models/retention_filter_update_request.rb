@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # The body of the retention filter to be updated.
   class RetentionFilterUpdateRequest
     include BaseGenericModel
-
     # The body of the retention filter to be updated.
     attr_reader :data
 

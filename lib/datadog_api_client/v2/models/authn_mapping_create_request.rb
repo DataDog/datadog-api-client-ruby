@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Request for creating an AuthN Mapping.
   class AuthNMappingCreateRequest
     include BaseGenericModel
-
     # Data for creating an AuthN Mapping.
     attr_reader :data
 

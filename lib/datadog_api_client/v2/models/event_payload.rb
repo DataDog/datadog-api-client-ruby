@@ -20,31 +20,23 @@ module DatadogAPIClient::V2
   # Event attributes.
   class EventPayload
     include BaseGenericModel
-
     # A string used for aggregation when [correlating](https://docs.datadoghq.com/service_management/events/correlation/) events. If you specify a key, events are deduplicated to alerts based on this key. Limited to 100 characters.
     attr_reader :aggregation_key
-
     # JSON object for category-specific attributes. Schema is different per event category.
     attr_reader :attributes
-
     # Event category identifying the type of event.
     attr_reader :category
-
     # Integration ID sourced from integration manifests.
     attr_accessor :integration_id
-
     # Free formed text associated with the event. It's suggested to use `data.attributes.attributes.custom` for well-structured attributes. Limited to 4000 characters.
     attr_reader :message
-
     # A list of tags associated with the event. Maximum of 100 tags allowed.
     # Refer to [Tags docs](https://docs.datadoghq.com/getting_started/tagging/).
     attr_reader :tags
-
     # Timestamp when the event occurred. Must follow [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) format.
     # For example `"2017-01-15T01:30:15.010000Z"`.
     # Defaults to the timestamp of receipt. Limited to values no older than 18 hours.
     attr_accessor :timestamp
-
     # The title of the event. Limited to 500 characters.
     attr_reader :title
 

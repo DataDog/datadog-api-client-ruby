@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Data object of a Fastly account.
   class FastlyAccountResponseData
     include BaseGenericModel
-
     # Attributes object of a Fastly account.
     attr_reader :attributes
-
     # The ID of the Fastly account, a hash of the account name.
     attr_reader :id
-
     # The JSON:API type for this API. Should always be `fastly-accounts`.
     attr_reader :type
 

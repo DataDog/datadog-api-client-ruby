@@ -20,19 +20,14 @@ module DatadogAPIClient::V1
   # An assertion which uses a simple target.
   class SyntheticsAssertionTarget
     include BaseGenericModel
-
     # Assertion operator to apply.
     attr_reader :operator
-
     # The associated assertion property.
     attr_accessor :property
-
     # Value used by the operator in assertions. Can be either a number or string.
     attr_reader :target
-
     # Timings scope for response time assertions.
     attr_accessor :timings_scope
-
     # Type of the assertion.
     attr_reader :type
 

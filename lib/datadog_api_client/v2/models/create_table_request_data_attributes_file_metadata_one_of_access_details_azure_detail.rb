@@ -20,19 +20,14 @@ module DatadogAPIClient::V2
   # The definition of `CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail` object.
   class CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail
     include BaseGenericModel
-
     # The Azure client ID.
     attr_reader :azure_client_id
-
     # The name of the Azure container.
     attr_reader :azure_container_name
-
     # The name of the Azure storage account.
     attr_reader :azure_storage_account_name
-
     # The ID of the Azure tenant.
     attr_reader :azure_tenant_id
-
     # The relative file path from the Azure container root to the CSV file.
     attr_reader :file_path
 

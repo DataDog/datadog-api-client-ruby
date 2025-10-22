@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # Container group object.
   class ContainerGroup
     include BaseGenericModel
-
     # Attributes for a container group.
     attr_accessor :attributes
-
     # Container Group ID.
     attr_accessor :id
-
     # Relationships to containers inside a container group.
     attr_accessor :relationships
-
     # Type of container group.
     attr_accessor :type
 

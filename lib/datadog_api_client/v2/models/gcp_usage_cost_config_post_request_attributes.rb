@@ -20,22 +20,16 @@ module DatadogAPIClient::V2
   # Attributes for Google Cloud Usage Cost config post request.
   class GCPUsageCostConfigPostRequestAttributes
     include BaseGenericModel
-
     # The Google Cloud account ID.
     attr_reader :billing_account_id
-
     # The Google Cloud bucket name used to store the Usage Cost export.
     attr_reader :bucket_name
-
     # The export dataset name used for the Google Cloud Usage Cost report.
     attr_reader :export_dataset_name
-
     # The export prefix used for the Google Cloud Usage Cost report.
     attr_accessor :export_prefix
-
     # The name of the Google Cloud Usage Cost report.
     attr_reader :export_project_name
-
     # The unique Google Cloud service account email.
     attr_reader :service_account
 

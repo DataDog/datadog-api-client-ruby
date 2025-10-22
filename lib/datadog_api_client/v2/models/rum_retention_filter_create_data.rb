@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The new RUM retention filter properties to create.
   class RumRetentionFilterCreateData
     include BaseGenericModel
-
     # The object describing attributes of a RUM retention filter to create.
     attr_reader :attributes
-
     # The type of the resource. The value should always be retention_filters.
     attr_reader :type
 

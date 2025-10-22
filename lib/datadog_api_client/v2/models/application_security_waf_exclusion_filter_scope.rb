@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Deploy on services based on their environment and/or service name.
   class ApplicationSecurityWafExclusionFilterScope
     include BaseGenericModel
-
     # Deploy on this environment.
     attr_accessor :env
-
     # Deploy on this service.
     attr_accessor :service
 

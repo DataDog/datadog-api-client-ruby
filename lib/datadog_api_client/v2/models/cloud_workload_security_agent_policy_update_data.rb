@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Object for a single Agent policy
   class CloudWorkloadSecurityAgentPolicyUpdateData
     include BaseGenericModel
-
     # Update an existing Cloud Workload Security Agent policy
     attr_reader :attributes
-
     # The ID of the Agent policy
     attr_accessor :id
-
     # The type of the resource, must always be `policy`
     attr_reader :type
 

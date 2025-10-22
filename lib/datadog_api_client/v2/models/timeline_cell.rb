@@ -20,22 +20,16 @@ module DatadogAPIClient::V2
   # timeline cell
   class TimelineCell
     include BaseGenericModel
-
     # author of the timeline cell
     attr_accessor :author
-
     # timeline cell content
     attr_accessor :cell_content
-
     # Timestamp of when the cell was created
     attr_accessor :created_at
-
     # Timestamp of when the cell was deleted
     attr_accessor :deleted_at
-
     # Timestamp of when the cell was last modified
     attr_accessor :modified_at
-
     # Timeline cell content type
     attr_accessor :type
 

@@ -20,16 +20,12 @@ module DatadogAPIClient::V1
   # Datadog API key.
   class ApiKey
     include BaseGenericModel
-
     # Date of creation of the API key.
     attr_accessor :created
-
     # Datadog user handle that created the API key.
     attr_accessor :created_by
-
     # API key.
     attr_reader :key
-
     # Name of your API key.
     attr_accessor :name
 

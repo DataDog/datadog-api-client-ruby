@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # JSON object containing all event attributes and their associated values.
   class CIAppEventAttributes
     include BaseGenericModel
-
     # JSON object of attributes from CI Visibility test events.
     attr_accessor :attributes
-
     # Array of tags associated with your event.
     attr_accessor :tags
-
     # Test run level.
     attr_accessor :test_level
 

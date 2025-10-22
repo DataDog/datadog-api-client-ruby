@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Your delegate account attributes.
   class GCPSTSDelegateAccountAttributes
     include BaseGenericModel
-
     # Your organization's Datadog principal email address.
     attr_accessor :delegate_account_email
 

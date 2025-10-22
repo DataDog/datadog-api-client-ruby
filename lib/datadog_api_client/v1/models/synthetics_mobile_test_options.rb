@@ -20,56 +20,39 @@ module DatadogAPIClient::V1
   # Object describing the extra options for a Synthetic test.
   class SyntheticsMobileTestOptions
     include BaseGenericModel
-
     # A boolean to set if an application crash would mark the test as failed.
     attr_accessor :allow_application_crash
-
     # Array of bindings used for the mobile test.
     attr_accessor :bindings
-
     # CI/CD options for a Synthetic test.
     attr_accessor :ci
-
     # The default timeout for steps in the test (in seconds).
     attr_reader :default_step_timeout
-
     # For mobile test, array with the different device IDs used to run the test.
     attr_reader :device_ids
-
     # A boolean to disable auto accepting alerts.
     attr_accessor :disable_auto_accept_alert
-
     # Minimum amount of time in failure required to trigger an alert.
     attr_reader :min_failure_duration
-
     # Mobile application for mobile synthetics test.
     attr_reader :mobile_application
-
     # The monitor name is used for the alert title as well as for all monitor dashboard widgets and SLOs.
     attr_accessor :monitor_name
-
     # Object containing the options for a Synthetic test as a monitor
     # (for example, renotification).
     attr_accessor :monitor_options
-
     # Integer from 1 (high) to 5 (low) indicating alert severity.
     attr_reader :monitor_priority
-
     # A boolean set to not take a screenshot for the step.
     attr_accessor :no_screenshot
-
     # A list of role identifiers that can be pulled from the Roles API, for restricting read and write access.
     attr_accessor :restricted_roles
-
     # Object describing the retry strategy to apply to a Synthetic test.
     attr_accessor :_retry
-
     # Object containing timeframes and timezone used for advanced scheduling.
     attr_accessor :scheduling
-
     # The frequency at which to run the Synthetic test (in seconds).
     attr_reader :tick_every
-
     # The level of verbosity for the mobile test. This field can not be set by a user.
     attr_reader :verbosity
 

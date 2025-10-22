@@ -20,19 +20,14 @@ module DatadogAPIClient::V2
   # Datadog product integrations for the service entity.
   class EntityV3ServiceDatadog
     include BaseGenericModel
-
     # Schema for mapping source code locations to an entity.
     attr_accessor :code_locations
-
     # Events associations.
     attr_accessor :events
-
     # Logs association.
     attr_accessor :logs
-
     # Performance stats association.
     attr_accessor :performance_data
-
     # CI Pipelines association.
     attr_accessor :pipelines
 

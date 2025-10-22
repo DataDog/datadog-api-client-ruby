@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Response with a list of incident todos.
   class IncidentTodoListResponse
     include BaseGenericModel
-
     # An array of incident todos.
     attr_reader :data
-
     # Included related resources that the user requested.
     attr_accessor :included
-
     # The metadata object containing pagination metadata.
     attr_accessor :meta
 

@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # The definition of `TableRowResourceData` object.
   class TableRowResourceData
     include BaseGenericModel
-
     # The definition of `TableRowResourceDataAttributes` object.
     attr_accessor :attributes
-
     # The ID of the row.
     attr_accessor :id
-
     # Row resource type.
     attr_reader :type
 

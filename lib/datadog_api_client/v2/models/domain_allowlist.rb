@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # The email domain allowlist for an org.
   class DomainAllowlist
     include BaseGenericModel
-
     # The details of the email domain allowlist.
     attr_accessor :attributes
-
     # The unique identifier of the org.
     attr_accessor :id
-
     # Email domain allowlist allowlist type.
     attr_reader :type
 

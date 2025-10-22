@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # The object sent with the request to retrieve aggregation buckets of test events from your organization.
   class CIAppTestsAggregateRequest
     include BaseGenericModel
-
     # The list of metrics or timeseries to compute for the retrieved buckets.
     attr_accessor :compute
-
     # The search and filter query settings.
     attr_accessor :filter
-
     # The rules for the group-by.
     attr_accessor :group_by
-
     # Global query options that are used during the query.
     # Only supply timezone or time offset, not both. Otherwise, the query fails.
     attr_accessor :options

@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # Data related to the workflow being updated.
   class WorkflowDataUpdate
     include BaseGenericModel
-
     # The definition of `WorkflowDataUpdateAttributes` object.
     attr_reader :attributes
-
     # The workflow identifier
     attr_accessor :id
-
     # The definition of `WorkflowDataRelationships` object.
     attr_accessor :relationships
-
     # The definition of `WorkflowDataType` object.
     attr_reader :type
 

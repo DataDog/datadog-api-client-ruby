@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Links to the event.
   class EventCreateResponsePayloadLinks
     include BaseGenericModel
-
     # The URL of the event. This link is only functional when using the default subdomain.
     attr_accessor :_self
 

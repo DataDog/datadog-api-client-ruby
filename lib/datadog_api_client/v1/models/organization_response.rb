@@ -20,7 +20,6 @@ module DatadogAPIClient::V1
   # Response with an organization.
   class OrganizationResponse
     include BaseGenericModel
-
     # Create, edit, and manage organizations.
     attr_accessor :org
 

@@ -20,31 +20,22 @@ module DatadogAPIClient::V2
   # The definition of `ArbitraryCostUpsertRequestDataAttributesStrategy` object.
   class ArbitraryCostUpsertRequestDataAttributesStrategy
     include BaseGenericModel
-
     # The `strategy` `allocated_by`.
     attr_accessor :allocated_by
-
     # The `strategy` `allocated_by_filters`.
     attr_accessor :allocated_by_filters
-
     # The `strategy` `allocated_by_tag_keys`.
     attr_accessor :allocated_by_tag_keys
-
     # The `strategy` `based_on_costs`.
     attr_accessor :based_on_costs
-
     # The `strategy` `based_on_timeseries`.
     attr_accessor :based_on_timeseries
-
     # The `strategy` `evaluate_grouped_by_filters`.
     attr_accessor :evaluate_grouped_by_filters
-
     # The `strategy` `evaluate_grouped_by_tag_keys`.
     attr_accessor :evaluate_grouped_by_tag_keys
-
     # The `strategy` `granularity`.
     attr_accessor :granularity
-
     # The `strategy` `method`.
     attr_reader :method
 

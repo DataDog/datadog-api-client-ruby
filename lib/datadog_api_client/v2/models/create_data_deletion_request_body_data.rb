@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Data needed to create a data deletion request.
   class CreateDataDeletionRequestBodyData
     include BaseGenericModel
-
     # Attributes for creating a data deletion request.
     attr_reader :attributes
-
     # The deletion request type.
     attr_reader :type
 

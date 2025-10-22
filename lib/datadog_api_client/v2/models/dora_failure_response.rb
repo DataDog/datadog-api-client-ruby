@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Response after receiving a DORA failure event.
   class DORAFailureResponse
     include BaseGenericModel
-
     # Response after receiving a DORA failure event.
     attr_reader :data
 

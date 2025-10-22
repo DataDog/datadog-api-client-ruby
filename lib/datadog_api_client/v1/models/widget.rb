@@ -25,13 +25,10 @@ module DatadogAPIClient::V1
   #       - If `reflow_type` is `auto`, `layout` should not be set.
   class Widget
     include BaseGenericModel
-
     # [Definition of the widget](https://docs.datadoghq.com/dashboards/widgets/).
     attr_reader :definition
-
     # ID of the widget.
     attr_accessor :id
-
     # The layout for a widget on a `free` or **new dashboard layout** dashboard.
     attr_accessor :layout
 

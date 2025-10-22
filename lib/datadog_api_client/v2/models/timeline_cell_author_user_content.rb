@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # user author content.
   class TimelineCellAuthorUserContent
     include BaseGenericModel
-
     # user email
     attr_accessor :email
-
     # user handle
     attr_accessor :handle
-
     # user UUID
     attr_accessor :id
-
     # user name
     attr_accessor :name
 

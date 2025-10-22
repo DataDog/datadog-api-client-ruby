@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Response schema when interacting with a Confluent resource.
   class ConfluentResourceResponse
     include BaseGenericModel
-
     # Confluent Cloud resource data.
     attr_accessor :data
 

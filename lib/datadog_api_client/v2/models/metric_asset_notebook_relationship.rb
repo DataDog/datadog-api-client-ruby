@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # An object of type `notebook` that can be referenced in the `included` data.
   class MetricAssetNotebookRelationship
     include BaseGenericModel
-
     # The related notebook's ID.
     attr_accessor :id
-
     # Notebook resource type.
     attr_accessor :type
 

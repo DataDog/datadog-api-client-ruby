@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # Related entity attributes.
   class EntityResponseIncludedRelatedEntityAttributes
     include BaseGenericModel
-
     # Entity kind.
     attr_accessor :kind
-
     # Entity name.
     attr_accessor :name
-
     # Entity namespace.
     attr_accessor :namespace
-
     # Entity relation type to the associated entity.
     attr_accessor :type
 

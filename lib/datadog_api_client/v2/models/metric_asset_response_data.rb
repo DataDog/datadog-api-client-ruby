@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Metric assets response data.
   class MetricAssetResponseData
     include BaseGenericModel
-
     # The metric name for this resource.
     attr_reader :id
-
     # Relationships to assets related to the metric.
     attr_accessor :relationships
-
     # The metric resource type.
     attr_reader :type
 

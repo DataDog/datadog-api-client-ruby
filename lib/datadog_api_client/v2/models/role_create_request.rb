@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Create a role.
   class RoleCreateRequest
     include BaseGenericModel
-
     # Data related to the creation of a role.
     attr_reader :data
 

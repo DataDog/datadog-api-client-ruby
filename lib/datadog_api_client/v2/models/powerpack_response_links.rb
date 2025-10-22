@@ -20,19 +20,14 @@ module DatadogAPIClient::V2
   # Links attributes.
   class PowerpackResponseLinks
     include BaseGenericModel
-
     # Link to last page.
     attr_accessor :first
-
     # Link to first page.
     attr_accessor :last
-
     # Link for the next set of results.
     attr_accessor :_next
-
     # Link for the previous set of results.
     attr_accessor :prev
-
     # Link to current page.
     attr_accessor :_self
 

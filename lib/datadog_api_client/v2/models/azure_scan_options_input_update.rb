@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Request object for updating Azure scan options.
   class AzureScanOptionsInputUpdate
     include BaseGenericModel
-
     # Data object for updating the scan options of a single Azure subscription.
     attr_accessor :data
 

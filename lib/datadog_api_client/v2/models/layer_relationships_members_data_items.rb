@@ -21,10 +21,8 @@ module DatadogAPIClient::V2
   # a unique Datadog user ID.
   class LayerRelationshipsMembersDataItems
     include BaseGenericModel
-
     # The unique user ID of the layer member.
     attr_reader :id
-
     # Members resource type.
     attr_reader :type
 

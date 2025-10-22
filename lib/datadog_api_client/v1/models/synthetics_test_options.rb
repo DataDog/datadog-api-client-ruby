@@ -20,79 +20,55 @@ module DatadogAPIClient::V1
   # Object describing the extra options for a Synthetic test.
   class SyntheticsTestOptions
     include BaseGenericModel
-
     # For SSL tests, whether or not the test should allow self signed
     # certificates.
     attr_accessor :accept_self_signed
-
     # Allows loading insecure content for an HTTP request in an API test.
     attr_accessor :allow_insecure
-
     # Array of URL patterns to block.
     attr_accessor :blocked_request_patterns
-
     # For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
     attr_accessor :check_certificate_revocation
-
     # CI/CD options for a Synthetic test.
     attr_accessor :ci
-
     # For browser test, array with the different device IDs used to run the test.
     attr_accessor :device_ids
-
     # For SSL tests, whether or not the test should disable fetching intermediate certificates from AIA.
     attr_accessor :disable_aia_intermediate_fetching
-
     # Whether or not to disable CORS mechanism.
     attr_accessor :disable_cors
-
     # Disable Content Security Policy for browser tests.
     attr_accessor :disable_csp
-
     # Enable profiling for browser tests.
     attr_accessor :enable_profiling
-
     # Enable security testing for browser tests. Security testing is not available anymore. This field is deprecated and won't be used.
     attr_accessor :enable_security_testing
-
     # For API HTTP test, whether or not the test should follow redirects.
     attr_accessor :follow_redirects
-
     # HTTP version to use for a Synthetic test.
     attr_accessor :http_version
-
     # Ignore server certificate error for browser tests.
     attr_accessor :ignore_server_certificate_error
-
     # Timeout before declaring the initial step as failed (in seconds) for browser tests.
     attr_accessor :initial_navigation_timeout
-
     # Minimum amount of time in failure required to trigger an alert.
     attr_accessor :min_failure_duration
-
     # Minimum number of locations in failure required to trigger
     # an alert.
     attr_accessor :min_location_failed
-
     # The monitor name is used for the alert title as well as for all monitor dashboard widgets and SLOs.
     attr_accessor :monitor_name
-
     # Object containing the options for a Synthetic test as a monitor
     # (for example, renotification).
     attr_accessor :monitor_options
-
     # Integer from 1 (high) to 5 (low) indicating alert severity.
     attr_reader :monitor_priority
-
     # Prevents saving screenshots of the steps.
     attr_accessor :no_screenshot
-
     # A list of role identifiers that can be pulled from the Roles API, for restricting read and write access.
     attr_accessor :restricted_roles
-
     # Object describing the retry strategy to apply to a Synthetic test.
     attr_accessor :_retry
-
     # The RUM data collection settings for the Synthetic browser test.
     # **Note:** There are 3 ways to format RUM settings:
     #
@@ -105,10 +81,8 @@ module DatadogAPIClient::V1
     # `{ isEnabled: true, applicationId: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", clientTokenId: 12345 }`
     # RUM data is collected using the specified application.
     attr_accessor :rum_settings
-
     # Object containing timeframes and timezone used for advanced scheduling.
     attr_accessor :scheduling
-
     # The frequency at which to run the Synthetic test (in seconds).
     attr_reader :tick_every
 

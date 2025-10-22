@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Response object for multiple WAF exclusion filters.
   class ApplicationSecurityWafExclusionFiltersResponse
     include BaseGenericModel
-
     # A list of WAF exclusion filters.
     attr_accessor :data
 

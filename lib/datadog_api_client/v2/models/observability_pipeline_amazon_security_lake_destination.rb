@@ -20,29 +20,21 @@ module DatadogAPIClient::V2
   # The `amazon_security_lake` destination sends your logs to Amazon Security Lake.
   class ObservabilityPipelineAmazonSecurityLakeDestination
     include BaseGenericModel
-
     # AWS authentication credentials used for accessing AWS services such as S3.
     # If omitted, the system’s default credentials are used (for example, the IAM role and environment variables).
     attr_accessor :auth
-
     # Name of the Amazon S3 bucket in Security Lake (3-63 characters).
     attr_reader :bucket
-
     # Custom source name for the logs in Security Lake.
     attr_reader :custom_source_name
-
     # Unique identifier for the destination component.
     attr_reader :id
-
     # A list of component IDs whose output is used as the `input` for this component.
     attr_reader :inputs
-
     # AWS region of the S3 bucket.
     attr_reader :region
-
     # Configuration for enabling TLS encryption between the pipeline component and external services.
     attr_accessor :tls
-
     # The destination type. Always `amazon_security_lake`.
     attr_reader :type
 

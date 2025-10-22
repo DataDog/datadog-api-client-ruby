@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Byte frames are passed through as-is according to the underlying I/O boundaries (for example, split between messages or stream segments).
   class ObservabilityPipelineSocketSourceFramingBytes
     include BaseGenericModel
-
     # Byte frames are passed through as-is according to the underlying I/O boundaries (for example, split between messages or stream segments).
     attr_reader :method
 

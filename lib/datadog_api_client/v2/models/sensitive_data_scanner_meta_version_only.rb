@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Meta payload containing information about the API.
   class SensitiveDataScannerMetaVersionOnly
     include BaseGenericModel
-
     # Version of the API (optional).
     attr_reader :version
 

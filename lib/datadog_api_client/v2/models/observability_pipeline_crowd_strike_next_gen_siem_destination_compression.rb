@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Compression configuration for log events.
   class ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompression
     include BaseGenericModel
-
     # Compression algorithm for log events.
     attr_reader :algorithm
-
     # Compression level.
     attr_accessor :level
 

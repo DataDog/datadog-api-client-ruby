@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Additional information related to api keys response.
   class APIKeysResponseMeta
     include BaseGenericModel
-
     # Max allowed number of API keys.
     attr_accessor :max_allowed
-
     # Additional information related to the API keys response.
     attr_accessor :page
 

@@ -40,23 +40,17 @@ module DatadogAPIClient::V1
   #   see [Scale Filter](https://docs.datadoghq.com/logs/log_configuration/parsing/?tab=filter#matcher-and-filter).
   class LogsArithmeticProcessor
     include BaseGenericModel
-
     # Arithmetic operation between one or more log attributes.
     attr_reader :expression
-
     # Whether or not the processor is enabled.
     attr_accessor :is_enabled
-
     # If `true`, it replaces all missing attributes of expression by `0`, `false`
     # skip the operation if an attribute is missing.
     attr_accessor :is_replace_missing
-
     # Name of the processor.
     attr_accessor :name
-
     # Name of the attribute that contains the result of the arithmetic operation.
     attr_reader :target
-
     # Type of logs arithmetic processor.
     attr_reader :type
 

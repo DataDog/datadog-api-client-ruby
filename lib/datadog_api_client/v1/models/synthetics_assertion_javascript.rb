@@ -20,10 +20,8 @@ module DatadogAPIClient::V1
   # A JavaScript assertion.
   class SyntheticsAssertionJavascript
     include BaseGenericModel
-
     # The JavaScript code that performs the assertions.
     attr_reader :code
-
     # Type of the assertion.
     attr_reader :type
 

@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Relationship to impact object.
   class RelationshipToIncidentResponderData
     include BaseGenericModel
-
     # A unique identifier that represents the responder.
     attr_reader :id
-
     # The incident responders type.
     attr_reader :type
 

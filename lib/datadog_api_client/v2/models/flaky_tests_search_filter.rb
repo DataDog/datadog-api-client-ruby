@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Search filter settings.
   class FlakyTestsSearchFilter
     include BaseGenericModel
-
     # Search query following log syntax used to filter flaky tests, same as on Flaky Tests Management UI. The supported search keys are:
     # - `flaky_test_state`
     # - `flaky_test_category`

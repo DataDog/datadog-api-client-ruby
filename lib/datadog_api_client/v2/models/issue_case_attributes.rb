@@ -20,46 +20,32 @@ module DatadogAPIClient::V2
   # Object containing the information of a case.
   class IssueCaseAttributes
     include BaseGenericModel
-
     # Timestamp of when the case was archived.
     attr_accessor :archived_at
-
     # Timestamp of when the case was closed.
     attr_accessor :closed_at
-
     # Timestamp of when the case was created.
     attr_accessor :created_at
-
     # Source of the case creation.
     attr_accessor :creation_source
-
     # Description of the case.
     attr_accessor :description
-
     # Due date of the case.
     attr_accessor :due_date
-
     # Insights of the case.
     attr_accessor :insights
-
     # Jira issue of the case.
     attr_accessor :jira_issue
-
     # Key of the case.
     attr_accessor :key
-
     # Timestamp of when the case was last modified.
     attr_accessor :modified_at
-
     # Case priority
     attr_accessor :priority
-
     # Case status
     attr_accessor :status
-
     # Title of the case.
     attr_accessor :title
-
     # Type of the case.
     attr_accessor :type
 

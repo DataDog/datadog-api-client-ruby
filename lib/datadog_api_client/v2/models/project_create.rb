@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Project create
   class ProjectCreate
     include BaseGenericModel
-
     # Project creation attributes
     attr_reader :attributes
-
     # Project resource type
     attr_reader :type
 

@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # A reference to a Google Meet Configuration resource.
   class GoogleMeetConfigurationReference
     include BaseGenericModel
-
     # The Google Meet configuration relationship data object.
     attr_accessor :data
 

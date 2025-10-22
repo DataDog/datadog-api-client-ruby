@@ -20,19 +20,14 @@ module DatadogAPIClient::V2
   # The object describing attributes of a RUM retention filter to update.
   class RumRetentionFilterUpdateAttributes
     include BaseGenericModel
-
     # Whether the retention filter is enabled.
     attr_accessor :enabled
-
     # The type of RUM events to filter on.
     attr_accessor :event_type
-
     # The name of a RUM retention filter.
     attr_accessor :name
-
     # The query string for a RUM retention filter.
     attr_accessor :query
-
     # The sample rate for a RUM retention filter, between 0 and 100.
     attr_reader :sample_rate
 

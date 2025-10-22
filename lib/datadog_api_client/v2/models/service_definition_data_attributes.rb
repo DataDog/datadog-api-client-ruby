@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Service definition attributes.
   class ServiceDefinitionDataAttributes
     include BaseGenericModel
-
     # Metadata about a service definition.
     attr_accessor :meta
-
     # Service definition schema.
     attr_accessor :schema
 

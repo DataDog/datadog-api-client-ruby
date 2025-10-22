@@ -20,37 +20,26 @@ module DatadogAPIClient::V2
   # RUM application list attributes.
   class RUMApplicationListAttributes
     include BaseGenericModel
-
     # ID of the RUM application.
     attr_reader :application_id
-
     # Timestamp in ms of the creation date.
     attr_reader :created_at
-
     # Handle of the creator user.
     attr_reader :created_by_handle
-
     # Hash of the RUM application. Optional.
     attr_accessor :_hash
-
     # Indicates if the RUM application is active.
     attr_accessor :is_active
-
     # Name of the RUM application.
     attr_reader :name
-
     # Org ID of the RUM application.
     attr_reader :org_id
-
     # Product Scales configuration for the RUM application.
     attr_accessor :product_scales
-
     # Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`, `roku`, `electron`, `unity`, `kotlin-multiplatform`.
     attr_reader :type
-
     # Timestamp in ms of the last update date.
     attr_reader :updated_at
-
     # Handle of the updater user.
     attr_reader :updated_by_handle
 

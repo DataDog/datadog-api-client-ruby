@@ -20,22 +20,16 @@ module DatadogAPIClient::V1
   # The number of profiled hosts for each hour for a given organization.
   class UsageProfilingHour
     include BaseGenericModel
-
     # Contains the total number of profiled Azure app services reporting during a given hour.
     attr_accessor :aas_count
-
     # Get average number of container agents for that hour.
     attr_accessor :avg_container_agent_count
-
     # Contains the total number of profiled hosts reporting during a given hour.
     attr_accessor :host_count
-
     # The hour for the usage.
     attr_accessor :hour
-
     # The organization name.
     attr_accessor :org_name
-
     # The organization public ID.
     attr_accessor :public_id
 

@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Delete rule request.
   class SensitiveDataScannerRuleDeleteRequest
     include BaseGenericModel
-
     # Meta payload containing information about the API.
     attr_reader :meta
 

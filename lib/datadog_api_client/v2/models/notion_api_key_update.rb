@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The definition of the `NotionAPIKey` object.
   class NotionAPIKeyUpdate
     include BaseGenericModel
-
     # The `NotionAPIKeyUpdate` `api_token`.
     attr_accessor :api_token
-
     # The definition of the `NotionAPIKey` object.
     attr_reader :type
 

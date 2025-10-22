@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Project relationships
   class ProjectRelationships
     include BaseGenericModel
-
     # Relationship between a team and a team link
     attr_accessor :member_team
-
     # Relationship to users.
     attr_accessor :member_user
 

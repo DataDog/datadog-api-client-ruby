@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # The supplier of the component.
   class SBOMComponentSupplier
     include BaseGenericModel
-
     # Identifier of the supplier of the component.
     attr_reader :name
 

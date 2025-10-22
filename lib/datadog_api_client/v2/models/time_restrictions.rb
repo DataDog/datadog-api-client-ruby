@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Holds time zone information and a list of time restrictions for a routing rule.
   class TimeRestrictions
     include BaseGenericModel
-
     # Defines the list of time-based restrictions.
     attr_reader :restrictions
-
     # Specifies the time zone applicable to the restrictions.
     attr_reader :time_zone
 

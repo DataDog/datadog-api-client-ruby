@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # IP allowlist entry object.
   class IPAllowlistEntry
     include BaseGenericModel
-
     # Data of the IP allowlist entry object.
     attr_reader :data
 

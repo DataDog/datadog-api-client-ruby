@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Case type
   class CaseTypeCreate
     include BaseGenericModel
-
     # Case Type resource attributes
     attr_reader :attributes
-
     # Case type resource type
     attr_reader :type
 

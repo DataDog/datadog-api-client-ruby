@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # A paginated list of app key registrations.
   class ListAppKeyRegistrationsResponse
     include BaseGenericModel
-
     # An array of app key registrations.
     attr_accessor :data
-
     # The definition of `ListAppKeyRegistrationsResponseMeta` object.
     attr_accessor :meta
 

@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The definition of the `CloudflareAPIToken` object.
   class CloudflareAPITokenUpdate
     include BaseGenericModel
-
     # The `CloudflareAPITokenUpdate` `api_token`.
     attr_accessor :api_token
-
     # The definition of the `CloudflareAPIToken` object.
     attr_reader :type
 

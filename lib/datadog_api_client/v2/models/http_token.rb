@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # The definition of `HTTPToken` object.
   class HTTPToken
     include BaseGenericModel
-
     # The `HTTPToken` `name`.
     attr_reader :name
-
     # The definition of `TokenType` object.
     attr_reader :type
-
     # The `HTTPToken` `value`.
     attr_reader :value
 

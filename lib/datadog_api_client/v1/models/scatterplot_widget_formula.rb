@@ -20,13 +20,10 @@ module DatadogAPIClient::V1
   # Formula to be used in a Scatterplot widget query.
   class ScatterplotWidgetFormula
     include BaseGenericModel
-
     # Expression alias.
     attr_accessor :_alias
-
     # Dimension of the Scatterplot.
     attr_reader :dimension
-
     # String expression built from queries, formulas, and functions.
     attr_reader :formula
 

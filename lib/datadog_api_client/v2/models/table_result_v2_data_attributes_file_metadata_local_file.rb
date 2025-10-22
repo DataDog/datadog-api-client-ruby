@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # File metadata for reference tables created by upload.
   class TableResultV2DataAttributesFileMetadataLocalFile
     include BaseGenericModel
-
     # The error message returned from the creation/update.
     attr_accessor :error_message
-
     # The number of rows that failed to create/update.
     attr_accessor :error_row_count
-
     # The upload ID that was used to create/update the table.
     attr_accessor :upload_id
 

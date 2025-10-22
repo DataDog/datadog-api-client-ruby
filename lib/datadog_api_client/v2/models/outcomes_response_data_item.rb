@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # A single rule outcome.
   class OutcomesResponseDataItem
     include BaseGenericModel
-
     # The JSON:API attributes for an outcome.
     attr_accessor :attributes
-
     # The unique ID for a rule outcome.
     attr_accessor :id
-
     # The JSON:API relationship to a scorecard rule.
     attr_accessor :relationships
-
     # The JSON:API type for an outcome.
     attr_accessor :type
 

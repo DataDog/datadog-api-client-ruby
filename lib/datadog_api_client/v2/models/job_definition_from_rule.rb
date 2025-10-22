@@ -20,19 +20,14 @@ module DatadogAPIClient::V2
   # Definition of a historical job based on a security monitoring rule.
   class JobDefinitionFromRule
     include BaseGenericModel
-
     # Starting time of data analyzed by the job.
     attr_reader :from
-
     # ID of the detection rule used to create the job.
     attr_reader :id
-
     # Index used to load the data.
     attr_reader :index
-
     # Notifications sent when the job is completed.
     attr_accessor :notifications
-
     # Ending time of data analyzed by the job.
     attr_reader :to
 

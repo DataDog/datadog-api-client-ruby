@@ -20,18 +20,14 @@ module DatadogAPIClient::V2
   # JSON object containing all event attributes and their associated values.
   class RUMEventAttributes
     include BaseGenericModel
-
     # JSON object of attributes from RUM events.
     attr_accessor :attributes
-
     # The name of the application or service generating RUM events.
     # It is used to switch from RUM to APM, so make sure you define the same
     # value when you use both products.
     attr_accessor :service
-
     # Array of tags associated with your event.
     attr_accessor :tags
-
     # Timestamp of your event.
     attr_accessor :timestamp
 

@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Usage data.
   class UsageDataObject
     include BaseGenericModel
-
     # Usage attributes data.
     attr_accessor :attributes
-
     # Unique ID of the response.
     attr_accessor :id
-
     # Type of usage data.
     attr_accessor :type
 

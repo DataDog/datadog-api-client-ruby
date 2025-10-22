@@ -20,16 +20,12 @@ module DatadogAPIClient::V1
   # An updated treemap widget.
   class TreeMapWidgetRequest
     include BaseGenericModel
-
     # List of formulas that operate on queries.
     attr_accessor :formulas
-
     # The widget metrics query.
     attr_accessor :q
-
     # List of queries that can be returned directly or used in formulas.
     attr_accessor :queries
-
     # Timeseries, scalar, or event list response. Event list response formats are supported by Geomap widgets.
     attr_accessor :response_format
 

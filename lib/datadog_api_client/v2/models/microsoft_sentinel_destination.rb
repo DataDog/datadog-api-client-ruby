@@ -20,25 +20,18 @@ module DatadogAPIClient::V2
   # The `microsoft_sentinel` destination forwards logs to Microsoft Sentinel.
   class MicrosoftSentinelDestination
     include BaseGenericModel
-
     # Azure AD client ID used for authentication.
     attr_reader :client_id
-
     # The immutable ID of the Data Collection Rule (DCR).
     attr_reader :dcr_immutable_id
-
     # The unique identifier for this component.
     attr_reader :id
-
     # A list of component IDs whose output is used as the `input` for this component.
     attr_reader :inputs
-
     # The name of the Log Analytics table where logs are sent.
     attr_reader :table
-
     # Azure AD tenant ID.
     attr_reader :tenant_id
-
     # The destination type. The value should always be `microsoft_sentinel`.
     attr_reader :type
 

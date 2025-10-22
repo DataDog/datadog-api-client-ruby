@@ -20,7 +20,6 @@ module DatadogAPIClient::V1
   # Response containing the Database Monitoring usage for each hour for a given organization.
   class UsageDBMResponse
     include BaseGenericModel
-
     # Get hourly usage for Database Monitoring
     attr_accessor :usage
 

@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # The `fluentd` source ingests logs from a Fluentd-compatible service.
   class ObservabilityPipelineFluentdSource
     include BaseGenericModel
-
     # The unique identifier for this component. Used to reference this component in other parts of the pipeline (for example, as the `input` to downstream components).
     attr_reader :id
-
     # Configuration for enabling TLS encryption between the pipeline component and external services.
     attr_accessor :tls
-
     # The source type. The value should always be `fluentd.
     attr_reader :type
 

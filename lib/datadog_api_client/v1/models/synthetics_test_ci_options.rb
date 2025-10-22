@@ -20,7 +20,6 @@ module DatadogAPIClient::V1
   # CI/CD options for a Synthetic test.
   class SyntheticsTestCiOptions
     include BaseGenericModel
-
     # Execution rule for a Synthetic test.
     attr_reader :execution_rule
 

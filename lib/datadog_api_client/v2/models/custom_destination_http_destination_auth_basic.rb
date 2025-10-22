@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Basic access authentication.
   class CustomDestinationHttpDestinationAuthBasic
     include BaseGenericModel
-
     # The password of the authentication. This field is not returned by the API.
     attr_reader :password
-
     # Type of the basic access authentication.
     attr_reader :type
-
     # The username of the authentication. This field is not returned by the API.
     attr_reader :username
 

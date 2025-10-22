@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Result of the convert rule request containing Terraform content.
   class SecurityMonitoringRuleConvertResponse
     include BaseGenericModel
-
     # the ID of the rule.
     attr_accessor :rule_id
-
     # Terraform string as a result of converting the rule from JSON.
     attr_accessor :terraform_content
 

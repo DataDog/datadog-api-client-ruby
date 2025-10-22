@@ -20,19 +20,14 @@ module DatadogAPIClient::V2
   # Attributes for Azure config Post Request.
   class AzureUCConfigPostRequestAttributes
     include BaseGenericModel
-
     # The tenant ID of the Azure account.
     attr_reader :account_id
-
     # Bill config.
     attr_reader :actual_bill_config
-
     # Bill config.
     attr_reader :amortized_bill_config
-
     # The client ID of the Azure account.
     attr_reader :client_id
-
     # The scope of your observed subscription.
     attr_reader :scope
 

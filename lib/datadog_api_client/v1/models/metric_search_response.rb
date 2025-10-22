@@ -20,7 +20,6 @@ module DatadogAPIClient::V1
   # Object containing the list of metrics matching the search query.
   class MetricSearchResponse
     include BaseGenericModel
-
     # Search result.
     attr_accessor :results
 

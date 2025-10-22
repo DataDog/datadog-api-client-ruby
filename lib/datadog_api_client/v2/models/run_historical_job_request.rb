@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Run a historical job request.
   class RunHistoricalJobRequest
     include BaseGenericModel
-
     # Data for running a historical job request.
     attr_accessor :data
 

@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # RUM application update attributes.
   class RUMApplicationUpdateAttributes
     include BaseGenericModel
-
     # Name of the RUM application.
     attr_accessor :name
-
     # Controls the retention policy for Product Analytics data derived from RUM events.
     attr_accessor :product_analytics_retention_state
-
     # Configures which RUM events are processed and stored for the application.
     attr_accessor :rum_event_processing_state
-
     # Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`, `roku`, `electron`, `unity`, `kotlin-multiplatform`.
     attr_accessor :type
 

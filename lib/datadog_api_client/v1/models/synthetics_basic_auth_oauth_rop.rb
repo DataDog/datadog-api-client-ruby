@@ -20,34 +20,24 @@ module DatadogAPIClient::V1
   # Object to handle `oauth rop` authentication when performing the test.
   class SyntheticsBasicAuthOauthROP
     include BaseGenericModel
-
     # Access token URL to use when performing the authentication.
     attr_reader :access_token_url
-
     # Audience to use when performing the authentication.
     attr_accessor :audience
-
     # Client ID to use when performing the authentication.
     attr_accessor :client_id
-
     # Client secret to use when performing the authentication.
     attr_accessor :client_secret
-
     # Password to use when performing the authentication.
     attr_reader :password
-
     # Resource to use when performing the authentication.
     attr_accessor :resource
-
     # Scope to use when performing the authentication.
     attr_accessor :scope
-
     # Type of token to use when performing the authentication.
     attr_reader :token_api_authentication
-
     # The type of basic authentication to use when performing the test.
     attr_reader :type
-
     # Username to use when performing the authentication.
     attr_reader :username
 

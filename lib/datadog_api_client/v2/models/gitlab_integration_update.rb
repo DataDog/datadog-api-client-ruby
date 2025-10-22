@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The definition of the `GitlabIntegrationUpdate` object.
   class GitlabIntegrationUpdate
     include BaseGenericModel
-
     # The definition of the `GitlabCredentialsUpdate` object.
     attr_accessor :credentials
-
     # The definition of the `GitlabIntegrationType` object.
     attr_reader :type
 

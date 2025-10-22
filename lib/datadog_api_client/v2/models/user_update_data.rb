@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Object to update a user.
   class UserUpdateData
     include BaseGenericModel
-
     # Attributes of the edited user.
     attr_reader :attributes
-
     # ID of the user.
     attr_reader :id
-
     # Users resource type.
     attr_reader :type
 

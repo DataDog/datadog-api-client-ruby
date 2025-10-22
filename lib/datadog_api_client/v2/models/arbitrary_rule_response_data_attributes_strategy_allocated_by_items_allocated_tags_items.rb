@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The definition of `ArbitraryRuleResponseDataAttributesStrategyAllocatedByItemsAllocatedTagsItems` object.
   class ArbitraryRuleResponseDataAttributesStrategyAllocatedByItemsAllocatedTagsItems
     include BaseGenericModel
-
     # The `items` `key`.
     attr_reader :key
-
     # The `items` `value`.
     attr_reader :value
 

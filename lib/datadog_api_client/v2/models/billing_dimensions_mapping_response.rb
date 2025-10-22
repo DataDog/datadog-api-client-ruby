@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Billing dimensions mapping response.
   class BillingDimensionsMappingResponse
     include BaseGenericModel
-
     # Billing dimensions mapping data.
     attr_accessor :data
 

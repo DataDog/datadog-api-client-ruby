@@ -20,23 +20,17 @@ module DatadogAPIClient::V2
   # A group-by rule.
   class RUMGroupBy
     include BaseGenericModel
-
     # The name of the facet to use (required).
     attr_reader :facet
-
     # Used to perform a histogram computation (only for measure facets).
     # Note: At most 100 buckets are allowed, the number of buckets is (max - min)/interval.
     attr_accessor :histogram
-
     # The maximum buckets to return for this group-by.
     attr_accessor :limit
-
     # The value to use for logs that don't have the facet used to group by.
     attr_accessor :missing
-
     # A sort rule.
     attr_accessor :sort
-
     # A resulting object to put the given computes in over all the matching records.
     attr_accessor :total
 

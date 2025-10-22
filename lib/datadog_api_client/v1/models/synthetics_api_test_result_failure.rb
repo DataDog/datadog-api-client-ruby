@@ -20,10 +20,8 @@ module DatadogAPIClient::V1
   # The API test failure details.
   class SyntheticsApiTestResultFailure
     include BaseGenericModel
-
     # Error code that can be returned by a Synthetic test.
     attr_accessor :code
-
     # The API test error message.
     attr_accessor :message
 

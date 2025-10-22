@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The definition of `ListAppKeyRegistrationsResponseMeta` object.
   class ListAppKeyRegistrationsResponseMeta
     include BaseGenericModel
-
     # The total number of app key registrations.
     attr_accessor :total
-
     # The total number of app key registrations that match the specified filters.
     attr_accessor :total_filtered
 

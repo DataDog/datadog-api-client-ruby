@@ -20,34 +20,24 @@ module DatadogAPIClient::V1
   # The steps used in a Synthetic browser test.
   class SyntheticsStep
     include BaseGenericModel
-
     # A boolean set to allow this step to fail.
     attr_accessor :allow_failure
-
     # A boolean set to always execute this step even if the previous step failed or was skipped.
     attr_accessor :always_execute
-
     # A boolean set to exit the test if the step succeeds.
     attr_accessor :exit_if_succeed
-
     # A boolean to use in addition to `allowFailure` to determine if the test should be marked as failed when the step fails.
     attr_accessor :is_critical
-
     # The name of the step.
     attr_accessor :name
-
     # A boolean set to skip taking a screenshot for the step.
     attr_accessor :no_screenshot
-
     # The parameters of the step.
     attr_accessor :params
-
     # The public ID of the step.
     attr_accessor :public_id
-
     # The time before declaring a step failed.
     attr_accessor :timeout
-
     # Step type used in your Synthetic test.
     attr_accessor :type
 

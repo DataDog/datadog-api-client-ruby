@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # The JSON:API relationship to a scorecard rule.
   class RuleOutcomeRelationships
     include BaseGenericModel
-
     # The JSON:API relationship to a scorecard outcome.
     attr_accessor :rule
 

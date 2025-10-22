@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The connection group to use for an action query.
   class ActionQuerySpecConnectionGroup
     include BaseGenericModel
-
     # The ID of the connection group.
     attr_accessor :id
-
     # The tags of the connection group.
     attr_accessor :tags
 

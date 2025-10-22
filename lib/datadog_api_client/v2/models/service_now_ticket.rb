@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # ServiceNow ticket attached to case
   class ServiceNowTicket
     include BaseGenericModel
-
     # ServiceNow ticket information
     attr_accessor :result
-
     # Case status
     attr_accessor :status
 

@@ -20,22 +20,16 @@ module DatadogAPIClient::V2
   # Extra information about the exclusion filter.
   class ApplicationSecurityWafExclusionFilterMetadata
     include BaseGenericModel
-
     # The creation date of the exclusion filter.
     attr_accessor :added_at
-
     # The handle of the user who created the exclusion filter.
     attr_accessor :added_by
-
     # The name of the user who created the exclusion filter.
     attr_accessor :added_by_name
-
     # The last modification date of the exclusion filter.
     attr_accessor :modified_at
-
     # The handle of the user who last modified the exclusion filter.
     attr_accessor :modified_by
-
     # The name of the user who last modified the exclusion filter.
     attr_accessor :modified_by_name
 

@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The attributes object for a postmortem attachment.
   class IncidentAttachmentPostmortemAttributes
     include BaseGenericModel
-
     # The postmortem attachment.
     attr_reader :attachment
-
     # The type of postmortem attachment attributes.
     attr_reader :attachment_type
 

@@ -20,19 +20,14 @@ module DatadogAPIClient::V2
   # The `custom_processor` processor transforms events using [Vector Remap Language (VRL)](https://vector.dev/docs/reference/vrl/) scripts with advanced filtering capabilities.
   class ObservabilityPipelineCustomProcessor
     include BaseGenericModel
-
     # The unique identifier for this processor.
     attr_reader :id
-
     # A Datadog search query used to determine which logs this processor targets. This field should always be set to `*` for the custom_processor processor.
     attr_reader :include
-
     # A list of component IDs whose output is used as the input for this processor.
     attr_reader :inputs
-
     # Array of VRL remap rules.
     attr_reader :remaps
-
     # The processor type. The value should always be `custom_processor`.
     attr_reader :type
 

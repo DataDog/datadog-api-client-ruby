@@ -20,10 +20,8 @@ module DatadogAPIClient::V1
   # An EventBridge source.
   class AWSEventBridgeSource
     include BaseGenericModel
-
     # The event source name.
     attr_accessor :name
-
     # The event source's [AWS region](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints).
     attr_accessor :region
 

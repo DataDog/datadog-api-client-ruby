@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # Item in the Slack integration metadata channel array.
   class SlackIntegrationMetadataChannelItem
     include BaseGenericModel
-
     # Slack channel ID.
     attr_reader :channel_id
-
     # Name of the Slack channel.
     attr_reader :channel_name
-
     # URL redirecting to the Slack channel.
     attr_reader :redirect_url
-
     # Slack team ID.
     attr_accessor :team_id
 

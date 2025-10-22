@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The definition of `JobCreateResponseData` object.
   class JobCreateResponseData
     include BaseGenericModel
-
     # ID of the created job.
     attr_accessor :id
-
     # Type of payload.
     attr_accessor :type
 

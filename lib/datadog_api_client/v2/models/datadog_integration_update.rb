@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The definition of the `DatadogIntegrationUpdate` object.
   class DatadogIntegrationUpdate
     include BaseGenericModel
-
     # The definition of the `DatadogCredentialsUpdate` object.
     attr_accessor :credentials
-
     # The definition of the `DatadogIntegrationType` object.
     attr_reader :type
 

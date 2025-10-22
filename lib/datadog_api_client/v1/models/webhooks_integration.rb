@@ -20,25 +20,20 @@ module DatadogAPIClient::V1
   # Datadog-Webhooks integration.
   class WebhooksIntegration
     include BaseGenericModel
-
     # If `null`, uses no header.
     # If given a JSON payload, these will be headers attached to your webhook.
     attr_accessor :custom_headers
-
     # Encoding type. Can be given either `json` or `form`.
     attr_accessor :encode_as
-
     # The name of the webhook. It corresponds with `<WEBHOOK_NAME>`.
     # Learn more on how to use it in
     # [monitor notifications](https://docs.datadoghq.com/monitors/notify).
     attr_reader :name
-
     # If `null`, uses the default payload.
     # If given a JSON payload, the webhook returns the payload
     # specified by the given payload.
     # [Webhooks variable usage](https://docs.datadoghq.com/integrations/webhooks/#usage).
     attr_accessor :payload
-
     # URL of the webhook.
     attr_reader :url
 

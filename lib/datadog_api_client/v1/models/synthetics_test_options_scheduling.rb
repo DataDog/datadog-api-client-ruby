@@ -20,10 +20,8 @@ module DatadogAPIClient::V1
   # Object containing timeframes and timezone used for advanced scheduling.
   class SyntheticsTestOptionsScheduling
     include BaseGenericModel
-
     # Array containing objects describing the scheduling pattern to apply to each day.
     attr_reader :timeframes
-
     # Timezone in which the timeframe is based.
     attr_reader :timezone
 

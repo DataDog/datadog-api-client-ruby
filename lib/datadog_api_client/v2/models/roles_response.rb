@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Response containing information about multiple roles.
   class RolesResponse
     include BaseGenericModel
-
     # Array of returned roles.
     attr_accessor :data
-
     # Object describing meta attributes of response.
     attr_accessor :meta
 

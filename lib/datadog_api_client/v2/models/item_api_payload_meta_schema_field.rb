@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Information about a specific column in the datastore schema.
   class ItemApiPayloadMetaSchemaField
     include BaseGenericModel
-
     # The name of this column in the datastore.
     attr_reader :name
-
     # The data type of this column. For example, 'string', 'number', or 'boolean'.
     attr_reader :type
 

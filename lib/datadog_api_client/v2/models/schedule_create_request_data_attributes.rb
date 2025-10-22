@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Describes the main attributes for creating a new schedule, including name, layers, and time zone.
   class ScheduleCreateRequestDataAttributes
     include BaseGenericModel
-
     # The layers of On-Call coverage that define rotation intervals and restrictions.
     attr_reader :layers
-
     # A human-readable name for the new schedule.
     attr_reader :name
-
     # The time zone in which the schedule is defined.
     attr_reader :time_zone
 

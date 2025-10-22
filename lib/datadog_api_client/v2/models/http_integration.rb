@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # The definition of `HTTPIntegration` object.
   class HTTPIntegration
     include BaseGenericModel
-
     # Base HTTP url for the integration
     attr_reader :base_url
-
     # The definition of `HTTPCredentials` object.
     attr_reader :credentials
-
     # The definition of `HTTPIntegrationType` object.
     attr_reader :type
 

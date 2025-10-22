@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Attributes for the flaky tests search request.
   class FlakyTestsSearchRequestAttributes
     include BaseGenericModel
-
     # Search filter settings.
     attr_accessor :filter
-
     # Pagination attributes for listing flaky tests.
     attr_accessor :page
-
     # Parameter for sorting flaky test results. The default sort is by ascending Fully Qualified Name (FQN). The FQN is the concatenation of the test module, suite, and name.
     attr_accessor :sort
 

@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Request object to bulk configure tags for metrics matching the given prefix.
   class MetricBulkTagConfigCreate
     include BaseGenericModel
-
     # Optional parameters for bulk creating metric tag configurations.
     attr_accessor :attributes
-
     # A text prefix to match against metric names.
     attr_reader :id
-
     # The metric bulk configure tags resource.
     attr_reader :type
 

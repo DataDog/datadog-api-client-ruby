@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Organization object.
   class Organization
     include BaseGenericModel
-
     # Attributes of the organization.
     attr_accessor :attributes
-
     # ID of the organization.
     attr_accessor :id
-
     # Organizations resource type.
     attr_reader :type
 

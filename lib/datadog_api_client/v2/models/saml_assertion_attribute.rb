@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # SAML assertion attribute.
   class SAMLAssertionAttribute
     include BaseGenericModel
-
     # Key/Value pair of attributes used in SAML assertion attributes.
     attr_accessor :attributes
-
     # The ID of the SAML assertion attribute.
     attr_reader :id
-
     # SAML assertion attributes resource type.
     attr_reader :type
 

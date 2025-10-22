@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Links attributes.
   class OutcomesResponseLinks
     include BaseGenericModel
-
     # Link for the next set of results.
     attr_accessor :_next
 

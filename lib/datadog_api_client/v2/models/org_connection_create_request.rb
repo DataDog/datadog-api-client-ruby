@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Request to create an org connection.
   class OrgConnectionCreateRequest
     include BaseGenericModel
-
     # Org connection creation data.
     attr_reader :data
 

@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # The log-based metric properties.
   class LogsMetricResponseData
     include BaseGenericModel
-
     # The object describing a Datadog log-based metric.
     attr_accessor :attributes
-
     # The name of the log-based metric.
     attr_accessor :id
-
     # The type of the resource. The value should always be logs_metrics.
     attr_accessor :type
 

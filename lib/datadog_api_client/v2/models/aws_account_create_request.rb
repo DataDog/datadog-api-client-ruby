@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # AWS Account Create Request body.
   class AWSAccountCreateRequest
     include BaseGenericModel
-
     # AWS Account Create Request data.
     attr_reader :data
 

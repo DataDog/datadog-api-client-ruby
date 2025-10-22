@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # The `rsyslog` source listens for logs over TCP or UDP from an `rsyslog` server using the syslog protocol.
   class ObservabilityPipelineRsyslogSource
     include BaseGenericModel
-
     # The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
     attr_reader :id
-
     # Protocol used by the syslog source to receive messages.
     attr_reader :mode
-
     # Configuration for enabling TLS encryption between the pipeline component and external services.
     attr_accessor :tls
-
     # The source type. The value should always be `rsyslog`.
     attr_reader :type
 

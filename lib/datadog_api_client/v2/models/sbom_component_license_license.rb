@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # The software license of the component of the SBOM.
   class SBOMComponentLicenseLicense
     include BaseGenericModel
-
     # The name of the software license of the component of the SBOM.
     attr_reader :name
 

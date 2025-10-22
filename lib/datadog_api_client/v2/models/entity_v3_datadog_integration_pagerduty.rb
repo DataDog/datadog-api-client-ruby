@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # A PagerDuty integration schema.
   class EntityV3DatadogIntegrationPagerduty
     include BaseGenericModel
-
     # The service URL for the PagerDuty integration.
     attr_reader :service_url
 

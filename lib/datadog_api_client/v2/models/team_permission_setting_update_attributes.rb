@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Team permission setting update attributes
   class TeamPermissionSettingUpdateAttributes
     include BaseGenericModel
-
     # What type of user is allowed to perform the specified action
     attr_accessor :value
 

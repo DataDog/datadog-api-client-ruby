@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The definition of the `FastlyAPIKey` object.
   class FastlyAPIKeyUpdate
     include BaseGenericModel
-
     # The `FastlyAPIKeyUpdate` `api_key`.
     attr_accessor :api_key
-
     # The definition of the `FastlyAPIKey` object.
     attr_reader :type
 

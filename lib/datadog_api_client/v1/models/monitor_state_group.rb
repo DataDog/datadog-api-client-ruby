@@ -20,22 +20,16 @@ module DatadogAPIClient::V1
   # Monitor state for a single group.
   class MonitorStateGroup
     include BaseGenericModel
-
     # Latest timestamp the monitor was in NO_DATA state.
     attr_accessor :last_nodata_ts
-
     # Latest timestamp of the notification sent for this monitor group.
     attr_accessor :last_notified_ts
-
     # Latest timestamp the monitor group was resolved.
     attr_accessor :last_resolved_ts
-
     # Latest timestamp the monitor group triggered.
     attr_accessor :last_triggered_ts
-
     # The name of the monitor.
     attr_accessor :name
-
     # The different states your monitor can be in.
     attr_accessor :status
 

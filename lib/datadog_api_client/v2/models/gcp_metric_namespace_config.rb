@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Configuration for a GCP metric namespace.
   class GCPMetricNamespaceConfig
     include BaseGenericModel
-
     # When disabled, Datadog does not collect metrics that are related to this GCP metric namespace.
     attr_accessor :disabled
-
     # The id of the GCP metric namespace.
     attr_accessor :id
 

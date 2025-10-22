@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # The definition of `RulesValidateQueryResponseDataAttributes` object.
   class RulesValidateQueryResponseDataAttributes
     include BaseGenericModel
-
     # The `attributes` `Canonical`.
     attr_reader :canonical
 

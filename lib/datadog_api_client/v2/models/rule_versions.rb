@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # A rule version with a list of updates.
   class RuleVersions
     include BaseGenericModel
-
     # A list of changes.
     attr_accessor :changes
-
     # Create a new rule.
     attr_accessor :rule
 

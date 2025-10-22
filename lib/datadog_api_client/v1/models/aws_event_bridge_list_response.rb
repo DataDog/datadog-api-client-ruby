@@ -20,10 +20,8 @@ module DatadogAPIClient::V1
   # An object describing the EventBridge configuration for multiple accounts.
   class AWSEventBridgeListResponse
     include BaseGenericModel
-
     # List of accounts with their event sources.
     attr_accessor :accounts
-
     # True if the EventBridge sub-integration is enabled for your organization.
     attr_accessor :is_installed
 

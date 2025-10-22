@@ -20,32 +20,23 @@ module DatadogAPIClient::V1
   # Overall status of the SLO by timeframes.
   class SLOOverallStatuses
     include BaseGenericModel
-
     # Error message if SLO status or error budget could not be calculated.
     attr_accessor :error
-
     # Remaining error budget of the SLO in percentage.
     attr_accessor :error_budget_remaining
-
     # timestamp (UNIX time in seconds) of when the SLO status and error budget
     # were calculated.
     attr_accessor :indexed_at
-
     # Error budget remaining for an SLO.
     attr_accessor :raw_error_budget_remaining
-
     # The amount of decimal places the SLI value is accurate to.
     attr_accessor :span_precision
-
     # State of the SLO.
     attr_accessor :state
-
     # The status of the SLO.
     attr_accessor :status
-
     # The target of the SLO.
     attr_accessor :target
-
     # The SLO time window options. Note that "custom" is not a valid option for creating
     # or updating SLOs. It is only used when querying SLO history over custom timeframes.
     attr_accessor :timeframe

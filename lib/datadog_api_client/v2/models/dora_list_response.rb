@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Response for the DORA list endpoints.
   class DORAListResponse
     include BaseGenericModel
-
     # The list of DORA events.
     attr_accessor :data
 

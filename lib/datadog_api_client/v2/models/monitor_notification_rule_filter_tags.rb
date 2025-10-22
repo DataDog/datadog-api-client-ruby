@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Filter monitors by tags. Monitors must match all tags.
   class MonitorNotificationRuleFilterTags
     include BaseGenericModel
-
     # A list of monitor tags.
     attr_reader :tags
 

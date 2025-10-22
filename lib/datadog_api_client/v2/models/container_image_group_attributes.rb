@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Attributes for a Container Image Group.
   class ContainerImageGroupAttributes
     include BaseGenericModel
-
     # Number of Container Images in the group.
     attr_accessor :count
-
     # Name of the Container Image group.
     attr_accessor :name
-
     # Tags from the group name parsed in key/value format.
     attr_accessor :tags
 

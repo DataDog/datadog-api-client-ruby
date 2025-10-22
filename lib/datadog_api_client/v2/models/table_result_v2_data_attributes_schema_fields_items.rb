@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The definition of `TableResultV2DataAttributesSchemaFieldsItems` object.
   class TableResultV2DataAttributesSchemaFieldsItems
     include BaseGenericModel
-
     # The field name.
     attr_reader :name
-
     # The field type for reference table schema fields.
     attr_reader :type
 

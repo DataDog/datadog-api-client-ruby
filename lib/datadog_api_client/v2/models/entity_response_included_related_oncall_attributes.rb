@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Included related oncall attributes.
   class EntityResponseIncludedRelatedOncallAttributes
     include BaseGenericModel
-
     # Oncall escalations.
     attr_accessor :escalations
-
     # Oncall provider.
     attr_accessor :provider
 

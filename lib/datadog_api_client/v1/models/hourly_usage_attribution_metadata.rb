@@ -20,7 +20,6 @@ module DatadogAPIClient::V1
   # The object containing document metadata.
   class HourlyUsageAttributionMetadata
     include BaseGenericModel
-
     # The metadata for the current pagination.
     attr_accessor :pagination
 

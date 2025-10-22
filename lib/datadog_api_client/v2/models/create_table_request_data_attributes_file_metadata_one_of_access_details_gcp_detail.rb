@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # The definition of `CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsGcpDetail` object.
   class CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsGcpDetail
     include BaseGenericModel
-
     # The relative file path from the GCS bucket root to the CSV file.
     attr_reader :file_path
-
     # The name of the GCP bucket.
     attr_reader :gcp_bucket_name
-
     # The ID of the GCP project.
     attr_reader :gcp_project_id
-
     # The email of the GCP service account.
     attr_reader :gcp_service_account_email
 

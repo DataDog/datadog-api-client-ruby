@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The definition of the `FreshserviceIntegrationUpdate` object.
   class FreshserviceIntegrationUpdate
     include BaseGenericModel
-
     # The definition of the `FreshserviceCredentialsUpdate` object.
     attr_accessor :credentials
-
     # The definition of the `FreshserviceIntegrationType` object.
     attr_reader :type
 

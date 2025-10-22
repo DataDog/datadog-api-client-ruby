@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # The metadata object containing pagination metadata.
   class IncidentResponseMeta
     include BaseGenericModel
-
     # Pagination properties.
     attr_accessor :pagination
 

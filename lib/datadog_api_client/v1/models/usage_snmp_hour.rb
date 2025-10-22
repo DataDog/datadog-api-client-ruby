@@ -20,16 +20,12 @@ module DatadogAPIClient::V1
   # The number of SNMP devices for each hour for a given organization.
   class UsageSNMPHour
     include BaseGenericModel
-
     # The hour for the usage.
     attr_accessor :hour
-
     # The organization name.
     attr_accessor :org_name
-
     # The organization public ID.
     attr_accessor :public_id
-
     # Contains the number of SNMP devices.
     attr_accessor :snmp_devices
 

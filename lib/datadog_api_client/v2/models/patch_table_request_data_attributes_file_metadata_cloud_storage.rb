@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Cloud storage file metadata for patch requests. Allows partial updates of access_details and sync_enabled.
   class PatchTableRequestDataAttributesFileMetadataCloudStorage
     include BaseGenericModel
-
     # The definition of `PatchTableRequestDataAttributesFileMetadataOneOfAccessDetails` object.
     attr_accessor :access_details
-
     # Whether this table is synced automatically.
     attr_accessor :sync_enabled
 

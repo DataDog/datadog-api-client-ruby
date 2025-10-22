@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Data object for Fastly service requests.
   class FastlyServiceData
     include BaseGenericModel
-
     # Attributes object for Fastly service requests.
     attr_accessor :attributes
-
     # The ID of the Fastly service.
     attr_reader :id
-
     # The JSON:API type for this API. Should always be `fastly-services`.
     attr_reader :type
 

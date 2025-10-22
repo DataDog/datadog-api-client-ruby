@@ -20,38 +20,28 @@ module DatadogAPIClient::V2
   # Attributes of the Sensitive Data Scanner rule.
   class SensitiveDataScannerRuleAttributes
     include BaseGenericModel
-
     # Description of the rule.
     attr_accessor :description
-
     # Attributes excluded from the scan. If namespaces is provided, it has to be a sub-path of the namespaces array.
     attr_accessor :excluded_namespaces
-
     # Object defining a set of keywords and a number of characters that help reduce noise.
     # You can provide a list of keywords you would like to check within a defined proximity of the matching pattern.
     # If any of the keywords are found within the proximity check, the match is kept.
     # If none are found, the match is discarded.
     attr_accessor :included_keyword_configuration
-
     # Whether or not the rule is enabled.
     attr_accessor :is_enabled
-
     # Name of the rule.
     attr_accessor :name
-
     # Attributes included in the scan. If namespaces is empty or missing, all attributes except excluded_namespaces are scanned.
     # If both are missing the whole event is scanned.
     attr_accessor :namespaces
-
     # Not included if there is a relationship to a standard pattern.
     attr_accessor :pattern
-
     # Integer from 1 (high) to 5 (low) indicating rule issue severity.
     attr_reader :priority
-
     # List of tags.
     attr_accessor :tags
-
     # Object describing how the scanned event will be replaced.
     attr_accessor :text_replacement
 

@@ -20,42 +20,30 @@ module DatadogAPIClient::V2
   # Query for matching rule.
   class SecurityMonitoringStandardRuleQuery
     include BaseGenericModel
-
     # The aggregation type.
     attr_accessor :aggregation
-
     # Query extension to append to the logs query.
     attr_accessor :custom_query_extension
-
     # Source of events, either logs, audit trail, or Datadog events.
     attr_accessor :data_source
-
     # Field for which the cardinality is measured. Sent as an array.
     attr_accessor :distinct_fields
-
     # Fields to group by.
     attr_accessor :group_by_fields
-
     # When false, events without a group-by value are ignored by the rule. When true, events with missing group-by fields are processed with `N/A`, replacing the missing values.
     attr_accessor :has_optional_group_by_fields
-
     # **This field is currently unstable and might be removed in a minor version upgrade.**
     # The index to run the query on, if the `dataSource` is `logs`. Only used for scheduled rules - in other words, when the `schedulingOptions` field is present in the rule payload.
     attr_accessor :index
-
     # List of indexes to query when the `dataSource` is `logs`. Only used for scheduled rules, such as when the `schedulingOptions` field is present in the rule payload.
     attr_accessor :indexes
-
     # (Deprecated) The target field to aggregate over when using the sum or max
     # aggregations. `metrics` field should be used instead.
     attr_accessor :metric
-
     # Group of target fields to aggregate over when using the sum, max, geo data, or new value aggregations. The sum, max, and geo data aggregations only accept one value in this list, whereas the new value aggregation accepts up to five values.
     attr_accessor :metrics
-
     # Name of the query.
     attr_accessor :name
-
     # Query to run on logs.
     attr_accessor :query
 

@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # The span-based metric properties.
   class SpansMetricResponseData
     include BaseGenericModel
-
     # The object describing a Datadog span-based metric.
     attr_accessor :attributes
-
     # The name of the span-based metric.
     attr_accessor :id
-
     # The type of resource. The value should always be spans_metrics.
     attr_accessor :type
 

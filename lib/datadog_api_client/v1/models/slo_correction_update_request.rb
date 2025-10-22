@@ -20,7 +20,6 @@ module DatadogAPIClient::V1
   # An object that defines a correction to be applied to an SLO.
   class SLOCorrectionUpdateRequest
     include BaseGenericModel
-
     # The data object associated with the SLO correction to be updated.
     attr_accessor :data
 

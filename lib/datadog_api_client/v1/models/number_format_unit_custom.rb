@@ -20,10 +20,8 @@ module DatadogAPIClient::V1
   # Custom unit.
   class NumberFormatUnitCustom
     include BaseGenericModel
-
     # The label for the custom unit.
     attr_reader :label
-
     # The type of custom unit.
     attr_accessor :type
 

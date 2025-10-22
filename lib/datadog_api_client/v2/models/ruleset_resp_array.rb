@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # The definition of `RulesetRespArray` object.
   class RulesetRespArray
     include BaseGenericModel
-
     # The `RulesetRespArray` `data`.
     attr_reader :data
 

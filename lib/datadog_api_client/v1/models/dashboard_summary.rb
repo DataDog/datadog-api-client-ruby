@@ -20,7 +20,6 @@ module DatadogAPIClient::V1
   # Dashboard summary response.
   class DashboardSummary
     include BaseGenericModel
-
     # List of dashboard definitions.
     attr_accessor :dashboards
 

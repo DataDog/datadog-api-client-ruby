@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Request to delete items from a datastore.
   class BulkDeleteAppsDatastoreItemsRequest
     include BaseGenericModel
-
     # Data wrapper containing the data needed to delete items from a datastore.
     attr_accessor :data
 

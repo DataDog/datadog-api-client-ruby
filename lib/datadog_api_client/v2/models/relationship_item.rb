@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Relationship entry.
   class RelationshipItem
     include BaseGenericModel
-
     # Associated data ID.
     attr_accessor :id
-
     # Relationship type.
     attr_accessor :type
 

@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Create a service account.
   class ServiceAccountCreateRequest
     include BaseGenericModel
-
     # Object to create a service account User.
     attr_reader :data
 

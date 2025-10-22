@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # CSM Serverless Resources Coverage Analysis attributes.
   class CsmServerlessCoverageAnalysisAttributes
     include BaseGenericModel
-
     # CSM Coverage Analysis.
     attr_accessor :cws_coverage
-
     # The ID of your organization.
     attr_accessor :org_id
-
     # CSM Coverage Analysis.
     attr_accessor :total_coverage
 

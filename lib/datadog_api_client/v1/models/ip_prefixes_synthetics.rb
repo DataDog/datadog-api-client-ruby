@@ -20,16 +20,12 @@ module DatadogAPIClient::V1
   # Available prefix information for the Synthetics endpoints.
   class IPPrefixesSynthetics
     include BaseGenericModel
-
     # List of IPv4 prefixes.
     attr_accessor :prefixes_ipv4
-
     # List of IPv4 prefixes by location.
     attr_accessor :prefixes_ipv4_by_location
-
     # List of IPv6 prefixes.
     attr_accessor :prefixes_ipv6
-
     # List of IPv6 prefixes by location.
     attr_accessor :prefixes_ipv6_by_location
 

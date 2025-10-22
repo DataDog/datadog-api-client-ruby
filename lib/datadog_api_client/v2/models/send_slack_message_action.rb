@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Sends a message to a Slack channel.
   class SendSlackMessageAction
     include BaseGenericModel
-
     # The channel ID.
     attr_reader :channel
-
     # Indicates that the action is a send Slack message action.
     attr_reader :type
-
     # The workspace ID.
     attr_reader :workspace
 

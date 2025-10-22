@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # CI pipeline related statistics for the flaky test. This information is only available if test runs are associated with CI pipeline events from CI Visibility.
   class FlakyTestPipelineStats
     include BaseGenericModel
-
     # The number of pipelines that failed due to this test for the past 7 days. This is computed as the sum of failed CI pipeline events associated with test runs where the flaky test failed.
     attr_accessor :failed_pipelines
-
     # The total time lost by CI pipelines due to this flaky test in milliseconds. This is computed as the sum of the duration of failed CI pipeline events associated with test runs where the flaky test failed.
     attr_accessor :total_lost_time_ms
 

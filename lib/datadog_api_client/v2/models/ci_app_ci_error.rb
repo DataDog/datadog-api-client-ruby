@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # Contains information of the CI error.
   class CIAppCIError
     include BaseGenericModel
-
     # Error category used to differentiate between issues related to the developer or provider environments.
     attr_accessor :domain
-
     # Error message.
     attr_reader :message
-
     # The stack trace of the reported errors.
     attr_accessor :stack
-
     # Short description of the error type.
     attr_reader :type
 

@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # Incident Team data from a response.
   class IncidentTeamResponseData
     include BaseGenericModel
-
     # The incident team's attributes from a response.
     attr_accessor :attributes
-
     # The incident team's ID.
     attr_accessor :id
-
     # The incident team's relationships.
     attr_accessor :relationships
-
     # Incident Team resource type.
     attr_accessor :type
 

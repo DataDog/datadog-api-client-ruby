@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Identifies the user participating in this layer as a single object with an `id`.
   class ScheduleRequestDataAttributesLayersItemsMembersItemsUser
     include BaseGenericModel
-
     # The user's ID.
     attr_accessor :id
 

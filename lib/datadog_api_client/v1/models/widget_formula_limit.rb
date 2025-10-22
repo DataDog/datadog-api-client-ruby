@@ -20,10 +20,8 @@ module DatadogAPIClient::V1
   # Options for limiting results returned.
   class WidgetFormulaLimit
     include BaseGenericModel
-
     # Number of results to return.
     attr_accessor :count
-
     # Direction of sort.
     attr_accessor :order
 

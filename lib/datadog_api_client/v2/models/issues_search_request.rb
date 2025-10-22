@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Search issues request payload.
   class IssuesSearchRequest
     include BaseGenericModel
-
     # Search issues request.
     attr_reader :data
 

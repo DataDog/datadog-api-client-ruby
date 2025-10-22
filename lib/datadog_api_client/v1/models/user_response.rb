@@ -20,7 +20,6 @@ module DatadogAPIClient::V1
   # A Datadog User.
   class UserResponse
     include BaseGenericModel
-
     # Create, edit, and disable users.
     attr_accessor :user
 

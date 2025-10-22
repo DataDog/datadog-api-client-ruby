@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Object containing the definition of a metric's ingested and indexed volume.
   class MetricIngestedIndexedVolumeAttributes
     include BaseGenericModel
-
     # Indexed volume for the given metric.
     attr_accessor :indexed_volume
-
     # Ingested volume for the given metric.
     attr_accessor :ingested_volume
 

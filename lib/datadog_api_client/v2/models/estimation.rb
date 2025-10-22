@@ -20,19 +20,14 @@ module DatadogAPIClient::V2
   # Recommended resource values for a Spark driver or executor, derived from recent real usage metrics. Used by SPA to propose more efficient pod sizing.
   class Estimation
     include BaseGenericModel
-
     # CPU usage statistics derived from historical Spark job metrics. Provides multiple estimates so users can choose between conservative and cost-saving risk profiles.
     attr_accessor :cpu
-
     # Recommended ephemeral storage allocation (in MiB). Derived from job temporary storage patterns.
     attr_accessor :ephemeral_storage
-
     # Recommended JVM heap size (in MiB).
     attr_accessor :heap
-
     # Recommended total memory allocation (in MiB). Includes both heap and overhead.
     attr_accessor :memory
-
     # Recommended JVM overhead (in MiB). Computed as total memory - heap.
     attr_accessor :overhead
 

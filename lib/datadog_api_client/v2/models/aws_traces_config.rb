@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # AWS Traces Collection config.
   class AWSTracesConfig
     include BaseGenericModel
-
     # AWS X-Ray services to collect traces from. Defaults to `include_only`.
     attr_accessor :xray_services
 

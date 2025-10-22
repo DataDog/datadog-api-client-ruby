@@ -23,15 +23,12 @@ module DatadogAPIClient::V2
   # If none are found, the match is discarded.
   class SensitiveDataScannerIncludedKeywordConfiguration
     include BaseGenericModel
-
     # The number of characters behind a match detected by Sensitive Data Scanner to look for the keywords defined.
     # `character_count` should be greater than the maximum length of a keyword defined for a rule.
     attr_reader :character_count
-
     # Keyword list that will be checked during scanning in order to validate a match.
     # The number of keywords in the list must be less than or equal to 30.
     attr_reader :keywords
-
     # Should the rule use the underlying standard pattern keyword configuration. If set to `true`, the rule must be tied
     # to a standard pattern. If set to `false`, the specified keywords and `character_count` are applied.
     attr_accessor :use_recommended_keywords

@@ -20,7 +20,6 @@ module DatadogAPIClient::V1
   # Wrapper around an array of [JSON Patch](https://jsonpatch.com) operations to perform on the test
   class SyntheticsPatchTestBody
     include BaseGenericModel
-
     # Array of [JSON Patch](https://jsonpatch.com) operations to perform on the test
     attr_accessor :data
 

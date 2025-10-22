@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # The new bulk mute finding request.
   class BulkMuteFindingsRequest
     include BaseGenericModel
-
     # Data object containing the new bulk mute properties of the finding.
     attr_reader :data
 

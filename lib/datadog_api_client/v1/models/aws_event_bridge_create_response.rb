@@ -20,16 +20,12 @@ module DatadogAPIClient::V1
   # A created EventBridge source.
   class AWSEventBridgeCreateResponse
     include BaseGenericModel
-
     # The event source name.
     attr_accessor :event_source_name
-
     # True if the event bus was created in addition to the source.
     attr_accessor :has_bus
-
     # The event source's [AWS region](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints).
     attr_accessor :region
-
     # The event source status "created".
     attr_accessor :status
 

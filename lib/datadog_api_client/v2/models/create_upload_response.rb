@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # The definition of `CreateUploadResponse` object.
   class CreateUploadResponse
     include BaseGenericModel
-
     # The definition of `CreateUploadResponseData` object.
     attr_accessor :data
 

@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Assets related to the object, including title, url, and tags.
   class MetricAssetAttributes
     include BaseGenericModel
-
     # List of tag keys used in the asset.
     attr_accessor :tags
-
     # Title of the asset.
     attr_accessor :title
-
     # URL path of the asset.
     attr_accessor :url
 

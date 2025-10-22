@@ -20,31 +20,22 @@ module DatadogAPIClient::V2
   # A Step is a sub-component of a workflow. Each Step performs an action.
   class Step
     include BaseGenericModel
-
     # The unique identifier of an action.
     attr_reader :action_id
-
     # Used to create conditions before running subsequent actions.
     attr_accessor :completion_gate
-
     # The unique identifier of a connection defined in the spec.
     attr_accessor :connection_label
-
     # The definition of `StepDisplay` object.
     attr_accessor :display
-
     # The `Step` `errorHandlers`.
     attr_accessor :error_handlers
-
     # Name of the step.
     attr_reader :name
-
     # A list of subsequent actions to run.
     attr_accessor :outbound_edges
-
     # A list of inputs for an action.
     attr_accessor :parameters
-
     # Used to merge multiple branches into a single branch.
     attr_accessor :readiness_gate
 

@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Response with an incident team payload.
   class IncidentTeamResponse
     include BaseGenericModel
-
     # Incident Team data from a response.
     attr_reader :data
-
     # Included objects from relationships.
     attr_accessor :included
 

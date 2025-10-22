@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Entity to related entities relationship.
   class EntityToRelatedEntities
     include BaseGenericModel
-
     # Relationships.
     attr_accessor :data
 

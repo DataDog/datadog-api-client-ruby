@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # The definition of the `BudgetWithEntries` object.
   class BudgetWithEntries
     include BaseGenericModel
-
     # A budget and all its entries.
     attr_accessor :data
 

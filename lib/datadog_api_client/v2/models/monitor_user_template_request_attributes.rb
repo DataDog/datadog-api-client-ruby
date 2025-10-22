@@ -20,19 +20,14 @@ module DatadogAPIClient::V2
   # Attributes for a monitor user template.
   class MonitorUserTemplateRequestAttributes
     include BaseGenericModel
-
     # A brief description of the monitor user template.
     attr_accessor :description
-
     # A valid monitor definition in the same format as the [V1 Monitor API](https://docs.datadoghq.com/api/latest/monitors/#create-a-monitor).
     attr_reader :monitor_definition
-
     # The definition of `MonitorUserTemplateTags` object.
     attr_reader :tags
-
     # The definition of `MonitorUserTemplateTemplateVariables` object.
     attr_accessor :template_variables
-
     # The title of the monitor user template.
     attr_reader :title
 

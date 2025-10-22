@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # The definition of `CustomAttributeConfig` object.
   class CustomAttributeConfig
     include BaseGenericModel
-
     # Custom attribute resource attributes
     attr_accessor :attributes
-
     # Custom attribute configs identifier
     attr_accessor :id
-
     # Custom attributes config JSON:API resource type
     attr_accessor :type
 

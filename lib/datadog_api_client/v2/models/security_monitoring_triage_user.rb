@@ -20,19 +20,14 @@ module DatadogAPIClient::V2
   # Object representing a given user entity.
   class SecurityMonitoringTriageUser
     include BaseGenericModel
-
     # The handle for this user account.
     attr_accessor :handle
-
     # Gravatar icon associated to the user.
     attr_accessor :icon
-
     # Numerical ID assigned by Datadog to this user account.
     attr_accessor :id
-
     # The name for this user account.
     attr_accessor :name
-
     # UUID assigned by Datadog to this user account.
     attr_reader :uuid
 

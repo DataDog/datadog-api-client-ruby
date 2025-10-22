@@ -20,29 +20,21 @@ module DatadogAPIClient::V2
   # Update a WAF custom rule.
   class ApplicationSecurityWafCustomRuleUpdateAttributes
     include BaseGenericModel
-
     # The definition of `ApplicationSecurityWafCustomRuleAction` object.
     attr_accessor :action
-
     # Indicates whether the WAF custom rule will block the request.
     attr_reader :blocking
-
     # Conditions for which the WAF Custom Rule will triggers, all conditions needs to match in order for the WAF
     # rule to trigger.
     attr_reader :conditions
-
     # Indicates whether the WAF custom rule is enabled.
     attr_reader :enabled
-
     # The Name of the WAF custom rule.
     attr_reader :name
-
     # The path glob for the WAF custom rule.
     attr_accessor :path_glob
-
     # The scope of the WAF custom rule.
     attr_accessor :scope
-
     # Tags associated with the WAF Custom Rule. The concatenation of category and type will form the security
     # activity field associated with the traces.
     attr_reader :tags

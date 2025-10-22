@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The definition of `WorkflowDataRelationships` object.
   class WorkflowDataRelationships
     include BaseGenericModel
-
     # The definition of `WorkflowUserRelationship` object.
     attr_accessor :creator
-
     # The definition of `WorkflowUserRelationship` object.
     attr_accessor :owner
 

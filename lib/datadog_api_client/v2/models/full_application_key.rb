@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # Datadog application key.
   class FullApplicationKey
     include BaseGenericModel
-
     # Attributes of a full application key.
     attr_accessor :attributes
-
     # ID of the application key.
     attr_accessor :id
-
     # Resources related to the application key.
     attr_accessor :relationships
-
     # Application Keys resource type.
     attr_accessor :type
 

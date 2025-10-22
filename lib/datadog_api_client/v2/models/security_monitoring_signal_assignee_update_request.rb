@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Request body for changing the assignee of a given security monitoring signal.
   class SecurityMonitoringSignalAssigneeUpdateRequest
     include BaseGenericModel
-
     # Data containing the patch for changing the assignee of a signal.
     attr_reader :data
 

@@ -20,58 +20,41 @@ module DatadogAPIClient::V2
   # Attributes for a Container Image.
   class ContainerImageAttributes
     include BaseGenericModel
-
     # Number of containers running the image.
     attr_accessor :container_count
-
     # List of platform-specific images associated with the image record.
     # The list contains more than 1 entry for multi-architecture images.
     attr_accessor :image_flavors
-
     # List of image tags associated with the Container Image.
     attr_accessor :image_tags
-
     # List of build times associated with the Container Image.
     # The list contains more than 1 entry for multi-architecture images.
     attr_accessor :images_built_at
-
     # Name of the Container Image.
     attr_accessor :name
-
     # List of Operating System architectures supported by the Container Image.
     attr_accessor :os_architectures
-
     # List of Operating System names supported by the Container Image.
     attr_accessor :os_names
-
     # List of Operating System versions supported by the Container Image.
     attr_accessor :os_versions
-
     # Time the image was pushed to the container registry.
     attr_accessor :published_at
-
     # Registry the Container Image was pushed to.
     attr_accessor :registry
-
     # Digest of the compressed image manifest.
     attr_accessor :repo_digest
-
     # Repository where the Container Image is stored in.
     attr_accessor :repository
-
     # Short version of the Container Image name.
     attr_accessor :short_image
-
     # List of size for each platform-specific image associated with the image record.
     # The list contains more than 1 entry for multi-architecture images.
     attr_accessor :sizes
-
     # List of sources where the Container Image was collected from.
     attr_accessor :sources
-
     # List of tags associated with the Container Image.
     attr_accessor :tags
-
     # Vulnerability counts associated with the Container Image.
     attr_accessor :vulnerability_count
 

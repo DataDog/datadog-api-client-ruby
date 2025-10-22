@@ -20,7 +20,6 @@ module DatadogAPIClient::V1
   # Response containing the indexed logs usage broken down by retention period for an organization during a given hour.
   class UsageLogsByRetentionResponse
     include BaseGenericModel
-
     # Get hourly usage for indexed logs by retention period.
     attr_accessor :usage
 

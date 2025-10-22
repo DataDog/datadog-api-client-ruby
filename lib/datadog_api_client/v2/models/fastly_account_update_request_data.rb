@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Data object for updating a Fastly account.
   class FastlyAccountUpdateRequestData
     include BaseGenericModel
-
     # Attributes object for updating a Fastly account.
     attr_accessor :attributes
-
     # The JSON:API type for this API. Should always be `fastly-accounts`.
     attr_accessor :type
 

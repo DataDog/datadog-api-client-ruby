@@ -20,10 +20,8 @@ module DatadogAPIClient::V1
   # Set a timeseries on the widget background.
   class TimeseriesBackground
     include BaseGenericModel
-
     # Timeseries is made using an area or bars.
     attr_reader :type
-
     # Axis controls for the widget.
     attr_accessor :yaxis
 

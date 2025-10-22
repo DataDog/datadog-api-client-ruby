@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Object for a single Agent rule
   class CloudWorkloadSecurityAgentPolicyCreateData
     include BaseGenericModel
-
     # Create a new Cloud Workload Security Agent policy
     attr_reader :attributes
-
     # The type of the resource, must always be `policy`
     attr_reader :type
 

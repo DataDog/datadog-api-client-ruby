@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Response containing information about a single restriction policy.
   class RestrictionPolicyResponse
     include BaseGenericModel
-
     # Restriction policy object.
     attr_reader :data
 

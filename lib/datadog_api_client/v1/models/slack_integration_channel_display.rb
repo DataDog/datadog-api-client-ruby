@@ -20,19 +20,14 @@ module DatadogAPIClient::V1
   # Configuration options for what is shown in an alert event message.
   class SlackIntegrationChannelDisplay
     include BaseGenericModel
-
     # Show the main body of the alert event.
     attr_accessor :message
-
     # Show interactive buttons to mute the alerting monitor.
     attr_accessor :mute_buttons
-
     # Show the list of @-handles in the alert event.
     attr_accessor :notified
-
     # Show the alert event's snapshot image.
     attr_accessor :snapshot
-
     # Show the scopes on which the monitor alerted.
     attr_accessor :tags
 

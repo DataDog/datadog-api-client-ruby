@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Relation attributes.
   class RelationAttributes
     include BaseGenericModel
-
     # Relation entity reference.
     attr_accessor :from
-
     # Relation entity reference.
     attr_accessor :to
-
     # Supported relation types.
     attr_accessor :type
 

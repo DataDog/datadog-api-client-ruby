@@ -20,10 +20,8 @@ module DatadogAPIClient::V1
   # Object listing all metric names stored by Datadog since a given time.
   class MetricsListResponse
     include BaseGenericModel
-
     # Time when the metrics were active, seconds since the Unix epoch.
     attr_accessor :from
-
     # List of metric names.
     attr_accessor :metrics
 

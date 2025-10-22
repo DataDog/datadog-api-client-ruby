@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Object description of a spans after being processed and stored by Datadog.
   class Span
     include BaseGenericModel
-
     # JSON object containing all span attributes and their associated values.
     attr_accessor :attributes
-
     # Unique ID of the Span.
     attr_accessor :id
-
     # Type of the span.
     attr_accessor :type
 

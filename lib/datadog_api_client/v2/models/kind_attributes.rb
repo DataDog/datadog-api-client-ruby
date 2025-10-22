@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Kind attributes.
   class KindAttributes
     include BaseGenericModel
-
     # Short description of the kind.
     attr_accessor :description
-
     # User friendly name of the kind.
     attr_accessor :display_name
-
     # The kind name.
     attr_reader :name
 

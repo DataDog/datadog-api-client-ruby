@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # A team that owns the issue.
   class IssueTeamReference
     include BaseGenericModel
-
     # Team identifier.
     attr_reader :id
-
     # Type of the object.
     attr_reader :type
 

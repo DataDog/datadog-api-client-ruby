@@ -20,55 +20,38 @@ module DatadogAPIClient::V1
   # Updated timeseries widget.
   class TimeseriesWidgetRequest
     include BaseGenericModel
-
     # The log query.
     attr_accessor :apm_query
-
     # The log query.
     attr_accessor :audit_query
-
     # Type of display to use for the request.
     attr_accessor :display_type
-
     # The log query.
     attr_accessor :event_query
-
     # List of formulas that operate on queries.
     attr_accessor :formulas
-
     # The log query.
     attr_accessor :log_query
-
     # Used to define expression aliases.
     attr_accessor :metadata
-
     # The log query.
     attr_accessor :network_query
-
     # Whether or not to display a second y-axis on the right.
     attr_accessor :on_right_yaxis
-
     # The process query to use in the widget.
     attr_accessor :process_query
-
     # The log query.
     attr_accessor :profile_metrics_query
-
     # Widget query.
     attr_accessor :q
-
     # List of queries that can be returned directly or used in formulas.
     attr_accessor :queries
-
     # Timeseries, scalar, or event list response. Event list response formats are supported by Geomap widgets.
     attr_accessor :response_format
-
     # The log query.
     attr_accessor :rum_query
-
     # The log query.
     attr_accessor :security_query
-
     # Define request widget style.
     attr_accessor :style
 

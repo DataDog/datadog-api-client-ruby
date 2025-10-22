@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Update a role.
   class RoleUpdateRequest
     include BaseGenericModel
-
     # Data related to the update of a role.
     attr_reader :data
 

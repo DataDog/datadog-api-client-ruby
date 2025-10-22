@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Request used to update an action connection.
   class UpdateActionConnectionRequest
     include BaseGenericModel
-
     # Data related to the connection update.
     attr_reader :data
 

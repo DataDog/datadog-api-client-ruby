@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Response object containing the available suppression rules.
   class SecurityMonitoringSuppressionsResponse
     include BaseGenericModel
-
     # A list of suppressions objects.
     attr_accessor :data
 

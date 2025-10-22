@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The definition of the `StatsigAPIKey` object.
   class StatsigAPIKey
     include BaseGenericModel
-
     # The `StatsigAPIKey` `api_key`.
     attr_reader :api_key
-
     # The definition of the `StatsigAPIKey` object.
     attr_reader :type
 

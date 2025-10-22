@@ -21,17 +21,13 @@ module DatadogAPIClient::V1
   # (for example, renotification).
   class SyntheticsTestOptionsMonitorOptions
     include BaseGenericModel
-
     # Message to include in the escalation notification.
     attr_accessor :escalation_message
-
     # The name of the preset for the notification for the monitor.
     attr_accessor :notification_preset_name
-
     # Time interval before renotifying if the test is still failing
     # (in minutes).
     attr_reader :renotify_interval
-
     # The number of times to renotify if the test is still failing.
     attr_accessor :renotify_occurrences
 

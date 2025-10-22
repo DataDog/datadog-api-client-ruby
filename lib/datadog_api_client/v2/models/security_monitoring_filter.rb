@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # The rule's suppression filter.
   class SecurityMonitoringFilter
     include BaseGenericModel
-
     # The type of filtering action.
     attr_accessor :action
-
     # Query for selecting logs to apply the filtering action.
     attr_accessor :query
 

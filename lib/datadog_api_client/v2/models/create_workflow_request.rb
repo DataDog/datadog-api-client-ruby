@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # A request object for creating a new workflow.
   class CreateWorkflowRequest
     include BaseGenericModel
-
     # Data related to the workflow.
     attr_reader :data
 

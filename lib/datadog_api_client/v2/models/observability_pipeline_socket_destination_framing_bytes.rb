@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Event data is not delimited at all.
   class ObservabilityPipelineSocketDestinationFramingBytes
     include BaseGenericModel
-
     # The definition of `ObservabilityPipelineSocketDestinationFramingBytesMethod` object.
     attr_reader :method
 

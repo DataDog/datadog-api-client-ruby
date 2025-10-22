@@ -20,49 +20,34 @@ module DatadogAPIClient::V1
   # The timeseries visualization allows you to display the evolution of one or more metrics, log events, or Indexed Spans over time.
   class TimeseriesWidgetDefinition
     include BaseGenericModel
-
     # List of custom links.
     attr_accessor :custom_links
-
     # List of widget events.
     attr_accessor :events
-
     # Columns displayed in the legend.
     attr_accessor :legend_columns
-
     # Layout of the legend.
     attr_accessor :legend_layout
-
     # Available legend sizes for a widget. Should be one of "0", "2", "4", "8", "16", or "auto".
     attr_accessor :legend_size
-
     # List of markers.
     attr_accessor :markers
-
     # List of timeseries widget requests.
     attr_reader :requests
-
     # Axis controls for the widget.
     attr_accessor :right_yaxis
-
     # (screenboard only) Show the legend for this widget.
     attr_accessor :show_legend
-
     # Time setting for the widget.
     attr_accessor :time
-
     # Title of your widget.
     attr_accessor :title
-
     # How to align the text on the widget.
     attr_accessor :title_align
-
     # Size of the title.
     attr_accessor :title_size
-
     # Type of the timeseries widget.
     attr_reader :type
-
     # Axis controls for the widget.
     attr_accessor :yaxis
 

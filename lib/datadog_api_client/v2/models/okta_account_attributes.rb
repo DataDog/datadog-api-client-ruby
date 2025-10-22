@@ -20,22 +20,16 @@ module DatadogAPIClient::V2
   # Attributes object for an Okta account.
   class OktaAccountAttributes
     include BaseGenericModel
-
     # The API key of the Okta account.
     attr_accessor :api_key
-
     # The authorization method for an Okta account.
     attr_reader :auth_method
-
     # The Client ID of an Okta app integration.
     attr_accessor :client_id
-
     # The client secret of an Okta app integration.
     attr_accessor :client_secret
-
     # The domain of the Okta account.
     attr_reader :domain
-
     # The name of the Okta account.
     attr_reader :name
 

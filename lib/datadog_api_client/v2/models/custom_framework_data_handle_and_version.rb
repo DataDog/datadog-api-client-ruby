@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Framework Handle and Version.
   class CustomFrameworkDataHandleAndVersion
     include BaseGenericModel
-
     # Framework Handle
     attr_accessor :handle
-
     # Framework Version
     attr_accessor :version
 

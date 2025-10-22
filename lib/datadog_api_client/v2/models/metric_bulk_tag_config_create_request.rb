@@ -20,7 +20,6 @@ module DatadogAPIClient::V2
   # Wrapper object for a single bulk tag configuration request.
   class MetricBulkTagConfigCreateRequest
     include BaseGenericModel
-
     # Request object to bulk configure tags for metrics matching the given prefix.
     attr_reader :data
 

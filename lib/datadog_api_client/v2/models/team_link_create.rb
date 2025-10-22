@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Team link create
   class TeamLinkCreate
     include BaseGenericModel
-
     # Team link attributes
     attr_reader :attributes
-
     # Team link type
     attr_reader :type
 

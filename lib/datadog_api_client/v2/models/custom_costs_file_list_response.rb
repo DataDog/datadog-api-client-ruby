@@ -20,10 +20,8 @@ module DatadogAPIClient::V2
   # Response for List Custom Costs files.
   class CustomCostsFileListResponse
     include BaseGenericModel
-
     # List of Custom Costs files.
     attr_accessor :data
-
     # Meta for the response from the List Custom Costs endpoints.
     attr_accessor :meta
 

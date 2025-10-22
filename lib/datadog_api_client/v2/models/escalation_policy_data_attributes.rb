@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Defines the main attributes of an escalation policy, such as its name and behavior on policy end.
   class EscalationPolicyDataAttributes
     include BaseGenericModel
-
     # Specifies the name of the escalation policy.
     attr_reader :name
-
     # Indicates whether the page is automatically resolved when the policy ends.
     attr_accessor :resolve_page_on_policy_end
-
     # Specifies how many times the escalation sequence is retried if there is no response.
     attr_accessor :retries
 

@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # Defines how to rename a field in log events.
   class ObservabilityPipelineRenameFieldsProcessorField
     include BaseGenericModel
-
     # The field name to assign the renamed value to.
     attr_reader :destination
-
     # Indicates whether the original field, that is received from the source, should be kept (`true`) or removed (`false`) after renaming.
     attr_reader :preserve_source
-
     # The original field name in the log event that should be renamed.
     attr_reader :source
 

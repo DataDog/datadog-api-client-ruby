@@ -20,10 +20,8 @@ module DatadogAPIClient::V1
   # Notebooks get all response.
   class NotebooksResponse
     include BaseGenericModel
-
     # List of notebook definitions.
     attr_accessor :data
-
     # Searches metadata returned by the API.
     attr_accessor :meta
 

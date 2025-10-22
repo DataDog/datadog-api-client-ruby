@@ -20,19 +20,14 @@ module DatadogAPIClient::V2
   # Object containing the attributes of the security filter to be created.
   class SecurityFilterCreateAttributes
     include BaseGenericModel
-
     # Exclusion filters to exclude some logs from the security filter.
     attr_reader :exclusion_filters
-
     # The filtered data type.
     attr_reader :filtered_data_type
-
     # Whether the security filter is enabled.
     attr_reader :is_enabled
-
     # The name of the security filter.
     attr_reader :name
-
     # The query of the security filter.
     attr_reader :query
 

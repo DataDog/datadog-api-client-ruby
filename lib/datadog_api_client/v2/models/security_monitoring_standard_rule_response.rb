@@ -20,88 +20,60 @@ module DatadogAPIClient::V2
   # Rule.
   class SecurityMonitoringStandardRuleResponse
     include BaseGenericModel
-
     # Calculated fields. Only allowed for scheduled rules - in other words, when schedulingOptions is also defined.
     attr_accessor :calculated_fields
-
     # Cases for generating signals.
     attr_accessor :cases
-
     # How to generate compliance signals. Useful for cloud_configuration rules only.
     attr_accessor :compliance_signal_options
-
     # When the rule was created, timestamp in milliseconds.
     attr_accessor :created_at
-
     # User ID of the user who created the rule.
     attr_accessor :creation_author_id
-
     # Custom/Overridden message for generated signals (used in case of Default rule update).
     attr_accessor :custom_message
-
     # Custom/Overridden name of the rule (used in case of Default rule update).
     attr_accessor :custom_name
-
     # Default Tags for default rules (included in tags)
     attr_accessor :default_tags
-
     # When the rule will be deprecated, timestamp in milliseconds.
     attr_accessor :deprecation_date
-
     # Additional queries to filter matched events before they are processed. This field is deprecated for log detection, signal correlation, and workload security rules.
     attr_accessor :filters
-
     # Additional grouping to perform on top of the existing groups in the query section. Must be a subset of the existing groups.
     attr_accessor :group_signals_by
-
     # Whether the notifications include the triggering group-by values in their title.
     attr_accessor :has_extended_title
-
     # The ID of the rule.
     attr_accessor :id
-
     # Whether the rule is included by default.
     attr_accessor :is_default
-
     # Whether the rule has been deleted.
     attr_accessor :is_deleted
-
     # Whether the rule is enabled.
     attr_accessor :is_enabled
-
     # Message for generated signals.
     attr_accessor :message
-
     # The name of the rule.
     attr_accessor :name
-
     # Options.
     attr_accessor :options
-
     # Queries for selecting logs which are part of the rule.
     attr_accessor :queries
-
     # Reference tables for the rule.
     attr_accessor :reference_tables
-
     # Options for scheduled rules. When this field is present, the rule runs based on the schedule. When absent, it runs real-time on ingested logs.
     attr_accessor :scheduling_options
-
     # Tags for generated signals.
     attr_accessor :tags
-
     # Cases for generating signals from third-party rules. Only available for third-party rules.
     attr_accessor :third_party_cases
-
     # The rule type.
     attr_accessor :type
-
     # User ID of the user who updated the rule.
     attr_accessor :update_author_id
-
     # The date the rule was last updated, in milliseconds.
     attr_accessor :updated_at
-
     # The version of the rule.
     attr_accessor :version
 

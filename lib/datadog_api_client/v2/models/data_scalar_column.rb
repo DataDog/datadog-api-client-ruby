@@ -20,16 +20,12 @@ module DatadogAPIClient::V2
   # A column containing the numerical results for a formula or query.
   class DataScalarColumn
     include BaseGenericModel
-
     # Metadata for the resulting numerical values.
     attr_accessor :meta
-
     # The name referencing the formula or query for this column.
     attr_accessor :name
-
     # The type of column present for numbers.
     attr_accessor :type
-
     # The array of numerical values for one formula or query.
     attr_accessor :values
 

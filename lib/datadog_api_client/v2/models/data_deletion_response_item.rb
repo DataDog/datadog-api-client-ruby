@@ -20,13 +20,10 @@ module DatadogAPIClient::V2
   # The created data deletion request information.
   class DataDeletionResponseItem
     include BaseGenericModel
-
     # Deletion attribute for data deletion response.
     attr_reader :attributes
-
     # The ID of the created data deletion request.
     attr_reader :id
-
     # The type of the request created.
     attr_reader :type
 

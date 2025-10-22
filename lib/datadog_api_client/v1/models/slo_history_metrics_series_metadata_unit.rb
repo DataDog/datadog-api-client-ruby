@@ -20,22 +20,16 @@ module DatadogAPIClient::V1
   # An Object of metric units.
   class SLOHistoryMetricsSeriesMetadataUnit
     include BaseGenericModel
-
     # The family of metric unit, for example `bytes` is the family for `kibibyte`, `byte`, and `bit` units.
     attr_accessor :family
-
     # The ID of the metric unit.
     attr_accessor :id
-
     # The unit of the metric, for instance `byte`.
     attr_accessor :name
-
     # The plural Unit of metric, for instance `bytes`.
     attr_accessor :plural
-
     # The scale factor of metric unit, for instance `1.0`.
     attr_accessor :scale_factor
-
     # A shorter and abbreviated version of the metric unit, for instance `B`.
     attr_accessor :short_name
 
