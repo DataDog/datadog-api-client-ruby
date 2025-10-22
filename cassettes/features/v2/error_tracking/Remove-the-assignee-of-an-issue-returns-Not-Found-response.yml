@@ -1,0 +1,21 @@
+http_interactions:
+- recorded_at: Fri, 17 Oct 2025 14:43:41 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/error-tracking/issues/67d80aa3-36ff-44b9-a694-c501a7591737/assignee
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"status":"404","title":"Not Found","detail":"issue not
+        found"}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 404
+      message: Not Found
+recorded_with: VCR 6.0.0
