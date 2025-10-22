@@ -1885,6 +1885,9 @@ ScenariosModelMappings = {
             "issue_id" => "String",
             "include" => "Array<GetIssueIncludeQueryParameterItem>",
     },
+    "v2.DeleteIssueAssignee" => {
+            "issue_id" => "String",
+    },
     "v2.UpdateIssueAssignee" => {
             "issue_id" => "String",
             "body" => "IssueUpdateAssigneeRequest",
