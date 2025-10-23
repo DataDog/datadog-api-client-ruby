@@ -6,7 +6,7 @@ require 'date'
 require 'time'
 
 module {{ module_name }}::{{ version|upper }}
-  # {{ model.description.rstrip()|replace('\n', '\n# ')|indent(2) }}
+  # {{ (model.description or "").rstrip()|replace('\n', '\n# ')|indent(2) }}
 {%- if model.deprecated %}
   #
   # @deprecated This model is deprecated.

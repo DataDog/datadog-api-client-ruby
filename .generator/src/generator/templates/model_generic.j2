@@ -16,7 +16,7 @@
      or
       definition.enum is defined #}
 
-    {{ definition.description|block_comment|indent(4) }}
+    {{ (definition.description or "")|block_comment|indent(4) }}
     {%- if has_validation %}
     attr_reader :{{ attr|attribute_name }}
     {%- else %}
