@@ -838,6 +838,19 @@ ScenariosModelMappings = {
             "user_handle" => "String",
             "body" => "User",
     },
+    "v2.ListFleetDeployments" => {
+            "page_size" => "Integer",
+            "page_offset" => "Integer",
+    },
+    "v2.CreateFleetDeploymentConfigure" => {
+            "body" => "FleetDeploymentConfigureCreateRequest",
+    },
+    "v2.GetFleetDeployment" => {
+            "deployment_id" => "String",
+    },
+    "v2.CancelFleetDeployment" => {
+            "deployment_id" => "String",
+    },
     "v2.CreateDatastore" => {
             "body" => "CreateAppsDatastoreRequest",
     },
