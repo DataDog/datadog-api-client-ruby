@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Incident integration metadata for the Microsoft Teams integration.
   class MSTeamsIntegrationMetadata
     include BaseGenericModel
+
     # Array of Microsoft Teams in this integration metadata.
     attr_reader :teams
 

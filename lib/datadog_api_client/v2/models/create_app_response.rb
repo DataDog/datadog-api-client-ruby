@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # The response object after a new app is successfully created, with the app ID.
   class CreateAppResponse
     include BaseGenericModel
+
     # The data object containing the app ID.
     attr_accessor :data
 

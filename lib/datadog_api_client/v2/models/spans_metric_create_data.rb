@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # The new span-based metric properties.
   class SpansMetricCreateData
     include BaseGenericModel
+
     # The object describing the Datadog span-based metric to create.
     attr_reader :attributes
+
     # The name of the span-based metric.
     attr_reader :id
+
     # The type of resource. The value should always be spans_metrics.
     attr_reader :type
 

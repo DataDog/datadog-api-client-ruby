@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Basic access authentication.
   class CustomDestinationElasticsearchDestinationAuth
     include BaseGenericModel
+
     # The password of the authentication. This field is not returned by the API.
     attr_reader :password
+
     # The username of the authentication. This field is not returned by the API.
     attr_reader :username
 

@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Contains the the pipeline configuration.
   class ObservabilityPipelineSpecData
     include BaseGenericModel
+
     # Defines the pipeline’s name and its components (sources, processors, and destinations).
     attr_reader :attributes
+
     # The resource type identifier. For pipeline resources, this should always be set to `pipelines`.
     attr_reader :type
 

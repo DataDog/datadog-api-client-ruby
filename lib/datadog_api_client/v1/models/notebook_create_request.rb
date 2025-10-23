@@ -20,6 +20,7 @@ module DatadogAPIClient::V1
   # The description of a notebook create request.
   class NotebookCreateRequest
     include BaseGenericModel
+
     # The data for a notebook create request.
     attr_reader :data
 

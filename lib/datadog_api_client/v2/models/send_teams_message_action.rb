@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # Sends a message to a Microsoft Teams channel.
   class SendTeamsMessageAction
     include BaseGenericModel
+
     # The channel ID.
     attr_reader :channel
+
     # The team ID.
     attr_reader :team
+
     # The tenant ID.
     attr_reader :tenant
+
     # Indicates that the action is a send Microsoft Teams message action.
     attr_reader :type
 

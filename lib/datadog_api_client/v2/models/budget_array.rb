@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # An array of budgets.
   class BudgetArray
     include BaseGenericModel
+
     # The `BudgetArray` `data`.
     attr_accessor :data
 

@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Pagination and findings count information.
   class ListFindingsPage
     include BaseGenericModel
+
     # The cursor used to paginate requests.
     attr_accessor :cursor
+
     # The total count of findings after the filter has been applied.
     attr_accessor :total_filtered_count
 

@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Your delegate service account response data.
   class GCPSTSDelegateAccountResponse
     include BaseGenericModel
+
     # Datadog principal service account info.
     attr_accessor :data
 

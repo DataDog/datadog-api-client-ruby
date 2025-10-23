@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # An individual timeseries metrics query.
   class MetricsTimeseriesQuery
     include BaseGenericModel
+
     # A data source that is powered by the Metrics platform.
     attr_reader :data_source
+
     # The variable name for use in formulas.
     attr_accessor :name
+
     # A classic metrics query string.
     attr_reader :query
 

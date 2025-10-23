@@ -20,14 +20,19 @@ module DatadogAPIClient::V2
   # The metadata of the data deletion response.
   class DataDeletionResponseMeta
     include BaseGenericModel
+
     # The total deletion requests created by product.
     attr_accessor :count_product
+
     # The total deletion requests created by status.
     attr_accessor :count_status
+
     # The next page when searching deletion requests created in the current organization.
     attr_accessor :next_page
+
     # The product of the deletion request.
     attr_accessor :product
+
     # The status of the executed request.
     attr_accessor :request_status
 

@@ -20,6 +20,7 @@ module DatadogAPIClient::V1
   # An API key with its associated metadata.
   class ApiKeyResponse
     include BaseGenericModel
+
     # Datadog API key.
     attr_accessor :api_key
 

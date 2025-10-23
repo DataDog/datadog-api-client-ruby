@@ -20,24 +20,34 @@ module DatadogAPIClient::V1
   # Check status shows the current status or number of results for any check performed.
   class CheckStatusWidgetDefinition
     include BaseGenericModel
+
     # Name of the check to use in the widget.
     attr_reader :check
+
     # Group reporting a single check.
     attr_accessor :group
+
     # List of tag prefixes to group by in the case of a cluster check.
     attr_accessor :group_by
+
     # The kind of grouping to use.
     attr_reader :grouping
+
     # List of tags used to filter the groups reporting a cluster check.
     attr_accessor :tags
+
     # Time setting for the widget.
     attr_accessor :time
+
     # Title of the widget.
     attr_accessor :title
+
     # How to align the text on the widget.
     attr_accessor :title_align
+
     # Size of the title.
     attr_accessor :title_size
+
     # Type of the check status widget.
     attr_reader :type
 

@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Top-level schema representing a pipeline.
   class ObservabilityPipeline
     include BaseGenericModel
+
     # Contains the pipeline’s ID, type, and configuration attributes.
     attr_reader :data
 

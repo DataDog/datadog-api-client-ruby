@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Test the rule queries of a rule (rule property is ignored when applied to an existing rule)
   class SecurityMonitoringRuleTestRequest
     include BaseGenericModel
+
     # Test a rule.
     attr_accessor :rule
+
     # Data payloads used to test rules query with the expected result.
     attr_accessor :rule_query_payloads
 

@@ -20,10 +20,13 @@ module DatadogAPIClient::V1
   # Configuration for a recurrence set on the monitor options for custom schedule.
   class MonitorOptionsCustomScheduleRecurrence
     include BaseGenericModel
+
     # Defines the recurrence rule (RRULE) for a given schedule.
     attr_accessor :rrule
+
     # Defines the start date and time of the recurring schedule.
     attr_accessor :start
+
     # Defines the timezone the schedule runs on.
     attr_accessor :timezone
 

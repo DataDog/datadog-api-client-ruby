@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Attributes specifying which datastore item to delete by its primary key.
   class DeleteAppsDatastoreItemRequestDataAttributes
     include BaseGenericModel
+
     # Optional unique identifier of the item to delete.
     attr_accessor :id
+
     # The primary key value that identifies the item to delete. Cannot exceed 256 characters.
     attr_reader :item_key
 

@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Response returned upon successful workflow instance creation.
   class WorkflowInstanceCreateResponse
     include BaseGenericModel
+
     # Data about the created workflow instance.
     attr_accessor :data
 

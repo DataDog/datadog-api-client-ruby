@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # A data transformer, which is custom JavaScript code that executes and transforms data when its inputs change.
   class DataTransform
     include BaseGenericModel
+
     # The ID of the data transformer.
     attr_reader :id
+
     # A unique identifier for this data transformer. This name is also used to access the transformer's result throughout the app.
     attr_reader :name
+
     # The properties of the data transformer.
     attr_reader :properties
+
     # The data transform type.
     attr_reader :type
 

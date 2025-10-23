@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # The rule to count updatable events. Is only set if `event_type` is `sessions` or `views`.
   class RumMetricUniqueness
     include BaseGenericModel
+
     # When to count updatable events. `match` when the event is first seen, or `end` when the event is complete.
     attr_reader :_when
 

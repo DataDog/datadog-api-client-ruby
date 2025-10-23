@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # The object describing the Datadog span-based metric to create.
   class SpansMetricCreateAttributes
     include BaseGenericModel
+
     # The compute rule to compute the span-based metric.
     attr_reader :compute
+
     # The span-based metric filter. Spans matching this filter will be aggregated in this metric.
     attr_accessor :filter
+
     # The rules for the group by.
     attr_accessor :group_by
 

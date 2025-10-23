@@ -20,14 +20,19 @@ module DatadogAPIClient::V1
   # Operation that finds an object in a `source` array using a `filter`, and then extracts a specific value into the `target` attribute.
   class LogsArrayProcessorOperationSelect
     include BaseGenericModel
+
     # Filter condition expressed as `key:value` used to find the matching element.
     attr_reader :filter
+
     # Attribute path of the array to search into.
     attr_reader :source
+
     # Attribute that receives the extracted value.
     attr_reader :target
+
     # Operation type.
     attr_reader :type
+
     # Key of the value to extract from the matching element.
     attr_reader :value_to_extract
 

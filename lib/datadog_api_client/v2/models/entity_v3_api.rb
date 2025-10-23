@@ -20,18 +20,25 @@ module DatadogAPIClient::V2
   # Schema for API entities.
   class EntityV3API
     include BaseGenericModel
+
     # The version of the schema data that was used to populate this entity's data. This could be via the API, Terraform, or YAML file in a repository. The field is known as schema-version in the previous version.
     attr_reader :api_version
+
     # Datadog product integrations for the API entity.
     attr_accessor :datadog
+
     # Custom extensions. This is the free-formed field to send client-side metadata. No Datadog features are affected by this field.
     attr_accessor :extensions
+
     # A base schema for defining third-party integrations.
     attr_accessor :integrations
+
     # The definition of Entity V3 API Kind object.
     attr_reader :kind
+
     # The definition of Entity V3 Metadata object.
     attr_reader :metadata
+
     # The definition of Entity V3 API Spec object.
     attr_accessor :spec
 

@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Case update title
   class CaseUpdateTitle
     include BaseGenericModel
+
     # Case update title attributes
     attr_reader :attributes
+
     # Case resource type
     attr_reader :type
 

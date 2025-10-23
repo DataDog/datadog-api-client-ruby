@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Attributes for an on-call shift.
   class ShiftDataAttributes
     include BaseGenericModel
+
     # The end time of the shift.
     attr_accessor :_end
+
     # The start time of the shift.
     attr_accessor :start
 

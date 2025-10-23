@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # Basic information about a service.
   class ServiceDefinitionV1Info
     include BaseGenericModel
+
     # Unique identifier of the service. Must be unique across all services and is used to match with a service in Datadog.
     attr_reader :dd_service
+
     # A short description of the service.
     attr_accessor :description
+
     # A friendly name of the service.
     attr_accessor :display_name
+
     # Service tier.
     attr_accessor :service_tier
 

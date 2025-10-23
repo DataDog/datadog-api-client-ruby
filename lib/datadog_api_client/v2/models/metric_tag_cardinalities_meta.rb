@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Response metadata object.
   class MetricTagCardinalitiesMeta
     include BaseGenericModel
+
     # The name of metric for which the tag cardinalities are returned.
     # This matches the metric name provided in the request.
     attr_accessor :metric_name

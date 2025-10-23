@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # Anonymous assignee entity.
   class IncidentTodoAnonymousAssignee
     include BaseGenericModel
+
     # URL for assignee's icon.
     attr_reader :icon
+
     # Anonymous assignee's ID.
     attr_reader :id
+
     # Assignee's name.
     attr_reader :name
+
     # The source of the anonymous assignee.
     attr_reader :source
 

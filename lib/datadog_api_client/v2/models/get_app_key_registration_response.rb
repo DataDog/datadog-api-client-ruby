@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # The response object after getting an app key registration.
   class GetAppKeyRegistrationResponse
     include BaseGenericModel
+
     # Data related to the app key registration.
     attr_accessor :data
 

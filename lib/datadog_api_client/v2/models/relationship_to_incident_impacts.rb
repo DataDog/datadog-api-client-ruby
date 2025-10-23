@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Relationship to impacts.
   class RelationshipToIncidentImpacts
     include BaseGenericModel
+
     # An array of incident impacts.
     attr_reader :data
 

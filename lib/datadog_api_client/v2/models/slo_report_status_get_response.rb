@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # The SLO report status response.
   class SLOReportStatusGetResponse
     include BaseGenericModel
+
     # The data portion of the SLO report status response.
     attr_accessor :data
 

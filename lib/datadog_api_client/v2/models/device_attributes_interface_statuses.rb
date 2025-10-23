@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # Count of the device interfaces by status
   class DeviceAttributesInterfaceStatuses
     include BaseGenericModel
+
     # The number of interfaces that are down
     attr_accessor :down
+
     # The number of interfaces that are off
     attr_accessor :off
+
     # The number of interfaces that are up
     attr_accessor :up
+
     # The number of interfaces that are in a warning state
     attr_accessor :warning
 

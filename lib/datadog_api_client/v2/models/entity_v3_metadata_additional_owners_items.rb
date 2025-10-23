@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # The definition of Entity V3 Metadata Additional Owners Items object.
   class EntityV3MetadataAdditionalOwnersItems
     include BaseGenericModel
+
     # Team name.
     attr_reader :name
+
     # Team type.
     attr_accessor :type
 

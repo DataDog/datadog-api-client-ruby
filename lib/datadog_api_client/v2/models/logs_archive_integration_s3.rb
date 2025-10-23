@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # The S3 Archive's integration destination.
   class LogsArchiveIntegrationS3
     include BaseGenericModel
+
     # The account ID for the integration.
     attr_reader :account_id
+
     # The path of the integration.
     attr_reader :role_name
 

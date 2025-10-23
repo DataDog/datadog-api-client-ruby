@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Case type create request
   class CaseTypeCreateRequest
     include BaseGenericModel
+
     # Case type
     attr_reader :data
 

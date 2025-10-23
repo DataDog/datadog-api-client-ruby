@@ -20,12 +20,16 @@ module DatadogAPIClient::V1
   # Number of netflow events indexed for each hour for a given organization.
   class UsageNetworkFlowsHour
     include BaseGenericModel
+
     # The hour for the usage.
     attr_accessor :hour
+
     # Contains the number of netflow events indexed.
     attr_accessor :indexed_events_count
+
     # The organization name.
     attr_accessor :org_name
+
     # The organization public ID.
     attr_accessor :public_id
 

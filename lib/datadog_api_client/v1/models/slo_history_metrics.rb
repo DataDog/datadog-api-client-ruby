@@ -22,22 +22,30 @@ module DatadogAPIClient::V1
   # This is not included in responses for `monitor` based SLOs.
   class SLOHistoryMetrics
     include BaseGenericModel
+
     # A representation of `metric` based SLO timeseries for the provided queries.
     # This is the same response type from `batch_query` endpoint.
     attr_reader :denominator
+
     # The aggregated query interval for the series data. It's implicit based on the query time window.
     attr_reader :interval
+
     # Optional message if there are specific query issues/warnings.
     attr_accessor :message
+
     # A representation of `metric` based SLO timeseries for the provided queries.
     # This is the same response type from `batch_query` endpoint.
     attr_reader :numerator
+
     # The combined numerator and denominator query CSV.
     attr_reader :query
+
     # The series result type. This mimics `batch_query` response type.
     attr_reader :res_type
+
     # The series response version type. This mimics `batch_query` response type.
     attr_reader :resp_version
+
     # An array of query timestamps in EPOCH milliseconds.
     attr_reader :times
 

@@ -20,8 +20,10 @@ module DatadogAPIClient::V1
   # Synthetic location.
   class SyntheticsTriggerCITestLocation
     include BaseGenericModel
+
     # Unique identifier of the location.
     attr_accessor :id
+
     # Name of the location.
     attr_accessor :name
 

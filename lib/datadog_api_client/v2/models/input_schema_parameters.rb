@@ -20,14 +20,19 @@ module DatadogAPIClient::V2
   # The definition of `InputSchemaParameters` object.
   class InputSchemaParameters
     include BaseGenericModel
+
     # The `InputSchemaParameters` `defaultValue`.
     attr_accessor :default_value
+
     # The `InputSchemaParameters` `description`.
     attr_accessor :description
+
     # The `InputSchemaParameters` `label`.
     attr_accessor :label
+
     # The `InputSchemaParameters` `name`.
     attr_reader :name
+
     # The definition of `InputSchemaParametersType` object.
     attr_reader :type
 

@@ -20,13 +20,17 @@ module DatadogAPIClient::V2
   # A compute rule to compute metrics or timeseries.
   class SpansCompute
     include BaseGenericModel
+
     # An aggregation function.
     attr_reader :aggregation
+
     # The time buckets' size (only used for type=timeseries)
     # Defaults to a resolution of 150 points.
     attr_accessor :interval
+
     # The metric to use.
     attr_accessor :metric
+
     # The type of compute.
     attr_accessor :type
 

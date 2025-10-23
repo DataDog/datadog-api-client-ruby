@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Sampling configurations for the Scanning Group.
   class SensitiveDataScannerSamplings
     include BaseGenericModel
+
     # Datadog product onto which Sensitive Data Scanner can be activated.
     attr_accessor :product
+
     # Rate at which data in product type will be scanned, as a percentage.
     attr_reader :rate
 

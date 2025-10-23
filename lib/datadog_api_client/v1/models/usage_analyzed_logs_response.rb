@@ -20,6 +20,7 @@ module DatadogAPIClient::V1
   # A response containing the number of analyzed logs for each hour for a given organization.
   class UsageAnalyzedLogsResponse
     include BaseGenericModel
+
     # Get hourly usage for analyzed logs.
     attr_accessor :usage
 

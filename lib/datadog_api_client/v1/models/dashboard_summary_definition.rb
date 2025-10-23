@@ -20,24 +20,33 @@ module DatadogAPIClient::V1
   # Dashboard definition.
   class DashboardSummaryDefinition
     include BaseGenericModel
+
     # Identifier of the dashboard author.
     attr_accessor :author_handle
+
     # Creation date of the dashboard.
     attr_accessor :created_at
+
     # Description of the dashboard.
     attr_accessor :description
+
     # Dashboard identifier.
     attr_accessor :id
+
     # Whether this dashboard is read-only. If True, only the author and admins can make changes to it.
     #
     # This property is deprecated; please use the [Restriction Policies API](https://docs.datadoghq.com/api/latest/restriction-policies/) instead to manage write authorization for individual dashboards.
     attr_accessor :is_read_only
+
     # Layout type of the dashboard.
     attr_accessor :layout_type
+
     # Modification date of the dashboard.
     attr_accessor :modified_at
+
     # Title of the dashboard.
     attr_accessor :title
+
     # URL of the dashboard.
     attr_accessor :url
 

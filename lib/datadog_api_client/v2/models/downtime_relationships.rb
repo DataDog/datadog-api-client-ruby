@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # All relationships associated with downtime.
   class DowntimeRelationships
     include BaseGenericModel
+
     # The user who created the downtime.
     attr_accessor :created_by
+
     # The monitor identified by the downtime.
     attr_accessor :monitor
 

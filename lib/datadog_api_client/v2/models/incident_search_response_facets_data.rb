@@ -20,26 +20,37 @@ module DatadogAPIClient::V2
   # Facet data for incidents returned by a search query.
   class IncidentSearchResponseFacetsData
     include BaseGenericModel
+
     # Facet data for incident commander users.
     attr_accessor :commander
+
     # Facet data for incident creator users.
     attr_accessor :created_by
+
     # Facet data for incident property fields.
     attr_accessor :fields
+
     # Facet data for incident impact attributes.
     attr_accessor :impact
+
     # Facet data for incident last modified by users.
     attr_accessor :last_modified_by
+
     # Facet data for incident postmortem existence.
     attr_accessor :postmortem
+
     # Facet data for incident responder users.
     attr_accessor :responder
+
     # Facet data for incident severity attributes.
     attr_accessor :severity
+
     # Facet data for incident state attributes.
     attr_accessor :state
+
     # Facet data for incident time to repair metrics.
     attr_accessor :time_to_repair
+
     # Facet data for incident time to resolve metrics.
     attr_accessor :time_to_resolve
 

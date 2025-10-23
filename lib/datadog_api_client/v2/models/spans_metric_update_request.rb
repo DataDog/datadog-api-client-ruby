@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # The new span-based metric body.
   class SpansMetricUpdateRequest
     include BaseGenericModel
+
     # The new span-based metric properties.
     attr_reader :data
 

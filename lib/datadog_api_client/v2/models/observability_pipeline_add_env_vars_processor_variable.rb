@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Defines a mapping between an environment variable and a log field.
   class ObservabilityPipelineAddEnvVarsProcessorVariable
     include BaseGenericModel
+
     # The target field in the log event.
     attr_reader :field
+
     # The name of the environment variable to read.
     attr_reader :name
 

@@ -20,35 +20,49 @@ module DatadogAPIClient::V1
   # Holds search results.
   class MonitorSearchResult
     include BaseGenericModel
+
     # Classification of the monitor.
     attr_accessor :classification
+
     # Object describing the creator of the shared element.
     attr_accessor :creator
+
     # ID of the monitor.
     attr_accessor :id
+
     # Latest timestamp the monitor triggered.
     attr_accessor :last_triggered_ts
+
     # Metrics used by the monitor.
     attr_accessor :metrics
+
     # The monitor name.
     attr_accessor :name
+
     # The notification triggered by the monitor.
     attr_accessor :notifications
+
     # The ID of the organization.
     attr_accessor :org_id
+
     # Quality issues detected with the monitor.
     attr_accessor :quality_issues
+
     # The monitor query.
     attr_accessor :query
+
     # The scope(s) to which the downtime applies, for example `host:app2`.
     # Provide multiple scopes as a comma-separated list, for example `env:dev,env:prod`.
     # The resulting downtime applies to sources that matches ALL provided scopes
     # (that is `env:dev AND env:prod`), NOT any of them.
     attr_accessor :scopes
+
     # The different states your monitor can be in.
     attr_accessor :status
+
     # Tags associated with the monitor.
     attr_accessor :tags
+
     # The type of the monitor. For more information about `type`, see the [monitor options](https://docs.datadoghq.com/monitors/guide/monitor_api_options/) docs.
     attr_accessor :type
 

@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Relationship to project object
   class ProjectRelationshipData
     include BaseGenericModel
+
     # A unique identifier that represents the project
     attr_reader :id
+
     # Project resource type
     attr_reader :type
 

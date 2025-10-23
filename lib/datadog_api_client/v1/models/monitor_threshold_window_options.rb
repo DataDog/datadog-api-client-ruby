@@ -20,8 +20,10 @@ module DatadogAPIClient::V1
   # Alerting time window options.
   class MonitorThresholdWindowOptions
     include BaseGenericModel
+
     # Describes how long an anomalous metric must be normal before the alert recovers.
     attr_accessor :recovery_window
+
     # Describes how long a metric must be anomalous before an alert triggers.
     attr_accessor :trigger_window
 

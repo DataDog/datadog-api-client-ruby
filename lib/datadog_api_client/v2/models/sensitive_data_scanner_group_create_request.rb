@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Create group request.
   class SensitiveDataScannerGroupCreateRequest
     include BaseGenericModel
+
     # Data related to the creation of a group.
     attr_accessor :data
+
     # Meta payload containing information about the API.
     attr_accessor :meta
 

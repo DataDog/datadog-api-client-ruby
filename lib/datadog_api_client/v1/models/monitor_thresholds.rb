@@ -20,16 +20,22 @@ module DatadogAPIClient::V1
   # List of the different monitor threshold available.
   class MonitorThresholds
     include BaseGenericModel
+
     # The monitor `CRITICAL` threshold.
     attr_accessor :critical
+
     # The monitor `CRITICAL` recovery threshold.
     attr_accessor :critical_recovery
+
     # The monitor `OK` threshold.
     attr_accessor :ok
+
     # The monitor UNKNOWN threshold.
     attr_accessor :unknown
+
     # The monitor `WARNING` threshold.
     attr_accessor :warning
+
     # The monitor `WARNING` recovery threshold.
     attr_accessor :warning_recovery
 

@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # List tags response.
   class ListTagsResponse
     include BaseGenericModel
+
     # The list tags response data.
     attr_accessor :data
 

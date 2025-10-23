@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Action to perform when a signal is triggered. Only available for Application Security rule type.
   class SecurityMonitoringRuleCaseAction
     include BaseGenericModel
+
     # Options for the rule action
     attr_accessor :options
+
     # The action type.
     attr_accessor :type
 

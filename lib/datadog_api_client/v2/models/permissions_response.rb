@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Payload with API-returned permissions.
   class PermissionsResponse
     include BaseGenericModel
+
     # Array of permissions.
     attr_accessor :data
 

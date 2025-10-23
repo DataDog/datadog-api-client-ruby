@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Response for Uploaded Custom Costs files.
   class CustomCostsFileUploadResponse
     include BaseGenericModel
+
     # JSON API format for a Custom Costs file.
     attr_accessor :data
+
     # Meta for the response from the Upload Custom Costs endpoints.
     attr_accessor :meta
 

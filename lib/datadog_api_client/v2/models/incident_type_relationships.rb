@@ -20,14 +20,19 @@ module DatadogAPIClient::V2
   # The incident type's resource relationships.
   class IncidentTypeRelationships
     include BaseGenericModel
+
     # Relationship to user.
     attr_accessor :created_by_user
+
     # A reference to a Google Meet Configuration resource.
     attr_accessor :google_meet_configuration
+
     # Relationship to user.
     attr_accessor :last_modified_by_user
+
     # A reference to a Microsoft Teams Configuration resource.
     attr_accessor :microsoft_teams_configuration
+
     # A reference to a Zoom configuration resource.
     attr_accessor :zoom_configuration
 

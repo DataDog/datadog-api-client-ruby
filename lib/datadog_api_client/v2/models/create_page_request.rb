@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Full request to trigger an On-Call Page.
   class CreatePageRequest
     include BaseGenericModel
+
     # The main request body, including attributes and resource type.
     attr_accessor :data
 

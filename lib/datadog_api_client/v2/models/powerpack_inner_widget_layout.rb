@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # Powerpack inner widget layout.
   class PowerpackInnerWidgetLayout
     include BaseGenericModel
+
     # The height of the widget. Should be a non-negative integer.
     attr_reader :height
+
     # The width of the widget. Should be a non-negative integer.
     attr_reader :width
+
     # The position of the widget on the x (horizontal) axis. Should be a non-negative integer.
     attr_reader :x
+
     # The position of the widget on the y (vertical) axis. Should be a non-negative integer.
     attr_reader :y
 

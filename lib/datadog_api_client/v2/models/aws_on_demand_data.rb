@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Single AWS on demand task.
   class AwsOnDemandData
     include BaseGenericModel
+
     # Attributes for the AWS on demand task.
     attr_accessor :attributes
+
     # The UUID of the task.
     attr_accessor :id
+
     # The type of the on demand task. The value should always be `aws_resource`.
     attr_accessor :type
 

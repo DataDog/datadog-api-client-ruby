@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Monitor user template data.
   class MonitorUserTemplateCreateData
     include BaseGenericModel
+
     # Attributes for a monitor user template.
     attr_reader :attributes
+
     # Monitor user template resource type.
     attr_reader :type
 

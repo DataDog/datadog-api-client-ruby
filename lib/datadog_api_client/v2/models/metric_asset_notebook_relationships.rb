@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # An object containing the list of notebooks that can be referenced in the `included` data.
   class MetricAssetNotebookRelationships
     include BaseGenericModel
+
     # A list of notebooks that can be referenced in the `included` data.
     attr_accessor :data
 

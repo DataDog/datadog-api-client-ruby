@@ -20,14 +20,19 @@ module DatadogAPIClient::V2
   # The `rsyslog` destination forwards logs to an external `rsyslog` server over TCP or UDP using the syslog protocol.
   class ObservabilityPipelineRsyslogDestination
     include BaseGenericModel
+
     # The unique identifier for this component.
     attr_reader :id
+
     # A list of component IDs whose output is used as the `input` for this component.
     attr_reader :inputs
+
     # Optional socket keepalive duration in milliseconds.
     attr_reader :keepalive
+
     # Configuration for enabling TLS encryption between the pipeline component and external services.
     attr_accessor :tls
+
     # The destination type. The value should always be `rsyslog`.
     attr_reader :type
 

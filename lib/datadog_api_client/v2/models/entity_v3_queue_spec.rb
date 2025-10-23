@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # The definition of Entity V3 Queue Spec object.
   class EntityV3QueueSpec
     include BaseGenericModel
+
     # A list of components the queue is a part of
     attr_accessor :component_of
+
     # The lifecycle state of the queue.
     attr_reader :lifecycle
+
     # The importance of the queue.
     attr_reader :tier
+
     # The type of queue.
     attr_accessor :type
 

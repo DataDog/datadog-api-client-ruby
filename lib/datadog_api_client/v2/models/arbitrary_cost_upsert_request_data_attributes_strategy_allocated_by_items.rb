@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # The definition of `ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByItems` object.
   class ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByItems
     include BaseGenericModel
+
     # The `items` `allocated_tags`.
     attr_reader :allocated_tags
+
     # The `items` `percentage`. The numeric value format should be a 32bit float value.
     attr_reader :percentage
 

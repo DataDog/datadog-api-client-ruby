@@ -20,14 +20,19 @@ module DatadogAPIClient::V2
   # The definition of `HTTPTokenAuthUpdate` object.
   class HTTPTokenAuthUpdate
     include BaseGenericModel
+
     # The definition of `HTTPBody` object.
     attr_accessor :body
+
     # The `HTTPTokenAuthUpdate` `headers`.
     attr_accessor :headers
+
     # The `HTTPTokenAuthUpdate` `tokens`.
     attr_accessor :tokens
+
     # The definition of `HTTPTokenAuthType` object.
     attr_reader :type
+
     # The `HTTPTokenAuthUpdate` `url_parameters`.
     attr_accessor :url_parameters
 

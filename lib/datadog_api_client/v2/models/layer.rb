@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # Encapsulates a layer resource, holding attributes like rotation details, plus relationships to the members covering that layer.
   class Layer
     include BaseGenericModel
+
     # Describes key properties of a Layer, including rotation details, name, start/end times, and any restrictions.
     attr_accessor :attributes
+
     # A unique identifier for this layer.
     attr_accessor :id
+
     # Holds references to objects related to the Layer entity, such as its members.
     attr_accessor :relationships
+
     # Layers resource type.
     attr_reader :type
 

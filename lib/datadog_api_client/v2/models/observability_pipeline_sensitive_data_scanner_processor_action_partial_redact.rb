@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Configuration for partially redacting matched sensitive data.
   class ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedact
     include BaseGenericModel
+
     # Action type that redacts part of the sensitive data while preserving a configurable number of characters, typically used for masking purposes (e.g., show last 4 digits of a credit card).
     attr_reader :action
+
     # Controls how partial redaction is applied, including character count and direction.
     attr_reader :options
 

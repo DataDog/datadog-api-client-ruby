@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # The definition of `CreateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems` object.
   class CreateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems
     include BaseGenericModel
+
     # The `items` `input_column`.
     attr_reader :input_column
+
     # The `items` `output_key`.
     attr_reader :output_key
 

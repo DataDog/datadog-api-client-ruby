@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # The monitor identified by the downtime.
   class DowntimeRelationshipsMonitor
     include BaseGenericModel
+
     # Data for the monitor.
     attr_accessor :data
 

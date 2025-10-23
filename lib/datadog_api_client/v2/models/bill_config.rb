@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # Bill config.
   class BillConfig
     include BaseGenericModel
+
     # The name of the configured Azure Export.
     attr_reader :export_name
+
     # The path where the Azure Export is saved.
     attr_reader :export_path
+
     # The name of the storage account where the Azure Export is saved.
     attr_reader :storage_account
+
     # The name of the storage container where the Azure Export is saved.
     attr_reader :storage_container
 

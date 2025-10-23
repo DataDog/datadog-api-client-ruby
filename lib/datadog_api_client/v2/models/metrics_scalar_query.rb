@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # An individual scalar metrics query.
   class MetricsScalarQuery
     include BaseGenericModel
+
     # The type of aggregation that can be performed on metrics-based queries.
     attr_reader :aggregator
+
     # A data source that is powered by the Metrics platform.
     attr_reader :data_source
+
     # The variable name for use in formulas.
     attr_accessor :name
+
     # A classic metrics query string.
     attr_reader :query
 

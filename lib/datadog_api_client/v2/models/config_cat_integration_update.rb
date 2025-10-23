@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # The definition of the `ConfigCatIntegrationUpdate` object.
   class ConfigCatIntegrationUpdate
     include BaseGenericModel
+
     # The definition of the `ConfigCatCredentialsUpdate` object.
     attr_accessor :credentials
+
     # The definition of the `ConfigCatIntegrationType` object.
     attr_reader :type
 

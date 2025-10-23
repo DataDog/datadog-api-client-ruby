@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Paging attributes.
   class RUMResponsePage
     include BaseGenericModel
+
     # The cursor to use to get the next results, if any. To make the next request, use the same parameters with the addition of `page[cursor]`.
     attr_accessor :after
 

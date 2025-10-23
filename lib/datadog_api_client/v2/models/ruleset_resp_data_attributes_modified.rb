@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # The definition of `RulesetRespDataAttributesModified` object.
   class RulesetRespDataAttributesModified
     include BaseGenericModel
+
     # The `modified` `nanos`.
     attr_reader :nanos
+
     # The `modified` `seconds`.
     attr_accessor :seconds
 

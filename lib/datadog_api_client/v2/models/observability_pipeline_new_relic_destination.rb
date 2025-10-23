@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # The `new_relic` destination sends logs to the New Relic platform.
   class ObservabilityPipelineNewRelicDestination
     include BaseGenericModel
+
     # The unique identifier for this component.
     attr_reader :id
+
     # A list of component IDs whose output is used as the `input` for this component.
     attr_reader :inputs
+
     # The New Relic region.
     attr_reader :region
+
     # The destination type. The value should always be `new_relic`.
     attr_reader :type
 

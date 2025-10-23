@@ -20,16 +20,22 @@ module DatadogAPIClient::V2
   # Metadata about the latest failed test run of the flaky test.
   class FlakyTestRunMetadata
     include BaseGenericModel
+
     # The duration of the test run in milliseconds.
     attr_accessor :duration_ms
+
     # The error message from the test failure.
     attr_accessor :error_message
+
     # The stack trace from the test failure.
     attr_accessor :error_stack
+
     # The line number where the test ends in the source file.
     attr_accessor :source_end
+
     # The source file where the test is defined.
     attr_accessor :source_file
+
     # The line number where the test starts in the source file.
     attr_accessor :source_start
 

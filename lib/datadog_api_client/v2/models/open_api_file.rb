@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Object for API data in an `OpenAPI` format as a file.
   class OpenAPIFile
     include BaseGenericModel
+
     # Binary `OpenAPI` spec file
     attr_accessor :openapi_spec_file
 

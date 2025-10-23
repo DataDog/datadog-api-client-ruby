@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Request used to create an action connection.
   class CreateActionConnectionRequest
     include BaseGenericModel
+
     # Data related to the connection.
     attr_reader :data
 

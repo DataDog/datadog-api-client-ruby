@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Attributes of the SPA Recommendation resource. Contains recommendations for both driver and executor components.
   class RecommendationAttributes
     include BaseGenericModel
+
     # Resource recommendation for a single Spark component (driver or executor). Contains estimation data used to patch Spark job specs.
     attr_reader :driver
+
     # Resource recommendation for a single Spark component (driver or executor). Contains estimation data used to patch Spark job specs.
     attr_reader :executor
 

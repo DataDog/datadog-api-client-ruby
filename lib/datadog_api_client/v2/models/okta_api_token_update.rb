@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # The definition of the `OktaAPIToken` object.
   class OktaAPITokenUpdate
     include BaseGenericModel
+
     # The `OktaAPITokenUpdate` `api_token`.
     attr_accessor :api_token
+
     # The `OktaAPITokenUpdate` `domain`.
     attr_accessor :domain
+
     # The definition of the `OktaAPIToken` object.
     attr_reader :type
 

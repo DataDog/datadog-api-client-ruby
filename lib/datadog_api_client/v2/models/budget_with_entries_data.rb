@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # A budget and all its entries.
   class BudgetWithEntriesData
     include BaseGenericModel
+
     # The attributes of a budget.
     attr_accessor :attributes
+
     # The `BudgetWithEntriesData` `id`.
     attr_accessor :id
+
     # The type of the object, must be `budget`.
     attr_accessor :type
 

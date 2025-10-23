@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Facet data for the incident property fields.
   class IncidentSearchResponsePropertyFieldFacetData
     include BaseGenericModel
+
     # Aggregate information for numeric incident data.
     attr_accessor :aggregates
+
     # Facet data for the property field of an incident.
     attr_reader :facets
+
     # Name of the incident property field.
     attr_reader :name
 

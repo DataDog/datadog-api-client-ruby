@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Relationships of the role object.
   class RoleRelationships
     include BaseGenericModel
+
     # Relationship to multiple permissions objects.
     attr_accessor :permissions
 

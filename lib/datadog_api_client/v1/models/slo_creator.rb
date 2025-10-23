@@ -20,10 +20,13 @@ module DatadogAPIClient::V1
   # The creator of the SLO
   class SLOCreator
     include BaseGenericModel
+
     # Email of the creator.
     attr_accessor :email
+
     # User ID of the creator.
     attr_accessor :id
+
     # Name of the creator.
     attr_accessor :name
 

@@ -20,14 +20,19 @@ module DatadogAPIClient::V1
   # Database Monitoring usage for a given organization for a given hour.
   class UsageDBMHour
     include BaseGenericModel
+
     # The total number of Database Monitoring host hours from the start of the given hour’s month until the given hour.
     attr_accessor :dbm_host_count
+
     # The total number of normalized Database Monitoring queries from the start of the given hour’s month until the given hour.
     attr_accessor :dbm_queries_count
+
     # The hour for the usage.
     attr_accessor :hour
+
     # The organization name.
     attr_accessor :org_name
+
     # The organization public ID.
     attr_accessor :public_id
 

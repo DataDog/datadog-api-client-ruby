@@ -20,12 +20,15 @@ module DatadogAPIClient::V2
   # A recurring downtime schedule definition.
   class DowntimeScheduleRecurrencesResponse
     include BaseGenericModel
+
     # The most recent actual start and end dates for a recurring downtime. For a canceled downtime,
     # this is the previously occurring downtime. For active downtimes, this is the ongoing downtime, and for scheduled
     # downtimes it is the upcoming downtime.
     attr_accessor :current_downtime
+
     # A list of downtime recurrences.
     attr_reader :recurrences
+
     # The timezone in which to schedule the downtime. This affects recurring start and end dates.
     # Must match `display_timezone`.
     attr_accessor :timezone

@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Request object that includes the scan options to update.
   class AwsScanOptionsUpdateRequest
     include BaseGenericModel
+
     # Object for the scan options of a single AWS account.
     attr_reader :data
 

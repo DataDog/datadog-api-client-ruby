@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # The response object after creating a new workflow.
   class CreateWorkflowResponse
     include BaseGenericModel
+
     # Data related to the workflow.
     attr_reader :data
 

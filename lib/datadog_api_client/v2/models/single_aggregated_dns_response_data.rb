@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Object describing an aggregated DNS flow.
   class SingleAggregatedDnsResponseData
     include BaseGenericModel
+
     # Attributes for an aggregated DNS flow.
     attr_accessor :attributes
+
     # A unique identifier for the aggregated DNS traffic based on the group by values.
     attr_accessor :id
+
     # Aggregated DNS resource type.
     attr_accessor :type
 

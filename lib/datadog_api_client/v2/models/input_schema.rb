@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # A list of input parameters for the workflow. These can be used as dynamic runtime values in your workflow.
   class InputSchema
     include BaseGenericModel
+
     # The `InputSchema` `parameters`.
     attr_accessor :parameters
 

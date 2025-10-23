@@ -20,6 +20,7 @@ module DatadogAPIClient::V1
   # Filter for logs.
   class LogsFilter
     include BaseGenericModel
+
     # The filter query.
     attr_accessor :query
 

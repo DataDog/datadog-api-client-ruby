@@ -20,27 +20,38 @@ module DatadogAPIClient::V1
   # Object containing details about a Synthetic browser test.
   class SyntheticsBrowserTest
     include BaseGenericModel
+
     # Configuration object for a Synthetic browser test.
     attr_reader :config
+
     # Array of locations used to run the test.
     attr_reader :locations
+
     # Notification message associated with the test. Message can either be text or an empty string.
     attr_reader :message
+
     # The associated monitor ID.
     attr_accessor :monitor_id
+
     # Name of the test.
     attr_reader :name
+
     # Object describing the extra options for a Synthetic test.
     attr_reader :options
+
     # The public ID of the test.
     attr_accessor :public_id
+
     # Define whether you want to start (`live`) or pause (`paused`) a
     # Synthetic test.
     attr_accessor :status
+
     # Array of steps for the test.
     attr_accessor :steps
+
     # Array of tags attached to the test.
     attr_accessor :tags
+
     # Type of the Synthetic test, `browser`.
     attr_reader :type
 

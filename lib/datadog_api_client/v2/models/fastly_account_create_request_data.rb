@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Data object for creating a Fastly account.
   class FastlyAccountCreateRequestData
     include BaseGenericModel
+
     # Attributes object for creating a Fastly account.
     attr_reader :attributes
+
     # The JSON:API type for this API. Should always be `fastly-accounts`.
     attr_reader :type
 

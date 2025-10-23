@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Update Workflows webhook handle request.
   class MicrosoftTeamsUpdateWorkflowsWebhookHandleRequest
     include BaseGenericModel
+
     # Workflows Webhook handle data from a response.
     attr_reader :data
 

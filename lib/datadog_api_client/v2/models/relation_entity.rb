@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Relation entity reference.
   class RelationEntity
     include BaseGenericModel
+
     # Entity kind.
     attr_accessor :kind
+
     # Entity name.
     attr_accessor :name
+
     # Entity namespace.
     attr_accessor :namespace
 

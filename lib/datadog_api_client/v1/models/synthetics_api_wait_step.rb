@@ -20,12 +20,16 @@ module DatadogAPIClient::V1
   # The Wait step used in a Synthetic multi-step API test.
   class SyntheticsAPIWaitStep
     include BaseGenericModel
+
     # ID of the step.
     attr_accessor :id
+
     # The name of the step.
     attr_reader :name
+
     # The subtype of the Synthetic multi-step API wait step.
     attr_reader :subtype
+
     # The time to wait in seconds. Minimum value: 0. Maximum value: 180.
     attr_reader :value
 

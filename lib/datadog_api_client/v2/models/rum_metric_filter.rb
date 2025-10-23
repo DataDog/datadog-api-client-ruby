@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # The rum-based metric filter. Events matching this filter will be aggregated in this metric.
   class RumMetricFilter
     include BaseGenericModel
+
     # The search query - following the RUM search syntax.
     attr_reader :query
 

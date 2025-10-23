@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Object describing an issue state update request.
   class IssueUpdateStateRequestDataAttributes
     include BaseGenericModel
+
     # State of the issue
     attr_reader :state
 

@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # The expected response schema.
   class BulkMuteFindingsResponse
     include BaseGenericModel
+
     # Data object containing the ID of the request that was updated.
     attr_reader :data
 

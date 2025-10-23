@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Scorecard create rule request.
   class CreateRuleRequest
     include BaseGenericModel
+
     # Scorecard create rule request data.
     attr_accessor :data
 

@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # The Opsgenie service attributes for a create request.
   class OpsgenieServiceCreateAttributes
     include BaseGenericModel
+
     # The custom URL for a custom region.
     attr_accessor :custom_url
+
     # The name for the Opsgenie service.
     attr_reader :name
+
     # The Opsgenie API key for your Opsgenie service.
     attr_reader :opsgenie_api_key
+
     # The region for the Opsgenie service.
     attr_reader :region
 

@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Defines how a specific field should be merged across grouped events.
   class ObservabilityPipelineReduceProcessorMergeStrategy
     include BaseGenericModel
+
     # The field path in the log event.
     attr_reader :path
+
     # The merge strategy to apply.
     attr_reader :strategy
 

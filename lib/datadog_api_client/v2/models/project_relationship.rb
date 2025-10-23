@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Relationship to project
   class ProjectRelationship
     include BaseGenericModel
+
     # Relationship to project object
     attr_reader :data
 

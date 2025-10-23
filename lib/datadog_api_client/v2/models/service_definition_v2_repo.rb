@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Service code repositories.
   class ServiceDefinitionV2Repo
     include BaseGenericModel
+
     # Repository name.
     attr_reader :name
+
     # Repository provider.
     attr_accessor :provider
+
     # Repository URL.
     attr_reader :url
 

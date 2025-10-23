@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # The attributes from an Opsgenie service response.
   class OpsgenieServiceResponseAttributes
     include BaseGenericModel
+
     # The custom URL for a custom region.
     attr_accessor :custom_url
+
     # The name for the Opsgenie service.
     attr_reader :name
+
     # The region for the Opsgenie service.
     attr_accessor :region
 

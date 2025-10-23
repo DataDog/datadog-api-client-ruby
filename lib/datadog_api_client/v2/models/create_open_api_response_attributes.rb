@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Attributes for `CreateOpenAPI`.
   class CreateOpenAPIResponseAttributes
     include BaseGenericModel
+
     # List of endpoints which couldn't be parsed.
     attr_accessor :failed_endpoints
 

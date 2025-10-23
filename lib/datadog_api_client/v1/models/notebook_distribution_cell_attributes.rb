@@ -20,14 +20,18 @@ module DatadogAPIClient::V1
   # The attributes of a notebook `distribution` cell.
   class NotebookDistributionCellAttributes
     include BaseGenericModel
+
     # The Distribution visualization is another way of showing metrics
     # aggregated across one or several tags, such as hosts.
     # Unlike the heat map, a distribution graph’s x-axis is quantity rather than time.
     attr_reader :definition
+
     # The size of the graph.
     attr_accessor :graph_size
+
     # Object describing how to split the graph to display multiple visualizations per request.
     attr_accessor :split_by
+
     # Timeframe for the notebook cell. When 'null', the notebook global time is used.
     attr_accessor :time
 

@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Hourly usage response.
   class HourlyUsageResponse
     include BaseGenericModel
+
     # Response containing hourly usage.
     attr_accessor :data
+
     # The object containing document metadata.
     attr_accessor :meta
 

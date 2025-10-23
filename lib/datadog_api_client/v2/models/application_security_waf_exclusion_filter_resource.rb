@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # A JSON:API resource for an WAF exclusion filter.
   class ApplicationSecurityWafExclusionFilterResource
     include BaseGenericModel
+
     # Attributes describing a WAF exclusion filter.
     attr_accessor :attributes
+
     # The identifier of the WAF exclusion filter.
     attr_accessor :id
+
     # Type of the resource. The value should always be `exclusion_filter`.
     attr_accessor :type
 

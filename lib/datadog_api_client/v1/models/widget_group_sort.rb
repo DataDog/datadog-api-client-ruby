@@ -20,10 +20,13 @@ module DatadogAPIClient::V1
   # The group to sort the widget by.
   class WidgetGroupSort
     include BaseGenericModel
+
     # The name of the group.
     attr_reader :name
+
     # Widget sorting methods.
     attr_reader :order
+
     # Set the sort type to group.
     attr_reader :type
 

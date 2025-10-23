@@ -20,6 +20,7 @@ module DatadogAPIClient::V1
   # Searches metadata returned by the API.
   class SearchSLOResponseMeta
     include BaseGenericModel
+
     # Pagination metadata returned by the API.
     attr_accessor :pagination
 

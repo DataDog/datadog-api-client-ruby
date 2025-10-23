@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Chargeback Summary response.
   class CostByOrgResponse
     include BaseGenericModel
+
     # Response containing Chargeback Summary.
     attr_accessor :data
 

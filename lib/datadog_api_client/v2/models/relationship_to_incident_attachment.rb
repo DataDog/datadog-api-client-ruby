@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # A relationship reference for attachments.
   class RelationshipToIncidentAttachment
     include BaseGenericModel
+
     # An array of incident attachments.
     attr_reader :data
 

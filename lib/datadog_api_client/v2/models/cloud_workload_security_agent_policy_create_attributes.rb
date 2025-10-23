@@ -20,14 +20,19 @@ module DatadogAPIClient::V2
   # Create a new Cloud Workload Security Agent policy
   class CloudWorkloadSecurityAgentPolicyCreateAttributes
     include BaseGenericModel
+
     # The description of the policy
     attr_accessor :description
+
     # Whether the policy is enabled
     attr_accessor :enabled
+
     # The host tags defining where this policy is deployed
     attr_accessor :host_tags
+
     # The host tags defining where this policy is deployed, the inner values are linked with AND, the outer values are linked with OR
     attr_accessor :host_tags_lists
+
     # The name of the policy
     attr_reader :name
 

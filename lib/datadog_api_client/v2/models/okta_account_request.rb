@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Request object for an Okta account.
   class OktaAccountRequest
     include BaseGenericModel
+
     # Schema for an Okta account.
     attr_reader :data
 

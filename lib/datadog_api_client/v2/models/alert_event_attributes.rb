@@ -20,22 +20,31 @@ module DatadogAPIClient::V2
   # Alert event attributes.
   class AlertEventAttributes
     include BaseGenericModel
+
     # Aggregation key of the event.
     attr_accessor :aggregation_key
+
     # JSON object of custom attributes.
     attr_accessor :custom
+
     # JSON object of event system attributes.
     attr_accessor :evt
+
     # The links related to the event.
     attr_accessor :links
+
     # The priority of the alert.
     attr_accessor :priority
+
     # Service that triggered the event.
     attr_accessor :service
+
     # The status of the alert.
     attr_accessor :status
+
     # POSIX timestamp of the event.
     attr_accessor :timestamp
+
     # The title of the event.
     attr_accessor :title
 

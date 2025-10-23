@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # A recurring downtime schedule definition.
   class DowntimeScheduleRecurrencesCreateRequest
     include BaseGenericModel
+
     # A list of downtime recurrences.
     attr_reader :recurrences
+
     # The timezone in which to schedule the downtime.
     attr_accessor :timezone
 

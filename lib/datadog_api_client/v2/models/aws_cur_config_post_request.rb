@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # AWS CUR config Post Request.
   class AwsCURConfigPostRequest
     include BaseGenericModel
+
     # AWS CUR config Post data.
     attr_reader :data
 

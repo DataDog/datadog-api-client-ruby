@@ -20,6 +20,7 @@ module DatadogAPIClient::V1
   # Response containing the number of netflow events indexed for each hour for a given organization.
   class UsageNetworkFlowsResponse
     include BaseGenericModel
+
     # Get hourly usage for Network Flows.
     attr_accessor :usage
 

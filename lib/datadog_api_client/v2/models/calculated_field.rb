@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Calculated field.
   class CalculatedField
     include BaseGenericModel
+
     # Expression.
     attr_reader :expression
+
     # Field name.
     attr_reader :name
 

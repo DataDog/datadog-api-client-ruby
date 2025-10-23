@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # The object describing a timeseries response.
   class TimeseriesResponseAttributes
     include BaseGenericModel
+
     # Array of response series. The index here corresponds to the index in the `formulas` or `queries` array from the request.
     attr_accessor :series
+
     # Array of times, 1-1 match with individual values arrays.
     attr_accessor :times
+
     # Array of value-arrays. The index here corresponds to the index in the `formulas` or `queries` array from the request.
     attr_accessor :values
 

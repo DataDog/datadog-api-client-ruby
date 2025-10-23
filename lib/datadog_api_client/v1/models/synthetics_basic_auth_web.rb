@@ -20,10 +20,13 @@ module DatadogAPIClient::V1
   # Object to handle basic authentication when performing the test.
   class SyntheticsBasicAuthWeb
     include BaseGenericModel
+
     # Password to use for the basic authentication.
     attr_accessor :password
+
     # The type of basic authentication to use when performing the test.
     attr_accessor :type
+
     # Username to use for the basic authentication.
     attr_accessor :username
 

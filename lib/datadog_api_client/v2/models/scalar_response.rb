@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # A message containing the response to a scalar query.
   class ScalarResponse
     include BaseGenericModel
+
     # The object describing a scalar response.
     attr_accessor :attributes
+
     # The type of the resource. The value should always be scalar_response.
     attr_accessor :type
 

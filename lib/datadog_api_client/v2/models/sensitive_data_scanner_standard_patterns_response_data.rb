@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # List Standard patterns response data.
   class SensitiveDataScannerStandardPatternsResponseData
     include BaseGenericModel
+
     # List Standard patterns response.
     attr_accessor :data
 

@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # A Scanning Rule included item.
   class SensitiveDataScannerRuleIncludedItem
     include BaseGenericModel
+
     # Attributes of the Sensitive Data Scanner rule.
     attr_accessor :attributes
+
     # ID of the rule.
     attr_accessor :id
+
     # Relationships of a scanning rule.
     attr_accessor :relationships
+
     # Sensitive Data Scanner rule type.
     attr_accessor :type
 

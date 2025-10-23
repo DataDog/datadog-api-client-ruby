@@ -20,30 +20,43 @@ module DatadogAPIClient::V1
   # The Log Stream displays a log flow matching the defined query. Only available on FREE layout dashboards.
   class LogStreamWidgetDefinition
     include BaseGenericModel
+
     # Which columns to display on the widget.
     attr_accessor :columns
+
     # An array of index names to query in the stream. Use [] to query all indexes at once.
     attr_accessor :indexes
+
     # ID of the log set to use.
     attr_accessor :logset
+
     # Amount of log lines to display
     attr_accessor :message_display
+
     # Query to filter the log stream with.
     attr_accessor :query
+
     # Whether to show the date column or not
     attr_accessor :show_date_column
+
     # Whether to show the message column or not
     attr_accessor :show_message_column
+
     # Which column and order to sort by
     attr_accessor :sort
+
     # Time setting for the widget.
     attr_accessor :time
+
     # Title of the widget.
     attr_accessor :title
+
     # How to align the text on the widget.
     attr_accessor :title_align
+
     # Size of the title.
     attr_accessor :title_size
+
     # Type of the log stream widget.
     attr_reader :type
 

@@ -20,16 +20,22 @@ module DatadogAPIClient::V1
   # The hourly usage of timeseries.
   class UsageTimeseriesHour
     include BaseGenericModel
+
     # The hour for the usage.
     attr_accessor :hour
+
     # Contains the number of custom metrics that are inputs for aggregations (metric configured is custom).
     attr_accessor :num_custom_input_timeseries
+
     # Contains the number of custom metrics that are outputs for aggregations (metric configured is custom).
     attr_accessor :num_custom_output_timeseries
+
     # Contains sum of non-aggregation custom metrics and custom metrics that are outputs for aggregations.
     attr_accessor :num_custom_timeseries
+
     # The organization name.
     attr_accessor :org_name
+
     # The organization public ID.
     attr_accessor :public_id
 

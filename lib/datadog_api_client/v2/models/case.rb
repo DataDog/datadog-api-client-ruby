@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # A case
   class Case
     include BaseGenericModel
+
     # Case resource attributes
     attr_reader :attributes
+
     # Case's identifier
     attr_reader :id
+
     # Resources related to a case
     attr_accessor :relationships
+
     # Case resource type
     attr_reader :type
 

@@ -20,20 +20,28 @@ module DatadogAPIClient::V2
   # Projected Cost attributes data.
   class ProjectedCostAttributes
     include BaseGenericModel
+
     # The account name.
     attr_accessor :account_name
+
     # The account public ID.
     attr_accessor :account_public_id
+
     # List of charges data reported for the requested month.
     attr_accessor :charges
+
     # The month requested.
     attr_accessor :date
+
     # The organization name.
     attr_accessor :org_name
+
     # The total projected cost of products for the month.
     attr_accessor :projected_total_cost
+
     # The organization public ID.
     attr_accessor :public_id
+
     # The region of the Datadog instance that the organization belongs to.
     attr_accessor :region
 

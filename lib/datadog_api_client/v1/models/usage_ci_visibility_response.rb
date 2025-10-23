@@ -20,6 +20,7 @@ module DatadogAPIClient::V1
   # CI visibility usage response
   class UsageCIVisibilityResponse
     include BaseGenericModel
+
     # Response containing CI visibility usage.
     attr_accessor :usage
 

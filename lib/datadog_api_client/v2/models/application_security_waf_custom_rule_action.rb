@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # The definition of `ApplicationSecurityWafCustomRuleAction` object.
   class ApplicationSecurityWafCustomRuleAction
     include BaseGenericModel
+
     # Override the default action to take when the WAF custom rule would block.
     attr_accessor :action
+
     # The definition of `ApplicationSecurityWafCustomRuleActionParameters` object.
     attr_accessor :parameters
 

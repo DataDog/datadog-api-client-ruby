@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Author of the SBOM.
   class SBOMMetadataAuthor
     include BaseGenericModel
+
     # The identifier of the Author of the SBOM.
     attr_accessor :name
 

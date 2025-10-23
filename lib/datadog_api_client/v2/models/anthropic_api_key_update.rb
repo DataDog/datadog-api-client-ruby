@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # The definition of the `AnthropicAPIKey` object.
   class AnthropicAPIKeyUpdate
     include BaseGenericModel
+
     # The `AnthropicAPIKeyUpdate` `api_token`.
     attr_accessor :api_token
+
     # The definition of the `AnthropicAPIKey` object.
     attr_reader :type
 

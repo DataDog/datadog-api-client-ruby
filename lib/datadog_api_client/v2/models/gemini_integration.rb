@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # The definition of the `GeminiIntegration` object.
   class GeminiIntegration
     include BaseGenericModel
+
     # The definition of the `GeminiCredentials` object.
     attr_reader :credentials
+
     # The definition of the `GeminiIntegrationType` object.
     attr_reader :type
 

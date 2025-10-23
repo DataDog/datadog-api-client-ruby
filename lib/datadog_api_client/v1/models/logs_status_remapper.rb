@@ -37,12 +37,16 @@ module DatadogAPIClient::V1
   #   only the first one (according to the pipelines order) is taken into account.
   class LogsStatusRemapper
     include BaseGenericModel
+
     # Whether or not the processor is enabled.
     attr_accessor :is_enabled
+
     # Name of the processor.
     attr_accessor :name
+
     # Array of source attributes.
     attr_reader :sources
+
     # Type of logs status remapper.
     attr_reader :type
 

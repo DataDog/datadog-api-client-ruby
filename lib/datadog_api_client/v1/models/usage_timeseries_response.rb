@@ -20,6 +20,7 @@ module DatadogAPIClient::V1
   # Response containing hourly usage of timeseries.
   class UsageTimeseriesResponse
     include BaseGenericModel
+
     # An array of objects regarding hourly usage of timeseries.
     attr_accessor :usage
 

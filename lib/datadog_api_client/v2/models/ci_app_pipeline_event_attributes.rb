@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # JSON object containing all event attributes and their associated values.
   class CIAppPipelineEventAttributes
     include BaseGenericModel
+
     # JSON object of attributes from CI Visibility pipeline events.
     attr_accessor :attributes
+
     # Pipeline execution level.
     attr_accessor :ci_level
+
     # Array of tags associated with your event.
     attr_accessor :tags
 

@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # JSON API format for a Custom Costs file.
   class CustomCostsFileMetadataHighLevel
     include BaseGenericModel
+
     # Schema of a Custom Costs metadata.
     attr_accessor :attributes
+
     # ID of the Custom Costs metadata.
     attr_accessor :id
+
     # Type of the Custom Costs file metadata.
     attr_accessor :type
 

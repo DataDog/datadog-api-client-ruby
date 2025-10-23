@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # User creating or modifying a rule.
   class RuleUser
     include BaseGenericModel
+
     # The user handle.
     attr_accessor :handle
+
     # The user name.
     attr_accessor :name
 

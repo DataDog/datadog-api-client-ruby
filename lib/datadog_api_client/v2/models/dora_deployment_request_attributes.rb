@@ -20,22 +20,31 @@ module DatadogAPIClient::V2
   # Attributes to create a DORA deployment event.
   class DORADeploymentRequestAttributes
     include BaseGenericModel
+
     # A list of user-defined tags. The tags must follow the `key:value` pattern. Up to 100 may be added per event.
     attr_accessor :custom_tags
+
     # Environment name to where the service was deployed.
     attr_accessor :env
+
     # Unix timestamp when the deployment finished. It must be in nanoseconds, milliseconds, or seconds.
     attr_reader :finished_at
+
     # Git info for DORA Metrics events.
     attr_accessor :git
+
     # Deployment ID.
     attr_accessor :id
+
     # Service name.
     attr_reader :service
+
     # Unix timestamp when the deployment started. It must be in nanoseconds, milliseconds, or seconds.
     attr_reader :started_at
+
     # Name of the team owning the deployed service. If not provided, this is automatically populated with the team associated with the service in the Service Catalog.
     attr_accessor :team
+
     # Version to correlate with [APM Deployment Tracking](https://docs.datadoghq.com/tracing/services/deployment_tracking/).
     attr_accessor :version
 

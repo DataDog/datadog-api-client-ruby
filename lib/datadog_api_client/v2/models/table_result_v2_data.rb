@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # The definition of `TableResultV2Data` object.
   class TableResultV2Data
     include BaseGenericModel
+
     # The definition of `TableResultV2DataAttributes` object.
     attr_accessor :attributes
+
     # The ID of the reference table.
     attr_accessor :id
+
     # Reference table resource type.
     attr_reader :type
 

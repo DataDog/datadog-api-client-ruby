@@ -20,6 +20,7 @@ module DatadogAPIClient::V1
   # Object containing the live span selection for the dashboard.
   class DashboardGlobalTime
     include BaseGenericModel
+
     # Dashboard global time live_span selection
     attr_accessor :live_span
 

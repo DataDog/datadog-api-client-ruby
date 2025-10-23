@@ -20,21 +20,28 @@ module DatadogAPIClient::V2
   # Cost Attribution by Tag for a given organization.
   class MonthlyCostAttributionAttributes
     include BaseGenericModel
+
     # Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]`.
     attr_accessor :month
+
     # The name of the organization.
     attr_accessor :org_name
+
     # The organization public ID.
     attr_accessor :public_id
+
     # The source of the cost attribution tag configuration and the selected tags in the format `<source_org_name>:::<selected tag 1>///<selected tag 2>///<selected tag 3>`.
     attr_accessor :tag_config_source
+
     # Tag keys and values.
     # A `null` value here means that the requested tag breakdown cannot be applied because it does not match the [tags
     # configured for usage attribution](https://docs.datadoghq.com/account_management/billing/usage_attribution/#getting-started).
     # In this scenario the API returns the total cost, not broken down by tags.
     attr_accessor :tags
+
     # Shows the most recent hour in the current months for all organizations for which all costs were calculated.
     attr_accessor :updated_at
+
     # Fields in Cost Attribution by tag(s). Example: `infra_host_on_demand_cost`, `infra_host_committed_cost`, `infra_host_total_cost`, `infra_host_percentage_in_org`, `infra_host_percentage_in_account`.
     attr_accessor :values
 

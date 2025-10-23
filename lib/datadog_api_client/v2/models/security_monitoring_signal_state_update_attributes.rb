@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # Attributes describing the change of state of a security signal.
   class SecurityMonitoringSignalStateUpdateAttributes
     include BaseGenericModel
+
     # Optional comment to display on archived signals.
     attr_accessor :archive_comment
+
     # Reason a signal is archived.
     attr_accessor :archive_reason
+
     # The new triage state of the signal.
     attr_reader :state
+
     # Version of the updated signal. If server side version is higher, update will be rejected.
     attr_accessor :version
 

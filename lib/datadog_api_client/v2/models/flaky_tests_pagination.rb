@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Pagination metadata for flaky tests.
   class FlakyTestsPagination
     include BaseGenericModel
+
     # Cursor for the next page of results.
     attr_accessor :next_page
 

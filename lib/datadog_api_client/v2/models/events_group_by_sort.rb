@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # The dimension by which to sort a query's results.
   class EventsGroupBySort
     include BaseGenericModel
+
     # The type of aggregation that can be performed on events-based queries.
     attr_reader :aggregation
+
     # The metric's calculated value which should be used to define the sort order of a query's results.
     attr_accessor :metric
+
     # Direction of sort.
     attr_accessor :order
+
     # The type of sort to use on the calculated value.
     attr_accessor :type
 

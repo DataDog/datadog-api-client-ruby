@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # AWS Integration IAM Permissions response data.
   class AWSIntegrationIamPermissionsResponseData
     include BaseGenericModel
+
     # AWS Integration IAM Permissions response attributes.
     attr_accessor :attributes
+
     # The `AWSIntegrationIamPermissionsResponseData` `id`.
     attr_accessor :id
+
     # The `AWSIntegrationIamPermissionsResponseData` `type`.
     attr_accessor :type
 

@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # A field with potentially multiple values selected.
   class IncidentFieldAttributesMultipleValue
     include BaseGenericModel
+
     # Type of the multiple value field definitions.
     attr_accessor :type
+
     # The multiple values selected for this field.
     attr_accessor :value
 

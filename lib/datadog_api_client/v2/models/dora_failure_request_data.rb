@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # The JSON:API data.
   class DORAFailureRequestData
     include BaseGenericModel
+
     # Attributes to create a DORA failure event.
     attr_reader :attributes
 

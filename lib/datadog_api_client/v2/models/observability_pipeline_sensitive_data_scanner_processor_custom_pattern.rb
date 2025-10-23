@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Defines a custom regex-based pattern for identifying sensitive data in logs.
   class ObservabilityPipelineSensitiveDataScannerProcessorCustomPattern
     include BaseGenericModel
+
     # Options for defining a custom regex pattern.
     attr_reader :options
+
     # Indicates a custom regular expression is used for matching.
     attr_reader :type
 

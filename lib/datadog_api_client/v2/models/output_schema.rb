@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # A list of output parameters for the workflow.
   class OutputSchema
     include BaseGenericModel
+
     # The `OutputSchema` `parameters`.
     attr_accessor :parameters
 

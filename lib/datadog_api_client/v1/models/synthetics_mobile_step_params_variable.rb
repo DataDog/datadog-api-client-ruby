@@ -20,8 +20,10 @@ module DatadogAPIClient::V1
   # Variable object for `extractVariable` step type.
   class SyntheticsMobileStepParamsVariable
     include BaseGenericModel
+
     # An example for the variable.
     attr_reader :example
+
     # The variable name.
     attr_reader :name
 

@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Paging attributes for listing logs.
   class LogsListRequestPage
     include BaseGenericModel
+
     # List following results with a cursor provided in the previous query.
     attr_accessor :cursor
+
     # Maximum number of logs in the response.
     attr_reader :limit
 

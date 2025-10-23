@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # The definition of `UCConfigPairData` object.
   class UCConfigPairData
     include BaseGenericModel
+
     # The definition of `UCConfigPairDataAttributes` object.
     attr_accessor :attributes
+
     # The `UCConfigPairData` `id`.
     attr_accessor :id
+
     # Azure UC configs resource type.
     attr_reader :type
 

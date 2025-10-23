@@ -20,16 +20,22 @@ module DatadogAPIClient::V2
   # Paging attributes.
   class ContainerImageMetaPage
     include BaseGenericModel
+
     # The cursor used to get the current results, if any.
     attr_accessor :cursor
+
     # Number of results returned
     attr_reader :limit
+
     # The cursor used to get the next results, if any.
     attr_accessor :next_cursor
+
     # The cursor used to get the previous results, if any.
     attr_accessor :prev_cursor
+
     # Total number of records that match the query.
     attr_accessor :total
+
     # Type of Container Image pagination.
     attr_accessor :type
 

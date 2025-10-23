@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Request used to create an API key.
   class APIKeyCreateRequest
     include BaseGenericModel
+
     # Object used to create an API key.
     attr_reader :data
 

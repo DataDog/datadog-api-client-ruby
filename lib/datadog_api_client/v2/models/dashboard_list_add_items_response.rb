@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Response containing a list of added dashboards.
   class DashboardListAddItemsResponse
     include BaseGenericModel
+
     # List of dashboards added to the dashboard list.
     attr_accessor :added_dashboards_to_list
 

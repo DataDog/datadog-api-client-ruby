@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # User object returned by the API.
   class IncidentUserData
     include BaseGenericModel
+
     # Attributes of user object returned by the API.
     attr_accessor :attributes
+
     # ID of the user.
     attr_accessor :id
+
     # Users resource type.
     attr_accessor :type
 

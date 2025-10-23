@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Advisory.
   class Advisory
     include BaseGenericModel
+
     # Advisory base severity.
     attr_reader :base_severity
+
     # Advisory id.
     attr_reader :id
+
     # Advisory Datadog severity.
     attr_accessor :severity
 

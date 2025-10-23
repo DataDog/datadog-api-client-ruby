@@ -20,12 +20,16 @@ module DatadogAPIClient::V1
   # A formula and functions cost query.
   class MonitorFormulaAndFunctionCostQueryDefinition
     include BaseGenericModel
+
     # Aggregation methods for metric queries.
     attr_accessor :aggregator
+
     # Data source for cost queries.
     attr_reader :data_source
+
     # Name of the query for use in formulas.
     attr_reader :name
+
     # The monitor query.
     attr_reader :query
 

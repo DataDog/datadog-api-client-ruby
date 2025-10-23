@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Delete group request.
   class SensitiveDataScannerGroupDeleteRequest
     include BaseGenericModel
+
     # Meta payload containing information about the API.
     attr_reader :meta
 

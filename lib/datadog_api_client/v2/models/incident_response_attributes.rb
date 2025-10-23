@@ -20,62 +20,90 @@ module DatadogAPIClient::V2
   # The incident's attributes from a response.
   class IncidentResponseAttributes
     include BaseGenericModel
+
     # Timestamp of when the incident was archived.
     attr_accessor :archived
+
     # The incident case id.
     attr_accessor :case_id
+
     # Timestamp when the incident was created.
     attr_accessor :created
+
     # Length of the incident's customer impact in seconds.
     # Equals the difference between `customer_impact_start` and `customer_impact_end`.
     attr_accessor :customer_impact_duration
+
     # Timestamp when customers were no longer impacted by the incident.
     attr_accessor :customer_impact_end
+
     # A summary of the impact customers experienced during the incident.
     attr_accessor :customer_impact_scope
+
     # Timestamp when customers began being impacted by the incident.
     attr_accessor :customer_impact_start
+
     # A flag indicating whether the incident caused customer impact.
     attr_accessor :customer_impacted
+
     # Timestamp when the incident was declared.
     attr_accessor :declared
+
     # Incident's non Datadog creator.
     attr_accessor :declared_by
+
     # UUID of the user who declared the incident.
     attr_accessor :declared_by_uuid
+
     # Timestamp when the incident was detected.
     attr_accessor :detected
+
     # A condensed view of the user-defined fields attached to incidents.
     attr_accessor :fields
+
     # A unique identifier that represents an incident type.
     attr_accessor :incident_type_uuid
+
     # A flag indicating whether the incident is a test incident.
     attr_accessor :is_test
+
     # Timestamp when the incident was last modified.
     attr_accessor :modified
+
     # Incident's non Datadog creator.
     attr_accessor :non_datadog_creator
+
     # Notification handles that will be notified of the incident during update.
     attr_accessor :notification_handles
+
     # The monotonically increasing integer ID for the incident.
     attr_accessor :public_id
+
     # Timestamp when the incident's state was last changed from active or stable to resolved or completed.
     attr_accessor :resolved
+
     # The incident severity.
     attr_accessor :severity
+
     # The state incident.
     attr_accessor :state
+
     # The amount of time in seconds to detect the incident.
     # Equals the difference between `customer_impact_start` and `detected`.
     attr_accessor :time_to_detect
+
     # The amount of time in seconds to call incident after detection. Equals the difference of `detected` and `created`.
     attr_accessor :time_to_internal_response
+
     # The amount of time in seconds to resolve customer impact after detecting the issue. Equals the difference between `customer_impact_end` and `detected`.
     attr_accessor :time_to_repair
+
     # The amount of time in seconds to resolve the incident after it was created. Equals the difference between `created` and `resolved`.
     attr_accessor :time_to_resolve
+
     # The title of the incident, which summarizes what happened.
     attr_reader :title
+
     # The incident visibility status.
     attr_accessor :visibility
 

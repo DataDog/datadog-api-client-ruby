@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Response metadata object.
   class ContainerImageMeta
     include BaseGenericModel
+
     # Paging attributes.
     attr_accessor :pagination
 

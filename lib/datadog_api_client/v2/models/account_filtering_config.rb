@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # The account filtering configuration.
   class AccountFilteringConfig
     include BaseGenericModel
+
     # The AWS account IDs to be excluded from your billing dataset. This field is used when `include_new_accounts` is `true`.
     attr_accessor :excluded_accounts
+
     # Whether or not to automatically include new member accounts by default in your billing dataset.
     attr_accessor :include_new_accounts
+
     # The AWS account IDs to be included in your billing dataset. This field is used when `include_new_accounts` is `false`.
     attr_accessor :included_accounts
 

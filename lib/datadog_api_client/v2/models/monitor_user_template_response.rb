@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Response for retrieving a monitor user template.
   class MonitorUserTemplateResponse
     include BaseGenericModel
+
     # Monitor user template data.
     attr_accessor :data
 

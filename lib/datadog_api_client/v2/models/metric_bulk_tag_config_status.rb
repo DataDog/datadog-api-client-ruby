@@ -21,10 +21,13 @@ module DatadogAPIClient::V2
   # It contains the fields from the original request for reference.
   class MetricBulkTagConfigStatus
     include BaseGenericModel
+
     # Optional attributes for the status of a bulk tag configuration request.
     attr_accessor :attributes
+
     # A text prefix to match against metric names.
     attr_reader :id
+
     # The metric bulk configure tags resource.
     attr_reader :type
 

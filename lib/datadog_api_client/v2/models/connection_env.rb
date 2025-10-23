@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # A list of connections or connection groups used in the workflow.
   class ConnectionEnv
     include BaseGenericModel
+
     # The `ConnectionEnv` `connectionGroups`.
     attr_accessor :connection_groups
+
     # The `ConnectionEnv` `connections`.
     attr_accessor :connections
+
     # The definition of `ConnectionEnvEnv` object.
     attr_reader :env
 

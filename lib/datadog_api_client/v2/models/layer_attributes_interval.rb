@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Defines how often the rotation repeats, using a combination of days and optional seconds. Should be at least 1 hour.
   class LayerAttributesInterval
     include BaseGenericModel
+
     # The number of days in each rotation cycle.
     attr_reader :days
+
     # Any additional seconds for the rotation cycle (up to 30 days).
     attr_reader :seconds
 

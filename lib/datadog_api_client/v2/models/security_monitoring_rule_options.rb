@@ -20,32 +20,43 @@ module DatadogAPIClient::V2
   # Options.
   class SecurityMonitoringRuleOptions
     include BaseGenericModel
+
     # Options for cloud_configuration rules.
     # Fields `resourceType` and `regoRule` are mandatory when managing custom `cloud_configuration` rules.
     attr_accessor :compliance_rule_options
+
     # If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce signal noise.
     # The severity is decreased by one level: `CRITICAL` in production becomes `HIGH` in non-production, `HIGH` becomes `MEDIUM` and so on. `INFO` remains `INFO`.
     # The decrement is applied when the environment tag of the signal starts with `staging`, `test` or `dev`.
     attr_accessor :decrease_criticality_based_on_env
+
     # The detection method.
     attr_accessor :detection_method
+
     # A time window is specified to match when at least one of the cases matches true. This is a sliding window
     # and evaluates in real time. For third party detection method, this field is not used.
     attr_accessor :evaluation_window
+
     # Hardcoded evaluator type.
     attr_accessor :hardcoded_evaluator_type
+
     # Options on impossible travel detection method.
     attr_accessor :impossible_travel_options
+
     # Once a signal is generated, the signal will remain "open" if a case is matched at least once within
     # this keep alive window. For third party detection method, this field is not used.
     attr_accessor :keep_alive
+
     # A signal will "close" regardless of the query being matched once the time exceeds the maximum duration.
     # This time is calculated from the first seen timestamp.
     attr_accessor :max_signal_duration
+
     # Options on new value detection method.
     attr_accessor :new_value_options
+
     # Options on sequence detection method.
     attr_accessor :sequence_detection_options
+
     # Options on third party detection method.
     attr_accessor :third_party_rule_options
 

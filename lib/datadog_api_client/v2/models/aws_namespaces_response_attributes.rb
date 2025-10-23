@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # AWS Namespaces response attributes.
   class AWSNamespacesResponseAttributes
     include BaseGenericModel
+
     # AWS CloudWatch namespace.
     attr_reader :namespaces
 

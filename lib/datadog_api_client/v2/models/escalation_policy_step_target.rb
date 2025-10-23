@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Defines a single escalation target within a step for an escalation policy creation request. Contains `id` and `type`.
   class EscalationPolicyStepTarget
     include BaseGenericModel
+
     # Specifies the unique identifier for this target.
     attr_accessor :id
+
     # Specifies the type of escalation target (example `users`, `schedules`, or `teams`).
     attr_accessor :type
 

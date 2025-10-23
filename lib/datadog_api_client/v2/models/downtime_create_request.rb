@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Request for creating a downtime.
   class DowntimeCreateRequest
     include BaseGenericModel
+
     # Object to create a downtime.
     attr_reader :data
 

@@ -20,10 +20,13 @@ module DatadogAPIClient::V1
   # Powerpack template variable contents.
   class PowerpackTemplateVariableContents
     include BaseGenericModel
+
     # The name of the variable.
     attr_reader :name
+
     # The tag prefix associated with the variable.
     attr_accessor :prefix
+
     # One or many template variable values within the saved view, which will be unioned together using `OR` if more than one is specified.
     attr_reader :values
 

@@ -20,22 +20,31 @@ module DatadogAPIClient::V2
   # The definition of `RulesetRespDataAttributes` object.
   class RulesetRespDataAttributes
     include BaseGenericModel
+
     # The definition of `RulesetRespDataAttributesCreated` object.
     attr_reader :created
+
     # The `attributes` `enabled`.
     attr_reader :enabled
+
     # The `attributes` `last_modified_user_uuid`.
     attr_reader :last_modified_user_uuid
+
     # The definition of `RulesetRespDataAttributesModified` object.
     attr_reader :modified
+
     # The `attributes` `name`.
     attr_reader :name
+
     # The `attributes` `position`.
     attr_reader :position
+
     # The `attributes` `processing_status`.
     attr_accessor :processing_status
+
     # The `attributes` `rules`.
     attr_reader :rules
+
     # The `attributes` `version`.
     attr_reader :version
 

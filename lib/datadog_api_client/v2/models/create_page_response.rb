@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # The full response object after creating a new On-Call Page.
   class CreatePageResponse
     include BaseGenericModel
+
     # The information returned after successfully creating a page.
     attr_accessor :data
 

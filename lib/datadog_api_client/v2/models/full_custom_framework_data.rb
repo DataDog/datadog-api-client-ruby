@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Contains type and attributes for custom frameworks.
   class FullCustomFrameworkData
     include BaseGenericModel
+
     # Full Framework Data Attributes.
     attr_reader :attributes
+
     # The ID of the custom framework.
     attr_reader :id
+
     # The type of the resource. The value must be `custom_framework`.
     attr_reader :type
 

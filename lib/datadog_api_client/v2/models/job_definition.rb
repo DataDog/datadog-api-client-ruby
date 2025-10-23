@@ -20,32 +20,46 @@ module DatadogAPIClient::V2
   # Definition of a historical job.
   class JobDefinition
     include BaseGenericModel
+
     # Calculated fields.
     attr_accessor :calculated_fields
+
     # Cases used for generating job results.
     attr_reader :cases
+
     # Starting time of data analyzed by the job.
     attr_reader :from
+
     # Additional grouping to perform on top of the existing groups in the query section. Must be a subset of the existing groups.
     attr_accessor :group_signals_by
+
     # Index used to load the data.
     attr_reader :index
+
     # Message for generated results.
     attr_reader :message
+
     # Job name.
     attr_reader :name
+
     # Job options.
     attr_accessor :options
+
     # Queries for selecting logs analyzed by the job.
     attr_reader :queries
+
     # Reference tables used in the queries.
     attr_accessor :reference_tables
+
     # Tags for generated signals.
     attr_accessor :tags
+
     # Cases for generating results from third-party detection method. Only available for third-party detection method.
     attr_accessor :third_party_cases
+
     # Ending time of data analyzed by the job.
     attr_reader :to
+
     # Job type.
     attr_accessor :type
 

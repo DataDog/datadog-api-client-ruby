@@ -20,6 +20,7 @@ module DatadogAPIClient::V1
   # Array of Datadog users for a given organization.
   class UserListResponse
     include BaseGenericModel
+
     # Array of users.
     attr_accessor :users
 

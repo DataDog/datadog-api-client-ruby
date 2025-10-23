@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Payload schema when adding a Confluent account.
   class ConfluentAccountCreateRequest
     include BaseGenericModel
+
     # The data body for adding a Confluent account.
     attr_reader :data
 

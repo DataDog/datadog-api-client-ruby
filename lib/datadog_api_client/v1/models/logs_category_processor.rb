@@ -32,15 +32,20 @@ module DatadogAPIClient::V1
   # - Once defined in the Category Processor, you can map categories to log status using the Log Status Remapper.
   class LogsCategoryProcessor
     include BaseGenericModel
+
     # Array of filters to match or not a log and their
     # corresponding `name` to assign a custom value to the log.
     attr_reader :categories
+
     # Whether or not the processor is enabled.
     attr_accessor :is_enabled
+
     # Name of the processor.
     attr_accessor :name
+
     # Name of the target attribute which value is defined by the matching category.
     attr_reader :target
+
     # Type of logs category processor.
     attr_reader :type
 

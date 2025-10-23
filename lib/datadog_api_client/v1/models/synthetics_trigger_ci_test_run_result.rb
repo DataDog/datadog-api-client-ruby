@@ -20,12 +20,16 @@ module DatadogAPIClient::V1
   # Information about a single test run.
   class SyntheticsTriggerCITestRunResult
     include BaseGenericModel
+
     # The device ID.
     attr_accessor :device
+
     # The location ID of the test run.
     attr_accessor :location
+
     # The public ID of the Synthetic test.
     attr_accessor :public_id
+
     # ID of the result.
     attr_accessor :result_id
 

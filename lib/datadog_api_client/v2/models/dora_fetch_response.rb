@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Response for the DORA fetch endpoints.
   class DORAFetchResponse
     include BaseGenericModel
+
     # A DORA event.
     attr_accessor :data
 

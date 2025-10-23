@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # GCP credentials used to authenticate with Google Cloud Storage.
   class ObservabilityPipelineGcpAuth
     include BaseGenericModel
+
     # Path to the GCP service account key file.
     attr_reader :credentials_file
 

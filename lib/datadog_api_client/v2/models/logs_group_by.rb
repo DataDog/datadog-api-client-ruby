@@ -20,18 +20,24 @@ module DatadogAPIClient::V2
   # A group by rule
   class LogsGroupBy
     include BaseGenericModel
+
     # The name of the facet to use (required)
     attr_reader :facet
+
     # Used to perform a histogram computation (only for measure facets).
     # Note: at most 100 buckets are allowed, the number of buckets is (max - min)/interval.
     attr_accessor :histogram
+
     # The maximum buckets to return for this group by. Note: at most 10000 buckets are allowed.
     # If grouping by multiple facets, the product of limits must not exceed 10000.
     attr_accessor :limit
+
     # The value to use for logs that don't have the facet used to group by
     attr_accessor :missing
+
     # A sort rule
     attr_accessor :sort
+
     # A resulting object to put the given computes in over all the matching records.
     attr_accessor :total
 

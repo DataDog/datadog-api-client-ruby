@@ -20,14 +20,19 @@ module DatadogAPIClient::V1
   # Cloud Workload Security usage for a given organization for a given hour.
   class UsageCWSHour
     include BaseGenericModel
+
     # The total number of Cloud Workload Security container hours from the start of the given hour’s month until the given hour.
     attr_accessor :cws_container_count
+
     # The total number of Cloud Workload Security host hours from the start of the given hour’s month until the given hour.
     attr_accessor :cws_host_count
+
     # The hour for the usage.
     attr_accessor :hour
+
     # The organization name.
     attr_accessor :org_name
+
     # The organization public ID.
     attr_accessor :public_id
 

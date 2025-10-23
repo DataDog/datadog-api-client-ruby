@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Target WAF rules based either on an identifier or tags.
   class ApplicationSecurityWafExclusionFilterRulesTarget
     include BaseGenericModel
+
     # Target a single WAF rule based on its identifier.
     attr_accessor :rule_id
+
     # Target multiple WAF rules based on their tags.
     attr_accessor :tags
 

@@ -20,14 +20,19 @@ module DatadogAPIClient::V2
   # Pagination links.
   class ContainerImagesResponseLinks
     include BaseGenericModel
+
     # Link to the first page.
     attr_accessor :first
+
     # Link to the last page.
     attr_accessor :last
+
     # Link to the next page.
     attr_accessor :_next
+
     # Link to previous page.
     attr_accessor :prev
+
     # Link to current page.
     attr_accessor :_self
 

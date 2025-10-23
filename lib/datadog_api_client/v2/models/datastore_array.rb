@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # A collection of datastores returned by list operations.
   class DatastoreArray
     include BaseGenericModel
+
     # An array of datastore objects containing their configurations and metadata.
     attr_reader :data
 

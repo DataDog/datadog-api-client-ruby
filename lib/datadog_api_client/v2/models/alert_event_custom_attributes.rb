@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # Alert event attributes.
   class AlertEventCustomAttributes
     include BaseGenericModel
+
     # Free form JSON object for arbitrary data. Supports up to 100 properties per object and a maximum nesting depth of 10 levels.
     attr_accessor :custom
+
     # The links related to the event. Maximum of 20 links allowed.
     attr_reader :links
+
     # The priority of the alert.
     attr_accessor :priority
+
     # The status of the alert.
     attr_reader :status
 

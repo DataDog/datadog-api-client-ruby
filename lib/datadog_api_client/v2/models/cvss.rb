@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Vulnerability severity.
   class CVSS
     include BaseGenericModel
+
     # Vulnerability severity score.
     attr_reader :score
+
     # The vulnerability severity.
     attr_reader :severity
+
     # Vulnerability CVSS vector.
     attr_reader :vector
 

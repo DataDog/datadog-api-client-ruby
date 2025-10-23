@@ -21,22 +21,31 @@ module DatadogAPIClient::V2
   # It requires a bucket name, GCP authentication, and metadata fields.
   class ObservabilityPipelineGoogleCloudStorageDestination
     include BaseGenericModel
+
     # Access control list setting for objects written to the bucket.
     attr_reader :acl
+
     # GCP credentials used to authenticate with Google Cloud Storage.
     attr_reader :auth
+
     # Name of the GCS bucket.
     attr_reader :bucket
+
     # Unique identifier for the destination component.
     attr_reader :id
+
     # A list of component IDs whose output is used as the `input` for this component.
     attr_reader :inputs
+
     # Optional prefix for object keys within the GCS bucket.
     attr_accessor :key_prefix
+
     # Custom metadata to attach to each object uploaded to the GCS bucket.
     attr_accessor :metadata
+
     # Storage class used for objects stored in GCS.
     attr_reader :storage_class
+
     # The destination type. Always `google_cloud_storage`.
     attr_reader :type
 

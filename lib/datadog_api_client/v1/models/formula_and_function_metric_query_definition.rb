@@ -20,14 +20,19 @@ module DatadogAPIClient::V1
   # A formula and functions metrics query.
   class FormulaAndFunctionMetricQueryDefinition
     include BaseGenericModel
+
     # The aggregation methods available for metrics queries.
     attr_accessor :aggregator
+
     # The source organization UUID for cross organization queries. Feature in Private Beta.
     attr_reader :cross_org_uuids
+
     # Data source for metrics queries.
     attr_reader :data_source
+
     # Name of the query for use in formulas.
     attr_reader :name
+
     # Metrics query definition.
     attr_reader :query
 

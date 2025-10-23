@@ -20,10 +20,13 @@ module DatadogAPIClient::V1
   # Core Web Vitals attached to a browser test step.
   class SyntheticsCoreWebVitals
     include BaseGenericModel
+
     # Cumulative Layout Shift.
     attr_accessor :cls
+
     # Largest Contentful Paint in milliseconds.
     attr_accessor :lcp
+
     # URL attached to the metrics.
     attr_accessor :url
 

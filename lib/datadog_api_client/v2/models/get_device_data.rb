@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Get device response data.
   class GetDeviceData
     include BaseGenericModel
+
     # The device attributes
     attr_accessor :attributes
+
     # The device ID
     attr_accessor :id
+
     # The type of the resource. The value should always be device.
     attr_accessor :type
 

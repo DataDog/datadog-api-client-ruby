@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # A one-time downtime definition.
   class DowntimeScheduleOneTimeResponse
     include BaseGenericModel
+
     # ISO-8601 Datetime to end the downtime.
     attr_accessor :_end
+
     # ISO-8601 Datetime to start the downtime.
     attr_reader :start
 

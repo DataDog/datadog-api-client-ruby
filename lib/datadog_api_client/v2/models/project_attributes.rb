@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Project attributes
   class ProjectAttributes
     include BaseGenericModel
+
     # The project's key
     attr_accessor :key
+
     # Project's name
     attr_accessor :name
 

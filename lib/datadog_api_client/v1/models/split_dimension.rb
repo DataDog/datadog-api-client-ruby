@@ -20,6 +20,7 @@ module DatadogAPIClient::V1
   # The property by which the graph splits
   class SplitDimension
     include BaseGenericModel
+
     # The system interprets this attribute differently depending on the data source of the query being split. For metrics, it's a tag. For the events platform, it's an attribute or tag.
     attr_reader :one_graph_per
 

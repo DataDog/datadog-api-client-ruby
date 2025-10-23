@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # The definition of the `VirusTotalAPIKey` object.
   class VirusTotalAPIKeyUpdate
     include BaseGenericModel
+
     # The `VirusTotalAPIKeyUpdate` `api_key`.
     attr_accessor :api_key
+
     # The definition of the `VirusTotalAPIKey` object.
     attr_reader :type
 

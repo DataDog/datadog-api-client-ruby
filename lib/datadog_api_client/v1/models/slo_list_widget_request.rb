@@ -20,8 +20,10 @@ module DatadogAPIClient::V1
   # Updated SLO List widget.
   class SLOListWidgetRequest
     include BaseGenericModel
+
     # Updated SLO List widget.
     attr_reader :query
+
     # Widget request type.
     attr_reader :request_type
 

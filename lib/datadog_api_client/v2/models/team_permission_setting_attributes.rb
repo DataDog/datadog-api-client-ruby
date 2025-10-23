@@ -20,14 +20,19 @@ module DatadogAPIClient::V2
   # Team permission setting attributes
   class TeamPermissionSettingAttributes
     include BaseGenericModel
+
     # The identifier for the action
     attr_accessor :action
+
     # Whether or not the permission setting is editable by the current user
     attr_accessor :editable
+
     # Possible values for action
     attr_accessor :options
+
     # The team permission name
     attr_accessor :title
+
     # What type of user is allowed to perform the specified action
     attr_accessor :value
 

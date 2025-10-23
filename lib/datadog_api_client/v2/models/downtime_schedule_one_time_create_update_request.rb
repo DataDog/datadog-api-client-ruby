@@ -20,9 +20,11 @@ module DatadogAPIClient::V2
   # A one-time downtime definition.
   class DowntimeScheduleOneTimeCreateUpdateRequest
     include BaseGenericModel
+
     # ISO-8601 Datetime to end the downtime. Must include a UTC offset of zero. If not provided, the
     # downtime continues forever.
     attr_accessor :_end
+
     # ISO-8601 Datetime to start the downtime. Must include a UTC offset of zero. If not provided, the
     # downtime starts the moment it is created.
     attr_accessor :start

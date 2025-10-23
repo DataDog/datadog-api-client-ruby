@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Object for a single WAF custom rule.
   class ApplicationSecurityWafCustomRuleData
     include BaseGenericModel
+
     # A WAF custom rule.
     attr_accessor :attributes
+
     # The ID of the custom rule.
     attr_accessor :id
+
     # The type of the resource. The value should always be `custom_rule`.
     attr_accessor :type
 

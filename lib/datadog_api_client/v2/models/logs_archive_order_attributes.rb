@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # The attributes associated with the archive order.
   class LogsArchiveOrderAttributes
     include BaseGenericModel
+
     # An ordered array of `<ARCHIVE_ID>` strings, the order of archive IDs in the array
     # define the overall archives order for Datadog.
     attr_reader :archive_ids

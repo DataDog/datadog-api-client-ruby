@@ -21,6 +21,7 @@ module DatadogAPIClient::V1
   # See the SAML documentation for more information about all SAML settings.
   class OrganizationSettingsSaml
     include BaseGenericModel
+
     # Whether or not SAML is enabled for this organization.
     attr_accessor :enabled
 

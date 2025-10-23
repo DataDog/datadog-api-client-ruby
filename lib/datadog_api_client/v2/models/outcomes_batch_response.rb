@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Scorecard outcomes batch response.
   class OutcomesBatchResponse
     include BaseGenericModel
+
     # List of rule outcomes which were affected during the bulk operation.
     attr_reader :data
+
     # Metadata pertaining to the bulk operation.
     attr_reader :meta
 

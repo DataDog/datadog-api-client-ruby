@@ -20,20 +20,28 @@ module DatadogAPIClient::V1
   # Create, edit, and manage organizations.
   class Organization
     include BaseGenericModel
+
     # A JSON array of billing type.
     attr_accessor :billing
+
     # Date of the organization creation.
     attr_accessor :created
+
     # Description of the organization.
     attr_accessor :description
+
     # The name of the child organization, limited to 32 characters.
     attr_reader :name
+
     # The `public_id` of the organization you are operating within.
     attr_accessor :public_id
+
     # A JSON array of settings.
     attr_accessor :settings
+
     # Subscription definition.
     attr_accessor :subscription
+
     # Only available for MSP customers. Allows child organizations to be created on a trial plan.
     attr_accessor :trial
 

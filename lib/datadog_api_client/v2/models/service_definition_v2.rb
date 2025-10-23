@@ -20,26 +20,37 @@ module DatadogAPIClient::V2
   # Service definition V2 for providing service metadata and integrations.
   class ServiceDefinitionV2
     include BaseGenericModel
+
     # A list of contacts related to the services.
     attr_accessor :contacts
+
     # Unique identifier of the service. Must be unique across all services and is used to match with a service in Datadog.
     attr_reader :dd_service
+
     # Experimental feature. A Team handle that matches a Team in the Datadog Teams product.
     attr_accessor :dd_team
+
     # A list of documentation related to the services.
     attr_accessor :docs
+
     # Extensions to V2 schema.
     attr_accessor :extensions
+
     # Third party integrations that Datadog supports.
     attr_accessor :integrations
+
     # A list of links related to the services.
     attr_accessor :links
+
     # A list of code repositories related to the services.
     attr_accessor :repos
+
     # Schema version being used.
     attr_reader :schema_version
+
     # A set of custom tags.
     attr_accessor :tags
+
     # Team that owns the service.
     attr_accessor :team
 

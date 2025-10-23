@@ -20,16 +20,22 @@ module DatadogAPIClient::V1
   # Template variable.
   class DashboardTemplateVariable
     include BaseGenericModel
+
     # The list of values that the template variable drop-down is limited to.
     attr_accessor :available_values
+
     # (deprecated) The default value for the template variable on dashboard load. Cannot be used in conjunction with `defaults`.
     attr_accessor :default
+
     # One or many default values for template variables on load. If more than one default is specified, they will be unioned together with `OR`. Cannot be used in conjunction with `default`.
     attr_accessor :defaults
+
     # The name of the variable.
     attr_reader :name
+
     # The tag prefix associated with the variable. Only tags with this prefix appear in the variable drop-down.
     attr_accessor :prefix
+
     # The type of variable. This is to differentiate between filter variables (interpolated in query) and group by variables (interpolated into group by).
     attr_accessor :type
 

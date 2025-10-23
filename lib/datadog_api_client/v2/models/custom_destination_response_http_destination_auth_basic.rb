@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Basic access authentication.
   class CustomDestinationResponseHttpDestinationAuthBasic
     include BaseGenericModel
+
     # Type of the basic access authentication.
     attr_reader :type
 

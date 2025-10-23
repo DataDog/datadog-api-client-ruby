@@ -20,13 +20,17 @@ module DatadogAPIClient::V2
   # The object containing all the query parameters.
   class SpansListRequestAttributes
     include BaseGenericModel
+
     # The search and filter query settings.
     attr_accessor :filter
+
     # Global query options that are used during the query.
     # Note: You should only supply timezone or time offset but not both otherwise the query will fail.
     attr_accessor :options
+
     # Paging attributes for listing spans.
     attr_accessor :page
+
     # Sort parameters when querying spans.
     attr_accessor :sort
 

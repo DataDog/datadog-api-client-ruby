@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Relationship to role.
   class RelationshipToRole
     include BaseGenericModel
+
     # Relationship to role object.
     attr_accessor :data
 

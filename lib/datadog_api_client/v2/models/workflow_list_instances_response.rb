@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Response returned when listing workflow instances.
   class WorkflowListInstancesResponse
     include BaseGenericModel
+
     # A list of workflow instances.
     attr_accessor :data
+
     # Metadata about the instances list
     attr_accessor :meta
 

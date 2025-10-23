@@ -20,6 +20,7 @@ module DatadogAPIClient::V1
   # Timeframe setting for the shared dashboard.
   class SharedDashboardUpdateRequestGlobalTime
     include BaseGenericModel
+
     # Dashboard global time live_span selection
     attr_accessor :live_span
 

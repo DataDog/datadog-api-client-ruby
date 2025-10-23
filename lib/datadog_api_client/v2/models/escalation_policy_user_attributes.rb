@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Provides basic user information for an escalation policy, including a name and email address.
   class EscalationPolicyUserAttributes
     include BaseGenericModel
+
     # The user's email address.
     attr_accessor :email
+
     # The user's name.
     attr_accessor :name
+
     # The user's status.
     attr_accessor :status
 

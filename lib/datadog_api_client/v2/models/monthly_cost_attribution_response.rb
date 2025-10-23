@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Response containing the monthly cost attribution by tag(s).
   class MonthlyCostAttributionResponse
     include BaseGenericModel
+
     # Response containing cost attribution.
     attr_accessor :data
+
     # The object containing document metadata.
     attr_accessor :meta
 

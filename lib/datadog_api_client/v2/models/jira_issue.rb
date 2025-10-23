@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Jira issue attached to case
   class JiraIssue
     include BaseGenericModel
+
     # Jira issue information
     attr_accessor :result
+
     # Case status
     attr_accessor :status
 

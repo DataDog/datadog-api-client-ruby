@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # The entry of a budget.
   class BudgetEntry
     include BaseGenericModel
+
     # The `amount` of the budget entry.
     attr_accessor :amount
+
     # The `month` of the budget entry.
     attr_accessor :month
+
     # The `tag_filters` of the budget entry.
     attr_accessor :tag_filters
 

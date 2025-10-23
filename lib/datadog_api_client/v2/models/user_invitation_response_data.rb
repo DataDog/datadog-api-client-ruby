@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # Object of a user invitation returned by the API.
   class UserInvitationResponseData
     include BaseGenericModel
+
     # Attributes of a user invitation.
     attr_accessor :attributes
+
     # ID of the user invitation.
     attr_accessor :id
+
     # Relationships data for user invitation.
     attr_accessor :relationships
+
     # User invitations type.
     attr_accessor :type
 

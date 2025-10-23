@@ -20,6 +20,7 @@ module DatadogAPIClient::V1
   # Response containing the number of indexed logs for each hour and index for a given organization.
   class UsageLogsByIndexResponse
     include BaseGenericModel
+
     # An array of objects regarding hourly usage of logs by index response.
     attr_accessor :usage
 

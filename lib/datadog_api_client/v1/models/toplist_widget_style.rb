@@ -20,10 +20,13 @@ module DatadogAPIClient::V1
   # Style customization for a top list widget.
   class ToplistWidgetStyle
     include BaseGenericModel
+
     # Top list widget display options.
     attr_accessor :display
+
     # Color palette to apply to the widget.
     attr_accessor :palette
+
     # Top list widget scaling definition.
     attr_accessor :scaling
 

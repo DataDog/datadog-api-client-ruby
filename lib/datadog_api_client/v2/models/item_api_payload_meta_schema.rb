@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Schema information about the datastore, including its primary key and field definitions.
   class ItemApiPayloadMetaSchema
     include BaseGenericModel
+
     # An array describing the columns available in this datastore.
     attr_accessor :fields
+
     # The name of the primary key column for this datastore.
     attr_accessor :primary_key
 

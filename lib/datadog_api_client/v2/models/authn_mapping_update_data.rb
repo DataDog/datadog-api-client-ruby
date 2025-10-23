@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # Data for updating an AuthN Mapping.
   class AuthNMappingUpdateData
     include BaseGenericModel
+
     # Key/Value pair of attributes used for update request.
     attr_accessor :attributes
+
     # ID of the AuthN Mapping.
     attr_reader :id
+
     # Relationship of AuthN Mapping update object to a Role or Team.
     attr_accessor :relationships
+
     # AuthN Mappings resource type.
     attr_reader :type
 

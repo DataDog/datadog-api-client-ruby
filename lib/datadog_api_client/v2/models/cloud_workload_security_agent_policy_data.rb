@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Object for a single Agent policy
   class CloudWorkloadSecurityAgentPolicyData
     include BaseGenericModel
+
     # A Cloud Workload Security Agent policy returned by the API
     attr_accessor :attributes
+
     # The ID of the Agent policy
     attr_accessor :id
+
     # The type of the resource, must always be `policy`
     attr_accessor :type
 

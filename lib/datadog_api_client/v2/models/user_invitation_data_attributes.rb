@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # Attributes of a user invitation.
   class UserInvitationDataAttributes
     include BaseGenericModel
+
     # Creation time of the user invitation.
     attr_accessor :created_at
+
     # Time of invitation expiration.
     attr_accessor :expires_at
+
     # Type of invitation.
     attr_accessor :invite_type
+
     # UUID of the user invitation.
     attr_accessor :uuid
 

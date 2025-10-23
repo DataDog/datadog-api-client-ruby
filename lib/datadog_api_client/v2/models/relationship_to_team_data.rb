@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Relationship to Team object.
   class RelationshipToTeamData
     include BaseGenericModel
+
     # The unique identifier of the team.
     attr_accessor :id
+
     # Team type
     attr_accessor :type
 

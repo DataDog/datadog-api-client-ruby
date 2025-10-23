@@ -20,8 +20,10 @@ module DatadogAPIClient::V1
   # Result of the last API test run.
   class SyntheticsAPITestResultShortResult
     include BaseGenericModel
+
     # Describes if the test run has passed or failed.
     attr_accessor :passed
+
     # Object containing all metrics and their values collected for a Synthetic API test.
     # See the [Synthetic Monitoring Metrics documentation](https://docs.datadoghq.com/synthetics/metrics/).
     attr_accessor :timings

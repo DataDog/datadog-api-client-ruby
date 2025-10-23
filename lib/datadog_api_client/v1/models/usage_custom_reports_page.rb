@@ -20,6 +20,7 @@ module DatadogAPIClient::V1
   # The object containing page total count.
   class UsageCustomReportsPage
     include BaseGenericModel
+
     # Total page count.
     attr_accessor :total_count
 

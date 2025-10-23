@@ -21,14 +21,19 @@ module DatadogAPIClient::V2
   # The `strategy` field determines whether basic or AWS-based authentication is used.
   class ObservabilityPipelineAmazonOpenSearchDestinationAuth
     include BaseGenericModel
+
     # The ARN of the role to assume (used with `aws` strategy).
     attr_accessor :assume_role
+
     # AWS region
     attr_accessor :aws_region
+
     # External ID for the assumed role (used with `aws` strategy).
     attr_accessor :external_id
+
     # Session name for the assumed role (used with `aws` strategy).
     attr_accessor :session_name
+
     # The authentication strategy to use.
     attr_reader :strategy
 

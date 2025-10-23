@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # A query to be combined with the third party case query.
   class SecurityMonitoringThirdPartyRootQuery
     include BaseGenericModel
+
     # Fields to group by.
     attr_accessor :group_by_fields
+
     # Query to run on logs.
     attr_accessor :query
 

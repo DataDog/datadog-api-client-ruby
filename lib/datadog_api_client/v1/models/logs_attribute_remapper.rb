@@ -22,26 +22,36 @@ module DatadogAPIClient::V1
   # Some additional constraints are applied as `:` or `,` are not allowed in the target tag/attribute name.
   class LogsAttributeRemapper
     include BaseGenericModel
+
     # Whether or not the processor is enabled.
     attr_accessor :is_enabled
+
     # Name of the processor.
     attr_accessor :name
+
     # Override or not the target element if already set,
     attr_accessor :override_on_conflict
+
     # Remove or preserve the remapped source element.
     attr_accessor :preserve_source
+
     # Defines if the sources are from log `attribute` or `tag`.
     attr_accessor :source_type
+
     # Array of source attributes.
     attr_reader :sources
+
     # Final attribute or tag name to remap the sources to.
     attr_reader :target
+
     # If the `target_type` of the remapper is `attribute`, try to cast the value to a new specific type.
     # If the cast is not possible, the original type is kept. `string`, `integer`, or `double` are the possible types.
     # If the `target_type` is `tag`, this parameter may not be specified.
     attr_accessor :target_format
+
     # Defines if the final attribute or tag name is from log `attribute` or `tag`.
     attr_accessor :target_type
+
     # Type of logs attribute remapper.
     attr_reader :type
 

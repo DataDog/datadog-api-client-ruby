@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # The response object after multiple apps are successfully deleted.
   class DeleteAppsResponse
     include BaseGenericModel
+
     # An array of objects containing the IDs of the deleted apps.
     attr_accessor :data
 

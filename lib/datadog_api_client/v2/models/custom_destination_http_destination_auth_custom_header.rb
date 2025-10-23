@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Custom header access authentication.
   class CustomDestinationHttpDestinationAuthCustomHeader
     include BaseGenericModel
+
     # The header name of the authentication.
     attr_reader :header_name
+
     # The header value of the authentication. This field is not returned by the API.
     attr_reader :header_value
+
     # Type of the custom header access authentication.
     attr_reader :type
 

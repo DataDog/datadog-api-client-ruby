@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Specifies a pattern from Datadog’s sensitive data detection library to match known sensitive data types.
   class ObservabilityPipelineSensitiveDataScannerProcessorLibraryPattern
     include BaseGenericModel
+
     # Options for selecting a predefined library pattern and enabling keyword support.
     attr_reader :options
+
     # Indicates that a predefined library pattern is used.
     attr_reader :type
 

@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # List of groups, ordered.
   class SensitiveDataScannerGroupList
     include BaseGenericModel
+
     # List of groups. The order is important.
     attr_accessor :data
 

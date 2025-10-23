@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Response containing information about the IP allowlist.
   class IPAllowlistResponse
     include BaseGenericModel
+
     # IP allowlist data.
     attr_accessor :data
 

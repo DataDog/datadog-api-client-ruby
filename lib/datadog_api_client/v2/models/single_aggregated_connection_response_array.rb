@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # List of aggregated connections.
   class SingleAggregatedConnectionResponseArray
     include BaseGenericModel
+
     # Array of aggregated connection objects.
     attr_accessor :data
 

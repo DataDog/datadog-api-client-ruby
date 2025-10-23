@@ -20,28 +20,40 @@ module DatadogAPIClient::V2
   # The payload of a signal correlation rule.
   class SecurityMonitoringSignalRulePayload
     include BaseGenericModel
+
     # Cases for generating signals.
     attr_reader :cases
+
     # Custom/Overridden message for generated signals (used in case of Default rule update).
     attr_accessor :custom_message
+
     # Custom/Overridden name of the rule (used in case of Default rule update).
     attr_accessor :custom_name
+
     # Additional queries to filter matched events before they are processed. This field is deprecated for log detection, signal correlation, and workload security rules.
     attr_accessor :filters
+
     # Whether the notifications include the triggering group-by values in their title.
     attr_accessor :has_extended_title
+
     # Whether the rule is enabled.
     attr_reader :is_enabled
+
     # Message for generated signals.
     attr_reader :message
+
     # The name of the rule.
     attr_reader :name
+
     # Options.
     attr_reader :options
+
     # Queries for selecting signals which are part of the rule.
     attr_reader :queries
+
     # Tags for generated signals.
     attr_accessor :tags
+
     # The rule type.
     attr_accessor :type
 

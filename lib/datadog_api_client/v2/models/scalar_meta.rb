@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Metadata for the resulting numerical values.
   class ScalarMeta
     include BaseGenericModel
+
     # Detailed information about the unit.
     # First element describes the "primary unit" (for example, `bytes` in `bytes per second`).
     # The second element describes the "per unit" (for example, `second` in `bytes per second`).

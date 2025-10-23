@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # A uniquely identified resource.
   class ChangeEventAttributesChangedResource
     include BaseGenericModel
+
     # The name of the changed resource.
     attr_accessor :name
+
     # The type of the changed resource.
     attr_accessor :type
 

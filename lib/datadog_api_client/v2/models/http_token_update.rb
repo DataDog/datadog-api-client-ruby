@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # The definition of `HTTPTokenUpdate` object.
   class HTTPTokenUpdate
     include BaseGenericModel
+
     # Should the header be deleted.
     attr_accessor :deleted
+
     # The `HTTPToken` `name`.
     attr_reader :name
+
     # The definition of `TokenType` object.
     attr_reader :type
+
     # The `HTTPToken` `value`.
     attr_reader :value
 

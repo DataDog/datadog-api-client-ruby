@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Attributes for a container group.
   class ContainerGroupAttributes
     include BaseGenericModel
+
     # Number of containers in the group.
     attr_accessor :count
+
     # Tags from the group name parsed in key/value format.
     attr_accessor :tags
 

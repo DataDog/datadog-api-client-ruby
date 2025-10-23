@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # Attributes of the IP allowlist entry.
   class IPAllowlistEntryAttributes
     include BaseGenericModel
+
     # The CIDR block describing the IP range of the entry.
     attr_accessor :cidr_block
+
     # Creation time of the entry.
     attr_accessor :created_at
+
     # Time of last entry modification.
     attr_accessor :modified_at
+
     # A note describing the IP allowlist entry.
     attr_accessor :note
 

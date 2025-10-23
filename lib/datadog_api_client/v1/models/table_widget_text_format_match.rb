@@ -20,8 +20,10 @@ module DatadogAPIClient::V1
   # Match rule for the table widget text format.
   class TableWidgetTextFormatMatch
     include BaseGenericModel
+
     # Match or compare option.
     attr_reader :type
+
     # Table Widget Match String.
     attr_reader :value
 

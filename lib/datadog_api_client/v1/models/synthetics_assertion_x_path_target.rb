@@ -20,12 +20,16 @@ module DatadogAPIClient::V1
   # An assertion for the `validatesXPath` operator.
   class SyntheticsAssertionXPathTarget
     include BaseGenericModel
+
     # Assertion operator to apply.
     attr_reader :operator
+
     # The associated assertion property.
     attr_accessor :property
+
     # Composed target for `validatesXPath` operator.
     attr_accessor :target
+
     # Type of the assertion.
     attr_reader :type
 

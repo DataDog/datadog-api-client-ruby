@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Create request for an incident todo.
   class IncidentTodoCreateRequest
     include BaseGenericModel
+
     # Incident todo data for a create request.
     attr_reader :data
 

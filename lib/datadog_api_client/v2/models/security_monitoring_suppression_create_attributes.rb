@@ -20,20 +20,28 @@ module DatadogAPIClient::V2
   # Object containing the attributes of the suppression rule to be created.
   class SecurityMonitoringSuppressionCreateAttributes
     include BaseGenericModel
+
     # An exclusion query on the input data of the security rules, which could be logs, Agent events, or other types of data based on the security rule. Events matching this query are ignored by any detection rules referenced in the suppression rule.
     attr_accessor :data_exclusion_query
+
     # A description for the suppression rule.
     attr_accessor :description
+
     # Whether the suppression rule is enabled.
     attr_reader :enabled
+
     # A Unix millisecond timestamp giving an expiration date for the suppression rule. After this date, it won't suppress signals anymore.
     attr_accessor :expiration_date
+
     # The name of the suppression rule.
     attr_reader :name
+
     # The rule query of the suppression rule, with the same syntax as the search bar for detection rules.
     attr_reader :rule_query
+
     # A Unix millisecond timestamp giving the start date for the suppression rule. After this date, it starts suppressing signals.
     attr_accessor :start_date
+
     # The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.
     attr_accessor :suppression_query
 

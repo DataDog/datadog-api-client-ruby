@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # An object of type `monitor` that can be referenced in the `included` data.
   class MetricAssetMonitorRelationship
     include BaseGenericModel
+
     # The related monitor's ID.
     attr_accessor :id
+
     # Monitor resource type.
     attr_accessor :type
 

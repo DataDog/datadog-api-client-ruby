@@ -20,14 +20,19 @@ module DatadogAPIClient::V2
   # Dataset metadata and configuration(s).
   class DatasetAttributesResponse
     include BaseGenericModel
+
     # Timestamp when the dataset was created.
     attr_accessor :created_at
+
     # Unique ID of the user who created the dataset.
     attr_accessor :created_by
+
     # Name of the dataset.
     attr_accessor :name
+
     # List of access principals, formatted as `principal_type:id`. Principal can be 'team' or 'role'.
     attr_accessor :principals
+
     # List of product-specific filters.
     attr_accessor :product_filters
 

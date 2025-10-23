@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Represents a schedule target for an escalation policy step, including its ID and resource type.
   class ScheduleTarget
     include BaseGenericModel
+
     # Specifies the unique identifier of the schedule resource.
     attr_reader :id
+
     # Indicates that the resource is of type `schedules`.
     attr_reader :type
 

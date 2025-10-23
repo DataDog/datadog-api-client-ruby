@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Response object that includes a single metric's actively queried tags and aggregations.
   class MetricSuggestedTagsAndAggregationsResponse
     include BaseGenericModel
+
     # Object for a single metric's actively queried tags and aggregations.
     attr_accessor :data
 

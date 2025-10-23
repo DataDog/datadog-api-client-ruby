@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # The definition of an archive.
   class LogsArchiveDefinition
     include BaseGenericModel
+
     # The attributes associated with the archive.
     attr_accessor :attributes
+
     # The archive ID.
     attr_accessor :id
+
     # The type of the resource. The value should always be archives.
     attr_reader :type
 

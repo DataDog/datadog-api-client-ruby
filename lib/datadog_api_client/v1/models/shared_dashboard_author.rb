@@ -20,8 +20,10 @@ module DatadogAPIClient::V1
   # User who shared the dashboard.
   class SharedDashboardAuthor
     include BaseGenericModel
+
     # Identifier of the user who shared the dashboard.
     attr_accessor :handle
+
     # Name of the user who shared the dashboard.
     attr_accessor :name
 

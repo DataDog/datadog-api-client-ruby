@@ -20,6 +20,7 @@ module DatadogAPIClient::V1
   # Dashboard bulk delete request body.
   class DashboardBulkDeleteRequest
     include BaseGenericModel
+
     # List of dashboard bulk action request data objects.
     attr_reader :data
 

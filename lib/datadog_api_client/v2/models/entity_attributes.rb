@@ -20,20 +20,28 @@ module DatadogAPIClient::V2
   # Entity attributes.
   class EntityAttributes
     include BaseGenericModel
+
     # The API version.
     attr_accessor :api_version
+
     # The description.
     attr_accessor :description
+
     # The display name.
     attr_accessor :display_name
+
     # The kind.
     attr_accessor :kind
+
     # The name.
     attr_accessor :name
+
     # The namespace.
     attr_accessor :namespace
+
     # The owner.
     attr_accessor :owner
+
     # The tags.
     attr_accessor :tags
 

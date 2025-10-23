@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Pagination metadata.
   class OrgConnectionListResponseMeta
     include BaseGenericModel
+
     # Page information.
     attr_accessor :page
 

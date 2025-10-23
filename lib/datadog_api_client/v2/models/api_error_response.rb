@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # API error response.
   class APIErrorResponse
     include BaseGenericModel
+
     # A list of errors.
     attr_reader :errors
 

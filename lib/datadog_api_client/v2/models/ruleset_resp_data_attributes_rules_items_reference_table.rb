@@ -20,14 +20,19 @@ module DatadogAPIClient::V2
   # The definition of `RulesetRespDataAttributesRulesItemsReferenceTable` object.
   class RulesetRespDataAttributesRulesItemsReferenceTable
     include BaseGenericModel
+
     # The `reference_table` `case_insensitivity`.
     attr_accessor :case_insensitivity
+
     # The `reference_table` `field_pairs`.
     attr_reader :field_pairs
+
     # The `reference_table` `if_not_exists`.
     attr_accessor :if_not_exists
+
     # The `reference_table` `source_keys`.
     attr_reader :source_keys
+
     # The `reference_table` `table_name`.
     attr_reader :table_name
 

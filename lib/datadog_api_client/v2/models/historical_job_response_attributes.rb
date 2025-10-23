@@ -20,20 +20,28 @@ module DatadogAPIClient::V2
   # Historical job attributes.
   class HistoricalJobResponseAttributes
     include BaseGenericModel
+
     # Time when the job was created.
     attr_accessor :created_at
+
     # The handle of the user who created the job.
     attr_accessor :created_by_handle
+
     # The name of the user who created the job.
     attr_accessor :created_by_name
+
     # ID of the rule used to create the job (if it is created from a rule).
     attr_accessor :created_from_rule_id
+
     # Definition of a historical job.
     attr_accessor :job_definition
+
     # Job name.
     attr_accessor :job_name
+
     # Job status.
     attr_accessor :job_status
+
     # Last modification time of the job.
     attr_accessor :modified_at
 

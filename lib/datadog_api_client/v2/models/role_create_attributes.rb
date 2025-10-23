@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Attributes of the created role.
   class RoleCreateAttributes
     include BaseGenericModel
+
     # Creation time of the role.
     attr_accessor :created_at
+
     # Time of last role modification.
     attr_accessor :modified_at
+
     # Name of the role.
     attr_reader :name
 

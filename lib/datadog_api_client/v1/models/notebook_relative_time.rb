@@ -20,6 +20,7 @@ module DatadogAPIClient::V1
   # Relative timeframe.
   class NotebookRelativeTime
     include BaseGenericModel
+
     # The available timeframes depend on the widget you are using.
     attr_reader :live_span
 

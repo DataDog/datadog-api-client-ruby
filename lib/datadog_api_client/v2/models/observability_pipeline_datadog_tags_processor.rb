@@ -20,18 +20,25 @@ module DatadogAPIClient::V2
   # The `datadog_tags` processor includes or excludes specific Datadog tags in your logs.
   class ObservabilityPipelineDatadogTagsProcessor
     include BaseGenericModel
+
     # The action to take on tags with matching keys.
     attr_reader :action
+
     # The unique identifier for this component. Used to reference this component in other parts of the pipeline (for example, as the `input` to downstream components).
     attr_reader :id
+
     # A Datadog search query used to determine which logs this processor targets.
     attr_reader :include
+
     # A list of component IDs whose output is used as the `input` for this component.
     attr_reader :inputs
+
     # A list of tag keys.
     attr_reader :keys
+
     # The processing mode.
     attr_reader :mode
+
     # The processor type. The value should always be `datadog_tags`.
     attr_reader :type
 

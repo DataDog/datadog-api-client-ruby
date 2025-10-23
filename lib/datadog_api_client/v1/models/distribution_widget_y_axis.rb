@@ -20,14 +20,19 @@ module DatadogAPIClient::V1
   # Y Axis controls for the distribution widget.
   class DistributionWidgetYAxis
     include BaseGenericModel
+
     # True includes zero.
     attr_accessor :include_zero
+
     # The label of the axis to display on the graph.
     attr_accessor :label
+
     # Specifies the maximum value to show on the y-axis. It takes a number, or auto for default behavior.
     attr_accessor :max
+
     # Specifies minimum value to show on the y-axis. It takes a number, or auto for default behavior.
     attr_accessor :min
+
     # Specifies the scale type. Possible values are `linear` or `log`.
     attr_accessor :scale
 

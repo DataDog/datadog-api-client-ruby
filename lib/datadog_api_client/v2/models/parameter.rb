@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # The definition of `Parameter` object.
   class Parameter
     include BaseGenericModel
+
     # The `Parameter` `name`.
     attr_reader :name
+
     # The `Parameter` `value`.
     attr_reader :value
 

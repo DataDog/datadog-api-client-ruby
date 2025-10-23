@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # The definition of `AnnotationDisplayBounds` object.
   class AnnotationDisplayBounds
     include BaseGenericModel
+
     # The `bounds` `height`.
     attr_accessor :height
+
     # The `bounds` `width`.
     attr_accessor :width
+
     # The `bounds` `x`.
     attr_accessor :x
+
     # The `bounds` `y`.
     attr_accessor :y
 

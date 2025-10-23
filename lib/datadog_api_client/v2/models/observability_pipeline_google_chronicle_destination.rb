@@ -20,18 +20,25 @@ module DatadogAPIClient::V2
   # The `google_chronicle` destination sends logs to Google Chronicle.
   class ObservabilityPipelineGoogleChronicleDestination
     include BaseGenericModel
+
     # GCP credentials used to authenticate with Google Cloud Storage.
     attr_reader :auth
+
     # The Google Chronicle customer ID.
     attr_reader :customer_id
+
     # The encoding format for the logs sent to Chronicle.
     attr_accessor :encoding
+
     # The unique identifier for this component.
     attr_reader :id
+
     # A list of component IDs whose output is used as the `input` for this component.
     attr_reader :inputs
+
     # The log type metadata associated with the Chronicle destination.
     attr_accessor :log_type
+
     # The destination type. The value should always be `google_chronicle`.
     attr_reader :type
 

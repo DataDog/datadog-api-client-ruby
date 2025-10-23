@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Log source configuration.
   class AWSLambdaForwarderConfigLogSourceConfig
     include BaseGenericModel
+
     # List of AWS log source tag filters. Defaults to `[]`.
     attr_accessor :tag_filters
 

@@ -20,8 +20,10 @@ module DatadogAPIClient::V1
   # A list of current AWS services for which Datadog offers automatic log collection.
   class AWSLogsServicesRequest
     include BaseGenericModel
+
     # Your AWS Account ID without dashes.
     attr_reader :account_id
+
     # Array of services IDs set to enable automatic log collection. Discover the list of available services with the get list of AWS log ready services API endpoint.
     attr_reader :services
 

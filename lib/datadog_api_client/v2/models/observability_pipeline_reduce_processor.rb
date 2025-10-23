@@ -20,16 +20,22 @@ module DatadogAPIClient::V2
   # The `reduce` processor aggregates and merges logs based on matching keys and merge strategies.
   class ObservabilityPipelineReduceProcessor
     include BaseGenericModel
+
     # A list of fields used to group log events for merging.
     attr_reader :group_by
+
     # The unique identifier for this processor.
     attr_reader :id
+
     # A Datadog search query used to determine which logs this processor targets.
     attr_reader :include
+
     # A list of component IDs whose output is used as the input for this processor.
     attr_reader :inputs
+
     # List of merge strategies defining how values from grouped events should be combined.
     attr_reader :merge_strategies
+
     # The processor type. The value should always be `reduce`.
     attr_reader :type
 

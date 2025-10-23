@@ -20,18 +20,25 @@ module DatadogAPIClient::V1
   # Create, edit, and disable users.
   class User
     include BaseGenericModel
+
     # The access role of the user. Options are **st** (standard user), **adm** (admin user), or **ro** (read-only user).
     attr_accessor :access_role
+
     # The new disabled status of the user.
     attr_accessor :disabled
+
     # The new email of the user.
     attr_accessor :email
+
     # The user handle, must be a valid email.
     attr_accessor :handle
+
     # Gravatar icon associated to the user.
     attr_accessor :icon
+
     # The name of the user.
     attr_accessor :name
+
     # Whether or not the user logged in Datadog at least once.
     attr_accessor :verified
 

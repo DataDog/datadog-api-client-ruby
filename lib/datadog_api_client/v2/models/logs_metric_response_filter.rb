@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # The log-based metric filter. Logs matching this filter will be aggregated in this metric.
   class LogsMetricResponseFilter
     include BaseGenericModel
+
     # The search query - following the log search syntax.
     attr_accessor :query
 

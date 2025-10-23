@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # Partial Datadog API key.
   class PartialAPIKey
     include BaseGenericModel
+
     # Attributes of a partial API key.
     attr_accessor :attributes
+
     # ID of the API key.
     attr_accessor :id
+
     # Resources related to the API key.
     attr_accessor :relationships
+
     # API Keys resource type.
     attr_accessor :type
 

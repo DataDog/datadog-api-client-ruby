@@ -20,20 +20,28 @@ module DatadogAPIClient::V2
   # Query for selecting logs analyzed by the historical job.
   class HistoricalJobQuery
     include BaseGenericModel
+
     # The aggregation type.
     attr_accessor :aggregation
+
     # Source of events, either logs, audit trail, or Datadog events.
     attr_accessor :data_source
+
     # Field for which the cardinality is measured. Sent as an array.
     attr_accessor :distinct_fields
+
     # Fields to group by.
     attr_accessor :group_by_fields
+
     # When false, events without a group-by value are ignored by the query. When true, events with missing group-by fields are processed with `N/A`, replacing the missing values.
     attr_accessor :has_optional_group_by_fields
+
     # Group of target fields to aggregate over when using the sum, max, geo data, or new value aggregations. The sum, max, and geo data aggregations only accept one value in this list, whereas the new value aggregation accepts up to five values.
     attr_accessor :metrics
+
     # Name of the query.
     attr_accessor :name
+
     # Query to run on logs.
     attr_accessor :query
 

@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Metadata about the instances list
   class WorkflowListInstancesResponseMeta
     include BaseGenericModel
+
     # Page information for the list instances response.
     attr_accessor :page
 

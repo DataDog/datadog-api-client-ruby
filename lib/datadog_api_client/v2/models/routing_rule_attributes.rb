@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # Defines the configurable attributes of a routing rule, such as actions, query, time restriction, and urgency.
   class RoutingRuleAttributes
     include BaseGenericModel
+
     # Specifies the list of actions to perform when the routing rule matches.
     attr_accessor :actions
+
     # Defines the query or condition that triggers this routing rule.
     attr_accessor :query
+
     # Holds time zone information and a list of time restrictions for a routing rule.
     attr_accessor :time_restriction
+
     # Specifies the level of urgency for a routing rule (low, high, or dynamic).
     attr_accessor :urgency
 

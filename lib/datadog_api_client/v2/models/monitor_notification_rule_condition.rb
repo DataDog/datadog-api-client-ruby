@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Conditions for `conditional_recipients`.
   class MonitorNotificationRuleCondition
     include BaseGenericModel
+
     # A list of recipients to notify. Uses the same format as the monitor `message` field. Must not start with an '@'.
     attr_reader :recipients
+
     # The scope to which the monitor applied.
     attr_reader :scope
 

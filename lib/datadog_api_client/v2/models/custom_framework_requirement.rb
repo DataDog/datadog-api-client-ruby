@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Framework Requirement.
   class CustomFrameworkRequirement
     include BaseGenericModel
+
     # Requirement Controls.
     attr_reader :controls
+
     # Requirement Name.
     attr_reader :name
 

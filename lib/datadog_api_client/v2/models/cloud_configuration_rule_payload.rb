@@ -20,26 +20,37 @@ module DatadogAPIClient::V2
   # The payload of a cloud configuration rule.
   class CloudConfigurationRulePayload
     include BaseGenericModel
+
     # Description of generated findings and signals (severity and channels to be notified in case of a signal). Must contain exactly one item.
     attr_reader :cases
+
     # How to generate compliance signals. Useful for cloud_configuration rules only.
     attr_reader :compliance_signal_options
+
     # Custom/Overridden message for generated signals (used in case of Default rule update).
     attr_accessor :custom_message
+
     # Custom/Overridden name of the rule (used in case of Default rule update).
     attr_accessor :custom_name
+
     # Additional queries to filter matched events before they are processed.
     attr_accessor :filters
+
     # Whether the rule is enabled.
     attr_reader :is_enabled
+
     # Message in markdown format for generated findings and signals.
     attr_reader :message
+
     # The name of the rule.
     attr_reader :name
+
     # Options on cloud configuration rules.
     attr_reader :options
+
     # Tags for generated findings and signals.
     attr_accessor :tags
+
     # The rule type.
     attr_accessor :type
 

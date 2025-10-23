@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Include all regions. Defaults to `true`.
   class AWSRegionsIncludeAll
     include BaseGenericModel
+
     # Include all regions.
     attr_reader :include_all
 

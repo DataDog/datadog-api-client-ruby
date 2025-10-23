@@ -20,14 +20,19 @@ module DatadogAPIClient::V2
   # Attributes object for creating a Cloudflare account.
   class CloudflareAccountCreateRequestAttributes
     include BaseGenericModel
+
     # The API key (or token) for the Cloudflare account.
     attr_reader :api_key
+
     # The email associated with the Cloudflare account. If an API key is provided (and not a token), this field is also required.
     attr_accessor :email
+
     # The name of the Cloudflare account.
     attr_reader :name
+
     # An allowlist of resources to restrict pulling metrics for including `'web', 'dns', 'lb' (load balancer), 'worker'`.
     attr_accessor :resources
+
     # An allowlist of zones to restrict pulling metrics for.
     attr_accessor :zones
 

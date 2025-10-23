@@ -20,14 +20,19 @@ module DatadogAPIClient::V1
   # Object describing the device used to perform the Synthetic test.
   class SyntheticsDevice
     include BaseGenericModel
+
     # Screen height of the device.
     attr_reader :height
+
     # The device ID.
     attr_reader :id
+
     # Whether or not the device is a mobile.
     attr_accessor :is_mobile
+
     # The device name.
     attr_reader :name
+
     # Screen width of the device.
     attr_reader :width
 

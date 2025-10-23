@@ -20,12 +20,16 @@ module DatadogAPIClient::V1
   # The counts of monitors per different criteria.
   class MonitorSearchResponseCounts
     include BaseGenericModel
+
     # Search facets.
     attr_accessor :muted
+
     # Search facets.
     attr_accessor :status
+
     # Search facets.
     attr_accessor :tag
+
     # Search facets.
     attr_accessor :type
 

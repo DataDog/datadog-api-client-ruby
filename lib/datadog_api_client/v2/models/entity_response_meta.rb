@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Entity metadata.
   class EntityResponseMeta
     include BaseGenericModel
+
     # Total entities count.
     attr_accessor :count
+
     # Total included data count.
     attr_accessor :include_count
 

@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # The case attached to the issue.
   class IssueCase
     include BaseGenericModel
+
     # Object containing the information of a case.
     attr_reader :attributes
+
     # Case identifier.
     attr_reader :id
+
     # Resources related to a case.
     attr_accessor :relationships
+
     # Type of the object.
     attr_reader :type
 

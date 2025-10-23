@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # A formula for calculation based on one or more queries.
   class QueryFormula
     include BaseGenericModel
+
     # Formula string, referencing one or more queries with their name property.
     attr_reader :formula
+
     # Message for specifying limits to the number of values returned by a query.
     # This limit is only for scalar queries and has no effect on timeseries queries.
     attr_accessor :limit

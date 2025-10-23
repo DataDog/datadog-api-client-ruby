@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # The response from a rule update request.
   class UpdateRuleResponse
     include BaseGenericModel
+
     # The data for a rule update response.
     attr_accessor :data
 

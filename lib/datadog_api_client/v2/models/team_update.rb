@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Team update request
   class TeamUpdate
     include BaseGenericModel
+
     # Team update attributes
     attr_reader :attributes
+
     # Team update relationships
     attr_accessor :relationships
+
     # Team type
     attr_reader :type
 

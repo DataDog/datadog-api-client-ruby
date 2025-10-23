@@ -20,10 +20,13 @@ module DatadogAPIClient::V1
   # Widget definition.
   class ScatterPlotWidgetDefinitionRequests
     include BaseGenericModel
+
     # Scatterplot request containing formulas and functions.
     attr_accessor :table
+
     # Updated scatter plot.
     attr_accessor :x
+
     # Updated scatter plot.
     attr_accessor :y
 

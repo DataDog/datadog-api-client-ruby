@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # A relationship reference for multiple integration metadata objects.
   class RelationshipToIncidentIntegrationMetadatas
     include BaseGenericModel
+
     # Integration metadata relationship array
     attr_reader :data
 

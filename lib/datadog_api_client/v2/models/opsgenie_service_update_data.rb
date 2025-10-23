@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Opsgenie service for an update request.
   class OpsgenieServiceUpdateData
     include BaseGenericModel
+
     # The Opsgenie service attributes for an update request.
     attr_reader :attributes
+
     # The ID of the Opsgenie service.
     attr_reader :id
+
     # Opsgenie service resource type.
     attr_reader :type
 

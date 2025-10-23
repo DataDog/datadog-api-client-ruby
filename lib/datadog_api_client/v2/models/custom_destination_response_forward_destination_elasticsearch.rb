@@ -20,13 +20,17 @@ module DatadogAPIClient::V2
   # The Elasticsearch destination.
   class CustomDestinationResponseForwardDestinationElasticsearch
     include BaseGenericModel
+
     # Basic access authentication.
     attr_reader :auth
+
     # The destination for which logs will be forwarded to.
     # Must have HTTPS scheme and forwarding back to Datadog is not allowed.
     attr_reader :endpoint
+
     # Name of the Elasticsearch index (must follow [Elasticsearch's criteria](https://www.elastic.co/guide/en/elasticsearch/reference/8.11/indices-create-index.html#indices-create-api-path-params)).
     attr_reader :index_name
+
     # Date pattern with US locale and UTC timezone to be appended to the index name after adding `-`
     # (that is, `${index_name}-${indexPattern}`).
     # You can customize the index rotation naming pattern by choosing one of these options:
@@ -38,6 +42,7 @@ module DatadogAPIClient::V2
     # If this field is missing or is blank, it means that the index name will always be the same
     # (that is, no rotation).
     attr_accessor :index_rotation
+
     # Type of the Elasticsearch destination.
     attr_reader :type
 

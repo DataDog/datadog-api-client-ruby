@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # The definition of the `ServiceNowBasicAuth` object.
   class ServiceNowBasicAuthUpdate
     include BaseGenericModel
+
     # The `ServiceNowBasicAuthUpdate` `instance`.
     attr_accessor :instance
+
     # The `ServiceNowBasicAuthUpdate` `password`.
     attr_accessor :password
+
     # The definition of the `ServiceNowBasicAuth` object.
     attr_reader :type
+
     # The `ServiceNowBasicAuthUpdate` `username`.
     attr_accessor :username
 

@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # A custom connection used by an app.
   class CustomConnection
     include BaseGenericModel
+
     # The custom connection attributes.
     attr_accessor :attributes
+
     # The ID of the custom connection.
     attr_accessor :id
+
     # The custom connection type.
     attr_accessor :type
 

@@ -20,6 +20,7 @@ module DatadogAPIClient::V1
   # Object describing the synthetics tests to trigger.
   class SyntheticsCITestBody
     include BaseGenericModel
+
     # List of Synthetic tests with overrides.
     attr_accessor :tests
 

@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Properties of a grid component.
   class ComponentGridProperties
     include BaseGenericModel
+
     # The background color of the grid.
     attr_accessor :background_color
+
     # The child components of the grid.
     attr_accessor :children
+
     # Whether the grid component and its children are visible. If a string, it must be a valid JavaScript expression that evaluates to a boolean.
     attr_accessor :is_visible
 

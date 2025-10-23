@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # A ordered list of archive IDs.
   class LogsArchiveOrder
     include BaseGenericModel
+
     # The definition of an archive order.
     attr_accessor :data
 

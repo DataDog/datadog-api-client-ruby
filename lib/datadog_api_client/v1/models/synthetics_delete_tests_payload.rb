@@ -21,9 +21,11 @@ module DatadogAPIClient::V1
   # to delete.
   class SyntheticsDeleteTestsPayload
     include BaseGenericModel
+
     # Delete the Synthetic test even if it's referenced by other resources
     # (for example, SLOs and composite monitors).
     attr_accessor :force_delete_dependencies
+
     # An array of Synthetic test IDs you want to delete.
     attr_accessor :public_ids
 

@@ -20,6 +20,7 @@ module DatadogAPIClient::V1
   # Description of the CI pipeline.
   class SyntheticsCIBatchMetadataPipeline
     include BaseGenericModel
+
     # URL of the pipeline.
     attr_accessor :url
 

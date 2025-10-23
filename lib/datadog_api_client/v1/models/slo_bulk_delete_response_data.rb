@@ -20,9 +20,11 @@ module DatadogAPIClient::V1
   # An array of service level objective objects.
   class SLOBulkDeleteResponseData
     include BaseGenericModel
+
     # An array of service level objective object IDs that indicates
     # which objects that were completely deleted.
     attr_accessor :deleted
+
     # An array of service level objective object IDs that indicates
     # which objects that were modified (objects for which at least one
     # threshold was deleted, but that were not completely deleted).

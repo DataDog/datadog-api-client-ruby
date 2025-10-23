@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Update request with an incident team payload.
   class IncidentTeamUpdateRequest
     include BaseGenericModel
+
     # Incident Team data for an update request.
     attr_reader :data
 

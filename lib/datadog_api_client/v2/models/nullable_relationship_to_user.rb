@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Relationship to user.
   class NullableRelationshipToUser
     include BaseGenericModel
+
     # Relationship to user object.
     attr_accessor :data
 

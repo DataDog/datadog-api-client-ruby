@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Create request for a notification rule.
   class CreateIncidentNotificationRuleRequest
     include BaseGenericModel
+
     # Notification rule data for a create request.
     attr_reader :data
 

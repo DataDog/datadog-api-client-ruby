@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Dataset metadata and configurations.
   class DatasetAttributesRequest
     include BaseGenericModel
+
     # Name of the dataset.
     attr_reader :name
+
     # List of access principals, formatted as `principal_type:id`. Principal can be 'team' or 'role'.
     attr_reader :principals
+
     # List of product-specific filters.
     attr_reader :product_filters
 

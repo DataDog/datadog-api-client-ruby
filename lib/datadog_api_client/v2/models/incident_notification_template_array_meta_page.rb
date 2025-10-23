@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Pagination metadata.
   class IncidentNotificationTemplateArrayMetaPage
     include BaseGenericModel
+
     # Total number of notification templates.
     attr_accessor :total_count
+
     # Total number of notification templates matching the filter.
     attr_accessor :total_filtered_count
 

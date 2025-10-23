@@ -20,26 +20,37 @@ module DatadogAPIClient::V2
   # Attributes from the monitor that triggered the event.
   class MonitorType
     include BaseGenericModel
+
     # The POSIX timestamp of the monitor's creation in nanoseconds.
     attr_accessor :created_at
+
     # Monitor group status used when there is no `result_groups`.
     attr_reader :group_status
+
     # Groups to which the monitor belongs.
     attr_accessor :groups
+
     # The monitor ID.
     attr_accessor :id
+
     # The monitor message.
     attr_accessor :message
+
     # The monitor's last-modified timestamp.
     attr_accessor :modified
+
     # The monitor name.
     attr_accessor :name
+
     # The query that triggers the alert.
     attr_accessor :query
+
     # A list of tags attached to the monitor.
     attr_accessor :tags
+
     # The templated name of the monitor before resolving any template variables.
     attr_accessor :templated_name
+
     # The monitor type.
     attr_accessor :type
 

@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # The issue the search result corresponds to.
   class IssueReference
     include BaseGenericModel
+
     # Issue identifier.
     attr_reader :id
+
     # Type of the object.
     attr_reader :type
 

@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # The custom connection attributes.
   class CustomConnectionAttributes
     include BaseGenericModel
+
     # The name of the custom connection.
     attr_accessor :name
+
     # Information about the Private Action Runner used by the custom connection, if the custom connection is associated with a Private Action Runner.
     attr_accessor :on_prem_runner
 

@@ -20,30 +20,43 @@ module DatadogAPIClient::V2
   # Create a new Cloud Workload Security Agent rule.
   class CloudWorkloadSecurityAgentRuleCreateAttributes
     include BaseGenericModel
+
     # The array of actions the rule can perform if triggered
     attr_accessor :actions
+
     # Constrain the rule to specific versions of the Datadog Agent.
     attr_accessor :agent_version
+
     # The blocking policies that the rule belongs to.
     attr_accessor :blocking
+
     # The description of the Agent rule.
     attr_accessor :description
+
     # The disabled policies that the rule belongs to.
     attr_accessor :disabled
+
     # Whether the Agent rule is enabled.
     attr_accessor :enabled
+
     # The SECL expression of the Agent rule.
     attr_reader :expression
+
     # The platforms the Agent rule is supported on.
     attr_accessor :filters
+
     # The monitoring policies that the rule belongs to.
     attr_accessor :monitoring
+
     # The name of the Agent rule.
     attr_reader :name
+
     # The ID of the policy where the Agent rule is saved.
     attr_accessor :policy_id
+
     # The list of product tags associated with the rule.
     attr_accessor :product_tags
+
     # Whether the rule is silent.
     attr_accessor :silent
 

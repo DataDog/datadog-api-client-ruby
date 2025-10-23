@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Incident's non Datadog creator.
   class IncidentNonDatadogCreator
     include BaseGenericModel
+
     # Non Datadog creator `48px` image.
     attr_accessor :image_48_px
+
     # Non Datadog creator name.
     attr_accessor :name
 

@@ -20,21 +20,28 @@ module DatadogAPIClient::V2
   # Object containing the definition of a metric tag configuration attributes.
   class MetricTagConfigurationAttributes
     include BaseGenericModel
+
     # Deprecated. You no longer need to configure specific time and space aggregations for Metrics Without Limits.
     attr_accessor :aggregations
+
     # Timestamp when the tag configuration was created.
     attr_accessor :created_at
+
     # When set to true, the configuration will exclude the configured tags and include any other submitted tags.
     # When set to false, the configuration will include the configured tags and exclude any other submitted tags.
     # Defaults to false. Requires `tags` property.
     attr_accessor :exclude_tags_mode
+
     # Toggle to include or exclude percentile aggregations for distribution metrics.
     # Only present when the `metric_type` is `distribution`.
     attr_accessor :include_percentiles
+
     # The metric's type.
     attr_accessor :metric_type
+
     # Timestamp when the tag configuration was last modified.
     attr_accessor :modified_at
+
     # List of tag keys on which to group.
     attr_accessor :tags
 

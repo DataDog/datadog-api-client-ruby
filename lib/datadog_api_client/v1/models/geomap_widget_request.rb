@@ -20,24 +20,34 @@ module DatadogAPIClient::V1
   # An updated geomap widget.
   class GeomapWidgetRequest
     include BaseGenericModel
+
     # Widget columns.
     attr_accessor :columns
+
     # List of formulas that operate on queries.
     attr_accessor :formulas
+
     # The log query.
     attr_accessor :log_query
+
     # The widget metrics query.
     attr_accessor :q
+
     # List of queries that can be returned directly or used in formulas.
     attr_accessor :queries
+
     # Updated list stream widget.
     attr_accessor :query
+
     # Timeseries, scalar, or event list response. Event list response formats are supported by Geomap widgets.
     attr_accessor :response_format
+
     # The log query.
     attr_accessor :rum_query
+
     # The log query.
     attr_accessor :security_query
+
     # The controls for sorting the widget.
     attr_accessor :sort
 

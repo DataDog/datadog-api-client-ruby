@@ -20,30 +20,43 @@ module DatadogAPIClient::V1
   # The parameters of a mobile step.
   class SyntheticsMobileStepParams
     include BaseGenericModel
+
     # Type of assertion to apply in an API test.
     attr_accessor :check
+
     # Number of milliseconds to wait between inputs in a `typeText` step type.
     attr_reader :delay
+
     # The direction of the scroll for a `scrollToElement` step type.
     attr_accessor :direction
+
     # Information about the element used for a step.
     attr_accessor :element
+
     # Boolean to change the state of the wifi for a `toggleWiFi` step type.
     attr_accessor :enabled
+
     # Maximum number of scrolls to do for a `scrollToElement` step type.
     attr_accessor :max_scrolls
+
     # List of positions for the `flick` step type. The maximum is 10 flicks per step
     attr_accessor :positions
+
     # Public ID of the test to be played as part of a `playSubTest` step type.
     attr_accessor :subtest_public_id
+
     # Values used in the step for in multiple step types.
     attr_accessor :value
+
     # Variable object for `extractVariable` step type.
     attr_accessor :variable
+
     # Boolean to indicate if `Enter` should be pressed at the end of the `typeText` step type.
     attr_accessor :with_enter
+
     # Amount to scroll by on the `x` axis for a `scroll` step type.
     attr_accessor :x
+
     # Amount to scroll by on the `y` axis for a `scroll` step type.
     attr_accessor :y
 

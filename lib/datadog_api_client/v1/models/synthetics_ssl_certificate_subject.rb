@@ -20,18 +20,25 @@ module DatadogAPIClient::V1
   # Object describing the SSL certificate used for the test.
   class SyntheticsSSLCertificateSubject
     include BaseGenericModel
+
     # Country Name associated with the certificate.
     attr_accessor :c
+
     # Common Name that associated with the certificate.
     attr_accessor :cn
+
     # Locality associated with the certificate.
     attr_accessor :l
+
     # Organization associated with the certificate.
     attr_accessor :o
+
     # Organizational Unit associated with the certificate.
     attr_accessor :ou
+
     # State Or Province Name associated with the certificate.
     attr_accessor :st
+
     # Subject Alternative Name associated with the certificate.
     attr_accessor :alt_name
 

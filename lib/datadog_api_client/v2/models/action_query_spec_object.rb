@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # The action query spec object.
   class ActionQuerySpecObject
     include BaseGenericModel
+
     # The connection group to use for an action query.
     attr_accessor :connection_group
+
     # The ID of the custom connection to use for this action query.
     attr_accessor :connection_id
+
     # The fully qualified name of the action type.
     attr_reader :fqn
+
     # The inputs to the action query. These are the values that are passed to the action when it is triggered.
     attr_accessor :inputs
 

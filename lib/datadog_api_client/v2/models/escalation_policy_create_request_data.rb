@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Represents the data for creating an escalation policy, including its attributes, relationships, and resource type.
   class EscalationPolicyCreateRequestData
     include BaseGenericModel
+
     # Defines the attributes for creating an escalation policy, including its description, name, resolution behavior, retries, and steps.
     attr_reader :attributes
+
     # Represents relationships in an escalation policy creation request, including references to teams.
     attr_accessor :relationships
+
     # Indicates that the resource is of type `policies`.
     attr_reader :type
 

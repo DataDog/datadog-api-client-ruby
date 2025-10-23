@@ -20,13 +20,17 @@ module DatadogAPIClient::V2
   # Optional attributes for the status of a bulk tag configuration request.
   class MetricBulkTagConfigStatusAttributes
     include BaseGenericModel
+
     # A list of account emails to notify when the configuration is applied.
     attr_accessor :emails
+
     # When set to true, the configuration will exclude the configured tags and include any other submitted tags.
     # When set to false, the configuration will include the configured tags and exclude any other submitted tags.
     attr_accessor :exclude_tags_mode
+
     # The status of the request.
     attr_accessor :status
+
     # A list of tag names to apply to the configuration.
     attr_accessor :tags
 

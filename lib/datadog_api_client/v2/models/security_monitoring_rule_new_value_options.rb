@@ -20,13 +20,17 @@ module DatadogAPIClient::V2
   # Options on new value detection method.
   class SecurityMonitoringRuleNewValueOptions
     include BaseGenericModel
+
     # The duration in days after which a learned value is forgotten.
     attr_accessor :forget_after
+
     # The duration in days during which values are learned, and after which signals will be generated for values that
     # weren't learned. If set to 0, a signal will be generated for all new values after the first value is learned.
     attr_accessor :learning_duration
+
     # The learning method used to determine when signals should be generated for values that weren't learned.
     attr_accessor :learning_method
+
     # A number of occurrences after which signals will be generated for values that weren't learned.
     attr_accessor :learning_threshold
 

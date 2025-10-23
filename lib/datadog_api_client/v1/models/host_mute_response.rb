@@ -20,12 +20,16 @@ module DatadogAPIClient::V1
   # Response with the list of muted host for your organization.
   class HostMuteResponse
     include BaseGenericModel
+
     # Action applied to the hosts.
     attr_accessor :action
+
     # POSIX timestamp in seconds when the host is unmuted.
     attr_accessor :_end
+
     # The host name.
     attr_accessor :hostname
+
     # Message associated with the mute.
     attr_accessor :message
 

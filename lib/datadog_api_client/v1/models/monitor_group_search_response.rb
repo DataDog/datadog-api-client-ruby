@@ -20,10 +20,13 @@ module DatadogAPIClient::V1
   # The response of a monitor group search.
   class MonitorGroupSearchResponse
     include BaseGenericModel
+
     # The counts of monitor groups per different criteria.
     attr_accessor :counts
+
     # The list of found monitor groups.
     attr_accessor :groups
+
     # Metadata about the response.
     attr_accessor :metadata
 

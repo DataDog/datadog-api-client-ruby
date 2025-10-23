@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # The definition of `WorkflowUserRelationshipData` object.
   class WorkflowUserRelationshipData
     include BaseGenericModel
+
     # The user identifier
     attr_reader :id
+
     # The definition of `WorkflowUserRelationshipType` object.
     attr_reader :type
 

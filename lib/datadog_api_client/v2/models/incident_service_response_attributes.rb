@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # The incident service's attributes from a response.
   class IncidentServiceResponseAttributes
     include BaseGenericModel
+
     # Timestamp of when the incident service was created.
     attr_accessor :created
+
     # Timestamp of when the incident service was modified.
     attr_accessor :modified
+
     # Name of the incident service.
     attr_accessor :name
 

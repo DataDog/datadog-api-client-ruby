@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # The expected response schema when getting a Fastly service.
   class FastlyServiceResponse
     include BaseGenericModel
+
     # Data object for Fastly service requests.
     attr_accessor :data
 

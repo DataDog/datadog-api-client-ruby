@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Configuration for completely redacting matched sensitive data.
   class ObservabilityPipelineSensitiveDataScannerProcessorActionRedact
     include BaseGenericModel
+
     # Action type that completely replaces the matched sensitive data with a fixed replacement string to remove all visibility.
     attr_reader :action
+
     # Configuration for fully redacting sensitive data.
     attr_reader :options
 

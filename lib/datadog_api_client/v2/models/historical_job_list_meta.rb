@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Metadata about the list of jobs.
   class HistoricalJobListMeta
     include BaseGenericModel
+
     # Number of jobs in the list.
     attr_reader :total_count
 

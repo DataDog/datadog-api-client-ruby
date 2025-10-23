@@ -20,14 +20,19 @@ module DatadogAPIClient::V2
   # The definition of `AWSAssumeRole` object.
   class AWSAssumeRole
     include BaseGenericModel
+
     # AWS account the connection is created for
     attr_reader :account_id
+
     # External ID used to scope which connection can be used to assume the role
     attr_accessor :external_id
+
     # AWS account that will assume the role
     attr_accessor :principal_id
+
     # Role to assume
     attr_reader :role
+
     # The definition of `AWSAssumeRoleType` object.
     attr_reader :type
 

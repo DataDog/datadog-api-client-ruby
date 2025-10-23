@@ -20,30 +20,43 @@ module DatadogAPIClient::V1
   # The host map widget graphs any metric across your hosts using the same visualization available from the main Host Map page.
   class HostMapWidgetDefinition
     include BaseGenericModel
+
     # List of custom links.
     attr_accessor :custom_links
+
     # List of tag prefixes to group by.
     attr_accessor :group
+
     # Whether to show the hosts that don’t fit in a group.
     attr_accessor :no_group_hosts
+
     # Whether to show the hosts with no metrics.
     attr_accessor :no_metric_hosts
+
     # Which type of node to use in the map.
     attr_accessor :node_type
+
     # Notes on the title.
     attr_accessor :notes
+
     # List of definitions.
     attr_reader :requests
+
     # List of tags used to filter the map.
     attr_accessor :scope
+
     # The style to apply to the widget.
     attr_accessor :style
+
     # Title of the widget.
     attr_accessor :title
+
     # How to align the text on the widget.
     attr_accessor :title_align
+
     # Size of the title.
     attr_accessor :title_size
+
     # Type of the host map widget.
     attr_reader :type
 

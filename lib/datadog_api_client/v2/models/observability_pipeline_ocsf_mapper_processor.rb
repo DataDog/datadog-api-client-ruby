@@ -20,14 +20,19 @@ module DatadogAPIClient::V2
   # The `ocsf_mapper` processor transforms logs into the OCSF schema using a predefined mapping configuration.
   class ObservabilityPipelineOcsfMapperProcessor
     include BaseGenericModel
+
     # The unique identifier for this component. Used to reference this component in other parts of the pipeline.
     attr_reader :id
+
     # A Datadog search query used to determine which logs this processor targets.
     attr_reader :include
+
     # A list of component IDs whose output is used as the `input` for this processor.
     attr_reader :inputs
+
     # A list of mapping rules to convert events to the OCSF format.
     attr_reader :mappings
+
     # The processor type. The value should always be `ocsf_mapper`.
     attr_reader :type
 

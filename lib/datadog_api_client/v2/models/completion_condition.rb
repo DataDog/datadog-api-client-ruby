@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # The definition of `CompletionCondition` object.
   class CompletionCondition
     include BaseGenericModel
+
     # The `CompletionCondition` `operand1`.
     attr_reader :operand1
+
     # The `CompletionCondition` `operand2`.
     attr_accessor :operand2
+
     # The definition of `CompletionConditionOperator` object.
     attr_reader :operator
 

@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Trigger a workflow from a Schedule. The workflow must be published.
   class ScheduleTrigger
     include BaseGenericModel
+
     # Recurrence rule expression for scheduling.
     attr_reader :rrule_expression
 

@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # A group by rule.
   class LogsMetricGroupBy
     include BaseGenericModel
+
     # The path to the value the log-based metric will be aggregated over.
     attr_reader :path
+
     # Eventual name of the tag that gets created. By default, the path attribute is used as the tag name.
     attr_accessor :tag_name
 

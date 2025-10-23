@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Service definition data.
   class ServiceDefinitionData
     include BaseGenericModel
+
     # Service definition attributes.
     attr_accessor :attributes
+
     # Service definition id.
     attr_accessor :id
+
     # Service definition type.
     attr_accessor :type
 

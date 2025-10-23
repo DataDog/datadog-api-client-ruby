@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Configuration for hashing matched sensitive values.
   class ObservabilityPipelineSensitiveDataScannerProcessorActionHash
     include BaseGenericModel
+
     # Action type that replaces the matched sensitive data with a hashed representation, preserving structure while securing content.
     attr_reader :action
+
     # The `ObservabilityPipelineSensitiveDataScannerProcessorActionHash` `options`.
     attr_accessor :options
 

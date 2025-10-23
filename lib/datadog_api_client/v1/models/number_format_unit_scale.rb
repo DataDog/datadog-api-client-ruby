@@ -20,8 +20,10 @@ module DatadogAPIClient::V1
   # The definition of `NumberFormatUnitScale` object.
   class NumberFormatUnitScale
     include BaseGenericModel
+
     # The type of unit scale.
     attr_accessor :type
+
     # The name of the unit.
     attr_accessor :unit_name
 

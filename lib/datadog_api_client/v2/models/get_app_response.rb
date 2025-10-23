@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # The full app definition response object.
   class GetAppResponse
     include BaseGenericModel
+
     # The data object containing the app definition.
     attr_accessor :data
+
     # Data on the version of the app that was published.
     attr_accessor :included
+
     # Metadata of an app.
     attr_accessor :meta
+
     # The app's publication relationship and custom connections.
     attr_accessor :relationship
 

@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Response containing a list of datasets.
   class DatasetResponseMulti
     include BaseGenericModel
+
     # The list of datasets returned in response.
     attr_accessor :data
 

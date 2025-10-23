@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # The definition of the `GCPServiceAccount` object.
   class GCPServiceAccount
     include BaseGenericModel
+
     # The `GCPServiceAccount` `private_key`.
     attr_reader :private_key
+
     # The `GCPServiceAccount` `service_account_email`.
     attr_reader :service_account_email
+
     # The definition of the `GCPServiceAccount` object.
     attr_reader :type
 

@@ -20,6 +20,7 @@ module DatadogAPIClient::V1
   # Has one property enabled (boolean).
   class OrganizationSettingsSamlIdpInitiatedLogin
     include BaseGenericModel
+
     # Whether SAML IdP initiated login is enabled, learn more
     # in the [SAML documentation](https://docs.datadoghq.com/account_management/saml/#idp-initiated-login).
     attr_accessor :enabled

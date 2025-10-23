@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Team permission setting
   class TeamPermissionSetting
     include BaseGenericModel
+
     # Team permission setting attributes
     attr_accessor :attributes
+
     # The team permission setting's identifier
     attr_reader :id
+
     # Team permission setting type
     attr_reader :type
 

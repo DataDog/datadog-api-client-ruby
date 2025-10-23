@@ -24,14 +24,19 @@ module DatadogAPIClient::V1
   # A pipeline can contain Nested Pipelines and Processors whereas a Nested Pipeline can only contain Processors.
   class LogsPipelineProcessor
     include BaseGenericModel
+
     # Filter for logs.
     attr_accessor :filter
+
     # Whether or not the processor is enabled.
     attr_accessor :is_enabled
+
     # Name of the processor.
     attr_accessor :name
+
     # Ordered list of processors in this pipeline.
     attr_accessor :processors
+
     # Type of logs pipeline processor.
     attr_reader :type
 

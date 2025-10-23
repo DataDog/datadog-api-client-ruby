@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # The list tags response data.
   class ListTagsResponseData
     include BaseGenericModel
+
     # The definition of ListTagsResponseDataAttributes object.
     attr_accessor :attributes
+
     # The device ID
     attr_accessor :id
+
     # The type of the resource. The value should always be tags.
     attr_accessor :type
 

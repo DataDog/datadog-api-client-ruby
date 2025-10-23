@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # The definition of `ArbitraryRuleResponse` object.
   class ArbitraryRuleResponse
     include BaseGenericModel
+
     # The definition of `ArbitraryRuleResponseData` object.
     attr_accessor :data
 

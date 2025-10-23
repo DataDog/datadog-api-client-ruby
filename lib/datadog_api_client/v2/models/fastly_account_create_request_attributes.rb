@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Attributes object for creating a Fastly account.
   class FastlyAccountCreateRequestAttributes
     include BaseGenericModel
+
     # The API key for the Fastly account.
     attr_reader :api_key
+
     # The name of the Fastly account.
     attr_reader :name
+
     # A list of services belonging to the parent account.
     attr_accessor :services
 

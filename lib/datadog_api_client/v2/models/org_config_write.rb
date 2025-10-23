@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # An Org Config write operation.
   class OrgConfigWrite
     include BaseGenericModel
+
     # Writable attributes of an Org Config.
     attr_reader :attributes
+
     # Data type of an Org Config.
     attr_reader :type
 

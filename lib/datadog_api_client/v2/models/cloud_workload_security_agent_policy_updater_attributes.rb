@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # The attributes of the user who last updated the policy
   class CloudWorkloadSecurityAgentPolicyUpdaterAttributes
     include BaseGenericModel
+
     # The handle of the user
     attr_accessor :handle
+
     # The name of the user
     attr_accessor :name
 

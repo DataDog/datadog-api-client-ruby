@@ -20,10 +20,13 @@ module DatadogAPIClient::V1
   # Define a sorting method.
   class LogQueryDefinitionGroupBySort
     include BaseGenericModel
+
     # The aggregation method.
     attr_reader :aggregation
+
     # Facet name.
     attr_accessor :facet
+
     # Widget sorting methods.
     attr_reader :order
 

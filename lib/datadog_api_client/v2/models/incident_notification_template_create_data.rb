@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Notification template data for a create request.
   class IncidentNotificationTemplateCreateData
     include BaseGenericModel
+
     # The attributes for creating a notification template.
     attr_reader :attributes
+
     # The definition of `NotificationTemplateCreateDataRelationships` object.
     attr_accessor :relationships
+
     # Notification templates resource type.
     attr_reader :type
 

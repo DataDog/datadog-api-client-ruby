@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # A standard pattern.
   class SensitiveDataScannerStandardPatternData
     include BaseGenericModel
+
     # Data containing the standard pattern id.
     attr_accessor :data
 

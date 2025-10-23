@@ -21,14 +21,18 @@ module DatadogAPIClient::V1
   # and 3. the threshold. Optionally, a fourth part, the query interval, can be provided.
   class SLOTimeSliceCondition
     include BaseGenericModel
+
     # The comparator used to compare the SLI value to the threshold.
     attr_reader :comparator
+
     # The queries and formula used to calculate the SLI value.
     attr_reader :query
+
     # The interval used when querying data, which defines the size of a time slice.
     # Two values are allowed: 60 (1 minute) and 300 (5 minutes).
     # If not provided, the value defaults to 300 (5 minutes).
     attr_accessor :query_interval_seconds
+
     # The threshold value to which each SLI value will be compared.
     attr_reader :threshold
 

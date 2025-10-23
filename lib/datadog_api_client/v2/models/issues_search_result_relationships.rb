@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Relationships between the search result and other resources.
   class IssuesSearchResultRelationships
     include BaseGenericModel
+
     # Relationship between the search result and the corresponding issue.
     attr_accessor :issue
 

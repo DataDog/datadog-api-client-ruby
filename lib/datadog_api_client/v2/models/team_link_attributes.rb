@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # Team link attributes
   class TeamLinkAttributes
     include BaseGenericModel
+
     # The link's label
     attr_reader :label
+
     # The link's position, used to sort links for the team
     attr_reader :position
+
     # ID of the team the link is associated with
     attr_accessor :team_id
+
     # The URL for the link
     attr_reader :url
 

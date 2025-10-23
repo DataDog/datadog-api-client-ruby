@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Aggregate information for numeric incident data.
   class IncidentSearchResponseNumericFacetDataAggregates
     include BaseGenericModel
+
     # Maximum value of the numeric aggregates.
     attr_accessor :max
+
     # Minimum value of the numeric aggregates.
     attr_accessor :min
 

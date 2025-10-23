@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Patch request for an incident type.
   class IncidentTypePatchRequest
     include BaseGenericModel
+
     # Incident type data for a patch request.
     attr_reader :data
 

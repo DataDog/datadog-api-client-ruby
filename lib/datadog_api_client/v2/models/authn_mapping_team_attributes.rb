@@ -20,18 +20,25 @@ module DatadogAPIClient::V2
   # Team attributes.
   class AuthNMappingTeamAttributes
     include BaseGenericModel
+
     # Unicode representation of the avatar for the team, limited to a single grapheme
     attr_accessor :avatar
+
     # Banner selection for the team
     attr_accessor :banner
+
     # The team's identifier
     attr_reader :handle
+
     # The number of links belonging to the team
     attr_reader :link_count
+
     # The name of the team
     attr_reader :name
+
     # A brief summary of the team, derived from the `description`
     attr_reader :summary
+
     # The number of users belonging to the team
     attr_reader :user_count
 

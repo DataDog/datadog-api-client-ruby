@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Response object that includes an Agent policy
   class CloudWorkloadSecurityAgentPolicyResponse
     include BaseGenericModel
+
     # Object for a single Agent policy
     attr_accessor :data
 

@@ -20,23 +20,28 @@ module DatadogAPIClient::V2
   # Optional parameters for bulk creating metric tag configurations.
   class MetricBulkTagConfigCreateAttributes
     include BaseGenericModel
+
     # A list of account emails to notify when the configuration is applied.
     attr_accessor :emails
+
     # When set to true, the configuration will exclude the configured tags and include any other submitted tags.
     # When set to false, the configuration will include the configured tags and exclude any other submitted tags.
     # Defaults to false.
     attr_accessor :exclude_tags_mode
+
     # When provided, all tags that have been actively queried are
     # configured (and, therefore, remain queryable) for each metric that
     # matches the given prefix.  Minimum value is 1 second, and maximum
     # value is 7,776,000 seconds (90 days).
     attr_reader :include_actively_queried_tags_window
+
     # When set to true, the configuration overrides any existing
     # configurations for the given metric with the new set of tags in this
     # configuration request. If false, old configurations are kept and
     # are merged with the set of tags in this configuration request.
     # Defaults to true.
     attr_accessor :override_existing_configurations
+
     # A list of tag names to apply to the configuration.
     attr_accessor :tags
 

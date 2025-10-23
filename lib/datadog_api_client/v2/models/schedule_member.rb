@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Represents a single member entry in a schedule, referencing a specific user.
   class ScheduleMember
     include BaseGenericModel
+
     # The unique identifier for this schedule member.
     attr_accessor :id
+
     # Defines relationships for a schedule member, primarily referencing a single user.
     attr_accessor :relationships
+
     # Schedule Members resource type.
     attr_reader :type
 

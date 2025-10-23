@@ -20,14 +20,19 @@ module DatadogAPIClient::V2
   # Readable attributes of an Org Config.
   class OrgConfigReadAttributes
     include BaseGenericModel
+
     # The description of an Org Config.
     attr_reader :description
+
     # The timestamp of the last Org Config update (if any).
     attr_accessor :modified_at
+
     # The machine-friendly name of an Org Config.
     attr_reader :name
+
     # The value of an Org Config.
     attr_reader :value
+
     # The type of an Org Config value.
     attr_reader :value_type
 

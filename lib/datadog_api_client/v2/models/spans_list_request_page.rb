@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Paging attributes for listing spans.
   class SpansListRequestPage
     include BaseGenericModel
+
     # List following results with a cursor provided in the previous query.
     attr_accessor :cursor
+
     # Maximum number of spans in the response.
     attr_reader :limit
 

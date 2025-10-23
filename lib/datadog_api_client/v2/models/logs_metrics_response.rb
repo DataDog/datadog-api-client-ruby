@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # All the available log-based metric objects.
   class LogsMetricsResponse
     include BaseGenericModel
+
     # A list of log-based metric objects.
     attr_accessor :data
 

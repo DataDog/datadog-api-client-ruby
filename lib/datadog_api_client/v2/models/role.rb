@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # Role object returned by the API.
   class Role
     include BaseGenericModel
+
     # Attributes of the role.
     attr_accessor :attributes
+
     # The unique identifier of the role.
     attr_accessor :id
+
     # Relationships of the role object returned by the API.
     attr_accessor :relationships
+
     # Roles type.
     attr_reader :type
 

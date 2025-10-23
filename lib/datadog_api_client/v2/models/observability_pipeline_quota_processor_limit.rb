@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # The maximum amount of data or number of events allowed before the quota is enforced. Can be specified in bytes or events.
   class ObservabilityPipelineQuotaProcessorLimit
     include BaseGenericModel
+
     # Unit for quota enforcement in bytes for data size or events for count.
     attr_reader :enforce
+
     # The limit for quota enforcement.
     attr_reader :limit
 

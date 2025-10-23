@@ -20,8 +20,10 @@ module DatadogAPIClient::V1
   # Template variables saved views.
   class DashboardTemplateVariablePreset
     include BaseGenericModel
+
     # The name of the variable.
     attr_accessor :name
+
     # List of variables.
     attr_accessor :template_variables
 

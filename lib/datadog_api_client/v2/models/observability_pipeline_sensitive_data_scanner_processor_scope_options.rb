@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Fields to which the scope rule applies.
   class ObservabilityPipelineSensitiveDataScannerProcessorScopeOptions
     include BaseGenericModel
+
     # The `ObservabilityPipelineSensitiveDataScannerProcessorScopeOptions` `fields`.
     attr_reader :fields
 

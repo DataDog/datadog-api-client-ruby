@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # Notification rule data from a response.
   class IncidentNotificationRuleResponseData
     include BaseGenericModel
+
     # The notification rule's attributes.
     attr_accessor :attributes
+
     # The unique identifier of the notification rule.
     attr_reader :id
+
     # The notification rule's resource relationships.
     attr_accessor :relationships
+
     # Notification rules resource type.
     attr_reader :type
 

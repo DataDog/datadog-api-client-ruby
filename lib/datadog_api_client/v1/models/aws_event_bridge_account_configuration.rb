@@ -20,10 +20,13 @@ module DatadogAPIClient::V1
   # The EventBridge configuration for one AWS account.
   class AWSEventBridgeAccountConfiguration
     include BaseGenericModel
+
     # Your AWS Account ID without dashes.
     attr_accessor :account_id
+
     # Array of AWS event sources associated with this account.
     attr_accessor :event_hubs
+
     # Array of tags (in the form `key:value`) which are added to all hosts
     # and metrics reporting through the main AWS integration.
     attr_accessor :tags

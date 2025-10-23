@@ -20,9 +20,11 @@ module DatadogAPIClient::V2
   # A point object is of the form `{POSIX_timestamp, numeric_value}`.
   class MetricPoint
     include BaseGenericModel
+
     # The timestamp should be in seconds and current.
     # Current is defined as not more than 10 minutes in the future or more than 1 hour in the past.
     attr_accessor :timestamp
+
     # The numeric value format should be a 64bit float gauge-type value.
     attr_accessor :value
 

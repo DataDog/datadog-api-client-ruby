@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # List of Container Images.
   class ContainerImagesResponse
     include BaseGenericModel
+
     # Array of Container Image objects.
     attr_accessor :data
+
     # Pagination links.
     attr_accessor :links
+
     # Response metadata object.
     attr_accessor :meta
 

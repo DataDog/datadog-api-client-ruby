@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Information about the monitor identified by the downtime.
   class DowntimeMonitorIncludedItem
     include BaseGenericModel
+
     # Attributes of the monitor identified by the downtime.
     attr_accessor :attributes
+
     # ID of the monitor identified by the downtime.
     attr_accessor :id
+
     # Monitor resource type.
     attr_accessor :type
 

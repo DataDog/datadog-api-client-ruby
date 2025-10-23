@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # The Azure archive's integration destination.
   class LogsArchiveIntegrationAzure
     include BaseGenericModel
+
     # A client ID.
     attr_reader :client_id
+
     # A tenant ID.
     attr_reader :tenant_id
 

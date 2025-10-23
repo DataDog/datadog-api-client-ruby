@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # The retention filter object .
   class RetentionFilterWithoutAttributes
     include BaseGenericModel
+
     # The ID of the retention filter.
     attr_reader :id
+
     # The type of the resource.
     attr_reader :type
 

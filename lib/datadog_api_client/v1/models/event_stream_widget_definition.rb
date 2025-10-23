@@ -21,20 +21,28 @@ module DatadogAPIClient::V1
   # on the Event Stream view. Only available on FREE layout dashboards.
   class EventStreamWidgetDefinition
     include BaseGenericModel
+
     # Size to use to display an event.
     attr_accessor :event_size
+
     # Query to filter the event stream with.
     attr_reader :query
+
     # The execution method for multi-value filters. Can be either and or or.
     attr_accessor :tags_execution
+
     # Time setting for the widget.
     attr_accessor :time
+
     # Title of the widget.
     attr_accessor :title
+
     # How to align the text on the widget.
     attr_accessor :title_align
+
     # Size of the title.
     attr_accessor :title_size
+
     # Type of the event stream widget.
     attr_reader :type
 

@@ -20,16 +20,22 @@ module DatadogAPIClient::V1
   # Object describing a file to be used as part of the request in the test.
   class SyntheticsTestRequestBodyFile
     include BaseGenericModel
+
     # Bucket key of the file.
     attr_accessor :bucket_key
+
     # Content of the file.
     attr_reader :content
+
     # Name of the file.
     attr_reader :name
+
     # Original name of the file.
     attr_reader :original_file_name
+
     # Size of the file.
     attr_reader :size
+
     # Type of the file.
     attr_reader :type
 

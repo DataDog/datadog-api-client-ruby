@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # Represents the data for a single escalation policy, including its attributes, ID, relationships, and resource type.
   class EscalationPolicyData
     include BaseGenericModel
+
     # Defines the main attributes of an escalation policy, such as its name and behavior on policy end.
     attr_accessor :attributes
+
     # Specifies the unique identifier of the escalation policy.
     attr_accessor :id
+
     # Represents the relationships for an escalation policy, including references to steps and teams.
     attr_accessor :relationships
+
     # Indicates that the resource is of type `policies`.
     attr_reader :type
 

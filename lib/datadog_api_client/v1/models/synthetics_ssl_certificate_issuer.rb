@@ -20,16 +20,22 @@ module DatadogAPIClient::V1
   # Object describing the issuer of a SSL certificate.
   class SyntheticsSSLCertificateIssuer
     include BaseGenericModel
+
     # Country Name that issued the certificate.
     attr_accessor :c
+
     # Common Name that issued certificate.
     attr_accessor :cn
+
     # Locality that issued the certificate.
     attr_accessor :l
+
     # Organization that issued the certificate.
     attr_accessor :o
+
     # Organizational Unit that issued the certificate.
     attr_accessor :ou
+
     # State Or Province Name that issued the certificate.
     attr_accessor :st
 

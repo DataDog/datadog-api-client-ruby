@@ -21,11 +21,14 @@ module DatadogAPIClient::V2
   # Note: At most 100 buckets are allowed, the number of buckets is (max - min)/interval.
   class SpansGroupByHistogram
     include BaseGenericModel
+
     # The bin size of the histogram buckets.
     attr_reader :interval
+
     # The maximum value for the measure used in the histogram
     # (values greater than this one are filtered out).
     attr_reader :max
+
     # The minimum value for the measure used in the histogram
     # (values smaller than this one are filtered out).
     attr_reader :min

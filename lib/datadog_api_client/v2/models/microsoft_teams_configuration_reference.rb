@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # A reference to a Microsoft Teams Configuration resource.
   class MicrosoftTeamsConfigurationReference
     include BaseGenericModel
+
     # The Microsoft Teams configuration relationship data object.
     attr_accessor :data
 

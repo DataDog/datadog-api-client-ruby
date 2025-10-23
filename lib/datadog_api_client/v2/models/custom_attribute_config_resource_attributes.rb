@@ -20,16 +20,22 @@ module DatadogAPIClient::V2
   # Custom attribute resource attributes
   class CustomAttributeConfigResourceAttributes
     include BaseGenericModel
+
     # Custom attribute config identifier.
     attr_reader :case_type_id
+
     # Custom attribute description.
     attr_accessor :description
+
     # Custom attribute name.
     attr_reader :display_name
+
     # Whether multiple values can be set
     attr_reader :is_multi
+
     # Custom attribute key. This will be the value use to search on this custom attribute
     attr_reader :key
+
     # Custom attributes type
     attr_reader :type
 

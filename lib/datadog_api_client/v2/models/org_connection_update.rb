@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Org connection update data.
   class OrgConnectionUpdate
     include BaseGenericModel
+
     # Attributes for updating an org connection.
     attr_reader :attributes
+
     # The unique identifier of the org connection.
     attr_reader :id
+
     # Org connection type.
     attr_reader :type
 

@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Container object.
   class Container
     include BaseGenericModel
+
     # Attributes for a container.
     attr_accessor :attributes
+
     # Container ID.
     attr_accessor :id
+
     # Type of container.
     attr_accessor :type
 

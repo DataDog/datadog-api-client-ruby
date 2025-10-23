@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Scorecard outcomes batch request.
   class UpdateOutcomesAsyncRequest
     include BaseGenericModel
+
     # Scorecard outcomes batch request data.
     attr_accessor :data
 

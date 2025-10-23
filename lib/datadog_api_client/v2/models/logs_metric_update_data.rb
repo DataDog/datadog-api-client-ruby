@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # The new log-based metric properties.
   class LogsMetricUpdateData
     include BaseGenericModel
+
     # The log-based metric properties that will be updated.
     attr_reader :attributes
+
     # The type of the resource. The value should always be logs_metrics.
     attr_reader :type
 

@@ -20,22 +20,31 @@ module DatadogAPIClient::V1
   # Define a conditional format for the widget.
   class WidgetConditionalFormat
     include BaseGenericModel
+
     # Comparator to apply.
     attr_reader :comparator
+
     # Color palette to apply to the background, same values available as palette.
     attr_accessor :custom_bg_color
+
     # Color palette to apply to the foreground, same values available as palette.
     attr_accessor :custom_fg_color
+
     # True hides values.
     attr_accessor :hide_value
+
     # Displays an image as the background.
     attr_accessor :image_url
+
     # Metric from the request to correlate this conditional format with.
     attr_accessor :metric
+
     # Color palette to apply.
     attr_reader :palette
+
     # Defines the displayed timeframe.
     attr_accessor :timeframe
+
     # Value for the comparator.
     attr_reader :value
 

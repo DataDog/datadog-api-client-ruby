@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # Case Type resource attributes
   class CaseTypeResourceAttributes
     include BaseGenericModel
+
     # Timestamp of when the case type was deleted
     attr_accessor :deleted_at
+
     # Case type description.
     attr_accessor :description
+
     # Case type emoji.
     attr_accessor :emoji
+
     # Case type name.
     attr_reader :name
 

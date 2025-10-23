@@ -20,8 +20,10 @@ module DatadogAPIClient::V1
   # The iframe widget allows you to embed a portion of any other web page on your dashboard. Only available on FREE layout dashboards.
   class IFrameWidgetDefinition
     include BaseGenericModel
+
     # Type of the iframe widget.
     attr_reader :type
+
     # URL of the iframe.
     attr_reader :url
 

@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Relationships formed with the team on creation
   class TeamCreateRelationships
     include BaseGenericModel
+
     # Relationship to users.
     attr_accessor :users
 

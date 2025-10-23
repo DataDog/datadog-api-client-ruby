@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # The mapping data for each billing dimension.
   class BillingDimensionsMappingBodyItem
     include BaseGenericModel
+
     # Mapping of billing dimensions to endpoint keys.
     attr_accessor :attributes
+
     # ID of the billing dimension.
     attr_accessor :id
+
     # Type of active billing dimensions data.
     attr_accessor :type
 

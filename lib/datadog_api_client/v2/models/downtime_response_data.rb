@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # Downtime data.
   class DowntimeResponseData
     include BaseGenericModel
+
     # Downtime details.
     attr_accessor :attributes
+
     # The downtime ID.
     attr_accessor :id
+
     # All relationships associated with downtime.
     attr_accessor :relationships
+
     # Downtime resource type.
     attr_accessor :type
 

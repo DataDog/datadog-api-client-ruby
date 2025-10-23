@@ -20,14 +20,19 @@ module DatadogAPIClient::V2
   # Container Image breakdown by supported platform.
   class ContainerImageFlavor
     include BaseGenericModel
+
     # Time the platform-specific Container Image was built.
     attr_accessor :built_at
+
     # Operating System architecture supported by the Container Image.
     attr_accessor :os_architecture
+
     # Operating System name supported by the Container Image.
     attr_accessor :os_name
+
     # Operating System version supported by the Container Image.
     attr_accessor :os_version
+
     # Size of the platform-specific Container Image.
     attr_accessor :size
 

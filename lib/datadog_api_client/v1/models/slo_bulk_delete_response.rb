@@ -25,8 +25,10 @@ module DatadogAPIClient::V1
   # fields in this response indicate which deletions succeeded and failed.
   class SLOBulkDeleteResponse
     include BaseGenericModel
+
     # An array of service level objective objects.
     attr_accessor :data
+
     # Array of errors object returned.
     attr_accessor :errors
 

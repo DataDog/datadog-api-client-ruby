@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Case assign
   class CaseAssign
     include BaseGenericModel
+
     # Case assign attributes
     attr_reader :attributes
+
     # Case resource type
     attr_reader :type
 

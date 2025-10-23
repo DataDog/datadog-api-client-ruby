@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # The definition of `RulesValidateQueryResponse` object.
   class RulesValidateQueryResponse
     include BaseGenericModel
+
     # The definition of `RulesValidateQueryResponseData` object.
     attr_accessor :data
 

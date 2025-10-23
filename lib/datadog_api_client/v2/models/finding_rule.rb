@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # The rule that triggered this finding.
   class FindingRule
     include BaseGenericModel
+
     # The ID of the rule that triggered this finding.
     attr_accessor :id
+
     # The name of the rule that triggered this finding.
     attr_accessor :name
 

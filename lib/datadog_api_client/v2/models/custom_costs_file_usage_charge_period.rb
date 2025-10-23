@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Usage charge period of a Custom Costs file.
   class CustomCostsFileUsageChargePeriod
     include BaseGenericModel
+
     # End of the usage of the Custom Costs file.
     attr_accessor :_end
+
     # Start of the usage of the Custom Costs file.
     attr_accessor :start
 

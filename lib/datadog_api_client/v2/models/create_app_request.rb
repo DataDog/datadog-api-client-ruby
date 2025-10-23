@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # A request object for creating a new app.
   class CreateAppRequest
     include BaseGenericModel
+
     # The data object containing the app definition.
     attr_accessor :data
 

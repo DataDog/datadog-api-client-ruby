@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Data for the rule version history.
   class GetRuleVersionHistoryData
     include BaseGenericModel
+
     # Response object containing the version history of a rule.
     attr_accessor :attributes
+
     # ID of the rule.
     attr_accessor :id
+
     # Type of data.
     attr_accessor :type
 

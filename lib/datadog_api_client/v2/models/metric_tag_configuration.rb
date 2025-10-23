@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Object for a single metric tag configuration.
   class MetricTagConfiguration
     include BaseGenericModel
+
     # Object containing the definition of a metric tag configuration attributes.
     attr_accessor :attributes
+
     # The metric name for this resource.
     attr_accessor :id
+
     # The metric tag configuration resource type.
     attr_accessor :type
 

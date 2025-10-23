@@ -20,22 +20,31 @@ module DatadogAPIClient::V2
   # Query for matching rule on signals.
   class SecurityMonitoringSignalRuleResponseQuery
     include BaseGenericModel
+
     # The aggregation type.
     attr_accessor :aggregation
+
     # Fields to correlate by.
     attr_accessor :correlated_by_fields
+
     # Index of the rule query used to retrieve the correlated field.
     attr_reader :correlated_query_index
+
     # Default Rule ID to match on signals.
     attr_accessor :default_rule_id
+
     # Field for which the cardinality is measured. Sent as an array.
     attr_accessor :distinct_fields
+
     # Fields to group by.
     attr_accessor :group_by_fields
+
     # Group of target fields to aggregate over.
     attr_accessor :metrics
+
     # Name of the query.
     attr_accessor :name
+
     # Rule ID to match on signals.
     attr_accessor :rule_id
 

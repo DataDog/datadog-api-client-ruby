@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # A message containing one or more responses to scalar queries.
   class ScalarFormulaQueryResponse
     include BaseGenericModel
+
     # A message containing the response to a scalar query.
     attr_accessor :data
+
     # An error generated when processing a request.
     attr_accessor :errors
 

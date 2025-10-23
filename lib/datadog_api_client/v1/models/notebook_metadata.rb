@@ -20,10 +20,13 @@ module DatadogAPIClient::V1
   # Metadata associated with the notebook.
   class NotebookMetadata
     include BaseGenericModel
+
     # Whether or not the notebook is a template.
     attr_accessor :is_template
+
     # Whether or not the notebook takes snapshot image backups of the notebook's fixed-time graphs.
     attr_accessor :take_snapshots
+
     # Metadata type of the notebook.
     attr_accessor :type
 

@@ -20,34 +20,49 @@ module DatadogAPIClient::V2
   # Azure config.
   class AzureUCConfig
     include BaseGenericModel
+
     # The tenant ID of the Azure account.
     attr_reader :account_id
+
     # The client ID of the Azure account.
     attr_reader :client_id
+
     # The timestamp when the Azure config was created.
     attr_reader :created_at
+
     # The dataset type of the Azure config.
     attr_reader :dataset_type
+
     # The error messages for the Azure config.
     attr_accessor :error_messages
+
     # The name of the configured Azure Export.
     attr_reader :export_name
+
     # The path where the Azure Export is saved.
     attr_reader :export_path
+
     # The ID of the Azure config.
     attr_accessor :id
+
     # The number of months the report has been backfilled.
     attr_reader :months
+
     # The scope of your observed subscription.
     attr_reader :scope
+
     # The status of the Azure config.
     attr_reader :status
+
     # The timestamp when the Azure config status was last updated.
     attr_reader :status_updated_at
+
     # The name of the storage account where the Azure Export is saved.
     attr_reader :storage_account
+
     # The name of the storage container where the Azure Export is saved.
     attr_reader :storage_container
+
     # The timestamp when the Azure config was last updated.
     attr_reader :updated_at
 

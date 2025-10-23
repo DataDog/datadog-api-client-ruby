@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Controls how partial redaction is applied, including character count and direction.
   class ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptions
     include BaseGenericModel
+
     # The `ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptions` `characters`.
     attr_reader :characters
+
     # Indicates whether to redact characters from the first or last part of the matched value.
     attr_reader :direction
 

@@ -21,20 +21,28 @@ module DatadogAPIClient::V1
   # match a search criteria using user-defined columns.
   class ListStreamWidgetDefinition
     include BaseGenericModel
+
     # Available legend sizes for a widget. Should be one of "0", "2", "4", "8", "16", or "auto".
     attr_accessor :legend_size
+
     # Request payload used to query items.
     attr_reader :requests
+
     # Whether or not to display the legend on this widget.
     attr_accessor :show_legend
+
     # Time setting for the widget.
     attr_accessor :time
+
     # Title of the widget.
     attr_accessor :title
+
     # How to align the text on the widget.
     attr_accessor :title_align
+
     # Size of the title.
     attr_accessor :title_size
+
     # Type of the list stream widget.
     attr_reader :type
 

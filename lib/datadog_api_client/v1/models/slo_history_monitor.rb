@@ -21,12 +21,16 @@ module DatadogAPIClient::V1
   # This can also represent the SLI value for a specific monitor in multi-monitor SLOs, or a group in grouped SLOs.
   class SLOHistoryMonitor
     include BaseGenericModel
+
     # A mapping of threshold `timeframe` to the remaining error budget.
     attr_accessor :error_budget_remaining
+
     # An array of error objects returned while querying the history data for the service level objective.
     attr_accessor :errors
+
     # For groups in a grouped SLO, this is the group name.
     attr_accessor :group
+
     # The state transition history for the monitor. It is represented as
     # an array of pairs. Each pair is an array containing the timestamp of the transition
     # as an integer in Unix epoch format in the first element, and the state as an integer in the
@@ -35,21 +39,29 @@ module DatadogAPIClient::V1
     # See [SLO documentation](https://docs.datadoghq.com/service_management/service_level_objectives/monitor/#missing-data)
     # for detailed information.
     attr_accessor :history
+
     # For `monitor` based SLOs, this is the last modified timestamp in epoch seconds of the monitor.
     attr_accessor :monitor_modified
+
     # For `monitor` based SLOs, this describes the type of monitor.
     attr_accessor :monitor_type
+
     # For groups in a grouped SLO, this is the group name. For monitors in a multi-monitor SLO, this is the monitor name.
     attr_accessor :name
+
     # The amount of decimal places the SLI value is accurate to for the given from `&&` to timestamp. Use `span_precision` instead.
     attr_accessor :precision
+
     # For `monitor` based SLOs, when `true` this indicates that a replay is in progress to give an accurate uptime
     # calculation.
     attr_accessor :preview
+
     # The current SLI value of the SLO over the history window.
     attr_accessor :sli_value
+
     # The amount of decimal places the SLI value is accurate to for the given from `&&` to timestamp.
     attr_accessor :span_precision
+
     # Use `sli_value` instead.
     attr_accessor :uptime
 

@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Specifies the pipeline's configuration, including its sources, processors, and destinations.
   class ObservabilityPipelineConfig
     include BaseGenericModel
+
     # A list of destination components where processed logs are sent.
     attr_reader :destinations
+
     # A list of processors that transform or enrich log data.
     attr_accessor :processors
+
     # A list of configured data sources for the pipeline.
     attr_reader :sources
 

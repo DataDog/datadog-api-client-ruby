@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # A change in a rule version.
   class RuleVersionUpdate
     include BaseGenericModel
+
     # The new value of the field.
     attr_accessor :change
+
     # The field that was changed.
     attr_accessor :field
+
     # The type of change.
     attr_accessor :type
 

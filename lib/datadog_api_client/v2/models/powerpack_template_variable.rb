@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # Powerpack template variables.
   class PowerpackTemplateVariable
     include BaseGenericModel
+
     # The list of values that the template variable drop-down is limited to.
     attr_accessor :available_values
+
     # One or many template variable default values within the saved view, which are unioned together using `OR` if more than one is specified.
     attr_accessor :defaults
+
     # The name of the variable.
     attr_reader :name
+
     # The tag prefix associated with the variable. Only tags with this prefix appear in the variable drop-down.
     attr_accessor :prefix
 

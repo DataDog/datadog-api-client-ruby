@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Describes additional metadata for validation errors, including field names and error messages.
   class ValidationErrorMeta
     include BaseGenericModel
+
     # The field name that caused the error.
     attr_accessor :field
+
     # The ID of the component in which the error occurred.
     attr_accessor :id
+
     # The detailed error message.
     attr_reader :message
 

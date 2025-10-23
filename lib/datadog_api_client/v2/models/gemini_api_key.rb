@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # The definition of the `GeminiAPIKey` object.
   class GeminiAPIKey
     include BaseGenericModel
+
     # The `GeminiAPIKey` `api_key`.
     attr_reader :api_key
+
     # The definition of the `GeminiAPIKey` object.
     attr_reader :type
 

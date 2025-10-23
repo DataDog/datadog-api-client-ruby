@@ -20,14 +20,18 @@ module DatadogAPIClient::V1
   # An object used to create an EventBridge source.
   class AWSEventBridgeCreateRequest
     include BaseGenericModel
+
     # Your AWS Account ID without dashes.
     attr_accessor :account_id
+
     # True if Datadog should create the event bus in addition to the event
     # source. Requires the `events:CreateEventBus` permission.
     attr_accessor :create_event_bus
+
     # The given part of the event source name, which is then combined with an
     # assigned suffix to form the full name.
     attr_accessor :event_generator_name
+
     # The event source's [AWS region](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints).
     attr_accessor :region
 

@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Framework Control.
   class CustomFrameworkControl
     include BaseGenericModel
+
     # Control Name.
     attr_reader :name
+
     # Rule IDs.
     attr_reader :rules_id
 

@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Data envelope for `CreateOpenAPIResponse`.
   class CreateOpenAPIResponseData
     include BaseGenericModel
+
     # Attributes for `CreateOpenAPI`.
     attr_accessor :attributes
+
     # API identifier.
     attr_accessor :id
 

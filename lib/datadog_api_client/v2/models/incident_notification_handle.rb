@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # A notification handle that will be notified at incident creation.
   class IncidentNotificationHandle
     include BaseGenericModel
+
     # The name of the notified handle.
     attr_accessor :display_name
+
     # The handle used for the notification. This includes an email address, Slack channel, or workflow.
     attr_accessor :handle
 

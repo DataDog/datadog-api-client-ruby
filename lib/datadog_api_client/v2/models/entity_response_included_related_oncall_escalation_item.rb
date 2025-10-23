@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Oncall escalation.
   class EntityResponseIncludedRelatedOncallEscalationItem
     include BaseGenericModel
+
     # Oncall email.
     attr_accessor :email
+
     # Oncall level.
     attr_accessor :escalation_level
+
     # Oncall name.
     attr_accessor :name
 

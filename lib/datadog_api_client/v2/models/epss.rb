@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Vulnerability EPSS severity.
   class EPSS
     include BaseGenericModel
+
     # Vulnerability EPSS severity score.
     attr_reader :score
+
     # The vulnerability severity.
     attr_reader :severity
 

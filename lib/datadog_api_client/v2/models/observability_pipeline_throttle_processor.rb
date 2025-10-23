@@ -20,18 +20,25 @@ module DatadogAPIClient::V2
   # The `throttle` processor limits the number of events that pass through over a given time window.
   class ObservabilityPipelineThrottleProcessor
     include BaseGenericModel
+
     # Optional list of fields used to group events before the threshold has been reached.
     attr_accessor :group_by
+
     # The unique identifier for this processor.
     attr_reader :id
+
     # A Datadog search query used to determine which logs this processor targets.
     attr_reader :include
+
     # A list of component IDs whose output is used as the input for this processor.
     attr_reader :inputs
+
     # the number of events allowed in a given time window. Events sent after the threshold has been reached, are dropped.
     attr_reader :threshold
+
     # The processor type. The value should always be `throttle`.
     attr_reader :type
+
     # The time window in seconds over which the threshold applies.
     attr_reader :window
 

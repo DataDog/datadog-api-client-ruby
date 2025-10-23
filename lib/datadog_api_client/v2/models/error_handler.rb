@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Used to handle errors in an action.
   class ErrorHandler
     include BaseGenericModel
+
     # The `ErrorHandler` `fallbackStepName`.
     attr_reader :fallback_step_name
+
     # The definition of `RetryStrategy` object.
     attr_reader :retry_strategy
 

@@ -20,6 +20,7 @@ module DatadogAPIClient::V1
   # Response containing the Cloud Workload Security usage for each hour for a given organization.
   class UsageCWSResponse
     include BaseGenericModel
+
     # Get hourly usage for Cloud Workload Security.
     attr_accessor :usage
 

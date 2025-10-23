@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Object for updating a single WAF exclusion filter.
   class ApplicationSecurityWafExclusionFilterUpdateData
     include BaseGenericModel
+
     # Attributes for updating a WAF exclusion filter.
     attr_reader :attributes
+
     # Type of the resource. The value should always be `exclusion_filter`.
     attr_reader :type
 

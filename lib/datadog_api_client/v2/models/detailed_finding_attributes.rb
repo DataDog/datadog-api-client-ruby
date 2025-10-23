@@ -20,26 +20,37 @@ module DatadogAPIClient::V2
   # The JSON:API attributes of the detailed finding.
   class DetailedFindingAttributes
     include BaseGenericModel
+
     # The evaluation of the finding.
     attr_accessor :evaluation
+
     # The date on which the evaluation for this finding changed (Unix ms).
     attr_reader :evaluation_changed_at
+
     # The remediation message for this finding.
     attr_accessor :message
+
     # Information about the mute status of this finding.
     attr_accessor :mute
+
     # The resource name of this finding.
     attr_accessor :resource
+
     # The resource configuration for this finding.
     attr_accessor :resource_configuration
+
     # The date on which the resource was discovered (Unix ms).
     attr_reader :resource_discovery_date
+
     # The resource type of this finding.
     attr_accessor :resource_type
+
     # The rule that triggered this finding.
     attr_accessor :rule
+
     # The status of the finding.
     attr_accessor :status
+
     # The tags associated with this finding.
     attr_accessor :tags
 

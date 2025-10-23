@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Relationships data for user invitation.
   class UserInvitationRelationships
     include BaseGenericModel
+
     # Relationship to user.
     attr_reader :user
 

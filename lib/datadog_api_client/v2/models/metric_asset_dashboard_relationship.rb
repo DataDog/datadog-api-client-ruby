@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # An object of type `dashboard` that can be referenced in the `included` data.
   class MetricAssetDashboardRelationship
     include BaseGenericModel
+
     # The related dashboard's ID.
     attr_accessor :id
+
     # Dashboard resource type.
     attr_accessor :type
 

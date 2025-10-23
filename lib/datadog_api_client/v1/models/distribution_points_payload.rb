@@ -20,6 +20,7 @@ module DatadogAPIClient::V1
   # The distribution points payload.
   class DistributionPointsPayload
     include BaseGenericModel
+
     # A list of distribution points series to submit to Datadog.
     attr_reader :series
 

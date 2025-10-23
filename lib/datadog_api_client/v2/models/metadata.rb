@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # The metadata related to this request.
   class Metadata
     include BaseGenericModel
+
     # Number of entities included in the response.
     attr_reader :count
+
     # The token that identifies the request.
     attr_reader :token
+
     # Total number of entities across all pages.
     attr_reader :total
 

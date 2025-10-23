@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Payload to test a rule query with the expected result.
   class SecurityMonitoringRuleQueryPayload
     include BaseGenericModel
+
     # Expected result of the test.
     attr_accessor :expected_result
+
     # Index of the query under test.
     attr_reader :index
+
     # Payload used to test the rule query.
     attr_accessor :payload
 

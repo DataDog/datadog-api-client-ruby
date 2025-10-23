@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Spans aggregate.
   class SpansAggregateBucket
     include BaseGenericModel
+
     # A bucket values.
     attr_accessor :attributes
+
     # ID of the spans aggregate.
     attr_accessor :id
+
     # The spans aggregate bucket type.
     attr_accessor :type
 

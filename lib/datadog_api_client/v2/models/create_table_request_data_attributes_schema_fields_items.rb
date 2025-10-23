@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # The definition of `CreateTableRequestDataAttributesSchemaFieldsItems` object.
   class CreateTableRequestDataAttributesSchemaFieldsItems
     include BaseGenericModel
+
     # The field name.
     attr_reader :name
+
     # The field type for reference table schema fields.
     attr_reader :type
 

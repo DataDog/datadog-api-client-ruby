@@ -20,13 +20,17 @@ module DatadogAPIClient::V2
   # The request for a pipelines search.
   class CIAppPipelineEventsRequest
     include BaseGenericModel
+
     # The search and filter query settings.
     attr_accessor :filter
+
     # Global query options that are used during the query.
     # Only supply timezone or time offset, not both. Otherwise, the query fails.
     attr_accessor :options
+
     # Paging attributes for listing events.
     attr_accessor :page
+
     # Sort parameters when querying events.
     attr_accessor :sort
 

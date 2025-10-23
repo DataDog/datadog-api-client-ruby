@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Input schema representing an observability pipeline configuration. Used in create and validate requests.
   class ObservabilityPipelineSpec
     include BaseGenericModel
+
     # Contains the the pipeline configuration.
     attr_reader :data
 

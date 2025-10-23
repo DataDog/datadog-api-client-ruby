@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # List of errors.
   class HTTPCIAppError
     include BaseGenericModel
+
     # Error message.
     attr_accessor :detail
+
     # Error code.
     attr_accessor :status
+
     # Error title.
     attr_accessor :title
 

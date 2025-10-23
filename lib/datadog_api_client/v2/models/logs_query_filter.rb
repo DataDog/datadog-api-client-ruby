@@ -20,14 +20,19 @@ module DatadogAPIClient::V2
   # The search and filter query settings
   class LogsQueryFilter
     include BaseGenericModel
+
     # The minimum time for the requested logs, supports date math and regular timestamps (milliseconds).
     attr_accessor :from
+
     # For customers with multiple indexes, the indexes to search. Defaults to ['*'] which means all indexes.
     attr_accessor :indexes
+
     # The search query - following the log search syntax.
     attr_accessor :query
+
     # Specifies storage type as indexes, online-archives or flex
     attr_accessor :storage_tier
+
     # The maximum time for the requested logs, supports date math and regular timestamps (milliseconds).
     attr_accessor :to
 

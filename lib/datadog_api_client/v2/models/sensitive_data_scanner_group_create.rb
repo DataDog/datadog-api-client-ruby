@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Data related to the creation of a group.
   class SensitiveDataScannerGroupCreate
     include BaseGenericModel
+
     # Attributes of the Sensitive Data Scanner group.
     attr_reader :attributes
+
     # Relationships of the group.
     attr_accessor :relationships
+
     # Sensitive Data Scanner group type.
     attr_reader :type
 

@@ -20,16 +20,22 @@ module DatadogAPIClient::V2
   # The S3 archive destination.
   class LogsArchiveDestinationS3
     include BaseGenericModel
+
     # The bucket where the archive will be stored.
     attr_reader :bucket
+
     # The S3 encryption settings.
     attr_accessor :encryption
+
     # The S3 Archive's integration destination.
     attr_reader :integration
+
     # The archive path.
     attr_accessor :path
+
     # The storage class where the archive will be stored.
     attr_accessor :storage_class
+
     # Type of the S3 archive destination.
     attr_reader :type
 

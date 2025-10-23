@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Response object containing Azure scan options for a single subscription.
   class AzureScanOptions
     include BaseGenericModel
+
     # Single Azure scan options entry.
     attr_accessor :data
 

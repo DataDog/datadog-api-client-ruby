@@ -20,18 +20,25 @@ module DatadogAPIClient::V1
   # Number of indexed logs for each hour and index for a given organization.
   class UsageLogsByIndexHour
     include BaseGenericModel
+
     # The total number of indexed logs for the queried hour.
     attr_accessor :event_count
+
     # The hour for the usage.
     attr_accessor :hour
+
     # The index ID for this usage.
     attr_accessor :index_id
+
     # The user specified name for this index ID.
     attr_accessor :index_name
+
     # The organization name.
     attr_accessor :org_name
+
     # The organization public ID.
     attr_accessor :public_id
+
     # The retention period (in days) for this index ID.
     attr_accessor :retention
 

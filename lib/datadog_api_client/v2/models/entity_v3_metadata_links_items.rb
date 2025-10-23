@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # The definition of Entity V3 Metadata Links Items object.
   class EntityV3MetadataLinksItems
     include BaseGenericModel
+
     # Link name.
     attr_reader :name
+
     # Link provider.
     attr_accessor :provider
+
     # Link type.
     attr_reader :type
+
     # Link URL.
     attr_reader :url
 

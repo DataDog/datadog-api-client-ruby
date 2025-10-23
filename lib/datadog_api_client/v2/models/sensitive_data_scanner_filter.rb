@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Filter for the Scanning Group.
   class SensitiveDataScannerFilter
     include BaseGenericModel
+
     # Query to filter the events.
     attr_accessor :query
 

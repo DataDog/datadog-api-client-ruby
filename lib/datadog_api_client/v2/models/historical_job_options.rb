@@ -20,23 +20,31 @@ module DatadogAPIClient::V2
   # Job options.
   class HistoricalJobOptions
     include BaseGenericModel
+
     # The detection method.
     attr_accessor :detection_method
+
     # A time window is specified to match when at least one of the cases matches true. This is a sliding window
     # and evaluates in real time. For third party detection method, this field is not used.
     attr_accessor :evaluation_window
+
     # Options on impossible travel detection method.
     attr_accessor :impossible_travel_options
+
     # Once a signal is generated, the signal will remain "open" if a case is matched at least once within
     # this keep alive window. For third party detection method, this field is not used.
     attr_accessor :keep_alive
+
     # A signal will "close" regardless of the query being matched once the time exceeds the maximum duration.
     # This time is calculated from the first seen timestamp.
     attr_accessor :max_signal_duration
+
     # Options on new value detection method.
     attr_accessor :new_value_options
+
     # Options on sequence detection method.
     attr_accessor :sequence_detection_options
+
     # Options on third party detection method.
     attr_accessor :third_party_rule_options
 

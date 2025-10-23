@@ -20,20 +20,28 @@ module DatadogAPIClient::V2
   # Incident type's attributes.
   class IncidentTypeAttributes
     include BaseGenericModel
+
     # Timestamp when the incident type was created.
     attr_accessor :created_at
+
     # A unique identifier that represents the user that created the incident type.
     attr_accessor :created_by
+
     # Text that describes the incident type.
     attr_accessor :description
+
     # If true, this incident type will be used as the default incident type if a type is not specified during the creation of incident resources.
     attr_accessor :is_default
+
     # A unique identifier that represents the user that last modified the incident type.
     attr_accessor :last_modified_by
+
     # Timestamp when the incident type was last modified.
     attr_accessor :modified_at
+
     # The name of the incident type.
     attr_reader :name
+
     # The string that will be prepended to the incident title across the Datadog app.
     attr_accessor :prefix
 

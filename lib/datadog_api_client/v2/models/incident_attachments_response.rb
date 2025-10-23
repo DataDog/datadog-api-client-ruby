@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # The response object containing an incident's attachments.
   class IncidentAttachmentsResponse
     include BaseGenericModel
+
     # An array of incident attachments.
     attr_reader :data
+
     # Included related resources that the user requested.
     attr_accessor :included
 

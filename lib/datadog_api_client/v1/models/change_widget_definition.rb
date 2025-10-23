@@ -20,21 +20,28 @@ module DatadogAPIClient::V1
   # The Change graph shows you the change in a value over the time period chosen.
   class ChangeWidgetDefinition
     include BaseGenericModel
+
     # List of custom links.
     attr_accessor :custom_links
+
     # Array of one request object to display in the widget.
     #
     # See the dedicated [Request JSON schema documentation](https://docs.datadoghq.com/dashboards/graphing_json/request_json)
     #  to learn how to build the `REQUEST_SCHEMA`.
     attr_reader :requests
+
     # Time setting for the widget.
     attr_accessor :time
+
     # Title of the widget.
     attr_accessor :title
+
     # How to align the text on the widget.
     attr_accessor :title_align
+
     # Size of the title.
     attr_accessor :title_size
+
     # Type of the change widget.
     attr_reader :type
 

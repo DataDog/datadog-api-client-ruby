@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Search and filter query settings.
   class AuditLogsQueryFilter
     include BaseGenericModel
+
     # Minimum time for the requested events. Supports date, math, and regular timestamps (in milliseconds).
     attr_accessor :from
+
     # Search query following the Audit Logs search syntax.
     attr_accessor :query
+
     # Maximum time for the requested events. Supports date, math, and regular timestamps (in milliseconds).
     attr_accessor :to
 

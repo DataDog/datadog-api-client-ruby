@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Entity to detail schema relationship.
   class EntityToSchema
     include BaseGenericModel
+
     # Relationship entry.
     attr_accessor :data
 

@@ -20,11 +20,14 @@ module DatadogAPIClient::V1
   # Timeframe to retrieve the log from.
   class LogsListRequestTime
     include BaseGenericModel
+
     # Minimum timestamp for requested logs.
     attr_reader :from
+
     # Timezone can be specified both as an offset (for example "UTC+03:00")
     # or a regional zone (for example "Europe/Paris").
     attr_accessor :timezone
+
     # Maximum timestamp for requested logs.
     attr_reader :to
 

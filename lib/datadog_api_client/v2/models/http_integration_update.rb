@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # The definition of `HTTPIntegrationUpdate` object.
   class HTTPIntegrationUpdate
     include BaseGenericModel
+
     # Base HTTP url for the integration
     attr_accessor :base_url
+
     # The definition of `HTTPCredentialsUpdate` object.
     attr_accessor :credentials
+
     # The definition of `HTTPIntegrationType` object.
     attr_reader :type
 

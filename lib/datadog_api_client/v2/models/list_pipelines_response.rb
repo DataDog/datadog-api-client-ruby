@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Represents the response payload containing a list of pipelines and associated metadata.
   class ListPipelinesResponse
     include BaseGenericModel
+
     # The `schema` `data`.
     attr_reader :data
+
     # Metadata about the response.
     attr_accessor :meta
 

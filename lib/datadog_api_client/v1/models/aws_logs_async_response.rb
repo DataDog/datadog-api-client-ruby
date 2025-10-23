@@ -20,8 +20,10 @@ module DatadogAPIClient::V1
   # A list of all Datadog-AWS logs integrations available in your Datadog organization.
   class AWSLogsAsyncResponse
     include BaseGenericModel
+
     # List of errors.
     attr_accessor :errors
+
     # Status of the properties.
     attr_accessor :status
 

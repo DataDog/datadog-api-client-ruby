@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # The properties of the data transformer.
   class DataTransformProperties
     include BaseGenericModel
+
     # A JavaScript function that returns the transformed data.
     attr_accessor :outputs
 

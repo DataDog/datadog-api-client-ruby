@@ -20,8 +20,10 @@ module DatadogAPIClient::V1
   # User locator to find the element.
   class SyntheticsMobileStepParamsElementUserLocator
     include BaseGenericModel
+
     # Whether if the test should fail if the element cannot be found.
     attr_accessor :fail_test_on_cannot_locate
+
     # Values of the user locator.
     attr_accessor :values
 

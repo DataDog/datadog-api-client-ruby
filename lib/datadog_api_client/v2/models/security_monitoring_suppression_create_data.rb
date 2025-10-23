@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Object for a single suppression rule.
   class SecurityMonitoringSuppressionCreateData
     include BaseGenericModel
+
     # Object containing the attributes of the suppression rule to be created.
     attr_reader :attributes
+
     # The type of the resource. The value should always be `suppressions`.
     attr_reader :type
 

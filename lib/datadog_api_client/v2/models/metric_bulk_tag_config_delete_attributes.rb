@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Optional parameters for bulk deleting metric tag configurations.
   class MetricBulkTagConfigDeleteAttributes
     include BaseGenericModel
+
     # A list of account emails to notify when the configuration is applied.
     attr_accessor :emails
 

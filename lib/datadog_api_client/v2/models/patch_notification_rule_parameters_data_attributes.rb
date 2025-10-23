@@ -20,24 +20,30 @@ module DatadogAPIClient::V2
   # Attributes of the notification rule patch request. It is required to update the version of the rule when patching it.
   class PatchNotificationRuleParametersDataAttributes
     include BaseGenericModel
+
     # Field used to enable or disable the rule.
     attr_accessor :enabled
+
     # Name of the notification rule.
     attr_accessor :name
+
     # Selectors are used to filter security issues for which notifications should be generated.
     # Users can specify rule severities, rule types, a query to filter security issues on tags and attributes, and the trigger source.
     # Only the trigger_source field is required.
     attr_accessor :selectors
+
     # List of recipients to notify when a notification rule is triggered. Many different target types are supported,
     # such as email addresses, Slack channels, and PagerDuty services.
     # The appropriate integrations need to be properly configured to send notifications to the specified targets.
     attr_accessor :targets
+
     # Time aggregation period (in seconds) is used to aggregate the results of the notification rule evaluation.
     # Results are aggregated over a selected time frame using a rolling window, which updates with each new evaluation.
     # Notifications are only sent for new issues discovered during the window.
     # Time aggregation is only available for vulnerability-based notification rules. When omitted or set to 0, no aggregation
     # is done.
     attr_accessor :time_aggregation
+
     # Version of the notification rule. It is updated when the rule is modified.
     attr_accessor :version
 

@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Create a user.
   class UserCreateRequest
     include BaseGenericModel
+
     # Object to create a user.
     attr_reader :data
 

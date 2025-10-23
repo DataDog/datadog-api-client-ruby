@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # The search and filter query settings.
   class RUMQueryFilter
     include BaseGenericModel
+
     # The minimum time for the requested events; supports date (in [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format with full date, hours, minutes, and the `Z` UTC indicator - seconds and fractional seconds are optional), math, and regular timestamps (in milliseconds).
     attr_accessor :from
+
     # The search query following the RUM search syntax.
     attr_accessor :query
+
     # The maximum time for the requested events; supports date (in [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format with full date, hours, minutes, and the `Z` UTC indicator - seconds and fractional seconds are optional), math, and regular timestamps (in milliseconds).
     attr_accessor :to
 

@@ -20,8 +20,10 @@ module DatadogAPIClient::V1
   # A facet item.
   class MonitorSearchCountItem
     include BaseGenericModel
+
     # The number of found monitors with the listed value.
     attr_accessor :count
+
     # The facet value.
     attr_accessor :name
 

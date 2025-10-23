@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Attributes for AWS CUR config Patch Request.
   class AwsCURConfigPatchRequestAttributes
     include BaseGenericModel
+
     # The account filtering configuration.
     attr_accessor :account_filters
+
     # Whether or not the Cloud Cost Management account is enabled.
     attr_accessor :is_enabled
 

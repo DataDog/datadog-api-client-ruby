@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # The new log-based metric body.
   class LogsMetricUpdateRequest
     include BaseGenericModel
+
     # The new log-based metric properties.
     attr_reader :data
 

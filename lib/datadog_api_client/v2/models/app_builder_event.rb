@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # An event on a UI component that triggers a response or action in an app.
   class AppBuilderEvent
     include BaseGenericModel
+
     # The triggering action for the event.
     attr_accessor :name
+
     # The response to the event.
     attr_accessor :type
 

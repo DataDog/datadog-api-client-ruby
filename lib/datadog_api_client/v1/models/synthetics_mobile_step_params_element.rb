@@ -20,20 +20,28 @@ module DatadogAPIClient::V1
   # Information about the element used for a step.
   class SyntheticsMobileStepParamsElement
     include BaseGenericModel
+
     # Context of the element.
     attr_accessor :context
+
     # Type of the context that the element is in.
     attr_accessor :context_type
+
     # Description of the element.
     attr_accessor :element_description
+
     # Multi-locator to find the element.
     attr_accessor :multi_locator
+
     # Position of the action relative to the element.
     attr_accessor :relative_position
+
     # Text content of the element.
     attr_accessor :text_content
+
     # User locator to find the element.
     attr_accessor :user_locator
+
     # Name of the view of the element.
     attr_accessor :view_name
 

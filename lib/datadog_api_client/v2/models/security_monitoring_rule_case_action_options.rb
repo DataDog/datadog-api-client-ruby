@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Options for the rule action
   class SecurityMonitoringRuleCaseActionOptions
     include BaseGenericModel
+
     # Duration of the action in seconds. 0 indicates no expiration.
     attr_reader :duration
+
     # Used with the case action of type 'flag_ip'. The value specified in this field is applied as a flag to the IP addresses.
     attr_accessor :flagged_ip_type
+
     # Used with the case action of type 'user_behavior'. The value specified in this field is applied as a risk tag to all users affected by the rule.
     attr_accessor :user_behavior_name
 

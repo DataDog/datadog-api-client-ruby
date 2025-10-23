@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Code location item.
   class EntityV3DatadogCodeLocationItem
     include BaseGenericModel
+
     # The paths (glob) to the source code of the service.
     attr_accessor :paths
+
     # The repository path of the source code of the entity.
     attr_accessor :repository_url
 

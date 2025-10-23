@@ -20,43 +20,62 @@ module DatadogAPIClient::V1
   # Object describing a step for a Synthetic test.
   class SyntheticsStepDetail
     include BaseGenericModel
+
     # Whether or not the step was allowed to fail.
     attr_accessor :allow_failure
+
     # Array of errors collected for a browser test.
     attr_accessor :browser_errors
+
     # Type of assertion to apply in an API test.
     attr_accessor :check_type
+
     # Description of the test.
     attr_accessor :description
+
     # Total duration in millisecond of the test.
     attr_accessor :duration
+
     # Error returned by the test.
     attr_accessor :error
+
     # The browser test failure details.
     attr_accessor :failure
+
     # Navigate between different tabs for your browser test.
     attr_accessor :playing_tab
+
     # Whether or not screenshots where collected by the test.
     attr_accessor :screenshot_bucket_key
+
     # Whether or not to skip this step.
     attr_accessor :skipped
+
     # Whether or not snapshots where collected by the test.
     attr_accessor :snapshot_bucket_key
+
     # The step ID.
     attr_accessor :step_id
+
     # If this step includes a sub-test.
     # [Subtests documentation](https://docs.datadoghq.com/synthetics/browser_tests/advanced_options/#subtests).
     attr_accessor :sub_test_step_details
+
     # Time before starting the step.
     attr_accessor :time_to_interactive
+
     # Step type used in your Synthetic test.
     attr_accessor :type
+
     # URL to perform the step against.
     attr_accessor :url
+
     # Value for the step.
     attr_accessor :value
+
     # Array of Core Web Vitals metrics for the step.
     attr_accessor :vitals_metrics
+
     # Warning collected that didn't failed the step.
     attr_accessor :warnings
 

@@ -20,6 +20,7 @@ module DatadogAPIClient::V1
   # Response returned by the Logs API when the max limit has been reached.
   class LogsAPILimitReachedResponse
     include BaseGenericModel
+
     # Error returned by the Logs API
     attr_accessor :error
 

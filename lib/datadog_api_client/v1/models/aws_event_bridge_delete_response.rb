@@ -20,6 +20,7 @@ module DatadogAPIClient::V1
   # An indicator of the successful deletion of an EventBridge source.
   class AWSEventBridgeDeleteResponse
     include BaseGenericModel
+
     # The event source status "empty".
     attr_accessor :status
 

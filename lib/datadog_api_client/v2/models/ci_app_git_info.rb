@@ -21,28 +21,40 @@ module DatadogAPIClient::V2
   # Note that either `tag` or `branch` has to be provided, but not both.
   class CIAppGitInfo
     include BaseGenericModel
+
     # The commit author email.
     attr_reader :author_email
+
     # The commit author name.
     attr_accessor :author_name
+
     # The commit author timestamp in RFC3339 format.
     attr_accessor :author_time
+
     # The branch name (if a tag use the tag parameter).
     attr_accessor :branch
+
     # The commit timestamp in RFC3339 format.
     attr_accessor :commit_time
+
     # The committer email.
     attr_accessor :committer_email
+
     # The committer name.
     attr_accessor :committer_name
+
     # The Git repository's default branch.
     attr_accessor :default_branch
+
     # The commit message.
     attr_accessor :message
+
     # The URL of the repository.
     attr_reader :repository_url
+
     # The git commit SHA.
     attr_reader :sha
+
     # The tag name (if a branch use the branch parameter).
     attr_accessor :tag
 

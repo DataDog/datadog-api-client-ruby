@@ -20,20 +20,28 @@ module DatadogAPIClient::V1
   # Pagination metadata returned by the API.
   class SearchSLOResponseMetaPage
     include BaseGenericModel
+
     # The first number.
     attr_accessor :first_number
+
     # The last number.
     attr_accessor :last_number
+
     # The next number.
     attr_accessor :next_number
+
     # The page number.
     attr_accessor :number
+
     # The previous page number.
     attr_accessor :prev_number
+
     # The size of the response.
     attr_accessor :size
+
     # The total number of SLOs in the response.
     attr_accessor :total
+
     # Type of pagination.
     attr_accessor :type
 

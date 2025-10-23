@@ -25,20 +25,27 @@ module DatadogAPIClient::V1
   # environment belongs to your list of stolen machines.
   class LogsLookupProcessor
     include BaseGenericModel
+
     # Value to set the target attribute if the source value is not found in the list.
     attr_accessor :default_lookup
+
     # Whether or not the processor is enabled.
     attr_accessor :is_enabled
+
     # Mapping table of values for the source attribute and their associated target attribute values,
     # formatted as `["source_key1,target_value1", "source_key2,target_value2"]`
     attr_reader :lookup_table
+
     # Name of the processor.
     attr_accessor :name
+
     # Source attribute used to perform the lookup.
     attr_reader :source
+
     # Name of the attribute that contains the corresponding value in the mapping list
     # or the `default_lookup` if not found in the mapping list.
     attr_reader :target
+
     # Type of logs lookup processor.
     attr_reader :type
 

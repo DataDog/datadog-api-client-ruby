@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Product Scales configuration for the RUM application.
   class RUMProductScales
     include BaseGenericModel
+
     # Product Analytics retention scale configuration.
     attr_accessor :product_analytics_retention_scale
+
     # RUM event processing scale configuration.
     attr_accessor :rum_event_processing_scale
 

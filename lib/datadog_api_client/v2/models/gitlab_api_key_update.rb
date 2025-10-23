@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # The definition of the `GitlabAPIKey` object.
   class GitlabAPIKeyUpdate
     include BaseGenericModel
+
     # The `GitlabAPIKeyUpdate` `api_token`.
     attr_accessor :api_token
+
     # The definition of the `GitlabAPIKey` object.
     attr_reader :type
 

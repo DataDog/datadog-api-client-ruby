@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Case assign attributes
   class CaseAssignAttributes
     include BaseGenericModel
+
     # Assignee's UUID
     attr_reader :assignee_id
 

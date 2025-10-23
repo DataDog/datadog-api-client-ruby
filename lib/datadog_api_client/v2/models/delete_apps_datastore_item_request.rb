@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Request to delete a specific item from a datastore by its primary key.
   class DeleteAppsDatastoreItemRequest
     include BaseGenericModel
+
     # Data wrapper containing the information needed to identify and delete a specific datastore item.
     attr_accessor :data
 

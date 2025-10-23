@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # The JSON:API data for flaky tests search request.
   class FlakyTestsSearchRequestData
     include BaseGenericModel
+
     # Attributes for the flaky tests search request.
     attr_accessor :attributes
+
     # The definition of `FlakyTestsSearchRequestDataType` object.
     attr_accessor :type
 

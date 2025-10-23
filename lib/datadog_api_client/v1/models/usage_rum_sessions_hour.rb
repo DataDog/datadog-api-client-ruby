@@ -20,22 +20,31 @@ module DatadogAPIClient::V1
   # Number of RUM sessions recorded for each hour for a given organization.
   class UsageRumSessionsHour
     include BaseGenericModel
+
     # The hour for the usage.
     attr_accessor :hour
+
     # The organization name.
     attr_accessor :org_name
+
     # The organization public ID.
     attr_accessor :public_id
+
     # Contains the number of RUM Session Replay counts (data available beginning November 1, 2021).
     attr_accessor :replay_session_count
+
     # Contains the number of browser RUM lite Sessions.
     attr_accessor :session_count
+
     # Contains the number of mobile RUM sessions on Android (data available beginning December 1, 2020).
     attr_accessor :session_count_android
+
     # Contains the number of mobile RUM sessions on Flutter (data available beginning March 1, 2023).
     attr_accessor :session_count_flutter
+
     # Contains the number of mobile RUM sessions on iOS (data available beginning December 1, 2020).
     attr_accessor :session_count_ios
+
     # Contains the number of mobile RUM sessions on React Native (data available beginning May 1, 2022).
     attr_accessor :session_count_reactnative
 

@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # A bucket values.
   class SpansAggregateBucketAttributes
     include BaseGenericModel
+
     # The key, value pairs for each group by.
     attr_accessor :by
+
     # The compute data.
     attr_accessor :compute
+
     # A map of the metric name -> value for regular compute or list of values for a timeseries.
     attr_accessor :computes
 

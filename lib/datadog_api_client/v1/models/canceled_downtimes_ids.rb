@@ -20,6 +20,7 @@ module DatadogAPIClient::V1
   # Object containing array of IDs of canceled downtimes.
   class CanceledDowntimesIds
     include BaseGenericModel
+
     # ID of downtimes that were canceled.
     attr_accessor :cancelled_ids
 

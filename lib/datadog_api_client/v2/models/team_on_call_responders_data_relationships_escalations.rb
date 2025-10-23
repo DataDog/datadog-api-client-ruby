@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Defines the escalation policy steps linked to the team's on-call configuration.
   class TeamOnCallRespondersDataRelationshipsEscalations
     include BaseGenericModel
+
     # Array of escalation step references.
     attr_accessor :data
 

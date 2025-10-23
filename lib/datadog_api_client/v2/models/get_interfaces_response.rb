@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # The `GetInterfaces` operation's response.
   class GetInterfacesResponse
     include BaseGenericModel
+
     # Get Interfaces response
     attr_accessor :data
 

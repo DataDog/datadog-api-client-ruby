@@ -20,10 +20,13 @@ module DatadogAPIClient::V1
   # Define request widget style.
   class WidgetRequestStyle
     include BaseGenericModel
+
     # Type of lines displayed.
     attr_accessor :line_type
+
     # Width of line displayed.
     attr_accessor :line_width
+
     # Color palette to apply to the widget.
     attr_accessor :palette
 

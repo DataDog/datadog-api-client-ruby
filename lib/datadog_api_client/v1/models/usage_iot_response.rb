@@ -20,6 +20,7 @@ module DatadogAPIClient::V1
   # Response containing the IoT usage for each hour for a given organization.
   class UsageIoTResponse
     include BaseGenericModel
+
     # Get hourly usage for IoT.
     attr_accessor :usage
 

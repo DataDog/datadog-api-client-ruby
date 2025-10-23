@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Information pointing to the app's publication status.
   class DeploymentRelationship
     include BaseGenericModel
+
     # Data object containing the deployment ID.
     attr_accessor :data
+
     # Metadata object containing the publication creation information.
     attr_accessor :meta
 

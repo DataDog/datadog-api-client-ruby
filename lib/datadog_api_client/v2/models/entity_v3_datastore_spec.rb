@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # The definition of Entity V3 Datastore Spec object.
   class EntityV3DatastoreSpec
     include BaseGenericModel
+
     # A list of components the datastore is a part of
     attr_accessor :component_of
+
     # The lifecycle state of the datastore.
     attr_reader :lifecycle
+
     # The importance of the datastore.
     attr_reader :tier
+
     # The type of datastore.
     attr_accessor :type
 

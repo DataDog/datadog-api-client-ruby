@@ -20,8 +20,10 @@ module DatadogAPIClient::V1
   # Response containing the monthly Usage Summary by tag(s).
   class MonthlyUsageAttributionResponse
     include BaseGenericModel
+
     # The object containing document metadata.
     attr_accessor :metadata
+
     # Get usage summary by tag(s).
     attr_accessor :usage
 

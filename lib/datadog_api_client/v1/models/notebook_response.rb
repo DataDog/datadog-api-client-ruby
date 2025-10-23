@@ -20,6 +20,7 @@ module DatadogAPIClient::V1
   # The description of a notebook response.
   class NotebookResponse
     include BaseGenericModel
+
     # The data for a notebook.
     attr_accessor :data
 

@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Gathers relationship objects for the schedule creation request, including the teams to associate.
   class ScheduleCreateRequestDataRelationships
     include BaseGenericModel
+
     # Associates teams with this schedule in a data structure.
     attr_accessor :teams
 

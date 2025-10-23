@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Single Agent Data.
   class CsmAgentData
     include BaseGenericModel
+
     # A CSM Agent returned by the API.
     attr_accessor :attributes
+
     # The ID of the Agent.
     attr_accessor :id
+
     # The type of the resource. The value should always be `datadog_agent`.
     attr_accessor :type
 

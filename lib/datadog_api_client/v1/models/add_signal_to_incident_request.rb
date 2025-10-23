@@ -20,10 +20,13 @@ module DatadogAPIClient::V1
   # Attributes describing which incident to add the signal to.
   class AddSignalToIncidentRequest
     include BaseGenericModel
+
     # Whether to post the signal on the incident timeline.
     attr_accessor :add_to_signal_timeline
+
     # Public ID attribute of the incident to which the signal will be added.
     attr_reader :incident_id
+
     # Version of the updated signal. If server side version is higher, update will be rejected.
     attr_accessor :version
 

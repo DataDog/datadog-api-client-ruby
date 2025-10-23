@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Object for a single Agent rule
   class CloudWorkloadSecurityAgentRuleData
     include BaseGenericModel
+
     # A Cloud Workload Security Agent rule returned by the API
     attr_accessor :attributes
+
     # The ID of the Agent rule
     attr_accessor :id
+
     # The type of the resource, must always be `agent_rule`
     attr_accessor :type
 

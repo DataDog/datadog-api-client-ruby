@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Case comment request
   class CaseCommentRequest
     include BaseGenericModel
+
     # Case comment
     attr_reader :data
 

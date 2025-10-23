@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Used to create conditions before running subsequent actions.
   class CompletionGate
     include BaseGenericModel
+
     # The definition of `CompletionCondition` object.
     attr_reader :completion_condition
+
     # The definition of `RetryStrategy` object.
     attr_reader :retry_strategy
 

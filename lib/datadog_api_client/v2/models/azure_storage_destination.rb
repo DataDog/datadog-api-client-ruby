@@ -20,14 +20,19 @@ module DatadogAPIClient::V2
   # The `azure_storage` destination forwards logs to an Azure Blob Storage container.
   class AzureStorageDestination
     include BaseGenericModel
+
     # Optional prefix for blobs written to the container.
     attr_accessor :blob_prefix
+
     # The name of the Azure Blob Storage container to store logs in.
     attr_reader :container_name
+
     # The unique identifier for this component.
     attr_reader :id
+
     # A list of component IDs whose output is used as the `input` for this component.
     attr_reader :inputs
+
     # The destination type. The value should always be `azure_storage`.
     attr_reader :type
 

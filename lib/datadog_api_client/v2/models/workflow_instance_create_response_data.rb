@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Data about the created workflow instance.
   class WorkflowInstanceCreateResponseData
     include BaseGenericModel
+
     # The ID of the workflow execution. It can be used to fetch the execution status.
     attr_accessor :id
 

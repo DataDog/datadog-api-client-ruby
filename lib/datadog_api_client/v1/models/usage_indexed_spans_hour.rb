@@ -20,12 +20,16 @@ module DatadogAPIClient::V1
   # The hours of indexed spans usage.
   class UsageIndexedSpansHour
     include BaseGenericModel
+
     # The hour for the usage.
     attr_accessor :hour
+
     # Contains the number of spans indexed.
     attr_accessor :indexed_events_count
+
     # The organization name.
     attr_accessor :org_name
+
     # The organization public ID.
     attr_accessor :public_id
 

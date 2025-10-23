@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # The data object containing the updated app definition.
   class UpdateAppResponseData
     include BaseGenericModel
+
     # The updated app definition attributes, such as name, description, and components.
     attr_reader :attributes
+
     # The ID of the updated app.
     attr_reader :id
+
     # The app definition type.
     attr_reader :type
 

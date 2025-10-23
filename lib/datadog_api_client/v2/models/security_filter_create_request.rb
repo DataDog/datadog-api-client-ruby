@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Request object that includes the security filter that you would like to create.
   class SecurityFilterCreateRequest
     include BaseGenericModel
+
     # Object for a single security filter.
     attr_reader :data
 

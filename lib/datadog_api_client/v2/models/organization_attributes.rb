@@ -20,20 +20,28 @@ module DatadogAPIClient::V2
   # Attributes of the organization.
   class OrganizationAttributes
     include BaseGenericModel
+
     # Creation time of the organization.
     attr_accessor :created_at
+
     # Description of the organization.
     attr_accessor :description
+
     # Whether or not the organization is disabled.
     attr_accessor :disabled
+
     # Time of last organization modification.
     attr_accessor :modified_at
+
     # Name of the organization.
     attr_accessor :name
+
     # Public ID of the organization.
     attr_accessor :public_id
+
     # Sharing type of the organization.
     attr_accessor :sharing
+
     # URL of the site that this organization exists at.
     attr_accessor :url
 

@@ -20,6 +20,7 @@ module DatadogAPIClient::V1
   # Response containing the number of Fargate tasks run and hourly usage.
   class UsageFargateResponse
     include BaseGenericModel
+
     # Array with the number of hourly Fargate tasks recorded for a given organization.
     attr_accessor :usage
 

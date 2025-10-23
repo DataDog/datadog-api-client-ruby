@@ -22,20 +22,28 @@ module DatadogAPIClient::V2
   # @deprecated This model is deprecated.
   class ServiceDefinitionV1
     include BaseGenericModel
+
     # Contact information about the service.
     attr_accessor :contact
+
     # Extensions to V1 schema.
     attr_accessor :extensions
+
     # A list of external links related to the services.
     attr_accessor :external_resources
+
     # Basic information about a service.
     attr_reader :info
+
     # Third party integrations that Datadog supports.
     attr_accessor :integrations
+
     # Org related information about the service.
     attr_accessor :org
+
     # Schema version being used.
     attr_reader :schema_version
+
     # A set of custom tags.
     attr_accessor :tags
 

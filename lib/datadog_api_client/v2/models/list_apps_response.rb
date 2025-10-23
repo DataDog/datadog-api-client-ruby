@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # A paginated list of apps matching the specified filters and sorting.
   class ListAppsResponse
     include BaseGenericModel
+
     # An array of app definitions.
     attr_accessor :data
+
     # Data on the version of the app that was published.
     attr_accessor :included
+
     # Pagination metadata.
     attr_accessor :meta
 

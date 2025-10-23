@@ -20,12 +20,16 @@ module DatadogAPIClient::V1
   # Used for arbitrary live span times, such as 17 minutes or 6 hours.
   class WidgetNewLiveSpan
     include BaseGenericModel
+
     # Whether to hide incomplete cost data in the widget.
     attr_accessor :hide_incomplete_cost_data
+
     # Type "live" denotes a live span in the new format.
     attr_reader :type
+
     # Unit of the time span.
     attr_reader :unit
+
     # Value of the time span.
     attr_reader :value
 

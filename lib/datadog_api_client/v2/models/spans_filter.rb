@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # The spans filter used to index spans.
   class SpansFilter
     include BaseGenericModel
+
     # The search query - following the [span search syntax](https://docs.datadoghq.com/tracing/trace_explorer/query_syntax/).
     attr_accessor :query
 

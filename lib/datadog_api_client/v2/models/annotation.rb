@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # A list of annotations used in the workflow. These are like sticky notes for your workflow!
   class Annotation
     include BaseGenericModel
+
     # The definition of `AnnotationDisplay` object.
     attr_reader :display
+
     # The `Annotation` `id`.
     attr_reader :id
+
     # The definition of `AnnotationMarkdownTextAnnotation` object.
     attr_reader :markdown_text_annotation
 

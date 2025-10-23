@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # The properties of the state variable.
   class StateVariableProperties
     include BaseGenericModel
+
     # The default value of the state variable.
     attr_accessor :default_value
 

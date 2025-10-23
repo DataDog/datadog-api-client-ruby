@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Represents relationships in an escalation policy creation request, including references to teams.
   class EscalationPolicyCreateRequestDataRelationships
     include BaseGenericModel
+
     # Associates teams with this schedule in a data structure.
     attr_accessor :teams
 

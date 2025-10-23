@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # AWS Authentication config to integrate your account using an access key pair.
   class AWSAuthConfigKeys
     include BaseGenericModel
+
     # AWS Access Key ID.
     attr_reader :access_key_id
+
     # AWS Secret Access Key.
     attr_reader :secret_access_key
 

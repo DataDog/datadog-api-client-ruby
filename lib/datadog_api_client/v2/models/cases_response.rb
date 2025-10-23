@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Response with cases
   class CasesResponse
     include BaseGenericModel
+
     # Cases response data
     attr_accessor :data
+
     # Cases response metadata
     attr_accessor :meta
 

@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Attributes object for updating a Fastly account.
   class FastlyAccountUpdateRequestAttributes
     include BaseGenericModel
+
     # The API key of the Fastly account.
     attr_accessor :api_key
+
     # The name of the Fastly account.
     attr_accessor :name
 

@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Related user team permission data
   class RelationshipToUserTeamPermissionData
     include BaseGenericModel
+
     # The ID of the user team permission
     attr_reader :id
+
     # User team permission type
     attr_reader :type
 

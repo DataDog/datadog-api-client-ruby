@@ -21,8 +21,10 @@ module DatadogAPIClient::V2
   # This limit is only for scalar queries and has no effect on timeseries queries.
   class FormulaLimit
     include BaseGenericModel
+
     # The number of results to which to limit.
     attr_reader :count
+
     # Direction of sort.
     attr_accessor :order
 

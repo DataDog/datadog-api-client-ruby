@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Response containing validation errors.
   class ValidationResponse
     include BaseGenericModel
+
     # The `ValidationResponse` `errors`.
     attr_accessor :errors
 

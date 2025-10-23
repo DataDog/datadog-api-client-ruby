@@ -20,8 +20,10 @@ module DatadogAPIClient::V1
   # Match All definition.
   class TableWidgetTextFormatReplaceAll
     include BaseGenericModel
+
     # Table widget text format replace all type.
     attr_reader :type
+
     # Replace All type.
     attr_reader :with
 

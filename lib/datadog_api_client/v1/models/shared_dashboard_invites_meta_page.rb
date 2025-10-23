@@ -20,6 +20,7 @@ module DatadogAPIClient::V1
   # Object containing the total count of invitations across all pages
   class SharedDashboardInvitesMetaPage
     include BaseGenericModel
+
     # The total number of invitations on this shared board, across all pages.
     attr_accessor :total_count
 

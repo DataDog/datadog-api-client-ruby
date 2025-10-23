@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # A condition that must be met to trigger the notification rule.
   class IncidentNotificationRuleConditionsItems
     include BaseGenericModel
+
     # The incident field to evaluate
     attr_reader :field
+
     # The value(s) to compare against. Multiple values are `ORed` together.
     attr_reader :values
 

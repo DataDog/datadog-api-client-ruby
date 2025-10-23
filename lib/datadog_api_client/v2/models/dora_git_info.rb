@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Git info for DORA Metrics events.
   class DORAGitInfo
     include BaseGenericModel
+
     # Git Commit SHA.
     attr_reader :commit_sha
+
     # Git Repository URL
     attr_reader :repository_url
 

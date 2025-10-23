@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # Incident data for an update request.
   class IncidentUpdateData
     include BaseGenericModel
+
     # The incident's attributes for an update request.
     attr_accessor :attributes
+
     # The incident's ID.
     attr_reader :id
+
     # The incident's relationships for an update request.
     attr_accessor :relationships
+
     # Incident resource type.
     attr_reader :type
 

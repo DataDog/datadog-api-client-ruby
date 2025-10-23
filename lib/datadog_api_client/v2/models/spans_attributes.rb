@@ -20,40 +20,57 @@ module DatadogAPIClient::V2
   # JSON object containing all span attributes and their associated values.
   class SpansAttributes
     include BaseGenericModel
+
     # JSON object of attributes from your span.
     attr_accessor :attributes
+
     # JSON object of custom spans data.
     attr_accessor :custom
+
     # End timestamp of your span.
     attr_accessor :end_timestamp
+
     # Name of the environment from where the spans are being sent.
     attr_accessor :env
+
     # Name of the machine from where the spans are being sent.
     attr_accessor :host
+
     # The reason why the span was ingested.
     attr_accessor :ingestion_reason
+
     # Id of the span that's parent of this span.
     attr_accessor :parent_id
+
     # Unique identifier of the resource.
     attr_accessor :resource_hash
+
     # The name of the resource.
     attr_accessor :resource_name
+
     # The reason why the span was indexed.
     attr_accessor :retained_by
+
     # The name of the application or service generating the span events.
     # It is used to switch from APM to Logs, so make sure you define the same
     # value when you use both products.
     attr_accessor :service
+
     # Whether or not the span was collected as a stand-alone span. Always associated to "single_span" ingestion_reason if true.
     attr_accessor :single_span
+
     # Id of the span.
     attr_accessor :span_id
+
     # Start timestamp of your span.
     attr_accessor :start_timestamp
+
     # Array of tags associated with your span.
     attr_accessor :tags
+
     # Id of the trace to which the span belongs.
     attr_accessor :trace_id
+
     # The type of the span.
     attr_accessor :type
 

@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # CSM Cloud Accounts Coverage Analysis response.
   class CsmCloudAccountsCoverageAnalysisResponse
     include BaseGenericModel
+
     # CSM Cloud Accounts Coverage Analysis data.
     attr_accessor :data
 

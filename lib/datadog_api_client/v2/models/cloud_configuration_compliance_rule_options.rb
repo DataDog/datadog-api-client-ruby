@@ -21,11 +21,14 @@ module DatadogAPIClient::V2
   # Fields `resourceType` and `regoRule` are mandatory when managing custom `cloud_configuration` rules.
   class CloudConfigurationComplianceRuleOptions
     include BaseGenericModel
+
     # Whether the rule is a complex one.
     # Must be set to true if `regoRule.resourceTypes` contains more than one item. Defaults to false.
     attr_accessor :complex_rule
+
     # Rule details.
     attr_accessor :rego_rule
+
     # Main resource type to be checked by the rule. It should be specified again in `regoRule.resourceTypes`.
     attr_accessor :resource_type
 

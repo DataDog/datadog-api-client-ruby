@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # The definition of `RulesetRespDataAttributesRulesItemsMapping` object.
   class RulesetRespDataAttributesRulesItemsMapping
     include BaseGenericModel
+
     # The `mapping` `destination_key`.
     attr_reader :destination_key
+
     # The `mapping` `if_not_exists`.
     attr_reader :if_not_exists
+
     # The `mapping` `source_keys`.
     attr_reader :source_keys
 

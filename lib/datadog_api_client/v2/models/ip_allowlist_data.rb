@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # IP allowlist data.
   class IPAllowlistData
     include BaseGenericModel
+
     # Attributes of the IP allowlist.
     attr_accessor :attributes
+
     # The unique identifier of the org.
     attr_accessor :id
+
     # IP allowlist type.
     attr_reader :type
 

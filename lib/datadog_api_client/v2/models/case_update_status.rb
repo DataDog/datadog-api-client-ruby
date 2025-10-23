@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Case update status
   class CaseUpdateStatus
     include BaseGenericModel
+
     # Case update status attributes
     attr_reader :attributes
+
     # Case resource type
     attr_reader :type
 

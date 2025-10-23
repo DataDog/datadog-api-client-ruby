@@ -21,12 +21,16 @@ module DatadogAPIClient::V1
   # This is the same response type from `batch_query` endpoint.
   class SLOHistoryMetricsSeries
     include BaseGenericModel
+
     # Count of submitted metrics.
     attr_reader :count
+
     # Query metadata.
     attr_accessor :metadata
+
     # Total sum of the query.
     attr_reader :sum
+
     # The query values for each metric.
     attr_reader :values
 

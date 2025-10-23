@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # Item in the Microsoft Teams integration metadata teams array.
   class MSTeamsIntegrationMetadataTeamsItem
     include BaseGenericModel
+
     # Microsoft Teams channel ID.
     attr_reader :ms_channel_id
+
     # Microsoft Teams channel name.
     attr_reader :ms_channel_name
+
     # Microsoft Teams tenant ID.
     attr_reader :ms_tenant_id
+
     # URL redirecting to the Microsoft Teams channel.
     attr_reader :redirect_url
 

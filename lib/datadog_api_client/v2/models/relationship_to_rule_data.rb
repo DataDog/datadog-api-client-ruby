@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Relationship data for a rule.
   class RelationshipToRuleData
     include BaseGenericModel
+
     # Rule relationship data.
     attr_accessor :data
 

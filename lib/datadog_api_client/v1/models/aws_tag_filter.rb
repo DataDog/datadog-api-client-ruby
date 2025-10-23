@@ -20,8 +20,10 @@ module DatadogAPIClient::V1
   # A tag filter.
   class AWSTagFilter
     include BaseGenericModel
+
     # The namespace associated with the tag filter entry.
     attr_accessor :namespace
+
     # The tag filter string.
     attr_accessor :tag_filter_str
 

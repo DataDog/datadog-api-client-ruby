@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # The expected response schema when getting a finding.
   class GetFindingResponse
     include BaseGenericModel
+
     # A single finding with with message and resource configuration.
     attr_reader :data
 

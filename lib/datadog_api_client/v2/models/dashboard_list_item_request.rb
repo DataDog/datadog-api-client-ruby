@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # A dashboard within a list.
   class DashboardListItemRequest
     include BaseGenericModel
+
     # ID of the dashboard.
     attr_reader :id
+
     # The type of the dashboard.
     attr_reader :type
 

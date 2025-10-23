@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # Paging attributes. Only present if pagination query parameters were provided.
   class MetricMetaPage
     include BaseGenericModel
+
     # The cursor used to get the current results, if any.
     attr_accessor :cursor
+
     # Number of results returned
     attr_reader :limit
+
     # The cursor used to get the next results, if any.
     attr_accessor :next_cursor
+
     # Type of metric pagination.
     attr_accessor :type
 

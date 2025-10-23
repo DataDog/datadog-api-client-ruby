@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Response object containing GCP scan options for a single project.
   class GcpScanOptions
     include BaseGenericModel
+
     # Single GCP scan options entry.
     attr_accessor :data
 

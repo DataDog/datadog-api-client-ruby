@@ -20,6 +20,7 @@ module DatadogAPIClient::V1
   # List of API and application keys available for a given organization.
   class ApiKeyListResponse
     include BaseGenericModel
+
     # Array of API keys.
     attr_accessor :api_keys
 

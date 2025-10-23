@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Response object with all spans matching the request and pagination information.
   class SpansListResponse
     include BaseGenericModel
+
     # Array of spans matching the request.
     attr_accessor :data
+
     # Links attributes.
     attr_accessor :links
+
     # The metadata associated with a request.
     attr_accessor :meta
 

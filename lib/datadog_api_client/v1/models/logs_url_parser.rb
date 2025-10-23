@@ -20,16 +20,22 @@ module DatadogAPIClient::V1
   # This processor extracts query parameters and other important parameters from a URL.
   class LogsURLParser
     include BaseGenericModel
+
     # Whether or not the processor is enabled.
     attr_accessor :is_enabled
+
     # Name of the processor.
     attr_accessor :name
+
     # Normalize the ending slashes or not.
     attr_accessor :normalize_ending_slashes
+
     # Array of source attributes.
     attr_reader :sources
+
     # Name of the parent attribute that contains all the extracted details from the `sources`.
     attr_reader :target
+
     # Type of logs URL parser.
     attr_reader :type
 

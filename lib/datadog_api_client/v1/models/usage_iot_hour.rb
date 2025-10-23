@@ -20,12 +20,16 @@ module DatadogAPIClient::V1
   # IoT usage for a given organization for a given hour.
   class UsageIoTHour
     include BaseGenericModel
+
     # The hour for the usage.
     attr_accessor :hour
+
     # The total number of IoT devices during a given hour.
     attr_accessor :iot_device_count
+
     # The organization name.
     attr_accessor :org_name
+
     # The organization public ID.
     attr_accessor :public_id
 

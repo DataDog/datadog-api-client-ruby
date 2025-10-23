@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # An event object.
   class V2Event
     include BaseGenericModel
+
     # Event attributes.
     attr_accessor :attributes
+
     # The event's ID.
     attr_accessor :id
+
     # Entity type.
     attr_accessor :type
 

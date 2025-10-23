@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # Attributes object of a Cloudflare account.
   class CloudflareAccountResponseAttributes
     include BaseGenericModel
+
     # The email associated with the Cloudflare account.
     attr_accessor :email
+
     # The name of the Cloudflare account.
     attr_reader :name
+
     # An allowlist of resources, such as `web`, `dns`, `lb` (load balancer), `worker`, that restricts pulling metrics from those resources.
     attr_accessor :resources
+
     # An allowlist of zones to restrict pulling metrics for.
     attr_accessor :zones
 

@@ -20,14 +20,19 @@ module DatadogAPIClient::V2
   # An app definition object. This contains only basic information about the app such as ID, name, and tags.
   class ListAppsResponseDataItems
     include BaseGenericModel
+
     # Basic information about the app such as name, description, and tags.
     attr_reader :attributes
+
     # The ID of the app.
     attr_reader :id
+
     # Metadata of an app.
     attr_accessor :meta
+
     # The app's publication information.
     attr_accessor :relationships
+
     # The app definition type.
     attr_reader :type
 

@@ -20,16 +20,22 @@ module DatadogAPIClient::V2
   # Framework Data Attributes.
   class CustomFrameworkDataAttributes
     include BaseGenericModel
+
     # Framework Description
     attr_accessor :description
+
     # Framework Handle
     attr_reader :handle
+
     # Framework Icon URL
     attr_accessor :icon_url
+
     # Framework Name
     attr_reader :name
+
     # Framework Requirements
     attr_reader :requirements
+
     # Framework Version
     attr_reader :version
 

@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # The definition of the `FreshserviceAPIKey` object.
   class FreshserviceAPIKeyUpdate
     include BaseGenericModel
+
     # The `FreshserviceAPIKeyUpdate` `api_key`.
     attr_accessor :api_key
+
     # The `FreshserviceAPIKeyUpdate` `domain`.
     attr_accessor :domain
+
     # The definition of the `FreshserviceAPIKey` object.
     attr_reader :type
 

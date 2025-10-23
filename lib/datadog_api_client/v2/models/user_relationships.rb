@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Relationships of the user object.
   class UserRelationships
     include BaseGenericModel
+
     # Relationship to roles.
     attr_accessor :roles
 

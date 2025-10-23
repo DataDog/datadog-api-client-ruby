@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # A base schema for defining third-party integrations.
   class EntityV3Integrations
     include BaseGenericModel
+
     # An Opsgenie integration schema.
     attr_accessor :opsgenie
+
     # A PagerDuty integration schema.
     attr_accessor :pagerduty
 

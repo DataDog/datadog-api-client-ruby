@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # The custom property of the component of the SBOM.
   class SBOMComponentProperty
     include BaseGenericModel
+
     # The name of the custom property of the component of the SBOM.
     attr_reader :name
+
     # The value of the custom property of the component of the SBOM.
     attr_reader :value
 

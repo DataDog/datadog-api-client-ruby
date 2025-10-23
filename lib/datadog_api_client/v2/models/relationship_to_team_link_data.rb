@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Relationship between a link and a team
   class RelationshipToTeamLinkData
     include BaseGenericModel
+
     # The team link's identifier
     attr_reader :id
+
     # Team link type
     attr_reader :type
 

@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Response object that includes a list of WAF custom rules.
   class ApplicationSecurityWafCustomRuleListResponse
     include BaseGenericModel
+
     # The WAF custom rule data.
     attr_accessor :data
 

@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Represents a user responder associated with the on-call team.
   class TeamOnCallRespondersDataRelationshipsRespondersDataItems
     include BaseGenericModel
+
     # Unique identifier of the responder.
     attr_reader :id
+
     # Identifies the resource type for individual user entities associated with on-call response.
     attr_reader :type
 

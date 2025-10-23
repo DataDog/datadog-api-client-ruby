@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # The definition of `GcpUcConfigResponseData` object.
   class GcpUcConfigResponseData
     include BaseGenericModel
+
     # The definition of `GcpUcConfigResponseDataAttributes` object.
     attr_accessor :attributes
+
     # The `GcpUcConfigResponseData` `id`.
     attr_accessor :id
+
     # Google Cloud Usage Cost config resource type.
     attr_reader :type
 

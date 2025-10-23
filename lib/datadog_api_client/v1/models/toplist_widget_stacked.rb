@@ -20,8 +20,10 @@ module DatadogAPIClient::V1
   # Top list widget stacked display options.
   class ToplistWidgetStacked
     include BaseGenericModel
+
     # Top list widget stacked legend behavior.
     attr_accessor :legend
+
     # Top list widget stacked display type.
     attr_reader :type
 

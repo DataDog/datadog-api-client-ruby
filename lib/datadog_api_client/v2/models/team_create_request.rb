@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Request to create a team
   class TeamCreateRequest
     include BaseGenericModel
+
     # Team create
     attr_reader :data
 

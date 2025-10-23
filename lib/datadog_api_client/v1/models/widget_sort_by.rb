@@ -20,8 +20,10 @@ module DatadogAPIClient::V1
   # The controls for sorting the widget.
   class WidgetSortBy
     include BaseGenericModel
+
     # The number of items to limit the widget to.
     attr_reader :count
+
     # The array of items to sort the widget by in order.
     attr_accessor :order_by
 

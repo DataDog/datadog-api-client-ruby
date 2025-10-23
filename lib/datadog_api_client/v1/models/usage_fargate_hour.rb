@@ -20,18 +20,25 @@ module DatadogAPIClient::V1
   # Number of Fargate tasks run and hourly usage.
   class UsageFargateHour
     include BaseGenericModel
+
     # The high-water mark of APM ECS Fargate tasks during the given hour.
     attr_accessor :apm_fargate_count
+
     # The Application Security Monitoring ECS Fargate tasks during the given hour.
     attr_accessor :appsec_fargate_count
+
     # The average profiled task count for Fargate Profiling.
     attr_accessor :avg_profiled_fargate_tasks
+
     # The hour for the usage.
     attr_accessor :hour
+
     # The organization name.
     attr_accessor :org_name
+
     # The organization public ID.
     attr_accessor :public_id
+
     # The number of Fargate tasks run.
     attr_accessor :tasks_count
 

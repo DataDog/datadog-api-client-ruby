@@ -20,16 +20,22 @@ module DatadogAPIClient::V2
   # Metadata associated with the WAF Custom Rule.
   class ApplicationSecurityWafCustomRuleMetadata
     include BaseGenericModel
+
     # The date and time the WAF custom rule was created.
     attr_accessor :added_at
+
     # The handle of the user who created the WAF custom rule.
     attr_accessor :added_by
+
     # The name of the user who created the WAF custom rule.
     attr_accessor :added_by_name
+
     # The date and time the WAF custom rule was last updated.
     attr_accessor :modified_at
+
     # The handle of the user who last updated the WAF custom rule.
     attr_accessor :modified_by
+
     # The name of the user who last updated the WAF custom rule.
     attr_accessor :modified_by_name
 

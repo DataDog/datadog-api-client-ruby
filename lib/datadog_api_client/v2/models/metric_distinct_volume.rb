@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Object for a single metric's distinct volume.
   class MetricDistinctVolume
     include BaseGenericModel
+
     # Object containing the definition of a metric's distinct volume.
     attr_accessor :attributes
+
     # The metric name for this resource.
     attr_accessor :id
+
     # The metric distinct volume type.
     attr_accessor :type
 

@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # Metadata object containing the publication creation information.
   class DeploymentMetadata
     include BaseGenericModel
+
     # Timestamp of when the app was published.
     attr_accessor :created_at
+
     # The ID of the user who published the app.
     attr_accessor :user_id
+
     # The name (or email address) of the user who published the app.
     attr_accessor :user_name
+
     # The UUID of the user who published the app.
     attr_accessor :user_uuid
 

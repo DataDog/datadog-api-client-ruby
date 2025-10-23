@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Cost data.
   class MonthlyCostAttributionBody
     include BaseGenericModel
+
     # Cost Attribution by Tag for a given organization.
     attr_accessor :attributes
+
     # Unique ID of the response.
     attr_accessor :id
+
     # Type of cost attribution data.
     attr_accessor :type
 

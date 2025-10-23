@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Additional information for creating a workflow instance.
   class WorkflowInstanceCreateMeta
     include BaseGenericModel
+
     # The input parameters to the workflow.
     attr_accessor :payload
 

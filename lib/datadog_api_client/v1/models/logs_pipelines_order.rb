@@ -20,6 +20,7 @@ module DatadogAPIClient::V1
   # Object containing the ordered list of pipeline IDs.
   class LogsPipelinesOrder
     include BaseGenericModel
+
     # Ordered Array of `<PIPELINE_ID>` strings, the order of pipeline IDs in the array
     # define the overall Pipelines order for Datadog.
     attr_reader :pipeline_ids

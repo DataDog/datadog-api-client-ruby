@@ -20,26 +20,37 @@ module DatadogAPIClient::V2
   # Change event attributes.
   class ChangeEventAttributes
     include BaseGenericModel
+
     # Aggregation key of the event.
     attr_accessor :aggregation_key
+
     # The entity that made the change.
     attr_accessor :author
+
     # JSON object of change metadata.
     attr_accessor :change_metadata
+
     # A uniquely identified resource.
     attr_accessor :changed_resource
+
     # JSON object of event system attributes.
     attr_accessor :evt
+
     # A list of resources impacted by this change.
     attr_accessor :impacted_resources
+
     # The new state of the changed resource.
     attr_accessor :new_value
+
     # The previous state of the changed resource.
     attr_accessor :prev_value
+
     # Service that triggered the event.
     attr_accessor :service
+
     # POSIX timestamp of the event.
     attr_accessor :timestamp
+
     # The title of the event.
     attr_accessor :title
 

@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Holds references to objects related to the Layer entity, such as its members.
   class LayerRelationships
     include BaseGenericModel
+
     # Holds an array of references to the members of a Layer, each containing member IDs.
     attr_accessor :members
 

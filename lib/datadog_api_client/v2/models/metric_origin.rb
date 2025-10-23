@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Metric origin information.
   class MetricOrigin
     include BaseGenericModel
+
     # The origin metric type code
     attr_reader :metric_type
+
     # The origin product code
     attr_reader :product
+
     # The origin service code
     attr_reader :service
 

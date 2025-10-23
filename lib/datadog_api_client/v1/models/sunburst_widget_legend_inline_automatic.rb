@@ -20,10 +20,13 @@ module DatadogAPIClient::V1
   # Configuration of inline or automatic legends.
   class SunburstWidgetLegendInlineAutomatic
     include BaseGenericModel
+
     # Whether to hide the percentages of the groups.
     attr_accessor :hide_percent
+
     # Whether to hide the values of the groups.
     attr_accessor :hide_value
+
     # Whether to show the legend inline or let it be automatically generated.
     attr_reader :type
 

@@ -20,14 +20,19 @@ module DatadogAPIClient::V1
   # Object to handle `NTLM` authentication when performing the test.
   class SyntheticsBasicAuthNTLM
     include BaseGenericModel
+
     # Domain for the authentication to use when performing the test.
     attr_accessor :domain
+
     # Password for the authentication to use when performing the test.
     attr_accessor :password
+
     # The type of authentication to use when performing the test.
     attr_reader :type
+
     # Username for the authentication to use when performing the test.
     attr_accessor :username
+
     # Workstation for the authentication to use when performing the test.
     attr_accessor :workstation
 

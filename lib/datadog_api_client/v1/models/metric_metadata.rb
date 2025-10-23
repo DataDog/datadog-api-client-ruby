@@ -20,18 +20,25 @@ module DatadogAPIClient::V1
   # Object with all metric related metadata.
   class MetricMetadata
     include BaseGenericModel
+
     # Metric description.
     attr_accessor :description
+
     # Name of the integration that sent the metric if applicable.
     attr_accessor :integration
+
     # Per unit of the metric such as `second` in `bytes per second`.
     attr_accessor :per_unit
+
     # A more human-readable and abbreviated version of the metric name.
     attr_accessor :short_name
+
     # StatsD flush interval of the metric in seconds if applicable.
     attr_accessor :statsd_interval
+
     # Metric type such as `gauge` or `rate`.
     attr_accessor :type
+
     # Primary unit of the metric such as `byte` or `operation`.
     attr_accessor :unit
 

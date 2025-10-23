@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Information about the target to notify (such as a team or user).
   class CreatePageRequestDataAttributesTarget
     include BaseGenericModel
+
     # Identifier for the target (for example, team handle or user ID).
     attr_accessor :identifier
+
     # The kind of target, `team_id` | `team_handle` | `user_id`.
     attr_accessor :type
 

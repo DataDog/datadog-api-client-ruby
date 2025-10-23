@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Datadog principal service account info.
   class GCPSTSDelegateAccount
     include BaseGenericModel
+
     # Your delegate account attributes.
     attr_accessor :attributes
+
     # The ID of the delegate service account.
     attr_accessor :id
+
     # The type of account.
     attr_accessor :type
 

@@ -20,10 +20,13 @@ module DatadogAPIClient::V1
   # List of objects used to group by.
   class FormulaAndFunctionEventQueryGroupBy
     include BaseGenericModel
+
     # Event facet.
     attr_reader :facet
+
     # Number of groups to return.
     attr_accessor :limit
+
     # Options for sorting group by results.
     attr_accessor :sort
 

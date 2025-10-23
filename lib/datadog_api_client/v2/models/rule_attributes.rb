@@ -20,24 +20,34 @@ module DatadogAPIClient::V2
   # Details of a rule.
   class RuleAttributes
     include BaseGenericModel
+
     # The scorecard name to which this rule must belong.
     attr_accessor :category
+
     # Creation time of the rule outcome.
     attr_accessor :created_at
+
     # Defines if the rule is a custom rule.
     attr_accessor :custom
+
     # Explanation of the rule.
     attr_accessor :description
+
     # If enabled, the rule is calculated as part of the score.
     attr_accessor :enabled
+
     # The maturity level of the rule (1, 2, or 3).
     attr_reader :level
+
     # Time of the last rule outcome modification.
     attr_accessor :modified_at
+
     # Name of the rule.
     attr_accessor :name
+
     # Owner of the rule.
     attr_accessor :owner
+
     # The scorecard name to which this rule must belong.
     attr_accessor :scorecard_name
 

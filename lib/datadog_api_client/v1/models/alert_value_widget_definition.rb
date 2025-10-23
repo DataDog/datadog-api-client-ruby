@@ -20,20 +20,28 @@ module DatadogAPIClient::V1
   # Alert values are query values showing the current value of the metric in any monitor defined on your system.
   class AlertValueWidgetDefinition
     include BaseGenericModel
+
     # ID of the alert to use in the widget.
     attr_reader :alert_id
+
     # Number of decimal to show. If not defined, will use the raw value.
     attr_accessor :precision
+
     # How to align the text on the widget.
     attr_accessor :text_align
+
     # Title of the widget.
     attr_accessor :title
+
     # How to align the text on the widget.
     attr_accessor :title_align
+
     # Size of value in the widget.
     attr_accessor :title_size
+
     # Type of the alert value widget.
     attr_reader :type
+
     # Unit to display with the value.
     attr_accessor :unit
 

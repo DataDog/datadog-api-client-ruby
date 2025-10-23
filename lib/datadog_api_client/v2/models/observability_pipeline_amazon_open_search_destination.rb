@@ -20,15 +20,20 @@ module DatadogAPIClient::V2
   # The `amazon_opensearch` destination writes logs to Amazon OpenSearch.
   class ObservabilityPipelineAmazonOpenSearchDestination
     include BaseGenericModel
+
     # Authentication settings for the Amazon OpenSearch destination.
     # The `strategy` field determines whether basic or AWS-based authentication is used.
     attr_reader :auth
+
     # The index to write logs to.
     attr_accessor :bulk_index
+
     # The unique identifier for this component.
     attr_reader :id
+
     # A list of component IDs whose output is used as the `input` for this component.
     attr_reader :inputs
+
     # The destination type. The value should always be `amazon_opensearch`.
     attr_reader :type
 

@@ -20,28 +20,40 @@ module DatadogAPIClient::V2
   # Attributes of user object returned by the API.
   class UserAttributes
     include BaseGenericModel
+
     # Creation time of the user.
     attr_accessor :created_at
+
     # Whether the user is disabled.
     attr_accessor :disabled
+
     # Email of the user.
     attr_accessor :email
+
     # Handle of the user.
     attr_accessor :handle
+
     # URL of the user's icon.
     attr_accessor :icon
+
     # If user has MFA enabled.
     attr_accessor :mfa_enabled
+
     # Time that the user was last modified.
     attr_accessor :modified_at
+
     # Name of the user.
     attr_accessor :name
+
     # Whether the user is a service account.
     attr_accessor :service_account
+
     # Status of the user.
     attr_accessor :status
+
     # Title of the user.
     attr_accessor :title
+
     # Whether the user is verified.
     attr_accessor :verified
 

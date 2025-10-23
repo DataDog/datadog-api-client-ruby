@@ -20,6 +20,7 @@ module DatadogAPIClient::V1
   # Configuration options for the custom schedule. **This feature is in private beta.**
   class MonitorOptionsCustomSchedule
     include BaseGenericModel
+
     # Array of custom schedule recurrences.
     attr_accessor :recurrences
 

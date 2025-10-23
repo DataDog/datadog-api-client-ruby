@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Create request for a dataset.
   class DatasetCreateRequest
     include BaseGenericModel
+
     # **Datasets Object Constraints**
     # - **Tag limit per dataset**:
     #   - Each restricted dataset supports a maximum of 10 key:value pairs per product.

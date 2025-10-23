@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # Defines a single time restriction rule with start and end times and the applicable weekdays.
   class TimeRestriction
     include BaseGenericModel
+
     # A day of the week.
     attr_accessor :end_day
+
     # Specifies the ending time for this restriction.
     attr_accessor :end_time
+
     # A day of the week.
     attr_accessor :start_day
+
     # Specifies the starting time for this restriction.
     attr_accessor :start_time
 

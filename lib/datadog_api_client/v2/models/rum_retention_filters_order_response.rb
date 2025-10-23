@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # The list of RUM retention filter IDs along with type.
   class RumRetentionFiltersOrderResponse
     include BaseGenericModel
+
     # A list of RUM retention filter IDs along with type.
     attr_accessor :data
 

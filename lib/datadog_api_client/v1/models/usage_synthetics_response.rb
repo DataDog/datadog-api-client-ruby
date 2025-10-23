@@ -20,6 +20,7 @@ module DatadogAPIClient::V1
   # Response containing the number of Synthetics API tests run for each hour for a given organization.
   class UsageSyntheticsResponse
     include BaseGenericModel
+
     # Array with the number of hourly Synthetics test run for a given organization.
     attr_accessor :usage
 

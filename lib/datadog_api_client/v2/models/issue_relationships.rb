@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Relationship between the issue and an assignee, case and/or teams.
   class IssueRelationships
     include BaseGenericModel
+
     # Relationship between the issue and assignee.
     attr_accessor :assignee
+
     # Relationship between the issue and case.
     attr_accessor :_case
+
     # Relationship between the issue and teams.
     attr_accessor :team_owners
 

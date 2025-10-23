@@ -20,6 +20,7 @@ module DatadogAPIClient::V1
   # Response containing the number of logs for each hour.
   class UsageLogsResponse
     include BaseGenericModel
+
     # An array of objects regarding hourly usage of logs.
     attr_accessor :usage
 

@@ -20,24 +20,34 @@ module DatadogAPIClient::V1
   # Synthetic global variable.
   class SyntheticsGlobalVariable
     include BaseGenericModel
+
     # Attributes of the global variable.
     attr_accessor :attributes
+
     # Description of the global variable.
     attr_reader :description
+
     # Unique identifier of the global variable.
     attr_accessor :id
+
     # Determines if the global variable is a FIDO variable.
     attr_accessor :is_fido
+
     # Determines if the global variable is a TOTP/MFA variable.
     attr_accessor :is_totp
+
     # Name of the global variable. Unique across Synthetic global variables.
     attr_reader :name
+
     # Parser options to use for retrieving a Synthetic global variable from a Synthetic test. Used in conjunction with `parse_test_public_id`.
     attr_accessor :parse_test_options
+
     # A Synthetic test ID to use as a test to generate the variable value.
     attr_accessor :parse_test_public_id
+
     # Tags of the global variable.
     attr_reader :tags
+
     # Value of the global variable.
     attr_reader :value
 

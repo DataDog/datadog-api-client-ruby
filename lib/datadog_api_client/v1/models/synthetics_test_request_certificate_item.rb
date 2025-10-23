@@ -20,10 +20,13 @@ module DatadogAPIClient::V1
   # Define a request certificate.
   class SyntheticsTestRequestCertificateItem
     include BaseGenericModel
+
     # Content of the certificate or key.
     attr_accessor :content
+
     # File name for the certificate or key.
     attr_accessor :filename
+
     # Date of update of the certificate or key, ISO format.
     attr_accessor :updated_at
 

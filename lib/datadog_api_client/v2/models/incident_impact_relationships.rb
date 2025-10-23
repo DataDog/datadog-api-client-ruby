@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # The incident impact's resource relationships.
   class IncidentImpactRelationships
     include BaseGenericModel
+
     # Relationship to user.
     attr_accessor :created_by_user
+
     # Relationship to incident.
     attr_accessor :incident
+
     # Relationship to user.
     attr_accessor :last_modified_by_user
 

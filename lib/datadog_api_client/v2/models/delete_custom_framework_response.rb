@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Response object to delete a custom framework.
   class DeleteCustomFrameworkResponse
     include BaseGenericModel
+
     # Metadata for custom frameworks.
     attr_reader :data
 

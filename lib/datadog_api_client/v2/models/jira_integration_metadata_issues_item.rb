@@ -20,14 +20,19 @@ module DatadogAPIClient::V2
   # Item in the Jira integration metadata issue array.
   class JiraIntegrationMetadataIssuesItem
     include BaseGenericModel
+
     # URL of issue's Jira account.
     attr_reader :account
+
     # Jira issue's issue key.
     attr_accessor :issue_key
+
     # Jira issue's issue type.
     attr_accessor :issuetype_id
+
     # Jira issue's project keys.
     attr_reader :project_key
+
     # URL redirecting to the Jira issue.
     attr_accessor :redirect_url
 

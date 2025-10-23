@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Events association item.
   class EntityV3DatadogEventItem
     include BaseGenericModel
+
     # The name of the query.
     attr_accessor :name
+
     # The query to run.
     attr_accessor :query
 

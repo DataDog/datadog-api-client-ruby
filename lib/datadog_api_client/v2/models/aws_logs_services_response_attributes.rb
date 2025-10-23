@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # AWS Logs Services response body
   class AWSLogsServicesResponseAttributes
     include BaseGenericModel
+
     # List of AWS services that can send logs to Datadog
     attr_reader :logs_services
 

@@ -20,20 +20,27 @@ module DatadogAPIClient::V2
   # Metadata and content of a datastore item.
   class ItemApiPayloadDataAttributes
     include BaseGenericModel
+
     # Timestamp when the item was first created.
     attr_accessor :created_at
+
     # Timestamp when the item was last modified.
     attr_accessor :modified_at
+
     # The ID of the organization that owns this item.
     attr_accessor :org_id
+
     # The name of the primary key column for this datastore. Primary column names:
     #   - Must abide by both [PostgreSQL naming conventions](https://www.postgresql.org/docs/7.0/syntax525.htm)
     #   - Cannot exceed 63 characters
     attr_reader :primary_column_name
+
     # A unique signature identifying this item version.
     attr_accessor :signature
+
     # The unique identifier of the datastore containing this item.
     attr_accessor :store_id
+
     # The data content (as key-value pairs) of a datastore item.
     attr_accessor :value
 

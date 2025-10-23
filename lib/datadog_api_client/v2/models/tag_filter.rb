@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Tag filter for the budget's entries.
   class TagFilter
     include BaseGenericModel
+
     # The key of the tag.
     attr_accessor :tag_key
+
     # The value of the tag.
     attr_accessor :tag_value
 

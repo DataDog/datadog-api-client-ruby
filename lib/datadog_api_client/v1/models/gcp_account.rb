@@ -20,47 +20,66 @@ module DatadogAPIClient::V1
   # Your Google Cloud Platform Account.
   class GCPAccount
     include BaseGenericModel
+
     # Should be `https://www.googleapis.com/oauth2/v1/certs`.
     attr_accessor :auth_provider_x509_cert_url
+
     # Should be `https://accounts.google.com/o/oauth2/auth`.
     attr_accessor :auth_uri
+
     # Silence monitors for expected GCE instance shutdowns.
     attr_accessor :automute
+
     # Your email found in your JSON service account key.
     attr_accessor :client_email
+
     # Your ID found in your JSON service account key.
     attr_accessor :client_id
+
     # Should be `https://www.googleapis.com/robot/v1/metadata/x509/$CLIENT_EMAIL`
     # where `$CLIENT_EMAIL` is the email found in your JSON service account key.
     attr_accessor :client_x509_cert_url
+
     # List of filters to limit the Cloud Run revisions that are pulled into Datadog by using tags.
     # Only Cloud Run revision resources that apply to specified filters are imported into Datadog.
     # **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=cloud_run_revision`
     attr_accessor :cloud_run_revision_filters
+
     # An array of errors.
     attr_accessor :errors
+
     # A comma-separated list of filters to limit the VM instances that are pulled into Datadog by using tags.
     # Only VM instance resources that apply to specified filters are imported into Datadog.
     # **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=gce_instance`
     attr_accessor :host_filters
+
     # When enabled, Datadog will activate the Cloud Security Monitoring product for this service account. Note: This requires resource_collection_enabled to be set to true.
     attr_accessor :is_cspm_enabled
+
     # When enabled, Datadog scans for all resource change data in your Google Cloud environment.
     attr_accessor :is_resource_change_collection_enabled
+
     # When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account.
     attr_accessor :is_security_command_center_enabled
+
     # Configurations for GCP monitored resources.
     attr_accessor :monitored_resource_configs
+
     # Your private key name found in your JSON service account key.
     attr_accessor :private_key
+
     # Your private key ID found in your JSON service account key.
     attr_accessor :private_key_id
+
     # Your Google Cloud project ID found in your JSON service account key.
     attr_accessor :project_id
+
     # When enabled, Datadog scans for all resources in your GCP environment.
     attr_accessor :resource_collection_enabled
+
     # Should be `https://accounts.google.com/o/oauth2/token`.
     attr_accessor :token_uri
+
     # The value for service_account found in your JSON service account key.
     attr_accessor :type
 

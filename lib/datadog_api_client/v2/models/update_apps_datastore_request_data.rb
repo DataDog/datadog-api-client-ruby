@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Data wrapper containing the datastore identifier and the attributes to update.
   class UpdateAppsDatastoreRequestData
     include BaseGenericModel
+
     # Attributes that can be updated on a datastore.
     attr_accessor :attributes
+
     # The unique identifier of the datastore to update.
     attr_accessor :id
+
     # The resource type for datastores.
     attr_reader :type
 

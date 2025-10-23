@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # The definition of `RulesetRespDataAttributesCreated` object.
   class RulesetRespDataAttributesCreated
     include BaseGenericModel
+
     # The `created` `nanos`.
     attr_reader :nanos
+
     # The `created` `seconds`.
     attr_accessor :seconds
 

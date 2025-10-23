@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # The definition of the `FastlyIntegrationUpdate` object.
   class FastlyIntegrationUpdate
     include BaseGenericModel
+
     # The definition of the `FastlyCredentialsUpdate` object.
     attr_accessor :credentials
+
     # The definition of the `FastlyIntegrationType` object.
     attr_reader :type
 

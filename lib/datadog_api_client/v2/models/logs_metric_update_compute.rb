@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # The compute rule to compute the log-based metric.
   class LogsMetricUpdateCompute
     include BaseGenericModel
+
     # Toggle to include or exclude percentile aggregations for distribution metrics.
     # Only present when the `aggregation_type` is `distribution`.
     attr_accessor :include_percentiles

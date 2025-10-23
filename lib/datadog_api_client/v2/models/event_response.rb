@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # The object description of an event after being processed and stored by Datadog.
   class EventResponse
     include BaseGenericModel
+
     # The object description of an event response attribute.
     attr_accessor :attributes
+
     # the unique ID of the event.
     attr_accessor :id
+
     # Type of the event.
     attr_accessor :type
 

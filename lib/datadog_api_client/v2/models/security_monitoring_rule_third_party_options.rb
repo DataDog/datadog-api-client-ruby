@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # Options on third party detection method.
   class SecurityMonitoringRuleThirdPartyOptions
     include BaseGenericModel
+
     # Notification targets for the logs that do not correspond to any of the cases.
     attr_accessor :default_notifications
+
     # Severity of the Security Signal.
     attr_accessor :default_status
+
     # Queries to be combined with third party case queries. Each of them can have different group by fields, to aggregate differently based on the type of alert.
     attr_accessor :root_queries
+
     # A template for the signal title; if omitted, the title is generated based on the case name.
     attr_accessor :signal_title_template
 

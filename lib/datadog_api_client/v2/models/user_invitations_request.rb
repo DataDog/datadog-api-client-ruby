@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Object to invite users to join the organization.
   class UserInvitationsRequest
     include BaseGenericModel
+
     # List of user invitations.
     attr_reader :data
 

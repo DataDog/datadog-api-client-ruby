@@ -20,15 +20,19 @@ module DatadogAPIClient::V1
   # Markers allow you to add visual conditional formatting for your graphs.
   class WidgetMarker
     include BaseGenericModel
+
     # Combination of:
     #   - A severity error, warning, ok, or info
     #   - A line type: dashed, solid, or bold
     # In this case of a Distribution widget, this can be set to be `x_axis_percentile`.
     attr_accessor :display_type
+
     # Label to display over the marker.
     attr_accessor :label
+
     # Timestamp for the widget.
     attr_accessor :time
+
     # Value to apply. Can be a single value y = 15 or a range of values 0 < y < 10.
     attr_reader :value
 

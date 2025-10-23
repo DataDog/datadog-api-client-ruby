@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Relationship between a user team permission and a team
   class RelationshipToUserTeamPermission
     include BaseGenericModel
+
     # Related user team permission data
     attr_accessor :data
+
     # Links attributes.
     attr_accessor :links
 

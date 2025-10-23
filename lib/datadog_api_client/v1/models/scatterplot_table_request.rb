@@ -20,10 +20,13 @@ module DatadogAPIClient::V1
   # Scatterplot request containing formulas and functions.
   class ScatterplotTableRequest
     include BaseGenericModel
+
     # List of Scatterplot formulas that operate on queries.
     attr_accessor :formulas
+
     # List of queries that can be returned directly or used in formulas.
     attr_accessor :queries
+
     # Timeseries, scalar, or event list response. Event list response formats are supported by Geomap widgets.
     attr_accessor :response_format
 

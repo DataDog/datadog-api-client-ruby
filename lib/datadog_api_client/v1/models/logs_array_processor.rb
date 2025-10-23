@@ -24,12 +24,16 @@ module DatadogAPIClient::V1
   # - Append a value to an array
   class LogsArrayProcessor
     include BaseGenericModel
+
     # Whether or not the processor is enabled.
     attr_accessor :is_enabled
+
     # Name of the processor.
     attr_accessor :name
+
     # Configuration of the array processor operation to perform.
     attr_reader :operation
+
     # Type of logs array processor.
     attr_reader :type
 

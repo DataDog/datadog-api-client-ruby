@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # The definition of the `AnthropicIntegration` object.
   class AnthropicIntegration
     include BaseGenericModel
+
     # The definition of the `AnthropicCredentials` object.
     attr_reader :credentials
+
     # The definition of the `AnthropicIntegrationType` object.
     attr_reader :type
 

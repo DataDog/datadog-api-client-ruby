@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Request for creating a new monitor user template version.
   class MonitorUserTemplateUpdateRequest
     include BaseGenericModel
+
     # Monitor user template data.
     attr_reader :data
 

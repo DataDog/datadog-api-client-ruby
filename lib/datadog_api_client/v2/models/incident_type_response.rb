@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Incident type response data.
   class IncidentTypeResponse
     include BaseGenericModel
+
     # Incident type response data.
     attr_reader :data
 

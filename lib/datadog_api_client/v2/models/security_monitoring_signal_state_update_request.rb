@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Request body for changing the state of a given security monitoring signal.
   class SecurityMonitoringSignalStateUpdateRequest
     include BaseGenericModel
+
     # Data containing the patch for changing the state of a signal.
     attr_reader :data
 

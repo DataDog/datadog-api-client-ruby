@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # All the available rum-based metric objects.
   class RumMetricsResponse
     include BaseGenericModel
+
     # A list of rum-based metric objects.
     attr_accessor :data
 

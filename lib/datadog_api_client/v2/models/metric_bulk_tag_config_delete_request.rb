@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Wrapper object for a single bulk tag deletion request.
   class MetricBulkTagConfigDeleteRequest
     include BaseGenericModel
+
     # Request object to bulk delete all tag configurations for metrics matching the given prefix.
     attr_reader :data
 

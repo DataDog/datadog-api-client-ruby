@@ -20,14 +20,19 @@ module DatadogAPIClient::V2
   # The `parse_json` processor extracts JSON from a specified field and flattens it into the event. This is useful when logs contain embedded JSON as a string.
   class ObservabilityPipelineParseJSONProcessor
     include BaseGenericModel
+
     # The name of the log field that contains a JSON string.
     attr_reader :field
+
     # A unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
     attr_reader :id
+
     # A Datadog search query used to determine which logs this processor targets.
     attr_reader :include
+
     # A list of component IDs whose output is used as the `input` for this component.
     attr_reader :inputs
+
     # The processor type. The value should always be `parse_json`.
     attr_reader :type
 

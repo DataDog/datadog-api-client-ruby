@@ -20,8 +20,10 @@ module DatadogAPIClient::V1
   # A notification triggered by the monitor.
   class MonitorSearchResultNotification
     include BaseGenericModel
+
     # The email address that received the notification.
     attr_accessor :handle
+
     # The username receiving the notification
     attr_accessor :name
 

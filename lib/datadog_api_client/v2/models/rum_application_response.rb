@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # RUM application response.
   class RUMApplicationResponse
     include BaseGenericModel
+
     # RUM application.
     attr_accessor :data
 

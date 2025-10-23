@@ -21,15 +21,20 @@ module DatadogAPIClient::V2
   # It supports AWS authentication and TLS encryption.
   class ObservabilityPipelineAmazonS3Source
     include BaseGenericModel
+
     # AWS authentication credentials used for accessing AWS services such as S3.
     # If omitted, the system’s default credentials are used (for example, the IAM role and environment variables).
     attr_accessor :auth
+
     # The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
     attr_reader :id
+
     # AWS region where the S3 bucket resides.
     attr_reader :region
+
     # Configuration for enabling TLS encryption between the pipeline component and external services.
     attr_accessor :tls
+
     # The source type. Always `amazon_s3`.
     attr_reader :type
 

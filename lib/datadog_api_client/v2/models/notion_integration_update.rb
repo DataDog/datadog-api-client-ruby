@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # The definition of the `NotionIntegrationUpdate` object.
   class NotionIntegrationUpdate
     include BaseGenericModel
+
     # The definition of the `NotionCredentialsUpdate` object.
     attr_accessor :credentials
+
     # The definition of the `NotionIntegrationType` object.
     attr_reader :type
 

@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # The metadata action applied on the scope matching the rule
   class CloudWorkloadSecurityAgentRuleActionMetadata
     include BaseGenericModel
+
     # The image tag of the metadata action
     attr_accessor :image_tag
+
     # The service of the metadata action
     attr_accessor :service
+
     # The short image of the metadata action
     attr_accessor :short_image
 

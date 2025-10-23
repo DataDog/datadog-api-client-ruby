@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Key/Value pair of attributes used in SAML assertion attributes.
   class SAMLAssertionAttributeAttributes
     include BaseGenericModel
+
     # Key portion of a key/value pair of the attribute sent from the Identity Provider.
     attr_accessor :attribute_key
+
     # Value portion of a key/value pair of the attribute sent from the Identity Provider.
     attr_accessor :attribute_value
 

@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Update group request.
   class SensitiveDataScannerGroupUpdateRequest
     include BaseGenericModel
+
     # Data related to the update of a group.
     attr_reader :data
+
     # Meta payload containing information about the API.
     attr_reader :meta
 

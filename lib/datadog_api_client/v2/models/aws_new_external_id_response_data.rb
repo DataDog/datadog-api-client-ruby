@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # AWS External ID response body.
   class AWSNewExternalIDResponseData
     include BaseGenericModel
+
     # AWS External ID response body.
     attr_accessor :attributes
+
     # The `AWSNewExternalIDResponseData` `id`.
     attr_reader :id
+
     # The `AWSNewExternalIDResponseData` `type`.
     attr_reader :type
 

@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Data related to the app key registration.
   class AppKeyRegistrationData
     include BaseGenericModel
+
     # The app key registration identifier
     attr_accessor :id
+
     # The definition of `AppKeyRegistrationDataType` object.
     attr_reader :type
 

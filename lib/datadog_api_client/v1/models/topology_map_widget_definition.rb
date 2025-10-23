@@ -20,16 +20,22 @@ module DatadogAPIClient::V1
   # This widget displays a topology of nodes and edges for different data sources. It replaces the service map widget.
   class TopologyMapWidgetDefinition
     include BaseGenericModel
+
     # List of custom links.
     attr_accessor :custom_links
+
     # One or more Topology requests.
     attr_reader :requests
+
     # Title of your widget.
     attr_accessor :title
+
     # How to align the text on the widget.
     attr_accessor :title_align
+
     # Size of the title.
     attr_accessor :title_size
+
     # Type of the topology map widget.
     attr_reader :type
 

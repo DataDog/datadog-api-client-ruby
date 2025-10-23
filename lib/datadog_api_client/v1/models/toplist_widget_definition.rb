@@ -20,20 +20,28 @@ module DatadogAPIClient::V1
   # The top list visualization enables you to display a list of Tag value like hostname or service with the most or least of any metric value, such as highest consumers of CPU, hosts with the least disk space, etc.
   class ToplistWidgetDefinition
     include BaseGenericModel
+
     # List of custom links.
     attr_accessor :custom_links
+
     # List of top list widget requests.
     attr_reader :requests
+
     # Style customization for a top list widget.
     attr_accessor :style
+
     # Time setting for the widget.
     attr_accessor :time
+
     # Title of your widget.
     attr_accessor :title
+
     # How to align the text on the widget.
     attr_accessor :title_align
+
     # Size of the title.
     attr_accessor :title_size
+
     # Type of the top list widget.
     attr_reader :type
 

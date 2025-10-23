@@ -20,14 +20,19 @@ module DatadogAPIClient::V2
   # Asset risks.
   class AssetRisks
     include BaseGenericModel
+
     # Whether the asset has access to sensitive data or not.
     attr_accessor :has_access_to_sensitive_data
+
     # Whether the asset has privileged access or not.
     attr_accessor :has_privileged_access
+
     # Whether the asset is in production or not.
     attr_reader :in_production
+
     # Whether the asset is publicly accessible or not.
     attr_accessor :is_publicly_accessible
+
     # Whether the asset is under attack or not.
     attr_accessor :under_attack
 

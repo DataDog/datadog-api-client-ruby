@@ -20,14 +20,19 @@ module DatadogAPIClient::V2
   # The definition of `PatchTableRequestDataAttributes` object.
   class PatchTableRequestDataAttributes
     include BaseGenericModel
+
     # The description of the reference table.
     attr_accessor :description
+
     # The definition of `PatchTableRequestDataAttributesFileMetadata` object.
     attr_accessor :file_metadata
+
     # The definition of `PatchTableRequestDataAttributesSchema` object.
     attr_accessor :schema
+
     # Whether this table is synced automatically.
     attr_accessor :sync_enabled
+
     # The tags of the reference table.
     attr_accessor :tags
 

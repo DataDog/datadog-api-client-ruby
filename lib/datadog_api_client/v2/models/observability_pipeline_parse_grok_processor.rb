@@ -20,16 +20,22 @@ module DatadogAPIClient::V2
   # The `parse_grok` processor extracts structured fields from unstructured log messages using Grok patterns.
   class ObservabilityPipelineParseGrokProcessor
     include BaseGenericModel
+
     # If set to `true`, disables the default Grok rules provided by Datadog.
     attr_accessor :disable_library_rules
+
     # A unique identifier for this processor.
     attr_reader :id
+
     # A Datadog search query used to determine which logs this processor targets.
     attr_reader :include
+
     # A list of component IDs whose output is used as the `input` for this component.
     attr_reader :inputs
+
     # The list of Grok parsing rules. If multiple matching rules are provided, they are evaluated in order. The first successful match is applied.
     attr_reader :rules
+
     # The processor type. The value should always be `parse_grok`.
     attr_reader :type
 

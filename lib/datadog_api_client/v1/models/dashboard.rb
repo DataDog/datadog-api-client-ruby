@@ -21,42 +21,59 @@ module DatadogAPIClient::V1
   # key performance metrics, which enable you to monitor the health of your infrastructure.
   class Dashboard
     include BaseGenericModel
+
     # Identifier of the dashboard author.
     attr_accessor :author_handle
+
     # Name of the dashboard author.
     attr_accessor :author_name
+
     # Creation date of the dashboard.
     attr_accessor :created_at
+
     # Description of the dashboard.
     attr_accessor :description
+
     # ID of the dashboard.
     attr_accessor :id
+
     # Whether this dashboard is read-only. If True, only the author and admins can make changes to it.
     #
     # This property is deprecated; please use the [Restriction Policies API](https://docs.datadoghq.com/api/latest/restriction-policies/) instead to manage write authorization for individual dashboards.
     attr_accessor :is_read_only
+
     # Layout type of the dashboard.
     attr_reader :layout_type
+
     # Modification date of the dashboard.
     attr_accessor :modified_at
+
     # List of handles of users to notify when changes are made to this dashboard.
     attr_accessor :notify_list
+
     # Reflow type for a **new dashboard layout** dashboard. Set this only when layout type is 'ordered'.
     # If set to 'fixed', the dashboard expects all widgets to have a layout, and if it's set to 'auto',
     # widgets should not have layouts.
     attr_accessor :reflow_type
+
     # A list of role identifiers. Only the author and users associated with at least one of these roles can edit this dashboard.
     attr_accessor :restricted_roles
+
     # List of team names representing ownership of a dashboard.
     attr_reader :tags
+
     # Array of template variables saved views.
     attr_accessor :template_variable_presets
+
     # List of template variables for this dashboard.
     attr_accessor :template_variables
+
     # Title of the dashboard.
     attr_reader :title
+
     # The URL of the dashboard.
     attr_accessor :url
+
     # List of widgets to display on the dashboard.
     attr_reader :widgets
 

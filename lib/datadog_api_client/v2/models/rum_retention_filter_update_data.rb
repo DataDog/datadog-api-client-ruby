@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # The new RUM retention filter properties to update.
   class RumRetentionFilterUpdateData
     include BaseGenericModel
+
     # The object describing attributes of a RUM retention filter to update.
     attr_reader :attributes
+
     # ID of retention filter in UUID.
     attr_reader :id
+
     # The type of the resource. The value should always be retention_filters.
     attr_reader :type
 

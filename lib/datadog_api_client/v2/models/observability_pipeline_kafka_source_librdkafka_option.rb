@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Represents a key-value pair used to configure low-level `librdkafka` client options for Kafka sources, such as timeouts, buffer sizes, and security settings.
   class ObservabilityPipelineKafkaSourceLibrdkafkaOption
     include BaseGenericModel
+
     # The name of the `librdkafka` configuration option to set.
     attr_reader :name
+
     # The value assigned to the specified `librdkafka` configuration option.
     attr_reader :value
 

@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # Container Image Group object.
   class ContainerImageGroup
     include BaseGenericModel
+
     # Attributes for a Container Image Group.
     attr_accessor :attributes
+
     # Container Image Group ID.
     attr_accessor :id
+
     # Relationships inside a Container Image Group.
     attr_accessor :relationships
+
     # Type of Container Image Group.
     attr_accessor :type
 

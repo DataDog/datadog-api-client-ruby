@@ -20,8 +20,10 @@ module DatadogAPIClient::V1
   # Powerpack template variables.
   class PowerpackTemplateVariables
     include BaseGenericModel
+
     # Template variables controlled at the powerpack level.
     attr_accessor :controlled_by_powerpack
+
     # Template variables controlled by the external resource, such as the dashboard this powerpack is on.
     attr_accessor :controlled_externally
 

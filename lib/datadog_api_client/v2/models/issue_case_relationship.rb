@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Relationship between the issue and case.
   class IssueCaseRelationship
     include BaseGenericModel
+
     # The case the issue is attached to.
     attr_reader :data
 

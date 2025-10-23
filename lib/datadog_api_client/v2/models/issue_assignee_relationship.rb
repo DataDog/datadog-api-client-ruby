@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Relationship between the issue and assignee.
   class IssueAssigneeRelationship
     include BaseGenericModel
+
     # The user the issue is assigned to.
     attr_reader :data
 

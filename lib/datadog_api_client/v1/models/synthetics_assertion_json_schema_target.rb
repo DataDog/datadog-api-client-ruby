@@ -20,10 +20,13 @@ module DatadogAPIClient::V1
   # An assertion for the `validatesJSONSchema` operator.
   class SyntheticsAssertionJSONSchemaTarget
     include BaseGenericModel
+
     # Assertion operator to apply.
     attr_reader :operator
+
     # Composed target for `validatesJSONSchema` operator.
     attr_accessor :target
+
     # Type of the assertion.
     attr_reader :type
 

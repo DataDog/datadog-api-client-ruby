@@ -20,20 +20,28 @@ module DatadogAPIClient::V1
   # The attributes of a notebook.
   class NotebookResponseDataAttributes
     include BaseGenericModel
+
     # Attributes of user object returned by the API.
     attr_accessor :author
+
     # List of cells to display in the notebook.
     attr_reader :cells
+
     # UTC time stamp for when the notebook was created.
     attr_accessor :created
+
     # Metadata associated with the notebook.
     attr_accessor :metadata
+
     # UTC time stamp for when the notebook was last modified.
     attr_accessor :modified
+
     # The name of the notebook.
     attr_reader :name
+
     # Publication status of the notebook. For now, always "published".
     attr_accessor :status
+
     # Notebook global timeframe.
     attr_reader :time
 

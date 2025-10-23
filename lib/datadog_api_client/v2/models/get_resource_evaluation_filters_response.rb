@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # The definition of `GetResourceEvaluationFiltersResponse` object.
   class GetResourceEvaluationFiltersResponse
     include BaseGenericModel
+
     # The definition of `GetResourceFilterResponseData` object.
     attr_reader :data
 

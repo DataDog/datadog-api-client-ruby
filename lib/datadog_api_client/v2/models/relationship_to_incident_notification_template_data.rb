@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # The notification template relationship data.
   class RelationshipToIncidentNotificationTemplateData
     include BaseGenericModel
+
     # The unique identifier of the notification template.
     attr_reader :id
+
     # Notification templates resource type.
     attr_reader :type
 

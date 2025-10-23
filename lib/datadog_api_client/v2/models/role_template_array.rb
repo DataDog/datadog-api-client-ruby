@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # The definition of `RoleTemplateArray` object.
   class RoleTemplateArray
     include BaseGenericModel
+
     # The `RoleTemplateArray` `data`.
     attr_reader :data
 

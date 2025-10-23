@@ -20,8 +20,10 @@ module DatadogAPIClient::V1
   # A description of a single position for a `flick` step type.
   class SyntheticsMobileStepParamsPositionsItems
     include BaseGenericModel
+
     # The `x` position for the flick.
     attr_accessor :x
+
     # The `y` position for the flick.
     attr_accessor :y
 

@@ -20,14 +20,19 @@ module DatadogAPIClient::V2
   # Object containing the metric unit family, scale factor, name, and short name.
   class Unit
     include BaseGenericModel
+
     # Unit family, allows for conversion between units of the same family, for scaling.
     attr_accessor :family
+
     # Unit name
     attr_accessor :name
+
     # Plural form of the unit name.
     attr_accessor :plural
+
     # Factor for scaling between units of the same family.
     attr_accessor :scale_factor
+
     # Abbreviation of the unit.
     attr_accessor :short_name
 

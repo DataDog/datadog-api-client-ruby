@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Response object which includes a single powerpack configuration.
   class PowerpackResponse
     include BaseGenericModel
+
     # Powerpack data object.
     attr_accessor :data
+
     # Array of objects related to the users.
     attr_accessor :included
 

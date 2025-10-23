@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Schema for a Change Event-based trigger.
   class ChangeEventTriggerWrapper
     include BaseGenericModel
+
     # Trigger a workflow from a Change Event.
     attr_reader :change_event_trigger
+
     # A list of steps that run first after a trigger fires.
     attr_accessor :start_step_names
 

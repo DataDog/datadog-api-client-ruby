@@ -20,8 +20,10 @@ module DatadogAPIClient::V1
   # Object containing an event response.
   class EventResponse
     include BaseGenericModel
+
     # Object representing an event.
     attr_accessor :event
+
     # A status.
     attr_accessor :status
 

@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Request object that includes the on demand task to submit.
   class AwsOnDemandCreateRequest
     include BaseGenericModel
+
     # Object for a single AWS on demand task.
     attr_reader :data
 

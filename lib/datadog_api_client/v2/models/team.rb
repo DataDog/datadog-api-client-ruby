@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # A team
   class Team
     include BaseGenericModel
+
     # Team attributes
     attr_reader :attributes
+
     # The team's identifier
     attr_reader :id
+
     # Resources related to a team
     attr_accessor :relationships
+
     # Team type
     attr_reader :type
 

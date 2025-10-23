@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Additional information related to the API keys response.
   class APIKeysResponseMetaPage
     include BaseGenericModel
+
     # Total filtered application key count.
     attr_accessor :total_filtered_count
 

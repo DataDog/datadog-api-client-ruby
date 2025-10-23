@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # The definition of the `FreshserviceIntegration` object.
   class FreshserviceIntegration
     include BaseGenericModel
+
     # The definition of the `FreshserviceCredentials` object.
     attr_reader :credentials
+
     # The definition of the `FreshserviceIntegrationType` object.
     attr_reader :type
 

@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # The notification rule's resource relationships.
   class IncidentNotificationRuleRelationships
     include BaseGenericModel
+
     # Relationship to user.
     attr_accessor :created_by_user
+
     # Relationship to an incident type.
     attr_accessor :incident_type
+
     # Relationship to user.
     attr_accessor :last_modified_by_user
+
     # A relationship reference to a notification template.
     attr_accessor :notification_template
 

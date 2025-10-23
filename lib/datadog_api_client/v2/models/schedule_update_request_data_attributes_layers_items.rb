@@ -21,20 +21,28 @@ module DatadogAPIClient::V2
   # and optional restrictions.
   class ScheduleUpdateRequestDataAttributesLayersItems
     include BaseGenericModel
+
     # When this updated layer takes effect (ISO 8601 format).
     attr_reader :effective_date
+
     # When this updated layer should stop being active (ISO 8601 format).
     attr_accessor :end_date
+
     # A unique identifier for the layer being updated.
     attr_accessor :id
+
     # Defines how often the rotation repeats, using a combination of days and optional seconds. Should be at least 1 hour.
     attr_reader :interval
+
     # The members assigned to this layer.
     attr_reader :members
+
     # The name for this layer (for example, "Secondary Coverage").
     attr_reader :name
+
     # Any time restrictions that define when this layer is active.
     attr_accessor :restrictions
+
     # The date/time at which the rotation begins (ISO 8601 format).
     attr_reader :rotation_start
 

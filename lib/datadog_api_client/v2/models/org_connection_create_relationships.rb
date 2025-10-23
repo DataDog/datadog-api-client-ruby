@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Relationships for org connection creation.
   class OrgConnectionCreateRelationships
     include BaseGenericModel
+
     # Org relationship.
     attr_reader :sink_org
 

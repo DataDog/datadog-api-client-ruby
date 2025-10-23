@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Attributes of the edited user.
   class UserUpdateAttributes
     include BaseGenericModel
+
     # If the user is enabled or disabled.
     attr_accessor :disabled
+
     # The email of the user.
     attr_accessor :email
+
     # The name of the user.
     attr_accessor :name
 

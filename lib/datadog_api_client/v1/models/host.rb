@@ -20,32 +20,46 @@ module DatadogAPIClient::V1
   # Object representing a host.
   class Host
     include BaseGenericModel
+
     # Host aliases collected by Datadog.
     attr_accessor :aliases
+
     # The Datadog integrations reporting metrics for the host.
     attr_accessor :apps
+
     # AWS name of your host.
     attr_accessor :aws_name
+
     # The host name.
     attr_accessor :host_name
+
     # The host ID.
     attr_accessor :id
+
     # If a host is muted or unmuted.
     attr_accessor :is_muted
+
     # Last time the host reported a metric data point.
     attr_accessor :last_reported_time
+
     # Metadata associated with your host.
     attr_accessor :meta
+
     # Host Metrics collected.
     attr_accessor :metrics
+
     # Timeout of the mute applied to your host.
     attr_accessor :mute_timeout
+
     # The host name.
     attr_accessor :name
+
     # Source or cloud provider associated with your host.
     attr_accessor :sources
+
     # List of tags for each source (AWS, Datadog Agent, Chef..).
     attr_accessor :tags_by_source
+
     # Displays UP when the expected metrics are received and displays `???` if no metrics are received.
     attr_accessor :up
 

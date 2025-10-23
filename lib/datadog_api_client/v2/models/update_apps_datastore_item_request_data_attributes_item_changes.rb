@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Changes to apply to a datastore item using set operations.
   class UpdateAppsDatastoreItemRequestDataAttributesItemChanges
     include BaseGenericModel
+
     # Set operation that contains key-value pairs to set on the datastore item.
     attr_accessor :ops_set
 

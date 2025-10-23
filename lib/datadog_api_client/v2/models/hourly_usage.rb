@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Hourly usage for a product family for an org.
   class HourlyUsage
     include BaseGenericModel
+
     # Attributes of hourly usage for a product family for an org for a time period.
     attr_accessor :attributes
+
     # Unique ID of the response.
     attr_accessor :id
+
     # Type of usage data.
     attr_accessor :type
 

@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Configuration for fully redacting sensitive data.
   class ObservabilityPipelineSensitiveDataScannerProcessorActionRedactOptions
     include BaseGenericModel
+
     # The `ObservabilityPipelineSensitiveDataScannerProcessorActionRedactOptions` `replace`.
     attr_reader :replace
 

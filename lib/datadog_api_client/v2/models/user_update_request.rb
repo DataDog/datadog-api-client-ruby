@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Update a user.
   class UserUpdateRequest
     include BaseGenericModel
+
     # Object to update a user.
     attr_reader :data
 

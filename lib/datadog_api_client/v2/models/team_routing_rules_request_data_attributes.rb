@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Represents the attributes of a request to update or create team routing rules.
   class TeamRoutingRulesRequestDataAttributes
     include BaseGenericModel
+
     # A list of routing rule items that define how incoming pages should be handled.
     attr_accessor :rules
 

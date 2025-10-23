@@ -21,11 +21,14 @@ module DatadogAPIClient::V2
   # from a specific log field using Grok patterns.
   class ObservabilityPipelineParseGrokProcessorRule
     include BaseGenericModel
+
     # A list of Grok parsing rules that define how to extract fields from the source field.
     # Each rule must contain a name and a valid Grok pattern.
     attr_reader :match_rules
+
     # The name of the field in the log event to apply the Grok rules to.
     attr_reader :source
+
     # A list of Grok helper rules that can be referenced by the parsing rules.
     attr_accessor :support_rules
 

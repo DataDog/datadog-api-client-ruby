@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # JSON:API document containing a single Recommendation resource. Returned by SPA when the Spark Gateway requests recommendations.
   class RecommendationDocument
     include BaseGenericModel
+
     # JSON:API resource object for SPA Recommendation. Includes type, optional ID, and resource attributes with structured recommendations.
     attr_reader :data
 

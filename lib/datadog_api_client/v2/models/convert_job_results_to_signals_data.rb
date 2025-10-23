@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Data for converting historical job results to signals.
   class ConvertJobResultsToSignalsData
     include BaseGenericModel
+
     # Attributes for converting historical job results to signals.
     attr_accessor :attributes
+
     # Type of payload.
     attr_accessor :type
 

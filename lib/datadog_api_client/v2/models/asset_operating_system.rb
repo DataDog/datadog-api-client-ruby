@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Asset operating system.
   class AssetOperatingSystem
     include BaseGenericModel
+
     # Operating system version.
     attr_accessor :description
+
     # Operating system name.
     attr_reader :name
 

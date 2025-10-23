@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # The definition of `DeleteAppResponseData` object.
   class DeleteAppResponseData
     include BaseGenericModel
+
     # The ID of the deleted app.
     attr_reader :id
+
     # The app definition type.
     attr_reader :type
 

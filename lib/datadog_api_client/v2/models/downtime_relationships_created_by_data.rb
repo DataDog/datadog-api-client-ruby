@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Data for the user who created the downtime.
   class DowntimeRelationshipsCreatedByData
     include BaseGenericModel
+
     # User ID of the downtime creator.
     attr_accessor :id
+
     # Users resource type.
     attr_accessor :type
 

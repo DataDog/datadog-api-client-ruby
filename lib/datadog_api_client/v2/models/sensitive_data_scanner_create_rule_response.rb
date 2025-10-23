@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Create rule response.
   class SensitiveDataScannerCreateRuleResponse
     include BaseGenericModel
+
     # Response data related to the creation of a rule.
     attr_accessor :data
+
     # Meta payload containing information about the API.
     attr_accessor :meta
 

@@ -23,8 +23,10 @@ module DatadogAPIClient::V1
   # to learn how to build the `<EVENTS_SCHEMA>`.
   class WidgetEvent
     include BaseGenericModel
+
     # Query definition.
     attr_reader :q
+
     # The execution method for multi-value filters.
     attr_accessor :tags_execution
 

@@ -20,6 +20,7 @@ module DatadogAPIClient::V1
   # An application key response.
   class ApplicationKeyListResponse
     include BaseGenericModel
+
     # Array of application keys.
     attr_accessor :application_keys
 

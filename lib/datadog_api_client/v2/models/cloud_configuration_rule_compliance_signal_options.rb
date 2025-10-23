@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # How to generate compliance signals. Useful for cloud_configuration rules only.
   class CloudConfigurationRuleComplianceSignalOptions
     include BaseGenericModel
+
     # The default activation status.
     attr_accessor :default_activation_status
+
     # The default group by fields.
     attr_accessor :default_group_by_fields
+
     # Whether signals will be sent.
     attr_accessor :user_activation_status
+
     # Fields to use to group findings by when sending signals.
     attr_accessor :user_group_by_fields
 

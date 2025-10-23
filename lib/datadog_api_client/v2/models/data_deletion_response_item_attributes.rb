@@ -20,30 +20,43 @@ module DatadogAPIClient::V2
   # Deletion attribute for data deletion response.
   class DataDeletionResponseItemAttributes
     include BaseGenericModel
+
     # Creation time of the deletion request.
     attr_reader :created_at
+
     # User who created the deletion request.
     attr_reader :created_by
+
     # Start of requested time window, milliseconds since Unix epoch.
     attr_reader :from_time
+
     # List of indexes for the search. If not provided, the search is performed in all indexes.
     attr_accessor :indexes
+
     # Whether the deletion request is fully created or not. It can take several minutes to fully create a deletion request depending on the target query and timeframe.
     attr_reader :is_created
+
     # Organization ID.
     attr_reader :org_id
+
     # Product name.
     attr_reader :product
+
     # Query for creating a data deletion request.
     attr_reader :query
+
     # Starting time of the process to delete the requested data.
     attr_reader :starting_at
+
     # Status of the deletion request.
     attr_reader :status
+
     # End of requested time window, milliseconds since Unix epoch.
     attr_reader :to_time
+
     # Total number of elements to be deleted. Only the data accessible to the current user that matches the query and timeframe provided will be deleted.
     attr_reader :total_unrestricted
+
     # Update time of the deletion request.
     attr_reader :updated_at
 

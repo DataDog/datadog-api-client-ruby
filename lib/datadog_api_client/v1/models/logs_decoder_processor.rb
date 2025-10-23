@@ -22,18 +22,25 @@ module DatadogAPIClient::V1
   # result in a target attribute.
   class LogsDecoderProcessor
     include BaseGenericModel
+
     # The encoding used to represent the binary data.
     attr_reader :binary_to_text_encoding
+
     # The original representation of input string.
     attr_reader :input_representation
+
     # Whether the processor is enabled.
     attr_accessor :is_enabled
+
     # Name of the processor.
     attr_accessor :name
+
     # Name of the log attribute with the encoded data.
     attr_reader :source
+
     # Name of the log attribute that contains the decoded data.
     attr_reader :target
+
     # Type of logs decoder processor.
     attr_reader :type
 

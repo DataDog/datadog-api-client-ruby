@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Response containing a single org connection.
   class OrgConnectionResponse
     include BaseGenericModel
+
     # An org connection.
     attr_reader :data
 

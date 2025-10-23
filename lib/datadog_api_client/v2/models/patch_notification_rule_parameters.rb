@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Body of the notification rule patch request.
   class PatchNotificationRuleParameters
     include BaseGenericModel
+
     # Data of the notification rule patch request: the rule ID, the rule type, and the rule attributes. All fields are required.
     attr_accessor :data
 

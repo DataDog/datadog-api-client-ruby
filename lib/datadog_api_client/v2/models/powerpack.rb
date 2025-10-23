@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Powerpacks are templated groups of dashboard widgets you can save from an existing dashboard and turn into reusable packs in the widget tray.
   class Powerpack
     include BaseGenericModel
+
     # Powerpack data object.
     attr_accessor :data
 

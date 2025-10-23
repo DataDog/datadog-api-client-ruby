@@ -20,48 +20,68 @@ module DatadogAPIClient::V2
   # Details of a finished pipeline.
   class CIAppPipelineEventFinishedPipeline
     include BaseGenericModel
+
     # Time when the pipeline run finished. It cannot be older than 18 hours in the past from the current time. The time format must be RFC3339.
     attr_reader :_end
+
     # Contains information of the CI error.
     attr_accessor :error
+
     # If pipelines are triggered due to actions to a Git repository, then all payloads must contain this.
     # Note that either `tag` or `branch` has to be provided, but not both.
     attr_accessor :git
+
     # Whether or not the pipeline was triggered manually by the user.
     attr_accessor :is_manual
+
     # Whether or not the pipeline was resumed after being blocked.
     attr_accessor :is_resumed
+
     # Used to distinguish between pipelines, stages, jobs, and steps.
     attr_reader :level
+
     # A list of user-defined metrics. The metrics must follow the `key:value` pattern and the value must be numeric.
     attr_accessor :metrics
+
     # Name of the pipeline. All pipeline runs for the builds should have the same name.
     attr_reader :name
+
     # Contains information of the host running the pipeline, stage, job, or step.
     attr_accessor :node
+
     # A map of key-value parameters or environment variables that were defined for the pipeline.
     attr_accessor :parameters
+
     # If the pipeline is triggered as child of another pipeline, this should contain the details of the parent pipeline.
     attr_accessor :parent_pipeline
+
     # Whether or not the pipeline was a partial retry of a previous attempt. A partial retry is one
     # which only runs a subset of the original jobs.
     attr_reader :partial_retry
+
     # Any ID used in the provider to identify the pipeline run even if it is not unique across retries.
     # If the `pipeline_id` is unique, then both `unique_id` and `pipeline_id` can be set to the same value.
     attr_accessor :pipeline_id
+
     # If the pipeline is a retry, this should contain the details of the previous attempt.
     attr_accessor :previous_attempt
+
     # The queue time in milliseconds, if applicable.
     attr_reader :queue_time
+
     # Time when the pipeline run started (it should not include any queue time). The time format must be RFC3339.
     attr_reader :start
+
     # The final status of the pipeline.
     attr_reader :status
+
     # A list of user-defined tags. The tags must follow the `key:value` pattern.
     attr_accessor :tags
+
     # UUID of the pipeline run. The ID has to be unique across retries and pipelines,
     # including partial retries.
     attr_reader :unique_id
+
     # The URL to look at the pipeline in the CI provider UI.
     attr_reader :url
 

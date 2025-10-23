@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Object describing meta attributes of response.
   class ListDevicesResponseMetadata
     include BaseGenericModel
+
     # Pagination object.
     attr_accessor :page
 

@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Information about the canceled instance.
   class WorklflowCancelInstanceResponse
     include BaseGenericModel
+
     # Data about the canceled instance.
     attr_accessor :data
 

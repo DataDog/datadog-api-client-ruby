@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # User team permission attributes
   class UserTeamPermissionAttributes
     include BaseGenericModel
+
     # Object of team permission actions and boolean values that a logged in user can perform on this team.
     attr_accessor :permissions
 

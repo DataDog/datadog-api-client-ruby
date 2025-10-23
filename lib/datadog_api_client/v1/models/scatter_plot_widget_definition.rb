@@ -20,24 +20,34 @@ module DatadogAPIClient::V1
   # The scatter plot visualization allows you to graph a chosen scope over two different metrics with their respective aggregation.
   class ScatterPlotWidgetDefinition
     include BaseGenericModel
+
     # List of groups used for colors.
     attr_accessor :color_by_groups
+
     # List of custom links.
     attr_accessor :custom_links
+
     # Widget definition.
     attr_reader :requests
+
     # Time setting for the widget.
     attr_accessor :time
+
     # Title of your widget.
     attr_accessor :title
+
     # How to align the text on the widget.
     attr_accessor :title_align
+
     # Size of the title.
     attr_accessor :title_size
+
     # Type of the scatter plot widget.
     attr_reader :type
+
     # Axis controls for the widget.
     attr_accessor :xaxis
+
     # Axis controls for the widget.
     attr_accessor :yaxis
 

@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # The object describing a Datadog log-based metric.
   class LogsMetricResponseAttributes
     include BaseGenericModel
+
     # The compute rule to compute the log-based metric.
     attr_accessor :compute
+
     # The log-based metric filter. Logs matching this filter will be aggregated in this metric.
     attr_accessor :filter
+
     # The rules for the group by.
     attr_accessor :group_by
 

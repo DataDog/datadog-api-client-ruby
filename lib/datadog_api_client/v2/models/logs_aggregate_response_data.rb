@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # The query results
   class LogsAggregateResponseData
     include BaseGenericModel
+
     # The list of matching buckets, one item per bucket
     attr_accessor :buckets
 

@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Used to merge multiple branches into a single branch.
   class ReadinessGate
     include BaseGenericModel
+
     # The definition of `ReadinessGateThresholdType` object.
     attr_reader :threshold_type
 

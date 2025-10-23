@@ -20,11 +20,14 @@ module DatadogAPIClient::V2
   # Team membership attributes
   class UserTeamAttributes
     include BaseGenericModel
+
     # The mechanism responsible for provisioning the team relationship.
     # Possible values: null for added by a user, "service_account" if added by a service account, and "saml_mapping" if provisioned via SAML mapping.
     attr_accessor :provisioned_by
+
     # UUID of the User or Service Account who provisioned this team membership, or null if provisioned via SAML mapping.
     attr_accessor :provisioned_by_id
+
     # The user's role within the team
     attr_accessor :role
 

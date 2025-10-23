@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # Case creation attributes
   class CaseCreateAttributes
     include BaseGenericModel
+
     # Description
     attr_accessor :description
+
     # Case priority
     attr_accessor :priority
+
     # Title
     attr_reader :title
+
     # Case type UUID
     attr_reader :type_id
 

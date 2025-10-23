@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # Model representation of a Confluent Cloud resource.
   class ConfluentResourceResponseAttributes
     include BaseGenericModel
+
     # Enable the `custom.consumer_lag_offset` metric, which contains extra metric tags.
     attr_accessor :enable_custom_metrics
+
     # The ID associated with the Confluent resource.
     attr_accessor :id
+
     # The resource type of the Resource. Can be `kafka`, `connector`, `ksql`, or `schema_registry`.
     attr_reader :resource_type
+
     # A list of strings representing tags. Can be a single key, or key-value pairs separated by a colon.
     attr_accessor :tags
 

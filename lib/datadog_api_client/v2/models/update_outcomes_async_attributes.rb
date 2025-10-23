@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # The JSON:API attributes for a batched set of scorecard outcomes.
   class UpdateOutcomesAsyncAttributes
     include BaseGenericModel
+
     # Set of scorecard outcomes to update asynchronously.
     attr_accessor :results
 

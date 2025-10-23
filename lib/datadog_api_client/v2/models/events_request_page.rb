@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Pagination settings.
   class EventsRequestPage
     include BaseGenericModel
+
     # The returned paging point to use to get the next results.
     attr_accessor :cursor
+
     # The maximum number of logs in the response.
     attr_reader :limit
 

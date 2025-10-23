@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # The response for an updated connection.
   class UpdateActionConnectionResponse
     include BaseGenericModel
+
     # Data related to the connection.
     attr_accessor :data
 

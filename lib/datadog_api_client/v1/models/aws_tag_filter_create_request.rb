@@ -20,10 +20,13 @@ module DatadogAPIClient::V1
   # The objects used to set an AWS tag filter.
   class AWSTagFilterCreateRequest
     include BaseGenericModel
+
     # Your AWS Account ID without dashes.
     attr_accessor :account_id
+
     # The namespace associated with the tag filter entry.
     attr_accessor :namespace
+
     # The tag filter string.
     attr_accessor :tag_filter_str
 

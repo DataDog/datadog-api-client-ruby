@@ -20,14 +20,19 @@ module DatadogAPIClient::V1
   # Object with the result of the last browser test run.
   class SyntheticsBrowserTestResultShortResult
     include BaseGenericModel
+
     # Object describing the device used to perform the Synthetic test.
     attr_accessor :device
+
     # Length in milliseconds of the browser test run.
     attr_accessor :duration
+
     # Amount of errors collected for a single browser test run.
     attr_accessor :error_count
+
     # Amount of browser test steps completed before failing.
     attr_accessor :step_count_completed
+
     # Total amount of browser test steps.
     attr_accessor :step_count_total
 

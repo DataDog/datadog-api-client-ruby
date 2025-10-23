@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # The definition of the `GCPIntegrationUpdate` object.
   class GCPIntegrationUpdate
     include BaseGenericModel
+
     # The definition of the `GCPCredentialsUpdate` object.
     attr_accessor :credentials
+
     # The definition of the `GCPIntegrationType` object.
     attr_reader :type
 

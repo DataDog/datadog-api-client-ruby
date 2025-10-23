@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Active billing dimensions data.
   class ActiveBillingDimensionsBody
     include BaseGenericModel
+
     # List of active billing dimensions.
     attr_accessor :attributes
+
     # Unique ID of the response.
     attr_accessor :id
+
     # Type of active billing dimensions data.
     attr_accessor :type
 

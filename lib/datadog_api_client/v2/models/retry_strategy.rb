@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # The definition of `RetryStrategy` object.
   class RetryStrategy
     include BaseGenericModel
+
     # The definition of `RetryStrategyKind` object.
     attr_reader :kind
+
     # The definition of `RetryStrategyLinear` object.
     attr_accessor :linear
 

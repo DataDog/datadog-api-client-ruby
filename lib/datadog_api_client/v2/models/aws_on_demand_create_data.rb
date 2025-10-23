@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Object for a single AWS on demand task.
   class AwsOnDemandCreateData
     include BaseGenericModel
+
     # Attributes for the AWS on demand task.
     attr_reader :attributes
+
     # The type of the on demand task. The value should always be `aws_resource`.
     attr_reader :type
 

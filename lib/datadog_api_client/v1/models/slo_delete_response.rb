@@ -20,8 +20,10 @@ module DatadogAPIClient::V1
   # A response list of all service level objective deleted.
   class SLODeleteResponse
     include BaseGenericModel
+
     # An array containing the ID of the deleted service level objective object.
     attr_accessor :data
+
     # An dictionary containing the ID of the SLO as key and a deletion error as value.
     attr_accessor :errors
 

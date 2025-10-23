@@ -20,10 +20,13 @@ module DatadogAPIClient::V1
   # Compute options.
   class MonitorFormulaAndFunctionEventQueryDefinitionCompute
     include BaseGenericModel
+
     # Aggregation methods for event platform queries.
     attr_reader :aggregation
+
     # A time interval in milliseconds.
     attr_accessor :interval
+
     # Measurable attribute to compute.
     attr_accessor :metric
 

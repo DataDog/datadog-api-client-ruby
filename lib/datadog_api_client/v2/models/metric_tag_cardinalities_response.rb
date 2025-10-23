@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Response object that includes an array of objects representing the cardinality details of a metric's tags.
   class MetricTagCardinalitiesResponse
     include BaseGenericModel
+
     # A list of tag cardinalities associated with the given metric.
     attr_accessor :data
+
     # Response metadata object.
     attr_accessor :meta
 

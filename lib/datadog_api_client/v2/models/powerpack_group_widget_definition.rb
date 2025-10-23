@@ -20,14 +20,19 @@ module DatadogAPIClient::V2
   # Powerpack group widget object.
   class PowerpackGroupWidgetDefinition
     include BaseGenericModel
+
     # Layout type of widgets.
     attr_reader :layout_type
+
     # Boolean indicating whether powerpack group title should be visible or not.
     attr_accessor :show_title
+
     # Name for the group widget.
     attr_accessor :title
+
     # Type of widget, must be group.
     attr_reader :type
+
     # Widgets inside the powerpack.
     attr_reader :widgets
 

@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # An Opsgenie integration schema.
   class EntityV3DatadogIntegrationOpsgenie
     include BaseGenericModel
+
     # The region for the Opsgenie integration.
     attr_reader :region
+
     # The service URL for the Opsgenie integration.
     attr_reader :service_url
 

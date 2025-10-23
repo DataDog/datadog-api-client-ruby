@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Org connection attributes.
   class OrgConnectionAttributes
     include BaseGenericModel
+
     # List of connection types.
     attr_reader :connection_types
+
     # Timestamp when the connection was created.
     attr_reader :created_at
 

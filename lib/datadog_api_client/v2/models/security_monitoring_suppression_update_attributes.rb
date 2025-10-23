@@ -20,22 +20,31 @@ module DatadogAPIClient::V2
   # The suppression rule properties to be updated.
   class SecurityMonitoringSuppressionUpdateAttributes
     include BaseGenericModel
+
     # An exclusion query on the input data of the security rules, which could be logs, Agent events, or other types of data based on the security rule. Events matching this query are ignored by any detection rules referenced in the suppression rule.
     attr_accessor :data_exclusion_query
+
     # A description for the suppression rule.
     attr_accessor :description
+
     # Whether the suppression rule is enabled.
     attr_accessor :enabled
+
     # A Unix millisecond timestamp giving an expiration date for the suppression rule. After this date, it won't suppress signals anymore. If unset, the expiration date of the suppression rule is left untouched. If set to `null`, the expiration date is removed.
     attr_accessor :expiration_date
+
     # The name of the suppression rule.
     attr_accessor :name
+
     # The rule query of the suppression rule, with the same syntax as the search bar for detection rules.
     attr_accessor :rule_query
+
     # A Unix millisecond timestamp giving the start date for the suppression rule. After this date, it starts suppressing signals. If unset, the start date of the suppression rule is left untouched. If set to `null`, the start date is removed.
     attr_accessor :start_date
+
     # The suppression query of the suppression rule. If a signal matches this query, it is suppressed and not triggered. Same syntax as the queries to search signals in the signal explorer.
     attr_accessor :suppression_query
+
     # The current version of the suppression. This is optional, but it can help prevent concurrent modifications.
     attr_reader :version
 

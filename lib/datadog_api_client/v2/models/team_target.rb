@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Represents a team target for an escalation policy step, including the team's ID and resource type.
   class TeamTarget
     include BaseGenericModel
+
     # Specifies the unique identifier of the team resource.
     attr_reader :id
+
     # Indicates that the resource is of type `teams`.
     attr_reader :type
 

@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # A relationship reference for postmortems.
   class RelationshipToIncidentPostmortem
     include BaseGenericModel
+
     # The postmortem relationship data.
     attr_reader :data
 

@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # The metadata of a scanned asset.
   class ScannedAssetMetadata
     include BaseGenericModel
+
     # The attributes of a scanned asset metadata.
     attr_reader :attributes
+
     # The ID of the scanned asset metadata.
     attr_reader :id
 

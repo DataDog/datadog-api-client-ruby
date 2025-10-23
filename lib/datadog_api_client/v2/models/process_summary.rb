@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Process summary object.
   class ProcessSummary
     include BaseGenericModel
+
     # Attributes for a process summary.
     attr_accessor :attributes
+
     # Process ID.
     attr_accessor :id
+
     # Type of process summary.
     attr_accessor :type
 

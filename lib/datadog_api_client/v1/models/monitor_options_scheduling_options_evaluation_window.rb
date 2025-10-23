@@ -20,12 +20,16 @@ module DatadogAPIClient::V1
   # Configuration options for the evaluation window. If `hour_starts` is set, no other fields may be set. Otherwise, `day_starts` and `month_starts` must be set together.
   class MonitorOptionsSchedulingOptionsEvaluationWindow
     include BaseGenericModel
+
     # The time of the day at which a one day cumulative evaluation window starts.
     attr_accessor :day_starts
+
     # The minute of the hour at which a one hour cumulative evaluation window starts.
     attr_reader :hour_starts
+
     # The day of the month at which a one month cumulative evaluation window starts.
     attr_reader :month_starts
+
     # The timezone of the time of the day of the cumulative evaluation window start.
     attr_accessor :timezone
 

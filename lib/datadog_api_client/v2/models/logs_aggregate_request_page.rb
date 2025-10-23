@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Paging settings
   class LogsAggregateRequestPage
     include BaseGenericModel
+
     # The returned paging point to use to get the next results. Note: at most 1000 results can be paged.
     attr_accessor :cursor
 

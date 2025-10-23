@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Response with a list of incident team payloads.
   class IncidentTeamsResponse
     include BaseGenericModel
+
     # An array of incident teams.
     attr_reader :data
+
     # Included related resources which the user requested.
     attr_accessor :included
+
     # The metadata object containing pagination metadata.
     attr_accessor :meta
 

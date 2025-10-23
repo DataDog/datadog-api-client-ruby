@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # The definition of `RoleTemplateDataAttributes` object.
   class RoleTemplateDataAttributes
     include BaseGenericModel
+
     # The `attributes` `description`.
     attr_accessor :description
+
     # The `attributes` `name`.
     attr_accessor :name
 

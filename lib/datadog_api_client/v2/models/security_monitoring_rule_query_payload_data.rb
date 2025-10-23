@@ -20,14 +20,19 @@ module DatadogAPIClient::V2
   # Payload used to test the rule query.
   class SecurityMonitoringRuleQueryPayloadData
     include BaseGenericModel
+
     # Source of the payload.
     attr_accessor :ddsource
+
     # Tags associated with your data.
     attr_accessor :ddtags
+
     # The name of the originating host of the log.
     attr_accessor :hostname
+
     # The message of the payload.
     attr_accessor :message
+
     # The name of the application or service generating the data.
     attr_accessor :service
 

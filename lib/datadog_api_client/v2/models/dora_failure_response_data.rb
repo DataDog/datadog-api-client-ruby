@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Response after receiving a DORA failure event.
   class DORAFailureResponseData
     include BaseGenericModel
+
     # The ID of the received DORA failure event.
     attr_reader :id
+
     # JSON:API type for DORA failure events.
     attr_accessor :type
 

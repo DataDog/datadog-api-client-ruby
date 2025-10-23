@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # Response data related to the scanning groups.
   class SensitiveDataScannerGetConfigResponseData
     include BaseGenericModel
+
     # Attributes of the Sensitive Data configuration.
     attr_accessor :attributes
+
     # ID of the configuration.
     attr_accessor :id
+
     # Relationships of the configuration.
     attr_accessor :relationships
+
     # Sensitive Data Scanner configuration type.
     attr_accessor :type
 

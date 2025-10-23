@@ -20,12 +20,16 @@ module DatadogAPIClient::V1
   # Object containing the uptime for a Synthetic test ID.
   class SyntheticsTestUptime
     include BaseGenericModel
+
     # Timestamp in seconds for the start of uptime.
     attr_accessor :from_ts
+
     # Object containing the uptime information.
     attr_accessor :overall
+
     # A Synthetic test ID.
     attr_accessor :public_id
+
     # Timestamp in seconds for the end of uptime.
     attr_accessor :to_ts
 

@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Kind metadata.
   class KindMetadata
     include BaseGenericModel
+
     # The creation time.
     attr_accessor :created_at
+
     # The modification time.
     attr_accessor :modified_at
 

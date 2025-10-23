@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Information on the total number of apps, to be used for pagination.
   class ListAppsResponseMetaPage
     include BaseGenericModel
+
     # The total number of apps under the Datadog organization, disregarding any filters applied.
     attr_accessor :total_count
+
     # The total number of apps that match the specified filters.
     attr_accessor :total_filtered_count
 

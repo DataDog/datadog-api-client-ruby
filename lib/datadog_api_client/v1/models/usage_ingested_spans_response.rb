@@ -20,6 +20,7 @@ module DatadogAPIClient::V1
   # Response containing the ingested spans usage for each hour for a given organization.
   class UsageIngestedSpansResponse
     include BaseGenericModel
+
     # Get hourly usage for ingested spans.
     attr_accessor :usage
 

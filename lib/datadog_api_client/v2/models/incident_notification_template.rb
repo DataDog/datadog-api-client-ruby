@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Response with a notification template.
   class IncidentNotificationTemplate
     include BaseGenericModel
+
     # Notification template data from a response.
     attr_reader :data
+
     # Related objects that are included in the response.
     attr_accessor :included
 

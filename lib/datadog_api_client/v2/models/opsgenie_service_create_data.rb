@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Opsgenie service data for a create request.
   class OpsgenieServiceCreateData
     include BaseGenericModel
+
     # The Opsgenie service attributes for a create request.
     attr_reader :attributes
+
     # Opsgenie service resource type.
     attr_reader :type
 

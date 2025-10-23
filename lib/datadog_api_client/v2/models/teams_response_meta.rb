@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Teams response metadata.
   class TeamsResponseMeta
     include BaseGenericModel
+
     # Teams response metadata.
     attr_accessor :pagination
 

@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # The information returned after successfully creating a page.
   class CreatePageResponseData
     include BaseGenericModel
+
     # The unique ID of the created page.
     attr_accessor :id
+
     # The type of resource used when creating an On-Call Page.
     attr_reader :type
 

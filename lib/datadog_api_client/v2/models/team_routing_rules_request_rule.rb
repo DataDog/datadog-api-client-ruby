@@ -20,14 +20,19 @@ module DatadogAPIClient::V2
   # Defines an individual routing rule item that contains the rule data for the request.
   class TeamRoutingRulesRequestRule
     include BaseGenericModel
+
     # Specifies the list of actions to perform when the routing rule is matched.
     attr_accessor :actions
+
     # Identifies the policy to be applied when this routing rule matches.
     attr_accessor :policy_id
+
     # Defines the query or condition that triggers this routing rule.
     attr_accessor :query
+
     # Holds time zone information and a list of time restrictions for a routing rule.
     attr_accessor :time_restriction
+
     # Specifies the level of urgency for a routing rule (low, high, or dynamic).
     attr_accessor :urgency
 

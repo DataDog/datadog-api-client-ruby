@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # The definition of `TableResultV2Array` object.
   class TableResultV2Array
     include BaseGenericModel
+
     # The reference tables.
     attr_reader :data
 

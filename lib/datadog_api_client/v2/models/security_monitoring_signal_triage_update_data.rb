@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Data containing the updated triage attributes of the signal.
   class SecurityMonitoringSignalTriageUpdateData
     include BaseGenericModel
+
     # Attributes describing a triage state update operation over a security signal.
     attr_accessor :attributes
+
     # The unique ID of the security signal.
     attr_accessor :id
+
     # The type of event.
     attr_accessor :type
 

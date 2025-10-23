@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Incident data for a create request.
   class IncidentCreateData
     include BaseGenericModel
+
     # The incident's attributes for a create request.
     attr_reader :attributes
+
     # The relationships the incident will have with other resources once created.
     attr_accessor :relationships
+
     # Incident resource type.
     attr_reader :type
 

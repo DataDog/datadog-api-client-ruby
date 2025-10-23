@@ -20,10 +20,13 @@ module DatadogAPIClient::V1
   # Define computation for a log query.
   class LogsQueryCompute
     include BaseGenericModel
+
     # The aggregation method.
     attr_reader :aggregation
+
     # Facet name.
     attr_accessor :facet
+
     # Define a time interval in seconds.
     attr_accessor :interval
 

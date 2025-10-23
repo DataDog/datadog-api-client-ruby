@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Object containing metadata and attributes related to a specific tag key associated with the metric.
   class MetricTagCardinality
     include BaseGenericModel
+
     # An object containing properties related to the tag key
     attr_accessor :attributes
+
     # The name of the tag key.
     attr_accessor :id
+
     # This describes the endpoint action.
     attr_accessor :type
 

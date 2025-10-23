@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Defines a relationship to a single step within an escalation policy. Contains the step's `id` and `type`.
   class EscalationPolicyDataRelationshipsStepsDataItems
     include BaseGenericModel
+
     # Specifies the unique identifier for the step resource.
     attr_reader :id
+
     # Indicates that the resource is of type `steps`.
     attr_reader :type
 

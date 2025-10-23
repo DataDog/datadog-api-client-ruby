@@ -20,32 +20,46 @@ module DatadogAPIClient::V1
   # The monitor summary widget displays a summary view of all your Datadog monitors, or a subset based on a query. Only available on FREE layout dashboards.
   class MonitorSummaryWidgetDefinition
     include BaseGenericModel
+
     # Which color to use on the widget.
     attr_accessor :color_preference
+
     # The number of monitors to display.
     attr_accessor :count
+
     # What to display on the widget.
     attr_accessor :display_format
+
     # Whether to show counts of 0 or not.
     attr_accessor :hide_zero_counts
+
     # Query to filter the monitors with.
     attr_reader :query
+
     # Whether to show the time that has elapsed since the monitor/group triggered.
     attr_accessor :show_last_triggered
+
     # Whether to show the priorities column.
     attr_accessor :show_priority
+
     # Widget sorting methods.
     attr_accessor :sort
+
     # The start of the list. Typically 0.
     attr_accessor :start
+
     # Which summary type should be used.
     attr_accessor :summary_type
+
     # Title of the widget.
     attr_accessor :title
+
     # How to align the text on the widget.
     attr_accessor :title_align
+
     # Size of the title.
     attr_accessor :title_size
+
     # Type of the monitor summary widget.
     attr_reader :type
 

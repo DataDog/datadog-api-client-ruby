@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # The metadata associated with a request.
   class Event
     include BaseGenericModel
+
     # Event ID.
     attr_accessor :id
+
     # The event name.
     attr_accessor :name
+
     # Event source ID.
     attr_accessor :source_id
+
     # Event type.
     attr_accessor :type
 

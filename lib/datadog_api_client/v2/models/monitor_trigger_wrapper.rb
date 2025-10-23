@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Schema for a Monitor-based trigger.
   class MonitorTriggerWrapper
     include BaseGenericModel
+
     # Trigger a workflow from a Monitor. For automatic triggering a handle must be configured and the workflow must be published.
     attr_reader :monitor_trigger
+
     # A list of steps that run first after a trigger fires.
     attr_accessor :start_step_names
 

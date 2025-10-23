@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Data of AuthN Mapping relationship to SAML Assertion Attribute.
   class RelationshipToSAMLAssertionAttributeData
     include BaseGenericModel
+
     # The ID of the SAML assertion attribute.
     attr_reader :id
+
     # SAML assertion attributes resource type.
     attr_reader :type
 

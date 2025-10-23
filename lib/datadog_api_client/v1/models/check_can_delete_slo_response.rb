@@ -20,8 +20,10 @@ module DatadogAPIClient::V1
   # A service level objective response containing the requested object.
   class CheckCanDeleteSLOResponse
     include BaseGenericModel
+
     # An array of service level objective objects.
     attr_accessor :data
+
     # A mapping of SLO id to it's current usages.
     attr_accessor :errors
 

@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Relationship between a team and a team link
   class RelationshipToTeamLinks
     include BaseGenericModel
+
     # Related team links
     attr_accessor :data
+
     # Links attributes.
     attr_accessor :links
 

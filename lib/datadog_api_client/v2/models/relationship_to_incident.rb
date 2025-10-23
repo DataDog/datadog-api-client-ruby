@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Relationship to incident.
   class RelationshipToIncident
     include BaseGenericModel
+
     # Relationship to incident object.
     attr_reader :data
 

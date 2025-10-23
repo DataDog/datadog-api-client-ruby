@@ -21,14 +21,19 @@ module DatadogAPIClient::V2
   # Metrics can be counters, gauges, or distributions and optionally grouped by log fields.
   class ObservabilityPipelineGenerateMetricsProcessor
     include BaseGenericModel
+
     # The unique identifier for this component. Used to reference this component in other parts of the pipeline.
     attr_reader :id
+
     # A Datadog search query used to determine which logs this processor targets.
     attr_reader :include
+
     # A list of component IDs whose output is used as the `input` for this processor.
     attr_reader :inputs
+
     # Configuration for generating individual metrics.
     attr_reader :metrics
+
     # The processor type. Always `generate_datadog_metrics`.
     attr_reader :type
 

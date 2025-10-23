@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Incident Team data for a create request.
   class IncidentTeamCreateData
     include BaseGenericModel
+
     # The incident team's attributes for a create request.
     attr_accessor :attributes
+
     # The incident team's relationships.
     attr_accessor :relationships
+
     # Incident Team resource type.
     attr_reader :type
 

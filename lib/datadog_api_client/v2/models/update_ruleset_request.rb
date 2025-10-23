@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # The definition of `UpdateRulesetRequest` object.
   class UpdateRulesetRequest
     include BaseGenericModel
+
     # The definition of `UpdateRulesetRequestData` object.
     attr_accessor :data
 

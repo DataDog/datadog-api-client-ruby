@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Response after successfully inserting multiple items into a datastore, containing the identifiers of the created items.
   class PutAppsDatastoreItemResponseArray
     include BaseGenericModel
+
     # An array of data objects containing the identifiers of the successfully inserted items.
     attr_reader :data
 

@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # The definition of `UrlParamUpdate` object.
   class UrlParamUpdate
     include BaseGenericModel
+
     # Should the header be deleted.
     attr_accessor :deleted
+
     # Name for tokens.
     attr_reader :name
+
     # The `UrlParamUpdate` `value`.
     attr_accessor :value
 

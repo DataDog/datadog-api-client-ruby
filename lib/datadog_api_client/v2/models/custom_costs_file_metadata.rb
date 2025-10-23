@@ -20,20 +20,28 @@ module DatadogAPIClient::V2
   # Schema of a Custom Costs metadata.
   class CustomCostsFileMetadata
     include BaseGenericModel
+
     # Total cost in the cost file.
     attr_accessor :billed_cost
+
     # Currency used in the Custom Costs file.
     attr_accessor :billing_currency
+
     # Usage charge period of a Custom Costs file.
     attr_accessor :charge_period
+
     # Name of the Custom Costs file.
     attr_accessor :name
+
     # Providers contained in the Custom Costs file.
     attr_accessor :provider_names
+
     # Status of the Custom Costs file.
     attr_accessor :status
+
     # Timestamp, in millisecond, of the upload time of the Custom Costs file.
     attr_accessor :uploaded_at
+
     # Metadata of the user that has uploaded the Custom Costs file.
     attr_accessor :uploaded_by
 

@@ -20,16 +20,22 @@ module DatadogAPIClient::V2
   # The `dedupe` processor removes duplicate fields in log events.
   class ObservabilityPipelineDedupeProcessor
     include BaseGenericModel
+
     # A list of log field paths to check for duplicates.
     attr_reader :fields
+
     # The unique identifier for this processor.
     attr_reader :id
+
     # A Datadog search query used to determine which logs this processor targets.
     attr_reader :include
+
     # A list of component IDs whose output is used as the input for this processor.
     attr_reader :inputs
+
     # The deduplication mode to apply to the fields.
     attr_reader :mode
+
     # The processor type. The value should always be `dedupe`.
     attr_reader :type
 

@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Dashboards within a list.
   class DashboardListItems
     include BaseGenericModel
+
     # List of dashboards in the dashboard list.
     attr_reader :dashboards
+
     # Number of dashboards in the dashboard list.
     attr_accessor :total
 

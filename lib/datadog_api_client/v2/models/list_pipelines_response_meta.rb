@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Metadata about the response.
   class ListPipelinesResponseMeta
     include BaseGenericModel
+
     # The total number of pipelines.
     attr_accessor :total_count
 

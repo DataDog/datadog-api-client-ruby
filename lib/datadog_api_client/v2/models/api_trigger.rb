@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Trigger a workflow from an API request. The workflow must be published.
   class APITrigger
     include BaseGenericModel
+
     # Defines a rate limit for a trigger.
     attr_accessor :rate_limit
 

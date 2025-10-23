@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # RUM application creation request attributes.
   class RUMApplicationCreateRequest
     include BaseGenericModel
+
     # RUM application creation.
     attr_reader :data
 

@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Powerpack group widget definition of individual widgets.
   class PowerpackInnerWidgets
     include BaseGenericModel
+
     # Information about widget.
     attr_reader :definition
+
     # Powerpack inner widget layout.
     attr_accessor :layout
 

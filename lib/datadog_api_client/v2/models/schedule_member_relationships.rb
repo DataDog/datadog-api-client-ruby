@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Defines relationships for a schedule member, primarily referencing a single user.
   class ScheduleMemberRelationships
     include BaseGenericModel
+
     # Wraps the user data reference for a schedule member.
     attr_accessor :user
 

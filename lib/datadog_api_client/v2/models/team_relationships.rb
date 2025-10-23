@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Resources related to a team
   class TeamRelationships
     include BaseGenericModel
+
     # Relationship between a team and a team link
     attr_accessor :team_links
+
     # Relationship between a user team permission and a team
     attr_accessor :user_team_permissions
 

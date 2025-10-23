@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # A column containing the tag keys and values in a group.
   class GroupScalarColumn
     include BaseGenericModel
+
     # The name of the tag key or group.
     attr_accessor :name
+
     # The type of column present for groups.
     attr_accessor :type
+
     # The array of tag values for each group found for the results of the formulas or queries.
     attr_accessor :values
 

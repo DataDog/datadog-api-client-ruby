@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Data for the request to update a scorecard rule.
   class UpdateRuleRequestData
     include BaseGenericModel
+
     # Details of a rule.
     attr_accessor :attributes
+
     # The JSON:API type for scorecard rules.
     attr_accessor :type
 

@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # The main request body, including attributes and resource type.
   class CreatePageRequestData
     include BaseGenericModel
+
     # Details about the On-Call Page you want to create.
     attr_accessor :attributes
+
     # The type of resource used when creating an On-Call Page.
     attr_reader :type
 

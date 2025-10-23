@@ -20,10 +20,13 @@ module DatadogAPIClient::V1
   # The response form a monitor search.
   class MonitorSearchResponse
     include BaseGenericModel
+
     # The counts of monitors per different criteria.
     attr_accessor :counts
+
     # Metadata about the response.
     attr_accessor :metadata
+
     # The list of found monitors.
     attr_accessor :monitors
 

@@ -21,16 +21,22 @@ module DatadogAPIClient::V1
   # For more information, see the [parsing section](https://docs.datadoghq.com/logs/log_configuration/parsing).
   class LogsGrokParser
     include BaseGenericModel
+
     # Set of rules for the grok parser.
     attr_reader :grok
+
     # Whether or not the processor is enabled.
     attr_accessor :is_enabled
+
     # Name of the processor.
     attr_accessor :name
+
     # List of sample logs to test this grok parser.
     attr_reader :samples
+
     # Name of the log attribute to parse.
     attr_reader :source
+
     # Type of logs grok parser.
     attr_reader :type
 

@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Projected Cost response.
   class ProjectedCostResponse
     include BaseGenericModel
+
     # Response containing Projected Cost.
     attr_accessor :data
 

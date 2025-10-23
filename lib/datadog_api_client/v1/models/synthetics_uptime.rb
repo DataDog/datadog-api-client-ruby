@@ -20,18 +20,23 @@ module DatadogAPIClient::V1
   # Object containing the uptime information.
   class SyntheticsUptime
     include BaseGenericModel
+
     # An array of error objects returned while querying the history data for the service level objective.
     attr_accessor :errors
+
     # The location name
     attr_accessor :group
+
     # The state transition history for the monitor, represented as an array of
     # pairs. Each pair is an array where the first element is the transition timestamp
     # in Unix epoch format (integer) and the second element is the state (integer).
     # For the state, an integer value of `0` indicates uptime, `1` indicates downtime,
     # and `2` indicates no data.
     attr_accessor :history
+
     # The number of decimal places to which the SLI value is accurate for the given from-to timestamps.
     attr_accessor :span_precision
+
     # The overall uptime.
     attr_accessor :uptime
 

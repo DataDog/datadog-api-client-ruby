@@ -20,12 +20,16 @@ module DatadogAPIClient::V1
   # X Axis controls for the distribution widget.
   class DistributionWidgetXAxis
     include BaseGenericModel
+
     # True includes zero.
     attr_accessor :include_zero
+
     # Specifies maximum value to show on the x-axis. It takes a number, percentile (p90 === 90th percentile), or auto for default behavior.
     attr_accessor :max
+
     # Specifies minimum value to show on the x-axis. It takes a number, percentile (p90 === 90th percentile), or auto for default behavior.
     attr_accessor :min
+
     # Specifies the scale type. Possible values are `linear`.
     attr_accessor :scale
 

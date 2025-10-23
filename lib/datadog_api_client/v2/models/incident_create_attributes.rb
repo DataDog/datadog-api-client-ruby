@@ -20,20 +20,28 @@ module DatadogAPIClient::V2
   # The incident's attributes for a create request.
   class IncidentCreateAttributes
     include BaseGenericModel
+
     # Required if `customer_impacted:"true"`. A summary of the impact customers experienced during the incident.
     attr_accessor :customer_impact_scope
+
     # A flag indicating whether the incident caused customer impact.
     attr_reader :customer_impacted
+
     # A condensed view of the user-defined fields for which to create initial selections.
     attr_accessor :fields
+
     # A unique identifier that represents an incident type. The default incident type will be used if this property is not provided.
     attr_accessor :incident_type_uuid
+
     # An array of initial timeline cells to be placed at the beginning of the incident timeline.
     attr_accessor :initial_cells
+
     # A flag indicating whether the incident is a test incident.
     attr_accessor :is_test
+
     # Notification handles that will be notified of the incident at creation.
     attr_accessor :notification_handles
+
     # The title of the incident, which summarizes what happened.
     attr_reader :title
 

@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # 
   class TimeseriesResponseSeries
     include BaseGenericModel
+
     # List of tags that apply to a single response value.
     attr_accessor :group_tags
+
     # The index of the query in the "formulas" array (or "queries" array if no "formulas" was specified).
     attr_reader :query_index
+
     # Detailed information about the unit.
     # The first element describes the "primary unit" (for example, `bytes` in `bytes per second`).
     # The second element describes the "per unit" (for example, `second` in `bytes per second`).

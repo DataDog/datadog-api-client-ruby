@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # List devices response.
   class ListDevicesResponse
     include BaseGenericModel
+
     # The list devices response data.
     attr_accessor :data
+
     # Object describing meta attributes of response.
     attr_accessor :meta
 

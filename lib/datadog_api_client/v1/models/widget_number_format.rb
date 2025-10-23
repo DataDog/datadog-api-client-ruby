@@ -20,8 +20,10 @@ module DatadogAPIClient::V1
   # Number format options for the widget.
   class WidgetNumberFormat
     include BaseGenericModel
+
     # Number format unit.
     attr_accessor :unit
+
     # The definition of `NumberFormatUnitScale` object.
     attr_accessor :unit_scale
 

@@ -20,6 +20,7 @@ module DatadogAPIClient::V1
   # The response containing the Cloud Security Management Pro usage for each hour for a given organization.
   class UsageCloudSecurityPostureManagementResponse
     include BaseGenericModel
+
     # Get hourly usage for Cloud Security Management Pro.
     attr_accessor :usage
 

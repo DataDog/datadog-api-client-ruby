@@ -20,20 +20,28 @@ module DatadogAPIClient::V1
   # Formula to be used in a widget query.
   class WidgetFormula
     include BaseGenericModel
+
     # Expression alias.
     attr_accessor :_alias
+
     # Define a display mode for the table cell.
     attr_accessor :cell_display_mode
+
     # Cell display mode options for the widget formula. (only if `cell_display_mode` is set to `trend`).
     attr_accessor :cell_display_mode_options
+
     # List of conditional formats.
     attr_accessor :conditional_formats
+
     # String expression built from queries, formulas, and functions.
     attr_reader :formula
+
     # Options for limiting results returned.
     attr_accessor :limit
+
     # Number format options for the widget.
     attr_accessor :number_format
+
     # Styling options for widget formulas.
     attr_accessor :style
 

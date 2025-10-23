@@ -20,26 +20,37 @@ module DatadogAPIClient::V1
   # The heat map visualization shows metrics aggregated across many tags, such as hosts. The more hosts that have a particular value, the darker that square is.
   class HeatMapWidgetDefinition
     include BaseGenericModel
+
     # List of custom links.
     attr_accessor :custom_links
+
     # List of widget events.
     attr_accessor :events
+
     # Available legend sizes for a widget. Should be one of "0", "2", "4", "8", "16", or "auto".
     attr_accessor :legend_size
+
     # List of widget types.
     attr_reader :requests
+
     # Whether or not to display the legend on this widget.
     attr_accessor :show_legend
+
     # Time setting for the widget.
     attr_accessor :time
+
     # Title of the widget.
     attr_accessor :title
+
     # How to align the text on the widget.
     attr_accessor :title_align
+
     # Size of the title.
     attr_accessor :title_size
+
     # Type of the heat map widget.
     attr_reader :type
+
     # Axis controls for the widget.
     attr_accessor :yaxis
 

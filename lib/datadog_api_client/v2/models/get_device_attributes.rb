@@ -20,42 +20,61 @@ module DatadogAPIClient::V2
   # The device attributes
   class GetDeviceAttributes
     include BaseGenericModel
+
     # A description of the device.
     attr_accessor :description
+
     # The type of the device.
     attr_accessor :device_type
+
     # The integration of the device.
     attr_accessor :integration
+
     # The IP address of the device.
     attr_accessor :ip_address
+
     # The location of the device.
     attr_accessor :location
+
     # The model of the device.
     attr_accessor :model
+
     # The name of the device.
     attr_accessor :name
+
     # The operating system hostname of the device.
     attr_accessor :os_hostname
+
     # The operating system name of the device.
     attr_accessor :os_name
+
     # The operating system version of the device.
     attr_accessor :os_version
+
     # The ping status of the device.
     attr_accessor :ping_status
+
     # The product name of the device.
     attr_accessor :product_name
+
     # The serial number of the device.
     attr_accessor :serial_number
+
     # The status of the device.
     attr_accessor :status
+
     # The subnet of the device.
     attr_accessor :subnet
+
     # The device `sys_object_id`.
     attr_accessor :sys_object_id
+
     # A list of tags associated with the device.
     attr_accessor :tags
+
     # The vendor of the device.
     attr_accessor :vendor
+
     # The version of the device.
     attr_accessor :version
 

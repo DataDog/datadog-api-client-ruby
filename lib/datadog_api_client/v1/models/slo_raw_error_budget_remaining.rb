@@ -20,8 +20,10 @@ module DatadogAPIClient::V1
   # Error budget remaining for an SLO.
   class SLORawErrorBudgetRemaining
     include BaseGenericModel
+
     # Error budget remaining unit.
     attr_accessor :unit
+
     # Error budget remaining value.
     attr_accessor :value
 

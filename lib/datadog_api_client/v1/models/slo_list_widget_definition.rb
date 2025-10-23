@@ -20,14 +20,19 @@ module DatadogAPIClient::V1
   # Use the SLO List widget to track your SLOs (Service Level Objectives) on dashboards.
   class SLOListWidgetDefinition
     include BaseGenericModel
+
     # Array of one request object to display in the widget.
     attr_reader :requests
+
     # Title of the widget.
     attr_accessor :title
+
     # How to align the text on the widget.
     attr_accessor :title_align
+
     # Size of the title.
     attr_accessor :title_size
+
     # Type of the SLO List widget.
     attr_reader :type
 

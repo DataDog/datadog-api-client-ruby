@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Incident integration metadata for the Slack integration.
   class SlackIntegrationMetadata
     include BaseGenericModel
+
     # Array of Slack channels in this integration metadata.
     attr_reader :channels
 

@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Project creation attributes
   class ProjectCreateAttributes
     include BaseGenericModel
+
     # Project's key. Cannot be "CASE"
     attr_reader :key
+
     # name
     attr_reader :name
 

@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Data object of an Okta account
   class OktaAccountResponseData
     include BaseGenericModel
+
     # Attributes object for an Okta account.
     attr_reader :attributes
+
     # The ID of the Okta account, a UUID hash of the account name.
     attr_reader :id
+
     # Account type for an Okta account.
     attr_reader :type
 

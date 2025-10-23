@@ -20,14 +20,19 @@ module DatadogAPIClient::V2
   # The definition of Entity V3 API Spec object.
   class EntityV3APISpec
     include BaseGenericModel
+
     # Services which implemented the API.
     attr_accessor :implemented_by
+
     # The API definition.
     attr_accessor :interface
+
     # The lifecycle state of the component.
     attr_reader :lifecycle
+
     # The importance of the component.
     attr_reader :tier
+
     # The type of API.
     attr_accessor :type
 

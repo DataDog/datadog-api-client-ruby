@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Update rule request.
   class SensitiveDataScannerRuleUpdateRequest
     include BaseGenericModel
+
     # Data related to the update of a rule.
     attr_reader :data
+
     # Meta payload containing information about the API.
     attr_reader :meta
 

@@ -20,8 +20,10 @@ module DatadogAPIClient::V1
   # Pagination metadata returned by the API.
   class NotebooksResponsePage
     include BaseGenericModel
+
     # The total number of notebooks that would be returned if the request was not filtered by `start` and `count` parameters.
     attr_accessor :total_count
+
     # The total number of notebooks returned.
     attr_accessor :total_filtered_count
 

@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # The mocked outputs of the action query.
   class ActionQueryMockedOutputsObject
     include BaseGenericModel
+
     # Whether to enable the mocked outputs for testing.
     attr_reader :enabled
+
     # The mocked outputs of the action query, serialized as JSON.
     attr_accessor :outputs
 

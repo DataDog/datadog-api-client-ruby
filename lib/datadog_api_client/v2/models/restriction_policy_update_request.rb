@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Update request for a restriction policy.
   class RestrictionPolicyUpdateRequest
     include BaseGenericModel
+
     # Restriction policy object.
     attr_reader :data
 

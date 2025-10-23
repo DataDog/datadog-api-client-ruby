@@ -20,8 +20,10 @@ module DatadogAPIClient::V1
   # Object describing how to split the graph to display multiple visualizations per request.
   class NotebookSplitBy
     include BaseGenericModel
+
     # Keys to split on.
     attr_reader :keys
+
     # Tags to split on.
     attr_reader :tags
 

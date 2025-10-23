@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # The object containing all the query parameters.
   class SpansAggregateRequestAttributes
     include BaseGenericModel
+
     # The list of metrics or timeseries to compute for the retrieved buckets.
     attr_accessor :compute
+
     # The search and filter query settings.
     attr_accessor :filter
+
     # The rules for the group by.
     attr_accessor :group_by
+
     # Global query options that are used during the query.
     # Note: You should only supply timezone or time offset but not both otherwise the query will fail.
     attr_accessor :options

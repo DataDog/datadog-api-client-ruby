@@ -20,14 +20,19 @@ module DatadogAPIClient::V1
   # The response containing attributes for custom reports.
   class UsageCustomReportsAttributes
     include BaseGenericModel
+
     # The date the specified custom report was computed.
     attr_accessor :computed_on
+
     # The ending date of custom report.
     attr_accessor :end_date
+
     # size
     attr_accessor :size
+
     # The starting date of custom report.
     attr_accessor :start_date
+
     # A list of tags to apply to custom reports.
     attr_accessor :tags
 

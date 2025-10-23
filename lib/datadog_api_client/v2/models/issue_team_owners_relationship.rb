@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Relationship between the issue and teams.
   class IssueTeamOwnersRelationship
     include BaseGenericModel
+
     # Array of teams that are owners of the issue.
     attr_reader :data
 

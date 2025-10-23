@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # The definition of the `LaunchDarklyAPIKey` object.
   class LaunchDarklyAPIKey
     include BaseGenericModel
+
     # The `LaunchDarklyAPIKey` `api_token`.
     attr_reader :api_token
+
     # The definition of the `LaunchDarklyAPIKey` object.
     attr_reader :type
 

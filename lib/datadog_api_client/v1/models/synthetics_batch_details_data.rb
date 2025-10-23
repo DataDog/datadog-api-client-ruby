@@ -20,10 +20,13 @@ module DatadogAPIClient::V1
   # Wrapper object that contains the details of a batch.
   class SyntheticsBatchDetailsData
     include BaseGenericModel
+
     # Metadata for the Synthetic tests run.
     attr_accessor :metadata
+
     # List of results for the batch.
     attr_accessor :results
+
     # Determines whether the batch has passed, failed, or is in progress.
     attr_accessor :status
 

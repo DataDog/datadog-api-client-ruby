@@ -20,14 +20,19 @@ module DatadogAPIClient::V2
   # The `http_server` source collects logs over HTTP POST from external services.
   class ObservabilityPipelineHttpServerSource
     include BaseGenericModel
+
     # HTTP authentication method.
     attr_reader :auth_strategy
+
     # The decoding format used to interpret incoming logs.
     attr_reader :decoding
+
     # Unique ID for the HTTP server source.
     attr_reader :id
+
     # Configuration for enabling TLS encryption between the pipeline component and external services.
     attr_accessor :tls
+
     # The source type. The value should always be `http_server`.
     attr_reader :type
 

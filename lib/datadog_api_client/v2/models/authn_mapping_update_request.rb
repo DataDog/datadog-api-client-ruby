@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Request to update an AuthN Mapping.
   class AuthNMappingUpdateRequest
     include BaseGenericModel
+
     # Data for updating an AuthN Mapping.
     attr_reader :data
 

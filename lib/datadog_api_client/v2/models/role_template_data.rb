@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # The definition of `RoleTemplateData` object.
   class RoleTemplateData
     include BaseGenericModel
+
     # The definition of `RoleTemplateDataAttributes` object.
     attr_accessor :attributes
+
     # The `RoleTemplateData` `id`.
     attr_accessor :id
+
     # Roles resource type.
     attr_reader :type
 

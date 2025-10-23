@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Metadata for pagination.
   class ListFindingsMeta
     include BaseGenericModel
+
     # Pagination and findings count information.
     attr_accessor :page
+
     # The point in time corresponding to the listed findings.
     attr_reader :snapshot_timestamp
 

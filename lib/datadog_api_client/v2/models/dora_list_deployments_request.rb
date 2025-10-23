@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Request to get a list of deployments.
   class DORAListDeploymentsRequest
     include BaseGenericModel
+
     # The JSON:API data.
     attr_reader :data
 

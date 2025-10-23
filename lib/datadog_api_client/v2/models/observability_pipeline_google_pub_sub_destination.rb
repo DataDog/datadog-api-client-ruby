@@ -20,20 +20,28 @@ module DatadogAPIClient::V2
   # The `google_pubsub` destination publishes logs to a Google Cloud Pub/Sub topic.
   class ObservabilityPipelineGooglePubSubDestination
     include BaseGenericModel
+
     # GCP credentials used to authenticate with Google Cloud Storage.
     attr_accessor :auth
+
     # Encoding format for log events.
     attr_reader :encoding
+
     # The unique identifier for this component.
     attr_reader :id
+
     # A list of component IDs whose output is used as the `input` for this component.
     attr_reader :inputs
+
     # The GCP project ID that owns the Pub/Sub topic.
     attr_reader :project
+
     # Configuration for enabling TLS encryption between the pipeline component and external services.
     attr_accessor :tls
+
     # The Pub/Sub topic name to publish logs to.
     attr_reader :topic
+
     # The destination type. The value should always be `google_pubsub`.
     attr_reader :type
 

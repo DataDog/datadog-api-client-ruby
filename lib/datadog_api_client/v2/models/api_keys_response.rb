@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Response for a list of API keys.
   class APIKeysResponse
     include BaseGenericModel
+
     # Array of API keys.
     attr_accessor :data
+
     # Array of objects related to the API key.
     attr_accessor :included
+
     # Additional information related to api keys response.
     attr_accessor :meta
 

@@ -20,6 +20,7 @@ module DatadogAPIClient::V1
   # PagerDuty service object name.
   class PagerDutyServiceName
     include BaseGenericModel
+
     # Your service name associated service key in PagerDuty.
     attr_reader :service_name
 

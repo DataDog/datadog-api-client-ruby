@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # The new rum-based metric properties.
   class RumMetricUpdateData
     include BaseGenericModel
+
     # The rum-based metric properties that will be updated.
     attr_reader :attributes
+
     # The name of the rum-based metric.
     attr_accessor :id
+
     # The type of the resource. The value should always be rum_metrics.
     attr_reader :type
 

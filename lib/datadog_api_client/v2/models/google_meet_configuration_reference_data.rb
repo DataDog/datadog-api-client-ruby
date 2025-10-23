@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # The Google Meet configuration relationship data object.
   class GoogleMeetConfigurationReferenceData
     include BaseGenericModel
+
     # The unique identifier of the Google Meet configuration.
     attr_reader :id
+
     # The type of the Google Meet configuration.
     attr_reader :type
 

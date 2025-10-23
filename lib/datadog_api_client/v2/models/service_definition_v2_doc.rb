@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Service documents.
   class ServiceDefinitionV2Doc
     include BaseGenericModel
+
     # Document name.
     attr_reader :name
+
     # Document provider.
     attr_accessor :provider
+
     # Document URL.
     attr_reader :url
 

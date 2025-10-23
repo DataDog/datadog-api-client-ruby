@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Team sync data.
   class TeamSyncData
     include BaseGenericModel
+
     # Team sync attributes.
     attr_reader :attributes
+
     # Team sync bulk type.
     attr_reader :type
 

@@ -20,23 +20,32 @@ module DatadogAPIClient::V2
   # The `amazon_s3` destination sends your logs in Datadog-rehydratable format to an Amazon S3 bucket for archiving.
   class ObservabilityPipelineAmazonS3Destination
     include BaseGenericModel
+
     # AWS authentication credentials used for accessing AWS services such as S3.
     # If omitted, the system’s default credentials are used (for example, the IAM role and environment variables).
     attr_accessor :auth
+
     # S3 bucket name.
     attr_reader :bucket
+
     # Unique identifier for the destination component.
     attr_reader :id
+
     # A list of component IDs whose output is used as the `input` for this component.
     attr_reader :inputs
+
     # Optional prefix for object keys.
     attr_accessor :key_prefix
+
     # AWS region of the S3 bucket.
     attr_reader :region
+
     # S3 storage class.
     attr_reader :storage_class
+
     # Configuration for enabling TLS encryption between the pipeline component and external services.
     attr_accessor :tls
+
     # The destination type. Always `amazon_s3`.
     attr_reader :type
 

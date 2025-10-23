@@ -21,8 +21,10 @@ module DatadogAPIClient::V2
   # Each rule must have a unique name and a valid Datadog Grok pattern that will be applied to the source field.
   class ObservabilityPipelineParseGrokProcessorRuleMatchRule
     include BaseGenericModel
+
     # The name of the rule.
     attr_reader :name
+
     # The definition of the Grok rule.
     attr_reader :rule
 

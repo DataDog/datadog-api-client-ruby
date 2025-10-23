@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Response for retrieving all monitor configuration policies.
   class MonitorConfigPolicyListResponse
     include BaseGenericModel
+
     # An array of monitor configuration policies.
     attr_accessor :data
 

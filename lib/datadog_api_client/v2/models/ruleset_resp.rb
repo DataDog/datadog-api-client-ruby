@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # The definition of `RulesetResp` object.
   class RulesetResp
     include BaseGenericModel
+
     # The definition of `RulesetRespData` object.
     attr_accessor :data
 

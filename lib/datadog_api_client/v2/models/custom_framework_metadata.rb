@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Metadata for custom frameworks.
   class CustomFrameworkMetadata
     include BaseGenericModel
+
     # Framework without requirements.
     attr_accessor :attributes
+
     # The ID of the custom framework.
     attr_accessor :id
+
     # The type of the resource. The value must be `custom_framework`.
     attr_accessor :type
 

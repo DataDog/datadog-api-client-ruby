@@ -20,10 +20,13 @@ module DatadogAPIClient::V1
   # Canonical unit.
   class NumberFormatUnitCanonical
     include BaseGenericModel
+
     # The name of the unit per item.
     attr_accessor :per_unit_name
+
     # The type of unit scale.
     attr_accessor :type
+
     # The name of the unit.
     attr_accessor :unit_name
 

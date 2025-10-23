@@ -20,8 +20,10 @@ module DatadogAPIClient::V1
   # Objects describing the binding used for a mobile test.
   class SyntheticsTestRestrictionPolicyBinding
     include BaseGenericModel
+
     # List of principals for a mobile test binding.
     attr_accessor :principals
+
     # The type of relation for the binding.
     attr_accessor :relation
 

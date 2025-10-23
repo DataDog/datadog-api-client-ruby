@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Pagination metadata.
   class ListAppsResponseMeta
     include BaseGenericModel
+
     # Information on the total number of apps, to be used for pagination.
     attr_accessor :page
 

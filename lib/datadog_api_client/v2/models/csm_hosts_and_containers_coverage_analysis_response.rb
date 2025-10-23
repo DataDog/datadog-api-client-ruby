@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # CSM Hosts and Containers Coverage Analysis response.
   class CsmHostsAndContainersCoverageAnalysisResponse
     include BaseGenericModel
+
     # CSM Hosts and Containers Coverage Analysis data.
     attr_accessor :data
 

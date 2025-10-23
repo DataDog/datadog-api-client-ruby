@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # Tenant-based handle attributes.
   class MicrosoftTeamsTenantBasedHandleRequestAttributes
     include BaseGenericModel
+
     # Channel id.
     attr_reader :channel_id
+
     # Tenant-based handle name.
     attr_reader :name
+
     # Team id.
     attr_reader :team_id
+
     # Tenant id.
     attr_reader :tenant_id
 

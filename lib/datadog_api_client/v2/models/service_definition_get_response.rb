@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Get service definition response.
   class ServiceDefinitionGetResponse
     include BaseGenericModel
+
     # Service definition data.
     attr_accessor :data
 

@@ -20,14 +20,19 @@ module DatadogAPIClient::V1
   # Number of RUM Units used for each hour for a given organization (data available as of November 1, 2021).
   class UsageRumUnitsHour
     include BaseGenericModel
+
     # The number of browser RUM units.
     attr_accessor :browser_rum_units
+
     # The number of mobile RUM units.
     attr_accessor :mobile_rum_units
+
     # The organization name.
     attr_accessor :org_name
+
     # The organization public ID.
     attr_accessor :public_id
+
     # Total RUM units across mobile and browser RUM.
     attr_accessor :rum_units
 

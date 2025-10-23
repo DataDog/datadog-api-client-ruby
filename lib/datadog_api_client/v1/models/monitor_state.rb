@@ -20,6 +20,7 @@ module DatadogAPIClient::V1
   # Wrapper object with the different monitor states.
   class MonitorState
     include BaseGenericModel
+
     # Dictionary where the keys are groups (comma separated lists of tags) and the values are
     # the list of groups your monitor is broken down on.
     attr_accessor :groups

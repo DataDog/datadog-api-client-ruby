@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # The response object after an app is successfully published.
   class PublishAppResponse
     include BaseGenericModel
+
     # The version of the app that was published.
     attr_accessor :data
 

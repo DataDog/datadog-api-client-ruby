@@ -20,12 +20,16 @@ module DatadogAPIClient::V1
   # Attributes describing the change of state for a given state.
   class SignalStateUpdateRequest
     include BaseGenericModel
+
     # Optional comment to explain why a signal is being archived.
     attr_accessor :archive_comment
+
     # Reason why a signal has been archived.
     attr_accessor :archive_reason
+
     # The new triage state of the signal.
     attr_reader :state
+
     # Version of the updated signal. If server side version is higher, update will be rejected.
     attr_accessor :version
 

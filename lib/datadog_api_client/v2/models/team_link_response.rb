@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Team link response
   class TeamLinkResponse
     include BaseGenericModel
+
     # Team link
     attr_accessor :data
 

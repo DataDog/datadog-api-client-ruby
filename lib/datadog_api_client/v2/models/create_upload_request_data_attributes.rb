@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # The definition of `CreateUploadRequestDataAttributes` object.
   class CreateUploadRequestDataAttributes
     include BaseGenericModel
+
     # The headers of the file to upload.
     attr_reader :headers
+
     # The number of parts in the upload.
     attr_reader :part_count
+
     # The size of each part in the upload in bytes. For multipart uploads (part_count > 1), all parts except the last one must be at least 5,000,000 bytes. For single-part uploads (part_count = 1), any size is allowed.
     attr_reader :part_size
+
     # The name of the reference table.
     attr_reader :table_name
 

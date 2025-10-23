@@ -20,16 +20,22 @@ module DatadogAPIClient::V2
   # The `crowdstrike_next_gen_siem` destination forwards logs to CrowdStrike Next Gen SIEM.
   class ObservabilityPipelineCrowdStrikeNextGenSiemDestination
     include BaseGenericModel
+
     # Compression configuration for log events.
     attr_accessor :compression
+
     # Encoding format for log events.
     attr_reader :encoding
+
     # The unique identifier for this component.
     attr_reader :id
+
     # A list of component IDs whose output is used as the `input` for this component.
     attr_reader :inputs
+
     # Configuration for enabling TLS encryption between the pipeline component and external services.
     attr_accessor :tls
+
     # The destination type. The value should always be `crowdstrike_next_gen_siem`.
     attr_reader :type
 

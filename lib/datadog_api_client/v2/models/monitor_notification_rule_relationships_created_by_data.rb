@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Data for the user who created the monitor notification rule.
   class MonitorNotificationRuleRelationshipsCreatedByData
     include BaseGenericModel
+
     # User ID of the monitor notification rule creator.
     attr_accessor :id
+
     # Users resource type.
     attr_accessor :type
 

@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # A request to update an Org Config.
   class OrgConfigWriteRequest
     include BaseGenericModel
+
     # An Org Config write operation.
     attr_reader :data
 

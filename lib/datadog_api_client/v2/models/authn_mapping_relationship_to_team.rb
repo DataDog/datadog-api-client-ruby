@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Relationship of AuthN Mapping to a Team.
   class AuthNMappingRelationshipToTeam
     include BaseGenericModel
+
     # Relationship to team.
     attr_reader :team
 

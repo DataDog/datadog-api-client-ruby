@@ -20,8 +20,10 @@ module DatadogAPIClient::V1
   # The counts of monitor groups per different criteria.
   class MonitorGroupSearchResponseCounts
     include BaseGenericModel
+
     # Search facets.
     attr_accessor :status
+
     # Search facets.
     attr_accessor :type
 

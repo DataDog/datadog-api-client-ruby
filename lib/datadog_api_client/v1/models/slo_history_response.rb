@@ -20,8 +20,10 @@ module DatadogAPIClient::V1
   # A service level objective history response.
   class SLOHistoryResponse
     include BaseGenericModel
+
     # An array of service level objective objects.
     attr_accessor :data
+
     # A list of errors while querying the history data for the service level objective.
     attr_accessor :errors
 

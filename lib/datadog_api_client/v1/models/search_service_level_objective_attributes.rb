@@ -21,48 +21,64 @@ module DatadogAPIClient::V1
   # for one or more timeframes, and metadata (`name`, `description`, and `tags`).
   class SearchServiceLevelObjectiveAttributes
     include BaseGenericModel
+
     # A list of tags associated with this service level objective.
     # Always included in service level objective responses (but may be empty).
     attr_accessor :all_tags
+
     # Creation timestamp (UNIX time in seconds)
     #
     # Always included in service level objective responses.
     attr_accessor :created_at
+
     # The creator of the SLO
     attr_accessor :creator
+
     # A user-defined description of the service level objective.
     #
     # Always included in service level objective responses (but may be `null`).
     # Optional in create/update requests.
     attr_accessor :description
+
     # Tags with the `env` tag key.
     attr_accessor :env_tags
+
     # A list of (up to 100) monitor groups that narrow the scope of a monitor service level objective.
     # Included in service level objective responses if it is not empty.
     attr_accessor :groups
+
     # Modification timestamp (UNIX time in seconds)
     #
     # Always included in service level objective responses.
     attr_accessor :modified_at
+
     # A list of monitor ids that defines the scope of a monitor service level
     # objective.
     attr_accessor :monitor_ids
+
     # The name of the service level objective object.
     attr_accessor :name
+
     # calculated status and error budget remaining.
     attr_accessor :overall_status
+
     # A metric-based SLO. **Required if type is `metric`**. Note that Datadog only allows the sum by aggregator
     # to be used because this will sum up all request counts instead of averaging them, or taking the max or
     # min of all of those requests.
     attr_accessor :query
+
     # Tags with the `service` tag key.
     attr_accessor :service_tags
+
     # The type of the service level objective.
     attr_accessor :slo_type
+
     # Status of the SLO's primary timeframe.
     attr_accessor :status
+
     # Tags with the `team` tag key.
     attr_accessor :team_tags
+
     # The thresholds (timeframes and associated targets) for this service level
     # objective object.
     attr_accessor :thresholds

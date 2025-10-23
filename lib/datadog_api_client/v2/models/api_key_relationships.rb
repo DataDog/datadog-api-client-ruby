@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Resources related to the API key.
   class APIKeyRelationships
     include BaseGenericModel
+
     # Relationship to user.
     attr_accessor :created_by
+
     # Relationship to user.
     attr_accessor :modified_by
 

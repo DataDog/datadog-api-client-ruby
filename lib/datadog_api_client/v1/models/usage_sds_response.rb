@@ -20,6 +20,7 @@ module DatadogAPIClient::V1
   # Response containing the Sensitive Data Scanner usage for each hour for a given organization.
   class UsageSDSResponse
     include BaseGenericModel
+
     # Get hourly usage for Sensitive Data Scanner.
     attr_accessor :usage
 

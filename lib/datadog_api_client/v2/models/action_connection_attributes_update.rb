@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # The definition of `ActionConnectionAttributesUpdate` object.
   class ActionConnectionAttributesUpdate
     include BaseGenericModel
+
     # The definition of `ActionConnectionIntegrationUpdate` object.
     attr_accessor :integration
+
     # Name of the connection
     attr_accessor :name
 

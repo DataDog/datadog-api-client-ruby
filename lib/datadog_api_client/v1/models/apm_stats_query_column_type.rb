@@ -20,12 +20,16 @@ module DatadogAPIClient::V1
   # Column properties.
   class ApmStatsQueryColumnType
     include BaseGenericModel
+
     # A user-assigned alias for the column.
     attr_accessor :_alias
+
     # Define a display mode for the table cell.
     attr_accessor :cell_display_mode
+
     # Column name.
     attr_reader :name
+
     # Widget sorting methods.
     attr_accessor :order
 

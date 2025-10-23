@@ -20,14 +20,19 @@ module DatadogAPIClient::V2
   # Facet data for user attributes of an incident.
   class IncidentSearchResponseUserFacetData
     include BaseGenericModel
+
     # Count of the facet value appearing in search results.
     attr_reader :count
+
     # Email of the user.
     attr_accessor :email
+
     # Handle of the user.
     attr_accessor :handle
+
     # Name of the user.
     attr_accessor :name
+
     # ID of the user.
     attr_accessor :uuid
 

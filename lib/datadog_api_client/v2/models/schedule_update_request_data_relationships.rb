@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Houses relationships for the schedule update, typically referencing teams.
   class ScheduleUpdateRequestDataRelationships
     include BaseGenericModel
+
     # Associates teams with this schedule in a data structure.
     attr_accessor :teams
 

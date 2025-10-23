@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Describes a single column and its type in an enrichment table schema.
   class ObservabilityPipelineEnrichmentTableFileSchemaItems
     include BaseGenericModel
+
     # The `items` `column`.
     attr_reader :column
+
     # Declares allowed data types for enrichment table columns.
     attr_reader :type
 

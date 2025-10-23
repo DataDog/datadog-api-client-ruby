@@ -21,8 +21,10 @@ module DatadogAPIClient::V1
   # test.
   class SyntheticsLocation
     include BaseGenericModel
+
     # Unique identifier of the location.
     attr_accessor :id
+
     # Name of the location.
     attr_accessor :name
 

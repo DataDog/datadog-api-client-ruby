@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Byte frames which are chunked GELF messages.
   class ObservabilityPipelineSocketSourceFramingChunkedGelf
     include BaseGenericModel
+
     # Byte frames which are chunked GELF messages.
     attr_reader :method
 

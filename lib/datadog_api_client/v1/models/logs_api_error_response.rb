@@ -20,6 +20,7 @@ module DatadogAPIClient::V1
   # Response returned by the Logs API when errors occur.
   class LogsAPIErrorResponse
     include BaseGenericModel
+
     # Error returned by the Logs API
     attr_accessor :error
 

@@ -20,16 +20,22 @@ module DatadogAPIClient::V1
   # Object to handle `SIGV4` authentication when performing the test.
   class SyntheticsBasicAuthSigv4
     include BaseGenericModel
+
     # Access key for the `SIGV4` authentication.
     attr_reader :access_key
+
     # Region for the `SIGV4` authentication.
     attr_accessor :region
+
     # Secret key for the `SIGV4` authentication.
     attr_reader :secret_key
+
     # Service name for the `SIGV4` authentication.
     attr_accessor :service_name
+
     # Session token for the `SIGV4` authentication.
     attr_accessor :session_token
+
     # The type of authentication to use when performing the test.
     attr_reader :type
 

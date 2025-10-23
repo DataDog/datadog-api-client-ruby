@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # The definition of `StepDisplay` object.
   class StepDisplay
     include BaseGenericModel
+
     # The definition of `StepDisplayBounds` object.
     attr_accessor :bounds
 

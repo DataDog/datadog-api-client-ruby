@@ -20,11 +20,14 @@ module DatadogAPIClient::V2
   # Object description of a security signal.
   class SecurityMonitoringSignal
     include BaseGenericModel
+
     # The object containing all signal attributes and their
     # associated values.
     attr_accessor :attributes
+
     # The unique ID of the security signal.
     attr_accessor :id
+
     # The type of event.
     attr_accessor :type
 

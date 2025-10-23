@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Defines the relationship between a shift and the user who is working that shift.
   class ShiftDataRelationshipsUser
     include BaseGenericModel
+
     # Represents a reference to the user assigned to this shift, containing the user's ID and resource type.
     attr_reader :data
 

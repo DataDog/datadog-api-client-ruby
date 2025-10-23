@@ -20,6 +20,7 @@ module DatadogAPIClient::V1
   # The query being made on the logs.
   class LogQueryDefinitionSearch
     include BaseGenericModel
+
     # Search value to apply.
     attr_reader :query
 

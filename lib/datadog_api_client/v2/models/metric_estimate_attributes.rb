@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Object containing the definition of a metric estimate attribute.
   class MetricEstimateAttributes
     include BaseGenericModel
+
     # Estimate type based on the queried configuration. By default, `count_or_gauge` is returned. `distribution` is returned for distribution metrics without percentiles enabled. Lastly, `percentile` is returned if `filter[pct]=true` is queried with a distribution metric.
     attr_accessor :estimate_type
+
     # Timestamp when the cardinality estimate was requested.
     attr_accessor :estimated_at
+
     # Estimated cardinality of the metric based on the queried configuration.
     attr_accessor :estimated_output_series
 

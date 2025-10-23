@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Response with an incident service payload.
   class IncidentServiceResponse
     include BaseGenericModel
+
     # Incident Service data from responses.
     attr_reader :data
+
     # Included objects from relationships.
     attr_accessor :included
 

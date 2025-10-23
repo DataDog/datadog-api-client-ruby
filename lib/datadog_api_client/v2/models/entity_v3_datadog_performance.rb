@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Performance stats association.
   class EntityV3DatadogPerformance
     include BaseGenericModel
+
     # A list of APM entity tags that associates the APM Stats data with the entity.
     attr_accessor :tags
 

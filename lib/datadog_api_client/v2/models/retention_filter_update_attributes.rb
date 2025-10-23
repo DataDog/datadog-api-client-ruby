@@ -20,17 +20,23 @@ module DatadogAPIClient::V2
   # The object describing the configuration of the retention filter to create/update.
   class RetentionFilterUpdateAttributes
     include BaseGenericModel
+
     # Enable/Disable the retention filter.
     attr_reader :enabled
+
     # The spans filter. Spans matching this filter will be indexed and stored.
     attr_reader :filter
+
     # The type of retention filter.
     attr_reader :filter_type
+
     # The name of the retention filter.
     attr_reader :name
+
     # Sample rate to apply to spans going through this retention filter.
     # A value of 1.0 keeps all spans matching the query.
     attr_reader :rate
+
     # Sample rate to apply to traces containing spans going through this retention filter.
     # A value of 1.0 keeps all traces with spans matching the query.
     attr_accessor :trace_rate

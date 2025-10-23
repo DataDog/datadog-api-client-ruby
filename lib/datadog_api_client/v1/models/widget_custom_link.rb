@@ -20,12 +20,16 @@ module DatadogAPIClient::V1
   # Custom links help you connect a data value to a URL, like a Datadog page or your AWS console.
   class WidgetCustomLink
     include BaseGenericModel
+
     # The flag for toggling context menu link visibility.
     attr_accessor :is_hidden
+
     # The label for the custom link URL. Keep the label short and descriptive. Use metrics and tags as variables.
     attr_accessor :label
+
     # The URL of the custom link. URL must include `http` or `https`. A relative URL must start with `/`.
     attr_accessor :link
+
     # The label ID that refers to a context menu link. Can be `logs`, `hosts`, `traces`, `profiles`, `processes`, `containers`, or `rum`.
     attr_accessor :override_label
 

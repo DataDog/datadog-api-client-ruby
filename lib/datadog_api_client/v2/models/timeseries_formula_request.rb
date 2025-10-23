@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # A single timeseries query to be executed.
   class TimeseriesFormulaRequest
     include BaseGenericModel
+
     # The object describing a timeseries formula request.
     attr_reader :attributes
+
     # The type of the resource. The value should always be timeseries_request.
     attr_reader :type
 

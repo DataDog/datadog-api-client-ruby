@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Request to get a list of failures.
   class DORAListFailuresRequest
     include BaseGenericModel
+
     # The JSON:API data.
     attr_reader :data
 

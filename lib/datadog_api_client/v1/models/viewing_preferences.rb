@@ -20,8 +20,10 @@ module DatadogAPIClient::V1
   # The viewing preferences for a shared dashboard.
   class ViewingPreferences
     include BaseGenericModel
+
     # Whether the widgets on the shared dashboard should be displayed with high density.
     attr_accessor :high_density
+
     # The theme of the shared dashboard view. "system" follows your system's default viewing theme.
     attr_accessor :theme
 

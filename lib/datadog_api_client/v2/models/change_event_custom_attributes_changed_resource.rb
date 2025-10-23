@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # A uniquely identified resource.
   class ChangeEventCustomAttributesChangedResource
     include BaseGenericModel
+
     # The name of the resource that was changed. Limited to 128 characters.
     attr_reader :name
+
     # The type of the resource that was changed.
     attr_reader :type
 

@@ -20,12 +20,16 @@ module DatadogAPIClient::V1
   # The number of analyzed logs for each hour for a given organization.
   class UsageAnalyzedLogsHour
     include BaseGenericModel
+
     # Contains the number of analyzed logs.
     attr_accessor :analyzed_logs
+
     # The hour for the usage.
     attr_accessor :hour
+
     # The organization name.
     attr_accessor :org_name
+
     # The organization public ID.
     attr_accessor :public_id
 

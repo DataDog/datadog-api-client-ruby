@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Represents a static key-value pair used in various processors.
   class ObservabilityPipelineFieldValue
     include BaseGenericModel
+
     # The field name.
     attr_reader :name
+
     # The field value.
     attr_reader :value
 

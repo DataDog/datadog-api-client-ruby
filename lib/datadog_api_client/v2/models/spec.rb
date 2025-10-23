@@ -20,18 +20,25 @@ module DatadogAPIClient::V2
   # The spec defines what the workflow does.
   class Spec
     include BaseGenericModel
+
     # A list of annotations used in the workflow. These are like sticky notes for your workflow!
     attr_accessor :annotations
+
     # A list of connections or connection groups used in the workflow.
     attr_accessor :connection_envs
+
     # Unique identifier used to trigger workflows automatically in Datadog.
     attr_accessor :handle
+
     # A list of input parameters for the workflow. These can be used as dynamic runtime values in your workflow.
     attr_accessor :input_schema
+
     # A list of output parameters for the workflow.
     attr_accessor :output_schema
+
     # A `Step` is a sub-component of a workflow. Each `Step` performs an action.
     attr_accessor :steps
+
     # The list of triggers that activate this workflow. At least one trigger is required, and each trigger type may appear at most once.
     attr_accessor :triggers
 

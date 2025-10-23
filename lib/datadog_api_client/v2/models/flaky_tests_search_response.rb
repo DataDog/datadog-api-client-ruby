@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Response object with flaky tests matching the search request.
   class FlakyTestsSearchResponse
     include BaseGenericModel
+
     # Array of flaky tests matching the request.
     attr_accessor :data
+
     # Metadata for the flaky tests search response.
     attr_accessor :meta
 

@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # File encoding format.
   class ObservabilityPipelineEnrichmentTableFileEncoding
     include BaseGenericModel
+
     # The `encoding` `delimiter`.
     attr_reader :delimiter
+
     # The `encoding` `includes_headers`.
     attr_reader :includes_headers
+
     # Specifies the encoding format (e.g., CSV) used for enrichment tables.
     attr_reader :type
 

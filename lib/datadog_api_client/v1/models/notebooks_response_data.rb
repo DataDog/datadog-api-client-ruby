@@ -20,10 +20,13 @@ module DatadogAPIClient::V1
   # The data for a notebook in get all response.
   class NotebooksResponseData
     include BaseGenericModel
+
     # The attributes of a notebook in get all response.
     attr_reader :attributes
+
     # Unique notebook ID, assigned when you create the notebook.
     attr_reader :id
+
     # Type of the Notebook resource.
     attr_reader :type
 

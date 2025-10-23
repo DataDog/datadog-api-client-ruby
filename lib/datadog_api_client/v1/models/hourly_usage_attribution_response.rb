@@ -20,8 +20,10 @@ module DatadogAPIClient::V1
   # Response containing the hourly usage attribution by tag(s).
   class HourlyUsageAttributionResponse
     include BaseGenericModel
+
     # The object containing document metadata.
     attr_accessor :metadata
+
     # Get the hourly usage attribution by tag(s).
     attr_accessor :usage
 

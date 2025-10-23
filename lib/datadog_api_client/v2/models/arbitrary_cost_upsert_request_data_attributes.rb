@@ -20,20 +20,28 @@ module DatadogAPIClient::V2
   # The definition of `ArbitraryCostUpsertRequestDataAttributes` object.
   class ArbitraryCostUpsertRequestDataAttributes
     include BaseGenericModel
+
     # The `attributes` `costs_to_allocate`.
     attr_reader :costs_to_allocate
+
     # The `attributes` `enabled`.
     attr_accessor :enabled
+
     # The `attributes` `order_id`.
     attr_accessor :order_id
+
     # The `attributes` `provider`.
     attr_reader :provider
+
     # The `attributes` `rejected`.
     attr_accessor :rejected
+
     # The `attributes` `rule_name`.
     attr_reader :rule_name
+
     # The definition of `ArbitraryCostUpsertRequestDataAttributesStrategy` object.
     attr_reader :strategy
+
     # The `attributes` `type`.
     attr_reader :type
 

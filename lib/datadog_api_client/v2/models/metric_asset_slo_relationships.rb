@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # An object containing a list of SLOs that can be referenced in the `included` data.
   class MetricAssetSLORelationships
     include BaseGenericModel
+
     # A list of SLOs that can be referenced in the `included` data.
     attr_accessor :data
 

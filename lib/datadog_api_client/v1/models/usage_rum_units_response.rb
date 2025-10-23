@@ -20,6 +20,7 @@ module DatadogAPIClient::V1
   # Response containing the number of RUM Units for each hour for a given organization.
   class UsageRumUnitsResponse
     include BaseGenericModel
+
     # Get hourly usage for RUM Units.
     attr_accessor :usage
 

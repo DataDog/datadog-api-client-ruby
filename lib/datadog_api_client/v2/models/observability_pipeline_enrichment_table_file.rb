@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # Defines a static enrichment table loaded from a CSV file.
   class ObservabilityPipelineEnrichmentTableFile
     include BaseGenericModel
+
     # File encoding format.
     attr_reader :encoding
+
     # Key fields used to look up enrichment values.
     attr_reader :key
+
     # Path to the CSV file.
     attr_reader :path
+
     # Schema defining column names and their types.
     attr_reader :schema
 

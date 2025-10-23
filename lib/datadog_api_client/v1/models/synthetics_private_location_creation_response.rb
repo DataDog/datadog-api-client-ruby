@@ -20,10 +20,13 @@ module DatadogAPIClient::V1
   # Object that contains the new private location, the public key for result encryption, and the configuration skeleton.
   class SyntheticsPrivateLocationCreationResponse
     include BaseGenericModel
+
     # Configuration skeleton for the private location. See installation instructions of the private location on how to use this configuration.
     attr_accessor :config
+
     # Object containing information about the private location to create.
     attr_accessor :private_location
+
     # Public key for the result encryption.
     attr_accessor :result_encryption
 

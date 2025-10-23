@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # The definition of the `ConfigCatSDKKey` object.
   class ConfigCatSDKKey
     include BaseGenericModel
+
     # The `ConfigCatSDKKey` `api_password`.
     attr_reader :api_password
+
     # The `ConfigCatSDKKey` `api_username`.
     attr_reader :api_username
+
     # The `ConfigCatSDKKey` `sdk_key`.
     attr_reader :sdk_key
+
     # The definition of the `ConfigCatSDKKey` object.
     attr_reader :type
 

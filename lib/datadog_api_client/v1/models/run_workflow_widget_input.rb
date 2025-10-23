@@ -20,8 +20,10 @@ module DatadogAPIClient::V1
   # Object to map a dashboard template variable to a workflow input.
   class RunWorkflowWidgetInput
     include BaseGenericModel
+
     # Name of the workflow input.
     attr_reader :name
+
     # Dashboard template variable. Can be suffixed with '.value' or '.key'.
     attr_reader :value
 

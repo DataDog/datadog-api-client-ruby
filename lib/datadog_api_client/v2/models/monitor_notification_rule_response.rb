@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # A monitor notification rule.
   class MonitorNotificationRuleResponse
     include BaseGenericModel
+
     # Monitor notification rule data.
     attr_accessor :data
+
     # Array of objects related to the monitor notification rule that the user requested.
     attr_accessor :included
 

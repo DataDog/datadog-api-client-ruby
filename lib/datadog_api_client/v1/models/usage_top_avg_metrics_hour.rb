@@ -20,12 +20,16 @@ module DatadogAPIClient::V1
   # Number of hourly recorded custom metrics for a given organization.
   class UsageTopAvgMetricsHour
     include BaseGenericModel
+
     # Average number of timeseries per hour in which the metric occurs.
     attr_accessor :avg_metric_hour
+
     # Maximum number of timeseries per hour in which the metric occurs.
     attr_accessor :max_metric_hour
+
     # Contains the metric category.
     attr_accessor :metric_category
+
     # Contains the custom metric name.
     attr_accessor :metric_name
 

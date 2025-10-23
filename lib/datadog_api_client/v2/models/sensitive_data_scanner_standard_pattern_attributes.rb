@@ -20,16 +20,22 @@ module DatadogAPIClient::V2
   # Attributes of the Sensitive Data Scanner standard pattern.
   class SensitiveDataScannerStandardPatternAttributes
     include BaseGenericModel
+
     # Description of the standard pattern.
     attr_accessor :description
+
     # List of included keywords.
     attr_accessor :included_keywords
+
     # Name of the standard pattern.
     attr_accessor :name
+
     # (Deprecated) Regex to match, optionally documented for older standard rules. Refer to the `description` field to understand what the rule does.
     attr_accessor :pattern
+
     # Integer from 1 (high) to 5 (low) indicating standard pattern issue severity.
     attr_reader :priority
+
     # List of tags.
     attr_accessor :tags
 

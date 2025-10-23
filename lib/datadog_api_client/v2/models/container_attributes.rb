@@ -20,24 +20,34 @@ module DatadogAPIClient::V2
   # Attributes for a container.
   class ContainerAttributes
     include BaseGenericModel
+
     # The ID of the container.
     attr_accessor :container_id
+
     # Time the container was created.
     attr_accessor :created_at
+
     # Hostname of the host running the container.
     attr_accessor :host
+
     # Digest of the compressed image manifest.
     attr_accessor :image_digest
+
     # Name of the associated container image.
     attr_accessor :image_name
+
     # List of image tags associated with the container image.
     attr_accessor :image_tags
+
     # Name of the container.
     attr_accessor :name
+
     # Time the container was started.
     attr_accessor :started_at
+
     # State of the container. This depends on the container runtime.
     attr_accessor :state
+
     # List of tags associated with the container.
     attr_accessor :tags
 

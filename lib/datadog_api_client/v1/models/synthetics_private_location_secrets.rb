@@ -20,8 +20,10 @@ module DatadogAPIClient::V1
   # Secrets for the private location. Only present in the response when creating the private location.
   class SyntheticsPrivateLocationSecrets
     include BaseGenericModel
+
     # Authentication part of the secrets.
     attr_accessor :authentication
+
     # Private key for the private location.
     attr_accessor :config_decryption
 

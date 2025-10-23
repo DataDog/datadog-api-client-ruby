@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Response object which includes a single security filter.
   class SecurityFilterResponse
     include BaseGenericModel
+
     # The security filter's properties.
     attr_accessor :data
+
     # Optional metadata associated to the response.
     attr_accessor :meta
 

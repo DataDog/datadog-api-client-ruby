@@ -20,16 +20,22 @@ module DatadogAPIClient::V2
   # The security filters properties to be updated.
   class SecurityFilterUpdateAttributes
     include BaseGenericModel
+
     # Exclusion filters to exclude some logs from the security filter.
     attr_accessor :exclusion_filters
+
     # The filtered data type.
     attr_accessor :filtered_data_type
+
     # Whether the security filter is enabled.
     attr_accessor :is_enabled
+
     # The name of the security filter.
     attr_accessor :name
+
     # The query of the security filter.
     attr_accessor :query
+
     # The version of the security filter to update.
     attr_reader :version
 

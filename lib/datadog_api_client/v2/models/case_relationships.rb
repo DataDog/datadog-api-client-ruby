@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # Resources related to a case
   class CaseRelationships
     include BaseGenericModel
+
     # Relationship to user.
     attr_accessor :assignee
+
     # Relationship to user.
     attr_accessor :created_by
+
     # Relationship to user.
     attr_accessor :modified_by
+
     # Relationship to project
     attr_accessor :project
 

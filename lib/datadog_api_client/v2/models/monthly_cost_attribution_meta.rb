@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # The object containing document metadata.
   class MonthlyCostAttributionMeta
     include BaseGenericModel
+
     # An array of available aggregates.
     attr_accessor :aggregates
+
     # The metadata for the current pagination.
     attr_accessor :pagination
 

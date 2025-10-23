@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # The definition of `GcpUcConfigResponse` object.
   class GcpUcConfigResponse
     include BaseGenericModel
+
     # The definition of `GcpUcConfigResponseData` object.
     attr_accessor :data
 

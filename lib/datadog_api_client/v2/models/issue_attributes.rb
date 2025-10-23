@@ -20,30 +20,43 @@ module DatadogAPIClient::V2
   # Object containing the information of an issue.
   class IssueAttributes
     include BaseGenericModel
+
     # Error message associated with the issue.
     attr_accessor :error_message
+
     # Type of the error that matches the issue.
     attr_accessor :error_type
+
     # Path of the file where the issue occurred.
     attr_accessor :file_path
+
     # Timestamp of the first seen error in milliseconds since the Unix epoch.
     attr_accessor :first_seen
+
     # The application version (for example, git commit hash) where the issue was first observed.
     attr_accessor :first_seen_version
+
     # Name of the function where the issue occurred.
     attr_accessor :function_name
+
     # Error is a crash.
     attr_accessor :is_crash
+
     # Array of programming languages associated with the issue.
     attr_accessor :languages
+
     # Timestamp of the last seen error in milliseconds since the Unix epoch.
     attr_accessor :last_seen
+
     # The application version (for example, git commit hash) where the issue was last observed.
     attr_accessor :last_seen_version
+
     # Platform associated with the issue.
     attr_accessor :platform
+
     # Service name.
     attr_accessor :service
+
     # State of the issue
     attr_accessor :state
 

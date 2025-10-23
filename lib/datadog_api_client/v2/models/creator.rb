@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Creator of the object.
   class Creator
     include BaseGenericModel
+
     # Email of the creator.
     attr_accessor :email
+
     # Handle of the creator.
     attr_accessor :handle
+
     # Name of the creator.
     attr_accessor :name
 

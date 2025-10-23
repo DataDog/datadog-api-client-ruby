@@ -20,22 +20,29 @@ module DatadogAPIClient::V2
   # JSON object containing all log attributes and their associated values.
   class LogAttributes
     include BaseGenericModel
+
     # JSON object of attributes from your log.
     attr_accessor :attributes
+
     # Name of the machine from where the logs are being sent.
     attr_accessor :host
+
     # The message [reserved attribute](https://docs.datadoghq.com/logs/log_collection/#reserved-attributes)
     # of your log. By default, Datadog ingests the value of the message attribute as the body of the log entry.
     # That value is then highlighted and displayed in the Logstream, where it is indexed for full text search.
     attr_accessor :message
+
     # The name of the application or service generating the log events.
     # It is used to switch from Logs to APM, so make sure you define the same
     # value when you use both products.
     attr_accessor :service
+
     # Status of the message associated with your log.
     attr_accessor :status
+
     # Array of tags associated with your log.
     attr_accessor :tags
+
     # Timestamp of your log.
     attr_accessor :timestamp
 

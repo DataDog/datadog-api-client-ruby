@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # The definition of LeakedKey object.
   class LeakedKey
     include BaseGenericModel
+
     # The definition of LeakedKeyAttributes object.
     attr_reader :attributes
+
     # The LeakedKey id.
     attr_reader :id
+
     # The definition of LeakedKeyType object.
     attr_reader :type
 

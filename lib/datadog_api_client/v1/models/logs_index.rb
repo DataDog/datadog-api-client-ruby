@@ -20,28 +20,37 @@ module DatadogAPIClient::V1
   # Object describing a Datadog Log index.
   class LogsIndex
     include BaseGenericModel
+
     # The number of log events you can send in this index per day before you are rate-limited.
     attr_accessor :daily_limit
+
     # Object containing options to override the default daily limit reset time.
     attr_accessor :daily_limit_reset
+
     # A percentage threshold of the daily quota at which a Datadog warning event is generated.
     attr_reader :daily_limit_warning_threshold_percentage
+
     # An array of exclusion objects. The logs are tested against the query of each filter,
     # following the order of the array. Only the first matching active exclusion matters,
     # others (if any) are ignored.
     attr_accessor :exclusion_filters
+
     # Filter for logs.
     attr_reader :filter
+
     # A boolean stating if the index is rate limited, meaning more logs than the daily limit have been sent.
     # Rate limit is reset every-day at 2pm UTC.
     attr_accessor :is_rate_limited
+
     # The name of the index.
     attr_reader :name
+
     # The total number of days logs are stored in Standard and Flex Tier before being deleted from the index.
     # If Standard Tier is enabled on this index, logs are first retained in Standard Tier for the number of days specified through `num_retention_days`,
     # and then stored in Flex Tier until the number of days specified in `num_flex_logs_retention_days` is reached.
     # The available values depend on retention plans specified in your organization's contract/subscriptions.
     attr_accessor :num_flex_logs_retention_days
+
     # The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
     # The available values depend on retention plans specified in your organization's contract/subscriptions.
     attr_accessor :num_retention_days

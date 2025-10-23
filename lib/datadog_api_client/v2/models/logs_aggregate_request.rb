@@ -20,15 +20,20 @@ module DatadogAPIClient::V2
   # The object sent with the request to retrieve a list of logs from your organization.
   class LogsAggregateRequest
     include BaseGenericModel
+
     # The list of metrics or timeseries to compute for the retrieved buckets.
     attr_accessor :compute
+
     # The search and filter query settings
     attr_accessor :filter
+
     # The rules for the group by
     attr_accessor :group_by
+
     # Global query options that are used during the query.
     # Note: These fields are currently deprecated and do not affect the query results.
     attr_accessor :options
+
     # Paging settings
     attr_accessor :page
 

@@ -20,8 +20,10 @@ module DatadogAPIClient::V1
   # Define an expression alias.
   class TimeseriesWidgetExpressionAlias
     include BaseGenericModel
+
     # Expression alias.
     attr_accessor :alias_name
+
     # Expression name.
     attr_reader :expression
 

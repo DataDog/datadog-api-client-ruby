@@ -20,8 +20,10 @@ module DatadogAPIClient::V1
   # Configuration settings applied to resources from the specified Azure resource provider.
   class ResourceProviderConfig
     include BaseGenericModel
+
     # Collect metrics for resources from this provider.
     attr_accessor :metrics_enabled
+
     # The provider namespace to apply this configuration to.
     attr_accessor :namespace
 

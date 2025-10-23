@@ -20,30 +20,43 @@ module DatadogAPIClient::V2
   # The JSON:API attributes of the finding.
   class FindingAttributes
     include BaseGenericModel
+
     # The Datadog relative link for this finding.
     attr_accessor :datadog_link
+
     # The description and remediation steps for this finding.
     attr_accessor :description
+
     # The evaluation of the finding.
     attr_accessor :evaluation
+
     # The date on which the evaluation for this finding changed (Unix ms).
     attr_reader :evaluation_changed_at
+
     # The cloud-based ID for the resource related to the finding.
     attr_accessor :external_id
+
     # Information about the mute status of this finding.
     attr_accessor :mute
+
     # The resource name of this finding.
     attr_accessor :resource
+
     # The date on which the resource was discovered (Unix ms).
     attr_reader :resource_discovery_date
+
     # The resource type of this finding.
     attr_accessor :resource_type
+
     # The rule that triggered this finding.
     attr_accessor :rule
+
     # The status of the finding.
     attr_accessor :status
+
     # The tags associated with this finding.
     attr_accessor :tags
+
     # The vulnerability type of the finding.
     attr_accessor :vulnerability_type
 

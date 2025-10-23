@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # References to the source of the error.
   class JSONAPIErrorItemSource
     include BaseGenericModel
+
     # A string indicating the name of a single request header which caused the error.
     attr_accessor :header
+
     # A string indicating which URI query parameter caused the error.
     attr_accessor :parameter
+
     # A JSON pointer to the value in the request document that caused the error.
     attr_accessor :pointer
 

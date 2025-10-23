@@ -20,8 +20,10 @@ module DatadogAPIClient::V1
   # The proxy to perform the test.
   class SyntheticsTestRequestProxy
     include BaseGenericModel
+
     # Headers to include when performing the test.
     attr_accessor :headers
+
     # URL of the proxy to perform the test.
     attr_reader :url
 

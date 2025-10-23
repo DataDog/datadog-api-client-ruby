@@ -20,22 +20,31 @@ module DatadogAPIClient::V1
   # Sunbursts are spot on to highlight how groups contribute to the total of a query.
   class SunburstWidgetDefinition
     include BaseGenericModel
+
     # List of custom links.
     attr_accessor :custom_links
+
     # Show the total value in this widget.
     attr_accessor :hide_total
+
     # Configuration of the legend.
     attr_accessor :legend
+
     # List of sunburst widget requests.
     attr_reader :requests
+
     # Time setting for the widget.
     attr_accessor :time
+
     # Title of your widget.
     attr_accessor :title
+
     # How to align the text on the widget.
     attr_accessor :title_align
+
     # Size of the title.
     attr_accessor :title_size
+
     # Type of the Sunburst widget.
     attr_reader :type
 

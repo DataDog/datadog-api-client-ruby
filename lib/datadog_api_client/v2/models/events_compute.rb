@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # The instructions for what to compute for this query.
   class EventsCompute
     include BaseGenericModel
+
     # The type of aggregation that can be performed on events-based queries.
     attr_reader :aggregation
+
     # Interval for compute in milliseconds.
     attr_accessor :interval
+
     # The "measure" attribute on which to perform the computation.
     attr_accessor :metric
 

@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Include only these services. Defaults to `[]`.
   class XRayServicesIncludeOnly
     include BaseGenericModel
+
     # Include only these services.
     attr_reader :include_only
 

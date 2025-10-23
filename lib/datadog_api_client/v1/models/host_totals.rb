@@ -20,8 +20,10 @@ module DatadogAPIClient::V1
   # Total number of host currently monitored by Datadog.
   class HostTotals
     include BaseGenericModel
+
     # Total number of active host (UP and ???) reporting to Datadog.
     attr_accessor :total_active
+
     # Number of host that are UP and reporting to Datadog.
     attr_accessor :total_up
 

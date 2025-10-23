@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Data envelope for `ListAPIsResponse`.
   class ListAPIsResponseData
     include BaseGenericModel
+
     # Attributes for `ListAPIsResponseData`.
     attr_accessor :attributes
+
     # API identifier.
     attr_accessor :id
 

@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # The object sent with the request to retrieve a list of aggregated spans from your organization.
   class SpansAggregateRequest
     include BaseGenericModel
+
     # The object containing the query content.
     attr_accessor :data
 

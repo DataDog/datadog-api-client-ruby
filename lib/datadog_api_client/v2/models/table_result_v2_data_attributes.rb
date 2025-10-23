@@ -20,26 +20,37 @@ module DatadogAPIClient::V2
   # The definition of `TableResultV2DataAttributes` object.
   class TableResultV2DataAttributes
     include BaseGenericModel
+
     # UUID of the user who created the reference table.
     attr_accessor :created_by
+
     # The description of the reference table.
     attr_accessor :description
+
     # The definition of `TableResultV2DataAttributesFileMetadata` object.
     attr_accessor :file_metadata
+
     # UUID of the user who last updated the reference table.
     attr_accessor :last_updated_by
+
     # The number of successfully processed rows in the reference table.
     attr_accessor :row_count
+
     # The definition of `TableResultV2DataAttributesSchema` object.
     attr_accessor :schema
+
     # The source type for reference table data. Includes all possible source types that can appear in responses.
     attr_accessor :source
+
     # The status of the reference table.
     attr_accessor :status
+
     # The name of the reference table.
     attr_accessor :table_name
+
     # The tags of the reference table.
     attr_accessor :tags
+
     # The timestamp of the last update to the reference table in ISO 8601 format.
     attr_accessor :updated_at
 

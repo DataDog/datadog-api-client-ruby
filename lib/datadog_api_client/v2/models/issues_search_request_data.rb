@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Search issues request.
   class IssuesSearchRequestData
     include BaseGenericModel
+
     # Object describing a search issue request.
     attr_reader :attributes
+
     # Type of the object.
     attr_reader :type
 

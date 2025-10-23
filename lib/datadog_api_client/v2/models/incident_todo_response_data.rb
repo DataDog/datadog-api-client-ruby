@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # Incident todo response data.
   class IncidentTodoResponseData
     include BaseGenericModel
+
     # Incident todo's attributes.
     attr_accessor :attributes
+
     # The incident todo's ID.
     attr_reader :id
+
     # The incident's relationships from a response.
     attr_accessor :relationships
+
     # Todo resource type.
     attr_reader :type
 

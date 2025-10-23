@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Observability Pipelines usage response.
   class UsageObservabilityPipelinesResponse
     include BaseGenericModel
+
     # Response containing Observability Pipelines usage.
     attr_accessor :data
 

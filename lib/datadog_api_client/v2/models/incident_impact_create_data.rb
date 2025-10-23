@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Incident impact data for a create request.
   class IncidentImpactCreateData
     include BaseGenericModel
+
     # The incident impact's attributes for a create request.
     attr_reader :attributes
+
     # Incident impact resource type.
     attr_reader :type
 

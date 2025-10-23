@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # The response returned after all triage operations, containing the updated signal triage data.
   class SecurityMonitoringSignalTriageUpdateResponse
     include BaseGenericModel
+
     # Data containing the updated triage attributes of the signal.
     attr_reader :data
 

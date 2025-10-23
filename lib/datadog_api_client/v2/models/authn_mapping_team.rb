@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Team.
   class AuthNMappingTeam
     include BaseGenericModel
+
     # Team attributes.
     attr_accessor :attributes
+
     # The ID of the Team.
     attr_accessor :id
+
     # Team type
     attr_accessor :type
 

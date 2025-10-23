@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Attributes of the IP allowlist.
   class IPAllowlistAttributes
     include BaseGenericModel
+
     # Whether the IP allowlist logic is enabled or not.
     attr_accessor :enabled
+
     # Array of entries in the IP allowlist.
     attr_accessor :entries
 

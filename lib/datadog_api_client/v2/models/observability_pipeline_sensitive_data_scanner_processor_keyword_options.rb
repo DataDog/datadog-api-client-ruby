@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Configuration for keywords used to reinforce sensitive data pattern detection.
   class ObservabilityPipelineSensitiveDataScannerProcessorKeywordOptions
     include BaseGenericModel
+
     # A list of keywords to match near the sensitive pattern.
     attr_reader :keywords
+
     # Maximum number of tokens between a keyword and a sensitive value match.
     attr_reader :proximity
 

@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # The definition of `HTTPHeader` object.
   class HTTPHeader
     include BaseGenericModel
+
     # The `HTTPHeader` `name`.
     attr_reader :name
+
     # The `HTTPHeader` `value`.
     attr_reader :value
 

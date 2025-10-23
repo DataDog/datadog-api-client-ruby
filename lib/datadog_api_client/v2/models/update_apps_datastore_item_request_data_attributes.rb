@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Attributes for updating a datastore item, including the item key and changes to apply.
   class UpdateAppsDatastoreItemRequestDataAttributes
     include BaseGenericModel
+
     # The unique identifier of the item being updated.
     attr_accessor :id
+
     # Changes to apply to a datastore item using set operations.
     attr_reader :item_changes
+
     # The primary key that identifies the item to update. Cannot exceed 256 characters.
     attr_reader :item_key
 

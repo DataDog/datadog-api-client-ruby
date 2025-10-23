@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Page information for the list instances response.
   class WorkflowListInstancesResponseMetaPage
     include BaseGenericModel
+
     # The total count of items.
     attr_accessor :total_count
 

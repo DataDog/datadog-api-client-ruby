@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # The definition of `TableRowResourceArray` object.
   class TableRowResourceArray
     include BaseGenericModel
+
     # The rows.
     attr_reader :data
 

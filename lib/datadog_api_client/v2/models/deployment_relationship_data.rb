@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Data object containing the deployment ID.
   class DeploymentRelationshipData
     include BaseGenericModel
+
     # The deployment ID.
     attr_accessor :id
+
     # The deployment type.
     attr_accessor :type
 

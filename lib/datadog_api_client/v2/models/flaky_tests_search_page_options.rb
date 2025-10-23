@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Pagination attributes for listing flaky tests.
   class FlakyTestsSearchPageOptions
     include BaseGenericModel
+
     # List following results with a cursor provided in the previous request.
     attr_accessor :cursor
+
     # Maximum number of flaky tests in the response.
     attr_reader :limit
 

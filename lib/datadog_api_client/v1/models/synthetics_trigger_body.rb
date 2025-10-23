@@ -20,6 +20,7 @@ module DatadogAPIClient::V1
   # Object describing the Synthetic tests to trigger.
   class SyntheticsTriggerBody
     include BaseGenericModel
+
     # List of Synthetic tests.
     attr_reader :tests
 

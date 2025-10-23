@@ -20,24 +20,33 @@ module DatadogAPIClient::V1
   # The image widget allows you to embed an image on your dashboard. An image can be a PNG, JPG, or animated GIF. Only available on FREE layout dashboards.
   class ImageWidgetDefinition
     include BaseGenericModel
+
     # Whether to display a background or not.
     attr_accessor :has_background
+
     # Whether to display a border or not.
     attr_accessor :has_border
+
     # Horizontal alignment.
     attr_accessor :horizontal_align
+
     # Size of the margins around the image.
     # **Note**: `small` and `large` values are deprecated.
     attr_accessor :margin
+
     # How to size the image on the widget. The values are based on the image `object-fit` CSS properties.
     # **Note**: `zoom`, `fit` and `center` values are deprecated.
     attr_accessor :sizing
+
     # Type of the image widget.
     attr_reader :type
+
     # URL of the image.
     attr_reader :url
+
     # URL of the image in dark mode.
     attr_accessor :url_dark_theme
+
     # Vertical alignment.
     attr_accessor :vertical_align
 

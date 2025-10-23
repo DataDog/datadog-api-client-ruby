@@ -20,8 +20,10 @@ module DatadogAPIClient::V1
   # The style to apply to the widget.
   class GeomapWidgetDefinitionStyle
     include BaseGenericModel
+
     # The color palette to apply to the widget.
     attr_reader :palette
+
     # Whether to flip the palette tones.
     attr_reader :palette_flip
 

@@ -20,14 +20,19 @@ module DatadogAPIClient::V2
   # Attributes of AuthN Mapping.
   class AuthNMappingAttributes
     include BaseGenericModel
+
     # Key portion of a key/value pair of the attribute sent from the Identity Provider.
     attr_accessor :attribute_key
+
     # Value portion of a key/value pair of the attribute sent from the Identity Provider.
     attr_accessor :attribute_value
+
     # Creation time of the AuthN Mapping.
     attr_accessor :created_at
+
     # Time of last AuthN Mapping modification.
     attr_accessor :modified_at
+
     # The ID of the SAML assertion attribute.
     attr_accessor :saml_assertion_attribute_id
 

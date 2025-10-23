@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Represents a reference to the user assigned to this shift, containing the user's ID and resource type.
   class ShiftDataRelationshipsUserData
     include BaseGenericModel
+
     # Specifies the unique identifier of the user.
     attr_reader :id
+
     # Indicates that the related resource is of type 'users'.
     attr_reader :type
 

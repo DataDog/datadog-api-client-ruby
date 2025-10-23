@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Request containing a list of dashboards to delete.
   class DashboardListDeleteItemsRequest
     include BaseGenericModel
+
     # List of dashboards to delete from the dashboard list.
     attr_accessor :dashboards
 

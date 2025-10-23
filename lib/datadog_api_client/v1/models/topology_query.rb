@@ -20,10 +20,13 @@ module DatadogAPIClient::V1
   # Query to service-based topology data sources like the service map or data streams.
   class TopologyQuery
     include BaseGenericModel
+
     # Name of the data source
     attr_accessor :data_source
+
     # Your environment and primary tag (or * if enabled for your account).
     attr_reader :filters
+
     # Name of the service
     attr_accessor :service
 

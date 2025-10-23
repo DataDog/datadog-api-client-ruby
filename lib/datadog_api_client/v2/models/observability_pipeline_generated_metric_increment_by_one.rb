@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Strategy that increments a generated metric by one for each matching event.
   class ObservabilityPipelineGeneratedMetricIncrementByOne
     include BaseGenericModel
+
     # Increments the metric by 1 for each matching event.
     attr_reader :strategy
 

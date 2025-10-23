@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Relation relationships.
   class RelationRelationships
     include BaseGenericModel
+
     # Relation to entity.
     attr_accessor :from_entity
+
     # Relation to entity.
     attr_accessor :to_entity
 

@@ -20,6 +20,7 @@ module DatadogAPIClient::V1
   # Response containing the number of profiled hosts for each hour for a given organization.
   class UsageProfilingResponse
     include BaseGenericModel
+
     # Get hourly usage for profiled hosts.
     attr_accessor :usage
 

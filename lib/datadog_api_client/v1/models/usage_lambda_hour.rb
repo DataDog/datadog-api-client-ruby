@@ -21,14 +21,19 @@ module DatadogAPIClient::V1
   # for each hour for a given organization.
   class UsageLambdaHour
     include BaseGenericModel
+
     # Contains the number of different functions for each region and AWS account.
     attr_accessor :func_count
+
     # The hour for the usage.
     attr_accessor :hour
+
     # Contains the sum of invocations of all functions.
     attr_accessor :invocations_sum
+
     # The organization name.
     attr_accessor :org_name
+
     # The organization public ID.
     attr_accessor :public_id
 

@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Response with a list of tenant-based handles.
   class MicrosoftTeamsTenantBasedHandlesResponse
     include BaseGenericModel
+
     # An array of tenant-based handles.
     attr_reader :data
 

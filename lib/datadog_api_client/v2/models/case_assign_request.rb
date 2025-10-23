@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Case assign request
   class CaseAssignRequest
     include BaseGenericModel
+
     # Case assign
     attr_reader :data
 

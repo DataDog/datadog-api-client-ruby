@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Defines the list of users assigned as on-call responders for the team.
   class TeamOnCallRespondersDataRelationshipsResponders
     include BaseGenericModel
+
     # Array of user references associated as responders.
     attr_accessor :data
 

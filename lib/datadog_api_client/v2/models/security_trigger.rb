@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Trigger a workflow from a Security Signal or Finding. For automatic triggering a handle must be configured and the workflow must be published.
   class SecurityTrigger
     include BaseGenericModel
+
     # Defines a rate limit for a trigger.
     attr_accessor :rate_limit
 

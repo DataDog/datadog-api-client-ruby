@@ -21,16 +21,22 @@ module DatadogAPIClient::V1
   # It recognizes major bots like the Google Bot, Yahoo Slurp, and Bing.
   class LogsUserAgentParser
     include BaseGenericModel
+
     # Whether or not the processor is enabled.
     attr_accessor :is_enabled
+
     # Define if the source attribute is URL encoded or not.
     attr_accessor :is_encoded
+
     # Name of the processor.
     attr_accessor :name
+
     # Array of source attributes.
     attr_reader :sources
+
     # Name of the parent attribute that contains all the extracted details from the `sources`.
     attr_reader :target
+
     # Type of logs User-Agent parser.
     attr_reader :type
 

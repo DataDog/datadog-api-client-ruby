@@ -20,18 +20,25 @@ module DatadogAPIClient::V2
   # The `http_client` source scrapes logs from HTTP endpoints at regular intervals.
   class ObservabilityPipelineHttpClientSource
     include BaseGenericModel
+
     # Optional authentication strategy for HTTP requests.
     attr_accessor :auth_strategy
+
     # The decoding format used to interpret incoming logs.
     attr_reader :decoding
+
     # The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
     attr_reader :id
+
     # The interval (in seconds) between HTTP scrape requests.
     attr_accessor :scrape_interval_secs
+
     # The timeout (in seconds) for each scrape request.
     attr_accessor :scrape_timeout_secs
+
     # Configuration for enabling TLS encryption between the pipeline component and external services.
     attr_accessor :tls
+
     # The source type. The value should always be `http_client`.
     attr_reader :type
 

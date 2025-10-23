@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Relationship to impact object.
   class RelationshipToIncidentUserDefinedFieldData
     include BaseGenericModel
+
     # A unique identifier that represents the responder.
     attr_reader :id
+
     # The incident user defined fields type.
     attr_reader :type
 

@@ -20,22 +20,31 @@ module DatadogAPIClient::V1
   # Attributes of user object returned by the API.
   class NotebookAuthor
     include BaseGenericModel
+
     # Creation time of the user.
     attr_accessor :created_at
+
     # Whether the user is disabled.
     attr_accessor :disabled
+
     # Email of the user.
     attr_accessor :email
+
     # Handle of the user.
     attr_accessor :handle
+
     # URL of the user's icon.
     attr_accessor :icon
+
     # Name of the user.
     attr_accessor :name
+
     # Status of the user.
     attr_accessor :status
+
     # Title of the user.
     attr_accessor :title
+
     # Whether the user is verified.
     attr_accessor :verified
 

@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # A single datastore item with its content and metadata.
   class ItemApiPayload
     include BaseGenericModel
+
     # Core data and metadata for a single datastore item.
     attr_accessor :data
 

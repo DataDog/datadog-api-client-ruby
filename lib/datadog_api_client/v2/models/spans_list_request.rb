@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # The request for a spans list.
   class SpansListRequest
     include BaseGenericModel
+
     # The object containing the query content.
     attr_accessor :data
 

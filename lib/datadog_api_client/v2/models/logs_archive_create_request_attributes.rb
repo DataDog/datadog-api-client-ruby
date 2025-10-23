@@ -20,17 +20,23 @@ module DatadogAPIClient::V2
   # The attributes associated with the archive.
   class LogsArchiveCreateRequestAttributes
     include BaseGenericModel
+
     # An archive's destination.
     attr_reader :destination
+
     # To store the tags in the archive, set the value "true".
     # If it is set to "false", the tags will be deleted when the logs are sent to the archive.
     attr_accessor :include_tags
+
     # The archive name.
     attr_reader :name
+
     # The archive query/filter. Logs matching this query are included in the archive.
     attr_reader :query
+
     # Maximum scan size for rehydration from this archive.
     attr_accessor :rehydration_max_scan_size_in_gb
+
     # An array of tags to add to rehydrated logs from an archive.
     attr_accessor :rehydration_tags
 

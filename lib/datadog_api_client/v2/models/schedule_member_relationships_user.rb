@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Wraps the user data reference for a schedule member.
   class ScheduleMemberRelationshipsUser
     include BaseGenericModel
+
     # Points to the user data associated with this schedule member, including an ID and type.
     attr_reader :data
 

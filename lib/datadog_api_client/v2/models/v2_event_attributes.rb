@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # Event attributes.
   class V2EventAttributes
     include BaseGenericModel
+
     # JSON object for category-specific attributes.
     attr_accessor :attributes
+
     # Free-form text associated with the event.
     attr_accessor :message
+
     # A list of tags associated with the event.
     attr_accessor :tags
+
     # Timestamp when the event occurred.
     attr_accessor :timestamp
 

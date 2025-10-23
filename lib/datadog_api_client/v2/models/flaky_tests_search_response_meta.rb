@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Metadata for the flaky tests search response.
   class FlakyTestsSearchResponseMeta
     include BaseGenericModel
+
     # Pagination metadata for flaky tests.
     attr_accessor :pagination
 

@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Response with a list of incident types.
   class IncidentTypeListResponse
     include BaseGenericModel
+
     # An array of incident type objects.
     attr_reader :data
 

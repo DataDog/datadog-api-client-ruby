@@ -20,8 +20,10 @@ module DatadogAPIClient::V1
   # Dashboard bulk action request data.
   class DashboardBulkActionData
     include BaseGenericModel
+
     # Dashboard resource ID.
     attr_reader :id
+
     # Dashboard resource type.
     attr_reader :type
 

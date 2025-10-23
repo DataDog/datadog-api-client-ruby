@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Object of the monitor identifier.
   class DowntimeMonitorIdentifierId
     include BaseGenericModel
+
     # ID of the monitor to prevent notifications.
     attr_reader :monitor_id
 

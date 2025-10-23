@@ -20,20 +20,28 @@ module DatadogAPIClient::V2
   # The JSON:API attributes of the asset.
   class AssetAttributes
     include BaseGenericModel
+
     # Asset architecture.
     attr_accessor :arch
+
     # List of environments where the asset is deployed.
     attr_reader :environments
+
     # Asset name.
     attr_reader :name
+
     # Asset operating system.
     attr_accessor :operating_system
+
     # Asset risks.
     attr_reader :risks
+
     # List of teams that own the asset.
     attr_accessor :teams
+
     # The asset type
     attr_reader :type
+
     # Asset version.
     attr_accessor :version
 

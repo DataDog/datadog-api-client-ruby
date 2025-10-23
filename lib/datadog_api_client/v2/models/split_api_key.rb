@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # The definition of the `SplitAPIKey` object.
   class SplitAPIKey
     include BaseGenericModel
+
     # The `SplitAPIKey` `api_key`.
     attr_reader :api_key
+
     # The definition of the `SplitAPIKey` object.
     attr_reader :type
 

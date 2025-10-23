@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # A link.
   class AlertEventAttributesLinksItem
     include BaseGenericModel
+
     # The category of the link.
     attr_accessor :category
+
     # The display text of the link.
     attr_accessor :title
+
     # The URL of the link.
     attr_accessor :url
 

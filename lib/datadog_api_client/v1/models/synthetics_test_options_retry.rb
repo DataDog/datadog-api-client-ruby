@@ -20,9 +20,11 @@ module DatadogAPIClient::V1
   # Object describing the retry strategy to apply to a Synthetic test.
   class SyntheticsTestOptionsRetry
     include BaseGenericModel
+
     # Number of times a test needs to be retried before marking a
     # location as failed. Defaults to 0.
     attr_accessor :count
+
     # Time interval between retries (in milliseconds). Defaults to
     # 300ms.
     attr_accessor :interval

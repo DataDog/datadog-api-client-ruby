@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Group reorder request.
   class SensitiveDataScannerConfigRequest
     include BaseGenericModel
+
     # Data related to the reordering of scanning groups.
     attr_reader :data
+
     # Meta payload containing information about the API.
     attr_reader :meta
 

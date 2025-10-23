@@ -20,6 +20,7 @@ module DatadogAPIClient::V1
   # Object to start or pause an existing Synthetic test.
   class SyntheticsUpdateTestPauseStatusPayload
     include BaseGenericModel
+
     # Define whether you want to start (`live`) or pause (`paused`) a
     # Synthetic test.
     attr_accessor :new_status

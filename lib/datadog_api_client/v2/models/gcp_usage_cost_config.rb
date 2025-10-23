@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Google Cloud Usage Cost config.
   class GCPUsageCostConfig
     include BaseGenericModel
+
     # Attributes for a Google Cloud Usage Cost config.
     attr_reader :attributes
+
     # The ID of the Google Cloud Usage Cost config.
     attr_accessor :id
+
     # Type of Google Cloud Usage Cost config.
     attr_reader :type
 

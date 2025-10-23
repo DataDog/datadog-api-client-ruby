@@ -20,10 +20,13 @@ module DatadogAPIClient::V1
   # Value of the global variable.
   class SyntheticsGlobalVariableValue
     include BaseGenericModel
+
     # Options for the Global Variable for MFA.
     attr_accessor :options
+
     # Determines if the value of the variable is hidden.
     attr_accessor :secure
+
     # Value of the global variable. When reading a global variable,
     # the value will not be present if the variable is hidden with the `secure` property.
     attr_accessor :value

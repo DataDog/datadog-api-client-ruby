@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Response object containing a list of Azure scan options.
   class AzureScanOptionsArray
     include BaseGenericModel
+
     # A list of Azure scan options.
     attr_reader :data
 

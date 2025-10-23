@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Links attributes.
   class ContainerGroupRelationshipsLinks
     include BaseGenericModel
+
     # Link to related containers.
     attr_accessor :related
 

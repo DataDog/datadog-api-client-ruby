@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Request for creating a monitor notification rule.
   class MonitorNotificationRuleCreateRequest
     include BaseGenericModel
+
     # Object to create a monitor notification rule.
     attr_reader :data
 

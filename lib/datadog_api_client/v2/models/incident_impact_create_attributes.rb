@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # The incident impact's attributes for a create request.
   class IncidentImpactCreateAttributes
     include BaseGenericModel
+
     # Description of the impact.
     attr_reader :description
+
     # Timestamp when the impact ended.
     attr_accessor :end_at
+
     # An object mapping impact field names to field values.
     attr_accessor :fields
+
     # Timestamp when the impact started.
     attr_reader :start_at
 

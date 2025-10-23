@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # The JSON:API data.
   class DORADeploymentResponseData
     include BaseGenericModel
+
     # The ID of the received DORA deployment event.
     attr_reader :id
+
     # JSON:API type for DORA deployment events.
     attr_accessor :type
 

@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Options on cloud configuration rules.
   class CloudConfigurationRuleOptions
     include BaseGenericModel
+
     # Options for cloud_configuration rules.
     # Fields `resourceType` and `regoRule` are mandatory when managing custom `cloud_configuration` rules.
     attr_reader :compliance_rule_options

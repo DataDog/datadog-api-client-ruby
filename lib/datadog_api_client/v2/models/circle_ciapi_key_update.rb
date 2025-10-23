@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # The definition of the `CircleCIAPIKey` object.
   class CircleCIAPIKeyUpdate
     include BaseGenericModel
+
     # The `CircleCIAPIKeyUpdate` `api_token`.
     attr_accessor :api_token
+
     # The definition of the `CircleCIAPIKey` object.
     attr_reader :type
 

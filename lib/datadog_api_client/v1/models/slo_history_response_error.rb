@@ -20,6 +20,7 @@ module DatadogAPIClient::V1
   # A list of errors while querying the history data for the service level objective.
   class SLOHistoryResponseError
     include BaseGenericModel
+
     # Human readable error.
     attr_accessor :error
 

@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # A response with multiple Org Configs.
   class OrgConfigListResponse
     include BaseGenericModel
+
     # An array of Org Configs.
     attr_reader :data
 

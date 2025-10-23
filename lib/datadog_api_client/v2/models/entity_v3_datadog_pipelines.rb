@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # CI Pipelines association.
   class EntityV3DatadogPipelines
     include BaseGenericModel
+
     # A list of CI Fingerprints that associate CI Pipelines with the entity.
     attr_accessor :fingerprints
 

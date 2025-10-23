@@ -20,14 +20,19 @@ module DatadogAPIClient::V2
   # JSON object of event system attributes.
   class EventSystemAttributes
     include BaseGenericModel
+
     # Event category identifying the type of event.
     attr_accessor :category
+
     # Event identifier. This field is deprecated and will be removed in a future version. Use the `uid` field instead.
     attr_accessor :id
+
     # Integration ID sourced from integration manifests.
     attr_accessor :integration_id
+
     # The source type ID of the event.
     attr_accessor :source_id
+
     # A unique identifier for the event. You can use this identifier to query or reference the event.
     attr_accessor :uid
 

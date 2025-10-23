@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # The definition of Entity V3 System Spec object.
   class EntityV3SystemSpec
     include BaseGenericModel
+
     # A list of components belongs to the system.
     attr_accessor :components
+
     # The lifecycle state of the component.
     attr_reader :lifecycle
+
     # An entity reference to the owner of the component.
     attr_reader :tier
 

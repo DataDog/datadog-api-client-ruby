@@ -20,14 +20,19 @@ module DatadogAPIClient::V2
   # API error response body
   class JSONAPIErrorItem
     include BaseGenericModel
+
     # A human-readable explanation specific to this occurrence of the error.
     attr_accessor :detail
+
     # Non-standard meta-information about the error
     attr_accessor :meta
+
     # References to the source of the error.
     attr_accessor :source
+
     # Status code of the response.
     attr_accessor :status
+
     # Short human-readable summary of the error.
     attr_accessor :title
 

@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # A top-level wrapper for a schedule update request, referring to the `data` object with the new details.
   class ScheduleUpdateRequest
     include BaseGenericModel
+
     # Contains all data needed to update an existing schedule, including its attributes (such as name and time zone) and any relationships to teams.
     attr_reader :data
 

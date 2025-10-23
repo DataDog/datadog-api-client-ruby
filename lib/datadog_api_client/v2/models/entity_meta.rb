@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # Entity metadata.
   class EntityMeta
     include BaseGenericModel
+
     # The creation time.
     attr_accessor :created_at
+
     # The ingestion source.
     attr_accessor :ingestion_source
+
     # The modification time.
     attr_accessor :modified_at
+
     # The origin.
     attr_accessor :origin
 

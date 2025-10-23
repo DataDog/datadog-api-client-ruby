@@ -20,10 +20,13 @@ module DatadogAPIClient::V1
   # Object describing an organization to create.
   class OrganizationCreateBody
     include BaseGenericModel
+
     # A JSON array of billing type.
     attr_accessor :billing
+
     # The name of the new child-organization, limited to 32 characters.
     attr_reader :name
+
     # Subscription definition.
     attr_accessor :subscription
 

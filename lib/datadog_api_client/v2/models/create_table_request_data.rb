@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # The definition of `CreateTableRequestData` object.
   class CreateTableRequestData
     include BaseGenericModel
+
     # The definition of `CreateTableRequestDataAttributes` object.
     attr_accessor :attributes
+
     # The ID of the reference table.
     attr_accessor :id
+
     # Reference table resource type.
     attr_reader :type
 

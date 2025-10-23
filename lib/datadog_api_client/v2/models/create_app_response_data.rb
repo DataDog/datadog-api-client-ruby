@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # The data object containing the app ID.
   class CreateAppResponseData
     include BaseGenericModel
+
     # The ID of the created app.
     attr_reader :id
+
     # The app definition type.
     attr_reader :type
 

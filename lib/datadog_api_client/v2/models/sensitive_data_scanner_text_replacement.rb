@@ -20,13 +20,17 @@ module DatadogAPIClient::V2
   # Object describing how the scanned event will be replaced.
   class SensitiveDataScannerTextReplacement
     include BaseGenericModel
+
     # Required if type == 'partial_replacement_from_beginning'
     # or 'partial_replacement_from_end'. It must be > 0.
     attr_reader :number_of_chars
+
     # Required if type == 'replacement_string'.
     attr_accessor :replacement_string
+
     # Only valid when type == `replacement_string`. When enabled, matches can be unmasked in logs by users with ‘Data Scanner Unmask’ permission. As a security best practice, avoid masking for highly-sensitive, long-lived data.
     attr_accessor :should_save_match
+
     # Type of the replacement text. None means no replacement.
     # hash means the data will be stubbed. replacement_string means that
     # one can chose a text to replace the data. partial_replacement_from_beginning

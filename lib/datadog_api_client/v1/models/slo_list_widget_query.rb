@@ -20,10 +20,13 @@ module DatadogAPIClient::V1
   # Updated SLO List widget.
   class SLOListWidgetQuery
     include BaseGenericModel
+
     # Maximum number of results to display in the table.
     attr_reader :limit
+
     # Widget query.
     attr_reader :query_string
+
     # Options for sorting results.
     attr_accessor :sort
 

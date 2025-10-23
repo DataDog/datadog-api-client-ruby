@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # The attachment relationship data.
   class RelationshipToIncidentAttachmentData
     include BaseGenericModel
+
     # A unique identifier that represents the attachment.
     attr_reader :id
+
     # The incident attachment resource type.
     attr_reader :type
 

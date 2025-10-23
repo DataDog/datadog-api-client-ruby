@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # The response from the get data deletion requests endpoint.
   class GetDataDeletionsResponseBody
     include BaseGenericModel
+
     # The list of data deletion requests that matches the query.
     attr_accessor :data
+
     # The metadata of the data deletion response.
     attr_accessor :meta
 

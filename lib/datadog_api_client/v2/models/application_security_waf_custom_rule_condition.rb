@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # One condition of the WAF Custom Rule.
   class ApplicationSecurityWafCustomRuleCondition
     include BaseGenericModel
+
     # Operator to use for the WAF Condition.
     attr_reader :operator
+
     # The scope of the WAF custom rule.
     attr_reader :parameters
 

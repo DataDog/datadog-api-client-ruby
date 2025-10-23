@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Local file metadata for patch requests using upload ID.
   class PatchTableRequestDataAttributesFileMetadataLocalFile
     include BaseGenericModel
+
     # The upload ID.
     attr_reader :upload_id
 

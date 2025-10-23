@@ -20,6 +20,7 @@ module DatadogAPIClient::V1
   # Details about a batch response.
   class SyntheticsBatchDetails
     include BaseGenericModel
+
     # Wrapper object that contains the details of a batch.
     attr_accessor :data
 

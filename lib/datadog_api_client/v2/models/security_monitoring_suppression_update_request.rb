@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Request object containing the fields to update on the suppression rule.
   class SecurityMonitoringSuppressionUpdateRequest
     include BaseGenericModel
+
     # The new suppression properties; partial updates are supported.
     attr_reader :data
 

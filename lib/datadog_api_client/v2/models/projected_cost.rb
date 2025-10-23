@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Projected Cost data.
   class ProjectedCost
     include BaseGenericModel
+
     # Projected Cost attributes data.
     attr_accessor :attributes
+
     # Unique ID of the response.
     attr_accessor :id
+
     # Type of cost data.
     attr_accessor :type
 

@@ -20,18 +20,25 @@ module DatadogAPIClient::V2
   # Attributes of a partial API key.
   class PartialAPIKeyAttributes
     include BaseGenericModel
+
     # The category of the API key.
     attr_accessor :category
+
     # Creation date of the API key.
     attr_accessor :created_at
+
     # Date the API Key was last used.
     attr_accessor :date_last_used
+
     # The last four characters of the API key.
     attr_reader :last4
+
     # Date the API key was last modified.
     attr_accessor :modified_at
+
     # Name of the API key.
     attr_accessor :name
+
     # The remote config read enabled status.
     attr_accessor :remote_config_read_enabled
 

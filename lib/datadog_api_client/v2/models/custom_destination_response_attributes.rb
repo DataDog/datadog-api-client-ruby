@@ -20,25 +20,32 @@ module DatadogAPIClient::V2
   # The attributes associated with the custom destination.
   class CustomDestinationResponseAttributes
     include BaseGenericModel
+
     # Whether logs matching this custom destination should be forwarded or not.
     attr_accessor :enabled
+
     # Whether tags from the forwarded logs should be forwarded or not.
     attr_accessor :forward_tags
+
     # List of [keys of tags](https://docs.datadoghq.com/getting_started/tagging/#define-tags) to be filtered.
     #
     # An empty list represents no restriction is in place and either all or no tags will be
     # forwarded depending on `forward_tags_restriction_list_type` parameter.
     attr_reader :forward_tags_restriction_list
+
     # How `forward_tags_restriction_list` parameter should be interpreted.
     # If `ALLOW_LIST`, then only tags whose keys on the forwarded logs match the ones on the restriction list
     # are forwarded.
     #
     # `BLOCK_LIST` works the opposite way. It does not forward the tags matching the ones on the list.
     attr_accessor :forward_tags_restriction_list_type
+
     # A custom destination's location to forward logs.
     attr_accessor :forwarder_destination
+
     # The custom destination name.
     attr_accessor :name
+
     # The custom destination query filter. Logs matching this query are forwarded to the destination.
     attr_accessor :query
 

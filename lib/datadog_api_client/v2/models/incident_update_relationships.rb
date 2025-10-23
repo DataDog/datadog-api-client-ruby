@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # The incident's relationships for an update request.
   class IncidentUpdateRelationships
     include BaseGenericModel
+
     # Relationship to user.
     attr_accessor :commander_user
+
     # A relationship reference for multiple integration metadata objects.
     attr_accessor :integrations
+
     # A relationship reference for postmortems.
     attr_accessor :postmortem
 

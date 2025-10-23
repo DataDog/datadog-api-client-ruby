@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # The definition of an archive order.
   class LogsArchiveOrderDefinition
     include BaseGenericModel
+
     # The attributes associated with the archive order.
     attr_reader :attributes
+
     # Type of the archive order definition.
     attr_reader :type
 

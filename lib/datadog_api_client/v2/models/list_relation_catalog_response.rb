@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # List entity relation response.
   class ListRelationCatalogResponse
     include BaseGenericModel
+
     # Array of relation responses
     attr_accessor :data
+
     # List relation response included entities.
     attr_accessor :included
+
     # List relation response links.
     attr_accessor :links
+
     # Relation response metadata.
     attr_accessor :meta
 

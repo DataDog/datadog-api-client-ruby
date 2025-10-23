@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # The team associated with the membership
   class RelationshipToUserTeamTeamData
     include BaseGenericModel
+
     # The ID of the team associated with the membership
     attr_reader :id
+
     # User team team type
     attr_reader :type
 

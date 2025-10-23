@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Usage amount for a given usage type.
   class HourlyUsageMeasurement
     include BaseGenericModel
+
     # Type of usage.
     attr_accessor :usage_type
+
     # Contains the number measured for the given usage_type during the hour.
     attr_accessor :value
 

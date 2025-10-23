@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Defines attributes for an escalation policy step, such as assignment strategy and escalation timeout.
   class EscalationPolicyStepAttributes
     include BaseGenericModel
+
     # Specifies how this escalation step will assign targets (example `default` or `round-robin`).
     attr_accessor :assignment
+
     # Specifies how many seconds to wait before escalating to the next step.
     attr_accessor :escalate_after_seconds
 

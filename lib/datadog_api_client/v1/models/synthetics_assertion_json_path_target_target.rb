@@ -20,12 +20,16 @@ module DatadogAPIClient::V1
   # Composed target for `validatesJSONPath` operator.
   class SyntheticsAssertionJSONPathTargetTarget
     include BaseGenericModel
+
     # The element from the list of results to assert on.  To choose from the first element in the list `firstElementMatches`, every element in the list `everyElementMatches`, at least one element in the list `atLeastOneElementMatches` or the serialized value of the list `serializationMatches`.
     attr_accessor :elements_operator
+
     # The JSON path to assert.
     attr_accessor :json_path
+
     # The specific operator to use on the path.
     attr_accessor :operator
+
     # Value used by the operator in assertions. Can be either a number or string.
     attr_accessor :target_value
 

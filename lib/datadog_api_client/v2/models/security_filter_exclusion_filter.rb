@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Exclusion filter for the security filter.
   class SecurityFilterExclusionFilter
     include BaseGenericModel
+
     # Exclusion filter name.
     attr_reader :name
+
     # Exclusion filter query. Logs that match this query are excluded from the security filter.
     attr_reader :query
 

@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Specifies the SASL mechanism for authenticating with a Kafka cluster.
   class ObservabilityPipelineKafkaSourceSasl
     include BaseGenericModel
+
     # SASL mechanism used for Kafka authentication.
     attr_accessor :mechanism
 

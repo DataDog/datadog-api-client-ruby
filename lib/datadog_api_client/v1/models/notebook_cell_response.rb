@@ -20,11 +20,14 @@ module DatadogAPIClient::V1
   # The description of a notebook cell response.
   class NotebookCellResponse
     include BaseGenericModel
+
     # The attributes of a notebook cell response. Valid cell types are `markdown`, `timeseries`, `toplist`, `heatmap`, `distribution`,
     # `log_stream`. [More information on each graph visualization type.](https://docs.datadoghq.com/dashboards/widgets/)
     attr_reader :attributes
+
     # Notebook cell ID.
     attr_reader :id
+
     # Type of the Notebook Cell resource.
     attr_reader :type
 

@@ -20,34 +20,49 @@ module DatadogAPIClient::V2
   # The payload of a rule to test
   class SecurityMonitoringStandardRuleTestPayload
     include BaseGenericModel
+
     # Calculated fields. Only allowed for scheduled rules - in other words, when schedulingOptions is also defined.
     attr_accessor :calculated_fields
+
     # Cases for generating signals.
     attr_reader :cases
+
     # Additional queries to filter matched events before they are processed. This field is deprecated for log detection, signal correlation, and workload security rules.
     attr_accessor :filters
+
     # Additional grouping to perform on top of the existing groups in the query section. Must be a subset of the existing groups.
     attr_accessor :group_signals_by
+
     # Whether the notifications include the triggering group-by values in their title.
     attr_accessor :has_extended_title
+
     # Whether the rule is enabled.
     attr_reader :is_enabled
+
     # Message for generated signals.
     attr_reader :message
+
     # The name of the rule.
     attr_reader :name
+
     # Options.
     attr_reader :options
+
     # Queries for selecting logs which are part of the rule.
     attr_reader :queries
+
     # Reference tables for the rule.
     attr_accessor :reference_tables
+
     # Options for scheduled rules. When this field is present, the rule runs based on the schedule. When absent, it runs real-time on ingested logs.
     attr_accessor :scheduling_options
+
     # Tags for generated signals.
     attr_accessor :tags
+
     # Cases for generating signals from third-party rules. Only available for third-party rules.
     attr_accessor :third_party_cases
+
     # The rule type.
     attr_accessor :type
 

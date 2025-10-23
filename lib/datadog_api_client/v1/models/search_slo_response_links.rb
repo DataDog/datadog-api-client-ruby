@@ -20,14 +20,19 @@ module DatadogAPIClient::V1
   # Pagination links.
   class SearchSLOResponseLinks
     include BaseGenericModel
+
     # Link to last page.
     attr_accessor :first
+
     # Link to first page.
     attr_accessor :last
+
     # Link to the next page.
     attr_accessor :_next
+
     # Link to previous page.
     attr_accessor :prev
+
     # Link to current page.
     attr_accessor :_self
 

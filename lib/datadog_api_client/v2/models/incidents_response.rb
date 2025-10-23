@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Response with a list of incidents.
   class IncidentsResponse
     include BaseGenericModel
+
     # An array of incidents.
     attr_reader :data
+
     # Included related resources that the user requested.
     attr_accessor :included
+
     # The metadata object containing pagination metadata.
     attr_accessor :meta
 

@@ -21,12 +21,16 @@ module DatadogAPIClient::V2
   # associated values.
   class SecurityMonitoringSignalAttributes
     include BaseGenericModel
+
     # A JSON object of attributes in the security signal.
     attr_accessor :custom
+
     # The message in the security signal defined by the rule that generated the signal.
     attr_accessor :message
+
     # An array of tags associated with the security signal.
     attr_accessor :tags
+
     # The timestamp of the security signal.
     attr_accessor :timestamp
 

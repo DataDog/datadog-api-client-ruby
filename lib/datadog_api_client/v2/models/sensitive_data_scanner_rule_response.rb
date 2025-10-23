@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # Response data related to the creation of a rule.
   class SensitiveDataScannerRuleResponse
     include BaseGenericModel
+
     # Attributes of the Sensitive Data Scanner rule.
     attr_accessor :attributes
+
     # ID of the rule.
     attr_accessor :id
+
     # Relationships of a scanning rule.
     attr_accessor :relationships
+
     # Sensitive Data Scanner rule type.
     attr_accessor :type
 

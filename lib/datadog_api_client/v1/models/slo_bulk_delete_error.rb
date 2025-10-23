@@ -20,11 +20,14 @@ module DatadogAPIClient::V1
   # Object describing the error.
   class SLOBulkDeleteError
     include BaseGenericModel
+
     # The ID of the service level objective object associated with
     # this error.
     attr_reader :id
+
     # The error message.
     attr_reader :message
+
     # The timeframe of the threshold associated with this error
     # or "all" if all thresholds are affected.
     attr_reader :timeframe

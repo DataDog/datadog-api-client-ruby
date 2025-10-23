@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # A list of retention filters to reorder.
   class ReorderRetentionFiltersRequest
     include BaseGenericModel
+
     # A list of retention filters objects.
     attr_reader :data
 

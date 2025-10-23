@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Resource recommendation for a single Spark component (driver or executor). Contains estimation data used to patch Spark job specs.
   class ComponentRecommendation
     include BaseGenericModel
+
     # Recommended resource values for a Spark driver or executor, derived from recent real usage metrics. Used by SPA to propose more efficient pod sizing.
     attr_reader :estimation
 

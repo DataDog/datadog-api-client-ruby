@@ -20,22 +20,31 @@ module DatadogAPIClient::V1
   # Object containing results for your Synthetic API test.
   class SyntheticsAPITestResultData
     include BaseGenericModel
+
     # Object describing the SSL certificate used for a Synthetic test.
     attr_accessor :cert
+
     # Status of a Synthetic test.
     attr_accessor :event_type
+
     # The API test failure details.
     attr_accessor :failure
+
     # The API test HTTP status code.
     attr_accessor :http_status_code
+
     # Request header object used for the API test.
     attr_accessor :request_headers
+
     # Response body returned for the API test.
     attr_accessor :response_body
+
     # Response headers returned for the API test.
     attr_accessor :response_headers
+
     # Global size in byte of the API test response.
     attr_accessor :response_size
+
     # Object containing all metrics and their values collected for a Synthetic API test.
     # See the [Synthetic Monitoring Metrics documentation](https://docs.datadoghq.com/synthetics/metrics/).
     attr_accessor :timings

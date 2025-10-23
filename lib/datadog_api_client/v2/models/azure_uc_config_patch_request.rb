@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Azure config Patch Request.
   class AzureUCConfigPatchRequest
     include BaseGenericModel
+
     # Azure config Patch data.
     attr_reader :data
 

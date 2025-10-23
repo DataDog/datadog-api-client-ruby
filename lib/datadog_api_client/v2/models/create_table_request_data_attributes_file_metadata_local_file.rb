@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Local file metadata for create requests using the upload ID.
   class CreateTableRequestDataAttributesFileMetadataLocalFile
     include BaseGenericModel
+
     # The upload ID.
     attr_reader :upload_id
 

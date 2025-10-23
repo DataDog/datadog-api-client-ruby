@@ -20,8 +20,10 @@ module DatadogAPIClient::V1
   # Text in a notebook is formatted with [Markdown](https://daringfireball.net/projects/markdown/), which enables the use of headings, subheadings, links, images, lists, and code blocks.
   class NotebookMarkdownCellDefinition
     include BaseGenericModel
+
     # The markdown content.
     attr_reader :text
+
     # Type of the markdown cell.
     attr_reader :type
 

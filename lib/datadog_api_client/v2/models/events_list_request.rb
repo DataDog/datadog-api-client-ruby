@@ -20,13 +20,17 @@ module DatadogAPIClient::V2
   # The object sent with the request to retrieve a list of events from your organization.
   class EventsListRequest
     include BaseGenericModel
+
     # The search and filter query settings.
     attr_accessor :filter
+
     # The global query options that are used. Either provide a timezone or a time offset but not both,
     # otherwise the query fails.
     attr_accessor :options
+
     # Pagination settings.
     attr_accessor :page
+
     # The sort parameters when querying events.
     attr_accessor :sort
 

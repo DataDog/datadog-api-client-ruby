@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Upsert kind response.
   class UpsertCatalogKindResponse
     include BaseGenericModel
+
     # List of kind responses.
     attr_accessor :data
+
     # Kind response metadata.
     attr_accessor :meta
 

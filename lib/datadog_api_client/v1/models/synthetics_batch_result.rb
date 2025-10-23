@@ -20,24 +20,34 @@ module DatadogAPIClient::V1
   # Object with the results of a Synthetic batch.
   class SyntheticsBatchResult
     include BaseGenericModel
+
     # The device ID.
     attr_accessor :device
+
     # Total duration in millisecond of the test.
     attr_accessor :duration
+
     # Execution rule for a Synthetic test.
     attr_accessor :execution_rule
+
     # Name of the location.
     attr_accessor :location
+
     # The ID of the result to get.
     attr_accessor :result_id
+
     # Number of times this result has been retried.
     attr_accessor :retries
+
     # Determines whether the batch has passed, failed, or is in progress.
     attr_accessor :status
+
     # Name of the test.
     attr_accessor :test_name
+
     # The public ID of the Synthetic test.
     attr_accessor :test_public_id
+
     # Type of the Synthetic test, either `api` or `browser`.
     attr_accessor :test_type
 

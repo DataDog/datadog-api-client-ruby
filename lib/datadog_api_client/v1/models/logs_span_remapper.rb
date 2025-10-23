@@ -25,12 +25,16 @@ module DatadogAPIClient::V1
   #   2. Use the span remapper processor to define a log attribute as its associated span ID.
   class LogsSpanRemapper
     include BaseGenericModel
+
     # Whether or not the processor is enabled.
     attr_accessor :is_enabled
+
     # Name of the processor.
     attr_accessor :name
+
     # Array of source attributes.
     attr_accessor :sources
+
     # Type of logs span remapper.
     attr_reader :type
 

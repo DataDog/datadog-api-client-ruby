@@ -20,18 +20,25 @@ module DatadogAPIClient::V2
   # Describes a schedule layer, including rotation intervals, members, restrictions, and timeline settings.
   class ScheduleCreateRequestDataAttributesLayersItems
     include BaseGenericModel
+
     # The date/time when this layer becomes active (in ISO 8601).
     attr_reader :effective_date
+
     # The date/time after which this layer no longer applies (in ISO 8601).
     attr_accessor :end_date
+
     # Defines how often the rotation repeats, using a combination of days and optional seconds. Should be at least 1 hour.
     attr_reader :interval
+
     # A list of members who participate in this layer's rotation.
     attr_reader :members
+
     # The name of this layer.
     attr_reader :name
+
     # Zero or more time-based restrictions (for example, only weekdays, during business hours).
     attr_accessor :restrictions
+
     # The date/time when the rotation for this layer starts (in ISO 8601).
     attr_reader :rotation_start
 

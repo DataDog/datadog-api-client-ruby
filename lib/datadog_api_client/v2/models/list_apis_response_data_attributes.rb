@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Attributes for `ListAPIsResponseData`.
   class ListAPIsResponseDataAttributes
     include BaseGenericModel
+
     # API name.
     attr_accessor :name
 

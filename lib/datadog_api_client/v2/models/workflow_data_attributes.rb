@@ -20,20 +20,28 @@ module DatadogAPIClient::V2
   # The definition of `WorkflowDataAttributes` object.
   class WorkflowDataAttributes
     include BaseGenericModel
+
     # When the workflow was created.
     attr_accessor :created_at
+
     # Description of the workflow.
     attr_accessor :description
+
     # Name of the workflow.
     attr_reader :name
+
     # Set the workflow to published or unpublished. Workflows in an unpublished state will only be executable via manual runs. Automatic triggers such as Schedule will not execute the workflow until it is published.
     attr_accessor :published
+
     # The spec defines what the workflow does.
     attr_reader :spec
+
     # Tags of the workflow.
     attr_accessor :tags
+
     # When the workflow was last updated.
     attr_accessor :updated_at
+
     # If a Webhook trigger is defined on this workflow, a webhookSecret is required and should be provided here.
     attr_accessor :webhook_secret
 

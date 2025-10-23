@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # The definition of the `AzureIntegrationUpdate` object.
   class AzureIntegrationUpdate
     include BaseGenericModel
+
     # The definition of the `AzureCredentialsUpdate` object.
     attr_accessor :credentials
+
     # The definition of the `AzureIntegrationType` object.
     attr_reader :type
 

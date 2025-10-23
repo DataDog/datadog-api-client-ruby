@@ -20,12 +20,16 @@ module DatadogAPIClient::V1
   # Object containing information about the tests triggered.
   class SyntheticsTriggerCITestsResponse
     include BaseGenericModel
+
     # The public ID of the batch triggered.
     attr_accessor :batch_id
+
     # List of Synthetic locations.
     attr_accessor :locations
+
     # Information about the tests runs.
     attr_accessor :results
+
     # The public IDs of the Synthetic test triggered.
     attr_accessor :triggered_check_ids
 

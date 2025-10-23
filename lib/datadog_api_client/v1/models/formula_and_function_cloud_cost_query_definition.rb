@@ -20,14 +20,19 @@ module DatadogAPIClient::V1
   # A formula and functions Cloud Cost query.
   class FormulaAndFunctionCloudCostQueryDefinition
     include BaseGenericModel
+
     # Aggregator used for the request.
     attr_accessor :aggregator
+
     # The source organization UUID for cross organization queries. Feature in Private Beta.
     attr_reader :cross_org_uuids
+
     # Data source for Cloud Cost queries.
     attr_reader :data_source
+
     # Name of the query for use in formulas.
     attr_reader :name
+
     # Query for Cloud Cost data.
     attr_reader :query
 

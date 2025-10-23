@@ -20,8 +20,10 @@ module DatadogAPIClient::V1
   # Test configuration for Synthetics
   class SyntheticsTriggerTest
     include BaseGenericModel
+
     # Metadata for the Synthetic tests run.
     attr_accessor :metadata
+
     # The public ID of the Synthetic test to trigger.
     attr_reader :public_id
 

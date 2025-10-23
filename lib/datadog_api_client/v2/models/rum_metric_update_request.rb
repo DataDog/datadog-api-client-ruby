@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # The new rum-based metric body.
   class RumMetricUpdateRequest
     include BaseGenericModel
+
     # The new rum-based metric properties.
     attr_reader :data
 

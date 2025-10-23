@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Data related to a Sensitive Data Scanner Group.
   class SensitiveDataScannerGroupItem
     include BaseGenericModel
+
     # ID of the group.
     attr_accessor :id
+
     # Sensitive Data Scanner group type.
     attr_accessor :type
 

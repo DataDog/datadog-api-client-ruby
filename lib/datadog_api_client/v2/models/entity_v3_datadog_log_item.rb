@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Log association item.
   class EntityV3DatadogLogItem
     include BaseGenericModel
+
     # The name of the query.
     attr_accessor :name
+
     # The query to run.
     attr_accessor :query
 

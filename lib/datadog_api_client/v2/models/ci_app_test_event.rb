@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Object description of test event after being processed and stored by Datadog.
   class CIAppTestEvent
     include BaseGenericModel
+
     # JSON object containing all event attributes and their associated values.
     attr_accessor :attributes
+
     # Unique ID of the event.
     attr_accessor :id
+
     # Type of the event.
     attr_accessor :type
 

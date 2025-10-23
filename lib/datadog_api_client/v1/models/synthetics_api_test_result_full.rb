@@ -20,18 +20,25 @@ module DatadogAPIClient::V1
   # Object returned describing a API test result.
   class SyntheticsAPITestResultFull
     include BaseGenericModel
+
     # Object describing the API test configuration.
     attr_accessor :check
+
     # When the API test was conducted.
     attr_accessor :check_time
+
     # Version of the API test used.
     attr_accessor :check_version
+
     # Locations for which to query the API test results.
     attr_accessor :probe_dc
+
     # Object containing results for your Synthetic API test.
     attr_accessor :result
+
     # ID of the API test result.
     attr_accessor :result_id
+
     # The status of your Synthetic monitor.
     # * `O` for not triggered
     # * `1` for triggered

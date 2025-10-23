@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # An org connection.
   class OrgConnection
     include BaseGenericModel
+
     # Org connection attributes.
     attr_reader :attributes
+
     # The unique identifier of the org connection.
     attr_reader :id
+
     # Related organizations and user.
     attr_reader :relationships
+
     # Org connection type.
     attr_reader :type
 

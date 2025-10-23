@@ -20,20 +20,28 @@ module DatadogAPIClient::V1
   # Run workflow is widget that allows you to run a workflow from a dashboard.
   class RunWorkflowWidgetDefinition
     include BaseGenericModel
+
     # List of custom links.
     attr_accessor :custom_links
+
     # Array of workflow inputs to map to dashboard template variables.
     attr_accessor :inputs
+
     # Time setting for the widget.
     attr_accessor :time
+
     # Title of your widget.
     attr_accessor :title
+
     # How to align the text on the widget.
     attr_accessor :title_align
+
     # Size of the title.
     attr_accessor :title_size
+
     # Type of the run workflow widget.
     attr_reader :type
+
     # Workflow id.
     attr_reader :workflow_id
 

@@ -20,8 +20,10 @@ module DatadogAPIClient::V1
   # Object containing a summary of indexed logs usage by retention period for a single month.
   class LogsByRetentionMonthlyUsage
     include BaseGenericModel
+
     # The month for the usage.
     attr_accessor :date
+
     # Indexed logs usage for each active retention for the month.
     attr_accessor :usage
 

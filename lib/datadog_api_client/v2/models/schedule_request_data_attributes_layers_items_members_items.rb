@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Defines a single member within a schedule layer, including the reference to the underlying user.
   class ScheduleRequestDataAttributesLayersItemsMembersItems
     include BaseGenericModel
+
     # Identifies the user participating in this layer as a single object with an `id`.
     attr_accessor :user
 

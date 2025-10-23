@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Response metadata object.
   class MetricPaginationMeta
     include BaseGenericModel
+
     # Paging attributes. Only present if pagination query parameters were provided.
     attr_accessor :pagination
 

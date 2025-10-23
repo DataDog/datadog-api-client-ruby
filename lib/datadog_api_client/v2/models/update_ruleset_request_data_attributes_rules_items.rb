@@ -20,16 +20,22 @@ module DatadogAPIClient::V2
   # The definition of `UpdateRulesetRequestDataAttributesRulesItems` object.
   class UpdateRulesetRequestDataAttributesRulesItems
     include BaseGenericModel
+
     # The `items` `enabled`.
     attr_reader :enabled
+
     # The definition of `UpdateRulesetRequestDataAttributesRulesItemsMapping` object.
     attr_accessor :mapping
+
     # The `items` `metadata`.
     attr_accessor :metadata
+
     # The `items` `name`.
     attr_reader :name
+
     # The definition of `UpdateRulesetRequestDataAttributesRulesItemsQuery` object.
     attr_accessor :query
+
     # The definition of `UpdateRulesetRequestDataAttributesRulesItemsReferenceTable` object.
     attr_accessor :reference_table
 

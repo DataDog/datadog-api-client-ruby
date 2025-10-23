@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Schema for a Database Monitoring-based trigger.
   class DatabaseMonitoringTriggerWrapper
     include BaseGenericModel
+
     # Trigger a workflow from Database Monitoring.
     attr_reader :database_monitoring_trigger
+
     # A list of steps that run first after a trigger fires.
     attr_accessor :start_step_names
 

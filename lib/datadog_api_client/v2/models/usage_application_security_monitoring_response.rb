@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Application Security Monitoring usage response.
   class UsageApplicationSecurityMonitoringResponse
     include BaseGenericModel
+
     # Response containing Application Security Monitoring usage.
     attr_accessor :data
 

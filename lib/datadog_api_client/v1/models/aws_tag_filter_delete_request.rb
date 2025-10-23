@@ -20,8 +20,10 @@ module DatadogAPIClient::V1
   # The objects used to delete an AWS tag filter entry.
   class AWSTagFilterDeleteRequest
     include BaseGenericModel
+
     # The unique identifier of your AWS account.
     attr_accessor :account_id
+
     # The namespace associated with the tag filter entry.
     attr_accessor :namespace
 

@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # Attributes for the AWS on demand task.
   class AwsOnDemandAttributes
     include BaseGenericModel
+
     # The arn of the resource to scan.
     attr_accessor :arn
+
     # Specifies the assignment timestamp if the task has been already assigned to a scanner.
     attr_accessor :assigned_at
+
     # The task submission timestamp.
     attr_accessor :created_at
+
     # Indicates the status of the task.
     # QUEUED: the task has been submitted successfully and the resource has not been assigned to a scanner yet.
     # ASSIGNED: the task has been assigned.

@@ -20,29 +20,41 @@ module DatadogAPIClient::V2
   # The attributes of the retention filter.
   class RetentionFilterAttributes
     include BaseGenericModel
+
     # The creation timestamp of the retention filter.
     attr_accessor :created_at
+
     # The creator of the retention filter.
     attr_accessor :created_by
+
     # Shows whether the filter can be edited.
     attr_accessor :editable
+
     # The status of the retention filter (Enabled/Disabled).
     attr_accessor :enabled
+
     # The execution order of the retention filter.
     attr_accessor :execution_order
+
     # The spans filter used to index spans.
     attr_accessor :filter
+
     # The type of retention filter. The value should always be spans-sampling-processor.
     attr_accessor :filter_type
+
     # The modification timestamp of the retention filter.
     attr_accessor :modified_at
+
     # The modifier of the retention filter.
     attr_accessor :modified_by
+
     # The name of the retention filter.
     attr_accessor :name
+
     # Sample rate to apply to spans going through this retention filter.
     # A value of 1.0 keeps all spans matching the query.
     attr_accessor :rate
+
     # Sample rate to apply to traces containing spans going through this retention filter.
     # A value of 1.0 keeps all traces with spans matching the query.
     attr_accessor :trace_rate

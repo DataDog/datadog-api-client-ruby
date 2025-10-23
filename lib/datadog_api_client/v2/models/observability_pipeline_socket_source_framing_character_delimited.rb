@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Byte frames which are delimited by a chosen character.
   class ObservabilityPipelineSocketSourceFramingCharacterDelimited
     include BaseGenericModel
+
     # A single ASCII character used to delimit events.
     attr_reader :delimiter
+
     # Byte frames which are delimited by a chosen character.
     attr_reader :method
 

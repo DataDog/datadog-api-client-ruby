@@ -20,6 +20,7 @@ module DatadogAPIClient::V1
   # List of enabled AWS accounts.
   class AWSAccountListResponse
     include BaseGenericModel
+
     # List of enabled AWS accounts.
     attr_accessor :accounts
 

@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # The definition of the `SplitIntegration` object.
   class SplitIntegration
     include BaseGenericModel
+
     # The definition of the `SplitCredentials` object.
     attr_reader :credentials
+
     # The definition of the `SplitIntegrationType` object.
     attr_reader :type
 

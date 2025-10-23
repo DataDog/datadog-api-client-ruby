@@ -20,28 +20,40 @@ module DatadogAPIClient::V1
   # Query values display the current value of a given metric, APM, or log query.
   class QueryValueWidgetDefinition
     include BaseGenericModel
+
     # Whether to use auto-scaling or not.
     attr_accessor :autoscale
+
     # List of custom links.
     attr_accessor :custom_links
+
     # Display a unit of your choice on the widget.
     attr_accessor :custom_unit
+
     # Number of decimals to show. If not defined, the widget uses the raw value.
     attr_accessor :precision
+
     # Widget definition.
     attr_reader :requests
+
     # How to align the text on the widget.
     attr_accessor :text_align
+
     # Time setting for the widget.
     attr_accessor :time
+
     # Set a timeseries on the widget background.
     attr_accessor :timeseries_background
+
     # Title of your widget.
     attr_accessor :title
+
     # How to align the text on the widget.
     attr_accessor :title_align
+
     # Size of the title.
     attr_accessor :title_size
+
     # Type of the query value widget.
     attr_reader :type
 

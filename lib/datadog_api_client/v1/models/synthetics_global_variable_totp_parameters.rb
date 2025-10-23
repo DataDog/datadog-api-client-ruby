@@ -20,8 +20,10 @@ module DatadogAPIClient::V1
   # Parameters for the TOTP/MFA variable
   class SyntheticsGlobalVariableTOTPParameters
     include BaseGenericModel
+
     # Number of digits for the OTP code.
     attr_reader :digits
+
     # Interval for which to refresh the token (in seconds).
     attr_reader :refresh_interval
 

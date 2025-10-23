@@ -20,26 +20,37 @@ module DatadogAPIClient::V2
   # The attributes of a budget.
   class BudgetAttributes
     include BaseGenericModel
+
     # The timestamp when the budget was created.
     attr_accessor :created_at
+
     # The id of the user that created the budget.
     attr_accessor :created_by
+
     # The month when the budget ends.
     attr_accessor :end_month
+
     # The entries of the budget.
     attr_accessor :entries
+
     # The cost query used to track against the budget.
     attr_accessor :metrics_query
+
     # The name of the budget.
     attr_accessor :name
+
     # The id of the org the budget belongs to.
     attr_accessor :org_id
+
     # The month when the budget starts.
     attr_accessor :start_month
+
     # The sum of all budget entries' amounts.
     attr_accessor :total_amount
+
     # The timestamp when the budget was last updated.
     attr_accessor :updated_at
+
     # The id of the user that created the budget.
     attr_accessor :updated_by
 

@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # Response object which includes all powerpack configurations.
   class ListPowerpacksResponse
     include BaseGenericModel
+
     # List of powerpack definitions.
     attr_accessor :data
+
     # Array of objects related to the users.
     attr_accessor :included
+
     # Links attributes.
     attr_accessor :links
+
     # Powerpack response metadata.
     attr_accessor :meta
 

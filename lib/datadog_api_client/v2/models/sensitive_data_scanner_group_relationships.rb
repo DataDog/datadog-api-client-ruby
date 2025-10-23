@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Relationships of the group.
   class SensitiveDataScannerGroupRelationships
     include BaseGenericModel
+
     # A Sensitive Data Scanner configuration data.
     attr_accessor :configuration
+
     # Rules included in the group.
     attr_accessor :rules
 

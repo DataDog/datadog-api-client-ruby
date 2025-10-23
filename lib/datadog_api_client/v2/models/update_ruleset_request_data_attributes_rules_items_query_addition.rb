@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # The definition of `UpdateRulesetRequestDataAttributesRulesItemsQueryAddition` object.
   class UpdateRulesetRequestDataAttributesRulesItemsQueryAddition
     include BaseGenericModel
+
     # The `addition` `key`.
     attr_reader :key
+
     # The `addition` `value`.
     attr_reader :value
 

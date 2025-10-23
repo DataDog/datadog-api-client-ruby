@@ -20,6 +20,7 @@ module DatadogAPIClient::V1
   # Online Archive usage response.
   class UsageOnlineArchiveResponse
     include BaseGenericModel
+
     # Response containing Online Archive usage.
     attr_accessor :usage
 

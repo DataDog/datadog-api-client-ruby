@@ -20,11 +20,14 @@ module DatadogAPIClient::V2
   # The compute rule to compute the span-based metric.
   class SpansMetricResponseCompute
     include BaseGenericModel
+
     # The type of aggregation to use.
     attr_accessor :aggregation_type
+
     # Toggle to include or exclude percentile aggregations for distribution metrics.
     # Only present when the `aggregation_type` is `distribution`.
     attr_accessor :include_percentiles
+
     # The path to the value the span-based metric will aggregate on (only used if the aggregation type is a "distribution").
     attr_accessor :path
 

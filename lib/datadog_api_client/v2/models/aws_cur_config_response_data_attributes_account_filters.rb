@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # The definition of `AwsCurConfigResponseDataAttributesAccountFilters` object.
   class AwsCurConfigResponseDataAttributesAccountFilters
     include BaseGenericModel
+
     # The `account_filters` `excluded_accounts`.
     attr_accessor :excluded_accounts
+
     # The `account_filters` `include_new_accounts`.
     attr_accessor :include_new_accounts
+
     # The `account_filters` `included_accounts`.
     attr_accessor :included_accounts
 

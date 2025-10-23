@@ -20,28 +20,40 @@ module DatadogAPIClient::V2
   # Attributes for an aggregated connection.
   class SingleAggregatedConnectionResponseDataAttributes
     include BaseGenericModel
+
     # The total number of bytes sent by the client over the given period.
     attr_accessor :bytes_sent_by_client
+
     # The total number of bytes sent by the server over the given period.
     attr_accessor :bytes_sent_by_server
+
     # The key, value pairs for each group by.
     attr_accessor :group_bys
+
     # The total number of packets sent by the client over the given period.
     attr_accessor :packets_sent_by_client
+
     # The total number of packets sent by the server over the given period.
     attr_accessor :packets_sent_by_server
+
     # Measured as TCP smoothed round trip time in microseconds (the time between a TCP frame being sent and acknowledged).
     attr_accessor :rtt_micro_seconds
+
     # The number of TCP connections in a closed state. Measured in connections per second from the client.
     attr_accessor :tcp_closed_connections
+
     # The number of TCP connections in an established state. Measured in connections per second from the client.
     attr_accessor :tcp_established_connections
+
     # The number of TCP connections that were refused by the server. Typically this indicates an attempt to connect to an IP/port that is not receiving connections, or a firewall/security misconfiguration.
     attr_accessor :tcp_refusals
+
     # The number of TCP connections that were reset by the server.
     attr_accessor :tcp_resets
+
     # TCP Retransmits represent detected failures that are retransmitted to ensure delivery. Measured in count of retransmits from the client.
     attr_accessor :tcp_retransmits
+
     # The number of TCP connections that timed out from the perspective of the operating system. This can indicate general connectivity and latency issues.
     attr_accessor :tcp_timeouts
 

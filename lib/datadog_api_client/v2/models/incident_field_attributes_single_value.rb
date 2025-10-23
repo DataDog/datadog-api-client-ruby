@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # A field with a single value selected.
   class IncidentFieldAttributesSingleValue
     include BaseGenericModel
+
     # Type of the single value field definitions.
     attr_accessor :type
+
     # The single value selected for this field.
     attr_accessor :value
 

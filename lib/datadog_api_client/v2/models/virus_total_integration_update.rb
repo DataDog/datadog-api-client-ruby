@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # The definition of the `VirusTotalIntegrationUpdate` object.
   class VirusTotalIntegrationUpdate
     include BaseGenericModel
+
     # The definition of the `VirusTotalCredentialsUpdate` object.
     attr_accessor :credentials
+
     # The definition of the `VirusTotalIntegrationType` object.
     attr_reader :type
 

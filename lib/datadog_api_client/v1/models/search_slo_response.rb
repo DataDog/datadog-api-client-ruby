@@ -20,10 +20,13 @@ module DatadogAPIClient::V1
   # A search SLO response containing results from the search query.
   class SearchSLOResponse
     include BaseGenericModel
+
     # Data from search SLO response.
     attr_accessor :data
+
     # Pagination links.
     attr_accessor :links
+
     # Searches metadata returned by the API.
     attr_accessor :meta
 

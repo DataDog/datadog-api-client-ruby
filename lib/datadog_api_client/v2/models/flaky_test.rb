@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # A flaky test object.
   class FlakyTest
     include BaseGenericModel
+
     # Attributes of a flaky test.
     attr_accessor :attributes
+
     # Test's ID. This ID is the hash of the test's Fully Qualified Name and Git repository ID. On the Test Runs UI it is the same as the `test_fingerprint_fqn` tag.
     attr_accessor :id
+
     # The type of the flaky test from Flaky Test Management.
     attr_accessor :type
 

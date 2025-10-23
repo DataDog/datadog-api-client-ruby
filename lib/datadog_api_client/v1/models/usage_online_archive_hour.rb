@@ -20,12 +20,16 @@ module DatadogAPIClient::V1
   # Online Archive usage in a given hour.
   class UsageOnlineArchiveHour
     include BaseGenericModel
+
     # The hour for the usage.
     attr_accessor :hour
+
     # Total count of online archived events within the hour.
     attr_accessor :online_archive_events_count
+
     # The organization name.
     attr_accessor :org_name
+
     # The organization public ID.
     attr_accessor :public_id
 

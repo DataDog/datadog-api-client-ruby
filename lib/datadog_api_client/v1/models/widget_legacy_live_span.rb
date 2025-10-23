@@ -20,8 +20,10 @@ module DatadogAPIClient::V1
   # Wrapper for live span
   class WidgetLegacyLiveSpan
     include BaseGenericModel
+
     # Whether to hide incomplete cost data in the widget.
     attr_accessor :hide_incomplete_cost_data
+
     # The available timeframes depend on the widget you are using.
     attr_accessor :live_span
 

@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Metadata pertaining to the bulk operation.
   class OutcomesBatchResponseMeta
     include BaseGenericModel
+
     # Total number of scorecard results received during the bulk operation.
     attr_accessor :total_received
+
     # Total number of scorecard results modified during the bulk operation.
     attr_accessor :total_updated
 

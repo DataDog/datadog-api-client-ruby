@@ -20,24 +20,34 @@ module DatadogAPIClient::V1
   # Updated scatter plot.
   class ScatterPlotRequest
     include BaseGenericModel
+
     # Aggregator used for the request.
     attr_accessor :aggregator
+
     # The log query.
     attr_accessor :apm_query
+
     # The log query.
     attr_accessor :event_query
+
     # The log query.
     attr_accessor :log_query
+
     # The log query.
     attr_accessor :network_query
+
     # The process query to use in the widget.
     attr_accessor :process_query
+
     # The log query.
     attr_accessor :profile_metrics_query
+
     # Query definition.
     attr_accessor :q
+
     # The log query.
     attr_accessor :rum_query
+
     # The log query.
     attr_accessor :security_query
 

@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Response containing a single dataset object.
   class DatasetResponseSingle
     include BaseGenericModel
+
     # **Datasets Object Constraints**
     # - **Tag Limit per Dataset**:
     #   - Each restricted dataset supports a maximum of 10 key:value pairs per product.

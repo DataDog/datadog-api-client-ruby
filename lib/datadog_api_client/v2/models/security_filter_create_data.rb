@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Object for a single security filter.
   class SecurityFilterCreateData
     include BaseGenericModel
+
     # Object containing the attributes of the security filter to be created.
     attr_reader :attributes
+
     # The type of the resource. The value should always be `security_filters`.
     attr_reader :type
 

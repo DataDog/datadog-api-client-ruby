@@ -20,8 +20,10 @@ module DatadogAPIClient::V1
   # The Slack channel configuration.
   class SlackIntegrationChannel
     include BaseGenericModel
+
     # Configuration options for what is shown in an alert event message.
     attr_accessor :display
+
     # Your channel name.
     attr_accessor :name
 

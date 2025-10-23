@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # List of rules.
   class SecurityMonitoringListRulesResponse
     include BaseGenericModel
+
     # Array containing the list of rules.
     attr_accessor :data
+
     # Object describing meta attributes of response.
     attr_accessor :meta
 

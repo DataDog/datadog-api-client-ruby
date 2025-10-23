@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Attributes used to create an API Key.
   class APIKeyCreateAttributes
     include BaseGenericModel
+
     # The APIKeyCreateAttributes category.
     attr_accessor :category
+
     # Name of the API key.
     attr_reader :name
+
     # The APIKeyCreateAttributes remote_config_read_enabled.
     attr_accessor :remote_config_read_enabled
 

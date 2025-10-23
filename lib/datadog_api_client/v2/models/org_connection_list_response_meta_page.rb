@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Page information.
   class OrgConnectionListResponseMetaPage
     include BaseGenericModel
+
     # Total number of org connections.
     attr_accessor :total_count
+
     # Total number of org connections matching the filter.
     attr_accessor :total_filtered_count
 

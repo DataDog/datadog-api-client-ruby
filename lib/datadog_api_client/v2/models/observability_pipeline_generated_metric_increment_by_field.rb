@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Strategy that increments a generated metric based on the value of a log field.
   class ObservabilityPipelineGeneratedMetricIncrementByField
     include BaseGenericModel
+
     # Name of the log field containing the numeric value to increment the metric by.
     attr_reader :field
+
     # Uses a numeric field in the log event as the metric increment.
     attr_reader :strategy
 

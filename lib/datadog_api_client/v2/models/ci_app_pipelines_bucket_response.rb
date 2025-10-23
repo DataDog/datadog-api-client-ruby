@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Bucket values.
   class CIAppPipelinesBucketResponse
     include BaseGenericModel
+
     # The key-value pairs for each group-by.
     attr_accessor :by
+
     # A map of the metric name to value for regular compute, or a list of values for a timeseries.
     attr_accessor :computes
 

@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Defines the main on-call responder object for a team, including relationships and metadata.
   class TeamOnCallRespondersData
     include BaseGenericModel
+
     # Unique identifier of the on-call responder configuration.
     attr_accessor :id
+
     # Relationship objects linked to a team's on-call responder configuration, including escalations and responders.
     attr_accessor :relationships
+
     # Represents the resource type for a group of users assigned to handle on-call duties within a team.
     attr_reader :type
 

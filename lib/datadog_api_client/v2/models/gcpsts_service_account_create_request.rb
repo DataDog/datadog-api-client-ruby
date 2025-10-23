@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Data on your newly generated service account.
   class GCPSTSServiceAccountCreateRequest
     include BaseGenericModel
+
     # Additional metadata on your generated service account.
     attr_accessor :data
 

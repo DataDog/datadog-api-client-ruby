@@ -20,16 +20,22 @@ module DatadogAPIClient::V2
   # The notification template's attributes.
   class IncidentNotificationTemplateAttributes
     include BaseGenericModel
+
     # The category of the notification template.
     attr_reader :category
+
     # The content body of the notification template.
     attr_reader :content
+
     # Timestamp when the notification template was created.
     attr_reader :created
+
     # Timestamp when the notification template was last modified.
     attr_reader :modified
+
     # The name of the notification template.
     attr_reader :name
+
     # The subject line of the notification template.
     attr_reader :subject
 

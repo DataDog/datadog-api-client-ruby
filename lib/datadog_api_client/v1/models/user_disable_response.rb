@@ -20,6 +20,7 @@ module DatadogAPIClient::V1
   # Array of user disabled for a given organization.
   class UserDisableResponse
     include BaseGenericModel
+
     # Information pertaining to a user disabled for a given organization.
     attr_accessor :message
 

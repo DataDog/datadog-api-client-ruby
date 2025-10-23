@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # The span-based metric object.
   class SpansMetricResponse
     include BaseGenericModel
+
     # The span-based metric properties.
     attr_accessor :data
 

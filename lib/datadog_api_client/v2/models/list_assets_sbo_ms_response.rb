@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # The expected response schema when listing assets SBOMs.
   class ListAssetsSBOMsResponse
     include BaseGenericModel
+
     # List of assets SBOMs.
     attr_reader :data
+
     # The JSON:API links related to pagination.
     attr_accessor :links
+
     # The metadata related to this request.
     attr_accessor :meta
 

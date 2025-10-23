@@ -20,6 +20,7 @@ module DatadogAPIClient::V1
   # The object containing document metadata.
   class UsageSpecifiedCustomReportsMeta
     include BaseGenericModel
+
     # The object containing page total count for specified ID.
     attr_accessor :page
 

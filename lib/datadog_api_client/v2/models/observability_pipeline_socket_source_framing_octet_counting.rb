@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Byte frames according to the octet counting format as per RFC6587.
   class ObservabilityPipelineSocketSourceFramingOctetCounting
     include BaseGenericModel
+
     # Byte frames according to the octet counting format as per RFC6587.
     attr_reader :method
 

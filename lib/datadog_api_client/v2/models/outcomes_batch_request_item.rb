@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # Scorecard outcome for a specific rule, for a given service within a batched update.
   class OutcomesBatchRequestItem
     include BaseGenericModel
+
     # Any remarks regarding the scorecard rule's evaluation, and supports HTML hyperlinks.
     attr_accessor :remarks
+
     # The unique ID for a scorecard rule.
     attr_reader :rule_id
+
     # The unique name for a service in the catalog.
     attr_reader :service_name
+
     # The state of the rule evaluation.
     attr_reader :state
 

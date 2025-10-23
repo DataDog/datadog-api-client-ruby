@@ -21,308 +21,460 @@ module DatadogAPIClient::V1
   # The following values have been **deprecated**: `estimated_indexed_spans_usage`, `estimated_indexed_spans_percentage`, `estimated_ingested_spans_usage`, `estimated_ingested_spans_percentage`.
   class MonthlyUsageAttributionValues
     include BaseGenericModel
+
     # The percentage of synthetic API test usage by tag(s).
     attr_accessor :api_percentage
+
     # The synthetic API test usage by tag(s).
     attr_accessor :api_usage
+
     # The percentage of APM ECS Fargate task usage by tag(s).
     attr_accessor :apm_fargate_percentage
+
     # The APM ECS Fargate task usage by tag(s).
     attr_accessor :apm_fargate_usage
+
     # The percentage of APM host usage by tag(s).
     attr_accessor :apm_host_percentage
+
     # The APM host usage by tag(s).
     attr_accessor :apm_host_usage
+
     # The percentage of APM and Universal Service Monitoring host usage by tag(s).
     attr_accessor :apm_usm_percentage
+
     # The APM and Universal Service Monitoring host usage by tag(s).
     attr_accessor :apm_usm_usage
+
     # The percentage of Application Security Monitoring ECS Fargate task usage by tag(s).
     attr_accessor :appsec_fargate_percentage
+
     # The Application Security Monitoring ECS Fargate task usage by tag(s).
     attr_accessor :appsec_fargate_usage
+
     # The percentage of Application Security Monitoring host usage by tag(s).
     attr_accessor :appsec_percentage
+
     # The Application Security Monitoring host usage by tag(s).
     attr_accessor :appsec_usage
+
     # The percentage of Application Security Monitoring Serverless traced invocations usage by tag(s).
     attr_accessor :asm_serverless_traced_invocations_percentage
+
     # The Application Security Monitoring Serverless traced invocations usage by tag(s).
     attr_accessor :asm_serverless_traced_invocations_usage
+
     # The percentage of synthetic browser test usage by tag(s).
     attr_accessor :browser_percentage
+
     # The synthetic browser test usage by tag(s).
     attr_accessor :browser_usage
+
     # The percentage of CI Pipeline Indexed Spans usage by tag(s).
     attr_accessor :ci_pipeline_indexed_spans_percentage
+
     # The total CI Pipeline Indexed Spans usage by tag(s).
     attr_accessor :ci_pipeline_indexed_spans_usage
+
     # The percentage of CI Test Indexed Spans usage by tag(s).
     attr_accessor :ci_test_indexed_spans_percentage
+
     # The total CI Test Indexed Spans usage by tag(s).
     attr_accessor :ci_test_indexed_spans_usage
+
     # The percentage of Git committers for Intelligent Test Runner usage by tag(s).
     attr_accessor :ci_visibility_itr_percentage
+
     # The Git committers for Intelligent Test Runner usage by tag(s).
     attr_accessor :ci_visibility_itr_usage
+
     # The percentage of Cloud Security Information and Event Management usage by tag(s).
     attr_accessor :cloud_siem_percentage
+
     # The Cloud Security Information and Event Management usage by tag(s).
     attr_accessor :cloud_siem_usage
+
     # The percentage of Code Security host usage by tags.
     attr_accessor :code_security_host_percentage
+
     # The Code Security host usage by tags.
     attr_accessor :code_security_host_usage
+
     # The percentage of container usage without the Datadog Agent by tag(s).
     attr_accessor :container_excl_agent_percentage
+
     # The container usage without the Datadog Agent by tag(s).
     attr_accessor :container_excl_agent_usage
+
     # The percentage of container usage by tag(s).
     attr_accessor :container_percentage
+
     # The container usage by tag(s).
     attr_accessor :container_usage
+
     # The percentage of Cloud Security Management Pro container usage by tag(s).
     attr_accessor :cspm_containers_percentage
+
     # The Cloud Security Management Pro container usage by tag(s).
     attr_accessor :cspm_containers_usage
+
     # The percentage of Cloud Security Management Pro host usage by tag(s).
     attr_accessor :cspm_hosts_percentage
+
     # The Cloud Security Management Pro host usage by tag(s).
     attr_accessor :cspm_hosts_usage
+
     # The percentage of Custom Events usage by tag(s).
     attr_accessor :custom_event_percentage
+
     # The total Custom Events usage by tag(s).
     attr_accessor :custom_event_usage
+
     # The percentage of ingested custom metrics usage by tag(s).
     attr_accessor :custom_ingested_timeseries_percentage
+
     # The ingested custom metrics usage by tag(s).
     attr_accessor :custom_ingested_timeseries_usage
+
     # The percentage of indexed custom metrics usage by tag(s).
     attr_accessor :custom_timeseries_percentage
+
     # The indexed custom metrics usage by tag(s).
     attr_accessor :custom_timeseries_usage
+
     # The percentage of Cloud Workload Security container usage by tag(s).
     attr_accessor :cws_containers_percentage
+
     # The Cloud Workload Security container usage by tag(s).
     attr_accessor :cws_containers_usage
+
     # The percentage of Cloud Workload Security Fargate task usage by tag(s).
     attr_accessor :cws_fargate_task_percentage
+
     # The Cloud Workload Security Fargate task usage by tag(s).
     attr_accessor :cws_fargate_task_usage
+
     # The percentage of Cloud Workload Security host usage by tag(s).
     attr_accessor :cws_hosts_percentage
+
     # The Cloud Workload Security host usage by tag(s).
     attr_accessor :cws_hosts_usage
+
     # The Data Jobs Monitoring usage by tag(s).
     attr_accessor :data_jobs_monitoring_usage
+
     # The Data Stream Monitoring usage by tag(s).
     attr_accessor :data_stream_monitoring_usage
+
     # The percentage of Database Monitoring host usage by tag(s).
     attr_accessor :dbm_hosts_percentage
+
     # The Database Monitoring host usage by tag(s).
     attr_accessor :dbm_hosts_usage
+
     # The percentage of Database Monitoring queries usage by tag(s).
     attr_accessor :dbm_queries_percentage
+
     # The Database Monitoring queries usage by tag(s).
     attr_accessor :dbm_queries_usage
+
     # The percentage of error tracking events usage by tag(s).
     attr_accessor :error_tracking_percentage
+
     # The error tracking events usage by tag(s).
     attr_accessor :error_tracking_usage
+
     # The percentage of estimated indexed spans usage by tag(s).
     attr_accessor :estimated_indexed_spans_percentage
+
     # The estimated indexed spans usage by tag(s).
     attr_accessor :estimated_indexed_spans_usage
+
     # The percentage of estimated ingested spans usage by tag(s).
     attr_accessor :estimated_ingested_spans_percentage
+
     # The estimated ingested spans usage by tag(s).
     attr_accessor :estimated_ingested_spans_usage
+
     # The percentage of Fargate usage by tags.
     attr_accessor :fargate_percentage
+
     # The Fargate usage by tags.
     attr_accessor :fargate_usage
+
     # The percentage of Lambda function usage by tag(s).
     attr_accessor :functions_percentage
+
     # The Lambda function usage by tag(s).
     attr_accessor :functions_usage
+
     # The percentage of Incident Management monthly active users usage by tag(s).
     attr_accessor :incident_management_monthly_active_users_percentage
+
     # The Incident Management monthly active users usage by tag(s).
     attr_accessor :incident_management_monthly_active_users_usage
+
     # The percentage of APM Indexed Spans usage by tag(s).
     attr_accessor :indexed_spans_percentage
+
     # The total APM Indexed Spans usage by tag(s).
     attr_accessor :indexed_spans_usage
+
     # The percentage of infrastructure host usage by tag(s).
     attr_accessor :infra_host_percentage
+
     # The infrastructure host usage by tag(s).
     attr_accessor :infra_host_usage
+
     # The percentage of Ingested Logs usage by tag(s).
     attr_accessor :ingested_logs_bytes_percentage
+
     # The total Ingested Logs usage by tag(s).
     attr_accessor :ingested_logs_bytes_usage
+
     # The percentage of APM Ingested Spans usage by tag(s).
     attr_accessor :ingested_spans_bytes_percentage
+
     # The total APM Ingested Spans usage by tag(s).
     attr_accessor :ingested_spans_bytes_usage
+
     # The percentage of Lambda invocation usage by tag(s).
     attr_accessor :invocations_percentage
+
     # The Lambda invocation usage by tag(s).
     attr_accessor :invocations_usage
+
     # The percentage of Serverless APM usage by tag(s).
     attr_accessor :lambda_traced_invocations_percentage
+
     # The Serverless APM usage by tag(s).
     attr_accessor :lambda_traced_invocations_usage
+
     # The percentage of LLM Observability usage by tag(s).
     attr_accessor :llm_observability_percentage
+
     # The LLM Observability usage by tag(s).
     attr_accessor :llm_observability_usage
+
     # The percentage of Indexed Logs (15-day Retention) usage by tag(s).
     attr_accessor :logs_indexed_15day_percentage
+
     # The total Indexed Logs (15-day Retention) usage by tag(s).
     attr_accessor :logs_indexed_15day_usage
+
     # The percentage of Indexed Logs (180-day Retention) usage by tag(s).
     attr_accessor :logs_indexed_180day_percentage
+
     # The total Indexed Logs (180-day Retention) usage by tag(s).
     attr_accessor :logs_indexed_180day_usage
+
     # The percentage of Indexed Logs (1-day Retention) usage by tag(s).
     attr_accessor :logs_indexed_1day_percentage
+
     # The total Indexed Logs (1-day Retention) usage by tag(s).
     attr_accessor :logs_indexed_1day_usage
+
     # The percentage of Indexed Logs (30-day Retention) usage by tag(s).
     attr_accessor :logs_indexed_30day_percentage
+
     # The total Indexed Logs (30-day Retention) usage by tag(s).
     attr_accessor :logs_indexed_30day_usage
+
     # The percentage of Indexed Logs (360-day Retention) usage by tag(s).
     attr_accessor :logs_indexed_360day_percentage
+
     # The total Indexed Logs (360-day Retention) usage by tag(s).
     attr_accessor :logs_indexed_360day_usage
+
     # The percentage of Indexed Logs (3-day Retention) usage by tag(s).
     attr_accessor :logs_indexed_3day_percentage
+
     # The total Indexed Logs (3-day Retention) usage by tag(s).
     attr_accessor :logs_indexed_3day_usage
+
     # The percentage of Indexed Logs (45-day Retention) usage by tag(s).
     attr_accessor :logs_indexed_45day_percentage
+
     # The total Indexed Logs (45-day Retention) usage by tag(s).
     attr_accessor :logs_indexed_45day_usage
+
     # The percentage of Indexed Logs (60-day Retention) usage by tag(s).
     attr_accessor :logs_indexed_60day_percentage
+
     # The total Indexed Logs (60-day Retention) usage by tag(s).
     attr_accessor :logs_indexed_60day_usage
+
     # The percentage of Indexed Logs (7-day Retention) usage by tag(s).
     attr_accessor :logs_indexed_7day_percentage
+
     # The total Indexed Logs (7-day Retention) usage by tag(s).
     attr_accessor :logs_indexed_7day_usage
+
     # The percentage of Indexed Logs (90-day Retention) usage by tag(s).
     attr_accessor :logs_indexed_90day_percentage
+
     # The total Indexed Logs (90-day Retention) usage by tag(s).
     attr_accessor :logs_indexed_90day_usage
+
     # The percentage of Indexed Logs (Custom Retention) usage by tag(s).
     attr_accessor :logs_indexed_custom_retention_percentage
+
     # The total Indexed Logs (Custom Retention) usage by tag(s).
     attr_accessor :logs_indexed_custom_retention_usage
+
     # The percentage of Synthetic mobile application test usage by tag(s).
     attr_accessor :mobile_app_testing_percentage
+
     # The Synthetic mobile application test usage by tag(s).
     attr_accessor :mobile_app_testing_usage
+
     # The percentage of Network Device Monitoring NetFlow usage by tag(s).
     attr_accessor :ndm_netflow_percentage
+
     # The Network Device Monitoring NetFlow usage by tag(s).
     attr_accessor :ndm_netflow_usage
+
     # The percentage of network device wireless usage by tag(s).
     attr_accessor :network_device_wireless_percentage
+
     # The network device wireless usage by tag(s).
     attr_accessor :network_device_wireless_usage
+
     # The percentage of network host usage by tag(s).
     attr_accessor :npm_host_percentage
+
     # The network host usage by tag(s).
     attr_accessor :npm_host_usage
+
     # The percentage of observability pipeline bytes usage by tag(s).
     attr_accessor :obs_pipeline_bytes_percentage
+
     # The observability pipeline bytes usage by tag(s).
     attr_accessor :obs_pipeline_bytes_usage
+
     # The percentage of observability pipeline per core usage by tag(s).
     attr_accessor :obs_pipelines_vcpu_percentage
+
     # The observability pipeline per core usage by tag(s).
     attr_accessor :obs_pipelines_vcpu_usage
+
     # The percentage of online archive usage by tag(s).
     attr_accessor :online_archive_percentage
+
     # The online archive usage by tag(s).
     attr_accessor :online_archive_usage
+
     # The percentage of Product Analytics session usage by tag(s).
     attr_accessor :product_analytics_session_percentage
+
     # The Product Analytics session usage by tag(s).
     attr_accessor :product_analytics_session_usage
+
     # The percentage of profiled container usage by tag(s).
     attr_accessor :profiled_container_percentage
+
     # The profiled container usage by tag(s).
     attr_accessor :profiled_container_usage
+
     # The percentage of profiled Fargate task usage by tag(s).
     attr_accessor :profiled_fargate_percentage
+
     # The profiled Fargate task usage by tag(s).
     attr_accessor :profiled_fargate_usage
+
     # The percentage of profiled hosts usage by tag(s).
     attr_accessor :profiled_host_percentage
+
     # The profiled hosts usage by tag(s).
     attr_accessor :profiled_host_usage
+
     # The percentage of published application usage by tag(s).
     attr_accessor :published_app_percentage
+
     # The published application usage by tag(s).
     attr_accessor :published_app_usage
+
     # The percentage of RUM Browser and Mobile usage by tag(s).
     attr_accessor :rum_browser_mobile_sessions_percentage
+
     # The total RUM Browser and Mobile usage by tag(s).
     attr_accessor :rum_browser_mobile_sessions_usage
+
     # The percentage of RUM Ingested usage by tag(s).
     attr_accessor :rum_ingested_percentage
+
     # The total RUM Ingested usage by tag(s).
     attr_accessor :rum_ingested_usage
+
     # The percentage of RUM Investigate usage by tag(s).
     attr_accessor :rum_investigate_percentage
+
     # The total RUM Investigate usage by tag(s).
     attr_accessor :rum_investigate_usage
+
     # The percentage of RUM Session Replay usage by tag(s).
     attr_accessor :rum_replay_sessions_percentage
+
     # The total RUM Session Replay usage by tag(s).
     attr_accessor :rum_replay_sessions_usage
+
     # The percentage of RUM Session Replay Add-On usage by tag(s).
     attr_accessor :rum_session_replay_add_on_percentage
+
     # The total RUM Session Replay Add-On usage by tag(s).
     attr_accessor :rum_session_replay_add_on_usage
+
     # The percentage of Software Composition Analysis Fargate task usage by tag(s).
     attr_accessor :sca_fargate_percentage
+
     # The total Software Composition Analysis Fargate task usage by tag(s).
     attr_accessor :sca_fargate_usage
+
     # The percentage of Sensitive Data Scanner usage by tag(s).
     attr_accessor :sds_scanned_bytes_percentage
+
     # The total Sensitive Data Scanner usage by tag(s).
     attr_accessor :sds_scanned_bytes_usage
+
     # The percentage of Serverless Apps usage by tag(s).
     attr_accessor :serverless_apps_percentage
+
     # The total Serverless Apps usage by tag(s).
     attr_accessor :serverless_apps_usage
+
     # The percentage of log events analyzed by Cloud SIEM usage by tag(s).
     attr_accessor :siem_analyzed_logs_add_on_percentage
+
     # The log events analyzed by Cloud SIEM usage by tag(s).
     attr_accessor :siem_analyzed_logs_add_on_usage
+
     # The percentage of SIEM usage by tag(s).
     attr_accessor :siem_ingested_bytes_percentage
+
     # The total SIEM usage by tag(s).
     attr_accessor :siem_ingested_bytes_usage
+
     # The percentage of network device usage by tag(s).
     attr_accessor :snmp_percentage
+
     # The network device usage by tag(s).
     attr_accessor :snmp_usage
+
     # The percentage of universal service monitoring usage by tag(s).
     attr_accessor :universal_service_monitoring_percentage
+
     # The universal service monitoring usage by tag(s).
     attr_accessor :universal_service_monitoring_usage
+
     # The percentage of Application Vulnerability Management usage by tag(s).
     attr_accessor :vuln_management_hosts_percentage
+
     # The Application Vulnerability Management usage by tag(s).
     attr_accessor :vuln_management_hosts_usage
+
     # The percentage of workflow executions usage by tag(s).
     attr_accessor :workflow_executions_percentage
+
     # The total workflow executions usage by tag(s).
     attr_accessor :workflow_executions_usage
 

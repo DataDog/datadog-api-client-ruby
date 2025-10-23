@@ -20,12 +20,16 @@ module DatadogAPIClient::V1
   # Parser options to use for retrieving a Synthetic global variable from a Synthetic test. Used in conjunction with `parse_test_public_id`.
   class SyntheticsGlobalVariableParseTestOptions
     include BaseGenericModel
+
     # When type is `http_header`, name of the header to use to extract the value.
     attr_accessor :field
+
     # When type is `local_variable`, name of the local variable to use to extract the value.
     attr_accessor :local_variable_name
+
     # Details of the parser to use for the global variable.
     attr_accessor :parser
+
     # Type of value to extract from a test for a Synthetic global variable.
     attr_reader :type
 

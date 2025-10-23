@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # JSON object of event system attributes.
   class EventCreateResponseAttributesAttributesEvt
     include BaseGenericModel
+
     # Event identifier. This field is deprecated and will be removed in a future version. Use the `uid` field instead.
     attr_accessor :id
+
     # A unique identifier for the event. You can use this identifier to query or reference the event.
     attr_accessor :uid
 

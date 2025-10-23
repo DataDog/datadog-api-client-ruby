@@ -20,10 +20,13 @@ module DatadogAPIClient::V1
   # Type of aggregation performed in the monitor query.
   class MonitorOptionsAggregation
     include BaseGenericModel
+
     # Group to break down the monitor on.
     attr_accessor :group_by
+
     # Metric name used in the monitor.
     attr_accessor :metric
+
     # Metric type used in the monitor.
     attr_accessor :type
 

@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Event creation response.
   class EventCreateResponsePayload
     include BaseGenericModel
+
     # Event object.
     attr_accessor :data
+
     # Links to the event.
     attr_accessor :links
 

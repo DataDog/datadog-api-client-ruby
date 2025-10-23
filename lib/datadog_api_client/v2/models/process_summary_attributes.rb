@@ -20,20 +20,28 @@ module DatadogAPIClient::V2
   # Attributes for a process summary.
   class ProcessSummaryAttributes
     include BaseGenericModel
+
     # Process command line.
     attr_accessor :cmdline
+
     # Host running the process.
     attr_accessor :host
+
     # Process ID.
     attr_accessor :pid
+
     # Parent process ID.
     attr_accessor :ppid
+
     # Time the process was started.
     attr_accessor :start
+
     # List of tags associated with the process.
     attr_accessor :tags
+
     # Time the process was seen.
     attr_accessor :timestamp
+
     # Process owner.
     attr_accessor :user
 

@@ -20,6 +20,7 @@ module DatadogAPIClient::V1
   # Response containing the number of Synthetics Browser tests run for each hour for a given organization.
   class UsageSyntheticsBrowserResponse
     include BaseGenericModel
+
     # Get hourly usage for Synthetics Browser tests.
     attr_accessor :usage
 

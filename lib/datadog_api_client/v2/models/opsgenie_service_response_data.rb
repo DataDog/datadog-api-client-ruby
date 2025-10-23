@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Opsgenie service data from a response.
   class OpsgenieServiceResponseData
     include BaseGenericModel
+
     # The attributes from an Opsgenie service response.
     attr_reader :attributes
+
     # The ID of the Opsgenie service.
     attr_reader :id
+
     # Opsgenie service resource type.
     attr_reader :type
 

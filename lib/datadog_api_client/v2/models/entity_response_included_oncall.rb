@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Included oncall.
   class EntityResponseIncludedOncall
     include BaseGenericModel
+
     # Included related oncall attributes.
     attr_accessor :attributes
+
     # Oncall ID.
     attr_accessor :id
+
     # Oncall type.
     attr_accessor :type
 

@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # The account creation response.
   class GCPSTSServiceAccountResponse
     include BaseGenericModel
+
     # Info on your service account.
     attr_accessor :data
 

@@ -20,8 +20,10 @@ module DatadogAPIClient::V1
   # Object with the latest Synthetic API test run.
   class SyntheticsGetAPITestLatestResultsResponse
     include BaseGenericModel
+
     # Timestamp of the latest API test run.
     attr_accessor :last_timestamp_fetched
+
     # Result of the latest API test run.
     attr_accessor :results
 

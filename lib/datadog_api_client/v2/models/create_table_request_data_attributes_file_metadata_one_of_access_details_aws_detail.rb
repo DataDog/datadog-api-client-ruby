@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # The definition of `CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsAwsDetail` object.
   class CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsAwsDetail
     include BaseGenericModel
+
     # The ID of the AWS account.
     attr_reader :aws_account_id
+
     # The name of the Amazon S3 bucket.
     attr_reader :aws_bucket_name
+
     # The relative file path from the S3 bucket root to the CSV file.
     attr_reader :file_path
 

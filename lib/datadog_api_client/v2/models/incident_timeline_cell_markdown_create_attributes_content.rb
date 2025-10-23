@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # The Markdown timeline cell contents.
   class IncidentTimelineCellMarkdownCreateAttributesContent
     include BaseGenericModel
+
     # The Markdown content of the cell.
     attr_accessor :content
 

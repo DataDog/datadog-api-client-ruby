@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Represents a complete set of team routing rules, including data and optionally included related resources.
   class TeamRoutingRules
     include BaseGenericModel
+
     # Represents the top-level data object for team routing rules, containing the ID, relationships, and resource type.
     attr_accessor :data
+
     # Provides related routing rules or other included resources.
     attr_accessor :included
 

@@ -20,12 +20,16 @@ module DatadogAPIClient::V2
   # List entity response.
   class ListEntityCatalogResponse
     include BaseGenericModel
+
     # List of entity data.
     attr_accessor :data
+
     # List entity response included.
     attr_accessor :included
+
     # List entity response links.
     attr_accessor :links
+
     # Entity metadata.
     attr_accessor :meta
 

@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Response after successfully creating a new datastore, containing the datastore's assigned ID.
   class CreateAppsDatastoreResponse
     include BaseGenericModel
+
     # The newly created datastore's data.
     attr_accessor :data
 

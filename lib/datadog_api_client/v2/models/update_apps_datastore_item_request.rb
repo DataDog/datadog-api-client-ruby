@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Request to update specific fields on an existing datastore item.
   class UpdateAppsDatastoreItemRequest
     include BaseGenericModel
+
     # Data wrapper containing the item identifier and the changes to apply during the update operation.
     attr_accessor :data
 

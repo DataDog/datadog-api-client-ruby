@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # The response object after an app is successfully deleted.
   class DeleteAppResponse
     include BaseGenericModel
+
     # The definition of `DeleteAppResponseData` object.
     attr_accessor :data
 

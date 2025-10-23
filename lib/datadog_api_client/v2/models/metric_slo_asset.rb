@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # A SLO object with title.
   class MetricSLOAsset
     include BaseGenericModel
+
     # Assets related to the object, including title, url, and tags.
     attr_accessor :attributes
+
     # The SLO ID.
     attr_reader :id
+
     # SLO resource type.
     attr_reader :type
 

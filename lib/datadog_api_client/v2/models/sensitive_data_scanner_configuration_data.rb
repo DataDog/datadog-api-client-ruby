@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # A Sensitive Data Scanner configuration data.
   class SensitiveDataScannerConfigurationData
     include BaseGenericModel
+
     # A Sensitive Data Scanner configuration.
     attr_accessor :data
 

@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # The definition of the `ClickupAPIKey` object.
   class ClickupAPIKeyUpdate
     include BaseGenericModel
+
     # The `ClickupAPIKeyUpdate` `api_token`.
     attr_accessor :api_token
+
     # The definition of the `ClickupAPIKey` object.
     attr_reader :type
 

@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # The available custom destinations.
   class CustomDestinationsResponse
     include BaseGenericModel
+
     # A list of custom destinations.
     attr_accessor :data
 

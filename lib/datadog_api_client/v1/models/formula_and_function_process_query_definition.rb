@@ -20,24 +20,34 @@ module DatadogAPIClient::V1
   # Process query using formulas and functions.
   class FormulaAndFunctionProcessQueryDefinition
     include BaseGenericModel
+
     # The aggregation methods available for metrics queries.
     attr_accessor :aggregator
+
     # The source organization UUID for cross organization queries. Feature in Private Beta.
     attr_reader :cross_org_uuids
+
     # Data sources that rely on the process backend.
     attr_reader :data_source
+
     # Whether to normalize the CPU percentages.
     attr_accessor :is_normalized_cpu
+
     # Number of hits to return.
     attr_accessor :limit
+
     # Process metric name.
     attr_reader :metric
+
     # Name of query for use in formulas.
     attr_reader :name
+
     # Direction of sort.
     attr_accessor :sort
+
     # An array of tags to filter by.
     attr_accessor :tag_filters
+
     # Text to use as filter.
     attr_accessor :text_filter
 

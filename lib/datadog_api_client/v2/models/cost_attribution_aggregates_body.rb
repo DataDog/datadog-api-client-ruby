@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # The object containing the aggregates.
   class CostAttributionAggregatesBody
     include BaseGenericModel
+
     # The aggregate type.
     attr_accessor :agg_type
+
     # The field.
     attr_accessor :field
+
     # The value for a given field.
     attr_accessor :value
 

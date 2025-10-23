@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Attributes returned by an incident search.
   class IncidentSearchResponseAttributes
     include BaseGenericModel
+
     # Facet data for incidents returned by a search query.
     attr_reader :facets
+
     # Incidents returned by the search.
     attr_reader :incidents
+
     # Number of incidents returned by the search.
     attr_reader :total
 

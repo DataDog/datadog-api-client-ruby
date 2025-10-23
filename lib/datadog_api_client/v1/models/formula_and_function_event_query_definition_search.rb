@@ -20,6 +20,7 @@ module DatadogAPIClient::V1
   # Search options.
   class FormulaAndFunctionEventQueryDefinitionSearch
     include BaseGenericModel
+
     # Events search string.
     attr_reader :query
 

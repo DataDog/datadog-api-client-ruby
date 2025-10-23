@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Response for retrieving an application key.
   class ApplicationKeyResponse
     include BaseGenericModel
+
     # Datadog application key.
     attr_accessor :data
+
     # Array of objects related to the application key.
     attr_accessor :included
 

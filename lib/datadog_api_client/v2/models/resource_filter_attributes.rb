@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Attributes of a resource filter.
   class ResourceFilterAttributes
     include BaseGenericModel
+
     # A map of cloud provider names (e.g., "aws", "gcp", "azure") to a map of account/resource IDs and their associated tag filters.
     attr_reader :cloud_provider
+
     # The UUID of the resource filter.
     attr_accessor :uuid
 

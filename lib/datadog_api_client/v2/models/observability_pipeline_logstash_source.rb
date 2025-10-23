@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # The `logstash` source ingests logs from a Logstash forwarder.
   class ObservabilityPipelineLogstashSource
     include BaseGenericModel
+
     # The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
     attr_reader :id
+
     # Configuration for enabling TLS encryption between the pipeline component and external services.
     attr_accessor :tls
+
     # The source type. The value should always be `logstash`.
     attr_reader :type
 

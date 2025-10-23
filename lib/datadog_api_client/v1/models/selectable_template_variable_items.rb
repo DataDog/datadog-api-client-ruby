@@ -20,14 +20,19 @@ module DatadogAPIClient::V1
   # Object containing the template variable's name, associated tag/attribute, default value and selectable values.
   class SelectableTemplateVariableItems
     include BaseGenericModel
+
     # The default value of the template variable.
     attr_accessor :default_value
+
     # Name of the template variable.
     attr_accessor :name
+
     # The tag/attribute key associated with the template variable.
     attr_accessor :prefix
+
     # The type of variable. This is to differentiate between filter variables (interpolated in query) and group by variables (interpolated into group by).
     attr_accessor :type
+
     # List of visible tag values on the shared dashboard.
     attr_accessor :visible_tags
 

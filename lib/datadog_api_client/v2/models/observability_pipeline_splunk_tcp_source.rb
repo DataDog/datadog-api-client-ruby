@@ -21,10 +21,13 @@ module DatadogAPIClient::V2
   # TLS is supported for secure transmission.
   class ObservabilityPipelineSplunkTcpSource
     include BaseGenericModel
+
     # The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
     attr_reader :id
+
     # Configuration for enabling TLS encryption between the pipeline component and external services.
     attr_accessor :tls
+
     # The source type. Always `splunk_tcp`.
     attr_reader :type
 

@@ -20,14 +20,19 @@ module DatadogAPIClient::V1
   # Text format rules.
   class TableWidgetTextFormatRule
     include BaseGenericModel
+
     # Hex representation of the custom background color. Used with custom background palette option.
     attr_accessor :custom_bg_color
+
     # Hex representation of the custom text color. Used with custom text palette option.
     attr_accessor :custom_fg_color
+
     # Match rule for the table widget text format.
     attr_reader :match
+
     # Color-on-color palette to highlight replaced text.
     attr_accessor :palette
+
     # Replace rule for the table widget text format.
     attr_accessor :replace
 

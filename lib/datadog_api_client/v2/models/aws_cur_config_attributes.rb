@@ -20,28 +20,40 @@ module DatadogAPIClient::V2
   # Attributes for An AWS CUR config.
   class AwsCURConfigAttributes
     include BaseGenericModel
+
     # The account filtering configuration.
     attr_accessor :account_filters
+
     # The AWS account ID.
     attr_reader :account_id
+
     # The AWS bucket name used to store the Cost and Usage Report.
     attr_reader :bucket_name
+
     # The region the bucket is located in.
     attr_reader :bucket_region
+
     # The timestamp when the AWS CUR config was created.
     attr_reader :created_at
+
     # The error messages for the AWS CUR config.
     attr_accessor :error_messages
+
     # The number of months the report has been backfilled.
     attr_reader :months
+
     # The name of the Cost and Usage Report.
     attr_reader :report_name
+
     # The report prefix used for the Cost and Usage Report.
     attr_reader :report_prefix
+
     # The status of the AWS CUR.
     attr_reader :status
+
     # The timestamp when the AWS CUR config status was updated.
     attr_reader :status_updated_at
+
     # The timestamp when the AWS CUR config status was updated.
     attr_reader :updated_at
 

@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Response for `ListAPIs`.
   class ListAPIsResponse
     include BaseGenericModel
+
     # List of API items.
     attr_accessor :data
+
     # Metadata for `ListAPIsResponse`.
     attr_accessor :meta
 

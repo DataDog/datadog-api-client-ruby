@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Relationship objects linked to a team's on-call responder configuration, including escalations and responders.
   class TeamOnCallRespondersDataRelationships
     include BaseGenericModel
+
     # Defines the escalation policy steps linked to the team's on-call configuration.
     attr_accessor :escalations
+
     # Defines the list of users assigned as on-call responders for the team.
     attr_accessor :responders
 

@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Attributes used to update an application Key.
   class ApplicationKeyUpdateAttributes
     include BaseGenericModel
+
     # Name of the application key.
     attr_accessor :name
+
     # Array of scopes to grant the application key.
     attr_accessor :scopes
 

@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Search filters for listing security signals.
   class SecurityMonitoringSignalListRequestFilter
     include BaseGenericModel
+
     # The minimum timestamp for requested security signals.
     attr_accessor :from
+
     # Search query for listing security signals.
     attr_accessor :query
+
     # The maximum timestamp for requested security signals.
     attr_accessor :to
 

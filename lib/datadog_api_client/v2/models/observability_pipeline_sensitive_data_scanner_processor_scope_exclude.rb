@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Excludes specific fields from sensitive data scanning.
   class ObservabilityPipelineSensitiveDataScannerProcessorScopeExclude
     include BaseGenericModel
+
     # Fields to which the scope rule applies.
     attr_reader :options
+
     # Excludes specific fields from processing.
     attr_reader :target
 

@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Run a historical job response.
   class JobCreateResponse
     include BaseGenericModel
+
     # The definition of `JobCreateResponseData` object.
     attr_accessor :data
 

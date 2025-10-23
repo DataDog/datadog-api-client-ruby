@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # A request wrapper around a single timeseries query to be executed.
   class TimeseriesFormulaQueryRequest
     include BaseGenericModel
+
     # A single timeseries query to be executed.
     attr_reader :data
 

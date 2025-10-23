@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Incident integration metadata data for a create request.
   class IncidentIntegrationMetadataCreateData
     include BaseGenericModel
+
     # Incident integration metadata's attributes for a create request.
     attr_reader :attributes
+
     # Integration metadata resource type.
     attr_reader :type
 

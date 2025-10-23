@@ -20,20 +20,28 @@ module DatadogAPIClient::V1
   # The groups widget allows you to keep similar graphs together on your timeboard. Each group has a custom header, can hold one to many graphs, and is collapsible.
   class GroupWidgetDefinition
     include BaseGenericModel
+
     # Background color of the group title.
     attr_accessor :background_color
+
     # URL of image to display as a banner for the group.
     attr_accessor :banner_img
+
     # Layout type of the group.
     attr_reader :layout_type
+
     # Whether to show the title or not.
     attr_accessor :show_title
+
     # Title of the widget.
     attr_accessor :title
+
     # How to align the text on the widget.
     attr_accessor :title_align
+
     # Type of the group widget.
     attr_reader :type
+
     # List of widget groups.
     attr_reader :widgets
 

@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Data of the notification rule create request: the rule type, and the rule attributes. All fields are required.
   class CreateNotificationRuleParametersData
     include BaseGenericModel
+
     # Attributes of the notification rule create request.
     attr_reader :attributes
+
     # The rule type associated to notification rules.
     attr_reader :type
 

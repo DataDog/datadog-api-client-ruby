@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # Response containing a list of org connections.
   class OrgConnectionListResponse
     include BaseGenericModel
+
     # List of org connections.
     attr_reader :data
+
     # Pagination metadata.
     attr_accessor :meta
 

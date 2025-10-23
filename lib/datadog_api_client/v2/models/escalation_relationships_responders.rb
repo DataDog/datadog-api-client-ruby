@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Lists the users involved in a specific step of the escalation policy.
   class EscalationRelationshipsResponders
     include BaseGenericModel
+
     # Array of user references assigned as responders for this escalation step.
     attr_accessor :data
 

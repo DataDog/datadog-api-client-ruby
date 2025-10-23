@@ -20,16 +20,22 @@ module DatadogAPIClient::V2
   # Describes key properties of a Layer, including rotation details, name, start/end times, and any restrictions.
   class LayerAttributes
     include BaseGenericModel
+
     # When the layer becomes active (ISO 8601).
     attr_accessor :effective_date
+
     # When the layer ceases to be active (ISO 8601).
     attr_accessor :end_date
+
     # Defines how often the rotation repeats, using a combination of days and optional seconds. Should be at least 1 hour.
     attr_accessor :interval
+
     # The name of this layer.
     attr_accessor :name
+
     # An optional list of time restrictions for when this layer is in effect.
     attr_accessor :restrictions
+
     # The date/time when the rotation starts (ISO 8601).
     attr_accessor :rotation_start
 

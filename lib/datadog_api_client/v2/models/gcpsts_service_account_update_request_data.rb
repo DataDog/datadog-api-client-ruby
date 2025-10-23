@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Data on your service account.
   class GCPSTSServiceAccountUpdateRequestData
     include BaseGenericModel
+
     # Attributes associated with your service account.
     attr_accessor :attributes
+
     # Your service account's unique ID.
     attr_accessor :id
+
     # The type of account.
     attr_accessor :type
 

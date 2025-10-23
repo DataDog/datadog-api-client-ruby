@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # AWS Namespaces response data.
   class AWSNamespacesResponseData
     include BaseGenericModel
+
     # AWS Namespaces response attributes.
     attr_accessor :attributes
+
     # The `AWSNamespacesResponseData` `id`.
     attr_reader :id
+
     # The `AWSNamespacesResponseData` `type`.
     attr_reader :type
 

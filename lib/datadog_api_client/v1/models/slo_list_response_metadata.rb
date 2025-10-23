@@ -20,6 +20,7 @@ module DatadogAPIClient::V1
   # The metadata object containing additional information about the list of SLOs.
   class SLOListResponseMetadata
     include BaseGenericModel
+
     # The object containing information about the pages of the list of SLOs.
     attr_accessor :page
 

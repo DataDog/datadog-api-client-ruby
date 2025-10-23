@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # Pagination metadata information for `ListAPIsResponse`.
   class ListAPIsResponseMetaPagination
     include BaseGenericModel
+
     # Number of items in the current page.
     attr_accessor :limit
+
     # Offset for pagination.
     attr_accessor :offset
+
     # Total number of items.
     attr_accessor :total_count
 

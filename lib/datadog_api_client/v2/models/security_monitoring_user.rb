@@ -20,8 +20,10 @@ module DatadogAPIClient::V2
   # A user.
   class SecurityMonitoringUser
     include BaseGenericModel
+
     # The handle of the user.
     attr_accessor :handle
+
     # The name of the user.
     attr_accessor :name
 

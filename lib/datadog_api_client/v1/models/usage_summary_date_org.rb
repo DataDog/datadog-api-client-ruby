@@ -20,366 +20,547 @@ module DatadogAPIClient::V1
   # Global hourly report of all data billed by Datadog for a given organization.
   class UsageSummaryDateOrg
     include BaseGenericModel
+
     # The account name.
     attr_accessor :account_name
+
     # The account public id.
     attr_accessor :account_public_id
+
     # Shows the 99th percentile of all agent hosts over all hours in the current date for the given org.
     attr_accessor :agent_host_top99p
+
     # Shows the 99th percentile of all Azure app services using APM over all hours in the current date for the given org.
     attr_accessor :apm_azure_app_service_host_top99p
+
     # Shows the 99th percentile of all APM DevSecOps hosts over all hours in the current date for the given org.
     attr_accessor :apm_devsecops_host_top99p
+
     # Shows the average of all APM ECS Fargate tasks over all hours in the current month for the given org.
     attr_accessor :apm_fargate_count_avg
+
     # Shows the 99th percentile of all distinct APM hosts over all hours in the current date for the given org.
     attr_accessor :apm_host_top99p
+
     # Shows the average of all Application Security Monitoring ECS Fargate tasks over all hours in the current month for the given org.
     attr_accessor :appsec_fargate_count_avg
+
     # Shows the sum of all Application Security Monitoring Serverless invocations over all hours in the current month for the given org.
     attr_accessor :asm_serverless_sum
+
     # Shows the sum of all audit logs lines indexed over all hours in the current date for the given org (To be deprecated on October 1st, 2024).
     attr_accessor :audit_logs_lines_indexed_sum
+
     # Shows whether Audit Trail is enabled for the current date for the given org.
     attr_accessor :audit_trail_enabled_hwm
+
     # The average total count for Fargate Container Profiler over all hours in the current month for the given org.
     attr_accessor :avg_profiled_fargate_tasks
+
     # Shows the 99th percentile of all AWS hosts over all hours in the current date for the given org.
     attr_accessor :aws_host_top99p
+
     # Shows the sum of all AWS Lambda invocations over all hours in the current date for the given org.
     attr_accessor :aws_lambda_func_count
+
     # Shows the sum of all AWS Lambda invocations over all hours in the current date for the given org.
     attr_accessor :aws_lambda_invocations_sum
+
     # Shows the 99th percentile of all Azure app services over all hours in the current date for the given org.
     attr_accessor :azure_app_service_top99p
+
     # Shows the sum of all log bytes ingested over all hours in the current date for the given org.
     attr_accessor :billable_ingested_bytes_sum
+
     # Shows the sum of all browser lite sessions over all hours in the current date for the given org (To be deprecated on October 1st, 2024).
     attr_accessor :browser_rum_lite_session_count_sum
+
     # Shows the sum of all browser replay sessions over all hours in the current date for the given org (To be deprecated on October 1st, 2024).
     attr_accessor :browser_rum_replay_session_count_sum
+
     # Shows the sum of all browser RUM units over all hours in the current date for the given org (To be deprecated on October 1st, 2024).
     attr_accessor :browser_rum_units_sum
+
     # Shows the sum of all CI pipeline indexed spans over all hours in the current date for the given org.
     attr_accessor :ci_pipeline_indexed_spans_sum
+
     # Shows the sum of all CI test indexed spans over all hours in the current date for the given org.
     attr_accessor :ci_test_indexed_spans_sum
+
     # Shows the high-water mark of all CI visibility intelligent test runner committers over all hours in the current date for the given org.
     attr_accessor :ci_visibility_itr_committers_hwm
+
     # Shows the high-water mark of all CI visibility pipeline committers over all hours in the current date for the given org.
     attr_accessor :ci_visibility_pipeline_committers_hwm
+
     # Shows the high-water mark of all CI visibility test committers over all hours in the current date for the given org.
     attr_accessor :ci_visibility_test_committers_hwm
+
     # Host count average of Cloud Cost Management for AWS for the given date and given org.
     attr_accessor :cloud_cost_management_aws_host_count_avg
+
     # Host count average of Cloud Cost Management for Azure for the given date and given org.
     attr_accessor :cloud_cost_management_azure_host_count_avg
+
     # Host count average of Cloud Cost Management for GCP for the given date and given org.
     attr_accessor :cloud_cost_management_gcp_host_count_avg
+
     # Host count average of Cloud Cost Management for all cloud providers for the given date and given org.
     attr_accessor :cloud_cost_management_host_count_avg
+
     # Shows the sum of all Cloud Security Information and Event Management events over all hours in the current date for the given org.
     attr_accessor :cloud_siem_events_sum
+
     # Shows the high-water mark of all Static Analysis committers over all hours in the current date for the given org.
     attr_accessor :code_analysis_sa_committers_hwm
+
     # Shows the high-water mark of all static Software Composition Analysis committers over all hours in the current date for the given org.
     attr_accessor :code_analysis_sca_committers_hwm
+
     # Shows the 99th percentile of all Code Security hosts over all hours in the current date for the given org.
     attr_accessor :code_security_host_top99p
+
     # Shows the average of all distinct containers over all hours in the current date for the given org.
     attr_accessor :container_avg
+
     # Shows the average of containers without the Datadog Agent over all hours in the current date for the given organization.
     attr_accessor :container_excl_agent_avg
+
     # Shows the high-water mark of all distinct containers over all hours in the current date for the given org.
     attr_accessor :container_hwm
+
     # Shows the sum of all Cloud Security Management Enterprise compliance containers over all hours in the current date for the given org.
     attr_accessor :csm_container_enterprise_compliance_count_sum
+
     # Shows the sum of all Cloud Security Management Enterprise Cloud Workload Security containers over all hours in the current date for the given org.
     attr_accessor :csm_container_enterprise_cws_count_sum
+
     # Shows the sum of all Cloud Security Management Enterprise containers over all hours in the current date for the given org.
     attr_accessor :csm_container_enterprise_total_count_sum
+
     # Shows the 99th percentile of all Cloud Security Management Enterprise Azure app services hosts over all hours in the current date for the given org.
     attr_accessor :csm_host_enterprise_aas_host_count_top99p
+
     # Shows the 99th percentile of all Cloud Security Management Enterprise AWS hosts over all hours in the current date for the given org.
     attr_accessor :csm_host_enterprise_aws_host_count_top99p
+
     # Shows the 99th percentile of all Cloud Security Management Enterprise Azure hosts over all hours in the current date for the given org.
     attr_accessor :csm_host_enterprise_azure_host_count_top99p
+
     # Shows the 99th percentile of all Cloud Security Management Enterprise compliance hosts over all hours in the current date for the given org.
     attr_accessor :csm_host_enterprise_compliance_host_count_top99p
+
     # Shows the 99th percentile of all Cloud Security Management Enterprise Cloud Workload Security hosts over all hours in the current date for the given org.
     attr_accessor :csm_host_enterprise_cws_host_count_top99p
+
     # Shows the 99th percentile of all Cloud Security Management Enterprise GCP hosts over all hours in the current date for the given org.
     attr_accessor :csm_host_enterprise_gcp_host_count_top99p
+
     # Shows the 99th percentile of all Cloud Security Management Enterprise hosts over all hours in the current date for the given org.
     attr_accessor :csm_host_enterprise_total_host_count_top99p
+
     # Shows the 99th percentile of all Cloud Security Management Pro Azure app services hosts over all hours in the current date for the given org.
     attr_accessor :cspm_aas_host_top99p
+
     # Shows the 99th percentile of all Cloud Security Management Pro AWS hosts over all hours in the current date for the given org.
     attr_accessor :cspm_aws_host_top99p
+
     # Shows the 99th percentile of all Cloud Security Management Pro Azure hosts over all hours in the current date for the given org.
     attr_accessor :cspm_azure_host_top99p
+
     # Shows the average number of Cloud Security Management Pro containers over all hours in the current date for the given org.
     attr_accessor :cspm_container_avg
+
     # Shows the high-water mark of Cloud Security Management Pro containers over all hours in the current date for the given org.
     attr_accessor :cspm_container_hwm
+
     # Shows the 99th percentile of all Cloud Security Management Pro GCP hosts over all hours in the current date for the given org.
     attr_accessor :cspm_gcp_host_top99p
+
     # Shows the 99th percentile of all Cloud Security Management Pro hosts over all hours in the current date for the given org.
     attr_accessor :cspm_host_top99p
+
     # Shows the average number of distinct historical custom metrics over all hours in the current date for the given org.
     attr_accessor :custom_historical_ts_avg
+
     # Shows the average number of distinct live custom metrics over all hours in the current date for the given org.
     attr_accessor :custom_live_ts_avg
+
     # Shows the average number of distinct custom metrics over all hours in the current date for the given org.
     attr_accessor :custom_ts_avg
+
     # Shows the average of all distinct Cloud Workload Security containers over all hours in the current date for the given org.
     attr_accessor :cws_container_count_avg
+
     # Shows the average of all distinct Cloud Workload Security Fargate tasks over all hours in the current date for the given org.
     attr_accessor :cws_fargate_task_avg
+
     # Shows the 99th percentile of all Cloud Workload Security hosts over all hours in the current date for the given org.
     attr_accessor :cws_host_top99p
+
     # Shows the sum of all Data Jobs Monitoring hosts over all hours in the current date for the given org.
     attr_accessor :data_jobs_monitoring_host_hr_sum
+
     # Shows the 99th percentile of all Database Monitoring hosts over all hours in the current month for the given org.
     attr_accessor :dbm_host_top99p_sum
+
     # Shows the average of all distinct Database Monitoring normalized queries over all hours in the current month for the given org.
     attr_accessor :dbm_queries_avg_sum
+
     # Shows the sum of all ephemeral infrastructure hosts with the Datadog Agent over all hours in the current date for the given org.
     attr_accessor :eph_infra_host_agent_sum
+
     # Shows the sum of all ephemeral infrastructure hosts on Alibaba over all hours in the current date for the given org.
     attr_accessor :eph_infra_host_alibaba_sum
+
     # Shows the sum of all ephemeral infrastructure hosts on AWS over all hours in the current date for the given org.
     attr_accessor :eph_infra_host_aws_sum
+
     # Shows the sum of all ephemeral infrastructure hosts on Azure over all hours in the current date for the given org.
     attr_accessor :eph_infra_host_azure_sum
+
     # Shows the sum of all ephemeral infrastructure hosts for Enterprise over all hours in the current date for the given org.
     attr_accessor :eph_infra_host_ent_sum
+
     # Shows the sum of all ephemeral infrastructure hosts on GCP over all hours in the current date for the given org.
     attr_accessor :eph_infra_host_gcp_sum
+
     # Shows the sum of all ephemeral infrastructure hosts on Heroku over all hours in the current date for the given org.
     attr_accessor :eph_infra_host_heroku_sum
+
     # Shows the sum of all ephemeral infrastructure hosts with only Azure App Services over all hours in the current date for the given org.
     attr_accessor :eph_infra_host_only_aas_sum
+
     # Shows the sum of all ephemeral infrastructure hosts with only vSphere over all hours in the current date for the given org.
     attr_accessor :eph_infra_host_only_vsphere_sum
+
     # Shows the sum of all ephemeral APM hosts reported by the Datadog exporter for the OpenTelemetry Collector over all hours in the current date for the given org.
     attr_accessor :eph_infra_host_opentelemetry_apm_sum
+
     # Shows the sum of all ephemeral hosts reported by the Datadog exporter for the OpenTelemetry Collector over all hours in the current date for the given org.
     attr_accessor :eph_infra_host_opentelemetry_sum
+
     # Shows the sum of all ephemeral infrastructure hosts for Pro over all hours in the current date for the given org.
     attr_accessor :eph_infra_host_pro_sum
+
     # Shows the sum of all ephemeral infrastructure hosts for Pro Plus over all hours in the current date for the given org.
     attr_accessor :eph_infra_host_proplus_sum
+
     # Shows the sum of all Error Tracking APM error events over all hours in the current date for the given org.
     attr_accessor :error_tracking_apm_error_events_sum
+
     # Shows the sum of all Error Tracking error events over all hours in the current date for the given org.
     attr_accessor :error_tracking_error_events_sum
+
     # Shows the sum of all Error Tracking events over all hours in the current date for the given org.
     attr_accessor :error_tracking_events_sum
+
     # Shows the sum of all Error Tracking RUM error events over all hours in the current date for the given org.
     attr_accessor :error_tracking_rum_error_events_sum
+
     # Shows the sum of all Event Management correlated events over all hours in the current date for the given org.
     attr_accessor :event_management_correlation_correlated_events_sum
+
     # Shows the sum of all Event Management correlated related events over all hours in the current date for the given org.
     attr_accessor :event_management_correlation_correlated_related_events_sum
+
     # Shows the sum of all Event Management correlations over all hours in the current date for the given org.
     attr_accessor :event_management_correlation_sum
+
     # The average number of Profiling Fargate tasks over all hours in the current month for the given org.
     attr_accessor :fargate_container_profiler_profiling_fargate_avg
+
     # The average number of Profiling Fargate Elastic Kubernetes Service tasks over all hours in the current month for the given org.
     attr_accessor :fargate_container_profiler_profiling_fargate_eks_avg
+
     # The average task count for Fargate.
     attr_accessor :fargate_tasks_count_avg
+
     # Shows the high-water mark of all Fargate tasks over all hours in the current date for the given org.
     attr_accessor :fargate_tasks_count_hwm
+
     # Shows the average number of Flex Logs Compute Large Instances over all hours in the current date for the given org.
     attr_accessor :flex_logs_compute_large_avg
+
     # Shows the average number of Flex Logs Compute Medium Instances over all hours in the current date for the given org.
     attr_accessor :flex_logs_compute_medium_avg
+
     # Shows the average number of Flex Logs Compute Small Instances over all hours in the current date for the given org.
     attr_accessor :flex_logs_compute_small_avg
+
     # Shows the average number of Flex Logs Compute Extra Large Instances over all hours in the current date for the given org.
     attr_accessor :flex_logs_compute_xlarge_avg
+
     # Shows the average number of Flex Logs Compute Extra Small Instances over all hours in the current date for the given org.
     attr_accessor :flex_logs_compute_xsmall_avg
+
     # Shows the average number of Flex Logs Starter Instances over all hours in the current date for the given org.
     attr_accessor :flex_logs_starter_avg
+
     # Shows the average number of Flex Logs Starter Storage Index Instances over all hours in the current date for the given org.
     attr_accessor :flex_logs_starter_storage_index_avg
+
     # Shows the average number of Flex Logs Starter Storage Retention Adjustment Instances over all hours in the current date for the given org.
     attr_accessor :flex_logs_starter_storage_retention_adjustment_avg
+
     # Shows the average of all Flex Stored Logs over all hours in the current date for the given org.
     attr_accessor :flex_stored_logs_avg
+
     # Shows the sum of all log bytes forwarded over all hours in the current date for the given org.
     attr_accessor :forwarding_events_bytes_sum
+
     # Shows the 99th percentile of all GCP hosts over all hours in the current date for the given org.
     attr_accessor :gcp_host_top99p
+
     # Shows the 99th percentile of all Heroku dynos over all hours in the current date for the given org.
     attr_accessor :heroku_host_top99p
+
     # The organization id.
     attr_accessor :id
+
     # Shows the high-water mark of incident management monthly active users over all hours in the current date for the given org.
     attr_accessor :incident_management_monthly_active_users_hwm
+
     # Shows the sum of all log events indexed over all hours in the current date for the given org (To be deprecated on October 1st, 2024).
     attr_accessor :indexed_events_count_sum
+
     # Shows the 99th percentile of all distinct infrastructure hosts over all hours in the current date for the given org.
     attr_accessor :infra_host_top99p
+
     # Shows the sum of all log bytes ingested over all hours in the current date for the given org.
     attr_accessor :ingested_events_bytes_sum
+
     # Shows the sum of all IoT devices over all hours in the current date for the given org.
     attr_accessor :iot_device_agg_sum
+
     # Shows the 99th percentile of all IoT devices over all hours in the current date for the given org.
     attr_accessor :iot_device_top99p_sum
+
     # Shows the sum of all LLM Observability minimum spend over all hours in the current date for the given org.
     attr_accessor :llm_observability_min_spend_sum
+
     # Shows the sum of all LLM observability sessions over all hours in the current date for the given org.
     attr_accessor :llm_observability_sum
+
     # Shows the sum of all mobile lite sessions over all hours in the current date for the given org (To be deprecated on October 1st, 2024).
     attr_accessor :mobile_rum_lite_session_count_sum
+
     # Shows the sum of all mobile RUM sessions on Android over all hours in the current date for the given org (To be deprecated on October 1st, 2024).
     attr_accessor :mobile_rum_session_count_android_sum
+
     # Shows the sum of all mobile RUM sessions on Flutter over all hours in the current date for the given org (To be deprecated on October 1st, 2024).
     attr_accessor :mobile_rum_session_count_flutter_sum
+
     # Shows the sum of all mobile RUM sessions on iOS over all hours in the current date for the given org (To be deprecated on October 1st, 2024).
     attr_accessor :mobile_rum_session_count_ios_sum
+
     # Shows the sum of all mobile RUM sessions on React Native over all hours in the current date for the given org (To be deprecated on October 1st, 2024).
     attr_accessor :mobile_rum_session_count_reactnative_sum
+
     # Shows the sum of all mobile RUM sessions on Roku over all hours in the current date for the given org (To be deprecated on October 1st, 2024).
     attr_accessor :mobile_rum_session_count_roku_sum
+
     # Shows the sum of all mobile RUM sessions over all hours in the current date for the given org (To be deprecated on October 1st, 2024).
     attr_accessor :mobile_rum_session_count_sum
+
     # Shows the sum of all mobile RUM units over all hours in the current date for the given org (To be deprecated on October 1st, 2024).
     attr_accessor :mobile_rum_units_sum
+
     # The organization name.
     attr_accessor :name
+
     # Shows the sum of all Network Device Monitoring NetFlow events over all hours in the current date for the given org.
     attr_accessor :ndm_netflow_events_sum
+
     # Shows the sum of all Network flows indexed over all hours in the current date for the given org (To be deprecated on October 1st, 2024).
     attr_accessor :netflow_indexed_events_count_sum
+
     # Shows the 99th percentile of all Network Device Monitoring wireless devices over all hours in the current date for the given org.
     attr_accessor :network_device_wireless_top99p
+
     # Shows the 99th percentile of all distinct Cloud Network Monitoring hosts (formerly known as Network hosts) over all hours in the current date for the given org.
     attr_accessor :npm_host_top99p
+
     # Sum of all observability pipelines bytes processed over all hours in the current date for the given org.
     attr_accessor :observability_pipelines_bytes_processed_sum
+
     # Shows the sum of all Oracle Cloud Infrastructure hosts over all hours in the current date for the given org.
     attr_accessor :oci_host_sum
+
     # Shows the 99th percentile of all Oracle Cloud Infrastructure hosts over all hours in the current date for the given org.
     attr_accessor :oci_host_top99p
+
     # Sum of all online archived events over all hours in the current date for the given org.
     attr_accessor :online_archive_events_count_sum
+
     # Shows the 99th percentile of APM hosts reported by the Datadog exporter for the OpenTelemetry Collector over all hours in the current date for the given org.
     attr_accessor :opentelemetry_apm_host_top99p
+
     # Shows the 99th percentile of all hosts reported by the Datadog exporter for the OpenTelemetry Collector over all hours in the current date for the given org.
     attr_accessor :opentelemetry_host_top99p
+
     # Shows the sum of all product analytics sessions over all hours in the current date for the given org.
     attr_accessor :product_analytics_sum
+
     # Shows the 99th percentile of all profiled Azure app services over all hours in the current date for all organizations.
     attr_accessor :profiling_aas_count_top99p
+
     # Shows the 99th percentile of all profiled hosts over all hours within the current date for the given org.
     attr_accessor :profiling_host_top99p
+
     # The organization public id.
     attr_accessor :public_id
+
     # Shows the high-water mark of all published applications over all hours in the current date for the given org.
     attr_accessor :published_app_hwm
+
     # The region of the organization.
     attr_accessor :region
+
     # Shows the sum of all mobile sessions and all browser lite and legacy sessions over all hours in the current date for the given org (To be deprecated on October 1st, 2024).
     attr_accessor :rum_browser_and_mobile_session_count
+
     # Shows the sum of all browser RUM legacy sessions over all hours in the current date for the given org (To be introduced on October 1st, 2024).
     attr_accessor :rum_browser_legacy_session_count_sum
+
     # Shows the sum of all browser RUM lite sessions over all hours in the current date for the given org (To be introduced on October 1st, 2024).
     attr_accessor :rum_browser_lite_session_count_sum
+
     # Shows the sum of all browser RUM Session Replay counts over all hours in the current date for the given org (To be introduced on October 1st, 2024).
     attr_accessor :rum_browser_replay_session_count_sum
+
     # Shows the sum of all RUM indexed sessions over all hours in the current date for the given org.
     attr_accessor :rum_indexed_sessions_sum
+
     # Shows the sum of all RUM ingested sessions over all hours in the current date for the given org.
     attr_accessor :rum_ingested_sessions_sum
+
     # Shows the sum of all RUM lite sessions (browser and mobile) over all hours in the current date for the given org (To be introduced on October 1st, 2024).
     attr_accessor :rum_lite_session_count_sum
+
     # Shows the sum of all mobile RUM legacy sessions on Android over all hours in the current date for the given org (To be introduced on October 1st, 2024).
     attr_accessor :rum_mobile_legacy_session_count_android_sum
+
     # Shows the sum of all mobile RUM legacy sessions on Flutter over all hours in the current date for the given org (To be introduced on October 1st, 2024).
     attr_accessor :rum_mobile_legacy_session_count_flutter_sum
+
     # Shows the sum of all mobile RUM legacy sessions on iOS over all hours in the current date for the given org (To be introduced on October 1st, 2024).
     attr_accessor :rum_mobile_legacy_session_count_ios_sum
+
     # Shows the sum of all mobile RUM legacy sessions on React Native over all hours in the current date for the given org (To be introduced on October 1st, 2024).
     attr_accessor :rum_mobile_legacy_session_count_reactnative_sum
+
     # Shows the sum of all mobile RUM legacy sessions on Roku over all hours in the current date for the given org (To be introduced on October 1st, 2024).
     attr_accessor :rum_mobile_legacy_session_count_roku_sum
+
     # Shows the sum of all mobile RUM lite sessions on Android over all hours in the current date for the given org (To be introduced on October 1st, 2024).
     attr_accessor :rum_mobile_lite_session_count_android_sum
+
     # Shows the sum of all mobile RUM lite sessions on Flutter over all hours in the current date for the given org (To be introduced on October 1st, 2024).
     attr_accessor :rum_mobile_lite_session_count_flutter_sum
+
     # Shows the sum of all mobile RUM lite sessions on iOS over all hours in the current date for the given org (To be introduced on October 1st, 2024).
     attr_accessor :rum_mobile_lite_session_count_ios_sum
+
     # Shows the sum of all mobile RUM lite sessions on Kotlin Multiplatform over all hours within the current date for the given org.
     attr_accessor :rum_mobile_lite_session_count_kotlinmultiplatform_sum
+
     # Shows the sum of all mobile RUM lite sessions on React Native over all hours in the current date for the given org (To be introduced on October 1st, 2024).
     attr_accessor :rum_mobile_lite_session_count_reactnative_sum
+
     # Shows the sum of all mobile RUM lite sessions on Roku over all hours in the current date for the given org (To be introduced on October 1st, 2024).
     attr_accessor :rum_mobile_lite_session_count_roku_sum
+
     # Shows the sum of all mobile RUM lite sessions on Unity over all hours within the current date for the given org.
     attr_accessor :rum_mobile_lite_session_count_unity_sum
+
     # Shows the sum of all mobile RUM replay sessions on Android over all hours within the current date for the given org.
     attr_accessor :rum_mobile_replay_session_count_android_sum
+
     # Shows the sum of all mobile RUM replay sessions on iOS over all hours within the current date for the given org.
     attr_accessor :rum_mobile_replay_session_count_ios_sum
+
     # Shows the sum of all mobile RUM replay sessions on Kotlin Multiplatform over all hours within the current date for the given org.
     attr_accessor :rum_mobile_replay_session_count_kotlinmultiplatform_sum
+
     # Shows the sum of all mobile RUM replay sessions on React Native over all hours within the current date for the given org.
     attr_accessor :rum_mobile_replay_session_count_reactnative_sum
+
     # Shows the sum of all RUM Session Replay counts over all hours in the current date for the given org (To be introduced on October 1st, 2024).
     attr_accessor :rum_replay_session_count_sum
+
     # Shows the sum of all browser RUM lite sessions over all hours in the current date for the given org (To be deprecated on October 1st, 2024).
     attr_accessor :rum_session_count_sum
+
     # Shows the sum of all RUM session replay add-on sessions over all hours in the current date for the given org.
     attr_accessor :rum_session_replay_add_on_sum
+
     # Shows the sum of RUM sessions (browser and mobile) over all hours in the current date for the given org.
     attr_accessor :rum_total_session_count_sum
+
     # Shows the sum of all browser and mobile RUM units over all hours in the current date for the given org (To be deprecated on October 1st, 2024).
     attr_accessor :rum_units_sum
+
     # Shows the average of all Software Composition Analysis Fargate tasks over all hours in the current date for the given org.
     attr_accessor :sca_fargate_count_avg
+
     # Shows the sum of the high-water marks of all Software Composition Analysis Fargate tasks over all hours in the current date for the given org.
     attr_accessor :sca_fargate_count_hwm
+
     # Sum of all APM bytes scanned with sensitive data scanner over all hours in the current date for the given org.
     attr_accessor :sds_apm_scanned_bytes_sum
+
     # Sum of all event stream events bytes scanned with sensitive data scanner over all hours in the current date for the given org.
     attr_accessor :sds_events_scanned_bytes_sum
+
     # Shows the sum of all bytes scanned of logs usage by the Sensitive Data Scanner over all hours in the current month for the given org.
     attr_accessor :sds_logs_scanned_bytes_sum
+
     # Sum of all RUM bytes scanned with sensitive data scanner over all hours in the current date for the given org.
     attr_accessor :sds_rum_scanned_bytes_sum
+
     # Shows the sum of all bytes scanned across all usage types by the Sensitive Data Scanner over all hours in the current month for the given org.
     attr_accessor :sds_total_scanned_bytes_sum
+
     # Shows the average of the number of Serverless Apps for Azure for the given date and given org.
     attr_accessor :serverless_apps_azure_count_avg
+
     # Shows the average of the number of Serverless Apps for Google Cloud for the given date and given org.
     attr_accessor :serverless_apps_google_count_avg
+
     # Shows the average of the number of Serverless Apps for Azure and Google Cloud for the given date and given org.
     attr_accessor :serverless_apps_total_count_avg
+
     # Shows the sum of all log events analyzed by Cloud SIEM over all hours in the current date for the given org.
     attr_accessor :siem_analyzed_logs_add_on_count_sum
+
     # Shows the sum of all Synthetic browser tests over all hours in the current date for the given org.
     attr_accessor :synthetics_browser_check_calls_count_sum
+
     # Shows the sum of all Synthetic API tests over all hours in the current date for the given org.
     attr_accessor :synthetics_check_calls_count_sum
+
     # Shows the sum of all Synthetic mobile application tests over all hours in the current date for the given org.
     attr_accessor :synthetics_mobile_test_runs_sum
+
     # Shows the high-water mark of used synthetics parallel testing slots over all hours in the current date for the given org.
     attr_accessor :synthetics_parallel_testing_max_slots_hwm
+
     # Shows the sum of all Indexed Spans indexed over all hours in the current date for the given org.
     attr_accessor :trace_search_indexed_events_count_sum
+
     # Shows the sum of all ingested APM span bytes over all hours in the current date for the given org.
     attr_accessor :twol_ingested_events_bytes_sum
+
     # Shows the 99th percentile of all Universal Service Monitoring hosts over all hours in the current date for the given org.
     attr_accessor :universal_service_monitoring_host_top99p
+
     # Shows the 99th percentile of all vSphere hosts over all hours in the current date for the given org.
     attr_accessor :vsphere_host_top99p
+
     # Shows the 99th percentile of all Application Vulnerability Management hosts over all hours in the current date for the given org.
     attr_accessor :vuln_management_host_count_top99p
+
     # Sum of all workflows executed over all hours in the current date for the given org.
     attr_accessor :workflow_executions_usage_sum
 

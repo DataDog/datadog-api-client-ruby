@@ -20,10 +20,13 @@ module DatadogAPIClient::V2
   # The definition of `HTTPHeaderUpdate` object.
   class HTTPHeaderUpdate
     include BaseGenericModel
+
     # Should the header be deleted.
     attr_accessor :deleted
+
     # The `HTTPHeaderUpdate` `name`.
     attr_reader :name
+
     # The `HTTPHeaderUpdate` `value`.
     attr_accessor :value
 

@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   # Pagination object.
   class ListDevicesResponseMetadataPage
     include BaseGenericModel
+
     # Total count of devices matched by the filter.
     attr_accessor :total_filtered_count
 
