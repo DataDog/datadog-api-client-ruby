@@ -2074,6 +2074,12 @@ ScenariosModelMappings = {
             "aws_account_config_id" => "String",
             "body" => "AWSAccountUpdateRequest",
     },
+    "v2.DeleteAWSEventBridgeSource" => {
+            "body" => "AWSEventBridgeDeleteRequest",
+    },
+    "v2.CreateAWSEventBridgeSource" => {
+            "body" => "AWSEventBridgeCreateRequest",
+    },
     "v2.CreateGCPSTSAccount" => {
             "body" => "GCPSTSServiceAccountCreateRequest",
     },

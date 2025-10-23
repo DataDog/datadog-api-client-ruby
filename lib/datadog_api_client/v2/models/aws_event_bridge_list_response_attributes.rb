@@ -17,21 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # AWS Account Update Request data.
-  class AWSAccountUpdateRequestData
+  # An object describing the EventBridge configuration for multiple accounts.
+  class AWSEventBridgeListResponseAttributes
     include BaseGenericModel
 
-    # The AWS Account Integration Config to be updated.
-    attr_reader :attributes
+    # List of accounts with their event sources.
+    attr_accessor :accounts
 
-    # Unique Datadog ID of the AWS Account Integration Config.
-    # To get the config ID for an account, use the
-    # [List all AWS integrations](https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations)
-    # endpoint and query by AWS Account ID.
-    attr_accessor :id
-
-    # AWS Account resource type.
-    attr_reader :type
+    # True if the EventBridge integration is enabled for your organization.
+    attr_accessor :is_installed
 
     attr_accessor :additional_properties
 
@@ -39,9 +33,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'attributes' => :'attributes',
-        :'id' => :'id',
-        :'type' => :'type'
+        :'accounts' => :'accounts',
+        :'is_installed' => :'is_installed'
       }
     end
 
@@ -49,9 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'AWSAccountUpdateRequestAttributes',
-        :'id' => :'String',
-        :'type' => :'AWSAccountType'
+        :'accounts' => :'Array<AWSEventBridgeAccountConfiguration>',
+        :'is_installed' => :'Boolean'
       }
     end
 
@@ -60,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::AWSAccountUpdateRequestData` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::AWSEventBridgeListResponseAttributes` initialize method"
       end
 
       self.additional_properties = {}
@@ -73,46 +65,15 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'attributes')
-        self.attributes = attributes[:'attributes']
+      if attributes.key?(:'accounts')
+        if (value = attributes[:'accounts']).is_a?(Array)
+          self.accounts = value
+        end
       end
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.key?(:'is_installed')
+        self.is_installed = attributes[:'is_installed']
       end
-
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
-      end
-    end
-
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    # @!visibility private
-    def valid?
-      return false if @attributes.nil?
-      return false if @type.nil?
-      true
-    end
-
-    # Custom attribute writer method with validation
-    # @param attributes [Object] Object to be assigned
-    # @!visibility private
-    def attributes=(attributes)
-      if attributes.nil?
-        fail ArgumentError, 'invalid value for "attributes", attributes cannot be nil.'
-      end
-      @attributes = attributes
-    end
-
-    # Custom attribute writer method with validation
-    # @param type [Object] Object to be assigned
-    # @!visibility private
-    def type=(type)
-      if type.nil?
-        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
-      end
-      @type = type
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -141,9 +102,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          attributes == o.attributes &&
-          id == o.id &&
-          type == o.type &&
+          accounts == o.accounts &&
+          is_installed == o.is_installed &&
           additional_properties == o.additional_properties
     end
 
@@ -151,7 +111,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, id, type, additional_properties].hash
+      [accounts, is_installed, additional_properties].hash
     end
   end
 end
