@@ -36,11 +36,11 @@ module {{ module_name }}::{{ version|upper }}
     #
     {%- endif %}
     {%- for name, parameter in operation|parameters if parameter.required %}
-    # @param {{ name|attribute_name }} [{{ get_type_for_parameter(parameter) }}] {{ parameter.get("description", "").replace('\n', ' ') }}
+    # @param {{ name|attribute_name }} [{{ get_type_for_parameter(parameter) }}] {{ (parameter.get("description") or "").replace('\n', ' ') }}
     {%- endfor %}
     # @param opts [Hash] the optional parameters
     {%- for name, parameter in operation|parameters if not parameter.required %}
-    # @option opts [{{ get_type_for_parameter(parameter) }}] :{{ name|attribute_name }} {{ parameter.get("description", "").replace('\n', ' ') }}{% if "default" in parameter%} (default to {{ parameter.default|json }}) {% endif %}
+    # @option opts [{{ get_type_for_parameter(parameter) }}] :{{ name|attribute_name }} {{ (parameter.get("description") or "").replace('\n', ' ') }}{% if "default" in parameter%} (default to {{ parameter.default|json }}) {% endif %}
     {%- endfor %}
     # @return [Array<({% if returnType %}{{ returnType }}{% else %}nil{% endif %}, Integer, Hash)>] {% if returnType %}{{ returnType }} data{% else %}nil{% endif %}, response status code and response headers
     def {{ operation.operationId|snake_case }}_with_http_info({% for name, parameter in operation|parameters if parameter.required %}{{ name|attribute_name }}, {% endfor %}opts = {})

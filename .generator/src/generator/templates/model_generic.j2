@@ -16,7 +16,10 @@
      or
       definition.enum is defined #}
 
+{%- if "description" in definition %}
+{# preserve blank line #}
     {{ definition.description|block_comment|indent(4) }}
+{%- endif %}
     {%- if has_validation %}
     attr_reader :{{ attr|attribute_name }}
     {%- else %}
