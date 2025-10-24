@@ -1920,6 +1920,12 @@ ScenariosModelMappings = {
     "v2.CreateEvent" => {
             "body" => "EventCreateRequestPayload",
     },
+    "v2.CreateEventEmailAddress" => {
+            "body" => "CreateEventEmailAddressRequest",
+    },
+    "v2.CreateOnCallEventEmailAddress" => {
+            "body" => "CreateOnCallEventEmailAddressRequest",
+    },
     "v2.SearchEvents" => {
             "body" => "EventsListRequest",
     },
