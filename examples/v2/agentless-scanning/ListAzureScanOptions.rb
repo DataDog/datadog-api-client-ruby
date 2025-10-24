@@ -1,4 +1,4 @@
-# List azure scan options returns "OK" response
+# List Azure scan options returns "OK" response
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::AgentlessScanningAPI.new

@@ -23,7 +23,7 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
-    # Post an AWS on demand task.
+    # Create AWS on demand task.
     #
     # @see #create_aws_on_demand_task_with_http_info
     def create_aws_on_demand_task(body, opts = {})
@@ -31,7 +31,7 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Post an AWS on demand task.
+    # Create AWS on demand task.
     #
     # Trigger the scan of an AWS resource with a high priority. Agentless scanning must be activated for the AWS account containing the resource to scan.
     #
@@ -90,7 +90,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Post AWS Scan Options.
+    # Create AWS scan options.
     #
     # @see #create_aws_scan_options_with_http_info
     def create_aws_scan_options(body, opts = {})
@@ -98,7 +98,7 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Post AWS Scan Options.
+    # Create AWS scan options.
     #
     # Activate Agentless scan options for an AWS account.
     #
@@ -157,7 +157,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Create azure scan options.
+    # Create Azure scan options.
     #
     # @see #create_azure_scan_options_with_http_info
     def create_azure_scan_options(body, opts = {})
@@ -165,7 +165,7 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Create azure scan options.
+    # Create Azure scan options.
     #
     # Activate Agentless scan options for an Azure subscription.
     #
@@ -224,7 +224,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Post GCP Scan Options.
+    # Create GCP scan options.
     #
     # @see #create_gcp_scan_options_with_http_info
     def create_gcp_scan_options(body, opts = {})
@@ -232,7 +232,7 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Post GCP Scan Options.
+    # Create GCP scan options.
     #
     # Activate Agentless scan options for a GCP project.
     #
@@ -291,7 +291,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Delete AWS Scan Options.
+    # Delete AWS scan options.
     #
     # @see #delete_aws_scan_options_with_http_info
     def delete_aws_scan_options(account_id, opts = {})
@@ -299,7 +299,7 @@ module DatadogAPIClient::V2
       nil
     end
 
-    # Delete AWS Scan Options.
+    # Delete AWS scan options.
     #
     # Delete Agentless scan options for an AWS account.
     #
@@ -356,7 +356,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Delete azure scan options.
+    # Delete Azure scan options.
     #
     # @see #delete_azure_scan_options_with_http_info
     def delete_azure_scan_options(subscription_id, opts = {})
@@ -364,7 +364,7 @@ module DatadogAPIClient::V2
       nil
     end
 
-    # Delete azure scan options.
+    # Delete Azure scan options.
     #
     # Delete Agentless scan options for an Azure subscription.
     #
@@ -421,7 +421,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Delete GCP Scan Options.
+    # Delete GCP scan options.
     #
     # @see #delete_gcp_scan_options_with_http_info
     def delete_gcp_scan_options(project_id, opts = {})
@@ -429,7 +429,7 @@ module DatadogAPIClient::V2
       nil
     end
 
-    # Delete GCP Scan Options.
+    # Delete GCP scan options.
     #
     # Delete Agentless scan options for a GCP project.
     #
@@ -486,7 +486,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Get AWS On Demand task by id.
+    # Get AWS on demand task.
     #
     # @see #get_aws_on_demand_task_with_http_info
     def get_aws_on_demand_task(task_id, opts = {})
@@ -494,7 +494,7 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Get AWS On Demand task by id.
+    # Get AWS on demand task.
     #
     # Fetch the data of a specific on demand task.
     #
@@ -746,7 +746,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Get AWS On Demand tasks.
+    # List AWS on demand tasks.
     #
     # @see #list_aws_on_demand_tasks_with_http_info
     def list_aws_on_demand_tasks(opts = {})
@@ -754,7 +754,7 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Get AWS On Demand tasks.
+    # List AWS on demand tasks.
     #
     # Fetches the most recent 1000 AWS on demand tasks.
     #
@@ -806,7 +806,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # List AWS Scan Options.
+    # List AWS scan options.
     #
     # @see #list_aws_scan_options_with_http_info
     def list_aws_scan_options(opts = {})
@@ -814,7 +814,7 @@ module DatadogAPIClient::V2
       data
     end
 
-    # List AWS Scan Options.
+    # List AWS scan options.
     #
     # Fetches the scan options configured for AWS accounts.
     #
@@ -866,7 +866,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # List azure scan options.
+    # List Azure scan options.
     #
     # @see #list_azure_scan_options_with_http_info
     def list_azure_scan_options(opts = {})
@@ -874,7 +874,7 @@ module DatadogAPIClient::V2
       data
     end
 
-    # List azure scan options.
+    # List Azure scan options.
     #
     # Fetches the scan options configured for Azure accounts.
     #
@@ -926,7 +926,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # List GCP Scan Options.
+    # List GCP scan options.
     #
     # @see #list_gcp_scan_options_with_http_info
     def list_gcp_scan_options(opts = {})
@@ -934,7 +934,7 @@ module DatadogAPIClient::V2
       data
     end
 
-    # List GCP Scan Options.
+    # List GCP scan options.
     #
     # Fetches the scan options configured for all GCP projects.
     #
@@ -986,7 +986,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Patch AWS Scan Options.
+    # Update AWS scan options.
     #
     # @see #update_aws_scan_options_with_http_info
     def update_aws_scan_options(account_id, body, opts = {})
@@ -994,7 +994,7 @@ module DatadogAPIClient::V2
       nil
     end
 
-    # Patch AWS Scan Options.
+    # Update AWS scan options.
     #
     # Update the Agentless scan options for an activated account.
     #
@@ -1058,7 +1058,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Update azure scan options.
+    # Update Azure scan options.
     #
     # @see #update_azure_scan_options_with_http_info
     def update_azure_scan_options(subscription_id, body, opts = {})
@@ -1066,7 +1066,7 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Update azure scan options.
+    # Update Azure scan options.
     #
     # Update the Agentless scan options for an activated subscription.
     #
@@ -1130,7 +1130,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Patch GCP Scan Options.
+    # Update GCP scan options.
     #
     # @see #update_gcp_scan_options_with_http_info
     def update_gcp_scan_options(project_id, body, opts = {})
@@ -1138,7 +1138,7 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Patch GCP Scan Options.
+    # Update GCP scan options.
     #
     # Update the Agentless scan options for an activated GCP project.
     #

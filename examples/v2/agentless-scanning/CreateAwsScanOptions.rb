@@ -1,4 +1,4 @@
-# Post AWS Scan Options returns "Agentless scan options enabled successfully." response
+# Create AWS scan options returns "Agentless scan options enabled successfully." response
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::AgentlessScanningAPI.new

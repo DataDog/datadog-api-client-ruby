@@ -1,0 +1,20 @@
+http_interactions:
+- recorded_at: Thu, 23 Oct 2025 22:22:00 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+    method: GET
+    uri: https://api.datadoghq.com/api/v2/agentless_scanning/accounts/azure
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":[]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 200
+      message: OK
+recorded_with: VCR 6.0.0

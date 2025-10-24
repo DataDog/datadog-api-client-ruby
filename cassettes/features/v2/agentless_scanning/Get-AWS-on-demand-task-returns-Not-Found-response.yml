@@ -1,0 +1,20 @@
+http_interactions:
+- recorded_at: Thu, 23 Oct 2025 22:21:58 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+    method: GET
+    uri: https://api.datadoghq.com/api/v2/agentless_scanning/ondemand/aws/00000000-0000-0000-824a-000000000000
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"status":"404","detail":"no task found with id ''00000000-0000-0000-824a-000000000000''"}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 404
+      message: Not Found
+recorded_with: VCR 6.0.0

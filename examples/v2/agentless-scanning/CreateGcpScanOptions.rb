@@ -1,4 +1,4 @@
-# Post GCP Scan Options returns "Agentless scan options enabled successfully." response
+# Create GCP scan options returns "Agentless scan options enabled successfully." response
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::AgentlessScanningAPI.new
