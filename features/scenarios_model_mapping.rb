@@ -2988,6 +2988,12 @@ ScenariosModelMappings = {
     "v2.ListSpans" => {
             "body" => "SpansListRequest",
     },
+    "v2.CreateSCAResult" => {
+            "body" => "ScaRequest",
+    },
+    "v2.CreateSCAResolveVulnerableSymbols" => {
+            "body" => "ResolveVulnerableSymbolsRequest",
+    },
     "v2.SetOnDemandConcurrencyCap" => {
             "body" => "OnDemandConcurrencyCapAttributes",
     },
