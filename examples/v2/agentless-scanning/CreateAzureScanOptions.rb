@@ -1,4 +1,4 @@
-# Create azure scan options returns "Created" response
+# Create Azure scan options returns "Created" response
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::AgentlessScanningAPI.new

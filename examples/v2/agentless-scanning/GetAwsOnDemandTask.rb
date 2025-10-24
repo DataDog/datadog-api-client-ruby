@@ -1,4 +1,4 @@
-# Get AWS On Demand task by id returns "OK." response
+# Get AWS on demand task returns "OK." response
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::AgentlessScanningAPI.new

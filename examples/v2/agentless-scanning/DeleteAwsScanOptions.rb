@@ -1,4 +1,4 @@
-# Delete AWS Scan Options returns "No Content" response
+# Delete AWS scan options returns "No Content" response
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::AgentlessScanningAPI.new
