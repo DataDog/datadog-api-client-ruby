@@ -98,6 +98,146 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Create event email address.
+    #
+    # @see #create_event_email_address_with_http_info
+    def create_event_email_address(body, opts = {})
+      data, _status_code, _headers = create_event_email_address_with_http_info(body, opts)
+      data
+    end
+
+    # Create event email address.
+    # @param body [CreateEventEmailAddressRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(EventEmailAddressResponse, Integer, Hash)>] EventEmailAddressResponse data, response status code and response headers
+    def create_event_email_address_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_event_email_address".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_event_email_address")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_event_email_address"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: EventsAPI.create_event_email_address ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling EventsAPI.create_event_email_address"
+      end
+      # resource path
+      local_var_path = '/api/v2/events/mail'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'EventEmailAddressResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :create_event_email_address,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EventsAPI#create_event_email_address\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create on-call event email address.
+    #
+    # @see #create_on_call_event_email_address_with_http_info
+    def create_on_call_event_email_address(body, opts = {})
+      data, _status_code, _headers = create_on_call_event_email_address_with_http_info(body, opts)
+      data
+    end
+
+    # Create on-call event email address.
+    # @param body [CreateOnCallEventEmailAddressRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(EventEmailAddressResponse, Integer, Hash)>] EventEmailAddressResponse data, response status code and response headers
+    def create_on_call_event_email_address_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_on_call_event_email_address".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_on_call_event_email_address")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_on_call_event_email_address"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: EventsAPI.create_on_call_event_email_address ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling EventsAPI.create_on_call_event_email_address"
+      end
+      # resource path
+      local_var_path = '/api/v2/events/mail/on-call'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'EventEmailAddressResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :create_on_call_event_email_address,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EventsAPI#create_on_call_event_email_address\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get an event.
     #
     # @see #get_event_with_http_info
@@ -159,6 +299,132 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: EventsAPI#get_event\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get on-call event email address.
+    #
+    # @see #get_on_call_event_email_address_with_http_info
+    def get_on_call_event_email_address(opts = {})
+      data, _status_code, _headers = get_on_call_event_email_address_with_http_info(opts)
+      data
+    end
+
+    # Get on-call event email address.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(EventEmailAddressResponseArray, Integer, Hash)>] EventEmailAddressResponseArray data, response status code and response headers
+    def get_on_call_event_email_address_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_on_call_event_email_address".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_on_call_event_email_address")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_on_call_event_email_address"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: EventsAPI.get_on_call_event_email_address ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/events/mail/on-call'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'EventEmailAddressResponseArray'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_on_call_event_email_address,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EventsAPI#get_on_call_event_email_address\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List event email addresses.
+    #
+    # @see #list_event_email_addresses_with_http_info
+    def list_event_email_addresses(opts = {})
+      data, _status_code, _headers = list_event_email_addresses_with_http_info(opts)
+      data
+    end
+
+    # List event email addresses.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(EventEmailAddressResponseArray, Integer, Hash)>] EventEmailAddressResponseArray data, response status code and response headers
+    def list_event_email_addresses_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_event_email_addresses".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_event_email_addresses")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_event_email_addresses"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: EventsAPI.list_event_email_addresses ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/events/mail'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'EventEmailAddressResponseArray'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :list_event_email_addresses,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EventsAPI#list_event_email_addresses\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
