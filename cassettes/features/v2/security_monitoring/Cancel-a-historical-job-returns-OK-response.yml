@@ -1,5 +1,5 @@
 http_interactions:
-- recorded_at: Fri, 08 Nov 2024 09:54:39 GMT
+- recorded_at: Fri, 24 Oct 2025 14:24:00 GMT
   request:
     body:
       encoding: UTF-8
@@ -13,25 +13,25 @@ http_interactions:
       Content-Type:
       - application/json
     method: POST
-    uri: https://api.datadoghq.com/api/v2/siem-historical-detections/jobs
+    uri: https://api.datadoghq.com/api/v2/siem-threat-hunting/jobs
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"e332b07e-d573-45fa-b2df-9a1bcc27f17e","type":"historicalDetectionsJob"}}'
+      string: '{"data":{"id":"cafe565c-106b-486e-ad21-a712656723b4","type":"historicalDetectionsJob"}}'
     headers:
       Content-Type:
       - application/vnd.api+json
     status:
       code: 201
       message: Created
-- recorded_at: Fri, 08 Nov 2024 09:54:39 GMT
+- recorded_at: Fri, 24 Oct 2025 14:24:00 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: PATCH
-    uri: https://api.datadoghq.com/api/v2/siem-historical-detections/jobs/e332b07e-d573-45fa-b2df-9a1bcc27f17e/cancel
+    uri: https://api.datadoghq.com/api/v2/siem-threat-hunting/jobs/cafe565c-106b-486e-ad21-a712656723b4/cancel
   response:
     body:
       encoding: UTF-8

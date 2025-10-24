@@ -17,15 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # List of historical jobs.
-  class ListHistoricalJobsResponse
+  # Run a threat hunting job request.
+  class RunThreatHuntingJobRequestAttributes
     include BaseGenericModel
 
-    # Array containing the list of historical jobs.
-    attr_accessor :data
+    # Definition of a threat hunting job based on a security monitoring rule.
+    attr_accessor :from_rule
 
-    # Metadata about the list of jobs.
-    attr_accessor :meta
+    # Request ID.
+    attr_accessor :id
+
+    # Definition of a threat hunting job.
+    attr_accessor :job_definition
 
     attr_accessor :additional_properties
 
@@ -33,8 +36,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data',
-        :'meta' => :'meta'
+        :'from_rule' => :'fromRule',
+        :'id' => :'id',
+        :'job_definition' => :'jobDefinition'
       }
     end
 
@@ -42,8 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'Array<HistoricalJobResponseData>',
-        :'meta' => :'HistoricalJobListMeta'
+        :'from_rule' => :'JobDefinitionFromRule',
+        :'id' => :'String',
+        :'job_definition' => :'JobDefinition'
       }
     end
 
@@ -52,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ListHistoricalJobsResponse` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RunThreatHuntingJobRequestAttributes` initialize method"
       end
 
       self.additional_properties = {}
@@ -65,14 +70,16 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'data')
-        if (value = attributes[:'data']).is_a?(Array)
-          self.data = value
-        end
+      if attributes.key?(:'from_rule')
+        self.from_rule = attributes[:'from_rule']
       end
 
-      if attributes.key?(:'meta')
-        self.meta = attributes[:'meta']
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
+      end
+
+      if attributes.key?(:'job_definition')
+        self.job_definition = attributes[:'job_definition']
       end
     end
 
@@ -102,8 +109,9 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data &&
-          meta == o.meta &&
+          from_rule == o.from_rule &&
+          id == o.id &&
+          job_definition == o.job_definition &&
           additional_properties == o.additional_properties
     end
 
@@ -111,7 +119,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, meta, additional_properties].hash
+      [from_rule, id, job_definition, additional_properties].hash
     end
   end
 end
