@@ -17,10 +17,10 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Type of data.
-  class RunHistoricalJobRequestDataType
+  # Type of payload.
+  class ThreatHuntingJobDataType
     include BaseEnumModel
 
-    HISTORICALDETECTIONSJOBCREATE = "historicalDetectionsJobCreate".freeze
+    HISTORICALDETECTIONSJOB = "historicalDetectionsJob".freeze
   end
 end

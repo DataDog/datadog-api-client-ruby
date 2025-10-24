@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Definition of a historical job based on a security monitoring rule.
+  # Definition of a threat hunting job based on a security monitoring rule.
   class JobDefinitionFromRule
     include BaseGenericModel
 

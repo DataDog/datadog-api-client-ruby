@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Data for converting historical job results to signals.
+  # Data for converting threat hunting job results to signals.
   class ConvertJobResultsToSignalsData
     include BaseGenericModel
 
-    # Attributes for converting historical job results to signals.
+    # Attributes for converting threat hunting job results to signals.
     attr_accessor :attributes
 
     # Type of payload.

@@ -17,8 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Query for selecting logs analyzed by the historical job.
-  class HistoricalJobQuery
+  # Query for selecting logs analyzed by the threat hunting job.
+  class ThreatHuntingJobQuery
     include BaseGenericModel
 
     # The aggregation type.
@@ -82,7 +82,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::HistoricalJobQuery` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ThreatHuntingJobQuery` initialize method"
       end
 
       self.additional_properties = {}

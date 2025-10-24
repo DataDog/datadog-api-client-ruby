@@ -17,12 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Run a historical job request.
-  class RunHistoricalJobRequest
+  # List of threat hunting jobs.
+  class ListThreatHuntingJobsResponse
     include BaseGenericModel
 
-    # Data for running a historical job request.
+    # Array containing the list of threat hunting jobs.
     attr_accessor :data
+
+    # Metadata about the list of jobs.
+    attr_accessor :meta
 
     attr_accessor :additional_properties
 
@@ -30,7 +33,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data'
+        :'data' => :'data',
+        :'meta' => :'meta'
       }
     end
 
@@ -38,7 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'RunHistoricalJobRequestData'
+        :'data' => :'Array<ThreatHuntingJobResponseData>',
+        :'meta' => :'ThreatHuntingJobListMeta'
       }
     end
 
@@ -47,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RunHistoricalJobRequest` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ListThreatHuntingJobsResponse` initialize method"
       end
 
       self.additional_properties = {}
@@ -61,7 +66,13 @@ module DatadogAPIClient::V2
       }
 
       if attributes.key?(:'data')
-        self.data = attributes[:'data']
+        if (value = attributes[:'data']).is_a?(Array)
+          self.data = value
+        end
+      end
+
+      if attributes.key?(:'meta')
+        self.meta = attributes[:'meta']
       end
     end
 
@@ -92,6 +103,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           data == o.data &&
+          meta == o.meta &&
           additional_properties == o.additional_properties
     end
 
@@ -99,7 +111,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, additional_properties].hash
+      [data, meta, additional_properties].hash
     end
   end
 end

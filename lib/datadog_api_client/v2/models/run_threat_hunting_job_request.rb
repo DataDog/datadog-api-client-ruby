@@ -17,12 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Metadata about the list of jobs.
-  class HistoricalJobListMeta
+  # Run a threat hunting job request.
+  class RunThreatHuntingJobRequest
     include BaseGenericModel
 
-    # Number of jobs in the list.
-    attr_reader :total_count
+    # Data for running a threat hunting job request.
+    attr_accessor :data
 
     attr_accessor :additional_properties
 
@@ -30,7 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'total_count' => :'totalCount'
+        :'data' => :'data'
       }
     end
 
@@ -38,7 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'total_count' => :'Integer'
+        :'data' => :'RunThreatHuntingJobRequestData'
       }
     end
 
@@ -47,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::HistoricalJobListMeta` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RunThreatHuntingJobRequest` initialize method"
       end
 
       self.additional_properties = {}
@@ -60,27 +60,9 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'total_count')
-        self.total_count = attributes[:'total_count']
+      if attributes.key?(:'data')
+        self.data = attributes[:'data']
       end
-    end
-
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    # @!visibility private
-    def valid?
-      return false if !@total_count.nil? && @total_count > 2147483647
-      true
-    end
-
-    # Custom attribute writer method with validation
-    # @param total_count [Object] Object to be assigned
-    # @!visibility private
-    def total_count=(total_count)
-      if !total_count.nil? && total_count > 2147483647
-        fail ArgumentError, 'invalid value for "total_count", must be smaller than or equal to 2147483647.'
-      end
-      @total_count = total_count
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -109,7 +91,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          total_count == o.total_count &&
+          data == o.data &&
           additional_properties == o.additional_properties
     end
 
@@ -117,7 +99,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [total_count, additional_properties].hash
+      [data, additional_properties].hash
     end
   end
 end
