@@ -24,6 +24,9 @@ module DatadogAPIClient::V2
     # When disabled, Datadog does not collect metrics that are related to this GCP metric namespace.
     attr_accessor :disabled
 
+    # When enabled, Datadog applies these additional filters to limit metric collection. A metric is collected only if it does not match all exclusion filters and matches at least one allow filter.
+    attr_accessor :filters
+
     # The id of the GCP metric namespace.
     attr_accessor :id
 
@@ -34,6 +37,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'disabled' => :'disabled',
+        :'filters' => :'filters',
         :'id' => :'id'
       }
     end
@@ -43,6 +47,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'disabled' => :'Boolean',
+        :'filters' => :'Array<String>',
         :'id' => :'String'
       }
     end
@@ -67,6 +72,12 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'disabled')
         self.disabled = attributes[:'disabled']
+      end
+
+      if attributes.key?(:'filters')
+        if (value = attributes[:'filters']).is_a?(Array)
+          self.filters = value
+        end
       end
 
       if attributes.key?(:'id')
@@ -101,6 +112,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           disabled == o.disabled &&
+          filters == o.filters &&
           id == o.id &&
           additional_properties == o.additional_properties
     end
@@ -109,7 +121,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [disabled, id, additional_properties].hash
+      [disabled, filters, id, additional_properties].hash
     end
   end
 end
