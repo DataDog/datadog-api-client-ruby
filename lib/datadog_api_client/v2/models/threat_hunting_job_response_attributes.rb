@@ -17,8 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Historical job attributes.
-  class HistoricalJobResponseAttributes
+  # Threat hunting job attributes.
+  class ThreatHuntingJobResponseAttributes
     include BaseGenericModel
 
     # Time when the job was created.
@@ -33,7 +33,7 @@ module DatadogAPIClient::V2
     # ID of the rule used to create the job (if it is created from a rule).
     attr_accessor :created_from_rule_id
 
-    # Definition of a historical job.
+    # Definition of a threat hunting job.
     attr_accessor :job_definition
 
     # Job name.
@@ -82,7 +82,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::HistoricalJobResponseAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ThreatHuntingJobResponseAttributes` initialize method"
       end
 
       self.additional_properties = {}

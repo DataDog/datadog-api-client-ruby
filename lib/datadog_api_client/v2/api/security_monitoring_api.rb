@@ -23,38 +23,38 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
-    # Cancel a historical job.
+    # Cancel a threat hunting job.
     #
-    # @see #cancel_historical_job_with_http_info
-    def cancel_historical_job(job_id, opts = {})
-      cancel_historical_job_with_http_info(job_id, opts)
+    # @see #cancel_threat_hunting_job_with_http_info
+    def cancel_threat_hunting_job(job_id, opts = {})
+      cancel_threat_hunting_job_with_http_info(job_id, opts)
       nil
     end
 
-    # Cancel a historical job.
+    # Cancel a threat hunting job.
     #
-    # Cancel a historical job.
+    # Cancel a threat hunting job.
     #
     # @param job_id [String] The ID of the job.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def cancel_historical_job_with_http_info(job_id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.cancel_historical_job".to_sym]
+    def cancel_threat_hunting_job_with_http_info(job_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.cancel_threat_hunting_job".to_sym]
       if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.cancel_historical_job")
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.cancel_threat_hunting_job")
       else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.cancel_historical_job"))
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.cancel_threat_hunting_job"))
       end
 
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.cancel_historical_job ...'
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.cancel_threat_hunting_job ...'
       end
       # verify the required parameter 'job_id' is set
       if @api_client.config.client_side_validation && job_id.nil?
-        fail ArgumentError, "Missing the required parameter 'job_id' when calling SecurityMonitoringAPI.cancel_historical_job"
+        fail ArgumentError, "Missing the required parameter 'job_id' when calling SecurityMonitoringAPI.cancel_threat_hunting_job"
       end
       # resource path
-      local_var_path = '/api/v2/siem-historical-detections/jobs/{job_id}/cancel'.sub('{job_id}', CGI.escape(job_id.to_s).gsub('%2F', '/'))
+      local_var_path = '/api/v2/siem-threat-hunting/jobs/{job_id}/cancel'.sub('{job_id}', CGI.escape(job_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -77,7 +77,7 @@ module DatadogAPIClient::V2
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
-        :operation => :cancel_historical_job,
+        :operation => :cancel_threat_hunting_job,
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -89,7 +89,7 @@ module DatadogAPIClient::V2
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#cancel_historical_job\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#cancel_threat_hunting_job\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -191,7 +191,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.convert_job_result_to_signal"
       end
       # resource path
-      local_var_path = '/api/v2/siem-historical-detections/jobs/signal_convert'
+      local_var_path = '/api/v2/siem-threat-hunting/jobs/signal_convert'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -776,77 +776,6 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Delete an existing job.
-    #
-    # @see #delete_historical_job_with_http_info
-    def delete_historical_job(job_id, opts = {})
-      delete_historical_job_with_http_info(job_id, opts)
-      nil
-    end
-
-    # Delete an existing job.
-    #
-    # Delete an existing job.
-    #
-    # @param job_id [String] The ID of the job.
-    # @param opts [Hash] the optional parameters
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def delete_historical_job_with_http_info(job_id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.delete_historical_job".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_historical_job")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_historical_job"))
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.delete_historical_job ...'
-      end
-      # verify the required parameter 'job_id' is set
-      if @api_client.config.client_side_validation && job_id.nil?
-        fail ArgumentError, "Missing the required parameter 'job_id' when calling SecurityMonitoringAPI.delete_historical_job"
-      end
-      # resource path
-      local_var_path = '/api/v2/siem-historical-detections/jobs/{job_id}'.sub('{job_id}', CGI.escape(job_id.to_s).gsub('%2F', '/'))
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type]
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
-
-      new_options = opts.merge(
-        :operation => :delete_historical_job,
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type,
-        :api_version => "V2"
-      )
-
-      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#delete_historical_job\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
     # Delete a security filter.
     #
     # @see #delete_security_filter_with_http_info
@@ -1103,6 +1032,77 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SecurityMonitoringAPI#delete_signal_notification_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete an existing job.
+    #
+    # @see #delete_threat_hunting_job_with_http_info
+    def delete_threat_hunting_job(job_id, opts = {})
+      delete_threat_hunting_job_with_http_info(job_id, opts)
+      nil
+    end
+
+    # Delete an existing job.
+    #
+    # Delete an existing job.
+    #
+    # @param job_id [String] The ID of the job.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_threat_hunting_job_with_http_info(job_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.delete_threat_hunting_job".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_threat_hunting_job")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_threat_hunting_job"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.delete_threat_hunting_job ...'
+      end
+      # verify the required parameter 'job_id' is set
+      if @api_client.config.client_side_validation && job_id.nil?
+        fail ArgumentError, "Missing the required parameter 'job_id' when calling SecurityMonitoringAPI.delete_threat_hunting_job"
+      end
+      # resource path
+      local_var_path = '/api/v2/siem-threat-hunting/jobs/{job_id}'.sub('{job_id}', CGI.escape(job_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_threat_hunting_job,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#delete_threat_hunting_job\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1534,77 +1534,6 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Get a job's details.
-    #
-    # @see #get_historical_job_with_http_info
-    def get_historical_job(job_id, opts = {})
-      data, _status_code, _headers = get_historical_job_with_http_info(job_id, opts)
-      data
-    end
-
-    # Get a job's details.
-    #
-    # Get a job's details.
-    #
-    # @param job_id [String] The ID of the job.
-    # @param opts [Hash] the optional parameters
-    # @return [Array<(HistoricalJobResponse, Integer, Hash)>] HistoricalJobResponse data, response status code and response headers
-    def get_historical_job_with_http_info(job_id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.get_historical_job".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_historical_job")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_historical_job"))
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_historical_job ...'
-      end
-      # verify the required parameter 'job_id' is set
-      if @api_client.config.client_side_validation && job_id.nil?
-        fail ArgumentError, "Missing the required parameter 'job_id' when calling SecurityMonitoringAPI.get_historical_job"
-      end
-      # resource path
-      local_var_path = '/api/v2/siem-historical-detections/jobs/{job_id}'.sub('{job_id}', CGI.escape(job_id.to_s).gsub('%2F', '/'))
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'HistoricalJobResponse'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
-
-      new_options = opts.merge(
-        :operation => :get_historical_job,
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type,
-        :api_version => "V2"
-      )
-
-      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#get_historical_job\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
     # List resource filters.
     #
     # @see #get_resource_evaluation_filters_with_http_info
@@ -1916,7 +1845,7 @@ module DatadogAPIClient::V2
     #
     # Get a hist signal's details.
     #
-    # @param histsignal_id [String] The ID of the historical signal.
+    # @param histsignal_id [String] The ID of the threat hunting signal.
     # @param opts [Hash] the optional parameters
     # @return [Array<(SecurityMonitoringSignalResponse, Integer, Hash)>] SecurityMonitoringSignalResponse data, response status code and response headers
     def get_security_monitoring_histsignal_with_http_info(histsignal_id, opts = {})
@@ -1935,7 +1864,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'histsignal_id' when calling SecurityMonitoringAPI.get_security_monitoring_histsignal"
       end
       # resource path
-      local_var_path = '/api/v2/siem-historical-detections/histsignals/{histsignal_id}'.sub('{histsignal_id}', CGI.escape(histsignal_id.to_s).gsub('%2F', '/'))
+      local_var_path = '/api/v2/siem-threat-hunting/histsignals/{histsignal_id}'.sub('{histsignal_id}', CGI.escape(histsignal_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -2019,7 +1948,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling SecurityMonitoringAPI.get_security_monitoring_histsignals_by_job_id, must be smaller than or equal to 1000.'
       end
       # resource path
-      local_var_path = '/api/v2/siem-historical-detections/jobs/{job_id}/histsignals'.sub('{job_id}', CGI.escape(job_id.to_s).gsub('%2F', '/'))
+      local_var_path = '/api/v2/siem-threat-hunting/jobs/{job_id}/histsignals'.sub('{job_id}', CGI.escape(job_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -2517,6 +2446,77 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get a job's details.
+    #
+    # @see #get_threat_hunting_job_with_http_info
+    def get_threat_hunting_job(job_id, opts = {})
+      data, _status_code, _headers = get_threat_hunting_job_with_http_info(job_id, opts)
+      data
+    end
+
+    # Get a job's details.
+    #
+    # Get a job's details.
+    #
+    # @param job_id [String] The ID of the job.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(ThreatHuntingJobResponse, Integer, Hash)>] ThreatHuntingJobResponse data, response status code and response headers
+    def get_threat_hunting_job_with_http_info(job_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_threat_hunting_job".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_threat_hunting_job")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_threat_hunting_job"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_threat_hunting_job ...'
+      end
+      # verify the required parameter 'job_id' is set
+      if @api_client.config.client_side_validation && job_id.nil?
+        fail ArgumentError, "Missing the required parameter 'job_id' when calling SecurityMonitoringAPI.get_threat_hunting_job"
+      end
+      # resource path
+      local_var_path = '/api/v2/siem-threat-hunting/jobs/{job_id}'.sub('{job_id}', CGI.escape(job_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ThreatHuntingJobResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_threat_hunting_job,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#get_threat_hunting_job\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get details of a vulnerability notification rule.
     #
     # @see #get_vulnerability_notification_rule_with_http_info
@@ -2925,80 +2925,6 @@ module DatadogAPIClient::V2
         end
     end
 
-    # List historical jobs.
-    #
-    # @see #list_historical_jobs_with_http_info
-    def list_historical_jobs(opts = {})
-      data, _status_code, _headers = list_historical_jobs_with_http_info(opts)
-      data
-    end
-
-    # List historical jobs.
-    #
-    # List historical jobs.
-    #
-    # @param opts [Hash] the optional parameters
-    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 100.
-    # @option opts [Integer] :page_number Specific page number to return.
-    # @option opts [String] :sort The order of the jobs in results.
-    # @option opts [String] :filter_query Query used to filter items from the fetched list.
-    # @return [Array<(ListHistoricalJobsResponse, Integer, Hash)>] ListHistoricalJobsResponse data, response status code and response headers
-    def list_historical_jobs_with_http_info(opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.list_historical_jobs".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_historical_jobs")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_historical_jobs"))
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.list_historical_jobs ...'
-      end
-      # resource path
-      local_var_path = '/api/v2/siem-historical-detections/jobs'
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-      query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
-      query_params[:'page[number]'] = opts[:'page_number'] if !opts[:'page_number'].nil?
-      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
-      query_params[:'filter[query]'] = opts[:'filter_query'] if !opts[:'filter_query'].nil?
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'ListHistoricalJobsResponse'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
-
-      new_options = opts.merge(
-        :operation => :list_historical_jobs,
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type,
-        :api_version => "V2"
-      )
-
-      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#list_historical_jobs\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
     # List scanned assets metadata.
     #
     # @see #list_scanned_assets_metadata_with_http_info
@@ -3226,7 +3152,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling SecurityMonitoringAPI.list_security_monitoring_histsignals, must be smaller than or equal to 1000.'
       end
       # resource path
-      local_var_path = '/api/v2/siem-historical-detections/histsignals'
+      local_var_path = '/api/v2/siem-threat-hunting/histsignals'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -3496,6 +3422,80 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SecurityMonitoringAPI#list_security_monitoring_suppressions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List threat hunting jobs.
+    #
+    # @see #list_threat_hunting_jobs_with_http_info
+    def list_threat_hunting_jobs(opts = {})
+      data, _status_code, _headers = list_threat_hunting_jobs_with_http_info(opts)
+      data
+    end
+
+    # List threat hunting jobs.
+    #
+    # List threat hunting jobs.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 100.
+    # @option opts [Integer] :page_number Specific page number to return.
+    # @option opts [String] :sort The order of the jobs in results.
+    # @option opts [String] :filter_query Query used to filter items from the fetched list.
+    # @return [Array<(ListThreatHuntingJobsResponse, Integer, Hash)>] ListThreatHuntingJobsResponse data, response status code and response headers
+    def list_threat_hunting_jobs_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_threat_hunting_jobs".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_threat_hunting_jobs")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_threat_hunting_jobs"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.list_threat_hunting_jobs ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/siem-threat-hunting/jobs'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+      query_params[:'page[number]'] = opts[:'page_number'] if !opts[:'page_number'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+      query_params[:'filter[query]'] = opts[:'filter_query'] if !opts[:'filter_query'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ListThreatHuntingJobsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_threat_hunting_jobs,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#list_threat_hunting_jobs\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -4127,38 +4127,38 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Run a historical job.
+    # Run a threat hunting job.
     #
-    # @see #run_historical_job_with_http_info
-    def run_historical_job(body, opts = {})
-      data, _status_code, _headers = run_historical_job_with_http_info(body, opts)
+    # @see #run_threat_hunting_job_with_http_info
+    def run_threat_hunting_job(body, opts = {})
+      data, _status_code, _headers = run_threat_hunting_job_with_http_info(body, opts)
       data
     end
 
-    # Run a historical job.
+    # Run a threat hunting job.
     #
-    # Run a historical job.
+    # Run a threat hunting job.
     #
-    # @param body [RunHistoricalJobRequest] 
+    # @param body [RunThreatHuntingJobRequest] 
     # @param opts [Hash] the optional parameters
     # @return [Array<(JobCreateResponse, Integer, Hash)>] JobCreateResponse data, response status code and response headers
-    def run_historical_job_with_http_info(body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.run_historical_job".to_sym]
+    def run_threat_hunting_job_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.run_threat_hunting_job".to_sym]
       if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.run_historical_job")
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.run_threat_hunting_job")
       else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.run_historical_job"))
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.run_threat_hunting_job"))
       end
 
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.run_historical_job ...'
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.run_threat_hunting_job ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.run_historical_job"
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.run_threat_hunting_job"
       end
       # resource path
-      local_var_path = '/api/v2/siem-historical-detections/jobs'
+      local_var_path = '/api/v2/siem-threat-hunting/jobs'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -4183,7 +4183,7 @@ module DatadogAPIClient::V2
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
-        :operation => :run_historical_job,
+        :operation => :run_threat_hunting_job,
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -4195,7 +4195,7 @@ module DatadogAPIClient::V2
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#run_historical_job\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#run_threat_hunting_job\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -4227,7 +4227,7 @@ module DatadogAPIClient::V2
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.search_security_monitoring_histsignals ...'
       end
       # resource path
-      local_var_path = '/api/v2/siem-historical-detections/histsignals/search'
+      local_var_path = '/api/v2/siem-threat-hunting/histsignals/search'
 
       # query parameters
       query_params = opts[:query_params] || {}

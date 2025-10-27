@@ -1,12 +1,12 @@
 http_interactions:
-- recorded_at: Fri, 08 Nov 2024 09:54:39 GMT
+- recorded_at: Fri, 24 Oct 2025 14:24:01 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/siem-historical-detections/jobs/inva-lid
+    uri: https://api.datadoghq.com/api/v2/siem-threat-hunting/jobs/inva-lid
   response:
     body:
       encoding: UTF-8
