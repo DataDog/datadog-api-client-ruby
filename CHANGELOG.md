@@ -1,5 +1,32 @@
 # CHANGELOG
 
+## 2.44.0/2025-10-27
+
+### Added
+* Add endpoints for Software Composition Analysis [#2743](https://github.com/DataDog/datadog-api-client-ruby/pull/2743)
+* Add support for `Schema Processor` in `Logs Pipelines` [#2723](https://github.com/DataDog/datadog-api-client-ruby/pull/2723)
+* Add new DeleteAssignee endpoint to Error Tracking APIs [#2717](https://github.com/DataDog/datadog-api-client-ruby/pull/2717)
+* document agentless GCP scan options CRUD endpoints [#2714](https://github.com/DataDog/datadog-api-client-ruby/pull/2714)
+* Document `/api/v2/roles/templates`  [#2703](https://github.com/DataDog/datadog-api-client-ruby/pull/2703)
+* Add Reference Tables API spec [#2702](https://github.com/DataDog/datadog-api-client-ruby/pull/2702)
+* Add blockedRequestPatterns to synthetics browser test options [#2696](https://github.com/DataDog/datadog-api-client-ruby/pull/2696)
+* Add `BulkDeleteDatastoreItems` to Datastore API spec [#2695](https://github.com/DataDog/datadog-api-client-ruby/pull/2695)
+* Add some missing Workload Protection agent rule fields [#2694](https://github.com/DataDog/datadog-api-client-ruby/pull/2694)
+* Add AzureScanOptions to agentless scanning API [#2692](https://github.com/DataDog/datadog-api-client-ruby/pull/2692)
+* Add conditional recipients to notification rule [#2688](https://github.com/DataDog/datadog-api-client-ruby/pull/2688)
+* Documenting the new Flaky Test Management API endpoint for public beta [#2665](https://github.com/DataDog/datadog-api-client-ruby/pull/2665)
+
+### Fixed
+* fix edge case with periods in keys [#2722](https://github.com/DataDog/datadog-api-client-ruby/pull/2722)
+* Update the summary name for get a tag pipeline ruleset. [#2718](https://github.com/DataDog/datadog-api-client-ruby/pull/2718)
+
+### Changed
+* Include mention to new scanned-assets-metadata endpoint on container images v1 endpoint [#2721](https://github.com/DataDog/datadog-api-client-ruby/pull/2721)
+* Include mention to new scanned-assets-metadata endpoint on hosts v1 endpoint [#2720](https://github.com/DataDog/datadog-api-client-ruby/pull/2720)
+* security_monitoring - Add indexes to deprecate index in ruleQuery [#2715](https://github.com/DataDog/datadog-api-client-ruby/pull/2715)
+* Add support for vulnerability management - Add ListScannedAssetsMetadata new endpoint and update existing ones [#2713](https://github.com/DataDog/datadog-api-client-ruby/pull/2713)
+* Update description, operationId and examples for tag pipeline and custom allocation rules [#2709](https://github.com/DataDog/datadog-api-client-ruby/pull/2709)
+
 ## 2.43.0/2025-09-30
 
 ### Added
