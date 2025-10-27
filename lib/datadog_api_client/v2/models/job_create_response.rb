@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Run a historical job response.
+  # Run a threat hunting job response.
   class JobCreateResponse
     include BaseGenericModel
 

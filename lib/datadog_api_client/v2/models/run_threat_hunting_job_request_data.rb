@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Data for running a historical job request.
-  class RunHistoricalJobRequestData
+  # Data for running a threat hunting job request.
+  class RunThreatHuntingJobRequestData
     include BaseGenericModel
 
-    # Run a historical job request.
+    # Run a threat hunting job request.
     attr_accessor :attributes
 
     # Type of data.
@@ -42,8 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'RunHistoricalJobRequestAttributes',
-        :'type' => :'RunHistoricalJobRequestDataType'
+        :'attributes' => :'RunThreatHuntingJobRequestAttributes',
+        :'type' => :'RunThreatHuntingJobRequestDataType'
       }
     end
 
@@ -52,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RunHistoricalJobRequestData` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RunThreatHuntingJobRequestData` initialize method"
       end
 
       self.additional_properties = {}

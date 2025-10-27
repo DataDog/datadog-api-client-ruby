@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes for converting historical job results to signals.
+  # Attributes for converting threat hunting job results to signals.
   class ConvertJobResultsToSignalsAttributes
     include BaseGenericModel
 

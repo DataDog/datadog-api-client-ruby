@@ -17,18 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Run a historical job request.
-  class RunHistoricalJobRequestAttributes
+  # Metadata about the list of jobs.
+  class ThreatHuntingJobListMeta
     include BaseGenericModel
 
-    # Definition of a historical job based on a security monitoring rule.
-    attr_accessor :from_rule
-
-    # Request ID.
-    attr_accessor :id
-
-    # Definition of a historical job.
-    attr_accessor :job_definition
+    # Number of jobs in the list.
+    attr_reader :total_count
 
     attr_accessor :additional_properties
 
@@ -36,9 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'from_rule' => :'fromRule',
-        :'id' => :'id',
-        :'job_definition' => :'jobDefinition'
+        :'total_count' => :'totalCount'
       }
     end
 
@@ -46,9 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'from_rule' => :'JobDefinitionFromRule',
-        :'id' => :'String',
-        :'job_definition' => :'JobDefinition'
+        :'total_count' => :'Integer'
       }
     end
 
@@ -57,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RunHistoricalJobRequestAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ThreatHuntingJobListMeta` initialize method"
       end
 
       self.additional_properties = {}
@@ -70,17 +60,27 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'from_rule')
-        self.from_rule = attributes[:'from_rule']
+      if attributes.key?(:'total_count')
+        self.total_count = attributes[:'total_count']
       end
+    end
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
-      end
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if !@total_count.nil? && @total_count > 2147483647
+      true
+    end
 
-      if attributes.key?(:'job_definition')
-        self.job_definition = attributes[:'job_definition']
+    # Custom attribute writer method with validation
+    # @param total_count [Object] Object to be assigned
+    # @!visibility private
+    def total_count=(total_count)
+      if !total_count.nil? && total_count > 2147483647
+        fail ArgumentError, 'invalid value for "total_count", must be smaller than or equal to 2147483647.'
       end
+      @total_count = total_count
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -109,9 +109,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          from_rule == o.from_rule &&
-          id == o.id &&
-          job_definition == o.job_definition &&
+          total_count == o.total_count &&
           additional_properties == o.additional_properties
     end
 
@@ -119,7 +117,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [from_rule, id, job_definition, additional_properties].hash
+      [total_count, additional_properties].hash
     end
   end
 end

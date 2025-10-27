@@ -1,17 +1,16 @@
 http_interactions:
-- recorded_at: Fri, 08 Nov 2024 09:54:39 GMT
+- recorded_at: Fri, 24 Oct 2025 14:24:00 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: PATCH
-    uri: https://api.datadoghq.com/api/v2/siem-historical-detections/jobs/8e2a37fb-b0c8-4761-a7f0-0a8d6a98ba93/cancel
+    uri: https://api.datadoghq.com/api/v2/siem-threat-hunting/jobs/8e2a37fb-b0c8-4761-a7f0-0a8d6a98ba93/cancel
   response:
     body:
       encoding: UTF-8
-      string: '{"errors":[{"status":"404","title":"Not Found","detail":"Job 8e2a37fb-b0c8-4761-a7f0-0a8d6a98ba93
-        was not found."}]}'
+      string: '{"errors":[{"status":"404","detail":"Not Found"}]}'
     headers:
       Content-Type:
       - application/vnd.api+json
