@@ -6,7 +6,7 @@
 <title>
   Class: DatadogAPIClient::V2::HistoricalJobOptions
   
-    &mdash; datadog-api-client 2.44.0 documentation
+    &mdash; datadog-api-client 2.30.0.dev.1 documentation
   
 </title>
 
@@ -245,7 +245,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Once a signal is generated, the signal will remain &quot;open&quot; if a case is matched at least once within this keep alive window.</p>
+    <span class="summary_desc"><div class='inline'><p>Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window.</p>
 </div></span>
   
 </li>
@@ -271,7 +271,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>A signal will &quot;close&quot; regardless of the query being matched once the time exceeds the maximum duration.</p>
+    <span class="summary_desc"><div class='inline'><p>A signal will “close” regardless of the query being matched once the time exceeds the maximum duration.</p>
 </div></span>
   
 </li>
@@ -298,32 +298,6 @@
 
   
     <span class="summary_desc"><div class='inline'><p>Options on new value detection method.</p>
-</div></span>
-  
-</li>
-
-    
-      <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#sequence_detection_options-instance_method" title="#sequence_detection_options (instance method)">#<strong>sequence_detection_options</strong>  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-    
-    
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>Options on sequence detection method.</p>
 </div></span>
   
 </li>
@@ -557,7 +531,7 @@ and evaluates in real time. For third party detection method, this field is not 
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Once a signal is generated, the signal will remain &quot;open&quot; if a case is matched at least once within
+    <p>Once a signal is generated, the signal will remain “open” if a case is matched at least once within
 this keep alive window. For third party detection method, this field is not used.</p>
 
 
@@ -600,7 +574,7 @@ this keep alive window. For third party detection method, this field is not used
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>A signal will &quot;close&quot; regardless of the query being matched once the time exceeds the maximum duration.
+    <p>A signal will “close” regardless of the query being matched once the time exceeds the maximum duration.
 This time is calculated from the first seen timestamp.</p>
 
 
@@ -673,48 +647,6 @@ This time is calculated from the first seen timestamp.</p>
 </div>
     
       
-      <span id="sequence_detection_options=-instance_method"></span>
-      <div class="method_details ">
-  <h3 class="signature " id="sequence_detection_options-instance_method">
-  
-    #<strong>sequence_detection_options</strong>  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>Options on sequence detection method.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-46
-47
-48</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/historical_job_options.rb', line 46</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_sequence_detection_options'>sequence_detection_options</span>
-  <span class='ivar'>@sequence_detection_options</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      
       <span id="third_party_rule_options=-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="third_party_rule_options-instance_method">
@@ -762,7 +694,7 @@ This time is calculated from the first seen timestamp.</p>
 </div>
 
       <div id="footer">
-  Generated on Mon Oct 27 12:40:46 2025 by
+  Generated on Tue Feb 18 21:07:27 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>
