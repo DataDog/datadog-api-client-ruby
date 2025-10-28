@@ -489,7 +489,7 @@
       
       
         &mdash;
-        <div class='inline'><p>Identifier, formatted as <code>type:id</code>. Supported types: <code>dashboard</code>, <code>integration-service</code>, <code>integration-webhook</code>, <code>notebook</code>, <code>reference-table</code>, <code>security-rule</code>, <code>slo</code>, <code>workflow</code>, <code>app-builder-app</code>, <code>connection</code>, <code>connection-group</code>, <code>rum-application</code>, <code>cross-org-connection</code>, <code>spreadsheet</code>, <code>on-call-schedule</code>, <code>on-call-escalation-policy</code>, `on-call-team-routing-rules.</p>
+        <div class='inline'><p>Identifier, formatted as <code>type:id</code>. Supported types: <code>dashboard</code>, <code>integration-service</code>, <code>integration-webhook</code>, <code>notebook</code>, <code>reference-table</code>, <code>security-rule</code>, <code>slo</code>, <code>workflow</code>, <code>app-builder-app</code>, <code>connection</code>, <code>connection-group</code>, <code>rum-application</code>, <code>cross-org-connection</code>, <code>spreadsheet</code>, <code>on-call-schedule</code>, <code>on-call-escalation-policy</code>, <code>on-call-team-routing-rules</code>, <code>logs-pipeline</code>.</p>
 </div>
       
     </li>
@@ -725,7 +725,7 @@
       
       
         &mdash;
-        <div class='inline'><p>Identifier, formatted as <code>type:id</code>. Supported types: <code>dashboard</code>, <code>integration-service</code>, <code>integration-webhook</code>, <code>notebook</code>, <code>reference-table</code>, <code>security-rule</code>, <code>slo</code>, <code>workflow</code>, <code>app-builder-app</code>, <code>connection</code>, <code>connection-group</code>, <code>rum-application</code>, <code>cross-org-connection</code>, <code>spreadsheet</code>, <code>on-call-schedule</code>, <code>on-call-escalation-policy</code>, `on-call-team-routing-rules.</p>
+        <div class='inline'><p>Identifier, formatted as <code>type:id</code>. Supported types: <code>dashboard</code>, <code>integration-service</code>, <code>integration-webhook</code>, <code>notebook</code>, <code>reference-table</code>, <code>security-rule</code>, <code>slo</code>, <code>workflow</code>, <code>app-builder-app</code>, <code>connection</code>, <code>connection-group</code>, <code>rum-application</code>, <code>cross-org-connection</code>, <code>spreadsheet</code>, <code>on-call-schedule</code>, <code>on-call-escalation-policy</code>, <code>on-call-team-routing-rules</code>, <code>logs-pipeline</code>.</p>
 </div>
       
     </li>
@@ -971,6 +971,7 @@
 <li>On-Call Schedules: <code>on-call-schedule</code></li>
 <li>On-Call Escalation Policies: <code>on-call-escalation-policy</code></li>
 <li>On-Call Team Routing Rules: <code>on-call-team-routing-rules</code></li>
+<li>Logs Pipelines: <code>logs-pipeline</code></li>
 </ul>
 
 <h4 id="supported-relations-for-resources">Supported relations for resources</h4>
@@ -1069,6 +1070,10 @@
 <td>On-Call Team Routing Rules</td>
 <td><code>viewer</code>, <code>editor</code></td>
 </tr>
+<tr>
+<td>Logs Pipelines</td>
+<td><code>viewer</code>, <code>processors_editor</code>, <code>editor</code></td>
+</tr>
 </tbody></table>
 
 
@@ -1088,7 +1093,7 @@
       
       
         &mdash;
-        <div class='inline'><p>Identifier, formatted as <code>type:id</code>. Supported types: <code>dashboard</code>, <code>integration-service</code>, <code>integration-webhook</code>, <code>notebook</code>, <code>reference-table</code>, <code>security-rule</code>, <code>slo</code>, <code>workflow</code>, <code>app-builder-app</code>, <code>connection</code>, <code>connection-group</code>, <code>rum-application</code>, <code>cross-org-connection</code>, <code>spreadsheet</code>, <code>on-call-schedule</code>, <code>on-call-escalation-policy</code>, `on-call-team-routing-rules.</p>
+        <div class='inline'><p>Identifier, formatted as <code>type:id</code>. Supported types: <code>dashboard</code>, <code>integration-service</code>, <code>integration-webhook</code>, <code>notebook</code>, <code>reference-table</code>, <code>security-rule</code>, <code>slo</code>, <code>workflow</code>, <code>app-builder-app</code>, <code>connection</code>, <code>connection-group</code>, <code>rum-application</code>, <code>cross-org-connection</code>, <code>spreadsheet</code>, <code>on-call-schedule</code>, <code>on-call-escalation-policy</code>, <code>on-call-team-routing-rules</code>, <code>logs-pipeline</code>.</p>
 </div>
       
     </li>
@@ -1302,7 +1307,7 @@
 </div>
 
       <div id="footer">
-  Generated on Mon Oct 27 21:28:55 2025 by
+  Generated on Tue Oct 28 10:36:14 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>
