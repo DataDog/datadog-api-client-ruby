@@ -6,7 +6,7 @@
 <title>
   Class: DatadogAPIClient::V1::AWSAccount
   
-    &mdash; datadog-api-client 2.30.0.dev.1 documentation
+    &mdash; datadog-api-client 2.44.0 documentation
   
 </title>
 
@@ -193,7 +193,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>An object, (in the form <code>{&quot;namespace1&quot;:true/false, &quot;namespace2&quot;:true/false}</code>), that enables or disables metric collection for specific AWS namespaces for this AWS account only.</p>
+    <span class="summary_desc"><div class='inline'><p>An object (in the form <code>{&quot;namespace1&quot;:true/false, &quot;namespace2&quot;:true/false}</code>) containing user-supplied overrides for AWS namespace metric collection.</p>
 </div></span>
   
 </li>
@@ -576,9 +576,11 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>An object, (in the form <code>{&quot;namespace1&quot;:true/false, &quot;namespace2&quot;:true/false}</code>),
-that enables or disables metric collection for specific AWS namespaces for this
-AWS account only.</p>
+    <p>An object (in the form <code>{&quot;namespace1&quot;:true/false, &quot;namespace2&quot;:true/false}</code>) containing user-supplied overrides
+for AWS namespace metric collection. <strong>Important</strong>: This field only contains namespaces explicitly configured through API calls,
+not the comprehensive enabled or disabled status of all namespaces. If a namespace is absent from this field, it uses Datadog&#39;s
+internal defaults (all namespaces enabled by default, except <code>AWS/SQS</code>, <code>AWS/ElasticMapReduce</code>, and <code>AWS/Usage</code>).
+For a complete view of all namespace statuses, use the V2 AWS Integration API instead.</p>
 
 
   </div>
@@ -1040,7 +1042,7 @@ and metrics reporting through this integration.</p>
 </div>
 
       <div id="footer">
-  Generated on Tue Feb 18 21:07:11 2025 by
+  Generated on Tue Oct 28 22:21:12 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>
