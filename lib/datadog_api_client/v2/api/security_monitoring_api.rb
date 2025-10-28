@@ -1765,6 +1765,72 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Returns list of Secrets rules.
+    #
+    # @see #get_secrets_rules_with_http_info
+    def get_secrets_rules(opts = {})
+      data, _status_code, _headers = get_secrets_rules_with_http_info(opts)
+      data
+    end
+
+    # Returns list of Secrets rules.
+    #
+    # Returns list of Secrets rules with ID, Pattern, Description, Priority, and SDS ID
+    #
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SecretRuleArray, Integer, Hash)>] SecretRuleArray data, response status code and response headers
+    def get_secrets_rules_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_secrets_rules".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_secrets_rules")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_secrets_rules"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_secrets_rules ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/static-analysis/secrets/rules'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecretRuleArray'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_secrets_rules,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#get_secrets_rules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get a security filter.
     #
     # @see #get_security_filter_with_http_info
@@ -2923,6 +2989,79 @@ module DatadogAPIClient::V2
             end
             @api_client.set_attribute_from_path(api_version, opts, "page_cursor", String, @api_client.get_attribute_from_path(response, "meta.page.cursor"))
         end
+    end
+
+    # Ruleset get multiple.
+    #
+    # @see #list_multiple_rulesets_with_http_info
+    def list_multiple_rulesets(body, opts = {})
+      data, _status_code, _headers = list_multiple_rulesets_with_http_info(body, opts)
+      data
+    end
+
+    # Ruleset get multiple.
+    #
+    # Get rules for multiple rulesets in batch.
+    #
+    # @param body [GetMultipleRulesetsRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(GetMultipleRulesetsResponse, Integer, Hash)>] GetMultipleRulesetsResponse data, response status code and response headers
+    def list_multiple_rulesets_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_multiple_rulesets".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_multiple_rulesets")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_multiple_rulesets"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.list_multiple_rulesets ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.list_multiple_rulesets"
+      end
+      # resource path
+      local_var_path = '/api/v2/static-analysis/rulesets'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GetMultipleRulesetsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_multiple_rulesets,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#list_multiple_rulesets\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
     end
 
     # List scanned assets metadata.
