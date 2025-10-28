@@ -17,8 +17,9 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Log Autosubscription configuration for Datadog Forwarder Lambda functions. Automatically set up triggers for existing
-  # and new logs for some services, ensuring no logs from new resources are missed and saving time spent on manual configuration.
+  # Log Autosubscription configuration for Datadog Forwarder Lambda functions.
+  # Automatically set up triggers for existing and new logs for some services,
+  # ensuring no logs from new resources are missed and saving time spent on manual configuration.
   class AWSLambdaForwarderConfig
     include BaseGenericModel
 
@@ -28,8 +29,10 @@ module DatadogAPIClient::V2
     # Log source configuration.
     attr_accessor :log_source_config
 
-    # List of service IDs set to enable automatic log collection. Discover the list of available services with the
-    # [Get list of AWS log ready services](https://docs.datadoghq.com/api/latest/aws-logs-integration/#get-list-of-aws-log-ready-services) endpoint.
+    # List of service IDs set to enable automatic log collection.
+    # Discover the list of available services with the
+    # [Get list of AWS log ready services](https://docs.datadoghq.com/api/latest/aws-logs-integration/#get-list-of-aws-log-ready-services)
+    # endpoint.
     attr_accessor :sources
 
     attr_accessor :additional_properties

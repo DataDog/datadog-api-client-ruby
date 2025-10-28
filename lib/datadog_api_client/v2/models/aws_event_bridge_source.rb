@@ -17,21 +17,16 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # AWS Account Update Request data.
-  class AWSAccountUpdateRequestData
+  # An EventBridge source.
+  class AWSEventBridgeSource
     include BaseGenericModel
 
-    # The AWS Account Integration Config to be updated.
-    attr_reader :attributes
+    # The event source name.
+    attr_accessor :name
 
-    # Unique Datadog ID of the AWS Account Integration Config.
-    # To get the config ID for an account, use the
-    # [List all AWS integrations](https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations)
-    # endpoint and query by AWS Account ID.
-    attr_accessor :id
-
-    # AWS Account resource type.
-    attr_reader :type
+    # The event source's
+    # [AWS region](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints).
+    attr_accessor :region
 
     attr_accessor :additional_properties
 
@@ -39,9 +34,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'attributes' => :'attributes',
-        :'id' => :'id',
-        :'type' => :'type'
+        :'name' => :'name',
+        :'region' => :'region'
       }
     end
 
@@ -49,9 +43,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'AWSAccountUpdateRequestAttributes',
-        :'id' => :'String',
-        :'type' => :'AWSAccountType'
+        :'name' => :'String',
+        :'region' => :'String'
       }
     end
 
@@ -60,7 +53,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::AWSAccountUpdateRequestData` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::AWSEventBridgeSource` initialize method"
       end
 
       self.additional_properties = {}
@@ -73,46 +66,13 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'attributes')
-        self.attributes = attributes[:'attributes']
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.key?(:'region')
+        self.region = attributes[:'region']
       end
-
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
-      end
-    end
-
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    # @!visibility private
-    def valid?
-      return false if @attributes.nil?
-      return false if @type.nil?
-      true
-    end
-
-    # Custom attribute writer method with validation
-    # @param attributes [Object] Object to be assigned
-    # @!visibility private
-    def attributes=(attributes)
-      if attributes.nil?
-        fail ArgumentError, 'invalid value for "attributes", attributes cannot be nil.'
-      end
-      @attributes = attributes
-    end
-
-    # Custom attribute writer method with validation
-    # @param type [Object] Object to be assigned
-    # @!visibility private
-    def type=(type)
-      if type.nil?
-        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
-      end
-      @type = type
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -141,9 +101,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          attributes == o.attributes &&
-          id == o.id &&
-          type == o.type &&
+          name == o.name &&
+          region == o.region &&
           additional_properties == o.additional_properties
     end
 
@@ -151,7 +110,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, id, type, additional_properties].hash
+      [name, region, additional_properties].hash
     end
   end
 end

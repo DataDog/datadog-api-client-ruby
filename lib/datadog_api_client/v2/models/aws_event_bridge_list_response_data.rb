@@ -17,20 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # AWS Account Update Request data.
-  class AWSAccountUpdateRequestData
+  # Amazon EventBridge list response data.
+  class AWSEventBridgeListResponseData
     include BaseGenericModel
 
-    # The AWS Account Integration Config to be updated.
+    # An object describing the EventBridge configuration for multiple accounts.
     attr_reader :attributes
 
-    # Unique Datadog ID of the AWS Account Integration Config.
-    # To get the config ID for an account, use the
-    # [List all AWS integrations](https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations)
-    # endpoint and query by AWS Account ID.
-    attr_accessor :id
+    # The ID of the Amazon EventBridge list response data.
+    attr_reader :id
 
-    # AWS Account resource type.
+    # Amazon EventBridge resource type.
     attr_reader :type
 
     attr_accessor :additional_properties
@@ -49,9 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'AWSAccountUpdateRequestAttributes',
+        :'attributes' => :'AWSEventBridgeListResponseAttributes',
         :'id' => :'String',
-        :'type' => :'AWSAccountType'
+        :'type' => :'AWSEventBridgeType'
       }
     end
 
@@ -60,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::AWSAccountUpdateRequestData` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::AWSEventBridgeListResponseData` initialize method"
       end
 
       self.additional_properties = {}
@@ -91,6 +88,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @attributes.nil?
+      return false if @id.nil?
       return false if @type.nil?
       true
     end
@@ -103,6 +101,16 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "attributes", attributes cannot be nil.'
       end
       @attributes = attributes
+    end
+
+    # Custom attribute writer method with validation
+    # @param id [Object] Object to be assigned
+    # @!visibility private
+    def id=(id)
+      if id.nil?
+        fail ArgumentError, 'invalid value for "id", id cannot be nil.'
+      end
+      @id = id
     end
 
     # Custom attribute writer method with validation

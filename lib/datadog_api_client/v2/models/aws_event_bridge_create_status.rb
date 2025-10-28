@@ -17,14 +17,10 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # AWS partition your AWS account is scoped to. Defaults to `aws`.
-  # See [Partitions](https://docs.aws.amazon.com/whitepapers/latest/aws-fault-isolation-boundaries/partitions.html)
-  # in the AWS documentation for more information.
-  class AWSAccountPartition
+  # The event source status "created".
+  class AWSEventBridgeCreateStatus
     include BaseEnumModel
 
-    AWS = "aws".freeze
-    AWS_CN = "aws-cn".freeze
-    AWS_US_GOV = "aws-us-gov".freeze
+    CREATED = "created".freeze
   end
 end

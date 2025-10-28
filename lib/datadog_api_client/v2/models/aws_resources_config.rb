@@ -21,10 +21,13 @@ module DatadogAPIClient::V2
   class AWSResourcesConfig
     include BaseGenericModel
 
-    # Enable Cloud Security Management to scan AWS resources for vulnerabilities, misconfigurations, identity risks, and compliance violations. Defaults to `false`. Requires `extended_collection` to be set to `true`.
+    # Enable Cloud Security Management to scan AWS resources for vulnerabilities, misconfigurations,
+    # identity risks, and compliance violations. Defaults to `false`.
+    # Requires `extended_collection` to be set to `true`.
     attr_accessor :cloud_security_posture_management_collection
 
-    # Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Defaults to `true`. Required for `cloud_security_posture_management_collection`.
+    # Whether Datadog collects additional attributes and configuration information about the resources
+    # in your AWS account. Defaults to `true`. Required for `cloud_security_posture_management_collection`.
     attr_accessor :extended_collection
 
     attr_accessor :additional_properties

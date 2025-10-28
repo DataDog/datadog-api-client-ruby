@@ -108,10 +108,13 @@ module DatadogAPIClient::V1
     #
     # Create an Amazon EventBridge source.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param body [AWSEventBridgeCreateRequest] Create an Amazon EventBridge source for an AWS account with a given name and region.
     # @param opts [Hash] the optional parameters
     # @return [Array<(AWSEventBridgeCreateResponse, Integer, Hash)>] AWSEventBridgeCreateResponse data, response status code and response headers
     def create_aws_event_bridge_source_with_http_info(body, opts = {})
+      warn "[DEPRECATION] `CreateAWSEventBridgeSource` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AWSIntegrationAPI.create_aws_event_bridge_source ...'
@@ -385,10 +388,13 @@ module DatadogAPIClient::V1
     #
     # Delete an Amazon EventBridge source.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param body [AWSEventBridgeDeleteRequest] Delete the Amazon EventBridge source with the given name, region, and associated AWS account.
     # @param opts [Hash] the optional parameters
     # @return [Array<(AWSEventBridgeDeleteResponse, Integer, Hash)>] AWSEventBridgeDeleteResponse data, response status code and response headers
     def delete_aws_event_bridge_source_with_http_info(body, opts = {})
+      warn "[DEPRECATION] `DeleteAWSEventBridgeSource` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AWSIntegrationAPI.delete_aws_event_bridge_source ...'
@@ -654,9 +660,12 @@ module DatadogAPIClient::V1
     #
     # Get all Amazon EventBridge sources.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param opts [Hash] the optional parameters
     # @return [Array<(AWSEventBridgeListResponse, Integer, Hash)>] AWSEventBridgeListResponse data, response status code and response headers
     def list_aws_event_bridge_sources_with_http_info(opts = {})
+      warn "[DEPRECATION] `ListAWSEventBridgeSources` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AWSIntegrationAPI.list_aws_event_bridge_sources ...'
