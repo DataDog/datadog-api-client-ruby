@@ -33,7 +33,7 @@ module DatadogAPIClient::V1
 
     # Create an AWS integration.
     #
-    # Create a Datadog-Amazon Web Services integration.
+    # "**This endpoint is deprecated - use the V2 endpoints instead.** Create a Datadog-Amazon Web Services integration.
     # Using the `POST` method updates your integration configuration
     # by adding your new configuration to the existing one in your Datadog organization.
     # A unique AWS Account ID for role based authentication.
@@ -246,7 +246,7 @@ module DatadogAPIClient::V1
 
     # Generate a new external ID.
     #
-    # Generate a new AWS external ID for a given AWS account ID and role name pair.
+    # **This endpoint is deprecated - use the V2 endpoints instead.** Generate a new AWS external ID for a given AWS account ID and role name pair.
     #
     # @deprecated This API is deprecated.
     #
@@ -316,7 +316,7 @@ module DatadogAPIClient::V1
 
     # Delete an AWS integration.
     #
-    # Delete a Datadog-AWS integration matching the specified `account_id` and `role_name parameters`.
+    # **This endpoint is deprecated - use the V2 endpoints instead.** Delete a Datadog-AWS integration matching the specified `account_id` and `role_name parameters`.
     #
     # @deprecated This API is deprecated.
     #
@@ -526,7 +526,7 @@ module DatadogAPIClient::V1
 
     # List namespace rules.
     #
-    # List all namespace rules for a given Datadog-AWS integration. This endpoint takes no arguments.
+    # **This endpoint is deprecated - use the V2 endpoints instead.** List all namespace rules for a given Datadog-AWS integration. This endpoint takes no arguments.
     #
     # @deprecated This API is deprecated.
     #
@@ -589,7 +589,7 @@ module DatadogAPIClient::V1
 
     # List all AWS integrations.
     #
-    # List all Datadog-AWS integrations available in your Datadog organization.
+    # **This endpoint is deprecated - use the V2 endpoints instead.** List all Datadog-AWS integrations available in your Datadog organization.
     #
     # @deprecated This API is deprecated.
     #
@@ -790,7 +790,7 @@ module DatadogAPIClient::V1
 
     # Update an AWS integration.
     #
-    # Update a Datadog-Amazon Web Services integration.
+    # **This endpoint is deprecated - use the V2 endpoints instead.** Update a Datadog-Amazon Web Services integration.
     #
     # @deprecated This API is deprecated.
     #
