@@ -17,21 +17,19 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # AWS Account Update Request data.
-  class AWSAccountUpdateRequestData
+  # The EventBridge source to be deleted.
+  class AWSEventBridgeDeleteRequestAttributes
     include BaseGenericModel
 
-    # The AWS Account Integration Config to be updated.
-    attr_reader :attributes
+    # AWS Account ID.
+    attr_reader :account_id
 
-    # Unique Datadog ID of the AWS Account Integration Config.
-    # To get the config ID for an account, use the
-    # [List all AWS integrations](https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations)
-    # endpoint and query by AWS Account ID.
-    attr_accessor :id
+    # The event source name.
+    attr_reader :event_generator_name
 
-    # AWS Account resource type.
-    attr_reader :type
+    # The event source's
+    # [AWS region](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints).
+    attr_reader :region
 
     attr_accessor :additional_properties
 
@@ -39,9 +37,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'attributes' => :'attributes',
-        :'id' => :'id',
-        :'type' => :'type'
+        :'account_id' => :'account_id',
+        :'event_generator_name' => :'event_generator_name',
+        :'region' => :'region'
       }
     end
 
@@ -49,9 +47,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'AWSAccountUpdateRequestAttributes',
-        :'id' => :'String',
-        :'type' => :'AWSAccountType'
+        :'account_id' => :'String',
+        :'event_generator_name' => :'String',
+        :'region' => :'String'
       }
     end
 
@@ -60,7 +58,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::AWSAccountUpdateRequestData` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::AWSEventBridgeDeleteRequestAttributes` initialize method"
       end
 
       self.additional_properties = {}
@@ -73,16 +71,16 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'attributes')
-        self.attributes = attributes[:'attributes']
+      if attributes.key?(:'account_id')
+        self.account_id = attributes[:'account_id']
       end
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.key?(:'event_generator_name')
+        self.event_generator_name = attributes[:'event_generator_name']
       end
 
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
+      if attributes.key?(:'region')
+        self.region = attributes[:'region']
       end
     end
 
@@ -90,29 +88,40 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @attributes.nil?
-      return false if @type.nil?
+      return false if @account_id.nil?
+      return false if @event_generator_name.nil?
+      return false if @region.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param attributes [Object] Object to be assigned
+    # @param account_id [Object] Object to be assigned
     # @!visibility private
-    def attributes=(attributes)
-      if attributes.nil?
-        fail ArgumentError, 'invalid value for "attributes", attributes cannot be nil.'
+    def account_id=(account_id)
+      if account_id.nil?
+        fail ArgumentError, 'invalid value for "account_id", account_id cannot be nil.'
       end
-      @attributes = attributes
+      @account_id = account_id
     end
 
     # Custom attribute writer method with validation
-    # @param type [Object] Object to be assigned
+    # @param event_generator_name [Object] Object to be assigned
     # @!visibility private
-    def type=(type)
-      if type.nil?
-        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+    def event_generator_name=(event_generator_name)
+      if event_generator_name.nil?
+        fail ArgumentError, 'invalid value for "event_generator_name", event_generator_name cannot be nil.'
       end
-      @type = type
+      @event_generator_name = event_generator_name
+    end
+
+    # Custom attribute writer method with validation
+    # @param region [Object] Object to be assigned
+    # @!visibility private
+    def region=(region)
+      if region.nil?
+        fail ArgumentError, 'invalid value for "region", region cannot be nil.'
+      end
+      @region = region
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -141,9 +150,9 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          attributes == o.attributes &&
-          id == o.id &&
-          type == o.type &&
+          account_id == o.account_id &&
+          event_generator_name == o.event_generator_name &&
+          region == o.region &&
           additional_properties == o.additional_properties
     end
 
@@ -151,7 +160,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, id, type, additional_properties].hash
+      [account_id, event_generator_name, region, additional_properties].hash
     end
   end
 end
