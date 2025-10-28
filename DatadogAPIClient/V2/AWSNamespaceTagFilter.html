@@ -6,7 +6,7 @@
 <title>
   Class: DatadogAPIClient::V2::AWSNamespaceTagFilter
   
-    &mdash; datadog-api-client 2.30.0.dev.1 documentation
+    &mdash; datadog-api-client 2.44.0 documentation
   
 </title>
 
@@ -99,7 +99,9 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/datadog_api_client/v2/models/aws_namespace_tag_filter.rb</dd>
+    <dd>lib/datadog_api_client/v2/models/aws_namespace_tag_filter.rb<span class="defines">,<br />
+  lib/datadog_api_client/v2/models/aws_namespace_tag_filter.rb</span>
+</dd>
   </dl>
   
 </div>
@@ -107,10 +109,12 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     <p>AWS Metrics Collection tag filters list. Defaults to <code>[]</code>.
-The array of custom AWS resource tags (in the form <code>key:value</code>) defines a filter that Datadog uses when collecting metrics from a specified service.
-Wildcards, such as <code>?</code> (match a single character) and <code>*</code> (match multiple characters), and exclusion using <code>!</code> before the tag are supported.
-For EC2, only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored.
-For example, <code>env:production,instance-type:c?.*,!region:us-east-1</code>.</p>
+The array of custom AWS resource tags (in the form <code>key:value</code>) defines a filter that Datadog uses
+when collecting metrics from a specified service.
+Wildcards, such as <code>?</code> (match a single character) and <code>*</code> (match multiple characters),
+and exclusion using <code>!</code> before the tag are supported.
+For EC2, only hosts that match one of the defined tags are imported into Datadog.
+The rest are ignored. For example, <code>env:production,instance-type:c?.*,!region:us-east-1</code>.</p>
 
 
   </div>
@@ -355,7 +359,7 @@ For example, <code>env:production,instance-type:c?.*,!region:us-east-1</code>.</
 </div>
 
       <div id="footer">
-  Generated on Tue Feb 18 21:07:29 2025 by
+  Generated on Tue Oct 28 15:31:59 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>
