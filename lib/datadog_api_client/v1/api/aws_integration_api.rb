@@ -33,7 +33,7 @@ module DatadogAPIClient::V1
 
     # Create an AWS integration.
     #
-    # "**This endpoint is deprecated - use the V2 endpoints instead.** Create a Datadog-Amazon Web Services integration.
+    # **This endpoint is deprecated - use the V2 endpoints instead.** Create a Datadog-Amazon Web Services integration.
     # Using the `POST` method updates your integration configuration
     # by adding your new configuration to the existing one in your Datadog organization.
     # A unique AWS Account ID for role based authentication.
@@ -106,7 +106,7 @@ module DatadogAPIClient::V1
 
     # Create an Amazon EventBridge source.
     #
-    # Create an Amazon EventBridge source.
+    # **This endpoint is deprecated - use the V2 endpoints instead.** Create an Amazon EventBridge source.
     #
     # @deprecated This API is deprecated.
     #
@@ -386,7 +386,7 @@ module DatadogAPIClient::V1
 
     # Delete an Amazon EventBridge source.
     #
-    # Delete an Amazon EventBridge source.
+    # **This endpoint is deprecated - use the V2 endpoints instead.** Delete an Amazon EventBridge source.
     #
     # @deprecated This API is deprecated.
     #
@@ -658,7 +658,7 @@ module DatadogAPIClient::V1
 
     # Get all Amazon EventBridge sources.
     #
-    # Get all Amazon EventBridge sources.
+    # **This endpoint is deprecated - use the V2 endpoints instead.** Get all Amazon EventBridge sources.
     #
     # @deprecated This API is deprecated.
     #
