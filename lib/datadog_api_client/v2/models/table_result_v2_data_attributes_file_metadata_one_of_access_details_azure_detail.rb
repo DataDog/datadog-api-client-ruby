@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `TableResultV2DataAttributesFileMetadataOneOfAccessDetailsAzureDetail` object.
+  # The definition of the Azure access details object.
   class TableResultV2DataAttributesFileMetadataOneOfAccessDetailsAzureDetail
     include BaseGenericModel
 

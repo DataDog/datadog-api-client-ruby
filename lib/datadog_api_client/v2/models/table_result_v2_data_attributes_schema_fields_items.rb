@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `TableResultV2DataAttributesSchemaFieldsItems` object.
+  # The definition of a schema field object.
   class TableResultV2DataAttributesSchemaFieldsItems
     include BaseGenericModel
 

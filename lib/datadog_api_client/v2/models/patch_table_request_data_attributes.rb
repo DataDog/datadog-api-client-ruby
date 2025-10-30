@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `PatchTableRequestDataAttributes` object.
+  # The definition of the reference table attributes object.
   class PatchTableRequestDataAttributes
     include BaseGenericModel
 
     # The description of the reference table.
     attr_accessor :description
 
-    # The definition of `PatchTableRequestDataAttributesFileMetadata` object.
+    # The definition of the file metadata object.
     attr_accessor :file_metadata
 
-    # The definition of `PatchTableRequestDataAttributesSchema` object.
+    # The definition of the schema object.
     attr_accessor :schema
 
     # Whether this table is synced automatically.

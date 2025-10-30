@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class TableResultV2DataAttributesFileMetadataCloudStorage
     include BaseGenericModel
 
-    # The definition of `TableResultV2DataAttributesFileMetadataOneOfAccessDetails` object.
+    # The definition of the access details object.
     attr_accessor :access_details
 
     # The error message returned from the sync.

@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsAwsDetail` object.
+  # The definition of the AWS access details object.
   class CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsAwsDetail
     include BaseGenericModel
 

@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAwsDetail` object.
+  # The definition of the AWS access details object.
   class PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAwsDetail
     include BaseGenericModel
 

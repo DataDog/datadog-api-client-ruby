@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail` object.
+  # The definition of the Azure access details object.
   class PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail
     include BaseGenericModel
 

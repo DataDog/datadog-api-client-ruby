@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `CreateUploadRequestDataAttributes` object.
+  # The definition of the upload attributes object.
   class CreateUploadRequestDataAttributes
     include BaseGenericModel
 
-    # The headers of the file to upload.
+    # The headers of the CSV file to upload to be used as the schema fields, provided in the same order as the columns in the CSV file.
     attr_reader :headers
 
     # The number of parts in the upload.
