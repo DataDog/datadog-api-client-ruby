@@ -566,6 +566,8 @@
 
 <p><strong>Note:</strong> To utilize this endpoint with our client libraries, please ensure you are using the latest version released on or after July 1, 2025. Earlier versions do not support this functionality.</p>
 
+<p><strong>Important:</strong> Upgrade to the latest client library version to use the updated endpoint at <code>https://event-management-intake.{site}/api/v2/events</code>. Older client library versions of the Post an event (v2) API send requests to a deprecated endpoint (<code>https://api.{site}/api/v2/events</code>).</p>
+
 <p>✅ <strong>Only events with the <code>change</code> or <code>alert</code> category</strong> are in General Availability. For change events, see <a href="https://docs.datadoghq.com/change_tracking">Change Tracking</a> for more details.</p>
 
 <p>❌ For use cases involving other event categories, use the V1 endpoint or reach out to <a href="https://www.datadoghq.com/support/">support</a>.</p>
@@ -780,13 +782,13 @@
       <pre class="lines">
 
 
-104
-105
 106
-107</pre>
+107
+108
+109</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/events_api.rb', line 104</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/events_api.rb', line 106</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_event'>get_event</span><span class='lparen'>(</span><span class='id identifier rubyid_event_id'>event_id</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_get_event_with_http_info'>get_event_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_event_id'>event_id</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -877,8 +879,6 @@
       <pre class="lines">
 
 
-116
-117
 118
 119
 120
@@ -925,10 +925,12 @@
 161
 162
 163
-164</pre>
+164
+165
+166</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/events_api.rb', line 116</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/events_api.rb', line 118</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_event_with_http_info'>get_event_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_event_id'>event_id</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -1712,7 +1714,7 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Oct 29 17:48:39 2025 by
+  Generated on Thu Oct 30 19:08:52 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>
