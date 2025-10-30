@@ -33,5 +33,6 @@ module DatadogAPIClient::V1
     CI_PIPELINES = "ci_pipelines".freeze
     INCIDENT_ANALYTICS = "incident_analytics".freeze
     PRODUCT_ANALYTICS = "product_analytics".freeze
+    ON_CALL_EVENTS = "on_call_events".freeze
   end
 end
