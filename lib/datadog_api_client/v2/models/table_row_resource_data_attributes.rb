@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `TableRowResourceDataAttributes` object.
+  # The definition of the row attributes object.
   class TableRowResourceDataAttributes
     include BaseGenericModel
 

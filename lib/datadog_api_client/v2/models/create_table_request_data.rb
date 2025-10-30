@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `CreateTableRequestData` object.
+  # The definition of the reference table request data object.
   class CreateTableRequestData
     include BaseGenericModel
 
-    # The definition of `CreateTableRequestDataAttributes` object.
+    # The definition of the reference table attributes object.
     attr_accessor :attributes
 
     # The ID of the reference table.

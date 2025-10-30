@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `CreateUploadResponse` object.
+  # The definition of the upload response object.
   class CreateUploadResponse
     include BaseGenericModel
 
-    # The definition of `CreateUploadResponseData` object.
+    # The definition of the upload response data object.
     attr_accessor :data
 
     attr_accessor :additional_properties

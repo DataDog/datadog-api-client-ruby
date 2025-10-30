@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `TableRowResourceArray` object.
+  # The definition of the table row resource array object.
   class TableRowResourceArray
     include BaseGenericModel
 

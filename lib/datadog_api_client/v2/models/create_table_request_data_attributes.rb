@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `CreateTableRequestDataAttributes` object.
+  # The definition of the reference table attributes object.
   class CreateTableRequestDataAttributes
     include BaseGenericModel
 
     # The description of the reference table.
     attr_accessor :description
 
-    # The definition of `CreateTableRequestDataAttributesFileMetadata` object.
+    # The definition of the file metadata object.
     attr_accessor :file_metadata
 
-    # The definition of `CreateTableRequestDataAttributesSchema` object.
+    # The definition of the schema object.
     attr_reader :schema
 
     # The source type for creating reference table data. Only these source types can be created through this API.

@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `CreateTableRequestDataAttributesFileMetadata` object.
+  # The definition of the file metadata object.
   module CreateTableRequestDataAttributesFileMetadata
     class << self
       include BaseOneOfModel

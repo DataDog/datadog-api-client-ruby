@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsGcpDetail` object.
+  # The definition of the GCP access details object.
   class CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsGcpDetail
     include BaseGenericModel
 

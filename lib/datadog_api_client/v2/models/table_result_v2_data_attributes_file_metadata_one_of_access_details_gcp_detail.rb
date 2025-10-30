@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `TableResultV2DataAttributesFileMetadataOneOfAccessDetailsGcpDetail` object.
+  # The definition of the GCP access details object.
   class TableResultV2DataAttributesFileMetadataOneOfAccessDetailsGcpDetail
     include BaseGenericModel
 

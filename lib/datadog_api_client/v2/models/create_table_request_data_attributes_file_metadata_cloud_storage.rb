@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class CreateTableRequestDataAttributesFileMetadataCloudStorage
     include BaseGenericModel
 
-    # The definition of `CreateTableRequestDataAttributesFileMetadataOneOfAccessDetails` object.
+    # The definition of the access details object.
     attr_reader :access_details
 
     # Whether this table is synced automatically.

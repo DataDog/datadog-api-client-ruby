@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `PatchTableRequestDataAttributesSchemaFieldsItems` object.
+  # The definition of a schema field object.
   class PatchTableRequestDataAttributesSchemaFieldsItems
     include BaseGenericModel
 

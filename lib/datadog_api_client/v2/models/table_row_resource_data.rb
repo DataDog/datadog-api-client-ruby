@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `TableRowResourceData` object.
+  # The definition of the table row resource data object.
   class TableRowResourceData
     include BaseGenericModel
 
-    # The definition of `TableRowResourceDataAttributes` object.
+    # The definition of the row attributes object.
     attr_accessor :attributes
 
     # The ID of the row.

@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `TableResultV2` object.
+  # The definition of a reference table object.
   class TableResultV2
     include BaseGenericModel
 
-    # The definition of `TableResultV2Data` object.
+    # The definition of the table result data object.
     attr_accessor :data
 
     attr_accessor :additional_properties

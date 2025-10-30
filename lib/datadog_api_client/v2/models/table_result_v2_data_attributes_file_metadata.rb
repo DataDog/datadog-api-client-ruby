@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `TableResultV2DataAttributesFileMetadata` object.
+  # The definition of the file metadata object.
   module TableResultV2DataAttributesFileMetadata
     class << self
       include BaseOneOfModel
