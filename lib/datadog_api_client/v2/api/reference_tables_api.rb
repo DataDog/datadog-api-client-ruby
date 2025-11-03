@@ -372,8 +372,8 @@ module DatadogAPIClient::V2
     # List all reference tables in this organization.
     #
     # @param opts [Hash] the optional parameters
-    # @option opts [Integer] :limit Number of tables to return.
-    # @option opts [Integer] :offset Number of tables to skip for pagination.
+    # @option opts [Integer] :page_limit Number of tables to return.
+    # @option opts [Integer] :page_offset Number of tables to skip for pagination.
     # @option opts [ReferenceTableSortType] :sort Sort field and direction. Use field name for ascending, prefix with "-" for descending.
     # @option opts [String] :filter_status Filter by table status.
     # @option opts [String] :filter_table_name_exact Filter by exact table name match.
@@ -384,14 +384,14 @@ module DatadogAPIClient::V2
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ReferenceTablesAPI.list_tables ...'
       end
-      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling ReferenceTablesAPI.list_tables, must be smaller than or equal to 100.'
+      if @api_client.config.client_side_validation && !opts[:'page_limit'].nil? && opts[:'page_limit'] > 100
+        fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling ReferenceTablesAPI.list_tables, must be smaller than or equal to 100.'
       end
-      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling ReferenceTablesAPI.list_tables, must be greater than or equal to 1.'
+      if @api_client.config.client_side_validation && !opts[:'page_limit'].nil? && opts[:'page_limit'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling ReferenceTablesAPI.list_tables, must be greater than or equal to 1.'
       end
-      if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling ReferenceTablesAPI.list_tables, must be greater than or equal to 0.'
+      if @api_client.config.client_side_validation && !opts[:'page_offset'].nil? && opts[:'page_offset'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"page_offset"]" when calling ReferenceTablesAPI.list_tables, must be greater than or equal to 0.'
       end
       allowable_values = ['updated_at', 'table_name', 'status', '-updated_at', '-table_name', '-status']
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
@@ -402,8 +402,8 @@ module DatadogAPIClient::V2
 
       # query parameters
       query_params = opts[:query_params] || {}
-      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
-      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'page[limit]'] = opts[:'page_limit'] if !opts[:'page_limit'].nil?
+      query_params[:'page[offset]'] = opts[:'page_offset'] if !opts[:'page_offset'].nil?
       query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
       query_params[:'filter[status]'] = opts[:'filter_status'] if !opts[:'filter_status'].nil?
       query_params[:'filter[table_name][exact]'] = opts[:'filter_table_name_exact'] if !opts[:'filter_table_name_exact'].nil?
