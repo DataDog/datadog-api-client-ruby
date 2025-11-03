@@ -2648,8 +2648,8 @@ ScenariosModelMappings = {
             "page_cursor" => "String",
     },
     "v2.ListTables" => {
-            "limit" => "Integer",
-            "offset" => "Integer",
+            "page_limit" => "Integer",
+            "page_offset" => "Integer",
             "sort" => "ReferenceTableSortType",
             "filter_status" => "String",
             "filter_table_name_exact" => "String",
