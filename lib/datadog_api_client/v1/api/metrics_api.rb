@@ -168,12 +168,17 @@ module DatadogAPIClient::V1
 
     # Search metrics.
     #
+    # **Note**: This endpoint is deprecated. Use `/api/v2/metrics` instead.
+    #
     # Search for metrics from the last 24 hours in Datadog.
+    #
+    # @deprecated This API is deprecated.
     #
     # @param q [String] Query string to search metrics upon. Can optionally be prefixed with `metrics:`.
     # @param opts [Hash] the optional parameters
     # @return [Array<(MetricSearchResponse, Integer, Hash)>] MetricSearchResponse data, response status code and response headers
     def list_metrics_with_http_info(q, opts = {})
+      warn "[DEPRECATION] `ListMetrics` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MetricsAPI.list_metrics ...'
