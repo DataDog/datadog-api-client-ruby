@@ -2647,6 +2647,39 @@ ScenariosModelMappings = {
             "page_limit" => "Integer",
             "page_cursor" => "String",
     },
+    "v2.GetAccountFacetInfo" => {
+            "body" => "FacetInfoRequest",
+    },
+    "v2.QueryAccounts" => {
+            "body" => "QueryAccountRequest",
+    },
+    "v2.QueryEventFilteredUsers" => {
+            "body" => "QueryEventFilteredUsersRequest",
+    },
+    "v2.GetUserFacetInfo" => {
+            "body" => "FacetInfoRequest",
+    },
+    "v2.QueryUsers" => {
+            "body" => "QueryUsersRequest",
+    },
+    "v2.GetMapping" => {
+            "entity" => "String",
+    },
+    "v2.CreateConnection" => {
+            "entity" => "String",
+            "body" => "CreateConnectionRequest",
+    },
+    "v2.UpdateConnection" => {
+            "entity" => "String",
+            "body" => "UpdateConnectionRequest",
+    },
+    "v2.DeleteConnection" => {
+            "id" => "String",
+            "entity" => "String",
+    },
+    "v2.ListConnections" => {
+            "entity" => "String",
+    },
     "v2.ListTables" => {
             "page_limit" => "Integer",
             "page_offset" => "Integer",
