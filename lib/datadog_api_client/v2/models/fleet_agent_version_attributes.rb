@@ -17,15 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Response containing a single deployment.
-  class FleetDeploymentResponse
+  # 
+  class FleetAgentVersionAttributes
     include BaseGenericModel
 
-    # A deployment that defines automated configuration changes for a fleet of hosts.
-    attr_accessor :data
-
-    # Metadata for a single deployment response, including pagination information for hosts.
-    attr_accessor :meta
+    # The Agent version string.
+    attr_accessor :version
 
     attr_accessor :additional_properties
 
@@ -33,8 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data',
-        :'meta' => :'meta'
+        :'version' => :'version'
       }
     end
 
@@ -42,8 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'FleetDeployment',
-        :'meta' => :'FleetDeploymentResponseMeta'
+        :'version' => :'String'
       }
     end
 
@@ -52,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::FleetDeploymentResponse` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::FleetAgentVersionAttributes` initialize method"
       end
 
       self.additional_properties = {}
@@ -65,12 +60,8 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'data')
-        self.data = attributes[:'data']
-      end
-
-      if attributes.key?(:'meta')
-        self.meta = attributes[:'meta']
+      if attributes.key?(:'version')
+        self.version = attributes[:'version']
       end
     end
 
@@ -100,8 +91,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data &&
-          meta == o.meta &&
+          version == o.version &&
           additional_properties == o.additional_properties
     end
 
@@ -109,7 +99,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, meta, additional_properties].hash
+      [version, additional_properties].hash
     end
   end
 end

@@ -33,9 +33,14 @@ module DatadogAPIClient::V2
 
     # Cancel a deployment.
     #
-    # Cancel this deployment and stop all associated operations.
-    # If a workflow is currently running for this deployment, it is canceled immediately.
-    # Changes already applied to hosts are not rolled back.
+    # Cancel an active deployment and stop all pending operations.
+    # When you cancel a deployment:
+    # - All pending operations on hosts that haven't started yet are stopped
+    # - Operations currently in progress on hosts may complete or be interrupted, depending on their current state
+    # - Configuration changes or package upgrades already applied to hosts are not rolled back
+    #
+    # After cancellation, you can view the final state of the deployment using the GET endpoint to see which hosts
+    # were successfully updated before the cancellation.
     #
     # @param deployment_id [String] The unique identifier of the deployment to cancel.
     # @param opts [Hash] the optional parameters
@@ -96,7 +101,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Create a deployment.
+    # Create a configuration deployment.
     #
     # @see #create_fleet_deployment_configure_with_http_info
     def create_fleet_deployment_configure(body, opts = {})
@@ -104,10 +109,19 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Create a deployment.
+    # Create a configuration deployment.
     #
     # Create a new deployment to apply configuration changes
     # to a fleet of hosts matching the specified filter query.
+    #
+    # This endpoint supports two types of configuration operations:
+    # - `merge-patch`: Merges the provided patch data with the existing configuration file,
+    #   creating the file if it doesn't exist
+    # - `delete`: Removes the specified configuration file from the target hosts
+    #
+    # The deployment is created and started automatically. You can specify multiple configuration
+    # operations that will be executed in order on each target host. Use the filter query to target
+    # specific hosts using the Datadog query syntax.
     #
     # @param body [FleetDeploymentConfigureCreateRequest] Request payload containing the deployment details.
     # @param opts [Hash] the optional parameters
@@ -170,7 +184,250 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Get a deployment by ID.
+    # Upgrade hosts.
+    #
+    # @see #create_fleet_deployment_upgrade_with_http_info
+    def create_fleet_deployment_upgrade(body, opts = {})
+      data, _status_code, _headers = create_fleet_deployment_upgrade_with_http_info(body, opts)
+      data
+    end
+
+    # Upgrade hosts.
+    #
+    # Create and immediately start a new package upgrade
+    # on hosts matching the specified filter query.
+    #
+    # This endpoint allows you to upgrade the Datadog Agent to a specific version
+    # on hosts matching the specified filter query.
+    #
+    # The deployment is created and started automatically. The system will:
+    # 1. Identify all hosts matching the filter query
+    # 2. Validate that the specified version is available
+    # 3. Begin rolling out the package upgrade to the target hosts
+    #
+    # @param body [FleetDeploymentPackageUpgradeCreateRequest] Request payload containing the package upgrade details.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(FleetDeploymentResponse, Integer, Hash)>] FleetDeploymentResponse data, response status code and response headers
+    def create_fleet_deployment_upgrade_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_fleet_deployment_upgrade".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_fleet_deployment_upgrade")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_fleet_deployment_upgrade"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FleetAutomationAPI.create_fleet_deployment_upgrade ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling FleetAutomationAPI.create_fleet_deployment_upgrade"
+      end
+      # resource path
+      local_var_path = '/api/unstable/fleet/deployments/upgrade'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'FleetDeploymentResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :create_fleet_deployment_upgrade,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FleetAutomationAPI#create_fleet_deployment_upgrade\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create a schedule.
+    #
+    # @see #create_fleet_schedule_with_http_info
+    def create_fleet_schedule(body, opts = {})
+      data, _status_code, _headers = create_fleet_schedule_with_http_info(body, opts)
+      data
+    end
+
+    # Create a schedule.
+    #
+    # Create a new schedule for automated package upgrades.
+    #
+    # Schedules define when and how often to automatically deploy package upgrades to a fleet
+    # of hosts. Each schedule includes:
+    # - A filter query to select target hosts
+    # - A recurrence rule defining maintenance windows
+    # - A version strategy (e.g., always latest, or N versions behind latest)
+    #
+    # When the schedule triggers during a maintenance window, it automatically creates a
+    # deployment that upgrades the Datadog Agent to the specified version on all matching hosts.
+    #
+    # @param body [FleetScheduleCreateRequest] Request payload containing the schedule details.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(FleetScheduleResponse, Integer, Hash)>] FleetScheduleResponse data, response status code and response headers
+    def create_fleet_schedule_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_fleet_schedule".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_fleet_schedule")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_fleet_schedule"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FleetAutomationAPI.create_fleet_schedule ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling FleetAutomationAPI.create_fleet_schedule"
+      end
+      # resource path
+      local_var_path = '/api/unstable/fleet/schedules'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'FleetScheduleResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :create_fleet_schedule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FleetAutomationAPI#create_fleet_schedule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete a schedule.
+    #
+    # @see #delete_fleet_schedule_with_http_info
+    def delete_fleet_schedule(id, opts = {})
+      delete_fleet_schedule_with_http_info(id, opts)
+      nil
+    end
+
+    # Delete a schedule.
+    #
+    # Delete a schedule permanently.
+    #
+    # When you delete a schedule:
+    # - The schedule is permanently removed and will no longer create deployments
+    # - Any deployments already created by this schedule are not affected
+    # - This action cannot be undone
+    #
+    # If you want to temporarily stop a schedule from creating deployments, consider
+    # updating its status to "inactive" instead of deleting it.
+    #
+    # @param id [String] The unique identifier of the schedule to delete.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_fleet_schedule_with_http_info(id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.delete_fleet_schedule".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_fleet_schedule")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_fleet_schedule"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FleetAutomationAPI.delete_fleet_schedule ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling FleetAutomationAPI.delete_fleet_schedule"
+      end
+      # resource path
+      local_var_path = '/api/unstable/fleet/schedules/{id}'.sub('{id}', CGI.escape(id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :delete_fleet_schedule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FleetAutomationAPI#delete_fleet_schedule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get a configuration deployment by ID.
     #
     # @see #get_fleet_deployment_with_http_info
     def get_fleet_deployment(deployment_id, opts = {})
@@ -178,12 +435,33 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Get a deployment by ID.
+    # Get a configuration deployment by ID.
     #
-    # Retrieve the details of a specific deployment using its unique identifier.
+    # Retrieve detailed information about a specific deployment using its unique identifier.
+    # This endpoint returns comprehensive information about a deployment, including:
+    # - Deployment metadata (ID, type, filter query)
+    # - Total number of target hosts
+    # - Current high-level status (pending, running, succeeded, failed)
+    # - Estimated completion time
+    # - Configuration operations that were or are being applied
+    # - Detailed host list: A paginated array of hosts included in this deployment with individual
+    #   host status, current package versions, and any errors
+    #
+    # The host list provides visibility into the per-host execution status, allowing you to:
+    # - Monitor which hosts have completed successfully
+    # - Identify hosts that are still in progress
+    # - Investigate failures on specific hosts
+    # - View current package versions installed on each host (including initial, target, and current
+    #   versions for each package)
+    #
+    # Pagination: Use the `limit` and `page` query parameters to paginate through hosts. The response
+    # includes pagination metadata in the `meta.hosts` field with information about the current page,
+    # total pages, and total host count. The default page size is 50 hosts, with a maximum of 100.
     #
     # @param deployment_id [String] The unique identifier of the deployment to retrieve.
     # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :limit Maximum number of hosts to return per page. Default is 50, maximum is 100.
+    # @option opts [Integer] :page Page index for pagination (zero-based). Use this to retrieve subsequent pages of hosts.
     # @return [Array<(FleetDeploymentResponse, Integer, Hash)>] FleetDeploymentResponse data, response status code and response headers
     def get_fleet_deployment_with_http_info(deployment_id, opts = {})
       unstable_enabled = @api_client.config.unstable_operations["v2.get_fleet_deployment".to_sym]
@@ -200,11 +478,16 @@ module DatadogAPIClient::V2
       if @api_client.config.client_side_validation && deployment_id.nil?
         fail ArgumentError, "Missing the required parameter 'deployment_id' when calling FleetAutomationAPI.get_fleet_deployment"
       end
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling FleetAutomationAPI.get_fleet_deployment, must be smaller than or equal to 100.'
+      end
       # resource path
       local_var_path = '/api/unstable/fleet/deployments/{deployment_id}'.sub('{deployment_id}', CGI.escape(deployment_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -237,6 +520,154 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: FleetAutomationAPI#get_fleet_deployment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get a schedule by ID.
+    #
+    # @see #get_fleet_schedule_with_http_info
+    def get_fleet_schedule(id, opts = {})
+      data, _status_code, _headers = get_fleet_schedule_with_http_info(id, opts)
+      data
+    end
+
+    # Get a schedule by ID.
+    #
+    # Retrieve detailed information about a specific schedule using its unique identifier.
+    #
+    # This endpoint returns comprehensive information about a schedule, including:
+    # - Schedule metadata (ID, name, creation/update timestamps)
+    # - Filter query for selecting target hosts
+    # - Recurrence rule defining when deployments are triggered
+    # - Version strategy for package upgrades
+    # - Current status (active or inactive)
+    #
+    # @param id [String] The unique identifier of the schedule to retrieve.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(FleetScheduleResponse, Integer, Hash)>] FleetScheduleResponse data, response status code and response headers
+    def get_fleet_schedule_with_http_info(id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_fleet_schedule".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_fleet_schedule")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_fleet_schedule"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FleetAutomationAPI.get_fleet_schedule ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling FleetAutomationAPI.get_fleet_schedule"
+      end
+      # resource path
+      local_var_path = '/api/unstable/fleet/schedules/{id}'.sub('{id}', CGI.escape(id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'FleetScheduleResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_fleet_schedule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FleetAutomationAPI#get_fleet_schedule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List all available Agent versions.
+    #
+    # @see #list_fleet_agent_versions_with_http_info
+    def list_fleet_agent_versions(opts = {})
+      data, _status_code, _headers = list_fleet_agent_versions_with_http_info(opts)
+      data
+    end
+
+    # List all available Agent versions.
+    #
+    # Retrieve a list of all available Datadog Agent versions.
+    #
+    # This endpoint returns the available Agent versions that can be deployed to your fleet.
+    # These versions are used when creating deployments or configuring schedules for
+    # automated Agent upgrades.
+    #
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(FleetAgentVersionsResponse, Integer, Hash)>] FleetAgentVersionsResponse data, response status code and response headers
+    def list_fleet_agent_versions_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_fleet_agent_versions".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_fleet_agent_versions")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_fleet_agent_versions"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FleetAutomationAPI.list_fleet_agent_versions ...'
+      end
+      # resource path
+      local_var_path = '/api/unstable/fleet/agents'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'FleetAgentVersionsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :list_fleet_agent_versions,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FleetAutomationAPI#list_fleet_agent_versions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -311,6 +742,250 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: FleetAutomationAPI#list_fleet_deployments\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List all schedules.
+    #
+    # @see #list_fleet_schedules_with_http_info
+    def list_fleet_schedules(opts = {})
+      data, _status_code, _headers = list_fleet_schedules_with_http_info(opts)
+      data
+    end
+
+    # List all schedules.
+    #
+    # Retrieve a list of all schedules for automated fleet deployments.
+    #
+    # Schedules allow you to automate package upgrades by defining maintenance windows
+    # and recurrence rules. Each schedule automatically creates deployments based on its
+    # configuration.
+    #
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(FleetSchedulesResponse, Integer, Hash)>] FleetSchedulesResponse data, response status code and response headers
+    def list_fleet_schedules_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_fleet_schedules".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_fleet_schedules")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_fleet_schedules"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FleetAutomationAPI.list_fleet_schedules ...'
+      end
+      # resource path
+      local_var_path = '/api/unstable/fleet/schedules'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'FleetSchedulesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :list_fleet_schedules,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FleetAutomationAPI#list_fleet_schedules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Trigger a schedule deployment.
+    #
+    # @see #trigger_fleet_schedule_with_http_info
+    def trigger_fleet_schedule(id, opts = {})
+      data, _status_code, _headers = trigger_fleet_schedule_with_http_info(id, opts)
+      data
+    end
+
+    # Trigger a schedule deployment.
+    #
+    # Manually trigger a schedule to immediately create and start a deployment.
+    #
+    # This endpoint allows you to manually initiate a deployment using the schedule's
+    # configuration, without waiting for the next scheduled maintenance window. This is
+    # useful for:
+    # - Testing a schedule before it runs automatically
+    # - Performing an emergency update outside the regular maintenance window
+    # - Creating an ad-hoc deployment with the same settings as a schedule
+    #
+    # The deployment is created immediately with:
+    # - The same filter query as the schedule
+    # - The package version determined by the schedule's version strategy
+    # - All matching hosts as targets
+    #
+    # The manually triggered deployment is independent of the schedule and does not
+    # affect the schedule's normal recurrence pattern.
+    #
+    # @param id [String] The unique identifier of the schedule to trigger.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(FleetDeploymentResponse, Integer, Hash)>] FleetDeploymentResponse data, response status code and response headers
+    def trigger_fleet_schedule_with_http_info(id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.trigger_fleet_schedule".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.trigger_fleet_schedule")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.trigger_fleet_schedule"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FleetAutomationAPI.trigger_fleet_schedule ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling FleetAutomationAPI.trigger_fleet_schedule"
+      end
+      # resource path
+      local_var_path = '/api/unstable/fleet/schedules/{id}/trigger'.sub('{id}', CGI.escape(id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'FleetDeploymentResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :trigger_fleet_schedule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FleetAutomationAPI#trigger_fleet_schedule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update a schedule.
+    #
+    # @see #update_fleet_schedule_with_http_info
+    def update_fleet_schedule(id, body, opts = {})
+      data, _status_code, _headers = update_fleet_schedule_with_http_info(id, body, opts)
+      data
+    end
+
+    # Update a schedule.
+    #
+    # Partially update a schedule by providing only the fields you want to change.
+    #
+    # This endpoint allows you to modify specific attributes of a schedule without
+    # affecting other fields. Common use cases include:
+    # - Changing the schedule status between active and inactive
+    # - Updating the maintenance window times
+    # - Modifying the filter query to target different hosts
+    # - Adjusting the version strategy
+    #
+    # Only include the fields you want to update in the request body. All fields
+    # are optional in a PATCH request.
+    #
+    # @param id [String] The unique identifier of the schedule to update.
+    # @param body [FleetSchedulePatchRequest] Request payload containing the fields to update.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(FleetScheduleResponse, Integer, Hash)>] FleetScheduleResponse data, response status code and response headers
+    def update_fleet_schedule_with_http_info(id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.update_fleet_schedule".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_fleet_schedule")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_fleet_schedule"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FleetAutomationAPI.update_fleet_schedule ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling FleetAutomationAPI.update_fleet_schedule"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling FleetAutomationAPI.update_fleet_schedule"
+      end
+      # resource path
+      local_var_path = '/api/unstable/fleet/schedules/{id}'.sub('{id}', CGI.escape(id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'FleetScheduleResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :update_fleet_schedule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FleetAutomationAPI#update_fleet_schedule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

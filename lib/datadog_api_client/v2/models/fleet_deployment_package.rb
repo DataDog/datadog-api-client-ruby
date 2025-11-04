@@ -17,15 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Response containing a single deployment.
-  class FleetDeploymentResponse
+  # A package and its target version for deployment.
+  class FleetDeploymentPackage
     include BaseGenericModel
 
-    # A deployment that defines automated configuration changes for a fleet of hosts.
-    attr_accessor :data
+    # The name of the package to deploy.
+    attr_reader :name
 
-    # Metadata for a single deployment response, including pagination information for hosts.
-    attr_accessor :meta
+    # The target version of the package to deploy.
+    attr_reader :version
 
     attr_accessor :additional_properties
 
@@ -33,8 +33,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data',
-        :'meta' => :'meta'
+        :'name' => :'name',
+        :'version' => :'version'
       }
     end
 
@@ -42,8 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'FleetDeployment',
-        :'meta' => :'FleetDeploymentResponseMeta'
+        :'name' => :'String',
+        :'version' => :'String'
       }
     end
 
@@ -52,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::FleetDeploymentResponse` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::FleetDeploymentPackage` initialize method"
       end
 
       self.additional_properties = {}
@@ -65,13 +65,42 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'data')
-        self.data = attributes[:'data']
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
 
-      if attributes.key?(:'meta')
-        self.meta = attributes[:'meta']
+      if attributes.key?(:'version')
+        self.version = attributes[:'version']
       end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @name.nil?
+      return false if @version.nil?
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param name [Object] Object to be assigned
+    # @!visibility private
+    def name=(name)
+      if name.nil?
+        fail ArgumentError, 'invalid value for "name", name cannot be nil.'
+      end
+      @name = name
+    end
+
+    # Custom attribute writer method with validation
+    # @param version [Object] Object to be assigned
+    # @!visibility private
+    def version=(version)
+      if version.nil?
+        fail ArgumentError, 'invalid value for "version", version cannot be nil.'
+      end
+      @version = version
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -100,8 +129,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data &&
-          meta == o.meta &&
+          name == o.name &&
+          version == o.version &&
           additional_properties == o.additional_properties
     end
 
@@ -109,7 +138,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, meta, additional_properties].hash
+      [name, version, additional_properties].hash
     end
   end
 end
