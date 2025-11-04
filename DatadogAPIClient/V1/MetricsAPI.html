@@ -6,7 +6,7 @@
 <title>
   Class: DatadogAPIClient::V1::MetricsAPI
   
-    &mdash; datadog-api-client 2.30.0.dev.1 documentation
+    &mdash; datadog-api-client 2.44.0 documentation
   
 </title>
 
@@ -285,7 +285,7 @@
 </li>
 
       
-        <li class="public ">
+        <li class="public deprecated">
   <span class="summary_signature">
     
       <a href="#list_metrics_with_http_info-instance_method" title="#list_metrics_with_http_info (instance method)">#<strong>list_metrics_with_http_info</strong>(q, opts = {})  &#x21d2; Array&lt;(MetricSearchResponse, Integer, Hash)&gt; </a>
@@ -298,11 +298,11 @@
   
   
   
-  
+  <span class="deprecated note title">deprecated</span>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Search metrics.</p>
+    <span class="summary_desc"><strong>Deprecated.</strong> <div class='inline'><p>This API is deprecated.</p>
 </div></span>
   
 </li>
@@ -1165,7 +1165,11 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Search metrics.</p>
+    <div class="note deprecated"><strong>Deprecated.</strong> <div class='inline'><p>This API is deprecated.</p>
+</div></div>
+<p>Search metrics.</p>
+
+<p><strong>Note</strong>: This endpoint is deprecated. Use <code>/api/v2/metrics</code> instead.</p>
 
 <p>Search for metrics from the last 24 hours in Datadog.</p>
 
@@ -2449,7 +2453,7 @@ compression is applied, which reduces the payload size.</li>
 </div>
 
       <div id="footer">
-  Generated on Tue Feb 18 21:07:09 2025 by
+  Generated on Tue Nov  4 21:44:00 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>
