@@ -24,14 +24,17 @@ module DatadogAPIClient::V2
     # The action to take on tags with matching keys.
     attr_reader :action
 
+    # Whether this processor is enabled.
+    attr_accessor :enabled
+
     # The unique identifier for this component. Used to reference this component in other parts of the pipeline (for example, as the `input` to downstream components).
     attr_reader :id
 
     # A Datadog search query used to determine which logs this processor targets.
     attr_reader :include
 
-    # A list of component IDs whose output is used as the `input` for this component.
-    attr_reader :inputs
+    # A list of component IDs whose output is used as input for this processor. Required when used as a standalone processor, omit when used within a processor group.
+    attr_accessor :inputs
 
     # A list of tag keys.
     attr_reader :keys
@@ -49,6 +52,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'action' => :'action',
+        :'enabled' => :'enabled',
         :'id' => :'id',
         :'include' => :'include',
         :'inputs' => :'inputs',
@@ -63,6 +67,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'action' => :'ObservabilityPipelineDatadogTagsProcessorAction',
+        :'enabled' => :'Boolean',
         :'id' => :'String',
         :'include' => :'String',
         :'inputs' => :'Array<String>',
@@ -92,6 +97,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'action')
         self.action = attributes[:'action']
+      end
+
+      if attributes.key?(:'enabled')
+        self.enabled = attributes[:'enabled']
       end
 
       if attributes.key?(:'id')
@@ -130,7 +139,6 @@ module DatadogAPIClient::V2
       return false if @action.nil?
       return false if @id.nil?
       return false if @include.nil?
-      return false if @inputs.nil?
       return false if @keys.nil?
       return false if @mode.nil?
       return false if @type.nil?
@@ -165,16 +173,6 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "include", include cannot be nil.'
       end
       @include = include
-    end
-
-    # Custom attribute writer method with validation
-    # @param inputs [Object] Object to be assigned
-    # @!visibility private
-    def inputs=(inputs)
-      if inputs.nil?
-        fail ArgumentError, 'invalid value for "inputs", inputs cannot be nil.'
-      end
-      @inputs = inputs
     end
 
     # Custom attribute writer method with validation
@@ -234,6 +232,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           action == o.action &&
+          enabled == o.enabled &&
           id == o.id &&
           include == o.include &&
           inputs == o.inputs &&
@@ -247,7 +246,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [action, id, include, inputs, keys, mode, type, additional_properties].hash
+      [action, enabled, id, include, inputs, keys, mode, type, additional_properties].hash
     end
   end
 end
