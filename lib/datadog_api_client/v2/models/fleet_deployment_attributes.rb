@@ -30,8 +30,17 @@ module DatadogAPIClient::V2
     # Query used to filter and select target hosts for the deployment. Uses the Datadog query syntax.
     attr_accessor :filter_query
 
-    # Current high-level status of the deployment (for example, "pending", "running", "completed", "failed").
+    # Current high-level status of the deployment (for example, "pending", "running",
+    # "completed", "failed").
     attr_accessor :high_level_status
+
+    # Paginated list of hosts in this deployment with their individual statuses. Only included
+    # when fetching a single deployment by ID. Use the `limit` and `page` query parameters to
+    # navigate through pages. Pagination metadata is included in the response `meta.hosts` field.
+    attr_accessor :hosts
+
+    # List of packages to deploy to target hosts. Present only for package upgrade deployments.
+    attr_accessor :packages
 
     # Total number of hosts targeted by this deployment.
     attr_accessor :total_hosts
@@ -46,6 +55,8 @@ module DatadogAPIClient::V2
         :'estimated_end_time_unix' => :'estimated_end_time_unix',
         :'filter_query' => :'filter_query',
         :'high_level_status' => :'high_level_status',
+        :'hosts' => :'hosts',
+        :'packages' => :'packages',
         :'total_hosts' => :'total_hosts'
       }
     end
@@ -58,6 +69,8 @@ module DatadogAPIClient::V2
         :'estimated_end_time_unix' => :'Integer',
         :'filter_query' => :'String',
         :'high_level_status' => :'String',
+        :'hosts' => :'Array<FleetDeploymentHost>',
+        :'packages' => :'Array<FleetDeploymentPackage>',
         :'total_hosts' => :'Integer'
       }
     end
@@ -98,6 +111,18 @@ module DatadogAPIClient::V2
         self.high_level_status = attributes[:'high_level_status']
       end
 
+      if attributes.key?(:'hosts')
+        if (value = attributes[:'hosts']).is_a?(Array)
+          self.hosts = value
+        end
+      end
+
+      if attributes.key?(:'packages')
+        if (value = attributes[:'packages']).is_a?(Array)
+          self.packages = value
+        end
+      end
+
       if attributes.key?(:'total_hosts')
         self.total_hosts = attributes[:'total_hosts']
       end
@@ -133,6 +158,8 @@ module DatadogAPIClient::V2
           estimated_end_time_unix == o.estimated_end_time_unix &&
           filter_query == o.filter_query &&
           high_level_status == o.high_level_status &&
+          hosts == o.hosts &&
+          packages == o.packages &&
           total_hosts == o.total_hosts &&
           additional_properties == o.additional_properties
     end
@@ -141,7 +168,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [config_operations, estimated_end_time_unix, filter_query, high_level_status, total_hosts, additional_properties].hash
+      [config_operations, estimated_end_time_unix, filter_query, high_level_status, hosts, packages, total_hosts, additional_properties].hash
     end
   end
 end

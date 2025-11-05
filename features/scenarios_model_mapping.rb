@@ -845,11 +845,32 @@ ScenariosModelMappings = {
     "v2.CreateFleetDeploymentConfigure" => {
             "body" => "FleetDeploymentConfigureCreateRequest",
     },
+    "v2.CreateFleetDeploymentUpgrade" => {
+            "body" => "FleetDeploymentPackageUpgradeCreateRequest",
+    },
     "v2.GetFleetDeployment" => {
             "deployment_id" => "String",
+            "limit" => "Integer",
+            "page" => "Integer",
     },
     "v2.CancelFleetDeployment" => {
             "deployment_id" => "String",
+    },
+    "v2.CreateFleetSchedule" => {
+            "body" => "FleetScheduleCreateRequest",
+    },
+    "v2.DeleteFleetSchedule" => {
+            "id" => "String",
+    },
+    "v2.GetFleetSchedule" => {
+            "id" => "String",
+    },
+    "v2.UpdateFleetSchedule" => {
+            "id" => "String",
+            "body" => "FleetSchedulePatchRequest",
+    },
+    "v2.TriggerFleetSchedule" => {
+            "id" => "String",
     },
     "v2.CreateDatastore" => {
             "body" => "CreateAppsDatastoreRequest",

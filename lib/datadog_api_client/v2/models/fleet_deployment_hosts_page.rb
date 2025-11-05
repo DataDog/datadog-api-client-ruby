@@ -17,15 +17,21 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Response containing a single deployment.
-  class FleetDeploymentResponse
+  # Pagination details for the list of hosts in a deployment.
+  class FleetDeploymentHostsPage
     include BaseGenericModel
 
-    # A deployment that defines automated configuration changes for a fleet of hosts.
-    attr_accessor :data
+    # Current page index (zero-based).
+    attr_accessor :current_page
 
-    # Metadata for a single deployment response, including pagination information for hosts.
-    attr_accessor :meta
+    # Number of hosts returned per page.
+    attr_accessor :page_size
+
+    # Total number of hosts in this deployment.
+    attr_accessor :total_hosts
+
+    # Total number of pages available.
+    attr_accessor :total_pages
 
     attr_accessor :additional_properties
 
@@ -33,8 +39,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data',
-        :'meta' => :'meta'
+        :'current_page' => :'current_page',
+        :'page_size' => :'page_size',
+        :'total_hosts' => :'total_hosts',
+        :'total_pages' => :'total_pages'
       }
     end
 
@@ -42,8 +50,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'FleetDeployment',
-        :'meta' => :'FleetDeploymentResponseMeta'
+        :'current_page' => :'Integer',
+        :'page_size' => :'Integer',
+        :'total_hosts' => :'Integer',
+        :'total_pages' => :'Integer'
       }
     end
 
@@ -52,7 +62,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::FleetDeploymentResponse` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::FleetDeploymentHostsPage` initialize method"
       end
 
       self.additional_properties = {}
@@ -65,12 +75,20 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'data')
-        self.data = attributes[:'data']
+      if attributes.key?(:'current_page')
+        self.current_page = attributes[:'current_page']
       end
 
-      if attributes.key?(:'meta')
-        self.meta = attributes[:'meta']
+      if attributes.key?(:'page_size')
+        self.page_size = attributes[:'page_size']
+      end
+
+      if attributes.key?(:'total_hosts')
+        self.total_hosts = attributes[:'total_hosts']
+      end
+
+      if attributes.key?(:'total_pages')
+        self.total_pages = attributes[:'total_pages']
       end
     end
 
@@ -100,8 +118,10 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data &&
-          meta == o.meta &&
+          current_page == o.current_page &&
+          page_size == o.page_size &&
+          total_hosts == o.total_hosts &&
+          total_pages == o.total_pages &&
           additional_properties == o.additional_properties
     end
 
@@ -109,7 +129,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, meta, additional_properties].hash
+      [current_page, page_size, total_hosts, total_pages, additional_properties].hash
     end
   end
 end

@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Data for creating a new deployment.
+  # Data for creating a new configuration deployment.
   class FleetDeploymentConfigureCreate
     include BaseGenericModel
 

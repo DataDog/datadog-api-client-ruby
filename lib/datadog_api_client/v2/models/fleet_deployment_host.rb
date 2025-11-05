@@ -17,15 +17,21 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Response containing a single deployment.
-  class FleetDeploymentResponse
+  # A host that is part of a deployment with its current status.
+  class FleetDeploymentHost
     include BaseGenericModel
 
-    # A deployment that defines automated configuration changes for a fleet of hosts.
-    attr_accessor :data
+    # Error message if the deployment failed on this host.
+    attr_accessor :error
 
-    # Metadata for a single deployment response, including pagination information for hosts.
-    attr_accessor :meta
+    # The hostname of the agent.
+    attr_accessor :hostname
+
+    # Current deployment status for this specific host.
+    attr_accessor :status
+
+    # List of packages and their versions currently installed on this host.
+    attr_accessor :versions
 
     attr_accessor :additional_properties
 
@@ -33,8 +39,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data',
-        :'meta' => :'meta'
+        :'error' => :'error',
+        :'hostname' => :'hostname',
+        :'status' => :'status',
+        :'versions' => :'versions'
       }
     end
 
@@ -42,8 +50,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'FleetDeployment',
-        :'meta' => :'FleetDeploymentResponseMeta'
+        :'error' => :'String',
+        :'hostname' => :'String',
+        :'status' => :'String',
+        :'versions' => :'Array<FleetDeploymentHostPackage>'
       }
     end
 
@@ -52,7 +62,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::FleetDeploymentResponse` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::FleetDeploymentHost` initialize method"
       end
 
       self.additional_properties = {}
@@ -65,12 +75,22 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'data')
-        self.data = attributes[:'data']
+      if attributes.key?(:'error')
+        self.error = attributes[:'error']
       end
 
-      if attributes.key?(:'meta')
-        self.meta = attributes[:'meta']
+      if attributes.key?(:'hostname')
+        self.hostname = attributes[:'hostname']
+      end
+
+      if attributes.key?(:'status')
+        self.status = attributes[:'status']
+      end
+
+      if attributes.key?(:'versions')
+        if (value = attributes[:'versions']).is_a?(Array)
+          self.versions = value
+        end
       end
     end
 
@@ -100,8 +120,10 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data &&
-          meta == o.meta &&
+          error == o.error &&
+          hostname == o.hostname &&
+          status == o.status &&
+          versions == o.versions &&
           additional_properties == o.additional_properties
     end
 
@@ -109,7 +131,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, meta, additional_properties].hash
+      [error, hostname, status, versions, additional_properties].hash
     end
   end
 end

@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Request payload for creating a new deployment.
+  # Request payload for creating a new configuration deployment.
   class FleetDeploymentConfigureCreateRequest
     include BaseGenericModel
 
-    # Data for creating a new deployment.
+    # Data for creating a new configuration deployment.
     attr_reader :data
 
     attr_accessor :additional_properties

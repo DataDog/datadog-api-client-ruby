@@ -17,15 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Response containing a single deployment.
-  class FleetDeploymentResponse
+  # Attributes for creating a new package upgrade deployment.
+  class FleetDeploymentPackageUpgradeAttributes
     include BaseGenericModel
 
-    # A deployment that defines automated configuration changes for a fleet of hosts.
-    attr_accessor :data
+    # Query used to filter and select target hosts for the deployment. Uses the Datadog query syntax.
+    attr_accessor :filter_query
 
-    # Metadata for a single deployment response, including pagination information for hosts.
-    attr_accessor :meta
+    # List of packages and their target versions to deploy to the selected hosts.
+    attr_reader :target_packages
 
     attr_accessor :additional_properties
 
@@ -33,8 +33,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data',
-        :'meta' => :'meta'
+        :'filter_query' => :'filter_query',
+        :'target_packages' => :'target_packages'
       }
     end
 
@@ -42,8 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'FleetDeployment',
-        :'meta' => :'FleetDeploymentResponseMeta'
+        :'filter_query' => :'String',
+        :'target_packages' => :'Array<FleetDeploymentPackage>'
       }
     end
 
@@ -52,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::FleetDeploymentResponse` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::FleetDeploymentPackageUpgradeAttributes` initialize method"
       end
 
       self.additional_properties = {}
@@ -65,13 +65,33 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'data')
-        self.data = attributes[:'data']
+      if attributes.key?(:'filter_query')
+        self.filter_query = attributes[:'filter_query']
       end
 
-      if attributes.key?(:'meta')
-        self.meta = attributes[:'meta']
+      if attributes.key?(:'target_packages')
+        if (value = attributes[:'target_packages']).is_a?(Array)
+          self.target_packages = value
+        end
       end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @target_packages.nil?
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param target_packages [Object] Object to be assigned
+    # @!visibility private
+    def target_packages=(target_packages)
+      if target_packages.nil?
+        fail ArgumentError, 'invalid value for "target_packages", target_packages cannot be nil.'
+      end
+      @target_packages = target_packages
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -100,8 +120,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data &&
-          meta == o.meta &&
+          filter_query == o.filter_query &&
+          target_packages == o.target_packages &&
           additional_properties == o.additional_properties
     end
 
@@ -109,7 +129,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, meta, additional_properties].hash
+      [filter_query, target_packages, additional_properties].hash
     end
   end
 end

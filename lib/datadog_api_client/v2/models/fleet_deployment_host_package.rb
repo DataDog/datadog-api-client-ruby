@@ -17,15 +17,22 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Response containing a single deployment.
-  class FleetDeploymentResponse
+  # Package version information for a host, showing the initial version before deployment,
+  # the target version to deploy, and the current version on the host.
+  class FleetDeploymentHostPackage
     include BaseGenericModel
 
-    # A deployment that defines automated configuration changes for a fleet of hosts.
-    attr_accessor :data
+    # The current version of the package on the host.
+    attr_accessor :current_version
 
-    # Metadata for a single deployment response, including pagination information for hosts.
-    attr_accessor :meta
+    # The initial version of the package on the host before the deployment started.
+    attr_accessor :initial_version
+
+    # The name of the package.
+    attr_accessor :package_name
+
+    # The target version that the deployment is attempting to install.
+    attr_accessor :target_version
 
     attr_accessor :additional_properties
 
@@ -33,8 +40,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data',
-        :'meta' => :'meta'
+        :'current_version' => :'current_version',
+        :'initial_version' => :'initial_version',
+        :'package_name' => :'package_name',
+        :'target_version' => :'target_version'
       }
     end
 
@@ -42,8 +51,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'FleetDeployment',
-        :'meta' => :'FleetDeploymentResponseMeta'
+        :'current_version' => :'String',
+        :'initial_version' => :'String',
+        :'package_name' => :'String',
+        :'target_version' => :'String'
       }
     end
 
@@ -52,7 +63,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::FleetDeploymentResponse` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::FleetDeploymentHostPackage` initialize method"
       end
 
       self.additional_properties = {}
@@ -65,12 +76,20 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'data')
-        self.data = attributes[:'data']
+      if attributes.key?(:'current_version')
+        self.current_version = attributes[:'current_version']
       end
 
-      if attributes.key?(:'meta')
-        self.meta = attributes[:'meta']
+      if attributes.key?(:'initial_version')
+        self.initial_version = attributes[:'initial_version']
+      end
+
+      if attributes.key?(:'package_name')
+        self.package_name = attributes[:'package_name']
+      end
+
+      if attributes.key?(:'target_version')
+        self.target_version = attributes[:'target_version']
       end
     end
 
@@ -100,8 +119,10 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data &&
-          meta == o.meta &&
+          current_version == o.current_version &&
+          initial_version == o.initial_version &&
+          package_name == o.package_name &&
+          target_version == o.target_version &&
           additional_properties == o.additional_properties
     end
 
@@ -109,7 +130,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, meta, additional_properties].hash
+      [current_version, initial_version, package_name, target_version, additional_properties].hash
     end
   end
 end
