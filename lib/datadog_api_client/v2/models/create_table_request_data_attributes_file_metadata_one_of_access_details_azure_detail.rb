@@ -17,20 +17,20 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail` object.
+  # Azure Blob Storage access configuration.
   class CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail
     include BaseGenericModel
 
-    # The Azure client ID.
+    # Azure service principal (application) client ID with permissions to read from the container.
     attr_reader :azure_client_id
 
-    # The name of the Azure container.
+    # Azure Blob Storage container containing the CSV file.
     attr_reader :azure_container_name
 
-    # The name of the Azure storage account.
+    # Azure storage account where the container is located.
     attr_reader :azure_storage_account_name
 
-    # The ID of the Azure tenant.
+    # Azure Active Directory tenant ID.
     attr_reader :azure_tenant_id
 
     # The relative file path from the Azure container root to the CSV file.

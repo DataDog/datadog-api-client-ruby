@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `PatchTableRequestDataAttributesFileMetadata` object.
+  # Metadata specifying where and how to access the reference table's data file.
   module PatchTableRequestDataAttributesFileMetadata
     class << self
       include BaseOneOfModel

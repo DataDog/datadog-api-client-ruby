@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `TableResultV2Array` object.
+  # List of reference tables.
   class TableResultV2Array
     include BaseGenericModel
 

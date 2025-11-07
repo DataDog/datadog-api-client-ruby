@@ -33,7 +33,11 @@ module DatadogAPIClient::V2
 
     # Create reference table.
     #
-    # Create a new reference table. You can provide data in two ways: 1) Call POST api/v2/reference-tables/upload first to get an upload ID, then PUT chunks of CSV data to each provided URL, and finally call this POST endpoint with the upload_id in file_metadata, OR 2) Provide access_details in file_metadata pointing to a CSV file in cloud storage (Amazon S3, Azure Blob Storage, or GCP Cloud Storage).
+    # Creates a reference table. You can provide data in two ways:
+    # 1. Call POST /api/v2/reference-tables/upload to get an upload ID. Then, PUT the CSV data
+    #    (not the file itself) in chunks to each URL in the request body. Finally, call this
+    #    POST endpoint with `upload_id` in `file_metadata`.
+    # 2. Provide `access_details` in `file_metadata` pointing to a CSV file in cloud storage.
     #
     # @param body [CreateTableRequest] 
     # @param opts [Hash] the optional parameters
@@ -169,7 +173,7 @@ module DatadogAPIClient::V2
     #
     # Delete a reference table by ID
     #
-    # @param id [String] The ID of the reference table to delete
+    # @param id [String] Unique identifier of the reference table to delete
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_table_with_http_info(id, opts = {})
@@ -234,7 +238,7 @@ module DatadogAPIClient::V2
     #
     # Get reference table rows by their primary key values.
     #
-    # @param id [String] The ID of the reference table
+    # @param id [String] Unique identifier of the reference table to get rows from
     # @param row_id [Array<String>] List of row IDs (primary key values) to retrieve from the reference table.
     # @param opts [Hash] the optional parameters
     # @return [Array<(TableRowResourceArray, Integer, Hash)>] TableRowResourceArray data, response status code and response headers
@@ -306,7 +310,7 @@ module DatadogAPIClient::V2
     #
     # Get a reference table by ID
     #
-    # @param id [String] The ID of the reference table to retrieve
+    # @param id [String] Unique identifier of the reference table to retrieve
     # @param opts [Hash] the optional parameters
     # @return [Array<(TableResultV2, Integer, Hash)>] TableResultV2 data, response status code and response headers
     def get_table_with_http_info(id, opts = {})
@@ -374,7 +378,7 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @option opts [Integer] :page_limit Number of tables to return.
     # @option opts [Integer] :page_offset Number of tables to skip for pagination.
-    # @option opts [ReferenceTableSortType] :sort Sort field and direction. Use field name for ascending, prefix with "-" for descending.
+    # @option opts [ReferenceTableSortType] :sort Sort field and direction for the list of reference tables. Use field name for ascending, prefix with "-" for descending.
     # @option opts [String] :filter_status Filter by table status.
     # @option opts [String] :filter_table_name_exact Filter by exact table name match.
     # @option opts [String] :filter_table_name_contains Filter by table name containing substring.
@@ -456,7 +460,7 @@ module DatadogAPIClient::V2
     #
     # Update a reference table by ID. You can update the table's data, description, and tags. Note: The source type cannot be changed after table creation. For data updates: For existing tables of type `source:LOCAL_FILE`, call POST api/v2/reference-tables/uploads first to get an upload ID, then PUT chunks of CSV data to each provided URL, and finally call this PATCH endpoint with the upload_id in file_metadata. For existing tables with `source:` types of `S3`, `GCS`, or `AZURE`, provide updated access_details in file_metadata pointing to a CSV file in the same type of cloud storage.
     #
-    # @param id [String] The ID of the reference table to update
+    # @param id [String] Unique identifier of the reference table to update
     # @param body [PatchTableRequest] 
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers

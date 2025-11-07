@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAwsDetail` object.
+  # Amazon Web Services S3 storage access configuration.
   class PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAwsDetail
     include BaseGenericModel
 
-    # The ID of the AWS account.
+    # AWS account ID where the S3 bucket is located.
     attr_accessor :aws_account_id
 
-    # The name of the AWS bucket.
+    # S3 bucket containing the CSV file.
     attr_accessor :aws_bucket_name
 
     # The relative file path from the S3 bucket root to the CSV file.

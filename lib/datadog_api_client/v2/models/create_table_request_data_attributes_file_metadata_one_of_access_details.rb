@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `CreateTableRequestDataAttributesFileMetadataOneOfAccessDetails` object.
+  # Cloud storage access configuration for the reference table data file.
   class CreateTableRequestDataAttributesFileMetadataOneOfAccessDetails
     include BaseGenericModel
 
-    # The definition of `CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsAwsDetail` object.
+    # Amazon Web Services S3 storage access configuration.
     attr_accessor :aws_detail
 
-    # The definition of `CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail` object.
+    # Azure Blob Storage access configuration.
     attr_accessor :azure_detail
 
-    # The definition of `CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsGcpDetail` object.
+    # Google Cloud Platform storage access configuration.
     attr_accessor :gcp_detail
 
     attr_accessor :additional_properties

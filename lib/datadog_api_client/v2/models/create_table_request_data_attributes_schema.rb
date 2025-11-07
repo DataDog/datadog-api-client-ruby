@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `CreateTableRequestDataAttributesSchema` object.
+  # Schema defining the structure and columns of the reference table.
   class CreateTableRequestDataAttributesSchema
     include BaseGenericModel
 
-    # The `schema` `fields`.
+    # The schema fields.
     attr_reader :fields
 
     # List of field names that serve as primary keys for the table. Only one primary key is supported, and it is used as an ID to retrieve rows.

@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `PatchTableRequest` object.
+  # Request body for updating an existing reference table.
   class PatchTableRequest
     include BaseGenericModel
 
-    # The definition of `PatchTableRequestData` object.
+    # The data object containing the partial table definition updates.
     attr_accessor :data
 
     attr_accessor :additional_properties

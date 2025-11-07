@@ -21,8 +21,8 @@ module DatadogAPIClient::V2
   class TableResultV2DataAttributesFileMetadataCloudStorage
     include BaseGenericModel
 
-    # The definition of `TableResultV2DataAttributesFileMetadataOneOfAccessDetails` object.
-    attr_accessor :access_details
+    # Cloud storage access configuration for the reference table data file.
+    attr_reader :access_details
 
     # The error message returned from the sync.
     attr_accessor :error_message
@@ -99,6 +99,24 @@ module DatadogAPIClient::V2
       if attributes.key?(:'sync_enabled')
         self.sync_enabled = attributes[:'sync_enabled']
       end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @access_details.nil?
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param access_details [Object] Object to be assigned
+    # @!visibility private
+    def access_details=(access_details)
+      if access_details.nil?
+        fail ArgumentError, 'invalid value for "access_details", access_details cannot be nil.'
+      end
+      @access_details = access_details
     end
 
     # Returns the object in the form of hash, with additionalProperties support.

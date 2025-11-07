@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `CreateUploadResponse` object.
+  # Information about the upload created containing the upload ID and pre-signed URLs to PUT chunks of the CSV file to.
   class CreateUploadResponse
     include BaseGenericModel
 
-    # The definition of `CreateUploadResponseData` object.
+    # Upload ID and attributes of the created upload.
     attr_accessor :data
 
     attr_accessor :additional_properties

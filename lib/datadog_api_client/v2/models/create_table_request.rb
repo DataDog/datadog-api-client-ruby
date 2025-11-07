@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `CreateTableRequest` object.
+  # Request body for creating a new reference table from a local file or cloud storage.
   class CreateTableRequest
     include BaseGenericModel
 
-    # The definition of `CreateTableRequestData` object.
+    # The data object containing the table definition.
     attr_accessor :data
 
     attr_accessor :additional_properties
