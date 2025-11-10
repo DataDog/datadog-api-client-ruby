@@ -37,7 +37,6 @@ body = DatadogAPIClient::V2::PatchTableRequest.new({
         "test_tag",
       ],
     }),
-    id: "00000000-0000-0000-0000-000000000000",
     type: DatadogAPIClient::V2::PatchTableRequestDataType::REFERENCE_TABLE,
   }),
 })

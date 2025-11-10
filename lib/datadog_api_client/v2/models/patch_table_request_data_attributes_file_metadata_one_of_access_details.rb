@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `PatchTableRequestDataAttributesFileMetadataOneOfAccessDetails` object.
+  # Cloud storage access configuration for the reference table data file.
   class PatchTableRequestDataAttributesFileMetadataOneOfAccessDetails
     include BaseGenericModel
 
-    # The definition of `PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAwsDetail` object.
+    # Amazon Web Services S3 storage access configuration.
     attr_accessor :aws_detail
 
-    # The definition of `PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail` object.
+    # Azure Blob Storage access configuration.
     attr_accessor :azure_detail
 
-    # The definition of `PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsGcpDetail` object.
+    # Google Cloud Platform storage access configuration.
     attr_accessor :gcp_detail
 
     attr_accessor :additional_properties

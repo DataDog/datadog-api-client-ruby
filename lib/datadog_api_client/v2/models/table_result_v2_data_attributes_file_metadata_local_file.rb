@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # File metadata for reference tables created by upload.
+  # File metadata for reference tables created by upload. Note that upload_id is only returned in the immediate create/replace response and is not available in subsequent GET requests.
   class TableResultV2DataAttributesFileMetadataLocalFile
     include BaseGenericModel
 
@@ -27,9 +27,6 @@ module DatadogAPIClient::V2
     # The number of rows that failed to create/update.
     attr_accessor :error_row_count
 
-    # The upload ID that was used to create/update the table.
-    attr_accessor :upload_id
-
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -37,8 +34,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'error_message' => :'error_message',
-        :'error_row_count' => :'error_row_count',
-        :'upload_id' => :'upload_id'
+        :'error_row_count' => :'error_row_count'
       }
     end
 
@@ -47,8 +43,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'error_message' => :'String',
-        :'error_row_count' => :'Integer',
-        :'upload_id' => :'String'
+        :'error_row_count' => :'Integer'
       }
     end
 
@@ -76,10 +71,6 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'error_row_count')
         self.error_row_count = attributes[:'error_row_count']
-      end
-
-      if attributes.key?(:'upload_id')
-        self.upload_id = attributes[:'upload_id']
       end
     end
 
@@ -111,7 +102,6 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           error_message == o.error_message &&
           error_row_count == o.error_row_count &&
-          upload_id == o.upload_id &&
           additional_properties == o.additional_properties
     end
 
@@ -119,7 +109,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [error_message, error_row_count, upload_id, additional_properties].hash
+      [error_message, error_row_count, additional_properties].hash
     end
   end
 end

@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `PatchTableRequestDataAttributesSchemaFieldsItems` object.
+  # A single field (column) in the reference table schema to be updated. Schema fields cannot be deleted or renamed.
   class PatchTableRequestDataAttributesSchemaFieldsItems
     include BaseGenericModel
 

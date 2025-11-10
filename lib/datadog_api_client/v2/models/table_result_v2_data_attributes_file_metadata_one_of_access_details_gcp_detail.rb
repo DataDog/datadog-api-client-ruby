@@ -17,20 +17,20 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `TableResultV2DataAttributesFileMetadataOneOfAccessDetailsGcpDetail` object.
+  # Google Cloud Platform storage access configuration.
   class TableResultV2DataAttributesFileMetadataOneOfAccessDetailsGcpDetail
     include BaseGenericModel
 
     # The relative file path from the GCS bucket root to the CSV file.
     attr_accessor :file_path
 
-    # The name of the GCP bucket.
+    # GCP bucket containing the CSV file.
     attr_accessor :gcp_bucket_name
 
-    # The ID of the GCP project.
+    # GCP project ID where the bucket is located.
     attr_accessor :gcp_project_id
 
-    # The email of the GCP service account.
+    # Service account email with read permissions for the GCS bucket.
     attr_accessor :gcp_service_account_email
 
     attr_accessor :additional_properties

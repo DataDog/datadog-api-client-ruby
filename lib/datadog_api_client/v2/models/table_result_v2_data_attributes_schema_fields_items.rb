@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `TableResultV2DataAttributesSchemaFieldsItems` object.
+  # A single field (column) in the reference table schema to be returned.
   class TableResultV2DataAttributesSchemaFieldsItems
     include BaseGenericModel
 

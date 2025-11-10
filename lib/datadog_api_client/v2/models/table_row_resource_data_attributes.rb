@@ -17,14 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `TableRowResourceDataAttributes` object.
+  # Column values for this row in the reference table.
   class TableRowResourceDataAttributes
     include BaseGenericModel
 
-    # The values of the row.
+    # Key-value pairs representing the row data, where keys are field names from the schema.
     attr_accessor :values
-
-    attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -38,7 +36,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'values' => :'Hash<String, Object>'
+        :'values' => :'Object'
       }
     end
 
@@ -50,39 +48,17 @@ module DatadogAPIClient::V2
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TableRowResourceDataAttributes` initialize method"
       end
 
-      self.additional_properties = {}
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          self.additional_properties[k.to_sym] = v
-        else
-          h[k.to_sym] = v
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::TableRowResourceDataAttributes`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
+        h[k.to_sym] = v
       }
 
       if attributes.key?(:'values')
         self.values = attributes[:'values']
       end
-    end
-
-    # Returns the object in the form of hash, with additionalProperties support.
-    # @return [Hash] Returns the object in the form of hash
-    # @!visibility private
-    def to_hash
-      hash = {}
-      self.class.attribute_map.each_pair do |attr, param|
-        value = self.send(attr)
-        if value.nil?
-          is_nullable = self.class.openapi_nullable.include?(attr)
-          next if !is_nullable || (is_nullable && !instance_variable_defined?(:"@#{attr}"))
-        end
-
-        hash[param] = _to_hash(value)
-      end
-      self.additional_properties.each_pair do |attr, value|
-        hash[attr] = value
-      end
-      hash
     end
 
     # Checks equality by comparing each attribute.
@@ -91,15 +67,14 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          values == o.values &&
-          additional_properties == o.additional_properties
+          values == o.values
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [values, additional_properties].hash
+      [values].hash
     end
   end
 end

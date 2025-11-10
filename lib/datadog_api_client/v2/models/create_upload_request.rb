@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `CreateUploadRequest` object.
+  # Request to create an upload for a file to be ingested into a reference table.
   class CreateUploadRequest
     include BaseGenericModel
 
-    # The definition of `CreateUploadRequestData` object.
+    # Request data for creating an upload for a file to be ingested into a reference table.
     attr_accessor :data
 
     attr_accessor :additional_properties

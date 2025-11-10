@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `PatchTableRequestDataAttributesSchema` object.
+  # Schema defining the updates to the structure and columns of the reference table. Schema fields cannot be deleted or renamed.
   class PatchTableRequestDataAttributesSchema
     include BaseGenericModel
 
-    # The `schema` `fields`.
+    # The schema fields.
     attr_reader :fields
 
-    # List of field names that serve as primary keys for the table. Only one primary key is supported, and it is used as an ID to retrieve rows.
+    # List of field names that serve as primary keys for the table. Only one primary key is supported, and it is used as an ID to retrieve rows. Primary keys cannot be changed after table creation.
     attr_reader :primary_keys
 
     attr_accessor :additional_properties

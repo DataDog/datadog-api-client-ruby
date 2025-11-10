@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `CreateUploadResponseDataAttributes` object.
+  # Pre-signed URLs for uploading parts of the file.
   class CreateUploadResponseDataAttributes
     include BaseGenericModel
 
-    # The URLs of the parts in the upload.
+    # The pre-signed URLs for uploading parts. These URLs expire after 5 minutes.
     attr_accessor :part_urls
 
     attr_accessor :additional_properties

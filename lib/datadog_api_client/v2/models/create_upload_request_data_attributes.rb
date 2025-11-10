@@ -17,20 +17,20 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `CreateUploadRequestDataAttributes` object.
+  # Upload configuration specifying how data is uploaded by the user, and properties of the table to associate the upload with.
   class CreateUploadRequestDataAttributes
     include BaseGenericModel
 
-    # The headers of the file to upload.
+    # The CSV file headers that define the schema fields, provided in the same order as the columns in the uploaded file.
     attr_reader :headers
 
-    # The number of parts in the upload.
+    # Number of parts to split the file into for multipart upload.
     attr_reader :part_count
 
-    # The size of each part in the upload in bytes. For multipart uploads (part_count > 1), all parts except the last one must be at least 5,000,000 bytes. For single-part uploads (part_count = 1), any size is allowed.
+    # The size of each part in the upload in bytes. All parts except the last one must be at least 5,000,000 bytes.
     attr_reader :part_size
 
-    # The name of the reference table.
+    # Name of the table to associate with this upload.
     attr_reader :table_name
 
     attr_accessor :additional_properties

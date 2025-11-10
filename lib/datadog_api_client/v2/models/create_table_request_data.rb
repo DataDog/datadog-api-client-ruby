@@ -17,27 +17,21 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `CreateTableRequestData` object.
+  # The data object containing the table definition.
   class CreateTableRequestData
     include BaseGenericModel
 
-    # The definition of `CreateTableRequestDataAttributes` object.
+    # Attributes that define the reference table's configuration and properties.
     attr_accessor :attributes
-
-    # The ID of the reference table.
-    attr_accessor :id
 
     # Reference table resource type.
     attr_reader :type
-
-    attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
         :'attributes' => :'attributes',
-        :'id' => :'id',
         :'type' => :'type'
       }
     end
@@ -47,7 +41,6 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'attributes' => :'CreateTableRequestDataAttributes',
-        :'id' => :'String',
         :'type' => :'CreateTableRequestDataType'
       }
     end
@@ -60,22 +53,16 @@ module DatadogAPIClient::V2
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::CreateTableRequestData` initialize method"
       end
 
-      self.additional_properties = {}
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          self.additional_properties[k.to_sym] = v
-        else
-          h[k.to_sym] = v
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::CreateTableRequestData`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
+        h[k.to_sym] = v
       }
 
       if attributes.key?(:'attributes')
         self.attributes = attributes[:'attributes']
-      end
-
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
       end
 
       if attributes.key?(:'type')
@@ -101,26 +88,6 @@ module DatadogAPIClient::V2
       @type = type
     end
 
-    # Returns the object in the form of hash, with additionalProperties support.
-    # @return [Hash] Returns the object in the form of hash
-    # @!visibility private
-    def to_hash
-      hash = {}
-      self.class.attribute_map.each_pair do |attr, param|
-        value = self.send(attr)
-        if value.nil?
-          is_nullable = self.class.openapi_nullable.include?(attr)
-          next if !is_nullable || (is_nullable && !instance_variable_defined?(:"@#{attr}"))
-        end
-
-        hash[param] = _to_hash(value)
-      end
-      self.additional_properties.each_pair do |attr, value|
-        hash[attr] = value
-      end
-      hash
-    end
-
     # Checks equality by comparing each attribute.
     # @param o [Object] Object to be compared
     # @!visibility private
@@ -128,16 +95,14 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           attributes == o.attributes &&
-          id == o.id &&
-          type == o.type &&
-          additional_properties == o.additional_properties
+          type == o.type
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, id, type, additional_properties].hash
+      [attributes, type].hash
     end
   end
 end
