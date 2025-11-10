@@ -2299,12 +2299,15 @@ module DatadogAPIClient::V2
     #
     # The bulk update endpoint for creating, updating, and deleting attachments for a given incident.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param incident_id [String] The UUID of the incident.
     # @param body [IncidentAttachmentUpdateRequest] Incident Attachment Payload.
     # @param opts [Hash] the optional parameters
     # @option opts [Array<IncidentAttachmentRelatedObject>] :include Specifies which types of related objects are included in the response.
     # @return [Array<(IncidentAttachmentUpdateResponse, Integer, Hash)>] IncidentAttachmentUpdateResponse data, response status code and response headers
     def update_incident_attachments_with_http_info(incident_id, body, opts = {})
+      warn "[DEPRECATION] `UpdateIncidentAttachments` is deprecated."
       unstable_enabled = @api_client.config.unstable_operations["v2.update_incident_attachments".to_sym]
       if unstable_enabled
         @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_incident_attachments")
