@@ -1596,7 +1596,7 @@
 </li>
 
       
-        <li class="public ">
+        <li class="public deprecated">
   <span class="summary_signature">
     
       <a href="#update_incident_attachments_with_http_info-instance_method" title="#update_incident_attachments_with_http_info (instance method)">#<strong>update_incident_attachments_with_http_info</strong>(incident_id, body, opts = {})  &#x21d2; Array&lt;(IncidentAttachmentUpdateResponse, Integer, Hash)&gt; </a>
@@ -1609,11 +1609,11 @@
   
   
   
-  
+  <span class="deprecated note title">deprecated</span>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Create, update, and delete incident attachments.</p>
+    <span class="summary_desc"><strong>Deprecated.</strong> <div class='inline'><p>This API is deprecated.</p>
 </div></span>
   
 </li>
@@ -9982,7 +9982,9 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Create, update, and delete incident attachments.</p>
+    <div class="note deprecated"><strong>Deprecated.</strong> <div class='inline'><p>This API is deprecated.</p>
+</div></div>
+<p>Create, update, and delete incident attachments.</p>
 
 <p>The bulk update endpoint for creating, updating, and deleting attachments for a given incident.</p>
 
@@ -10554,13 +10556,13 @@
       <pre class="lines">
 
 
-2456
-2457
-2458
-2459</pre>
+2459
+2460
+2461
+2462</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/incidents_api.rb', line 2456</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/incidents_api.rb', line 2459</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update_incident_notification_rule'>update_incident_notification_rule</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_update_incident_notification_rule_with_http_info'>update_incident_notification_rule_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -10687,9 +10689,6 @@
       <pre class="lines">
 
 
-2470
-2471
-2472
 2473
 2474
 2475
@@ -10748,10 +10747,13 @@
 2528
 2529
 2530
-2531</pre>
+2531
+2532
+2533
+2534</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/incidents_api.rb', line 2470</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/incidents_api.rb', line 2473</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update_incident_notification_rule_with_http_info'>update_incident_notification_rule_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_unstable_enabled'>unstable_enabled</span> <span class='op'>=</span> <span class='ivar'>@api_client</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_unstable_operations'>unstable_operations</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>v2.update_incident_notification_rule</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='rbracket'>]</span>
@@ -10852,13 +10854,13 @@
       <pre class="lines">
 
 
-2536
-2537
-2538
-2539</pre>
+2539
+2540
+2541
+2542</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/incidents_api.rb', line 2536</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/incidents_api.rb', line 2539</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update_incident_notification_template'>update_incident_notification_template</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_update_incident_notification_template_with_http_info'>update_incident_notification_template_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -10985,9 +10987,6 @@
       <pre class="lines">
 
 
-2550
-2551
-2552
 2553
 2554
 2555
@@ -11046,10 +11045,13 @@
 2608
 2609
 2610
-2611</pre>
+2611
+2612
+2613
+2614</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/incidents_api.rb', line 2550</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/incidents_api.rb', line 2553</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update_incident_notification_template_with_http_info'>update_incident_notification_template_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_unstable_enabled'>unstable_enabled</span> <span class='op'>=</span> <span class='ivar'>@api_client</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_unstable_operations'>unstable_operations</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>v2.update_incident_notification_template</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='rbracket'>]</span>
@@ -11949,7 +11951,7 @@
 </div>
 
       <div id="footer">
-  Generated on Fri Nov  7 19:00:54 2025 by
+  Generated on Mon Nov 10 16:17:19 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>
