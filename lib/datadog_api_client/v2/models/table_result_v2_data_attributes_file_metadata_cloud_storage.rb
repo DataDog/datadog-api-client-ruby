@@ -36,8 +36,6 @@ module DatadogAPIClient::V2
     # Whether this table is synced automatically.
     attr_accessor :sync_enabled
 
-    attr_accessor :additional_properties
-
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
@@ -70,14 +68,12 @@ module DatadogAPIClient::V2
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TableResultV2DataAttributesFileMetadataCloudStorage` initialize method"
       end
 
-      self.additional_properties = {}
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          self.additional_properties[k.to_sym] = v
-        else
-          h[k.to_sym] = v
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::TableResultV2DataAttributesFileMetadataCloudStorage`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
+        h[k.to_sym] = v
       }
 
       if attributes.key?(:'access_details')
@@ -119,26 +115,6 @@ module DatadogAPIClient::V2
       @access_details = access_details
     end
 
-    # Returns the object in the form of hash, with additionalProperties support.
-    # @return [Hash] Returns the object in the form of hash
-    # @!visibility private
-    def to_hash
-      hash = {}
-      self.class.attribute_map.each_pair do |attr, param|
-        value = self.send(attr)
-        if value.nil?
-          is_nullable = self.class.openapi_nullable.include?(attr)
-          next if !is_nullable || (is_nullable && !instance_variable_defined?(:"@#{attr}"))
-        end
-
-        hash[param] = _to_hash(value)
-      end
-      self.additional_properties.each_pair do |attr, value|
-        hash[attr] = value
-      end
-      hash
-    end
-
     # Checks equality by comparing each attribute.
     # @param o [Object] Object to be compared
     # @!visibility private
@@ -149,15 +125,14 @@ module DatadogAPIClient::V2
           error_message == o.error_message &&
           error_row_count == o.error_row_count &&
           error_type == o.error_type &&
-          sync_enabled == o.sync_enabled &&
-          additional_properties == o.additional_properties
+          sync_enabled == o.sync_enabled
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [access_details, error_message, error_row_count, error_type, sync_enabled, additional_properties].hash
+      [access_details, error_message, error_row_count, error_type, sync_enabled].hash
     end
   end
 end
