@@ -106,7 +106,7 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>The definition of <code>CreateUploadRequestDataAttributes</code> object.</p>
+    <p>Upload configuration specifying how data is uploaded by the user, and properties of the table to associate the upload with.</p>
 
 
   </div>
@@ -169,7 +169,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>The headers of the file to upload.</p>
+    <span class="summary_desc"><div class='inline'><p>The CSV file headers that define the schema fields, provided in the same order as the columns in the uploaded file.</p>
 </div></span>
   
 </li>
@@ -197,7 +197,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>The number of parts in the upload.</p>
+    <span class="summary_desc"><div class='inline'><p>Number of parts to split the file into for multipart upload.</p>
 </div></span>
   
 </li>
@@ -253,7 +253,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>The name of the reference table.</p>
+    <span class="summary_desc"><div class='inline'><p>Name of the table to associate with this upload.</p>
 </div></span>
   
 </li>
@@ -334,7 +334,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>The headers of the file to upload.</p>
+    <p>The CSV file headers that define the schema fields, provided in the same order as the columns in the uploaded file.</p>
 
 
   </div>
@@ -376,7 +376,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>The number of parts in the upload.</p>
+    <p>Number of parts to split the file into for multipart upload.</p>
 
 
   </div>
@@ -418,7 +418,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>The size of each part in the upload in bytes. For multipart uploads (part_count &gt; 1), all parts except the last one must be at least 5,000,000 bytes. For single-part uploads (part_count = 1), any size is allowed.</p>
+    <p>The size of each part in the upload in bytes. All parts except the last one must be at least 5,000,000 bytes.</p>
 
 
   </div>
@@ -460,7 +460,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>The name of the reference table.</p>
+    <p>Name of the table to associate with this upload.</p>
 
 
   </div>
@@ -495,7 +495,7 @@
 </div>
 
       <div id="footer">
-  Generated on Mon Nov 10 16:17:39 2025 by
+  Generated on Mon Nov 10 17:14:12 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>

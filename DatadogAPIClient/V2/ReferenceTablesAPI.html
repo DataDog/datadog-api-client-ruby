@@ -673,13 +673,13 @@
       <pre class="lines">
 
 
-96
-97
-98
-99</pre>
+100
+101
+102
+103</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/reference_tables_api.rb', line 96</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/reference_tables_api.rb', line 100</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create_reference_table_upload'>create_reference_table_upload</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_create_reference_table_upload_with_http_info'>create_reference_table_upload_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -766,10 +766,6 @@
       <pre class="lines">
 
 
-108
-109
-110
-111
 112
 113
 114
@@ -816,10 +812,14 @@
 155
 156
 157
-158</pre>
+158
+159
+160
+161
+162</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/reference_tables_api.rb', line 108</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/reference_tables_api.rb', line 112</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create_reference_table_upload_with_http_info'>create_reference_table_upload_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -890,7 +890,14 @@
   <div class="discussion">
     <p>Create reference table.</p>
 
-<p>Create a new reference table. You can provide data in two ways: 1) Call POST api/v2/reference-tables/upload first to get an upload ID, then PUT chunks of CSV data to each provided URL, and finally call this POST endpoint with the upload_id in file_metadata, OR 2) Provide access_details in file_metadata pointing to a CSV file in cloud storage (Amazon S3, Azure Blob Storage, or GCP Cloud Storage).</p>
+<p>Creates a reference table. You can provide data in two ways:</p>
+
+<ol>
+<li>Call POST /api/v2/reference-tables/upload to get an upload ID. Then, PUT the CSV data
+(not the file itself) in chunks to each URL in the request body. Finally, call this
+POST endpoint with <code>upload_id</code> in <code>file_metadata</code>.</li>
+<li>Provide <code>access_details</code> in <code>file_metadata</code> pointing to a CSV file in cloud storage.</li>
+</ol>
 
 
   </div>
@@ -953,10 +960,6 @@
       <pre class="lines">
 
 
-41
-42
-43
-44
 45
 46
 47
@@ -1003,10 +1006,14 @@
 88
 89
 90
-91</pre>
+91
+92
+93
+94
+95</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/reference_tables_api.rb', line 41</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/reference_tables_api.rb', line 45</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create_reference_table_with_http_info'>create_reference_table_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -1096,13 +1103,13 @@
       <pre class="lines">
 
 
-163
-164
-165
-166</pre>
+167
+168
+169
+170</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/reference_tables_api.rb', line 163</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/reference_tables_api.rb', line 167</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete_table'>delete_table</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_delete_table_with_http_info'>delete_table_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -1145,7 +1152,7 @@
       
       
         &mdash;
-        <div class='inline'><p>The ID of the reference table to delete</p>
+        <div class='inline'><p>Unique identifier of the reference table to delete</p>
 </div>
       
     </li>
@@ -1193,10 +1200,6 @@
       <pre class="lines">
 
 
-175
-176
-177
-178
 179
 180
 181
@@ -1241,10 +1244,14 @@
 220
 221
 222
-223</pre>
+223
+224
+225
+226
+227</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/reference_tables_api.rb', line 175</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/reference_tables_api.rb', line 179</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete_table_with_http_info'>delete_table_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -1332,13 +1339,13 @@
       <pre class="lines">
 
 
-228
-229
-230
-231</pre>
+232
+233
+234
+235</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/reference_tables_api.rb', line 228</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/reference_tables_api.rb', line 232</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_rows_by_id'>get_rows_by_id</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='comma'>,</span> <span class='id identifier rubyid_row_id'>row_id</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_get_rows_by_id_with_http_info'>get_rows_by_id_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='comma'>,</span> <span class='id identifier rubyid_row_id'>row_id</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -1381,7 +1388,7 @@
       
       
         &mdash;
-        <div class='inline'><p>The ID of the reference table</p>
+        <div class='inline'><p>Unique identifier of the reference table to get rows from</p>
 </div>
       
     </li>
@@ -1444,10 +1451,6 @@
       <pre class="lines">
 
 
-241
-242
-243
-244
 245
 246
 247
@@ -1498,10 +1501,14 @@
 292
 293
 294
-295</pre>
+295
+296
+297
+298
+299</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/reference_tables_api.rb', line 241</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/reference_tables_api.rb', line 245</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_rows_by_id_with_http_info'>get_rows_by_id_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='comma'>,</span> <span class='id identifier rubyid_row_id'>row_id</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -1595,13 +1602,13 @@
       <pre class="lines">
 
 
-300
-301
-302
-303</pre>
+304
+305
+306
+307</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/reference_tables_api.rb', line 300</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/reference_tables_api.rb', line 304</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_table'>get_table</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_get_table_with_http_info'>get_table_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -1644,7 +1651,7 @@
       
       
         &mdash;
-        <div class='inline'><p>The ID of the reference table to retrieve</p>
+        <div class='inline'><p>Unique identifier of the reference table to retrieve</p>
 </div>
       
     </li>
@@ -1692,10 +1699,6 @@
       <pre class="lines">
 
 
-312
-313
-314
-315
 316
 317
 318
@@ -1740,10 +1743,14 @@
 357
 358
 359
-360</pre>
+360
+361
+362
+363
+364</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/reference_tables_api.rb', line 312</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/reference_tables_api.rb', line 316</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_table_with_http_info'>get_table_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -1831,13 +1838,13 @@
       <pre class="lines">
 
 
-365
-366
-367
-368</pre>
+369
+370
+371
+372</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/reference_tables_api.rb', line 365</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/reference_tables_api.rb', line 369</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_tables'>list_tables</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_list_tables_with_http_info'>list_tables_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -1926,7 +1933,7 @@
             
           </span>
           
-            &mdash; <div class='inline'><p>Sort field and direction. Use field name for ascending, prefix with &quot;-&quot; for descending.</p>
+            &mdash; <div class='inline'><p>Sort field and direction for the list of reference tables. Use field name for ascending, prefix with &quot;-&quot; for descending.</p>
 </div>
           
         </li>
@@ -1994,10 +2001,6 @@
       <pre class="lines">
 
 
-382
-383
-384
-385
 386
 387
 388
@@ -2057,10 +2060,14 @@
 442
 443
 444
-445</pre>
+445
+446
+447
+448
+449</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/reference_tables_api.rb', line 382</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/reference_tables_api.rb', line 386</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_tables_with_http_info'>list_tables_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -2163,13 +2170,13 @@
       <pre class="lines">
 
 
-450
-451
-452
-453</pre>
+454
+455
+456
+457</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/reference_tables_api.rb', line 450</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/reference_tables_api.rb', line 454</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update_reference_table'>update_reference_table</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_update_reference_table_with_http_info'>update_reference_table_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -2212,7 +2219,7 @@
       
       
         &mdash;
-        <div class='inline'><p>The ID of the reference table to update</p>
+        <div class='inline'><p>Unique identifier of the reference table to update</p>
 </div>
       
     </li>
@@ -2271,10 +2278,6 @@
       <pre class="lines">
 
 
-463
-464
-465
-466
 467
 468
 469
@@ -2325,10 +2328,14 @@
 514
 515
 516
-517</pre>
+517
+518
+519
+520
+521</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/reference_tables_api.rb', line 463</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/reference_tables_api.rb', line 467</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update_reference_table_with_http_info'>update_reference_table_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -2395,7 +2402,7 @@
 </div>
 
       <div id="footer">
-  Generated on Mon Nov 10 16:17:31 2025 by
+  Generated on Mon Nov 10 17:14:05 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>

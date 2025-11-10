@@ -106,7 +106,7 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>File metadata for reference tables created by upload.</p>
+    <p>File metadata for reference tables created by upload. Note that upload_id is only returned in the immediate create/replace response and is not available in subsequent GET requests.</p>
 
 
   </div>
@@ -199,32 +199,6 @@
 </li>
 
     
-      <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#upload_id-instance_method" title="#upload_id (instance method)">#<strong>upload_id</strong>  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-    
-    
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>The upload ID that was used to create/update the table.</p>
-</div></span>
-  
-</li>
-
-    
   </ul>
 
 
@@ -272,12 +246,12 @@
       <pre class="lines">
 
 
-33
-34
-35</pre>
+30
+31
+32</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/table_result_v2_data_attributes_file_metadata_local_file.rb', line 33</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/table_result_v2_data_attributes_file_metadata_local_file.rb', line 30</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_additional_properties'>additional_properties</span>
   <span class='ivar'>@additional_properties</span>
@@ -371,55 +345,13 @@
 </table>
 </div>
     
-      
-      <span id="upload_id=-instance_method"></span>
-      <div class="method_details ">
-  <h3 class="signature " id="upload_id-instance_method">
-  
-    #<strong>upload_id</strong>  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>The upload ID that was used to create/update the table.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-31
-32
-33</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/table_result_v2_data_attributes_file_metadata_local_file.rb', line 31</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_upload_id'>upload_id</span>
-  <span class='ivar'>@upload_id</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
   </div>
 
 
 </div>
 
       <div id="footer">
-  Generated on Mon Nov 10 16:17:44 2025 by
+  Generated on Mon Nov 10 17:14:16 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>
