@@ -36,6 +36,9 @@ module DatadogAPIClient::V2
     # URL of the user's icon.
     attr_accessor :icon
 
+    # The last time the user logged in.
+    attr_accessor :last_login_time
+
     # If user has MFA enabled.
     attr_accessor :mfa_enabled
 
@@ -68,6 +71,7 @@ module DatadogAPIClient::V2
         :'email' => :'email',
         :'handle' => :'handle',
         :'icon' => :'icon',
+        :'last_login_time' => :'last_login_time',
         :'mfa_enabled' => :'mfa_enabled',
         :'modified_at' => :'modified_at',
         :'name' => :'name',
@@ -87,6 +91,7 @@ module DatadogAPIClient::V2
         :'email' => :'String',
         :'handle' => :'String',
         :'icon' => :'String',
+        :'last_login_time' => :'Time',
         :'mfa_enabled' => :'Boolean',
         :'modified_at' => :'Time',
         :'name' => :'String',
@@ -101,6 +106,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_nullable
       Set.new([
+        :'last_login_time',
         :'name',
         :'title',
       ])
@@ -142,6 +148,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'icon')
         self.icon = attributes[:'icon']
+      end
+
+      if attributes.key?(:'last_login_time')
+        self.last_login_time = attributes[:'last_login_time']
       end
 
       if attributes.key?(:'mfa_enabled')
@@ -204,6 +214,7 @@ module DatadogAPIClient::V2
           email == o.email &&
           handle == o.handle &&
           icon == o.icon &&
+          last_login_time == o.last_login_time &&
           mfa_enabled == o.mfa_enabled &&
           modified_at == o.modified_at &&
           name == o.name &&
@@ -218,7 +229,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created_at, disabled, email, handle, icon, mfa_enabled, modified_at, name, service_account, status, title, verified, additional_properties].hash
+      [created_at, disabled, email, handle, icon, last_login_time, mfa_enabled, modified_at, name, service_account, status, title, verified, additional_properties].hash
     end
   end
 end
