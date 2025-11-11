@@ -280,6 +280,32 @@
       <li class="public ">
   <span class="summary_signature">
     
+      <a href="#apm_enterprise_standalone_hosts_top99p-instance_method" title="#apm_enterprise_standalone_hosts_top99p (instance method)">#<strong>apm_enterprise_standalone_hosts_top99p</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Shows the 99th percentile of all distinct standalone Enterprise hosts over all hours in the current date for the given org.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#apm_fargate_count_avg-instance_method" title="#apm_fargate_count_avg (instance method)">#<strong>apm_fargate_count_avg</strong>  &#x21d2; Object </a>
     
 
@@ -324,6 +350,32 @@
 
   
     <span class="summary_desc"><div class='inline'><p>Shows the 99th percentile of all distinct APM hosts over all hours in the current date for the given org.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#apm_pro_standalone_hosts_top99p-instance_method" title="#apm_pro_standalone_hosts_top99p (instance method)">#<strong>apm_pro_standalone_hosts_top99p</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Shows the 99th percentile of all distinct standalone Pro hosts over all hours in the current date for the given org.</p>
 </div></span>
   
 </li>
@@ -5854,6 +5906,48 @@
 </div>
     
       
+      <span id="apm_enterprise_standalone_hosts_top99p=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="apm_enterprise_standalone_hosts_top99p-instance_method">
+  
+    #<strong>apm_enterprise_standalone_hosts_top99p</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Shows the 99th percentile of all distinct standalone Enterprise hosts over all hours in the current date for the given org.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+40
+41
+42</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 40</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_apm_enterprise_standalone_hosts_top99p'>apm_enterprise_standalone_hosts_top99p</span>
+  <span class='ivar'>@apm_enterprise_standalone_hosts_top99p</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
       <span id="apm_fargate_count_avg=-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="apm_fargate_count_avg-instance_method">
@@ -5931,6 +6025,48 @@
 
 <span class='kw'>def</span> <span class='id identifier rubyid_apm_host_top99p'>apm_host_top99p</span>
   <span class='ivar'>@apm_host_top99p</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="apm_pro_standalone_hosts_top99p=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="apm_pro_standalone_hosts_top99p-instance_method">
+  
+    #<strong>apm_pro_standalone_hosts_top99p</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Shows the 99th percentile of all distinct standalone Pro hosts over all hours in the current date for the given org.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+49
+50
+51</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 49</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_apm_pro_standalone_hosts_top99p'>apm_pro_standalone_hosts_top99p</span>
+  <span class='ivar'>@apm_pro_standalone_hosts_top99p</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -6384,12 +6520,12 @@
       <pre class="lines">
 
 
-76
-77
-78</pre>
+82
+83
+84</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 76</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 82</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_bits_ai_investigations_sum'>bits_ai_investigations_sum</span>
   <span class='ivar'>@bits_ai_investigations_sum</span>
@@ -8862,12 +8998,12 @@
       <pre class="lines">
 
 
-253
-254
-255</pre>
+259
+260
+261</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 253</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 259</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_error_tracking_apm_error_events_sum'>error_tracking_apm_error_events_sum</span>
   <span class='ivar'>@error_tracking_apm_error_events_sum</span>
@@ -9030,12 +9166,12 @@
       <pre class="lines">
 
 
-265
-266
-267</pre>
+271
+272
+273</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 265</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 271</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_event_management_correlation_correlated_events_sum'>event_management_correlation_correlated_events_sum</span>
   <span class='ivar'>@event_management_correlation_correlated_events_sum</span>
@@ -9072,12 +9208,12 @@
       <pre class="lines">
 
 
-268
-269
-270</pre>
+274
+275
+276</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 268</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 274</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_event_management_correlation_correlated_related_events_sum'>event_management_correlation_correlated_related_events_sum</span>
   <span class='ivar'>@event_management_correlation_correlated_related_events_sum</span>
@@ -9114,12 +9250,12 @@
       <pre class="lines">
 
 
-271
-272
-273</pre>
+277
+278
+279</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 271</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 277</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_event_management_correlation_sum'>event_management_correlation_sum</span>
   <span class='ivar'>@event_management_correlation_sum</span>
@@ -9450,12 +9586,12 @@
       <pre class="lines">
 
 
-295
-296
-297</pre>
+301
+302
+303</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 295</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 301</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_flex_logs_compute_xlarge_avg'>flex_logs_compute_xlarge_avg</span>
   <span class='ivar'>@flex_logs_compute_xlarge_avg</span>
@@ -10122,12 +10258,12 @@
       <pre class="lines">
 
 
-343
-344
-345</pre>
+349
+350
+351</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 343</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 349</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_llm_observability_min_spend_sum'>llm_observability_min_spend_sum</span>
   <span class='ivar'>@llm_observability_min_spend_sum</span>
@@ -10164,12 +10300,12 @@
       <pre class="lines">
 
 
-346
-347
-348</pre>
+352
+353
+354</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 346</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 352</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_llm_observability_sum'>llm_observability_sum</span>
   <span class='ivar'>@llm_observability_sum</span>
@@ -10668,12 +10804,12 @@
       <pre class="lines">
 
 
-382
-383
-384</pre>
+388
+389
+390</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 382</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 388</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_network_device_wireless_top99p'>network_device_wireless_top99p</span>
   <span class='ivar'>@network_device_wireless_top99p</span>
@@ -10878,12 +11014,12 @@
       <pre class="lines">
 
 
-397
-398
-399</pre>
+403
+404
+405</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 397</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 403</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_on_call_seat_hwm'>on_call_seat_hwm</span>
   <span class='ivar'>@on_call_seat_hwm</span>
@@ -11046,12 +11182,12 @@
       <pre class="lines">
 
 
-409
-410
-411</pre>
+415
+416
+417</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 409</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 415</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_product_analytics_sum'>product_analytics_sum</span>
   <span class='ivar'>@product_analytics_sum</span>
@@ -11214,12 +11350,12 @@
       <pre class="lines">
 
 
-421
-422
-423</pre>
+427
+428
+429</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 421</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 427</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_published_app_hwm'>published_app_hwm</span>
   <span class='ivar'>@published_app_hwm</span>
@@ -11466,12 +11602,12 @@
       <pre class="lines">
 
 
-439
-440
-441</pre>
+445
+446
+447</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 439</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 445</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rum_indexed_sessions_sum'>rum_indexed_sessions_sum</span>
   <span class='ivar'>@rum_indexed_sessions_sum</span>
@@ -11508,12 +11644,12 @@
       <pre class="lines">
 
 
-442
-443
-444</pre>
+448
+449
+450</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 442</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 448</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rum_ingested_sessions_sum'>rum_ingested_sessions_sum</span>
   <span class='ivar'>@rum_ingested_sessions_sum</span>
@@ -11928,12 +12064,12 @@
       <pre class="lines">
 
 
-472
-473
-474</pre>
+478
+479
+480</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 472</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 478</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rum_mobile_lite_session_count_kotlinmultiplatform_sum'>rum_mobile_lite_session_count_kotlinmultiplatform_sum</span>
   <span class='ivar'>@rum_mobile_lite_session_count_kotlinmultiplatform_sum</span>
@@ -12054,12 +12190,12 @@
       <pre class="lines">
 
 
-481
-482
-483</pre>
+487
+488
+489</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 481</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 487</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rum_mobile_lite_session_count_unity_sum'>rum_mobile_lite_session_count_unity_sum</span>
   <span class='ivar'>@rum_mobile_lite_session_count_unity_sum</span>
@@ -12180,12 +12316,12 @@
       <pre class="lines">
 
 
-490
-491
-492</pre>
+496
+497
+498</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 490</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 496</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rum_mobile_replay_session_count_kotlinmultiplatform_sum'>rum_mobile_replay_session_count_kotlinmultiplatform_sum</span>
   <span class='ivar'>@rum_mobile_replay_session_count_kotlinmultiplatform_sum</span>
@@ -12348,12 +12484,12 @@
       <pre class="lines">
 
 
-502
-503
-504</pre>
+508
+509
+510</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 502</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 508</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rum_session_replay_add_on_sum'>rum_session_replay_add_on_sum</span>
   <span class='ivar'>@rum_session_replay_add_on_sum</span>
@@ -12768,12 +12904,12 @@
       <pre class="lines">
 
 
-532
-533
-534</pre>
+538
+539
+540</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 532</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 538</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_serverless_apps_apm_apm_azure_appservice_instances_avg'>serverless_apps_apm_apm_azure_appservice_instances_avg</span>
   <span class='ivar'>@serverless_apps_apm_apm_azure_appservice_instances_avg</span>
@@ -12810,12 +12946,12 @@
       <pre class="lines">
 
 
-535
-536
-537</pre>
+541
+542
+543</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 535</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 541</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_serverless_apps_apm_apm_azure_azurefunction_instances_avg'>serverless_apps_apm_apm_azure_azurefunction_instances_avg</span>
   <span class='ivar'>@serverless_apps_apm_apm_azure_azurefunction_instances_avg</span>
@@ -12852,12 +12988,12 @@
       <pre class="lines">
 
 
-538
-539
-540</pre>
+544
+545
+546</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 538</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 544</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_serverless_apps_apm_apm_azure_containerapp_instances_avg'>serverless_apps_apm_apm_azure_containerapp_instances_avg</span>
   <span class='ivar'>@serverless_apps_apm_apm_azure_containerapp_instances_avg</span>
@@ -12894,12 +13030,12 @@
       <pre class="lines">
 
 
-541
-542
-543</pre>
+547
+548
+549</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 541</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 547</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_serverless_apps_apm_apm_fargate_ecs_tasks_avg'>serverless_apps_apm_apm_fargate_ecs_tasks_avg</span>
   <span class='ivar'>@serverless_apps_apm_apm_fargate_ecs_tasks_avg</span>
@@ -12936,12 +13072,12 @@
       <pre class="lines">
 
 
-544
-545
-546</pre>
+550
+551
+552</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 544</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 550</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_serverless_apps_apm_apm_gcp_cloudfunction_instances_avg'>serverless_apps_apm_apm_gcp_cloudfunction_instances_avg</span>
   <span class='ivar'>@serverless_apps_apm_apm_gcp_cloudfunction_instances_avg</span>
@@ -12978,12 +13114,12 @@
       <pre class="lines">
 
 
-547
-548
-549</pre>
+553
+554
+555</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 547</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 553</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_serverless_apps_apm_apm_gcp_cloudrun_instances_avg'>serverless_apps_apm_apm_gcp_cloudrun_instances_avg</span>
   <span class='ivar'>@serverless_apps_apm_apm_gcp_cloudrun_instances_avg</span>
@@ -13020,12 +13156,12 @@
       <pre class="lines">
 
 
-550
-551
-552</pre>
+556
+557
+558</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 550</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 556</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_serverless_apps_apm_avg'>serverless_apps_apm_avg</span>
   <span class='ivar'>@serverless_apps_apm_avg</span>
@@ -13062,12 +13198,12 @@
       <pre class="lines">
 
 
-553
-554
-555</pre>
+559
+560
+561</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 553</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 559</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_serverless_apps_apm_excl_fargate_apm_azure_appservice_instances_avg'>serverless_apps_apm_excl_fargate_apm_azure_appservice_instances_avg</span>
   <span class='ivar'>@serverless_apps_apm_excl_fargate_apm_azure_appservice_instances_avg</span>
@@ -13104,12 +13240,12 @@
       <pre class="lines">
 
 
-556
-557
-558</pre>
+562
+563
+564</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 556</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 562</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_serverless_apps_apm_excl_fargate_apm_azure_azurefunction_instances_avg'>serverless_apps_apm_excl_fargate_apm_azure_azurefunction_instances_avg</span>
   <span class='ivar'>@serverless_apps_apm_excl_fargate_apm_azure_azurefunction_instances_avg</span>
@@ -13146,12 +13282,12 @@
       <pre class="lines">
 
 
-559
-560
-561</pre>
+565
+566
+567</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 559</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 565</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_serverless_apps_apm_excl_fargate_apm_azure_containerapp_instances_avg'>serverless_apps_apm_excl_fargate_apm_azure_containerapp_instances_avg</span>
   <span class='ivar'>@serverless_apps_apm_excl_fargate_apm_azure_containerapp_instances_avg</span>
@@ -13188,12 +13324,12 @@
       <pre class="lines">
 
 
-562
-563
-564</pre>
+568
+569
+570</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 562</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 568</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_serverless_apps_apm_excl_fargate_apm_gcp_cloudfunction_instances_avg'>serverless_apps_apm_excl_fargate_apm_gcp_cloudfunction_instances_avg</span>
   <span class='ivar'>@serverless_apps_apm_excl_fargate_apm_gcp_cloudfunction_instances_avg</span>
@@ -13230,12 +13366,12 @@
       <pre class="lines">
 
 
-565
-566
-567</pre>
+571
+572
+573</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 565</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 571</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_serverless_apps_apm_excl_fargate_apm_gcp_cloudrun_instances_avg'>serverless_apps_apm_excl_fargate_apm_gcp_cloudrun_instances_avg</span>
   <span class='ivar'>@serverless_apps_apm_excl_fargate_apm_gcp_cloudrun_instances_avg</span>
@@ -13272,12 +13408,12 @@
       <pre class="lines">
 
 
-568
-569
-570</pre>
+574
+575
+576</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 568</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 574</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_serverless_apps_apm_excl_fargate_avg'>serverless_apps_apm_excl_fargate_avg</span>
   <span class='ivar'>@serverless_apps_apm_excl_fargate_avg</span>
@@ -13314,12 +13450,12 @@
       <pre class="lines">
 
 
-571
-572
-573</pre>
+577
+578
+579</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 571</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 577</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_serverless_apps_azure_container_app_instances_avg'>serverless_apps_azure_container_app_instances_avg</span>
   <span class='ivar'>@serverless_apps_azure_container_app_instances_avg</span>
@@ -13398,12 +13534,12 @@
       <pre class="lines">
 
 
-577
-578
-579</pre>
+583
+584
+585</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 577</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 583</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_serverless_apps_azure_function_app_instances_avg'>serverless_apps_azure_function_app_instances_avg</span>
   <span class='ivar'>@serverless_apps_azure_function_app_instances_avg</span>
@@ -13440,12 +13576,12 @@
       <pre class="lines">
 
 
-580
-581
-582</pre>
+586
+587
+588</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 580</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 586</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_serverless_apps_azure_web_app_instances_avg'>serverless_apps_azure_web_app_instances_avg</span>
   <span class='ivar'>@serverless_apps_azure_web_app_instances_avg</span>
@@ -13482,12 +13618,12 @@
       <pre class="lines">
 
 
-583
-584
-585</pre>
+589
+590
+591</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 583</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 589</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_serverless_apps_ecs_avg'>serverless_apps_ecs_avg</span>
   <span class='ivar'>@serverless_apps_ecs_avg</span>
@@ -13524,12 +13660,12 @@
       <pre class="lines">
 
 
-586
-587
-588</pre>
+592
+593
+594</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 586</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 592</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_serverless_apps_eks_avg'>serverless_apps_eks_avg</span>
   <span class='ivar'>@serverless_apps_eks_avg</span>
@@ -13566,12 +13702,12 @@
       <pre class="lines">
 
 
-589
-590
-591</pre>
+595
+596
+597</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 589</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 595</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_serverless_apps_excl_fargate_avg'>serverless_apps_excl_fargate_avg</span>
   <span class='ivar'>@serverless_apps_excl_fargate_avg</span>
@@ -13608,12 +13744,12 @@
       <pre class="lines">
 
 
-592
-593
-594</pre>
+598
+599
+600</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 592</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 598</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_serverless_apps_excl_fargate_azure_container_app_instances_avg'>serverless_apps_excl_fargate_azure_container_app_instances_avg</span>
   <span class='ivar'>@serverless_apps_excl_fargate_azure_container_app_instances_avg</span>
@@ -13650,12 +13786,12 @@
       <pre class="lines">
 
 
-595
-596
-597</pre>
+601
+602
+603</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 595</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 601</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_serverless_apps_excl_fargate_azure_function_app_instances_avg'>serverless_apps_excl_fargate_azure_function_app_instances_avg</span>
   <span class='ivar'>@serverless_apps_excl_fargate_azure_function_app_instances_avg</span>
@@ -13692,12 +13828,12 @@
       <pre class="lines">
 
 
-598
-599
-600</pre>
+604
+605
+606</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 598</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 604</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_serverless_apps_excl_fargate_azure_web_app_instances_avg'>serverless_apps_excl_fargate_azure_web_app_instances_avg</span>
   <span class='ivar'>@serverless_apps_excl_fargate_azure_web_app_instances_avg</span>
@@ -13734,12 +13870,12 @@
       <pre class="lines">
 
 
-601
-602
-603</pre>
+607
+608
+609</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 601</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 607</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_serverless_apps_excl_fargate_google_cloud_functions_instances_avg'>serverless_apps_excl_fargate_google_cloud_functions_instances_avg</span>
   <span class='ivar'>@serverless_apps_excl_fargate_google_cloud_functions_instances_avg</span>
@@ -13776,12 +13912,12 @@
       <pre class="lines">
 
 
-604
-605
-606</pre>
+610
+611
+612</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 604</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 610</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_serverless_apps_excl_fargate_google_cloud_run_instances_avg'>serverless_apps_excl_fargate_google_cloud_run_instances_avg</span>
   <span class='ivar'>@serverless_apps_excl_fargate_google_cloud_run_instances_avg</span>
@@ -13818,12 +13954,12 @@
       <pre class="lines">
 
 
-607
-608
-609</pre>
+613
+614
+615</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 607</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 613</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_serverless_apps_google_cloud_functions_instances_avg'>serverless_apps_google_cloud_functions_instances_avg</span>
   <span class='ivar'>@serverless_apps_google_cloud_functions_instances_avg</span>
@@ -13860,12 +13996,12 @@
       <pre class="lines">
 
 
-610
-611
-612</pre>
+616
+617
+618</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 610</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/usage_summary_date_org.rb', line 616</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_serverless_apps_google_cloud_run_instances_avg'>serverless_apps_google_cloud_run_instances_avg</span>
   <span class='ivar'>@serverless_apps_google_cloud_run_instances_avg</span>
@@ -14427,7 +14563,7 @@
 </div>
 
       <div id="footer">
-  Generated on Mon Nov 10 17:14:00 2025 by
+  Generated on Tue Nov 11 11:45:38 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>
