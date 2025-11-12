@@ -13,6 +13,10 @@ body = DatadogAPIClient::V2::SecurityMonitoringSuppressionCreateRequest.new({
       name: "Example-Security-Monitoring",
       rule_query: "type:log_detection source:cloudtrail",
       suppression_query: "env:staging status:low",
+      tags: [
+        "technique:T1110-brute-force",
+        "source:cloudtrail",
+      ],
     }),
     type: DatadogAPIClient::V2::SecurityMonitoringSuppressionType::SUPPRESSIONS,
   }),

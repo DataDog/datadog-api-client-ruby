@@ -45,6 +45,9 @@ module DatadogAPIClient::V2
     # The suppression query of the suppression rule. If a signal matches this query, it is suppressed and not triggered. Same syntax as the queries to search signals in the signal explorer.
     attr_accessor :suppression_query
 
+    # List of tags associated with the suppression rule.
+    attr_accessor :tags
+
     # The current version of the suppression. This is optional, but it can help prevent concurrent modifications.
     attr_reader :version
 
@@ -62,6 +65,7 @@ module DatadogAPIClient::V2
         :'rule_query' => :'rule_query',
         :'start_date' => :'start_date',
         :'suppression_query' => :'suppression_query',
+        :'tags' => :'tags',
         :'version' => :'version'
       }
     end
@@ -78,6 +82,7 @@ module DatadogAPIClient::V2
         :'rule_query' => :'String',
         :'start_date' => :'Integer',
         :'suppression_query' => :'String',
+        :'tags' => :'Array<String>',
         :'version' => :'Integer'
       }
     end
@@ -141,6 +146,12 @@ module DatadogAPIClient::V2
         self.suppression_query = attributes[:'suppression_query']
       end
 
+      if attributes.key?(:'tags')
+        if (value = attributes[:'tags']).is_a?(Array)
+          self.tags = value
+        end
+      end
+
       if attributes.key?(:'version')
         self.version = attributes[:'version']
       end
@@ -198,6 +209,7 @@ module DatadogAPIClient::V2
           rule_query == o.rule_query &&
           start_date == o.start_date &&
           suppression_query == o.suppression_query &&
+          tags == o.tags &&
           version == o.version &&
           additional_properties == o.additional_properties
     end
@@ -206,7 +218,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data_exclusion_query, description, enabled, expiration_date, name, rule_query, start_date, suppression_query, version, additional_properties].hash
+      [data_exclusion_query, description, enabled, expiration_date, name, rule_query, start_date, suppression_query, tags, version, additional_properties].hash
     end
   end
 end
