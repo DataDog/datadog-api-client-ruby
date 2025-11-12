@@ -45,6 +45,9 @@ module DatadogAPIClient::V2
     # The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.
     attr_accessor :suppression_query
 
+    # List of tags associated with the suppression rule.
+    attr_accessor :tags
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -58,7 +61,8 @@ module DatadogAPIClient::V2
         :'name' => :'name',
         :'rule_query' => :'rule_query',
         :'start_date' => :'start_date',
-        :'suppression_query' => :'suppression_query'
+        :'suppression_query' => :'suppression_query',
+        :'tags' => :'tags'
       }
     end
 
@@ -73,7 +77,8 @@ module DatadogAPIClient::V2
         :'name' => :'String',
         :'rule_query' => :'String',
         :'start_date' => :'Integer',
-        :'suppression_query' => :'String'
+        :'suppression_query' => :'String',
+        :'tags' => :'Array<String>'
       }
     end
 
@@ -125,6 +130,12 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'suppression_query')
         self.suppression_query = attributes[:'suppression_query']
+      end
+
+      if attributes.key?(:'tags')
+        if (value = attributes[:'tags']).is_a?(Array)
+          self.tags = value
+        end
       end
     end
 
@@ -202,6 +213,7 @@ module DatadogAPIClient::V2
           rule_query == o.rule_query &&
           start_date == o.start_date &&
           suppression_query == o.suppression_query &&
+          tags == o.tags &&
           additional_properties == o.additional_properties
     end
 
@@ -209,7 +221,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data_exclusion_query, description, enabled, expiration_date, name, rule_query, start_date, suppression_query, additional_properties].hash
+      [data_exclusion_query, description, enabled, expiration_date, name, rule_query, start_date, suppression_query, tags, additional_properties].hash
     end
   end
 end
