@@ -102,7 +102,7 @@ module DatadogAPIClient::V2
     #
     # @param issue_id [String] The identifier of the issue.
     # @param opts [Hash] the optional parameters
-    # @option opts [Array<GetIssueIncludeQueryParameterItem>] :include Comma-separated list of relationship objects that should be included in the response.
+    # @option opts [Array<GetIssueIncludeQueryParameterItem>] :include Comma-separated list of relationship objects that should be included in the response. Possible values are `assignee`, `case`, and `team_owners`.
     # @return [Array<(IssueResponse, Integer, Hash)>] IssueResponse data, response status code and response headers
     def get_issue_with_http_info(issue_id, opts = {})
 
@@ -169,7 +169,7 @@ module DatadogAPIClient::V2
     #
     # @param body [IssuesSearchRequest] Search issues request payload.
     # @param opts [Hash] the optional parameters
-    # @option opts [Array<SearchIssuesIncludeQueryParameterItem>] :include Comma-separated list of relationship objects that should be included in the response.
+    # @option opts [Array<SearchIssuesIncludeQueryParameterItem>] :include Comma-separated list of relationship objects that should be included in the response. Possible values are `issue`, `issue.assignee`, `issue.case`, and `issue.team_owners`.
     # @return [Array<(IssuesSearchResponse, Integer, Hash)>] IssuesSearchResponse data, response status code and response headers
     def search_issues_with_http_info(body, opts = {})
 
