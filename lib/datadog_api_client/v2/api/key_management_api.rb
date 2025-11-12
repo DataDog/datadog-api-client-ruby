@@ -496,7 +496,8 @@ module DatadogAPIClient::V2
 
     # Get one application key owned by current user.
     #
-    # Get an application key owned by current user
+    # Get an application key owned by current user.
+    # The `key` field is not returned for organizations in [One-Time Read mode](https://docs.datadoghq.com/account_management/api-app-keys/#one-time-read-mode).
     #
     # @param app_key_id [String] The ID of the application key.
     # @param opts [Hash] the optional parameters
@@ -947,7 +948,8 @@ module DatadogAPIClient::V2
 
     # Edit an application key owned by current user.
     #
-    # Edit an application key owned by current user
+    # Edit an application key owned by current user.
+    # The `key` field is not returned for organizations in [One-Time Read mode](https://docs.datadoghq.com/account_management/api-app-keys/#one-time-read-mode).
     #
     # @param app_key_id [String] The ID of the application key.
     # @param body [ApplicationKeyUpdateRequest] 

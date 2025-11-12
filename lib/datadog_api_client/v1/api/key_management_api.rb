@@ -101,6 +101,7 @@ module DatadogAPIClient::V1
     # Create an application key.
     #
     # Create an application key with a given name.
+    # This endpoint is disabled for organizations in [One-Time Read mode](https://docs.datadoghq.com/account_management/api-app-keys/#one-time-read-mode).
     #
     # @param body [ApplicationKey] 
     # @param opts [Hash] the optional parameters
@@ -233,6 +234,7 @@ module DatadogAPIClient::V1
     # Delete an application key.
     #
     # Delete a given application key.
+    # This endpoint is disabled for organizations in [One-Time Read mode](https://docs.datadoghq.com/account_management/api-app-keys/#one-time-read-mode).
     #
     # @param key [String] The specific APP key you are working with.
     # @param opts [Hash] the optional parameters
@@ -363,6 +365,7 @@ module DatadogAPIClient::V1
     # Get an application key.
     #
     # Get a given application key.
+    # This endpoint is disabled for organizations in [One-Time Read mode](https://docs.datadoghq.com/account_management/api-app-keys/#one-time-read-mode).
     #
     # @param key [String] The specific APP key you are working with.
     # @param opts [Hash] the optional parameters
@@ -488,6 +491,7 @@ module DatadogAPIClient::V1
     # Get all application keys.
     #
     # Get all application keys available for your Datadog account.
+    # This endpoint is disabled for organizations in [One-Time Read mode](https://docs.datadoghq.com/account_management/api-app-keys/#one-time-read-mode).
     #
     # @param opts [Hash] the optional parameters
     # @return [Array<(ApplicationKeyListResponse, Integer, Hash)>] ApplicationKeyListResponse data, response status code and response headers
@@ -620,6 +624,7 @@ module DatadogAPIClient::V1
     # Edit an application key.
     #
     # Edit an application key name.
+    # This endpoint is disabled for organizations in [One-Time Read mode](https://docs.datadoghq.com/account_management/api-app-keys/#one-time-read-mode).
     #
     # @param key [String] The specific APP key you are working with.
     # @param body [ApplicationKey] 
