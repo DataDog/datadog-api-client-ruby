@@ -2555,6 +2555,23 @@ ScenariosModelMappings = {
             "include" => "String",
             "body" => "TeamRoutingRulesRequest",
     },
+    "v2.CreateUserEmailNotificationChannel" => {
+            "user_id" => "String",
+            "body" => "EmailCreateRequest",
+    },
+    "v2.DeleteUserEmailNotificationChannel" => {
+            "user_id" => "String",
+            "email_id" => "String",
+    },
+    "v2.GetUserEmailNotificationChannel" => {
+            "user_id" => "String",
+            "email_id" => "String",
+    },
+    "v2.UpdateUserEmailNotificationChannel" => {
+            "user_id" => "String",
+            "email_id" => "String",
+            "body" => "EmailUpdateRequest",
+    },
     "v2.CreateOnCallPage" => {
             "body" => "CreatePageRequest",
     },

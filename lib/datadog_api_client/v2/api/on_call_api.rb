@@ -161,6 +161,78 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Create an On-Call email for a user.
+    #
+    # @see #create_user_email_notification_channel_with_http_info
+    def create_user_email_notification_channel(user_id, body, opts = {})
+      data, _status_code, _headers = create_user_email_notification_channel_with_http_info(user_id, body, opts)
+      data
+    end
+
+    # Create an On-Call email for a user.
+    #
+    # Create a new email notification channel for an on-call user
+    #
+    # @param user_id [String] The user ID
+    # @param body [EmailCreateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(Email, Integer, Hash)>] Email data, response status code and response headers
+    def create_user_email_notification_channel_with_http_info(user_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OnCallAPI.create_user_email_notification_channel ...'
+      end
+      # verify the required parameter 'user_id' is set
+      if @api_client.config.client_side_validation && user_id.nil?
+        fail ArgumentError, "Missing the required parameter 'user_id' when calling OnCallAPI.create_user_email_notification_channel"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling OnCallAPI.create_user_email_notification_channel"
+      end
+      # resource path
+      local_var_path = '/api/v2/on-call/users/{user_id}/notification-channels/emails'.sub('{user_id}', CGI.escape(user_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'Email'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_user_email_notification_channel,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OnCallAPI#create_user_email_notification_channel\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Delete On-Call escalation policy.
     #
     # @see #delete_on_call_escalation_policy_with_http_info
@@ -287,6 +359,76 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: OnCallAPI#delete_on_call_schedule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete an On-Call email for a user.
+    #
+    # @see #delete_user_email_notification_channel_with_http_info
+    def delete_user_email_notification_channel(user_id, email_id, opts = {})
+      delete_user_email_notification_channel_with_http_info(user_id, email_id, opts)
+      nil
+    end
+
+    # Delete an On-Call email for a user.
+    #
+    # Delete an email notification channel for an on-call user
+    #
+    # @param user_id [String] The user ID
+    # @param email_id [String] The email ID
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_user_email_notification_channel_with_http_info(user_id, email_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OnCallAPI.delete_user_email_notification_channel ...'
+      end
+      # verify the required parameter 'user_id' is set
+      if @api_client.config.client_side_validation && user_id.nil?
+        fail ArgumentError, "Missing the required parameter 'user_id' when calling OnCallAPI.delete_user_email_notification_channel"
+      end
+      # verify the required parameter 'email_id' is set
+      if @api_client.config.client_side_validation && email_id.nil?
+        fail ArgumentError, "Missing the required parameter 'email_id' when calling OnCallAPI.delete_user_email_notification_channel"
+      end
+      # resource path
+      local_var_path = '/api/v2/on-call/users/{user_id}/notification-channels/emails/{email_id}'.sub('{user_id}', CGI.escape(user_id.to_s).gsub('%2F', '/')).sub('{email_id}', CGI.escape(email_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_user_email_notification_channel,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OnCallAPI#delete_user_email_notification_channel\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -628,6 +770,76 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get an On-Call email for a user.
+    #
+    # @see #get_user_email_notification_channel_with_http_info
+    def get_user_email_notification_channel(user_id, email_id, opts = {})
+      data, _status_code, _headers = get_user_email_notification_channel_with_http_info(user_id, email_id, opts)
+      data
+    end
+
+    # Get an On-Call email for a user.
+    #
+    # Get an email notification channel for an on-call user
+    #
+    # @param user_id [String] The user ID
+    # @param email_id [String] The email ID
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(Email, Integer, Hash)>] Email data, response status code and response headers
+    def get_user_email_notification_channel_with_http_info(user_id, email_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OnCallAPI.get_user_email_notification_channel ...'
+      end
+      # verify the required parameter 'user_id' is set
+      if @api_client.config.client_side_validation && user_id.nil?
+        fail ArgumentError, "Missing the required parameter 'user_id' when calling OnCallAPI.get_user_email_notification_channel"
+      end
+      # verify the required parameter 'email_id' is set
+      if @api_client.config.client_side_validation && email_id.nil?
+        fail ArgumentError, "Missing the required parameter 'email_id' when calling OnCallAPI.get_user_email_notification_channel"
+      end
+      # resource path
+      local_var_path = '/api/v2/on-call/users/{user_id}/notification-channels/emails/{email_id}'.sub('{user_id}', CGI.escape(user_id.to_s).gsub('%2F', '/')).sub('{email_id}', CGI.escape(email_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'Email'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_user_email_notification_channel,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OnCallAPI#get_user_email_notification_channel\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Set On-Call team routing rules.
     #
     # @see #set_on_call_team_routing_rules_with_http_info
@@ -846,6 +1058,83 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: OnCallAPI#update_on_call_schedule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update an On-Call email for a user.
+    #
+    # @see #update_user_email_notification_channel_with_http_info
+    def update_user_email_notification_channel(user_id, email_id, body, opts = {})
+      data, _status_code, _headers = update_user_email_notification_channel_with_http_info(user_id, email_id, body, opts)
+      data
+    end
+
+    # Update an On-Call email for a user.
+    #
+    # Update an email notification channel for an on-call user
+    #
+    # @param user_id [String] The user ID
+    # @param email_id [String] The email ID
+    # @param body [EmailUpdateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(Email, Integer, Hash)>] Email data, response status code and response headers
+    def update_user_email_notification_channel_with_http_info(user_id, email_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OnCallAPI.update_user_email_notification_channel ...'
+      end
+      # verify the required parameter 'user_id' is set
+      if @api_client.config.client_side_validation && user_id.nil?
+        fail ArgumentError, "Missing the required parameter 'user_id' when calling OnCallAPI.update_user_email_notification_channel"
+      end
+      # verify the required parameter 'email_id' is set
+      if @api_client.config.client_side_validation && email_id.nil?
+        fail ArgumentError, "Missing the required parameter 'email_id' when calling OnCallAPI.update_user_email_notification_channel"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling OnCallAPI.update_user_email_notification_channel"
+      end
+      # resource path
+      local_var_path = '/api/v2/on-call/users/{user_id}/notification-channels/emails/{email_id}'.sub('{user_id}', CGI.escape(user_id.to_s).gsub('%2F', '/')).sub('{email_id}', CGI.escape(email_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'Email'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_user_email_notification_channel,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OnCallAPI#update_user_email_notification_channel\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
