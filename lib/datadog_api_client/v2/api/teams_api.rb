@@ -883,6 +883,84 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get team sync configurations.
+    #
+    # @see #get_team_sync_with_http_info
+    def get_team_sync(filter_source, opts = {})
+      data, _status_code, _headers = get_team_sync_with_http_info(filter_source, opts)
+      data
+    end
+
+    # Get team sync configurations.
+    #
+    # Get all team synchronization configurations.
+    # Returns a list of configurations used for linking or provisioning teams with external sources like GitHub.
+    #
+    # @param filter_source [TeamSyncAttributesSource] Filter by the external source platform for team synchronization
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(TeamSyncResponse, Integer, Hash)>] TeamSyncResponse data, response status code and response headers
+    def get_team_sync_with_http_info(filter_source, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_team_sync".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_team_sync")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_team_sync"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TeamsAPI.get_team_sync ...'
+      end
+      # verify the required parameter 'filter_source' is set
+      if @api_client.config.client_side_validation && filter_source.nil?
+        fail ArgumentError, "Missing the required parameter 'filter_source' when calling TeamsAPI.get_team_sync"
+      end
+      # verify enum value
+      allowable_values = ['github']
+      if @api_client.config.client_side_validation && !allowable_values.include?(filter_source)
+        fail ArgumentError, "invalid value for \"filter_source\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/api/v2/team/sync'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter[source]'] = filter_source
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TeamSyncResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_team_sync,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TeamsAPI#get_team_sync\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get user memberships.
     #
     # @see #get_user_memberships_with_http_info
@@ -1245,7 +1323,7 @@ module DatadogAPIClient::V2
     # [A GitHub organization must be connected to your Datadog account](https://docs.datadoghq.com/integrations/github/),
     # and the GitHub App integrated with Datadog must have the `Members Read` permission. Matching is performed by comparing the Datadog team handle to the GitHub team slug
     # using a normalized exact match; case is ignored and spaces are removed. No modifications are made
-    # to teams in GitHub. This will not create new Teams in Datadog.
+    # to teams in GitHub. This only creates new teams in Datadog when type is set to `provision`.
     #
     # @param body [TeamSyncRequest] 
     # @param opts [Hash] the optional parameters
