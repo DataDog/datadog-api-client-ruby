@@ -21,10 +21,16 @@ module DatadogAPIClient::V2
   class TeamSyncAttributes
     include BaseGenericModel
 
+    # How often the sync process should be run. Defaults to `once` when not provided.
+    attr_accessor :frequency
+
     # The external source platform for team synchronization. Only "github" is supported.
     attr_reader :source
 
-    # The type of synchronization operation. Only "link" is supported, which links existing teams by matching names.
+    # Whether to sync members from the external team to the Datadog team. Defaults to `false` when not provided.
+    attr_accessor :sync_membership
+
+    # The type of synchronization operation. "link" connects teams by matching names. "provision" creates new teams when no match is found.
     attr_reader :type
 
     attr_accessor :additional_properties
@@ -33,7 +39,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'frequency' => :'frequency',
         :'source' => :'source',
+        :'sync_membership' => :'sync_membership',
         :'type' => :'type'
       }
     end
@@ -42,7 +50,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'frequency' => :'TeamSyncAttributesFrequency',
         :'source' => :'TeamSyncAttributesSource',
+        :'sync_membership' => :'Boolean',
         :'type' => :'TeamSyncAttributesType'
       }
     end
@@ -65,8 +75,16 @@ module DatadogAPIClient::V2
         end
       }
 
+      if attributes.key?(:'frequency')
+        self.frequency = attributes[:'frequency']
+      end
+
       if attributes.key?(:'source')
         self.source = attributes[:'source']
+      end
+
+      if attributes.key?(:'sync_membership')
+        self.sync_membership = attributes[:'sync_membership']
       end
 
       if attributes.key?(:'type')
@@ -129,7 +147,9 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          frequency == o.frequency &&
           source == o.source &&
+          sync_membership == o.sync_membership &&
           type == o.type &&
           additional_properties == o.additional_properties
     end
@@ -138,7 +158,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [source, type, additional_properties].hash
+      [frequency, source, sync_membership, type, additional_properties].hash
     end
   end
 end
