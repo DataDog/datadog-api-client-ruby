@@ -18,46 +18,111 @@ require 'time'
 
 module DatadogAPIClient::V2
   # Metadata specifying where and how to access the reference table's data file.
-  module TableResultV2DataAttributesFileMetadata
-    class << self
-      include BaseOneOfModel
-      include BaseOneOfModelNoDiscriminator
+  # 
+  # For cloud storage tables (S3/GCS/Azure):
+  #   - sync_enabled and access_details will always be present
+  #   - error fields (error_message, error_row_count, error_type) are present only when errors occur
+  # 
+  # For local file tables:
+  #   - error fields (error_message, error_row_count) are present only when errors occur
+  #   - sync_enabled, access_details are never present
+  class TableResultV2DataAttributesFileMetadata
+    include BaseGenericModel
 
-      # List of class defined in oneOf (OpenAPI v3)
-      def openapi_one_of
-        [
-          :'TableResultV2DataAttributesFileMetadataCloudStorage',
-          :'TableResultV2DataAttributesFileMetadataLocalFile'
-        ]
-      end
-      # Builds the object
-      # @param data [Mixed] Data to be matched against the list of oneOf items
-      # @return [Object] Returns the model or the data itself
-      def build(data)
-        # Go through the list of oneOf items and attempt to identify the appropriate one.
-        # Note:
-        # - We do not attempt to check whether exactly one item matches.
-        # - No advanced validation of types in some cases (e.g. "x: { type: string }" will happily match { x: 123 })
-        #   due to the way the deserialization is made in the base_object template (it just casts without verifying).
-        # - TODO: scalar values are de facto behaving as if they were nullable.
-        # - TODO: logging when debugging is set.
-        openapi_one_of.each do |klass|
-          begin
-            next if klass == :AnyType # "nullable: true"
-            typed_data = find_and_cast_into_type(klass, data)
-            next if typed_data.respond_to?(:_unparsed) && typed_data._unparsed
-            return typed_data if typed_data
-          rescue # rescue all errors so we keep iterating even if the current item lookup raises
-          end
-        end
+    # Cloud storage access configuration for the reference table data file.
+    attr_accessor :access_details
 
-        if openapi_one_of.include?(:AnyType)
-          data
-        else
-          self._unparsed = true
-          DatadogAPIClient::UnparsedObject.new(data)
-        end
+    # The error message returned from the last operation (sync for cloud storage, upload for local file).
+    attr_accessor :error_message
+
+    # The number of rows that failed to process.
+    attr_accessor :error_row_count
+
+    # The type of error that occurred during file processing. This field provides high-level error categories for easier troubleshooting and is only present when there are errors.
+    attr_accessor :error_type
+
+    # Whether this table is synced automatically from cloud storage. Only applicable for cloud storage sources.
+    attr_accessor :sync_enabled
+
+    # Attribute mapping from ruby-style variable name to JSON key.
+    # @!visibility private
+    def self.attribute_map
+      {
+        :'access_details' => :'access_details',
+        :'error_message' => :'error_message',
+        :'error_row_count' => :'error_row_count',
+        :'error_type' => :'error_type',
+        :'sync_enabled' => :'sync_enabled'
+      }
+    end
+
+    # Attribute type mapping.
+    # @!visibility private
+    def self.openapi_types
+      {
+        :'access_details' => :'TableResultV2DataAttributesFileMetadataOneOfAccessDetails',
+        :'error_message' => :'String',
+        :'error_row_count' => :'Integer',
+        :'error_type' => :'TableResultV2DataAttributesFileMetadataCloudStorageErrorType',
+        :'sync_enabled' => :'Boolean'
+      }
+    end
+
+    # Initializes the object
+    # @param attributes [Hash] Model attributes in the form of hash
+    # @!visibility private
+    def initialize(attributes = {})
+      if (!attributes.is_a?(Hash))
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TableResultV2DataAttributesFileMetadata` initialize method"
       end
+
+      # check to see if the attribute exists and convert string to symbol for hash key
+      attributes = attributes.each_with_object({}) { |(k, v), h|
+        if (!self.class.attribute_map.key?(k.to_sym))
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::TableResultV2DataAttributesFileMetadata`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+        end
+        h[k.to_sym] = v
+      }
+
+      if attributes.key?(:'access_details')
+        self.access_details = attributes[:'access_details']
+      end
+
+      if attributes.key?(:'error_message')
+        self.error_message = attributes[:'error_message']
+      end
+
+      if attributes.key?(:'error_row_count')
+        self.error_row_count = attributes[:'error_row_count']
+      end
+
+      if attributes.key?(:'error_type')
+        self.error_type = attributes[:'error_type']
+      end
+
+      if attributes.key?(:'sync_enabled')
+        self.sync_enabled = attributes[:'sync_enabled']
+      end
+    end
+
+    # Checks equality by comparing each attribute.
+    # @param o [Object] Object to be compared
+    # @!visibility private
+    def ==(o)
+      return true if self.equal?(o)
+      self.class == o.class &&
+          access_details == o.access_details &&
+          error_message == o.error_message &&
+          error_row_count == o.error_row_count &&
+          error_type == o.error_type &&
+          sync_enabled == o.sync_enabled
+    end
+
+    # Calculates hash code according to all attributes.
+    # @return [Integer] Hash code
+    # @!visibility private
+    def hash
+      [access_details, error_message, error_row_count, error_type, sync_enabled].hash
     end
   end
 end
