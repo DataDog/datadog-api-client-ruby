@@ -1,5 +1,30 @@
 # CHANGELOG
 
+## 2.45.0/2025-11-14
+
+### Added
+* Add suppression tags [#2768](https://github.com/DataDog/datadog-api-client-ruby/pull/2768)
+* Add new summary keys for new standalone billing dimensions [#2764](https://github.com/DataDog/datadog-api-client-ruby/pull/2764)
+* Add Bits AI Investigations and On-Call to  API specs [#2761](https://github.com/DataDog/datadog-api-client-ruby/pull/2761)
+* Add `PreviewCatalogEntities` [#2757](https://github.com/DataDog/datadog-api-client-ruby/pull/2757)
+* Sync 'audience_management.yaml' files with backend [#2755](https://github.com/DataDog/datadog-api-client-ruby/pull/2755)
+* Dashboards - Add on_call_events datasources [#2754](https://github.com/DataDog/datadog-api-client-ruby/pull/2754)
+* 📝 [LOGSAC-1298] Add logs-pipeline type to restriction policy OpenAPI spec [#2748](https://github.com/DataDog/datadog-api-client-ruby/pull/2748)
+* Security Monitoring - Update Signal Archive Reasons [#2746](https://github.com/DataDog/datadog-api-client-ruby/pull/2746)
+* Add New Serverless Summary Entries to Api Spec [#2731](https://github.com/DataDog/datadog-api-client-ruby/pull/2731)
+* Add metric namespace config filters to V2 GCP API [#2729](https://github.com/DataDog/datadog-api-client-ruby/pull/2729)
+* Add specs for v2 eventbridge API [#2726](https://github.com/DataDog/datadog-api-client-ruby/pull/2726)
+* Add last_login_time to Users v2 API [#2712](https://github.com/DataDog/datadog-api-client-ruby/pull/2712)
+* Add Team Connection API Documentation [#2710](https://github.com/DataDog/datadog-api-client-ruby/pull/2710)
+* Add Static Analysis Rules Endpoints [#2708](https://github.com/DataDog/datadog-api-client-ruby/pull/2708)
+
+### Deprecated
+* [api-spec] Mark PATCH /api/v2/incidents/incident_id/attachments endpoint as deprecated [#2766](https://github.com/DataDog/datadog-api-client-ruby/pull/2766)
+* [METEXP-2068] Deprecate api/v1/search Endpoint [#2762](https://github.com/DataDog/datadog-api-client-ruby/pull/2762)
+
+### Changed
+* Rename historical job API endpoints to threat hunting [#2744](https://github.com/DataDog/datadog-api-client-ruby/pull/2744)
+
 ## 2.44.0/2025-10-27
 
 ### Added
