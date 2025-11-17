@@ -17,11 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The type of synchronization operation. "link" connects teams by matching names. "provision" creates new teams when no match is found.
-  class TeamSyncAttributesType
+  # How often the sync process should be run. Defaults to `once` when not provided.
+  class TeamSyncAttributesFrequency
     include BaseEnumModel
 
-    LINK = "link".freeze
-    PROVISION = "provision".freeze
+    ONCE = "once".freeze
+    CONTINUOUSLY = "continuously".freeze
+    PAUSED = "paused".freeze
   end
 end

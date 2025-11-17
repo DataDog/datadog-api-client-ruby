@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class TeamSyncRequest
     include BaseGenericModel
 
-    # Team sync data.
+    # A configuration governing syncing between Datadog teams and teams from an external system.
     attr_reader :data
 
     attr_accessor :additional_properties

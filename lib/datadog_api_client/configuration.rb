@@ -314,6 +314,7 @@ module DatadogAPIClient
             "v2.create_sca_resolve_vulnerable_symbols": false,
             "v2.create_sca_result": false,
             "v2.add_member_team": false,
+            "v2.get_team_sync": false,
             "v2.list_member_teams": false,
             "v2.remove_member_team": false,
             "v2.sync_teams": false,
