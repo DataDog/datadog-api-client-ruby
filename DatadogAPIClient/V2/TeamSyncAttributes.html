@@ -150,6 +150,32 @@
       <li class="public ">
   <span class="summary_signature">
     
+      <a href="#frequency-instance_method" title="#frequency (instance method)">#<strong>frequency</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>How often the sync process should be run.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#source-instance_method" title="#source (instance method)">#<strong>source</strong>  &#x21d2; Object </a>
     
 
@@ -170,6 +196,32 @@
 
   
     <span class="summary_desc"><div class='inline'><p>The external source platform for team synchronization.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#sync_membership-instance_method" title="#sync_membership (instance method)">#<strong>sync_membership</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Whether to sync members from the external team to the Datadog team.</p>
 </div></span>
   
 </li>
@@ -250,15 +302,57 @@
       <pre class="lines">
 
 
-30
-31
-32</pre>
+36
+37
+38</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/team_sync_attributes.rb', line 30</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/team_sync_attributes.rb', line 36</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_additional_properties'>additional_properties</span>
   <span class='ivar'>@additional_properties</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="frequency=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="frequency-instance_method">
+  
+    #<strong>frequency</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>How often the sync process should be run. Defaults to <code>once</code> when not provided.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+25
+26
+27</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/team_sync_attributes.rb', line 25</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_frequency'>frequency</span>
+  <span class='ivar'>@frequency</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -292,15 +386,57 @@
       <pre class="lines">
 
 
-25
-26
-27</pre>
+28
+29
+30</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/team_sync_attributes.rb', line 25</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/team_sync_attributes.rb', line 28</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_source'>source</span>
   <span class='ivar'>@source</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="sync_membership=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="sync_membership-instance_method">
+  
+    #<strong>sync_membership</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Whether to sync members from the external team to the Datadog team. Defaults to <code>false</code> when not provided.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+31
+32
+33</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/team_sync_attributes.rb', line 31</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_sync_membership'>sync_membership</span>
+  <span class='ivar'>@sync_membership</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -320,7 +456,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>The type of synchronization operation. Only &quot;link&quot; is supported, which links existing teams by matching names.</p>
+    <p>The type of synchronization operation. &quot;link&quot; connects teams by matching names. &quot;provision&quot; creates new teams when no match is found.</p>
 
 
   </div>
@@ -334,12 +470,12 @@
       <pre class="lines">
 
 
-28
-29
-30</pre>
+34
+35
+36</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/team_sync_attributes.rb', line 28</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/team_sync_attributes.rb', line 34</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_type'>type</span>
   <span class='ivar'>@type</span>
@@ -355,7 +491,7 @@
 </div>
 
       <div id="footer">
-  Generated on Fri Nov 14 20:18:46 2025 by
+  Generated on Mon Nov 17 15:33:53 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>
