@@ -17,18 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Filter monitor notifications by tags. A monitor notification must match all tags.
-  class MonitorNotificationRuleFilterTags
+  # Filter monitor notifications. A monitor notification must match the scope.
+  class MonitorNotificationRuleFilterScope
     include BaseGenericModel
 
-    # A list of tags (key:value pairs), which can be used to filter monitor notifications on monitor and group tags.
-    attr_reader :tags
+    # A scope composed of one or several key:value pairs, which can be used to filter monitor notifications on monitor and group tags.
+    attr_reader :scope
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'tags' => :'tags'
+        :'scope' => :'scope'
       }
     end
 
@@ -36,7 +36,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'tags' => :'Array<String>'
+        :'scope' => :'String'
       }
     end
 
@@ -45,21 +45,19 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::MonitorNotificationRuleFilterTags` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::MonitorNotificationRuleFilterScope` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::MonitorNotificationRuleFilterTags`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::MonitorNotificationRuleFilterScope`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'tags')
-        if (value = attributes[:'tags']).is_a?(Array)
-          self.tags = value
-        end
+      if attributes.key?(:'scope')
+        self.scope = attributes[:'scope']
       end
     end
 
@@ -67,26 +65,26 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @tags.nil?
-      return false if @tags.length > 20
-      return false if @tags.length < 1
+      return false if @scope.nil?
+      return false if @scope.to_s.length > 3000
+      return false if @scope.to_s.length < 1
       true
     end
 
     # Custom attribute writer method with validation
-    # @param tags [Object] Object to be assigned
+    # @param scope [Object] Object to be assigned
     # @!visibility private
-    def tags=(tags)
-      if tags.nil?
-        fail ArgumentError, 'invalid value for "tags", tags cannot be nil.'
+    def scope=(scope)
+      if scope.nil?
+        fail ArgumentError, 'invalid value for "scope", scope cannot be nil.'
       end
-      if tags.length > 20
-        fail ArgumentError, 'invalid value for "tags", number of items must be less than or equal to 20.'
+      if scope.to_s.length > 3000
+        fail ArgumentError, 'invalid value for "scope", the character length must be smaller than or equal to 3000.'
       end
-      if tags.length < 1
-        fail ArgumentError, 'invalid value for "tags", number of items must be greater than or equal to 1.'
+      if scope.to_s.length < 1
+        fail ArgumentError, 'invalid value for "scope", the character length must be great than or equal to 1.'
       end
-      @tags = tags
+      @scope = scope
     end
 
     # Checks equality by comparing each attribute.
@@ -95,14 +93,14 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          tags == o.tags
+          scope == o.scope
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [tags].hash
+      [scope].hash
     end
   end
 end

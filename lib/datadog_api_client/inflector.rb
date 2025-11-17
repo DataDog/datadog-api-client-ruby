@@ -2956,6 +2956,7 @@ module DatadogAPIClient
           "v2.monitor_notification_rule_create_request_data" => "MonitorNotificationRuleCreateRequestData",
           "v2.monitor_notification_rule_data" => "MonitorNotificationRuleData",
           "v2.monitor_notification_rule_filter" => "MonitorNotificationRuleFilter",
+          "v2.monitor_notification_rule_filter_scope" => "MonitorNotificationRuleFilterScope",
           "v2.monitor_notification_rule_filter_tags" => "MonitorNotificationRuleFilterTags",
           "v2.monitor_notification_rule_list_response" => "MonitorNotificationRuleListResponse",
           "v2.monitor_notification_rule_relationships" => "MonitorNotificationRuleRelationships",
