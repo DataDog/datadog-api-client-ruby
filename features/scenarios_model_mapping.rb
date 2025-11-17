@@ -3072,6 +3072,9 @@ ScenariosModelMappings = {
     "v2.CreateTeam" => {
             "body" => "TeamCreateRequest",
     },
+    "v2.GetTeamSync" => {
+            "filter_source" => "TeamSyncAttributesSource",
+    },
     "v2.SyncTeams" => {
             "body" => "TeamSyncRequest",
     },
