@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
-  Module: DatadogAPIClient::V2::TableResultV2DataAttributesFileMetadata
+  Class: DatadogAPIClient::V2::TableResultV2DataAttributesFileMetadata
   
     &mdash; datadog-api-client 2.45.0 documentation
   
@@ -59,22 +59,38 @@
         <div class="clear"></div>
       </div>
 
-      <div id="content"><h1>Module: DatadogAPIClient::V2::TableResultV2DataAttributesFileMetadata
+      <div id="content"><h1>Class: DatadogAPIClient::V2::TableResultV2DataAttributesFileMetadata
   
   
   
 </h1>
 <div class="box_info">
   
+  <dl>
+    <dt>Inherits:</dt>
+    <dd>
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">DatadogAPIClient::V2::TableResultV2DataAttributesFileMetadata</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+    </dd>
+  </dl>
+  
 
   
   
+  
+  
   <dl>
-      <dt>Extended by:</dt>
-      <dd><span class='object_link'><a href="BaseOneOfModel.html" title="DatadogAPIClient::V2::BaseOneOfModel (module)">BaseOneOfModel</a></span>, <span class='object_link'><a href="BaseOneOfModelNoDiscriminator.html" title="DatadogAPIClient::V2::BaseOneOfModelNoDiscriminator (module)">BaseOneOfModelNoDiscriminator</a></span></dd>
+      <dt>Includes:</dt>
+      <dd><span class='object_link'><a href="BaseGenericModel.html" title="DatadogAPIClient::V2::BaseGenericModel (module)">BaseGenericModel</a></span></dd>
   </dl>
-  
-  
   
   
 
@@ -92,6 +108,20 @@
   <div class="discussion">
     <p>Metadata specifying where and how to access the reference table&#39;s data file.</p>
 
+<p>For cloud storage tables (S3/GCS/Azure):</p>
+
+<ul>
+<li>sync_enabled and access_details will always be present</li>
+<li>error fields (error_message, error_row_count, error_type) are present only when errors occur</li>
+</ul>
+
+<p>For local file tables:</p>
+
+<ul>
+<li>error fields (error_message, error_row_count) are present only when errors occur</li>
+<li>sync_enabled, access_details are never present</li>
+</ul>
+
 
   </div>
 </div>
@@ -102,26 +132,13 @@
 
 
 
-
-
-  <h2>Instance Attribute Summary</h2>
-  
-  <h3 class="inherited">Attributes included from <span class='object_link'><a href="BaseOneOfModel.html" title="DatadogAPIClient::V2::BaseOneOfModel (module)">BaseOneOfModel</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="BaseOneOfModel.html#_unparsed-instance_method" title="DatadogAPIClient::V2::BaseOneOfModel#_unparsed (method)">#_unparsed</a></span></p>
-
-
-  
-    <h2>
-      Class Method Summary
-      <small><a href="#" class="summary_toggle">collapse</a></small>
-    </h2>
-
-    <ul class="summary">
-      
-        <li class="public ">
+  <h2>Instance Attribute Summary <small><a href="#" class="summary_toggle">collapse</a></small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
   <span class="summary_signature">
     
-      <a href="#build-class_method" title="build (class method)">.<strong>build</strong>(data)  &#x21d2; Object </a>
+      <a href="#access_details-instance_method" title="#access_details (instance method)">#<strong>access_details</strong>  &#x21d2; Object </a>
     
 
     
@@ -129,22 +146,25 @@
   
   
   
+    
+    
+  
   
   
   
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Builds the object.</p>
+    <span class="summary_desc"><div class='inline'><p>Cloud storage access configuration for the reference table data file.</p>
 </div></span>
   
 </li>
 
-      
-        <li class="public ">
+    
+      <li class="public ">
   <span class="summary_signature">
     
-      <a href="#openapi_one_of-class_method" title="openapi_one_of (class method)">.<strong>openapi_one_of</strong>  &#x21d2; Object </a>
+      <a href="#error_message-instance_method" title="#error_message (instance method)">#<strong>error_message</strong>  &#x21d2; Object </a>
     
 
     
@@ -152,43 +172,125 @@
   
   
   
+    
+    
+  
   
   
   
   
 
   
-    <span class="summary_desc"><div class='inline'><p>List of class defined in oneOf (OpenAPI v3).</p>
+    <span class="summary_desc"><div class='inline'><p>The error message returned from the last operation (sync for cloud storage, upload for local file).</p>
 </div></span>
   
 </li>
 
-      
-    </ul>
-  
-
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
-  <div id="class_method_details" class="method_details_list">
-    <h2>Class Method Details</h2>
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#error_row_count-instance_method" title="#error_row_count (instance method)">#<strong>error_row_count</strong>  &#x21d2; Object </a>
+    
 
     
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The number of rows that failed to process.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#error_type-instance_method" title="#error_type (instance method)">#<strong>error_type</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The type of error that occurred during file processing.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#sync_enabled-instance_method" title="#sync_enabled (instance method)">#<strong>sync_enabled</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Whether this table is synced automatically from cloud storage.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  <h2>Method Summary</h2>
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="BaseGenericModel.html" title="DatadogAPIClient::V2::BaseGenericModel (module)">BaseGenericModel</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="BaseGenericModel.html#included-class_method" title="DatadogAPIClient::V2::BaseGenericModel.included (method)">included</a></span></p>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id="access_details=-instance_method"></span>
       <div class="method_details first">
-  <h3 class="signature first" id="build-class_method">
+  <h3 class="signature first" id="access_details-instance_method">
   
-    .<strong>build</strong>(data)  &#x21d2; <tt>Object</tt> 
+    #<strong>access_details</strong>  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -196,49 +298,55 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Builds the object</p>
+    <p>Cloud storage access configuration for the reference table data file.</p>
 
 
   </div>
 </div>
 <div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
   
-    <li>
-      
-        <span class='name'>data</span>
-      
-      
-        <span class='type'>(<tt>Mixed</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><p>Data to be matched against the list of oneOf items</p>
-</div>
-      
-    </li>
-  
-</ul>
 
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>Object</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><p>Returns the model or the data itself</p>
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+33
+34
+35</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/table_result_v2_data_attributes_file_metadata.rb', line 33</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_access_details'>access_details</span>
+  <span class='ivar'>@access_details</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
 </div>
+    
       
-    </li>
+      <span id="error_message=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="error_message-instance_method">
   
-</ul>
+    #<strong>error_message</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>The error message returned from the last operation (sync for cloud storage, upload for local file).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
 
 </div><table class="source_code">
   <tr>
@@ -248,67 +356,25 @@
 
 36
 37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60</pre>
+38</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/table_result_v2_data_attributes_file_metadata.rb', line 36</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_build'>build</span><span class='lparen'>(</span><span class='id identifier rubyid_data'>data</span><span class='rparen'>)</span>
-  <span class='comment'># Go through the list of oneOf items and attempt to identify the appropriate one.
-</span>  <span class='comment'># Note:
-</span>  <span class='comment'># - We do not attempt to check whether exactly one item matches.
-</span>  <span class='comment'># - No advanced validation of types in some cases (e.g. &quot;x: { type: string }&quot; will happily match { x: 123 })
-</span>  <span class='comment'>#   due to the way the deserialization is made in the base_object template (it just casts without verifying).
-</span>  <span class='comment'># - TODO: scalar values are de facto behaving as if they were nullable.
-</span>  <span class='comment'># - TODO: logging when debugging is set.
-</span>  <span class='id identifier rubyid_openapi_one_of'>openapi_one_of</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_klass'>klass</span><span class='op'>|</span>
-    <span class='kw'>begin</span>
-      <span class='kw'>next</span> <span class='kw'>if</span> <span class='id identifier rubyid_klass'>klass</span> <span class='op'>==</span> <span class='symbol'>:AnyType</span> <span class='comment'># &quot;nullable: true&quot;
-</span>      <span class='id identifier rubyid_typed_data'>typed_data</span> <span class='op'>=</span> <span class='id identifier rubyid_find_and_cast_into_type'>find_and_cast_into_type</span><span class='lparen'>(</span><span class='id identifier rubyid_klass'>klass</span><span class='comma'>,</span> <span class='id identifier rubyid_data'>data</span><span class='rparen'>)</span>
-      <span class='kw'>next</span> <span class='kw'>if</span> <span class='id identifier rubyid_typed_data'>typed_data</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:_unparsed</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_typed_data'>typed_data</span><span class='period'>.</span><span class='id identifier rubyid__unparsed'>_unparsed</span>
-      <span class='kw'>return</span> <span class='id identifier rubyid_typed_data'>typed_data</span> <span class='kw'>if</span> <span class='id identifier rubyid_typed_data'>typed_data</span>
-    <span class='kw'>rescue</span> <span class='comment'># rescue all errors so we keep iterating even if the current item lookup raises
-</span>    <span class='kw'>end</span>
-  <span class='kw'>end</span>
-
-  <span class='kw'>if</span> <span class='id identifier rubyid_openapi_one_of'>openapi_one_of</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='symbol'>:AnyType</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_data'>data</span>
-  <span class='kw'>else</span>
-    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid__unparsed'>_unparsed</span> <span class='op'>=</span> <span class='kw'>true</span>
-    <span class='const'><span class='object_link'><a href="../../DatadogAPIClient.html" title="DatadogAPIClient (module)">DatadogAPIClient</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../UnparsedObject.html" title="DatadogAPIClient::UnparsedObject (class)">UnparsedObject</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../UnparsedObject.html#initialize-instance_method" title="DatadogAPIClient::UnparsedObject#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_data'>data</span><span class='rparen'>)</span>
-  <span class='kw'>end</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_error_message'>error_message</span>
+  <span class='ivar'>@error_message</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
 </div>
     
+      
+      <span id="error_row_count=-instance_method"></span>
       <div class="method_details ">
-  <h3 class="signature " id="openapi_one_of-class_method">
+  <h3 class="signature " id="error_row_count-instance_method">
   
-    .<strong>openapi_one_of</strong>  &#x21d2; <tt>Object</tt> 
+    #<strong>error_row_count</strong>  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -316,7 +382,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>List of class defined in oneOf (OpenAPI v3)</p>
+    <p>The number of rows that failed to process.</p>
 
 
   </div>
@@ -330,21 +396,99 @@
       <pre class="lines">
 
 
-27
-28
-29
-30
-31
-32</pre>
+39
+40
+41</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/table_result_v2_data_attributes_file_metadata.rb', line 27</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/table_result_v2_data_attributes_file_metadata.rb', line 39</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_openapi_one_of'>openapi_one_of</span>
-  <span class='lbracket'>[</span>
-    <span class='symbol'>:&#39;TableResultV2DataAttributesFileMetadataCloudStorage&#39;</span><span class='comma'>,</span>
-    <span class='symbol'>:&#39;TableResultV2DataAttributesFileMetadataLocalFile&#39;</span>
-  <span class='rbracket'>]</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_error_row_count'>error_row_count</span>
+  <span class='ivar'>@error_row_count</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="error_type=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="error_type-instance_method">
+  
+    #<strong>error_type</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>The type of error that occurred during file processing. This field provides high-level error categories for easier troubleshooting and is only present when there are errors.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+42
+43
+44</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/table_result_v2_data_attributes_file_metadata.rb', line 42</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_error_type'>error_type</span>
+  <span class='ivar'>@error_type</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="sync_enabled=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="sync_enabled-instance_method">
+  
+    #<strong>sync_enabled</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Whether this table is synced automatically from cloud storage. Only applicable for cloud storage sources.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+45
+46
+47</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/table_result_v2_data_attributes_file_metadata.rb', line 45</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_sync_enabled'>sync_enabled</span>
+  <span class='ivar'>@sync_enabled</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -353,10 +497,11 @@
     
   </div>
 
+
 </div>
 
       <div id="footer">
-  Generated on Mon Nov 17 15:33:35 2025 by
+  Generated on Tue Nov 18 11:36:10 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>

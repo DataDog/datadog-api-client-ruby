@@ -480,12 +480,12 @@
       <pre class="lines">
 
 
-57
-58
-59</pre>
+65
+66
+67</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/table_result_v2_data_attributes.rb', line 57</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/table_result_v2_data_attributes.rb', line 65</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_additional_properties'>additional_properties</span>
   <span class='ivar'>@additional_properties</span>
@@ -594,6 +594,20 @@
   <div class="discussion">
     <p>Metadata specifying where and how to access the reference table&#39;s data file.</p>
 
+<p>For cloud storage tables (S3/GCS/Azure):</p>
+
+<ul>
+<li>sync_enabled and access_details will always be present</li>
+<li>error fields (error_message, error_row_count, error_type) are present only when errors occur</li>
+</ul>
+
+<p>For local file tables:</p>
+
+<ul>
+<li>error fields (error_message, error_row_count) are present only when errors occur</li>
+<li>sync_enabled, access_details are never present</li>
+</ul>
+
 
   </div>
 </div>
@@ -606,12 +620,12 @@
       <pre class="lines">
 
 
-31
-32
-33</pre>
+39
+40
+41</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/table_result_v2_data_attributes.rb', line 31</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/table_result_v2_data_attributes.rb', line 39</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_file_metadata'>file_metadata</span>
   <span class='ivar'>@file_metadata</span>
@@ -648,12 +662,12 @@
       <pre class="lines">
 
 
-34
-35
-36</pre>
+42
+43
+44</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/table_result_v2_data_attributes.rb', line 34</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/table_result_v2_data_attributes.rb', line 42</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_last_updated_by'>last_updated_by</span>
   <span class='ivar'>@last_updated_by</span>
@@ -690,12 +704,12 @@
       <pre class="lines">
 
 
-37
-38
-39</pre>
+45
+46
+47</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/table_result_v2_data_attributes.rb', line 37</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/table_result_v2_data_attributes.rb', line 45</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_row_count'>row_count</span>
   <span class='ivar'>@row_count</span>
@@ -732,12 +746,12 @@
       <pre class="lines">
 
 
-40
-41
-42</pre>
+48
+49
+50</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/table_result_v2_data_attributes.rb', line 40</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/table_result_v2_data_attributes.rb', line 48</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_schema'>schema</span>
   <span class='ivar'>@schema</span>
@@ -774,12 +788,12 @@
       <pre class="lines">
 
 
-43
-44
-45</pre>
+51
+52
+53</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/table_result_v2_data_attributes.rb', line 43</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/table_result_v2_data_attributes.rb', line 51</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_source'>source</span>
   <span class='ivar'>@source</span>
@@ -816,12 +830,12 @@
       <pre class="lines">
 
 
-46
-47
-48</pre>
+54
+55
+56</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/table_result_v2_data_attributes.rb', line 46</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/table_result_v2_data_attributes.rb', line 54</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_status'>status</span>
   <span class='ivar'>@status</span>
@@ -858,12 +872,12 @@
       <pre class="lines">
 
 
-49
-50
-51</pre>
+57
+58
+59</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/table_result_v2_data_attributes.rb', line 49</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/table_result_v2_data_attributes.rb', line 57</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_table_name'>table_name</span>
   <span class='ivar'>@table_name</span>
@@ -900,12 +914,12 @@
       <pre class="lines">
 
 
-52
-53
-54</pre>
+60
+61
+62</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/table_result_v2_data_attributes.rb', line 52</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/table_result_v2_data_attributes.rb', line 60</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_tags'>tags</span>
   <span class='ivar'>@tags</span>
@@ -942,12 +956,12 @@
       <pre class="lines">
 
 
-55
-56
-57</pre>
+63
+64
+65</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/table_result_v2_data_attributes.rb', line 55</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/table_result_v2_data_attributes.rb', line 63</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_updated_at'>updated_at</span>
   <span class='ivar'>@updated_at</span>
@@ -963,7 +977,7 @@
 </div>
 
       <div id="footer">
-  Generated on Mon Nov 17 15:33:58 2025 by
+  Generated on Tue Nov 18 11:36:06 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>
