@@ -46,6 +46,9 @@ module DatadogAPIClient::V2
     # The date/time at which the rotation begins (ISO 8601 format).
     attr_reader :rotation_start
 
+    # The time zone for this layer.
+    attr_accessor :time_zone
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -59,7 +62,8 @@ module DatadogAPIClient::V2
         :'members' => :'members',
         :'name' => :'name',
         :'restrictions' => :'restrictions',
-        :'rotation_start' => :'rotation_start'
+        :'rotation_start' => :'rotation_start',
+        :'time_zone' => :'time_zone'
       }
     end
 
@@ -74,7 +78,8 @@ module DatadogAPIClient::V2
         :'members' => :'Array<ScheduleRequestDataAttributesLayersItemsMembersItems>',
         :'name' => :'String',
         :'restrictions' => :'Array<TimeRestriction>',
-        :'rotation_start' => :'Time'
+        :'rotation_start' => :'Time',
+        :'time_zone' => :'String'
       }
     end
 
@@ -130,6 +135,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'rotation_start')
         self.rotation_start = attributes[:'rotation_start']
+      end
+
+      if attributes.key?(:'time_zone')
+        self.time_zone = attributes[:'time_zone']
       end
     end
 
@@ -229,6 +238,7 @@ module DatadogAPIClient::V2
           name == o.name &&
           restrictions == o.restrictions &&
           rotation_start == o.rotation_start &&
+          time_zone == o.time_zone &&
           additional_properties == o.additional_properties
     end
 
@@ -236,7 +246,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [effective_date, end_date, id, interval, members, name, restrictions, rotation_start, additional_properties].hash
+      [effective_date, end_date, id, interval, members, name, restrictions, rotation_start, time_zone, additional_properties].hash
     end
   end
 end
