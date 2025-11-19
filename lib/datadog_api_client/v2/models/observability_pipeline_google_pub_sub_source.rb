@@ -22,7 +22,7 @@ module DatadogAPIClient::V2
     include BaseGenericModel
 
     # GCP credentials used to authenticate with Google Cloud Storage.
-    attr_reader :auth
+    attr_accessor :auth
 
     # The decoding format used to interpret incoming logs.
     attr_reader :decoding
@@ -123,23 +123,12 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @auth.nil?
       return false if @decoding.nil?
       return false if @id.nil?
       return false if @project.nil?
       return false if @subscription.nil?
       return false if @type.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param auth [Object] Object to be assigned
-    # @!visibility private
-    def auth=(auth)
-      if auth.nil?
-        fail ArgumentError, 'invalid value for "auth", auth cannot be nil.'
-      end
-      @auth = auth
     end
 
     # Custom attribute writer method with validation
