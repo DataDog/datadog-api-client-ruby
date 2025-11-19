@@ -1,0 +1,21 @@
+http_interactions:
+- recorded_at: Tue, 18 Nov 2025 19:17:08 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+    method: GET
+    uri: https://api.datadoghq.com/api/v2/logs/config/restriction_queries/user/00000000-0000-0000-0000-000000000000
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":["user with uuid 00000000-0000-0000-0000-000000000000 doesn''t
+        exist"]}'
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 400
+      message: Bad Request
+recorded_with: VCR 6.0.0

@@ -1,0 +1,64 @@
+http_interactions:
+- recorded_at: Tue, 18 Nov 2025 19:17:11 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"restriction_query":"env:sandbox"},"type":"logs_restriction_queries"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/logs/config/restriction_queries
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"logs_restriction_queries","id":"2efc1406-c4b3-11f0-a6d9-da7ad0900002","attributes":{"restriction_query":"env:sandbox","created_at":"2025-11-18T19:17:11.492694+00:00","modified_at":"2025-11-18T19:17:11.492694+00:00"}}}
+
+        '
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+- recorded_at: Tue, 18 Nov 2025 19:17:11 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+    method: GET
+    uri: https://api.datadoghq.com/api/v2/logs/config/restriction_queries/2efc1406-c4b3-11f0-a6d9-da7ad0900002/roles
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":[]}
+
+        '
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+- recorded_at: Tue, 18 Nov 2025 19:17:11 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/logs/config/restriction_queries/2efc1406-c4b3-11f0-a6d9-da7ad0900002
+  response:
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Content-Type:
+      - text/html; charset=utf-8
+    status:
+      code: 204
+      message: No Content
+recorded_with: VCR 6.0.0
