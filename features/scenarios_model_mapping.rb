@@ -1859,6 +1859,36 @@ ScenariosModelMappings = {
     "v2.CancelDataDeletionRequest" => {
             "id" => "String",
     },
+    "v2.CreateDeploymentGate" => {
+            "body" => "CreateDeploymentGateParams",
+    },
+    "v2.CreateDeploymentRule" => {
+            "gate_id" => "String",
+            "body" => "CreateDeploymentRuleParams",
+    },
+    "v2.DeleteDeploymentRule" => {
+            "gate_id" => "String",
+            "id" => "String",
+    },
+    "v2.GetDeploymentRule" => {
+            "gate_id" => "String",
+            "id" => "String",
+    },
+    "v2.UpdateDeploymentRule" => {
+            "gate_id" => "String",
+            "id" => "String",
+            "body" => "UpdateDeploymentRuleParams",
+    },
+    "v2.DeleteDeploymentGate" => {
+            "id" => "String",
+    },
+    "v2.GetDeploymentGate" => {
+            "id" => "String",
+    },
+    "v2.UpdateDeploymentGate" => {
+            "id" => "String",
+            "body" => "UpdateDeploymentGateParams",
+    },
     "v2.PatchDomainAllowlist" => {
             "body" => "DomainAllowlistRequest",
     },
