@@ -30,6 +30,9 @@ module DatadogAPIClient::V2
     # A list of configured data sources for the pipeline.
     attr_reader :sources
 
+    # Use this field to configure the pipeline's filter queries to use the deprecated search syntax.
+    attr_accessor :use_legacy_search_syntax
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -38,7 +41,8 @@ module DatadogAPIClient::V2
       {
         :'destinations' => :'destinations',
         :'processors' => :'processors',
-        :'sources' => :'sources'
+        :'sources' => :'sources',
+        :'use_legacy_search_syntax' => :'use_legacy_search_syntax'
       }
     end
 
@@ -48,7 +52,8 @@ module DatadogAPIClient::V2
       {
         :'destinations' => :'Array<ObservabilityPipelineConfigDestinationItem>',
         :'processors' => :'Array<ObservabilityPipelineConfigProcessorItem>',
-        :'sources' => :'Array<ObservabilityPipelineConfigSourceItem>'
+        :'sources' => :'Array<ObservabilityPipelineConfigSourceItem>',
+        :'use_legacy_search_syntax' => :'Boolean'
       }
     end
 
@@ -86,6 +91,10 @@ module DatadogAPIClient::V2
         if (value = attributes[:'sources']).is_a?(Array)
           self.sources = value
         end
+      end
+
+      if attributes.key?(:'use_legacy_search_syntax')
+        self.use_legacy_search_syntax = attributes[:'use_legacy_search_syntax']
       end
     end
 
@@ -147,6 +156,7 @@ module DatadogAPIClient::V2
           destinations == o.destinations &&
           processors == o.processors &&
           sources == o.sources &&
+          use_legacy_search_syntax == o.use_legacy_search_syntax &&
           additional_properties == o.additional_properties
     end
 
@@ -154,7 +164,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [destinations, processors, sources, additional_properties].hash
+      [destinations, processors, sources, use_legacy_search_syntax, additional_properties].hash
     end
   end
 end
