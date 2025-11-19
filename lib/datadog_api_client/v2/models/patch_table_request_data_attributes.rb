@@ -30,9 +30,6 @@ module DatadogAPIClient::V2
     # Schema defining the updates to the structure and columns of the reference table. Schema fields cannot be deleted or renamed.
     attr_accessor :schema
 
-    # Whether this table is synced automatically.
-    attr_accessor :sync_enabled
-
     # Tags for organizing and filtering reference tables.
     attr_accessor :tags
 
@@ -45,7 +42,6 @@ module DatadogAPIClient::V2
         :'description' => :'description',
         :'file_metadata' => :'file_metadata',
         :'schema' => :'schema',
-        :'sync_enabled' => :'sync_enabled',
         :'tags' => :'tags'
       }
     end
@@ -57,7 +53,6 @@ module DatadogAPIClient::V2
         :'description' => :'String',
         :'file_metadata' => :'PatchTableRequestDataAttributesFileMetadata',
         :'schema' => :'PatchTableRequestDataAttributesSchema',
-        :'sync_enabled' => :'Boolean',
         :'tags' => :'Array<String>'
       }
     end
@@ -90,10 +85,6 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'schema')
         self.schema = attributes[:'schema']
-      end
-
-      if attributes.key?(:'sync_enabled')
-        self.sync_enabled = attributes[:'sync_enabled']
       end
 
       if attributes.key?(:'tags')
@@ -132,7 +123,6 @@ module DatadogAPIClient::V2
           description == o.description &&
           file_metadata == o.file_metadata &&
           schema == o.schema &&
-          sync_enabled == o.sync_enabled &&
           tags == o.tags &&
           additional_properties == o.additional_properties
     end
@@ -141,7 +131,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [description, file_metadata, schema, sync_enabled, tags, additional_properties].hash
+      [description, file_metadata, schema, tags, additional_properties].hash
     end
   end
 end
