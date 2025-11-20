@@ -71,12 +71,12 @@ module DatadogAPIClient::V1
     # The name of the service level objective object.
     attr_accessor :name
 
-    # A metric-based SLO. **Required if type is `metric`**. Note that Datadog only allows the sum by aggregator
+    # A metric-based SLO. Note that Datadog only allows the sum by aggregator
     # to be used because this will sum up all request counts instead of averaging them, or taking the max or
     # min of all of those requests.
     attr_accessor :query
 
-    # A generic SLI specification. This is currently used for time-slice SLOs only.
+    # A generic SLI specification. This is currently used for time-slice and count-based SLOs only.
     attr_accessor :sli_specification
 
     # A list of tags associated with this service level objective.
@@ -95,9 +95,6 @@ module DatadogAPIClient::V1
     # The SLO time window options. Note that "custom" is not a valid option for creating
     # or updating SLOs. It is only used when querying SLO history over custom timeframes.
     attr_accessor :timeframe
-
-    # The type of the service level objective.
-    attr_accessor :type
 
     # The optional warning threshold such that when the service level indicator is
     # below this value for the given threshold, but above the target threshold, the
@@ -127,7 +124,6 @@ module DatadogAPIClient::V1
         :'target_threshold' => :'target_threshold',
         :'thresholds' => :'thresholds',
         :'timeframe' => :'timeframe',
-        :'type' => :'type',
         :'warning_threshold' => :'warning_threshold'
       }
     end
@@ -152,7 +148,6 @@ module DatadogAPIClient::V1
         :'target_threshold' => :'Float',
         :'thresholds' => :'Array<SLOThreshold>',
         :'timeframe' => :'SLOTimeframe',
-        :'type' => :'SLOType',
         :'warning_threshold' => :'Float'
       }
     end
@@ -259,10 +254,6 @@ module DatadogAPIClient::V1
         self.timeframe = attributes[:'timeframe']
       end
 
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
-      end
-
       if attributes.key?(:'warning_threshold')
         self.warning_threshold = attributes[:'warning_threshold']
       end
@@ -310,7 +301,6 @@ module DatadogAPIClient::V1
           target_threshold == o.target_threshold &&
           thresholds == o.thresholds &&
           timeframe == o.timeframe &&
-          type == o.type &&
           warning_threshold == o.warning_threshold &&
           additional_properties == o.additional_properties
     end
@@ -319,7 +309,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [configured_alert_ids, created_at, creator, description, groups, id, modified_at, monitor_ids, monitor_tags, name, query, sli_specification, tags, target_threshold, thresholds, timeframe, type, warning_threshold, additional_properties].hash
+      [configured_alert_ids, created_at, creator, description, groups, id, modified_at, monitor_ids, monitor_tags, name, query, sli_specification, tags, target_threshold, thresholds, timeframe, warning_threshold, additional_properties].hash
     end
   end
 end
