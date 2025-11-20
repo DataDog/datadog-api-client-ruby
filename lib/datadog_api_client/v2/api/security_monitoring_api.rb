@@ -104,8 +104,13 @@ module DatadogAPIClient::V2
 
     # Convert an existing rule from JSON to Terraform.
     #
-    # Convert an existing rule from JSON to Terraform for datadog provider
-    # resource datadog_security_monitoring_rule.
+    # Convert an existing rule from JSON to Terraform for Datadog provider
+    # resource `datadog_security_monitoring_rule`. You can do so for the following rule types:
+    # - App and API Protection
+    # - Cloud SIEM (log detection and signal correlation)
+    # - Workload Protection
+    #
+    # You can convert Cloud Security configuration rules using Terraform's [Datadog Cloud Configuration Rule resource](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/resources/cloud_configuration_rule).
     #
     # @param rule_id [String] The ID of the rule.
     # @param opts [Hash] the optional parameters
@@ -243,8 +248,13 @@ module DatadogAPIClient::V2
 
     # Convert a rule from JSON to Terraform.
     #
-    # Convert a rule that doesn't (yet) exist from JSON to Terraform for datadog provider
-    # resource datadog_security_monitoring_rule.
+    # Convert a rule that doesn't (yet) exist from JSON to Terraform for Datadog provider
+    # resource `datadog_security_monitoring_rule`. You can do so for the following rule types:
+    # - App and API Protection
+    # - Cloud SIEM (log detection and signal correlation)
+    # - Workload Protection
+    #
+    # You can convert Cloud Security configuration rules using Terraform's [Datadog Cloud Configuration Rule resource](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/resources/cloud_configuration_rule).
     #
     # @param body [SecurityMonitoringRuleConvertPayload] 
     # @param opts [Hash] the optional parameters
