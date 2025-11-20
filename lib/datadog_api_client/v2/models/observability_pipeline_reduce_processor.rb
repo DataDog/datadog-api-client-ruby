@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class ObservabilityPipelineReduceProcessor
     include BaseGenericModel
 
+    # Whether this processor is enabled.
+    attr_accessor :enabled
+
     # A list of fields used to group log events for merging.
     attr_reader :group_by
 
@@ -30,8 +33,8 @@ module DatadogAPIClient::V2
     # A Datadog search query used to determine which logs this processor targets.
     attr_reader :include
 
-    # A list of component IDs whose output is used as the input for this processor.
-    attr_reader :inputs
+    # A list of component IDs whose output is used as input for this processor. Required when used as a standalone processor, omit when used within a processor group.
+    attr_accessor :inputs
 
     # List of merge strategies defining how values from grouped events should be combined.
     attr_reader :merge_strategies
@@ -45,6 +48,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'enabled' => :'enabled',
         :'group_by' => :'group_by',
         :'id' => :'id',
         :'include' => :'include',
@@ -58,6 +62,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'enabled' => :'Boolean',
         :'group_by' => :'Array<String>',
         :'id' => :'String',
         :'include' => :'String',
@@ -84,6 +89,10 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'enabled')
+        self.enabled = attributes[:'enabled']
+      end
 
       if attributes.key?(:'group_by')
         if (value = attributes[:'group_by']).is_a?(Array)
@@ -123,7 +132,6 @@ module DatadogAPIClient::V2
       return false if @group_by.nil?
       return false if @id.nil?
       return false if @include.nil?
-      return false if @inputs.nil?
       return false if @merge_strategies.nil?
       return false if @type.nil?
       true
@@ -157,16 +165,6 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "include", include cannot be nil.'
       end
       @include = include
-    end
-
-    # Custom attribute writer method with validation
-    # @param inputs [Object] Object to be assigned
-    # @!visibility private
-    def inputs=(inputs)
-      if inputs.nil?
-        fail ArgumentError, 'invalid value for "inputs", inputs cannot be nil.'
-      end
-      @inputs = inputs
     end
 
     # Custom attribute writer method with validation
@@ -215,6 +213,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          enabled == o.enabled &&
           group_by == o.group_by &&
           id == o.id &&
           include == o.include &&
@@ -228,7 +227,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [group_by, id, include, inputs, merge_strategies, type, additional_properties].hash
+      [enabled, group_by, id, include, inputs, merge_strategies, type, additional_properties].hash
     end
   end
 end

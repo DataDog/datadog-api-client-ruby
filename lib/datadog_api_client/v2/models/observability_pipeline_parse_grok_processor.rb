@@ -24,14 +24,17 @@ module DatadogAPIClient::V2
     # If set to `true`, disables the default Grok rules provided by Datadog.
     attr_accessor :disable_library_rules
 
+    # Whether this processor is enabled.
+    attr_accessor :enabled
+
     # A unique identifier for this processor.
     attr_reader :id
 
     # A Datadog search query used to determine which logs this processor targets.
     attr_reader :include
 
-    # A list of component IDs whose output is used as the `input` for this component.
-    attr_reader :inputs
+    # A list of component IDs whose output is used as input for this processor. Required when used as a standalone processor, omit when used within a processor group.
+    attr_accessor :inputs
 
     # The list of Grok parsing rules. If multiple matching rules are provided, they are evaluated in order. The first successful match is applied.
     attr_reader :rules
@@ -46,6 +49,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'disable_library_rules' => :'disable_library_rules',
+        :'enabled' => :'enabled',
         :'id' => :'id',
         :'include' => :'include',
         :'inputs' => :'inputs',
@@ -59,6 +63,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'disable_library_rules' => :'Boolean',
+        :'enabled' => :'Boolean',
         :'id' => :'String',
         :'include' => :'String',
         :'inputs' => :'Array<String>',
@@ -87,6 +92,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'disable_library_rules')
         self.disable_library_rules = attributes[:'disable_library_rules']
+      end
+
+      if attributes.key?(:'enabled')
+        self.enabled = attributes[:'enabled']
       end
 
       if attributes.key?(:'id')
@@ -120,7 +129,6 @@ module DatadogAPIClient::V2
     def valid?
       return false if @id.nil?
       return false if @include.nil?
-      return false if @inputs.nil?
       return false if @rules.nil?
       return false if @type.nil?
       true
@@ -144,16 +152,6 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "include", include cannot be nil.'
       end
       @include = include
-    end
-
-    # Custom attribute writer method with validation
-    # @param inputs [Object] Object to be assigned
-    # @!visibility private
-    def inputs=(inputs)
-      if inputs.nil?
-        fail ArgumentError, 'invalid value for "inputs", inputs cannot be nil.'
-      end
-      @inputs = inputs
     end
 
     # Custom attribute writer method with validation
@@ -203,6 +201,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           disable_library_rules == o.disable_library_rules &&
+          enabled == o.enabled &&
           id == o.id &&
           include == o.include &&
           inputs == o.inputs &&
@@ -215,7 +214,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [disable_library_rules, id, include, inputs, rules, type, additional_properties].hash
+      [disable_library_rules, enabled, id, include, inputs, rules, type, additional_properties].hash
     end
   end
 end
