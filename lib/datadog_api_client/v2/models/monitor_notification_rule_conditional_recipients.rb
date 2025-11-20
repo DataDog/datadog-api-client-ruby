@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Use conditional recipients to define different recipients for different situations.
+  # Use conditional recipients to define different recipients for different situations. Cannot be used with `recipients`.
   class MonitorNotificationRuleConditionalRecipients
     include BaseGenericModel
 
     # Conditions of the notification rule.
     attr_reader :conditions
 
-    # A list of recipients to notify. Uses the same format as the monitor `message` field. Must not start with an '@'.
+    # A list of recipients to notify. Uses the same format as the monitor `message` field. Must not start with an '@'. Cannot be used with `conditional_recipients`.
     attr_reader :fallback_recipients
 
     attr_accessor :additional_properties

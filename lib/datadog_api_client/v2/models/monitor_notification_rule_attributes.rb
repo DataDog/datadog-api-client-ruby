@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class MonitorNotificationRuleAttributes
     include BaseGenericModel
 
-    # Use conditional recipients to define different recipients for different situations.
+    # Use conditional recipients to define different recipients for different situations. Cannot be used with `recipients`.
     attr_accessor :conditional_recipients
 
     # Filter used to associate the notification rule with monitors.
@@ -30,7 +30,7 @@ module DatadogAPIClient::V2
     # The name of the monitor notification rule.
     attr_reader :name
 
-    # A list of recipients to notify. Uses the same format as the monitor `message` field. Must not start with an '@'.
+    # A list of recipients to notify. Uses the same format as the monitor `message` field. Must not start with an '@'. Cannot be used with `conditional_recipients`.
     attr_reader :recipients
 
     # Attribute mapping from ruby-style variable name to JSON key.
