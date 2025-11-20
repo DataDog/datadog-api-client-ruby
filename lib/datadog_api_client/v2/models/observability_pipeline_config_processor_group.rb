@@ -17,27 +17,24 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The `add_fields` processor adds static key-value fields to logs.
-  class ObservabilityPipelineAddFieldsProcessor
+  # A group of processors.
+  class ObservabilityPipelineConfigProcessorGroup
     include BaseGenericModel
 
-    # Whether this processor is enabled.
-    attr_accessor :enabled
+    # Whether this processor group is enabled.
+    attr_reader :enabled
 
-    # A list of static fields (key-value pairs) that is added to each log event processed by this component.
-    attr_reader :fields
-
-    # The unique identifier for this component. Used to reference this component in other parts of the pipeline (for example, as the `input` to downstream components).
+    # The unique identifier for the processor group.
     attr_reader :id
 
-    # A Datadog search query used to determine which logs this processor targets.
+    # Conditional expression for when this processor group should execute.
     attr_reader :include
 
-    # A list of component IDs whose output is used as input for this processor. Required when used as a standalone processor, omit when used within a processor group.
-    attr_accessor :inputs
+    # A list of component IDs whose output is used as the input for this processor group.
+    attr_reader :inputs
 
-    # The processor type. The value should always be `add_fields`.
-    attr_reader :type
+    # Processors applied sequentially within this group. No `inputs` fields required - events flow through each processor in order.
+    attr_reader :processors
 
     attr_accessor :additional_properties
 
@@ -46,11 +43,10 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'enabled' => :'enabled',
-        :'fields' => :'fields',
         :'id' => :'id',
         :'include' => :'include',
         :'inputs' => :'inputs',
-        :'type' => :'type'
+        :'processors' => :'processors'
       }
     end
 
@@ -59,11 +55,10 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'enabled' => :'Boolean',
-        :'fields' => :'Array<ObservabilityPipelineFieldValue>',
         :'id' => :'String',
         :'include' => :'String',
         :'inputs' => :'Array<String>',
-        :'type' => :'ObservabilityPipelineAddFieldsProcessorType'
+        :'processors' => :'Array<ObservabilityPipelineConfigProcessorItem>'
       }
     end
 
@@ -72,7 +67,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineAddFieldsProcessor` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineConfigProcessorGroup` initialize method"
       end
 
       self.additional_properties = {}
@@ -89,12 +84,6 @@ module DatadogAPIClient::V2
         self.enabled = attributes[:'enabled']
       end
 
-      if attributes.key?(:'fields')
-        if (value = attributes[:'fields']).is_a?(Array)
-          self.fields = value
-        end
-      end
-
       if attributes.key?(:'id')
         self.id = attributes[:'id']
       end
@@ -109,8 +98,10 @@ module DatadogAPIClient::V2
         end
       end
 
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
+      if attributes.key?(:'processors')
+        if (value = attributes[:'processors']).is_a?(Array)
+          self.processors = value
+        end
       end
     end
 
@@ -118,21 +109,22 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @fields.nil?
+      return false if @enabled.nil?
       return false if @id.nil?
       return false if @include.nil?
-      return false if @type.nil?
+      return false if @inputs.nil?
+      return false if @processors.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param fields [Object] Object to be assigned
+    # @param enabled [Object] Object to be assigned
     # @!visibility private
-    def fields=(fields)
-      if fields.nil?
-        fail ArgumentError, 'invalid value for "fields", fields cannot be nil.'
+    def enabled=(enabled)
+      if enabled.nil?
+        fail ArgumentError, 'invalid value for "enabled", enabled cannot be nil.'
       end
-      @fields = fields
+      @enabled = enabled
     end
 
     # Custom attribute writer method with validation
@@ -156,13 +148,23 @@ module DatadogAPIClient::V2
     end
 
     # Custom attribute writer method with validation
-    # @param type [Object] Object to be assigned
+    # @param inputs [Object] Object to be assigned
     # @!visibility private
-    def type=(type)
-      if type.nil?
-        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+    def inputs=(inputs)
+      if inputs.nil?
+        fail ArgumentError, 'invalid value for "inputs", inputs cannot be nil.'
       end
-      @type = type
+      @inputs = inputs
+    end
+
+    # Custom attribute writer method with validation
+    # @param processors [Object] Object to be assigned
+    # @!visibility private
+    def processors=(processors)
+      if processors.nil?
+        fail ArgumentError, 'invalid value for "processors", processors cannot be nil.'
+      end
+      @processors = processors
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -192,11 +194,10 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           enabled == o.enabled &&
-          fields == o.fields &&
           id == o.id &&
           include == o.include &&
           inputs == o.inputs &&
-          type == o.type &&
+          processors == o.processors &&
           additional_properties == o.additional_properties
     end
 
@@ -204,7 +205,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [enabled, fields, id, include, inputs, type, additional_properties].hash
+      [enabled, id, include, inputs, processors, additional_properties].hash
     end
   end
 end
