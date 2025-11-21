@@ -3090,6 +3090,10 @@ ScenariosModelMappings = {
     "v2.SetOnDemandConcurrencyCap" => {
             "body" => "OnDemandConcurrencyCapAttributes",
     },
+    "v2.PatchGlobalVariable" => {
+            "variable_id" => "String",
+            "body" => "GlobalVariableJsonPatchRequest",
+    },
     "v2.ListTeams" => {
             "page_number" => "Integer",
             "page_size" => "Integer",
