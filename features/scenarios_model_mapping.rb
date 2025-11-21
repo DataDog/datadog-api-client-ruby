@@ -3102,6 +3102,21 @@ ScenariosModelMappings = {
     "v2.CreateTeam" => {
             "body" => "TeamCreateRequest",
     },
+    "v2.GetTeamHierarchyLinks" => {
+            "page_number" => "Integer",
+            "page_size" => "Integer",
+            "filter_parent_team" => "String",
+            "filter_sub_team" => "String",
+    },
+    "v2.AddTeamHierarchyLink" => {
+            "body" => "TeamHierarchyLinkCreateRequest",
+    },
+    "v2.RemoveTeamHierarchyLink" => {
+            "link_id" => "String",
+    },
+    "v2.GetTeamHierarchyLink" => {
+            "link_id" => "String",
+    },
     "v2.GetTeamSync" => {
             "filter_source" => "TeamSyncAttributesSource",
     },
