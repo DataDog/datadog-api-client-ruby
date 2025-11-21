@@ -1,0 +1,22 @@
+http_interactions:
+- recorded_at: Fri, 21 Nov 2025 13:41:10 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"relationships":{"findings":{"data":[{"id":"YzM2MTFjYzcyNmY0Zjg4MTAxZmRlNjQ1MWU1ZGQwYzR-YzI5NzE5Y2Y4MzU4ZjliNzhkNjYxNTY0ODIzZDQ2YTM=","type":"findings"}]}},"type":"cases"}}'
+    headers:
+      Accept:
+      - '*/*'
+      Content-Type:
+      - application/json
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/security/findings/cases
+  response:
+    body:
+      encoding: UTF-8
+      string: ''
+    headers: {}
+    status:
+      code: 204
+      message: No Content
+recorded_with: VCR 6.0.0

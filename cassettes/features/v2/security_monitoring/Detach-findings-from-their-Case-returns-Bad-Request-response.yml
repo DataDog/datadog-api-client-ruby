@@ -1,0 +1,25 @@
+http_interactions:
+- recorded_at: Thu, 20 Nov 2025 16:07:27 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"relationships":{"findings":{"data":[]}},"type":"cases"}}'
+    headers:
+      Accept:
+      - '*/*'
+      Content-Type:
+      - application/json
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/security/findings/cases
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"status":"400","title":"Bad Request","detail":"no finding
+        provided"}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 400
+      message: Bad Request
+recorded_with: VCR 6.0.0
