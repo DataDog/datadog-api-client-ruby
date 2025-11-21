@@ -194,6 +194,7 @@ module DatadogAPIClient
             "v2.create_fleet_deployment_upgrade": false,
             "v2.create_fleet_schedule": false,
             "v2.delete_fleet_schedule": false,
+            "v2.get_fleet_agent_info": false,
             "v2.get_fleet_deployment": false,
             "v2.get_fleet_schedule": false,
             "v2.list_fleet_agent_versions": false,

@@ -427,6 +427,82 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get detailed information about an agent.
+    #
+    # @see #get_fleet_agent_info_with_http_info
+    def get_fleet_agent_info(agent_key, opts = {})
+      data, _status_code, _headers = get_fleet_agent_info_with_http_info(agent_key, opts)
+      data
+    end
+
+    # Get detailed information about an agent.
+    #
+    # Retrieve detailed information about a specific Datadog Agent.
+    # This endpoint returns comprehensive information about an agent including:
+    # - Agent details and metadata
+    # - Configured integrations organized by status (working, warning, error, missing)
+    # - Detected integrations
+    # - Configuration files and layers
+    #
+    # @param agent_key [String] The unique identifier (agent key) for the Datadog Agent.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(FleetAgentInfoResponse, Integer, Hash)>] FleetAgentInfoResponse data, response status code and response headers
+    def get_fleet_agent_info_with_http_info(agent_key, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_fleet_agent_info".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_fleet_agent_info")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_fleet_agent_info"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FleetAutomationAPI.get_fleet_agent_info ...'
+      end
+      # verify the required parameter 'agent_key' is set
+      if @api_client.config.client_side_validation && agent_key.nil?
+        fail ArgumentError, "Missing the required parameter 'agent_key' when calling FleetAutomationAPI.get_fleet_agent_info"
+      end
+      # resource path
+      local_var_path = '/api/unstable/fleet/agents/{agent_key}'.sub('{agent_key}', CGI.escape(agent_key.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'FleetAgentInfoResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_fleet_agent_info,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FleetAutomationAPI#get_fleet_agent_info\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get a configuration deployment by ID.
     #
     # @see #get_fleet_deployment_with_http_info
