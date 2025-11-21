@@ -1892,6 +1892,7 @@ module DatadogAPIClient
           "v2.deployment_gate_response_data_attributes" => "DeploymentGateResponseDataAttributes",
           "v2.deployment_gate_response_data_attributes_created_by" => "DeploymentGateResponseDataAttributesCreatedBy",
           "v2.deployment_gate_response_data_attributes_updated_by" => "DeploymentGateResponseDataAttributesUpdatedBy",
+          "v2.deployment_gate_rules_response" => "DeploymentGateRulesResponse",
           "v2.deployment_metadata" => "DeploymentMetadata",
           "v2.deployment_relationship" => "DeploymentRelationship",
           "v2.deployment_relationship_data" => "DeploymentRelationshipData",
