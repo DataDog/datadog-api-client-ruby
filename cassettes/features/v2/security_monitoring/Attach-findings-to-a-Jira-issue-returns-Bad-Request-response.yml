@@ -1,0 +1,25 @@
+http_interactions:
+- recorded_at: Thu, 20 Nov 2025 15:53:19 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"jira_issue_url":"https://datadoghq-sandbox-538.atlassian.net/browse/CSMSEC-105476"},"relationships":{"findings":{"data":[]},"project":{"data":{"id":"959a6f71-bac8-4027-b1d3-2264f569296f","type":"projects"}}},"type":"jira_issues"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: PATCH
+    uri: https://api.datadoghq.com/api/v2/security/findings/jira_issues
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"status":"400","title":"Bad Request","detail":"no finding
+        provided"}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 400
+      message: Bad Request
+recorded_with: VCR 6.0.0
