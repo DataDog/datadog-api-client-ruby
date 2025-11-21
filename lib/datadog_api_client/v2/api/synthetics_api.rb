@@ -83,6 +83,85 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Patch a global variable.
+    #
+    # @see #patch_global_variable_with_http_info
+    def patch_global_variable(variable_id, body, opts = {})
+      data, _status_code, _headers = patch_global_variable_with_http_info(variable_id, body, opts)
+      data
+    end
+
+    # Patch a global variable.
+    #
+    # Patch a global variable using JSON Patch (RFC 6902).
+    # This endpoint allows partial updates to a global variable by specifying only the fields to modify.
+    #
+    # Common operations include:
+    # - Replace field values: `{"op": "replace", "path": "/name", "value": "new_name"}`
+    # - Update nested values: `{"op": "replace", "path": "/value/value", "value": "new_value"}`
+    # - Add/update tags: `{"op": "add", "path": "/tags/-", "value": "new_tag"}`
+    # - Remove fields: `{"op": "remove", "path": "/description"}`
+    #
+    # @param variable_id [String] The ID of the global variable.
+    # @param body [GlobalVariableJsonPatchRequest] JSON Patch document with operations to apply.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(GlobalVariableResponse, Integer, Hash)>] GlobalVariableResponse data, response status code and response headers
+    def patch_global_variable_with_http_info(variable_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsAPI.patch_global_variable ...'
+      end
+      # verify the required parameter 'variable_id' is set
+      if @api_client.config.client_side_validation && variable_id.nil?
+        fail ArgumentError, "Missing the required parameter 'variable_id' when calling SyntheticsAPI.patch_global_variable"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SyntheticsAPI.patch_global_variable"
+      end
+      # resource path
+      local_var_path = '/api/v2/synthetics/variables/{variable_id}/jsonpatch'.sub('{variable_id}', CGI.escape(variable_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GlobalVariableResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :patch_global_variable,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SyntheticsAPI#patch_global_variable\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Save new value for on-demand concurrency cap.
     #
     # @see #set_on_demand_concurrency_cap_with_http_info
