@@ -2380,6 +2380,46 @@ ScenariosModelMappings = {
             "metric_id" => "String",
             "body" => "LogsMetricUpdateRequest",
     },
+    "v2.ListRestrictionQueries" => {
+            "page_size" => "Integer",
+            "page_number" => "Integer",
+    },
+    "v2.CreateRestrictionQuery" => {
+            "body" => "RestrictionQueryCreatePayload",
+    },
+    "v2.GetRoleRestrictionQuery" => {
+            "role_id" => "String",
+    },
+    "v2.ListUserRestrictionQueries" => {
+            "user_id" => "String",
+    },
+    "v2.DeleteRestrictionQuery" => {
+            "restriction_query_id" => "String",
+    },
+    "v2.GetRestrictionQuery" => {
+            "restriction_query_id" => "String",
+    },
+    "v2.UpdateRestrictionQuery" => {
+            "restriction_query_id" => "String",
+            "body" => "RestrictionQueryUpdatePayload",
+    },
+    "v2.ReplaceRestrictionQuery" => {
+            "restriction_query_id" => "String",
+            "body" => "RestrictionQueryUpdatePayload",
+    },
+    "v2.RemoveRoleFromRestrictionQuery" => {
+            "restriction_query_id" => "String",
+            "body" => "RelationshipToRole",
+    },
+    "v2.ListRestrictionQueryRoles" => {
+            "restriction_query_id" => "String",
+            "page_size" => "Integer",
+            "page_number" => "Integer",
+    },
+    "v2.AddRoleToRestrictionQuery" => {
+            "restriction_query_id" => "String",
+            "body" => "RelationshipToRole",
+    },
     "v2.ListTagConfigurations" => {
             "filter_configured" => "Boolean",
             "filter_tags_configured" => "String",
