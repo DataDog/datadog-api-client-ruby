@@ -22,7 +22,10 @@ module DatadogAPIClient::V2
     include BaseGenericModel
 
     # If set to `true`, logs that matched the quota filter and sent after the quota has been met are dropped; only logs that did not match the filter query continue through the pipeline.
-    attr_reader :drop_events
+    attr_accessor :drop_events
+
+    # Whether this processor is enabled.
+    attr_reader :enabled
 
     # The unique identifier for this component. Used to reference this component in other parts of the pipeline (for example, as the `input` to downstream components).
     attr_reader :id
@@ -32,9 +35,6 @@ module DatadogAPIClient::V2
 
     # A Datadog search query used to determine which logs this processor targets.
     attr_reader :include
-
-    # A list of component IDs whose output is used as the `input` for this component.
-    attr_reader :inputs
 
     # The maximum amount of data or number of events allowed before the quota is enforced. Can be specified in bytes or events.
     attr_reader :limit
@@ -64,10 +64,10 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'drop_events' => :'drop_events',
+        :'enabled' => :'enabled',
         :'id' => :'id',
         :'ignore_when_missing_partitions' => :'ignore_when_missing_partitions',
         :'include' => :'include',
-        :'inputs' => :'inputs',
         :'limit' => :'limit',
         :'name' => :'name',
         :'overflow_action' => :'overflow_action',
@@ -82,10 +82,10 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'drop_events' => :'Boolean',
+        :'enabled' => :'Boolean',
         :'id' => :'String',
         :'ignore_when_missing_partitions' => :'Boolean',
         :'include' => :'String',
-        :'inputs' => :'Array<String>',
         :'limit' => :'ObservabilityPipelineQuotaProcessorLimit',
         :'name' => :'String',
         :'overflow_action' => :'ObservabilityPipelineQuotaProcessorOverflowAction',
@@ -117,6 +117,10 @@ module DatadogAPIClient::V2
         self.drop_events = attributes[:'drop_events']
       end
 
+      if attributes.key?(:'enabled')
+        self.enabled = attributes[:'enabled']
+      end
+
       if attributes.key?(:'id')
         self.id = attributes[:'id']
       end
@@ -127,12 +131,6 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'include')
         self.include = attributes[:'include']
-      end
-
-      if attributes.key?(:'inputs')
-        if (value = attributes[:'inputs']).is_a?(Array)
-          self.inputs = value
-        end
       end
 
       if attributes.key?(:'limit')
@@ -168,10 +166,9 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @drop_events.nil?
+      return false if @enabled.nil?
       return false if @id.nil?
       return false if @include.nil?
-      return false if @inputs.nil?
       return false if @limit.nil?
       return false if @name.nil?
       return false if @type.nil?
@@ -179,13 +176,13 @@ module DatadogAPIClient::V2
     end
 
     # Custom attribute writer method with validation
-    # @param drop_events [Object] Object to be assigned
+    # @param enabled [Object] Object to be assigned
     # @!visibility private
-    def drop_events=(drop_events)
-      if drop_events.nil?
-        fail ArgumentError, 'invalid value for "drop_events", drop_events cannot be nil.'
+    def enabled=(enabled)
+      if enabled.nil?
+        fail ArgumentError, 'invalid value for "enabled", enabled cannot be nil.'
       end
-      @drop_events = drop_events
+      @enabled = enabled
     end
 
     # Custom attribute writer method with validation
@@ -206,16 +203,6 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "include", include cannot be nil.'
       end
       @include = include
-    end
-
-    # Custom attribute writer method with validation
-    # @param inputs [Object] Object to be assigned
-    # @!visibility private
-    def inputs=(inputs)
-      if inputs.nil?
-        fail ArgumentError, 'invalid value for "inputs", inputs cannot be nil.'
-      end
-      @inputs = inputs
     end
 
     # Custom attribute writer method with validation
@@ -275,10 +262,10 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           drop_events == o.drop_events &&
+          enabled == o.enabled &&
           id == o.id &&
           ignore_when_missing_partitions == o.ignore_when_missing_partitions &&
           include == o.include &&
-          inputs == o.inputs &&
           limit == o.limit &&
           name == o.name &&
           overflow_action == o.overflow_action &&
@@ -292,7 +279,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [drop_events, id, ignore_when_missing_partitions, include, inputs, limit, name, overflow_action, overrides, partition_fields, type, additional_properties].hash
+      [drop_events, enabled, id, ignore_when_missing_partitions, include, limit, name, overflow_action, overrides, partition_fields, type, additional_properties].hash
     end
   end
 end
