@@ -14,19 +14,27 @@ body = DatadogAPIClient::V2::ObservabilityPipelineSpec.new({
           DatadogAPIClient::V2::ObservabilityPipelineDatadogLogsDestination.new({
             id: "datadog-logs-destination",
             inputs: [
-              "filter-processor",
+              "my-processor-group",
             ],
             type: DatadogAPIClient::V2::ObservabilityPipelineDatadogLogsDestinationType::DATADOG_LOGS,
           }),
         ],
         processors: [
-          DatadogAPIClient::V2::ObservabilityPipelineFilterProcessor.new({
-            id: "filter-processor",
+          DatadogAPIClient::V2::ObservabilityPipelineConfigProcessorGroup.new({
+            enabled: true,
+            id: "my-processor-group",
             include: "service:my-service",
             inputs: [
               "datadog-agent-source",
             ],
-            type: DatadogAPIClient::V2::ObservabilityPipelineFilterProcessorType::FILTER,
+            processors: [
+              DatadogAPIClient::V2::ObservabilityPipelineFilterProcessor.new({
+                enabled: true,
+                id: "filter-processor",
+                include: "status:error",
+                type: DatadogAPIClient::V2::ObservabilityPipelineFilterProcessorType::FILTER,
+              }),
+            ],
           }),
         ],
         sources: [

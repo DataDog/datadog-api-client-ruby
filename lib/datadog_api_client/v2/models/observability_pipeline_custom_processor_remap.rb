@@ -25,7 +25,7 @@ module DatadogAPIClient::V2
     attr_reader :drop_on_error
 
     # Whether this remap rule is enabled.
-    attr_reader :enabled
+    attr_accessor :enabled
 
     # A Datadog search query used to filter events for this specific remap rule.
     attr_reader :include
@@ -106,7 +106,6 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @drop_on_error.nil?
-      return false if @enabled.nil?
       return false if @include.nil?
       return false if @name.nil?
       return false if @source.nil?
@@ -121,16 +120,6 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "drop_on_error", drop_on_error cannot be nil.'
       end
       @drop_on_error = drop_on_error
-    end
-
-    # Custom attribute writer method with validation
-    # @param enabled [Object] Object to be assigned
-    # @!visibility private
-    def enabled=(enabled)
-      if enabled.nil?
-        fail ArgumentError, 'invalid value for "enabled", enabled cannot be nil.'
-      end
-      @enabled = enabled
     end
 
     # Custom attribute writer method with validation

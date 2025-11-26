@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class ObservabilityPipelineReduceProcessor
     include BaseGenericModel
 
+    # Whether this processor is enabled.
+    attr_reader :enabled
+
     # A list of fields used to group log events for merging.
     attr_reader :group_by
 
@@ -29,9 +32,6 @@ module DatadogAPIClient::V2
 
     # A Datadog search query used to determine which logs this processor targets.
     attr_reader :include
-
-    # A list of component IDs whose output is used as the input for this processor.
-    attr_reader :inputs
 
     # List of merge strategies defining how values from grouped events should be combined.
     attr_reader :merge_strategies
@@ -45,10 +45,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'enabled' => :'enabled',
         :'group_by' => :'group_by',
         :'id' => :'id',
         :'include' => :'include',
-        :'inputs' => :'inputs',
         :'merge_strategies' => :'merge_strategies',
         :'type' => :'type'
       }
@@ -58,10 +58,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'enabled' => :'Boolean',
         :'group_by' => :'Array<String>',
         :'id' => :'String',
         :'include' => :'String',
-        :'inputs' => :'Array<String>',
         :'merge_strategies' => :'Array<ObservabilityPipelineReduceProcessorMergeStrategy>',
         :'type' => :'ObservabilityPipelineReduceProcessorType'
       }
@@ -85,6 +85,10 @@ module DatadogAPIClient::V2
         end
       }
 
+      if attributes.key?(:'enabled')
+        self.enabled = attributes[:'enabled']
+      end
+
       if attributes.key?(:'group_by')
         if (value = attributes[:'group_by']).is_a?(Array)
           self.group_by = value
@@ -97,12 +101,6 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'include')
         self.include = attributes[:'include']
-      end
-
-      if attributes.key?(:'inputs')
-        if (value = attributes[:'inputs']).is_a?(Array)
-          self.inputs = value
-        end
       end
 
       if attributes.key?(:'merge_strategies')
@@ -120,13 +118,23 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
+      return false if @enabled.nil?
       return false if @group_by.nil?
       return false if @id.nil?
       return false if @include.nil?
-      return false if @inputs.nil?
       return false if @merge_strategies.nil?
       return false if @type.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param enabled [Object] Object to be assigned
+    # @!visibility private
+    def enabled=(enabled)
+      if enabled.nil?
+        fail ArgumentError, 'invalid value for "enabled", enabled cannot be nil.'
+      end
+      @enabled = enabled
     end
 
     # Custom attribute writer method with validation
@@ -157,16 +165,6 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "include", include cannot be nil.'
       end
       @include = include
-    end
-
-    # Custom attribute writer method with validation
-    # @param inputs [Object] Object to be assigned
-    # @!visibility private
-    def inputs=(inputs)
-      if inputs.nil?
-        fail ArgumentError, 'invalid value for "inputs", inputs cannot be nil.'
-      end
-      @inputs = inputs
     end
 
     # Custom attribute writer method with validation
@@ -215,10 +213,10 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          enabled == o.enabled &&
           group_by == o.group_by &&
           id == o.id &&
           include == o.include &&
-          inputs == o.inputs &&
           merge_strategies == o.merge_strategies &&
           type == o.type &&
           additional_properties == o.additional_properties
@@ -228,7 +226,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [group_by, id, include, inputs, merge_strategies, type, additional_properties].hash
+      [enabled, group_by, id, include, merge_strategies, type, additional_properties].hash
     end
   end
 end
