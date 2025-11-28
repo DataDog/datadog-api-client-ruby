@@ -17,15 +17,24 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Relationship between a user team permission and a team
-  class RelationshipToUserTeamPermission
+  # Teams hierarchy links response links.
+  class TeamsHierarchyLinksResponseLinks
     include BaseGenericModel
 
-    # Related user team permission data
-    attr_accessor :data
+    # Link to the first page.
+    attr_accessor :first
 
-    # Links attributes.
-    attr_accessor :links
+    # Link to the last page.
+    attr_accessor :last
+
+    # Link to the next page.
+    attr_accessor :_next
+
+    # Link to the previous page.
+    attr_accessor :prev
+
+    # Link to the current object.
+    attr_accessor :_self
 
     attr_accessor :additional_properties
 
@@ -33,8 +42,11 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data',
-        :'links' => :'links'
+        :'first' => :'first',
+        :'last' => :'last',
+        :'_next' => :'next',
+        :'prev' => :'prev',
+        :'_self' => :'self'
       }
     end
 
@@ -42,8 +54,11 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'RelationshipToUserTeamPermissionData',
-        :'links' => :'TeamRelationshipsLinks'
+        :'first' => :'String',
+        :'last' => :'String',
+        :'_next' => :'String',
+        :'prev' => :'String',
+        :'_self' => :'String'
       }
     end
 
@@ -51,7 +66,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_nullable
       Set.new([
-        :'data',
+        :'first',
+        :'last',
+        :'_next',
+        :'prev',
       ])
     end
 
@@ -60,7 +78,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RelationshipToUserTeamPermission` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TeamsHierarchyLinksResponseLinks` initialize method"
       end
 
       self.additional_properties = {}
@@ -73,12 +91,24 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'data')
-        self.data = attributes[:'data']
+      if attributes.key?(:'first')
+        self.first = attributes[:'first']
       end
 
-      if attributes.key?(:'links')
-        self.links = attributes[:'links']
+      if attributes.key?(:'last')
+        self.last = attributes[:'last']
+      end
+
+      if attributes.key?(:'_next')
+        self._next = attributes[:'_next']
+      end
+
+      if attributes.key?(:'prev')
+        self.prev = attributes[:'prev']
+      end
+
+      if attributes.key?(:'_self')
+        self._self = attributes[:'_self']
       end
     end
 
@@ -108,8 +138,11 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data &&
-          links == o.links &&
+          first == o.first &&
+          last == o.last &&
+          _next == o._next &&
+          prev == o.prev &&
+          _self == o._self &&
           additional_properties == o.additional_properties
     end
 
@@ -117,7 +150,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, links, additional_properties].hash
+      [first, last, _next, prev, _self, additional_properties].hash
     end
   end
 end

@@ -17,15 +17,21 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Relationship between a user team permission and a team
-  class RelationshipToUserTeamPermission
+  # Team hierarchy links response
+  class TeamHierarchyLinksResponse
     include BaseGenericModel
 
-    # Related user team permission data
+    # Team hierarchy links response data
     attr_accessor :data
 
-    # Links attributes.
+    # Included teams
+    attr_accessor :included
+
+    # Teams hierarchy links response links.
     attr_accessor :links
+
+    # Team hierarchy links response metadata.
+    attr_accessor :meta
 
     attr_accessor :additional_properties
 
@@ -34,7 +40,9 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'data' => :'data',
-        :'links' => :'links'
+        :'included' => :'included',
+        :'links' => :'links',
+        :'meta' => :'meta'
       }
     end
 
@@ -42,17 +50,11 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'RelationshipToUserTeamPermissionData',
-        :'links' => :'TeamRelationshipsLinks'
+        :'data' => :'Array<TeamHierarchyLink>',
+        :'included' => :'Array<TeamHierarchyLinkTeam>',
+        :'links' => :'TeamsHierarchyLinksResponseLinks',
+        :'meta' => :'TeamsHierarchyLinksResponseMeta'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-        :'data',
-      ])
     end
 
     # Initializes the object
@@ -60,7 +62,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RelationshipToUserTeamPermission` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TeamHierarchyLinksResponse` initialize method"
       end
 
       self.additional_properties = {}
@@ -74,11 +76,23 @@ module DatadogAPIClient::V2
       }
 
       if attributes.key?(:'data')
-        self.data = attributes[:'data']
+        if (value = attributes[:'data']).is_a?(Array)
+          self.data = value
+        end
+      end
+
+      if attributes.key?(:'included')
+        if (value = attributes[:'included']).is_a?(Array)
+          self.included = value
+        end
       end
 
       if attributes.key?(:'links')
         self.links = attributes[:'links']
+      end
+
+      if attributes.key?(:'meta')
+        self.meta = attributes[:'meta']
       end
     end
 
@@ -109,7 +123,9 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           data == o.data &&
+          included == o.included &&
           links == o.links &&
+          meta == o.meta &&
           additional_properties == o.additional_properties
     end
 
@@ -117,7 +133,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, links, additional_properties].hash
+      [data, included, links, meta, additional_properties].hash
     end
   end
 end

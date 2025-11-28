@@ -17,15 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Relationship between a user team permission and a team
-  class RelationshipToUserTeamPermission
+  # Team hierarchy links response metadata.
+  class TeamsHierarchyLinksResponseMeta
     include BaseGenericModel
 
-    # Related user team permission data
-    attr_accessor :data
-
-    # Links attributes.
-    attr_accessor :links
+    # Teams hierarchy links response page metadata.
+    attr_accessor :page
 
     attr_accessor :additional_properties
 
@@ -33,8 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data',
-        :'links' => :'links'
+        :'page' => :'page'
       }
     end
 
@@ -42,17 +38,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'RelationshipToUserTeamPermissionData',
-        :'links' => :'TeamRelationshipsLinks'
+        :'page' => :'TeamsHierarchyLinksResponseMetaPage'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-        :'data',
-      ])
     end
 
     # Initializes the object
@@ -60,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RelationshipToUserTeamPermission` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TeamsHierarchyLinksResponseMeta` initialize method"
       end
 
       self.additional_properties = {}
@@ -73,12 +60,8 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'data')
-        self.data = attributes[:'data']
-      end
-
-      if attributes.key?(:'links')
-        self.links = attributes[:'links']
+      if attributes.key?(:'page')
+        self.page = attributes[:'page']
       end
     end
 
@@ -108,8 +91,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data &&
-          links == o.links &&
+          page == o.page &&
           additional_properties == o.additional_properties
     end
 
@@ -117,7 +99,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, links, additional_properties].hash
+      [page, additional_properties].hash
     end
   end
 end

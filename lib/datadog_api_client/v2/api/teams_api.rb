@@ -36,11 +36,16 @@ module DatadogAPIClient::V2
     # Add a member team.
     # Adds the team given by the `id` in the body as a member team of the super team.
     #
+    # **Note**: This API is deprecated. For creating team hierarchy links, use the team hierarchy links API: `POST /api/v2/team-hierarchy-links`.
+    #
+    # @deprecated This API is deprecated.
+    #
     # @param super_team_id [String] None
     # @param body [AddMemberTeamRequest] 
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def add_member_team_with_http_info(super_team_id, body, opts = {})
+      warn "[DEPRECATION] `AddMemberTeam` is deprecated."
       unstable_enabled = @api_client.config.unstable_operations["v2.add_member_team".to_sym]
       if unstable_enabled
         @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.add_member_team")
@@ -98,6 +103,73 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: TeamsAPI#add_member_team\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create a team hierarchy link.
+    #
+    # @see #add_team_hierarchy_link_with_http_info
+    def add_team_hierarchy_link(body, opts = {})
+      data, _status_code, _headers = add_team_hierarchy_link_with_http_info(body, opts)
+      data
+    end
+
+    # Create a team hierarchy link.
+    #
+    # Create a new team hierarchy link between a parent team and a sub team.
+    #
+    # @param body [TeamHierarchyLinkCreateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(TeamHierarchyLinkResponse, Integer, Hash)>] TeamHierarchyLinkResponse data, response status code and response headers
+    def add_team_hierarchy_link_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TeamsAPI.add_team_hierarchy_link ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling TeamsAPI.add_team_hierarchy_link"
+      end
+      # resource path
+      local_var_path = '/api/v2/team-hierarchy-links'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TeamHierarchyLinkResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :add_team_hierarchy_link,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TeamsAPI#add_team_hierarchy_link\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -584,6 +656,161 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get a team hierarchy link.
+    #
+    # @see #get_team_hierarchy_link_with_http_info
+    def get_team_hierarchy_link(link_id, opts = {})
+      data, _status_code, _headers = get_team_hierarchy_link_with_http_info(link_id, opts)
+      data
+    end
+
+    # Get a team hierarchy link.
+    #
+    # Get a single team hierarchy link for the given link_id.
+    #
+    # @param link_id [String] The team hierarchy link's identifier
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(TeamHierarchyLinkResponse, Integer, Hash)>] TeamHierarchyLinkResponse data, response status code and response headers
+    def get_team_hierarchy_link_with_http_info(link_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TeamsAPI.get_team_hierarchy_link ...'
+      end
+      # verify the required parameter 'link_id' is set
+      if @api_client.config.client_side_validation && link_id.nil?
+        fail ArgumentError, "Missing the required parameter 'link_id' when calling TeamsAPI.get_team_hierarchy_link"
+      end
+      # resource path
+      local_var_path = '/api/v2/team-hierarchy-links/{link_id}'.sub('{link_id}', CGI.escape(link_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TeamHierarchyLinkResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_team_hierarchy_link,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TeamsAPI#get_team_hierarchy_link\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get team hierarchy links.
+    #
+    # @see #get_team_hierarchy_links_with_http_info
+    def get_team_hierarchy_links(opts = {})
+      data, _status_code, _headers = get_team_hierarchy_links_with_http_info(opts)
+      data
+    end
+
+    # Get team hierarchy links.
+    #
+    # List all team hierarchy links that match the provided filters.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :page_number Specific page number to return.
+    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 100.
+    # @option opts [String] :filter_parent_team Filter by parent team ID
+    # @option opts [String] :filter_sub_team Filter by sub team ID
+    # @return [Array<(TeamHierarchyLinksResponse, Integer, Hash)>] TeamHierarchyLinksResponse data, response status code and response headers
+    def get_team_hierarchy_links_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TeamsAPI.get_team_hierarchy_links ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/team-hierarchy-links'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'page[number]'] = opts[:'page_number'] if !opts[:'page_number'].nil?
+      query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+      query_params[:'filter[parent_team]'] = opts[:'filter_parent_team'] if !opts[:'filter_parent_team'].nil?
+      query_params[:'filter[sub_team]'] = opts[:'filter_sub_team'] if !opts[:'filter_sub_team'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TeamHierarchyLinksResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_team_hierarchy_links,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TeamsAPI#get_team_hierarchy_links\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get team hierarchy links.
+    #
+    # Provide a paginated version of {#get_team_hierarchy_links}, returning all items.
+    #
+    # To use it you need to use a block: get_team_hierarchy_links_with_pagination { |item| p item }
+    #
+    # @yield [TeamHierarchyLink] Paginated items
+    def get_team_hierarchy_links_with_pagination(opts = {})
+        api_version = "V2"
+        page_size = @api_client.get_attribute_from_path(opts, "page_size", 10)
+        @api_client.set_attribute_from_path(api_version, opts, "page_size", Integer, page_size)
+        @api_client.set_attribute_from_path(api_version, opts, "page_number", Integer, 0)
+        while true do
+            response = get_team_hierarchy_links(opts)
+            @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
+            if @api_client.get_attribute_from_path(response, "data").length < page_size
+              break
+            end
+            @api_client.set_attribute_from_path(api_version, opts, "page_number", Integer, @api_client.get_attribute_from_path(opts, "page_number", 0) + 1)
+        end
+    end
+
     # Get a team link.
     #
     # @see #get_team_link_with_http_info
@@ -1038,6 +1265,11 @@ module DatadogAPIClient::V2
     #
     # Get all member teams.
     #
+    # **Note**: This API is deprecated. For team hierarchy relationships (parent-child
+    # teams), use the team hierarchy links API: `GET /api/v2/team-hierarchy-links`.
+    #
+    # @deprecated This API is deprecated.
+    #
     # @param super_team_id [String] None
     # @param opts [Hash] the optional parameters
     # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 100.
@@ -1045,6 +1277,7 @@ module DatadogAPIClient::V2
     # @option opts [Array<TeamsField>] :fields_team List of fields that need to be fetched.
     # @return [Array<(TeamsResponse, Integer, Hash)>] TeamsResponse data, response status code and response headers
     def list_member_teams_with_http_info(super_team_id, opts = {})
+      warn "[DEPRECATION] `ListMemberTeams` is deprecated."
       unstable_enabled = @api_client.config.unstable_operations["v2.list_member_teams".to_sym]
       if unstable_enabled
         @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_member_teams")
@@ -1239,11 +1472,16 @@ module DatadogAPIClient::V2
     #
     # Remove a super team's member team identified by `member_team_id`.
     #
+    # **Note**: This API is deprecated. For deleting team hierarchy links, use the team hierarchy links API: `DELETE /api/v2/team-hierarchy-links/{link_id}`.
+    #
+    # @deprecated This API is deprecated.
+    #
     # @param super_team_id [String] None
     # @param member_team_id [String] None
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def remove_member_team_with_http_info(super_team_id, member_team_id, opts = {})
+      warn "[DEPRECATION] `RemoveMemberTeam` is deprecated."
       unstable_enabled = @api_client.config.unstable_operations["v2.remove_member_team".to_sym]
       if unstable_enabled
         @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.remove_member_team")
@@ -1299,6 +1537,71 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: TeamsAPI#remove_member_team\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Remove a team hierarchy link.
+    #
+    # @see #remove_team_hierarchy_link_with_http_info
+    def remove_team_hierarchy_link(link_id, opts = {})
+      remove_team_hierarchy_link_with_http_info(link_id, opts)
+      nil
+    end
+
+    # Remove a team hierarchy link.
+    #
+    # Remove a team hierarchy link by the given link_id.
+    #
+    # @param link_id [String] The team hierarchy link's identifier
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def remove_team_hierarchy_link_with_http_info(link_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TeamsAPI.remove_team_hierarchy_link ...'
+      end
+      # verify the required parameter 'link_id' is set
+      if @api_client.config.client_side_validation && link_id.nil?
+        fail ArgumentError, "Missing the required parameter 'link_id' when calling TeamsAPI.remove_team_hierarchy_link"
+      end
+      # resource path
+      local_var_path = '/api/v2/team-hierarchy-links/{link_id}'.sub('{link_id}', CGI.escape(link_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :remove_team_hierarchy_link,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TeamsAPI#remove_team_hierarchy_link\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
