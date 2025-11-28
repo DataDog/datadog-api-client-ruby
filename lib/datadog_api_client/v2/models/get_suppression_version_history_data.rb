@@ -17,15 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A rule version with a list of updates.
-  class RuleVersions
+  # Data for the suppression version history.
+  class GetSuppressionVersionHistoryData
     include BaseGenericModel
 
-    # A list of changes.
-    attr_accessor :changes
+    # Response object containing the version history of a suppression.
+    attr_accessor :attributes
 
-    # Create a new rule.
-    attr_accessor :rule
+    # ID of the suppression.
+    attr_accessor :id
+
+    # Type of data.
+    attr_accessor :type
 
     attr_accessor :additional_properties
 
@@ -33,8 +36,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'changes' => :'changes',
-        :'rule' => :'rule'
+        :'attributes' => :'attributes',
+        :'id' => :'id',
+        :'type' => :'type'
       }
     end
 
@@ -42,8 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'changes' => :'Array<VersionHistoryUpdate>',
-        :'rule' => :'SecurityMonitoringRuleResponse'
+        :'attributes' => :'SuppressionVersionHistory',
+        :'id' => :'String',
+        :'type' => :'GetSuppressionVersionHistoryDataType'
       }
     end
 
@@ -52,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RuleVersions` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::GetSuppressionVersionHistoryData` initialize method"
       end
 
       self.additional_properties = {}
@@ -65,14 +70,16 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'changes')
-        if (value = attributes[:'changes']).is_a?(Array)
-          self.changes = value
-        end
+      if attributes.key?(:'attributes')
+        self.attributes = attributes[:'attributes']
       end
 
-      if attributes.key?(:'rule')
-        self.rule = attributes[:'rule']
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
+      end
+
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
       end
     end
 
@@ -102,8 +109,9 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          changes == o.changes &&
-          rule == o.rule &&
+          attributes == o.attributes &&
+          id == o.id &&
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -111,7 +119,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [changes, rule, additional_properties].hash
+      [attributes, id, type, additional_properties].hash
     end
   end
 end
