@@ -83,7 +83,7 @@ module DatadogAPIClient::V2
         :'scope' => :'String',
         :'size' => :'Integer',
         :'ttl' => :'Integer',
-        :'value' => :'String'
+        :'value' => :'CloudWorkloadSecurityAgentRuleActionSetValue'
       }
     end
 
