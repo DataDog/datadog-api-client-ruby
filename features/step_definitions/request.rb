@@ -163,7 +163,14 @@ module APIWorld
         else
           data = response
         end
-        if p["source"]
+
+        # if the undo parameter comes from a path parameter, we need to get it from the request arguments
+        # locate its position on the index and fetch it from there
+        if p["source"] && p["origin"] == "path_parameter"
+          param_index = method.parameters.find_index { |param| param[1].to_s == p["name"].to_parameter }
+          raise "cannot find parameter #{p['name']} in undo method #{operation_name}" unless param_index
+          [ p["name"].to_sym, request[param_index] ]
+        elsif p["source"]
           [p["name"].to_sym, data.lookup(p["source"])]
         elsif p["template"]
           puts p["name"].to_sym
@@ -299,7 +306,7 @@ When('the request is sent') do
     end
   end
 
-  if @response[1].between?(200, 299)  then
+  if @response[1].between?(200, 299)
     @undo << undo_builder.call(@response[0], params) if undo_builder
   end
 

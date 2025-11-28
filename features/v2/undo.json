@@ -4467,7 +4467,8 @@
       "parameters": [
         {
           "name": "team_id",
-          "template": "{{team.data.id}}"
+          "source": "team_id",
+          "origin": "path_parameter"
         },
         {
           "name": "user_id",

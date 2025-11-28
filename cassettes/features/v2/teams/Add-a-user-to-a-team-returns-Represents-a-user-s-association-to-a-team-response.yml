@@ -1,0 +1,289 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.datadoghq.com/api/v2/team
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"handle":"test-handle-0e08897ec3fdb999","name":"test-name-0e08897ec3fdb999"},"type":"team"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"team","id":"2cb8bb60-405b-11ee-8a69-da7ad0900002","attributes":{"name":"test-name-d92d2e08806acc4e","handle":"test-handle-d92d2e08806acc4e","summary":null,"description":null,"avatar":null,"banner":null,"visible_modules":[],"hidden_modules":[],"created_at":"2023-08-21T19:44:43.155798+00:00","modified_at":"2023-08-21T19:44:43.155804+00:00","user_count":0,"link_count":0},"relationships":{"team_links":{"links":{"related":"/api/v2/team/2cb8bb60-405b-11ee-8a69-da7ad0900002/links"}},"user_team_permissions":{"links":{"related":"/api/v2/team/2cb8bb60-405b-11ee-8a69-da7ad0900002/permission-settings"}}}}}
+
+        '
+  recorded_at: Thu, 27 Nov 2025 10:32:07 GMT
+- request:
+    method: post
+    uri: https://api.datadoghq.com/api/v2/users
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"email":"Test-Add_a_user_to_a_team_returns_Represents_a_user_s_association_to_a_team_response-1764244602@datadoghq.com","title":"user
+        title"},"type":"users"}}'
+    headers:
+      User-Agent:
+      - datadog-api-client-ruby/2.45.0 (ruby 3.4.7; os darwin24; arch arm64; httparty-version
+        0.23.2)
+      Accept-Encoding:
+      - gzip
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Thu, 27 Nov 2025 10:32:08 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Document-Policy:
+      - js-profiling
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://logs.browser-intake-datadoghq.com/api/v2/logs?dd-api-key=pub293163a918901030b79492fe1ab424cf&dd-evp-origin=content-security-policy&ddsource=csp-report&ddtags=site%datadoghq.com
+      X-Frame-Options:
+      - SAMEORIGIN
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Ratelimit-Limit:
+      - '300'
+      X-Ratelimit-Period:
+      - '30'
+      X-Ratelimit-Remaining:
+      - '299'
+      X-Ratelimit-Reset:
+      - '22'
+      X-Ratelimit-Name:
+      - create_user_api
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"type":"users","id":"9edbce64-8032-483c-8a87-8346630cb699","attributes":{"name":null,"handle":"test-add_a_user_to_a_team_returns_represents_a_user_s_association_to_a_team_response-1764239527@datadoghq.com","created_at":"2025-11-27T10:32:08.691777+00:00","modified_at":"2025-11-27T10:32:08.691777+00:00","email":"test-add_a_user_to_a_team_returns_represents_a_user_s_association_to_a_team_response-1764239527@datadoghq.com","icon":"https://secure.gravatar.com/avatar/7e053cdd64f58c47038508eac65e270c?s=48&d=retro","title":"user
+        title","verified":false,"service_account":false,"disabled":false,"allowed_login_methods":[],"status":"Pending","last_login_time":null},"relationships":{"roles":{"data":[]},"org":{"data":{"type":"orgs","id":"f43be1db-cab4-11f0-afb8-62ec60163602"}}}}}
+
+        '
+  recorded_at: Thu, 27 Nov 2025 10:32:07 GMT
+- request:
+    method: post
+    uri: https://api.datadoghq.com/api/v2/team/2cb8bb60-405b-11ee-8a69-da7ad0900002/memberships
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"role":"admin"},"relationships":{"team":{"data":{"id":"2cb8bb60-405b-11ee-8a69-da7ad0900002","type":"team"}},"user":{"data":{"id":"9edbce64-8032-483c-8a87-8346630cb699","type":"users"}}},"type":"team_memberships"}}'
+    headers:
+      User-Agent:
+      - datadog-api-client-ruby/2.45.0 (ruby 3.4.7; os darwin24; arch arm64; httparty-version
+        0.23.2)
+      Accept-Encoding:
+      - gzip
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 27 Nov 2025 10:32:14 GMT
+      Content-Type:
+      - application/vnd.api+json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://logs.browser-intake-datadoghq.com/api/v2/logs?dd-api-key=pub293163a918901030b79492fe1ab424cf&dd-evp-origin=content-security-policy&ddsource=csp-report&ddtags=site%datadoghq.com
+      Vary:
+      - Accept-Encoding
+      X-Frame-Options:
+      - SAMEORIGIN
+      Document-Policy:
+      - js-profiling
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Ratelimit-Limit:
+      - '12000'
+      X-Ratelimit-Period:
+      - '60'
+      X-Ratelimit-Remaining:
+      - '11998'
+      X-Ratelimit-Reset:
+      - '47'
+      X-Ratelimit-Name:
+      - team_api_write
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"TeamMembership-2cb8bb60-405b-11ee-8a69-da7ad0900002-41592546","type":"team_memberships","attributes":{"provisioned_by":null,"provisioned_by_id":"7e3465d0-a244-4eea-bfd6-a7f8892afae2","role":"admin"},"relationships":{"user":{"data":{"id":"9edbce64-8032-483c-8a87-8346630cb699","type":"users"}}}},"included":[{"id":"9edbce64-8032-483c-8a87-8346630cb699","type":"users","attributes":{"disabled":false,"email":"test-add_a_user_to_a_team_returns_represents_a_user_s_association_to_a_team_response-1764239527@datadoghq.com","handle":"test-add_a_user_to_a_team_returns_represents_a_user_s_association_to_a_team_response-1764239527@datadoghq.com","icon":"https://secure.gravatar.com/avatar/7e053cdd64f58c47038508eac65e270c?d=retro\u0026s=48","name":null,"service_account":false,"status":"Pending"}}]}'
+  recorded_at: Thu, 27 Nov 2025 10:32:07 GMT
+- request:
+    method: delete
+    uri: https://api.datadoghq.com/api/v2/team/2cb8bb60-405b-11ee-8a69-da7ad0900002/memberships/9edbce64-8032-483c-8a87-8346630cb699
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - datadog-api-client-ruby/2.45.0 (ruby 3.4.7; os darwin24; arch arm64; httparty-version
+        0.23.2)
+      Accept-Encoding:
+      - gzip
+      Accept:
+      - "*/*"
+      Authorization:
+      - Bearer
+  response:
+    status:
+      code: 204
+      message: No Content
+    headers:
+      Date:
+      - Thu, 27 Nov 2025 10:32:14 GMT
+      Connection:
+      - keep-alive
+      Document-Policy:
+      - js-profiling
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://logs.browser-intake-datadoghq.com/api/v2/logs?dd-api-key=pub293163a918901030b79492fe1ab424cf&dd-evp-origin=content-security-policy&ddsource=csp-report&ddtags=site%datadoghq.com
+      X-Frame-Options:
+      - SAMEORIGIN
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Ratelimit-Limit:
+      - '12000'
+      X-Ratelimit-Period:
+      - '60'
+      X-Ratelimit-Remaining:
+      - '11997'
+      X-Ratelimit-Reset:
+      - '46'
+      X-Ratelimit-Name:
+      - team_api_write
+    body:
+      encoding: UTF-8
+      string: ''
+  recorded_at: Thu, 27 Nov 2025 10:32:07 GMT
+- request:
+    method: delete
+    uri: https://api.datadoghq.com/api/v2/users/9edbce64-8032-483c-8a87-8346630cb699
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - datadog-api-client-ruby/2.45.0 (ruby 3.4.7; os darwin24; arch arm64; httparty-version
+        0.23.2)
+      Accept-Encoding:
+      - gzip
+      Accept:
+      - "*/*"
+      Authorization:
+      - Bearer
+  response:
+    status:
+      code: 204
+      message: No Content
+    headers:
+      Date:
+      - Thu, 27 Nov 2025 10:32:15 GMT
+      Connection:
+      - keep-alive
+      Document-Policy:
+      - js-profiling
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://logs.browser-intake-datadoghq.com/api/v2/logs?dd-api-key=pub293163a918901030b79492fe1ab424cf&dd-evp-origin=content-security-policy&ddsource=csp-report&ddtags=site%datadoghq.com
+      X-Frame-Options:
+      - SAMEORIGIN
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: ''
+  recorded_at: Thu, 27 Nov 2025 10:32:07 GMT
+- request:
+    method: delete
+    uri: https://api.datadoghq.com/api/v2/team/2cb8bb60-405b-11ee-8a69-da7ad0900002
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - datadog-api-client-ruby/2.45.0 (ruby 3.4.7; os darwin24; arch arm64; httparty-version
+        0.23.2)
+      Accept-Encoding:
+      - gzip
+      Accept:
+      - "*/*"
+      Authorization:
+      - Bearer
+  response:
+    status:
+      code: 204
+      message: No Content
+    headers:
+      Date:
+      - Thu, 27 Nov 2025 10:32:15 GMT
+      Connection:
+      - keep-alive
+      Document-Policy:
+      - js-profiling
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://logs.browser-intake-datadoghq.com/api/v2/logs?dd-api-key=pub293163a918901030b79492fe1ab424cf&dd-evp-origin=content-security-policy&ddsource=csp-report&ddtags=site%datadoghq.com
+      X-Frame-Options:
+      - SAMEORIGIN
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Ratelimit-Limit:
+      - '12000'
+      X-Ratelimit-Period:
+      - '60'
+      X-Ratelimit-Remaining:
+      - '11996'
+      X-Ratelimit-Reset:
+      - '45'
+      X-Ratelimit-Name:
+      - team_api_write
+    body:
+      encoding: UTF-8
+      string: ''
+  recorded_at: Thu, 27 Nov 2025 10:32:07 GMT
+recorded_with: VCR 6.3.1
+
