@@ -39,6 +39,9 @@ module DatadogAPIClient::V2
     # Collection of hidden modules for the team
     attr_accessor :hidden_modules
 
+    # Whether the team is managed from an external source
+    attr_accessor :is_managed
+
     # The number of links belonging to the team
     attr_reader :link_count
 
@@ -69,6 +72,7 @@ module DatadogAPIClient::V2
         :'description' => :'description',
         :'handle' => :'handle',
         :'hidden_modules' => :'hidden_modules',
+        :'is_managed' => :'is_managed',
         :'link_count' => :'link_count',
         :'modified_at' => :'modified_at',
         :'name' => :'name',
@@ -88,6 +92,7 @@ module DatadogAPIClient::V2
         :'description' => :'String',
         :'handle' => :'String',
         :'hidden_modules' => :'Array<String>',
+        :'is_managed' => :'Boolean',
         :'link_count' => :'Integer',
         :'modified_at' => :'Time',
         :'name' => :'String',
@@ -104,7 +109,9 @@ module DatadogAPIClient::V2
         :'avatar',
         :'banner',
         :'description',
+        :'hidden_modules',
         :'summary',
+        :'visible_modules',
       ])
     end
 
@@ -150,6 +157,10 @@ module DatadogAPIClient::V2
         if (value = attributes[:'hidden_modules']).is_a?(Array)
           self.hidden_modules = value
         end
+      end
+
+      if attributes.key?(:'is_managed')
+        self.is_managed = attributes[:'is_managed']
       end
 
       if attributes.key?(:'link_count')
@@ -281,6 +292,7 @@ module DatadogAPIClient::V2
           description == o.description &&
           handle == o.handle &&
           hidden_modules == o.hidden_modules &&
+          is_managed == o.is_managed &&
           link_count == o.link_count &&
           modified_at == o.modified_at &&
           name == o.name &&
@@ -294,7 +306,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [avatar, banner, created_at, description, handle, hidden_modules, link_count, modified_at, name, summary, user_count, visible_modules, additional_properties].hash
+      [avatar, banner, created_at, description, handle, hidden_modules, is_managed, link_count, modified_at, name, summary, user_count, visible_modules, additional_properties].hash
     end
   end
 end
