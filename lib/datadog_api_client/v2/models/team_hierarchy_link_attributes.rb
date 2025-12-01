@@ -17,15 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Relationship between a user team permission and a team
-  class RelationshipToUserTeamPermission
+  # Team hierarchy link attributes
+  class TeamHierarchyLinkAttributes
     include BaseGenericModel
 
-    # Related user team permission data
-    attr_accessor :data
+    # Timestamp when the team hierarchy link was created
+    attr_reader :created_at
 
-    # Links attributes.
-    attr_accessor :links
+    # The provisioner of the team hierarchy link
+    attr_reader :provisioned_by
 
     attr_accessor :additional_properties
 
@@ -33,8 +33,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data',
-        :'links' => :'links'
+        :'created_at' => :'created_at',
+        :'provisioned_by' => :'provisioned_by'
       }
     end
 
@@ -42,17 +42,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'RelationshipToUserTeamPermissionData',
-        :'links' => :'TeamRelationshipsLinks'
+        :'created_at' => :'Time',
+        :'provisioned_by' => :'String'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-        :'data',
-      ])
     end
 
     # Initializes the object
@@ -60,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RelationshipToUserTeamPermission` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TeamHierarchyLinkAttributes` initialize method"
       end
 
       self.additional_properties = {}
@@ -73,13 +65,42 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'data')
-        self.data = attributes[:'data']
+      if attributes.key?(:'created_at')
+        self.created_at = attributes[:'created_at']
       end
 
-      if attributes.key?(:'links')
-        self.links = attributes[:'links']
+      if attributes.key?(:'provisioned_by')
+        self.provisioned_by = attributes[:'provisioned_by']
       end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @created_at.nil?
+      return false if @provisioned_by.nil?
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param created_at [Object] Object to be assigned
+    # @!visibility private
+    def created_at=(created_at)
+      if created_at.nil?
+        fail ArgumentError, 'invalid value for "created_at", created_at cannot be nil.'
+      end
+      @created_at = created_at
+    end
+
+    # Custom attribute writer method with validation
+    # @param provisioned_by [Object] Object to be assigned
+    # @!visibility private
+    def provisioned_by=(provisioned_by)
+      if provisioned_by.nil?
+        fail ArgumentError, 'invalid value for "provisioned_by", provisioned_by cannot be nil.'
+      end
+      @provisioned_by = provisioned_by
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -108,8 +129,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data &&
-          links == o.links &&
+          created_at == o.created_at &&
+          provisioned_by == o.provisioned_by &&
           additional_properties == o.additional_properties
     end
 
@@ -117,7 +138,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, links, additional_properties].hash
+      [created_at, provisioned_by, additional_properties].hash
     end
   end
 end

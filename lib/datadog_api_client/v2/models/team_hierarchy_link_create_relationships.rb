@@ -17,15 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Relationship between a user team permission and a team
-  class RelationshipToUserTeamPermission
+  # The related teams that will be connected by the team hierarchy link
+  class TeamHierarchyLinkCreateRelationships
     include BaseGenericModel
 
-    # Related user team permission data
-    attr_accessor :data
+    # Data about each team that will be connected by the team hierarchy link
+    attr_reader :parent_team
 
-    # Links attributes.
-    attr_accessor :links
+    # Data about each team that will be connected by the team hierarchy link
+    attr_reader :sub_team
 
     attr_accessor :additional_properties
 
@@ -33,8 +33,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data',
-        :'links' => :'links'
+        :'parent_team' => :'parent_team',
+        :'sub_team' => :'sub_team'
       }
     end
 
@@ -42,17 +42,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'RelationshipToUserTeamPermissionData',
-        :'links' => :'TeamRelationshipsLinks'
+        :'parent_team' => :'TeamHierarchyLinkCreateTeamRelationship',
+        :'sub_team' => :'TeamHierarchyLinkCreateTeamRelationship'
       }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-        :'data',
-      ])
     end
 
     # Initializes the object
@@ -60,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RelationshipToUserTeamPermission` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TeamHierarchyLinkCreateRelationships` initialize method"
       end
 
       self.additional_properties = {}
@@ -73,13 +65,42 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'data')
-        self.data = attributes[:'data']
+      if attributes.key?(:'parent_team')
+        self.parent_team = attributes[:'parent_team']
       end
 
-      if attributes.key?(:'links')
-        self.links = attributes[:'links']
+      if attributes.key?(:'sub_team')
+        self.sub_team = attributes[:'sub_team']
       end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @parent_team.nil?
+      return false if @sub_team.nil?
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param parent_team [Object] Object to be assigned
+    # @!visibility private
+    def parent_team=(parent_team)
+      if parent_team.nil?
+        fail ArgumentError, 'invalid value for "parent_team", parent_team cannot be nil.'
+      end
+      @parent_team = parent_team
+    end
+
+    # Custom attribute writer method with validation
+    # @param sub_team [Object] Object to be assigned
+    # @!visibility private
+    def sub_team=(sub_team)
+      if sub_team.nil?
+        fail ArgumentError, 'invalid value for "sub_team", sub_team cannot be nil.'
+      end
+      @sub_team = sub_team
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -108,8 +129,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data &&
-          links == o.links &&
+          parent_team == o.parent_team &&
+          sub_team == o.sub_team &&
           additional_properties == o.additional_properties
     end
 
@@ -117,7 +138,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, links, additional_properties].hash
+      [parent_team, sub_team, additional_properties].hash
     end
   end
 end

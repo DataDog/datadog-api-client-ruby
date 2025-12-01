@@ -17,48 +17,36 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Team attributes
-  class TeamAttributes
+  # Team hierarchy links connect different teams. This represents attributes from teams that are connected by the team hierarchy link.
+  class TeamHierarchyLinkTeamAttributes
     include BaseGenericModel
 
-    # Unicode representation of the avatar for the team, limited to a single grapheme
+    # The team's avatar
     attr_accessor :avatar
 
-    # Banner selection for the team
+    # The team's banner
     attr_accessor :banner
 
-    # Creation date of the team
-    attr_accessor :created_at
-
-    # Free-form markdown description/content for the team's homepage
-    attr_accessor :description
-
-    # The team's identifier
+    # The team's handle
     attr_reader :handle
 
-    # Collection of hidden modules for the team
-    attr_accessor :hidden_modules
-
-    # Whether the team is managed from an external source
+    # Whether the team is managed
     attr_accessor :is_managed
 
-    # The number of links belonging to the team
-    attr_reader :link_count
+    # Whether the team has open membership
+    attr_accessor :is_open_membership
 
-    # Modification date of the team
-    attr_accessor :modified_at
+    # The number of links for the team
+    attr_accessor :link_count
 
-    # The name of the team
+    # The team's name
     attr_reader :name
 
-    # A brief summary of the team, derived from the `description`
-    attr_reader :summary
+    # The team's summary
+    attr_accessor :summary
 
-    # The number of users belonging to the team
-    attr_reader :user_count
-
-    # Collection of visible modules for the team
-    attr_accessor :visible_modules
+    # The number of users in the team
+    attr_accessor :user_count
 
     attr_accessor :additional_properties
 
@@ -68,17 +56,13 @@ module DatadogAPIClient::V2
       {
         :'avatar' => :'avatar',
         :'banner' => :'banner',
-        :'created_at' => :'created_at',
-        :'description' => :'description',
         :'handle' => :'handle',
-        :'hidden_modules' => :'hidden_modules',
         :'is_managed' => :'is_managed',
+        :'is_open_membership' => :'is_open_membership',
         :'link_count' => :'link_count',
-        :'modified_at' => :'modified_at',
         :'name' => :'name',
         :'summary' => :'summary',
-        :'user_count' => :'user_count',
-        :'visible_modules' => :'visible_modules'
+        :'user_count' => :'user_count'
       }
     end
 
@@ -88,17 +72,13 @@ module DatadogAPIClient::V2
       {
         :'avatar' => :'String',
         :'banner' => :'Integer',
-        :'created_at' => :'Time',
-        :'description' => :'String',
         :'handle' => :'String',
-        :'hidden_modules' => :'Array<String>',
         :'is_managed' => :'Boolean',
+        :'is_open_membership' => :'Boolean',
         :'link_count' => :'Integer',
-        :'modified_at' => :'Time',
         :'name' => :'String',
         :'summary' => :'String',
-        :'user_count' => :'Integer',
-        :'visible_modules' => :'Array<String>'
+        :'user_count' => :'Integer'
       }
     end
 
@@ -107,11 +87,7 @@ module DatadogAPIClient::V2
     def self.openapi_nullable
       Set.new([
         :'avatar',
-        :'banner',
-        :'description',
-        :'hidden_modules',
         :'summary',
-        :'visible_modules',
       ])
     end
 
@@ -120,7 +96,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TeamAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TeamHierarchyLinkTeamAttributes` initialize method"
       end
 
       self.additional_properties = {}
@@ -141,34 +117,20 @@ module DatadogAPIClient::V2
         self.banner = attributes[:'banner']
       end
 
-      if attributes.key?(:'created_at')
-        self.created_at = attributes[:'created_at']
-      end
-
-      if attributes.key?(:'description')
-        self.description = attributes[:'description']
-      end
-
       if attributes.key?(:'handle')
         self.handle = attributes[:'handle']
-      end
-
-      if attributes.key?(:'hidden_modules')
-        if (value = attributes[:'hidden_modules']).is_a?(Array)
-          self.hidden_modules = value
-        end
       end
 
       if attributes.key?(:'is_managed')
         self.is_managed = attributes[:'is_managed']
       end
 
-      if attributes.key?(:'link_count')
-        self.link_count = attributes[:'link_count']
+      if attributes.key?(:'is_open_membership')
+        self.is_open_membership = attributes[:'is_open_membership']
       end
 
-      if attributes.key?(:'modified_at')
-        self.modified_at = attributes[:'modified_at']
+      if attributes.key?(:'link_count')
+        self.link_count = attributes[:'link_count']
       end
 
       if attributes.key?(:'name')
@@ -182,12 +144,6 @@ module DatadogAPIClient::V2
       if attributes.key?(:'user_count')
         self.user_count = attributes[:'user_count']
       end
-
-      if attributes.key?(:'visible_modules')
-        if (value = attributes[:'visible_modules']).is_a?(Array)
-          self.visible_modules = value
-        end
-      end
     end
 
     # Check to see if the all the properties in the model are valid
@@ -195,12 +151,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @handle.nil?
-      return false if @handle.to_s.length > 195
-      return false if !@link_count.nil? && @link_count > 2147483647
       return false if @name.nil?
-      return false if @name.to_s.length > 200
-      return false if !@summary.nil? && @summary.to_s.length > 120
-      return false if !@user_count.nil? && @user_count > 2147483647
       true
     end
 
@@ -211,20 +162,7 @@ module DatadogAPIClient::V2
       if handle.nil?
         fail ArgumentError, 'invalid value for "handle", handle cannot be nil.'
       end
-      if handle.to_s.length > 195
-        fail ArgumentError, 'invalid value for "handle", the character length must be smaller than or equal to 195.'
-      end
       @handle = handle
-    end
-
-    # Custom attribute writer method with validation
-    # @param link_count [Object] Object to be assigned
-    # @!visibility private
-    def link_count=(link_count)
-      if !link_count.nil? && link_count > 2147483647
-        fail ArgumentError, 'invalid value for "link_count", must be smaller than or equal to 2147483647.'
-      end
-      @link_count = link_count
     end
 
     # Custom attribute writer method with validation
@@ -234,30 +172,7 @@ module DatadogAPIClient::V2
       if name.nil?
         fail ArgumentError, 'invalid value for "name", name cannot be nil.'
       end
-      if name.to_s.length > 200
-        fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 200.'
-      end
       @name = name
-    end
-
-    # Custom attribute writer method with validation
-    # @param summary [Object] Object to be assigned
-    # @!visibility private
-    def summary=(summary)
-      if !summary.nil? && summary.to_s.length > 120
-        fail ArgumentError, 'invalid value for "summary", the character length must be smaller than or equal to 120.'
-      end
-      @summary = summary
-    end
-
-    # Custom attribute writer method with validation
-    # @param user_count [Object] Object to be assigned
-    # @!visibility private
-    def user_count=(user_count)
-      if !user_count.nil? && user_count > 2147483647
-        fail ArgumentError, 'invalid value for "user_count", must be smaller than or equal to 2147483647.'
-      end
-      @user_count = user_count
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -288,17 +203,13 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           avatar == o.avatar &&
           banner == o.banner &&
-          created_at == o.created_at &&
-          description == o.description &&
           handle == o.handle &&
-          hidden_modules == o.hidden_modules &&
           is_managed == o.is_managed &&
+          is_open_membership == o.is_open_membership &&
           link_count == o.link_count &&
-          modified_at == o.modified_at &&
           name == o.name &&
           summary == o.summary &&
           user_count == o.user_count &&
-          visible_modules == o.visible_modules &&
           additional_properties == o.additional_properties
     end
 
@@ -306,7 +217,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [avatar, banner, created_at, description, handle, hidden_modules, is_managed, link_count, modified_at, name, summary, user_count, visible_modules, additional_properties].hash
+      [avatar, banner, handle, is_managed, is_open_membership, link_count, name, summary, user_count, additional_properties].hash
     end
   end
 end
