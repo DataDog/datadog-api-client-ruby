@@ -565,6 +565,7 @@ ScenariosModelMappings = {
             "monitor_id" => "Integer",
             "group_states" => "String",
             "with_downtimes" => "Boolean",
+            "with_assets" => "Boolean",
     },
     "v1.UpdateMonitor" => {
             "monitor_id" => "Integer",

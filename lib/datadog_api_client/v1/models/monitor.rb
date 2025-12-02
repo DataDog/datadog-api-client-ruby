@@ -21,6 +21,9 @@ module DatadogAPIClient::V1
   class Monitor
     include BaseGenericModel
 
+    # The list of monitor assets tied to a monitor, which represents key links for users to take action on monitor alerts (for example, runbooks).
+    attr_accessor :assets
+
     # Timestamp of the monitor creation.
     attr_accessor :created
 
@@ -86,6 +89,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.attribute_map
       {
+        :'assets' => :'assets',
         :'created' => :'created',
         :'creator' => :'creator',
         :'deleted' => :'deleted',
@@ -111,6 +115,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
+        :'assets' => :'Array<MonitorAsset>',
         :'created' => :'Time',
         :'creator' => :'Creator',
         :'deleted' => :'Time',
@@ -159,6 +164,12 @@ module DatadogAPIClient::V1
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'assets')
+        if (value = attributes[:'assets']).is_a?(Array)
+          self.assets = value
+        end
+      end
 
       if attributes.key?(:'created')
         self.created = attributes[:'created']
@@ -294,6 +305,7 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          assets == o.assets &&
           created == o.created &&
           creator == o.creator &&
           deleted == o.deleted &&
@@ -319,7 +331,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created, creator, deleted, draft_status, id, matching_downtimes, message, modified, multi, name, options, overall_state, priority, query, restricted_roles, state, tags, type, additional_properties].hash
+      [assets, created, creator, deleted, draft_status, id, matching_downtimes, message, modified, multi, name, options, overall_state, priority, query, restricted_roles, state, tags, type, additional_properties].hash
     end
   end
 end
