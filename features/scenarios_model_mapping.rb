@@ -1372,6 +1372,22 @@ ScenariosModelMappings = {
             "finding_id" => "String",
             "snapshot_timestamp" => "Integer",
     },
+    "v2.DetachCase" => {
+            "body" => "DetachCaseRequest",
+    },
+    "v2.CreateCases" => {
+            "body" => "CreateCaseRequestArray",
+    },
+    "v2.AttachCase" => {
+            "case_id" => "String",
+            "body" => "AttachCaseRequest",
+    },
+    "v2.AttachJiraIssue" => {
+            "body" => "AttachJiraIssueRequest",
+    },
+    "v2.CreateJiraIssues" => {
+            "body" => "CreateJiraIssueRequestArray",
+    },
     "v2.ListAssetsSBOMs" => {
             "page_token" => "String",
             "page_number" => "Integer",
