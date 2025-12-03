@@ -32,6 +32,15 @@ body = DatadogAPIClient::V2::EscalationPolicyCreateRequest.new({
               type: DatadogAPIClient::V2::EscalationPolicyStepTargetType::SCHEDULES,
             }),
             DatadogAPIClient::V2::EscalationPolicyStepTarget.new({
+              config: DatadogAPIClient::V2::EscalationPolicyStepTargetConfig.new({
+                schedule: DatadogAPIClient::V2::EscalationPolicyStepTargetConfigSchedule.new({
+                  position: DatadogAPIClient::V2::ScheduleTargetPosition::PREVIOUS,
+                }),
+              }),
+              id: SCHEDULE_DATA_ID,
+              type: DatadogAPIClient::V2::EscalationPolicyStepTargetType::SCHEDULES,
+            }),
+            DatadogAPIClient::V2::EscalationPolicyStepTarget.new({
               id: DD_TEAM_DATA_ID,
               type: DatadogAPIClient::V2::EscalationPolicyStepTargetType::TEAMS,
             }),

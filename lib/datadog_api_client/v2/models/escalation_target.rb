@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Represents an escalation target, which can be a team, user, or schedule.
+  # Represents an escalation target, which can be a team, user, schedule, or configured schedule target.
   module EscalationTarget
     class << self
       include BaseOneOfModel
@@ -28,7 +28,8 @@ module DatadogAPIClient::V2
         [
           :'TeamTarget',
           :'UserTarget',
-          :'ScheduleTarget'
+          :'ScheduleTarget',
+          :'ConfiguredScheduleTarget'
         ]
       end
       # Builds the object

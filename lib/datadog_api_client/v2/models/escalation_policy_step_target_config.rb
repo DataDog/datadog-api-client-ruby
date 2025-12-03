@@ -17,18 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Defines a single escalation target within a step for an escalation policy creation request. Contains `id`, `type`, and optional `config`.
-  class EscalationPolicyStepTarget
+  # Configuration for an escalation target, such as schedule position.
+  class EscalationPolicyStepTargetConfig
     include BaseGenericModel
 
-    # Configuration for an escalation target, such as schedule position.
-    attr_accessor :config
-
-    # Specifies the unique identifier for this target.
-    attr_accessor :id
-
-    # Specifies the type of escalation target (example `users`, `schedules`, or `teams`).
-    attr_accessor :type
+    # Schedule-specific configuration for an escalation target.
+    attr_accessor :schedule
 
     attr_accessor :additional_properties
 
@@ -36,9 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'config' => :'config',
-        :'id' => :'id',
-        :'type' => :'type'
+        :'schedule' => :'schedule'
       }
     end
 
@@ -46,9 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'config' => :'EscalationPolicyStepTargetConfig',
-        :'id' => :'String',
-        :'type' => :'EscalationPolicyStepTargetType'
+        :'schedule' => :'EscalationPolicyStepTargetConfigSchedule'
       }
     end
 
@@ -57,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::EscalationPolicyStepTarget` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::EscalationPolicyStepTargetConfig` initialize method"
       end
 
       self.additional_properties = {}
@@ -70,16 +60,8 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'config')
-        self.config = attributes[:'config']
-      end
-
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
-      end
-
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
+      if attributes.key?(:'schedule')
+        self.schedule = attributes[:'schedule']
       end
     end
 
@@ -109,9 +91,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          config == o.config &&
-          id == o.id &&
-          type == o.type &&
+          schedule == o.schedule &&
           additional_properties == o.additional_properties
     end
 
@@ -119,7 +99,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [config, id, type, additional_properties].hash
+      [schedule, additional_properties].hash
     end
   end
 end

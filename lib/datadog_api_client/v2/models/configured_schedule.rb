@@ -17,18 +17,21 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Defines the main attributes of an escalation policy, such as its name and behavior on policy end.
-  class EscalationPolicyDataAttributes
+  # Full resource representation of a configured schedule target with position (previous, current, or next).
+  class ConfiguredSchedule
     include BaseGenericModel
 
-    # Specifies the name of the escalation policy.
-    attr_reader :name
+    # Attributes for a configured schedule target, including position.
+    attr_reader :attributes
 
-    # Indicates whether the page is automatically resolved when the policy ends.
-    attr_accessor :resolve_page_on_policy_end
+    # Specifies the unique identifier of the configured schedule target.
+    attr_reader :id
 
-    # Specifies how many times the escalation sequence is retried if there is no response.
-    attr_reader :retries
+    # Represents the relationships of a configured schedule target.
+    attr_reader :relationships
+
+    # Indicates that the resource is of type `schedule_target`.
+    attr_reader :type
 
     attr_accessor :additional_properties
 
@@ -36,9 +39,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'name' => :'name',
-        :'resolve_page_on_policy_end' => :'resolve_page_on_policy_end',
-        :'retries' => :'retries'
+        :'attributes' => :'attributes',
+        :'id' => :'id',
+        :'relationships' => :'relationships',
+        :'type' => :'type'
       }
     end
 
@@ -46,9 +50,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'name' => :'String',
-        :'resolve_page_on_policy_end' => :'Boolean',
-        :'retries' => :'Integer'
+        :'attributes' => :'ConfiguredScheduleTargetAttributes',
+        :'id' => :'String',
+        :'relationships' => :'ConfiguredScheduleTargetRelationships',
+        :'type' => :'ConfiguredScheduleTargetType'
       }
     end
 
@@ -57,7 +62,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::EscalationPolicyDataAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ConfiguredSchedule` initialize method"
       end
 
       self.additional_properties = {}
@@ -70,16 +75,20 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
+      if attributes.key?(:'attributes')
+        self.attributes = attributes[:'attributes']
       end
 
-      if attributes.key?(:'resolve_page_on_policy_end')
-        self.resolve_page_on_policy_end = attributes[:'resolve_page_on_policy_end']
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
       end
 
-      if attributes.key?(:'retries')
-        self.retries = attributes[:'retries']
+      if attributes.key?(:'relationships')
+        self.relationships = attributes[:'relationships']
+      end
+
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
       end
     end
 
@@ -87,37 +96,51 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @name.nil?
-      return false if @name.to_s.length < 1
-      return false if !@retries.nil? && @retries > 10
-      return false if !@retries.nil? && @retries < 0
+      return false if @attributes.nil?
+      return false if @id.nil?
+      return false if @relationships.nil?
+      return false if @type.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param name [Object] Object to be assigned
+    # @param attributes [Object] Object to be assigned
     # @!visibility private
-    def name=(name)
-      if name.nil?
-        fail ArgumentError, 'invalid value for "name", name cannot be nil.'
+    def attributes=(attributes)
+      if attributes.nil?
+        fail ArgumentError, 'invalid value for "attributes", attributes cannot be nil.'
       end
-      if name.to_s.length < 1
-        fail ArgumentError, 'invalid value for "name", the character length must be great than or equal to 1.'
-      end
-      @name = name
+      @attributes = attributes
     end
 
     # Custom attribute writer method with validation
-    # @param retries [Object] Object to be assigned
+    # @param id [Object] Object to be assigned
     # @!visibility private
-    def retries=(retries)
-      if !retries.nil? && retries > 10
-        fail ArgumentError, 'invalid value for "retries", must be smaller than or equal to 10.'
+    def id=(id)
+      if id.nil?
+        fail ArgumentError, 'invalid value for "id", id cannot be nil.'
       end
-      if !retries.nil? && retries < 0
-        fail ArgumentError, 'invalid value for "retries", must be greater than or equal to 0.'
+      @id = id
+    end
+
+    # Custom attribute writer method with validation
+    # @param relationships [Object] Object to be assigned
+    # @!visibility private
+    def relationships=(relationships)
+      if relationships.nil?
+        fail ArgumentError, 'invalid value for "relationships", relationships cannot be nil.'
       end
-      @retries = retries
+      @relationships = relationships
+    end
+
+    # Custom attribute writer method with validation
+    # @param type [Object] Object to be assigned
+    # @!visibility private
+    def type=(type)
+      if type.nil?
+        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+      end
+      @type = type
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -146,9 +169,10 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          name == o.name &&
-          resolve_page_on_policy_end == o.resolve_page_on_policy_end &&
-          retries == o.retries &&
+          attributes == o.attributes &&
+          id == o.id &&
+          relationships == o.relationships &&
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -156,7 +180,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [name, resolve_page_on_policy_end, retries, additional_properties].hash
+      [attributes, id, relationships, type, additional_properties].hash
     end
   end
 end
