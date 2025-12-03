@@ -90,7 +90,7 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>Represents an escalation target, which can be a team, user, or schedule.</p>
+    <p>Represents an escalation target, which can be a team, user, schedule, or configured schedule target.</p>
 
 
   </div>
@@ -246,7 +246,6 @@
       <pre class="lines">
 
 
-37
 38
 39
 40
@@ -270,10 +269,11 @@
 58
 59
 60
-61</pre>
+61
+62</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/escalation_target.rb', line 37</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/escalation_target.rb', line 38</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_build'>build</span><span class='lparen'>(</span><span class='id identifier rubyid_data'>data</span><span class='rparen'>)</span>
   <span class='comment'># Go through the list of oneOf items and attempt to identify the appropriate one.
@@ -336,7 +336,8 @@
 30
 31
 32
-33</pre>
+33
+34</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/escalation_target.rb', line 27</span>
@@ -345,7 +346,8 @@
   <span class='lbracket'>[</span>
     <span class='symbol'>:&#39;TeamTarget&#39;</span><span class='comma'>,</span>
     <span class='symbol'>:&#39;UserTarget&#39;</span><span class='comma'>,</span>
-    <span class='symbol'>:&#39;ScheduleTarget&#39;</span>
+    <span class='symbol'>:&#39;ScheduleTarget&#39;</span><span class='comma'>,</span>
+    <span class='symbol'>:&#39;ConfiguredScheduleTarget&#39;</span>
   <span class='rbracket'>]</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -358,7 +360,7 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Dec  3 17:34:17 2025 by
+  Generated on Wed Dec  3 19:01:19 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-2.7.8).
 </div>
