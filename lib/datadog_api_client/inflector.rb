@@ -4684,7 +4684,6 @@ module DatadogAPIClient
         "v2.spans_metrics_api" => "SpansMetricsAPI",
         "v2.static_analysis_api" => "StaticAnalysisAPI",
         "v2.synthetics_api" => "SyntheticsAPI",
-        "v2.team_connections_api" => "TeamConnectionsAPI",
         "v2.teams_api" => "TeamsAPI",
         "v2.test_optimization_api" => "TestOptimizationAPI",
         "v2.usage_metering_api" => "UsageMeteringAPI",

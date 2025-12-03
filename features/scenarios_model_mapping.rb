@@ -3173,6 +3173,20 @@ ScenariosModelMappings = {
     "v2.GetTeamHierarchyLink" => {
             "link_id" => "String",
     },
+    "v2.DeleteTeamConnections" => {
+            "body" => "TeamConnectionDeleteRequest",
+    },
+    "v2.ListTeamConnections" => {
+            "page_size" => "Integer",
+            "page_number" => "Integer",
+            "filter_sources" => "Array<String>",
+            "filter_team_ids" => "Array<String>",
+            "filter_connected_team_ids" => "Array<String>",
+            "filter_connection_ids" => "Array<String>",
+    },
+    "v2.CreateTeamConnections" => {
+            "body" => "TeamConnectionCreateRequest",
+    },
     "v2.GetTeamSync" => {
             "filter_source" => "TeamSyncAttributesSource",
     },
@@ -3253,20 +3267,6 @@ ScenariosModelMappings = {
     },
     "v2.GetUserMemberships" => {
             "user_uuid" => "String",
-    },
-    "v2.DeleteTeamConnections" => {
-            "body" => "TeamConnectionDeleteRequest",
-    },
-    "v2.ListTeamConnections" => {
-            "page_size" => "Integer",
-            "page_number" => "Integer",
-            "filter_sources" => "Array<String>",
-            "filter_team_ids" => "Array<String>",
-            "filter_connected_team_ids" => "Array<String>",
-            "filter_connection_ids" => "Array<String>",
-    },
-    "v2.CreateTeamConnections" => {
-            "body" => "TeamConnectionCreateRequest",
     },
     "v2.ListIncidentTeams" => {
             "include" => "IncidentRelatedObject",
