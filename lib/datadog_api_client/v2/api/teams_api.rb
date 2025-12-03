@@ -242,6 +242,79 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Create team connections.
+    #
+    # @see #create_team_connections_with_http_info
+    def create_team_connections(body, opts = {})
+      data, _status_code, _headers = create_team_connections_with_http_info(body, opts)
+      data
+    end
+
+    # Create team connections.
+    #
+    # Create multiple team connections.
+    #
+    # @param body [TeamConnectionCreateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(TeamConnectionsResponse, Integer, Hash)>] TeamConnectionsResponse data, response status code and response headers
+    def create_team_connections_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_team_connections".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_team_connections")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_team_connections"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TeamsAPI.create_team_connections ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling TeamsAPI.create_team_connections"
+      end
+      # resource path
+      local_var_path = '/api/v2/team/connections'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TeamConnectionsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_team_connections,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TeamsAPI#create_team_connections\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create a team link.
     #
     # @see #create_team_link_with_http_info
@@ -447,6 +520,79 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: TeamsAPI#delete_team\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete team connections.
+    #
+    # @see #delete_team_connections_with_http_info
+    def delete_team_connections(body, opts = {})
+      delete_team_connections_with_http_info(body, opts)
+      nil
+    end
+
+    # Delete team connections.
+    #
+    # Delete multiple team connections.
+    #
+    # @param body [TeamConnectionDeleteRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_team_connections_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.delete_team_connections".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_team_connections")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_team_connections"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TeamsAPI.delete_team_connections ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling TeamsAPI.delete_team_connections"
+      end
+      # resource path
+      local_var_path = '/api/v2/team/connections'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_team_connections,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TeamsAPI#delete_team_connections\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1260,6 +1406,106 @@ module DatadogAPIClient::V2
         @api_client.set_attribute_from_path(api_version, opts, "page_number", Integer, 0)
         while true do
             response = list_member_teams(super_team_id, opts)
+            @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
+            if @api_client.get_attribute_from_path(response, "data").length < page_size
+              break
+            end
+            @api_client.set_attribute_from_path(api_version, opts, "page_number", Integer, @api_client.get_attribute_from_path(opts, "page_number", 0) + 1)
+        end
+    end
+
+    # List team connections.
+    #
+    # @see #list_team_connections_with_http_info
+    def list_team_connections(opts = {})
+      data, _status_code, _headers = list_team_connections_with_http_info(opts)
+      data
+    end
+
+    # List team connections.
+    #
+    # Returns all team connections.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 100.
+    # @option opts [Integer] :page_number Specific page number to return.
+    # @option opts [Array<String>] :filter_sources Filter team connections by external source systems.
+    # @option opts [Array<String>] :filter_team_ids Filter team connections by Datadog team IDs.
+    # @option opts [Array<String>] :filter_connected_team_ids Filter team connections by connected team IDs from external systems.
+    # @option opts [Array<String>] :filter_connection_ids Filter team connections by connection IDs.
+    # @return [Array<(TeamConnectionsResponse, Integer, Hash)>] TeamConnectionsResponse data, response status code and response headers
+    def list_team_connections_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_team_connections".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_team_connections")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_team_connections"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TeamsAPI.list_team_connections ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/team/connections'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+      query_params[:'page[number]'] = opts[:'page_number'] if !opts[:'page_number'].nil?
+      query_params[:'filter[sources]'] = @api_client.build_collection_param(opts[:'filter_sources'], :csv) if !opts[:'filter_sources'].nil?
+      query_params[:'filter[team_ids]'] = @api_client.build_collection_param(opts[:'filter_team_ids'], :csv) if !opts[:'filter_team_ids'].nil?
+      query_params[:'filter[connected_team_ids]'] = @api_client.build_collection_param(opts[:'filter_connected_team_ids'], :csv) if !opts[:'filter_connected_team_ids'].nil?
+      query_params[:'filter[connection_ids]'] = @api_client.build_collection_param(opts[:'filter_connection_ids'], :csv) if !opts[:'filter_connection_ids'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TeamConnectionsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_team_connections,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TeamsAPI#list_team_connections\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List team connections.
+    #
+    # Provide a paginated version of {#list_team_connections}, returning all items.
+    #
+    # To use it you need to use a block: list_team_connections_with_pagination { |item| p item }
+    #
+    # @yield [TeamConnection] Paginated items
+    def list_team_connections_with_pagination(opts = {})
+        api_version = "V2"
+        page_size = @api_client.get_attribute_from_path(opts, "page_size", 10)
+        @api_client.set_attribute_from_path(api_version, opts, "page_size", Integer, page_size)
+        @api_client.set_attribute_from_path(api_version, opts, "page_number", Integer, 0)
+        while true do
+            response = list_team_connections(opts)
             @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
             if @api_client.get_attribute_from_path(response, "data").length < page_size
               break
