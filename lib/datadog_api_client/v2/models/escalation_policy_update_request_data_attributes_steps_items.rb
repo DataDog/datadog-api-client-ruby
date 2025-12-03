@@ -25,7 +25,7 @@ module DatadogAPIClient::V2
     attr_accessor :assignment
 
     # Defines how many seconds to wait before escalating to the next step.
-    attr_accessor :escalate_after_seconds
+    attr_reader :escalate_after_seconds
 
     # Specifies the unique identifier of this step.
     attr_accessor :id
@@ -98,8 +98,23 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
+      return false if !@escalate_after_seconds.nil? && @escalate_after_seconds > 36000
+      return false if !@escalate_after_seconds.nil? && @escalate_after_seconds < 60
       return false if @targets.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param escalate_after_seconds [Object] Object to be assigned
+    # @!visibility private
+    def escalate_after_seconds=(escalate_after_seconds)
+      if !escalate_after_seconds.nil? && escalate_after_seconds > 36000
+        fail ArgumentError, 'invalid value for "escalate_after_seconds", must be smaller than or equal to 36000.'
+      end
+      if !escalate_after_seconds.nil? && escalate_after_seconds < 60
+        fail ArgumentError, 'invalid value for "escalate_after_seconds", must be greater than or equal to 60.'
+      end
+      @escalate_after_seconds = escalate_after_seconds
     end
 
     # Custom attribute writer method with validation

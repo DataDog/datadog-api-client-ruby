@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Represents a schedule target for an escalation policy step, including its ID and resource type.
+  # Represents a schedule target for an escalation policy step, including its ID and resource type. This is a shortcut for a configured schedule target with position set to 'current'.
   class ScheduleTarget
     include BaseGenericModel
 

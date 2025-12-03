@@ -28,7 +28,7 @@ module DatadogAPIClient::V2
     attr_accessor :resolve_page_on_policy_end
 
     # Specifies how many times the escalation sequence is retried if there is no response.
-    attr_accessor :retries
+    attr_reader :retries
 
     # A list of escalation steps, each defining assignment, escalation timeout, and targets.
     attr_reader :steps
@@ -99,7 +99,12 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @name.nil?
+      return false if @name.to_s.length < 1
+      return false if !@retries.nil? && @retries > 10
+      return false if !@retries.nil? && @retries < 0
       return false if @steps.nil?
+      return false if @steps.length > 10
+      return false if @steps.length < 1
       true
     end
 
@@ -110,7 +115,23 @@ module DatadogAPIClient::V2
       if name.nil?
         fail ArgumentError, 'invalid value for "name", name cannot be nil.'
       end
+      if name.to_s.length < 1
+        fail ArgumentError, 'invalid value for "name", the character length must be great than or equal to 1.'
+      end
       @name = name
+    end
+
+    # Custom attribute writer method with validation
+    # @param retries [Object] Object to be assigned
+    # @!visibility private
+    def retries=(retries)
+      if !retries.nil? && retries > 10
+        fail ArgumentError, 'invalid value for "retries", must be smaller than or equal to 10.'
+      end
+      if !retries.nil? && retries < 0
+        fail ArgumentError, 'invalid value for "retries", must be greater than or equal to 0.'
+      end
+      @retries = retries
     end
 
     # Custom attribute writer method with validation
@@ -119,6 +140,12 @@ module DatadogAPIClient::V2
     def steps=(steps)
       if steps.nil?
         fail ArgumentError, 'invalid value for "steps", steps cannot be nil.'
+      end
+      if steps.length > 10
+        fail ArgumentError, 'invalid value for "steps", number of items must be less than or equal to 10.'
+      end
+      if steps.length < 1
+        fail ArgumentError, 'invalid value for "steps", number of items must be greater than or equal to 1.'
       end
       @steps = steps
     end

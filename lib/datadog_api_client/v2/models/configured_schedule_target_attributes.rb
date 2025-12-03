@@ -17,18 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Defines a single escalation target within a step for an escalation policy creation request. Contains `id`, `type`, and optional `config`.
-  class EscalationPolicyStepTarget
+  # Attributes for a configured schedule target, including position.
+  class ConfiguredScheduleTargetAttributes
     include BaseGenericModel
 
-    # Configuration for an escalation target, such as schedule position.
-    attr_accessor :config
-
-    # Specifies the unique identifier for this target.
-    attr_accessor :id
-
-    # Specifies the type of escalation target (example `users`, `schedules`, or `teams`).
-    attr_accessor :type
+    # Specifies the position of a schedule target (example `previous`, `current`, or `next`).
+    attr_reader :position
 
     attr_accessor :additional_properties
 
@@ -36,9 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'config' => :'config',
-        :'id' => :'id',
-        :'type' => :'type'
+        :'position' => :'position'
       }
     end
 
@@ -46,9 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'config' => :'EscalationPolicyStepTargetConfig',
-        :'id' => :'String',
-        :'type' => :'EscalationPolicyStepTargetType'
+        :'position' => :'ScheduleTargetPosition'
       }
     end
 
@@ -57,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::EscalationPolicyStepTarget` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ConfiguredScheduleTargetAttributes` initialize method"
       end
 
       self.additional_properties = {}
@@ -70,17 +60,27 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'config')
-        self.config = attributes[:'config']
+      if attributes.key?(:'position')
+        self.position = attributes[:'position']
       end
+    end
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
-      end
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @position.nil?
+      true
+    end
 
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
+    # Custom attribute writer method with validation
+    # @param position [Object] Object to be assigned
+    # @!visibility private
+    def position=(position)
+      if position.nil?
+        fail ArgumentError, 'invalid value for "position", position cannot be nil.'
       end
+      @position = position
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -109,9 +109,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          config == o.config &&
-          id == o.id &&
-          type == o.type &&
+          position == o.position &&
           additional_properties == o.additional_properties
     end
 
@@ -119,7 +117,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [config, id, type, additional_properties].hash
+      [position, additional_properties].hash
     end
   end
 end
