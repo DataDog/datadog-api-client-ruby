@@ -324,7 +324,7 @@ module DatadogAPIClient::V1
     # Shows the 99th percentile of all Heroku dynos over all hours in the current month for all organizations.
     attr_accessor :heroku_host_top99p_sum
 
-    # Shows sum of the high-water marks of incident management monthly active users in the current month for all organizations.
+    # Shows sum of the high-water marks of Incident Management monthly active users in the current month for all organizations.
     attr_accessor :incident_management_monthly_active_users_hwm_sum
 
     # Shows the sum of the high-water marks of Incident Management seats over all hours in the current month for all organizations.
