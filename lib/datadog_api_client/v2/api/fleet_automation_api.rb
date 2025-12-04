@@ -427,6 +427,82 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get detailed information about an agent.
+    #
+    # @see #get_fleet_agent_info_with_http_info
+    def get_fleet_agent_info(agent_key, opts = {})
+      data, _status_code, _headers = get_fleet_agent_info_with_http_info(agent_key, opts)
+      data
+    end
+
+    # Get detailed information about an agent.
+    #
+    # Retrieve detailed information about a specific Datadog Agent.
+    # This endpoint returns comprehensive information about an agent including:
+    # - Agent details and metadata
+    # - Configured integrations organized by status (working, warning, error, missing)
+    # - Detected integrations
+    # - Configuration files and layers
+    #
+    # @param agent_key [String] The unique identifier (agent key) for the Datadog Agent.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(FleetAgentInfoResponse, Integer, Hash)>] FleetAgentInfoResponse data, response status code and response headers
+    def get_fleet_agent_info_with_http_info(agent_key, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_fleet_agent_info".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_fleet_agent_info")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_fleet_agent_info"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FleetAutomationAPI.get_fleet_agent_info ...'
+      end
+      # verify the required parameter 'agent_key' is set
+      if @api_client.config.client_side_validation && agent_key.nil?
+        fail ArgumentError, "Missing the required parameter 'agent_key' when calling FleetAutomationAPI.get_fleet_agent_info"
+      end
+      # resource path
+      local_var_path = '/api/unstable/fleet/agents/{agent_key}'.sub('{agent_key}', CGI.escape(agent_key.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'FleetAgentInfoResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_fleet_agent_info,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FleetAutomationAPI#get_fleet_agent_info\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get a configuration deployment by ID.
     #
     # @see #get_fleet_deployment_with_http_info
@@ -602,6 +678,95 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # List all Datadog Agents.
+    #
+    # @see #list_fleet_agents_with_http_info
+    def list_fleet_agents(opts = {})
+      data, _status_code, _headers = list_fleet_agents_with_http_info(opts)
+      data
+    end
+
+    # List all Datadog Agents.
+    #
+    # Retrieve a paginated list of all Datadog Agents.
+    # This endpoint returns a paginated list of all Datadog Agents with support for pagination, sorting, and filtering.
+    # Use the `page_number` and `page_size` query parameters to paginate through results.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :page_number Page number for pagination (must be greater than 0).
+    # @option opts [Integer] :page_size Number of results per page (must be greater than 0 and less than or equal to 100).
+    # @option opts [String] :sort_attribute Attribute to sort by.
+    # @option opts [Boolean] :sort_descending Sort order (true for descending, false for ascending).
+    # @option opts [String] :tags Comma-separated list of tags to filter agents.
+    # @option opts [String] :filter Filter string for narrowing down agent results.
+    # @return [Array<(FleetAgentsResponse, Integer, Hash)>] FleetAgentsResponse data, response status code and response headers
+    def list_fleet_agents_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_fleet_agents".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_fleet_agents")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_fleet_agents"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FleetAutomationAPI.list_fleet_agents ...'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_number'].nil? && opts[:'page_number'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"page_number"]" when calling FleetAutomationAPI.list_fleet_agents, must be greater than or equal to 1.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] > 100
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling FleetAutomationAPI.list_fleet_agents, must be smaller than or equal to 100.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling FleetAutomationAPI.list_fleet_agents, must be greater than or equal to 1.'
+      end
+      # resource path
+      local_var_path = '/api/unstable/fleet/agents'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'page_number'] = opts[:'page_number'] if !opts[:'page_number'].nil?
+      query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+      query_params[:'sort_attribute'] = opts[:'sort_attribute'] if !opts[:'sort_attribute'].nil?
+      query_params[:'sort_descending'] = opts[:'sort_descending'] if !opts[:'sort_descending'].nil?
+      query_params[:'tags'] = opts[:'tags'] if !opts[:'tags'].nil?
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'FleetAgentsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :list_fleet_agents,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FleetAutomationAPI#list_fleet_agents\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List all available Agent versions.
     #
     # @see #list_fleet_agent_versions_with_http_info
@@ -632,7 +797,7 @@ module DatadogAPIClient::V2
         @api_client.config.logger.debug 'Calling API: FleetAutomationAPI.list_fleet_agent_versions ...'
       end
       # resource path
-      local_var_path = '/api/unstable/fleet/agents'
+      local_var_path = '/api/unstable/fleet/agent_versions'
 
       # query parameters
       query_params = opts[:query_params] || {}

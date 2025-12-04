@@ -838,6 +838,17 @@ ScenariosModelMappings = {
             "user_handle" => "String",
             "body" => "User",
     },
+    "v2.ListFleetAgents" => {
+            "page_number" => "Integer",
+            "page_size" => "Integer",
+            "sort_attribute" => "String",
+            "sort_descending" => "Boolean",
+            "tags" => "String",
+            "filter" => "String",
+    },
+    "v2.GetFleetAgentInfo" => {
+            "agent_key" => "String",
+    },
     "v2.ListFleetDeployments" => {
             "page_size" => "Integer",
             "page_offset" => "Integer",
