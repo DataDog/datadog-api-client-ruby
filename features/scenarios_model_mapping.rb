@@ -2968,6 +2968,12 @@ ScenariosModelMappings = {
             "rf_id" => "String",
             "body" => "RumRetentionFilterUpdateRequest",
     },
+    "v2.GetRumCohort" => {
+            "body" => "GetCohortRequest",
+    },
+    "v2.GetRumCohortUsers" => {
+            "body" => "GetCohortUsersRequest",
+    },
     "v2.CreateRumMetric" => {
             "body" => "RumMetricCreateRequest",
     },
@@ -2980,6 +2986,18 @@ ScenariosModelMappings = {
     "v2.UpdateRumMetric" => {
             "metric_id" => "String",
             "body" => "RumMetricUpdateRequest",
+    },
+    "v2.GetRumFunnel" => {
+            "body" => "FunnelRequest",
+    },
+    "v2.GetRumFunnelStepSuggestions" => {
+            "body" => "FunnelSuggestionRequest",
+    },
+    "v2.GetRumSankey" => {
+            "body" => "SankeyRequest",
+    },
+    "v2.CreateRumSegment" => {
+            "body" => "Segment",
     },
     "v2.ListScorecardOutcomes" => {
             "page_size" => "Integer",
