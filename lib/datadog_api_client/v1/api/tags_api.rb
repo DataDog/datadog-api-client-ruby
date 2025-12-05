@@ -233,7 +233,7 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get Tags.
+    # Get All Hosts Tags.
     #
     # @see #list_host_tags_with_http_info
     def list_host_tags(opts = {})
@@ -241,7 +241,7 @@ module DatadogAPIClient::V1
       data
     end
 
-    # Get Tags.
+    # Get All Hosts Tags.
     #
     # Return a mapping of tags to hosts for your whole infrastructure.
     #
