@@ -17,10 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The type of link attachment attributes.
-  class IncidentAttachmentLinkAttachmentType
+  # 
+  class AttachmentDataAttributesAttachmentType
     include BaseEnumModel
 
+    POSTMORTEM = "postmortem".freeze
     LINK = "link".freeze
   end
 end

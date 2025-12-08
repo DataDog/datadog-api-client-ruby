@@ -17,15 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The update request for an incident's attachments.
-  class IncidentAttachmentUpdateRequest
+  # 
+  class PatchAttachmentRequest
     include BaseGenericModel
 
-    # An array of incident attachments. An attachment object without an "id" key indicates that you want to
-    # create that attachment. An attachment object without an "attributes" key indicates that you want to
-    # delete that attachment. An attachment object with both the "id" key and a populated "attributes" object
-    # indicates that you want to update that attachment.
-    attr_reader :data
+    #
+    attr_accessor :data
 
     attr_accessor :additional_properties
 
@@ -41,7 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'Array<IncidentAttachmentUpdateData>'
+        :'data' => :'PatchAttachmentRequestData'
       }
     end
 
@@ -50,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::IncidentAttachmentUpdateRequest` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::PatchAttachmentRequest` initialize method"
       end
 
       self.additional_properties = {}
@@ -64,28 +61,8 @@ module DatadogAPIClient::V2
       }
 
       if attributes.key?(:'data')
-        if (value = attributes[:'data']).is_a?(Array)
-          self.data = value
-        end
+        self.data = attributes[:'data']
       end
-    end
-
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    # @!visibility private
-    def valid?
-      return false if @data.nil?
-      true
-    end
-
-    # Custom attribute writer method with validation
-    # @param data [Object] Object to be assigned
-    # @!visibility private
-    def data=(data)
-      if data.nil?
-        fail ArgumentError, 'invalid value for "data", data cannot be nil.'
-      end
-      @data = data
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
