@@ -17,15 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A rule version with a list of updates.
-  class RuleVersions
+  # Response object containing the version history of a suppression.
+  class SuppressionVersionHistory
     include BaseGenericModel
 
-    # A list of changes.
-    attr_accessor :changes
+    # The number of suppression versions.
+    attr_reader :count
 
-    # Create a new rule.
-    attr_accessor :rule
+    # The version history of a suppression.
+    attr_accessor :data
 
     attr_accessor :additional_properties
 
@@ -33,8 +33,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'changes' => :'changes',
-        :'rule' => :'rule'
+        :'count' => :'count',
+        :'data' => :'data'
       }
     end
 
@@ -42,8 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'changes' => :'Array<VersionHistoryUpdate>',
-        :'rule' => :'SecurityMonitoringRuleResponse'
+        :'count' => :'Integer',
+        :'data' => :'Hash<String, SuppressionVersions>'
       }
     end
 
@@ -52,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RuleVersions` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SuppressionVersionHistory` initialize method"
       end
 
       self.additional_properties = {}
@@ -65,15 +65,31 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'changes')
-        if (value = attributes[:'changes']).is_a?(Array)
-          self.changes = value
-        end
+      if attributes.key?(:'count')
+        self.count = attributes[:'count']
       end
 
-      if attributes.key?(:'rule')
-        self.rule = attributes[:'rule']
+      if attributes.key?(:'data')
+        self.data = attributes[:'data']
       end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if !@count.nil? && @count > 2147483647
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param count [Object] Object to be assigned
+    # @!visibility private
+    def count=(count)
+      if !count.nil? && count > 2147483647
+        fail ArgumentError, 'invalid value for "count", must be smaller than or equal to 2147483647.'
+      end
+      @count = count
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -102,8 +118,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          changes == o.changes &&
-          rule == o.rule &&
+          count == o.count &&
+          data == o.data &&
           additional_properties == o.additional_properties
     end
 
@@ -111,7 +127,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [changes, rule, additional_properties].hash
+      [count, data, additional_properties].hash
     end
   end
 end

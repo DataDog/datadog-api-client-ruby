@@ -17,18 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A change in a rule version.
-  class RuleVersionUpdate
+  # A suppression version with a list of updates.
+  class SuppressionVersions
     include BaseGenericModel
 
-    # The new value of the field.
-    attr_accessor :change
+    # A list of changes.
+    attr_accessor :changes
 
-    # The field that was changed.
-    attr_accessor :field
-
-    # The type of change.
-    attr_accessor :type
+    # The attributes of the suppression rule.
+    attr_accessor :suppression
 
     attr_accessor :additional_properties
 
@@ -36,9 +33,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'change' => :'change',
-        :'field' => :'field',
-        :'type' => :'type'
+        :'changes' => :'changes',
+        :'suppression' => :'suppression'
       }
     end
 
@@ -46,9 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'change' => :'String',
-        :'field' => :'String',
-        :'type' => :'RuleVersionUpdateType'
+        :'changes' => :'Array<VersionHistoryUpdate>',
+        :'suppression' => :'SecurityMonitoringSuppressionAttributes'
       }
     end
 
@@ -57,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RuleVersionUpdate` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SuppressionVersions` initialize method"
       end
 
       self.additional_properties = {}
@@ -70,16 +65,14 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'change')
-        self.change = attributes[:'change']
+      if attributes.key?(:'changes')
+        if (value = attributes[:'changes']).is_a?(Array)
+          self.changes = value
+        end
       end
 
-      if attributes.key?(:'field')
-        self.field = attributes[:'field']
-      end
-
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
+      if attributes.key?(:'suppression')
+        self.suppression = attributes[:'suppression']
       end
     end
 
@@ -109,9 +102,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          change == o.change &&
-          field == o.field &&
-          type == o.type &&
+          changes == o.changes &&
+          suppression == o.suppression &&
           additional_properties == o.additional_properties
     end
 
@@ -119,7 +111,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [change, field, type, additional_properties].hash
+      [changes, suppression, additional_properties].hash
     end
   end
 end
