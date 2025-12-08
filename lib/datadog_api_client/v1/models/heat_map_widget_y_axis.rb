@@ -17,23 +17,26 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # X Axis controls for the distribution widget.
-  class DistributionWidgetXAxis
+  # Y Axis controls for the heat map widget.
+  class HeatMapWidgetYAxis
     include BaseGenericModel
 
-    # True includes zero.
+    # Set to `true` to include zero.
     attr_accessor :include_zero
 
-    # Specifies maximum value to show on the x-axis. It takes a number, percentile (p90 === 90th percentile), or auto for default behavior.
+    # The label of the axis to display on the graph. Only usable on Scatterplot Widgets.
+    attr_accessor :label
+
+    # Specifies maximum numeric value to show on the axis. Defaults to `auto`.
     attr_accessor :max
 
-    # Specifies minimum value to show on the x-axis. It takes a number, percentile (p90 === 90th percentile), or auto for default behavior.
+    # Specifies minimum numeric value to show on the axis. Defaults to `auto`.
     attr_accessor :min
 
     # Number of value buckets to target, aka the resolution of the value bins.
     attr_accessor :num_buckets
 
-    # Specifies the scale type. Possible values are `linear`.
+    # Specifies the scale type. Possible values are `linear`, `log`, `sqrt`, and `pow##` (for example `pow2` or `pow0.5`).
     attr_accessor :scale
 
     attr_accessor :additional_properties
@@ -43,6 +46,7 @@ module DatadogAPIClient::V1
     def self.attribute_map
       {
         :'include_zero' => :'include_zero',
+        :'label' => :'label',
         :'max' => :'max',
         :'min' => :'min',
         :'num_buckets' => :'num_buckets',
@@ -55,6 +59,7 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'include_zero' => :'Boolean',
+        :'label' => :'String',
         :'max' => :'String',
         :'min' => :'String',
         :'num_buckets' => :'Integer',
@@ -67,7 +72,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::DistributionWidgetXAxis` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::HeatMapWidgetYAxis` initialize method"
       end
 
       self.additional_properties = {}
@@ -82,6 +87,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'include_zero')
         self.include_zero = attributes[:'include_zero']
+      end
+
+      if attributes.key?(:'label')
+        self.label = attributes[:'label']
       end
 
       if attributes.key?(:'max')
@@ -128,6 +137,7 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           include_zero == o.include_zero &&
+          label == o.label &&
           max == o.max &&
           min == o.min &&
           num_buckets == o.num_buckets &&
@@ -139,7 +149,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [include_zero, max, min, num_buckets, scale, additional_properties].hash
+      [include_zero, label, max, min, num_buckets, scale, additional_properties].hash
     end
   end
 end
