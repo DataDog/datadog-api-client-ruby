@@ -17,15 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The response object containing an incident's attachments.
-  class IncidentAttachmentsResponse
+  # 
+  class AttachmentDataRelationships
     include BaseGenericModel
 
-    # An array of incident attachments.
-    attr_reader :data
-
-    # Included related resources that the user requested.
-    attr_accessor :included
+    #
+    attr_accessor :last_modified_by_user
 
     attr_accessor :additional_properties
 
@@ -33,8 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data',
-        :'included' => :'included'
+        :'last_modified_by_user' => :'last_modified_by_user'
       }
     end
 
@@ -42,8 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'Array<IncidentAttachmentData>',
-        :'included' => :'Array<IncidentAttachmentsResponseIncludedItem>'
+        :'last_modified_by_user' => :'AttachmentDataRelationshipsLastModifiedByUser'
       }
     end
 
@@ -52,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::IncidentAttachmentsResponse` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::AttachmentDataRelationships` initialize method"
       end
 
       self.additional_properties = {}
@@ -65,35 +60,9 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'data')
-        if (value = attributes[:'data']).is_a?(Array)
-          self.data = value
-        end
+      if attributes.key?(:'last_modified_by_user')
+        self.last_modified_by_user = attributes[:'last_modified_by_user']
       end
-
-      if attributes.key?(:'included')
-        if (value = attributes[:'included']).is_a?(Array)
-          self.included = value
-        end
-      end
-    end
-
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    # @!visibility private
-    def valid?
-      return false if @data.nil?
-      true
-    end
-
-    # Custom attribute writer method with validation
-    # @param data [Object] Object to be assigned
-    # @!visibility private
-    def data=(data)
-      if data.nil?
-        fail ArgumentError, 'invalid value for "data", data cannot be nil.'
-      end
-      @data = data
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -122,8 +91,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data &&
-          included == o.included &&
+          last_modified_by_user == o.last_modified_by_user &&
           additional_properties == o.additional_properties
     end
 
@@ -131,7 +99,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, included, additional_properties].hash
+      [last_modified_by_user, additional_properties].hash
     end
   end
 end

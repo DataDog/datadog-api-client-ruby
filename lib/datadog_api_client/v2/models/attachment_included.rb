@@ -17,8 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The attributes object for an attachment.
-  module IncidentAttachmentAttributes
+  # 
+  module AttachmentIncluded
     class << self
       include BaseOneOfModel
       include BaseOneOfModelNoDiscriminator
@@ -26,8 +26,7 @@ module DatadogAPIClient::V2
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of
         [
-          :'IncidentAttachmentPostmortemAttributes',
-          :'IncidentAttachmentLinkAttributes'
+          :'User140420082644000'
         ]
       end
       # Builds the object
