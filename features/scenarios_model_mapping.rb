@@ -2820,9 +2820,17 @@ ScenariosModelMappings = {
             "id" => "String",
             "body" => "PatchTableRequest",
     },
+    "v2.DeleteRows" => {
+            "id" => "String",
+            "body" => "BatchDeleteRowsRequestArray",
+    },
     "v2.GetRowsByID" => {
             "id" => "String",
             "row_id" => "Array<String>",
+    },
+    "v2.UpsertRows" => {
+            "id" => "String",
+            "body" => "BatchUpsertRowsRequestArray",
     },
     "v2.CreateReferenceTableUpload" => {
             "body" => "CreateUploadRequest",
