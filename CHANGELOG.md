@@ -1,5 +1,25 @@
 # CHANGELOG
 
+## 2.46.0/2025-12-08
+
+### Added
+* On-Call Add positioned schedule policy target [#2802](https://github.com/DataDog/datadog-api-client-ruby/pull/2802)
+* Introduced new APIs to manage team hierarchy links [#2793](https://github.com/DataDog/datadog-api-client-ruby/pull/2793)
+* Add Row Update Endpoints to Reference Tables API spec [#2783](https://github.com/DataDog/datadog-api-client-ruby/pull/2783)
+* Add incident management seats  to spec [#2780](https://github.com/DataDog/datadog-api-client-ruby/pull/2780)
+* Support provisioning teams from external sources [#2779](https://github.com/DataDog/datadog-api-client-ruby/pull/2779)
+* security_monitoring - Add signalOutput field to ThreatHuntingJobResponseAttributes schema [#2777](https://github.com/DataDog/datadog-api-client-ruby/pull/2777)
+* Add filter.scope to Monitor Notification Rules [#2774](https://github.com/DataDog/datadog-api-client-ruby/pull/2774)
+* Add Support for Monitor Assets [#2765](https://github.com/DataDog/datadog-api-client-ruby/pull/2765)
+* Add api specs for deployment gates [#2724](https://github.com/DataDog/datadog-api-client-ruby/pull/2724)
+
+### Changed
+* Add Security Finding Ticketing endpoints [#2796](https://github.com/DataDog/datadog-api-client-ruby/pull/2796)
+* Flatten file_metadata response schema to avoid OneOf unmarshaling issues [#2782](https://github.com/DataDog/datadog-api-client-ruby/pull/2782)
+
+### Fixed
+* obs_pipelines: make google auth optional [#2787](https://github.com/DataDog/datadog-api-client-ruby/pull/2787)
+
 ## 2.45.0/2025-11-14
 
 ### Added
