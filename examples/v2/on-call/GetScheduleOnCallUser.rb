@@ -1,4 +1,4 @@
-# Get the schedule on-call user returns "OK" response
+# Get scheduled on-call user returns "OK" response
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::OnCallAPI.new
