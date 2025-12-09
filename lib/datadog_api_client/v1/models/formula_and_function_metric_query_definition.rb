@@ -36,6 +36,9 @@ module DatadogAPIClient::V1
     # Metrics query definition.
     attr_reader :query
 
+    # Semantic mode for metrics queries. This determines how metrics from different sources are combined or displayed.
+    attr_accessor :semantic_mode
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -46,7 +49,8 @@ module DatadogAPIClient::V1
         :'cross_org_uuids' => :'cross_org_uuids',
         :'data_source' => :'data_source',
         :'name' => :'name',
-        :'query' => :'query'
+        :'query' => :'query',
+        :'semantic_mode' => :'semantic_mode'
       }
     end
 
@@ -58,7 +62,8 @@ module DatadogAPIClient::V1
         :'cross_org_uuids' => :'Array<String>',
         :'data_source' => :'FormulaAndFunctionMetricDataSource',
         :'name' => :'String',
-        :'query' => :'String'
+        :'query' => :'String',
+        :'semantic_mode' => :'FormulaAndFunctionMetricSemanticMode'
       }
     end
 
@@ -100,6 +105,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'query')
         self.query = attributes[:'query']
+      end
+
+      if attributes.key?(:'semantic_mode')
+        self.semantic_mode = attributes[:'semantic_mode']
       end
     end
 
@@ -185,6 +194,7 @@ module DatadogAPIClient::V1
           data_source == o.data_source &&
           name == o.name &&
           query == o.query &&
+          semantic_mode == o.semantic_mode &&
           additional_properties == o.additional_properties
     end
 
@@ -192,7 +202,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [aggregator, cross_org_uuids, data_source, name, query, additional_properties].hash
+      [aggregator, cross_org_uuids, data_source, name, query, semantic_mode, additional_properties].hash
     end
   end
 end

@@ -134,6 +134,7 @@ module DatadogAPIClient
           "v1.formula_and_function_metric_aggregation" => "FormulaAndFunctionMetricAggregation",
           "v1.formula_and_function_metric_data_source" => "FormulaAndFunctionMetricDataSource",
           "v1.formula_and_function_metric_query_definition" => "FormulaAndFunctionMetricQueryDefinition",
+          "v1.formula_and_function_metric_semantic_mode" => "FormulaAndFunctionMetricSemanticMode",
           "v1.formula_and_function_process_query_data_source" => "FormulaAndFunctionProcessQueryDataSource",
           "v1.formula_and_function_process_query_definition" => "FormulaAndFunctionProcessQueryDefinition",
           "v1.formula_and_function_query_definition" => "FormulaAndFunctionQueryDefinition",
