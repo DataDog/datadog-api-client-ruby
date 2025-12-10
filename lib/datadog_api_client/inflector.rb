@@ -162,6 +162,7 @@ module DatadogAPIClient
           "v1.geomap_widget_definition_type" => "GeomapWidgetDefinitionType",
           "v1.geomap_widget_definition_view" => "GeomapWidgetDefinitionView",
           "v1.geomap_widget_request" => "GeomapWidgetRequest",
+          "v1.geomap_widget_request_style" => "GeomapWidgetRequestStyle",
           "v1.graph_snapshot" => "GraphSnapshot",
           "v1.group_type" => "GroupType",
           "v1.group_widget_definition" => "GroupWidgetDefinition",
