@@ -111,6 +111,12 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(FindingCaseResponse, Integer, Hash)>] FindingCaseResponse data, response status code and response headers
     def attach_jira_issue_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.attach_jira_issue".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.attach_jira_issue")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.attach_jira_issue"))
+      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.attach_jira_issue ...'
@@ -600,6 +606,12 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(FindingCaseResponseArray, Integer, Hash)>] FindingCaseResponseArray data, response status code and response headers
     def create_jira_issues_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_jira_issues".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_jira_issues")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_jira_issues"))
+      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.create_jira_issues ...'
