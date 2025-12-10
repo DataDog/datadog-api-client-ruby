@@ -30,6 +30,9 @@ module DatadogAPIClient::V2
     # Event category identifying the type of event.
     attr_reader :category
 
+    # Host name to associate with the event. Any tags associated with the host are also applied to this event. Limited to 255 characters.
+    attr_reader :host
+
     # Integration ID sourced from integration manifests.
     attr_accessor :integration_id
 
@@ -55,6 +58,7 @@ module DatadogAPIClient::V2
         :'aggregation_key' => :'aggregation_key',
         :'attributes' => :'attributes',
         :'category' => :'category',
+        :'host' => :'host',
         :'integration_id' => :'integration_id',
         :'message' => :'message',
         :'tags' => :'tags',
@@ -70,6 +74,7 @@ module DatadogAPIClient::V2
         :'aggregation_key' => :'String',
         :'attributes' => :'EventPayloadAttributes',
         :'category' => :'EventCategory',
+        :'host' => :'String',
         :'integration_id' => :'EventPayloadIntegrationId',
         :'message' => :'String',
         :'tags' => :'Array<String>',
@@ -106,6 +111,10 @@ module DatadogAPIClient::V2
         self.category = attributes[:'category']
       end
 
+      if attributes.key?(:'host')
+        self.host = attributes[:'host']
+      end
+
       if attributes.key?(:'integration_id')
         self.integration_id = attributes[:'integration_id']
       end
@@ -137,6 +146,8 @@ module DatadogAPIClient::V2
       return false if !@aggregation_key.nil? && @aggregation_key.to_s.length < 1
       return false if @attributes.nil?
       return false if @category.nil?
+      return false if !@host.nil? && @host.to_s.length > 255
+      return false if !@host.nil? && @host.to_s.length < 1
       return false if !@message.nil? && @message.to_s.length > 4000
       return false if !@message.nil? && @message.to_s.length < 1
       return false if !@tags.nil? && @tags.length > 100
@@ -178,6 +189,19 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "category", category cannot be nil.'
       end
       @category = category
+    end
+
+    # Custom attribute writer method with validation
+    # @param host [Object] Object to be assigned
+    # @!visibility private
+    def host=(host)
+      if !host.nil? && host.to_s.length > 255
+        fail ArgumentError, 'invalid value for "host", the character length must be smaller than or equal to 255.'
+      end
+      if !host.nil? && host.to_s.length < 1
+        fail ArgumentError, 'invalid value for "host", the character length must be great than or equal to 1.'
+      end
+      @host = host
     end
 
     # Custom attribute writer method with validation
@@ -231,6 +255,7 @@ module DatadogAPIClient::V2
           aggregation_key == o.aggregation_key &&
           attributes == o.attributes &&
           category == o.category &&
+          host == o.host &&
           integration_id == o.integration_id &&
           message == o.message &&
           tags == o.tags &&
@@ -242,7 +267,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [aggregation_key, attributes, category, integration_id, message, tags, timestamp, title].hash
+      [aggregation_key, attributes, category, host, integration_id, message, tags, timestamp, title].hash
     end
   end
 end

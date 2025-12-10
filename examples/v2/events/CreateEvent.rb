@@ -34,6 +34,7 @@ body = DatadogAPIClient::V2::EventCreateRequestPayload.new({
       }),
       category: DatadogAPIClient::V2::EventCategory::CHANGE,
       integration_id: DatadogAPIClient::V2::EventPayloadIntegrationId::CUSTOM_EVENTS,
+      host: "test-host",
       message: "payment_processed feature flag has been enabled",
       tags: [
         "env:api_client_test",
