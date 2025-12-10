@@ -244,6 +244,7 @@ module DatadogAPIClient
             "v2.delete_deployment_gate": false,
             "v2.delete_deployment_rule": false,
             "v2.get_deployment_gate": false,
+            "v2.get_deployment_gate_rules": false,
             "v2.get_deployment_rule": false,
             "v2.update_deployment_gate": false,
             "v2.update_deployment_rule": false,
