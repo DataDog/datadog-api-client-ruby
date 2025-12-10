@@ -1890,6 +1890,9 @@ ScenariosModelMappings = {
     "v2.CreateDeploymentGate" => {
             "body" => "CreateDeploymentGateParams",
     },
+    "v2.GetDeploymentGateRules" => {
+            "gate_id" => "String",
+    },
     "v2.CreateDeploymentRule" => {
             "gate_id" => "String",
             "body" => "CreateDeploymentRuleParams",
