@@ -32,7 +32,6 @@ body = DatadogAPIClient::V2::PatchTableRequest.new({
           "id",
         ],
       }),
-      sync_enabled: false,
       tags: [
         "test_tag",
       ],
