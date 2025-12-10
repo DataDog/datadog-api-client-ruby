@@ -111,6 +111,9 @@ module DatadogAPIClient::V1
     # Host count average of Cloud Cost Management for all cloud providers for the given date and given organization.
     attr_accessor :cloud_cost_management_host_count_avg
 
+    # Average host count for Cloud Cost Management on OCI for the given date and organization.
+    attr_accessor :cloud_cost_management_oci_host_count_avg
+
     # Shows the sum of all Cloud Security Information and Event Management events over all hours in the current date for the given org.
     attr_accessor :cloud_siem_events_sum
 
@@ -245,6 +248,9 @@ module DatadogAPIClient::V1
 
     # Shows the sum of all ephemeral infrastructure hosts for Pro Plus over all hours in the current date for the given org.
     attr_accessor :eph_infra_host_proplus_sum
+
+    # Sum of all ephemeral infrastructure hosts for Proxmox over all hours in the current date for all organizations.
+    attr_accessor :eph_infra_host_proxmox_sum
 
     # Shows the sum of all Error Tracking APM error events over all hours in the current date for the given org.
     attr_accessor :error_tracking_apm_error_events_sum
@@ -410,6 +416,12 @@ module DatadogAPIClient::V1
 
     # Shows the 99th percentile of all profiled hosts over all hours within the current date for all organizations.
     attr_accessor :profiling_host_top99p
+
+    # Sum of all Proxmox hosts over all hours in the current date for all organizations.
+    attr_accessor :proxmox_host_sum
+
+    # 99th percentile of all Proxmox hosts over all hours in the current date for all organizations.
+    attr_accessor :proxmox_host_top99p
 
     # Shows the high-water mark of all published applications over all hours in the current date for all organizations.
     attr_accessor :published_app_hwm
@@ -675,6 +687,7 @@ module DatadogAPIClient::V1
         :'cloud_cost_management_azure_host_count_avg' => :'cloud_cost_management_azure_host_count_avg',
         :'cloud_cost_management_gcp_host_count_avg' => :'cloud_cost_management_gcp_host_count_avg',
         :'cloud_cost_management_host_count_avg' => :'cloud_cost_management_host_count_avg',
+        :'cloud_cost_management_oci_host_count_avg' => :'cloud_cost_management_oci_host_count_avg',
         :'cloud_siem_events_sum' => :'cloud_siem_events_sum',
         :'code_analysis_sa_committers_hwm' => :'code_analysis_sa_committers_hwm',
         :'code_analysis_sca_committers_hwm' => :'code_analysis_sca_committers_hwm',
@@ -720,6 +733,7 @@ module DatadogAPIClient::V1
         :'eph_infra_host_opentelemetry_sum' => :'eph_infra_host_opentelemetry_sum',
         :'eph_infra_host_pro_sum' => :'eph_infra_host_pro_sum',
         :'eph_infra_host_proplus_sum' => :'eph_infra_host_proplus_sum',
+        :'eph_infra_host_proxmox_sum' => :'eph_infra_host_proxmox_sum',
         :'error_tracking_apm_error_events_sum' => :'error_tracking_apm_error_events_sum',
         :'error_tracking_error_events_sum' => :'error_tracking_error_events_sum',
         :'error_tracking_events_sum' => :'error_tracking_events_sum',
@@ -775,6 +789,8 @@ module DatadogAPIClient::V1
         :'product_analytics_sum' => :'product_analytics_sum',
         :'profiling_aas_count_top99p' => :'profiling_aas_count_top99p',
         :'profiling_host_top99p' => :'profiling_host_top99p',
+        :'proxmox_host_sum' => :'proxmox_host_sum',
+        :'proxmox_host_top99p' => :'proxmox_host_top99p',
         :'published_app_hwm' => :'published_app_hwm',
         :'rum_browser_and_mobile_session_count' => :'rum_browser_and_mobile_session_count',
         :'rum_browser_legacy_session_count_sum' => :'rum_browser_legacy_session_count_sum',
@@ -888,6 +904,7 @@ module DatadogAPIClient::V1
         :'cloud_cost_management_azure_host_count_avg' => :'Integer',
         :'cloud_cost_management_gcp_host_count_avg' => :'Integer',
         :'cloud_cost_management_host_count_avg' => :'Integer',
+        :'cloud_cost_management_oci_host_count_avg' => :'Integer',
         :'cloud_siem_events_sum' => :'Integer',
         :'code_analysis_sa_committers_hwm' => :'Integer',
         :'code_analysis_sca_committers_hwm' => :'Integer',
@@ -933,6 +950,7 @@ module DatadogAPIClient::V1
         :'eph_infra_host_opentelemetry_sum' => :'Integer',
         :'eph_infra_host_pro_sum' => :'Integer',
         :'eph_infra_host_proplus_sum' => :'Integer',
+        :'eph_infra_host_proxmox_sum' => :'Integer',
         :'error_tracking_apm_error_events_sum' => :'Integer',
         :'error_tracking_error_events_sum' => :'Integer',
         :'error_tracking_events_sum' => :'Integer',
@@ -988,6 +1006,8 @@ module DatadogAPIClient::V1
         :'product_analytics_sum' => :'Integer',
         :'profiling_aas_count_top99p' => :'Integer',
         :'profiling_host_top99p' => :'Integer',
+        :'proxmox_host_sum' => :'Integer',
+        :'proxmox_host_top99p' => :'Integer',
         :'published_app_hwm' => :'Integer',
         :'rum_browser_and_mobile_session_count' => :'Integer',
         :'rum_browser_legacy_session_count_sum' => :'Integer',
@@ -1205,6 +1225,10 @@ module DatadogAPIClient::V1
         self.cloud_cost_management_host_count_avg = attributes[:'cloud_cost_management_host_count_avg']
       end
 
+      if attributes.key?(:'cloud_cost_management_oci_host_count_avg')
+        self.cloud_cost_management_oci_host_count_avg = attributes[:'cloud_cost_management_oci_host_count_avg']
+      end
+
       if attributes.key?(:'cloud_siem_events_sum')
         self.cloud_siem_events_sum = attributes[:'cloud_siem_events_sum']
       end
@@ -1383,6 +1407,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'eph_infra_host_proplus_sum')
         self.eph_infra_host_proplus_sum = attributes[:'eph_infra_host_proplus_sum']
+      end
+
+      if attributes.key?(:'eph_infra_host_proxmox_sum')
+        self.eph_infra_host_proxmox_sum = attributes[:'eph_infra_host_proxmox_sum']
       end
 
       if attributes.key?(:'error_tracking_apm_error_events_sum')
@@ -1605,6 +1633,14 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'profiling_host_top99p')
         self.profiling_host_top99p = attributes[:'profiling_host_top99p']
+      end
+
+      if attributes.key?(:'proxmox_host_sum')
+        self.proxmox_host_sum = attributes[:'proxmox_host_sum']
+      end
+
+      if attributes.key?(:'proxmox_host_top99p')
+        self.proxmox_host_top99p = attributes[:'proxmox_host_top99p']
       end
 
       if attributes.key?(:'published_app_hwm')
@@ -1968,6 +2004,7 @@ module DatadogAPIClient::V1
           cloud_cost_management_azure_host_count_avg == o.cloud_cost_management_azure_host_count_avg &&
           cloud_cost_management_gcp_host_count_avg == o.cloud_cost_management_gcp_host_count_avg &&
           cloud_cost_management_host_count_avg == o.cloud_cost_management_host_count_avg &&
+          cloud_cost_management_oci_host_count_avg == o.cloud_cost_management_oci_host_count_avg &&
           cloud_siem_events_sum == o.cloud_siem_events_sum &&
           code_analysis_sa_committers_hwm == o.code_analysis_sa_committers_hwm &&
           code_analysis_sca_committers_hwm == o.code_analysis_sca_committers_hwm &&
@@ -2013,6 +2050,7 @@ module DatadogAPIClient::V1
           eph_infra_host_opentelemetry_sum == o.eph_infra_host_opentelemetry_sum &&
           eph_infra_host_pro_sum == o.eph_infra_host_pro_sum &&
           eph_infra_host_proplus_sum == o.eph_infra_host_proplus_sum &&
+          eph_infra_host_proxmox_sum == o.eph_infra_host_proxmox_sum &&
           error_tracking_apm_error_events_sum == o.error_tracking_apm_error_events_sum &&
           error_tracking_error_events_sum == o.error_tracking_error_events_sum &&
           error_tracking_events_sum == o.error_tracking_events_sum &&
@@ -2068,6 +2106,8 @@ module DatadogAPIClient::V1
           product_analytics_sum == o.product_analytics_sum &&
           profiling_aas_count_top99p == o.profiling_aas_count_top99p &&
           profiling_host_top99p == o.profiling_host_top99p &&
+          proxmox_host_sum == o.proxmox_host_sum &&
+          proxmox_host_top99p == o.proxmox_host_top99p &&
           published_app_hwm == o.published_app_hwm &&
           rum_browser_and_mobile_session_count == o.rum_browser_and_mobile_session_count &&
           rum_browser_legacy_session_count_sum == o.rum_browser_legacy_session_count_sum &&
@@ -2151,7 +2191,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [agent_host_top99p, apm_azure_app_service_host_top99p, apm_devsecops_host_top99p, apm_enterprise_standalone_hosts_top99p, apm_fargate_count_avg, apm_host_top99p, apm_pro_standalone_hosts_top99p, appsec_fargate_count_avg, asm_serverless_sum, audit_logs_lines_indexed_sum, audit_trail_enabled_hwm, avg_profiled_fargate_tasks, aws_host_top99p, aws_lambda_func_count, aws_lambda_invocations_sum, azure_app_service_top99p, billable_ingested_bytes_sum, bits_ai_investigations_sum, browser_rum_lite_session_count_sum, browser_rum_replay_session_count_sum, browser_rum_units_sum, ci_pipeline_indexed_spans_sum, ci_test_indexed_spans_sum, ci_visibility_itr_committers_hwm, ci_visibility_pipeline_committers_hwm, ci_visibility_test_committers_hwm, cloud_cost_management_aws_host_count_avg, cloud_cost_management_azure_host_count_avg, cloud_cost_management_gcp_host_count_avg, cloud_cost_management_host_count_avg, cloud_siem_events_sum, code_analysis_sa_committers_hwm, code_analysis_sca_committers_hwm, code_security_host_top99p, container_avg, container_excl_agent_avg, container_hwm, csm_container_enterprise_compliance_count_sum, csm_container_enterprise_cws_count_sum, csm_container_enterprise_total_count_sum, csm_host_enterprise_aas_host_count_top99p, csm_host_enterprise_aws_host_count_top99p, csm_host_enterprise_azure_host_count_top99p, csm_host_enterprise_compliance_host_count_top99p, csm_host_enterprise_cws_host_count_top99p, csm_host_enterprise_gcp_host_count_top99p, csm_host_enterprise_total_host_count_top99p, cspm_aas_host_top99p, cspm_aws_host_top99p, cspm_azure_host_top99p, cspm_container_avg, cspm_container_hwm, cspm_gcp_host_top99p, cspm_host_top99p, custom_ts_avg, cws_container_count_avg, cws_fargate_task_avg, cws_host_top99p, data_jobs_monitoring_host_hr_sum, date, dbm_host_top99p, dbm_queries_count_avg, eph_infra_host_agent_sum, eph_infra_host_alibaba_sum, eph_infra_host_aws_sum, eph_infra_host_azure_sum, eph_infra_host_ent_sum, eph_infra_host_gcp_sum, eph_infra_host_heroku_sum, eph_infra_host_only_aas_sum, eph_infra_host_only_vsphere_sum, eph_infra_host_opentelemetry_apm_sum, eph_infra_host_opentelemetry_sum, eph_infra_host_pro_sum, eph_infra_host_proplus_sum, error_tracking_apm_error_events_sum, error_tracking_error_events_sum, error_tracking_events_sum, error_tracking_rum_error_events_sum, event_management_correlation_correlated_events_sum, event_management_correlation_correlated_related_events_sum, event_management_correlation_sum, fargate_container_profiler_profiling_fargate_avg, fargate_container_profiler_profiling_fargate_eks_avg, fargate_tasks_count_avg, fargate_tasks_count_hwm, flex_logs_compute_large_avg, flex_logs_compute_medium_avg, flex_logs_compute_small_avg, flex_logs_compute_xlarge_avg, flex_logs_compute_xsmall_avg, flex_logs_starter_avg, flex_logs_starter_storage_index_avg, flex_logs_starter_storage_retention_adjustment_avg, flex_stored_logs_avg, forwarding_events_bytes_sum, gcp_host_top99p, heroku_host_top99p, incident_management_monthly_active_users_hwm, incident_management_seats_hwm, indexed_events_count_sum, infra_host_top99p, ingested_events_bytes_sum, iot_device_sum, iot_device_top99p, llm_observability_min_spend_sum, llm_observability_sum, mobile_rum_lite_session_count_sum, mobile_rum_session_count_android_sum, mobile_rum_session_count_flutter_sum, mobile_rum_session_count_ios_sum, mobile_rum_session_count_reactnative_sum, mobile_rum_session_count_roku_sum, mobile_rum_session_count_sum, mobile_rum_units_sum, ndm_netflow_events_sum, netflow_indexed_events_count_sum, network_device_wireless_top99p, npm_host_top99p, observability_pipelines_bytes_processed_sum, oci_host_sum, oci_host_top99p, on_call_seat_hwm, online_archive_events_count_sum, opentelemetry_apm_host_top99p, opentelemetry_host_top99p, orgs, product_analytics_sum, profiling_aas_count_top99p, profiling_host_top99p, published_app_hwm, rum_browser_and_mobile_session_count, rum_browser_legacy_session_count_sum, rum_browser_lite_session_count_sum, rum_browser_replay_session_count_sum, rum_indexed_sessions_sum, rum_ingested_sessions_sum, rum_lite_session_count_sum, rum_mobile_legacy_session_count_android_sum, rum_mobile_legacy_session_count_flutter_sum, rum_mobile_legacy_session_count_ios_sum, rum_mobile_legacy_session_count_reactnative_sum, rum_mobile_legacy_session_count_roku_sum, rum_mobile_lite_session_count_android_sum, rum_mobile_lite_session_count_flutter_sum, rum_mobile_lite_session_count_ios_sum, rum_mobile_lite_session_count_kotlinmultiplatform_sum, rum_mobile_lite_session_count_reactnative_sum, rum_mobile_lite_session_count_roku_sum, rum_mobile_lite_session_count_unity_sum, rum_mobile_replay_session_count_android_sum, rum_mobile_replay_session_count_ios_sum, rum_mobile_replay_session_count_kotlinmultiplatform_sum, rum_mobile_replay_session_count_reactnative_sum, rum_replay_session_count_sum, rum_session_count_sum, rum_session_replay_add_on_sum, rum_total_session_count_sum, rum_units_sum, sca_fargate_count_avg, sca_fargate_count_hwm, sds_apm_scanned_bytes_sum, sds_events_scanned_bytes_sum, sds_logs_scanned_bytes_sum, sds_rum_scanned_bytes_sum, sds_total_scanned_bytes_sum, serverless_apps_apm_apm_azure_appservice_instances_avg, serverless_apps_apm_apm_azure_azurefunction_instances_avg, serverless_apps_apm_apm_azure_containerapp_instances_avg, serverless_apps_apm_apm_fargate_ecs_tasks_avg, serverless_apps_apm_apm_gcp_cloudfunction_instances_avg, serverless_apps_apm_apm_gcp_cloudrun_instances_avg, serverless_apps_apm_avg, serverless_apps_apm_excl_fargate_apm_azure_appservice_instances_avg, serverless_apps_apm_excl_fargate_apm_azure_azurefunction_instances_avg, serverless_apps_apm_excl_fargate_apm_azure_containerapp_instances_avg, serverless_apps_apm_excl_fargate_apm_gcp_cloudfunction_instances_avg, serverless_apps_apm_excl_fargate_apm_gcp_cloudrun_instances_avg, serverless_apps_apm_excl_fargate_avg, serverless_apps_azure_container_app_instances_avg, serverless_apps_azure_count_avg, serverless_apps_azure_function_app_instances_avg, serverless_apps_azure_web_app_instances_avg, serverless_apps_ecs_avg, serverless_apps_eks_avg, serverless_apps_excl_fargate_avg, serverless_apps_excl_fargate_azure_container_app_instances_avg, serverless_apps_excl_fargate_azure_function_app_instances_avg, serverless_apps_excl_fargate_azure_web_app_instances_avg, serverless_apps_excl_fargate_google_cloud_functions_instances_avg, serverless_apps_excl_fargate_google_cloud_run_instances_avg, serverless_apps_google_cloud_functions_instances_avg, serverless_apps_google_cloud_run_instances_avg, serverless_apps_google_count_avg, serverless_apps_total_count_avg, siem_analyzed_logs_add_on_count_sum, synthetics_browser_check_calls_count_sum, synthetics_check_calls_count_sum, synthetics_mobile_test_runs_sum, synthetics_parallel_testing_max_slots_hwm, trace_search_indexed_events_count_sum, twol_ingested_events_bytes_sum, universal_service_monitoring_host_top99p, vsphere_host_top99p, vuln_management_host_count_top99p, workflow_executions_usage_sum, additional_properties].hash
+      [agent_host_top99p, apm_azure_app_service_host_top99p, apm_devsecops_host_top99p, apm_enterprise_standalone_hosts_top99p, apm_fargate_count_avg, apm_host_top99p, apm_pro_standalone_hosts_top99p, appsec_fargate_count_avg, asm_serverless_sum, audit_logs_lines_indexed_sum, audit_trail_enabled_hwm, avg_profiled_fargate_tasks, aws_host_top99p, aws_lambda_func_count, aws_lambda_invocations_sum, azure_app_service_top99p, billable_ingested_bytes_sum, bits_ai_investigations_sum, browser_rum_lite_session_count_sum, browser_rum_replay_session_count_sum, browser_rum_units_sum, ci_pipeline_indexed_spans_sum, ci_test_indexed_spans_sum, ci_visibility_itr_committers_hwm, ci_visibility_pipeline_committers_hwm, ci_visibility_test_committers_hwm, cloud_cost_management_aws_host_count_avg, cloud_cost_management_azure_host_count_avg, cloud_cost_management_gcp_host_count_avg, cloud_cost_management_host_count_avg, cloud_cost_management_oci_host_count_avg, cloud_siem_events_sum, code_analysis_sa_committers_hwm, code_analysis_sca_committers_hwm, code_security_host_top99p, container_avg, container_excl_agent_avg, container_hwm, csm_container_enterprise_compliance_count_sum, csm_container_enterprise_cws_count_sum, csm_container_enterprise_total_count_sum, csm_host_enterprise_aas_host_count_top99p, csm_host_enterprise_aws_host_count_top99p, csm_host_enterprise_azure_host_count_top99p, csm_host_enterprise_compliance_host_count_top99p, csm_host_enterprise_cws_host_count_top99p, csm_host_enterprise_gcp_host_count_top99p, csm_host_enterprise_total_host_count_top99p, cspm_aas_host_top99p, cspm_aws_host_top99p, cspm_azure_host_top99p, cspm_container_avg, cspm_container_hwm, cspm_gcp_host_top99p, cspm_host_top99p, custom_ts_avg, cws_container_count_avg, cws_fargate_task_avg, cws_host_top99p, data_jobs_monitoring_host_hr_sum, date, dbm_host_top99p, dbm_queries_count_avg, eph_infra_host_agent_sum, eph_infra_host_alibaba_sum, eph_infra_host_aws_sum, eph_infra_host_azure_sum, eph_infra_host_ent_sum, eph_infra_host_gcp_sum, eph_infra_host_heroku_sum, eph_infra_host_only_aas_sum, eph_infra_host_only_vsphere_sum, eph_infra_host_opentelemetry_apm_sum, eph_infra_host_opentelemetry_sum, eph_infra_host_pro_sum, eph_infra_host_proplus_sum, eph_infra_host_proxmox_sum, error_tracking_apm_error_events_sum, error_tracking_error_events_sum, error_tracking_events_sum, error_tracking_rum_error_events_sum, event_management_correlation_correlated_events_sum, event_management_correlation_correlated_related_events_sum, event_management_correlation_sum, fargate_container_profiler_profiling_fargate_avg, fargate_container_profiler_profiling_fargate_eks_avg, fargate_tasks_count_avg, fargate_tasks_count_hwm, flex_logs_compute_large_avg, flex_logs_compute_medium_avg, flex_logs_compute_small_avg, flex_logs_compute_xlarge_avg, flex_logs_compute_xsmall_avg, flex_logs_starter_avg, flex_logs_starter_storage_index_avg, flex_logs_starter_storage_retention_adjustment_avg, flex_stored_logs_avg, forwarding_events_bytes_sum, gcp_host_top99p, heroku_host_top99p, incident_management_monthly_active_users_hwm, incident_management_seats_hwm, indexed_events_count_sum, infra_host_top99p, ingested_events_bytes_sum, iot_device_sum, iot_device_top99p, llm_observability_min_spend_sum, llm_observability_sum, mobile_rum_lite_session_count_sum, mobile_rum_session_count_android_sum, mobile_rum_session_count_flutter_sum, mobile_rum_session_count_ios_sum, mobile_rum_session_count_reactnative_sum, mobile_rum_session_count_roku_sum, mobile_rum_session_count_sum, mobile_rum_units_sum, ndm_netflow_events_sum, netflow_indexed_events_count_sum, network_device_wireless_top99p, npm_host_top99p, observability_pipelines_bytes_processed_sum, oci_host_sum, oci_host_top99p, on_call_seat_hwm, online_archive_events_count_sum, opentelemetry_apm_host_top99p, opentelemetry_host_top99p, orgs, product_analytics_sum, profiling_aas_count_top99p, profiling_host_top99p, proxmox_host_sum, proxmox_host_top99p, published_app_hwm, rum_browser_and_mobile_session_count, rum_browser_legacy_session_count_sum, rum_browser_lite_session_count_sum, rum_browser_replay_session_count_sum, rum_indexed_sessions_sum, rum_ingested_sessions_sum, rum_lite_session_count_sum, rum_mobile_legacy_session_count_android_sum, rum_mobile_legacy_session_count_flutter_sum, rum_mobile_legacy_session_count_ios_sum, rum_mobile_legacy_session_count_reactnative_sum, rum_mobile_legacy_session_count_roku_sum, rum_mobile_lite_session_count_android_sum, rum_mobile_lite_session_count_flutter_sum, rum_mobile_lite_session_count_ios_sum, rum_mobile_lite_session_count_kotlinmultiplatform_sum, rum_mobile_lite_session_count_reactnative_sum, rum_mobile_lite_session_count_roku_sum, rum_mobile_lite_session_count_unity_sum, rum_mobile_replay_session_count_android_sum, rum_mobile_replay_session_count_ios_sum, rum_mobile_replay_session_count_kotlinmultiplatform_sum, rum_mobile_replay_session_count_reactnative_sum, rum_replay_session_count_sum, rum_session_count_sum, rum_session_replay_add_on_sum, rum_total_session_count_sum, rum_units_sum, sca_fargate_count_avg, sca_fargate_count_hwm, sds_apm_scanned_bytes_sum, sds_events_scanned_bytes_sum, sds_logs_scanned_bytes_sum, sds_rum_scanned_bytes_sum, sds_total_scanned_bytes_sum, serverless_apps_apm_apm_azure_appservice_instances_avg, serverless_apps_apm_apm_azure_azurefunction_instances_avg, serverless_apps_apm_apm_azure_containerapp_instances_avg, serverless_apps_apm_apm_fargate_ecs_tasks_avg, serverless_apps_apm_apm_gcp_cloudfunction_instances_avg, serverless_apps_apm_apm_gcp_cloudrun_instances_avg, serverless_apps_apm_avg, serverless_apps_apm_excl_fargate_apm_azure_appservice_instances_avg, serverless_apps_apm_excl_fargate_apm_azure_azurefunction_instances_avg, serverless_apps_apm_excl_fargate_apm_azure_containerapp_instances_avg, serverless_apps_apm_excl_fargate_apm_gcp_cloudfunction_instances_avg, serverless_apps_apm_excl_fargate_apm_gcp_cloudrun_instances_avg, serverless_apps_apm_excl_fargate_avg, serverless_apps_azure_container_app_instances_avg, serverless_apps_azure_count_avg, serverless_apps_azure_function_app_instances_avg, serverless_apps_azure_web_app_instances_avg, serverless_apps_ecs_avg, serverless_apps_eks_avg, serverless_apps_excl_fargate_avg, serverless_apps_excl_fargate_azure_container_app_instances_avg, serverless_apps_excl_fargate_azure_function_app_instances_avg, serverless_apps_excl_fargate_azure_web_app_instances_avg, serverless_apps_excl_fargate_google_cloud_functions_instances_avg, serverless_apps_excl_fargate_google_cloud_run_instances_avg, serverless_apps_google_cloud_functions_instances_avg, serverless_apps_google_cloud_run_instances_avg, serverless_apps_google_count_avg, serverless_apps_total_count_avg, siem_analyzed_logs_add_on_count_sum, synthetics_browser_check_calls_count_sum, synthetics_check_calls_count_sum, synthetics_mobile_test_runs_sum, synthetics_parallel_testing_max_slots_hwm, trace_search_indexed_events_count_sum, twol_ingested_events_bytes_sum, universal_service_monitoring_host_top99p, vsphere_host_top99p, vuln_management_host_count_top99p, workflow_executions_usage_sum, additional_properties].hash
     end
   end
 end
