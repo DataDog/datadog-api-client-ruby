@@ -819,12 +819,12 @@ ScenariosModelMappings = {
     "v1.CreateHostTags" => {
             "host_name" => "String",
             "source" => "String",
-            "body" => "HostTags",
+            "body" => "HostTagsInput",
     },
     "v1.UpdateHostTags" => {
             "host_name" => "String",
             "source" => "String",
-            "body" => "HostTags",
+            "body" => "HostTagsInput",
     },
     "v1.CreateUser" => {
             "body" => "User",

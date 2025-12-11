@@ -3,7 +3,7 @@
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::TagsAPI.new
 
-body = DatadogAPIClient::V1::HostTags.new({
+body = DatadogAPIClient::V1::HostTagsInput.new({
   host: "test.host",
   tags: [
     "environment:production",
