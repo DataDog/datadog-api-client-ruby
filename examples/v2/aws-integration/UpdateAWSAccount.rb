@@ -17,6 +17,17 @@ body = DatadogAPIClient::V2::AWSAccountUpdateRequest.new({
       }),
       aws_account_id: "123456789012",
       aws_partition: DatadogAPIClient::V2::AWSAccountPartition::AWS,
+      ccm_config: DatadogAPIClient::V2::AWSCCMConfig.new({
+        data_export_configs: [
+          DatadogAPIClient::V2::DataExportConfig.new({
+            bucket_name: "updated-bucket",
+            bucket_region: "us-west-2",
+            report_name: "updated-report",
+            report_prefix: "cost-reports",
+            report_type: "CUR2.0",
+          }),
+        ],
+      }),
       logs_config: DatadogAPIClient::V2::AWSLogsConfig.new({
         lambda_forwarder: DatadogAPIClient::V2::AWSLambdaForwarderConfig.new({
           lambdas: [
