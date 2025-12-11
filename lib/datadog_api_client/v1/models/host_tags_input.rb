@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V1
   # Set of tags to associate with your host.
-  class HostTags
+  class HostTagsInput
     include BaseGenericModel
 
     # Your host name.
@@ -52,7 +52,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::HostTags` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::HostTagsInput` initialize method"
       end
 
       self.additional_properties = {}

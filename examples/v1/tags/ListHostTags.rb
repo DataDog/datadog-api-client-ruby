@@ -1,4 +1,4 @@
-# Get Tags returns "OK" response
+# Get All Host Tags returns "OK" response
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::TagsAPI.new

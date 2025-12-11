@@ -17,11 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # In this object, the key is the tag, and the value is a list of host names that are reporting that tag.
-  class TagToHosts
+  # Set of tags to associate with your host.
+  class HostTagsOutput
     include BaseGenericModel
 
-    # A mapping of tags to host names
+    # Your host name.
+    attr_accessor :host
+
+    # A list of tags attached to a given host.
     attr_accessor :tags
 
     attr_accessor :additional_properties
@@ -30,6 +33,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.attribute_map
       {
+        :'host' => :'host',
         :'tags' => :'tags'
       }
     end
@@ -38,7 +42,8 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
-        :'tags' => :'Hash<String, Array<String>>'
+        :'host' => :'String',
+        :'tags' => :'Array<String>'
       }
     end
 
@@ -47,7 +52,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::TagToHosts` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::HostTagsOutput` initialize method"
       end
 
       self.additional_properties = {}
@@ -60,8 +65,14 @@ module DatadogAPIClient::V1
         end
       }
 
+      if attributes.key?(:'host')
+        self.host = attributes[:'host']
+      end
+
       if attributes.key?(:'tags')
-        self.tags = attributes[:'tags']
+        if (value = attributes[:'tags']).is_a?(Array)
+          self.tags = value
+        end
       end
     end
 
@@ -91,6 +102,7 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          host == o.host &&
           tags == o.tags &&
           additional_properties == o.additional_properties
     end
@@ -99,7 +111,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [tags, additional_properties].hash
+      [host, tags, additional_properties].hash
     end
   end
 end
