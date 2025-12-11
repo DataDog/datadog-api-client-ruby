@@ -6,7 +6,7 @@
 <title>
   Class: DatadogAPIClient::V1::GeomapWidgetDefinition
   
-    &mdash; datadog-api-client 2.30.0.dev.1 documentation
+    &mdash; datadog-api-client 2.46.0 documentation
   
 </title>
 
@@ -195,7 +195,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Array of one request object to display in the widget.</p>
+    <span class="summary_desc"><div class='inline'><p>Array of request objects to display in the widget.</p>
 </div></span>
   
 </li>
@@ -506,9 +506,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Array of one request object to display in the widget. The request must contain a <code>group-by</code> tag whose value is a country ISO code.</p>
-
-<p>See the <a href="https://docs.datadoghq.com/dashboards/graphing_json/request_json">Request JSON schema documentation</a>
+    <p>Array of request objects to display in the widget. May include an optional request for the region layer and/or an optional request for the points layer. Region layer requests must contain a <code>group-by</code> tag whose value is a country ISO code.
+See the <a href="https://docs.datadoghq.com/dashboards/graphing_json/request_json">Request JSON schema documentation</a>
 for information about building the <code>REQUEST_SCHEMA</code>.</p>
 
 
@@ -838,9 +837,9 @@ for information about building the <code>REQUEST_SCHEMA</code>.</p>
 </div>
 
       <div id="footer">
-  Generated on Tue Feb 18 21:07:29 2025 by
+  Generated on Thu Dec 11 13:09:07 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.37 (ruby-2.7.8).
+  0.9.38 (ruby-2.7.8).
 </div>
 
     </div>
