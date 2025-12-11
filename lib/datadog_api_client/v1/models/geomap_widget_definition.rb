@@ -24,8 +24,7 @@ module DatadogAPIClient::V1
     # A list of custom links.
     attr_accessor :custom_links
 
-    # Array of one request object to display in the widget. The request must contain a `group-by` tag whose value is a country ISO code.
-    #
+    # Array of request objects to display in the widget. May include an optional request for the region layer and/or an optional request for the points layer. Region layer requests must contain a `group-by` tag whose value is a country ISO code.
     # See the [Request JSON schema documentation](https://docs.datadoghq.com/dashboards/graphing_json/request_json)
     # for information about building the `REQUEST_SCHEMA`.
     attr_reader :requests
@@ -149,7 +148,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def valid?
       return false if @requests.nil?
-      return false if @requests.length > 1
+      return false if @requests.length > 2
       return false if @requests.length < 1
       return false if @style.nil?
       return false if @type.nil?
@@ -164,8 +163,8 @@ module DatadogAPIClient::V1
       if requests.nil?
         fail ArgumentError, 'invalid value for "requests", requests cannot be nil.'
       end
-      if requests.length > 1
-        fail ArgumentError, 'invalid value for "requests", number of items must be less than or equal to 1.'
+      if requests.length > 2
+        fail ArgumentError, 'invalid value for "requests", number of items must be less than or equal to 2.'
       end
       if requests.length < 1
         fail ArgumentError, 'invalid value for "requests", number of items must be greater than or equal to 1.'

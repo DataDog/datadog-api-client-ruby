@@ -17,12 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # The view of the world that the map should render.
-  class GeomapWidgetDefinitionView
+  # The style to apply to the request for points layer.
+  class GeomapWidgetRequestStyle
     include BaseGenericModel
 
-    # The 2-letter ISO code of a country to focus the map on, or `WORLD` for global view, or a region (`EMEA`, `APAC`, `LATAM`), or a continent (`NORTH_AMERICA`, `SOUTH_AMERICA`, `EUROPE`, `AFRICA`, `ASIA`, `OCEANIA`).
-    attr_reader :focus
+    # The category to color the points by.
+    attr_accessor :color_by
 
     attr_accessor :additional_properties
 
@@ -30,7 +30,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.attribute_map
       {
-        :'focus' => :'focus'
+        :'color_by' => :'color_by'
       }
     end
 
@@ -38,7 +38,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
-        :'focus' => :'String'
+        :'color_by' => :'String'
       }
     end
 
@@ -47,7 +47,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::GeomapWidgetDefinitionView` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::GeomapWidgetRequestStyle` initialize method"
       end
 
       self.additional_properties = {}
@@ -60,27 +60,9 @@ module DatadogAPIClient::V1
         end
       }
 
-      if attributes.key?(:'focus')
-        self.focus = attributes[:'focus']
+      if attributes.key?(:'color_by')
+        self.color_by = attributes[:'color_by']
       end
-    end
-
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    # @!visibility private
-    def valid?
-      return false if @focus.nil?
-      true
-    end
-
-    # Custom attribute writer method with validation
-    # @param focus [Object] Object to be assigned
-    # @!visibility private
-    def focus=(focus)
-      if focus.nil?
-        fail ArgumentError, 'invalid value for "focus", focus cannot be nil.'
-      end
-      @focus = focus
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -109,7 +91,7 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          focus == o.focus &&
+          color_by == o.color_by &&
           additional_properties == o.additional_properties
     end
 
@@ -117,7 +99,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [focus, additional_properties].hash
+      [color_by, additional_properties].hash
     end
   end
 end

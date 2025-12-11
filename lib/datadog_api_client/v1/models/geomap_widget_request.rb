@@ -24,6 +24,9 @@ module DatadogAPIClient::V1
     # Widget columns.
     attr_accessor :columns
 
+    # Threshold (numeric) conditional formatting rules may be used by a regions layer.
+    attr_accessor :conditional_formats
+
     # List of formulas that operate on queries.
     attr_accessor :formulas
 
@@ -51,6 +54,12 @@ module DatadogAPIClient::V1
     # The controls for sorting the widget.
     attr_accessor :sort
 
+    # The style to apply to the request for points layer.
+    attr_accessor :style
+
+    # Text formatting rules may be used by a points layer.
+    attr_accessor :text_formats
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -58,6 +67,7 @@ module DatadogAPIClient::V1
     def self.attribute_map
       {
         :'columns' => :'columns',
+        :'conditional_formats' => :'conditional_formats',
         :'formulas' => :'formulas',
         :'log_query' => :'log_query',
         :'q' => :'q',
@@ -66,7 +76,9 @@ module DatadogAPIClient::V1
         :'response_format' => :'response_format',
         :'rum_query' => :'rum_query',
         :'security_query' => :'security_query',
-        :'sort' => :'sort'
+        :'sort' => :'sort',
+        :'style' => :'style',
+        :'text_formats' => :'text_formats'
       }
     end
 
@@ -75,6 +87,7 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'columns' => :'Array<ListStreamColumn>',
+        :'conditional_formats' => :'Array<WidgetConditionalFormat>',
         :'formulas' => :'Array<WidgetFormula>',
         :'log_query' => :'LogQueryDefinition',
         :'q' => :'String',
@@ -83,7 +96,9 @@ module DatadogAPIClient::V1
         :'response_format' => :'FormulaAndFunctionResponseFormat',
         :'rum_query' => :'LogQueryDefinition',
         :'security_query' => :'LogQueryDefinition',
-        :'sort' => :'WidgetSortBy'
+        :'sort' => :'WidgetSortBy',
+        :'style' => :'GeomapWidgetRequestStyle',
+        :'text_formats' => :'Array<TableWidgetTextFormatRule>'
       }
     end
 
@@ -108,6 +123,12 @@ module DatadogAPIClient::V1
       if attributes.key?(:'columns')
         if (value = attributes[:'columns']).is_a?(Array)
           self.columns = value
+        end
+      end
+
+      if attributes.key?(:'conditional_formats')
+        if (value = attributes[:'conditional_formats']).is_a?(Array)
+          self.conditional_formats = value
         end
       end
 
@@ -150,6 +171,16 @@ module DatadogAPIClient::V1
       if attributes.key?(:'sort')
         self.sort = attributes[:'sort']
       end
+
+      if attributes.key?(:'style')
+        self.style = attributes[:'style']
+      end
+
+      if attributes.key?(:'text_formats')
+        if (value = attributes[:'text_formats']).is_a?(Array)
+          self.text_formats = value
+        end
+      end
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -179,6 +210,7 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           columns == o.columns &&
+          conditional_formats == o.conditional_formats &&
           formulas == o.formulas &&
           log_query == o.log_query &&
           q == o.q &&
@@ -188,6 +220,8 @@ module DatadogAPIClient::V1
           rum_query == o.rum_query &&
           security_query == o.security_query &&
           sort == o.sort &&
+          style == o.style &&
+          text_formats == o.text_formats &&
           additional_properties == o.additional_properties
     end
 
@@ -195,7 +229,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [columns, formulas, log_query, q, queries, query, response_format, rum_query, security_query, sort, additional_properties].hash
+      [columns, conditional_formats, formulas, log_query, q, queries, query, response_format, rum_query, security_query, sort, style, text_formats, additional_properties].hash
     end
   end
 end
