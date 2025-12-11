@@ -17,17 +17,19 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # A now deprecated metric SLO. Note that Datadog only allows the sum by aggregator
-  # to be used because this will sum up all request counts instead of averaging them, or taking the max or
-  # min of all of those requests.
-  class ServiceLevelObjectiveQuery
+  # A metric SLI specification, composed of three parts: the good events formula, the total events formula,
+  # and the involved queries.
+  class SLOCountCondition
     include BaseGenericModel
 
-    # A Datadog metric query for total (valid) events.
-    attr_reader :denominator
+    # A formula that specifies how to combine the results of multiple queries.
+    attr_reader :good_events_formula
 
-    # A Datadog metric query for good events.
-    attr_reader :numerator
+    #
+    attr_reader :queries
+
+    # A formula that specifies how to combine the results of multiple queries.
+    attr_reader :total_events_formula
 
     attr_accessor :additional_properties
 
@@ -35,8 +37,9 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.attribute_map
       {
-        :'denominator' => :'denominator',
-        :'numerator' => :'numerator'
+        :'good_events_formula' => :'good_events_formula',
+        :'queries' => :'queries',
+        :'total_events_formula' => :'total_events_formula'
       }
     end
 
@@ -44,8 +47,9 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
-        :'denominator' => :'String',
-        :'numerator' => :'String'
+        :'good_events_formula' => :'SLOFormula',
+        :'queries' => :'Array<SLODataSourceQueryDefinition>',
+        :'total_events_formula' => :'SLOFormula'
       }
     end
 
@@ -54,7 +58,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::ServiceLevelObjectiveQuery` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SLOCountCondition` initialize method"
       end
 
       self.additional_properties = {}
@@ -67,12 +71,18 @@ module DatadogAPIClient::V1
         end
       }
 
-      if attributes.key?(:'denominator')
-        self.denominator = attributes[:'denominator']
+      if attributes.key?(:'good_events_formula')
+        self.good_events_formula = attributes[:'good_events_formula']
       end
 
-      if attributes.key?(:'numerator')
-        self.numerator = attributes[:'numerator']
+      if attributes.key?(:'queries')
+        if (value = attributes[:'queries']).is_a?(Array)
+          self.queries = value
+        end
+      end
+
+      if attributes.key?(:'total_events_formula')
+        self.total_events_formula = attributes[:'total_events_formula']
       end
     end
 
@@ -80,29 +90,44 @@ module DatadogAPIClient::V1
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @denominator.nil?
-      return false if @numerator.nil?
+      return false if @good_events_formula.nil?
+      return false if @queries.nil?
+      return false if @queries.length < 1
+      return false if @total_events_formula.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param denominator [Object] Object to be assigned
+    # @param good_events_formula [Object] Object to be assigned
     # @!visibility private
-    def denominator=(denominator)
-      if denominator.nil?
-        fail ArgumentError, 'invalid value for "denominator", denominator cannot be nil.'
+    def good_events_formula=(good_events_formula)
+      if good_events_formula.nil?
+        fail ArgumentError, 'invalid value for "good_events_formula", good_events_formula cannot be nil.'
       end
-      @denominator = denominator
+      @good_events_formula = good_events_formula
     end
 
     # Custom attribute writer method with validation
-    # @param numerator [Object] Object to be assigned
+    # @param queries [Object] Object to be assigned
     # @!visibility private
-    def numerator=(numerator)
-      if numerator.nil?
-        fail ArgumentError, 'invalid value for "numerator", numerator cannot be nil.'
+    def queries=(queries)
+      if queries.nil?
+        fail ArgumentError, 'invalid value for "queries", queries cannot be nil.'
       end
-      @numerator = numerator
+      if queries.length < 1
+        fail ArgumentError, 'invalid value for "queries", number of items must be greater than or equal to 1.'
+      end
+      @queries = queries
+    end
+
+    # Custom attribute writer method with validation
+    # @param total_events_formula [Object] Object to be assigned
+    # @!visibility private
+    def total_events_formula=(total_events_formula)
+      if total_events_formula.nil?
+        fail ArgumentError, 'invalid value for "total_events_formula", total_events_formula cannot be nil.'
+      end
+      @total_events_formula = total_events_formula
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -131,8 +156,9 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          denominator == o.denominator &&
-          numerator == o.numerator &&
+          good_events_formula == o.good_events_formula &&
+          queries == o.queries &&
+          total_events_formula == o.total_events_formula &&
           additional_properties == o.additional_properties
     end
 
@@ -140,7 +166,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [denominator, numerator, additional_properties].hash
+      [good_events_formula, queries, total_events_formula, additional_properties].hash
     end
   end
 end
