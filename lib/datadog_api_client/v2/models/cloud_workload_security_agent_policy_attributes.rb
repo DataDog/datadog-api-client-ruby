@@ -51,6 +51,9 @@ module DatadogAPIClient::V2
     # Whether the policy is pinned
     attr_accessor :pinned
 
+    # The type of the policy
+    attr_accessor :policy_type
+
     # The version of the policy
     attr_accessor :policy_version
 
@@ -88,6 +91,7 @@ module DatadogAPIClient::V2
         :'monitoring_rules_count' => :'monitoringRulesCount',
         :'name' => :'name',
         :'pinned' => :'pinned',
+        :'policy_type' => :'policyType',
         :'policy_version' => :'policyVersion',
         :'priority' => :'priority',
         :'rule_count' => :'ruleCount',
@@ -112,6 +116,7 @@ module DatadogAPIClient::V2
         :'monitoring_rules_count' => :'Integer',
         :'name' => :'String',
         :'pinned' => :'Boolean',
+        :'policy_type' => :'String',
         :'policy_version' => :'String',
         :'priority' => :'Integer',
         :'rule_count' => :'Integer',
@@ -182,6 +187,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'pinned')
         self.pinned = attributes[:'pinned']
+      end
+
+      if attributes.key?(:'policy_type')
+        self.policy_type = attributes[:'policy_type']
       end
 
       if attributes.key?(:'policy_version')
@@ -302,6 +311,7 @@ module DatadogAPIClient::V2
           monitoring_rules_count == o.monitoring_rules_count &&
           name == o.name &&
           pinned == o.pinned &&
+          policy_type == o.policy_type &&
           policy_version == o.policy_version &&
           priority == o.priority &&
           rule_count == o.rule_count &&
@@ -316,7 +326,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [blocking_rules_count, datadog_managed, description, disabled_rules_count, enabled, host_tags, host_tags_lists, monitoring_rules_count, name, pinned, policy_version, priority, rule_count, update_date, updated_at, updater, versions, additional_properties].hash
+      [blocking_rules_count, datadog_managed, description, disabled_rules_count, enabled, host_tags, host_tags_lists, monitoring_rules_count, name, pinned, policy_type, policy_version, priority, rule_count, update_date, updated_at, updater, versions, additional_properties].hash
     end
   end
 end
