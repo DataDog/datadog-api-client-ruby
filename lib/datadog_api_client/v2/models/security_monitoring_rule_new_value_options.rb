@@ -24,6 +24,10 @@ module DatadogAPIClient::V2
     # The duration in days after which a learned value is forgotten.
     attr_accessor :forget_after
 
+    # If true, every time Datadog learns a new group-by value, it takes old matching values within the learning window and builds the baseline with it.
+    # Therefore, it attempts to build the baseline swiftly using existing values instead of learning them over time.
+    attr_accessor :instantaneous_baseline
+
     # The duration in days during which values are learned, and after which signals will be generated for values that
     # weren't learned. If set to 0, a signal will be generated for all new values after the first value is learned.
     attr_accessor :learning_duration
@@ -41,6 +45,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'forget_after' => :'forgetAfter',
+        :'instantaneous_baseline' => :'instantaneousBaseline',
         :'learning_duration' => :'learningDuration',
         :'learning_method' => :'learningMethod',
         :'learning_threshold' => :'learningThreshold'
@@ -52,6 +57,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'forget_after' => :'SecurityMonitoringRuleNewValueOptionsForgetAfter',
+        :'instantaneous_baseline' => :'Boolean',
         :'learning_duration' => :'SecurityMonitoringRuleNewValueOptionsLearningDuration',
         :'learning_method' => :'SecurityMonitoringRuleNewValueOptionsLearningMethod',
         :'learning_threshold' => :'SecurityMonitoringRuleNewValueOptionsLearningThreshold'
@@ -78,6 +84,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'forget_after')
         self.forget_after = attributes[:'forget_after']
+      end
+
+      if attributes.key?(:'instantaneous_baseline')
+        self.instantaneous_baseline = attributes[:'instantaneous_baseline']
       end
 
       if attributes.key?(:'learning_duration')
@@ -120,6 +130,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           forget_after == o.forget_after &&
+          instantaneous_baseline == o.instantaneous_baseline &&
           learning_duration == o.learning_duration &&
           learning_method == o.learning_method &&
           learning_threshold == o.learning_threshold &&
@@ -130,7 +141,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [forget_after, learning_duration, learning_method, learning_threshold, additional_properties].hash
+      [forget_after, instantaneous_baseline, learning_duration, learning_method, learning_threshold, additional_properties].hash
     end
   end
 end
