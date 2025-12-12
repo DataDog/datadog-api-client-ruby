@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # The response form a monitor search.
+  # The response from a monitor search.
   class MonitorSearchResponse
     include BaseGenericModel
 
