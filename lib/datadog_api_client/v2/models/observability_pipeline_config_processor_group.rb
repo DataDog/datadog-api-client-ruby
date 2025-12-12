@@ -17,30 +17,24 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The `throttle` processor limits the number of events that pass through over a given time window.
-  class ObservabilityPipelineThrottleProcessor
+  # A group of processors.
+  class ObservabilityPipelineConfigProcessorGroup
     include BaseGenericModel
 
-    # Whether this processor is enabled.
+    # Whether this processor group is enabled.
     attr_reader :enabled
 
-    # Optional list of fields used to group events before the threshold has been reached.
-    attr_accessor :group_by
-
-    # The unique identifier for this processor.
+    # The unique identifier for the processor group.
     attr_reader :id
 
-    # A Datadog search query used to determine which logs this processor targets.
+    # Conditional expression for when this processor group should execute.
     attr_reader :include
 
-    # the number of events allowed in a given time window. Events sent after the threshold has been reached, are dropped.
-    attr_reader :threshold
+    # A list of IDs for components whose output is used as the input for this processor group.
+    attr_reader :inputs
 
-    # The processor type. The value should always be `throttle`.
-    attr_reader :type
-
-    # The time window in seconds over which the threshold applies.
-    attr_reader :window
+    # Processors applied sequentially within this group. Events flow through each processor in order.
+    attr_reader :processors
 
     attr_accessor :additional_properties
 
@@ -49,12 +43,10 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'enabled' => :'enabled',
-        :'group_by' => :'group_by',
         :'id' => :'id',
         :'include' => :'include',
-        :'threshold' => :'threshold',
-        :'type' => :'type',
-        :'window' => :'window'
+        :'inputs' => :'inputs',
+        :'processors' => :'processors'
       }
     end
 
@@ -63,12 +55,10 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'enabled' => :'Boolean',
-        :'group_by' => :'Array<String>',
         :'id' => :'String',
         :'include' => :'String',
-        :'threshold' => :'Integer',
-        :'type' => :'ObservabilityPipelineThrottleProcessorType',
-        :'window' => :'Float'
+        :'inputs' => :'Array<String>',
+        :'processors' => :'Array<ObservabilityPipelineConfigProcessorItem>'
       }
     end
 
@@ -77,7 +67,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineThrottleProcessor` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineConfigProcessorGroup` initialize method"
       end
 
       self.additional_properties = {}
@@ -94,12 +84,6 @@ module DatadogAPIClient::V2
         self.enabled = attributes[:'enabled']
       end
 
-      if attributes.key?(:'group_by')
-        if (value = attributes[:'group_by']).is_a?(Array)
-          self.group_by = value
-        end
-      end
-
       if attributes.key?(:'id')
         self.id = attributes[:'id']
       end
@@ -108,16 +92,16 @@ module DatadogAPIClient::V2
         self.include = attributes[:'include']
       end
 
-      if attributes.key?(:'threshold')
-        self.threshold = attributes[:'threshold']
+      if attributes.key?(:'inputs')
+        if (value = attributes[:'inputs']).is_a?(Array)
+          self.inputs = value
+        end
       end
 
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
-      end
-
-      if attributes.key?(:'window')
-        self.window = attributes[:'window']
+      if attributes.key?(:'processors')
+        if (value = attributes[:'processors']).is_a?(Array)
+          self.processors = value
+        end
       end
     end
 
@@ -128,9 +112,8 @@ module DatadogAPIClient::V2
       return false if @enabled.nil?
       return false if @id.nil?
       return false if @include.nil?
-      return false if @threshold.nil?
-      return false if @type.nil?
-      return false if @window.nil?
+      return false if @inputs.nil?
+      return false if @processors.nil?
       true
     end
 
@@ -165,33 +148,23 @@ module DatadogAPIClient::V2
     end
 
     # Custom attribute writer method with validation
-    # @param threshold [Object] Object to be assigned
+    # @param inputs [Object] Object to be assigned
     # @!visibility private
-    def threshold=(threshold)
-      if threshold.nil?
-        fail ArgumentError, 'invalid value for "threshold", threshold cannot be nil.'
+    def inputs=(inputs)
+      if inputs.nil?
+        fail ArgumentError, 'invalid value for "inputs", inputs cannot be nil.'
       end
-      @threshold = threshold
+      @inputs = inputs
     end
 
     # Custom attribute writer method with validation
-    # @param type [Object] Object to be assigned
+    # @param processors [Object] Object to be assigned
     # @!visibility private
-    def type=(type)
-      if type.nil?
-        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+    def processors=(processors)
+      if processors.nil?
+        fail ArgumentError, 'invalid value for "processors", processors cannot be nil.'
       end
-      @type = type
-    end
-
-    # Custom attribute writer method with validation
-    # @param window [Object] Object to be assigned
-    # @!visibility private
-    def window=(window)
-      if window.nil?
-        fail ArgumentError, 'invalid value for "window", window cannot be nil.'
-      end
-      @window = window
+      @processors = processors
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -221,12 +194,10 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           enabled == o.enabled &&
-          group_by == o.group_by &&
           id == o.id &&
           include == o.include &&
-          threshold == o.threshold &&
-          type == o.type &&
-          window == o.window &&
+          inputs == o.inputs &&
+          processors == o.processors &&
           additional_properties == o.additional_properties
     end
 
@@ -234,7 +205,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [enabled, group_by, id, include, threshold, type, window, additional_properties].hash
+      [enabled, id, include, inputs, processors, additional_properties].hash
     end
   end
 end

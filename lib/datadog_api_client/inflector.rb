@@ -3133,6 +3133,7 @@ module DatadogAPIClient
           "v2.observability_pipeline_aws_auth" => "ObservabilityPipelineAwsAuth",
           "v2.observability_pipeline_config" => "ObservabilityPipelineConfig",
           "v2.observability_pipeline_config_destination_item" => "ObservabilityPipelineConfigDestinationItem",
+          "v2.observability_pipeline_config_processor_group" => "ObservabilityPipelineConfigProcessorGroup",
           "v2.observability_pipeline_config_processor_item" => "ObservabilityPipelineConfigProcessorItem",
           "v2.observability_pipeline_config_source_item" => "ObservabilityPipelineConfigSourceItem",
           "v2.observability_pipeline_crowd_strike_next_gen_siem_destination" => "ObservabilityPipelineCrowdStrikeNextGenSiemDestination",
