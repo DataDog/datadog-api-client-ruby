@@ -3169,6 +3169,26 @@ ScenariosModelMappings = {
     "v2.SetOnDemandConcurrencyCap" => {
             "body" => "OnDemandConcurrencyCapAttributes",
     },
+    "v2.CreateSyntheticsSuite" => {
+            "body" => "SuiteCreateEditRequest",
+    },
+    "v2.DeleteSyntheticsSuites" => {
+            "body" => "DeletedSuitesRequestDeleteRequest",
+    },
+    "v2.SearchSuites" => {
+            "query" => "String",
+            "sort" => "String",
+            "facets_only" => "Boolean",
+            "start" => "Integer",
+            "count" => "Integer",
+    },
+    "v2.GetSyntheticsSuite" => {
+            "public_id" => "String",
+    },
+    "v2.EditSyntheticsSuite" => {
+            "public_id" => "String",
+            "body" => "SuiteCreateEditRequest",
+    },
     "v2.ListTeams" => {
             "page_number" => "Integer",
             "page_size" => "Integer",
