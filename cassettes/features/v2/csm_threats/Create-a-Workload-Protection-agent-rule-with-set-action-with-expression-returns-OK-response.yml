@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Fri, 10 Oct 2025 15:20:50 GMT
+- recorded_at: Thu, 11 Dec 2025 16:09:21 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"description":"My agent policy","enabled":true,"hostTags":["env:staging"],"name":"testcreateaworkloadprotectionagentrulewithsetactionwithexpressionreturnsokresponse1760109650"},"type":"policy"}}'
+      string: '{"data":{"attributes":{"description":"My agent policy","enabled":true,"hostTags":["env:staging"],"name":"testcreateaworkloadprotectionagentrulewithsetactionwithexpressionreturnsokresponse1765469361"},"type":"policy"}}'
     headers:
       Accept:
       - application/json
@@ -14,21 +14,21 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"lrl-nbx-opl","type":"policy","attributes":{"blockingRulesCount":0,"datadogManaged":false,"description":"My
-        agent policy","disabledRulesCount":1,"enabled":true,"hostTagsLists":[["env:staging"]],"monitoringRulesCount":7,"name":"testcreateaworkloadprotectionagentrulewithsetactionwithexpressionreturnsokresponse1760109650","pinned":false,"policyVersion":"1","ruleCount":8,"updateDate":1760109650938,"updater":{"name":"frog","handle":"frog@datadoghq.com"}}}}'
+      string: '{"data":{"id":"xia-aut-8xj","type":"policy","attributes":{"blockingRulesCount":0,"datadogManaged":false,"description":"My
+        agent policy","disabledRulesCount":1,"enabled":true,"hostTagsLists":[["env:staging"]],"monitoringRulesCount":7,"name":"testcreateaworkloadprotectionagentrulewithsetactionwithexpressionreturnsokresponse1765469361","pinned":false,"policyVersion":"1","ruleCount":8,"updateDate":1765469362120,"updater":{"name":"frog","handle":"frog@datadoghq.com"}}}}'
     headers:
       Content-Type:
       - application/json
     status:
       code: 200
       message: OK
-- recorded_at: Fri, 10 Oct 2025 15:20:50 GMT
+- recorded_at: Thu, 11 Dec 2025 16:09:21 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"actions":[{"set":{"default_value":"/dev/null","expression":"open.file.path","name":"test_set","scope":"process"}}],"description":"My
+      string: '{"data":{"attributes":{"actions":[{"set":{"default_value":"/dev/null","expression":"exec.file.path","name":"test_set","scope":"process"}}],"description":"My
         Agent rule with set action with expression","enabled":true,"expression":"exec.file.name
-        == \"sh\"","filters":[],"name":"testcreateaworkloadprotectionagentrulewithsetactionwithexpressionreturnsokresponse1760109650","policy_id":"lrl-nbx-opl","product_tags":[]},"type":"agent_rule"}}'
+        == \"sh\"","filters":[],"name":"testcreateaworkloadprotectionagentrulewithsetactionwithexpressionreturnsokresponse1765469361","policy_id":"xia-aut-8xj","product_tags":[]},"type":"agent_rule"}}'
     headers:
       Accept:
       - application/json
@@ -39,24 +39,24 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"ye3-8k9-6ut","type":"agent_rule","attributes":{"actions":[{"set":{"name":"test_set","default_value":"/dev/null","scope":"process","expression":"open.file.path","inherited":false},"disabled":false}],"category":"Process
-        Activity","creationDate":1760109651835,"creator":{"name":"frog","handle":"frog@datadoghq.com"},"defaultRule":false,"description":"My
+      string: '{"data":{"id":"0xb-jfr-rih","type":"agent_rule","attributes":{"actions":[{"set":{"name":"test_set","default_value":"/dev/null","expression":"exec.file.path","scope":"process"},"disabled":false}],"category":"Process
+        Activity","creationDate":1765469362850,"creator":{"name":"frog","handle":"frog@datadoghq.com"},"defaultRule":false,"description":"My
         Agent rule with set action with expression","enabled":true,"expression":"exec.file.name
-        == \"sh\"","filters":["os == \"linux\""],"monitoring":["lrl-nbx-opl"],"name":"testcreateaworkloadprotectionagentrulewithsetactionwithexpressionreturnsokresponse1760109650","product_tags":[],"updateDate":1760109651835,"updater":{"name":"frog","handle":"frog@datadoghq.com"}}}}'
+        == \"sh\"","filters":["os == \"linux\""],"monitoring":["xia-aut-8xj"],"name":"testcreateaworkloadprotectionagentrulewithsetactionwithexpressionreturnsokresponse1765469361","product_tags":[],"updateDate":1765469362850,"updater":{"name":"frog","handle":"frog@datadoghq.com"}}}}'
     headers:
       Content-Type:
       - application/json
     status:
       code: 200
       message: OK
-- recorded_at: Fri, 10 Oct 2025 15:20:50 GMT
+- recorded_at: Thu, 11 Dec 2025 16:09:21 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/remote_config/products/cws/agent_rules/ye3-8k9-6ut
+    uri: https://api.datadoghq.com/api/v2/remote_config/products/cws/agent_rules/0xb-jfr-rih
   response:
     body:
       encoding: UTF-8
@@ -67,14 +67,14 @@ http_interactions:
     status:
       code: 204
       message: No Content
-- recorded_at: Fri, 10 Oct 2025 15:20:50 GMT
+- recorded_at: Thu, 11 Dec 2025 16:09:21 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/remote_config/products/cws/policy/lrl-nbx-opl
+    uri: https://api.datadoghq.com/api/v2/remote_config/products/cws/policy/xia-aut-8xj
   response:
     body:
       encoding: UTF-8
