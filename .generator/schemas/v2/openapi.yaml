@@ -6971,10 +6971,15 @@ components:
       properties:
         values:
           additionalProperties:
-            x-required-field: true
-          description: Key-value pairs representing row data, where keys are field
-            names from the schema.
+            oneOf:
+            - type: string
+            - format: int32
+              maximum: 2147483647
+              type: integer
+          description: Key-value pairs representing row data, where keys are schema
+            field names and values match the corresponding column types.
           example:
+            age: 25
             example_key_value: primary_key_value
             name: row_name
           type: object
@@ -67941,6 +67946,7 @@ paths:
             - us3.datadoghq.com
             - us5.datadoghq.com
             - ap1.datadoghq.com
+            - ap2.datadoghq.com
             - datadoghq.eu
             - ddog-gov.com
           subdomain:

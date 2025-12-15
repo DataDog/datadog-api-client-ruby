@@ -8,7 +8,7 @@ body = DatadogAPIClient::V2::BatchUpsertRowsRequestArray.new({
     DatadogAPIClient::V2::BatchUpsertRowsRequestData.new({
       attributes: DatadogAPIClient::V2::BatchUpsertRowsRequestDataAttributes.new({
         values: {
-          example_key_value: "primary_key_value", name: "row_name",
+          age: 25, example_key_value: "primary_key_value", name: "row_name",
         },
       }),
       id: "primary_key_value",
