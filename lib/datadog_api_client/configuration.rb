@@ -231,11 +231,6 @@ module DatadogAPIClient
             "v2.mute_findings": false,
             "v2.run_threat_hunting_job": false,
             "v2.search_security_monitoring_histsignals": false,
-            "v2.create_dataset": false,
-            "v2.delete_dataset": false,
-            "v2.get_all_datasets": false,
-            "v2.get_dataset": false,
-            "v2.update_dataset": false,
             "v2.cancel_data_deletion_request": false,
             "v2.create_data_deletion_request": false,
             "v2.get_data_deletion_requests": false,
@@ -627,6 +622,7 @@ module DatadogAPIClient
                   "us3.datadoghq.com",
                   "us5.datadoghq.com",
                   "ap1.datadoghq.com",
+                  "ap2.datadoghq.com",
                   "datadoghq.eu",
                   "ddog-gov.com"
                 ]
