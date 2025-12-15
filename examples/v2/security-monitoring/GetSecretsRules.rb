@@ -1,4 +1,4 @@
-# Returns list of Secrets rules returns "OK" response
+# Returns a list of Secrets rules returns "OK" response
 
 require "datadog_api_client"
 DatadogAPIClient.configure do |config|

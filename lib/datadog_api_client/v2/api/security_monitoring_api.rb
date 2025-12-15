@@ -2127,7 +2127,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Returns list of Secrets rules.
+    # Returns a list of Secrets rules.
     #
     # @see #get_secrets_rules_with_http_info
     def get_secrets_rules(opts = {})
@@ -2135,9 +2135,9 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Returns list of Secrets rules.
+    # Returns a list of Secrets rules.
     #
-    # Returns list of Secrets rules with ID, Pattern, Description, Priority, and SDS ID
+    # Returns a list of Secrets rules with ID, Pattern, Description, Priority, and SDS ID.
     #
     # @param opts [Hash] the optional parameters
     # @return [Array<(SecretRuleArray, Integer, Hash)>] SecretRuleArray data, response status code and response headers
@@ -4129,6 +4129,7 @@ module DatadogAPIClient::V2
     # @option opts [Boolean] :filter_fix_available Filter by fix availability.
     # @option opts [String] :filter_repo_digests Filter by vulnerability `repo_digest` (when the vulnerability is related to `Image` asset).
     # @option opts [String] :filter_origin Filter by origin.
+    # @option opts [Boolean] :filter_running_kernel Filter for whether the vulnerability affects a running kernel (for vulnerabilities related to a `Host` asset).
     # @option opts [String] :filter_asset_name Filter by asset name. This field supports the usage of wildcards (*).
     # @option opts [AssetType] :filter_asset_type Filter by asset type.
     # @option opts [String] :filter_asset_version_first Filter by the first version of the asset this vulnerability has been detected on.
@@ -4187,7 +4188,7 @@ module DatadogAPIClient::V2
       if @api_client.config.client_side_validation && opts[:'filter_status'] && !allowable_values.include?(opts[:'filter_status'])
         fail ArgumentError, "invalid value for \"filter_status\", must be one of #{allowable_values}"
       end
-      allowable_values = ['IAST', 'SCA', 'Infra']
+      allowable_values = ['IAST', 'SCA', 'Infra', 'SAST']
       if @api_client.config.client_side_validation && opts[:'filter_tool'] && !allowable_values.include?(opts[:'filter_tool'])
         fail ArgumentError, "invalid value for \"filter_tool\", must be one of #{allowable_values}"
       end
@@ -4201,7 +4202,7 @@ module DatadogAPIClient::V2
       if @api_client.config.client_side_validation && opts[:'filter_risks_epss_severity'] && !allowable_values.include?(opts[:'filter_risks_epss_severity'])
         fail ArgumentError, "invalid value for \"filter_risks_epss_severity\", must be one of #{allowable_values}"
       end
-      allowable_values = ['PyPI', 'Maven', 'NuGet', 'Npm', 'RubyGems', 'Go', 'Packagist', 'Ddeb', 'Rpm', 'Apk', 'Windows']
+      allowable_values = ['PyPI', 'Maven', 'NuGet', 'Npm', 'RubyGems', 'Go', 'Packagist', 'Deb', 'Rpm', 'Apk', 'Windows', 'Generic', 'MacOs', 'Oci', 'BottleRocket', 'None']
       if @api_client.config.client_side_validation && opts[:'filter_ecosystem'] && !allowable_values.include?(opts[:'filter_ecosystem'])
         fail ArgumentError, "invalid value for \"filter_ecosystem\", must be one of #{allowable_values}"
       end
@@ -4241,6 +4242,7 @@ module DatadogAPIClient::V2
       query_params[:'filter[fix_available]'] = opts[:'filter_fix_available'] if !opts[:'filter_fix_available'].nil?
       query_params[:'filter[repo_digests]'] = opts[:'filter_repo_digests'] if !opts[:'filter_repo_digests'].nil?
       query_params[:'filter[origin]'] = opts[:'filter_origin'] if !opts[:'filter_origin'].nil?
+      query_params[:'filter[running_kernel]'] = opts[:'filter_running_kernel'] if !opts[:'filter_running_kernel'].nil?
       query_params[:'filter[asset.name]'] = opts[:'filter_asset_name'] if !opts[:'filter_asset_name'].nil?
       query_params[:'filter[asset.type]'] = opts[:'filter_asset_type'] if !opts[:'filter_asset_type'].nil?
       query_params[:'filter[asset.version.first]'] = opts[:'filter_asset_version_first'] if !opts[:'filter_asset_version_first'].nil?

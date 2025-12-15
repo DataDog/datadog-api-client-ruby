@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class Library
     include BaseGenericModel
 
+    # Related library or package names (such as child packages or affected binary paths).
+    attr_accessor :additional_names
+
     # Vulnerability library name.
     attr_reader :name
 
@@ -33,6 +36,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'additional_names' => :'additional_names',
         :'name' => :'name',
         :'version' => :'version'
       }
@@ -42,6 +46,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'additional_names' => :'Array<String>',
         :'name' => :'String',
         :'version' => :'String'
       }
@@ -64,6 +69,12 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'additional_names')
+        if (value = attributes[:'additional_names']).is_a?(Array)
+          self.additional_names = value
+        end
+      end
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
@@ -118,6 +129,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          additional_names == o.additional_names &&
           name == o.name &&
           version == o.version &&
           additional_properties == o.additional_properties
@@ -127,7 +139,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [name, version, additional_properties].hash
+      [additional_names, name, version, additional_properties].hash
     end
   end
 end
