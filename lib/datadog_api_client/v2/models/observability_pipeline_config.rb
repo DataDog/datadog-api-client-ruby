@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # A list of destination components where processed logs are sent.
     attr_reader :destinations
 
-    # A list of processors that transform or enrich log data.
+    # A list of processor groups that transform or enrich log data.
     attr_accessor :processors
 
     # A list of configured data sources for the pipeline.
@@ -47,7 +47,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'destinations' => :'Array<ObservabilityPipelineConfigDestinationItem>',
-        :'processors' => :'Array<ObservabilityPipelineConfigProcessorItem>',
+        :'processors' => :'Array<ObservabilityPipelineConfigProcessorGroup>',
         :'sources' => :'Array<ObservabilityPipelineConfigSourceItem>'
       }
     end

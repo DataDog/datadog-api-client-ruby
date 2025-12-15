@@ -21,14 +21,14 @@ module DatadogAPIClient::V2
   class ObservabilityPipelineAddEnvVarsProcessor
     include BaseGenericModel
 
+    # Whether this processor is enabled.
+    attr_reader :enabled
+
     # The unique identifier for this component. Used to reference this processor in the pipeline.
     attr_reader :id
 
     # A Datadog search query used to determine which logs this processor targets.
     attr_reader :include
-
-    # A list of component IDs whose output is used as the input for this processor.
-    attr_reader :inputs
 
     # The processor type. The value should always be `add_env_vars`.
     attr_reader :type
@@ -42,9 +42,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'enabled' => :'enabled',
         :'id' => :'id',
         :'include' => :'include',
-        :'inputs' => :'inputs',
         :'type' => :'type',
         :'variables' => :'variables'
       }
@@ -54,9 +54,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'enabled' => :'Boolean',
         :'id' => :'String',
         :'include' => :'String',
-        :'inputs' => :'Array<String>',
         :'type' => :'ObservabilityPipelineAddEnvVarsProcessorType',
         :'variables' => :'Array<ObservabilityPipelineAddEnvVarsProcessorVariable>'
       }
@@ -80,18 +80,16 @@ module DatadogAPIClient::V2
         end
       }
 
+      if attributes.key?(:'enabled')
+        self.enabled = attributes[:'enabled']
+      end
+
       if attributes.key?(:'id')
         self.id = attributes[:'id']
       end
 
       if attributes.key?(:'include')
         self.include = attributes[:'include']
-      end
-
-      if attributes.key?(:'inputs')
-        if (value = attributes[:'inputs']).is_a?(Array)
-          self.inputs = value
-        end
       end
 
       if attributes.key?(:'type')
@@ -109,12 +107,22 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
+      return false if @enabled.nil?
       return false if @id.nil?
       return false if @include.nil?
-      return false if @inputs.nil?
       return false if @type.nil?
       return false if @variables.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param enabled [Object] Object to be assigned
+    # @!visibility private
+    def enabled=(enabled)
+      if enabled.nil?
+        fail ArgumentError, 'invalid value for "enabled", enabled cannot be nil.'
+      end
+      @enabled = enabled
     end
 
     # Custom attribute writer method with validation
@@ -135,16 +143,6 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "include", include cannot be nil.'
       end
       @include = include
-    end
-
-    # Custom attribute writer method with validation
-    # @param inputs [Object] Object to be assigned
-    # @!visibility private
-    def inputs=(inputs)
-      if inputs.nil?
-        fail ArgumentError, 'invalid value for "inputs", inputs cannot be nil.'
-      end
-      @inputs = inputs
     end
 
     # Custom attribute writer method with validation
@@ -193,9 +191,9 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          enabled == o.enabled &&
           id == o.id &&
           include == o.include &&
-          inputs == o.inputs &&
           type == o.type &&
           variables == o.variables &&
           additional_properties == o.additional_properties
@@ -205,7 +203,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [id, include, inputs, type, variables, additional_properties].hash
+      [enabled, id, include, type, variables, additional_properties].hash
     end
   end
 end
