@@ -14,7 +14,7 @@ body = DatadogAPIClient::V2::CreateCaseRequestArray.new({
         findings: DatadogAPIClient::V2::Findings.new({
           data: [
             DatadogAPIClient::V2::FindingData.new({
-              id: "ZGZhMDI3ZjdjMDM3YjJmNzcxNTlhZGMwMjdmZWNiNTZ-MTVlYTNmYWU3NjNlOTNlYTE2YjM4N2JmZmI4Yjk5N2Y=",
+              id: "YjdhNDM3N2QyNTFjYmUwYTY3NDdhMTg0YTk2Yjg5MDl-ZjNmMzAwOTFkZDNhNGQzYzI0MzgxNTk4MjRjZmE2NzE=",
               type: DatadogAPIClient::V2::FindingDataType::FINDINGS,
             }),
           ],
@@ -37,7 +37,7 @@ body = DatadogAPIClient::V2::CreateCaseRequestArray.new({
         findings: DatadogAPIClient::V2::Findings.new({
           data: [
             DatadogAPIClient::V2::FindingData.new({
-              id: "MzZkNTMxODNmOGZlZmJiYzIyMDg4NzhmM2QyMDExZjB-ZmY5NzUwNDQzYTE0MGIyNDM1MTg4YjkxZDNmMDU4OGU=",
+              id: "OGRlMDIwYzk4MjFmZTZiNTQwMzk2ZjUxNzg0MDc0NjR-MTk3Yjk4MDI4ZDQ4YzI2ZGZiMWJmMTNhNDEwZGZkYWI=",
               type: DatadogAPIClient::V2::FindingDataType::FINDINGS,
             }),
           ],

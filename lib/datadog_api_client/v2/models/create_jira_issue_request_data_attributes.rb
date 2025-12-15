@@ -21,8 +21,20 @@ module DatadogAPIClient::V2
   class CreateJiraIssueRequestDataAttributes
     include BaseGenericModel
 
+    # Unique identifier of the user assigned to the Jira issue.
+    attr_accessor :assignee_id
+
+    # Description of the Jira issue. If not provided, the description will be automatically generated.
+    attr_accessor :description
+
     # Custom fields of the Jira issue to create. For the list of available fields, see [Jira documentation](https://developer.atlassian.com/cloud/jira/platform/rest/v2/api-group-issues/#api-rest-api-2-issue-createmeta-projectidorkey-issuetypes-issuetypeid-get).
     attr_accessor :fields
+
+    # Case priority
+    attr_accessor :priority
+
+    # Title of the Jira issue. If not provided, the title will be automatically generated.
+    attr_accessor :title
 
     attr_accessor :additional_properties
 
@@ -30,7 +42,11 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'fields' => :'fields'
+        :'assignee_id' => :'assignee_id',
+        :'description' => :'description',
+        :'fields' => :'fields',
+        :'priority' => :'priority',
+        :'title' => :'title'
       }
     end
 
@@ -38,7 +54,11 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'fields' => :'CreateJiraIssueRequestDataAttributesFields'
+        :'assignee_id' => :'String',
+        :'description' => :'String',
+        :'fields' => :'Hash<String, Object>',
+        :'priority' => :'CasePriority',
+        :'title' => :'String'
       }
     end
 
@@ -60,8 +80,24 @@ module DatadogAPIClient::V2
         end
       }
 
+      if attributes.key?(:'assignee_id')
+        self.assignee_id = attributes[:'assignee_id']
+      end
+
+      if attributes.key?(:'description')
+        self.description = attributes[:'description']
+      end
+
       if attributes.key?(:'fields')
         self.fields = attributes[:'fields']
+      end
+
+      if attributes.key?(:'priority')
+        self.priority = attributes[:'priority']
+      end
+
+      if attributes.key?(:'title')
+        self.title = attributes[:'title']
       end
     end
 
@@ -91,7 +127,11 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          assignee_id == o.assignee_id &&
+          description == o.description &&
           fields == o.fields &&
+          priority == o.priority &&
+          title == o.title &&
           additional_properties == o.additional_properties
     end
 
@@ -99,7 +139,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [fields, additional_properties].hash
+      [assignee_id, description, fields, priority, title, additional_properties].hash
     end
   end
 end

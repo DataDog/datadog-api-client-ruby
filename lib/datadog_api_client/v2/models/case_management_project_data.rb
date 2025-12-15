@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class CaseManagementProjectData
     include BaseGenericModel
 
-    # The unique identifier of the case management project.
+    # Unique identifier of the case management project.
     attr_reader :id
 
     # Projects resource type.

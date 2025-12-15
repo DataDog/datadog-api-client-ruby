@@ -21,16 +21,16 @@ module DatadogAPIClient::V2
   class CreateCaseRequestDataAttributes
     include BaseGenericModel
 
-    # The unique identifier of the user assigned to the case.
+    # Unique identifier of the user assigned to the case.
     attr_accessor :assignee_id
 
-    # The description of the case. If not provided, the description will be automatically generated.
+    # Description of the case. If not provided, the description will be automatically generated.
     attr_accessor :description
 
     # Case priority
     attr_accessor :priority
 
-    # The title of the case. If not provided, the title will be automatically generated.
+    # Title of the case. If not provided, the title will be automatically generated.
     attr_accessor :title
 
     attr_accessor :additional_properties

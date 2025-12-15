@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class FindingData
     include BaseGenericModel
 
-    # The unique identifier of the security finding.
+    # Unique identifier of the security finding.
     attr_reader :id
 
     # Security findings resource type.

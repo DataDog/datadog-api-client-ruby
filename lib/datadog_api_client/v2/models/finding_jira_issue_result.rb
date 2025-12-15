@@ -21,16 +21,16 @@ module DatadogAPIClient::V2
   class FindingJiraIssueResult
     include BaseGenericModel
 
-    # The account ID of the Jira issue.
+    # Account ID of the Jira issue.
     attr_accessor :account_id
 
-    # The unique identifier of the Jira issue.
+    # Unique identifier of the Jira issue.
     attr_accessor :issue_id
 
-    # The key of the Jira issue.
+    # Key of the Jira issue.
     attr_accessor :issue_key
 
-    # The URL of the Jira issue.
+    # URL of the Jira issue.
     attr_accessor :issue_url
 
     attr_accessor :additional_properties
