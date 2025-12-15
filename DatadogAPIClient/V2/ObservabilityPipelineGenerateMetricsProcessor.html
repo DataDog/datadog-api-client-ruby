@@ -151,6 +151,34 @@ Metrics can be counters, gauges, or distributions and optionally grouped by log 
       <li class="public ">
   <span class="summary_signature">
     
+      <a href="#enabled-instance_method" title="#enabled (instance method)">#<strong>enabled</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Whether this processor is enabled.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#id-instance_method" title="#id (instance method)">#<strong>id</strong>  &#x21d2; Object </a>
     
 
@@ -188,8 +216,6 @@ Metrics can be counters, gauges, or distributions and optionally grouped by log 
   
   
     
-      <span class="note title readonly">readonly</span>
-    
     
   
   
@@ -207,34 +233,6 @@ Metrics can be counters, gauges, or distributions and optionally grouped by log 
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#inputs-instance_method" title="#inputs (instance method)">#<strong>inputs</strong>  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-    
-      <span class="note title readonly">readonly</span>
-    
-    
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>A list of component IDs whose output is used as the <code>input</code> for this processor.</p>
-</div></span>
-  
-</li>
-
-    
-      <li class="public ">
-  <span class="summary_signature">
-    
       <a href="#metrics-instance_method" title="#metrics (instance method)">#<strong>metrics</strong>  &#x21d2; Object </a>
     
 
@@ -243,8 +241,6 @@ Metrics can be counters, gauges, or distributions and optionally grouped by log 
   
   
   
-    
-      <span class="note title readonly">readonly</span>
     
     
   
@@ -351,6 +347,48 @@ Metrics can be counters, gauges, or distributions and optionally grouped by log 
 </div>
     
       
+      <span id="enabled=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="enabled-instance_method">
+  
+    #<strong>enabled</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Whether this processor is enabled.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+26
+27
+28</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_generate_metrics_processor.rb', line 26</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_enabled'>enabled</span>
+  <span class='ivar'>@enabled</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
       <span id="id=-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="id-instance_method">
@@ -377,12 +415,12 @@ Metrics can be counters, gauges, or distributions and optionally grouped by log 
       <pre class="lines">
 
 
-26
-27
-28</pre>
+29
+30
+31</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_generate_metrics_processor.rb', line 26</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_generate_metrics_processor.rb', line 29</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_id'>id</span>
   <span class='ivar'>@id</span>
@@ -419,48 +457,6 @@ Metrics can be counters, gauges, or distributions and optionally grouped by log 
       <pre class="lines">
 
 
-29
-30
-31</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_generate_metrics_processor.rb', line 29</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_include'>include</span>
-  <span class='ivar'>@include</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      
-      <span id="inputs=-instance_method"></span>
-      <div class="method_details ">
-  <h3 class="signature " id="inputs-instance_method">
-  
-    #<strong>inputs</strong>  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>A list of component IDs whose output is used as the <code>input</code> for this processor.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
 32
 33
 34</pre>
@@ -468,8 +464,8 @@ Metrics can be counters, gauges, or distributions and optionally grouped by log 
     <td>
       <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_generate_metrics_processor.rb', line 32</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_inputs'>inputs</span>
-  <span class='ivar'>@inputs</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_include'>include</span>
+  <span class='ivar'>@include</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -566,7 +562,7 @@ Metrics can be counters, gauges, or distributions and optionally grouped by log 
 </div>
 
       <div id="footer">
-  Generated on Mon Dec 15 10:12:20 2025 by
+  Generated on Mon Dec 15 15:16:48 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.38 (ruby-2.7.8).
 </div>
