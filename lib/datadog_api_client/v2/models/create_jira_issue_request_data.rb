@@ -24,9 +24,6 @@ module DatadogAPIClient::V2
     # Attributes of the Jira issue to create.
     attr_accessor :attributes
 
-    # The unique identifier of the Jira issue creation request.
-    attr_accessor :id
-
     # Relationships of the Jira issue to create.
     attr_accessor :relationships
 
@@ -40,7 +37,6 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'attributes' => :'attributes',
-        :'id' => :'id',
         :'relationships' => :'relationships',
         :'type' => :'type'
       }
@@ -51,7 +47,6 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'attributes' => :'CreateJiraIssueRequestDataAttributes',
-        :'id' => :'String',
         :'relationships' => :'CreateJiraIssueRequestDataRelationships',
         :'type' => :'JiraIssuesDataType'
       }
@@ -77,10 +72,6 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'attributes')
         self.attributes = attributes[:'attributes']
-      end
-
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
       end
 
       if attributes.key?(:'relationships')
@@ -137,7 +128,6 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           attributes == o.attributes &&
-          id == o.id &&
           relationships == o.relationships &&
           type == o.type &&
           additional_properties == o.additional_properties
@@ -147,7 +137,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, id, relationships, type, additional_properties].hash
+      [attributes, relationships, type, additional_properties].hash
     end
   end
 end

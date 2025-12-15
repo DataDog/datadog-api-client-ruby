@@ -24,17 +24,13 @@ module DatadogAPIClient::V2
     #
     attr_reader :data
 
-    #
-    attr_accessor :included
-
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data',
-        :'included' => :'included'
+        :'data' => :'data'
       }
     end
 
@@ -42,8 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'Array<CreateJiraIssueRequestData>',
-        :'included' => :'Array<CreateJiraIssueRequestArrayIncluded>'
+        :'data' => :'Array<CreateJiraIssueRequestData>'
       }
     end
 
@@ -68,12 +63,6 @@ module DatadogAPIClient::V2
       if attributes.key?(:'data')
         if (value = attributes[:'data']).is_a?(Array)
           self.data = value
-        end
-      end
-
-      if attributes.key?(:'included')
-        if (value = attributes[:'included']).is_a?(Array)
-          self.included = value
         end
       end
     end
@@ -123,7 +112,6 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           data == o.data &&
-          included == o.included &&
           additional_properties == o.additional_properties
     end
 
@@ -131,7 +119,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, included, additional_properties].hash
+      [data, additional_properties].hash
     end
   end
 end

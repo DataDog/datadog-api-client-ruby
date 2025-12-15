@@ -14,11 +14,11 @@ body = DatadogAPIClient::V2::CreateCaseRequestArray.new({
         findings: DatadogAPIClient::V2::Findings.new({
           data: [
             DatadogAPIClient::V2::FindingData.new({
-              id: "ZGZhMDI3ZjdjMDM3YjJmNzcxNTlhZGMwMjdmZWNiNTZ-MTVlYTNmYWU3NjNlOTNlYTE2YjM4N2JmZmI4Yjk5N2Y=",
+              id: "ZTd5LWNuYi1seWV-aS0wMjI2NGZjZjRmZWQ5ODMyMg==",
               type: DatadogAPIClient::V2::FindingDataType::FINDINGS,
             }),
             DatadogAPIClient::V2::FindingData.new({
-              id: "MzZkNTMxODNmOGZlZmJiYzIyMDg4NzhmM2QyMDExZjB-ZmY5NzUwNDQzYTE0MGIyNDM1MTg4YjkxZDNmMDU4OGU=",
+              id: "c2FuLXhyaS1kZnN-aS0wODM3MjVhMTM2MDExNzNkOQ==",
               type: DatadogAPIClient::V2::FindingDataType::FINDINGS,
             }),
           ],

@@ -21,8 +21,11 @@ module DatadogAPIClient::V2
   class CreateJiraIssueRequestDataRelationships
     include BaseGenericModel
 
-    # Case linked to the Jira issue.
-    attr_reader :_case
+    # A list of security findings.
+    attr_reader :findings
+
+    # Case management project.
+    attr_reader :project
 
     attr_accessor :additional_properties
 
@@ -30,7 +33,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'_case' => :'case'
+        :'findings' => :'findings',
+        :'project' => :'project'
       }
     end
 
@@ -38,7 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'_case' => :'CreateJiraIssueRequestDataRelationshipsCase'
+        :'findings' => :'Findings',
+        :'project' => :'CaseManagementProject'
       }
     end
 
@@ -60,8 +65,12 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'_case')
-        self._case = attributes[:'_case']
+      if attributes.key?(:'findings')
+        self.findings = attributes[:'findings']
+      end
+
+      if attributes.key?(:'project')
+        self.project = attributes[:'project']
       end
     end
 
@@ -69,18 +78,29 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @_case.nil?
+      return false if @findings.nil?
+      return false if @project.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param _case [Object] Object to be assigned
+    # @param findings [Object] Object to be assigned
     # @!visibility private
-    def _case=(_case)
-      if _case.nil?
-        fail ArgumentError, 'invalid value for "_case", _case cannot be nil.'
+    def findings=(findings)
+      if findings.nil?
+        fail ArgumentError, 'invalid value for "findings", findings cannot be nil.'
       end
-      @_case = _case
+      @findings = findings
+    end
+
+    # Custom attribute writer method with validation
+    # @param project [Object] Object to be assigned
+    # @!visibility private
+    def project=(project)
+      if project.nil?
+        fail ArgumentError, 'invalid value for "project", project cannot be nil.'
+      end
+      @project = project
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -109,7 +129,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          _case == o._case &&
+          findings == o.findings &&
+          project == o.project &&
           additional_properties == o.additional_properties
     end
 
@@ -117,7 +138,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [_case, additional_properties].hash
+      [findings, project, additional_properties].hash
     end
   end
 end

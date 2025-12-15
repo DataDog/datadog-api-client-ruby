@@ -14,7 +14,7 @@ body = DatadogAPIClient::V2::CreateCaseRequestArray.new({
         findings: DatadogAPIClient::V2::Findings.new({
           data: [
             DatadogAPIClient::V2::FindingData.new({
-              id: "ZGZhMDI3ZjdjMDM3YjJmNzcxNTlhZGMwMjdmZWNiNTZ-MTVlYTNmYWU3NjNlOTNlYTE2YjM4N2JmZmI4Yjk5N2Y=",
+              id: "YjdhNDM3N2QyNTFjYmUwYTY3NDdhMTg0YTk2Yjg5MDl-ZjNmMzAwOTFkZDNhNGQzYzI0MzgxNTk4MjRjZmE2NzE=",
               type: DatadogAPIClient::V2::FindingDataType::FINDINGS,
             }),
           ],

@@ -21,13 +21,13 @@ module DatadogAPIClient::V2
   class FindingJiraIssue
     include BaseGenericModel
 
-    # The error message if the Jira issue creation failed.
+    # Error message if the Jira issue creation failed.
     attr_accessor :error_message
 
     # Result of the Jira issue creation.
     attr_accessor :result
 
-    # The status of the Jira issue creation. Can be "COMPLETED" if the Jira issue was created successfully, or "FAILED" if the Jira issue creation failed.
+    # Status of the Jira issue creation. Can be "COMPLETED" if the Jira issue was created successfully, or "FAILED" if the Jira issue creation failed.
     attr_accessor :status
 
     attr_accessor :additional_properties

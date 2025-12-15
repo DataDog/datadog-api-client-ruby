@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class AttachCaseRequestData
     include BaseGenericModel
 
-    # The unique identifier of the case.
+    # Unique identifier of the case.
     attr_reader :id
 
     # Relationships of the case to attach security findings to.

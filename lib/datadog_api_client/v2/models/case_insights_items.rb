@@ -21,13 +21,13 @@ module DatadogAPIClient::V2
   class CaseInsightsItems
     include BaseGenericModel
 
-    # The reference of the insight.
+    # Reference of the insight.
     attr_accessor :ref
 
-    # The unique identifier of the resource. For example, the unique identifier of a security finding.
+    # Unique identifier of the resource. For example, the unique identifier of a security finding.
     attr_accessor :resource_id
 
-    # The type of the resource. For example, the type of a security finding is "SECURITY_FINDING".
+    # Type of the resource. For example, the type of a security finding is "SECURITY_FINDING".
     attr_accessor :type
 
     attr_accessor :additional_properties

@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # Attributes of the case.
     attr_accessor :attributes
 
-    # The unique identifier of the case.
+    # Unique identifier of the case.
     attr_accessor :id
 
     # Relationships of the case.

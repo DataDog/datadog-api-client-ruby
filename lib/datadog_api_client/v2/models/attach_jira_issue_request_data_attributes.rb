@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class AttachJiraIssueRequestDataAttributes
     include BaseGenericModel
 
-    # The URL of the Jira issue to attach security findings to.
+    # URL of the Jira issue to attach security findings to.
     attr_reader :jira_issue_url
 
     attr_accessor :additional_properties
