@@ -17,12 +17,10 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The type of change.
-  class RuleVersionUpdateType
+  # Type of data.
+  class GetSuppressionVersionHistoryDataType
     include BaseEnumModel
 
-    CREATE = "create".freeze
-    UPDATE = "update".freeze
-    DELETE = "delete".freeze
+    SUPPRESSIONVERSIONHISTORY = "suppression_version_history".freeze
   end
 end

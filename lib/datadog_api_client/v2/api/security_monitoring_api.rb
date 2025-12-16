@@ -2879,6 +2879,75 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get a suppression's version history.
+    #
+    # @see #get_suppression_version_history_with_http_info
+    def get_suppression_version_history(suppression_id, opts = {})
+      data, _status_code, _headers = get_suppression_version_history_with_http_info(suppression_id, opts)
+      data
+    end
+
+    # Get a suppression's version history.
+    #
+    # Get a suppression's version history.
+    #
+    # @param suppression_id [String] The ID of the suppression rule
+    # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 100.
+    # @option opts [Integer] :page_number Specific page number to return.
+    # @return [Array<(GetSuppressionVersionHistoryResponse, Integer, Hash)>] GetSuppressionVersionHistoryResponse data, response status code and response headers
+    def get_suppression_version_history_with_http_info(suppression_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_suppression_version_history ...'
+      end
+      # verify the required parameter 'suppression_id' is set
+      if @api_client.config.client_side_validation && suppression_id.nil?
+        fail ArgumentError, "Missing the required parameter 'suppression_id' when calling SecurityMonitoringAPI.get_suppression_version_history"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/configuration/suppressions/{suppression_id}/version_history'.sub('{suppression_id}', CGI.escape(suppression_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+      query_params[:'page[number]'] = opts[:'page_number'] if !opts[:'page_number'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GetSuppressionVersionHistoryResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_suppression_version_history,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#get_suppression_version_history\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get a job's details.
     #
     # @see #get_threat_hunting_job_with_http_info
