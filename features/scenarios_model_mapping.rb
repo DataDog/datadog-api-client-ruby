@@ -1551,6 +1551,11 @@ ScenariosModelMappings = {
             "suppression_id" => "String",
             "body" => "SecurityMonitoringSuppressionUpdateRequest",
     },
+    "v2.GetSuppressionVersionHistory" => {
+            "suppression_id" => "String",
+            "page_size" => "Integer",
+            "page_number" => "Integer",
+    },
     "v2.ListSecurityMonitoringRules" => {
             "page_size" => "Integer",
             "page_number" => "Integer",
