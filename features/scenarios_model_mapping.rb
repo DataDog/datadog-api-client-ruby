@@ -2662,6 +2662,21 @@ ScenariosModelMappings = {
             "include" => "String",
             "body" => "TeamRoutingRulesRequest",
     },
+    "v2.ListUserNotificationChannels" => {
+            "user_id" => "String",
+    },
+    "v2.CreateUserNotificationChannel" => {
+            "user_id" => "String",
+            "body" => "CreateUserNotificationChannelRequest",
+    },
+    "v2.DeleteUserNotificationChannel" => {
+            "user_id" => "String",
+            "channel_id" => "String",
+    },
+    "v2.GetUserNotificationChannel" => {
+            "user_id" => "String",
+            "channel_id" => "String",
+    },
     "v2.CreateOnCallPage" => {
             "body" => "CreatePageRequest",
     },
