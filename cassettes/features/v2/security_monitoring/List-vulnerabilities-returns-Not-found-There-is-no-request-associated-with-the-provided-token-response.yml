@@ -1,5 +1,5 @@
 http_interactions:
-- recorded_at: Fri, 31 Jan 2025 12:04:28 GMT
+- recorded_at: Fri, 12 Dec 2025 14:36:04 GMT
   request:
     body: null
     headers:
@@ -10,8 +10,7 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"errors":[{"title":"Generic Error","detail":"rpc error: code = Internal
-        desc = no cached result set found for queryID: unknown"}]}'
+      string: '{"errors":[{"status":"404","title":"Unexpected internal error"}]}'
     headers:
       Content-Type:
       - application/vnd.api+json

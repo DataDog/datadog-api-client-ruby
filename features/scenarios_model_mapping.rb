@@ -1465,6 +1465,7 @@ ScenariosModelMappings = {
             "filter_fix_available" => "Boolean",
             "filter_repo_digests" => "String",
             "filter_origin" => "String",
+            "filter_running_kernel" => "Boolean",
             "filter_asset_name" => "String",
             "filter_asset_type" => "AssetType",
             "filter_asset_version_first" => "String",
