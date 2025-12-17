@@ -176,6 +176,7 @@ module DatadogAPIClient::V2
     # @option opts [RelationType] :filter_relation_type Filter entities by relation type.
     # @option opts [String] :filter_exclude_snapshot Filter entities by excluding snapshotted entities.
     # @option opts [IncludeType] :include Include relationship data.
+    # @option opts [Boolean] :include_discovered If true, includes discovered services from APM and USM that do not have entity definitions.
     # @return [Array<(ListEntityCatalogResponse, Integer, Hash)>] ListEntityCatalogResponse data, response status code and response headers
     def list_catalog_entity_with_http_info(opts = {})
 
@@ -205,6 +206,7 @@ module DatadogAPIClient::V2
       query_params[:'filter[relation][type]'] = opts[:'filter_relation_type'] if !opts[:'filter_relation_type'].nil?
       query_params[:'filter[exclude_snapshot]'] = opts[:'filter_exclude_snapshot'] if !opts[:'filter_exclude_snapshot'].nil?
       query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
+      query_params[:'includeDiscovered'] = opts[:'include_discovered'] if !opts[:'include_discovered'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -370,6 +372,7 @@ module DatadogAPIClient::V2
     # @option opts [String] :filter_from_ref Filter relations by the reference of the first entity in the relation.
     # @option opts [String] :filter_to_ref Filter relations by the reference of the second entity in the relation.
     # @option opts [RelationIncludeType] :include Include relationship data.
+    # @option opts [Boolean] :include_discovered If true, includes relationships discovered by APM and USM.
     # @return [Array<(ListRelationCatalogResponse, Integer, Hash)>] ListRelationCatalogResponse data, response status code and response headers
     def list_catalog_relation_with_http_info(opts = {})
 
@@ -395,6 +398,7 @@ module DatadogAPIClient::V2
       query_params[:'filter[from_ref]'] = opts[:'filter_from_ref'] if !opts[:'filter_from_ref'].nil?
       query_params[:'filter[to_ref]'] = opts[:'filter_to_ref'] if !opts[:'filter_to_ref'].nil?
       query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
+      query_params[:'includeDiscovered'] = opts[:'include_discovered'] if !opts[:'include_discovered'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
