@@ -1,5 +1,31 @@
 # CHANGELOG
 
+## 2.47.0/2025-12-17
+
+### Changed
+* Mark Incident Impact Endpoints stable [#2840](https://github.com/DataDog/datadog-api-client-ruby/pull/2840)
+* Vulnerability Management - Update ListVulnerabilities endpoint query params and response schema [#2832](https://github.com/DataDog/datadog-api-client-ruby/pull/2832)
+* Update specs for AWS account updates and creation for CCM configs [#2825](https://github.com/DataDog/datadog-api-client-ruby/pull/2825)
+* add suppression version history [#2801](https://github.com/DataDog/datadog-api-client-ruby/pull/2801)
+* Add processors groups to Observability Pipelines [#2760](https://github.com/DataDog/datadog-api-client-ruby/pull/2760)
+
+### Added
+* Update security finding triage specs [#2833](https://github.com/DataDog/datadog-api-client-ruby/pull/2833)
+* Add routes for managing On-Call user notification channels [#2828](https://github.com/DataDog/datadog-api-client-ruby/pull/2828)
+* Add host field to Post an event V2 API [#2826](https://github.com/DataDog/datadog-api-client-ruby/pull/2826)
+* Add `GET /api/v2/apm/services` endpoint to public documentation [#2823](https://github.com/DataDog/datadog-api-client-ruby/pull/2823)
+* Dashboards - Add semantic_mode support to FormulaAndFunctionMetricQueryDefinition [#2817](https://github.com/DataDog/datadog-api-client-ruby/pull/2817)
+* Cloud SIEM - Add instantaneousBaseline feature parameter. [#2814](https://github.com/DataDog/datadog-api-client-ruby/pull/2814)
+* Add new fields to usage metering api spec [#2812](https://github.com/DataDog/datadog-api-client-ruby/pull/2812)
+* update geomap widget definition about `conditional_format` and `text_formats` and view focus [#2806](https://github.com/DataDog/datadog-api-client-ruby/pull/2806)
+* Add new endpoint for listing rules for a gate [#2792](https://github.com/DataDog/datadog-api-client-ruby/pull/2792)
+
+### Removed
+* Tag security findings Jira endpoints as unstable [#2821](https://github.com/DataDog/datadog-api-client-ruby/pull/2821)
+
+### Fixed
+* Add field attribute to the Workload Protection hash action [#2798](https://github.com/DataDog/datadog-api-client-ruby/pull/2798)
+
 ## 2.46.0/2025-12-08
 
 ### Added
