@@ -114,12 +114,6 @@ module DatadogAPIClient::V2
     # @option opts [Array<IncidentImpactRelatedObject>] :include Specifies which related resources should be included in the response.
     # @return [Array<(IncidentImpactResponse, Integer, Hash)>] IncidentImpactResponse data, response status code and response headers
     def create_incident_impact_with_http_info(incident_id, body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.create_incident_impact".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_incident_impact")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_incident_impact"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: IncidentsAPI.create_incident_impact ...'
@@ -639,12 +633,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_incident_impact_with_http_info(incident_id, impact_id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.delete_incident_impact".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_incident_impact")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_incident_impact"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: IncidentsAPI.delete_incident_impact ...'
@@ -1601,12 +1589,6 @@ module DatadogAPIClient::V2
     # @option opts [Array<IncidentImpactRelatedObject>] :include Specifies which related resources should be included in the response.
     # @return [Array<(IncidentImpactsResponse, Integer, Hash)>] IncidentImpactsResponse data, response status code and response headers
     def list_incident_impacts_with_http_info(incident_id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.list_incident_impacts".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_incident_impacts")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_incident_impacts"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: IncidentsAPI.list_incident_impacts ...'
