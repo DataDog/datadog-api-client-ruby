@@ -1395,6 +1395,18 @@
           
         </li>
       
+        <li>
+          <span class="name">:include_discovered</span>
+          <span class="type">(<tt>Boolean</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>If true, includes discovered services from APM and USM that do not have entity definitions.</p>
+</div>
+          
+        </li>
+      
     </ul>
   
 
@@ -1672,13 +1684,13 @@
       <pre class="lines">
 
 
-268
-269
 270
-271</pre>
+271
+272
+273</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/software_catalog_api.rb', line 268</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/software_catalog_api.rb', line 270</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_catalog_kind'>list_catalog_kind</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_list_catalog_kind_with_http_info'>list_catalog_kind_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -1811,8 +1823,6 @@
       <pre class="lines">
 
 
-283
-284
 285
 286
 287
@@ -1859,10 +1869,12 @@
 328
 329
 330
-331</pre>
+331
+332
+333</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/software_catalog_api.rb', line 283</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/software_catalog_api.rb', line 285</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_catalog_kind_with_http_info'>list_catalog_kind_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -1964,8 +1976,6 @@
       <pre class="lines">
 
 
-340
-341
 342
 343
 344
@@ -1976,10 +1986,12 @@
 349
 350
 351
-352</pre>
+352
+353
+354</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/software_catalog_api.rb', line 340</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/software_catalog_api.rb', line 342</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_catalog_kind_with_pagination'>list_catalog_kind_with_pagination</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_api_version'>api_version</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>V2</span><span class='tstring_end'>&quot;</span></span>
@@ -2031,13 +2043,13 @@
       <pre class="lines">
 
 
-357
-358
 359
-360</pre>
+360
+361
+362</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/software_catalog_api.rb', line 357</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/software_catalog_api.rb', line 359</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_catalog_relation'>list_catalog_relation</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_list_catalog_relation_with_http_info'>list_catalog_relation_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -2167,6 +2179,18 @@
           
         </li>
       
+        <li>
+          <span class="name">:include_discovered</span>
+          <span class="type">(<tt>Boolean</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>If true, includes relationships discovered by APM and USM.</p>
+</div>
+          
+        </li>
+      
     </ul>
   
 
@@ -2194,9 +2218,6 @@
       <pre class="lines">
 
 
-374
-375
-376
 377
 378
 379
@@ -2252,10 +2273,14 @@
 429
 430
 431
-432</pre>
+432
+433
+434
+435
+436</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/software_catalog_api.rb', line 374</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/software_catalog_api.rb', line 377</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_catalog_relation_with_http_info'>list_catalog_relation_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -2281,6 +2306,7 @@
   <span class='id identifier rubyid_query_params'>query_params</span><span class='lbracket'>[</span><span class='symbol'>:&#39;filter[from_ref]&#39;</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;filter_from_ref&#39;</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='op'>!</span><span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;filter_from_ref&#39;</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
   <span class='id identifier rubyid_query_params'>query_params</span><span class='lbracket'>[</span><span class='symbol'>:&#39;filter[to_ref]&#39;</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;filter_to_ref&#39;</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='op'>!</span><span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;filter_to_ref&#39;</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
   <span class='id identifier rubyid_query_params'>query_params</span><span class='lbracket'>[</span><span class='symbol'>:&#39;include&#39;</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;include&#39;</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='op'>!</span><span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;include&#39;</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+  <span class='id identifier rubyid_query_params'>query_params</span><span class='lbracket'>[</span><span class='symbol'>:&#39;includeDiscovered&#39;</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;include_discovered&#39;</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='op'>!</span><span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:&#39;include_discovered&#39;</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
 
   <span class='comment'># header parameters
 </span>  <span class='id identifier rubyid_header_params'>header_params</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:header_params</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
@@ -2367,10 +2393,6 @@
       <pre class="lines">
 
 
-441
-442
-443
-444
 445
 446
 447
@@ -2379,10 +2401,14 @@
 450
 451
 452
-453</pre>
+453
+454
+455
+456
+457</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/software_catalog_api.rb', line 441</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/software_catalog_api.rb', line 445</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_catalog_relation_with_pagination'>list_catalog_relation_with_pagination</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_api_version'>api_version</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>V2</span><span class='tstring_end'>&quot;</span></span>
@@ -2434,13 +2460,13 @@
       <pre class="lines">
 
 
-458
-459
-460
-461</pre>
+462
+463
+464
+465</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/software_catalog_api.rb', line 458</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/software_catalog_api.rb', line 462</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_preview_catalog_entities'>preview_catalog_entities</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_preview_catalog_entities_with_http_info'>preview_catalog_entities_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -2514,10 +2540,6 @@
       <pre class="lines">
 
 
-466
-467
-468
-469
 470
 471
 472
@@ -2558,10 +2580,14 @@
 507
 508
 509
-510</pre>
+510
+511
+512
+513
+514</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/software_catalog_api.rb', line 466</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/software_catalog_api.rb', line 470</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_preview_catalog_entities_with_http_info'>preview_catalog_entities_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -2885,13 +2911,13 @@
       <pre class="lines">
 
 
-582
-583
-584
-585</pre>
+586
+587
+588
+589</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/software_catalog_api.rb', line 582</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/software_catalog_api.rb', line 586</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_upsert_catalog_kind'>upsert_catalog_kind</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_upsert_catalog_kind_with_http_info'>upsert_catalog_kind_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -2982,10 +3008,6 @@
       <pre class="lines">
 
 
-594
-595
-596
-597
 598
 599
 600
@@ -3032,10 +3054,14 @@
 641
 642
 643
-644</pre>
+644
+645
+646
+647
+648</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/software_catalog_api.rb', line 594</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/software_catalog_api.rb', line 598</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_upsert_catalog_kind_with_http_info'>upsert_catalog_kind_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -3098,7 +3124,7 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Dec 17 18:12:13 2025 by
+  Generated on Wed Dec 17 19:06:07 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.38 (ruby-2.7.8).
 </div>
