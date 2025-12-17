@@ -1,0 +1,20 @@
+http_interactions:
+- recorded_at: Wed, 17 Dec 2025 16:27:32 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+    method: GET
+    uri: https://api.datadoghq.com/api/v2/security/findings?page%5Bcursor%5D=invalid_cursor
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"status":"400","detail":"Invalid filters"}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 400
+      message: Bad Request
+recorded_with: VCR 6.0.0

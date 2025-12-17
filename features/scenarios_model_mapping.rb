@@ -1386,6 +1386,12 @@ ScenariosModelMappings = {
             "finding_id" => "String",
             "snapshot_timestamp" => "Integer",
     },
+    "v2.ListSecurityFindings" => {
+            "filter_query" => "String",
+            "page_cursor" => "String",
+            "page_limit" => "Integer",
+            "sort" => "SecurityFindingsSort",
+    },
     "v2.DetachCase" => {
             "body" => "DetachCaseRequest",
     },
@@ -1401,6 +1407,9 @@ ScenariosModelMappings = {
     },
     "v2.CreateJiraIssues" => {
             "body" => "CreateJiraIssueRequestArray",
+    },
+    "v2.SearchSecurityFindings" => {
+            "body" => "SecurityFindingsSearchRequest",
     },
     "v2.ListAssetsSBOMs" => {
             "page_token" => "String",
