@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class SecurityMonitoringRuleOptions
     include BaseGenericModel
 
+    # Options on anomaly detection method.
+    attr_accessor :anomaly_detection_options
+
     # Options for cloud_configuration rules.
     # Fields `resourceType` and `regoRule` are mandatory when managing custom `cloud_configuration` rules.
     attr_accessor :compliance_rule_options
@@ -66,6 +69,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'anomaly_detection_options' => :'anomalyDetectionOptions',
         :'compliance_rule_options' => :'complianceRuleOptions',
         :'decrease_criticality_based_on_env' => :'decreaseCriticalityBasedOnEnv',
         :'detection_method' => :'detectionMethod',
@@ -84,6 +88,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'anomaly_detection_options' => :'SecurityMonitoringRuleAnomalyDetectionOptions',
         :'compliance_rule_options' => :'CloudConfigurationComplianceRuleOptions',
         :'decrease_criticality_based_on_env' => :'Boolean',
         :'detection_method' => :'SecurityMonitoringRuleDetectionMethod',
@@ -115,6 +120,10 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'anomaly_detection_options')
+        self.anomaly_detection_options = attributes[:'anomaly_detection_options']
+      end
 
       if attributes.key?(:'compliance_rule_options')
         self.compliance_rule_options = attributes[:'compliance_rule_options']
@@ -187,6 +196,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          anomaly_detection_options == o.anomaly_detection_options &&
           compliance_rule_options == o.compliance_rule_options &&
           decrease_criticality_based_on_env == o.decrease_criticality_based_on_env &&
           detection_method == o.detection_method &&
@@ -205,7 +215,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [compliance_rule_options, decrease_criticality_based_on_env, detection_method, evaluation_window, hardcoded_evaluator_type, impossible_travel_options, keep_alive, max_signal_duration, new_value_options, sequence_detection_options, third_party_rule_options, additional_properties].hash
+      [anomaly_detection_options, compliance_rule_options, decrease_criticality_based_on_env, detection_method, evaluation_window, hardcoded_evaluator_type, impossible_travel_options, keep_alive, max_signal_duration, new_value_options, sequence_detection_options, third_party_rule_options, additional_properties].hash
     end
   end
 end
