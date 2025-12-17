@@ -33,8 +33,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'date' => :'Date',
-        :'name' => :'Name'
+        :'date' => :'date',
+        :'name' => :'name'
       }
     end
 

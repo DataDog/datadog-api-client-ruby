@@ -26,7 +26,9 @@ body = DatadogAPIClient::V2::CloudWorkloadSecurityAgentRuleCreateRequest.new({
           }),
         }),
         DatadogAPIClient::V2::CloudWorkloadSecurityAgentRuleAction.new({
-          _hash: DatadogAPIClient::V2::CloudWorkloadSecurityAgentRuleActionHash.new({}),
+          _hash: DatadogAPIClient::V2::CloudWorkloadSecurityAgentRuleActionHash.new({
+            field: "exec.file",
+          }),
         }),
       ],
     }),
