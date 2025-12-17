@@ -1278,6 +1278,7 @@ ScenariosModelMappings = {
             "filter_relation_type" => "RelationType",
             "filter_exclude_snapshot" => "String",
             "include" => "IncludeType",
+            "include_discovered" => "Boolean",
     },
     "v2.UpsertCatalogEntity" => {
             "body" => "UpsertCatalogEntityRequest",
@@ -1304,6 +1305,7 @@ ScenariosModelMappings = {
             "filter_from_ref" => "String",
             "filter_to_ref" => "String",
             "include" => "RelationIncludeType",
+            "include_discovered" => "Boolean",
     },
     "v2.CreateCIAppPipelineEvent" => {
             "body" => "CIAppCreatePipelineEventRequest",
