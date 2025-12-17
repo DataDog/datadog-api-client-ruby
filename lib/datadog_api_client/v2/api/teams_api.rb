@@ -258,12 +258,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(TeamConnectionsResponse, Integer, Hash)>] TeamConnectionsResponse data, response status code and response headers
     def create_team_connections_with_http_info(body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.create_team_connections".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_team_connections")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_team_connections"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TeamsAPI.create_team_connections ...'
@@ -542,12 +536,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_team_connections_with_http_info(body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.delete_team_connections".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_team_connections")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_team_connections"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TeamsAPI.delete_team_connections ...'
@@ -1187,12 +1175,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(TeamSyncResponse, Integer, Hash)>] TeamSyncResponse data, response status code and response headers
     def get_team_sync_with_http_info(filter_source, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.get_team_sync".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_team_sync")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_team_sync"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TeamsAPI.get_team_sync ...'
@@ -1439,12 +1421,6 @@ module DatadogAPIClient::V2
     # @option opts [Array<String>] :filter_connection_ids Filter team connections by connection IDs.
     # @return [Array<(TeamConnectionsResponse, Integer, Hash)>] TeamConnectionsResponse data, response status code and response headers
     def list_team_connections_with_http_info(opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.list_team_connections".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_team_connections")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_team_connections"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TeamsAPI.list_team_connections ...'
@@ -1882,12 +1858,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def sync_teams_with_http_info(body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.sync_teams".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.sync_teams")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.sync_teams"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TeamsAPI.sync_teams ...'
