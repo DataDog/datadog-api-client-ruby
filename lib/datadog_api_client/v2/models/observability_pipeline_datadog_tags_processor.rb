@@ -24,6 +24,9 @@ module DatadogAPIClient::V2
     # The action to take on tags with matching keys.
     attr_reader :action
 
+    # The display name for a component.
+    attr_accessor :display_name
+
     # Whether this processor is enabled.
     attr_reader :enabled
 
@@ -49,6 +52,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'action' => :'action',
+        :'display_name' => :'display_name',
         :'enabled' => :'enabled',
         :'id' => :'id',
         :'include' => :'include',
@@ -63,6 +67,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'action' => :'ObservabilityPipelineDatadogTagsProcessorAction',
+        :'display_name' => :'String',
         :'enabled' => :'Boolean',
         :'id' => :'String',
         :'include' => :'String',
@@ -92,6 +97,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'action')
         self.action = attributes[:'action']
+      end
+
+      if attributes.key?(:'display_name')
+        self.display_name = attributes[:'display_name']
       end
 
       if attributes.key?(:'enabled')
@@ -232,6 +241,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           action == o.action &&
+          display_name == o.display_name &&
           enabled == o.enabled &&
           id == o.id &&
           include == o.include &&
@@ -245,7 +255,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [action, enabled, id, include, keys, mode, type, additional_properties].hash
+      [action, display_name, enabled, id, include, keys, mode, type, additional_properties].hash
     end
   end
 end

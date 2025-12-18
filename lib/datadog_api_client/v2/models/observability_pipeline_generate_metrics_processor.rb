@@ -22,6 +22,9 @@ module DatadogAPIClient::V2
   class ObservabilityPipelineGenerateMetricsProcessor
     include BaseGenericModel
 
+    # The display name for a component.
+    attr_accessor :display_name
+
     # Whether this processor is enabled.
     attr_reader :enabled
 
@@ -43,6 +46,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'display_name' => :'display_name',
         :'enabled' => :'enabled',
         :'id' => :'id',
         :'include' => :'include',
@@ -55,6 +59,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'display_name' => :'String',
         :'enabled' => :'Boolean',
         :'id' => :'String',
         :'include' => :'String',
@@ -80,6 +85,10 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'display_name')
+        self.display_name = attributes[:'display_name']
+      end
 
       if attributes.key?(:'enabled')
         self.enabled = attributes[:'enabled']
@@ -170,6 +179,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          display_name == o.display_name &&
           enabled == o.enabled &&
           id == o.id &&
           include == o.include &&
@@ -182,7 +192,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [enabled, id, include, metrics, type, additional_properties].hash
+      [display_name, enabled, id, include, metrics, type, additional_properties].hash
     end
   end
 end

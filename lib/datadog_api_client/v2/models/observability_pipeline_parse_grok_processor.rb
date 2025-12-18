@@ -24,6 +24,9 @@ module DatadogAPIClient::V2
     # If set to `true`, disables the default Grok rules provided by Datadog.
     attr_accessor :disable_library_rules
 
+    # The display name for a component.
+    attr_accessor :display_name
+
     # Whether this processor is enabled.
     attr_reader :enabled
 
@@ -46,6 +49,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'disable_library_rules' => :'disable_library_rules',
+        :'display_name' => :'display_name',
         :'enabled' => :'enabled',
         :'id' => :'id',
         :'include' => :'include',
@@ -59,6 +63,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'disable_library_rules' => :'Boolean',
+        :'display_name' => :'String',
         :'enabled' => :'Boolean',
         :'id' => :'String',
         :'include' => :'String',
@@ -87,6 +92,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'disable_library_rules')
         self.disable_library_rules = attributes[:'disable_library_rules']
+      end
+
+      if attributes.key?(:'display_name')
+        self.display_name = attributes[:'display_name']
       end
 
       if attributes.key?(:'enabled')
@@ -201,6 +210,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           disable_library_rules == o.disable_library_rules &&
+          display_name == o.display_name &&
           enabled == o.enabled &&
           id == o.id &&
           include == o.include &&
@@ -213,7 +223,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [disable_library_rules, enabled, id, include, rules, type, additional_properties].hash
+      [disable_library_rules, display_name, enabled, id, include, rules, type, additional_properties].hash
     end
   end
 end
