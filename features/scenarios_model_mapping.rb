@@ -2679,6 +2679,29 @@ ScenariosModelMappings = {
             "user_id" => "String",
             "channel_id" => "String",
     },
+    "v2.ListUserNotificationRules" => {
+            "include" => "String",
+            "user_id" => "String",
+    },
+    "v2.CreateUserNotificationRule" => {
+            "user_id" => "String",
+            "body" => "CreateOnCallNotificationRuleRequest",
+    },
+    "v2.DeleteUserNotificationRule" => {
+            "user_id" => "String",
+            "rule_id" => "String",
+    },
+    "v2.GetUserNotificationRule" => {
+            "user_id" => "String",
+            "rule_id" => "String",
+            "include" => "String",
+    },
+    "v2.UpdateUserNotificationRule" => {
+            "user_id" => "String",
+            "rule_id" => "String",
+            "include" => "String",
+            "body" => "UpdateOnCallNotificationRuleRequest",
+    },
     "v2.CreateOnCallPage" => {
             "body" => "CreatePageRequest",
     },
