@@ -55,6 +55,7 @@ module DatadogAPIClient::V1
     ESTIMATED_INDEXED_SPANS_USAGE = "estimated_indexed_spans_usage".freeze
     ESTIMATED_INGESTED_SPANS_USAGE = "estimated_ingested_spans_usage".freeze
     FARGATE_USAGE = "fargate_usage".freeze
+    FLEX_STORED_LOGS = "flex_stored_logs".freeze
     FUNCTIONS_USAGE = "functions_usage".freeze
     INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_USAGE = "incident_management_monthly_active_users_usage".freeze
     INDEXED_SPANS_USAGE = "indexed_spans_usage".freeze
