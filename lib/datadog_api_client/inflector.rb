@@ -170,6 +170,7 @@ module DatadogAPIClient
           "v1.heat_map_widget_definition" => "HeatMapWidgetDefinition",
           "v1.heat_map_widget_definition_type" => "HeatMapWidgetDefinitionType",
           "v1.heat_map_widget_request" => "HeatMapWidgetRequest",
+          "v1.heat_map_widget_x_axis" => "HeatMapWidgetXAxis",
           "v1.host" => "Host",
           "v1.host_list_response" => "HostListResponse",
           "v1.host_map_request" => "HostMapRequest",
