@@ -77,6 +77,8 @@ module DatadogAPIClient::V1
     ESTIMATED_INGESTED_SPANS_PERCENTAGE = "estimated_ingested_spans_percentage".freeze
     FARGATE_USAGE = "fargate_usage".freeze
     FARGATE_PERCENTAGE = "fargate_percentage".freeze
+    FLEX_STORED_LOGS_USAGE = "flex_stored_logs_usage".freeze
+    FLEX_STORED_LOGS_PERCENTAGE = "flex_stored_logs_percentage".freeze
     FUNCTIONS_USAGE = "functions_usage".freeze
     FUNCTIONS_PERCENTAGE = "functions_percentage".freeze
     INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_USAGE = "incident_management_monthly_active_users_usage".freeze
