@@ -17,8 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # [Definition of the widget](https://docs.datadoghq.com/dashboards/widgets/).
-  module WidgetDefinition
+  # Bar chart widget display options.
+  module BarChartWidgetDisplay
     class << self
       include BaseOneOfModel
       include BaseOneOfModelNoDiscriminator
@@ -26,41 +26,8 @@ module DatadogAPIClient::V1
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of
         [
-          :'AlertGraphWidgetDefinition',
-          :'AlertValueWidgetDefinition',
-          :'BarChartWidgetDefinition',
-          :'ChangeWidgetDefinition',
-          :'CheckStatusWidgetDefinition',
-          :'DistributionWidgetDefinition',
-          :'EventStreamWidgetDefinition',
-          :'EventTimelineWidgetDefinition',
-          :'FreeTextWidgetDefinition',
-          :'FunnelWidgetDefinition',
-          :'GeomapWidgetDefinition',
-          :'GroupWidgetDefinition',
-          :'HeatMapWidgetDefinition',
-          :'HostMapWidgetDefinition',
-          :'IFrameWidgetDefinition',
-          :'ImageWidgetDefinition',
-          :'ListStreamWidgetDefinition',
-          :'LogStreamWidgetDefinition',
-          :'MonitorSummaryWidgetDefinition',
-          :'NoteWidgetDefinition',
-          :'PowerpackWidgetDefinition',
-          :'QueryValueWidgetDefinition',
-          :'RunWorkflowWidgetDefinition',
-          :'SLOListWidgetDefinition',
-          :'SLOWidgetDefinition',
-          :'ScatterPlotWidgetDefinition',
-          :'ServiceMapWidgetDefinition',
-          :'ServiceSummaryWidgetDefinition',
-          :'SplitGraphWidgetDefinition',
-          :'SunburstWidgetDefinition',
-          :'TableWidgetDefinition',
-          :'TimeseriesWidgetDefinition',
-          :'ToplistWidgetDefinition',
-          :'TopologyMapWidgetDefinition',
-          :'TreeMapWidgetDefinition'
+          :'BarChartWidgetStacked',
+          :'BarChartWidgetFlat'
         ]
       end
       # Builds the object
