@@ -96,6 +96,86 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Create incident attachment.
+    #
+    # @see #create_incident_attachment_with_http_info
+    def create_incident_attachment(incident_id, body, opts = {})
+      data, _status_code, _headers = create_incident_attachment_with_http_info(incident_id, body, opts)
+      data
+    end
+
+    # Create incident attachment.
+    #
+    # Create an incident attachment.
+    #
+    # @param incident_id [String] The UUID of the incident.
+    # @param body [CreateAttachmentRequest] 
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :include Resource to include in the response. Supported value: `last_modified_by_user`.
+    # @return [Array<(Attachment, Integer, Hash)>] Attachment data, response status code and response headers
+    def create_incident_attachment_with_http_info(incident_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_incident_attachment".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_incident_attachment")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_incident_attachment"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: IncidentsAPI.create_incident_attachment ...'
+      end
+      # verify the required parameter 'incident_id' is set
+      if @api_client.config.client_side_validation && incident_id.nil?
+        fail ArgumentError, "Missing the required parameter 'incident_id' when calling IncidentsAPI.create_incident_attachment"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling IncidentsAPI.create_incident_attachment"
+      end
+      # resource path
+      local_var_path = '/api/v2/incidents/{incident_id}/attachments'.sub('{incident_id}', CGI.escape(incident_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'Attachment'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_incident_attachment,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: IncidentsAPI#create_incident_attachment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create an incident impact.
     #
     # @see #create_incident_impact_with_http_info
@@ -612,6 +692,79 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: IncidentsAPI#delete_incident\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete incident attachment.
+    #
+    # @see #delete_incident_attachment_with_http_info
+    def delete_incident_attachment(incident_id, attachment_id, opts = {})
+      delete_incident_attachment_with_http_info(incident_id, attachment_id, opts)
+      nil
+    end
+
+    # Delete incident attachment.
+    # @param incident_id [String] The UUID of the incident.
+    # @param attachment_id [Object] The ID of the attachment.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_incident_attachment_with_http_info(incident_id, attachment_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.delete_incident_attachment".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_incident_attachment")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_incident_attachment"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: IncidentsAPI.delete_incident_attachment ...'
+      end
+      # verify the required parameter 'incident_id' is set
+      if @api_client.config.client_side_validation && incident_id.nil?
+        fail ArgumentError, "Missing the required parameter 'incident_id' when calling IncidentsAPI.delete_incident_attachment"
+      end
+      # verify the required parameter 'attachment_id' is set
+      if @api_client.config.client_side_validation && attachment_id.nil?
+        fail ArgumentError, "Missing the required parameter 'attachment_id' when calling IncidentsAPI.delete_incident_attachment"
+      end
+      # resource path
+      local_var_path = '/api/v2/incidents/{incident_id}/attachments/{attachment_id}'.sub('{incident_id}', CGI.escape(incident_id.to_s).gsub('%2F', '/')).sub('{attachment_id}', CGI.escape(attachment_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_incident_attachment,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: IncidentsAPI#delete_incident_attachment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1497,7 +1650,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Get a list of attachments.
+    # List incident attachments.
     #
     # @see #list_incident_attachments_with_http_info
     def list_incident_attachments(incident_id, opts = {})
@@ -1505,15 +1658,15 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Get a list of attachments.
+    # List incident attachments.
     #
-    # Get all attachments for a given incident.
+    # List incident attachments.
     #
     # @param incident_id [String] The UUID of the incident.
     # @param opts [Hash] the optional parameters
-    # @option opts [Array<IncidentAttachmentRelatedObject>] :include Specifies which types of related objects are included in the response.
-    # @option opts [Array<IncidentAttachmentAttachmentType>] :filter_attachment_type Specifies which types of attachments are included in the response.
-    # @return [Array<(IncidentAttachmentsResponse, Integer, Hash)>] IncidentAttachmentsResponse data, response status code and response headers
+    # @option opts [String] :filter_attachment_type Filter attachments by type. Supported values are `1` (`postmortem`) and `2` (`link`).
+    # @option opts [String] :include Resource to include in the response. Supported value: `last_modified_by_user`.
+    # @return [Array<(AttachmentArray, Integer, Hash)>] AttachmentArray data, response status code and response headers
     def list_incident_attachments_with_http_info(incident_id, opts = {})
       unstable_enabled = @api_client.config.unstable_operations["v2.list_incident_attachments".to_sym]
       if unstable_enabled
@@ -1534,8 +1687,8 @@ module DatadogAPIClient::V2
 
       # query parameters
       query_params = opts[:query_params] || {}
-      query_params[:'include'] = @api_client.build_collection_param(opts[:'include'], :csv) if !opts[:'include'].nil?
-      query_params[:'filter[attachment_type]'] = @api_client.build_collection_param(opts[:'filter_attachment_type'], :csv) if !opts[:'filter_attachment_type'].nil?
+      query_params[:'filter[attachment_type]'] = opts[:'filter_attachment_type'] if !opts[:'filter_attachment_type'].nil?
+      query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -1549,7 +1702,7 @@ module DatadogAPIClient::V2
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'IncidentAttachmentsResponse'
+      return_type = opts[:debug_return_type] || 'AttachmentArray'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
@@ -2269,51 +2422,50 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Create, update, and delete incident attachments.
+    # Update incident attachment.
     #
-    # @see #update_incident_attachments_with_http_info
-    def update_incident_attachments(incident_id, body, opts = {})
-      data, _status_code, _headers = update_incident_attachments_with_http_info(incident_id, body, opts)
+    # @see #update_incident_attachment_with_http_info
+    def update_incident_attachment(incident_id, attachment_id, body, opts = {})
+      data, _status_code, _headers = update_incident_attachment_with_http_info(incident_id, attachment_id, body, opts)
       data
     end
 
-    # Create, update, and delete incident attachments.
-    #
-    # The bulk update endpoint for creating, updating, and deleting attachments for a given incident.
-    #
-    # @deprecated This API is deprecated.
-    #
+    # Update incident attachment.
     # @param incident_id [String] The UUID of the incident.
-    # @param body [IncidentAttachmentUpdateRequest] Incident Attachment Payload.
+    # @param attachment_id [Object] The ID of the attachment.
+    # @param body [PatchAttachmentRequest] 
     # @param opts [Hash] the optional parameters
-    # @option opts [Array<IncidentAttachmentRelatedObject>] :include Specifies which types of related objects are included in the response.
-    # @return [Array<(IncidentAttachmentUpdateResponse, Integer, Hash)>] IncidentAttachmentUpdateResponse data, response status code and response headers
-    def update_incident_attachments_with_http_info(incident_id, body, opts = {})
-      warn "[DEPRECATION] `UpdateIncidentAttachments` is deprecated."
-      unstable_enabled = @api_client.config.unstable_operations["v2.update_incident_attachments".to_sym]
+    # @option opts [String] :include Resource to include in the response. Supported value: `last_modified_by_user`.
+    # @return [Array<(Attachment, Integer, Hash)>] Attachment data, response status code and response headers
+    def update_incident_attachment_with_http_info(incident_id, attachment_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.update_incident_attachment".to_sym]
       if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_incident_attachments")
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_incident_attachment")
       else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_incident_attachments"))
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_incident_attachment"))
       end
 
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: IncidentsAPI.update_incident_attachments ...'
+        @api_client.config.logger.debug 'Calling API: IncidentsAPI.update_incident_attachment ...'
       end
       # verify the required parameter 'incident_id' is set
       if @api_client.config.client_side_validation && incident_id.nil?
-        fail ArgumentError, "Missing the required parameter 'incident_id' when calling IncidentsAPI.update_incident_attachments"
+        fail ArgumentError, "Missing the required parameter 'incident_id' when calling IncidentsAPI.update_incident_attachment"
+      end
+      # verify the required parameter 'attachment_id' is set
+      if @api_client.config.client_side_validation && attachment_id.nil?
+        fail ArgumentError, "Missing the required parameter 'attachment_id' when calling IncidentsAPI.update_incident_attachment"
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling IncidentsAPI.update_incident_attachments"
+        fail ArgumentError, "Missing the required parameter 'body' when calling IncidentsAPI.update_incident_attachment"
       end
       # resource path
-      local_var_path = '/api/v2/incidents/{incident_id}/attachments'.sub('{incident_id}', CGI.escape(incident_id.to_s).gsub('%2F', '/'))
+      local_var_path = '/api/v2/incidents/{incident_id}/attachments/{attachment_id}'.sub('{incident_id}', CGI.escape(incident_id.to_s).gsub('%2F', '/')).sub('{attachment_id}', CGI.escape(attachment_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
-      query_params[:'include'] = @api_client.build_collection_param(opts[:'include'], :csv) if !opts[:'include'].nil?
+      query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -2329,13 +2481,13 @@ module DatadogAPIClient::V2
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'IncidentAttachmentUpdateResponse'
+      return_type = opts[:debug_return_type] || 'Attachment'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
-        :operation => :update_incident_attachments,
+        :operation => :update_incident_attachment,
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -2347,7 +2499,7 @@ module DatadogAPIClient::V2
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: IncidentsAPI#update_incident_attachments\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: IncidentsAPI#update_incident_attachment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
