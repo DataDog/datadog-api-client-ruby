@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Set of tags to associate with your host.
+  # Host name and an array of its tags
   class HostTags
     include BaseGenericModel
 
     # Your host name.
     attr_accessor :host
 
-    # A list of tags to apply to the host.
+    # A list of tags attached to a given host.
     attr_accessor :tags
 
     attr_accessor :additional_properties

@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # In this object, the key is the tag, the value is a list of host names that are reporting that tag.
+  # In this object, the key is the tag, and the value is a list of host names that are reporting that tag.
   class TagToHosts
     include BaseGenericModel
 
-    # A list of tags to apply to the host.
+    # A mapping of tags to host names
     attr_accessor :tags
 
     attr_accessor :additional_properties
