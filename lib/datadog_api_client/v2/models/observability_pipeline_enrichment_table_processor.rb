@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class ObservabilityPipelineEnrichmentTableProcessor
     include BaseGenericModel
 
+    # The display name for a component.
+    attr_accessor :display_name
+
     # Whether this processor is enabled.
     attr_reader :enabled
 
@@ -48,6 +51,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'display_name' => :'display_name',
         :'enabled' => :'enabled',
         :'file' => :'file',
         :'geoip' => :'geoip',
@@ -62,6 +66,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'display_name' => :'String',
         :'enabled' => :'Boolean',
         :'file' => :'ObservabilityPipelineEnrichmentTableFile',
         :'geoip' => :'ObservabilityPipelineEnrichmentTableGeoIp',
@@ -89,6 +94,10 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'display_name')
+        self.display_name = attributes[:'display_name']
+      end
 
       if attributes.key?(:'enabled')
         self.enabled = attributes[:'enabled']
@@ -207,6 +216,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          display_name == o.display_name &&
           enabled == o.enabled &&
           file == o.file &&
           geoip == o.geoip &&
@@ -221,7 +231,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [enabled, file, geoip, id, include, target, type, additional_properties].hash
+      [display_name, enabled, file, geoip, id, include, target, type, additional_properties].hash
     end
   end
 end

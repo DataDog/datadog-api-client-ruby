@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class ObservabilityPipelineQuotaProcessor
     include BaseGenericModel
 
+    # The display name for a component.
+    attr_accessor :display_name
+
     # If set to `true`, logs that matched the quota filter and sent after the quota has been met are dropped; only logs that did not match the filter query continue through the pipeline.
     attr_accessor :drop_events
 
@@ -63,6 +66,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'display_name' => :'display_name',
         :'drop_events' => :'drop_events',
         :'enabled' => :'enabled',
         :'id' => :'id',
@@ -81,6 +85,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'display_name' => :'String',
         :'drop_events' => :'Boolean',
         :'enabled' => :'Boolean',
         :'id' => :'String',
@@ -112,6 +117,10 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'display_name')
+        self.display_name = attributes[:'display_name']
+      end
 
       if attributes.key?(:'drop_events')
         self.drop_events = attributes[:'drop_events']
@@ -261,6 +270,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          display_name == o.display_name &&
           drop_events == o.drop_events &&
           enabled == o.enabled &&
           id == o.id &&
@@ -279,7 +289,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [drop_events, enabled, id, ignore_when_missing_partitions, include, limit, name, overflow_action, overrides, partition_fields, type, additional_properties].hash
+      [display_name, drop_events, enabled, id, ignore_when_missing_partitions, include, limit, name, overflow_action, overrides, partition_fields, type, additional_properties].hash
     end
   end
 end
