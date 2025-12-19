@@ -64,6 +64,7 @@ module DatadogAPIClient::V1
     INVOCATIONS_USAGE = "invocations_usage".freeze
     LAMBDA_TRACED_INVOCATIONS_USAGE = "lambda_traced_invocations_usage".freeze
     LLM_OBSERVABILITY_USAGE = "llm_observability_usage".freeze
+    LLM_SPANS_USAGE = "llm_spans_usage".freeze
     LOGS_INDEXED_15DAY_USAGE = "logs_indexed_15day_usage".freeze
     LOGS_INDEXED_180DAY_USAGE = "logs_indexed_180day_usage".freeze
     LOGS_INDEXED_1DAY_USAGE = "logs_indexed_1day_usage".freeze
