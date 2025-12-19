@@ -89,6 +89,8 @@ module DatadogAPIClient::V1
     LAMBDA_TRACED_INVOCATIONS_PERCENTAGE = "lambda_traced_invocations_percentage".freeze
     LLM_OBSERVABILITY_USAGE = "llm_observability_usage".freeze
     LLM_OBSERVABILITY_PERCENTAGE = "llm_observability_percentage".freeze
+    LLM_SPANS_USAGE = "llm_spans_usage".freeze
+    LLM_SPANS_PERCENTAGE = "llm_spans_percentage".freeze
     MOBILE_APP_TESTING_USAGE = "mobile_app_testing_percentage".freeze
     MOBILE_APP_TESTING_PERCENTAGE = "mobile_app_testing_usage".freeze
     NDM_NETFLOW_USAGE = "ndm_netflow_usage".freeze
