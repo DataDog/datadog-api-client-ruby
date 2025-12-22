@@ -18,6 +18,8 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The `sumo_logic` source receives logs from Sumo Logic collectors.
+  # 
+  # **Supported pipeline types:** logs
   class ObservabilityPipelineSumoLogicSource
     include BaseGenericModel
 

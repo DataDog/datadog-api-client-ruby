@@ -18,6 +18,8 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The `kafka` source ingests data from Apache Kafka topics.
+  # 
+  # **Supported pipeline types:** logs
   class ObservabilityPipelineKafkaSource
     include BaseGenericModel
 

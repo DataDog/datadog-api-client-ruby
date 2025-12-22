@@ -18,6 +18,8 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The `google_chronicle` destination sends logs to Google Chronicle.
+  # 
+  # **Supported pipeline types:** logs
   class ObservabilityPipelineGoogleChronicleDestination
     include BaseGenericModel
 

@@ -18,6 +18,8 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The `azure_storage` destination forwards logs to an Azure Blob Storage container.
+  # 
+  # **Supported pipeline types:** logs
   class AzureStorageDestination
     include BaseGenericModel
 

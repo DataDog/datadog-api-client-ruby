@@ -18,6 +18,8 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The `microsoft_sentinel` destination forwards logs to Microsoft Sentinel.
+  # 
+  # **Supported pipeline types:** logs
   class MicrosoftSentinelDestination
     include BaseGenericModel
 

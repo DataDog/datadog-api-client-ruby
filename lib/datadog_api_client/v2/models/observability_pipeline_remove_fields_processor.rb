@@ -18,6 +18,8 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The `remove_fields` processor deletes specified fields from logs.
+  # 
+  # **Supported pipeline types:** logs
   class ObservabilityPipelineRemoveFieldsProcessor
     include BaseGenericModel
 

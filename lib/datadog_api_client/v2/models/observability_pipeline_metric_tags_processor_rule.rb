@@ -17,23 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The `opensearch` destination writes logs to an OpenSearch cluster.
-  # 
-  # **Supported pipeline types:** logs
-  class ObservabilityPipelineOpenSearchDestination
+  # Defines a rule for filtering metric tags based on key patterns.
+  class ObservabilityPipelineMetricTagsProcessorRule
     include BaseGenericModel
 
-    # The index to write logs to.
-    attr_accessor :bulk_index
+    # The action to take on tags with matching keys.
+    attr_reader :action
 
-    # The unique identifier for this component.
-    attr_reader :id
+    # A list of tag keys to include or exclude.
+    attr_reader :keys
 
-    # A list of component IDs whose output is used as the `input` for this component.
-    attr_reader :inputs
-
-    # The destination type. The value should always be `opensearch`.
-    attr_reader :type
+    # The processing mode for tag filtering.
+    attr_reader :mode
 
     attr_accessor :additional_properties
 
@@ -41,10 +36,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'bulk_index' => :'bulk_index',
-        :'id' => :'id',
-        :'inputs' => :'inputs',
-        :'type' => :'type'
+        :'action' => :'action',
+        :'keys' => :'keys',
+        :'mode' => :'mode'
       }
     end
 
@@ -52,10 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'bulk_index' => :'String',
-        :'id' => :'String',
-        :'inputs' => :'Array<String>',
-        :'type' => :'ObservabilityPipelineOpenSearchDestinationType'
+        :'action' => :'ObservabilityPipelineMetricTagsProcessorRuleAction',
+        :'keys' => :'Array<String>',
+        :'mode' => :'ObservabilityPipelineMetricTagsProcessorRuleMode'
       }
     end
 
@@ -64,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineOpenSearchDestination` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineMetricTagsProcessorRule` initialize method"
       end
 
       self.additional_properties = {}
@@ -77,22 +70,18 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'bulk_index')
-        self.bulk_index = attributes[:'bulk_index']
+      if attributes.key?(:'action')
+        self.action = attributes[:'action']
       end
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
-      end
-
-      if attributes.key?(:'inputs')
-        if (value = attributes[:'inputs']).is_a?(Array)
-          self.inputs = value
+      if attributes.key?(:'keys')
+        if (value = attributes[:'keys']).is_a?(Array)
+          self.keys = value
         end
       end
 
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
+      if attributes.key?(:'mode')
+        self.mode = attributes[:'mode']
       end
     end
 
@@ -100,40 +89,40 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @id.nil?
-      return false if @inputs.nil?
-      return false if @type.nil?
+      return false if @action.nil?
+      return false if @keys.nil?
+      return false if @mode.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param id [Object] Object to be assigned
+    # @param action [Object] Object to be assigned
     # @!visibility private
-    def id=(id)
-      if id.nil?
-        fail ArgumentError, 'invalid value for "id", id cannot be nil.'
+    def action=(action)
+      if action.nil?
+        fail ArgumentError, 'invalid value for "action", action cannot be nil.'
       end
-      @id = id
+      @action = action
     end
 
     # Custom attribute writer method with validation
-    # @param inputs [Object] Object to be assigned
+    # @param keys [Object] Object to be assigned
     # @!visibility private
-    def inputs=(inputs)
-      if inputs.nil?
-        fail ArgumentError, 'invalid value for "inputs", inputs cannot be nil.'
+    def keys=(keys)
+      if keys.nil?
+        fail ArgumentError, 'invalid value for "keys", keys cannot be nil.'
       end
-      @inputs = inputs
+      @keys = keys
     end
 
     # Custom attribute writer method with validation
-    # @param type [Object] Object to be assigned
+    # @param mode [Object] Object to be assigned
     # @!visibility private
-    def type=(type)
-      if type.nil?
-        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+    def mode=(mode)
+      if mode.nil?
+        fail ArgumentError, 'invalid value for "mode", mode cannot be nil.'
       end
-      @type = type
+      @mode = mode
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -162,10 +151,9 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          bulk_index == o.bulk_index &&
-          id == o.id &&
-          inputs == o.inputs &&
-          type == o.type &&
+          action == o.action &&
+          keys == o.keys &&
+          mode == o.mode &&
           additional_properties == o.additional_properties
     end
 
@@ -173,7 +161,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [bulk_index, id, inputs, type, additional_properties].hash
+      [action, keys, mode, additional_properties].hash
     end
   end
 end
