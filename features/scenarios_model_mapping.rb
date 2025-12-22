@@ -3303,6 +3303,26 @@ ScenariosModelMappings = {
             "user_id" => "String",
             "body" => "UserTeamUpdateRequest",
     },
+    "v2.GetTeamNotificationRules" => {
+            "team_id" => "String",
+    },
+    "v2.CreateTeamNotificationRule" => {
+            "team_id" => "String",
+            "body" => "TeamNotificationRule",
+    },
+    "v2.DeleteTeamNotificationRule" => {
+            "rule_id" => "String",
+            "team_id" => "String",
+    },
+    "v2.GetTeamNotificationRule" => {
+            "rule_id" => "String",
+            "team_id" => "String",
+    },
+    "v2.UpdateTeamNotificationRule" => {
+            "rule_id" => "String",
+            "team_id" => "String",
+            "body" => "TeamNotificationRule",
+    },
     "v2.GetTeamPermissionSettings" => {
             "team_id" => "String",
     },
