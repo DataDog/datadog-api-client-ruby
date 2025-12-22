@@ -2614,6 +2614,26 @@ ScenariosModelMappings = {
             "tags" => "String",
             "limit" => "Integer",
     },
+    "v2.ListPipelines" => {
+            "page_size" => "Integer",
+            "page_number" => "Integer",
+    },
+    "v2.CreatePipeline" => {
+            "body" => "ObservabilityPipelineSpec",
+    },
+    "v2.ValidatePipeline" => {
+            "body" => "ObservabilityPipelineSpec",
+    },
+    "v2.DeletePipeline" => {
+            "pipeline_id" => "String",
+    },
+    "v2.GetPipeline" => {
+            "pipeline_id" => "String",
+    },
+    "v2.UpdatePipeline" => {
+            "pipeline_id" => "String",
+            "body" => "ObservabilityPipeline",
+    },
     "v2.CreateOnCallEscalationPolicy" => {
             "include" => "String",
             "body" => "EscalationPolicyCreateRequest",
@@ -2931,26 +2951,6 @@ ScenariosModelMappings = {
     "v2.UpdateCloudWorkloadSecurityAgentRule" => {
             "agent_rule_id" => "String",
             "body" => "CloudWorkloadSecurityAgentRuleUpdateRequest",
-    },
-    "v2.ListPipelines" => {
-            "page_size" => "Integer",
-            "page_number" => "Integer",
-    },
-    "v2.CreatePipeline" => {
-            "body" => "ObservabilityPipelineSpec",
-    },
-    "v2.ValidatePipeline" => {
-            "body" => "ObservabilityPipelineSpec",
-    },
-    "v2.DeletePipeline" => {
-            "pipeline_id" => "String",
-    },
-    "v2.GetPipeline" => {
-            "pipeline_id" => "String",
-    },
-    "v2.UpdatePipeline" => {
-            "pipeline_id" => "String",
-            "body" => "ObservabilityPipeline",
     },
     "v2.DeleteRestrictionPolicy" => {
             "resource_id" => "String",
