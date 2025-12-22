@@ -19,6 +19,8 @@ require 'time'
 module DatadogAPIClient::V2
   # The `splunk_tcp` source receives logs from a Splunk Universal Forwarder over TCP.
   # TLS is supported for secure transmission.
+  # 
+  # **Supported pipeline types:** logs
   class ObservabilityPipelineSplunkTcpSource
     include BaseGenericModel
 

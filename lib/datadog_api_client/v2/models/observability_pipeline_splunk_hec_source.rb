@@ -18,6 +18,8 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The `splunk_hec` source implements the Splunk HTTP Event Collector (HEC) API.
+  # 
+  # **Supported pipeline types:** logs
   class ObservabilityPipelineSplunkHecSource
     include BaseGenericModel
 

@@ -18,6 +18,8 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The `socket` destination sends logs over TCP or UDP to a remote server.
+  # 
+  # **Supported pipeline types:** logs
   class ObservabilityPipelineSocketDestination
     include BaseGenericModel
 

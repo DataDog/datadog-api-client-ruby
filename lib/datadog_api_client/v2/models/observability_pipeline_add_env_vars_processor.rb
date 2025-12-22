@@ -18,6 +18,8 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The `add_env_vars` processor adds environment variable values to log events.
+  # 
+  # **Supported pipeline types:** logs
   class ObservabilityPipelineAddEnvVarsProcessor
     include BaseGenericModel
 

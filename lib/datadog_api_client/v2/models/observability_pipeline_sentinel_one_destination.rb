@@ -18,6 +18,8 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The `sentinel_one` destination sends logs to SentinelOne.
+  # 
+  # **Supported pipeline types:** logs
   class ObservabilityPipelineSentinelOneDestination
     include BaseGenericModel
 

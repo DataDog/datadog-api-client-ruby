@@ -18,6 +18,8 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The `fluentd` source ingests logs from a Fluentd-compatible service.
+  # 
+  # **Supported pipeline types:** logs
   class ObservabilityPipelineFluentdSource
     include BaseGenericModel
 

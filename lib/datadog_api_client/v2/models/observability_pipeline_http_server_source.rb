@@ -18,6 +18,8 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The `http_server` source collects logs over HTTP POST from external services.
+  # 
+  # **Supported pipeline types:** logs
   class ObservabilityPipelineHttpServerSource
     include BaseGenericModel
 

@@ -18,6 +18,8 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The `sample` processor allows probabilistic sampling of logs at a fixed rate.
+  # 
+  # **Supported pipeline types:** logs
   class ObservabilityPipelineSampleProcessor
     include BaseGenericModel
 

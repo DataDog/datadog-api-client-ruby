@@ -26,22 +26,22 @@ module DatadogAPIClient::V2
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of
         [
-          :'ObservabilityPipelineKafkaSource',
           :'ObservabilityPipelineDatadogAgentSource',
-          :'ObservabilityPipelineSplunkTcpSource',
-          :'ObservabilityPipelineSplunkHecSource',
-          :'ObservabilityPipelineAmazonS3Source',
-          :'ObservabilityPipelineFluentdSource',
-          :'ObservabilityPipelineFluentBitSource',
-          :'ObservabilityPipelineHttpServerSource',
-          :'ObservabilityPipelineSumoLogicSource',
-          :'ObservabilityPipelineRsyslogSource',
-          :'ObservabilityPipelineSyslogNgSource',
           :'ObservabilityPipelineAmazonDataFirehoseSource',
+          :'ObservabilityPipelineAmazonS3Source',
+          :'ObservabilityPipelineFluentBitSource',
+          :'ObservabilityPipelineFluentdSource',
           :'ObservabilityPipelineGooglePubSubSource',
           :'ObservabilityPipelineHttpClientSource',
+          :'ObservabilityPipelineHttpServerSource',
+          :'ObservabilityPipelineKafkaSource',
           :'ObservabilityPipelineLogstashSource',
-          :'ObservabilityPipelineSocketSource'
+          :'ObservabilityPipelineRsyslogSource',
+          :'ObservabilityPipelineSocketSource',
+          :'ObservabilityPipelineSplunkHecSource',
+          :'ObservabilityPipelineSplunkTcpSource',
+          :'ObservabilityPipelineSumoLogicSource',
+          :'ObservabilityPipelineSyslogNgSource'
         ]
       end
       # Builds the object

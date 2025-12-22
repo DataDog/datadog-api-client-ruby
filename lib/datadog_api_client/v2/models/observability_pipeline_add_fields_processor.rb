@@ -18,6 +18,8 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The `add_fields` processor adds static key-value fields to logs.
+  # 
+  # **Supported pipeline types:** logs
   class ObservabilityPipelineAddFieldsProcessor
     include BaseGenericModel
 
