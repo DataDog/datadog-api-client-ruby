@@ -18,6 +18,8 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The `google_pubsub` source ingests logs from a Google Cloud Pub/Sub subscription.
+  # 
+  # **Supported pipeline types:** logs
   class ObservabilityPipelineGooglePubSubSource
     include BaseGenericModel
 

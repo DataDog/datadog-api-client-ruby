@@ -18,6 +18,8 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The `sumo_logic` destination forwards logs to Sumo Logic.
+  # 
+  # **Supported pipeline types:** logs
   class ObservabilityPipelineSumoLogicDestination
     include BaseGenericModel
 

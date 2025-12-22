@@ -18,6 +18,8 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The `crowdstrike_next_gen_siem` destination forwards logs to CrowdStrike Next Gen SIEM.
+  # 
+  # **Supported pipeline types:** logs
   class ObservabilityPipelineCrowdStrikeNextGenSiemDestination
     include BaseGenericModel
 

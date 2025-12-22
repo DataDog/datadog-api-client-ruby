@@ -18,6 +18,8 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The `splunk_hec` destination forwards logs to Splunk using the HTTP Event Collector (HEC).
+  # 
+  # **Supported pipeline types:** logs
   class ObservabilityPipelineSplunkHecDestination
     include BaseGenericModel
 
