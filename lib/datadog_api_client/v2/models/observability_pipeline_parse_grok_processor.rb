@@ -18,6 +18,8 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The `parse_grok` processor extracts structured fields from unstructured log messages using Grok patterns.
+  # 
+  # **Supported pipeline types:** logs
   class ObservabilityPipelineParseGrokProcessor
     include BaseGenericModel
 

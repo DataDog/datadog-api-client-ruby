@@ -19,6 +19,8 @@ require 'time'
 module DatadogAPIClient::V2
   # The `generate_datadog_metrics` processor creates custom metrics from logs and sends them to Datadog.
   # Metrics can be counters, gauges, or distributions and optionally grouped by log fields.
+  # 
+  # **Supported pipeline types:** logs
   class ObservabilityPipelineGenerateMetricsProcessor
     include BaseGenericModel
 

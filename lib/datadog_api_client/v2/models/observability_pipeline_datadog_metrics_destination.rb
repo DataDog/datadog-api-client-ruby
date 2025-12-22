@@ -17,22 +17,19 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The `opensearch` destination writes logs to an OpenSearch cluster.
+  # The `datadog_metrics` destination forwards metrics to Datadog.
   # 
-  # **Supported pipeline types:** logs
-  class ObservabilityPipelineOpenSearchDestination
+  # **Supported pipeline types:** metrics
+  class ObservabilityPipelineDatadogMetricsDestination
     include BaseGenericModel
-
-    # The index to write logs to.
-    attr_accessor :bulk_index
 
     # The unique identifier for this component.
     attr_reader :id
 
-    # A list of component IDs whose output is used as the `input` for this component.
+    # A list of component IDs whose output is used as the input for this component.
     attr_reader :inputs
 
-    # The destination type. The value should always be `opensearch`.
+    # The destination type. The value should always be `datadog_metrics`.
     attr_reader :type
 
     attr_accessor :additional_properties
@@ -41,7 +38,6 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'bulk_index' => :'bulk_index',
         :'id' => :'id',
         :'inputs' => :'inputs',
         :'type' => :'type'
@@ -52,10 +48,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'bulk_index' => :'String',
         :'id' => :'String',
         :'inputs' => :'Array<String>',
-        :'type' => :'ObservabilityPipelineOpenSearchDestinationType'
+        :'type' => :'ObservabilityPipelineDatadogMetricsDestinationType'
       }
     end
 
@@ -64,7 +59,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineOpenSearchDestination` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineDatadogMetricsDestination` initialize method"
       end
 
       self.additional_properties = {}
@@ -76,10 +71,6 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
-
-      if attributes.key?(:'bulk_index')
-        self.bulk_index = attributes[:'bulk_index']
-      end
 
       if attributes.key?(:'id')
         self.id = attributes[:'id']
@@ -162,7 +153,6 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          bulk_index == o.bulk_index &&
           id == o.id &&
           inputs == o.inputs &&
           type == o.type &&
@@ -173,7 +163,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [bulk_index, id, inputs, type, additional_properties].hash
+      [id, inputs, type, additional_properties].hash
     end
   end
 end
