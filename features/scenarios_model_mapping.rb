@@ -2103,13 +2103,23 @@ ScenariosModelMappings = {
     },
     "v2.ListIncidentAttachments" => {
             "incident_id" => "String",
-            "include" => "Array<IncidentAttachmentRelatedObject>",
-            "filter_attachment_type" => "Array<IncidentAttachmentAttachmentType>",
+            "filter_attachment_type" => "String",
+            "include" => "String",
     },
-    "v2.UpdateIncidentAttachments" => {
+    "v2.CreateIncidentAttachment" => {
             "incident_id" => "String",
-            "include" => "Array<IncidentAttachmentRelatedObject>",
-            "body" => "IncidentAttachmentUpdateRequest",
+            "include" => "String",
+            "body" => "CreateAttachmentRequest",
+    },
+    "v2.DeleteIncidentAttachment" => {
+            "incident_id" => "String",
+            "attachment_id" => "Object",
+    },
+    "v2.UpdateIncidentAttachment" => {
+            "incident_id" => "String",
+            "attachment_id" => "Object",
+            "include" => "String",
+            "body" => "PatchAttachmentRequest",
     },
     "v2.ListIncidentImpacts" => {
             "incident_id" => "String",

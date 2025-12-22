@@ -27,7 +27,7 @@ module DatadogAPIClient::V2
       def openapi_one_of
         [
           :'IncidentUserData',
-          :'IncidentAttachmentData'
+          :'AttachmentData'
         ]
       end
       # Builds the object

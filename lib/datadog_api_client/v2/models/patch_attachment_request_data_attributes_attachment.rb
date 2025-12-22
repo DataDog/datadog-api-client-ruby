@@ -17,15 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The attributes object for a postmortem attachment.
-  class IncidentAttachmentPostmortemAttributes
+  # 
+  class PatchAttachmentRequestDataAttributesAttachment
     include BaseGenericModel
 
-    # The postmortem attachment.
-    attr_reader :attachment
+    #
+    attr_accessor :document_url
 
-    # The type of postmortem attachment attributes.
-    attr_reader :attachment_type
+    #
+    attr_accessor :title
 
     attr_accessor :additional_properties
 
@@ -33,8 +33,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'attachment' => :'attachment',
-        :'attachment_type' => :'attachment_type'
+        :'document_url' => :'documentUrl',
+        :'title' => :'title'
       }
     end
 
@@ -42,8 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attachment' => :'IncidentAttachmentsPostmortemAttributesAttachmentObject',
-        :'attachment_type' => :'IncidentAttachmentPostmortemAttachmentType'
+        :'document_url' => :'String',
+        :'title' => :'String'
       }
     end
 
@@ -52,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::IncidentAttachmentPostmortemAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::PatchAttachmentRequestDataAttributesAttachment` initialize method"
       end
 
       self.additional_properties = {}
@@ -65,42 +65,13 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'attachment')
-        self.attachment = attributes[:'attachment']
+      if attributes.key?(:'document_url')
+        self.document_url = attributes[:'document_url']
       end
 
-      if attributes.key?(:'attachment_type')
-        self.attachment_type = attributes[:'attachment_type']
+      if attributes.key?(:'title')
+        self.title = attributes[:'title']
       end
-    end
-
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    # @!visibility private
-    def valid?
-      return false if @attachment.nil?
-      return false if @attachment_type.nil?
-      true
-    end
-
-    # Custom attribute writer method with validation
-    # @param attachment [Object] Object to be assigned
-    # @!visibility private
-    def attachment=(attachment)
-      if attachment.nil?
-        fail ArgumentError, 'invalid value for "attachment", attachment cannot be nil.'
-      end
-      @attachment = attachment
-    end
-
-    # Custom attribute writer method with validation
-    # @param attachment_type [Object] Object to be assigned
-    # @!visibility private
-    def attachment_type=(attachment_type)
-      if attachment_type.nil?
-        fail ArgumentError, 'invalid value for "attachment_type", attachment_type cannot be nil.'
-      end
-      @attachment_type = attachment_type
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -129,8 +100,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          attachment == o.attachment &&
-          attachment_type == o.attachment_type &&
+          document_url == o.document_url &&
+          title == o.title &&
           additional_properties == o.additional_properties
     end
 
@@ -138,7 +109,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attachment, attachment_type, additional_properties].hash
+      [document_url, title, additional_properties].hash
     end
   end
 end
