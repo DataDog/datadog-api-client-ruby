@@ -3193,6 +3193,7 @@ module DatadogAPIClient
           "v2.observability_pipeline_enrichment_table_geo_ip" => "ObservabilityPipelineEnrichmentTableGeoIp",
           "v2.observability_pipeline_enrichment_table_processor" => "ObservabilityPipelineEnrichmentTableProcessor",
           "v2.observability_pipeline_enrichment_table_processor_type" => "ObservabilityPipelineEnrichmentTableProcessorType",
+          "v2.observability_pipeline_enrichment_table_reference_table" => "ObservabilityPipelineEnrichmentTableReferenceTable",
           "v2.observability_pipeline_field_value" => "ObservabilityPipelineFieldValue",
           "v2.observability_pipeline_filter_processor" => "ObservabilityPipelineFilterProcessor",
           "v2.observability_pipeline_filter_processor_type" => "ObservabilityPipelineFilterProcessorType",
