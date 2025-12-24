@@ -30,6 +30,9 @@ module DatadogAPIClient::V1
     # The log query.
     attr_accessor :event_query
 
+    # List of formulas that operate on queries.
+    attr_accessor :formulas
+
     # The log query.
     attr_accessor :log_query
 
@@ -45,11 +48,17 @@ module DatadogAPIClient::V1
     # Widget query.
     attr_accessor :q
 
+    # List of queries that can be returned directly or used in formulas.
+    attr_accessor :queries
+
     # Query definition for Distribution Widget Histogram Request
     attr_accessor :query
 
     # Request type for the histogram request.
     attr_accessor :request_type
+
+    # Timeseries, scalar, or event list response. Event list response formats are supported by Geomap widgets.
+    attr_accessor :response_format
 
     # The log query.
     attr_accessor :rum_query
@@ -69,13 +78,16 @@ module DatadogAPIClient::V1
         :'apm_query' => :'apm_query',
         :'apm_stats_query' => :'apm_stats_query',
         :'event_query' => :'event_query',
+        :'formulas' => :'formulas',
         :'log_query' => :'log_query',
         :'network_query' => :'network_query',
         :'process_query' => :'process_query',
         :'profile_metrics_query' => :'profile_metrics_query',
         :'q' => :'q',
+        :'queries' => :'queries',
         :'query' => :'query',
         :'request_type' => :'request_type',
+        :'response_format' => :'response_format',
         :'rum_query' => :'rum_query',
         :'security_query' => :'security_query',
         :'style' => :'style'
@@ -89,13 +101,16 @@ module DatadogAPIClient::V1
         :'apm_query' => :'LogQueryDefinition',
         :'apm_stats_query' => :'ApmStatsQueryDefinition',
         :'event_query' => :'LogQueryDefinition',
+        :'formulas' => :'Array<WidgetFormula>',
         :'log_query' => :'LogQueryDefinition',
         :'network_query' => :'LogQueryDefinition',
         :'process_query' => :'ProcessQueryDefinition',
         :'profile_metrics_query' => :'LogQueryDefinition',
         :'q' => :'String',
+        :'queries' => :'Array<FormulaAndFunctionQueryDefinition>',
         :'query' => :'DistributionWidgetHistogramRequestQuery',
-        :'request_type' => :'DistributionWidgetHistogramRequestType',
+        :'request_type' => :'WidgetHistogramRequestType',
+        :'response_format' => :'FormulaAndFunctionResponseFormat',
         :'rum_query' => :'LogQueryDefinition',
         :'security_query' => :'LogQueryDefinition',
         :'style' => :'WidgetStyle'
@@ -132,6 +147,12 @@ module DatadogAPIClient::V1
         self.event_query = attributes[:'event_query']
       end
 
+      if attributes.key?(:'formulas')
+        if (value = attributes[:'formulas']).is_a?(Array)
+          self.formulas = value
+        end
+      end
+
       if attributes.key?(:'log_query')
         self.log_query = attributes[:'log_query']
       end
@@ -152,12 +173,22 @@ module DatadogAPIClient::V1
         self.q = attributes[:'q']
       end
 
+      if attributes.key?(:'queries')
+        if (value = attributes[:'queries']).is_a?(Array)
+          self.queries = value
+        end
+      end
+
       if attributes.key?(:'query')
         self.query = attributes[:'query']
       end
 
       if attributes.key?(:'request_type')
         self.request_type = attributes[:'request_type']
+      end
+
+      if attributes.key?(:'response_format')
+        self.response_format = attributes[:'response_format']
       end
 
       if attributes.key?(:'rum_query')
@@ -202,13 +233,16 @@ module DatadogAPIClient::V1
           apm_query == o.apm_query &&
           apm_stats_query == o.apm_stats_query &&
           event_query == o.event_query &&
+          formulas == o.formulas &&
           log_query == o.log_query &&
           network_query == o.network_query &&
           process_query == o.process_query &&
           profile_metrics_query == o.profile_metrics_query &&
           q == o.q &&
+          queries == o.queries &&
           query == o.query &&
           request_type == o.request_type &&
+          response_format == o.response_format &&
           rum_query == o.rum_query &&
           security_query == o.security_query &&
           style == o.style &&
@@ -219,7 +253,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [apm_query, apm_stats_query, event_query, log_query, network_query, process_query, profile_metrics_query, q, query, request_type, rum_query, security_query, style, additional_properties].hash
+      [apm_query, apm_stats_query, event_query, formulas, log_query, network_query, process_query, profile_metrics_query, q, queries, query, request_type, response_format, rum_query, security_query, style, additional_properties].hash
     end
   end
 end
