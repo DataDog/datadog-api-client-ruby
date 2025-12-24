@@ -1,0 +1,85 @@
+http_interactions:
+- recorded_at: Tue, 23 Dec 2025 15:27:22 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"handle":"test-handle-416b8af9ae1d2bbe","name":"test-name-416b8af9ae1d2bbe"},"type":"team"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/team
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"f3b7fcd4-f37c-4e11-b288-f6cfa4b0df44","type":"team","attributes":{"avatar":null,"banner":5,"created_at":"2025-12-23T15:27:22.204713+00:00","description":null,"handle":"test-handle-416b8af9ae1d2bbe","hidden_modules":null,"is_managed":false,"link_count":0,"modified_at":"2025-12-23T15:27:22.204713+00:00","name":"test-name-416b8af9ae1d2bbe","summary":null,"user_count":0,"visible_modules":null},"relationships":{"team_links":{"data":[],"links":{"related":"/api/v2/team/f3b7fcd4-f37c-4e11-b288-f6cfa4b0df44/links"}},"user_team_permissions":{"data":null,"links":{"related":"/api/v2/team/f3b7fcd4-f37c-4e11-b288-f6cfa4b0df44/permission-settings"}}}}}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 201
+      message: Created
+- recorded_at: Tue, 23 Dec 2025 15:27:22 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"email":{"enabled":true},"slack":{"channel":"aaa-omg-ops","workspace":"Datadog"}},"type":"team_notification_rules"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/team/f3b7fcd4-f37c-4e11-b288-f6cfa4b0df44/notification-rules
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"56627a0f-4c41-491d-b789-14d660c391ee","type":"team_notification_rules","attributes":{"email":{"enabled":true},"slack":{"workspace":"Datadog","channel":"aaa-omg-ops"}}}}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 201
+      message: Created
+- recorded_at: Tue, 23 Dec 2025 15:27:22 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"email":{"enabled":true},"slack":{"channel":"aaa-omg-ops","workspace":"Datadog"}},"type":"team_notification_rules"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/team/f3b7fcd4-f37c-4e11-b288-f6cfa4b0df44/notification-rules
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"status":"409","title":"Conflict","detail":"notification
+        rule already exists for this team"}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 409
+      message: Conflict
+- recorded_at: Tue, 23 Dec 2025 15:27:22 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/team/f3b7fcd4-f37c-4e11-b288-f6cfa4b0df44
+  response:
+    body:
+      encoding: UTF-8
+      string: ''
+    headers: {}
+    status:
+      code: 204
+      message: No Content
+recorded_with: VCR 6.0.0

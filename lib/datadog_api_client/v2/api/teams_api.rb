@@ -455,6 +455,75 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Create team notification rule.
+    #
+    # @see #create_team_notification_rule_with_http_info
+    def create_team_notification_rule(team_id, body, opts = {})
+      data, _status_code, _headers = create_team_notification_rule_with_http_info(team_id, body, opts)
+      data
+    end
+
+    # Create team notification rule.
+    # @param team_id [String] None
+    # @param body [TeamNotificationRuleRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(TeamNotificationRuleResponse, Integer, Hash)>] TeamNotificationRuleResponse data, response status code and response headers
+    def create_team_notification_rule_with_http_info(team_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TeamsAPI.create_team_notification_rule ...'
+      end
+      # verify the required parameter 'team_id' is set
+      if @api_client.config.client_side_validation && team_id.nil?
+        fail ArgumentError, "Missing the required parameter 'team_id' when calling TeamsAPI.create_team_notification_rule"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling TeamsAPI.create_team_notification_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/team/{team_id}/notification-rules'.sub('{team_id}', CGI.escape(team_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TeamNotificationRuleResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_team_notification_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TeamsAPI#create_team_notification_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Remove a team.
     #
     # @see #delete_team_with_http_info
@@ -725,6 +794,73 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: TeamsAPI#delete_team_membership\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete team notification rule.
+    #
+    # @see #delete_team_notification_rule_with_http_info
+    def delete_team_notification_rule(team_id, rule_id, opts = {})
+      delete_team_notification_rule_with_http_info(team_id, rule_id, opts)
+      nil
+    end
+
+    # Delete team notification rule.
+    # @param team_id [String] None
+    # @param rule_id [String] None
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_team_notification_rule_with_http_info(team_id, rule_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TeamsAPI.delete_team_notification_rule ...'
+      end
+      # verify the required parameter 'team_id' is set
+      if @api_client.config.client_side_validation && team_id.nil?
+        fail ArgumentError, "Missing the required parameter 'team_id' when calling TeamsAPI.delete_team_notification_rule"
+      end
+      # verify the required parameter 'rule_id' is set
+      if @api_client.config.client_side_validation && rule_id.nil?
+        fail ArgumentError, "Missing the required parameter 'rule_id' when calling TeamsAPI.delete_team_notification_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/team/{team_id}/notification-rules/{rule_id}'.sub('{team_id}', CGI.escape(team_id.to_s).gsub('%2F', '/')).sub('{rule_id}', CGI.escape(rule_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_team_notification_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TeamsAPI#delete_team_notification_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1091,6 +1227,135 @@ module DatadogAPIClient::V2
             end
             @api_client.set_attribute_from_path(api_version, opts, "page_number", Integer, @api_client.get_attribute_from_path(opts, "page_number", 0) + 1)
         end
+    end
+
+    # Get team notification rule.
+    #
+    # @see #get_team_notification_rule_with_http_info
+    def get_team_notification_rule(team_id, rule_id, opts = {})
+      data, _status_code, _headers = get_team_notification_rule_with_http_info(team_id, rule_id, opts)
+      data
+    end
+
+    # Get team notification rule.
+    # @param team_id [String] None
+    # @param rule_id [String] None
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(TeamNotificationRuleResponse, Integer, Hash)>] TeamNotificationRuleResponse data, response status code and response headers
+    def get_team_notification_rule_with_http_info(team_id, rule_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TeamsAPI.get_team_notification_rule ...'
+      end
+      # verify the required parameter 'team_id' is set
+      if @api_client.config.client_side_validation && team_id.nil?
+        fail ArgumentError, "Missing the required parameter 'team_id' when calling TeamsAPI.get_team_notification_rule"
+      end
+      # verify the required parameter 'rule_id' is set
+      if @api_client.config.client_side_validation && rule_id.nil?
+        fail ArgumentError, "Missing the required parameter 'rule_id' when calling TeamsAPI.get_team_notification_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/team/{team_id}/notification-rules/{rule_id}'.sub('{team_id}', CGI.escape(team_id.to_s).gsub('%2F', '/')).sub('{rule_id}', CGI.escape(rule_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TeamNotificationRuleResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_team_notification_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TeamsAPI#get_team_notification_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get team notification rules.
+    #
+    # @see #get_team_notification_rules_with_http_info
+    def get_team_notification_rules(team_id, opts = {})
+      data, _status_code, _headers = get_team_notification_rules_with_http_info(team_id, opts)
+      data
+    end
+
+    # Get team notification rules.
+    # @param team_id [String] None
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(TeamNotificationRulesResponse, Integer, Hash)>] TeamNotificationRulesResponse data, response status code and response headers
+    def get_team_notification_rules_with_http_info(team_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TeamsAPI.get_team_notification_rules ...'
+      end
+      # verify the required parameter 'team_id' is set
+      if @api_client.config.client_side_validation && team_id.nil?
+        fail ArgumentError, "Missing the required parameter 'team_id' when calling TeamsAPI.get_team_notification_rules"
+      end
+      # resource path
+      local_var_path = '/api/v2/team/{team_id}/notification-rules'.sub('{team_id}', CGI.escape(team_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TeamNotificationRulesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_team_notification_rules,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TeamsAPI#get_team_notification_rules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
     end
 
     # Get permission settings for a team.
@@ -2134,6 +2399,80 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: TeamsAPI#update_team_membership\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update team notification rule.
+    #
+    # @see #update_team_notification_rule_with_http_info
+    def update_team_notification_rule(team_id, rule_id, body, opts = {})
+      data, _status_code, _headers = update_team_notification_rule_with_http_info(team_id, rule_id, body, opts)
+      data
+    end
+
+    # Update team notification rule.
+    # @param team_id [String] None
+    # @param rule_id [String] None
+    # @param body [TeamNotificationRuleRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(TeamNotificationRuleResponse, Integer, Hash)>] TeamNotificationRuleResponse data, response status code and response headers
+    def update_team_notification_rule_with_http_info(team_id, rule_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TeamsAPI.update_team_notification_rule ...'
+      end
+      # verify the required parameter 'team_id' is set
+      if @api_client.config.client_side_validation && team_id.nil?
+        fail ArgumentError, "Missing the required parameter 'team_id' when calling TeamsAPI.update_team_notification_rule"
+      end
+      # verify the required parameter 'rule_id' is set
+      if @api_client.config.client_side_validation && rule_id.nil?
+        fail ArgumentError, "Missing the required parameter 'rule_id' when calling TeamsAPI.update_team_notification_rule"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling TeamsAPI.update_team_notification_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/team/{team_id}/notification-rules/{rule_id}'.sub('{team_id}', CGI.escape(team_id.to_s).gsub('%2F', '/')).sub('{rule_id}', CGI.escape(rule_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TeamNotificationRuleResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_team_notification_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TeamsAPI#update_team_notification_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
