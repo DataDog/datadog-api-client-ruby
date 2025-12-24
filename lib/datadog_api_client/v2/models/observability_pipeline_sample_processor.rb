@@ -34,10 +34,7 @@ module DatadogAPIClient::V2
     attr_reader :include
 
     # The percentage of logs to sample.
-    attr_accessor :percentage
-
-    # Number of events to sample (1 in N).
-    attr_reader :rate
+    attr_reader :percentage
 
     # The processor type. The value should always be `sample`.
     attr_reader :type
@@ -53,7 +50,6 @@ module DatadogAPIClient::V2
         :'id' => :'id',
         :'include' => :'include',
         :'percentage' => :'percentage',
-        :'rate' => :'rate',
         :'type' => :'type'
       }
     end
@@ -67,7 +63,6 @@ module DatadogAPIClient::V2
         :'id' => :'String',
         :'include' => :'String',
         :'percentage' => :'Float',
-        :'rate' => :'Integer',
         :'type' => :'ObservabilityPipelineSampleProcessorType'
       }
     end
@@ -110,10 +105,6 @@ module DatadogAPIClient::V2
         self.percentage = attributes[:'percentage']
       end
 
-      if attributes.key?(:'rate')
-        self.rate = attributes[:'rate']
-      end
-
       if attributes.key?(:'type')
         self.type = attributes[:'type']
       end
@@ -126,7 +117,7 @@ module DatadogAPIClient::V2
       return false if @enabled.nil?
       return false if @id.nil?
       return false if @include.nil?
-      return false if !@rate.nil? && @rate < 1
+      return false if @percentage.nil?
       return false if @type.nil?
       true
     end
@@ -162,13 +153,13 @@ module DatadogAPIClient::V2
     end
 
     # Custom attribute writer method with validation
-    # @param rate [Object] Object to be assigned
+    # @param percentage [Object] Object to be assigned
     # @!visibility private
-    def rate=(rate)
-      if !rate.nil? && rate < 1
-        fail ArgumentError, 'invalid value for "rate", must be greater than or equal to 1.'
+    def percentage=(percentage)
+      if percentage.nil?
+        fail ArgumentError, 'invalid value for "percentage", percentage cannot be nil.'
       end
-      @rate = rate
+      @percentage = percentage
     end
 
     # Custom attribute writer method with validation
@@ -212,7 +203,6 @@ module DatadogAPIClient::V2
           id == o.id &&
           include == o.include &&
           percentage == o.percentage &&
-          rate == o.rate &&
           type == o.type &&
           additional_properties == o.additional_properties
     end
@@ -221,7 +211,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [display_name, enabled, id, include, percentage, rate, type, additional_properties].hash
+      [display_name, enabled, id, include, percentage, type, additional_properties].hash
     end
   end
 end
