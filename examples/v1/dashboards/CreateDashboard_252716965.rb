@@ -38,7 +38,7 @@ body = DatadogAPIClient::V1::Dashboard.new({
               data_source: DatadogAPIClient::V1::FormulaAndFunctionMetricDataSource::METRICS,
               name: "query1",
             }),
-            request_type: DatadogAPIClient::V1::DistributionWidgetHistogramRequestType::HISTOGRAM,
+            request_type: DatadogAPIClient::V1::WidgetHistogramRequestType::HISTOGRAM,
             style: DatadogAPIClient::V1::WidgetStyle.new({
               palette: "dog_classic",
             }),
