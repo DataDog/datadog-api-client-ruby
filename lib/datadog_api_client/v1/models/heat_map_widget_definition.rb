@@ -30,6 +30,9 @@ module DatadogAPIClient::V1
     # Available legend sizes for a widget. Should be one of "0", "2", "4", "8", "16", or "auto".
     attr_accessor :legend_size
 
+    # List of markers.
+    attr_accessor :markers
+
     # List of widget types.
     attr_reader :requests
 
@@ -51,6 +54,9 @@ module DatadogAPIClient::V1
     # Type of the heat map widget.
     attr_reader :type
 
+    # X Axis controls for the heat map widget.
+    attr_accessor :xaxis
+
     # Axis controls for the widget.
     attr_accessor :yaxis
 
@@ -63,6 +69,7 @@ module DatadogAPIClient::V1
         :'custom_links' => :'custom_links',
         :'events' => :'events',
         :'legend_size' => :'legend_size',
+        :'markers' => :'markers',
         :'requests' => :'requests',
         :'show_legend' => :'show_legend',
         :'time' => :'time',
@@ -70,6 +77,7 @@ module DatadogAPIClient::V1
         :'title_align' => :'title_align',
         :'title_size' => :'title_size',
         :'type' => :'type',
+        :'xaxis' => :'xaxis',
         :'yaxis' => :'yaxis'
       }
     end
@@ -81,6 +89,7 @@ module DatadogAPIClient::V1
         :'custom_links' => :'Array<WidgetCustomLink>',
         :'events' => :'Array<WidgetEvent>',
         :'legend_size' => :'String',
+        :'markers' => :'Array<WidgetMarker>',
         :'requests' => :'Array<HeatMapWidgetRequest>',
         :'show_legend' => :'Boolean',
         :'time' => :'WidgetTime',
@@ -88,6 +97,7 @@ module DatadogAPIClient::V1
         :'title_align' => :'WidgetTextAlign',
         :'title_size' => :'String',
         :'type' => :'HeatMapWidgetDefinitionType',
+        :'xaxis' => :'HeatMapWidgetXAxis',
         :'yaxis' => :'WidgetAxis'
       }
     end
@@ -126,6 +136,12 @@ module DatadogAPIClient::V1
         self.legend_size = attributes[:'legend_size']
       end
 
+      if attributes.key?(:'markers')
+        if (value = attributes[:'markers']).is_a?(Array)
+          self.markers = value
+        end
+      end
+
       if attributes.key?(:'requests')
         if (value = attributes[:'requests']).is_a?(Array)
           self.requests = value
@@ -154,6 +170,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'type')
         self.type = attributes[:'type']
+      end
+
+      if attributes.key?(:'xaxis')
+        self.xaxis = attributes[:'xaxis']
       end
 
       if attributes.key?(:'yaxis')
@@ -227,6 +247,7 @@ module DatadogAPIClient::V1
           custom_links == o.custom_links &&
           events == o.events &&
           legend_size == o.legend_size &&
+          markers == o.markers &&
           requests == o.requests &&
           show_legend == o.show_legend &&
           time == o.time &&
@@ -234,6 +255,7 @@ module DatadogAPIClient::V1
           title_align == o.title_align &&
           title_size == o.title_size &&
           type == o.type &&
+          xaxis == o.xaxis &&
           yaxis == o.yaxis &&
           additional_properties == o.additional_properties
     end
@@ -242,7 +264,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [custom_links, events, legend_size, requests, show_legend, time, title, title_align, title_size, type, yaxis, additional_properties].hash
+      [custom_links, events, legend_size, markers, requests, show_legend, time, title, title_align, title_size, type, xaxis, yaxis, additional_properties].hash
     end
   end
 end
