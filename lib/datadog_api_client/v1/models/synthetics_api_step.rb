@@ -27,7 +27,8 @@ module DatadogAPIClient::V1
       def openapi_one_of
         [
           :'SyntheticsAPITestStep',
-          :'SyntheticsAPIWaitStep'
+          :'SyntheticsAPIWaitStep',
+          :'SyntheticsAPISubtestStep'
         ]
       end
       # Builds the object

@@ -583,6 +583,8 @@ module DatadogAPIClient
           "v1.sunburst_widget_legend_table_type" => "SunburstWidgetLegendTableType",
           "v1.sunburst_widget_request" => "SunburstWidgetRequest",
           "v1.synthetics_api_step" => "SyntheticsAPIStep",
+          "v1.synthetics_api_subtest_step" => "SyntheticsAPISubtestStep",
+          "v1.synthetics_api_subtest_step_subtype" => "SyntheticsAPISubtestStepSubtype",
           "v1.synthetics_api_test" => "SyntheticsAPITest",
           "v1.synthetics_api_test_config" => "SyntheticsAPITestConfig",
           "v1.synthetics_api_test_failure_code" => "SyntheticsApiTestFailureCode",
