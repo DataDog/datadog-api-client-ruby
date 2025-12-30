@@ -27,6 +27,7 @@ module DatadogAPIClient::V2
       def openapi_one_of
         [
           :'ObservabilityPipelineDatadogLogsDestination',
+          :'ObservabilityPipelineCloudPremDestination',
           :'ObservabilityPipelineAmazonS3Destination',
           :'ObservabilityPipelineGoogleCloudStorageDestination',
           :'ObservabilityPipelineSplunkHecDestination',
@@ -44,7 +45,8 @@ module DatadogAPIClient::V2
           :'ObservabilityPipelineSocketDestination',
           :'ObservabilityPipelineAmazonSecurityLakeDestination',
           :'ObservabilityPipelineCrowdStrikeNextGenSiemDestination',
-          :'ObservabilityPipelineGooglePubSubDestination'
+          :'ObservabilityPipelineGooglePubSubDestination',
+          :'ObservabilityPipelineKafkaDestination'
         ]
       end
       # Builds the object

@@ -17,15 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Represents a key-value pair used to configure low-level `librdkafka` client options for Kafka sources, such as timeouts, buffer sizes, and security settings.
-  class ObservabilityPipelineKafkaSourceLibrdkafkaOption
+  # Specifies the SASL mechanism for authenticating with a Kafka cluster.
+  class ObservabilityPipelineKafkaSasl
     include BaseGenericModel
 
-    # The name of the `librdkafka` configuration option to set.
-    attr_reader :name
-
-    # The value assigned to the specified `librdkafka` configuration option.
-    attr_reader :value
+    # SASL mechanism used for Kafka authentication.
+    attr_accessor :mechanism
 
     attr_accessor :additional_properties
 
@@ -33,8 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'name' => :'name',
-        :'value' => :'value'
+        :'mechanism' => :'mechanism'
       }
     end
 
@@ -42,8 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'name' => :'String',
-        :'value' => :'String'
+        :'mechanism' => :'ObservabilityPipelineKafkaSaslMechanism'
       }
     end
 
@@ -52,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineKafkaSourceLibrdkafkaOption` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineKafkaSasl` initialize method"
       end
 
       self.additional_properties = {}
@@ -65,42 +60,9 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
+      if attributes.key?(:'mechanism')
+        self.mechanism = attributes[:'mechanism']
       end
-
-      if attributes.key?(:'value')
-        self.value = attributes[:'value']
-      end
-    end
-
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    # @!visibility private
-    def valid?
-      return false if @name.nil?
-      return false if @value.nil?
-      true
-    end
-
-    # Custom attribute writer method with validation
-    # @param name [Object] Object to be assigned
-    # @!visibility private
-    def name=(name)
-      if name.nil?
-        fail ArgumentError, 'invalid value for "name", name cannot be nil.'
-      end
-      @name = name
-    end
-
-    # Custom attribute writer method with validation
-    # @param value [Object] Object to be assigned
-    # @!visibility private
-    def value=(value)
-      if value.nil?
-        fail ArgumentError, 'invalid value for "value", value cannot be nil.'
-      end
-      @value = value
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -129,8 +91,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          name == o.name &&
-          value == o.value &&
+          mechanism == o.mechanism &&
           additional_properties == o.additional_properties
     end
 
@@ -138,7 +99,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [name, value, additional_properties].hash
+      [mechanism, additional_properties].hash
     end
   end
 end
