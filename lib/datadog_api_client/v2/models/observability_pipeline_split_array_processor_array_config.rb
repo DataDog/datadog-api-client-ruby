@@ -17,15 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Represents a key-value pair used to configure low-level `librdkafka` client options for Kafka sources, such as timeouts, buffer sizes, and security settings.
-  class ObservabilityPipelineKafkaSourceLibrdkafkaOption
+  # Configuration for a single array split operation.
+  class ObservabilityPipelineSplitArrayProcessorArrayConfig
     include BaseGenericModel
 
-    # The name of the `librdkafka` configuration option to set.
-    attr_reader :name
+    # The path to the array field to split.
+    attr_reader :field
 
-    # The value assigned to the specified `librdkafka` configuration option.
-    attr_reader :value
+    # A Datadog search query used to determine which logs this array split operation targets.
+    attr_reader :include
 
     attr_accessor :additional_properties
 
@@ -33,8 +33,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'name' => :'name',
-        :'value' => :'value'
+        :'field' => :'field',
+        :'include' => :'include'
       }
     end
 
@@ -42,8 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'name' => :'String',
-        :'value' => :'String'
+        :'field' => :'String',
+        :'include' => :'String'
       }
     end
 
@@ -52,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineKafkaSourceLibrdkafkaOption` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineSplitArrayProcessorArrayConfig` initialize method"
       end
 
       self.additional_properties = {}
@@ -65,12 +65,12 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
+      if attributes.key?(:'field')
+        self.field = attributes[:'field']
       end
 
-      if attributes.key?(:'value')
-        self.value = attributes[:'value']
+      if attributes.key?(:'include')
+        self.include = attributes[:'include']
       end
     end
 
@@ -78,29 +78,29 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @name.nil?
-      return false if @value.nil?
+      return false if @field.nil?
+      return false if @include.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param name [Object] Object to be assigned
+    # @param field [Object] Object to be assigned
     # @!visibility private
-    def name=(name)
-      if name.nil?
-        fail ArgumentError, 'invalid value for "name", name cannot be nil.'
+    def field=(field)
+      if field.nil?
+        fail ArgumentError, 'invalid value for "field", field cannot be nil.'
       end
-      @name = name
+      @field = field
     end
 
     # Custom attribute writer method with validation
-    # @param value [Object] Object to be assigned
+    # @param include [Object] Object to be assigned
     # @!visibility private
-    def value=(value)
-      if value.nil?
-        fail ArgumentError, 'invalid value for "value", value cannot be nil.'
+    def include=(include)
+      if include.nil?
+        fail ArgumentError, 'invalid value for "include", include cannot be nil.'
       end
-      @value = value
+      @include = include
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -129,8 +129,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          name == o.name &&
-          value == o.value &&
+          field == o.field &&
+          include == o.include &&
           additional_properties == o.additional_properties
     end
 
@@ -138,7 +138,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [name, value, additional_properties].hash
+      [field, include, additional_properties].hash
     end
   end
 end

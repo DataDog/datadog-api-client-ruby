@@ -21,6 +21,7 @@ module DatadogAPIClient::V2
   class ObservabilityPipelineHttpClientSourceAuthStrategy
     include BaseEnumModel
 
+    NONE = "none".freeze
     BASIC = "basic".freeze
     BEARER = "bearer".freeze
   end

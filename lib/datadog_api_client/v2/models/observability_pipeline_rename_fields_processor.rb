@@ -18,6 +18,8 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The `rename_fields` processor changes field names.
+  # 
+  # **Supported pipeline types:** logs
   class ObservabilityPipelineRenameFieldsProcessor
     include BaseGenericModel
 

@@ -18,6 +18,8 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The `http_client` source scrapes logs from HTTP endpoints at regular intervals.
+  # 
+  # **Supported pipeline types:** logs
   class ObservabilityPipelineHttpClientSource
     include BaseGenericModel
 

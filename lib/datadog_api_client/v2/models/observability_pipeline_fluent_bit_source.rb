@@ -18,6 +18,8 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The `fluent_bit` source ingests logs from Fluent Bit.
+  # 
+  # **Supported pipeline types:** logs
   class ObservabilityPipelineFluentBitSource
     include BaseGenericModel
 
