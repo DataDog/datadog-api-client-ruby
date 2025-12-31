@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternOptions
     include BaseGenericModel
 
+    # Human-readable description providing context about a sensitive data scanner rule
+    attr_accessor :description
+
     # Identifier for a predefined pattern from the sensitive data scanner pattern library.
     attr_reader :id
 
@@ -33,6 +36,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'description' => :'description',
         :'id' => :'id',
         :'use_recommended_keywords' => :'use_recommended_keywords'
       }
@@ -42,6 +46,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'description' => :'String',
         :'id' => :'String',
         :'use_recommended_keywords' => :'Boolean'
       }
@@ -64,6 +69,10 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'description')
+        self.description = attributes[:'description']
+      end
 
       if attributes.key?(:'id')
         self.id = attributes[:'id']
@@ -118,6 +127,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          description == o.description &&
           id == o.id &&
           use_recommended_keywords == o.use_recommended_keywords &&
           additional_properties == o.additional_properties
@@ -127,7 +137,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [id, use_recommended_keywords, additional_properties].hash
+      [description, id, use_recommended_keywords, additional_properties].hash
     end
   end
 end

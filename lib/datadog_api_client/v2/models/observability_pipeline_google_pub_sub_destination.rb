@@ -18,6 +18,8 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The `google_pubsub` destination publishes logs to a Google Cloud Pub/Sub topic.
+  # 
+  # **Supported pipeline types:** logs
   class ObservabilityPipelineGooglePubSubDestination
     include BaseGenericModel
 

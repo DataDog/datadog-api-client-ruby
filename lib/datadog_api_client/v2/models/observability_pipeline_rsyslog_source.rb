@@ -18,6 +18,8 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The `rsyslog` source listens for logs over TCP or UDP from an `rsyslog` server using the syslog protocol.
+  # 
+  # **Supported pipeline types:** logs
   class ObservabilityPipelineRsyslogSource
     include BaseGenericModel
 
