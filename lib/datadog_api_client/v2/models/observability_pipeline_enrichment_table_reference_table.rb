@@ -17,15 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Represents a key-value pair used to configure low-level `librdkafka` client options for Kafka sources, such as timeouts, buffer sizes, and security settings.
-  class ObservabilityPipelineKafkaSourceLibrdkafkaOption
+  # Uses a Datadog reference table to enrich logs.
+  class ObservabilityPipelineEnrichmentTableReferenceTable
     include BaseGenericModel
 
-    # The name of the `librdkafka` configuration option to set.
-    attr_reader :name
+    # List of column names to include from the reference table. If not provided, all columns are included.
+    attr_accessor :columns
 
-    # The value assigned to the specified `librdkafka` configuration option.
-    attr_reader :value
+    # Path to the field in the log event to match against the reference table.
+    attr_reader :key_field
+
+    # The unique identifier of the reference table.
+    attr_reader :table_id
 
     attr_accessor :additional_properties
 
@@ -33,8 +36,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'name' => :'name',
-        :'value' => :'value'
+        :'columns' => :'columns',
+        :'key_field' => :'key_field',
+        :'table_id' => :'table_id'
       }
     end
 
@@ -42,8 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'name' => :'String',
-        :'value' => :'String'
+        :'columns' => :'Array<String>',
+        :'key_field' => :'String',
+        :'table_id' => :'String'
       }
     end
 
@@ -52,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineKafkaSourceLibrdkafkaOption` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineEnrichmentTableReferenceTable` initialize method"
       end
 
       self.additional_properties = {}
@@ -65,12 +70,18 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
+      if attributes.key?(:'columns')
+        if (value = attributes[:'columns']).is_a?(Array)
+          self.columns = value
+        end
       end
 
-      if attributes.key?(:'value')
-        self.value = attributes[:'value']
+      if attributes.key?(:'key_field')
+        self.key_field = attributes[:'key_field']
+      end
+
+      if attributes.key?(:'table_id')
+        self.table_id = attributes[:'table_id']
       end
     end
 
@@ -78,29 +89,29 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @name.nil?
-      return false if @value.nil?
+      return false if @key_field.nil?
+      return false if @table_id.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param name [Object] Object to be assigned
+    # @param key_field [Object] Object to be assigned
     # @!visibility private
-    def name=(name)
-      if name.nil?
-        fail ArgumentError, 'invalid value for "name", name cannot be nil.'
+    def key_field=(key_field)
+      if key_field.nil?
+        fail ArgumentError, 'invalid value for "key_field", key_field cannot be nil.'
       end
-      @name = name
+      @key_field = key_field
     end
 
     # Custom attribute writer method with validation
-    # @param value [Object] Object to be assigned
+    # @param table_id [Object] Object to be assigned
     # @!visibility private
-    def value=(value)
-      if value.nil?
-        fail ArgumentError, 'invalid value for "value", value cannot be nil.'
+    def table_id=(table_id)
+      if table_id.nil?
+        fail ArgumentError, 'invalid value for "table_id", table_id cannot be nil.'
       end
-      @value = value
+      @table_id = table_id
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -129,8 +140,9 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          name == o.name &&
-          value == o.value &&
+          columns == o.columns &&
+          key_field == o.key_field &&
+          table_id == o.table_id &&
           additional_properties == o.additional_properties
     end
 
@@ -138,7 +150,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [name, value, additional_properties].hash
+      [columns, key_field, table_id, additional_properties].hash
     end
   end
 end

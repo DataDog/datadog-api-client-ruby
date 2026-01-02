@@ -17,12 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Specifies the SASL mechanism for authenticating with a Kafka cluster.
-  class ObservabilityPipelineKafkaSourceSasl
+  # The `cloud_prem` destination sends logs to Datadog CloudPrem.
+  class ObservabilityPipelineCloudPremDestination
     include BaseGenericModel
 
-    # SASL mechanism used for Kafka authentication.
-    attr_accessor :mechanism
+    # The unique identifier for this component.
+    attr_reader :id
+
+    # A list of component IDs whose output is used as the `input` for this component.
+    attr_reader :inputs
+
+    # The destination type. The value should always be `cloud_prem`.
+    attr_reader :type
 
     attr_accessor :additional_properties
 
@@ -30,7 +36,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'mechanism' => :'mechanism'
+        :'id' => :'id',
+        :'inputs' => :'inputs',
+        :'type' => :'type'
       }
     end
 
@@ -38,7 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'mechanism' => :'ObservabilityPipelinePipelineKafkaSourceSaslMechanism'
+        :'id' => :'String',
+        :'inputs' => :'Array<String>',
+        :'type' => :'ObservabilityPipelineCloudPremDestinationType'
       }
     end
 
@@ -47,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineKafkaSourceSasl` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineCloudPremDestination` initialize method"
       end
 
       self.additional_properties = {}
@@ -60,9 +70,59 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'mechanism')
-        self.mechanism = attributes[:'mechanism']
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
       end
+
+      if attributes.key?(:'inputs')
+        if (value = attributes[:'inputs']).is_a?(Array)
+          self.inputs = value
+        end
+      end
+
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
+      end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @id.nil?
+      return false if @inputs.nil?
+      return false if @type.nil?
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param id [Object] Object to be assigned
+    # @!visibility private
+    def id=(id)
+      if id.nil?
+        fail ArgumentError, 'invalid value for "id", id cannot be nil.'
+      end
+      @id = id
+    end
+
+    # Custom attribute writer method with validation
+    # @param inputs [Object] Object to be assigned
+    # @!visibility private
+    def inputs=(inputs)
+      if inputs.nil?
+        fail ArgumentError, 'invalid value for "inputs", inputs cannot be nil.'
+      end
+      @inputs = inputs
+    end
+
+    # Custom attribute writer method with validation
+    # @param type [Object] Object to be assigned
+    # @!visibility private
+    def type=(type)
+      if type.nil?
+        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+      end
+      @type = type
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -91,7 +151,9 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          mechanism == o.mechanism &&
+          id == o.id &&
+          inputs == o.inputs &&
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -99,7 +161,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [mechanism, additional_properties].hash
+      [id, inputs, type, additional_properties].hash
     end
   end
 end

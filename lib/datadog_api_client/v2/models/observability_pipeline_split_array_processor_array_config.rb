@@ -17,18 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Options for selecting a predefined library pattern and enabling keyword support.
-  class ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternOptions
+  # Configuration for a single array split operation.
+  class ObservabilityPipelineSplitArrayProcessorArrayConfig
     include BaseGenericModel
 
-    # Human-readable description providing context about a sensitive data scanner rule
-    attr_accessor :description
+    # The path to the array field to split.
+    attr_reader :field
 
-    # Identifier for a predefined pattern from the sensitive data scanner pattern library.
-    attr_reader :id
-
-    # Whether to augment the pattern with recommended keywords (optional).
-    attr_accessor :use_recommended_keywords
+    # A Datadog search query used to determine which logs this array split operation targets.
+    attr_reader :include
 
     attr_accessor :additional_properties
 
@@ -36,9 +33,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'description' => :'description',
-        :'id' => :'id',
-        :'use_recommended_keywords' => :'use_recommended_keywords'
+        :'field' => :'field',
+        :'include' => :'include'
       }
     end
 
@@ -46,9 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'description' => :'String',
-        :'id' => :'String',
-        :'use_recommended_keywords' => :'Boolean'
+        :'field' => :'String',
+        :'include' => :'String'
       }
     end
 
@@ -57,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternOptions` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineSplitArrayProcessorArrayConfig` initialize method"
       end
 
       self.additional_properties = {}
@@ -70,16 +65,12 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'description')
-        self.description = attributes[:'description']
+      if attributes.key?(:'field')
+        self.field = attributes[:'field']
       end
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
-      end
-
-      if attributes.key?(:'use_recommended_keywords')
-        self.use_recommended_keywords = attributes[:'use_recommended_keywords']
+      if attributes.key?(:'include')
+        self.include = attributes[:'include']
       end
     end
 
@@ -87,18 +78,29 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @id.nil?
+      return false if @field.nil?
+      return false if @include.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param id [Object] Object to be assigned
+    # @param field [Object] Object to be assigned
     # @!visibility private
-    def id=(id)
-      if id.nil?
-        fail ArgumentError, 'invalid value for "id", id cannot be nil.'
+    def field=(field)
+      if field.nil?
+        fail ArgumentError, 'invalid value for "field", field cannot be nil.'
       end
-      @id = id
+      @field = field
+    end
+
+    # Custom attribute writer method with validation
+    # @param include [Object] Object to be assigned
+    # @!visibility private
+    def include=(include)
+      if include.nil?
+        fail ArgumentError, 'invalid value for "include", include cannot be nil.'
+      end
+      @include = include
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -127,9 +129,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          description == o.description &&
-          id == o.id &&
-          use_recommended_keywords == o.use_recommended_keywords &&
+          field == o.field &&
+          include == o.include &&
           additional_properties == o.additional_properties
     end
 
@@ -137,7 +138,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [description, id, use_recommended_keywords, additional_properties].hash
+      [field, include, additional_properties].hash
     end
   end
 end

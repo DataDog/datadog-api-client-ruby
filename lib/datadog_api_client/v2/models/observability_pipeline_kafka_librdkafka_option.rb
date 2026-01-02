@@ -17,18 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Options for selecting a predefined library pattern and enabling keyword support.
-  class ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternOptions
+  # Represents a key-value pair used to configure low-level `librdkafka` client options for Kafka source and destination, such as timeouts, buffer sizes, and security settings.
+  class ObservabilityPipelineKafkaLibrdkafkaOption
     include BaseGenericModel
 
-    # Human-readable description providing context about a sensitive data scanner rule
-    attr_accessor :description
+    # The name of the `librdkafka` configuration option to set.
+    attr_reader :name
 
-    # Identifier for a predefined pattern from the sensitive data scanner pattern library.
-    attr_reader :id
-
-    # Whether to augment the pattern with recommended keywords (optional).
-    attr_accessor :use_recommended_keywords
+    # The value assigned to the specified `librdkafka` configuration option.
+    attr_reader :value
 
     attr_accessor :additional_properties
 
@@ -36,9 +33,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'description' => :'description',
-        :'id' => :'id',
-        :'use_recommended_keywords' => :'use_recommended_keywords'
+        :'name' => :'name',
+        :'value' => :'value'
       }
     end
 
@@ -46,9 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'description' => :'String',
-        :'id' => :'String',
-        :'use_recommended_keywords' => :'Boolean'
+        :'name' => :'String',
+        :'value' => :'String'
       }
     end
 
@@ -57,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternOptions` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineKafkaLibrdkafkaOption` initialize method"
       end
 
       self.additional_properties = {}
@@ -70,16 +65,12 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'description')
-        self.description = attributes[:'description']
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
-      end
-
-      if attributes.key?(:'use_recommended_keywords')
-        self.use_recommended_keywords = attributes[:'use_recommended_keywords']
+      if attributes.key?(:'value')
+        self.value = attributes[:'value']
       end
     end
 
@@ -87,18 +78,29 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @id.nil?
+      return false if @name.nil?
+      return false if @value.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param id [Object] Object to be assigned
+    # @param name [Object] Object to be assigned
     # @!visibility private
-    def id=(id)
-      if id.nil?
-        fail ArgumentError, 'invalid value for "id", id cannot be nil.'
+    def name=(name)
+      if name.nil?
+        fail ArgumentError, 'invalid value for "name", name cannot be nil.'
       end
-      @id = id
+      @name = name
+    end
+
+    # Custom attribute writer method with validation
+    # @param value [Object] Object to be assigned
+    # @!visibility private
+    def value=(value)
+      if value.nil?
+        fail ArgumentError, 'invalid value for "value", value cannot be nil.'
+      end
+      @value = value
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -127,9 +129,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          description == o.description &&
-          id == o.id &&
-          use_recommended_keywords == o.use_recommended_keywords &&
+          name == o.name &&
+          value == o.value &&
           additional_properties == o.additional_properties
     end
 
@@ -137,7 +138,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [description, id, use_recommended_keywords, additional_properties].hash
+      [name, value, additional_properties].hash
     end
   end
 end

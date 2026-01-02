@@ -17,15 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The action to take when the quota or bucket limit is exceeded. Options:
-  # - `drop`: Drop the event.
-  # - `no_action`: Let the event pass through.
-  # - `overflow_routing`: Route to an overflow destination.
-  class ObservabilityPipelineQuotaProcessorOverflowAction
+  # Compression codec for Kafka messages.
+  class ObservabilityPipelineKafkaDestinationCompression
     include BaseEnumModel
 
-    DROP = "drop".freeze
-    NO_ACTION = "no_action".freeze
-    OVERFLOW_ROUTING = "overflow_routing".freeze
+    NONE = "none".freeze
+    GZIP = "gzip".freeze
+    SNAPPY = "snappy".freeze
+    LZ4 = "lz4".freeze
+    ZSTD = "zstd".freeze
   end
 end

@@ -17,8 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The `sample` processor allows probabilistic sampling of logs at a fixed rate.
-  class ObservabilityPipelineSampleProcessor
+  # The `add_hostname` processor adds the hostname to log events.
+  class ObservabilityPipelineAddHostnameProcessor
     include BaseGenericModel
 
     # The display name for a component.
@@ -27,19 +27,13 @@ module DatadogAPIClient::V2
     # Whether this processor is enabled.
     attr_reader :enabled
 
-    # Optional list of fields to group events by. Each group is sampled independently.
-    attr_reader :group_by
-
     # The unique identifier for this component. Used to reference this component in other parts of the pipeline (for example, as the `input` to downstream components).
     attr_reader :id
 
     # A Datadog search query used to determine which logs this processor targets.
     attr_reader :include
 
-    # The percentage of logs to sample.
-    attr_reader :percentage
-
-    # The processor type. The value should always be `sample`.
+    # The processor type. The value should always be `add_hostname`.
     attr_reader :type
 
     attr_accessor :additional_properties
@@ -50,10 +44,8 @@ module DatadogAPIClient::V2
       {
         :'display_name' => :'display_name',
         :'enabled' => :'enabled',
-        :'group_by' => :'group_by',
         :'id' => :'id',
         :'include' => :'include',
-        :'percentage' => :'percentage',
         :'type' => :'type'
       }
     end
@@ -64,11 +56,9 @@ module DatadogAPIClient::V2
       {
         :'display_name' => :'String',
         :'enabled' => :'Boolean',
-        :'group_by' => :'Array<String>',
         :'id' => :'String',
         :'include' => :'String',
-        :'percentage' => :'Float',
-        :'type' => :'ObservabilityPipelineSampleProcessorType'
+        :'type' => :'ObservabilityPipelineAddHostnameProcessorType'
       }
     end
 
@@ -77,7 +67,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineSampleProcessor` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineAddHostnameProcessor` initialize method"
       end
 
       self.additional_properties = {}
@@ -98,22 +88,12 @@ module DatadogAPIClient::V2
         self.enabled = attributes[:'enabled']
       end
 
-      if attributes.key?(:'group_by')
-        if (value = attributes[:'group_by']).is_a?(Array)
-          self.group_by = value
-        end
-      end
-
       if attributes.key?(:'id')
         self.id = attributes[:'id']
       end
 
       if attributes.key?(:'include')
         self.include = attributes[:'include']
-      end
-
-      if attributes.key?(:'percentage')
-        self.percentage = attributes[:'percentage']
       end
 
       if attributes.key?(:'type')
@@ -126,10 +106,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @enabled.nil?
-      return false if !@group_by.nil? && @group_by.length < 1
       return false if @id.nil?
       return false if @include.nil?
-      return false if @percentage.nil?
       return false if @type.nil?
       true
     end
@@ -142,16 +120,6 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "enabled", enabled cannot be nil.'
       end
       @enabled = enabled
-    end
-
-    # Custom attribute writer method with validation
-    # @param group_by [Object] Object to be assigned
-    # @!visibility private
-    def group_by=(group_by)
-      if !group_by.nil? && group_by.length < 1
-        fail ArgumentError, 'invalid value for "group_by", number of items must be greater than or equal to 1.'
-      end
-      @group_by = group_by
     end
 
     # Custom attribute writer method with validation
@@ -172,16 +140,6 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "include", include cannot be nil.'
       end
       @include = include
-    end
-
-    # Custom attribute writer method with validation
-    # @param percentage [Object] Object to be assigned
-    # @!visibility private
-    def percentage=(percentage)
-      if percentage.nil?
-        fail ArgumentError, 'invalid value for "percentage", percentage cannot be nil.'
-      end
-      @percentage = percentage
     end
 
     # Custom attribute writer method with validation
@@ -222,10 +180,8 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           display_name == o.display_name &&
           enabled == o.enabled &&
-          group_by == o.group_by &&
           id == o.id &&
           include == o.include &&
-          percentage == o.percentage &&
           type == o.type &&
           additional_properties == o.additional_properties
     end
@@ -234,7 +190,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [display_name, enabled, group_by, id, include, percentage, type, additional_properties].hash
+      [display_name, enabled, id, include, type, additional_properties].hash
     end
   end
 end
