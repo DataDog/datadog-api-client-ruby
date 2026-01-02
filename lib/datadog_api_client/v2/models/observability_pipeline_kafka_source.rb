@@ -64,8 +64,8 @@ module DatadogAPIClient::V2
       {
         :'group_id' => :'String',
         :'id' => :'String',
-        :'librdkafka_options' => :'Array<ObservabilityPipelineKafkaSourceLibrdkafkaOption>',
-        :'sasl' => :'ObservabilityPipelineKafkaSourceSasl',
+        :'librdkafka_options' => :'Array<ObservabilityPipelineKafkaLibrdkafkaOption>',
+        :'sasl' => :'ObservabilityPipelineKafkaSasl',
         :'tls' => :'ObservabilityPipelineTls',
         :'topics' => :'Array<String>',
         :'type' => :'ObservabilityPipelineKafkaSourceType'

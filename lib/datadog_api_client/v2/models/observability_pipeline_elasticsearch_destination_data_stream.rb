@@ -17,18 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Options for selecting a predefined library pattern and enabling keyword support.
-  class ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternOptions
+  # Configuration options for writing to Elasticsearch Data Streams instead of a fixed index.
+  class ObservabilityPipelineElasticsearchDestinationDataStream
     include BaseGenericModel
 
-    # Human-readable description providing context about a sensitive data scanner rule
-    attr_accessor :description
+    # The data stream dataset for your logs. This groups logs by their source or application.
+    attr_accessor :dataset
 
-    # Identifier for a predefined pattern from the sensitive data scanner pattern library.
-    attr_reader :id
+    # The data stream type for your logs. This determines how logs are categorized within the data stream.
+    attr_accessor :dtype
 
-    # Whether to augment the pattern with recommended keywords (optional).
-    attr_accessor :use_recommended_keywords
+    # The data stream namespace for your logs. This separates logs into different environments or domains.
+    attr_accessor :namespace
 
     attr_accessor :additional_properties
 
@@ -36,9 +36,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'description' => :'description',
-        :'id' => :'id',
-        :'use_recommended_keywords' => :'use_recommended_keywords'
+        :'dataset' => :'dataset',
+        :'dtype' => :'dtype',
+        :'namespace' => :'namespace'
       }
     end
 
@@ -46,9 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'description' => :'String',
-        :'id' => :'String',
-        :'use_recommended_keywords' => :'Boolean'
+        :'dataset' => :'String',
+        :'dtype' => :'String',
+        :'namespace' => :'String'
       }
     end
 
@@ -57,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternOptions` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineElasticsearchDestinationDataStream` initialize method"
       end
 
       self.additional_properties = {}
@@ -70,35 +70,17 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'description')
-        self.description = attributes[:'description']
+      if attributes.key?(:'dataset')
+        self.dataset = attributes[:'dataset']
       end
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.key?(:'dtype')
+        self.dtype = attributes[:'dtype']
       end
 
-      if attributes.key?(:'use_recommended_keywords')
-        self.use_recommended_keywords = attributes[:'use_recommended_keywords']
+      if attributes.key?(:'namespace')
+        self.namespace = attributes[:'namespace']
       end
-    end
-
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    # @!visibility private
-    def valid?
-      return false if @id.nil?
-      true
-    end
-
-    # Custom attribute writer method with validation
-    # @param id [Object] Object to be assigned
-    # @!visibility private
-    def id=(id)
-      if id.nil?
-        fail ArgumentError, 'invalid value for "id", id cannot be nil.'
-      end
-      @id = id
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -127,9 +109,9 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          description == o.description &&
-          id == o.id &&
-          use_recommended_keywords == o.use_recommended_keywords &&
+          dataset == o.dataset &&
+          dtype == o.dtype &&
+          namespace == o.namespace &&
           additional_properties == o.additional_properties
     end
 
@@ -137,7 +119,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [description, id, use_recommended_keywords, additional_properties].hash
+      [dataset, dtype, namespace, additional_properties].hash
     end
   end
 end

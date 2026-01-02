@@ -17,12 +17,10 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # SASL mechanism used for Kafka authentication.
-  class ObservabilityPipelinePipelineKafkaSourceSaslMechanism
+  # The destination type. The value should always be `kafka`.
+  class ObservabilityPipelineKafkaDestinationType
     include BaseEnumModel
 
-    PLAIN = "PLAIN".freeze
-    SCRAMNOT_SHANOT_256 = "SCRAM-SHA-256".freeze
-    SCRAMNOT_SHANOT_512 = "SCRAM-SHA-512".freeze
+    KAFKA = "kafka".freeze
   end
 end

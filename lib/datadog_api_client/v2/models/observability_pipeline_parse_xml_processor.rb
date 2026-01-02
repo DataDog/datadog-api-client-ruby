@@ -17,9 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The `sample` processor allows probabilistic sampling of logs at a fixed rate.
-  class ObservabilityPipelineSampleProcessor
+  # The `parse_xml` processor parses XML from a specified field and extracts it into the event.
+  class ObservabilityPipelineParseXMLProcessor
     include BaseGenericModel
+
+    # Whether to always use a text key for element content.
+    attr_accessor :always_use_text_key
+
+    # The prefix to use for XML attributes in the parsed output.
+    attr_accessor :attr_prefix
 
     # The display name for a component.
     attr_accessor :display_name
@@ -27,8 +33,8 @@ module DatadogAPIClient::V2
     # Whether this processor is enabled.
     attr_reader :enabled
 
-    # Optional list of fields to group events by. Each group is sampled independently.
-    attr_reader :group_by
+    # The name of the log field that contains an XML string.
+    attr_reader :field
 
     # The unique identifier for this component. Used to reference this component in other parts of the pipeline (for example, as the `input` to downstream components).
     attr_reader :id
@@ -36,10 +42,22 @@ module DatadogAPIClient::V2
     # A Datadog search query used to determine which logs this processor targets.
     attr_reader :include
 
-    # The percentage of logs to sample.
-    attr_reader :percentage
+    # Whether to include XML attributes in the parsed output.
+    attr_accessor :include_attr
 
-    # The processor type. The value should always be `sample`.
+    # Whether to parse boolean values from strings.
+    attr_accessor :parse_bool
+
+    # Whether to parse null values.
+    attr_accessor :parse_null
+
+    # Whether to parse numeric values from strings.
+    attr_accessor :parse_number
+
+    # The key name to use for text content within XML elements. Must be at least 1 character if specified.
+    attr_reader :text_key
+
+    # The processor type. The value should always be `parse_xml`.
     attr_reader :type
 
     attr_accessor :additional_properties
@@ -48,12 +66,18 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'always_use_text_key' => :'always_use_text_key',
+        :'attr_prefix' => :'attr_prefix',
         :'display_name' => :'display_name',
         :'enabled' => :'enabled',
-        :'group_by' => :'group_by',
+        :'field' => :'field',
         :'id' => :'id',
         :'include' => :'include',
-        :'percentage' => :'percentage',
+        :'include_attr' => :'include_attr',
+        :'parse_bool' => :'parse_bool',
+        :'parse_null' => :'parse_null',
+        :'parse_number' => :'parse_number',
+        :'text_key' => :'text_key',
         :'type' => :'type'
       }
     end
@@ -62,13 +86,19 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'always_use_text_key' => :'Boolean',
+        :'attr_prefix' => :'String',
         :'display_name' => :'String',
         :'enabled' => :'Boolean',
-        :'group_by' => :'Array<String>',
+        :'field' => :'String',
         :'id' => :'String',
         :'include' => :'String',
-        :'percentage' => :'Float',
-        :'type' => :'ObservabilityPipelineSampleProcessorType'
+        :'include_attr' => :'Boolean',
+        :'parse_bool' => :'Boolean',
+        :'parse_null' => :'Boolean',
+        :'parse_number' => :'Boolean',
+        :'text_key' => :'String',
+        :'type' => :'ObservabilityPipelineParseXMLProcessorType'
       }
     end
 
@@ -77,7 +107,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineSampleProcessor` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineParseXMLProcessor` initialize method"
       end
 
       self.additional_properties = {}
@@ -90,6 +120,14 @@ module DatadogAPIClient::V2
         end
       }
 
+      if attributes.key?(:'always_use_text_key')
+        self.always_use_text_key = attributes[:'always_use_text_key']
+      end
+
+      if attributes.key?(:'attr_prefix')
+        self.attr_prefix = attributes[:'attr_prefix']
+      end
+
       if attributes.key?(:'display_name')
         self.display_name = attributes[:'display_name']
       end
@@ -98,10 +136,8 @@ module DatadogAPIClient::V2
         self.enabled = attributes[:'enabled']
       end
 
-      if attributes.key?(:'group_by')
-        if (value = attributes[:'group_by']).is_a?(Array)
-          self.group_by = value
-        end
+      if attributes.key?(:'field')
+        self.field = attributes[:'field']
       end
 
       if attributes.key?(:'id')
@@ -112,8 +148,24 @@ module DatadogAPIClient::V2
         self.include = attributes[:'include']
       end
 
-      if attributes.key?(:'percentage')
-        self.percentage = attributes[:'percentage']
+      if attributes.key?(:'include_attr')
+        self.include_attr = attributes[:'include_attr']
+      end
+
+      if attributes.key?(:'parse_bool')
+        self.parse_bool = attributes[:'parse_bool']
+      end
+
+      if attributes.key?(:'parse_null')
+        self.parse_null = attributes[:'parse_null']
+      end
+
+      if attributes.key?(:'parse_number')
+        self.parse_number = attributes[:'parse_number']
+      end
+
+      if attributes.key?(:'text_key')
+        self.text_key = attributes[:'text_key']
       end
 
       if attributes.key?(:'type')
@@ -126,10 +178,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @enabled.nil?
-      return false if !@group_by.nil? && @group_by.length < 1
+      return false if @field.nil?
       return false if @id.nil?
       return false if @include.nil?
-      return false if @percentage.nil?
+      return false if !@text_key.nil? && @text_key.to_s.length < 1
       return false if @type.nil?
       true
     end
@@ -145,13 +197,13 @@ module DatadogAPIClient::V2
     end
 
     # Custom attribute writer method with validation
-    # @param group_by [Object] Object to be assigned
+    # @param field [Object] Object to be assigned
     # @!visibility private
-    def group_by=(group_by)
-      if !group_by.nil? && group_by.length < 1
-        fail ArgumentError, 'invalid value for "group_by", number of items must be greater than or equal to 1.'
+    def field=(field)
+      if field.nil?
+        fail ArgumentError, 'invalid value for "field", field cannot be nil.'
       end
-      @group_by = group_by
+      @field = field
     end
 
     # Custom attribute writer method with validation
@@ -175,13 +227,13 @@ module DatadogAPIClient::V2
     end
 
     # Custom attribute writer method with validation
-    # @param percentage [Object] Object to be assigned
+    # @param text_key [Object] Object to be assigned
     # @!visibility private
-    def percentage=(percentage)
-      if percentage.nil?
-        fail ArgumentError, 'invalid value for "percentage", percentage cannot be nil.'
+    def text_key=(text_key)
+      if !text_key.nil? && text_key.to_s.length < 1
+        fail ArgumentError, 'invalid value for "text_key", the character length must be great than or equal to 1.'
       end
-      @percentage = percentage
+      @text_key = text_key
     end
 
     # Custom attribute writer method with validation
@@ -220,12 +272,18 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          always_use_text_key == o.always_use_text_key &&
+          attr_prefix == o.attr_prefix &&
           display_name == o.display_name &&
           enabled == o.enabled &&
-          group_by == o.group_by &&
+          field == o.field &&
           id == o.id &&
           include == o.include &&
-          percentage == o.percentage &&
+          include_attr == o.include_attr &&
+          parse_bool == o.parse_bool &&
+          parse_null == o.parse_null &&
+          parse_number == o.parse_number &&
+          text_key == o.text_key &&
           type == o.type &&
           additional_properties == o.additional_properties
     end
@@ -234,7 +292,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [display_name, enabled, group_by, id, include, percentage, type, additional_properties].hash
+      [always_use_text_key, attr_prefix, display_name, enabled, field, id, include, include_attr, parse_bool, parse_null, parse_number, text_key, type, additional_properties].hash
     end
   end
 end

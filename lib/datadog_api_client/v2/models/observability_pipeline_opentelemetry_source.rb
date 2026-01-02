@@ -17,18 +17,24 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Options for selecting a predefined library pattern and enabling keyword support.
-  class ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternOptions
+  # The `opentelemetry` source receives telemetry data using the OpenTelemetry Protocol (OTLP) over gRPC and HTTP.
+  class ObservabilityPipelineOpentelemetrySource
     include BaseGenericModel
 
-    # Human-readable description providing context about a sensitive data scanner rule
-    attr_accessor :description
+    # Environment variable name containing the gRPC server address for receiving OTLP data. Must be a valid environment variable name (alphanumeric characters and underscores only).
+    attr_accessor :grpc_address_key
 
-    # Identifier for a predefined pattern from the sensitive data scanner pattern library.
+    # Environment variable name containing the HTTP server address for receiving OTLP data. Must be a valid environment variable name (alphanumeric characters and underscores only).
+    attr_accessor :http_address_key
+
+    # The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
     attr_reader :id
 
-    # Whether to augment the pattern with recommended keywords (optional).
-    attr_accessor :use_recommended_keywords
+    # Configuration for enabling TLS encryption between the pipeline component and external services.
+    attr_accessor :tls
+
+    # The source type. The value should always be `opentelemetry`.
+    attr_reader :type
 
     attr_accessor :additional_properties
 
@@ -36,9 +42,11 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'description' => :'description',
+        :'grpc_address_key' => :'grpc_address_key',
+        :'http_address_key' => :'http_address_key',
         :'id' => :'id',
-        :'use_recommended_keywords' => :'use_recommended_keywords'
+        :'tls' => :'tls',
+        :'type' => :'type'
       }
     end
 
@@ -46,9 +54,11 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'description' => :'String',
+        :'grpc_address_key' => :'String',
+        :'http_address_key' => :'String',
         :'id' => :'String',
-        :'use_recommended_keywords' => :'Boolean'
+        :'tls' => :'ObservabilityPipelineTls',
+        :'type' => :'ObservabilityPipelineOpentelemetrySourceType'
       }
     end
 
@@ -57,7 +67,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternOptions` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineOpentelemetrySource` initialize method"
       end
 
       self.additional_properties = {}
@@ -70,16 +80,24 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'description')
-        self.description = attributes[:'description']
+      if attributes.key?(:'grpc_address_key')
+        self.grpc_address_key = attributes[:'grpc_address_key']
+      end
+
+      if attributes.key?(:'http_address_key')
+        self.http_address_key = attributes[:'http_address_key']
       end
 
       if attributes.key?(:'id')
         self.id = attributes[:'id']
       end
 
-      if attributes.key?(:'use_recommended_keywords')
-        self.use_recommended_keywords = attributes[:'use_recommended_keywords']
+      if attributes.key?(:'tls')
+        self.tls = attributes[:'tls']
+      end
+
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
       end
     end
 
@@ -88,6 +106,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @id.nil?
+      return false if @type.nil?
       true
     end
 
@@ -99,6 +118,16 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "id", id cannot be nil.'
       end
       @id = id
+    end
+
+    # Custom attribute writer method with validation
+    # @param type [Object] Object to be assigned
+    # @!visibility private
+    def type=(type)
+      if type.nil?
+        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+      end
+      @type = type
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -127,9 +156,11 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          description == o.description &&
+          grpc_address_key == o.grpc_address_key &&
+          http_address_key == o.http_address_key &&
           id == o.id &&
-          use_recommended_keywords == o.use_recommended_keywords &&
+          tls == o.tls &&
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -137,7 +168,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [description, id, use_recommended_keywords, additional_properties].hash
+      [grpc_address_key, http_address_key, id, tls, type, additional_properties].hash
     end
   end
 end

@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # The display name for a component.
     attr_accessor :display_name
 
-    # If set to `true`, logs that matched the quota filter and sent after the quota has been met are dropped; only logs that did not match the filter query continue through the pipeline.
+    # If set to `true`, logs that match the quota filter and are sent after the quota is exceeded are dropped. Logs that do not match the filter continue through the pipeline. **Note**: You can set either `drop_events` or `overflow_action`, but not both.
     attr_accessor :drop_events
 
     # Whether this processor is enabled.
@@ -45,7 +45,7 @@ module DatadogAPIClient::V2
     # Name of the quota.
     attr_reader :name
 
-    # The action to take when the quota is exceeded. Options:
+    # The action to take when the quota or bucket limit is exceeded. Options:
     # - `drop`: Drop the event.
     # - `no_action`: Let the event pass through.
     # - `overflow_routing`: Route to an overflow destination.
@@ -56,6 +56,12 @@ module DatadogAPIClient::V2
 
     # A list of fields used to segment log traffic for quota enforcement. Quotas are tracked independently by unique combinations of these field values.
     attr_accessor :partition_fields
+
+    # The action to take when the quota or bucket limit is exceeded. Options:
+    # - `drop`: Drop the event.
+    # - `no_action`: Let the event pass through.
+    # - `overflow_routing`: Route to an overflow destination.
+    attr_accessor :too_many_buckets_action
 
     # The processor type. The value should always be `quota`.
     attr_reader :type
@@ -77,6 +83,7 @@ module DatadogAPIClient::V2
         :'overflow_action' => :'overflow_action',
         :'overrides' => :'overrides',
         :'partition_fields' => :'partition_fields',
+        :'too_many_buckets_action' => :'too_many_buckets_action',
         :'type' => :'type'
       }
     end
@@ -96,6 +103,7 @@ module DatadogAPIClient::V2
         :'overflow_action' => :'ObservabilityPipelineQuotaProcessorOverflowAction',
         :'overrides' => :'Array<ObservabilityPipelineQuotaProcessorOverride>',
         :'partition_fields' => :'Array<String>',
+        :'too_many_buckets_action' => :'ObservabilityPipelineQuotaProcessorOverflowAction',
         :'type' => :'ObservabilityPipelineQuotaProcessorType'
       }
     end
@@ -164,6 +172,10 @@ module DatadogAPIClient::V2
         if (value = attributes[:'partition_fields']).is_a?(Array)
           self.partition_fields = value
         end
+      end
+
+      if attributes.key?(:'too_many_buckets_action')
+        self.too_many_buckets_action = attributes[:'too_many_buckets_action']
       end
 
       if attributes.key?(:'type')
@@ -281,6 +293,7 @@ module DatadogAPIClient::V2
           overflow_action == o.overflow_action &&
           overrides == o.overrides &&
           partition_fields == o.partition_fields &&
+          too_many_buckets_action == o.too_many_buckets_action &&
           type == o.type &&
           additional_properties == o.additional_properties
     end
@@ -289,7 +302,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [display_name, drop_events, enabled, id, ignore_when_missing_partitions, include, limit, name, overflow_action, overrides, partition_fields, type, additional_properties].hash
+      [display_name, drop_events, enabled, id, ignore_when_missing_partitions, include, limit, name, overflow_action, overrides, partition_fields, too_many_buckets_action, type, additional_properties].hash
     end
   end
 end
