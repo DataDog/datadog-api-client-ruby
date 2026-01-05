@@ -2825,6 +2825,9 @@ ScenariosModelMappings = {
             "page_limit" => "Integer",
             "page_cursor" => "String",
     },
+    "v2.SubmitProductAnalyticsEvent" => {
+            "body" => "ProductAnalyticsServerSideEventItem",
+    },
     "v2.GetAccountFacetInfo" => {
             "body" => "FacetInfoRequest",
     },
