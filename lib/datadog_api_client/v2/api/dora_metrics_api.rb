@@ -386,7 +386,7 @@ module DatadogAPIClient::V2
     #
     # @param deployment_id [String] The ID of the deployment event.
     # @param opts [Hash] the optional parameters
-    # @return [Array<(DORADeploymentFetchResponse, Integer, Hash)>] DORADeploymentFetchResponse data, response status code and response headers
+    # @return [Array<(DORAFetchResponse, Integer, Hash)>] DORAFetchResponse data, response status code and response headers
     def get_dora_deployment_with_http_info(deployment_id, opts = {})
 
       if @api_client.config.debugging
@@ -414,7 +414,7 @@ module DatadogAPIClient::V2
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'DORADeploymentFetchResponse'
+      return_type = opts[:debug_return_type] || 'DORAFetchResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
@@ -451,7 +451,7 @@ module DatadogAPIClient::V2
     #
     # @param failure_id [String] The ID of the failure event.
     # @param opts [Hash] the optional parameters
-    # @return [Array<(DORAFailureFetchResponse, Integer, Hash)>] DORAFailureFetchResponse data, response status code and response headers
+    # @return [Array<(DORAFetchResponse, Integer, Hash)>] DORAFetchResponse data, response status code and response headers
     def get_dora_failure_with_http_info(failure_id, opts = {})
 
       if @api_client.config.debugging
@@ -479,7 +479,7 @@ module DatadogAPIClient::V2
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'DORAFailureFetchResponse'
+      return_type = opts[:debug_return_type] || 'DORAFetchResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
@@ -516,7 +516,7 @@ module DatadogAPIClient::V2
     #
     # @param body [DORAListDeploymentsRequest] 
     # @param opts [Hash] the optional parameters
-    # @return [Array<(DORADeploymentsListResponse, Integer, Hash)>] DORADeploymentsListResponse data, response status code and response headers
+    # @return [Array<(DORAListResponse, Integer, Hash)>] DORAListResponse data, response status code and response headers
     def list_dora_deployments_with_http_info(body, opts = {})
 
       if @api_client.config.debugging
@@ -546,7 +546,7 @@ module DatadogAPIClient::V2
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'DORADeploymentsListResponse'
+      return_type = opts[:debug_return_type] || 'DORAListResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
@@ -583,7 +583,7 @@ module DatadogAPIClient::V2
     #
     # @param body [DORAListFailuresRequest] 
     # @param opts [Hash] the optional parameters
-    # @return [Array<(DORAFailuresListResponse, Integer, Hash)>] DORAFailuresListResponse data, response status code and response headers
+    # @return [Array<(DORAListResponse, Integer, Hash)>] DORAListResponse data, response status code and response headers
     def list_dora_failures_with_http_info(body, opts = {})
 
       if @api_client.config.debugging
@@ -613,7 +613,7 @@ module DatadogAPIClient::V2
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'DORAFailuresListResponse'
+      return_type = opts[:debug_return_type] || 'DORAListResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
