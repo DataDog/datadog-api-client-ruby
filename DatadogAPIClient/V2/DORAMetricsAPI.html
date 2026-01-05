@@ -401,7 +401,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#get_dora_deployment_with_http_info-instance_method" title="#get_dora_deployment_with_http_info (instance method)">#<strong>get_dora_deployment_with_http_info</strong>(deployment_id, opts = {})  &#x21d2; Array&lt;(DORAFetchResponse, Integer, Hash)&gt; </a>
+      <a href="#get_dora_deployment_with_http_info-instance_method" title="#get_dora_deployment_with_http_info (instance method)">#<strong>get_dora_deployment_with_http_info</strong>(deployment_id, opts = {})  &#x21d2; Array&lt;(DORADeploymentFetchResponse, Integer, Hash)&gt; </a>
     
 
     
@@ -447,7 +447,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#get_dora_failure_with_http_info-instance_method" title="#get_dora_failure_with_http_info (instance method)">#<strong>get_dora_failure_with_http_info</strong>(failure_id, opts = {})  &#x21d2; Array&lt;(DORAFetchResponse, Integer, Hash)&gt; </a>
+      <a href="#get_dora_failure_with_http_info-instance_method" title="#get_dora_failure_with_http_info (instance method)">#<strong>get_dora_failure_with_http_info</strong>(failure_id, opts = {})  &#x21d2; Array&lt;(DORAFailureFetchResponse, Integer, Hash)&gt; </a>
     
 
     
@@ -518,7 +518,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#list_dora_deployments_with_http_info-instance_method" title="#list_dora_deployments_with_http_info (instance method)">#<strong>list_dora_deployments_with_http_info</strong>(body, opts = {})  &#x21d2; Array&lt;(DORAListResponse, Integer, Hash)&gt; </a>
+      <a href="#list_dora_deployments_with_http_info-instance_method" title="#list_dora_deployments_with_http_info (instance method)">#<strong>list_dora_deployments_with_http_info</strong>(body, opts = {})  &#x21d2; Array&lt;(DORADeploymentsListResponse, Integer, Hash)&gt; </a>
     
 
     
@@ -564,7 +564,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#list_dora_failures_with_http_info-instance_method" title="#list_dora_failures_with_http_info (instance method)">#<strong>list_dora_failures_with_http_info</strong>(body, opts = {})  &#x21d2; Array&lt;(DORAListResponse, Integer, Hash)&gt; </a>
+      <a href="#list_dora_failures_with_http_info-instance_method" title="#list_dora_failures_with_http_info (instance method)">#<strong>list_dora_failures_with_http_info</strong>(body, opts = {})  &#x21d2; Array&lt;(DORAFailuresListResponse, Integer, Hash)&gt; </a>
     
 
     
@@ -1966,7 +1966,7 @@
       <div class="method_details ">
   <h3 class="signature " id="get_dora_deployment_with_http_info-instance_method">
   
-    #<strong>get_dora_deployment_with_http_info</strong>(deployment_id, opts = {})  &#x21d2; <tt>Array&lt;(<span class='object_link'><a href="DORAFetchResponse.html" title="DatadogAPIClient::V2::DORAFetchResponse (class)">DORAFetchResponse</a></span>, Integer, Hash)&gt;</tt> 
+    #<strong>get_dora_deployment_with_http_info</strong>(deployment_id, opts = {})  &#x21d2; <tt>Array&lt;(<span class='object_link'><a href="DORADeploymentFetchResponse.html" title="DatadogAPIClient::V2::DORADeploymentFetchResponse (class)">DORADeploymentFetchResponse</a></span>, Integer, Hash)&gt;</tt> 
   
 
   
@@ -2025,12 +2025,12 @@
     <li>
       
       
-        <span class='type'>(<tt>Array&lt;(<span class='object_link'><a href="DORAFetchResponse.html" title="DatadogAPIClient::V2::DORAFetchResponse (class)">DORAFetchResponse</a></span>, Integer, Hash)&gt;</tt>)</span>
+        <span class='type'>(<tt>Array&lt;(<span class='object_link'><a href="DORADeploymentFetchResponse.html" title="DatadogAPIClient::V2::DORADeploymentFetchResponse (class)">DORADeploymentFetchResponse</a></span>, Integer, Hash)&gt;</tt>)</span>
       
       
       
         &mdash;
-        <div class='inline'><p>DORAFetchResponse data, response status code and response headers</p>
+        <div class='inline'><p>DORADeploymentFetchResponse data, response status code and response headers</p>
 </div>
       
     </li>
@@ -2123,7 +2123,7 @@
 </span>  <span class='id identifier rubyid_post_body'>post_body</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:debug_body</span><span class='rbracket'>]</span>
 
   <span class='comment'># return_type
-</span>  <span class='id identifier rubyid_return_type'>return_type</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:debug_return_type</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>DORAFetchResponse</span><span class='tstring_end'>&#39;</span></span>
+</span>  <span class='id identifier rubyid_return_type'>return_type</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:debug_return_type</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>DORADeploymentFetchResponse</span><span class='tstring_end'>&#39;</span></span>
 
   <span class='comment'># auth_names
 </span>  <span class='id identifier rubyid_auth_names'>auth_names</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:debug_auth_names</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='lbracket'>[</span><span class='symbol'>:apiKeyAuth</span><span class='comma'>,</span> <span class='symbol'>:appKeyAuth</span><span class='rbracket'>]</span>
@@ -2202,7 +2202,7 @@
       <div class="method_details ">
   <h3 class="signature " id="get_dora_failure_with_http_info-instance_method">
   
-    #<strong>get_dora_failure_with_http_info</strong>(failure_id, opts = {})  &#x21d2; <tt>Array&lt;(<span class='object_link'><a href="DORAFetchResponse.html" title="DatadogAPIClient::V2::DORAFetchResponse (class)">DORAFetchResponse</a></span>, Integer, Hash)&gt;</tt> 
+    #<strong>get_dora_failure_with_http_info</strong>(failure_id, opts = {})  &#x21d2; <tt>Array&lt;(<span class='object_link'><a href="DORAFailureFetchResponse.html" title="DatadogAPIClient::V2::DORAFailureFetchResponse (class)">DORAFailureFetchResponse</a></span>, Integer, Hash)&gt;</tt> 
   
 
   
@@ -2261,12 +2261,12 @@
     <li>
       
       
-        <span class='type'>(<tt>Array&lt;(<span class='object_link'><a href="DORAFetchResponse.html" title="DatadogAPIClient::V2::DORAFetchResponse (class)">DORAFetchResponse</a></span>, Integer, Hash)&gt;</tt>)</span>
+        <span class='type'>(<tt>Array&lt;(<span class='object_link'><a href="DORAFailureFetchResponse.html" title="DatadogAPIClient::V2::DORAFailureFetchResponse (class)">DORAFailureFetchResponse</a></span>, Integer, Hash)&gt;</tt>)</span>
       
       
       
         &mdash;
-        <div class='inline'><p>DORAFetchResponse data, response status code and response headers</p>
+        <div class='inline'><p>DORAFailureFetchResponse data, response status code and response headers</p>
 </div>
       
     </li>
@@ -2359,7 +2359,7 @@
 </span>  <span class='id identifier rubyid_post_body'>post_body</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:debug_body</span><span class='rbracket'>]</span>
 
   <span class='comment'># return_type
-</span>  <span class='id identifier rubyid_return_type'>return_type</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:debug_return_type</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>DORAFetchResponse</span><span class='tstring_end'>&#39;</span></span>
+</span>  <span class='id identifier rubyid_return_type'>return_type</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:debug_return_type</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>DORAFailureFetchResponse</span><span class='tstring_end'>&#39;</span></span>
 
   <span class='comment'># auth_names
 </span>  <span class='id identifier rubyid_auth_names'>auth_names</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:debug_auth_names</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='lbracket'>[</span><span class='symbol'>:apiKeyAuth</span><span class='comma'>,</span> <span class='symbol'>:appKeyAuth</span><span class='rbracket'>]</span>
@@ -2438,7 +2438,7 @@
       <div class="method_details ">
   <h3 class="signature " id="list_dora_deployments_with_http_info-instance_method">
   
-    #<strong>list_dora_deployments_with_http_info</strong>(body, opts = {})  &#x21d2; <tt>Array&lt;(<span class='object_link'><a href="DORAListResponse.html" title="DatadogAPIClient::V2::DORAListResponse (class)">DORAListResponse</a></span>, Integer, Hash)&gt;</tt> 
+    #<strong>list_dora_deployments_with_http_info</strong>(body, opts = {})  &#x21d2; <tt>Array&lt;(<span class='object_link'><a href="DORADeploymentsListResponse.html" title="DatadogAPIClient::V2::DORADeploymentsListResponse (class)">DORADeploymentsListResponse</a></span>, Integer, Hash)&gt;</tt> 
   
 
   
@@ -2493,12 +2493,12 @@
     <li>
       
       
-        <span class='type'>(<tt>Array&lt;(<span class='object_link'><a href="DORAListResponse.html" title="DatadogAPIClient::V2::DORAListResponse (class)">DORAListResponse</a></span>, Integer, Hash)&gt;</tt>)</span>
+        <span class='type'>(<tt>Array&lt;(<span class='object_link'><a href="DORADeploymentsListResponse.html" title="DatadogAPIClient::V2::DORADeploymentsListResponse (class)">DORADeploymentsListResponse</a></span>, Integer, Hash)&gt;</tt>)</span>
       
       
       
         &mdash;
-        <div class='inline'><p>DORAListResponse data, response status code and response headers</p>
+        <div class='inline'><p>DORADeploymentsListResponse data, response status code and response headers</p>
 </div>
       
     </li>
@@ -2595,7 +2595,7 @@
 </span>  <span class='id identifier rubyid_post_body'>post_body</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:debug_body</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='ivar'>@api_client</span><span class='period'>.</span><span class='id identifier rubyid_object_to_http_body'>object_to_http_body</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
 
   <span class='comment'># return_type
-</span>  <span class='id identifier rubyid_return_type'>return_type</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:debug_return_type</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>DORAListResponse</span><span class='tstring_end'>&#39;</span></span>
+</span>  <span class='id identifier rubyid_return_type'>return_type</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:debug_return_type</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>DORADeploymentsListResponse</span><span class='tstring_end'>&#39;</span></span>
 
   <span class='comment'># auth_names
 </span>  <span class='id identifier rubyid_auth_names'>auth_names</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:debug_auth_names</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='lbracket'>[</span><span class='symbol'>:apiKeyAuth</span><span class='comma'>,</span> <span class='symbol'>:appKeyAuth</span><span class='rbracket'>]</span>
@@ -2674,7 +2674,7 @@
       <div class="method_details ">
   <h3 class="signature " id="list_dora_failures_with_http_info-instance_method">
   
-    #<strong>list_dora_failures_with_http_info</strong>(body, opts = {})  &#x21d2; <tt>Array&lt;(<span class='object_link'><a href="DORAListResponse.html" title="DatadogAPIClient::V2::DORAListResponse (class)">DORAListResponse</a></span>, Integer, Hash)&gt;</tt> 
+    #<strong>list_dora_failures_with_http_info</strong>(body, opts = {})  &#x21d2; <tt>Array&lt;(<span class='object_link'><a href="DORAFailuresListResponse.html" title="DatadogAPIClient::V2::DORAFailuresListResponse (class)">DORAFailuresListResponse</a></span>, Integer, Hash)&gt;</tt> 
   
 
   
@@ -2729,12 +2729,12 @@
     <li>
       
       
-        <span class='type'>(<tt>Array&lt;(<span class='object_link'><a href="DORAListResponse.html" title="DatadogAPIClient::V2::DORAListResponse (class)">DORAListResponse</a></span>, Integer, Hash)&gt;</tt>)</span>
+        <span class='type'>(<tt>Array&lt;(<span class='object_link'><a href="DORAFailuresListResponse.html" title="DatadogAPIClient::V2::DORAFailuresListResponse (class)">DORAFailuresListResponse</a></span>, Integer, Hash)&gt;</tt>)</span>
       
       
       
         &mdash;
-        <div class='inline'><p>DORAListResponse data, response status code and response headers</p>
+        <div class='inline'><p>DORAFailuresListResponse data, response status code and response headers</p>
 </div>
       
     </li>
@@ -2831,7 +2831,7 @@
 </span>  <span class='id identifier rubyid_post_body'>post_body</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:debug_body</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='ivar'>@api_client</span><span class='period'>.</span><span class='id identifier rubyid_object_to_http_body'>object_to_http_body</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
 
   <span class='comment'># return_type
-</span>  <span class='id identifier rubyid_return_type'>return_type</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:debug_return_type</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>DORAListResponse</span><span class='tstring_end'>&#39;</span></span>
+</span>  <span class='id identifier rubyid_return_type'>return_type</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:debug_return_type</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>DORAFailuresListResponse</span><span class='tstring_end'>&#39;</span></span>
 
   <span class='comment'># auth_names
 </span>  <span class='id identifier rubyid_auth_names'>auth_names</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:debug_auth_names</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='lbracket'>[</span><span class='symbol'>:apiKeyAuth</span><span class='comma'>,</span> <span class='symbol'>:appKeyAuth</span><span class='rbracket'>]</span>
@@ -2863,7 +2863,7 @@
 </div>
 
       <div id="footer">
-  Generated on Mon Dec 29 09:14:33 2025 by
+  Generated on Mon Jan  5 15:40:37 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.38 (ruby-2.7.8).
 </div>
