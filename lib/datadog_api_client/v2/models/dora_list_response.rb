@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Response for the list deployments endpoint.
-  class DORADeploymentsListResponse
+  # Response for the DORA list endpoints.
+  class DORAListResponse
     include BaseGenericModel
 
-    # The list of DORA deployment events.
+    # The list of DORA events.
     attr_accessor :data
 
     attr_accessor :additional_properties
@@ -38,7 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'Array<DORADeploymentObject>'
+        :'data' => :'Array<DORAEvent>'
       }
     end
 
@@ -47,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::DORADeploymentsListResponse` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::DORAListResponse` initialize method"
       end
 
       self.additional_properties = {}
