@@ -17,12 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Response for the DORA list endpoints.
-  class DORAListResponse
+  # Options for configuring a disk buffer.
+  class ObservabilityPipelineDiskBufferOptions
     include BaseGenericModel
 
-    # The list of DORA events.
-    attr_accessor :data
+    # Maximum size of the disk buffer.
+    attr_accessor :max_size
+
+    # The type of the buffer that will be configured, a disk buffer.
+    attr_accessor :type
+
+    # Behavior when the buffer is full (block and stop accepting new events, or drop new events)
+    attr_accessor :when_full
 
     attr_accessor :additional_properties
 
@@ -30,7 +36,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data'
+        :'max_size' => :'max_size',
+        :'type' => :'type',
+        :'when_full' => :'when_full'
       }
     end
 
@@ -38,7 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'Array<DORAEvent>'
+        :'max_size' => :'Integer',
+        :'type' => :'ObservabilityPipelineBufferOptionsDiskType',
+        :'when_full' => :'ObservabilityPipelineBufferOptionsWhenFull'
       }
     end
 
@@ -47,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::DORAListResponse` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineDiskBufferOptions` initialize method"
       end
 
       self.additional_properties = {}
@@ -60,10 +70,16 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'data')
-        if (value = attributes[:'data']).is_a?(Array)
-          self.data = value
-        end
+      if attributes.key?(:'max_size')
+        self.max_size = attributes[:'max_size']
+      end
+
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
+      end
+
+      if attributes.key?(:'when_full')
+        self.when_full = attributes[:'when_full']
       end
     end
 
@@ -93,7 +109,9 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data &&
+          max_size == o.max_size &&
+          type == o.type &&
+          when_full == o.when_full &&
           additional_properties == o.additional_properties
     end
 
@@ -101,7 +119,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, additional_properties].hash
+      [max_size, type, when_full, additional_properties].hash
     end
   end
 end

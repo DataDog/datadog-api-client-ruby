@@ -25,6 +25,9 @@ module DatadogAPIClient::V2
     # If `false`, Splunk assigns the time the event was received.
     attr_accessor :auto_extract_timestamp
 
+    # Configuration for buffer settings on destination components.
+    attr_accessor :buffer
+
     # Encoding format for log events.
     attr_accessor :encoding
 
@@ -50,6 +53,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'auto_extract_timestamp' => :'auto_extract_timestamp',
+        :'buffer' => :'buffer',
         :'encoding' => :'encoding',
         :'id' => :'id',
         :'index' => :'index',
@@ -64,6 +68,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'auto_extract_timestamp' => :'Boolean',
+        :'buffer' => :'ObservabilityPipelineBufferOptions',
         :'encoding' => :'ObservabilityPipelineSplunkHecDestinationEncoding',
         :'id' => :'String',
         :'index' => :'String',
@@ -93,6 +98,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'auto_extract_timestamp')
         self.auto_extract_timestamp = attributes[:'auto_extract_timestamp']
+      end
+
+      if attributes.key?(:'buffer')
+        self.buffer = attributes[:'buffer']
       end
 
       if attributes.key?(:'encoding')
@@ -189,6 +198,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           auto_extract_timestamp == o.auto_extract_timestamp &&
+          buffer == o.buffer &&
           encoding == o.encoding &&
           id == o.id &&
           index == o.index &&
@@ -202,7 +212,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [auto_extract_timestamp, encoding, id, index, inputs, sourcetype, type, additional_properties].hash
+      [auto_extract_timestamp, buffer, encoding, id, index, inputs, sourcetype, type, additional_properties].hash
     end
   end
 end

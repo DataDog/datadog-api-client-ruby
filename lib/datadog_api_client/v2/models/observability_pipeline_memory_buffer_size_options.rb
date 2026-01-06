@@ -17,12 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Response for the DORA fetch endpoints.
-  class DORAFetchResponse
+  # Options for configuring a memory buffer by queue length.
+  class ObservabilityPipelineMemoryBufferSizeOptions
     include BaseGenericModel
 
-    # A DORA event.
-    attr_accessor :data
+    # Maximum events for the memory buffer.
+    attr_accessor :max_events
+
+    # The type of the buffer that will be configured, a memory buffer.
+    attr_accessor :type
 
     attr_accessor :additional_properties
 
@@ -30,7 +33,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data'
+        :'max_events' => :'max_events',
+        :'type' => :'type'
       }
     end
 
@@ -38,7 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'DORAEvent'
+        :'max_events' => :'Integer',
+        :'type' => :'ObservabilityPipelineBufferOptionsMemoryType'
       }
     end
 
@@ -47,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::DORAFetchResponse` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineMemoryBufferSizeOptions` initialize method"
       end
 
       self.additional_properties = {}
@@ -60,8 +65,12 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'data')
-        self.data = attributes[:'data']
+      if attributes.key?(:'max_events')
+        self.max_events = attributes[:'max_events']
+      end
+
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
       end
     end
 
@@ -91,7 +100,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data &&
+          max_events == o.max_events &&
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -99,7 +109,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, additional_properties].hash
+      [max_events, type, additional_properties].hash
     end
   end
 end
