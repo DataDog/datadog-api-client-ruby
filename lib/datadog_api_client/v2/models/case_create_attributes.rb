@@ -21,9 +21,6 @@ module DatadogAPIClient::V2
   class CaseCreateAttributes
     include BaseGenericModel
 
-    # Case custom attributes
-    attr_accessor :custom_attributes
-
     # Description
     attr_accessor :description
 
@@ -42,7 +39,6 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'custom_attributes' => :'custom_attributes',
         :'description' => :'description',
         :'priority' => :'priority',
         :'title' => :'title',
@@ -54,7 +50,6 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'custom_attributes' => :'Hash<String, CustomAttributeValue>',
         :'description' => :'String',
         :'priority' => :'CasePriority',
         :'title' => :'String',
@@ -79,10 +74,6 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
-
-      if attributes.key?(:'custom_attributes')
-        self.custom_attributes = attributes[:'custom_attributes']
-      end
 
       if attributes.key?(:'description')
         self.description = attributes[:'description']
@@ -156,7 +147,6 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          custom_attributes == o.custom_attributes &&
           description == o.description &&
           priority == o.priority &&
           title == o.title &&
@@ -168,7 +158,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [custom_attributes, description, priority, title, type_id, additional_properties].hash
+      [description, priority, title, type_id, additional_properties].hash
     end
   end
 end

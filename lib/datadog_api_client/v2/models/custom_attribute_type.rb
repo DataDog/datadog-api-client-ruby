@@ -24,6 +24,5 @@ module DatadogAPIClient::V2
     URL = "URL".freeze
     TEXT = "TEXT".freeze
     NUMBER = "NUMBER".freeze
-    SELECT = "SELECT".freeze
   end
 end
