@@ -17,18 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A DORA event.
-  class DORAEvent
+  # Response for fetching a single failure event.
+  class DORAFailureFetchResponse
     include BaseGenericModel
 
-    # The attributes of the event.
-    attr_accessor :attributes
-
-    # The ID of the event.
-    attr_accessor :id
-
-    # The type of the event.
-    attr_accessor :type
+    # A DORA incident event.
+    attr_accessor :data
 
     attr_accessor :additional_properties
 
@@ -36,9 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'attributes' => :'attributes',
-        :'id' => :'id',
-        :'type' => :'type'
+        :'data' => :'data'
       }
     end
 
@@ -46,9 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'Object',
-        :'id' => :'String',
-        :'type' => :'String'
+        :'data' => :'DORAIncidentObject'
       }
     end
 
@@ -57,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::DORAEvent` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::DORAFailureFetchResponse` initialize method"
       end
 
       self.additional_properties = {}
@@ -70,16 +60,8 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'attributes')
-        self.attributes = attributes[:'attributes']
-      end
-
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
-      end
-
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
+      if attributes.key?(:'data')
+        self.data = attributes[:'data']
       end
     end
 
@@ -109,9 +91,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          attributes == o.attributes &&
-          id == o.id &&
-          type == o.type &&
+          data == o.data &&
           additional_properties == o.additional_properties
     end
 
@@ -119,7 +99,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, id, type, additional_properties].hash
+      [data, additional_properties].hash
     end
   end
 end
