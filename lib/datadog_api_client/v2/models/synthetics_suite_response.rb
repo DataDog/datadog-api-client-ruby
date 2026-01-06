@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Response for the DORA fetch endpoints.
-  class DORAFetchResponse
+  # Synthetics suite response
+  class SyntheticsSuiteResponse
     include BaseGenericModel
 
-    # A DORA event.
+    # Synthetics suite response data
     attr_accessor :data
 
     attr_accessor :additional_properties
@@ -38,7 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'DORAEvent'
+        :'data' => :'SyntheticsSuiteResponseData'
       }
     end
 
@@ -47,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::DORAFetchResponse` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SyntheticsSuiteResponse` initialize method"
       end
 
       self.additional_properties = {}

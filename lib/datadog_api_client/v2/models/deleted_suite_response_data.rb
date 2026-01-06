@@ -17,12 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Response for the DORA list endpoints.
-  class DORAListResponse
+  # 
+  class DeletedSuiteResponseData
     include BaseGenericModel
 
-    # The list of DORA events.
-    attr_accessor :data
+    #
+    attr_accessor :attributes
+
+    #
+    attr_accessor :id
+
+    # Type for the Synthetics suites responses, `suites`.
+    attr_accessor :type
 
     attr_accessor :additional_properties
 
@@ -30,7 +36,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data'
+        :'attributes' => :'attributes',
+        :'id' => :'id',
+        :'type' => :'type'
       }
     end
 
@@ -38,7 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'Array<DORAEvent>'
+        :'attributes' => :'DeletedSuiteResponseDataAttributes',
+        :'id' => :'String',
+        :'type' => :'SyntheticsSuiteTypes'
       }
     end
 
@@ -47,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::DORAListResponse` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::DeletedSuiteResponseData` initialize method"
       end
 
       self.additional_properties = {}
@@ -60,10 +70,16 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'data')
-        if (value = attributes[:'data']).is_a?(Array)
-          self.data = value
-        end
+      if attributes.key?(:'attributes')
+        self.attributes = attributes[:'attributes']
+      end
+
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
+      end
+
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
       end
     end
 
@@ -93,7 +109,9 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data &&
+          attributes == o.attributes &&
+          id == o.id &&
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -101,7 +119,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, additional_properties].hash
+      [attributes, id, type, additional_properties].hash
     end
   end
 end
