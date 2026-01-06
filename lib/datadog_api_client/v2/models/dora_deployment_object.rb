@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A DORA event.
-  class DORAEvent
+  # A DORA deployment event.
+  class DORADeploymentObject
     include BaseGenericModel
 
-    # The attributes of the event.
+    # The attributes of the deployment event.
     attr_accessor :attributes
 
-    # The ID of the event.
+    # The ID of the deployment event.
     attr_accessor :id
 
-    # The type of the event.
+    # JSON:API type for DORA deployment events.
     attr_accessor :type
 
     attr_accessor :additional_properties
@@ -46,9 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'Object',
+        :'attributes' => :'DORADeploymentObjectAttributes',
         :'id' => :'String',
-        :'type' => :'String'
+        :'type' => :'DORADeploymentType'
       }
     end
 
@@ -57,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::DORAEvent` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::DORADeploymentObject` initialize method"
       end
 
       self.additional_properties = {}

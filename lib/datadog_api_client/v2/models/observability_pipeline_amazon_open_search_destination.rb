@@ -25,6 +25,9 @@ module DatadogAPIClient::V2
     # The `strategy` field determines whether basic or AWS-based authentication is used.
     attr_reader :auth
 
+    # Configuration for buffer settings on destination components.
+    attr_accessor :buffer
+
     # The index to write logs to.
     attr_accessor :bulk_index
 
@@ -44,6 +47,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'auth' => :'auth',
+        :'buffer' => :'buffer',
         :'bulk_index' => :'bulk_index',
         :'id' => :'id',
         :'inputs' => :'inputs',
@@ -56,6 +60,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'auth' => :'ObservabilityPipelineAmazonOpenSearchDestinationAuth',
+        :'buffer' => :'ObservabilityPipelineBufferOptions',
         :'bulk_index' => :'String',
         :'id' => :'String',
         :'inputs' => :'Array<String>',
@@ -83,6 +88,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'auth')
         self.auth = attributes[:'auth']
+      end
+
+      if attributes.key?(:'buffer')
+        self.buffer = attributes[:'buffer']
       end
 
       if attributes.key?(:'bulk_index')
@@ -182,6 +191,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           auth == o.auth &&
+          buffer == o.buffer &&
           bulk_index == o.bulk_index &&
           id == o.id &&
           inputs == o.inputs &&
@@ -193,7 +203,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [auth, bulk_index, id, inputs, type, additional_properties].hash
+      [auth, buffer, bulk_index, id, inputs, type, additional_properties].hash
     end
   end
 end

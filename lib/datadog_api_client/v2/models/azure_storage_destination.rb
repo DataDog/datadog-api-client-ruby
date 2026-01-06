@@ -24,6 +24,9 @@ module DatadogAPIClient::V2
     # Optional prefix for blobs written to the container.
     attr_accessor :blob_prefix
 
+    # Configuration for buffer settings on destination components.
+    attr_accessor :buffer
+
     # The name of the Azure Blob Storage container to store logs in.
     attr_reader :container_name
 
@@ -43,6 +46,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'blob_prefix' => :'blob_prefix',
+        :'buffer' => :'buffer',
         :'container_name' => :'container_name',
         :'id' => :'id',
         :'inputs' => :'inputs',
@@ -55,6 +59,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'blob_prefix' => :'String',
+        :'buffer' => :'ObservabilityPipelineBufferOptions',
         :'container_name' => :'String',
         :'id' => :'String',
         :'inputs' => :'Array<String>',
@@ -82,6 +87,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'blob_prefix')
         self.blob_prefix = attributes[:'blob_prefix']
+      end
+
+      if attributes.key?(:'buffer')
+        self.buffer = attributes[:'buffer']
       end
 
       if attributes.key?(:'container_name')
@@ -181,6 +190,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           blob_prefix == o.blob_prefix &&
+          buffer == o.buffer &&
           container_name == o.container_name &&
           id == o.id &&
           inputs == o.inputs &&
@@ -192,7 +202,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [blob_prefix, container_name, id, inputs, type, additional_properties].hash
+      [blob_prefix, buffer, container_name, id, inputs, type, additional_properties].hash
     end
   end
 end
