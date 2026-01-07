@@ -25,7 +25,7 @@ module DatadogAPIClient::V2
     attr_reader :destinations
 
     # A list of processor groups that transform or enrich log data.
-    attr_accessor :processors
+    attr_accessor :processor_groups
 
     # A list of configured data sources for the pipeline.
     attr_reader :sources
@@ -37,7 +37,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'destinations' => :'destinations',
-        :'processors' => :'processors',
+        :'processor_groups' => :'processor_groups',
         :'sources' => :'sources'
       }
     end
@@ -47,7 +47,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'destinations' => :'Array<ObservabilityPipelineConfigDestinationItem>',
-        :'processors' => :'Array<ObservabilityPipelineConfigProcessorGroup>',
+        :'processor_groups' => :'Array<ObservabilityPipelineConfigProcessorGroup>',
         :'sources' => :'Array<ObservabilityPipelineConfigSourceItem>'
       }
     end
@@ -76,9 +76,9 @@ module DatadogAPIClient::V2
         end
       end
 
-      if attributes.key?(:'processors')
-        if (value = attributes[:'processors']).is_a?(Array)
-          self.processors = value
+      if attributes.key?(:'processor_groups')
+        if (value = attributes[:'processor_groups']).is_a?(Array)
+          self.processor_groups = value
         end
       end
 
@@ -145,7 +145,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           destinations == o.destinations &&
-          processors == o.processors &&
+          processor_groups == o.processor_groups &&
           sources == o.sources &&
           additional_properties == o.additional_properties
     end
@@ -154,7 +154,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [destinations, processors, sources, additional_properties].hash
+      [destinations, processor_groups, sources, additional_properties].hash
     end
   end
 end
