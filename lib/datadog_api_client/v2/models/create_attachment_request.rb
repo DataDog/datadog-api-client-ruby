@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Create request for an attachment.
   class CreateAttachmentRequest
     include BaseGenericModel
 
-    #
+    # Attachment data for a create request.
     attr_accessor :data
 
     attr_accessor :additional_properties
