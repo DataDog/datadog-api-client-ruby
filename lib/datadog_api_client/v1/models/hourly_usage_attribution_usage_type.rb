@@ -30,6 +30,7 @@ module DatadogAPIClient::V1
     APPSEC_USAGE = "appsec_usage".freeze
     ASM_SERVERLESS_TRACED_INVOCATIONS_USAGE = "asm_serverless_traced_invocations_usage".freeze
     ASM_SERVERLESS_TRACED_INVOCATIONS_PERCENTAGE = "asm_serverless_traced_invocations_percentage".freeze
+    BITS_AI_INVESTIGATIONS_USAGE = "bits_ai_investigations_usage".freeze
     BROWSER_USAGE = "browser_usage".freeze
     CI_PIPELINE_INDEXED_SPANS_USAGE = "ci_pipeline_indexed_spans_usage".freeze
     CI_TEST_INDEXED_SPANS_USAGE = "ci_test_indexed_spans_usage".freeze
