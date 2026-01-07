@@ -1445,7 +1445,7 @@ module DatadogAPIClient::V1
     #
     # @param public_id [String] The public ID of the test to get details from.
     # @param opts [Hash] the optional parameters
-    # @return [Array<(SyntheticsTestDetails, Integer, Hash)>] SyntheticsTestDetails data, response status code and response headers
+    # @return [Array<(SyntheticsTestDetailsWithoutSteps, Integer, Hash)>] SyntheticsTestDetailsWithoutSteps data, response status code and response headers
     def get_test_with_http_info(public_id, opts = {})
 
       if @api_client.config.debugging
@@ -1473,7 +1473,7 @@ module DatadogAPIClient::V1
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'SyntheticsTestDetails'
+      return_type = opts[:debug_return_type] || 'SyntheticsTestDetailsWithoutSteps'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
@@ -1687,7 +1687,7 @@ module DatadogAPIClient::V1
     #
     # To use it you need to use a block: list_tests_with_pagination { |item| p item }
     #
-    # @yield [SyntheticsTestDetails] Paginated items
+    # @yield [SyntheticsTestDetailsWithoutSteps] Paginated items
     def list_tests_with_pagination(opts = {})
         api_version = "V1"
         page_size = @api_client.get_attribute_from_path(opts, "page_size", 100)

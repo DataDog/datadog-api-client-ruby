@@ -38,7 +38,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
-        :'tests' => :'Array<SyntheticsTestDetails>'
+        :'tests' => :'Array<SyntheticsTestDetailsWithoutSteps>'
       }
     end
 

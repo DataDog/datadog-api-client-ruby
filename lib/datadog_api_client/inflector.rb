@@ -727,6 +727,7 @@ module DatadogAPIClient
           "v1.synthetics_test_details" => "SyntheticsTestDetails",
           "v1.synthetics_test_details_sub_type" => "SyntheticsTestDetailsSubType",
           "v1.synthetics_test_details_type" => "SyntheticsTestDetailsType",
+          "v1.synthetics_test_details_without_steps" => "SyntheticsTestDetailsWithoutSteps",
           "v1.synthetics_test_execution_rule" => "SyntheticsTestExecutionRule",
           "v1.synthetics_test_monitor_status" => "SyntheticsTestMonitorStatus",
           "v1.synthetics_test_options" => "SyntheticsTestOptions",
