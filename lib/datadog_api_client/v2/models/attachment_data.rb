@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Attachment data from a response.
   class AttachmentData
     include BaseGenericModel
 
-    #
+    # The attachment's attributes.
     attr_reader :attributes
 
-    #
+    # The unique identifier of the attachment.
     attr_reader :id
 
-    #
+    # The attachment's resource relationships.
     attr_reader :relationships
 
     # The incident attachment resource type.
