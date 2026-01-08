@@ -1,5 +1,25 @@
 # CHANGELOG
 
+## 2.48.0/2026-01-08
+
+### Added
+* Add new bits_ai usage attribution type to Usage Attribution Public API Documentation [#2875](https://github.com/DataDog/datadog-api-client-ruby/pull/2875)
+* Add Product Analytics Server-Side Events API endpoint [#2870](https://github.com/DataDog/datadog-api-client-ruby/pull/2870)
+* Update /api/v2/cases endpoint to add custom attributes support [#2868](https://github.com/DataDog/datadog-api-client-ruby/pull/2868)
+* Documentation for team notifications API [#2864](https://github.com/DataDog/datadog-api-client-ruby/pull/2864)
+* [RQ-7160] Add llm_spans and deprecate llm_observability [#2850](https://github.com/DataDog/datadog-api-client-ruby/pull/2850)
+* Add display_name to Observability Pipeline processors [#2848](https://github.com/DataDog/datadog-api-client-ruby/pull/2848)
+* Add a new includeDiscovered query parameter to Software Catalog APIs [#2845](https://github.com/DataDog/datadog-api-client-ruby/pull/2845)
+* Add routes for managing On-Call user notification rules [#2843](https://github.com/DataDog/datadog-api-client-ruby/pull/2843)
+* Add anomaly detection options to security monitoring rules [#2841](https://github.com/DataDog/datadog-api-client-ruby/pull/2841)
+* Remove preview/unstable tags from GitHub team sync and connections endpoints [#2839](https://github.com/DataDog/datadog-api-client-ruby/pull/2839)
+* Added spec for flex_stored_logs [#2834](https://github.com/DataDog/datadog-api-client-ruby/pull/2834)
+* Add documentation for synthetics global variable jsonpatch endpoint [#2794](https://github.com/DataDog/datadog-api-client-ruby/pull/2794)
+
+### Changed
+* Remove steps from certain expected synthetics api response [#2874](https://github.com/DataDog/datadog-api-client-ruby/pull/2874)
+* Add documentation for GET, POST, PATCH, and DELETE api/v2/incidents/incident_id/attachments endpoints [#2819](https://github.com/DataDog/datadog-api-client-ruby/pull/2819)
+
 ## 2.47.0/2025-12-17
 
 ### Changed
