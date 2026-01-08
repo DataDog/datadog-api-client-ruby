@@ -38,9 +38,6 @@ module DatadogAPIClient::V2
     # AWS Regions to collect data from. Defaults to `include_all`.
     attr_accessor :aws_regions
 
-    # AWS Cloud Cost Management config.
-    attr_accessor :ccm_config
-
     # Timestamp of when the account integration was created.
     attr_accessor :created_at
 
@@ -70,7 +67,6 @@ module DatadogAPIClient::V2
         :'aws_account_id' => :'aws_account_id',
         :'aws_partition' => :'aws_partition',
         :'aws_regions' => :'aws_regions',
-        :'ccm_config' => :'ccm_config',
         :'created_at' => :'created_at',
         :'logs_config' => :'logs_config',
         :'metrics_config' => :'metrics_config',
@@ -89,7 +85,6 @@ module DatadogAPIClient::V2
         :'aws_account_id' => :'String',
         :'aws_partition' => :'AWSAccountPartition',
         :'aws_regions' => :'AWSRegions',
-        :'ccm_config' => :'AWSCCMConfig',
         :'created_at' => :'Time',
         :'logs_config' => :'AWSLogsConfig',
         :'metrics_config' => :'AWSMetricsConfig',
@@ -145,10 +140,6 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'aws_regions')
         self.aws_regions = attributes[:'aws_regions']
-      end
-
-      if attributes.key?(:'ccm_config')
-        self.ccm_config = attributes[:'ccm_config']
       end
 
       if attributes.key?(:'created_at')
@@ -225,7 +216,6 @@ module DatadogAPIClient::V2
           aws_account_id == o.aws_account_id &&
           aws_partition == o.aws_partition &&
           aws_regions == o.aws_regions &&
-          ccm_config == o.ccm_config &&
           created_at == o.created_at &&
           logs_config == o.logs_config &&
           metrics_config == o.metrics_config &&
@@ -239,7 +229,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [account_tags, auth_config, aws_account_id, aws_partition, aws_regions, ccm_config, created_at, logs_config, metrics_config, modified_at, resources_config, traces_config, additional_properties].hash
+      [account_tags, auth_config, aws_account_id, aws_partition, aws_regions, created_at, logs_config, metrics_config, modified_at, resources_config, traces_config, additional_properties].hash
     end
   end
 end
