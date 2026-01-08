@@ -17,8 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Object containing details about your Synthetic test.
-  class SyntheticsTestDetails
+  # Object containing details about your Synthetic test, without test steps.
+  class SyntheticsTestDetailsWithoutSteps
     include BaseGenericModel
 
     # Configuration object for a Synthetic test.
@@ -49,9 +49,6 @@ module DatadogAPIClient::V1
     # Synthetic test.
     attr_accessor :status
 
-    # The steps of the test if they exist.
-    attr_accessor :steps
-
     # The subtype of the Synthetic API test, `http`, `ssl`, `tcp`,
     # `dns`, `icmp`, `udp`, `websocket`, `grpc` or `multi`.
     attr_accessor :subtype
@@ -77,7 +74,6 @@ module DatadogAPIClient::V1
         :'options' => :'options',
         :'public_id' => :'public_id',
         :'status' => :'status',
-        :'steps' => :'steps',
         :'subtype' => :'subtype',
         :'tags' => :'tags',
         :'type' => :'type'
@@ -97,7 +93,6 @@ module DatadogAPIClient::V1
         :'options' => :'SyntheticsTestOptions',
         :'public_id' => :'String',
         :'status' => :'SyntheticsTestPauseStatus',
-        :'steps' => :'Array<SyntheticsStep>',
         :'subtype' => :'SyntheticsTestDetailsSubType',
         :'tags' => :'Array<String>',
         :'type' => :'SyntheticsTestDetailsType'
@@ -109,7 +104,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SyntheticsTestDetails` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SyntheticsTestDetailsWithoutSteps` initialize method"
       end
 
       self.additional_properties = {}
@@ -158,12 +153,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'status')
         self.status = attributes[:'status']
-      end
-
-      if attributes.key?(:'steps')
-        if (value = attributes[:'steps']).is_a?(Array)
-          self.steps = value
-        end
       end
 
       if attributes.key?(:'subtype')
@@ -216,7 +205,6 @@ module DatadogAPIClient::V1
           options == o.options &&
           public_id == o.public_id &&
           status == o.status &&
-          steps == o.steps &&
           subtype == o.subtype &&
           tags == o.tags &&
           type == o.type &&
@@ -227,7 +215,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [config, creator, locations, message, monitor_id, name, options, public_id, status, steps, subtype, tags, type, additional_properties].hash
+      [config, creator, locations, message, monitor_id, name, options, public_id, status, subtype, tags, type, additional_properties].hash
     end
   end
 end
