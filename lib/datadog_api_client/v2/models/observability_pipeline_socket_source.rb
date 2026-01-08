@@ -18,6 +18,8 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The `socket` source ingests logs over TCP or UDP.
+  # 
+  # **Supported pipeline types:** logs
   class ObservabilityPipelineSocketSource
     include BaseGenericModel
 

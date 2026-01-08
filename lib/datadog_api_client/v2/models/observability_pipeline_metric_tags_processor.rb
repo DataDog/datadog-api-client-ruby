@@ -17,22 +17,25 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The `opensearch` destination writes logs to an OpenSearch cluster.
+  # The `metric_tags` processor filters metrics based on their tags using Datadog tag key patterns.
   # 
-  # **Supported pipeline types:** logs
-  class ObservabilityPipelineOpenSearchDestination
+  # **Supported pipeline types:** metrics
+  class ObservabilityPipelineMetricTagsProcessor
     include BaseGenericModel
 
-    # The index to write logs to.
-    attr_accessor :bulk_index
+    # Whether this processor is enabled.
+    attr_reader :enabled
 
-    # The unique identifier for this component.
+    # The unique identifier for this component. Used to reference this component in other parts of the pipeline (for example, as the `input` to downstream components).
     attr_reader :id
 
-    # A list of component IDs whose output is used as the `input` for this component.
-    attr_reader :inputs
+    # A Datadog search query used to determine which metrics this processor targets.
+    attr_reader :include
 
-    # The destination type. The value should always be `opensearch`.
+    # A list of rules for filtering metric tags.
+    attr_reader :rules
+
+    # The processor type. The value should always be `metric_tags`.
     attr_reader :type
 
     attr_accessor :additional_properties
@@ -41,9 +44,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'bulk_index' => :'bulk_index',
+        :'enabled' => :'enabled',
         :'id' => :'id',
-        :'inputs' => :'inputs',
+        :'include' => :'include',
+        :'rules' => :'rules',
         :'type' => :'type'
       }
     end
@@ -52,10 +56,11 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'bulk_index' => :'String',
+        :'enabled' => :'Boolean',
         :'id' => :'String',
-        :'inputs' => :'Array<String>',
-        :'type' => :'ObservabilityPipelineOpenSearchDestinationType'
+        :'include' => :'String',
+        :'rules' => :'Array<ObservabilityPipelineMetricTagsProcessorRule>',
+        :'type' => :'ObservabilityPipelineMetricTagsProcessorType'
       }
     end
 
@@ -64,7 +69,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineOpenSearchDestination` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineMetricTagsProcessor` initialize method"
       end
 
       self.additional_properties = {}
@@ -77,17 +82,21 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'bulk_index')
-        self.bulk_index = attributes[:'bulk_index']
+      if attributes.key?(:'enabled')
+        self.enabled = attributes[:'enabled']
       end
 
       if attributes.key?(:'id')
         self.id = attributes[:'id']
       end
 
-      if attributes.key?(:'inputs')
-        if (value = attributes[:'inputs']).is_a?(Array)
-          self.inputs = value
+      if attributes.key?(:'include')
+        self.include = attributes[:'include']
+      end
+
+      if attributes.key?(:'rules')
+        if (value = attributes[:'rules']).is_a?(Array)
+          self.rules = value
         end
       end
 
@@ -100,10 +109,24 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
+      return false if @enabled.nil?
       return false if @id.nil?
-      return false if @inputs.nil?
+      return false if @include.nil?
+      return false if @rules.nil?
+      return false if @rules.length > 100
+      return false if @rules.length < 1
       return false if @type.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param enabled [Object] Object to be assigned
+    # @!visibility private
+    def enabled=(enabled)
+      if enabled.nil?
+        fail ArgumentError, 'invalid value for "enabled", enabled cannot be nil.'
+      end
+      @enabled = enabled
     end
 
     # Custom attribute writer method with validation
@@ -117,13 +140,29 @@ module DatadogAPIClient::V2
     end
 
     # Custom attribute writer method with validation
-    # @param inputs [Object] Object to be assigned
+    # @param include [Object] Object to be assigned
     # @!visibility private
-    def inputs=(inputs)
-      if inputs.nil?
-        fail ArgumentError, 'invalid value for "inputs", inputs cannot be nil.'
+    def include=(include)
+      if include.nil?
+        fail ArgumentError, 'invalid value for "include", include cannot be nil.'
       end
-      @inputs = inputs
+      @include = include
+    end
+
+    # Custom attribute writer method with validation
+    # @param rules [Object] Object to be assigned
+    # @!visibility private
+    def rules=(rules)
+      if rules.nil?
+        fail ArgumentError, 'invalid value for "rules", rules cannot be nil.'
+      end
+      if rules.length > 100
+        fail ArgumentError, 'invalid value for "rules", number of items must be less than or equal to 100.'
+      end
+      if rules.length < 1
+        fail ArgumentError, 'invalid value for "rules", number of items must be greater than or equal to 1.'
+      end
+      @rules = rules
     end
 
     # Custom attribute writer method with validation
@@ -162,9 +201,10 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          bulk_index == o.bulk_index &&
+          enabled == o.enabled &&
           id == o.id &&
-          inputs == o.inputs &&
+          include == o.include &&
+          rules == o.rules &&
           type == o.type &&
           additional_properties == o.additional_properties
     end
@@ -173,7 +213,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [bulk_index, id, inputs, type, additional_properties].hash
+      [enabled, id, include, rules, type, additional_properties].hash
     end
   end
 end

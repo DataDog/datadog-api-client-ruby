@@ -18,6 +18,8 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The `custom_processor` processor transforms events using [Vector Remap Language (VRL)](https://vector.dev/docs/reference/vrl/) scripts with advanced filtering capabilities.
+  # 
+  # **Supported pipeline types:** logs
   class ObservabilityPipelineCustomProcessor
     include BaseGenericModel
 

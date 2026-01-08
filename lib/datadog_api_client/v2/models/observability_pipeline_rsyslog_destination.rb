@@ -18,6 +18,8 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The `rsyslog` destination forwards logs to an external `rsyslog` server over TCP or UDP using the syslog protocol.
+  # 
+  # **Supported pipeline types:** logs
   class ObservabilityPipelineRsyslogDestination
     include BaseGenericModel
 

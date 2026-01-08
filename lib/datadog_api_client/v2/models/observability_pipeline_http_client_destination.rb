@@ -17,22 +17,31 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The `opensearch` destination writes logs to an OpenSearch cluster.
+  # The `http_client` destination sends data to an HTTP endpoint.
   # 
-  # **Supported pipeline types:** logs
-  class ObservabilityPipelineOpenSearchDestination
+  # **Supported pipeline types:** logs, metrics
+  class ObservabilityPipelineHttpClientDestination
     include BaseGenericModel
 
-    # The index to write logs to.
-    attr_accessor :bulk_index
+    # HTTP authentication strategy.
+    attr_accessor :auth_strategy
+
+    # Compression configuration for HTTP requests.
+    attr_accessor :compression
+
+    # Encoding format for log events.
+    attr_reader :encoding
 
     # The unique identifier for this component.
     attr_reader :id
 
-    # A list of component IDs whose output is used as the `input` for this component.
+    # A list of component IDs whose output is used as the input for this component.
     attr_reader :inputs
 
-    # The destination type. The value should always be `opensearch`.
+    # Configuration for enabling TLS encryption between the pipeline component and external services.
+    attr_accessor :tls
+
+    # The destination type. The value should always be `http_client`.
     attr_reader :type
 
     attr_accessor :additional_properties
@@ -41,9 +50,12 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'bulk_index' => :'bulk_index',
+        :'auth_strategy' => :'auth_strategy',
+        :'compression' => :'compression',
+        :'encoding' => :'encoding',
         :'id' => :'id',
         :'inputs' => :'inputs',
+        :'tls' => :'tls',
         :'type' => :'type'
       }
     end
@@ -52,10 +64,13 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'bulk_index' => :'String',
+        :'auth_strategy' => :'ObservabilityPipelineHttpClientDestinationAuthStrategy',
+        :'compression' => :'ObservabilityPipelineHttpClientDestinationCompression',
+        :'encoding' => :'ObservabilityPipelineHttpClientDestinationEncoding',
         :'id' => :'String',
         :'inputs' => :'Array<String>',
-        :'type' => :'ObservabilityPipelineOpenSearchDestinationType'
+        :'tls' => :'ObservabilityPipelineTls',
+        :'type' => :'ObservabilityPipelineHttpClientDestinationType'
       }
     end
 
@@ -64,7 +79,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineOpenSearchDestination` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineHttpClientDestination` initialize method"
       end
 
       self.additional_properties = {}
@@ -77,8 +92,16 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'bulk_index')
-        self.bulk_index = attributes[:'bulk_index']
+      if attributes.key?(:'auth_strategy')
+        self.auth_strategy = attributes[:'auth_strategy']
+      end
+
+      if attributes.key?(:'compression')
+        self.compression = attributes[:'compression']
+      end
+
+      if attributes.key?(:'encoding')
+        self.encoding = attributes[:'encoding']
       end
 
       if attributes.key?(:'id')
@@ -91,6 +114,10 @@ module DatadogAPIClient::V2
         end
       end
 
+      if attributes.key?(:'tls')
+        self.tls = attributes[:'tls']
+      end
+
       if attributes.key?(:'type')
         self.type = attributes[:'type']
       end
@@ -100,10 +127,21 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
+      return false if @encoding.nil?
       return false if @id.nil?
       return false if @inputs.nil?
       return false if @type.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param encoding [Object] Object to be assigned
+    # @!visibility private
+    def encoding=(encoding)
+      if encoding.nil?
+        fail ArgumentError, 'invalid value for "encoding", encoding cannot be nil.'
+      end
+      @encoding = encoding
     end
 
     # Custom attribute writer method with validation
@@ -162,9 +200,12 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          bulk_index == o.bulk_index &&
+          auth_strategy == o.auth_strategy &&
+          compression == o.compression &&
+          encoding == o.encoding &&
           id == o.id &&
           inputs == o.inputs &&
+          tls == o.tls &&
           type == o.type &&
           additional_properties == o.additional_properties
     end
@@ -173,7 +214,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [bulk_index, id, inputs, type, additional_properties].hash
+      [auth_strategy, compression, encoding, id, inputs, tls, type, additional_properties].hash
     end
   end
 end
