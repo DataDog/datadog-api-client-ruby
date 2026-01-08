@@ -18,6 +18,8 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The `amazon_security_lake` destination sends your logs to Amazon Security Lake.
+  # 
+  # **Supported pipeline types:** logs
   class ObservabilityPipelineAmazonSecurityLakeDestination
     include BaseGenericModel
 

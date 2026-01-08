@@ -17,7 +17,9 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The `datadog_agent` source collects logs from the Datadog Agent.
+  # The `datadog_agent` source collects logs/metrics from the Datadog Agent.
+  # 
+  # **Supported pipeline types:** logs, metrics
   class ObservabilityPipelineDatadogAgentSource
     include BaseGenericModel
 

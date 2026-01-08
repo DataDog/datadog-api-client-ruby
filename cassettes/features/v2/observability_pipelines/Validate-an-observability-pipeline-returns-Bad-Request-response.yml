@@ -1,5 +1,5 @@
 http_interactions:
-- recorded_at: Thu, 18 Dec 2025 16:15:29 GMT
+- recorded_at: Thu, 08 Jan 2026 10:31:40 GMT
   request:
     body:
       encoding: UTF-8
@@ -11,7 +11,7 @@ http_interactions:
       Content-Type:
       - application/json
     method: POST
-    uri: https://api.datadoghq.com/api/v2/remote_config/products/obs_pipelines/pipelines/validate
+    uri: https://api.datadoghq.com/api/v2/obs-pipelines/pipelines/validate
   response:
     body:
       encoding: UTF-8

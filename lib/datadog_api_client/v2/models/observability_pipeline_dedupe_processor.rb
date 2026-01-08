@@ -18,6 +18,8 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The `dedupe` processor removes duplicate fields in log events.
+  # 
+  # **Supported pipeline types:** logs
   class ObservabilityPipelineDedupeProcessor
     include BaseGenericModel
 

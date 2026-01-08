@@ -54,7 +54,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'body' when calling ObservabilityPipelinesAPI.create_pipeline"
       end
       # resource path
-      local_var_path = '/api/v2/remote_config/products/obs_pipelines/pipelines'
+      local_var_path = '/api/v2/obs-pipelines/pipelines'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -127,7 +127,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'pipeline_id' when calling ObservabilityPipelinesAPI.delete_pipeline"
       end
       # resource path
-      local_var_path = '/api/v2/remote_config/products/obs_pipelines/pipelines/{pipeline_id}'.sub('{pipeline_id}', CGI.escape(pipeline_id.to_s).gsub('%2F', '/'))
+      local_var_path = '/api/v2/obs-pipelines/pipelines/{pipeline_id}'.sub('{pipeline_id}', CGI.escape(pipeline_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -198,7 +198,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'pipeline_id' when calling ObservabilityPipelinesAPI.get_pipeline"
       end
       # resource path
-      local_var_path = '/api/v2/remote_config/products/obs_pipelines/pipelines/{pipeline_id}'.sub('{pipeline_id}', CGI.escape(pipeline_id.to_s).gsub('%2F', '/'))
+      local_var_path = '/api/v2/obs-pipelines/pipelines/{pipeline_id}'.sub('{pipeline_id}', CGI.escape(pipeline_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -266,7 +266,7 @@ module DatadogAPIClient::V2
         @api_client.config.logger.debug 'Calling API: ObservabilityPipelinesAPI.list_pipelines ...'
       end
       # resource path
-      local_var_path = '/api/v2/remote_config/products/obs_pipelines/pipelines'
+      local_var_path = '/api/v2/obs-pipelines/pipelines'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -344,7 +344,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'body' when calling ObservabilityPipelinesAPI.update_pipeline"
       end
       # resource path
-      local_var_path = '/api/v2/remote_config/products/obs_pipelines/pipelines/{pipeline_id}'.sub('{pipeline_id}', CGI.escape(pipeline_id.to_s).gsub('%2F', '/'))
+      local_var_path = '/api/v2/obs-pipelines/pipelines/{pipeline_id}'.sub('{pipeline_id}', CGI.escape(pipeline_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -418,7 +418,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'body' when calling ObservabilityPipelinesAPI.validate_pipeline"
       end
       # resource path
-      local_var_path = '/api/v2/remote_config/products/obs_pipelines/pipelines/validate'
+      local_var_path = '/api/v2/obs-pipelines/pipelines/validate'
 
       # query parameters
       query_params = opts[:query_params] || {}

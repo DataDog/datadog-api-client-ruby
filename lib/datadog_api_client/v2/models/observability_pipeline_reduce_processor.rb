@@ -18,6 +18,8 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The `reduce` processor aggregates and merges logs based on matching keys and merge strategies.
+  # 
+  # **Supported pipeline types:** logs
   class ObservabilityPipelineReduceProcessor
     include BaseGenericModel
 
