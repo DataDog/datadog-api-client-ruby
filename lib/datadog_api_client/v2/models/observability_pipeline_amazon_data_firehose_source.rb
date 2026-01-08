@@ -18,6 +18,8 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The `amazon_data_firehose` source ingests logs from AWS Data Firehose.
+  # 
+  # **Supported pipeline types:** logs
   class ObservabilityPipelineAmazonDataFirehoseSource
     include BaseGenericModel
 
