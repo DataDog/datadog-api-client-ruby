@@ -33,7 +33,7 @@ module DatadogAPIClient::V2
     # Git info for DORA Metrics events.
     attr_accessor :git
 
-    # Deployment ID.
+    # Deployment ID. Must be 16-128 characters and contain only alphanumeric characters, hyphens, underscores, periods, and colons (a-z, A-Z, 0-9, -, _, ., :).
     attr_accessor :id
 
     # Service name.

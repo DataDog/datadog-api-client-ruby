@@ -33,7 +33,7 @@ module DatadogAPIClient::V2
     # Git info for DORA Metrics events.
     attr_accessor :git
 
-    # Failure ID. Must have at least 16 characters. Required to update a previously sent failure.
+    # Failure ID. Must be 16-128 characters and contain only alphanumeric characters, hyphens, underscores, periods, and colons (a-z, A-Z, 0-9, -, _, ., :).
     attr_accessor :id
 
     # Failure name.
