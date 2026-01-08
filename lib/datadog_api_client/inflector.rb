@@ -1334,6 +1334,7 @@ module DatadogAPIClient
           "v2.batch_upsert_rows_request_array" => "BatchUpsertRowsRequestArray",
           "v2.batch_upsert_rows_request_data" => "BatchUpsertRowsRequestData",
           "v2.batch_upsert_rows_request_data_attributes" => "BatchUpsertRowsRequestDataAttributes",
+          "v2.batch_upsert_rows_request_data_attributes_value" => "BatchUpsertRowsRequestDataAttributesValue",
           "v2.bill_config" => "BillConfig",
           "v2.billing_dimensions_mapping_body_item" => "BillingDimensionsMappingBodyItem",
           "v2.billing_dimensions_mapping_body_item_attributes" => "BillingDimensionsMappingBodyItemAttributes",

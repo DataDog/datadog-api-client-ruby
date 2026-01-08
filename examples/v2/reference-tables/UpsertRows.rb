@@ -7,9 +7,7 @@ body = DatadogAPIClient::V2::BatchUpsertRowsRequestArray.new({
   data: [
     DatadogAPIClient::V2::BatchUpsertRowsRequestData.new({
       attributes: DatadogAPIClient::V2::BatchUpsertRowsRequestDataAttributes.new({
-        values: {
-          example_key_value: "primary_key_value", name: "row_name",
-        },
+        values: {},
       }),
       id: "primary_key_value",
       type: DatadogAPIClient::V2::TableRowResourceDataType::ROW,

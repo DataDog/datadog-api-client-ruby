@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class BatchUpsertRowsRequestDataAttributes
     include BaseGenericModel
 
-    # Key-value pairs representing row data, where keys are field names from the schema.
+    # Key-value pairs representing row data, where keys are schema field names and values match the corresponding column types.
     attr_reader :values
 
     attr_accessor :additional_properties
@@ -38,7 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'values' => :'Hash<String, Object>'
+        :'values' => :'Hash<String, BatchUpsertRowsRequestDataAttributesValue>'
       }
     end
 
