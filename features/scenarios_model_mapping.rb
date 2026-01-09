@@ -1525,6 +1525,25 @@ ScenariosModelMappings = {
             "filter_operating_system_name" => "String",
             "filter_operating_system_version" => "String",
     },
+    "v2.ListSecurityMonitoringCriticalAssets" => {
+            "query" => "String",
+    },
+    "v2.CreateSecurityMonitoringCriticalAsset" => {
+            "body" => "SecurityMonitoringCriticalAssetCreateRequest",
+    },
+    "v2.GetCriticalAssetsAffectingRule" => {
+            "rule_id" => "String",
+    },
+    "v2.DeleteSecurityMonitoringCriticalAsset" => {
+            "critical_asset_id" => "String",
+    },
+    "v2.GetSecurityMonitoringCriticalAsset" => {
+            "critical_asset_id" => "String",
+    },
+    "v2.UpdateSecurityMonitoringCriticalAsset" => {
+            "critical_asset_id" => "String",
+            "body" => "SecurityMonitoringCriticalAssetUpdateRequest",
+    },
     "v2.CreateSecurityFilter" => {
             "body" => "SecurityFilterCreateRequest",
     },

@@ -737,6 +737,73 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Create a critical asset.
+    #
+    # @see #create_security_monitoring_critical_asset_with_http_info
+    def create_security_monitoring_critical_asset(body, opts = {})
+      data, _status_code, _headers = create_security_monitoring_critical_asset_with_http_info(body, opts)
+      data
+    end
+
+    # Create a critical asset.
+    #
+    # Create a new critical asset.
+    #
+    # @param body [SecurityMonitoringCriticalAssetCreateRequest] The definition of the new critical asset.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SecurityMonitoringCriticalAssetResponse, Integer, Hash)>] SecurityMonitoringCriticalAssetResponse data, response status code and response headers
+    def create_security_monitoring_critical_asset_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.create_security_monitoring_critical_asset ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.create_security_monitoring_critical_asset"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/configuration/critical_assets'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityMonitoringCriticalAssetResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_security_monitoring_critical_asset,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#create_security_monitoring_critical_asset\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create a detection rule.
     #
     # @see #create_security_monitoring_rule_with_http_info
@@ -1136,6 +1203,71 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SecurityMonitoringAPI#delete_security_filter\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete a critical asset.
+    #
+    # @see #delete_security_monitoring_critical_asset_with_http_info
+    def delete_security_monitoring_critical_asset(critical_asset_id, opts = {})
+      delete_security_monitoring_critical_asset_with_http_info(critical_asset_id, opts)
+      nil
+    end
+
+    # Delete a critical asset.
+    #
+    # Delete a specific critical asset.
+    #
+    # @param critical_asset_id [String] The ID of the critical asset.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_security_monitoring_critical_asset_with_http_info(critical_asset_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.delete_security_monitoring_critical_asset ...'
+      end
+      # verify the required parameter 'critical_asset_id' is set
+      if @api_client.config.client_side_validation && critical_asset_id.nil?
+        fail ArgumentError, "Missing the required parameter 'critical_asset_id' when calling SecurityMonitoringAPI.delete_security_monitoring_critical_asset"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/configuration/critical_assets/{critical_asset_id}'.sub('{critical_asset_id}', CGI.escape(critical_asset_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_security_monitoring_critical_asset,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#delete_security_monitoring_critical_asset\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1755,6 +1887,71 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get critical assets affecting a specific rule.
+    #
+    # @see #get_critical_assets_affecting_rule_with_http_info
+    def get_critical_assets_affecting_rule(rule_id, opts = {})
+      data, _status_code, _headers = get_critical_assets_affecting_rule_with_http_info(rule_id, opts)
+      data
+    end
+
+    # Get critical assets affecting a specific rule.
+    #
+    # Get the list of critical assets that affect a specific existing rule by the rule's ID.
+    #
+    # @param rule_id [String] The ID of the rule.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SecurityMonitoringCriticalAssetsResponse, Integer, Hash)>] SecurityMonitoringCriticalAssetsResponse data, response status code and response headers
+    def get_critical_assets_affecting_rule_with_http_info(rule_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_critical_assets_affecting_rule ...'
+      end
+      # verify the required parameter 'rule_id' is set
+      if @api_client.config.client_side_validation && rule_id.nil?
+        fail ArgumentError, "Missing the required parameter 'rule_id' when calling SecurityMonitoringAPI.get_critical_assets_affecting_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/configuration/critical_assets/rules/{rule_id}'.sub('{rule_id}', CGI.escape(rule_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityMonitoringCriticalAssetsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_critical_assets_affecting_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#get_critical_assets_affecting_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get a custom framework.
     #
     # @see #get_custom_framework_with_http_info
@@ -2262,6 +2459,71 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SecurityMonitoringAPI#get_security_filter\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get a critical asset.
+    #
+    # @see #get_security_monitoring_critical_asset_with_http_info
+    def get_security_monitoring_critical_asset(critical_asset_id, opts = {})
+      data, _status_code, _headers = get_security_monitoring_critical_asset_with_http_info(critical_asset_id, opts)
+      data
+    end
+
+    # Get a critical asset.
+    #
+    # Get the details of a specific critical asset.
+    #
+    # @param critical_asset_id [String] The ID of the critical asset.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SecurityMonitoringCriticalAssetResponse, Integer, Hash)>] SecurityMonitoringCriticalAssetResponse data, response status code and response headers
+    def get_security_monitoring_critical_asset_with_http_info(critical_asset_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_security_monitoring_critical_asset ...'
+      end
+      # verify the required parameter 'critical_asset_id' is set
+      if @api_client.config.client_side_validation && critical_asset_id.nil?
+        fail ArgumentError, "Missing the required parameter 'critical_asset_id' when calling SecurityMonitoringAPI.get_security_monitoring_critical_asset"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/configuration/critical_assets/{critical_asset_id}'.sub('{critical_asset_id}', CGI.escape(critical_asset_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityMonitoringCriticalAssetResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_security_monitoring_critical_asset,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#get_security_monitoring_critical_asset\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -3791,6 +4053,68 @@ module DatadogAPIClient::V2
             end
             @api_client.set_attribute_from_path(api_version, opts, "page_cursor", String, @api_client.get_attribute_from_path(response, "meta.page.after"))
         end
+    end
+
+    # Get all critical assets.
+    #
+    # @see #list_security_monitoring_critical_assets_with_http_info
+    def list_security_monitoring_critical_assets(opts = {})
+      data, _status_code, _headers = list_security_monitoring_critical_assets_with_http_info(opts)
+      data
+    end
+
+    # Get all critical assets.
+    #
+    # Get the list of all critical assets.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :query Query string.
+    # @return [Array<(SecurityMonitoringCriticalAssetsResponse, Integer, Hash)>] SecurityMonitoringCriticalAssetsResponse data, response status code and response headers
+    def list_security_monitoring_critical_assets_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.list_security_monitoring_critical_assets ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/configuration/critical_assets'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'query'] = opts[:'query'] if !opts[:'query'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityMonitoringCriticalAssetsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_security_monitoring_critical_assets,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#list_security_monitoring_critical_assets\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
     end
 
     # List hist signals.
@@ -5483,6 +5807,78 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SecurityMonitoringAPI#update_security_filter\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update a critical asset.
+    #
+    # @see #update_security_monitoring_critical_asset_with_http_info
+    def update_security_monitoring_critical_asset(critical_asset_id, body, opts = {})
+      data, _status_code, _headers = update_security_monitoring_critical_asset_with_http_info(critical_asset_id, body, opts)
+      data
+    end
+
+    # Update a critical asset.
+    #
+    # Update a specific critical asset.
+    #
+    # @param critical_asset_id [String] The ID of the critical asset.
+    # @param body [SecurityMonitoringCriticalAssetUpdateRequest] New definition of the critical asset. Supports partial updates.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SecurityMonitoringCriticalAssetResponse, Integer, Hash)>] SecurityMonitoringCriticalAssetResponse data, response status code and response headers
+    def update_security_monitoring_critical_asset_with_http_info(critical_asset_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.update_security_monitoring_critical_asset ...'
+      end
+      # verify the required parameter 'critical_asset_id' is set
+      if @api_client.config.client_side_validation && critical_asset_id.nil?
+        fail ArgumentError, "Missing the required parameter 'critical_asset_id' when calling SecurityMonitoringAPI.update_security_monitoring_critical_asset"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.update_security_monitoring_critical_asset"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/configuration/critical_assets/{critical_asset_id}'.sub('{critical_asset_id}', CGI.escape(critical_asset_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityMonitoringCriticalAssetResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_security_monitoring_critical_asset,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#update_security_monitoring_critical_asset\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
