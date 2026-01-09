@@ -1,0 +1,25 @@
+http_interactions:
+- recorded_at: Fri, 02 Jan 2026 19:09:02 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"query":"host:test"},"type":"critical_assets"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/security_monitoring/configuration/critical_assets
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":["input_validation_error(Field ''data.attributes.severity''
+        is invalid: severity is required)"]}'
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 400
+      message: Bad Request
+recorded_with: VCR 6.0.0

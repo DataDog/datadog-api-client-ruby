@@ -1,0 +1,20 @@
+http_interactions:
+- recorded_at: Fri, 02 Jan 2026 18:44:02 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+    method: GET
+    uri: https://api.datadoghq.com/api/v2/security_monitoring/configuration/critical_assets/rules/aaa-bbb-ccc-ddd
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":[]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 200
+      message: OK
+recorded_with: VCR 6.0.0
