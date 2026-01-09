@@ -22,7 +22,7 @@ body = DatadogAPIClient::V2::ObservabilityPipeline.new({
             type: DatadogAPIClient::V2::ObservabilityPipelineDatadogLogsDestinationType::DATADOG_LOGS,
           }),
         ],
-        processors: [
+        processor_groups: [
           DatadogAPIClient::V2::ObservabilityPipelineConfigProcessorGroup.new({
             enabled: true,
             id: "my-processor-group",

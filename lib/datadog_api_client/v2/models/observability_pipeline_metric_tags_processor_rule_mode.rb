@@ -17,12 +17,10 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # SASL mechanism used for Kafka authentication.
-  class ObservabilityPipelinePipelineKafkaSourceSaslMechanism
+  # The processing mode for tag filtering.
+  class ObservabilityPipelineMetricTagsProcessorRuleMode
     include BaseEnumModel
 
-    PLAIN = "PLAIN".freeze
-    SCRAMNOT_SHANOT_256 = "SCRAM-SHA-256".freeze
-    SCRAMNOT_SHANOT_512 = "SCRAM-SHA-512".freeze
+    FILTER = "filter".freeze
   end
 end

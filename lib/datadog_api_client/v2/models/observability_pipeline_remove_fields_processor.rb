@@ -18,19 +18,21 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The `remove_fields` processor deletes specified fields from logs.
+  # 
+  # **Supported pipeline types:** logs
   class ObservabilityPipelineRemoveFieldsProcessor
     include BaseGenericModel
 
     # The display name for a component.
     attr_accessor :display_name
 
-    # Whether this processor is enabled.
+    # Indicates whether the processor is enabled.
     attr_reader :enabled
 
     # A list of field names to be removed from each log event.
     attr_reader :fields
 
-    # The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
+    # The unique identifier for this component. Used in other parts of the pipeline to reference this component (for example, as the `input` to downstream components).
     attr_reader :id
 
     # A Datadog search query used to determine which logs this processor targets.

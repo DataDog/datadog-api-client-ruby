@@ -18,13 +18,15 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The `rename_fields` processor changes field names.
+  # 
+  # **Supported pipeline types:** logs
   class ObservabilityPipelineRenameFieldsProcessor
     include BaseGenericModel
 
     # The display name for a component.
     attr_accessor :display_name
 
-    # Whether this processor is enabled.
+    # Indicates whether the processor is enabled.
     attr_reader :enabled
 
     # A list of rename rules specifying which fields to rename in the event, what to rename them to, and whether to preserve the original fields.

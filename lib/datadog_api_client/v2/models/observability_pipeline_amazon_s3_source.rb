@@ -19,6 +19,8 @@ require 'time'
 module DatadogAPIClient::V2
   # The `amazon_s3` source ingests logs from an Amazon S3 bucket.
   # It supports AWS authentication and TLS encryption.
+  # 
+  # **Supported pipeline types:** logs
   class ObservabilityPipelineAmazonS3Source
     include BaseGenericModel
 
@@ -26,7 +28,7 @@ module DatadogAPIClient::V2
     # If omitted, the system’s default credentials are used (for example, the IAM role and environment variables).
     attr_accessor :auth
 
-    # The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
+    # The unique identifier for this component. Used in other parts of the pipeline to reference this component (for example, as the `input` to downstream components).
     attr_reader :id
 
     # AWS region where the S3 bucket resides.

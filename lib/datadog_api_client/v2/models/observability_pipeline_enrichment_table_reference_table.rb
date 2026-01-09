@@ -17,12 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Specifies the SASL mechanism for authenticating with a Kafka cluster.
-  class ObservabilityPipelineKafkaSourceSasl
+  # Uses a Datadog reference table to enrich logs.
+  class ObservabilityPipelineEnrichmentTableReferenceTable
     include BaseGenericModel
 
-    # SASL mechanism used for Kafka authentication.
-    attr_accessor :mechanism
+    # List of column names to include from the reference table. If not provided, all columns are included.
+    attr_accessor :columns
+
+    # Path to the field in the log event to match against the reference table.
+    attr_reader :key_field
+
+    # The unique identifier of the reference table.
+    attr_reader :table_id
 
     attr_accessor :additional_properties
 
@@ -30,7 +36,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'mechanism' => :'mechanism'
+        :'columns' => :'columns',
+        :'key_field' => :'key_field',
+        :'table_id' => :'table_id'
       }
     end
 
@@ -38,7 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'mechanism' => :'ObservabilityPipelinePipelineKafkaSourceSaslMechanism'
+        :'columns' => :'Array<String>',
+        :'key_field' => :'String',
+        :'table_id' => :'String'
       }
     end
 
@@ -47,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineKafkaSourceSasl` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineEnrichmentTableReferenceTable` initialize method"
       end
 
       self.additional_properties = {}
@@ -60,9 +70,48 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'mechanism')
-        self.mechanism = attributes[:'mechanism']
+      if attributes.key?(:'columns')
+        if (value = attributes[:'columns']).is_a?(Array)
+          self.columns = value
+        end
       end
+
+      if attributes.key?(:'key_field')
+        self.key_field = attributes[:'key_field']
+      end
+
+      if attributes.key?(:'table_id')
+        self.table_id = attributes[:'table_id']
+      end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @key_field.nil?
+      return false if @table_id.nil?
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param key_field [Object] Object to be assigned
+    # @!visibility private
+    def key_field=(key_field)
+      if key_field.nil?
+        fail ArgumentError, 'invalid value for "key_field", key_field cannot be nil.'
+      end
+      @key_field = key_field
+    end
+
+    # Custom attribute writer method with validation
+    # @param table_id [Object] Object to be assigned
+    # @!visibility private
+    def table_id=(table_id)
+      if table_id.nil?
+        fail ArgumentError, 'invalid value for "table_id", table_id cannot be nil.'
+      end
+      @table_id = table_id
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -91,7 +140,9 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          mechanism == o.mechanism &&
+          columns == o.columns &&
+          key_field == o.key_field &&
+          table_id == o.table_id &&
           additional_properties == o.additional_properties
     end
 
@@ -99,7 +150,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [mechanism, additional_properties].hash
+      [columns, key_field, table_id, additional_properties].hash
     end
   end
 end

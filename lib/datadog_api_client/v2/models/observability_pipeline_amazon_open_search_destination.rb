@@ -18,6 +18,8 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The `amazon_opensearch` destination writes logs to Amazon OpenSearch.
+  # 
+  # **Supported pipeline types:** logs
   class ObservabilityPipelineAmazonOpenSearchDestination
     include BaseGenericModel
 

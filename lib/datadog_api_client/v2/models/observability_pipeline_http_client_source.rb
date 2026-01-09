@@ -18,6 +18,8 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The `http_client` source scrapes logs from HTTP endpoints at regular intervals.
+  # 
+  # **Supported pipeline types:** logs
   class ObservabilityPipelineHttpClientSource
     include BaseGenericModel
 
@@ -27,7 +29,7 @@ module DatadogAPIClient::V2
     # The decoding format used to interpret incoming logs.
     attr_reader :decoding
 
-    # The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
+    # The unique identifier for this component. Used in other parts of the pipeline to reference this component (for example, as the `input` to downstream components).
     attr_reader :id
 
     # The interval (in seconds) between HTTP scrape requests.
