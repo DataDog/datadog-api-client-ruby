@@ -3688,6 +3688,121 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # List security findings.
+    #
+    # @see #list_security_findings_with_http_info
+    def list_security_findings(opts = {})
+      data, _status_code, _headers = list_security_findings_with_http_info(opts)
+      data
+    end
+
+    # List security findings.
+    #
+    # Get a list of security findings that match a search query.
+    #
+    # This endpoint requires one of the following permissions:
+    # - `security_monitoring_findings_read`
+    # - `appsec_vm_read`
+    #
+    # ### Query Syntax
+    #
+    # This endpoint uses the logs query syntax. Findings attributes (living in the custom. namespace) are prefixed by @ when queried. Tags are queried without a prefix.
+    #
+    # Example: `@severity:(critical OR high) @status:open team:platform`
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :filter_query The search query following log search syntax.
+    # @option opts [String] :page_cursor Get the next page of results with a cursor provided in the previous query.
+    # @option opts [Integer] :page_limit The maximum number of findings in the response.
+    # @option opts [SecurityFindingsSort] :sort Sorts by @detection_changed_at.
+    # @return [Array<(ListSecurityFindingsResponse, Integer, Hash)>] ListSecurityFindingsResponse data, response status code and response headers
+    def list_security_findings_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_security_findings".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_security_findings")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_security_findings"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.list_security_findings ...'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_limit'].nil? && opts[:'page_limit'] > 150
+        fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling SecurityMonitoringAPI.list_security_findings, must be smaller than or equal to 150.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_limit'].nil? && opts[:'page_limit'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling SecurityMonitoringAPI.list_security_findings, must be greater than or equal to 1.'
+      end
+      allowable_values = ['@detection_changed_at', '-@detection_changed_at']
+      if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
+        fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/api/v2/security/findings'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter[query]'] = opts[:'filter_query'] if !opts[:'filter_query'].nil?
+      query_params[:'page[cursor]'] = opts[:'page_cursor'] if !opts[:'page_cursor'].nil?
+      query_params[:'page[limit]'] = opts[:'page_limit'] if !opts[:'page_limit'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ListSecurityFindingsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_security_findings,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#list_security_findings\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List security findings.
+    #
+    # Provide a paginated version of {#list_security_findings}, returning all items.
+    #
+    # To use it you need to use a block: list_security_findings_with_pagination { |item| p item }
+    #
+    # @yield [SecurityFindingsData] Paginated items
+    def list_security_findings_with_pagination(opts = {})
+        api_version = "V2"
+        page_size = @api_client.get_attribute_from_path(opts, "page_limit", 10)
+        @api_client.set_attribute_from_path(api_version, opts, "page_limit", Integer, page_size)
+        while true do
+            response = list_security_findings(opts)
+            @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
+            if @api_client.get_attribute_from_path(response, "data").length < page_size
+              break
+            end
+            @api_client.set_attribute_from_path(api_version, opts, "page_cursor", String, @api_client.get_attribute_from_path(response, "meta.page.after"))
+        end
+    end
+
     # List hist signals.
     #
     # @see #list_security_monitoring_histsignals_with_http_info
@@ -4775,6 +4890,110 @@ module DatadogAPIClient::V2
         @api_client.config.logger.debug "API called: SecurityMonitoringAPI#run_threat_hunting_job\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
+    end
+
+    # Search security findings.
+    #
+    # @see #search_security_findings_with_http_info
+    def search_security_findings(body, opts = {})
+      data, _status_code, _headers = search_security_findings_with_http_info(body, opts)
+      data
+    end
+
+    # Search security findings.
+    #
+    # Get a list of security findings that match a search query.
+    #
+    # This endpoint requires one of the following permissions:
+    # - `security_monitoring_findings_read`
+    # - `appsec_vm_read`
+    #
+    # ### Query Syntax
+    #
+    # The API uses the logs query syntax. Findings attributes (living in the custom. namespace) are prefixed by @ when queried. Tags are queried without a prefix.
+    #
+    # Example: `@severity:(critical OR high) @status:open team:platform`
+    #
+    # @param body [SecurityFindingsSearchRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(ListSecurityFindingsResponse, Integer, Hash)>] ListSecurityFindingsResponse data, response status code and response headers
+    def search_security_findings_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.search_security_findings".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.search_security_findings")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.search_security_findings"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.search_security_findings ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.search_security_findings"
+      end
+      # resource path
+      local_var_path = '/api/v2/security/findings/search'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ListSecurityFindingsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :search_security_findings,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#search_security_findings\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Search security findings.
+    #
+    # Provide a paginated version of {#search_security_findings}, returning all items.
+    #
+    # To use it you need to use a block: search_security_findings_with_pagination { |item| p item }
+    #
+    # @yield [SecurityFindingsData] Paginated items
+    def search_security_findings_with_pagination(body, opts = {})
+        api_version = "V2"
+        page_size = @api_client.get_attribute_from_path(body, "data.attributes.page.limit", 10)
+        @api_client.set_attribute_from_path(api_version, body, "data.attributes.page.limit", SecurityFindingsSearchRequestData, page_size)
+        while true do
+            response = search_security_findings(body, opts)
+            @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
+            if @api_client.get_attribute_from_path(response, "data").length < page_size
+              break
+            end
+            @api_client.set_attribute_from_path(api_version, body, "data.attributes.page.cursor", SecurityFindingsSearchRequestData, @api_client.get_attribute_from_path(response, "meta.page.after"))
+        end
     end
 
     # Search hist signals.
