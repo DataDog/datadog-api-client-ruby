@@ -693,7 +693,7 @@ module DatadogAPIClient::V2
     # Use the `page_number` and `page_size` query parameters to paginate through results.
     #
     # @param opts [Hash] the optional parameters
-    # @option opts [Integer] :page_number Page number for pagination (must be greater than 0).
+    # @option opts [Integer] :page_number Page number for pagination (starts at 0).
     # @option opts [Integer] :page_size Number of results per page (must be greater than 0 and less than or equal to 100).
     # @option opts [String] :sort_attribute Attribute to sort by.
     # @option opts [Boolean] :sort_descending Sort order (true for descending, false for ascending).
@@ -711,8 +711,8 @@ module DatadogAPIClient::V2
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: FleetAutomationAPI.list_fleet_agents ...'
       end
-      if @api_client.config.client_side_validation && !opts[:'page_number'].nil? && opts[:'page_number'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"page_number"]" when calling FleetAutomationAPI.list_fleet_agents, must be greater than or equal to 1.'
+      if @api_client.config.client_side_validation && !opts[:'page_number'].nil? && opts[:'page_number'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"page_number"]" when calling FleetAutomationAPI.list_fleet_agents, must be greater than or equal to 0.'
       end
       if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] > 100
         fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling FleetAutomationAPI.list_fleet_agents, must be smaller than or equal to 100.'
