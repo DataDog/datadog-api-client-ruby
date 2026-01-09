@@ -48,6 +48,12 @@ module DatadogAPIClient::V1
     # List of queries that can be returned directly or used in formulas.
     attr_accessor :queries
 
+    # A formula and functions metrics query.
+    attr_accessor :query
+
+    # Request type for the histogram request.
+    attr_accessor :request_type
+
     # Timeseries, scalar, or event list response. Event list response formats are supported by Geomap widgets.
     attr_accessor :response_format
 
@@ -75,6 +81,8 @@ module DatadogAPIClient::V1
         :'profile_metrics_query' => :'profile_metrics_query',
         :'q' => :'q',
         :'queries' => :'queries',
+        :'query' => :'query',
+        :'request_type' => :'request_type',
         :'response_format' => :'response_format',
         :'rum_query' => :'rum_query',
         :'security_query' => :'security_query',
@@ -95,6 +103,8 @@ module DatadogAPIClient::V1
         :'profile_metrics_query' => :'LogQueryDefinition',
         :'q' => :'String',
         :'queries' => :'Array<FormulaAndFunctionQueryDefinition>',
+        :'query' => :'FormulaAndFunctionMetricQueryDefinition',
+        :'request_type' => :'WidgetHistogramRequestType',
         :'response_format' => :'FormulaAndFunctionResponseFormat',
         :'rum_query' => :'LogQueryDefinition',
         :'security_query' => :'LogQueryDefinition',
@@ -160,6 +170,14 @@ module DatadogAPIClient::V1
         end
       end
 
+      if attributes.key?(:'query')
+        self.query = attributes[:'query']
+      end
+
+      if attributes.key?(:'request_type')
+        self.request_type = attributes[:'request_type']
+      end
+
       if attributes.key?(:'response_format')
         self.response_format = attributes[:'response_format']
       end
@@ -212,6 +230,8 @@ module DatadogAPIClient::V1
           profile_metrics_query == o.profile_metrics_query &&
           q == o.q &&
           queries == o.queries &&
+          query == o.query &&
+          request_type == o.request_type &&
           response_format == o.response_format &&
           rum_query == o.rum_query &&
           security_query == o.security_query &&
@@ -223,7 +243,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [apm_query, event_query, formulas, log_query, network_query, process_query, profile_metrics_query, q, queries, response_format, rum_query, security_query, style, additional_properties].hash
+      [apm_query, event_query, formulas, log_query, network_query, process_query, profile_metrics_query, q, queries, query, request_type, response_format, rum_query, security_query, style, additional_properties].hash
     end
   end
 end
