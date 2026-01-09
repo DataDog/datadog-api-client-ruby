@@ -18,13 +18,15 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The `socket` source ingests logs over TCP or UDP.
+  # 
+  # **Supported pipeline types:** logs
   class ObservabilityPipelineSocketSource
     include BaseGenericModel
 
     # Framing method configuration for the socket source.
     attr_reader :framing
 
-    # The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
+    # The unique identifier for this component. Used in other parts of the pipeline to reference this component (for example, as the `input` to downstream components).
     attr_reader :id
 
     # Protocol used to receive logs.

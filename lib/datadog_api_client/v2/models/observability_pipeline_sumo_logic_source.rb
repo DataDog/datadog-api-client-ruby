@@ -18,10 +18,12 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The `sumo_logic` source receives logs from Sumo Logic collectors.
+  # 
+  # **Supported pipeline types:** logs
   class ObservabilityPipelineSumoLogicSource
     include BaseGenericModel
 
-    # The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
+    # The unique identifier for this component. Used in other parts of the pipeline to reference this component (for example, as the `input` to downstream components).
     attr_reader :id
 
     # The source type. The value should always be `sumo_logic`.

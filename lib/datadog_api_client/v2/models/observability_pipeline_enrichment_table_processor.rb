@@ -17,14 +17,16 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The `enrichment_table` processor enriches logs using a static CSV file or GeoIP database.
+  # The `enrichment_table` processor enriches logs using a static CSV file, GeoIP database, or reference table. Exactly one of `file`, `geoip`, or `reference_table` must be configured.
+  # 
+  # **Supported pipeline types:** logs
   class ObservabilityPipelineEnrichmentTableProcessor
     include BaseGenericModel
 
     # The display name for a component.
     attr_accessor :display_name
 
-    # Whether this processor is enabled.
+    # Indicates whether the processor is enabled.
     attr_reader :enabled
 
     # Defines a static enrichment table loaded from a CSV file.
@@ -38,6 +40,9 @@ module DatadogAPIClient::V2
 
     # A Datadog search query used to determine which logs this processor targets.
     attr_reader :include
+
+    # Uses a Datadog reference table to enrich logs.
+    attr_accessor :reference_table
 
     # Path where enrichment results should be stored in the log.
     attr_reader :target
@@ -57,6 +62,7 @@ module DatadogAPIClient::V2
         :'geoip' => :'geoip',
         :'id' => :'id',
         :'include' => :'include',
+        :'reference_table' => :'reference_table',
         :'target' => :'target',
         :'type' => :'type'
       }
@@ -72,6 +78,7 @@ module DatadogAPIClient::V2
         :'geoip' => :'ObservabilityPipelineEnrichmentTableGeoIp',
         :'id' => :'String',
         :'include' => :'String',
+        :'reference_table' => :'ObservabilityPipelineEnrichmentTableReferenceTable',
         :'target' => :'String',
         :'type' => :'ObservabilityPipelineEnrichmentTableProcessorType'
       }
@@ -117,6 +124,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'include')
         self.include = attributes[:'include']
+      end
+
+      if attributes.key?(:'reference_table')
+        self.reference_table = attributes[:'reference_table']
       end
 
       if attributes.key?(:'target')
@@ -222,6 +233,7 @@ module DatadogAPIClient::V2
           geoip == o.geoip &&
           id == o.id &&
           include == o.include &&
+          reference_table == o.reference_table &&
           target == o.target &&
           type == o.type &&
           additional_properties == o.additional_properties
@@ -231,7 +243,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [display_name, enabled, file, geoip, id, include, target, type, additional_properties].hash
+      [display_name, enabled, file, geoip, id, include, reference_table, target, type, additional_properties].hash
     end
   end
 end

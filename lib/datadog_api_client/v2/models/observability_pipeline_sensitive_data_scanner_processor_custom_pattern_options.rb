@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOptions
     include BaseGenericModel
 
+    # Human-readable description providing context about a sensitive data scanner rule
+    attr_accessor :description
+
     # A regular expression used to detect sensitive values. Must be a valid regex.
     attr_reader :rule
 
@@ -30,6 +33,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'description' => :'description',
         :'rule' => :'rule'
       }
     end
@@ -38,6 +42,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'description' => :'String',
         :'rule' => :'String'
       }
     end
@@ -59,6 +64,10 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'description')
+        self.description = attributes[:'description']
+      end
 
       if attributes.key?(:'rule')
         self.rule = attributes[:'rule']
@@ -109,6 +118,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          description == o.description &&
           rule == o.rule &&
           additional_properties == o.additional_properties
     end
@@ -117,7 +127,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [rule, additional_properties].hash
+      [description, rule, additional_properties].hash
     end
   end
 end

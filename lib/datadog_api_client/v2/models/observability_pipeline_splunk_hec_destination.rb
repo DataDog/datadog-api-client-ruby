@@ -18,6 +18,8 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The `splunk_hec` destination forwards logs to Splunk using the HTTP Event Collector (HEC).
+  # 
+  # **Supported pipeline types:** logs
   class ObservabilityPipelineSplunkHecDestination
     include BaseGenericModel
 
@@ -28,7 +30,7 @@ module DatadogAPIClient::V2
     # Encoding format for log events.
     attr_accessor :encoding
 
-    # The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
+    # The unique identifier for this component. Used in other parts of the pipeline to reference this component (for example, as the `input` to downstream components).
     attr_reader :id
 
     # Optional name of the Splunk index where logs are written.

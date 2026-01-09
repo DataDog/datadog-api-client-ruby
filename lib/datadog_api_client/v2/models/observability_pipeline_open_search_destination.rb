@@ -18,6 +18,8 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The `opensearch` destination writes logs to an OpenSearch cluster.
+  # 
+  # **Supported pipeline types:** logs
   class ObservabilityPipelineOpenSearchDestination
     include BaseGenericModel
 

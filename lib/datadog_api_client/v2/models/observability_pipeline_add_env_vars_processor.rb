@@ -18,13 +18,15 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The `add_env_vars` processor adds environment variable values to log events.
+  # 
+  # **Supported pipeline types:** logs
   class ObservabilityPipelineAddEnvVarsProcessor
     include BaseGenericModel
 
     # The display name for a component.
     attr_accessor :display_name
 
-    # Whether this processor is enabled.
+    # Indicates whether the processor is enabled.
     attr_reader :enabled
 
     # The unique identifier for this component. Used to reference this processor in the pipeline.

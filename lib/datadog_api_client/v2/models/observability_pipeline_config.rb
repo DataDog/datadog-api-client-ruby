@@ -24,7 +24,15 @@ module DatadogAPIClient::V2
     # A list of destination components where processed logs are sent.
     attr_reader :destinations
 
+    # The type of data being ingested. Defaults to `logs` if not specified.
+    attr_accessor :pipeline_type
+
     # A list of processor groups that transform or enrich log data.
+    attr_accessor :processor_groups
+
+    # A list of processor groups that transform or enrich log data.
+    #
+    # **Deprecated:** This field is deprecated, you should now use the processor_groups field.
     attr_accessor :processors
 
     # A list of configured data sources for the pipeline.
@@ -37,6 +45,8 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'destinations' => :'destinations',
+        :'pipeline_type' => :'pipeline_type',
+        :'processor_groups' => :'processor_groups',
         :'processors' => :'processors',
         :'sources' => :'sources'
       }
@@ -47,6 +57,8 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'destinations' => :'Array<ObservabilityPipelineConfigDestinationItem>',
+        :'pipeline_type' => :'ObservabilityPipelineConfigPipelineType',
+        :'processor_groups' => :'Array<ObservabilityPipelineConfigProcessorGroup>',
         :'processors' => :'Array<ObservabilityPipelineConfigProcessorGroup>',
         :'sources' => :'Array<ObservabilityPipelineConfigSourceItem>'
       }
@@ -73,6 +85,16 @@ module DatadogAPIClient::V2
       if attributes.key?(:'destinations')
         if (value = attributes[:'destinations']).is_a?(Array)
           self.destinations = value
+        end
+      end
+
+      if attributes.key?(:'pipeline_type')
+        self.pipeline_type = attributes[:'pipeline_type']
+      end
+
+      if attributes.key?(:'processor_groups')
+        if (value = attributes[:'processor_groups']).is_a?(Array)
+          self.processor_groups = value
         end
       end
 
@@ -145,6 +167,8 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           destinations == o.destinations &&
+          pipeline_type == o.pipeline_type &&
+          processor_groups == o.processor_groups &&
           processors == o.processors &&
           sources == o.sources &&
           additional_properties == o.additional_properties
@@ -154,7 +178,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [destinations, processors, sources, additional_properties].hash
+      [destinations, pipeline_type, processor_groups, processors, sources, additional_properties].hash
     end
   end
 end

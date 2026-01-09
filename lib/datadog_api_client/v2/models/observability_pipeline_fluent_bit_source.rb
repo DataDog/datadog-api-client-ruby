@@ -18,10 +18,12 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The `fluent_bit` source ingests logs from Fluent Bit.
+  # 
+  # **Supported pipeline types:** logs
   class ObservabilityPipelineFluentBitSource
     include BaseGenericModel
 
-    # The unique identifier for this component. Used to reference this component in other parts of the pipeline (for example, as the `input` to downstream components).
+    # The unique identifier for this component. Used in other parts of the pipeline to reference this component (for example, as the `input` to downstream components).
     attr_reader :id
 
     # Configuration for enabling TLS encryption between the pipeline component and external services.

@@ -18,13 +18,15 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The `ocsf_mapper` processor transforms logs into the OCSF schema using a predefined mapping configuration.
+  # 
+  # **Supported pipeline types:** logs
   class ObservabilityPipelineOcsfMapperProcessor
     include BaseGenericModel
 
     # The display name for a component.
     attr_accessor :display_name
 
-    # Whether this processor is enabled.
+    # Indicates whether the processor is enabled.
     attr_reader :enabled
 
     # The unique identifier for this component. Used to reference this component in other parts of the pipeline.
