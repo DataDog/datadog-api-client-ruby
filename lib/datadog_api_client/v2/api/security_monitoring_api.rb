@@ -3700,10 +3700,6 @@ module DatadogAPIClient::V2
     #
     # Get a list of security findings that match a search query.
     #
-    # This endpoint requires one of the following permissions:
-    # - `security_monitoring_findings_read`
-    # - `appsec_vm_read`
-    #
     # ### Query Syntax
     #
     # This endpoint uses the logs query syntax. Findings attributes (living in the custom. namespace) are prefixed by @ when queried. Tags are queried without a prefix.
@@ -3717,12 +3713,6 @@ module DatadogAPIClient::V2
     # @option opts [SecurityFindingsSort] :sort Sorts by @detection_changed_at.
     # @return [Array<(ListSecurityFindingsResponse, Integer, Hash)>] ListSecurityFindingsResponse data, response status code and response headers
     def list_security_findings_with_http_info(opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.list_security_findings".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_security_findings")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_security_findings"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.list_security_findings ...'
@@ -4904,10 +4894,6 @@ module DatadogAPIClient::V2
     #
     # Get a list of security findings that match a search query.
     #
-    # This endpoint requires one of the following permissions:
-    # - `security_monitoring_findings_read`
-    # - `appsec_vm_read`
-    #
     # ### Query Syntax
     #
     # The API uses the logs query syntax. Findings attributes (living in the custom. namespace) are prefixed by @ when queried. Tags are queried without a prefix.
@@ -4918,12 +4904,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(ListSecurityFindingsResponse, Integer, Hash)>] ListSecurityFindingsResponse data, response status code and response headers
     def search_security_findings_with_http_info(body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.search_security_findings".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.search_security_findings")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.search_security_findings"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.search_security_findings ...'
