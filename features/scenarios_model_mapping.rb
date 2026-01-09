@@ -3234,6 +3234,81 @@ ScenariosModelMappings = {
     "v2.CreateSCAResolveVulnerableSymbols" => {
             "body" => "ResolveVulnerableSymbolsRequest",
     },
+    "v2.ListStatusPages" => {
+            "page_offset" => "Integer",
+            "page_limit" => "Integer",
+            "include" => "String",
+    },
+    "v2.CreateStatusPage" => {
+            "include" => "String",
+            "body" => "CreateStatusPageRequest",
+    },
+    "v2.ListDegradations" => {
+            "filter_page_id" => "String",
+            "page_offset" => "Integer",
+            "page_limit" => "Integer",
+            "include" => "String",
+            "filter_status" => "String",
+    },
+    "v2.DeleteStatusPage" => {
+            "page_id" => "UUID",
+    },
+    "v2.GetStatusPage" => {
+            "page_id" => "UUID",
+            "include" => "String",
+    },
+    "v2.UpdateStatusPage" => {
+            "delete_subscribers" => "Boolean",
+            "page_id" => "UUID",
+            "include" => "String",
+            "body" => "PatchStatusPageRequest",
+    },
+    "v2.ListComponents" => {
+            "page_id" => "UUID",
+            "include" => "String",
+    },
+    "v2.CreateComponent" => {
+            "page_id" => "UUID",
+            "include" => "String",
+            "body" => "CreateComponentRequest",
+    },
+    "v2.DeleteComponent" => {
+            "page_id" => "UUID",
+            "component_id" => "UUID",
+    },
+    "v2.GetComponent" => {
+            "page_id" => "UUID",
+            "component_id" => "UUID",
+            "include" => "String",
+    },
+    "v2.UpdateComponent" => {
+            "page_id" => "UUID",
+            "component_id" => "UUID",
+            "include" => "String",
+            "body" => "PatchComponentRequest",
+    },
+    "v2.CreateDegradation" => {
+            "page_id" => "UUID",
+            "notify_subscribers" => "Boolean",
+            "include" => "String",
+            "body" => "CreateDegradationRequest",
+    },
+    "v2.DeleteDegradation" => {
+            "page_id" => "UUID",
+            "degradation_id" => "UUID",
+    },
+    "v2.GetDegradation" => {
+            "page_id" => "UUID",
+            "degradation_id" => "UUID",
+            "include" => "String",
+    },
+    "v2.UpdateDegradation" => {
+            "page_id" => "UUID",
+            "notify_subscribers" => "Boolean",
+            "degradation_id" => "UUID",
+            "include" => "String",
+            "body" => "PatchDegradationRequest",
+    },
     "v2.SetOnDemandConcurrencyCap" => {
             "body" => "OnDemandConcurrencyCapAttributes",
     },

@@ -1,0 +1,42 @@
+http_interactions:
+- recorded_at: Fri, 09 Jan 2026 18:43:20 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"domain_prefix":"dd-integrations-tests-c6b0af836a4d778b","enabled":true,"name":"[DD
+        Integration Tests] c6b0af836a4d778b","type":"internal","visualization_type":"bars_and_uptime_percentage"},"type":"status_pages"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/statuspages
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"084aff0f-2ff7-46a0-8402-3de8b83fc16d","type":"status_pages","attributes":{"company_logo":null,"components":[],"created_at":"2026-01-09T18:43:20.393281Z","custom_domain":null,"custom_domain_enabled":false,"domain_prefix":"dd-integrations-tests-c6b0af836a4d778b","email_header_image":null,"enabled":true,"favicon":null,"modified_at":"2026-01-09T18:43:20.393281Z","name":"[DD
+        Integration Tests] c6b0af836a4d778b","page_url":"https://frog.datadoghq.com/status-pages/084aff0f-2ff7-46a0-8402-3de8b83fc16d/view","subscriptions_enabled":false,"type":"internal","visualization_type":"bars_and_uptime_percentage"},"relationships":{"created_by_user":{"data":{"id":"3ad549bf-eba0-11e9-a77a-0705486660d0","type":"users"}},"last_modified_by_user":{"data":{"id":"3ad549bf-eba0-11e9-a77a-0705486660d0","type":"users"}}}}}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 201
+      message: Created
+- recorded_at: Fri, 09 Jan 2026 18:43:20 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/statuspages/084aff0f-2ff7-46a0-8402-3de8b83fc16d
+  response:
+    body:
+      encoding: UTF-8
+      string: ''
+    headers: {}
+    status:
+      code: 204
+      message: No Content
+recorded_with: VCR 6.0.0
