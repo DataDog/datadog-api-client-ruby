@@ -41,7 +41,7 @@ body = DatadogAPIClient::V1::Dashboard.new({
               primary_tag_name: "datacenter",
               operation_name: "universal.http.client",
             }),
-            request_type: DatadogAPIClient::V1::DistributionWidgetHistogramRequestType::HISTOGRAM,
+            request_type: DatadogAPIClient::V1::WidgetHistogramRequestType::HISTOGRAM,
             style: DatadogAPIClient::V1::WidgetStyle.new({
               palette: "dog_classic",
             }),

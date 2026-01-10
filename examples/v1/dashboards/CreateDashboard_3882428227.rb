@@ -43,7 +43,7 @@ body = DatadogAPIClient::V1::Dashboard.new({
               ],
               group_by: [],
             }),
-            request_type: DatadogAPIClient::V1::DistributionWidgetHistogramRequestType::HISTOGRAM,
+            request_type: DatadogAPIClient::V1::WidgetHistogramRequestType::HISTOGRAM,
           }),
         ],
       }),
