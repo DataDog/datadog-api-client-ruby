@@ -14,17 +14,6 @@ body = DatadogAPIClient::V2::AWSAccountCreateRequest.new({
       }),
       aws_account_id: "123456789012",
       aws_partition: DatadogAPIClient::V2::AWSAccountPartition::AWS,
-      ccm_config: DatadogAPIClient::V2::AWSCCMConfig.new({
-        data_export_configs: [
-          DatadogAPIClient::V2::DataExportConfig.new({
-            bucket_name: "my-bucket",
-            bucket_region: "us-east-1",
-            report_name: "my-report",
-            report_prefix: "reports",
-            report_type: "CUR2.0",
-          }),
-        ],
-      }),
       logs_config: DatadogAPIClient::V2::AWSLogsConfig.new({
         lambda_forwarder: DatadogAPIClient::V2::AWSLambdaForwarderConfig.new({
           lambdas: [
