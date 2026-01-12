@@ -26,24 +26,27 @@ module DatadogAPIClient::V2
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of
         [
-          :'ObservabilityPipelineFilterProcessor',
-          :'ObservabilityPipelineParseJSONProcessor',
-          :'ObservabilityPipelineQuotaProcessor',
-          :'ObservabilityPipelineAddFieldsProcessor',
-          :'ObservabilityPipelineRemoveFieldsProcessor',
-          :'ObservabilityPipelineRenameFieldsProcessor',
-          :'ObservabilityPipelineGenerateMetricsProcessor',
-          :'ObservabilityPipelineSampleProcessor',
-          :'ObservabilityPipelineParseGrokProcessor',
-          :'ObservabilityPipelineSensitiveDataScannerProcessor',
-          :'ObservabilityPipelineOcsfMapperProcessor',
           :'ObservabilityPipelineAddEnvVarsProcessor',
+          :'ObservabilityPipelineAddFieldsProcessor',
+          :'ObservabilityPipelineAddHostnameProcessor',
+          :'ObservabilityPipelineCustomProcessor',
+          :'ObservabilityPipelineDatadogTagsProcessor',
           :'ObservabilityPipelineDedupeProcessor',
           :'ObservabilityPipelineEnrichmentTableProcessor',
+          :'ObservabilityPipelineFilterProcessor',
+          :'ObservabilityPipelineGenerateMetricsProcessor',
+          :'ObservabilityPipelineOcsfMapperProcessor',
+          :'ObservabilityPipelineParseGrokProcessor',
+          :'ObservabilityPipelineParseJSONProcessor',
+          :'ObservabilityPipelineParseXMLProcessor',
+          :'ObservabilityPipelineQuotaProcessor',
           :'ObservabilityPipelineReduceProcessor',
-          :'ObservabilityPipelineThrottleProcessor',
-          :'ObservabilityPipelineCustomProcessor',
-          :'ObservabilityPipelineDatadogTagsProcessor'
+          :'ObservabilityPipelineRemoveFieldsProcessor',
+          :'ObservabilityPipelineRenameFieldsProcessor',
+          :'ObservabilityPipelineSampleProcessor',
+          :'ObservabilityPipelineSensitiveDataScannerProcessor',
+          :'ObservabilityPipelineSplitArrayProcessor',
+          :'ObservabilityPipelineThrottleProcessor'
         ]
       end
       # Builds the object
