@@ -43,8 +43,6 @@ module DatadogAPIClient::V2
     #
     # ❌ For use cases involving other event categories, use the V1 endpoint or reach out to [support](https://www.datadoghq.com/support/).
     #
-    # ❌ Notifications are not yet supported for events sent to this endpoint. Use the V1 endpoint for notification functionality.
-    #
     # @param body [EventCreateRequestPayload] Event creation request payload.
     # @param opts [Hash] the optional parameters
     # @return [Array<(EventCreateResponsePayload, Integer, Hash)>] EventCreateResponsePayload data, response status code and response headers
