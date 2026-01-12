@@ -27,7 +27,8 @@ module DatadogAPIClient::V1
       def openapi_one_of
         [
           :'MonitorFormulaAndFunctionEventQueryDefinition',
-          :'MonitorFormulaAndFunctionCostQueryDefinition'
+          :'MonitorFormulaAndFunctionCostQueryDefinition',
+          :'MonitorFormulaAndFunctionDataQualityQueryDefinition'
         ]
       end
       # Builds the object
