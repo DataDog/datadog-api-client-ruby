@@ -3698,11 +3698,11 @@ module DatadogAPIClient::V2
 
     # List security findings.
     #
-    # Get a list of security findings that match a search query.
+    # Get a list of security findings that match a search query. [See the schema for security findings](https://docs.datadoghq.com/security/guide/findings-schema/).
     #
     # ### Query Syntax
     #
-    # This endpoint uses the logs query syntax. Findings attributes (living in the custom. namespace) are prefixed by @ when queried. Tags are queried without a prefix.
+    # This endpoint uses the logs query syntax. Findings attributes (living in the attributes.attributes. namespace) are prefixed by @ when queried. Tags are queried without a prefix.
     #
     # Example: `@severity:(critical OR high) @status:open team:platform`
     #
@@ -4892,11 +4892,11 @@ module DatadogAPIClient::V2
 
     # Search security findings.
     #
-    # Get a list of security findings that match a search query.
+    # Get a list of security findings that match a search query. [See the schema for security findings](https://docs.datadoghq.com/security/guide/findings-schema/).
     #
     # ### Query Syntax
     #
-    # The API uses the logs query syntax. Findings attributes (living in the custom. namespace) are prefixed by @ when queried. Tags are queried without a prefix.
+    # The API uses the logs query syntax. Findings attributes (living in the attributes.attributes. namespace) are prefixed by @ when queried. Tags are queried without a prefix.
     #
     # Example: `@severity:(critical OR high) @status:open team:platform`
     #
