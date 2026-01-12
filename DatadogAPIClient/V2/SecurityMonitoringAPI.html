@@ -18190,11 +18190,11 @@ for more examples.</p>
   <div class="discussion">
     <p>List security findings.</p>
 
-<p>Get a list of security findings that match a search query.</p>
+<p>Get a list of security findings that match a search query. <a href="https://docs.datadoghq.com/security/guide/findings-schema/">See the schema for security findings</a>.</p>
 
 <h3 id="query-syntax">Query Syntax</h3>
 
-<p>This endpoint uses the logs query syntax. Findings attributes (living in the custom. namespace) are prefixed by @ when queried. Tags are queried without a prefix.</p>
+<p>This endpoint uses the logs query syntax. Findings attributes (living in the attributes.attributes. namespace) are prefixed by @ when queried. Tags are queried without a prefix.</p>
 
 <p>Example: <code>@severity:(critical OR high) @status:open team:platform</code></p>
 
@@ -22846,11 +22846,11 @@ security signals.</p>
   <div class="discussion">
     <p>Search security findings.</p>
 
-<p>Get a list of security findings that match a search query.</p>
+<p>Get a list of security findings that match a search query. <a href="https://docs.datadoghq.com/security/guide/findings-schema/">See the schema for security findings</a>.</p>
 
 <h3 id="query-syntax">Query Syntax</h3>
 
-<p>The API uses the logs query syntax. Findings attributes (living in the custom. namespace) are prefixed by @ when queried. Tags are queried without a prefix.</p>
+<p>The API uses the logs query syntax. Findings attributes (living in the attributes.attributes. namespace) are prefixed by @ when queried. Tags are queried without a prefix.</p>
 
 <p>Example: <code>@severity:(critical OR high) @status:open team:platform</code></p>
 
@@ -25951,7 +25951,7 @@ the tags (default tags cannot be removed).</p>
 </div>
 
       <div id="footer">
-  Generated on Mon Jan 12 21:33:34 2026 by
+  Generated on Mon Jan 12 22:38:10 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.38 (ruby-2.7.8).
 </div>
