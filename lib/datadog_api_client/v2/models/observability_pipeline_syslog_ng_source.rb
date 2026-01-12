@@ -18,6 +18,8 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The `syslog_ng` source listens for logs over TCP or UDP from a `syslog-ng` server using the syslog protocol.
+  # 
+  # **Supported pipeline types:** logs
   class ObservabilityPipelineSyslogNgSource
     include BaseGenericModel
 

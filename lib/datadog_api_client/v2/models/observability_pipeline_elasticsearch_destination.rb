@@ -18,6 +18,8 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The `elasticsearch` destination writes logs to an Elasticsearch cluster.
+  # 
+  # **Supported pipeline types:** logs
   class ObservabilityPipelineElasticsearchDestination
     include BaseGenericModel
 

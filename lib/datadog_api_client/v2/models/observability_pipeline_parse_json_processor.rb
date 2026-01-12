@@ -18,6 +18,8 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The `parse_json` processor extracts JSON from a specified field and flattens it into the event. This is useful when logs contain embedded JSON as a string.
+  # 
+  # **Supported pipeline types:** logs
   class ObservabilityPipelineParseJSONProcessor
     include BaseGenericModel
 

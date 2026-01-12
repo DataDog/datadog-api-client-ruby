@@ -18,6 +18,8 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The `syslog_ng` destination forwards logs to an external `syslog-ng` server over TCP or UDP using the syslog protocol.
+  # 
+  # **Supported pipeline types:** logs
   class ObservabilityPipelineSyslogNgDestination
     include BaseGenericModel
 

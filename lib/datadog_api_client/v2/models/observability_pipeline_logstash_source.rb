@@ -18,6 +18,8 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The `logstash` source ingests logs from a Logstash forwarder.
+  # 
+  # **Supported pipeline types:** logs
   class ObservabilityPipelineLogstashSource
     include BaseGenericModel
 

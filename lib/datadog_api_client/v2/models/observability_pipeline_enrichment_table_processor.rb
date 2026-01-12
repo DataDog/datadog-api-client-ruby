@@ -18,6 +18,8 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The `enrichment_table` processor enriches logs using a static CSV file or GeoIP database.
+  # 
+  # **Supported pipeline types:** logs
   class ObservabilityPipelineEnrichmentTableProcessor
     include BaseGenericModel
 

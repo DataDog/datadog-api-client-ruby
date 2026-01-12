@@ -18,6 +18,8 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The `datadog_tags` processor includes or excludes specific Datadog tags in your logs.
+  # 
+  # **Supported pipeline types:** logs
   class ObservabilityPipelineDatadogTagsProcessor
     include BaseGenericModel
 
