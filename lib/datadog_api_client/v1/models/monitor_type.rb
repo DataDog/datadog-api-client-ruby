@@ -40,5 +40,6 @@ module DatadogAPIClient::V1
     DATABASE_MONITORING_ALERT = "database-monitoring alert".freeze
     NETWORK_PERFORMANCE_ALERT = "network-performance alert".freeze
     COST_ALERT = "cost alert".freeze
+    DATA_QUALITY_ALERT = "data-quality alert".freeze
   end
 end
