@@ -18,13 +18,15 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The `reduce` processor aggregates and merges logs based on matching keys and merge strategies.
+  # 
+  # **Supported pipeline types:** logs
   class ObservabilityPipelineReduceProcessor
     include BaseGenericModel
 
     # The display name for a component.
     attr_accessor :display_name
 
-    # Whether this processor is enabled.
+    # Indicates whether the processor is enabled.
     attr_reader :enabled
 
     # A list of fields used to group log events for merging.

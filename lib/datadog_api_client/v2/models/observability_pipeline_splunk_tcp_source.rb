@@ -19,10 +19,12 @@ require 'time'
 module DatadogAPIClient::V2
   # The `splunk_tcp` source receives logs from a Splunk Universal Forwarder over TCP.
   # TLS is supported for secure transmission.
+  # 
+  # **Supported pipeline types:** logs
   class ObservabilityPipelineSplunkTcpSource
     include BaseGenericModel
 
-    # The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
+    # The unique identifier for this component. Used in other parts of the pipeline to reference this component (for example, as the `input` to downstream components).
     attr_reader :id
 
     # Configuration for enabling TLS encryption between the pipeline component and external services.

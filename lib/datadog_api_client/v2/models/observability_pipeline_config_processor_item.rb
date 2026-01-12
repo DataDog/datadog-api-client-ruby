@@ -27,23 +27,27 @@ module DatadogAPIClient::V2
       def openapi_one_of
         [
           :'ObservabilityPipelineFilterProcessor',
-          :'ObservabilityPipelineParseJSONProcessor',
-          :'ObservabilityPipelineQuotaProcessor',
-          :'ObservabilityPipelineAddFieldsProcessor',
-          :'ObservabilityPipelineRemoveFieldsProcessor',
-          :'ObservabilityPipelineRenameFieldsProcessor',
-          :'ObservabilityPipelineGenerateMetricsProcessor',
-          :'ObservabilityPipelineSampleProcessor',
-          :'ObservabilityPipelineParseGrokProcessor',
-          :'ObservabilityPipelineSensitiveDataScannerProcessor',
-          :'ObservabilityPipelineOcsfMapperProcessor',
           :'ObservabilityPipelineAddEnvVarsProcessor',
+          :'ObservabilityPipelineAddFieldsProcessor',
+          :'ObservabilityPipelineAddHostnameProcessor',
+          :'ObservabilityPipelineCustomProcessor',
+          :'ObservabilityPipelineDatadogTagsProcessor',
           :'ObservabilityPipelineDedupeProcessor',
           :'ObservabilityPipelineEnrichmentTableProcessor',
+          :'ObservabilityPipelineGenerateMetricsProcessor',
+          :'ObservabilityPipelineOcsfMapperProcessor',
+          :'ObservabilityPipelineParseGrokProcessor',
+          :'ObservabilityPipelineParseJSONProcessor',
+          :'ObservabilityPipelineParseXMLProcessor',
+          :'ObservabilityPipelineQuotaProcessor',
           :'ObservabilityPipelineReduceProcessor',
+          :'ObservabilityPipelineRemoveFieldsProcessor',
+          :'ObservabilityPipelineRenameFieldsProcessor',
+          :'ObservabilityPipelineSampleProcessor',
+          :'ObservabilityPipelineSensitiveDataScannerProcessor',
+          :'ObservabilityPipelineSplitArrayProcessor',
           :'ObservabilityPipelineThrottleProcessor',
-          :'ObservabilityPipelineCustomProcessor',
-          :'ObservabilityPipelineDatadogTagsProcessor'
+          :'ObservabilityPipelineMetricTagsProcessor'
         ]
       end
       # Builds the object

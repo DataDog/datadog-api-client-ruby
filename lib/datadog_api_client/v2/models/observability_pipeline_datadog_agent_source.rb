@@ -17,11 +17,13 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The `datadog_agent` source collects logs from the Datadog Agent.
+  # The `datadog_agent` source collects logs/metrics from the Datadog Agent.
+  # 
+  # **Supported pipeline types:** logs, metrics
   class ObservabilityPipelineDatadogAgentSource
     include BaseGenericModel
 
-    # The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
+    # The unique identifier for this component. Used in other parts of the pipeline to reference this component (for example, as the `input` to downstream components).
     attr_reader :id
 
     # Configuration for enabling TLS encryption between the pipeline component and external services.

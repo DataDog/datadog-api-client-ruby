@@ -18,13 +18,15 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The `custom_processor` processor transforms events using [Vector Remap Language (VRL)](https://vector.dev/docs/reference/vrl/) scripts with advanced filtering capabilities.
+  # 
+  # **Supported pipeline types:** logs
   class ObservabilityPipelineCustomProcessor
     include BaseGenericModel
 
     # The display name for a component.
     attr_accessor :display_name
 
-    # Whether this processor is enabled.
+    # Indicates whether the processor is enabled.
     attr_reader :enabled
 
     # The unique identifier for this processor.

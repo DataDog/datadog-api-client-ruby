@@ -19,6 +19,8 @@ require 'time'
 module DatadogAPIClient::V2
   # The `google_cloud_storage` destination stores logs in a Google Cloud Storage (GCS) bucket.
   # It requires a bucket name, GCP authentication, and metadata fields.
+  # 
+  # **Supported pipeline types:** logs
   class ObservabilityPipelineGoogleCloudStorageDestination
     include BaseGenericModel
 
