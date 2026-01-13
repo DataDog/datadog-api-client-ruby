@@ -24,7 +24,7 @@ module DatadogAPIClient::V1
     # Number of time buckets to target, also known as the resolution
     # of the time bins. This is only applicable for distribution of
     # points (group distributions use the roll-up modifier).
-    attr_reader :num_buckets
+    attr_accessor :num_buckets
 
     attr_accessor :additional_properties
 
@@ -65,24 +65,6 @@ module DatadogAPIClient::V1
       if attributes.key?(:'num_buckets')
         self.num_buckets = attributes[:'num_buckets']
       end
-    end
-
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    # @!visibility private
-    def valid?
-      return false if !@num_buckets.nil? && @num_buckets < 1
-      true
-    end
-
-    # Custom attribute writer method with validation
-    # @param num_buckets [Object] Object to be assigned
-    # @!visibility private
-    def num_buckets=(num_buckets)
-      if !num_buckets.nil? && num_buckets < 1
-        fail ArgumentError, 'invalid value for "num_buckets", must be greater than or equal to 1.'
-      end
-      @num_buckets = num_buckets
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
