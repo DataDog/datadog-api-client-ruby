@@ -24,7 +24,7 @@ module DatadogAPIClient::V1
     # Combination of:
     #   - A severity error, warning, ok, or info
     #   - A line type: dashed, solid, or bold
-    # In this case of a Distribution widget, this can be set to be `x_axis_percentile`.
+    # In this case of a Distribution widget, this can be set to be `percentile`.
     attr_accessor :display_type
 
     # Label to display over the marker.
@@ -34,6 +34,8 @@ module DatadogAPIClient::V1
     attr_accessor :time
 
     # Value to apply. Can be a single value y = 15 or a range of values 0 < y < 10.
+    # For Distribution widgets with `display_type` set to `percentile`, this should be
+    # a numeric percentile value (for example, "90" for P90).
     attr_reader :value
 
     attr_accessor :additional_properties
