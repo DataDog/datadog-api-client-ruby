@@ -17,21 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The `datadog_logs` destination forwards logs to Datadog Log Management.
-  class ObservabilityPipelineDatadogLogsDestination
+  # Options for configuring a disk buffer.
+  class ObservabilityPipelineDiskBufferOptions
     include BaseGenericModel
 
-    # Configuration for buffer settings on destination components.
-    attr_accessor :buffer
+    # Maximum size of the disk buffer.
+    attr_accessor :max_size
 
-    # The unique identifier for this component.
-    attr_reader :id
+    # The type of the buffer that will be configured, a disk buffer.
+    attr_accessor :type
 
-    # A list of component IDs whose output is used as the `input` for this component.
-    attr_reader :inputs
-
-    # The destination type. The value should always be `datadog_logs`.
-    attr_reader :type
+    # Behavior when the buffer is full (block and stop accepting new events, or drop new events)
+    attr_accessor :when_full
 
     attr_accessor :additional_properties
 
@@ -39,10 +36,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'buffer' => :'buffer',
-        :'id' => :'id',
-        :'inputs' => :'inputs',
-        :'type' => :'type'
+        :'max_size' => :'max_size',
+        :'type' => :'type',
+        :'when_full' => :'when_full'
       }
     end
 
@@ -50,10 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'buffer' => :'ObservabilityPipelineBufferOptions',
-        :'id' => :'String',
-        :'inputs' => :'Array<String>',
-        :'type' => :'ObservabilityPipelineDatadogLogsDestinationType'
+        :'max_size' => :'Integer',
+        :'type' => :'ObservabilityPipelineBufferOptionsDiskType',
+        :'when_full' => :'ObservabilityPipelineBufferOptionsWhenFull'
       }
     end
 
@@ -62,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineDatadogLogsDestination` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineDiskBufferOptions` initialize method"
       end
 
       self.additional_properties = {}
@@ -75,63 +70,17 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'buffer')
-        self.buffer = attributes[:'buffer']
-      end
-
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
-      end
-
-      if attributes.key?(:'inputs')
-        if (value = attributes[:'inputs']).is_a?(Array)
-          self.inputs = value
-        end
+      if attributes.key?(:'max_size')
+        self.max_size = attributes[:'max_size']
       end
 
       if attributes.key?(:'type')
         self.type = attributes[:'type']
       end
-    end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    # @!visibility private
-    def valid?
-      return false if @id.nil?
-      return false if @inputs.nil?
-      return false if @type.nil?
-      true
-    end
-
-    # Custom attribute writer method with validation
-    # @param id [Object] Object to be assigned
-    # @!visibility private
-    def id=(id)
-      if id.nil?
-        fail ArgumentError, 'invalid value for "id", id cannot be nil.'
+      if attributes.key?(:'when_full')
+        self.when_full = attributes[:'when_full']
       end
-      @id = id
-    end
-
-    # Custom attribute writer method with validation
-    # @param inputs [Object] Object to be assigned
-    # @!visibility private
-    def inputs=(inputs)
-      if inputs.nil?
-        fail ArgumentError, 'invalid value for "inputs", inputs cannot be nil.'
-      end
-      @inputs = inputs
-    end
-
-    # Custom attribute writer method with validation
-    # @param type [Object] Object to be assigned
-    # @!visibility private
-    def type=(type)
-      if type.nil?
-        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
-      end
-      @type = type
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -160,10 +109,9 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          buffer == o.buffer &&
-          id == o.id &&
-          inputs == o.inputs &&
+          max_size == o.max_size &&
           type == o.type &&
+          when_full == o.when_full &&
           additional_properties == o.additional_properties
     end
 
@@ -171,7 +119,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [buffer, id, inputs, type, additional_properties].hash
+      [max_size, type, when_full, additional_properties].hash
     end
   end
 end
