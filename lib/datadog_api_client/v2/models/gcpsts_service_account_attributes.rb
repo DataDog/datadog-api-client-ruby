@@ -43,6 +43,9 @@ module DatadogAPIClient::V2
     # When enabled, Datadog will activate the Cloud Security Monitoring product for this service account. Note: This requires resource_collection_enabled to be set to true.
     attr_accessor :is_cspm_enabled
 
+    # When enabled, Datadog collects metrics where location is explicitly stated as "global" or where location information cannot be deduced from GCP labels.
+    attr_accessor :is_global_location_enabled
+
     # When enabled, Datadog applies the `X-Goog-User-Project` header, attributing Google Cloud billing and quota usage to the project being monitored rather than the default service account project.
     attr_accessor :is_per_project_quota_enabled
 
@@ -57,6 +60,9 @@ module DatadogAPIClient::V2
 
     # Configurations for GCP monitored resources.
     attr_accessor :monitored_resource_configs
+
+    # Configurations for GCP location filtering, such as region, multi-region, or zone. Only monitored resources that match the specified regions are imported into Datadog. By default, Datadog collects from all locations.
+    attr_accessor :region_filter_configs
 
     # When enabled, Datadog scans for all resources in your GCP environment.
     attr_accessor :resource_collection_enabled
@@ -73,11 +79,13 @@ module DatadogAPIClient::V2
         :'cloud_run_revision_filters' => :'cloud_run_revision_filters',
         :'host_filters' => :'host_filters',
         :'is_cspm_enabled' => :'is_cspm_enabled',
+        :'is_global_location_enabled' => :'is_global_location_enabled',
         :'is_per_project_quota_enabled' => :'is_per_project_quota_enabled',
         :'is_resource_change_collection_enabled' => :'is_resource_change_collection_enabled',
         :'is_security_command_center_enabled' => :'is_security_command_center_enabled',
         :'metric_namespace_configs' => :'metric_namespace_configs',
         :'monitored_resource_configs' => :'monitored_resource_configs',
+        :'region_filter_configs' => :'region_filter_configs',
         :'resource_collection_enabled' => :'resource_collection_enabled'
       }
     end
@@ -92,11 +100,13 @@ module DatadogAPIClient::V2
         :'cloud_run_revision_filters' => :'Array<String>',
         :'host_filters' => :'Array<String>',
         :'is_cspm_enabled' => :'Boolean',
+        :'is_global_location_enabled' => :'Boolean',
         :'is_per_project_quota_enabled' => :'Boolean',
         :'is_resource_change_collection_enabled' => :'Boolean',
         :'is_security_command_center_enabled' => :'Boolean',
         :'metric_namespace_configs' => :'Array<GCPMetricNamespaceConfig>',
         :'monitored_resource_configs' => :'Array<GCPMonitoredResourceConfig>',
+        :'region_filter_configs' => :'Array<String>',
         :'resource_collection_enabled' => :'Boolean'
       }
     end
@@ -149,6 +159,10 @@ module DatadogAPIClient::V2
         self.is_cspm_enabled = attributes[:'is_cspm_enabled']
       end
 
+      if attributes.key?(:'is_global_location_enabled')
+        self.is_global_location_enabled = attributes[:'is_global_location_enabled']
+      end
+
       if attributes.key?(:'is_per_project_quota_enabled')
         self.is_per_project_quota_enabled = attributes[:'is_per_project_quota_enabled']
       end
@@ -170,6 +184,12 @@ module DatadogAPIClient::V2
       if attributes.key?(:'monitored_resource_configs')
         if (value = attributes[:'monitored_resource_configs']).is_a?(Array)
           self.monitored_resource_configs = value
+        end
+      end
+
+      if attributes.key?(:'region_filter_configs')
+        if (value = attributes[:'region_filter_configs']).is_a?(Array)
+          self.region_filter_configs = value
         end
       end
 
@@ -210,11 +230,13 @@ module DatadogAPIClient::V2
           cloud_run_revision_filters == o.cloud_run_revision_filters &&
           host_filters == o.host_filters &&
           is_cspm_enabled == o.is_cspm_enabled &&
+          is_global_location_enabled == o.is_global_location_enabled &&
           is_per_project_quota_enabled == o.is_per_project_quota_enabled &&
           is_resource_change_collection_enabled == o.is_resource_change_collection_enabled &&
           is_security_command_center_enabled == o.is_security_command_center_enabled &&
           metric_namespace_configs == o.metric_namespace_configs &&
           monitored_resource_configs == o.monitored_resource_configs &&
+          region_filter_configs == o.region_filter_configs &&
           resource_collection_enabled == o.resource_collection_enabled &&
           additional_properties == o.additional_properties
     end
@@ -223,7 +245,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [account_tags, automute, client_email, cloud_run_revision_filters, host_filters, is_cspm_enabled, is_per_project_quota_enabled, is_resource_change_collection_enabled, is_security_command_center_enabled, metric_namespace_configs, monitored_resource_configs, resource_collection_enabled, additional_properties].hash
+      [account_tags, automute, client_email, cloud_run_revision_filters, host_filters, is_cspm_enabled, is_global_location_enabled, is_per_project_quota_enabled, is_resource_change_collection_enabled, is_security_command_center_enabled, metric_namespace_configs, monitored_resource_configs, region_filter_configs, resource_collection_enabled, additional_properties].hash
     end
   end
 end
