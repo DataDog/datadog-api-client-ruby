@@ -1,12 +1,12 @@
 http_interactions:
-- recorded_at: Thu, 18 Dec 2025 16:15:17 GMT
+- recorded_at: Tue, 23 Dec 2025 13:57:30 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/remote_config/products/obs_pipelines/pipelines/3fa85f64-5717-4562-b3fc-2c963f66afa6
+    uri: https://api.datadoghq.com/api/v2/obs-pipelines/pipelines/3fa85f64-5717-4562-b3fc-2c963f66afa6
   response:
     body:
       encoding: UTF-8
