@@ -26,20 +26,20 @@ module DatadogAPIClient::V2
     # Get SPA Recommendations.
     #
     # @see #get_spa_recommendations_with_http_info
-    def get_spa_recommendations(shard, service, opts = {})
-      data, _status_code, _headers = get_spa_recommendations_with_http_info(shard, service, opts)
+    def get_spa_recommendations(service, opts = {})
+      data, _status_code, _headers = get_spa_recommendations_with_http_info(service, opts)
       data
     end
 
     # Get SPA Recommendations.
     #
-    # Retrieve resource recommendations for a Spark job. The caller (Spark Gateway or DJM UI) provides a service name and shard identifier, and SPA returns structured recommendations for driver and executor resources.
+    # This endpoint is currently experimental and restricted to Datadog internal use only. Retrieve resource recommendations for a Spark job. The caller (Spark Gateway or DJM UI) provides a service name and SPA returns structured recommendations for driver and executor resources. The version with a shard should be preferred, where possible, as it gives more accurate results.
     #
-    # @param shard [String] The shard tag for a spark job, which differentiates jobs within the same service that have different resource needs
-    # @param service [String] The service name for a spark job
+    # @param service [String] The service name for a spark job.
     # @param opts [Hash] the optional parameters
+    # @option opts [String] :bypass_cache The recommendation service should not use its metrics cache.
     # @return [Array<(RecommendationDocument, Integer, Hash)>] RecommendationDocument data, response status code and response headers
-    def get_spa_recommendations_with_http_info(shard, service, opts = {})
+    def get_spa_recommendations_with_http_info(service, opts = {})
       unstable_enabled = @api_client.config.unstable_operations["v2.get_spa_recommendations".to_sym]
       if unstable_enabled
         @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_spa_recommendations")
@@ -50,19 +50,16 @@ module DatadogAPIClient::V2
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SpaAPI.get_spa_recommendations ...'
       end
-      # verify the required parameter 'shard' is set
-      if @api_client.config.client_side_validation && shard.nil?
-        fail ArgumentError, "Missing the required parameter 'shard' when calling SpaAPI.get_spa_recommendations"
-      end
       # verify the required parameter 'service' is set
       if @api_client.config.client_side_validation && service.nil?
         fail ArgumentError, "Missing the required parameter 'service' when calling SpaAPI.get_spa_recommendations"
       end
       # resource path
-      local_var_path = '/api/v2/spa/recommendations/{service}/{shard}'.sub('{shard}', CGI.escape(shard.to_s).gsub('%2F', '/')).sub('{service}', CGI.escape(service.to_s).gsub('%2F', '/'))
+      local_var_path = '/api/v2/spa/recommendations/{service}'.sub('{service}', CGI.escape(service.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'bypass_cache'] = opts[:'bypass_cache'] if !opts[:'bypass_cache'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -79,7 +76,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'RecommendationDocument'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ]
 
       new_options = opts.merge(
         :operation => :get_spa_recommendations,
@@ -95,6 +92,84 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SpaAPI#get_spa_recommendations\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get SPA Recommendations with a shard parameter.
+    #
+    # @see #get_spa_recommendations_with_shard_with_http_info
+    def get_spa_recommendations_with_shard(shard, service, opts = {})
+      data, _status_code, _headers = get_spa_recommendations_with_shard_with_http_info(shard, service, opts)
+      data
+    end
+
+    # Get SPA Recommendations with a shard parameter.
+    #
+    # This endpoint is currently experimental and restricted to Datadog internal use only. Retrieve resource recommendations for a Spark job. The caller (Spark Gateway or DJM UI) provides a service name and shard identifier, and SPA returns structured recommendations for driver and executor resources.
+    #
+    # @param shard [String] The shard tag for a spark job, which differentiates jobs within the same service that have different resource needs
+    # @param service [String] The service name for a spark job
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :bypass_cache The recommendation service should not use its metrics cache.
+    # @return [Array<(RecommendationDocument, Integer, Hash)>] RecommendationDocument data, response status code and response headers
+    def get_spa_recommendations_with_shard_with_http_info(shard, service, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_spa_recommendations_with_shard".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_spa_recommendations_with_shard")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_spa_recommendations_with_shard"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SpaAPI.get_spa_recommendations_with_shard ...'
+      end
+      # verify the required parameter 'shard' is set
+      if @api_client.config.client_side_validation && shard.nil?
+        fail ArgumentError, "Missing the required parameter 'shard' when calling SpaAPI.get_spa_recommendations_with_shard"
+      end
+      # verify the required parameter 'service' is set
+      if @api_client.config.client_side_validation && service.nil?
+        fail ArgumentError, "Missing the required parameter 'service' when calling SpaAPI.get_spa_recommendations_with_shard"
+      end
+      # resource path
+      local_var_path = '/api/v2/spa/recommendations/{service}/{shard}'.sub('{shard}', CGI.escape(shard.to_s).gsub('%2F', '/')).sub('{service}', CGI.escape(service.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'bypass_cache'] = opts[:'bypass_cache'] if !opts[:'bypass_cache'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'RecommendationDocument'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_spa_recommendations_with_shard,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SpaAPI#get_spa_recommendations_with_shard\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

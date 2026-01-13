@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class RecommendationAttributes
     include BaseGenericModel
 
+    #
+    attr_accessor :confidence_level
+
     # Resource recommendation for a single Spark component (driver or executor). Contains estimation data used to patch Spark job specs.
     attr_reader :driver
 
@@ -33,6 +36,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'confidence_level' => :'confidence_level',
         :'driver' => :'driver',
         :'executor' => :'executor'
       }
@@ -42,6 +46,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'confidence_level' => :'Float',
         :'driver' => :'ComponentRecommendation',
         :'executor' => :'ComponentRecommendation'
       }
@@ -64,6 +69,10 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'confidence_level')
+        self.confidence_level = attributes[:'confidence_level']
+      end
 
       if attributes.key?(:'driver')
         self.driver = attributes[:'driver']
@@ -129,6 +138,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          confidence_level == o.confidence_level &&
           driver == o.driver &&
           executor == o.executor &&
           additional_properties == o.additional_properties
@@ -138,7 +148,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [driver, executor, additional_properties].hash
+      [confidence_level, driver, executor, additional_properties].hash
     end
   end
 end

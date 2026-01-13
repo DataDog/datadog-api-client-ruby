@@ -334,6 +334,7 @@ module DatadogAPIClient
             "v2.get_slo_report": false,
             "v2.get_slo_report_job_status": false,
             "v2.get_spa_recommendations": false,
+            "v2.get_spa_recommendations_with_shard": false,
             "v2.create_sca_resolve_vulnerable_symbols": false,
             "v2.create_sca_result": false,
             "v2.add_member_team": false,

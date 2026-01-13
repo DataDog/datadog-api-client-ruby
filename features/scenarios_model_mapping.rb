@@ -3211,8 +3211,13 @@ ScenariosModelMappings = {
             "report_id" => "String",
     },
     "v2.GetSPARecommendations" => {
+            "bypass_cache" => "String",
+            "service" => "String",
+    },
+    "v2.GetSPARecommendationsWithShard" => {
             "shard" => "String",
             "service" => "String",
+            "bypass_cache" => "String",
     },
     "v2.AggregateSpans" => {
             "body" => "SpansAggregateRequest",
