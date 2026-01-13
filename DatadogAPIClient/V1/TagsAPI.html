@@ -6,7 +6,7 @@
 <title>
   Class: DatadogAPIClient::V1::TagsAPI
   
-    &mdash; datadog-api-client 2.30.0.dev.1 documentation
+    &mdash; datadog-api-client 2.48.0 documentation
   
 </title>
 
@@ -254,7 +254,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Get host tags.</p>
+    <span class="summary_desc"><div class='inline'><p>Get Host Tags.</p>
 </div></span>
   
 </li>
@@ -277,7 +277,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Get host tags.</p>
+    <span class="summary_desc"><div class='inline'><p>Get Host Tags.</p>
 </div></span>
   
 </li>
@@ -325,7 +325,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Get Tags.</p>
+    <span class="summary_desc"><div class='inline'><p>Get All Host Tags.</p>
 </div></span>
   
 </li>
@@ -348,7 +348,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Get Tags.</p>
+    <span class="summary_desc"><div class='inline'><p>Get All Host Tags.</p>
 </div></span>
   
 </li>
@@ -563,7 +563,7 @@
     <p>Add tags to a host.</p>
 
 <p>This endpoint allows you to add new tags to a host,
-optionally specifying where these tags come from.</p>
+optionally specifying what source these tags come from. If tags already exist, appends new tags to the tag list. If no source is specified, defaults to &quot;user&quot;.</p>
 
 
   </div>
@@ -582,7 +582,7 @@ optionally specifying where these tags come from.</p>
       
       
         &mdash;
-        <div class='inline'><p>This endpoint allows you to add new tags to a host, optionally specifying where the tags came from.</p>
+        <div class='inline'><p>Specified host name to add new tags</p>
 </div>
       
     </li>
@@ -638,7 +638,7 @@ optionally specifying where these tags come from.</p>
             
           </span>
           
-            &mdash; <div class='inline'><p>The source of the tags. <a href="https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value">Complete list of source attribute values</a>.</p>
+            &mdash; <div class='inline'><p>Source to add tags. <a href="https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value">Complete list of source attribute values</a>. Use &quot;user&quot; source for custom-defined tags. If no source is specified, defaults to &quot;user&quot;.</p>
 </div>
           
         </li>
@@ -853,8 +853,8 @@ optionally specifying where these tags come from.</p>
   <div class="discussion">
     <p>Remove host tags.</p>
 
-<p>This endpoint allows you to remove all user-assigned tags
-for a single host.</p>
+<p>This endpoint allows you to remove all tags
+for a single host. If no source is specified, only deletes from the source &quot;User&quot;.</p>
 
 
   </div>
@@ -873,7 +873,7 @@ for a single host.</p>
       
       
         &mdash;
-        <div class='inline'><p>This endpoint allows you to remove all user-assigned tags for a single host.</p>
+        <div class='inline'><p>Specified host name to delete tags</p>
 </div>
       
     </li>
@@ -912,7 +912,7 @@ for a single host.</p>
             
           </span>
           
-            &mdash; <div class='inline'><p>The source of the tags (for example chef, puppet). <a href="https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value">Complete list of source attribute values</a>.</p>
+            &mdash; <div class='inline'><p>Source of the tags to be deleted. <a href="https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value">Complete list of source attribute values</a>. Use &quot;user&quot; source for custom-defined tags.</p>
 </div>
           
         </li>
@@ -1064,7 +1064,7 @@ for a single host.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Get host tags.</p>
+    <p>Get Host Tags.</p>
 
 
   </div>
@@ -1113,7 +1113,7 @@ for a single host.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Get host tags.</p>
+    <p>Get Host Tags.</p>
 
 <p>Return the list of tags that apply to a given host.</p>
 
@@ -1134,7 +1134,7 @@ for a single host.</p>
       
       
         &mdash;
-        <div class='inline'><p>When specified, filters list of tags to those tags with the specified source.</p>
+        <div class='inline'><p>Name of the host to retrieve tags for</p>
 </div>
       
     </li>
@@ -1173,7 +1173,7 @@ for a single host.</p>
             
           </span>
           
-            &mdash; <div class='inline'><p>Source to filter.</p>
+            &mdash; <div class='inline'><p>Source to filter. <a href="https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value">Complete list of source attribute values</a>. Use &quot;user&quot; source for custom-defined tags.</p>
 </div>
           
         </li>
@@ -1325,7 +1325,7 @@ for a single host.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Get Tags.</p>
+    <p>Get All Host Tags.</p>
 
 
   </div>
@@ -1374,9 +1374,9 @@ for a single host.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Get Tags.</p>
+    <p>Get All Host Tags.</p>
 
-<p>Return a mapping of tags to hosts for your whole infrastructure.</p>
+<p>Returns a mapping of tags to hosts. For each tag, the response returns a list of host names that contain this tag. There is a restriction of 10k total host names from the org that can be attached to tags and returned.</p>
 
 
   </div>
@@ -1417,7 +1417,7 @@ for a single host.</p>
             
           </span>
           
-            &mdash; <div class='inline'><p>When specified, filters host list to those tags with the specified source.</p>
+            &mdash; <div class='inline'><p>Source to filter. <a href="https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value">Complete list of source attribute values</a>. Use &quot;user&quot; source for custom-defined tags.</p>
 </div>
           
         </li>
@@ -1632,7 +1632,7 @@ an integration source with those supplied in the request.</p>
       
       
         &mdash;
-        <div class='inline'><p>This endpoint allows you to update/replace all in an integration source with those supplied in the request.</p>
+        <div class='inline'><p>Specified host name to change tags</p>
 </div>
       
     </li>
@@ -1688,7 +1688,7 @@ an integration source with those supplied in the request.</p>
             
           </span>
           
-            &mdash; <div class='inline'><p>The source of the tags (for example chef, puppet). <a href="https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value">Complete list of source attribute values</a></p>
+            &mdash; <div class='inline'><p>Source to update tags. <a href="https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value">Complete list of source attribute values</a>. Use &quot;user&quot; source for custom-defined tags. If no source specified, defaults to &quot;user&quot;.</p>
 </div>
           
         </li>
@@ -1846,9 +1846,9 @@ an integration source with those supplied in the request.</p>
 </div>
 
       <div id="footer">
-  Generated on Tue Feb 18 21:07:07 2025 by
+  Generated on Tue Jan 13 19:57:55 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.37 (ruby-2.7.8).
+  0.9.38 (ruby-2.7.8).
 </div>
 
     </div>
