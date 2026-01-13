@@ -167,7 +167,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Combination of:   - A severity error, warning, ok, or info   - A line type: dashed, solid, or bold In this case of a Distribution widget, this can be set to be <code>x_axis_percentile</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>Combination of:   - A severity error, warning, ok, or info   - A line type: dashed, solid, or bold In this case of a Distribution widget, this can be set to be <code>percentile</code>.</p>
 </div></span>
   
 </li>
@@ -333,7 +333,7 @@
 <ul>
 <li>A severity error, warning, ok, or info</li>
 <li>A line type: dashed, solid, or bold
-In this case of a Distribution widget, this can be set to be <code>x_axis_percentile</code>.</li>
+In this case of a Distribution widget, this can be set to be <code>percentile</code>.</li>
 </ul>
 
 
@@ -460,7 +460,9 @@ In this case of a Distribution widget, this can be set to be <code>x_axis_percen
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Value to apply. Can be a single value y = 15 or a range of values 0 &lt; y &lt; 10.</p>
+    <p>Value to apply. Can be a single value y = 15 or a range of values 0 &lt; y &lt; 10.
+For Distribution widgets with <code>display_type</code> set to <code>percentile</code>, this should be
+a numeric percentile value (for example, &quot;90&quot; for P90).</p>
 
 
   </div>
@@ -495,7 +497,7 @@ In this case of a Distribution widget, this can be set to be <code>x_axis_percen
 </div>
 
       <div id="footer">
-  Generated on Tue Jan 13 13:41:42 2026 by
+  Generated on Tue Jan 13 14:30:34 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.38 (ruby-2.7.8).
 </div>

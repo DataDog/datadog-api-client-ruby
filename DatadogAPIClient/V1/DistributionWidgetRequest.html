@@ -6,7 +6,7 @@
 <title>
   Class: DatadogAPIClient::V1::DistributionWidgetRequest
   
-    &mdash; datadog-api-client 2.30.0.dev.1 documentation
+    &mdash; datadog-api-client 2.48.0 documentation
   
 </title>
 
@@ -228,6 +228,32 @@
       <li class="public ">
   <span class="summary_signature">
     
+      <a href="#formulas-instance_method" title="#formulas (instance method)">#<strong>formulas</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>List of formulas that operate on queries.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#log_query-instance_method" title="#log_query (instance method)">#<strong>log_query</strong>  &#x21d2; Object </a>
     
 
@@ -358,6 +384,32 @@
       <li class="public ">
   <span class="summary_signature">
     
+      <a href="#queries-instance_method" title="#queries (instance method)">#<strong>queries</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>List of queries that can be returned directly or used in formulas.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#query-instance_method" title="#query (instance method)">#<strong>query</strong>  &#x21d2; Object </a>
     
 
@@ -402,6 +454,32 @@
 
   
     <span class="summary_desc"><div class='inline'><p>Request type for the histogram request.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#response_format-instance_method" title="#response_format (instance method)">#<strong>response_format</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Timeseries, scalar, or event list response.</p>
 </div></span>
   
 </li>
@@ -674,6 +752,48 @@
 </div>
     
       
+      <span id="formulas=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="formulas-instance_method">
+  
+    #<strong>formulas</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>List of formulas that operate on queries.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+34
+35
+36</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/distribution_widget_request.rb', line 34</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_formulas'>formulas</span>
+  <span class='ivar'>@formulas</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
       <span id="log_query=-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="log_query-instance_method">
@@ -884,6 +1004,48 @@
 </div>
     
       
+      <span id="queries=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="queries-instance_method">
+  
+    #<strong>queries</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>List of queries that can be returned directly or used in formulas.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+52
+53
+54</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/distribution_widget_request.rb', line 52</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_queries'>queries</span>
+  <span class='ivar'>@queries</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
       <span id="query=-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="query-instance_method">
@@ -961,6 +1123,48 @@
 
 <span class='kw'>def</span> <span class='id identifier rubyid_request_type'>request_type</span>
   <span class='ivar'>@request_type</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="response_format=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="response_format-instance_method">
+  
+    #<strong>response_format</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Timeseries, scalar, or event list response. Event list response formats are supported by Geomap widgets.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+61
+62
+63</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/distribution_widget_request.rb', line 61</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_response_format'>response_format</span>
+  <span class='ivar'>@response_format</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1099,9 +1303,9 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Feb 18 21:07:33 2025 by
+  Generated on Tue Jan 13 14:30:42 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.37 (ruby-2.7.8).
+  0.9.38 (ruby-2.7.8).
 </div>
 
     </div>

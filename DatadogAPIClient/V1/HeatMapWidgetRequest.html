@@ -6,7 +6,7 @@
 <title>
   Class: DatadogAPIClient::V1::HeatMapWidgetRequest
   
-    &mdash; datadog-api-client 2.30.0.dev.1 documentation
+    &mdash; datadog-api-client 2.48.0 documentation
   
 </title>
 
@@ -376,6 +376,58 @@
 
   
     <span class="summary_desc"><div class='inline'><p>List of queries that can be returned directly or used in formulas.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#query-instance_method" title="#query (instance method)">#<strong>query</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>A formula and functions metrics query.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#request_type-instance_method" title="#request_type (instance method)">#<strong>request_type</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Request type for the histogram request.</p>
 </div></span>
   
 </li>
@@ -926,6 +978,90 @@
 </div>
     
       
+      <span id="query=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="query-instance_method">
+  
+    #<strong>query</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>A formula and functions metrics query.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+52
+53
+54</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/heat_map_widget_request.rb', line 52</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_query'>query</span>
+  <span class='ivar'>@query</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="request_type=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="request_type-instance_method">
+  
+    #<strong>request_type</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Request type for the histogram request.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+55
+56
+57</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/heat_map_widget_request.rb', line 55</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_request_type'>request_type</span>
+  <span class='ivar'>@request_type</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
       <span id="response_format=-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="response_format-instance_method">
@@ -1099,9 +1235,9 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Feb 18 21:07:27 2025 by
+  Generated on Tue Jan 13 14:30:41 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.37 (ruby-2.7.8).
+  0.9.38 (ruby-2.7.8).
 </div>
 
     </div>
