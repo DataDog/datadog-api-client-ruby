@@ -1,0 +1,25 @@
+http_interactions:
+- recorded_at: Fri, 02 Jan 2026 18:44:09 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"severity":"invalid_severity"},"type":"critical_assets"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: PATCH
+    uri: https://api.datadoghq.com/api/v2/security_monitoring/configuration/critical_assets/00000000-0000-0000-0000-000000000000
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":["not_found(Critical asset with ID 00000000-0000-0000-0000-000000000000
+        not found)"]}'
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 404
+      message: Not Found
+recorded_with: VCR 6.0.0
