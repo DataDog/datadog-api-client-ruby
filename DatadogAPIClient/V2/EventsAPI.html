@@ -572,8 +572,6 @@
 
 <p>❌ For use cases involving other event categories, use the V1 endpoint or reach out to <a href="https://www.datadoghq.com/support/">support</a>.</p>
 
-<p>❌ Notifications are not yet supported for events sent to this endpoint. Use the V1 endpoint for notification functionality.</p>
-
 
   </div>
 </div>
@@ -782,13 +780,13 @@
       <pre class="lines">
 
 
+104
+105
 106
-107
-108
-109</pre>
+107</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/events_api.rb', line 106</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/events_api.rb', line 104</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_event'>get_event</span><span class='lparen'>(</span><span class='id identifier rubyid_event_id'>event_id</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_get_event_with_http_info'>get_event_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_event_id'>event_id</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -879,6 +877,8 @@
       <pre class="lines">
 
 
+116
+117
 118
 119
 120
@@ -925,12 +925,10 @@
 161
 162
 163
-164
-165
-166</pre>
+164</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/events_api.rb', line 118</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/events_api.rb', line 116</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_event_with_http_info'>get_event_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_event_id'>event_id</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -1714,7 +1712,7 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Jan 14 10:44:12 2026 by
+  Generated on Wed Jan 14 16:01:32 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.38 (ruby-2.7.8).
 </div>
