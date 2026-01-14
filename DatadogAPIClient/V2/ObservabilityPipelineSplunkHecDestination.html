@@ -108,6 +108,8 @@
   <div class="discussion">
     <p>The <code>splunk_hec</code> destination forwards logs to Splunk using the HTTP Event Collector (HEC).</p>
 
+<p><strong>Supported pipeline types:</strong> logs</p>
+
 
   </div>
 </div>
@@ -382,12 +384,12 @@
       <pre class="lines">
 
 
-46
-47
-48</pre>
+48
+49
+50</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_splunk_hec_destination.rb', line 46</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_splunk_hec_destination.rb', line 48</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_additional_properties'>additional_properties</span>
   <span class='ivar'>@additional_properties</span>
@@ -425,12 +427,12 @@ If <code>false</code>, Splunk assigns the time the event was received.</p>
       <pre class="lines">
 
 
-26
-27
-28</pre>
+28
+29
+30</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_splunk_hec_destination.rb', line 26</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_splunk_hec_destination.rb', line 28</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_auto_extract_timestamp'>auto_extract_timestamp</span>
   <span class='ivar'>@auto_extract_timestamp</span>
@@ -467,12 +469,12 @@ If <code>false</code>, Splunk assigns the time the event was received.</p>
       <pre class="lines">
 
 
-29
-30
-31</pre>
+31
+32
+33</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_splunk_hec_destination.rb', line 29</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_splunk_hec_destination.rb', line 31</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_encoding'>encoding</span>
   <span class='ivar'>@encoding</span>
@@ -495,7 +497,7 @@ If <code>false</code>, Splunk assigns the time the event was received.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).</p>
+    <p>The unique identifier for this component. Used in other parts of the pipeline to reference this component (for example, as the <code>input</code> to downstream components).</p>
 
 
   </div>
@@ -509,12 +511,12 @@ If <code>false</code>, Splunk assigns the time the event was received.</p>
       <pre class="lines">
 
 
-32
-33
-34</pre>
+34
+35
+36</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_splunk_hec_destination.rb', line 32</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_splunk_hec_destination.rb', line 34</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_id'>id</span>
   <span class='ivar'>@id</span>
@@ -551,12 +553,12 @@ If <code>false</code>, Splunk assigns the time the event was received.</p>
       <pre class="lines">
 
 
-35
-36
-37</pre>
+37
+38
+39</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_splunk_hec_destination.rb', line 35</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_splunk_hec_destination.rb', line 37</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_index'>index</span>
   <span class='ivar'>@index</span>
@@ -593,12 +595,12 @@ If <code>false</code>, Splunk assigns the time the event was received.</p>
       <pre class="lines">
 
 
-38
-39
-40</pre>
+40
+41
+42</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_splunk_hec_destination.rb', line 38</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_splunk_hec_destination.rb', line 40</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_inputs'>inputs</span>
   <span class='ivar'>@inputs</span>
@@ -635,12 +637,12 @@ If <code>false</code>, Splunk assigns the time the event was received.</p>
       <pre class="lines">
 
 
-41
-42
-43</pre>
+43
+44
+45</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_splunk_hec_destination.rb', line 41</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_splunk_hec_destination.rb', line 43</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_sourcetype'>sourcetype</span>
   <span class='ivar'>@sourcetype</span>
@@ -677,12 +679,12 @@ If <code>false</code>, Splunk assigns the time the event was received.</p>
       <pre class="lines">
 
 
-44
-45
-46</pre>
+46
+47
+48</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_splunk_hec_destination.rb', line 44</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_splunk_hec_destination.rb', line 46</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_type'>type</span>
   <span class='ivar'>@type</span>
@@ -698,7 +700,7 @@ If <code>false</code>, Splunk assigns the time the event was received.</p>
 </div>
 
       <div id="footer">
-  Generated on Tue Jan 13 19:58:23 2026 by
+  Generated on Wed Jan 14 10:44:40 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.38 (ruby-2.7.8).
 </div>

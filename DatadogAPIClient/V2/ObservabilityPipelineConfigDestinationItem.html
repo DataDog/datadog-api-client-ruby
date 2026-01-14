@@ -246,10 +246,6 @@
       <pre class="lines">
 
 
-53
-54
-55
-56
 57
 58
 59
@@ -270,10 +266,14 @@
 74
 75
 76
-77</pre>
+77
+78
+79
+80
+81</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_config_destination_item.rb', line 53</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_config_destination_item.rb', line 57</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_build'>build</span><span class='lparen'>(</span><span class='id identifier rubyid_data'>data</span><span class='rparen'>)</span>
   <span class='comment'># Go through the list of oneOf items and attempt to identify the appropriate one.
@@ -352,32 +352,40 @@
 46
 47
 48
-49</pre>
+49
+50
+51
+52
+53</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_config_destination_item.rb', line 27</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_openapi_one_of'>openapi_one_of</span>
   <span class='lbracket'>[</span>
-    <span class='symbol'>:&#39;ObservabilityPipelineDatadogLogsDestination&#39;</span><span class='comma'>,</span>
+    <span class='symbol'>:&#39;ObservabilityPipelineHttpClientDestination&#39;</span><span class='comma'>,</span>
+    <span class='symbol'>:&#39;ObservabilityPipelineAmazonOpenSearchDestination&#39;</span><span class='comma'>,</span>
     <span class='symbol'>:&#39;ObservabilityPipelineAmazonS3Destination&#39;</span><span class='comma'>,</span>
+    <span class='symbol'>:&#39;ObservabilityPipelineAmazonSecurityLakeDestination&#39;</span><span class='comma'>,</span>
+    <span class='symbol'>:&#39;AzureStorageDestination&#39;</span><span class='comma'>,</span>
+    <span class='symbol'>:&#39;ObservabilityPipelineCloudPremDestination&#39;</span><span class='comma'>,</span>
+    <span class='symbol'>:&#39;ObservabilityPipelineCrowdStrikeNextGenSiemDestination&#39;</span><span class='comma'>,</span>
+    <span class='symbol'>:&#39;ObservabilityPipelineDatadogLogsDestination&#39;</span><span class='comma'>,</span>
+    <span class='symbol'>:&#39;ObservabilityPipelineElasticsearchDestination&#39;</span><span class='comma'>,</span>
+    <span class='symbol'>:&#39;ObservabilityPipelineGoogleChronicleDestination&#39;</span><span class='comma'>,</span>
     <span class='symbol'>:&#39;ObservabilityPipelineGoogleCloudStorageDestination&#39;</span><span class='comma'>,</span>
+    <span class='symbol'>:&#39;ObservabilityPipelineGooglePubSubDestination&#39;</span><span class='comma'>,</span>
+    <span class='symbol'>:&#39;ObservabilityPipelineKafkaDestination&#39;</span><span class='comma'>,</span>
+    <span class='symbol'>:&#39;MicrosoftSentinelDestination&#39;</span><span class='comma'>,</span>
+    <span class='symbol'>:&#39;ObservabilityPipelineNewRelicDestination&#39;</span><span class='comma'>,</span>
+    <span class='symbol'>:&#39;ObservabilityPipelineOpenSearchDestination&#39;</span><span class='comma'>,</span>
+    <span class='symbol'>:&#39;ObservabilityPipelineRsyslogDestination&#39;</span><span class='comma'>,</span>
+    <span class='symbol'>:&#39;ObservabilityPipelineSentinelOneDestination&#39;</span><span class='comma'>,</span>
+    <span class='symbol'>:&#39;ObservabilityPipelineSocketDestination&#39;</span><span class='comma'>,</span>
     <span class='symbol'>:&#39;ObservabilityPipelineSplunkHecDestination&#39;</span><span class='comma'>,</span>
     <span class='symbol'>:&#39;ObservabilityPipelineSumoLogicDestination&#39;</span><span class='comma'>,</span>
-    <span class='symbol'>:&#39;ObservabilityPipelineElasticsearchDestination&#39;</span><span class='comma'>,</span>
-    <span class='symbol'>:&#39;ObservabilityPipelineRsyslogDestination&#39;</span><span class='comma'>,</span>
     <span class='symbol'>:&#39;ObservabilityPipelineSyslogNgDestination&#39;</span><span class='comma'>,</span>
-    <span class='symbol'>:&#39;AzureStorageDestination&#39;</span><span class='comma'>,</span>
-    <span class='symbol'>:&#39;MicrosoftSentinelDestination&#39;</span><span class='comma'>,</span>
-    <span class='symbol'>:&#39;ObservabilityPipelineGoogleChronicleDestination&#39;</span><span class='comma'>,</span>
-    <span class='symbol'>:&#39;ObservabilityPipelineNewRelicDestination&#39;</span><span class='comma'>,</span>
-    <span class='symbol'>:&#39;ObservabilityPipelineSentinelOneDestination&#39;</span><span class='comma'>,</span>
-    <span class='symbol'>:&#39;ObservabilityPipelineOpenSearchDestination&#39;</span><span class='comma'>,</span>
-    <span class='symbol'>:&#39;ObservabilityPipelineAmazonOpenSearchDestination&#39;</span><span class='comma'>,</span>
-    <span class='symbol'>:&#39;ObservabilityPipelineSocketDestination&#39;</span><span class='comma'>,</span>
-    <span class='symbol'>:&#39;ObservabilityPipelineAmazonSecurityLakeDestination&#39;</span><span class='comma'>,</span>
-    <span class='symbol'>:&#39;ObservabilityPipelineCrowdStrikeNextGenSiemDestination&#39;</span><span class='comma'>,</span>
-    <span class='symbol'>:&#39;ObservabilityPipelineGooglePubSubDestination&#39;</span>
+    <span class='symbol'>:&#39;ObservabilityPipelineDatadogMetricsDestination&#39;</span>
   <span class='rbracket'>]</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -390,7 +398,7 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Jan 13 19:57:54 2026 by
+  Generated on Wed Jan 14 10:44:09 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.38 (ruby-2.7.8).
 </div>

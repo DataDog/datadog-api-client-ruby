@@ -106,7 +106,9 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>The <code>enrichment_table</code> processor enriches logs using a static CSV file or GeoIP database.</p>
+    <p>The <code>enrichment_table</code> processor enriches logs using a static CSV file, GeoIP database, or reference table. Exactly one of <code>file</code>, <code>geoip</code>, or <code>reference_table</code> must be configured.</p>
+
+<p><strong>Supported pipeline types:</strong> logs</p>
 
 
   </div>
@@ -195,7 +197,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Whether this processor is enabled.</p>
+    <span class="summary_desc"><div class='inline'><p>Indicates whether the processor is enabled.</p>
 </div></span>
   
 </li>
@@ -312,6 +314,32 @@
       <li class="public ">
   <span class="summary_signature">
     
+      <a href="#reference_table-instance_method" title="#reference_table (instance method)">#<strong>reference_table</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Uses a Datadog reference table to enrich logs.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#target-instance_method" title="#target (instance method)">#<strong>target</strong>  &#x21d2; Object </a>
     
 
@@ -412,12 +440,12 @@
       <pre class="lines">
 
 
-48
-49
-50</pre>
+53
+54
+55</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_enrichment_table_processor.rb', line 48</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_enrichment_table_processor.rb', line 53</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_additional_properties'>additional_properties</span>
   <span class='ivar'>@additional_properties</span>
@@ -454,12 +482,12 @@
       <pre class="lines">
 
 
-25
-26
-27</pre>
+27
+28
+29</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_enrichment_table_processor.rb', line 25</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_enrichment_table_processor.rb', line 27</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_display_name'>display_name</span>
   <span class='ivar'>@display_name</span>
@@ -482,7 +510,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Whether this processor is enabled.</p>
+    <p>Indicates whether the processor is enabled.</p>
 
 
   </div>
@@ -496,12 +524,12 @@
       <pre class="lines">
 
 
-28
-29
-30</pre>
+30
+31
+32</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_enrichment_table_processor.rb', line 28</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_enrichment_table_processor.rb', line 30</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_enabled'>enabled</span>
   <span class='ivar'>@enabled</span>
@@ -538,12 +566,12 @@
       <pre class="lines">
 
 
-31
-32
-33</pre>
+33
+34
+35</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_enrichment_table_processor.rb', line 31</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_enrichment_table_processor.rb', line 33</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_file'>file</span>
   <span class='ivar'>@file</span>
@@ -580,12 +608,12 @@
       <pre class="lines">
 
 
-34
-35
-36</pre>
+36
+37
+38</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_enrichment_table_processor.rb', line 34</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_enrichment_table_processor.rb', line 36</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_geoip'>geoip</span>
   <span class='ivar'>@geoip</span>
@@ -622,12 +650,12 @@
       <pre class="lines">
 
 
-37
-38
-39</pre>
+39
+40
+41</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_enrichment_table_processor.rb', line 37</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_enrichment_table_processor.rb', line 39</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_id'>id</span>
   <span class='ivar'>@id</span>
@@ -664,15 +692,57 @@
       <pre class="lines">
 
 
-40
-41
-42</pre>
+42
+43
+44</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_enrichment_table_processor.rb', line 40</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_enrichment_table_processor.rb', line 42</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_include'>include</span>
   <span class='ivar'>@include</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="reference_table=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="reference_table-instance_method">
+  
+    #<strong>reference_table</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Uses a Datadog reference table to enrich logs.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+45
+46
+47</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_enrichment_table_processor.rb', line 45</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_reference_table'>reference_table</span>
+  <span class='ivar'>@reference_table</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -706,12 +776,12 @@
       <pre class="lines">
 
 
-43
-44
-45</pre>
+48
+49
+50</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_enrichment_table_processor.rb', line 43</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_enrichment_table_processor.rb', line 48</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_target'>target</span>
   <span class='ivar'>@target</span>
@@ -748,12 +818,12 @@
       <pre class="lines">
 
 
-46
-47
-48</pre>
+51
+52
+53</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_enrichment_table_processor.rb', line 46</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_enrichment_table_processor.rb', line 51</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_type'>type</span>
   <span class='ivar'>@type</span>
@@ -769,7 +839,7 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Jan 13 19:58:24 2026 by
+  Generated on Wed Jan 14 10:44:41 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.38 (ruby-2.7.8).
 </div>

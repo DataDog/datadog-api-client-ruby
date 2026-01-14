@@ -108,6 +108,8 @@
   <div class="discussion">
     <p>The <code>kafka</code> source ingests data from Apache Kafka topics.</p>
 
+<p><strong>Supported pipeline types:</strong> logs</p>
+
 
   </div>
 </div>
@@ -384,12 +386,12 @@
       <pre class="lines">
 
 
-45
-46
-47</pre>
+47
+48
+49</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_kafka_source.rb', line 45</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_kafka_source.rb', line 47</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_additional_properties'>additional_properties</span>
   <span class='ivar'>@additional_properties</span>
@@ -426,12 +428,12 @@
       <pre class="lines">
 
 
-25
-26
-27</pre>
+27
+28
+29</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_kafka_source.rb', line 25</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_kafka_source.rb', line 27</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_group_id'>group_id</span>
   <span class='ivar'>@group_id</span>
@@ -454,7 +456,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).</p>
+    <p>The unique identifier for this component. Used in other parts of the pipeline to reference this component (for example, as the <code>input</code> to downstream components).</p>
 
 
   </div>
@@ -468,12 +470,12 @@
       <pre class="lines">
 
 
-28
-29
-30</pre>
+30
+31
+32</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_kafka_source.rb', line 28</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_kafka_source.rb', line 30</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_id'>id</span>
   <span class='ivar'>@id</span>
@@ -510,12 +512,12 @@
       <pre class="lines">
 
 
-31
-32
-33</pre>
+33
+34
+35</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_kafka_source.rb', line 31</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_kafka_source.rb', line 33</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_librdkafka_options'>librdkafka_options</span>
   <span class='ivar'>@librdkafka_options</span>
@@ -552,12 +554,12 @@
       <pre class="lines">
 
 
-34
-35
-36</pre>
+36
+37
+38</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_kafka_source.rb', line 34</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_kafka_source.rb', line 36</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_sasl'>sasl</span>
   <span class='ivar'>@sasl</span>
@@ -594,12 +596,12 @@
       <pre class="lines">
 
 
-37
-38
-39</pre>
+39
+40
+41</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_kafka_source.rb', line 37</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_kafka_source.rb', line 39</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_tls'>tls</span>
   <span class='ivar'>@tls</span>
@@ -636,12 +638,12 @@
       <pre class="lines">
 
 
-40
-41
-42</pre>
+42
+43
+44</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_kafka_source.rb', line 40</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_kafka_source.rb', line 42</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_topics'>topics</span>
   <span class='ivar'>@topics</span>
@@ -678,12 +680,12 @@
       <pre class="lines">
 
 
-43
-44
-45</pre>
+45
+46
+47</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_kafka_source.rb', line 43</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_kafka_source.rb', line 45</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_type'>type</span>
   <span class='ivar'>@type</span>
@@ -699,7 +701,7 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Jan 13 19:58:20 2026 by
+  Generated on Wed Jan 14 10:44:37 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.38 (ruby-2.7.8).
 </div>

@@ -246,10 +246,6 @@
       <pre class="lines">
 
 
-52
-53
-54
-55
 56
 57
 58
@@ -270,10 +266,14 @@
 73
 74
 75
-76</pre>
+76
+77
+78
+79
+80</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_config_processor_item.rb', line 52</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_config_processor_item.rb', line 56</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_build'>build</span><span class='lparen'>(</span><span class='id identifier rubyid_data'>data</span><span class='rparen'>)</span>
   <span class='comment'># Go through the list of oneOf items and attempt to identify the appropriate one.
@@ -351,7 +351,11 @@
 45
 46
 47
-48</pre>
+48
+49
+50
+51
+52</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_config_processor_item.rb', line 27</span>
@@ -359,23 +363,27 @@
 <span class='kw'>def</span> <span class='id identifier rubyid_openapi_one_of'>openapi_one_of</span>
   <span class='lbracket'>[</span>
     <span class='symbol'>:&#39;ObservabilityPipelineFilterProcessor&#39;</span><span class='comma'>,</span>
-    <span class='symbol'>:&#39;ObservabilityPipelineParseJSONProcessor&#39;</span><span class='comma'>,</span>
-    <span class='symbol'>:&#39;ObservabilityPipelineQuotaProcessor&#39;</span><span class='comma'>,</span>
-    <span class='symbol'>:&#39;ObservabilityPipelineAddFieldsProcessor&#39;</span><span class='comma'>,</span>
-    <span class='symbol'>:&#39;ObservabilityPipelineRemoveFieldsProcessor&#39;</span><span class='comma'>,</span>
-    <span class='symbol'>:&#39;ObservabilityPipelineRenameFieldsProcessor&#39;</span><span class='comma'>,</span>
-    <span class='symbol'>:&#39;ObservabilityPipelineGenerateMetricsProcessor&#39;</span><span class='comma'>,</span>
-    <span class='symbol'>:&#39;ObservabilityPipelineSampleProcessor&#39;</span><span class='comma'>,</span>
-    <span class='symbol'>:&#39;ObservabilityPipelineParseGrokProcessor&#39;</span><span class='comma'>,</span>
-    <span class='symbol'>:&#39;ObservabilityPipelineSensitiveDataScannerProcessor&#39;</span><span class='comma'>,</span>
-    <span class='symbol'>:&#39;ObservabilityPipelineOcsfMapperProcessor&#39;</span><span class='comma'>,</span>
     <span class='symbol'>:&#39;ObservabilityPipelineAddEnvVarsProcessor&#39;</span><span class='comma'>,</span>
+    <span class='symbol'>:&#39;ObservabilityPipelineAddFieldsProcessor&#39;</span><span class='comma'>,</span>
+    <span class='symbol'>:&#39;ObservabilityPipelineAddHostnameProcessor&#39;</span><span class='comma'>,</span>
+    <span class='symbol'>:&#39;ObservabilityPipelineCustomProcessor&#39;</span><span class='comma'>,</span>
+    <span class='symbol'>:&#39;ObservabilityPipelineDatadogTagsProcessor&#39;</span><span class='comma'>,</span>
     <span class='symbol'>:&#39;ObservabilityPipelineDedupeProcessor&#39;</span><span class='comma'>,</span>
     <span class='symbol'>:&#39;ObservabilityPipelineEnrichmentTableProcessor&#39;</span><span class='comma'>,</span>
+    <span class='symbol'>:&#39;ObservabilityPipelineGenerateMetricsProcessor&#39;</span><span class='comma'>,</span>
+    <span class='symbol'>:&#39;ObservabilityPipelineOcsfMapperProcessor&#39;</span><span class='comma'>,</span>
+    <span class='symbol'>:&#39;ObservabilityPipelineParseGrokProcessor&#39;</span><span class='comma'>,</span>
+    <span class='symbol'>:&#39;ObservabilityPipelineParseJSONProcessor&#39;</span><span class='comma'>,</span>
+    <span class='symbol'>:&#39;ObservabilityPipelineParseXMLProcessor&#39;</span><span class='comma'>,</span>
+    <span class='symbol'>:&#39;ObservabilityPipelineQuotaProcessor&#39;</span><span class='comma'>,</span>
     <span class='symbol'>:&#39;ObservabilityPipelineReduceProcessor&#39;</span><span class='comma'>,</span>
+    <span class='symbol'>:&#39;ObservabilityPipelineRemoveFieldsProcessor&#39;</span><span class='comma'>,</span>
+    <span class='symbol'>:&#39;ObservabilityPipelineRenameFieldsProcessor&#39;</span><span class='comma'>,</span>
+    <span class='symbol'>:&#39;ObservabilityPipelineSampleProcessor&#39;</span><span class='comma'>,</span>
+    <span class='symbol'>:&#39;ObservabilityPipelineSensitiveDataScannerProcessor&#39;</span><span class='comma'>,</span>
+    <span class='symbol'>:&#39;ObservabilityPipelineSplitArrayProcessor&#39;</span><span class='comma'>,</span>
     <span class='symbol'>:&#39;ObservabilityPipelineThrottleProcessor&#39;</span><span class='comma'>,</span>
-    <span class='symbol'>:&#39;ObservabilityPipelineCustomProcessor&#39;</span><span class='comma'>,</span>
-    <span class='symbol'>:&#39;ObservabilityPipelineDatadogTagsProcessor&#39;</span>
+    <span class='symbol'>:&#39;ObservabilityPipelineMetricTagsProcessor&#39;</span>
   <span class='rbracket'>]</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -388,7 +396,7 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Jan 13 19:57:54 2026 by
+  Generated on Wed Jan 14 10:44:09 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.38 (ruby-2.7.8).
 </div>

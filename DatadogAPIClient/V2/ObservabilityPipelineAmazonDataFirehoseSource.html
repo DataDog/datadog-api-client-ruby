@@ -108,6 +108,8 @@
   <div class="discussion">
     <p>The <code>amazon_data_firehose</code> source ingests logs from AWS Data Firehose.</p>
 
+<p><strong>Supported pipeline types:</strong> logs</p>
+
 
   </div>
 </div>
@@ -302,12 +304,12 @@
       <pre class="lines">
 
 
-37
-38
-39</pre>
+39
+40
+41</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_amazon_data_firehose_source.rb', line 37</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_amazon_data_firehose_source.rb', line 39</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_additional_properties'>additional_properties</span>
   <span class='ivar'>@additional_properties</span>
@@ -345,12 +347,12 @@ If omitted, the system’s default credentials are used (for example, the IAM ro
       <pre class="lines">
 
 
-26
-27
-28</pre>
+28
+29
+30</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_amazon_data_firehose_source.rb', line 26</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_amazon_data_firehose_source.rb', line 28</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_auth'>auth</span>
   <span class='ivar'>@auth</span>
@@ -373,7 +375,7 @@ If omitted, the system’s default credentials are used (for example, the IAM ro
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).</p>
+    <p>The unique identifier for this component. Used in other parts of the pipeline to reference this component (for example, as the <code>input</code> to downstream components).</p>
 
 
   </div>
@@ -387,12 +389,12 @@ If omitted, the system’s default credentials are used (for example, the IAM ro
       <pre class="lines">
 
 
-29
-30
-31</pre>
+31
+32
+33</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_amazon_data_firehose_source.rb', line 29</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_amazon_data_firehose_source.rb', line 31</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_id'>id</span>
   <span class='ivar'>@id</span>
@@ -429,12 +431,12 @@ If omitted, the system’s default credentials are used (for example, the IAM ro
       <pre class="lines">
 
 
-32
-33
-34</pre>
+34
+35
+36</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_amazon_data_firehose_source.rb', line 32</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_amazon_data_firehose_source.rb', line 34</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_tls'>tls</span>
   <span class='ivar'>@tls</span>
@@ -471,12 +473,12 @@ If omitted, the system’s default credentials are used (for example, the IAM ro
       <pre class="lines">
 
 
-35
-36
-37</pre>
+37
+38
+39</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_amazon_data_firehose_source.rb', line 35</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_amazon_data_firehose_source.rb', line 37</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_type'>type</span>
   <span class='ivar'>@type</span>
@@ -492,7 +494,7 @@ If omitted, the system’s default credentials are used (for example, the IAM ro
 </div>
 
       <div id="footer">
-  Generated on Tue Jan 13 19:58:24 2026 by
+  Generated on Wed Jan 14 10:44:42 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.38 (ruby-2.7.8).
 </div>

@@ -106,7 +106,9 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>The <code>filter</code> processor allows conditional processing of logs based on a Datadog search query. Logs that match the <code>include</code> query are passed through; others are discarded.</p>
+    <p>The <code>filter</code> processor allows conditional processing of logs/metrics based on a Datadog search query. Logs/metrics that match the <code>include</code> query are passed through; others are discarded.</p>
+
+<p><strong>Supported pipeline types:</strong> logs, metrics</p>
 
 
   </div>
@@ -195,7 +197,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Whether this processor is enabled.</p>
+    <span class="summary_desc"><div class='inline'><p>Indicates whether the processor is enabled.</p>
 </div></span>
   
 </li>
@@ -251,7 +253,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>A Datadog search query used to determine which logs should pass through the filter.</p>
+    <span class="summary_desc"><div class='inline'><p>A Datadog search query used to determine which logs/metrics should pass through the filter.</p>
 </div></span>
   
 </li>
@@ -332,12 +334,12 @@
       <pre class="lines">
 
 
-39
-40
-41</pre>
+41
+42
+43</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_filter_processor.rb', line 39</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_filter_processor.rb', line 41</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_additional_properties'>additional_properties</span>
   <span class='ivar'>@additional_properties</span>
@@ -374,12 +376,12 @@
       <pre class="lines">
 
 
-25
-26
-27</pre>
+27
+28
+29</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_filter_processor.rb', line 25</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_filter_processor.rb', line 27</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_display_name'>display_name</span>
   <span class='ivar'>@display_name</span>
@@ -402,7 +404,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Whether this processor is enabled.</p>
+    <p>Indicates whether the processor is enabled.</p>
 
 
   </div>
@@ -416,12 +418,12 @@
       <pre class="lines">
 
 
-28
-29
-30</pre>
+30
+31
+32</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_filter_processor.rb', line 28</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_filter_processor.rb', line 30</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_enabled'>enabled</span>
   <span class='ivar'>@enabled</span>
@@ -444,7 +446,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>The unique identifier for this component. Used to reference this component in other parts of the pipeline (for example, as the <code>input</code> to downstream components).</p>
+    <p>The unique identifier for this component. Used in other parts of the pipeline to reference this component (for example, as the <code>input</code> to downstream components).</p>
 
 
   </div>
@@ -458,12 +460,12 @@
       <pre class="lines">
 
 
-31
-32
-33</pre>
+33
+34
+35</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_filter_processor.rb', line 31</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_filter_processor.rb', line 33</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_id'>id</span>
   <span class='ivar'>@id</span>
@@ -486,7 +488,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>A Datadog search query used to determine which logs should pass through the filter. Logs that match this query continue to downstream components; others are dropped.</p>
+    <p>A Datadog search query used to determine which logs/metrics should pass through the filter. Logs/metrics that match this query continue to downstream components; others are dropped.</p>
 
 
   </div>
@@ -500,12 +502,12 @@
       <pre class="lines">
 
 
-34
-35
-36</pre>
+36
+37
+38</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_filter_processor.rb', line 34</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_filter_processor.rb', line 36</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_include'>include</span>
   <span class='ivar'>@include</span>
@@ -542,12 +544,12 @@
       <pre class="lines">
 
 
-37
-38
-39</pre>
+39
+40
+41</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_filter_processor.rb', line 37</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_filter_processor.rb', line 39</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_type'>type</span>
   <span class='ivar'>@type</span>
@@ -563,7 +565,7 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Jan 13 19:58:21 2026 by
+  Generated on Wed Jan 14 10:44:38 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.38 (ruby-2.7.8).
 </div>

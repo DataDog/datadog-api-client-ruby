@@ -109,6 +109,8 @@
     <p>The <code>amazon_s3</code> source ingests logs from an Amazon S3 bucket.
 It supports AWS authentication and TLS encryption.</p>
 
+<p><strong>Supported pipeline types:</strong> logs</p>
+
 
   </div>
 </div>
@@ -331,12 +333,12 @@ It supports AWS authentication and TLS encryption.</p>
       <pre class="lines">
 
 
-41
-42
-43</pre>
+43
+44
+45</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_amazon_s3_source.rb', line 41</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_amazon_s3_source.rb', line 43</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_additional_properties'>additional_properties</span>
   <span class='ivar'>@additional_properties</span>
@@ -374,12 +376,12 @@ If omitted, the system’s default credentials are used (for example, the IAM ro
       <pre class="lines">
 
 
-27
-28
-29</pre>
+29
+30
+31</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_amazon_s3_source.rb', line 27</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_amazon_s3_source.rb', line 29</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_auth'>auth</span>
   <span class='ivar'>@auth</span>
@@ -402,7 +404,7 @@ If omitted, the system’s default credentials are used (for example, the IAM ro
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).</p>
+    <p>The unique identifier for this component. Used in other parts of the pipeline to reference this component (for example, as the <code>input</code> to downstream components).</p>
 
 
   </div>
@@ -416,12 +418,12 @@ If omitted, the system’s default credentials are used (for example, the IAM ro
       <pre class="lines">
 
 
-30
-31
-32</pre>
+32
+33
+34</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_amazon_s3_source.rb', line 30</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_amazon_s3_source.rb', line 32</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_id'>id</span>
   <span class='ivar'>@id</span>
@@ -458,12 +460,12 @@ If omitted, the system’s default credentials are used (for example, the IAM ro
       <pre class="lines">
 
 
-33
-34
-35</pre>
+35
+36
+37</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_amazon_s3_source.rb', line 33</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_amazon_s3_source.rb', line 35</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_region'>region</span>
   <span class='ivar'>@region</span>
@@ -500,12 +502,12 @@ If omitted, the system’s default credentials are used (for example, the IAM ro
       <pre class="lines">
 
 
-36
-37
-38</pre>
+38
+39
+40</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_amazon_s3_source.rb', line 36</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_amazon_s3_source.rb', line 38</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_tls'>tls</span>
   <span class='ivar'>@tls</span>
@@ -542,12 +544,12 @@ If omitted, the system’s default credentials are used (for example, the IAM ro
       <pre class="lines">
 
 
-39
-40
-41</pre>
+41
+42
+43</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_amazon_s3_source.rb', line 39</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_amazon_s3_source.rb', line 41</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_type'>type</span>
   <span class='ivar'>@type</span>
@@ -563,7 +565,7 @@ If omitted, the system’s default credentials are used (for example, the IAM ro
 </div>
 
       <div id="footer">
-  Generated on Tue Jan 13 19:58:21 2026 by
+  Generated on Wed Jan 14 10:44:38 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.38 (ruby-2.7.8).
 </div>
