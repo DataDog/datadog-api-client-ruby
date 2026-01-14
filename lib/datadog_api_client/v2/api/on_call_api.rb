@@ -791,7 +791,7 @@ module DatadogAPIClient::V2
     # @param schedule_id [String] The ID of the schedule.
     # @param opts [Hash] the optional parameters
     # @option opts [String] :include Specifies related resources to include in the response as a comma-separated list. Allowed value: `user`.
-    # @option opts [String] :filter_at_ts Retrieves the on-call user at the given timestamp (ISO-8601). Defaults to the current time if omitted."
+    # @option opts [String] :filter_at_ts Retrieves the on-call user at the given timestamp in RFC3339 format (for example, `2025-05-07T02:53:01Z` or `2025-05-07T02:53:01+00:00`). When using timezone offsets with `+` or `-`, ensure proper URL encoding (`+` should be encoded as `%2B`). Defaults to the current time if omitted.
     # @return [Array<(Shift, Integer, Hash)>] Shift data, response status code and response headers
     def get_schedule_on_call_user_with_http_info(schedule_id, opts = {})
 
