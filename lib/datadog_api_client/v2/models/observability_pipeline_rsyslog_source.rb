@@ -18,10 +18,12 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The `rsyslog` source listens for logs over TCP or UDP from an `rsyslog` server using the syslog protocol.
+  # 
+  # **Supported pipeline types:** logs
   class ObservabilityPipelineRsyslogSource
     include BaseGenericModel
 
-    # The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
+    # The unique identifier for this component. Used in other parts of the pipeline to reference this component (for example, as the `input` to downstream components).
     attr_reader :id
 
     # Protocol used by the syslog source to receive messages.

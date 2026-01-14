@@ -18,19 +18,21 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The `add_fields` processor adds static key-value fields to logs.
+  # 
+  # **Supported pipeline types:** logs
   class ObservabilityPipelineAddFieldsProcessor
     include BaseGenericModel
 
     # The display name for a component.
     attr_accessor :display_name
 
-    # Whether this processor is enabled.
+    # Indicates whether the processor is enabled.
     attr_reader :enabled
 
     # A list of static fields (key-value pairs) that is added to each log event processed by this component.
     attr_reader :fields
 
-    # The unique identifier for this component. Used to reference this component in other parts of the pipeline (for example, as the `input` to downstream components).
+    # The unique identifier for this component. Used in other parts of the pipeline to reference this component (for example, as the `input` to downstream components).
     attr_reader :id
 
     # A Datadog search query used to determine which logs this processor targets.

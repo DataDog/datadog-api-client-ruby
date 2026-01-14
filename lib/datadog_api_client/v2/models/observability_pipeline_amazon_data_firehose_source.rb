@@ -18,6 +18,8 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The `amazon_data_firehose` source ingests logs from AWS Data Firehose.
+  # 
+  # **Supported pipeline types:** logs
   class ObservabilityPipelineAmazonDataFirehoseSource
     include BaseGenericModel
 
@@ -25,7 +27,7 @@ module DatadogAPIClient::V2
     # If omitted, the system’s default credentials are used (for example, the IAM role and environment variables).
     attr_accessor :auth
 
-    # The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
+    # The unique identifier for this component. Used in other parts of the pipeline to reference this component (for example, as the `input` to downstream components).
     attr_reader :id
 
     # Configuration for enabling TLS encryption between the pipeline component and external services.

@@ -18,13 +18,15 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The `kafka` source ingests data from Apache Kafka topics.
+  # 
+  # **Supported pipeline types:** logs
   class ObservabilityPipelineKafkaSource
     include BaseGenericModel
 
     # Consumer group ID used by the Kafka client.
     attr_reader :group_id
 
-    # The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
+    # The unique identifier for this component. Used in other parts of the pipeline to reference this component (for example, as the `input` to downstream components).
     attr_reader :id
 
     # Optional list of advanced Kafka client configuration options, defined as key-value pairs.
@@ -64,8 +66,8 @@ module DatadogAPIClient::V2
       {
         :'group_id' => :'String',
         :'id' => :'String',
-        :'librdkafka_options' => :'Array<ObservabilityPipelineKafkaSourceLibrdkafkaOption>',
-        :'sasl' => :'ObservabilityPipelineKafkaSourceSasl',
+        :'librdkafka_options' => :'Array<ObservabilityPipelineKafkaLibrdkafkaOption>',
+        :'sasl' => :'ObservabilityPipelineKafkaSasl',
         :'tls' => :'ObservabilityPipelineTls',
         :'topics' => :'Array<String>',
         :'type' => :'ObservabilityPipelineKafkaSourceType'

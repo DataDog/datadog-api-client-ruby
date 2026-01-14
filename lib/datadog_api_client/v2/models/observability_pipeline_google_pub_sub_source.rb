@@ -18,6 +18,8 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The `google_pubsub` source ingests logs from a Google Cloud Pub/Sub subscription.
+  # 
+  # **Supported pipeline types:** logs
   class ObservabilityPipelineGooglePubSubSource
     include BaseGenericModel
 
@@ -27,7 +29,7 @@ module DatadogAPIClient::V2
     # The decoding format used to interpret incoming logs.
     attr_reader :decoding
 
-    # The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
+    # The unique identifier for this component. Used in other parts of the pipeline to reference this component (for example, as the `input` to downstream components).
     attr_reader :id
 
     # The GCP project ID that owns the Pub/Sub subscription.

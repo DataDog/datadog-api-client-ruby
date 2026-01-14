@@ -26,25 +26,29 @@ module DatadogAPIClient::V2
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of
         [
-          :'ObservabilityPipelineDatadogLogsDestination',
+          :'ObservabilityPipelineHttpClientDestination',
+          :'ObservabilityPipelineAmazonOpenSearchDestination',
           :'ObservabilityPipelineAmazonS3Destination',
+          :'ObservabilityPipelineAmazonSecurityLakeDestination',
+          :'AzureStorageDestination',
+          :'ObservabilityPipelineCloudPremDestination',
+          :'ObservabilityPipelineCrowdStrikeNextGenSiemDestination',
+          :'ObservabilityPipelineDatadogLogsDestination',
+          :'ObservabilityPipelineElasticsearchDestination',
+          :'ObservabilityPipelineGoogleChronicleDestination',
           :'ObservabilityPipelineGoogleCloudStorageDestination',
+          :'ObservabilityPipelineGooglePubSubDestination',
+          :'ObservabilityPipelineKafkaDestination',
+          :'MicrosoftSentinelDestination',
+          :'ObservabilityPipelineNewRelicDestination',
+          :'ObservabilityPipelineOpenSearchDestination',
+          :'ObservabilityPipelineRsyslogDestination',
+          :'ObservabilityPipelineSentinelOneDestination',
+          :'ObservabilityPipelineSocketDestination',
           :'ObservabilityPipelineSplunkHecDestination',
           :'ObservabilityPipelineSumoLogicDestination',
-          :'ObservabilityPipelineElasticsearchDestination',
-          :'ObservabilityPipelineRsyslogDestination',
           :'ObservabilityPipelineSyslogNgDestination',
-          :'AzureStorageDestination',
-          :'MicrosoftSentinelDestination',
-          :'ObservabilityPipelineGoogleChronicleDestination',
-          :'ObservabilityPipelineNewRelicDestination',
-          :'ObservabilityPipelineSentinelOneDestination',
-          :'ObservabilityPipelineOpenSearchDestination',
-          :'ObservabilityPipelineAmazonOpenSearchDestination',
-          :'ObservabilityPipelineSocketDestination',
-          :'ObservabilityPipelineAmazonSecurityLakeDestination',
-          :'ObservabilityPipelineCrowdStrikeNextGenSiemDestination',
-          :'ObservabilityPipelineGooglePubSubDestination'
+          :'ObservabilityPipelineDatadogMetricsDestination'
         ]
       end
       # Builds the object
