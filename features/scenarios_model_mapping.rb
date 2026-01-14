@@ -1571,6 +1571,7 @@ ScenariosModelMappings = {
     "v2.ListSecurityMonitoringRules" => {
             "page_size" => "Integer",
             "page_number" => "Integer",
+            "query" => "String",
     },
     "v2.CreateSecurityMonitoringRule" => {
             "body" => "SecurityMonitoringRuleCreatePayload",

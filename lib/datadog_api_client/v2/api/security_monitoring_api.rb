@@ -3893,6 +3893,7 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 100.
     # @option opts [Integer] :page_number Specific page number to return.
+    # @option opts [String] :query A search query to filter security rules. You can filter by attributes such as `type`, `source`, `tags`.
     # @return [Array<(SecurityMonitoringListRulesResponse, Integer, Hash)>] SecurityMonitoringListRulesResponse data, response status code and response headers
     def list_security_monitoring_rules_with_http_info(opts = {})
 
@@ -3906,6 +3907,7 @@ module DatadogAPIClient::V2
       query_params = opts[:query_params] || {}
       query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
       query_params[:'page[number]'] = opts[:'page_number'] if !opts[:'page_number'].nil?
+      query_params[:'query'] = opts[:'query'] if !opts[:'query'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
