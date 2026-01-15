@@ -30,5 +30,6 @@ module DatadogAPIClient::V1
     SPANS = "spans".freeze
     DATABASE_QUERIES = "database_queries".freeze
     NETWORK = "network".freeze
+    NETWORK_PATH = "network_path".freeze
   end
 end

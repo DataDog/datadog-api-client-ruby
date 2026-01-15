@@ -41,5 +41,6 @@ module DatadogAPIClient::V1
     NETWORK_PERFORMANCE_ALERT = "network-performance alert".freeze
     COST_ALERT = "cost alert".freeze
     DATA_QUALITY_ALERT = "data-quality alert".freeze
+    NETWORK_PATH_ALERT = "network-path alert".freeze
   end
 end
