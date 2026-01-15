@@ -1,5 +1,30 @@
 # CHANGELOG
 
+## 2.49.0/2026-01-15
+
+### Added
+* Add subtest for synthetics multistep tests [#2901](https://github.com/DataDog/datadog-api-client-ruby/pull/2901)
+* feat - Add data-quality alert monitor type support [#2899](https://github.com/DataDog/datadog-api-client-ruby/pull/2899)
+* Add a new end point that allows the SPA recommendation to be called without the shard parameter [#2892](https://github.com/DataDog/datadog-api-client-ruby/pull/2892)
+* Add Critical Assets specs to security_monitoring feature [#2888](https://github.com/DataDog/datadog-api-client-ruby/pull/2888)
+* Add new Observability Pipelines components [#2883](https://github.com/DataDog/datadog-api-client-ruby/pull/2883)
+* Specify accepted types for UpsertRows values [#2876](https://github.com/DataDog/datadog-api-client-ruby/pull/2876)
+* Add subtest for synthetics multistep tests [#2865](https://github.com/DataDog/datadog-api-client-ruby/pull/2865)
+* Add `query` param in rules list endpoint [#2857](https://github.com/DataDog/datadog-api-client-ruby/pull/2857)
+* Add Security Findings Public API beta endpoints [#2844](https://github.com/DataDog/datadog-api-client-ruby/pull/2844)
+* Add bar chart widget to Dashboards API [#2816](https://github.com/DataDog/datadog-api-client-ruby/pull/2816)
+* Update distribution and heatmap's `markers` ,`num_buckets` properties and allowed request/query [#2815](https://github.com/DataDog/datadog-api-client-ruby/pull/2815)
+* Add region_filter_configs and is_global_location_enabled to v2 GCP API [#2808](https://github.com/DataDog/datadog-api-client-ruby/pull/2808)
+
+### Deprecated
+* Update docs for Security Finding API endpoints [#2897](https://github.com/DataDog/datadog-api-client-ruby/pull/2897)
+
+### Removed
+* Revert - Update specs for AWS account updates and creation for CCM configs [#2886](https://github.com/DataDog/datadog-api-client-ruby/pull/2886)
+
+### Fixed
+* remove duplicate sync_enabled field for PATCH Reference Tables request schema [#2789](https://github.com/DataDog/datadog-api-client-ruby/pull/2789)
+
 ## 2.48.0/2026-01-08
 
 ### Added
