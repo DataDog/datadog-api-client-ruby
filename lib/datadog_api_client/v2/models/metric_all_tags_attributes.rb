@@ -17,11 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Object containing the definition of a metric's tags.
+  # Object containing the definition of a metric's indexed and ingested tags.
   class MetricAllTagsAttributes
     include BaseGenericModel
 
-    # List of indexed tag value pairs.
+    # List of ingested tags that are not indexed.
+    attr_accessor :ingested_tags
+
+    # List of indexed tags.
     attr_accessor :tags
 
     attr_accessor :additional_properties
@@ -30,6 +33,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'ingested_tags' => :'ingested_tags',
         :'tags' => :'tags'
       }
     end
@@ -38,6 +42,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'ingested_tags' => :'Array<String>',
         :'tags' => :'Array<String>'
       }
     end
@@ -59,6 +64,12 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'ingested_tags')
+        if (value = attributes[:'ingested_tags']).is_a?(Array)
+          self.ingested_tags = value
+        end
+      end
 
       if attributes.key?(:'tags')
         if (value = attributes[:'tags']).is_a?(Array)
@@ -93,6 +104,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          ingested_tags == o.ingested_tags &&
           tags == o.tags &&
           additional_properties == o.additional_properties
     end
@@ -101,7 +113,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [tags, additional_properties].hash
+      [ingested_tags, tags, additional_properties].hash
     end
   end
 end
