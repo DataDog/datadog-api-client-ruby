@@ -21,8 +21,11 @@ module DatadogAPIClient::V2
   class CaseUpdateStatusAttributes
     include BaseGenericModel
 
-    # Case status
-    attr_reader :status
+    # Deprecated way of representing the case status, which only supports OPEN, IN_PROGRESS, and CLOSED statuses. Use `status_name` instead.
+    attr_accessor :status
+
+    # Status of the case. Must be one of the existing statuses for the case's type.
+    attr_accessor :status_name
 
     attr_accessor :additional_properties
 
@@ -30,7 +33,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'status' => :'status'
+        :'status' => :'status',
+        :'status_name' => :'status_name'
       }
     end
 
@@ -38,7 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'status' => :'CaseStatus'
+        :'status' => :'CaseStatus',
+        :'status_name' => :'String'
       }
     end
 
@@ -63,24 +68,10 @@ module DatadogAPIClient::V2
       if attributes.key?(:'status')
         self.status = attributes[:'status']
       end
-    end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    # @!visibility private
-    def valid?
-      return false if @status.nil?
-      true
-    end
-
-    # Custom attribute writer method with validation
-    # @param status [Object] Object to be assigned
-    # @!visibility private
-    def status=(status)
-      if status.nil?
-        fail ArgumentError, 'invalid value for "status", status cannot be nil.'
+      if attributes.key?(:'status_name')
+        self.status_name = attributes[:'status_name']
       end
-      @status = status
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -110,6 +101,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           status == o.status &&
+          status_name == o.status_name &&
           additional_properties == o.additional_properties
     end
 
@@ -117,7 +109,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [status, additional_properties].hash
+      [status, status_name, additional_properties].hash
     end
   end
 end
