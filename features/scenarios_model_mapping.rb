@@ -2219,6 +2219,20 @@ ScenariosModelMappings = {
             "aws_account_config_id" => "String",
             "body" => "AWSAccountUpdateRequest",
     },
+    "v2.DeleteAWSAccountCCMConfig" => {
+            "aws_account_config_id" => "String",
+    },
+    "v2.GetAWSAccountCCMConfig" => {
+            "aws_account_config_id" => "String",
+    },
+    "v2.UpdateAWSAccountCCMConfig" => {
+            "aws_account_config_id" => "String",
+            "body" => "AWSCcmConfigRequest",
+    },
+    "v2.CreateAWSAccountCCMConfig" => {
+            "aws_account_config_id" => "String",
+            "body" => "AWSCcmConfigRequest",
+    },
     "v2.DeleteAWSEventBridgeSource" => {
             "body" => "AWSEventBridgeDeleteRequest",
     },

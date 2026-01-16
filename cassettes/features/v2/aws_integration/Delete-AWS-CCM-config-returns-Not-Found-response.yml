@@ -1,0 +1,21 @@
+http_interactions:
+- recorded_at: Fri, 16 Jan 2026 20:07:54 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://frog.datadoghq.com/api/v2/integration/aws/accounts/00000000-0000-0000-0000-000000000000/ccm_config
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"status":"404","title":"Account not found","detail":"AWS
+        account with provided id is not integrated"}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 404
+      message: Not Found
+recorded_with: VCR 6.0.0
