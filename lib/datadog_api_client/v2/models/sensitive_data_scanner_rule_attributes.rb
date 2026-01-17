@@ -49,6 +49,10 @@ module DatadogAPIClient::V2
     # Integer from 1 (high) to 5 (low) indicating rule issue severity.
     attr_reader :priority
 
+    # Object describing the suppressions for a rule. There are three types of suppressions, `starts_with`, `ends_with`, and `exact_match`.
+    # Suppressed matches are not obfuscated, counted in metrics, or displayed in the Findings page.
+    attr_accessor :suppressions
+
     # List of tags.
     attr_accessor :tags
 
@@ -69,6 +73,7 @@ module DatadogAPIClient::V2
         :'namespaces' => :'namespaces',
         :'pattern' => :'pattern',
         :'priority' => :'priority',
+        :'suppressions' => :'suppressions',
         :'tags' => :'tags',
         :'text_replacement' => :'text_replacement'
       }
@@ -86,6 +91,7 @@ module DatadogAPIClient::V2
         :'namespaces' => :'Array<String>',
         :'pattern' => :'String',
         :'priority' => :'Integer',
+        :'suppressions' => :'SensitiveDataScannerSuppressions',
         :'tags' => :'Array<String>',
         :'text_replacement' => :'SensitiveDataScannerTextReplacement'
       }
@@ -143,6 +149,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'priority')
         self.priority = attributes[:'priority']
+      end
+
+      if attributes.key?(:'suppressions')
+        self.suppressions = attributes[:'suppressions']
       end
 
       if attributes.key?(:'tags')
@@ -212,6 +222,7 @@ module DatadogAPIClient::V2
           namespaces == o.namespaces &&
           pattern == o.pattern &&
           priority == o.priority &&
+          suppressions == o.suppressions &&
           tags == o.tags &&
           text_replacement == o.text_replacement &&
           additional_properties == o.additional_properties
@@ -221,7 +232,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [description, excluded_namespaces, included_keyword_configuration, is_enabled, name, namespaces, pattern, priority, tags, text_replacement, additional_properties].hash
+      [description, excluded_namespaces, included_keyword_configuration, is_enabled, name, namespaces, pattern, priority, suppressions, tags, text_replacement, additional_properties].hash
     end
   end
 end
