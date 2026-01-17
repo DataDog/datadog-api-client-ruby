@@ -1559,6 +1559,9 @@ ScenariosModelMappings = {
     },
     "v2.ListSecurityMonitoringSuppressions" => {
             "query" => "String",
+            "sort" => "SecurityMonitoringSuppressionSort",
+            "page_size" => "Integer",
+            "page_number" => "Integer",
     },
     "v2.CreateSecurityMonitoringSuppression" => {
             "body" => "SecurityMonitoringSuppressionCreateRequest",
