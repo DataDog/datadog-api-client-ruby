@@ -1,0 +1,24 @@
+http_interactions:
+- recorded_at: Fri, 16 Jan 2026 00:21:52 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"name":"Test-Create_integration_account_returns_Created_response-1768522912","secrets":{"api_key_token":"test_secret_token"},"settings":{"account_sid":"ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx","alerts":true,"api_key":"SKxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx","call_summaries":true,"ccm_enabled":true,"censor_logs":true,"events":true,"messages":true}},"type":"Account"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/web-integrations/twilio/accounts
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"591eebe4-998f-49f0-b5db-a6b76e3ff392","type":"Account","attributes":{"name":"Test-Create_integration_account_returns_Created_response-1768522912","settings":{"account_sid":"ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx","alerts":true,"api_key":"SKxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx","call_summaries":true,"ccm_enabled":true,"censor_logs":true,"events":true,"messages":true}}}}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 201
+      message: Created
+recorded_with: VCR 6.0.0
