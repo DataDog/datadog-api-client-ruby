@@ -3464,6 +3464,29 @@ ScenariosModelMappings = {
     "v2.ListUserPermissions" => {
             "user_id" => "String",
     },
+    "v2.ListWebIntegrationAccounts" => {
+            "integration_name" => "String",
+    },
+    "v2.CreateWebIntegrationAccount" => {
+            "integration_name" => "String",
+            "body" => "WebIntegrationAccountCreateRequest",
+    },
+    "v2.GetWebIntegrationAccountSchema" => {
+            "integration_name" => "String",
+    },
+    "v2.DeleteWebIntegrationAccount" => {
+            "integration_name" => "String",
+            "account_id" => "String",
+    },
+    "v2.GetWebIntegrationAccount" => {
+            "integration_name" => "String",
+            "account_id" => "String",
+    },
+    "v2.UpdateWebIntegrationAccount" => {
+            "integration_name" => "String",
+            "account_id" => "String",
+            "body" => "WebIntegrationAccountUpdateRequest",
+    },
     "v2.CreateWorkflow" => {
             "body" => "CreateWorkflowRequest",
     },

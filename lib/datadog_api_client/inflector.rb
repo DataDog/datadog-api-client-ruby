@@ -4756,6 +4756,18 @@ module DatadogAPIClient
           "v2.vulnerability_status" => "VulnerabilityStatus",
           "v2.vulnerability_tool" => "VulnerabilityTool",
           "v2.vulnerability_type" => "VulnerabilityType",
+          "v2.web_integration_account_attributes" => "WebIntegrationAccountAttributes",
+          "v2.web_integration_account_create_request" => "WebIntegrationAccountCreateRequest",
+          "v2.web_integration_account_create_request_attributes" => "WebIntegrationAccountCreateRequestAttributes",
+          "v2.web_integration_account_create_request_data" => "WebIntegrationAccountCreateRequestData",
+          "v2.web_integration_account_response" => "WebIntegrationAccountResponse",
+          "v2.web_integration_account_response_data" => "WebIntegrationAccountResponseData",
+          "v2.web_integration_account_schema_response" => "WebIntegrationAccountSchemaResponse",
+          "v2.web_integration_accounts_response" => "WebIntegrationAccountsResponse",
+          "v2.web_integration_account_type" => "WebIntegrationAccountType",
+          "v2.web_integration_account_update_request" => "WebIntegrationAccountUpdateRequest",
+          "v2.web_integration_account_update_request_attributes" => "WebIntegrationAccountUpdateRequestAttributes",
+          "v2.web_integration_account_update_request_data" => "WebIntegrationAccountUpdateRequestData",
           "v2.weekday" => "Weekday",
           "v2.widget_live_span" => "WidgetLiveSpan",
           "v2.workflow_data" => "WorkflowData",
@@ -4903,6 +4915,7 @@ module DatadogAPIClient
         "v2.test_optimization_api" => "TestOptimizationAPI",
         "v2.usage_metering_api" => "UsageMeteringAPI",
         "v2.users_api" => "UsersAPI",
+        "v2.web_integrations_api" => "WebIntegrationsAPI",
         "v2.workflow_automation_api" => "WorkflowAutomationAPI"
         }
     end
