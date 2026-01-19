@@ -2242,6 +2242,22 @@ ScenariosModelMappings = {
     "v2.MakeGCPSTSDelegate" => {
             "body" => "Object",
     },
+    "v2.DeleteJiraAccount" => {
+            "account_id" => "UUID",
+    },
+    "v2.CreateJiraIssueTemplate" => {
+            "body" => "JiraIssueTemplateCreateRequest",
+    },
+    "v2.DeleteJiraIssueTemplate" => {
+            "issue_template_id" => "UUID",
+    },
+    "v2.GetJiraIssueTemplate" => {
+            "issue_template_id" => "UUID",
+    },
+    "v2.UpdateJiraIssueTemplate" => {
+            "issue_template_id" => "UUID",
+            "body" => "JiraIssueTemplateUpdateRequest",
+    },
     "v2.GetChannelByName" => {
             "tenant_name" => "String",
             "team_name" => "String",
