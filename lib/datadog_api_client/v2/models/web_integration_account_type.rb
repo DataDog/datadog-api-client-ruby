@@ -17,19 +17,10 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The sort parameters used for querying suppression rules.
-  class SecurityMonitoringSuppressionSort
+  # The JSON:API type for web integration accounts.
+  class WebIntegrationAccountType
     include BaseEnumModel
 
-    NAME = "name".freeze
-    START_DATE = "start_date".freeze
-    EXPIRATION_DATE = "expiration_date".freeze
-    UPDATE_DATE = "update_date".freeze
-    ENABLED = "enabled".freeze
-    NAME_DESCENDING = "-name".freeze
-    START_DATE_DESCENDING = "-start_date".freeze
-    EXPIRATION_DATE_DESCENDING = "-expiration_date".freeze
-    UPDATE_DATE_DESCENDING = "-update_date".freeze
-    ENABLED_DESCENDING = "-enabled".freeze
+    ACCOUNT = "Account".freeze
   end
 end

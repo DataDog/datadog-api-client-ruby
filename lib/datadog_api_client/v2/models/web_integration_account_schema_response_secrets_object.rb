@@ -17,15 +17,24 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Response object containing the available suppression rules with pagination metadata.
-  class SecurityMonitoringPaginatedSuppressionsResponse
+  # JSON Schema definition for the secrets object.
+  # Contains sensitive credentials required for the integration such as API keys,
+  # tokens, and passwords. These values are write-only and never returned in responses.
+  class WebIntegrationAccountSchemaResponseSecretsObject
     include BaseGenericModel
 
-    # A list of suppressions objects.
-    attr_accessor :data
+    # Whether additional properties are allowed (typically false).
+    attr_accessor :additional_properties
 
-    # Metadata for the suppression list response.
-    attr_accessor :meta
+    # The individual secret fields for this integration.
+    # Field names and types vary by integration.
+    attr_accessor :properties
+
+    # List of required secret field names.
+    attr_accessor :required
+
+    # Always "object" for the secrets container.
+    attr_accessor :type
 
     attr_accessor :additional_properties
 
@@ -33,8 +42,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data',
-        :'meta' => :'meta'
+        :'additional_properties' => :'additionalProperties',
+        :'properties' => :'properties',
+        :'required' => :'required',
+        :'type' => :'type'
       }
     end
 
@@ -42,8 +53,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'Array<SecurityMonitoringSuppression>',
-        :'meta' => :'SecurityMonitoringSuppressionsMeta'
+        :'additional_properties' => :'Boolean',
+        :'properties' => :'Hash<String, WebIntegrationAccountSchemaResponseSettingsField>',
+        :'required' => :'Array<String>',
+        :'type' => :'String'
       }
     end
 
@@ -52,7 +65,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SecurityMonitoringPaginatedSuppressionsResponse` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::WebIntegrationAccountSchemaResponseSecretsObject` initialize method"
       end
 
       self.additional_properties = {}
@@ -65,14 +78,22 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'data')
-        if (value = attributes[:'data']).is_a?(Array)
-          self.data = value
+      if attributes.key?(:'additional_properties')
+        self.additional_properties = attributes[:'additional_properties']
+      end
+
+      if attributes.key?(:'properties')
+        self.properties = attributes[:'properties']
+      end
+
+      if attributes.key?(:'required')
+        if (value = attributes[:'required']).is_a?(Array)
+          self.required = value
         end
       end
 
-      if attributes.key?(:'meta')
-        self.meta = attributes[:'meta']
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
       end
     end
 
@@ -102,8 +123,10 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data &&
-          meta == o.meta &&
+          additional_properties == o.additional_properties &&
+          properties == o.properties &&
+          required == o.required &&
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -111,7 +134,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, meta, additional_properties].hash
+      [additional_properties, properties, required, type, additional_properties].hash
     end
   end
 end
