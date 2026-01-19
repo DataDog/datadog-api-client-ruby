@@ -17,18 +17,16 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Pagination metadata.
-  class SecurityMonitoringSuppressionsPageMeta
+  # Attributes for a web integration account.
+  class WebIntegrationAccountAttributes
     include BaseGenericModel
 
-    # Current page number.
-    attr_accessor :page_number
+    # The name of the account.
+    attr_reader :name
 
-    # Current page size.
-    attr_accessor :page_size
-
-    # Total count of suppressions.
-    attr_accessor :total_count
+    # Integration-specific settings for the account. The structure and required fields vary by integration type.
+    # Use the schema endpoint to retrieve the specific requirements for each integration.
+    attr_reader :settings
 
     attr_accessor :additional_properties
 
@@ -36,9 +34,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'page_number' => :'pageNumber',
-        :'page_size' => :'pageSize',
-        :'total_count' => :'totalCount'
+        :'name' => :'name',
+        :'settings' => :'settings'
       }
     end
 
@@ -46,9 +43,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'page_number' => :'Integer',
-        :'page_size' => :'Integer',
-        :'total_count' => :'Integer'
+        :'name' => :'String',
+        :'settings' => :'Hash<String, Object>'
       }
     end
 
@@ -57,7 +53,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SecurityMonitoringSuppressionsPageMeta` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::WebIntegrationAccountAttributes` initialize method"
       end
 
       self.additional_properties = {}
@@ -70,17 +66,42 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'page_number')
-        self.page_number = attributes[:'page_number']
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
 
-      if attributes.key?(:'page_size')
-        self.page_size = attributes[:'page_size']
+      if attributes.key?(:'settings')
+        self.settings = attributes[:'settings']
       end
+    end
 
-      if attributes.key?(:'total_count')
-        self.total_count = attributes[:'total_count']
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @name.nil?
+      return false if @settings.nil?
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param name [Object] Object to be assigned
+    # @!visibility private
+    def name=(name)
+      if name.nil?
+        fail ArgumentError, 'invalid value for "name", name cannot be nil.'
       end
+      @name = name
+    end
+
+    # Custom attribute writer method with validation
+    # @param settings [Object] Object to be assigned
+    # @!visibility private
+    def settings=(settings)
+      if settings.nil?
+        fail ArgumentError, 'invalid value for "settings", settings cannot be nil.'
+      end
+      @settings = settings
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -109,9 +130,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          page_number == o.page_number &&
-          page_size == o.page_size &&
-          total_count == o.total_count &&
+          name == o.name &&
+          settings == o.settings &&
           additional_properties == o.additional_properties
     end
 
@@ -119,7 +139,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [page_number, page_size, total_count, additional_properties].hash
+      [name, settings, additional_properties].hash
     end
   end
 end
