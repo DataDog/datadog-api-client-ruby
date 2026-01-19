@@ -23,6 +23,167 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
+    # Create Custom Rule.
+    #
+    # @see #create_custom_rule_with_http_info
+    def create_custom_rule(ruleset_name, body, opts = {})
+      data, _status_code, _headers = create_custom_rule_with_http_info(ruleset_name, body, opts)
+      data
+    end
+
+    # Create Custom Rule.
+    #
+    # Create a new custom rule within a ruleset
+    #
+    # @param ruleset_name [String] The ruleset name
+    # @param body [CustomRuleRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(CustomRuleResponse, Integer, Hash)>] CustomRuleResponse data, response status code and response headers
+    def create_custom_rule_with_http_info(ruleset_name, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_custom_rule".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_custom_rule")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_custom_rule"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: StaticAnalysisAPI.create_custom_rule ...'
+      end
+      # verify the required parameter 'ruleset_name' is set
+      if @api_client.config.client_side_validation && ruleset_name.nil?
+        fail ArgumentError, "Missing the required parameter 'ruleset_name' when calling StaticAnalysisAPI.create_custom_rule"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling StaticAnalysisAPI.create_custom_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/static-analysis/custom/rulesets/{ruleset_name}/rules'.sub('{ruleset_name}', CGI.escape(ruleset_name.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CustomRuleResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :create_custom_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: StaticAnalysisAPI#create_custom_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create Custom Rule Revision.
+    #
+    # @see #create_custom_rule_revision_with_http_info
+    def create_custom_rule_revision(ruleset_name, rule_name, body, opts = {})
+      create_custom_rule_revision_with_http_info(ruleset_name, rule_name, body, opts)
+      nil
+    end
+
+    # Create Custom Rule Revision.
+    #
+    # Create a new revision for a custom rule
+    #
+    # @param ruleset_name [String] The ruleset name
+    # @param rule_name [String] The rule name
+    # @param body [CustomRuleRevisionRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def create_custom_rule_revision_with_http_info(ruleset_name, rule_name, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_custom_rule_revision".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_custom_rule_revision")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_custom_rule_revision"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: StaticAnalysisAPI.create_custom_rule_revision ...'
+      end
+      # verify the required parameter 'ruleset_name' is set
+      if @api_client.config.client_side_validation && ruleset_name.nil?
+        fail ArgumentError, "Missing the required parameter 'ruleset_name' when calling StaticAnalysisAPI.create_custom_rule_revision"
+      end
+      # verify the required parameter 'rule_name' is set
+      if @api_client.config.client_side_validation && rule_name.nil?
+        fail ArgumentError, "Missing the required parameter 'rule_name' when calling StaticAnalysisAPI.create_custom_rule_revision"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling StaticAnalysisAPI.create_custom_rule_revision"
+      end
+      # resource path
+      local_var_path = '/api/v2/static-analysis/custom/rulesets/{ruleset_name}/rules/{rule_name}/revisions'.sub('{ruleset_name}', CGI.escape(ruleset_name.to_s).gsub('%2F', '/')).sub('{rule_name}', CGI.escape(rule_name.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :create_custom_rule_revision,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: StaticAnalysisAPI#create_custom_rule_revision\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # POST request to resolve vulnerable symbols.
     #
     # @see #create_sca_resolve_vulnerable_symbols_with_http_info
@@ -159,6 +320,643 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: StaticAnalysisAPI#create_sca_result\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete Custom Rule.
+    #
+    # @see #delete_custom_rule_with_http_info
+    def delete_custom_rule(ruleset_name, rule_name, opts = {})
+      delete_custom_rule_with_http_info(ruleset_name, rule_name, opts)
+      nil
+    end
+
+    # Delete Custom Rule.
+    #
+    # Delete a custom rule
+    #
+    # @param ruleset_name [String] The ruleset name
+    # @param rule_name [String] The rule name
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_custom_rule_with_http_info(ruleset_name, rule_name, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.delete_custom_rule".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_custom_rule")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_custom_rule"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: StaticAnalysisAPI.delete_custom_rule ...'
+      end
+      # verify the required parameter 'ruleset_name' is set
+      if @api_client.config.client_side_validation && ruleset_name.nil?
+        fail ArgumentError, "Missing the required parameter 'ruleset_name' when calling StaticAnalysisAPI.delete_custom_rule"
+      end
+      # verify the required parameter 'rule_name' is set
+      if @api_client.config.client_side_validation && rule_name.nil?
+        fail ArgumentError, "Missing the required parameter 'rule_name' when calling StaticAnalysisAPI.delete_custom_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/static-analysis/custom/rulesets/{ruleset_name}/rules/{rule_name}'.sub('{ruleset_name}', CGI.escape(ruleset_name.to_s).gsub('%2F', '/')).sub('{rule_name}', CGI.escape(rule_name.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :delete_custom_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: StaticAnalysisAPI#delete_custom_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete Custom Ruleset.
+    #
+    # @see #delete_custom_ruleset_with_http_info
+    def delete_custom_ruleset(ruleset_name, opts = {})
+      delete_custom_ruleset_with_http_info(ruleset_name, opts)
+      nil
+    end
+
+    # Delete Custom Ruleset.
+    #
+    # Delete a custom ruleset
+    #
+    # @param ruleset_name [String] The ruleset name
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_custom_ruleset_with_http_info(ruleset_name, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.delete_custom_ruleset".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_custom_ruleset")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_custom_ruleset"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: StaticAnalysisAPI.delete_custom_ruleset ...'
+      end
+      # verify the required parameter 'ruleset_name' is set
+      if @api_client.config.client_side_validation && ruleset_name.nil?
+        fail ArgumentError, "Missing the required parameter 'ruleset_name' when calling StaticAnalysisAPI.delete_custom_ruleset"
+      end
+      # resource path
+      local_var_path = '/api/v2/static-analysis/custom/rulesets/{ruleset_name}'.sub('{ruleset_name}', CGI.escape(ruleset_name.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :delete_custom_ruleset,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: StaticAnalysisAPI#delete_custom_ruleset\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Show Custom Rule.
+    #
+    # @see #get_custom_rule_with_http_info
+    def get_custom_rule(ruleset_name, rule_name, opts = {})
+      data, _status_code, _headers = get_custom_rule_with_http_info(ruleset_name, rule_name, opts)
+      data
+    end
+
+    # Show Custom Rule.
+    #
+    # Get a custom rule by name
+    #
+    # @param ruleset_name [String] The ruleset name
+    # @param rule_name [String] The rule name
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(CustomRuleResponse, Integer, Hash)>] CustomRuleResponse data, response status code and response headers
+    def get_custom_rule_with_http_info(ruleset_name, rule_name, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_custom_rule".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_custom_rule")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_custom_rule"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: StaticAnalysisAPI.get_custom_rule ...'
+      end
+      # verify the required parameter 'ruleset_name' is set
+      if @api_client.config.client_side_validation && ruleset_name.nil?
+        fail ArgumentError, "Missing the required parameter 'ruleset_name' when calling StaticAnalysisAPI.get_custom_rule"
+      end
+      # verify the required parameter 'rule_name' is set
+      if @api_client.config.client_side_validation && rule_name.nil?
+        fail ArgumentError, "Missing the required parameter 'rule_name' when calling StaticAnalysisAPI.get_custom_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/static-analysis/custom/rulesets/{ruleset_name}/rules/{rule_name}'.sub('{ruleset_name}', CGI.escape(ruleset_name.to_s).gsub('%2F', '/')).sub('{rule_name}', CGI.escape(rule_name.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CustomRuleResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_custom_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: StaticAnalysisAPI#get_custom_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Show Custom Rule Revision.
+    #
+    # @see #get_custom_rule_revision_with_http_info
+    def get_custom_rule_revision(ruleset_name, rule_name, id, opts = {})
+      data, _status_code, _headers = get_custom_rule_revision_with_http_info(ruleset_name, rule_name, id, opts)
+      data
+    end
+
+    # Show Custom Rule Revision.
+    #
+    # Get a specific revision of a custom rule
+    #
+    # @param ruleset_name [String] The ruleset name
+    # @param rule_name [String] The rule name
+    # @param id [String] The revision ID
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(CustomRuleRevisionResponse, Integer, Hash)>] CustomRuleRevisionResponse data, response status code and response headers
+    def get_custom_rule_revision_with_http_info(ruleset_name, rule_name, id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_custom_rule_revision".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_custom_rule_revision")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_custom_rule_revision"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: StaticAnalysisAPI.get_custom_rule_revision ...'
+      end
+      # verify the required parameter 'ruleset_name' is set
+      if @api_client.config.client_side_validation && ruleset_name.nil?
+        fail ArgumentError, "Missing the required parameter 'ruleset_name' when calling StaticAnalysisAPI.get_custom_rule_revision"
+      end
+      # verify the required parameter 'rule_name' is set
+      if @api_client.config.client_side_validation && rule_name.nil?
+        fail ArgumentError, "Missing the required parameter 'rule_name' when calling StaticAnalysisAPI.get_custom_rule_revision"
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling StaticAnalysisAPI.get_custom_rule_revision"
+      end
+      # resource path
+      local_var_path = '/api/v2/static-analysis/custom/rulesets/{ruleset_name}/rules/{rule_name}/revisions/{id}'.sub('{ruleset_name}', CGI.escape(ruleset_name.to_s).gsub('%2F', '/')).sub('{rule_name}', CGI.escape(rule_name.to_s).gsub('%2F', '/')).sub('{id}', CGI.escape(id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CustomRuleRevisionResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_custom_rule_revision,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: StaticAnalysisAPI#get_custom_rule_revision\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Show Custom Ruleset.
+    #
+    # @see #get_custom_ruleset_with_http_info
+    def get_custom_ruleset(ruleset_name, opts = {})
+      data, _status_code, _headers = get_custom_ruleset_with_http_info(ruleset_name, opts)
+      data
+    end
+
+    # Show Custom Ruleset.
+    #
+    # Get a custom ruleset by name
+    #
+    # @param ruleset_name [String] The ruleset name
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(CustomRulesetResponse, Integer, Hash)>] CustomRulesetResponse data, response status code and response headers
+    def get_custom_ruleset_with_http_info(ruleset_name, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_custom_ruleset".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_custom_ruleset")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_custom_ruleset"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: StaticAnalysisAPI.get_custom_ruleset ...'
+      end
+      # verify the required parameter 'ruleset_name' is set
+      if @api_client.config.client_side_validation && ruleset_name.nil?
+        fail ArgumentError, "Missing the required parameter 'ruleset_name' when calling StaticAnalysisAPI.get_custom_ruleset"
+      end
+      # resource path
+      local_var_path = '/api/v2/static-analysis/custom/rulesets/{ruleset_name}'.sub('{ruleset_name}', CGI.escape(ruleset_name.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CustomRulesetResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_custom_ruleset,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: StaticAnalysisAPI#get_custom_ruleset\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List Custom Rule Revisions.
+    #
+    # @see #list_custom_rule_revisions_with_http_info
+    def list_custom_rule_revisions(ruleset_name, rule_name, opts = {})
+      data, _status_code, _headers = list_custom_rule_revisions_with_http_info(ruleset_name, rule_name, opts)
+      data
+    end
+
+    # List Custom Rule Revisions.
+    #
+    # Get all revisions for a custom rule
+    #
+    # @param ruleset_name [String] The ruleset name
+    # @param rule_name [String] The rule name
+    # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :page_offset Pagination offset
+    # @option opts [Integer] :page_limit Pagination limit
+    # @return [Array<(CustomRuleRevisionsResponse, Integer, Hash)>] CustomRuleRevisionsResponse data, response status code and response headers
+    def list_custom_rule_revisions_with_http_info(ruleset_name, rule_name, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_custom_rule_revisions".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_custom_rule_revisions")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_custom_rule_revisions"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: StaticAnalysisAPI.list_custom_rule_revisions ...'
+      end
+      # verify the required parameter 'ruleset_name' is set
+      if @api_client.config.client_side_validation && ruleset_name.nil?
+        fail ArgumentError, "Missing the required parameter 'ruleset_name' when calling StaticAnalysisAPI.list_custom_rule_revisions"
+      end
+      # verify the required parameter 'rule_name' is set
+      if @api_client.config.client_side_validation && rule_name.nil?
+        fail ArgumentError, "Missing the required parameter 'rule_name' when calling StaticAnalysisAPI.list_custom_rule_revisions"
+      end
+      # resource path
+      local_var_path = '/api/v2/static-analysis/custom/rulesets/{ruleset_name}/rules/{rule_name}/revisions'.sub('{ruleset_name}', CGI.escape(ruleset_name.to_s).gsub('%2F', '/')).sub('{rule_name}', CGI.escape(rule_name.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'page[offset]'] = opts[:'page_offset'] if !opts[:'page_offset'].nil?
+      query_params[:'page[limit]'] = opts[:'page_limit'] if !opts[:'page_limit'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CustomRuleRevisionsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :list_custom_rule_revisions,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: StaticAnalysisAPI#list_custom_rule_revisions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List Custom Rule Revisions.
+    #
+    # Provide a paginated version of {#list_custom_rule_revisions}, returning all items.
+    #
+    # To use it you need to use a block: list_custom_rule_revisions_with_pagination { |item| p item }
+    #
+    # @yield [CustomRuleRevision] Paginated items
+    def list_custom_rule_revisions_with_pagination(ruleset_name, rule_name, opts = {})
+        api_version = "V2"
+        page_size = @api_client.get_attribute_from_path(opts, "page_limit", 10)
+        @api_client.set_attribute_from_path(api_version, opts, "page_limit", Integer, page_size)
+        while true do
+            response = list_custom_rule_revisions(ruleset_name, rule_name, opts)
+            @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
+            if @api_client.get_attribute_from_path(response, "data").length < page_size
+              break
+            end
+            @api_client.set_attribute_from_path(api_version, opts, "page_offset", Integer, @api_client.get_attribute_from_path(opts, "page_offset", 0) + page_size)
+        end
+    end
+
+    # Revert Custom Rule Revision.
+    #
+    # @see #revert_custom_rule_revision_with_http_info
+    def revert_custom_rule_revision(ruleset_name, rule_name, body, opts = {})
+      revert_custom_rule_revision_with_http_info(ruleset_name, rule_name, body, opts)
+      nil
+    end
+
+    # Revert Custom Rule Revision.
+    #
+    # Revert a custom rule to a previous revision
+    #
+    # @param ruleset_name [String] The ruleset name
+    # @param rule_name [String] The rule name
+    # @param body [RevertCustomRuleRevisionRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def revert_custom_rule_revision_with_http_info(ruleset_name, rule_name, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.revert_custom_rule_revision".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.revert_custom_rule_revision")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.revert_custom_rule_revision"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: StaticAnalysisAPI.revert_custom_rule_revision ...'
+      end
+      # verify the required parameter 'ruleset_name' is set
+      if @api_client.config.client_side_validation && ruleset_name.nil?
+        fail ArgumentError, "Missing the required parameter 'ruleset_name' when calling StaticAnalysisAPI.revert_custom_rule_revision"
+      end
+      # verify the required parameter 'rule_name' is set
+      if @api_client.config.client_side_validation && rule_name.nil?
+        fail ArgumentError, "Missing the required parameter 'rule_name' when calling StaticAnalysisAPI.revert_custom_rule_revision"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling StaticAnalysisAPI.revert_custom_rule_revision"
+      end
+      # resource path
+      local_var_path = '/api/v2/static-analysis/custom/rulesets/{ruleset_name}/rules/{rule_name}/revisions/revert'.sub('{ruleset_name}', CGI.escape(ruleset_name.to_s).gsub('%2F', '/')).sub('{rule_name}', CGI.escape(rule_name.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :revert_custom_rule_revision,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: StaticAnalysisAPI#revert_custom_rule_revision\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update Custom Ruleset.
+    #
+    # @see #update_custom_ruleset_with_http_info
+    def update_custom_ruleset(ruleset_name, body, opts = {})
+      data, _status_code, _headers = update_custom_ruleset_with_http_info(ruleset_name, body, opts)
+      data
+    end
+
+    # Update Custom Ruleset.
+    #
+    # Update an existing custom ruleset
+    #
+    # @param ruleset_name [String] The ruleset name
+    # @param body [CustomRulesetRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(CustomRulesetResponse, Integer, Hash)>] CustomRulesetResponse data, response status code and response headers
+    def update_custom_ruleset_with_http_info(ruleset_name, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.update_custom_ruleset".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_custom_ruleset")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_custom_ruleset"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: StaticAnalysisAPI.update_custom_ruleset ...'
+      end
+      # verify the required parameter 'ruleset_name' is set
+      if @api_client.config.client_side_validation && ruleset_name.nil?
+        fail ArgumentError, "Missing the required parameter 'ruleset_name' when calling StaticAnalysisAPI.update_custom_ruleset"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling StaticAnalysisAPI.update_custom_ruleset"
+      end
+      # resource path
+      local_var_path = '/api/v2/static-analysis/custom/rulesets/{ruleset_name}'.sub('{ruleset_name}', CGI.escape(ruleset_name.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CustomRulesetResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :update_custom_ruleset,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: StaticAnalysisAPI#update_custom_ruleset\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
