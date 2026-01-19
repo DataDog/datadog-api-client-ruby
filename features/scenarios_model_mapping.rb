@@ -2140,6 +2140,10 @@ ScenariosModelMappings = {
             "include" => "String",
             "body" => "CreateAttachmentRequest",
     },
+    "v2.CreateIncidentPostmortemAttachment" => {
+            "incident_id" => "String",
+            "body" => "PostmortemAttachmentRequest",
+    },
     "v2.DeleteIncidentAttachment" => {
             "incident_id" => "String",
             "attachment_id" => "Object",
