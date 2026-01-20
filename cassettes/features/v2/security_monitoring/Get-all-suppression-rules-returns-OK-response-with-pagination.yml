@@ -1,0 +1,101 @@
+http_interactions:
+- recorded_at: Wed, 14 Jan 2026 17:12:28 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"description":"Test-Get_all_suppression_rules_returns_OK_response_with_pagination-1768410748","enabled":true,"name":"suppression
+        Test-Get_all_suppression_rules_returns_OK_response_with_pagination-1768410748","rule_query":"source:cloudtrail","suppression_query":"env:test","tags":["technique:T1110-brute-force","source:cloudtrail"]},"type":"suppressions"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/security_monitoring/configuration/suppressions
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"fgz-hyr-ibu","type":"suppressions","attributes":{"creation_date":1768410748883,"creator":{"handle":"frog@datadoghq.com","name":"frog"},"data_exclusion_query":"","description":"Test-Get_all_suppression_rules_returns_OK_response_with_pagination-1768410748","editable":true,"enabled":true,"name":"suppression
+        Test-Get_all_suppression_rules_returns_OK_response_with_pagination-1768410748","rule_query":"source:cloudtrail","suppression_query":"env:test","tags":["source:cloudtrail","technique:T1110-brute-force"],"update_date":1768410748883,"updater":{"handle":"frog@datadoghq.com","name":"frog"},"version":1}}}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 200
+      message: OK
+- recorded_at: Wed, 14 Jan 2026 17:12:28 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"description":"Test-Get_all_suppression_rules_returns_OK_response_with_pagination-1768410748","enabled":true,"name":"suppression2
+        Test-Get_all_suppression_rules_returns_OK_response_with_pagination-1768410748","rule_query":"source:cloudtrail","suppression_query":"env:test","tags":["technique:T1110-brute-force","source:cloudtrail"]},"type":"suppressions"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/security_monitoring/configuration/suppressions
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"lgh-7no-380","type":"suppressions","attributes":{"creation_date":1768410749324,"creator":{"handle":"frog@datadoghq.com","name":"frog"},"data_exclusion_query":"","description":"Test-Get_all_suppression_rules_returns_OK_response_with_pagination-1768410748","editable":true,"enabled":true,"name":"suppression2
+        Test-Get_all_suppression_rules_returns_OK_response_with_pagination-1768410748","rule_query":"source:cloudtrail","suppression_query":"env:test","tags":["source:cloudtrail","technique:T1110-brute-force"],"update_date":1768410749324,"updater":{"handle":"frog@datadoghq.com","name":"frog"},"version":1}}}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 200
+      message: OK
+- recorded_at: Wed, 14 Jan 2026 17:12:28 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+    method: GET
+    uri: https://api.datadoghq.com/api/v2/security_monitoring/configuration/suppressions?page%5Bsize%5D=1&page%5Bnumber%5D=0&query=id%3Afgz-hyr-ibu%20OR%20id%3Algh-7no-380
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"fgz-hyr-ibu","type":"suppressions","attributes":{"creation_date":1768410748883,"creator":{"handle":"frog@datadoghq.com","name":"frog"},"data_exclusion_query":"","description":"Test-Get_all_suppression_rules_returns_OK_response_with_pagination-1768410748","editable":true,"enabled":true,"name":"suppression
+        Test-Get_all_suppression_rules_returns_OK_response_with_pagination-1768410748","rule_query":"source:cloudtrail","suppression_query":"env:test","tags":["source:cloudtrail","technique:T1110-brute-force"],"update_date":1768410748883,"updater":{"handle":"frog@datadoghq.com","name":"frog"},"version":1}}],"meta":{"page":{"totalCount":2,"pageSize":1,"pageNumber":0}}}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 200
+      message: OK
+- recorded_at: Wed, 14 Jan 2026 17:12:28 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/security_monitoring/configuration/suppressions/lgh-7no-380
+  response:
+    body:
+      encoding: UTF-8
+      string: ''
+    headers: {}
+    status:
+      code: 204
+      message: No Content
+- recorded_at: Wed, 14 Jan 2026 17:12:28 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/security_monitoring/configuration/suppressions/fgz-hyr-ibu
+  response:
+    body:
+      encoding: UTF-8
+      string: ''
+    headers: {}
+    status:
+      code: 204
+      message: No Content
+recorded_with: VCR 6.0.0
