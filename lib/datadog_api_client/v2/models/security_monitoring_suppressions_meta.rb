@@ -17,18 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
-  class DeletedSuiteResponseData
+  # Metadata for the suppression list response.
+  class SecurityMonitoringSuppressionsMeta
     include BaseGenericModel
 
-    #
-    attr_accessor :attributes
-
-    #
-    attr_accessor :id
-
-    # Type for the Synthetics suites responses, `suites`.
-    attr_accessor :type
+    # Pagination metadata.
+    attr_accessor :page
 
     attr_accessor :additional_properties
 
@@ -36,9 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'attributes' => :'attributes',
-        :'id' => :'id',
-        :'type' => :'type'
+        :'page' => :'page'
       }
     end
 
@@ -46,9 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'DeletedSuiteResponseDataAttributes',
-        :'id' => :'String',
-        :'type' => :'SyntheticsSuiteTypes'
+        :'page' => :'SecurityMonitoringSuppressionsPageMeta'
       }
     end
 
@@ -57,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::DeletedSuiteResponseData` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SecurityMonitoringSuppressionsMeta` initialize method"
       end
 
       self.additional_properties = {}
@@ -70,16 +60,8 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'attributes')
-        self.attributes = attributes[:'attributes']
-      end
-
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
-      end
-
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
+      if attributes.key?(:'page')
+        self.page = attributes[:'page']
       end
     end
 
@@ -109,9 +91,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          attributes == o.attributes &&
-          id == o.id &&
-          type == o.type &&
+          page == o.page &&
           additional_properties == o.additional_properties
     end
 
@@ -119,7 +99,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, id, type, additional_properties].hash
+      [page, additional_properties].hash
     end
   end
 end
