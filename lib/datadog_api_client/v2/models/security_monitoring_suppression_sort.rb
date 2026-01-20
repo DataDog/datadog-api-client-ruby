@@ -25,11 +25,13 @@ module DatadogAPIClient::V2
     START_DATE = "start_date".freeze
     EXPIRATION_DATE = "expiration_date".freeze
     UPDATE_DATE = "update_date".freeze
+    CREATION_DATE = "creation_date".freeze
     ENABLED = "enabled".freeze
     NAME_DESCENDING = "-name".freeze
     START_DATE_DESCENDING = "-start_date".freeze
     EXPIRATION_DATE_DESCENDING = "-expiration_date".freeze
     UPDATE_DATE_DESCENDING = "-update_date".freeze
+    CREATION_DATE_DESCENDING = "-creation_date".freeze
     ENABLED_DESCENDING = "-enabled".freeze
   end
 end
