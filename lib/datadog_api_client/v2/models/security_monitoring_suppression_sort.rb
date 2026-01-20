@@ -17,10 +17,19 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Type of the Synthetic suite, `suite`.
-  class SyntheticsSuiteType
+  # The sort parameters used for querying suppression rules.
+  class SecurityMonitoringSuppressionSort
     include BaseEnumModel
 
-    SUITE = "suite".freeze
+    NAME = "name".freeze
+    START_DATE = "start_date".freeze
+    EXPIRATION_DATE = "expiration_date".freeze
+    UPDATE_DATE = "update_date".freeze
+    ENABLED = "enabled".freeze
+    NAME_DESCENDING = "-name".freeze
+    START_DATE_DESCENDING = "-start_date".freeze
+    EXPIRATION_DATE_DESCENDING = "-expiration_date".freeze
+    UPDATE_DATE_DESCENDING = "-update_date".freeze
+    ENABLED_DESCENDING = "-enabled".freeze
   end
 end
