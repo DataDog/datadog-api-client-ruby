@@ -17,15 +17,21 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Synthetics suite search response data attributes
-  class SyntheticsSuiteSearchResponseDataAttributes
+  # Defines how the `datadog_logs` destination routes matching logs to a Datadog site using a specific API key.
+  class ObservabilityPipelineDatadogLogsDestinationRoute
     include BaseGenericModel
 
-    #
-    attr_accessor :suites
+    # Name of the environment variable or secret that stores the Datadog API key used by this route.
+    attr_accessor :api_key_key
 
-    #
-    attr_reader :total
+    # A Datadog search query that determines which logs are forwarded using this route.
+    attr_accessor :include
+
+    # Unique identifier for this route within the destination.
+    attr_accessor :route_id
+
+    # Datadog site where matching logs are sent (for example, `us1`).
+    attr_accessor :site
 
     attr_accessor :additional_properties
 
@@ -33,8 +39,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'suites' => :'suites',
-        :'total' => :'total'
+        :'api_key_key' => :'api_key_key',
+        :'include' => :'include',
+        :'route_id' => :'route_id',
+        :'site' => :'site'
       }
     end
 
@@ -42,8 +50,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'suites' => :'Array<SyntheticsSuite>',
-        :'total' => :'Integer'
+        :'api_key_key' => :'String',
+        :'include' => :'String',
+        :'route_id' => :'String',
+        :'site' => :'String'
       }
     end
 
@@ -52,7 +62,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SyntheticsSuiteSearchResponseDataAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineDatadogLogsDestinationRoute` initialize method"
       end
 
       self.additional_properties = {}
@@ -65,33 +75,21 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'suites')
-        if (value = attributes[:'suites']).is_a?(Array)
-          self.suites = value
-        end
+      if attributes.key?(:'api_key_key')
+        self.api_key_key = attributes[:'api_key_key']
       end
 
-      if attributes.key?(:'total')
-        self.total = attributes[:'total']
+      if attributes.key?(:'include')
+        self.include = attributes[:'include']
       end
-    end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    # @!visibility private
-    def valid?
-      return false if !@total.nil? && @total > 2147483647
-      true
-    end
-
-    # Custom attribute writer method with validation
-    # @param total [Object] Object to be assigned
-    # @!visibility private
-    def total=(total)
-      if !total.nil? && total > 2147483647
-        fail ArgumentError, 'invalid value for "total", must be smaller than or equal to 2147483647.'
+      if attributes.key?(:'route_id')
+        self.route_id = attributes[:'route_id']
       end
-      @total = total
+
+      if attributes.key?(:'site')
+        self.site = attributes[:'site']
+      end
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -120,8 +118,10 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          suites == o.suites &&
-          total == o.total &&
+          api_key_key == o.api_key_key &&
+          include == o.include &&
+          route_id == o.route_id &&
+          site == o.site &&
           additional_properties == o.additional_properties
     end
 
@@ -129,7 +129,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [suites, total, additional_properties].hash
+      [api_key_key, include, route_id, site, additional_properties].hash
     end
   end
 end
