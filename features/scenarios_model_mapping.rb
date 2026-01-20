@@ -1559,6 +1559,9 @@ ScenariosModelMappings = {
     },
     "v2.ListSecurityMonitoringSuppressions" => {
             "query" => "String",
+            "sort" => "SecurityMonitoringSuppressionSort",
+            "page_size" => "Integer",
+            "page_number" => "Integer",
     },
     "v2.CreateSecurityMonitoringSuppression" => {
             "body" => "SecurityMonitoringSuppressionCreateRequest",
@@ -3152,6 +3155,16 @@ ScenariosModelMappings = {
             "rule_id" => "String",
             "body" => "UpdateRuleRequest",
     },
+    "v2.ListEntityRiskScores" => {
+            "from" => "Integer",
+            "to" => "Integer",
+            "page_size" => "Integer",
+            "page_number" => "Integer",
+            "page_query_id" => "String",
+            "filter_sort" => "String",
+            "filter_query" => "String",
+            "entity_type" => "Array<String>",
+    },
     "v2.ReorderScanningGroups" => {
             "body" => "SensitiveDataScannerConfigRequest",
     },
@@ -3281,26 +3294,6 @@ ScenariosModelMappings = {
     },
     "v2.SetOnDemandConcurrencyCap" => {
             "body" => "OnDemandConcurrencyCapAttributes",
-    },
-    "v2.CreateSyntheticsSuite" => {
-            "body" => "SuiteCreateEditRequest",
-    },
-    "v2.DeleteSyntheticsSuites" => {
-            "body" => "DeletedSuitesRequestDeleteRequest",
-    },
-    "v2.SearchSuites" => {
-            "query" => "String",
-            "sort" => "String",
-            "facets_only" => "Boolean",
-            "start" => "Integer",
-            "count" => "Integer",
-    },
-    "v2.GetSyntheticsSuite" => {
-            "public_id" => "String",
-    },
-    "v2.EditSyntheticsSuite" => {
-            "public_id" => "String",
-            "body" => "SuiteCreateEditRequest",
     },
     "v2.PatchGlobalVariable" => {
             "variable_id" => "String",

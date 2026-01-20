@@ -4384,11 +4384,18 @@ module DatadogAPIClient::V2
     #
     # @param opts [Hash] the optional parameters
     # @option opts [String] :query Query string.
-    # @return [Array<(SecurityMonitoringSuppressionsResponse, Integer, Hash)>] SecurityMonitoringSuppressionsResponse data, response status code and response headers
+    # @option opts [SecurityMonitoringSuppressionSort] :sort Attribute used to sort the list of suppression rules. Prefix with `-` to sort in descending order.
+    # @option opts [Integer] :page_size Size for a given page. Use `-1` to return all items.
+    # @option opts [Integer] :page_number Specific page number to return.
+    # @return [Array<(SecurityMonitoringPaginatedSuppressionsResponse, Integer, Hash)>] SecurityMonitoringPaginatedSuppressionsResponse data, response status code and response headers
     def list_security_monitoring_suppressions_with_http_info(opts = {})
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.list_security_monitoring_suppressions ...'
+      end
+      allowable_values = ['name', 'start_date', 'expiration_date', 'update_date', 'enabled', '-name', '-start_date', '-expiration_date', '-update_date', '-enabled']
+      if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
+        fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
       end
       # resource path
       local_var_path = '/api/v2/security_monitoring/configuration/suppressions'
@@ -4396,6 +4403,9 @@ module DatadogAPIClient::V2
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'query'] = opts[:'query'] if !opts[:'query'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+      query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+      query_params[:'page[number]'] = opts[:'page_number'] if !opts[:'page_number'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -4409,7 +4419,7 @@ module DatadogAPIClient::V2
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'SecurityMonitoringSuppressionsResponse'
+      return_type = opts[:debug_return_type] || 'SecurityMonitoringPaginatedSuppressionsResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]

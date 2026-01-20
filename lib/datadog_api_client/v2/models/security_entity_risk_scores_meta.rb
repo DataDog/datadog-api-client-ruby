@@ -17,15 +17,21 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
-  class SuiteCreateEdit
+  # Metadata for pagination
+  class SecurityEntityRiskScoresMeta
     include BaseGenericModel
 
-    # Object containing details about a Synthetic suite.
-    attr_reader :attributes
+    # Current page number (1-indexed)
+    attr_reader :page_number
 
-    # Type for the Synthetics suites responses, `suites`.
-    attr_reader :type
+    # Number of items per page
+    attr_reader :page_size
+
+    # Query ID for pagination consistency
+    attr_reader :query_id
+
+    # Total number of entities matching the query
+    attr_reader :total_row_count
 
     attr_accessor :additional_properties
 
@@ -33,8 +39,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'attributes' => :'attributes',
-        :'type' => :'type'
+        :'page_number' => :'pageNumber',
+        :'page_size' => :'pageSize',
+        :'query_id' => :'queryId',
+        :'total_row_count' => :'totalRowCount'
       }
     end
 
@@ -42,8 +50,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'SyntheticsSuite',
-        :'type' => :'SyntheticsSuiteTypes'
+        :'page_number' => :'Integer',
+        :'page_size' => :'Integer',
+        :'query_id' => :'String',
+        :'total_row_count' => :'Integer'
       }
     end
 
@@ -52,7 +62,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SuiteCreateEdit` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SecurityEntityRiskScoresMeta` initialize method"
       end
 
       self.additional_properties = {}
@@ -65,12 +75,20 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'attributes')
-        self.attributes = attributes[:'attributes']
+      if attributes.key?(:'page_number')
+        self.page_number = attributes[:'page_number']
       end
 
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
+      if attributes.key?(:'page_size')
+        self.page_size = attributes[:'page_size']
+      end
+
+      if attributes.key?(:'query_id')
+        self.query_id = attributes[:'query_id']
+      end
+
+      if attributes.key?(:'total_row_count')
+        self.total_row_count = attributes[:'total_row_count']
       end
     end
 
@@ -78,29 +96,51 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @attributes.nil?
-      return false if @type.nil?
+      return false if @page_number.nil?
+      return false if @page_size.nil?
+      return false if @query_id.nil?
+      return false if @total_row_count.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param attributes [Object] Object to be assigned
+    # @param page_number [Object] Object to be assigned
     # @!visibility private
-    def attributes=(attributes)
-      if attributes.nil?
-        fail ArgumentError, 'invalid value for "attributes", attributes cannot be nil.'
+    def page_number=(page_number)
+      if page_number.nil?
+        fail ArgumentError, 'invalid value for "page_number", page_number cannot be nil.'
       end
-      @attributes = attributes
+      @page_number = page_number
     end
 
     # Custom attribute writer method with validation
-    # @param type [Object] Object to be assigned
+    # @param page_size [Object] Object to be assigned
     # @!visibility private
-    def type=(type)
-      if type.nil?
-        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+    def page_size=(page_size)
+      if page_size.nil?
+        fail ArgumentError, 'invalid value for "page_size", page_size cannot be nil.'
       end
-      @type = type
+      @page_size = page_size
+    end
+
+    # Custom attribute writer method with validation
+    # @param query_id [Object] Object to be assigned
+    # @!visibility private
+    def query_id=(query_id)
+      if query_id.nil?
+        fail ArgumentError, 'invalid value for "query_id", query_id cannot be nil.'
+      end
+      @query_id = query_id
+    end
+
+    # Custom attribute writer method with validation
+    # @param total_row_count [Object] Object to be assigned
+    # @!visibility private
+    def total_row_count=(total_row_count)
+      if total_row_count.nil?
+        fail ArgumentError, 'invalid value for "total_row_count", total_row_count cannot be nil.'
+      end
+      @total_row_count = total_row_count
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -129,8 +169,10 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          attributes == o.attributes &&
-          type == o.type &&
+          page_number == o.page_number &&
+          page_size == o.page_size &&
+          query_id == o.query_id &&
+          total_row_count == o.total_row_count &&
           additional_properties == o.additional_properties
     end
 
@@ -138,7 +180,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, type, additional_properties].hash
+      [page_number, page_size, query_id, total_row_count, additional_properties].hash
     end
   end
 end

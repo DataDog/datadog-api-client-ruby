@@ -17,11 +17,10 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Alerting criticality for each the test.
-  class SyntheticsSuiteTestAlertingCriticality
+  # Resource type
+  class SecurityEntityRiskScoreType
     include BaseEnumModel
 
-    IGNORE = "ignore".freeze
-    CRITICAL = "critical".freeze
+    SECURITY_ENTITY_RISK_SCORE = "security_entity_risk_score".freeze
   end
 end

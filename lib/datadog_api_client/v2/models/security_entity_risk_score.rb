@@ -17,32 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Object containing details about a Synthetic suite.
-  class SyntheticsSuite
+  # An entity risk score containing security risk assessment information
+  class SecurityEntityRiskScore
     include BaseGenericModel
 
-    # Notification message associated with the suite.
-    attr_accessor :message
+    # Attributes of an entity risk score
+    attr_reader :attributes
 
-    # The associated monitor ID.
-    attr_accessor :monitor_id
+    # Unique identifier for the entity
+    attr_reader :id
 
-    # Name of the suite.
-    attr_reader :name
-
-    # Object describing the extra options for a Synthetic suite.
-    attr_reader :options
-
-    # The public ID for the test.
-    attr_accessor :public_id
-
-    # Array of tags attached to the suite.
-    attr_accessor :tags
-
-    #
-    attr_reader :tests
-
-    # Type of the Synthetic suite, `suite`.
+    # Resource type
     attr_reader :type
 
     attr_accessor :additional_properties
@@ -51,13 +36,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'message' => :'message',
-        :'monitor_id' => :'monitor_id',
-        :'name' => :'name',
-        :'options' => :'options',
-        :'public_id' => :'public_id',
-        :'tags' => :'tags',
-        :'tests' => :'tests',
+        :'attributes' => :'attributes',
+        :'id' => :'id',
         :'type' => :'type'
       }
     end
@@ -66,14 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'message' => :'String',
-        :'monitor_id' => :'Integer',
-        :'name' => :'String',
-        :'options' => :'SyntheticsSuiteOptions',
-        :'public_id' => :'String',
-        :'tags' => :'Array<String>',
-        :'tests' => :'Array<SyntheticsSuiteTest>',
-        :'type' => :'SyntheticsSuiteType'
+        :'attributes' => :'SecurityEntityRiskScoreAttributes',
+        :'id' => :'String',
+        :'type' => :'SecurityEntityRiskScoreType'
       }
     end
 
@@ -82,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SyntheticsSuite` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SecurityEntityRiskScore` initialize method"
       end
 
       self.additional_properties = {}
@@ -95,36 +70,12 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'message')
-        self.message = attributes[:'message']
+      if attributes.key?(:'attributes')
+        self.attributes = attributes[:'attributes']
       end
 
-      if attributes.key?(:'monitor_id')
-        self.monitor_id = attributes[:'monitor_id']
-      end
-
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.key?(:'options')
-        self.options = attributes[:'options']
-      end
-
-      if attributes.key?(:'public_id')
-        self.public_id = attributes[:'public_id']
-      end
-
-      if attributes.key?(:'tags')
-        if (value = attributes[:'tags']).is_a?(Array)
-          self.tags = value
-        end
-      end
-
-      if attributes.key?(:'tests')
-        if (value = attributes[:'tests']).is_a?(Array)
-          self.tests = value
-        end
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
       end
 
       if attributes.key?(:'type')
@@ -136,41 +87,30 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @name.nil?
-      return false if @options.nil?
-      return false if @tests.nil?
+      return false if @attributes.nil?
+      return false if @id.nil?
       return false if @type.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param name [Object] Object to be assigned
+    # @param attributes [Object] Object to be assigned
     # @!visibility private
-    def name=(name)
-      if name.nil?
-        fail ArgumentError, 'invalid value for "name", name cannot be nil.'
+    def attributes=(attributes)
+      if attributes.nil?
+        fail ArgumentError, 'invalid value for "attributes", attributes cannot be nil.'
       end
-      @name = name
+      @attributes = attributes
     end
 
     # Custom attribute writer method with validation
-    # @param options [Object] Object to be assigned
+    # @param id [Object] Object to be assigned
     # @!visibility private
-    def options=(options)
-      if options.nil?
-        fail ArgumentError, 'invalid value for "options", options cannot be nil.'
+    def id=(id)
+      if id.nil?
+        fail ArgumentError, 'invalid value for "id", id cannot be nil.'
       end
-      @options = options
-    end
-
-    # Custom attribute writer method with validation
-    # @param tests [Object] Object to be assigned
-    # @!visibility private
-    def tests=(tests)
-      if tests.nil?
-        fail ArgumentError, 'invalid value for "tests", tests cannot be nil.'
-      end
-      @tests = tests
+      @id = id
     end
 
     # Custom attribute writer method with validation
@@ -209,13 +149,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          message == o.message &&
-          monitor_id == o.monitor_id &&
-          name == o.name &&
-          options == o.options &&
-          public_id == o.public_id &&
-          tags == o.tags &&
-          tests == o.tests &&
+          attributes == o.attributes &&
+          id == o.id &&
           type == o.type &&
           additional_properties == o.additional_properties
     end
@@ -224,7 +159,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [message, monitor_id, name, options, public_id, tags, tests, type, additional_properties].hash
+      [attributes, id, type, additional_properties].hash
     end
   end
 end

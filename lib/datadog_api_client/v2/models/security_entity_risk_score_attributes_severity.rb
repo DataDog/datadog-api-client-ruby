@@ -17,10 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Type of the Synthetic suite, `suite`.
-  class SyntheticsSuiteType
+  # Severity level based on risk score
+  class SecurityEntityRiskScoreAttributesSeverity
     include BaseEnumModel
 
-    SUITE = "suite".freeze
+    CRITICAL = "critical".freeze
+    HIGH = "high".freeze
+    MEDIUM = "medium".freeze
+    LOW = "low".freeze
+    INFO = "info".freeze
   end
 end
