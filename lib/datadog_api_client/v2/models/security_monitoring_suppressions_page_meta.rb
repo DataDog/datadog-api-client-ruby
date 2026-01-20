@@ -17,15 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
-  class DeletedSuitesRequestDeleteAttributes
+  # Pagination metadata.
+  class SecurityMonitoringSuppressionsPageMeta
     include BaseGenericModel
 
-    #
-    attr_accessor :force_delete_dependencies
+    # Current page number.
+    attr_accessor :page_number
 
-    #
-    attr_reader :public_ids
+    # Current page size.
+    attr_accessor :page_size
+
+    # Total count of suppressions.
+    attr_accessor :total_count
 
     attr_accessor :additional_properties
 
@@ -33,8 +36,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'force_delete_dependencies' => :'force_delete_dependencies',
-        :'public_ids' => :'public_ids'
+        :'page_number' => :'pageNumber',
+        :'page_size' => :'pageSize',
+        :'total_count' => :'totalCount'
       }
     end
 
@@ -42,8 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'force_delete_dependencies' => :'Boolean',
-        :'public_ids' => :'Array<String>'
+        :'page_number' => :'Integer',
+        :'page_size' => :'Integer',
+        :'total_count' => :'Integer'
       }
     end
 
@@ -52,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::DeletedSuitesRequestDeleteAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SecurityMonitoringSuppressionsPageMeta` initialize method"
       end
 
       self.additional_properties = {}
@@ -65,33 +70,17 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'force_delete_dependencies')
-        self.force_delete_dependencies = attributes[:'force_delete_dependencies']
+      if attributes.key?(:'page_number')
+        self.page_number = attributes[:'page_number']
       end
 
-      if attributes.key?(:'public_ids')
-        if (value = attributes[:'public_ids']).is_a?(Array)
-          self.public_ids = value
-        end
+      if attributes.key?(:'page_size')
+        self.page_size = attributes[:'page_size']
       end
-    end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    # @!visibility private
-    def valid?
-      return false if @public_ids.nil?
-      true
-    end
-
-    # Custom attribute writer method with validation
-    # @param public_ids [Object] Object to be assigned
-    # @!visibility private
-    def public_ids=(public_ids)
-      if public_ids.nil?
-        fail ArgumentError, 'invalid value for "public_ids", public_ids cannot be nil.'
+      if attributes.key?(:'total_count')
+        self.total_count = attributes[:'total_count']
       end
-      @public_ids = public_ids
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -120,8 +109,9 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          force_delete_dependencies == o.force_delete_dependencies &&
-          public_ids == o.public_ids &&
+          page_number == o.page_number &&
+          page_size == o.page_size &&
+          total_count == o.total_count &&
           additional_properties == o.additional_properties
     end
 
@@ -129,7 +119,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [force_delete_dependencies, public_ids, additional_properties].hash
+      [page_number, page_size, total_count, additional_properties].hash
     end
   end
 end
