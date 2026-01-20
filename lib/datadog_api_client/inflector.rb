@@ -3228,6 +3228,7 @@ module DatadogAPIClient
           "v2.observability_pipeline_datadog_agent_source" => "ObservabilityPipelineDatadogAgentSource",
           "v2.observability_pipeline_datadog_agent_source_type" => "ObservabilityPipelineDatadogAgentSourceType",
           "v2.observability_pipeline_datadog_logs_destination" => "ObservabilityPipelineDatadogLogsDestination",
+          "v2.observability_pipeline_datadog_logs_destination_route" => "ObservabilityPipelineDatadogLogsDestinationRoute",
           "v2.observability_pipeline_datadog_logs_destination_type" => "ObservabilityPipelineDatadogLogsDestinationType",
           "v2.observability_pipeline_datadog_metrics_destination" => "ObservabilityPipelineDatadogMetricsDestination",
           "v2.observability_pipeline_datadog_metrics_destination_type" => "ObservabilityPipelineDatadogMetricsDestinationType",

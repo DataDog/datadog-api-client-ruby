@@ -29,6 +29,9 @@ module DatadogAPIClient::V2
     # A list of component IDs whose output is used as the `input` for this component.
     attr_reader :inputs
 
+    # A list of routing rules that forward matching logs to Datadog using dedicated API keys.
+    attr_reader :routes
+
     # The destination type. The value should always be `datadog_logs`.
     attr_reader :type
 
@@ -40,6 +43,7 @@ module DatadogAPIClient::V2
       {
         :'id' => :'id',
         :'inputs' => :'inputs',
+        :'routes' => :'routes',
         :'type' => :'type'
       }
     end
@@ -50,6 +54,7 @@ module DatadogAPIClient::V2
       {
         :'id' => :'String',
         :'inputs' => :'Array<String>',
+        :'routes' => :'Array<ObservabilityPipelineDatadogLogsDestinationRoute>',
         :'type' => :'ObservabilityPipelineDatadogLogsDestinationType'
       }
     end
@@ -82,6 +87,12 @@ module DatadogAPIClient::V2
         end
       end
 
+      if attributes.key?(:'routes')
+        if (value = attributes[:'routes']).is_a?(Array)
+          self.routes = value
+        end
+      end
+
       if attributes.key?(:'type')
         self.type = attributes[:'type']
       end
@@ -93,6 +104,7 @@ module DatadogAPIClient::V2
     def valid?
       return false if @id.nil?
       return false if @inputs.nil?
+      return false if !@routes.nil? && @routes.length > 100
       return false if @type.nil?
       true
     end
@@ -115,6 +127,16 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "inputs", inputs cannot be nil.'
       end
       @inputs = inputs
+    end
+
+    # Custom attribute writer method with validation
+    # @param routes [Object] Object to be assigned
+    # @!visibility private
+    def routes=(routes)
+      if !routes.nil? && routes.length > 100
+        fail ArgumentError, 'invalid value for "routes", number of items must be less than or equal to 100.'
+      end
+      @routes = routes
     end
 
     # Custom attribute writer method with validation
@@ -155,6 +177,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           id == o.id &&
           inputs == o.inputs &&
+          routes == o.routes &&
           type == o.type &&
           additional_properties == o.additional_properties
     end
@@ -163,7 +186,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [id, inputs, type, additional_properties].hash
+      [id, inputs, routes, type, additional_properties].hash
     end
   end
 end
