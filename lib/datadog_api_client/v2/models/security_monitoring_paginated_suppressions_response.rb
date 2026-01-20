@@ -17,12 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Synthetics suite response
-  class SyntheticsSuiteResponse
+  # Response object containing the available suppression rules with pagination metadata.
+  class SecurityMonitoringPaginatedSuppressionsResponse
     include BaseGenericModel
 
-    # Synthetics suite response data
+    # A list of suppressions objects.
     attr_accessor :data
+
+    # Metadata for the suppression list response.
+    attr_accessor :meta
 
     attr_accessor :additional_properties
 
@@ -30,7 +33,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data'
+        :'data' => :'data',
+        :'meta' => :'meta'
       }
     end
 
@@ -38,7 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'SyntheticsSuiteResponseData'
+        :'data' => :'Array<SecurityMonitoringSuppression>',
+        :'meta' => :'SecurityMonitoringSuppressionsMeta'
       }
     end
 
@@ -47,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SyntheticsSuiteResponse` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SecurityMonitoringPaginatedSuppressionsResponse` initialize method"
       end
 
       self.additional_properties = {}
@@ -61,7 +66,13 @@ module DatadogAPIClient::V2
       }
 
       if attributes.key?(:'data')
-        self.data = attributes[:'data']
+        if (value = attributes[:'data']).is_a?(Array)
+          self.data = value
+        end
+      end
+
+      if attributes.key?(:'meta')
+        self.meta = attributes[:'meta']
       end
     end
 
@@ -92,6 +103,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           data == o.data &&
+          meta == o.meta &&
           additional_properties == o.additional_properties
     end
 
@@ -99,7 +111,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, additional_properties].hash
+      [data, meta, additional_properties].hash
     end
   end
 end

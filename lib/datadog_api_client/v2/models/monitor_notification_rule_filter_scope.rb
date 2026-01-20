@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Filter monitor notifications. A monitor notification must match the scope.
+  # Filters monitor notifications using a scope expression over key:value pairs with boolean logic (AND, OR, NOT).
   class MonitorNotificationRuleFilterScope
     include BaseGenericModel
 
-    # A scope composed of one or several key:value pairs, which can be used to filter monitor notifications on monitor and group tags.
+    # A scope expression composed by key:value pairs (e.g. `service:foo`) with boolean operators (AND, OR, NOT) and parentheses for grouping.
     attr_reader :scope
 
     # Attribute mapping from ruby-style variable name to JSON key.

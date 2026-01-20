@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Filter monitor notifications by tags. A monitor notification must match all tags.
+  # Filters monitor notifications by a list of tag key:value pairs.
   class MonitorNotificationRuleFilterTags
     include BaseGenericModel
 
-    # A list of tags (key:value pairs), which can be used to filter monitor notifications on monitor and group tags.
+    # A list of tag key:value pairs (e.g. `team:product`). All tags must match (AND semantics).
     attr_reader :tags
 
     # Attribute mapping from ruby-style variable name to JSON key.
