@@ -17,15 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Synthetics suite search response data attributes
-  class SyntheticsSuiteSearchResponseDataAttributes
+  # Response containing the modified query with applied filters.
+  class SecurityMonitoringRuleLivetailResponse
     include BaseGenericModel
 
-    #
-    attr_accessor :suites
-
-    #
-    attr_reader :total
+    # The modified query with all filters applied.
+    attr_accessor :query
 
     attr_accessor :additional_properties
 
@@ -33,8 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'suites' => :'suites',
-        :'total' => :'total'
+        :'query' => :'query'
       }
     end
 
@@ -42,8 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'suites' => :'Array<SyntheticsSuite>',
-        :'total' => :'Integer'
+        :'query' => :'String'
       }
     end
 
@@ -52,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SyntheticsSuiteSearchResponseDataAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SecurityMonitoringRuleLivetailResponse` initialize method"
       end
 
       self.additional_properties = {}
@@ -65,33 +60,9 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'suites')
-        if (value = attributes[:'suites']).is_a?(Array)
-          self.suites = value
-        end
+      if attributes.key?(:'query')
+        self.query = attributes[:'query']
       end
-
-      if attributes.key?(:'total')
-        self.total = attributes[:'total']
-      end
-    end
-
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    # @!visibility private
-    def valid?
-      return false if !@total.nil? && @total > 2147483647
-      true
-    end
-
-    # Custom attribute writer method with validation
-    # @param total [Object] Object to be assigned
-    # @!visibility private
-    def total=(total)
-      if !total.nil? && total > 2147483647
-        fail ArgumentError, 'invalid value for "total", must be smaller than or equal to 2147483647.'
-      end
-      @total = total
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -120,8 +91,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          suites == o.suites &&
-          total == o.total &&
+          query == o.query &&
           additional_properties == o.additional_properties
     end
 
@@ -129,7 +99,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [suites, total, additional_properties].hash
+      [query, additional_properties].hash
     end
   end
 end
