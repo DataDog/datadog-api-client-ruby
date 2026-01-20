@@ -109,6 +109,10 @@ module APIWorld
     @opts ||= {}
   end
 
+  def path_parameters
+    @path_parameters ||= {}
+  end
+
   def undo_operations
     return @undo_operations if @undo_operations
     @undo_operations = {}
@@ -158,18 +162,38 @@ module APIWorld
 
     lambda do |response, request|
       args = operation["parameters"].map do |p|
-        if p["origin"] && p["origin"] == "request"
-          data = request[0]
+        origin = p["origin"] || "response"
+
+        if origin == "path"
+          # Extract from path parameters
+          if p["source"]
+            param_name = p["source"]
+            if @path_parameters&.key?(param_name)
+              [p["name"].to_sym, @path_parameters[param_name]]
+            elsif @path_parameters&.key?(param_name.to_sym)
+              [p["name"].to_sym, @path_parameters[param_name.to_sym]]
+            else
+              warn "Path parameter '#{param_name}' not found"
+              nil
+            end
+          else
+            warn "Path origin requires 'source' field"
+            nil
+          end
         else
-          data = response
+          if origin == "request"
+            data = request[0]
+          else
+            data = response
+          end
+          if p["source"]
+            [p["name"].to_sym, data.lookup(p["source"])]
+          elsif p["template"]
+            puts p["name"].to_sym
+            [p["name"].to_sym,  p["template"].templated(data)]
+          end
         end
-        if p["source"]
-          [p["name"].to_sym, data.lookup(p["source"])]
-        elsif p["template"]
-          puts p["name"].to_sym
-          [p["name"].to_sym,  p["template"].templated(data)]
-        end
-      end.to_h
+      end.compact.to_h
       params = method.parameters.select { |p| p[0] == :req }.map { |p| args.delete(p[1]) }
 
       if api_instance.api_client.config.unstable_operations.has_key?("v#{@api_version}.#{operation_name}".to_sym)
@@ -270,11 +294,21 @@ Given(/^body from file "(.*)"$/) do |file|
 end
 
 Given(/^request contains "([^"]+)" parameter from "([^"]+)"$/) do |parameter_name, fixture_path|
-  opts[parameter_name.to_parameter.to_sym] = model_builder(parameter_name.to_parameter, fixtures.lookup(fixture_path))
+  param_value = model_builder(parameter_name.to_parameter, fixtures.lookup(fixture_path))
+  param_key = parameter_name.to_parameter.to_sym
+  opts[param_key] = param_value
+  # Store in path_parameters for undo operations
+  path_parameters[parameter_name] = param_value
+  path_parameters[param_key] = param_value
 end
 
 Given(/^request contains "([^"]+)" parameter with value (.+)$/) do |parameter_name, value|
-  opts[parameter_name.to_parameter.to_sym] = model_builder(parameter_name.to_parameter, JSON.parse(value.templated fixtures))
+  param_value = model_builder(parameter_name.to_parameter, JSON.parse(value.templated fixtures))
+  param_key = parameter_name.to_parameter.to_sym
+  opts[param_key] = param_value
+  # Store in path_parameters for undo operations
+  path_parameters[parameter_name] = param_value
+  path_parameters[param_key] = param_value
 end
 
 Given(/^new "([^"]+)" request$/) do |name|
