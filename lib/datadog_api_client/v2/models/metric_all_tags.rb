@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Object for a single metric's indexed tags.
+  # Object for a single metric's indexed and ingested tags.
   class MetricAllTags
     include BaseGenericModel
 
-    # Object containing the definition of a metric's tags.
+    # Object containing the definition of a metric's indexed and ingested tags.
     attr_accessor :attributes
 
     # The metric name for this resource.

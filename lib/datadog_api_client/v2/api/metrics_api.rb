@@ -781,10 +781,17 @@ module DatadogAPIClient::V2
 
     # List tags by metric name.
     #
-    # View indexed tag key-value pairs for a given metric name over the previous hour.
+    # View indexed and ingested tags for a given metric name.
+    # Results are filtered by the `window[seconds]` parameter, which defaults to 14400 (4 hours).
     #
     # @param metric_name [String] The name of the metric.
     # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :window_seconds The number of seconds of look back (from now) to query for tag data. Default value is 14400 (4 hours), minimum value is 14400 (4 hours).
+    # @option opts [String] :filter_tags Filter results to tags from data points that have the specified tags. For example, `filter[tags]=env:staging,host:123` returns tags only from data points with both `env:staging` and `host:123`.
+    # @option opts [String] :filter_match Filter returned tags to those matching a substring. For example, `filter[match]=env` returns tags like `env:prod`, `environment:staging`, etc.
+    # @option opts [Boolean] :filter_include_tag_values Whether to include tag values in the response. Defaults to true.
+    # @option opts [Boolean] :filter_allow_partial Whether to allow partial results. Defaults to false.
+    # @option opts [Integer] :page_limit Maximum number of results to return.
     # @return [Array<(MetricAllTagsResponse, Integer, Hash)>] MetricAllTagsResponse data, response status code and response headers
     def list_tags_by_metric_name_with_http_info(metric_name, opts = {})
 
@@ -795,11 +802,23 @@ module DatadogAPIClient::V2
       if @api_client.config.client_side_validation && metric_name.nil?
         fail ArgumentError, "Missing the required parameter 'metric_name' when calling MetricsAPI.list_tags_by_metric_name"
       end
+      if @api_client.config.client_side_validation && !opts[:'page_limit'].nil? && opts[:'page_limit'] > 1000000
+        fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling MetricsAPI.list_tags_by_metric_name, must be smaller than or equal to 1000000.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_limit'].nil? && opts[:'page_limit'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling MetricsAPI.list_tags_by_metric_name, must be greater than or equal to 1.'
+      end
       # resource path
       local_var_path = '/api/v2/metrics/{metric_name}/all-tags'.sub('{metric_name}', CGI.escape(metric_name.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'window[seconds]'] = opts[:'window_seconds'] if !opts[:'window_seconds'].nil?
+      query_params[:'filter[tags]'] = opts[:'filter_tags'] if !opts[:'filter_tags'].nil?
+      query_params[:'filter[match]'] = opts[:'filter_match'] if !opts[:'filter_match'].nil?
+      query_params[:'filter[include_tag_values]'] = opts[:'filter_include_tag_values'] if !opts[:'filter_include_tag_values'].nil?
+      query_params[:'filter[allow_partial]'] = opts[:'filter_allow_partial'] if !opts[:'filter_allow_partial'].nil?
+      query_params[:'page[limit]'] = opts[:'page_limit'] if !opts[:'page_limit'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
