@@ -248,6 +248,8 @@ module DatadogAPIClient
             "v2.get_deployment_rule": false,
             "v2.update_deployment_gate": false,
             "v2.update_deployment_rule": false,
+            "v2.create_hamr_org_connection": false,
+            "v2.get_hamr_org_connection": false,
             "v2.create_incident": false,
             "v2.create_incident_attachment": false,
             "v2.create_incident_integration": false,
