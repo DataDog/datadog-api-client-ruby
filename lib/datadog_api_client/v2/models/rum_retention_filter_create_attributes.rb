@@ -33,7 +33,7 @@ module DatadogAPIClient::V2
     # The query string for a RUM retention filter.
     attr_accessor :query
 
-    # The sample rate for a RUM retention filter, between 0 and 100.
+    # The sample rate for a RUM retention filter, between 0.1 and 100.
     attr_reader :sample_rate
 
     attr_accessor :additional_properties
@@ -58,7 +58,7 @@ module DatadogAPIClient::V2
         :'event_type' => :'RumRetentionFilterEventType',
         :'name' => :'String',
         :'query' => :'String',
-        :'sample_rate' => :'Integer'
+        :'sample_rate' => :'Float'
       }
     end
 
@@ -109,7 +109,7 @@ module DatadogAPIClient::V2
       return false if @name.nil?
       return false if @sample_rate.nil?
       return false if @sample_rate > 100
-      return false if @sample_rate < 0
+      return false if @sample_rate < 0.1
       true
     end
 
@@ -143,8 +143,8 @@ module DatadogAPIClient::V2
       if sample_rate > 100
         fail ArgumentError, 'invalid value for "sample_rate", must be smaller than or equal to 100.'
       end
-      if sample_rate < 0
-        fail ArgumentError, 'invalid value for "sample_rate", must be greater than or equal to 0.'
+      if sample_rate < 0.1
+        fail ArgumentError, 'invalid value for "sample_rate", must be greater than or equal to 0.1.'
       end
       @sample_rate = sample_rate
     end
