@@ -1,10 +1,10 @@
 http_interactions:
-- recorded_at: Wed, 14 Jan 2026 17:29:05 GMT
+- recorded_at: Wed, 21 Jan 2026 15:35:07 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"description":"Test-Update_a_suppression_rule_returns_OK_response-1768411745","enabled":true,"name":"suppression
-        Test-Update_a_suppression_rule_returns_OK_response-1768411745","rule_query":"source:cloudtrail","suppression_query":"env:test","tags":["technique:T1110-brute-force","source:cloudtrail"]},"type":"suppressions"}}'
+      string: '{"data":{"attributes":{"description":"Test-Update_a_suppression_rule_returns_OK_response-1769009707","enabled":true,"name":"suppression
+        181539185fcb1be7","rule_query":"source:cloudtrail","suppression_query":"env:test","tags":["technique:T1110-brute-force","source:cloudtrail"]},"type":"suppressions"}}'
     headers:
       Accept:
       - application/json
@@ -15,9 +15,9 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"ucv-bpf-4bc","type":"suppressions","attributes":{"creation_date":1768411745950,"creator":{"handle":"9919ec9b-ebc7-49ee-8dc8-03626e717cca","name":"CI
-        Account"},"data_exclusion_query":"","description":"Test-Update_a_suppression_rule_returns_OK_response-1768411745","editable":true,"enabled":true,"name":"suppression
-        Test-Update_a_suppression_rule_returns_OK_response-1768411745","rule_query":"source:cloudtrail","suppression_query":"env:test","tags":["source:cloudtrail","technique:T1110-brute-force"],"update_date":1768411745950,"updater":{"handle":"9919ec9b-ebc7-49ee-8dc8-03626e717cca","name":"CI
+      string: '{"data":{"id":"h6t-xj1-5jw","type":"suppressions","attributes":{"creation_date":1769009707555,"creator":{"handle":"9919ec9b-ebc7-49ee-8dc8-03626e717cca","name":"CI
+        Account"},"data_exclusion_query":"","description":"Test-Update_a_suppression_rule_returns_OK_response-1769009707","editable":true,"enabled":true,"name":"suppression
+        181539185fcb1be7","rule_query":"source:cloudtrail","suppression_query":"env:test","tags":["source:cloudtrail","technique:T1110-brute-force"],"update_date":1769009707555,"updater":{"handle":"9919ec9b-ebc7-49ee-8dc8-03626e717cca","name":"CI
         Account"},"version":1}}}'
     headers:
       Content-Type:
@@ -25,7 +25,7 @@ http_interactions:
     status:
       code: 200
       message: OK
-- recorded_at: Wed, 14 Jan 2026 17:29:05 GMT
+- recorded_at: Wed, 21 Jan 2026 15:35:07 GMT
   request:
     body:
       encoding: UTF-8
@@ -36,14 +36,14 @@ http_interactions:
       Content-Type:
       - application/json
     method: PATCH
-    uri: https://api.datadoghq.com/api/v2/security_monitoring/configuration/suppressions/ucv-bpf-4bc
+    uri: https://api.datadoghq.com/api/v2/security_monitoring/configuration/suppressions/h6t-xj1-5jw
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"ucv-bpf-4bc","type":"suppressions","attributes":{"creation_date":1768411745950,"creator":{"handle":"9919ec9b-ebc7-49ee-8dc8-03626e717cca","name":"CI
-        Account"},"data_exclusion_query":"","description":"Test-Update_a_suppression_rule_returns_OK_response-1768411745","editable":true,"enabled":true,"name":"suppression
-        Test-Update_a_suppression_rule_returns_OK_response-1768411745","rule_query":"source:cloudtrail","suppression_query":"env:staging
-        status:low","tags":["source:cloudtrail","technique:T1110-brute-force"],"update_date":1768411746111,"updater":{"handle":"9919ec9b-ebc7-49ee-8dc8-03626e717cca","name":"CI
+      string: '{"data":{"id":"h6t-xj1-5jw","type":"suppressions","attributes":{"creation_date":1769009707555,"creator":{"handle":"9919ec9b-ebc7-49ee-8dc8-03626e717cca","name":"CI
+        Account"},"data_exclusion_query":"","description":"Test-Update_a_suppression_rule_returns_OK_response-1769009707","editable":true,"enabled":true,"name":"suppression
+        181539185fcb1be7","rule_query":"source:cloudtrail","suppression_query":"env:staging
+        status:low","tags":["source:cloudtrail","technique:T1110-brute-force"],"update_date":1769009707651,"updater":{"handle":"9919ec9b-ebc7-49ee-8dc8-03626e717cca","name":"CI
         Account"},"version":2}}}'
     headers:
       Content-Type:
@@ -51,14 +51,14 @@ http_interactions:
     status:
       code: 200
       message: OK
-- recorded_at: Wed, 14 Jan 2026 17:29:05 GMT
+- recorded_at: Wed, 21 Jan 2026 15:35:07 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/security_monitoring/configuration/suppressions/ucv-bpf-4bc
+    uri: https://api.datadoghq.com/api/v2/security_monitoring/configuration/suppressions/h6t-xj1-5jw
   response:
     body:
       encoding: UTF-8
