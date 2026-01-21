@@ -5,4 +5,10 @@ DatadogAPIClient.configure do |config|
   config.unstable_operations["v2.delete_incident_attachment".to_sym] = true
 end
 api_instance = DatadogAPIClient::V2::IncidentsAPI.new
-api_instance.delete_incident_attachment("incident_id", "00000000-0000-0000-0000-000000000002")
+
+# there is a valid "incident" in the system
+INCIDENT_DATA_ID = ENV["INCIDENT_DATA_ID"]
+
+# there is a valid "incident_attachment" in the system
+INCIDENT_ATTACHMENT_DATA_ID = ENV["INCIDENT_ATTACHMENT_DATA_ID"]
+api_instance.delete_incident_attachment(INCIDENT_DATA_ID, INCIDENT_ATTACHMENT_DATA_ID)

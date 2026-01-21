@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Attachment data for an update request.
   class PatchAttachmentRequestData
     include BaseGenericModel
 
-    #
+    # The attributes for updating an attachment.
     attr_accessor :attributes
 
-    #
+    # The unique identifier of the attachment.
     attr_accessor :id
 
     # The incident attachment resource type.

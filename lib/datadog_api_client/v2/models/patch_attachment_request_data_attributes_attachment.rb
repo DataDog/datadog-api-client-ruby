@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # The updated attachment object.
   class PatchAttachmentRequestDataAttributesAttachment
     include BaseGenericModel
 
-    #
+    # The updated URL for the attachment.
     attr_accessor :document_url
 
-    #
+    # The updated title for the attachment.
     attr_accessor :title
 
     attr_accessor :additional_properties

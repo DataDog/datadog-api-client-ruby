@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # A list of incident attachments.
   class AttachmentArray
     include BaseGenericModel
 
