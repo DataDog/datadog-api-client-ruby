@@ -170,6 +170,75 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Bulk export security monitoring rules.
+    #
+    # @see #bulk_export_security_monitoring_rules_with_http_info
+    def bulk_export_security_monitoring_rules(body, opts = {})
+      data, _status_code, _headers = bulk_export_security_monitoring_rules_with_http_info(body, opts)
+      data
+    end
+
+    # Bulk export security monitoring rules.
+    #
+    # Export a list of security monitoring rules as a ZIP file containing JSON rule definitions.
+    # The endpoint accepts a list of rule IDs and returns a ZIP archive where each rule is
+    # saved as a separate JSON file named after the rule.
+    #
+    # @param body [SecurityMonitoringRuleBulkExportPayload] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
+    def bulk_export_security_monitoring_rules_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.bulk_export_security_monitoring_rules ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.bulk_export_security_monitoring_rules"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/rules/bulk_export'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/zip', 'application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'File'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :bulk_export_security_monitoring_rules,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#bulk_export_security_monitoring_rules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Cancel a threat hunting job.
     #
     # @see #cancel_threat_hunting_job_with_http_info
