@@ -2545,6 +2545,12 @@ ScenariosModelMappings = {
     },
     "v2.ListTagsByMetricName" => {
             "metric_name" => "String",
+            "window_seconds" => "Integer",
+            "filter_tags" => "String",
+            "filter_match" => "String",
+            "filter_include_tag_values" => "Boolean",
+            "filter_allow_partial" => "Boolean",
+            "page_limit" => "Integer",
     },
     "v2.ListMetricAssets" => {
             "metric_name" => "String",
