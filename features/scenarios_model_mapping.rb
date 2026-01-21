@@ -3155,6 +3155,16 @@ ScenariosModelMappings = {
             "rule_id" => "String",
             "body" => "UpdateRuleRequest",
     },
+    "v2.ListEntityRiskScores" => {
+            "from" => "Integer",
+            "to" => "Integer",
+            "page_size" => "Integer",
+            "page_number" => "Integer",
+            "page_query_id" => "String",
+            "filter_sort" => "String",
+            "filter_query" => "String",
+            "entity_type" => "Array<String>",
+    },
     "v2.ReorderScanningGroups" => {
             "body" => "SensitiveDataScannerConfigRequest",
     },
