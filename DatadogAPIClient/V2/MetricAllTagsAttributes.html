@@ -6,7 +6,7 @@
 <title>
   Class: DatadogAPIClient::V2::MetricAllTagsAttributes
   
-    &mdash; datadog-api-client 2.30.0.dev.1 documentation
+    &mdash; datadog-api-client 2.49.0 documentation
   
 </title>
 
@@ -106,7 +106,7 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>Object containing the definition of a metric&#39;s tags.</p>
+    <p>Object containing the definition of a metric&#39;s indexed and ingested tags.</p>
 
 
   </div>
@@ -150,6 +150,32 @@
       <li class="public ">
   <span class="summary_signature">
     
+      <a href="#ingested_tags-instance_method" title="#ingested_tags (instance method)">#<strong>ingested_tags</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>List of ingested tags that are not indexed.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#tags-instance_method" title="#tags (instance method)">#<strong>tags</strong>  &#x21d2; Object </a>
     
 
@@ -167,7 +193,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>List of indexed tag value pairs.</p>
+    <span class="summary_desc"><div class='inline'><p>List of indexed tags.</p>
 </div></span>
   
 </li>
@@ -236,6 +262,48 @@
 </div>
     
       
+      <span id="ingested_tags=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="ingested_tags-instance_method">
+  
+    #<strong>ingested_tags</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>List of ingested tags that are not indexed.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+25
+26
+27</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/metric_all_tags_attributes.rb', line 25</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_ingested_tags'>ingested_tags</span>
+  <span class='ivar'>@ingested_tags</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
       <span id="tags=-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="tags-instance_method">
@@ -248,7 +316,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>List of indexed tag value pairs.</p>
+    <p>List of indexed tags.</p>
 
 
   </div>
@@ -283,9 +351,9 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Feb 18 21:07:32 2025 by
+  Generated on Wed Jan 21 15:35:53 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.37 (ruby-2.7.8).
+  0.9.38 (ruby-2.7.8).
 </div>
 
     </div>

@@ -3854,7 +3854,8 @@ Once the <code>meta.pagination.next_cursor</code> value is null, all pages have 
   <div class="discussion">
     <p>List tags by metric name.</p>
 
-<p>View indexed tag key-value pairs for a given metric name over the previous hour.</p>
+<p>View indexed and ingested tags for a given metric name.
+Results are filtered by the <code>window[seconds]</code> parameter, which defaults to 14400 (4 hours).</p>
 
 
   </div>
@@ -3896,6 +3897,89 @@ Once the <code>meta.pagination.next_cursor</code> value is null, all pages have 
     </li>
   
 </ul>
+
+  
+    
+    
+    
+    
+    <p class="tag_title">Options Hash (<tt>opts</tt>):</p>
+    <ul class="option">
+      
+        <li>
+          <span class="name">:window_seconds</span>
+          <span class="type">(<tt>Integer</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>The number of seconds of look back (from now) to query for tag data. Default value is 14400 (4 hours), minimum value is 14400 (4 hours).</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:filter_tags</span>
+          <span class="type">(<tt>String</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Filter results to tags from data points that have the specified tags. For example, <code>filter[tags]=env:staging,host:123</code> returns tags only from data points with both <code>env:staging</code> and <code>host:123</code>.</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:filter_match</span>
+          <span class="type">(<tt>String</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Filter returned tags to those matching a substring. For example, <code>filter[match]=env</code> returns tags like <code>env:prod</code>, <code>environment:staging</code>, etc.</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:filter_include_tag_values</span>
+          <span class="type">(<tt>Boolean</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Whether to include tag values in the response. Defaults to true.</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:filter_allow_partial</span>
+          <span class="type">(<tt>Boolean</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Whether to allow partial results. Defaults to false.</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:page_limit</span>
+          <span class="type">(<tt>Integer</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Maximum number of results to return.</p>
+</div>
+          
+        </li>
+      
+    </ul>
+  
 
 <p class="tag_title">Returns:</p>
 <ul class="return">
@@ -5291,7 +5375,7 @@ a tag configuration to be created first.</p>
 </div>
 
       <div id="footer">
-  Generated on Wed Jan 21 14:51:06 2026 by
+  Generated on Wed Jan 21 15:35:40 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.38 (ruby-2.7.8).
 </div>
