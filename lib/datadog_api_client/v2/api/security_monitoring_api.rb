@@ -2327,12 +2327,6 @@ module DatadogAPIClient::V2
     # @option opts [SBOMFormat] :ext_format The standard of the SBOM.
     # @return [Array<(GetSBOMResponse, Integer, Hash)>] GetSBOMResponse data, response status code and response headers
     def get_sbom_with_http_info(asset_type, filter_asset_name, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.get_sbom".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_sbom")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_sbom"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_sbom ...'
@@ -3510,12 +3504,6 @@ module DatadogAPIClient::V2
     # @option opts [SBOMComponentLicenseType] :filter_license_type The software license type of the component that is a dependency of an asset.
     # @return [Array<(ListAssetsSBOMsResponse, Integer, Hash)>] ListAssetsSBOMsResponse data, response status code and response headers
     def list_assets_sbo_ms_with_http_info(opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.list_assets_sbo_ms".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_assets_sbo_ms")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_assets_sbo_ms"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.list_assets_sbo_ms ...'
