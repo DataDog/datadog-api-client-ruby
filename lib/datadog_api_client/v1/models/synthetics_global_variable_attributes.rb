@@ -21,7 +21,7 @@ module DatadogAPIClient::V1
   class SyntheticsGlobalVariableAttributes
     include BaseGenericModel
 
-    # A list of role identifiers that can be pulled from the Roles API, for restricting read and write access.
+    # A list of role identifiers that can be pulled from the Roles API, for restricting read and write access. This field is deprecated. Use the restriction policies API to manage permissions.
     attr_accessor :restricted_roles
 
     attr_accessor :additional_properties
