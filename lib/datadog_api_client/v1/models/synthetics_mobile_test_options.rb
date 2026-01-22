@@ -58,7 +58,7 @@ module DatadogAPIClient::V1
     # A boolean set to not take a screenshot for the step.
     attr_accessor :no_screenshot
 
-    # A list of role identifiers that can be pulled from the Roles API, for restricting read and write access.
+    # A list of role identifiers that can be pulled from the Roles API, for restricting read and write access. This field is deprecated. Use the restriction policies API to manage permissions.
     attr_accessor :restricted_roles
 
     # Object describing the retry strategy to apply to a Synthetic test.
