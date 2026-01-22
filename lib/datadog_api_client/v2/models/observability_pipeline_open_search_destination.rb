@@ -26,6 +26,9 @@ module DatadogAPIClient::V2
     # The index to write logs to.
     attr_accessor :bulk_index
 
+    # Configuration options for writing to OpenSearch Data Streams instead of a fixed index.
+    attr_accessor :data_stream
+
     # The unique identifier for this component.
     attr_reader :id
 
@@ -42,6 +45,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'bulk_index' => :'bulk_index',
+        :'data_stream' => :'data_stream',
         :'id' => :'id',
         :'inputs' => :'inputs',
         :'type' => :'type'
@@ -53,6 +57,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'bulk_index' => :'String',
+        :'data_stream' => :'ObservabilityPipelineOpenSearchDestinationDataStream',
         :'id' => :'String',
         :'inputs' => :'Array<String>',
         :'type' => :'ObservabilityPipelineOpenSearchDestinationType'
@@ -79,6 +84,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'bulk_index')
         self.bulk_index = attributes[:'bulk_index']
+      end
+
+      if attributes.key?(:'data_stream')
+        self.data_stream = attributes[:'data_stream']
       end
 
       if attributes.key?(:'id')
@@ -163,6 +172,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           bulk_index == o.bulk_index &&
+          data_stream == o.data_stream &&
           id == o.id &&
           inputs == o.inputs &&
           type == o.type &&
@@ -173,7 +183,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [bulk_index, id, inputs, type, additional_properties].hash
+      [bulk_index, data_stream, id, inputs, type, additional_properties].hash
     end
   end
 end
