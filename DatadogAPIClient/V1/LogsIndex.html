@@ -6,7 +6,7 @@
 <title>
   Class: DatadogAPIClient::V1::LogsIndex
   
-    &mdash; datadog-api-client 2.30.0.dev.1 documentation
+    &mdash; datadog-api-client 2.49.0 documentation
   
 </title>
 
@@ -382,6 +382,32 @@
 
   
     <span class="summary_desc"><div class='inline'><p>The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#tags-instance_method" title="#tags (instance method)">#<strong>tags</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>A list of tags associated with the index.</p>
 </div></span>
   
 </li>
@@ -834,15 +860,57 @@ The available values depend on retention plans specified in your organization&#3
 </table>
 </div>
     
+      
+      <span id="tags=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="tags-instance_method">
+  
+    #<strong>tags</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>A list of tags associated with the index. Tags must be in <code>key:value</code> format.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/models/logs_index.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_tags'>tags</span>
+  <span class='ivar'>@tags</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
   </div>
 
 
 </div>
 
       <div id="footer">
-  Generated on Tue Feb 18 21:07:10 2025 by
+  Generated on Thu Jan 22 11:47:40 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.37 (ruby-2.7.8).
+  0.9.38 (ruby-2.7.8).
 </div>
 
     </div>
