@@ -784,7 +784,7 @@ module DatadogAPIClient::V2
 
     # Delete incident attachment.
     # @param incident_id [String] The UUID of the incident.
-    # @param attachment_id [Object] The ID of the attachment.
+    # @param attachment_id [String] The ID of the attachment.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_incident_attachment_with_http_info(incident_id, attachment_id, opts = {})
@@ -2510,7 +2510,7 @@ module DatadogAPIClient::V2
 
     # Update incident attachment.
     # @param incident_id [String] The UUID of the incident.
-    # @param attachment_id [Object] The ID of the attachment.
+    # @param attachment_id [String] The ID of the attachment.
     # @param body [PatchAttachmentRequest] 
     # @param opts [Hash] the optional parameters
     # @option opts [String] :include Resource to include in the response. Supported value: `last_modified_by_user`.

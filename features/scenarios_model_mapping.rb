@@ -2158,11 +2158,11 @@ ScenariosModelMappings = {
     },
     "v2.DeleteIncidentAttachment" => {
             "incident_id" => "String",
-            "attachment_id" => "Object",
+            "attachment_id" => "String",
     },
     "v2.UpdateIncidentAttachment" => {
             "incident_id" => "String",
-            "attachment_id" => "Object",
+            "attachment_id" => "String",
             "include" => "String",
             "body" => "PatchAttachmentRequest",
     },

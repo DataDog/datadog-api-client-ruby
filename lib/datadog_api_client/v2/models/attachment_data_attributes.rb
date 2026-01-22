@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # The attachment's attributes.
   class AttachmentDataAttributes
     include BaseGenericModel
 
-    #
+    # The attachment object.
     attr_accessor :attachment
 
-    #
+    # The type of the attachment.
     attr_accessor :attachment_type
 
-    #
+    # Timestamp when the attachment was last modified.
     attr_accessor :modified
 
     attr_accessor :additional_properties
