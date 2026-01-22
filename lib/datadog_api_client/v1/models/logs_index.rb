@@ -55,6 +55,9 @@ module DatadogAPIClient::V1
     # The available values depend on retention plans specified in your organization's contract/subscriptions.
     attr_accessor :num_retention_days
 
+    # A list of tags associated with the index. Tags must be in `key:value` format.
+    attr_accessor :tags
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -69,7 +72,8 @@ module DatadogAPIClient::V1
         :'is_rate_limited' => :'is_rate_limited',
         :'name' => :'name',
         :'num_flex_logs_retention_days' => :'num_flex_logs_retention_days',
-        :'num_retention_days' => :'num_retention_days'
+        :'num_retention_days' => :'num_retention_days',
+        :'tags' => :'tags'
       }
     end
 
@@ -85,7 +89,8 @@ module DatadogAPIClient::V1
         :'is_rate_limited' => :'Boolean',
         :'name' => :'String',
         :'num_flex_logs_retention_days' => :'Integer',
-        :'num_retention_days' => :'Integer'
+        :'num_retention_days' => :'Integer',
+        :'tags' => :'Array<String>'
       }
     end
 
@@ -143,6 +148,12 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'num_retention_days')
         self.num_retention_days = attributes[:'num_retention_days']
+      end
+
+      if attributes.key?(:'tags')
+        if (value = attributes[:'tags']).is_a?(Array)
+          self.tags = value
+        end
       end
     end
 
@@ -225,6 +236,7 @@ module DatadogAPIClient::V1
           name == o.name &&
           num_flex_logs_retention_days == o.num_flex_logs_retention_days &&
           num_retention_days == o.num_retention_days &&
+          tags == o.tags &&
           additional_properties == o.additional_properties
     end
 
@@ -232,7 +244,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [daily_limit, daily_limit_reset, daily_limit_warning_threshold_percentage, exclusion_filters, filter, is_rate_limited, name, num_flex_logs_retention_days, num_retention_days, additional_properties].hash
+      [daily_limit, daily_limit_reset, daily_limit_warning_threshold_percentage, exclusion_filters, filter, is_rate_limited, name, num_flex_logs_retention_days, num_retention_days, tags, additional_properties].hash
     end
   end
 end

@@ -25,5 +25,9 @@ body = DatadogAPIClient::V1::LogsIndex.new({
   name: "main",
   num_flex_logs_retention_days: 360,
   num_retention_days: 15,
+  tags: [
+    "team:backend",
+    "env:production",
+  ],
 })
 p api_instance.create_logs_index(body)
