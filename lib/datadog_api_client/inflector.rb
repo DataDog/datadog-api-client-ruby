@@ -3379,6 +3379,7 @@ module DatadogAPIClient
           "v2.observability_pipeline_ocsf_mapper_processor_type" => "ObservabilityPipelineOcsfMapperProcessorType",
           "v2.observability_pipeline_ocsf_mapping_library" => "ObservabilityPipelineOcsfMappingLibrary",
           "v2.observability_pipeline_open_search_destination" => "ObservabilityPipelineOpenSearchDestination",
+          "v2.observability_pipeline_open_search_destination_data_stream" => "ObservabilityPipelineOpenSearchDestinationDataStream",
           "v2.observability_pipeline_open_search_destination_type" => "ObservabilityPipelineOpenSearchDestinationType",
           "v2.observability_pipeline_opentelemetry_source" => "ObservabilityPipelineOpentelemetrySource",
           "v2.observability_pipeline_opentelemetry_source_type" => "ObservabilityPipelineOpentelemetrySourceType",
