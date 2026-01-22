@@ -10,14 +10,9 @@ body = DatadogAPIClient::V2::BudgetWithEntries.new({
       created_by: "00000000-0a0a-0a0a-aaa0-00000000000a",
       end_month: 202502,
       entries: [
-        DatadogAPIClient::V2::BudgetEntry.new({
-          amount: 500,
-          month: 202501,
+        DatadogAPIClient::V2::BudgetWithEntriesDataAttributesEntriesItems.new({
           tag_filters: [
-            DatadogAPIClient::V2::TagFilter.new({
-              tag_key: "service",
-              tag_value: "ec2",
-            }),
+            DatadogAPIClient::V2::BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems.new({}),
           ],
         }),
       ],
@@ -30,6 +25,7 @@ body = DatadogAPIClient::V2::BudgetWithEntries.new({
       updated_by: "00000000-0a0a-0a0a-aaa0-00000000000a",
     }),
     id: "00000000-0a0a-0a0a-aaa0-00000000000a",
+    type: "",
   }),
 })
 p api_instance.upsert_budget(body)

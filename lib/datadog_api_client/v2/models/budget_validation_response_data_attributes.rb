@@ -17,15 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Tag filter for the budget's entries.
-  class TagFilter
+  # 
+  class BudgetValidationResponseDataAttributes
     include BaseGenericModel
 
-    # The key of the tag.
-    attr_accessor :tag_key
+    #
+    attr_accessor :errors
 
-    # The value of the tag.
-    attr_accessor :tag_value
+    #
+    attr_accessor :valid
 
     attr_accessor :additional_properties
 
@@ -33,8 +33,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'tag_key' => :'tag_key',
-        :'tag_value' => :'tag_value'
+        :'errors' => :'errors',
+        :'valid' => :'valid'
       }
     end
 
@@ -42,8 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'tag_key' => :'String',
-        :'tag_value' => :'String'
+        :'errors' => :'Array<String>',
+        :'valid' => :'Boolean'
       }
     end
 
@@ -52,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TagFilter` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::BudgetValidationResponseDataAttributes` initialize method"
       end
 
       self.additional_properties = {}
@@ -65,12 +65,14 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'tag_key')
-        self.tag_key = attributes[:'tag_key']
+      if attributes.key?(:'errors')
+        if (value = attributes[:'errors']).is_a?(Array)
+          self.errors = value
+        end
       end
 
-      if attributes.key?(:'tag_value')
-        self.tag_value = attributes[:'tag_value']
+      if attributes.key?(:'valid')
+        self.valid = attributes[:'valid']
       end
     end
 
@@ -100,8 +102,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          tag_key == o.tag_key &&
-          tag_value == o.tag_value &&
+          errors == o.errors &&
+          valid == o.valid &&
           additional_properties == o.additional_properties
     end
 
@@ -109,7 +111,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [tag_key, tag_value, additional_properties].hash
+      [errors, valid, additional_properties].hash
     end
   end
 end

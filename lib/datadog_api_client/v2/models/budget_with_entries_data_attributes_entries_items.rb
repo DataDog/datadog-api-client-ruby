@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The entry of a budget.
-  class BudgetEntry
+  # 
+  class BudgetWithEntriesDataAttributesEntriesItems
     include BaseGenericModel
 
-    # The `amount` of the budget entry.
+    #
     attr_accessor :amount
 
-    # The `month` of the budget entry.
+    #
     attr_accessor :month
 
-    # The `tag_filters` of the budget entry.
+    #
     attr_accessor :tag_filters
 
     attr_accessor :additional_properties
@@ -48,7 +48,7 @@ module DatadogAPIClient::V2
       {
         :'amount' => :'Float',
         :'month' => :'Integer',
-        :'tag_filters' => :'Array<TagFilter>'
+        :'tag_filters' => :'Array<BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems>'
       }
     end
 
@@ -57,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::BudgetEntry` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::BudgetWithEntriesDataAttributesEntriesItems` initialize method"
       end
 
       self.additional_properties = {}
