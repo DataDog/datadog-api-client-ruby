@@ -3571,6 +3571,9 @@ ScenariosModelMappings = {
             "team_id" => "String",
             "body" => "IncidentTeamUpdateRequest",
     },
+    "v2.UpdateFlakyTests" => {
+            "body" => "UpdateFlakyTestsRequest",
+    },
     "v2.SearchFlakyTests" => {
             "body" => "FlakyTestsSearchRequest",
     },
