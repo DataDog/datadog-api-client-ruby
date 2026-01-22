@@ -971,6 +971,7 @@ module DatadogAPIClient
           "v1.widget_sort_by" => "WidgetSortBy",
           "v1.widget_sort_order_by" => "WidgetSortOrderBy",
           "v1.widget_style" => "WidgetStyle",
+          "v1.widget_style_order_by" => "WidgetStyleOrderBy",
           "v1.widget_summary_type" => "WidgetSummaryType",
           "v1.widget_text_align" => "WidgetTextAlign",
           "v1.widget_tick_edge" => "WidgetTickEdge",
