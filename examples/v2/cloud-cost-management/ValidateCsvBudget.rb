@@ -1,5 +1,5 @@
-# Delete budget returns "No Content" response
+# Validate CSV budget returns "OK" response
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::CloudCostManagementAPI.new
-api_instance.delete_budget("budget_id")
+p api_instance.validate_csv_budget()

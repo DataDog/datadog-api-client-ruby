@@ -1,4 +1,4 @@
-# Get a budget returns "OK" response
+# Get budget returns "OK" response
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::CloudCostManagementAPI.new

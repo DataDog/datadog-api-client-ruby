@@ -1764,6 +1764,9 @@ ScenariosModelMappings = {
     "v2.UpsertBudget" => {
             "body" => "BudgetWithEntries",
     },
+    "v2.ValidateBudget" => {
+            "body" => "BudgetValidationRequest",
+    },
     "v2.DeleteBudget" => {
             "budget_id" => "String",
     },
