@@ -1419,6 +1419,7 @@ module DatadogAPIClient
           "v2.cases_response_meta" => "CasesResponseMeta",
           "v2.cases_response_meta_pagination" => "CasesResponseMetaPagination",
           "v2.case_status" => "CaseStatus",
+          "v2.case_status_group" => "CaseStatusGroup",
           "v2.case_trigger" => "CaseTrigger",
           "v2.case_trigger_wrapper" => "CaseTriggerWrapper",
           "v2.case_type" => "CaseType",

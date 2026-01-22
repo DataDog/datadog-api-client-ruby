@@ -17,14 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Deprecated way of representing the case status, which only supports OPEN, IN_PROGRESS, and CLOSED statuses. Use `status_name` instead.
-  #
-  # @deprecated This model is deprecated.
-  class CaseStatus
+  # Status group of the case.
+  class CaseStatusGroup
     include BaseEnumModel
 
-    OPEN = "OPEN".freeze
-    IN_PROGRESS = "IN_PROGRESS".freeze
-    CLOSED = "CLOSED".freeze
+    SG_OPEN = "SG_OPEN".freeze
+    SG_IN_PROGRESS = "SG_IN_PROGRESS".freeze
+    SG_CLOSED = "SG_CLOSED".freeze
   end
 end
