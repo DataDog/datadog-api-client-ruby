@@ -13607,13 +13607,13 @@ This operation dissociates security findings from their associated cases without
       <pre class="lines">
 
 
-2404
-2405
-2406
-2407</pre>
+2398
+2399
+2400
+2401</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 2404</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 2398</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_secrets_rules'>get_secrets_rules</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_get_secrets_rules_with_http_info'>get_secrets_rules_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -13689,6 +13689,12 @@ This operation dissociates security findings from their associated cases without
       <pre class="lines">
 
 
+2409
+2410
+2411
+2412
+2413
+2414
 2415
 2416
 2417
@@ -13733,16 +13739,10 @@ This operation dissociates security findings from their associated cases without
 2456
 2457
 2458
-2459
-2460
-2461
-2462
-2463
-2464
-2465</pre>
+2459</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 2415</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 2409</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_secrets_rules_with_http_info'>get_secrets_rules_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_unstable_enabled'>unstable_enabled</span> <span class='op'>=</span> <span class='ivar'>@api_client</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_unstable_operations'>unstable_operations</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>v2.get_secrets_rules</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='rbracket'>]</span>
@@ -14071,13 +14071,13 @@ for more examples.</p>
       <pre class="lines">
 
 
-2538
-2539
-2540
-2541</pre>
+2532
+2533
+2534
+2535</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 2538</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 2532</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_security_monitoring_critical_asset'>get_security_monitoring_critical_asset</span><span class='lparen'>(</span><span class='id identifier rubyid_critical_asset_id'>critical_asset_id</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_get_security_monitoring_critical_asset_with_http_info'>get_security_monitoring_critical_asset_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_critical_asset_id'>critical_asset_id</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -14168,6 +14168,12 @@ for more examples.</p>
       <pre class="lines">
 
 
+2544
+2545
+2546
+2547
+2548
+2549
 2550
 2551
 2552
@@ -14210,16 +14216,10 @@ for more examples.</p>
 2589
 2590
 2591
-2592
-2593
-2594
-2595
-2596
-2597
-2598</pre>
+2592</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 2550</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 2544</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_security_monitoring_critical_asset_with_http_info'>get_security_monitoring_critical_asset_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_critical_asset_id'>critical_asset_id</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -14307,13 +14307,13 @@ for more examples.</p>
       <pre class="lines">
 
 
-2603
-2604
-2605
-2606</pre>
+2597
+2598
+2599
+2600</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 2603</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 2597</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_security_monitoring_histsignal'>get_security_monitoring_histsignal</span><span class='lparen'>(</span><span class='id identifier rubyid_histsignal_id'>histsignal_id</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_get_security_monitoring_histsignal_with_http_info'>get_security_monitoring_histsignal_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_histsignal_id'>histsignal_id</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -14404,6 +14404,12 @@ for more examples.</p>
       <pre class="lines">
 
 
+2609
+2610
+2611
+2612
+2613
+2614
 2615
 2616
 2617
@@ -14452,16 +14458,10 @@ for more examples.</p>
 2660
 2661
 2662
-2663
-2664
-2665
-2666
-2667
-2668
-2669</pre>
+2663</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 2615</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 2609</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_security_monitoring_histsignal_with_http_info'>get_security_monitoring_histsignal_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_histsignal_id'>histsignal_id</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_unstable_enabled'>unstable_enabled</span> <span class='op'>=</span> <span class='ivar'>@api_client</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_unstable_operations'>unstable_operations</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>v2.get_security_monitoring_histsignal</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='rbracket'>]</span>
@@ -14555,13 +14555,13 @@ for more examples.</p>
       <pre class="lines">
 
 
-2674
-2675
-2676
-2677</pre>
+2668
+2669
+2670
+2671</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 2674</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 2668</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_security_monitoring_histsignals_by_job_id'>get_security_monitoring_histsignals_by_job_id</span><span class='lparen'>(</span><span class='id identifier rubyid_job_id'>job_id</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_get_security_monitoring_histsignals_by_job_id_with_http_info'>get_security_monitoring_histsignals_by_job_id_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_job_id'>job_id</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -14735,6 +14735,12 @@ for more examples.</p>
       <pre class="lines">
 
 
+2686
+2687
+2688
+2689
+2690
+2691
 2692
 2693
 2694
@@ -14796,16 +14802,10 @@ for more examples.</p>
 2750
 2751
 2752
-2753
-2754
-2755
-2756
-2757
-2758
-2759</pre>
+2753</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 2692</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 2686</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_security_monitoring_histsignals_by_job_id_with_http_info'>get_security_monitoring_histsignals_by_job_id_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_job_id'>job_id</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_unstable_enabled'>unstable_enabled</span> <span class='op'>=</span> <span class='ivar'>@api_client</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_unstable_operations'>unstable_operations</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>v2.get_security_monitoring_histsignals_by_job_id</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='rbracket'>]</span>
@@ -16069,13 +16069,13 @@ for more examples.</p>
       <pre class="lines">
 
 
-3216
-3217
-3218
-3219</pre>
+3210
+3211
+3212
+3213</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 3216</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 3210</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_suppression_version_history'>get_suppression_version_history</span><span class='lparen'>(</span><span class='id identifier rubyid_suppression_id'>suppression_id</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_get_suppression_version_history_with_http_info'>get_suppression_version_history_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_suppression_id'>suppression_id</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -16201,6 +16201,12 @@ for more examples.</p>
       <pre class="lines">
 
 
+3224
+3225
+3226
+3227
+3228
+3229
 3230
 3231
 3232
@@ -16245,16 +16251,10 @@ for more examples.</p>
 3271
 3272
 3273
-3274
-3275
-3276
-3277
-3278
-3279
-3280</pre>
+3274</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 3230</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 3224</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_suppression_version_history_with_http_info'>get_suppression_version_history_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_suppression_id'>suppression_id</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -16344,13 +16344,13 @@ for more examples.</p>
       <pre class="lines">
 
 
-3084
-3085
-3086
-3087</pre>
+3078
+3079
+3080
+3081</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 3084</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 3078</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_suppressions_affecting_future_rule'>get_suppressions_affecting_future_rule</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_get_suppressions_affecting_future_rule_with_http_info'>get_suppressions_affecting_future_rule_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -16437,6 +16437,12 @@ for more examples.</p>
       <pre class="lines">
 
 
+3090
+3091
+3092
+3093
+3094
+3095
 3096
 3097
 3098
@@ -16481,16 +16487,10 @@ for more examples.</p>
 3137
 3138
 3139
-3140
-3141
-3142
-3143
-3144
-3145
-3146</pre>
+3140</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 3096</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 3090</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_suppressions_affecting_future_rule_with_http_info'>get_suppressions_affecting_future_rule_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -16580,13 +16580,13 @@ for more examples.</p>
       <pre class="lines">
 
 
-3151
-3152
-3153
-3154</pre>
+3145
+3146
+3147
+3148</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 3151</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 3145</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_suppressions_affecting_rule'>get_suppressions_affecting_rule</span><span class='lparen'>(</span><span class='id identifier rubyid_rule_id'>rule_id</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_get_suppressions_affecting_rule_with_http_info'>get_suppressions_affecting_rule_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_rule_id'>rule_id</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -16677,6 +16677,12 @@ for more examples.</p>
       <pre class="lines">
 
 
+3157
+3158
+3159
+3160
+3161
+3162
 3163
 3164
 3165
@@ -16719,16 +16725,10 @@ for more examples.</p>
 3202
 3203
 3204
-3205
-3206
-3207
-3208
-3209
-3210
-3211</pre>
+3205</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 3163</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 3157</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_suppressions_affecting_rule_with_http_info'>get_suppressions_affecting_rule_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_rule_id'>rule_id</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -16816,13 +16816,13 @@ for more examples.</p>
       <pre class="lines">
 
 
-3285
-3286
-3287
-3288</pre>
+3279
+3280
+3281
+3282</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 3285</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 3279</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_threat_hunting_job'>get_threat_hunting_job</span><span class='lparen'>(</span><span class='id identifier rubyid_job_id'>job_id</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_get_threat_hunting_job_with_http_info'>get_threat_hunting_job_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_job_id'>job_id</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -16913,6 +16913,12 @@ for more examples.</p>
       <pre class="lines">
 
 
+3291
+3292
+3293
+3294
+3295
+3296
 3297
 3298
 3299
@@ -16961,16 +16967,10 @@ for more examples.</p>
 3342
 3343
 3344
-3345
-3346
-3347
-3348
-3349
-3350
-3351</pre>
+3345</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 3297</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 3291</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_threat_hunting_job_with_http_info'>get_threat_hunting_job_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_job_id'>job_id</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_unstable_enabled'>unstable_enabled</span> <span class='op'>=</span> <span class='ivar'>@api_client</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_unstable_operations'>unstable_operations</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>v2.get_threat_hunting_job</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='rbracket'>]</span>
@@ -17513,13 +17513,13 @@ for more examples.</p>
       <pre class="lines">
 
 
-3481
-3482
-3483
-3484</pre>
+3475
+3476
+3477
+3478</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 3481</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 3475</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_assets_sbo_ms'>list_assets_sbo_ms</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_list_assets_sbo_ms_with_http_info'>list_assets_sbo_ms_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -17712,6 +17712,12 @@ for more examples.</p>
       <pre class="lines">
 
 
+3506
+3507
+3508
+3509
+3510
+3511
 3512
 3513
 3514
@@ -17769,30 +17775,12 @@ for more examples.</p>
 3566
 3567
 3568
-3569
-3570
-3571
-3572
-3573
-3574
-3575
-3576
-3577
-3578
-3579
-3580
-3581</pre>
+3569</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 3512</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 3506</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_assets_sbo_ms_with_http_info'>list_assets_sbo_ms_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_unstable_enabled'>unstable_enabled</span> <span class='op'>=</span> <span class='ivar'>@api_client</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_unstable_operations'>unstable_operations</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>v2.list_assets_sbo_ms</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='rbracket'>]</span>
-  <span class='kw'>if</span> <span class='id identifier rubyid_unstable_enabled'>unstable_enabled</span>
-    <span class='ivar'>@api_client</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_logger'>logger</span><span class='period'>.</span><span class='id identifier rubyid_warn'>warn</span> <span class='id identifier rubyid_format'>format</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Using unstable operation &#39;%s&#39;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>v2.list_assets_sbo_ms</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-  <span class='kw'>else</span>
-    <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="../../DatadogAPIClient.html" title="DatadogAPIClient (module)">DatadogAPIClient</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../APIError.html" title="DatadogAPIClient::APIError (class)">APIError</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../APIError.html#initialize-instance_method" title="DatadogAPIClient::APIError#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>message:</span> <span class='id identifier rubyid_format'>format</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Unstable operation &#39;%s&#39; is disabled</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>v2.list_assets_sbo_ms</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='rparen'>)</span>
-  <span class='kw'>end</span>
 
   <span class='kw'>if</span> <span class='ivar'>@api_client</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_debugging'>debugging</span>
     <span class='ivar'>@api_client</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_logger'>logger</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Calling API: SecurityMonitoringAPI.list_assets_sbo_ms ...</span><span class='tstring_end'>&#39;</span></span>
@@ -18790,13 +18778,13 @@ for more examples.</p>
       <pre class="lines">
 
 
-3764
-3765
-3766
-3767</pre>
+3752
+3753
+3754
+3755</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 3764</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 3752</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_multiple_rulesets'>list_multiple_rulesets</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_list_multiple_rulesets_with_http_info'>list_multiple_rulesets_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -18883,6 +18871,18 @@ for more examples.</p>
       <pre class="lines">
 
 
+3764
+3765
+3766
+3767
+3768
+3769
+3770
+3771
+3772
+3773
+3774
+3775
 3776
 3777
 3778
@@ -18927,22 +18927,10 @@ for more examples.</p>
 3817
 3818
 3819
-3820
-3821
-3822
-3823
-3824
-3825
-3826
-3827
-3828
-3829
-3830
-3831
-3832</pre>
+3820</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 3776</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 3764</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_multiple_rulesets_with_http_info'>list_multiple_rulesets_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_unstable_enabled'>unstable_enabled</span> <span class='op'>=</span> <span class='ivar'>@api_client</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_unstable_operations'>unstable_operations</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>v2.list_multiple_rulesets</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='rbracket'>]</span>
@@ -19038,13 +19026,13 @@ for more examples.</p>
       <pre class="lines">
 
 
-3837
-3838
-3839
-3840</pre>
+3825
+3826
+3827
+3828</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 3837</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 3825</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_scanned_assets_metadata'>list_scanned_assets_metadata</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_list_scanned_assets_metadata_with_http_info'>list_scanned_assets_metadata_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -19286,6 +19274,18 @@ for more examples.</p>
       <pre class="lines">
 
 
+3885
+3886
+3887
+3888
+3889
+3890
+3891
+3892
+3893
+3894
+3895
+3896
 3897
 3898
 3899
@@ -19337,22 +19337,10 @@ for more examples.</p>
 3945
 3946
 3947
-3948
-3949
-3950
-3951
-3952
-3953
-3954
-3955
-3956
-3957
-3958
-3959
-3960</pre>
+3948</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 3897</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 3885</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_scanned_assets_metadata_with_http_info'>list_scanned_assets_metadata_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_unstable_enabled'>unstable_enabled</span> <span class='op'>=</span> <span class='ivar'>@api_client</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_unstable_operations'>unstable_operations</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>v2.list_scanned_assets_metadata</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='rbracket'>]</span>
@@ -19668,13 +19656,13 @@ for more examples.</p>
       <pre class="lines">
 
 
-4025
-4026
-4027
-4028</pre>
+4013
+4014
+4015
+4016</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 4025</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 4013</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_security_findings'>list_security_findings</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_list_security_findings_with_http_info'>list_security_findings_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -19813,6 +19801,18 @@ for more examples.</p>
       <pre class="lines">
 
 
+4034
+4035
+4036
+4037
+4038
+4039
+4040
+4041
+4042
+4043
+4044
+4045
 4046
 4047
 4048
@@ -19859,22 +19859,10 @@ for more examples.</p>
 4089
 4090
 4091
-4092
-4093
-4094
-4095
-4096
-4097
-4098
-4099
-4100
-4101
-4102
-4103
-4104</pre>
+4092</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 4046</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 4034</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_security_findings_with_http_info'>list_security_findings_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -19986,22 +19974,22 @@ for more examples.</p>
       <pre class="lines">
 
 
-4113
-4114
-4115
-4116
-4117
-4118
-4119
-4120
-4121
-4122
-4123
-4124
-4125</pre>
+4101
+4102
+4103
+4104
+4105
+4106
+4107
+4108
+4109
+4110
+4111
+4112
+4113</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 4113</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 4101</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_security_findings_with_pagination'>list_security_findings_with_pagination</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_api_version'>api_version</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>V2</span><span class='tstring_end'>&quot;</span></span>
@@ -20053,13 +20041,13 @@ for more examples.</p>
       <pre class="lines">
 
 
-4130
-4131
-4132
-4133</pre>
+4118
+4119
+4120
+4121</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 4130</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 4118</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_security_monitoring_critical_assets'>list_security_monitoring_critical_assets</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_list_security_monitoring_critical_assets_with_http_info'>list_security_monitoring_critical_assets_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -20156,6 +20144,18 @@ for more examples.</p>
       <pre class="lines">
 
 
+4130
+4131
+4132
+4133
+4134
+4135
+4136
+4137
+4138
+4139
+4140
+4141
 4142
 4143
 4144
@@ -20189,22 +20189,10 @@ for more examples.</p>
 4172
 4173
 4174
-4175
-4176
-4177
-4178
-4179
-4180
-4181
-4182
-4183
-4184
-4185
-4186
-4187</pre>
+4175</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 4142</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 4130</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_security_monitoring_critical_assets_with_http_info'>list_security_monitoring_critical_assets_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -20289,13 +20277,13 @@ for more examples.</p>
       <pre class="lines">
 
 
-4192
-4193
-4194
-4195</pre>
+4180
+4181
+4182
+4183</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 4192</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 4180</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_security_monitoring_histsignals'>list_security_monitoring_histsignals</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_list_security_monitoring_histsignals_with_http_info'>list_security_monitoring_histsignals_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -20452,6 +20440,18 @@ for more examples.</p>
       <pre class="lines">
 
 
+4197
+4198
+4199
+4200
+4201
+4202
+4203
+4204
+4205
+4206
+4207
+4208
 4209
 4210
 4211
@@ -20503,22 +20503,10 @@ for more examples.</p>
 4257
 4258
 4259
-4260
-4261
-4262
-4263
-4264
-4265
-4266
-4267
-4268
-4269
-4270
-4271
-4272</pre>
+4260</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 4209</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 4197</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_security_monitoring_histsignals_with_http_info'>list_security_monitoring_histsignals_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_unstable_enabled'>unstable_enabled</span> <span class='op'>=</span> <span class='ivar'>@api_client</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_unstable_operations'>unstable_operations</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>v2.list_security_monitoring_histsignals</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='rbracket'>]</span>
@@ -21556,13 +21544,13 @@ security signals.</p>
       <pre class="lines">
 
 
-4517
-4518
-4519
-4520</pre>
+4505
+4506
+4507
+4508</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 4517</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 4505</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_threat_hunting_jobs'>list_threat_hunting_jobs</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_list_threat_hunting_jobs_with_http_info'>list_threat_hunting_jobs_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -21695,6 +21683,18 @@ security signals.</p>
       <pre class="lines">
 
 
+4520
+4521
+4522
+4523
+4524
+4525
+4526
+4527
+4528
+4529
+4530
+4531
 4532
 4533
 4534
@@ -21737,22 +21737,10 @@ security signals.</p>
 4571
 4572
 4573
-4574
-4575
-4576
-4577
-4578
-4579
-4580
-4581
-4582
-4583
-4584
-4585
-4586</pre>
+4574</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 4532</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 4520</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_threat_hunting_jobs_with_http_info'>list_threat_hunting_jobs_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_unstable_enabled'>unstable_enabled</span> <span class='op'>=</span> <span class='ivar'>@api_client</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_unstable_operations'>unstable_operations</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>v2.list_threat_hunting_jobs</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='rbracket'>]</span>
@@ -24360,13 +24348,13 @@ security signals.</p>
       <pre class="lines">
 
 
-5220
-5221
-5222
-5223</pre>
+5208
+5209
+5210
+5211</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 5220</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 5208</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_run_threat_hunting_job'>run_threat_hunting_job</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_run_threat_hunting_job_with_http_info'>run_threat_hunting_job_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -24453,6 +24441,18 @@ security signals.</p>
       <pre class="lines">
 
 
+5220
+5221
+5222
+5223
+5224
+5225
+5226
+5227
+5228
+5229
+5230
+5231
 5232
 5233
 5234
@@ -24497,22 +24497,10 @@ security signals.</p>
 5273
 5274
 5275
-5276
-5277
-5278
-5279
-5280
-5281
-5282
-5283
-5284
-5285
-5286
-5287
-5288</pre>
+5276</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 5232</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 5220</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_run_threat_hunting_job_with_http_info'>run_threat_hunting_job_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_unstable_enabled'>unstable_enabled</span> <span class='op'>=</span> <span class='ivar'>@api_client</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_unstable_operations'>unstable_operations</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>v2.run_threat_hunting_job</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='rbracket'>]</span>
@@ -24608,13 +24596,13 @@ security signals.</p>
       <pre class="lines">
 
 
-5293
-5294
-5295
-5296</pre>
+5281
+5282
+5283
+5284</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 5293</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 5281</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_search_security_findings'>search_security_findings</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_search_security_findings_with_http_info'>search_security_findings_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -24707,6 +24695,18 @@ security signals.</p>
       <pre class="lines">
 
 
+5299
+5300
+5301
+5302
+5303
+5304
+5305
+5306
+5307
+5308
+5309
+5310
 5311
 5312
 5313
@@ -24745,22 +24745,10 @@ security signals.</p>
 5346
 5347
 5348
-5349
-5350
-5351
-5352
-5353
-5354
-5355
-5356
-5357
-5358
-5359
-5360
-5361</pre>
+5349</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 5311</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 5299</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_search_security_findings_with_http_info'>search_security_findings_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -24864,22 +24852,22 @@ security signals.</p>
       <pre class="lines">
 
 
-5370
-5371
-5372
-5373
-5374
-5375
-5376
-5377
-5378
-5379
-5380
-5381
-5382</pre>
+5358
+5359
+5360
+5361
+5362
+5363
+5364
+5365
+5366
+5367
+5368
+5369
+5370</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 5370</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 5358</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_search_security_findings_with_pagination'>search_security_findings_with_pagination</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_api_version'>api_version</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>V2</span><span class='tstring_end'>&quot;</span></span>
@@ -24931,13 +24919,13 @@ security signals.</p>
       <pre class="lines">
 
 
-5387
-5388
-5389
-5390</pre>
+5375
+5376
+5377
+5378</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 5387</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 5375</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_search_security_monitoring_histsignals'>search_security_monitoring_histsignals</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_search_security_monitoring_histsignals_with_http_info'>search_security_monitoring_histsignals_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -25031,6 +25019,18 @@ security signals.</p>
       <pre class="lines">
 
 
+5387
+5388
+5389
+5390
+5391
+5392
+5393
+5394
+5395
+5396
+5397
+5398
 5399
 5400
 5401
@@ -25071,22 +25071,10 @@ security signals.</p>
 5436
 5437
 5438
-5439
-5440
-5441
-5442
-5443
-5444
-5445
-5446
-5447
-5448
-5449
-5450
-5451</pre>
+5439</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 5399</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 5387</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_search_security_monitoring_histsignals_with_http_info'>search_security_monitoring_histsignals_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_unstable_enabled'>unstable_enabled</span> <span class='op'>=</span> <span class='ivar'>@api_client</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_unstable_operations'>unstable_operations</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>v2.search_security_monitoring_histsignals</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='rbracket'>]</span>
@@ -25991,13 +25979,13 @@ security signals.</p>
       <pre class="lines">
 
 
-5681
-5682
-5683
-5684</pre>
+5669
+5670
+5671
+5672</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 5681</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 5669</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update_custom_framework'>update_custom_framework</span><span class='lparen'>(</span><span class='id identifier rubyid_handle'>handle</span><span class='comma'>,</span> <span class='id identifier rubyid_version'>version</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_update_custom_framework_with_http_info'>update_custom_framework_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_handle'>handle</span><span class='comma'>,</span> <span class='id identifier rubyid_version'>version</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -26114,6 +26102,18 @@ security signals.</p>
       <pre class="lines">
 
 
+5683
+5684
+5685
+5686
+5687
+5688
+5689
+5690
+5691
+5692
+5693
+5694
 5695
 5696
 5697
@@ -26160,22 +26160,10 @@ security signals.</p>
 5738
 5739
 5740
-5741
-5742
-5743
-5744
-5745
-5746
-5747
-5748
-5749
-5750
-5751
-5752
-5753</pre>
+5741</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 5695</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 5683</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update_custom_framework_with_http_info'>update_custom_framework_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_handle'>handle</span><span class='comma'>,</span> <span class='id identifier rubyid_version'>version</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -26273,13 +26261,13 @@ security signals.</p>
       <pre class="lines">
 
 
-5758
-5759
-5760
-5761</pre>
+5746
+5747
+5748
+5749</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 5758</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 5746</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update_resource_evaluation_filters'>update_resource_evaluation_filters</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_update_resource_evaluation_filters_with_http_info'>update_resource_evaluation_filters_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -26366,6 +26354,18 @@ security signals.</p>
       <pre class="lines">
 
 
+5758
+5759
+5760
+5761
+5762
+5763
+5764
+5765
+5766
+5767
+5768
+5769
 5770
 5771
 5772
@@ -26404,22 +26404,10 @@ security signals.</p>
 5805
 5806
 5807
-5808
-5809
-5810
-5811
-5812
-5813
-5814
-5815
-5816
-5817
-5818
-5819
-5820</pre>
+5808</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 5770</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 5758</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update_resource_evaluation_filters_with_http_info'>update_resource_evaluation_filters_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -26773,13 +26761,13 @@ Returns the security filter object when the request is successful.</p>
       <pre class="lines">
 
 
-5898
-5899
-5900
-5901</pre>
+5886
+5887
+5888
+5889</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 5898</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 5886</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update_security_monitoring_critical_asset'>update_security_monitoring_critical_asset</span><span class='lparen'>(</span><span class='id identifier rubyid_critical_asset_id'>critical_asset_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_update_security_monitoring_critical_asset_with_http_info'>update_security_monitoring_critical_asset_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_critical_asset_id'>critical_asset_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -26885,6 +26873,18 @@ Returns the security filter object when the request is successful.</p>
       <pre class="lines">
 
 
+5899
+5900
+5901
+5902
+5903
+5904
+5905
+5906
+5907
+5908
+5909
+5910
 5911
 5912
 5913
@@ -26927,22 +26927,10 @@ Returns the security filter object when the request is successful.</p>
 5950
 5951
 5952
-5953
-5954
-5955
-5956
-5957
-5958
-5959
-5960
-5961
-5962
-5963
-5964
-5965</pre>
+5953</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 5911</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 5899</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update_security_monitoring_critical_asset_with_http_info'>update_security_monitoring_critical_asset_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_critical_asset_id'>critical_asset_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -27797,13 +27785,13 @@ the tags (default tags cannot be removed).</p>
       <pre class="lines">
 
 
-6184
-6185
-6186
-6187</pre>
+6172
+6173
+6174
+6175</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 6184</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 6172</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_validate_security_monitoring_suppression'>validate_security_monitoring_suppression</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_validate_security_monitoring_suppression_with_http_info'>validate_security_monitoring_suppression_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -27890,6 +27878,18 @@ the tags (default tags cannot be removed).</p>
       <pre class="lines">
 
 
+6184
+6185
+6186
+6187
+6188
+6189
+6190
+6191
+6192
+6193
+6194
+6195
 6196
 6197
 6198
@@ -27928,22 +27928,10 @@ the tags (default tags cannot be removed).</p>
 6231
 6232
 6233
-6234
-6235
-6236
-6237
-6238
-6239
-6240
-6241
-6242
-6243
-6244
-6245
-6246</pre>
+6234</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 6196</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/security_monitoring_api.rb', line 6184</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_validate_security_monitoring_suppression_with_http_info'>validate_security_monitoring_suppression_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -28006,7 +27994,7 @@ the tags (default tags cannot be removed).</p>
 </div>
 
       <div id="footer">
-  Generated on Thu Jan 22 13:08:02 2026 by
+  Generated on Thu Jan 22 15:08:37 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.38 (ruby-2.7.8).
 </div>
