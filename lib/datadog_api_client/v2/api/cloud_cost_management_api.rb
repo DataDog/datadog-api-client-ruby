@@ -839,7 +839,7 @@ module DatadogAPIClient::V2
     #
     # @param budget_id [String] Budget id.
     # @param opts [Hash] the optional parameters
-    # @return [Array<(BudgetValidationRequest, Integer, Hash)>] BudgetValidationRequest data, response status code and response headers
+    # @return [Array<(BudgetWithEntries, Integer, Hash)>] BudgetWithEntries data, response status code and response headers
     def get_budget_with_http_info(budget_id, opts = {})
 
       if @api_client.config.debugging
@@ -867,7 +867,7 @@ module DatadogAPIClient::V2
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'BudgetValidationRequest'
+      return_type = opts[:debug_return_type] || 'BudgetWithEntries'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
