@@ -2335,6 +2335,28 @@ ScenariosModelMappings = {
             "integration_service_id" => "String",
             "body" => "OpsgenieServiceUpdateRequest",
     },
+    "v2.ListServiceNowAssignmentGroups" => {
+            "instance_id" => "UUID",
+    },
+    "v2.ListServiceNowBusinessServices" => {
+            "instance_id" => "UUID",
+    },
+    "v2.CreateServiceNowTemplate" => {
+            "body" => "ServiceNowTemplateCreateRequest",
+    },
+    "v2.DeleteServiceNowTemplate" => {
+            "template_id" => "UUID",
+    },
+    "v2.GetServiceNowTemplate" => {
+            "template_id" => "UUID",
+    },
+    "v2.UpdateServiceNowTemplate" => {
+            "template_id" => "UUID",
+            "body" => "ServiceNowTemplateUpdateRequest",
+    },
+    "v2.ListServiceNowUsers" => {
+            "instance_id" => "UUID",
+    },
     "v2.CreateCloudflareAccount" => {
             "body" => "CloudflareAccountCreateRequest",
     },
