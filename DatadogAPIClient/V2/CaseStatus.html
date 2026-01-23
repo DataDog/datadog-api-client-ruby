@@ -6,7 +6,7 @@
 <title>
   Class: DatadogAPIClient::V2::CaseStatus
   
-    &mdash; datadog-api-client 2.30.0.dev.1 documentation
+    &mdash; datadog-api-client 2.49.0 documentation
   
 </title>
 
@@ -61,7 +61,7 @@
 
       <div id="content"><h1>Class: DatadogAPIClient::V2::CaseStatus
   
-  
+  <span class="deprecated note title">Deprecated</span>
   
 </h1>
 <div class="box_info">
@@ -99,14 +99,18 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/datadog_api_client/v2/models/case_status.rb</dd>
+    <dd>lib/datadog_api_client/v2/models/case_status.rb<span class="defines">,<br />
+  lib/datadog_api_client/v2/models/case_status.rb</span>
+</dd>
   </dl>
   
 </div>
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>Case status</p>
+    <div class="note deprecated"><strong>Deprecated.</strong> <div class='inline'><p>This model is deprecated.</p>
+</div></div>
+<p>Deprecated way of representing the case status, which only supports OPEN, IN_PROGRESS, and CLOSED statuses. Use <code>status_name</code> instead.</p>
 
 
   </div>
@@ -163,9 +167,9 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Feb 18 21:07:11 2025 by
+  Generated on Fri Jan 23 09:16:01 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.37 (ruby-2.7.8).
+  0.9.38 (ruby-2.7.8).
 </div>
 
     </div>
