@@ -27,6 +27,11 @@ module DatadogAPIClient::V1
     # Width of line displayed.
     attr_accessor :line_width
 
+    # How to order series in timeseries visualizations.
+    # - `tags`: Order series alphabetically by tag name (default behavior)
+    # - `values`: Order series by their current metric values (typically descending)
+    attr_accessor :order_by
+
     # Color palette to apply to the widget.
     attr_accessor :palette
 
@@ -38,6 +43,7 @@ module DatadogAPIClient::V1
       {
         :'line_type' => :'line_type',
         :'line_width' => :'line_width',
+        :'order_by' => :'order_by',
         :'palette' => :'palette'
       }
     end
@@ -48,6 +54,7 @@ module DatadogAPIClient::V1
       {
         :'line_type' => :'WidgetLineType',
         :'line_width' => :'WidgetLineWidth',
+        :'order_by' => :'WidgetStyleOrderBy',
         :'palette' => :'String'
       }
     end
@@ -76,6 +83,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'line_width')
         self.line_width = attributes[:'line_width']
+      end
+
+      if attributes.key?(:'order_by')
+        self.order_by = attributes[:'order_by']
       end
 
       if attributes.key?(:'palette')
@@ -111,6 +122,7 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           line_type == o.line_type &&
           line_width == o.line_width &&
+          order_by == o.order_by &&
           palette == o.palette &&
           additional_properties == o.additional_properties
     end
@@ -119,7 +131,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [line_type, line_width, palette, additional_properties].hash
+      [line_type, line_width, order_by, palette, additional_properties].hash
     end
   end
 end
