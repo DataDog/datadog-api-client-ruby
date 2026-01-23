@@ -30,6 +30,9 @@ module DatadogAPIClient::V2
     # Case priority
     attr_accessor :priority
 
+    # Status of the case. Must be one of the existing statuses for the case's type.
+    attr_accessor :status_name
+
     # Title
     attr_reader :title
 
@@ -45,6 +48,7 @@ module DatadogAPIClient::V2
         :'custom_attributes' => :'custom_attributes',
         :'description' => :'description',
         :'priority' => :'priority',
+        :'status_name' => :'status_name',
         :'title' => :'title',
         :'type_id' => :'type_id'
       }
@@ -57,6 +61,7 @@ module DatadogAPIClient::V2
         :'custom_attributes' => :'Hash<String, CustomAttributeValue>',
         :'description' => :'String',
         :'priority' => :'CasePriority',
+        :'status_name' => :'String',
         :'title' => :'String',
         :'type_id' => :'String'
       }
@@ -90,6 +95,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'priority')
         self.priority = attributes[:'priority']
+      end
+
+      if attributes.key?(:'status_name')
+        self.status_name = attributes[:'status_name']
       end
 
       if attributes.key?(:'title')
@@ -159,6 +168,7 @@ module DatadogAPIClient::V2
           custom_attributes == o.custom_attributes &&
           description == o.description &&
           priority == o.priority &&
+          status_name == o.status_name &&
           title == o.title &&
           type_id == o.type_id &&
           additional_properties == o.additional_properties
@@ -168,7 +178,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [custom_attributes, description, priority, title, type_id, additional_properties].hash
+      [custom_attributes, description, priority, status_name, title, type_id, additional_properties].hash
     end
   end
 end

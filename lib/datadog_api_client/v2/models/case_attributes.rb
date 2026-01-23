@@ -54,8 +54,14 @@ module DatadogAPIClient::V2
     # ServiceNow ticket attached to case
     attr_accessor :service_now_ticket
 
-    # Case status
+    # Deprecated way of representing the case status, which only supports OPEN, IN_PROGRESS, and CLOSED statuses. Use `status_name` instead.
     attr_accessor :status
+
+    # Status group of the case.
+    attr_accessor :status_group
+
+    # Status of the case. Must be one of the existing statuses for the case's type.
+    attr_accessor :status_name
 
     # Title
     attr_accessor :title
@@ -84,6 +90,8 @@ module DatadogAPIClient::V2
         :'priority' => :'priority',
         :'service_now_ticket' => :'service_now_ticket',
         :'status' => :'status',
+        :'status_group' => :'status_group',
+        :'status_name' => :'status_name',
         :'title' => :'title',
         :'type' => :'type',
         :'type_id' => :'type_id'
@@ -106,6 +114,8 @@ module DatadogAPIClient::V2
         :'priority' => :'CasePriority',
         :'service_now_ticket' => :'ServiceNowTicket',
         :'status' => :'CaseStatus',
+        :'status_group' => :'CaseStatusGroup',
+        :'status_name' => :'String',
         :'title' => :'String',
         :'type' => :'CaseType',
         :'type_id' => :'String'
@@ -190,6 +200,14 @@ module DatadogAPIClient::V2
         self.status = attributes[:'status']
       end
 
+      if attributes.key?(:'status_group')
+        self.status_group = attributes[:'status_group']
+      end
+
+      if attributes.key?(:'status_name')
+        self.status_name = attributes[:'status_name']
+      end
+
       if attributes.key?(:'title')
         self.title = attributes[:'title']
       end
@@ -241,6 +259,8 @@ module DatadogAPIClient::V2
           priority == o.priority &&
           service_now_ticket == o.service_now_ticket &&
           status == o.status &&
+          status_group == o.status_group &&
+          status_name == o.status_name &&
           title == o.title &&
           type == o.type &&
           type_id == o.type_id &&
@@ -251,7 +271,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [archived_at, attributes, closed_at, created_at, custom_attributes, description, jira_issue, key, modified_at, priority, service_now_ticket, status, title, type, type_id, additional_properties].hash
+      [archived_at, attributes, closed_at, created_at, custom_attributes, description, jira_issue, key, modified_at, priority, service_now_ticket, status, status_group, status_name, title, type, type_id, additional_properties].hash
     end
   end
 end

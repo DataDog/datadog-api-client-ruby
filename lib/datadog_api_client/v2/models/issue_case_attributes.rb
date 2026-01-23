@@ -54,7 +54,7 @@ module DatadogAPIClient::V2
     # Case priority
     attr_accessor :priority
 
-    # Case status
+    # Deprecated way of representing the case status, which only supports OPEN, IN_PROGRESS, and CLOSED statuses. Use `status_name` instead.
     attr_accessor :status
 
     # Title of the case.
