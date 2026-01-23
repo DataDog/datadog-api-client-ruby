@@ -1082,6 +1082,7 @@
 <li>database-monitoring: <code>database-monitoring alert</code></li>
 <li>network-performance: <code>network-performance alert</code></li>
 <li>cloud cost: <code>cost alert</code></li>
+<li>network-path: <code>network-path alert</code></li>
 </ul>
 
 <p><strong>Notes</strong>:</p>
@@ -1316,6 +1317,20 @@ It is only available via the API and isn&#39;t visible or editable in the Datado
 <li>for <code>anomaly</code> supports <code>&gt;=</code></li>
 <li>for <code>forecast</code> supports <code>&gt;</code></li>
 </ul></li>
+<li><code>#</code> an integer or decimal number used to set the threshold.</li>
+</ul>
+
+<p><strong>Network Path Alert Query</strong></p>
+
+<p>Example: <code>network-path(query).index(index_name).rollup(rollup_method[, measure]).last(time_window) operator #</code></p>
+
+<ul>
+<li><code>query</code> The search query - following the <a href="https://docs.datadoghq.com/logs/search_syntax/">Log search syntax</a>.</li>
+<li><code>index_name</code> The data type to monitor on - supports <code>netpath-path</code> and <code>netpath-hop</code>.</li>
+<li><code>rollup_method</code> The stats roll-up method - supports <code>count</code>, <code>avg</code>, and <code>cardinality</code>.</li>
+<li><code>measure</code> For <code>avg</code> and cardinality <code>rollup_method</code> - specify the measure or the facet name you want to use.</li>
+<li><code>time_window</code> #m (between 1 and 2880), #h (between 1 and 48).</li>
+<li><code>operator</code> <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>==</code>, or <code>!=</code>.</li>
 <li><code>#</code> an integer or decimal number used to set the threshold.</li>
 </ul>
 
@@ -3795,7 +3810,7 @@ It is only available via the API and isn&#39;t visible or editable in the Datado
 </div>
 
       <div id="footer">
-  Generated on Fri Jan 23 19:57:15 2026 by
+  Generated on Fri Jan 23 20:40:29 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.38 (ruby-2.7.8).
 </div>
