@@ -3307,6 +3307,49 @@ ScenariosModelMappings = {
     "v2.CreateSCAResolveVulnerableSymbols" => {
             "body" => "ResolveVulnerableSymbolsRequest",
     },
+    "v2.DeleteCustomRuleset" => {
+            "ruleset_name" => "String",
+    },
+    "v2.GetCustomRuleset" => {
+            "ruleset_name" => "String",
+    },
+    "v2.UpdateCustomRuleset" => {
+            "ruleset_name" => "String",
+            "body" => "CustomRulesetRequest",
+    },
+    "v2.CreateCustomRule" => {
+            "ruleset_name" => "String",
+            "body" => "CustomRuleRequest",
+    },
+    "v2.DeleteCustomRule" => {
+            "ruleset_name" => "String",
+            "rule_name" => "String",
+    },
+    "v2.GetCustomRule" => {
+            "ruleset_name" => "String",
+            "rule_name" => "String",
+    },
+    "v2.ListCustomRuleRevisions" => {
+            "ruleset_name" => "String",
+            "rule_name" => "String",
+            "page_offset" => "Integer",
+            "page_limit" => "Integer",
+    },
+    "v2.CreateCustomRuleRevision" => {
+            "ruleset_name" => "String",
+            "rule_name" => "String",
+            "body" => "CustomRuleRevisionRequest",
+    },
+    "v2.RevertCustomRuleRevision" => {
+            "ruleset_name" => "String",
+            "rule_name" => "String",
+            "body" => "RevertCustomRuleRevisionRequest",
+    },
+    "v2.GetCustomRuleRevision" => {
+            "ruleset_name" => "String",
+            "rule_name" => "String",
+            "id" => "String",
+    },
     "v2.ListStatusPages" => {
             "page_offset" => "Integer",
             "page_limit" => "Integer",
