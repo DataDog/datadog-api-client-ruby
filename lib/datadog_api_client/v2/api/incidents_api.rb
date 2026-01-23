@@ -23,6 +23,81 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
+    # Create global incident handle.
+    #
+    # @see #create_global_incident_handle_with_http_info
+    def create_global_incident_handle(body, opts = {})
+      data, _status_code, _headers = create_global_incident_handle_with_http_info(body, opts)
+      data
+    end
+
+    # Create global incident handle.
+    #
+    # Create a new global incident handle.
+    #
+    # @param body [IncidentHandleRequest] 
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :include Comma-separated list of related resources to include in the response
+    # @return [Array<(IncidentHandleResponse, Integer, Hash)>] IncidentHandleResponse data, response status code and response headers
+    def create_global_incident_handle_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_global_incident_handle".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_global_incident_handle")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_global_incident_handle"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: IncidentsAPI.create_global_incident_handle ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling IncidentsAPI.create_global_incident_handle"
+      end
+      # resource path
+      local_var_path = '/api/v2/incidents/config/global/incident-handles'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'IncidentHandleResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :create_global_incident_handle,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: IncidentsAPI#create_global_incident_handle\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create an incident.
     #
     # @see #create_incident_with_http_info
@@ -703,6 +778,72 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Delete global incident handle.
+    #
+    # @see #delete_global_incident_handle_with_http_info
+    def delete_global_incident_handle(opts = {})
+      delete_global_incident_handle_with_http_info(opts)
+      nil
+    end
+
+    # Delete global incident handle.
+    #
+    # Delete a global incident handle.
+    #
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_global_incident_handle_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.delete_global_incident_handle".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_global_incident_handle")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_global_incident_handle"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: IncidentsAPI.delete_global_incident_handle ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/incidents/config/global/incident-handles'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :delete_global_incident_handle,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: IncidentsAPI#delete_global_incident_handle\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Delete an existing incident.
     #
     # @see #delete_incident_with_http_info
@@ -1286,6 +1427,72 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get global incident settings.
+    #
+    # @see #get_global_incident_settings_with_http_info
+    def get_global_incident_settings(opts = {})
+      data, _status_code, _headers = get_global_incident_settings_with_http_info(opts)
+      data
+    end
+
+    # Get global incident settings.
+    #
+    # Retrieve global incident settings for the organization.
+    #
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(GlobalIncidentSettingsResponse, Integer, Hash)>] GlobalIncidentSettingsResponse data, response status code and response headers
+    def get_global_incident_settings_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_global_incident_settings".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_global_incident_settings")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_global_incident_settings"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: IncidentsAPI.get_global_incident_settings ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/incidents/config/global/settings'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GlobalIncidentSettingsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_global_incident_settings,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: IncidentsAPI#get_global_incident_settings\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get the details of an incident.
     #
     # @see #get_incident_with_http_info
@@ -1724,6 +1931,74 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: IncidentsAPI#get_incident_type\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List global incident handles.
+    #
+    # @see #list_global_incident_handles_with_http_info
+    def list_global_incident_handles(opts = {})
+      data, _status_code, _headers = list_global_incident_handles_with_http_info(opts)
+      data
+    end
+
+    # List global incident handles.
+    #
+    # Retrieve a list of global incident handles.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :include Comma-separated list of related resources to include in the response
+    # @return [Array<(IncidentHandlesResponse, Integer, Hash)>] IncidentHandlesResponse data, response status code and response headers
+    def list_global_incident_handles_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_global_incident_handles".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_global_incident_handles")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_global_incident_handles"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: IncidentsAPI.list_global_incident_handles ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/incidents/config/global/incident-handles'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'IncidentHandlesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :list_global_incident_handles,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: IncidentsAPI#list_global_incident_handles\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2418,6 +2693,154 @@ module DatadogAPIClient::V2
             end
             @api_client.set_attribute_from_path(api_version, opts, "page_offset", Integer, @api_client.get_attribute_from_path(opts, "page_offset", 0) + page_size)
         end
+    end
+
+    # Update global incident handle.
+    #
+    # @see #update_global_incident_handle_with_http_info
+    def update_global_incident_handle(body, opts = {})
+      data, _status_code, _headers = update_global_incident_handle_with_http_info(body, opts)
+      data
+    end
+
+    # Update global incident handle.
+    #
+    # Update an existing global incident handle.
+    #
+    # @param body [IncidentHandleRequest] 
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :include Comma-separated list of related resources to include in the response
+    # @return [Array<(IncidentHandleResponse, Integer, Hash)>] IncidentHandleResponse data, response status code and response headers
+    def update_global_incident_handle_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.update_global_incident_handle".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_global_incident_handle")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_global_incident_handle"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: IncidentsAPI.update_global_incident_handle ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling IncidentsAPI.update_global_incident_handle"
+      end
+      # resource path
+      local_var_path = '/api/v2/incidents/config/global/incident-handles'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'IncidentHandleResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :update_global_incident_handle,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: IncidentsAPI#update_global_incident_handle\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update global incident settings.
+    #
+    # @see #update_global_incident_settings_with_http_info
+    def update_global_incident_settings(body, opts = {})
+      data, _status_code, _headers = update_global_incident_settings_with_http_info(body, opts)
+      data
+    end
+
+    # Update global incident settings.
+    #
+    # Update global incident settings for the organization.
+    #
+    # @param body [GlobalIncidentSettingsRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(GlobalIncidentSettingsResponse, Integer, Hash)>] GlobalIncidentSettingsResponse data, response status code and response headers
+    def update_global_incident_settings_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.update_global_incident_settings".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_global_incident_settings")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_global_incident_settings"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: IncidentsAPI.update_global_incident_settings ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling IncidentsAPI.update_global_incident_settings"
+      end
+      # resource path
+      local_var_path = '/api/v2/incidents/config/global/settings'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GlobalIncidentSettingsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :update_global_incident_settings,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: IncidentsAPI#update_global_incident_settings\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
     end
 
     # Update an existing incident.

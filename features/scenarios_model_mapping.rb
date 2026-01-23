@@ -2068,6 +2068,20 @@ ScenariosModelMappings = {
     "v2.CreateIncident" => {
             "body" => "IncidentCreateRequest",
     },
+    "v2.ListGlobalIncidentHandles" => {
+            "include" => "String",
+    },
+    "v2.CreateGlobalIncidentHandle" => {
+            "include" => "String",
+            "body" => "IncidentHandleRequest",
+    },
+    "v2.UpdateGlobalIncidentHandle" => {
+            "include" => "String",
+            "body" => "IncidentHandleRequest",
+    },
+    "v2.UpdateGlobalIncidentSettings" => {
+            "body" => "GlobalIncidentSettingsRequest",
+    },
     "v2.ListIncidentNotificationRules" => {
             "include" => "String",
     },
