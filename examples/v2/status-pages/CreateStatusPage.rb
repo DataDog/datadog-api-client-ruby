@@ -7,7 +7,7 @@ body = DatadogAPIClient::V2::CreateStatusPageRequest.new({
   data: DatadogAPIClient::V2::CreateStatusPageRequestData.new({
     attributes: DatadogAPIClient::V2::CreateStatusPageRequestDataAttributes.new({
       name: "A Status Page",
-      domain_prefix: "status-page-5e2fd69be33e79aa",
+      domain_prefix: "5e2fd69be33e79aa",
       components: [
         DatadogAPIClient::V2::CreateStatusPageRequestDataAttributesComponentsItems.new({
           name: "Login",
