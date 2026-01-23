@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class CreateJiraIssueRequestDataAttributes
     include BaseGenericModel
 
-    # Unique identifier of the user assigned to the Jira issue.
+    # Unique identifier of the Datadog user assigned to the Jira issue.
     attr_accessor :assignee_id
 
     # Description of the Jira issue. If not provided, the description will be automatically generated.
