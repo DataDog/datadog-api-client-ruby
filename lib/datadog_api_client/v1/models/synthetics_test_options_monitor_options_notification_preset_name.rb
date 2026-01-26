@@ -25,5 +25,8 @@ module DatadogAPIClient::V1
     HIDE_ALL = "hide_all".freeze
     HIDE_QUERY = "hide_query".freeze
     HIDE_HANDLES = "hide_handles".freeze
+    HIDE_QUERY_AND_HANDLES = "hide_query_and_handles".freeze
+    SHOW_ONLY_SNAPSHOT = "show_only_snapshot".freeze
+    HIDE_HANDLES_AND_FOOTER = "hide_handles_and_footer".freeze
   end
 end
