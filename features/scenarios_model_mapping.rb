@@ -2121,6 +2121,19 @@ ScenariosModelMappings = {
             "include" => "String",
             "body" => "PatchIncidentNotificationTemplateRequest",
     },
+    "v2.CreateIncidentConfigRule" => {
+            "body" => "IncidentRuleRequest",
+    },
+    "v2.DeleteIncidentConfigRule" => {
+            "rule_id" => "String",
+    },
+    "v2.GetIncidentConfigRule" => {
+            "rule_id" => "String",
+    },
+    "v2.UpdateIncidentConfigRule" => {
+            "rule_id" => "String",
+            "body" => "IncidentRuleRequest",
+    },
     "v2.ListIncidentTypes" => {
             "include_deleted" => "Boolean",
     },
