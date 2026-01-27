@@ -1250,6 +1250,17 @@ ScenariosModelMappings = {
             "case_id" => "String",
             "body" => "CaseEmptyRequest",
     },
+    "v2.ListCaseWatchers" => {
+            "case_id" => "String",
+    },
+    "v2.UnwatchCase" => {
+            "case_id" => "String",
+            "user_id" => "String",
+    },
+    "v2.WatchCase" => {
+            "case_id" => "String",
+            "user_id" => "String",
+    },
     "v2.CreateCaseType" => {
             "body" => "CaseTypeCreateRequest",
     },

@@ -768,6 +768,77 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get case watchers.
+    #
+    # @see #list_case_watchers_with_http_info
+    def list_case_watchers(case_id, opts = {})
+      data, _status_code, _headers = list_case_watchers_with_http_info(case_id, opts)
+      data
+    end
+
+    # Get case watchers.
+    #
+    # Get all users watching a case
+    #
+    # @param case_id [String] Case's UUID or key
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(WatchersResponse, Integer, Hash)>] WatchersResponse data, response status code and response headers
+    def list_case_watchers_with_http_info(case_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_case_watchers".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_case_watchers")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_case_watchers"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CaseManagementAPI.list_case_watchers ...'
+      end
+      # verify the required parameter 'case_id' is set
+      if @api_client.config.client_side_validation && case_id.nil?
+        fail ArgumentError, "Missing the required parameter 'case_id' when calling CaseManagementAPI.list_case_watchers"
+      end
+      # resource path
+      local_var_path = '/api/v2/cases/{case_id}/watchers'.sub('{case_id}', CGI.escape(case_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'WatchersResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_case_watchers,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CaseManagementAPI#list_case_watchers\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Search cases.
     #
     # @see #search_cases_with_http_info
@@ -1004,6 +1075,82 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CaseManagementAPI#unassign_case\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Remove user as watcher.
+    #
+    # @see #unwatch_case_with_http_info
+    def unwatch_case(case_id, user_id, opts = {})
+      unwatch_case_with_http_info(case_id, user_id, opts)
+      nil
+    end
+
+    # Remove user as watcher.
+    #
+    # Remove a user from the watchers list for a case
+    #
+    # @param case_id [String] Case's UUID or key
+    # @param user_id [String] User UUID
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def unwatch_case_with_http_info(case_id, user_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.unwatch_case".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.unwatch_case")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.unwatch_case"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CaseManagementAPI.unwatch_case ...'
+      end
+      # verify the required parameter 'case_id' is set
+      if @api_client.config.client_side_validation && case_id.nil?
+        fail ArgumentError, "Missing the required parameter 'case_id' when calling CaseManagementAPI.unwatch_case"
+      end
+      # verify the required parameter 'user_id' is set
+      if @api_client.config.client_side_validation && user_id.nil?
+        fail ArgumentError, "Missing the required parameter 'user_id' when calling CaseManagementAPI.unwatch_case"
+      end
+      # resource path
+      local_var_path = '/api/v2/cases/{case_id}/watchers/{user_id}'.sub('{case_id}', CGI.escape(case_id.to_s).gsub('%2F', '/')).sub('{user_id}', CGI.escape(user_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :unwatch_case,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CaseManagementAPI#unwatch_case\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1441,6 +1588,82 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CaseManagementAPI#update_status\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Add user as watcher.
+    #
+    # @see #watch_case_with_http_info
+    def watch_case(case_id, user_id, opts = {})
+      watch_case_with_http_info(case_id, user_id, opts)
+      nil
+    end
+
+    # Add user as watcher.
+    #
+    # Add a user as a watcher for a case
+    #
+    # @param case_id [String] Case's UUID or key
+    # @param user_id [String] User UUID
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def watch_case_with_http_info(case_id, user_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.watch_case".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.watch_case")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.watch_case"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CaseManagementAPI.watch_case ...'
+      end
+      # verify the required parameter 'case_id' is set
+      if @api_client.config.client_side_validation && case_id.nil?
+        fail ArgumentError, "Missing the required parameter 'case_id' when calling CaseManagementAPI.watch_case"
+      end
+      # verify the required parameter 'user_id' is set
+      if @api_client.config.client_side_validation && user_id.nil?
+        fail ArgumentError, "Missing the required parameter 'user_id' when calling CaseManagementAPI.watch_case"
+      end
+      # resource path
+      local_var_path = '/api/v2/cases/{case_id}/watchers/{user_id}'.sub('{case_id}', CGI.escape(case_id.to_s).gsub('%2F', '/')).sub('{user_id}', CGI.escape(user_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :watch_case,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CaseManagementAPI#watch_case\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
