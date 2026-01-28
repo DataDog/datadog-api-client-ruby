@@ -1250,6 +1250,12 @@ ScenariosModelMappings = {
             "case_id" => "String",
             "body" => "CaseEmptyRequest",
     },
+    "v2.UnfavoriteProject" => {
+            "project_id" => "String",
+    },
+    "v2.FavoriteProject" => {
+            "project_id" => "String",
+    },
     "v2.CreateCaseType" => {
             "body" => "CaseTypeCreateRequest",
     },
