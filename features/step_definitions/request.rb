@@ -168,10 +168,13 @@ module APIWorld
           # Extract from path parameters
           if p["source"]
             param_name = p["source"]
+            snake_param = param_name.to_parameter
             if @path_parameters&.key?(param_name)
               [p["name"].to_sym, @path_parameters[param_name]]
             elsif @path_parameters&.key?(param_name.to_sym)
               [p["name"].to_sym, @path_parameters[param_name.to_sym]]
+            elsif @path_parameters&.key?(snake_param)
+              [p["name"].to_sym, @path_parameters[snake_param]]
             else
               warn "Path parameter '#{param_name}' not found"
               nil
@@ -235,6 +238,25 @@ module APIWorld
       result
     end if operation["parameters"]
 
+    # Store path parameters for undo operations
+    # Path parameters are required positional parameters that are not the body
+    if operation["parameters"] && args
+      required_params = method.parameters.select { |p| p[0] == :req }
+
+      operation["parameters"].each_with_index do |p, index|
+        # Only store if:
+        # 1. Index is within required params range
+        # 2. Parameter is not named "body" (body is required but not a path param)
+        if index < required_params.length && p["name"] != "body"
+          param_value = args[index]
+          # Store with all naming variants for compatibility with undo lookup
+          path_parameters[p["name"]] = param_value
+          path_parameters[p["name"].to_parameter] = param_value
+          path_parameters[p["name"].to_parameter.to_sym] = param_value
+        end
+      end
+    end
+
     result = method.call(*args)[0]
 
     # register undo method
@@ -297,18 +319,20 @@ Given(/^request contains "([^"]+)" parameter from "([^"]+)"$/) do |parameter_nam
   param_value = model_builder(parameter_name.to_parameter, fixtures.lookup(fixture_path))
   param_key = parameter_name.to_parameter.to_sym
   opts[param_key] = param_value
-  # Store in path_parameters for undo operations
+  # Store in path_parameters for undo operations with all naming variants
   path_parameters[parameter_name] = param_value
   path_parameters[param_key] = param_value
+  path_parameters[parameter_name.to_parameter] = param_value
 end
 
 Given(/^request contains "([^"]+)" parameter with value (.+)$/) do |parameter_name, value|
   param_value = model_builder(parameter_name.to_parameter, JSON.parse(value.templated fixtures))
   param_key = parameter_name.to_parameter.to_sym
   opts[param_key] = param_value
-  # Store in path_parameters for undo operations
+  # Store in path_parameters for undo operations with all naming variants
   path_parameters[parameter_name] = param_value
   path_parameters[param_key] = param_value
+  path_parameters[parameter_name.to_parameter] = param_value
 end
 
 Given(/^new "([^"]+)" request$/) do |name|
