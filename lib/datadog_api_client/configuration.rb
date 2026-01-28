@@ -208,6 +208,7 @@ module DatadogAPIClient
             "v2.get_open_api": false,
             "v2.list_apis": false,
             "v2.update_open_api": false,
+            "v2.list_aws_cloud_auth_persona_mappings": false,
             "v2.cancel_threat_hunting_job": false,
             "v2.convert_job_result_to_signal": false,
             "v2.delete_threat_hunting_job": false,
