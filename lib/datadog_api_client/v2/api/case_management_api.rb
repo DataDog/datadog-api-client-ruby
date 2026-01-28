@@ -578,6 +578,77 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Add project to favorites.
+    #
+    # @see #favorite_project_with_http_info
+    def favorite_project(project_id, opts = {})
+      favorite_project_with_http_info(project_id, opts)
+      nil
+    end
+
+    # Add project to favorites.
+    #
+    # Add a project to the current user's favorites
+    #
+    # @param project_id [String] Project UUID
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def favorite_project_with_http_info(project_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.favorite_project".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.favorite_project")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.favorite_project"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CaseManagementAPI.favorite_project ...'
+      end
+      # verify the required parameter 'project_id' is set
+      if @api_client.config.client_side_validation && project_id.nil?
+        fail ArgumentError, "Missing the required parameter 'project_id' when calling CaseManagementAPI.favorite_project"
+      end
+      # resource path
+      local_var_path = '/api/v2/projects/{project_id}/favorites'.sub('{project_id}', CGI.escape(project_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :favorite_project,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CaseManagementAPI#favorite_project\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get the details of a case.
     #
     # @see #get_case_with_http_info
@@ -764,6 +835,72 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CaseManagementAPI#get_projects\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get user's project favorites.
+    #
+    # @see #list_user_project_favorites_with_http_info
+    def list_user_project_favorites(opts = {})
+      data, _status_code, _headers = list_user_project_favorites_with_http_info(opts)
+      data
+    end
+
+    # Get user's project favorites.
+    #
+    # Get all projects marked as favorite by the current user
+    #
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(ProjectFavoritesResponse, Integer, Hash)>] ProjectFavoritesResponse data, response status code and response headers
+    def list_user_project_favorites_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_user_project_favorites".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_user_project_favorites")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_user_project_favorites"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CaseManagementAPI.list_user_project_favorites ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/projects/favorites'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ProjectFavoritesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_user_project_favorites,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CaseManagementAPI#list_user_project_favorites\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1004,6 +1141,77 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CaseManagementAPI#unassign_case\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Remove project from favorites.
+    #
+    # @see #unfavorite_project_with_http_info
+    def unfavorite_project(project_id, opts = {})
+      unfavorite_project_with_http_info(project_id, opts)
+      nil
+    end
+
+    # Remove project from favorites.
+    #
+    # Remove a project from the current user's favorites
+    #
+    # @param project_id [String] Project UUID
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def unfavorite_project_with_http_info(project_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.unfavorite_project".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.unfavorite_project")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.unfavorite_project"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CaseManagementAPI.unfavorite_project ...'
+      end
+      # verify the required parameter 'project_id' is set
+      if @api_client.config.client_side_validation && project_id.nil?
+        fail ArgumentError, "Missing the required parameter 'project_id' when calling CaseManagementAPI.unfavorite_project"
+      end
+      # resource path
+      local_var_path = '/api/v2/projects/{project_id}/favorites'.sub('{project_id}', CGI.escape(project_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :unfavorite_project,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CaseManagementAPI#unfavorite_project\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
