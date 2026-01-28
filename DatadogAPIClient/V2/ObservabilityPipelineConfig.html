@@ -281,6 +281,32 @@
 </li>
 
     
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#use_legacy_search_syntax-instance_method" title="#use_legacy_search_syntax (instance method)">#<strong>use_legacy_search_syntax</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Set to <code>true</code> to continue using the legacy search syntax while migrating filter queries.</p>
+</div></span>
+  
+</li>
+
+    
   </ul>
 
 
@@ -328,12 +354,12 @@
       <pre class="lines">
 
 
-41
-42
-43</pre>
+47
+48
+49</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_config.rb', line 41</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_config.rb', line 47</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_additional_properties'>additional_properties</span>
   <span class='ivar'>@additional_properties</span>
@@ -555,13 +581,58 @@
 </table>
 </div>
     
+      
+      <span id="use_legacy_search_syntax=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="use_legacy_search_syntax-instance_method">
+  
+    #<strong>use_legacy_search_syntax</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Set to <code>true</code> to continue using the legacy search syntax while migrating filter queries. After migrating all queries to the new syntax, set to <code>false</code>.
+The legacy syntax is deprecated and will eventually be removed.
+Requires Observability Pipelines Worker 2.11 or later.
+See <a href="https://docs.datadoghq.com/observability_pipelines/guide/upgrade_your_filter_queries_to_the_new_search_syntax/">Upgrade Your Filter Queries to the New Search Syntax</a> for more information.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+45
+46
+47</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/observability_pipeline_config.rb', line 45</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_use_legacy_search_syntax'>use_legacy_search_syntax</span>
+  <span class='ivar'>@use_legacy_search_syntax</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
   </div>
 
 
 </div>
 
       <div id="footer">
-  Generated on Tue Jan 27 22:38:01 2026 by
+  Generated on Wed Jan 28 10:43:08 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.38 (ruby-2.7.8).
 </div>
