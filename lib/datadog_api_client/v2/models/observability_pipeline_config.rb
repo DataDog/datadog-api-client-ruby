@@ -38,6 +38,12 @@ module DatadogAPIClient::V2
     # A list of configured data sources for the pipeline.
     attr_reader :sources
 
+    # Set to `true` to continue using the legacy search syntax while migrating filter queries. After migrating all queries to the new syntax, set to `false`.
+    # The legacy syntax is deprecated and will eventually be removed.
+    # Requires Observability Pipelines Worker 2.11 or later.
+    # See [Upgrade Your Filter Queries to the New Search Syntax](https://docs.datadoghq.com/observability_pipelines/guide/upgrade_your_filter_queries_to_the_new_search_syntax/) for more information.
+    attr_accessor :use_legacy_search_syntax
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -48,7 +54,8 @@ module DatadogAPIClient::V2
         :'pipeline_type' => :'pipeline_type',
         :'processor_groups' => :'processor_groups',
         :'processors' => :'processors',
-        :'sources' => :'sources'
+        :'sources' => :'sources',
+        :'use_legacy_search_syntax' => :'use_legacy_search_syntax'
       }
     end
 
@@ -60,7 +67,8 @@ module DatadogAPIClient::V2
         :'pipeline_type' => :'ObservabilityPipelineConfigPipelineType',
         :'processor_groups' => :'Array<ObservabilityPipelineConfigProcessorGroup>',
         :'processors' => :'Array<ObservabilityPipelineConfigProcessorGroup>',
-        :'sources' => :'Array<ObservabilityPipelineConfigSourceItem>'
+        :'sources' => :'Array<ObservabilityPipelineConfigSourceItem>',
+        :'use_legacy_search_syntax' => :'Boolean'
       }
     end
 
@@ -108,6 +116,10 @@ module DatadogAPIClient::V2
         if (value = attributes[:'sources']).is_a?(Array)
           self.sources = value
         end
+      end
+
+      if attributes.key?(:'use_legacy_search_syntax')
+        self.use_legacy_search_syntax = attributes[:'use_legacy_search_syntax']
       end
     end
 
@@ -171,6 +183,7 @@ module DatadogAPIClient::V2
           processor_groups == o.processor_groups &&
           processors == o.processors &&
           sources == o.sources &&
+          use_legacy_search_syntax == o.use_legacy_search_syntax &&
           additional_properties == o.additional_properties
     end
 
@@ -178,7 +191,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [destinations, pipeline_type, processor_groups, processors, sources, additional_properties].hash
+      [destinations, pipeline_type, processor_groups, processors, sources, use_legacy_search_syntax, additional_properties].hash
     end
   end
 end
