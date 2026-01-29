@@ -17,27 +17,21 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Project attributes
-  class ProjectAttributes
+  # Notification rule creation attributes
+  class CaseNotificationRuleCreateAttributes
     include BaseGenericModel
 
-    # Project columns configuration
-    attr_accessor :columns_config
+    # Whether the notification rule is enabled
+    attr_accessor :is_enabled
 
-    # List of enabled custom case type IDs
-    attr_accessor :enabled_custom_case_types
+    # Query to filter cases for this notification rule
+    attr_accessor :query
 
-    # The project's key
-    attr_accessor :key
+    # List of notification recipients
+    attr_reader :recipients
 
-    # Project's name
-    attr_accessor :name
-
-    # Whether the project is restricted
-    attr_accessor :restricted
-
-    # Project settings
-    attr_accessor :settings
+    # List of triggers for this notification rule
+    attr_reader :triggers
 
     attr_accessor :additional_properties
 
@@ -45,12 +39,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'columns_config' => :'columns_config',
-        :'enabled_custom_case_types' => :'enabled_custom_case_types',
-        :'key' => :'key',
-        :'name' => :'name',
-        :'restricted' => :'restricted',
-        :'settings' => :'settings'
+        :'is_enabled' => :'is_enabled',
+        :'query' => :'query',
+        :'recipients' => :'recipients',
+        :'triggers' => :'triggers'
       }
     end
 
@@ -58,12 +50,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'columns_config' => :'ProjectColumnsConfig',
-        :'enabled_custom_case_types' => :'Array<String>',
-        :'key' => :'String',
-        :'name' => :'String',
-        :'restricted' => :'Boolean',
-        :'settings' => :'ProjectSettings'
+        :'is_enabled' => :'Boolean',
+        :'query' => :'String',
+        :'recipients' => :'Array<CaseNotificationRuleRecipient>',
+        :'triggers' => :'Array<CaseNotificationRuleTrigger>'
       }
     end
 
@@ -72,7 +62,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ProjectAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::CaseNotificationRuleCreateAttributes` initialize method"
       end
 
       self.additional_properties = {}
@@ -85,31 +75,54 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'columns_config')
-        self.columns_config = attributes[:'columns_config']
+      if attributes.key?(:'is_enabled')
+        self.is_enabled = attributes[:'is_enabled']
       end
 
-      if attributes.key?(:'enabled_custom_case_types')
-        if (value = attributes[:'enabled_custom_case_types']).is_a?(Array)
-          self.enabled_custom_case_types = value
+      if attributes.key?(:'query')
+        self.query = attributes[:'query']
+      end
+
+      if attributes.key?(:'recipients')
+        if (value = attributes[:'recipients']).is_a?(Array)
+          self.recipients = value
         end
       end
 
-      if attributes.key?(:'key')
-        self.key = attributes[:'key']
+      if attributes.key?(:'triggers')
+        if (value = attributes[:'triggers']).is_a?(Array)
+          self.triggers = value
+        end
       end
+    end
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
-      end
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @recipients.nil?
+      return false if @triggers.nil?
+      true
+    end
 
-      if attributes.key?(:'restricted')
-        self.restricted = attributes[:'restricted']
+    # Custom attribute writer method with validation
+    # @param recipients [Object] Object to be assigned
+    # @!visibility private
+    def recipients=(recipients)
+      if recipients.nil?
+        fail ArgumentError, 'invalid value for "recipients", recipients cannot be nil.'
       end
+      @recipients = recipients
+    end
 
-      if attributes.key?(:'settings')
-        self.settings = attributes[:'settings']
+    # Custom attribute writer method with validation
+    # @param triggers [Object] Object to be assigned
+    # @!visibility private
+    def triggers=(triggers)
+      if triggers.nil?
+        fail ArgumentError, 'invalid value for "triggers", triggers cannot be nil.'
       end
+      @triggers = triggers
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -138,12 +151,10 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          columns_config == o.columns_config &&
-          enabled_custom_case_types == o.enabled_custom_case_types &&
-          key == o.key &&
-          name == o.name &&
-          restricted == o.restricted &&
-          settings == o.settings &&
+          is_enabled == o.is_enabled &&
+          query == o.query &&
+          recipients == o.recipients &&
+          triggers == o.triggers &&
           additional_properties == o.additional_properties
     end
 
@@ -151,7 +162,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [columns_config, enabled_custom_case_types, key, name, restricted, settings, additional_properties].hash
+      [is_enabled, query, recipients, triggers, additional_properties].hash
     end
   end
 end

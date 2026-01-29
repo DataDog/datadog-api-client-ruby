@@ -373,6 +373,78 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Create a notification rule.
+    #
+    # @see #create_project_notification_rule_with_http_info
+    def create_project_notification_rule(project_id, body, opts = {})
+      data, _status_code, _headers = create_project_notification_rule_with_http_info(project_id, body, opts)
+      data
+    end
+
+    # Create a notification rule.
+    #
+    # Create a notification rule for a project.
+    #
+    # @param project_id [String] Project UUID
+    # @param body [CaseNotificationRuleCreateRequest] Notification rule payload
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(CaseNotificationRuleResponse, Integer, Hash)>] CaseNotificationRuleResponse data, response status code and response headers
+    def create_project_notification_rule_with_http_info(project_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CaseManagementAPI.create_project_notification_rule ...'
+      end
+      # verify the required parameter 'project_id' is set
+      if @api_client.config.client_side_validation && project_id.nil?
+        fail ArgumentError, "Missing the required parameter 'project_id' when calling CaseManagementAPI.create_project_notification_rule"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CaseManagementAPI.create_project_notification_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/cases/projects/{project_id}/notification_rules'.sub('{project_id}', CGI.escape(project_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CaseNotificationRuleResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_project_notification_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CaseManagementAPI#create_project_notification_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Delete case comment.
     #
     # @see #delete_case_comment_with_http_info
@@ -578,6 +650,76 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Delete a notification rule.
+    #
+    # @see #delete_project_notification_rule_with_http_info
+    def delete_project_notification_rule(project_id, notification_rule_id, opts = {})
+      delete_project_notification_rule_with_http_info(project_id, notification_rule_id, opts)
+      nil
+    end
+
+    # Delete a notification rule.
+    #
+    # Delete a notification rule using the notification rule's `id`.
+    #
+    # @param project_id [String] Project UUID
+    # @param notification_rule_id [String] Notification Rule UUID
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_project_notification_rule_with_http_info(project_id, notification_rule_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CaseManagementAPI.delete_project_notification_rule ...'
+      end
+      # verify the required parameter 'project_id' is set
+      if @api_client.config.client_side_validation && project_id.nil?
+        fail ArgumentError, "Missing the required parameter 'project_id' when calling CaseManagementAPI.delete_project_notification_rule"
+      end
+      # verify the required parameter 'notification_rule_id' is set
+      if @api_client.config.client_side_validation && notification_rule_id.nil?
+        fail ArgumentError, "Missing the required parameter 'notification_rule_id' when calling CaseManagementAPI.delete_project_notification_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/cases/projects/{project_id}/notification_rules/{notification_rule_id}'.sub('{project_id}', CGI.escape(project_id.to_s).gsub('%2F', '/')).sub('{notification_rule_id}', CGI.escape(notification_rule_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_project_notification_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CaseManagementAPI#delete_project_notification_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get the details of a case.
     #
     # @see #get_case_with_http_info
@@ -704,6 +846,71 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CaseManagementAPI#get_project\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get notification rules.
+    #
+    # @see #get_project_notification_rules_with_http_info
+    def get_project_notification_rules(project_id, opts = {})
+      data, _status_code, _headers = get_project_notification_rules_with_http_info(project_id, opts)
+      data
+    end
+
+    # Get notification rules.
+    #
+    # Get all notification rules for a project.
+    #
+    # @param project_id [String] Project UUID
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(CaseNotificationRulesResponse, Integer, Hash)>] CaseNotificationRulesResponse data, response status code and response headers
+    def get_project_notification_rules_with_http_info(project_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CaseManagementAPI.get_project_notification_rules ...'
+      end
+      # verify the required parameter 'project_id' is set
+      if @api_client.config.client_side_validation && project_id.nil?
+        fail ArgumentError, "Missing the required parameter 'project_id' when calling CaseManagementAPI.get_project_notification_rules"
+      end
+      # resource path
+      local_var_path = '/api/v2/cases/projects/{project_id}/notification_rules'.sub('{project_id}', CGI.escape(project_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CaseNotificationRulesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_project_notification_rules,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CaseManagementAPI#get_project_notification_rules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1369,6 +1576,155 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CaseManagementAPI#update_priority\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update a project.
+    #
+    # @see #update_project_with_http_info
+    def update_project(project_id, body, opts = {})
+      data, _status_code, _headers = update_project_with_http_info(project_id, body, opts)
+      data
+    end
+
+    # Update a project.
+    #
+    # Update a project.
+    #
+    # @param project_id [String] Project UUID
+    # @param body [ProjectUpdateRequest] Project payload
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(ProjectResponse, Integer, Hash)>] ProjectResponse data, response status code and response headers
+    def update_project_with_http_info(project_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CaseManagementAPI.update_project ...'
+      end
+      # verify the required parameter 'project_id' is set
+      if @api_client.config.client_side_validation && project_id.nil?
+        fail ArgumentError, "Missing the required parameter 'project_id' when calling CaseManagementAPI.update_project"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CaseManagementAPI.update_project"
+      end
+      # resource path
+      local_var_path = '/api/v2/cases/projects/{project_id}'.sub('{project_id}', CGI.escape(project_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ProjectResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_project,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CaseManagementAPI#update_project\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update a notification rule.
+    #
+    # @see #update_project_notification_rule_with_http_info
+    def update_project_notification_rule(project_id, notification_rule_id, body, opts = {})
+      update_project_notification_rule_with_http_info(project_id, notification_rule_id, body, opts)
+      nil
+    end
+
+    # Update a notification rule.
+    #
+    # Update a notification rule.
+    #
+    # @param project_id [String] Project UUID
+    # @param notification_rule_id [String] Notification Rule UUID
+    # @param body [CaseNotificationRuleUpdateRequest] Notification rule payload
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def update_project_notification_rule_with_http_info(project_id, notification_rule_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CaseManagementAPI.update_project_notification_rule ...'
+      end
+      # verify the required parameter 'project_id' is set
+      if @api_client.config.client_side_validation && project_id.nil?
+        fail ArgumentError, "Missing the required parameter 'project_id' when calling CaseManagementAPI.update_project_notification_rule"
+      end
+      # verify the required parameter 'notification_rule_id' is set
+      if @api_client.config.client_side_validation && notification_rule_id.nil?
+        fail ArgumentError, "Missing the required parameter 'notification_rule_id' when calling CaseManagementAPI.update_project_notification_rule"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CaseManagementAPI.update_project_notification_rule"
+      end
+      # resource path
+      local_var_path = '/api/v2/cases/projects/{project_id}/notification_rules/{notification_rule_id}'.sub('{project_id}', CGI.escape(project_id.to_s).gsub('%2F', '/')).sub('{notification_rule_id}', CGI.escape(notification_rule_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_project_notification_rule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CaseManagementAPI#update_project_notification_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

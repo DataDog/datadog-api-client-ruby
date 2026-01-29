@@ -21,11 +21,17 @@ module DatadogAPIClient::V2
   class ProjectCreateAttributes
     include BaseGenericModel
 
+    # List of enabled custom case type IDs
+    attr_accessor :enabled_custom_case_types
+
     # Project's key. Cannot be "CASE"
     attr_reader :key
 
-    # name
+    # Project name
     attr_reader :name
+
+    # Team UUID to associate with the project
+    attr_accessor :team_uuid
 
     attr_accessor :additional_properties
 
@@ -33,8 +39,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'enabled_custom_case_types' => :'enabled_custom_case_types',
         :'key' => :'key',
-        :'name' => :'name'
+        :'name' => :'name',
+        :'team_uuid' => :'team_uuid'
       }
     end
 
@@ -42,8 +50,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'enabled_custom_case_types' => :'Array<String>',
         :'key' => :'String',
-        :'name' => :'String'
+        :'name' => :'String',
+        :'team_uuid' => :'String'
       }
     end
 
@@ -65,12 +75,22 @@ module DatadogAPIClient::V2
         end
       }
 
+      if attributes.key?(:'enabled_custom_case_types')
+        if (value = attributes[:'enabled_custom_case_types']).is_a?(Array)
+          self.enabled_custom_case_types = value
+        end
+      end
+
       if attributes.key?(:'key')
         self.key = attributes[:'key']
       end
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'team_uuid')
+        self.team_uuid = attributes[:'team_uuid']
       end
     end
 
@@ -129,8 +149,10 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          enabled_custom_case_types == o.enabled_custom_case_types &&
           key == o.key &&
           name == o.name &&
+          team_uuid == o.team_uuid &&
           additional_properties == o.additional_properties
     end
 
@@ -138,7 +160,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [key, name, additional_properties].hash
+      [enabled_custom_case_types, key, name, team_uuid, additional_properties].hash
     end
   end
 end

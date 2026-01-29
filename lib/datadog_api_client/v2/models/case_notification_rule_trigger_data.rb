@@ -17,27 +17,27 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Project attributes
-  class ProjectAttributes
+  # Trigger data
+  class CaseNotificationRuleTriggerData
     include BaseGenericModel
 
-    # Project columns configuration
-    attr_accessor :columns_config
+    # Change type (added, removed, changed)
+    attr_accessor :change_type
 
-    # List of enabled custom case type IDs
-    attr_accessor :enabled_custom_case_types
+    # Field name for attribute value changed trigger
+    attr_accessor :field
 
-    # The project's key
-    attr_accessor :key
+    # Status ID to transition from
+    attr_accessor :from_status
 
-    # Project's name
-    attr_accessor :name
+    # Status name to transition from
+    attr_accessor :from_status_name
 
-    # Whether the project is restricted
-    attr_accessor :restricted
+    # Status ID to transition to
+    attr_accessor :to_status
 
-    # Project settings
-    attr_accessor :settings
+    # Status name to transition to
+    attr_accessor :to_status_name
 
     attr_accessor :additional_properties
 
@@ -45,12 +45,12 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'columns_config' => :'columns_config',
-        :'enabled_custom_case_types' => :'enabled_custom_case_types',
-        :'key' => :'key',
-        :'name' => :'name',
-        :'restricted' => :'restricted',
-        :'settings' => :'settings'
+        :'change_type' => :'change_type',
+        :'field' => :'field',
+        :'from_status' => :'from_status',
+        :'from_status_name' => :'from_status_name',
+        :'to_status' => :'to_status',
+        :'to_status_name' => :'to_status_name'
       }
     end
 
@@ -58,12 +58,12 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'columns_config' => :'ProjectColumnsConfig',
-        :'enabled_custom_case_types' => :'Array<String>',
-        :'key' => :'String',
-        :'name' => :'String',
-        :'restricted' => :'Boolean',
-        :'settings' => :'ProjectSettings'
+        :'change_type' => :'String',
+        :'field' => :'String',
+        :'from_status' => :'String',
+        :'from_status_name' => :'String',
+        :'to_status' => :'String',
+        :'to_status_name' => :'String'
       }
     end
 
@@ -72,7 +72,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ProjectAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::CaseNotificationRuleTriggerData` initialize method"
       end
 
       self.additional_properties = {}
@@ -85,30 +85,28 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'columns_config')
-        self.columns_config = attributes[:'columns_config']
+      if attributes.key?(:'change_type')
+        self.change_type = attributes[:'change_type']
       end
 
-      if attributes.key?(:'enabled_custom_case_types')
-        if (value = attributes[:'enabled_custom_case_types']).is_a?(Array)
-          self.enabled_custom_case_types = value
-        end
+      if attributes.key?(:'field')
+        self.field = attributes[:'field']
       end
 
-      if attributes.key?(:'key')
-        self.key = attributes[:'key']
+      if attributes.key?(:'from_status')
+        self.from_status = attributes[:'from_status']
       end
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
+      if attributes.key?(:'from_status_name')
+        self.from_status_name = attributes[:'from_status_name']
       end
 
-      if attributes.key?(:'restricted')
-        self.restricted = attributes[:'restricted']
+      if attributes.key?(:'to_status')
+        self.to_status = attributes[:'to_status']
       end
 
-      if attributes.key?(:'settings')
-        self.settings = attributes[:'settings']
+      if attributes.key?(:'to_status_name')
+        self.to_status_name = attributes[:'to_status_name']
       end
     end
 
@@ -138,12 +136,12 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          columns_config == o.columns_config &&
-          enabled_custom_case_types == o.enabled_custom_case_types &&
-          key == o.key &&
-          name == o.name &&
-          restricted == o.restricted &&
-          settings == o.settings &&
+          change_type == o.change_type &&
+          field == o.field &&
+          from_status == o.from_status &&
+          from_status_name == o.from_status_name &&
+          to_status == o.to_status &&
+          to_status_name == o.to_status_name &&
           additional_properties == o.additional_properties
     end
 
@@ -151,7 +149,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [columns_config, enabled_custom_case_types, key, name, restricted, settings, additional_properties].hash
+      [change_type, field, from_status, from_status_name, to_status, to_status_name, additional_properties].hash
     end
   end
 end

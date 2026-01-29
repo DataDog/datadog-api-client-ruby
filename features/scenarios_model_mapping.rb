@@ -1194,6 +1194,26 @@ ScenariosModelMappings = {
     "v2.GetProject" => {
             "project_id" => "String",
     },
+    "v2.UpdateProject" => {
+            "project_id" => "String",
+            "body" => "ProjectUpdateRequest",
+    },
+    "v2.GetProjectNotificationRules" => {
+            "project_id" => "String",
+    },
+    "v2.CreateProjectNotificationRule" => {
+            "project_id" => "String",
+            "body" => "CaseNotificationRuleCreateRequest",
+    },
+    "v2.DeleteProjectNotificationRule" => {
+            "project_id" => "String",
+            "notification_rule_id" => "String",
+    },
+    "v2.UpdateProjectNotificationRule" => {
+            "project_id" => "String",
+            "notification_rule_id" => "String",
+            "body" => "CaseNotificationRuleUpdateRequest",
+    },
     "v2.GetCase" => {
             "case_id" => "String",
     },

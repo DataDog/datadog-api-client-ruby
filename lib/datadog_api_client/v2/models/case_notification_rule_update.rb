@@ -17,27 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Project attributes
-  class ProjectAttributes
+  # Notification rule update
+  class CaseNotificationRuleUpdate
     include BaseGenericModel
 
-    # Project columns configuration
-    attr_accessor :columns_config
+    # Notification rule attributes
+    attr_accessor :attributes
 
-    # List of enabled custom case type IDs
-    attr_accessor :enabled_custom_case_types
-
-    # The project's key
-    attr_accessor :key
-
-    # Project's name
-    attr_accessor :name
-
-    # Whether the project is restricted
-    attr_accessor :restricted
-
-    # Project settings
-    attr_accessor :settings
+    # Notification rule resource type
+    attr_reader :type
 
     attr_accessor :additional_properties
 
@@ -45,12 +33,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'columns_config' => :'columns_config',
-        :'enabled_custom_case_types' => :'enabled_custom_case_types',
-        :'key' => :'key',
-        :'name' => :'name',
-        :'restricted' => :'restricted',
-        :'settings' => :'settings'
+        :'attributes' => :'attributes',
+        :'type' => :'type'
       }
     end
 
@@ -58,12 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'columns_config' => :'ProjectColumnsConfig',
-        :'enabled_custom_case_types' => :'Array<String>',
-        :'key' => :'String',
-        :'name' => :'String',
-        :'restricted' => :'Boolean',
-        :'settings' => :'ProjectSettings'
+        :'attributes' => :'CaseNotificationRuleAttributes',
+        :'type' => :'CaseNotificationRuleResourceType'
       }
     end
 
@@ -72,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ProjectAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::CaseNotificationRuleUpdate` initialize method"
       end
 
       self.additional_properties = {}
@@ -85,31 +65,31 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'columns_config')
-        self.columns_config = attributes[:'columns_config']
+      if attributes.key?(:'attributes')
+        self.attributes = attributes[:'attributes']
       end
 
-      if attributes.key?(:'enabled_custom_case_types')
-        if (value = attributes[:'enabled_custom_case_types']).is_a?(Array)
-          self.enabled_custom_case_types = value
-        end
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
       end
+    end
 
-      if attributes.key?(:'key')
-        self.key = attributes[:'key']
-      end
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @type.nil?
+      true
+    end
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
+    # Custom attribute writer method with validation
+    # @param type [Object] Object to be assigned
+    # @!visibility private
+    def type=(type)
+      if type.nil?
+        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
       end
-
-      if attributes.key?(:'restricted')
-        self.restricted = attributes[:'restricted']
-      end
-
-      if attributes.key?(:'settings')
-        self.settings = attributes[:'settings']
-      end
+      @type = type
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -138,12 +118,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          columns_config == o.columns_config &&
-          enabled_custom_case_types == o.enabled_custom_case_types &&
-          key == o.key &&
-          name == o.name &&
-          restricted == o.restricted &&
-          settings == o.settings &&
+          attributes == o.attributes &&
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -151,7 +127,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [columns_config, enabled_custom_case_types, key, name, restricted, settings, additional_properties].hash
+      [attributes, type, additional_properties].hash
     end
   end
 end
