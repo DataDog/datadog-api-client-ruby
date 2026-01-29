@@ -17,27 +17,27 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Project attributes
-  class ProjectAttributes
+  # Incident integration settings
+  class IntegrationIncident
     include BaseGenericModel
 
-    # Project columns configuration
-    attr_accessor :columns_config
+    # Query for auto-escalation
+    attr_accessor :auto_escalation_query
 
-    # List of enabled custom case type IDs
-    attr_accessor :enabled_custom_case_types
+    # Default incident commander
+    attr_accessor :default_incident_commander
 
-    # The project's key
-    attr_accessor :key
+    # Whether incident integration is enabled
+    attr_accessor :enabled
 
-    # Project's name
-    attr_accessor :name
+    #
+    attr_accessor :field_mappings
 
-    # Whether the project is restricted
-    attr_accessor :restricted
+    # Incident type
+    attr_accessor :incident_type
 
-    # Project settings
-    attr_accessor :settings
+    #
+    attr_accessor :severity_config
 
     attr_accessor :additional_properties
 
@@ -45,12 +45,12 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'columns_config' => :'columns_config',
-        :'enabled_custom_case_types' => :'enabled_custom_case_types',
-        :'key' => :'key',
-        :'name' => :'name',
-        :'restricted' => :'restricted',
-        :'settings' => :'settings'
+        :'auto_escalation_query' => :'auto_escalation_query',
+        :'default_incident_commander' => :'default_incident_commander',
+        :'enabled' => :'enabled',
+        :'field_mappings' => :'field_mappings',
+        :'incident_type' => :'incident_type',
+        :'severity_config' => :'severity_config'
       }
     end
 
@@ -58,12 +58,12 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'columns_config' => :'ProjectColumnsConfig',
-        :'enabled_custom_case_types' => :'Array<String>',
-        :'key' => :'String',
-        :'name' => :'String',
-        :'restricted' => :'Boolean',
-        :'settings' => :'ProjectSettings'
+        :'auto_escalation_query' => :'String',
+        :'default_incident_commander' => :'String',
+        :'enabled' => :'Boolean',
+        :'field_mappings' => :'Array<IntegrationIncidentFieldMappingsItems>',
+        :'incident_type' => :'String',
+        :'severity_config' => :'IntegrationIncidentSeverityConfig'
       }
     end
 
@@ -72,7 +72,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ProjectAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::IntegrationIncident` initialize method"
       end
 
       self.additional_properties = {}
@@ -85,30 +85,30 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'columns_config')
-        self.columns_config = attributes[:'columns_config']
+      if attributes.key?(:'auto_escalation_query')
+        self.auto_escalation_query = attributes[:'auto_escalation_query']
       end
 
-      if attributes.key?(:'enabled_custom_case_types')
-        if (value = attributes[:'enabled_custom_case_types']).is_a?(Array)
-          self.enabled_custom_case_types = value
+      if attributes.key?(:'default_incident_commander')
+        self.default_incident_commander = attributes[:'default_incident_commander']
+      end
+
+      if attributes.key?(:'enabled')
+        self.enabled = attributes[:'enabled']
+      end
+
+      if attributes.key?(:'field_mappings')
+        if (value = attributes[:'field_mappings']).is_a?(Array)
+          self.field_mappings = value
         end
       end
 
-      if attributes.key?(:'key')
-        self.key = attributes[:'key']
+      if attributes.key?(:'incident_type')
+        self.incident_type = attributes[:'incident_type']
       end
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.key?(:'restricted')
-        self.restricted = attributes[:'restricted']
-      end
-
-      if attributes.key?(:'settings')
-        self.settings = attributes[:'settings']
+      if attributes.key?(:'severity_config')
+        self.severity_config = attributes[:'severity_config']
       end
     end
 
@@ -138,12 +138,12 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          columns_config == o.columns_config &&
-          enabled_custom_case_types == o.enabled_custom_case_types &&
-          key == o.key &&
-          name == o.name &&
-          restricted == o.restricted &&
-          settings == o.settings &&
+          auto_escalation_query == o.auto_escalation_query &&
+          default_incident_commander == o.default_incident_commander &&
+          enabled == o.enabled &&
+          field_mappings == o.field_mappings &&
+          incident_type == o.incident_type &&
+          severity_config == o.severity_config &&
           additional_properties == o.additional_properties
     end
 
@@ -151,7 +151,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [columns_config, enabled_custom_case_types, key, name, restricted, settings, additional_properties].hash
+      [auto_escalation_query, default_incident_commander, enabled, field_mappings, incident_type, severity_config, additional_properties].hash
     end
   end
 end

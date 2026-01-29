@@ -17,27 +17,33 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Project attributes
-  class ProjectAttributes
+  # 
+  class IntegrationJiraSyncProperties
     include BaseGenericModel
 
-    # Project columns configuration
-    attr_accessor :columns_config
+    # Sync property configuration
+    attr_accessor :assignee
 
-    # List of enabled custom case type IDs
-    attr_accessor :enabled_custom_case_types
+    # Sync property configuration
+    attr_accessor :comments
 
-    # The project's key
-    attr_accessor :key
+    #
+    attr_accessor :custom_fields
 
-    # Project's name
-    attr_accessor :name
+    # Sync property configuration
+    attr_accessor :description
 
-    # Whether the project is restricted
-    attr_accessor :restricted
+    #
+    attr_accessor :due_date
 
-    # Project settings
-    attr_accessor :settings
+    # Sync property with mapping configuration
+    attr_accessor :priority
+
+    # Sync property with mapping configuration
+    attr_accessor :status
+
+    # Sync property configuration
+    attr_accessor :title
 
     attr_accessor :additional_properties
 
@@ -45,12 +51,14 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'columns_config' => :'columns_config',
-        :'enabled_custom_case_types' => :'enabled_custom_case_types',
-        :'key' => :'key',
-        :'name' => :'name',
-        :'restricted' => :'restricted',
-        :'settings' => :'settings'
+        :'assignee' => :'assignee',
+        :'comments' => :'comments',
+        :'custom_fields' => :'custom_fields',
+        :'description' => :'description',
+        :'due_date' => :'due_date',
+        :'priority' => :'priority',
+        :'status' => :'status',
+        :'title' => :'title'
       }
     end
 
@@ -58,12 +66,14 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'columns_config' => :'ProjectColumnsConfig',
-        :'enabled_custom_case_types' => :'Array<String>',
-        :'key' => :'String',
-        :'name' => :'String',
-        :'restricted' => :'Boolean',
-        :'settings' => :'ProjectSettings'
+        :'assignee' => :'SyncProperty',
+        :'comments' => :'SyncProperty',
+        :'custom_fields' => :'Hash<String, IntegrationJiraSyncPropertiesCustomFieldsAdditionalProperties>',
+        :'description' => :'SyncProperty',
+        :'due_date' => :'IntegrationJiraSyncDueDate',
+        :'priority' => :'SyncPropertyWithMapping',
+        :'status' => :'SyncPropertyWithMapping',
+        :'title' => :'SyncProperty'
       }
     end
 
@@ -72,7 +82,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ProjectAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::IntegrationJiraSyncProperties` initialize method"
       end
 
       self.additional_properties = {}
@@ -85,30 +95,36 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'columns_config')
-        self.columns_config = attributes[:'columns_config']
+      if attributes.key?(:'assignee')
+        self.assignee = attributes[:'assignee']
       end
 
-      if attributes.key?(:'enabled_custom_case_types')
-        if (value = attributes[:'enabled_custom_case_types']).is_a?(Array)
-          self.enabled_custom_case_types = value
-        end
+      if attributes.key?(:'comments')
+        self.comments = attributes[:'comments']
       end
 
-      if attributes.key?(:'key')
-        self.key = attributes[:'key']
+      if attributes.key?(:'custom_fields')
+        self.custom_fields = attributes[:'custom_fields']
       end
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
+      if attributes.key?(:'description')
+        self.description = attributes[:'description']
       end
 
-      if attributes.key?(:'restricted')
-        self.restricted = attributes[:'restricted']
+      if attributes.key?(:'due_date')
+        self.due_date = attributes[:'due_date']
       end
 
-      if attributes.key?(:'settings')
-        self.settings = attributes[:'settings']
+      if attributes.key?(:'priority')
+        self.priority = attributes[:'priority']
+      end
+
+      if attributes.key?(:'status')
+        self.status = attributes[:'status']
+      end
+
+      if attributes.key?(:'title')
+        self.title = attributes[:'title']
       end
     end
 
@@ -138,12 +154,14 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          columns_config == o.columns_config &&
-          enabled_custom_case_types == o.enabled_custom_case_types &&
-          key == o.key &&
-          name == o.name &&
-          restricted == o.restricted &&
-          settings == o.settings &&
+          assignee == o.assignee &&
+          comments == o.comments &&
+          custom_fields == o.custom_fields &&
+          description == o.description &&
+          due_date == o.due_date &&
+          priority == o.priority &&
+          status == o.status &&
+          title == o.title &&
           additional_properties == o.additional_properties
     end
 
@@ -151,7 +169,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [columns_config, enabled_custom_case_types, key, name, restricted, settings, additional_properties].hash
+      [assignee, comments, custom_fields, description, due_date, priority, status, title, additional_properties].hash
     end
   end
 end

@@ -17,8 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Project attributes
-  class ProjectAttributes
+  # Project update attributes
+  class ProjectUpdateAttributes
     include BaseGenericModel
 
     # Project columns configuration
@@ -27,17 +27,14 @@ module DatadogAPIClient::V2
     # List of enabled custom case type IDs
     attr_accessor :enabled_custom_case_types
 
-    # The project's key
-    attr_accessor :key
-
-    # Project's name
+    # Project name
     attr_accessor :name
-
-    # Whether the project is restricted
-    attr_accessor :restricted
 
     # Project settings
     attr_accessor :settings
+
+    # Team UUID to associate with the project
+    attr_accessor :team_uuid
 
     attr_accessor :additional_properties
 
@@ -47,10 +44,9 @@ module DatadogAPIClient::V2
       {
         :'columns_config' => :'columns_config',
         :'enabled_custom_case_types' => :'enabled_custom_case_types',
-        :'key' => :'key',
         :'name' => :'name',
-        :'restricted' => :'restricted',
-        :'settings' => :'settings'
+        :'settings' => :'settings',
+        :'team_uuid' => :'team_uuid'
       }
     end
 
@@ -60,10 +56,9 @@ module DatadogAPIClient::V2
       {
         :'columns_config' => :'ProjectColumnsConfig',
         :'enabled_custom_case_types' => :'Array<String>',
-        :'key' => :'String',
         :'name' => :'String',
-        :'restricted' => :'Boolean',
-        :'settings' => :'ProjectSettings'
+        :'settings' => :'ProjectSettings',
+        :'team_uuid' => :'String'
       }
     end
 
@@ -72,7 +67,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ProjectAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ProjectUpdateAttributes` initialize method"
       end
 
       self.additional_properties = {}
@@ -95,20 +90,16 @@ module DatadogAPIClient::V2
         end
       end
 
-      if attributes.key?(:'key')
-        self.key = attributes[:'key']
-      end
-
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
 
-      if attributes.key?(:'restricted')
-        self.restricted = attributes[:'restricted']
-      end
-
       if attributes.key?(:'settings')
         self.settings = attributes[:'settings']
+      end
+
+      if attributes.key?(:'team_uuid')
+        self.team_uuid = attributes[:'team_uuid']
       end
     end
 
@@ -140,10 +131,9 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           columns_config == o.columns_config &&
           enabled_custom_case_types == o.enabled_custom_case_types &&
-          key == o.key &&
           name == o.name &&
-          restricted == o.restricted &&
           settings == o.settings &&
+          team_uuid == o.team_uuid &&
           additional_properties == o.additional_properties
     end
 
@@ -151,7 +141,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [columns_config, enabled_custom_case_types, key, name, restricted, settings, additional_properties].hash
+      [columns_config, enabled_custom_case_types, name, settings, team_uuid, additional_properties].hash
     end
   end
 end
