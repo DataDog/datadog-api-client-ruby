@@ -17,27 +17,24 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Project attributes
-  class ProjectAttributes
+  # ServiceNow integration settings
+  class IntegrationServiceNow
     include BaseGenericModel
 
-    # Project columns configuration
-    attr_accessor :columns_config
+    # Assignment group
+    attr_accessor :assignment_group
 
-    # List of enabled custom case type IDs
-    attr_accessor :enabled_custom_case_types
+    #
+    attr_accessor :auto_creation
 
-    # The project's key
-    attr_accessor :key
+    # Whether ServiceNow integration is enabled
+    attr_accessor :enabled
 
-    # Project's name
-    attr_accessor :name
+    # ServiceNow instance name
+    attr_accessor :instance_name
 
-    # Whether the project is restricted
-    attr_accessor :restricted
-
-    # Project settings
-    attr_accessor :settings
+    #
+    attr_accessor :sync_config
 
     attr_accessor :additional_properties
 
@@ -45,12 +42,11 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'columns_config' => :'columns_config',
-        :'enabled_custom_case_types' => :'enabled_custom_case_types',
-        :'key' => :'key',
-        :'name' => :'name',
-        :'restricted' => :'restricted',
-        :'settings' => :'settings'
+        :'assignment_group' => :'assignment_group',
+        :'auto_creation' => :'auto_creation',
+        :'enabled' => :'enabled',
+        :'instance_name' => :'instance_name',
+        :'sync_config' => :'sync_config'
       }
     end
 
@@ -58,12 +54,11 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'columns_config' => :'ProjectColumnsConfig',
-        :'enabled_custom_case_types' => :'Array<String>',
-        :'key' => :'String',
-        :'name' => :'String',
-        :'restricted' => :'Boolean',
-        :'settings' => :'ProjectSettings'
+        :'assignment_group' => :'String',
+        :'auto_creation' => :'IntegrationServiceNowAutoCreation',
+        :'enabled' => :'Boolean',
+        :'instance_name' => :'String',
+        :'sync_config' => :'IntegrationServiceNowSyncConfig'
       }
     end
 
@@ -72,7 +67,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ProjectAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::IntegrationServiceNow` initialize method"
       end
 
       self.additional_properties = {}
@@ -85,30 +80,24 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'columns_config')
-        self.columns_config = attributes[:'columns_config']
+      if attributes.key?(:'assignment_group')
+        self.assignment_group = attributes[:'assignment_group']
       end
 
-      if attributes.key?(:'enabled_custom_case_types')
-        if (value = attributes[:'enabled_custom_case_types']).is_a?(Array)
-          self.enabled_custom_case_types = value
-        end
+      if attributes.key?(:'auto_creation')
+        self.auto_creation = attributes[:'auto_creation']
       end
 
-      if attributes.key?(:'key')
-        self.key = attributes[:'key']
+      if attributes.key?(:'enabled')
+        self.enabled = attributes[:'enabled']
       end
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
+      if attributes.key?(:'instance_name')
+        self.instance_name = attributes[:'instance_name']
       end
 
-      if attributes.key?(:'restricted')
-        self.restricted = attributes[:'restricted']
-      end
-
-      if attributes.key?(:'settings')
-        self.settings = attributes[:'settings']
+      if attributes.key?(:'sync_config')
+        self.sync_config = attributes[:'sync_config']
       end
     end
 
@@ -138,12 +127,11 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          columns_config == o.columns_config &&
-          enabled_custom_case_types == o.enabled_custom_case_types &&
-          key == o.key &&
-          name == o.name &&
-          restricted == o.restricted &&
-          settings == o.settings &&
+          assignment_group == o.assignment_group &&
+          auto_creation == o.auto_creation &&
+          enabled == o.enabled &&
+          instance_name == o.instance_name &&
+          sync_config == o.sync_config &&
           additional_properties == o.additional_properties
     end
 
@@ -151,7 +139,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [columns_config, enabled_custom_case_types, key, name, restricted, settings, additional_properties].hash
+      [assignment_group, auto_creation, enabled, instance_name, sync_config, additional_properties].hash
     end
   end
 end

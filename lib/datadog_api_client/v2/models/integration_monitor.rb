@@ -17,27 +17,21 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Project attributes
-  class ProjectAttributes
+  # Monitor integration settings
+  class IntegrationMonitor
     include BaseGenericModel
 
-    # Project columns configuration
-    attr_accessor :columns_config
+    # Whether auto-resolve is enabled
+    attr_accessor :auto_resolve_enabled
 
-    # List of enabled custom case type IDs
-    attr_accessor :enabled_custom_case_types
+    # Case type ID for monitor integration
+    attr_accessor :case_type_id
 
-    # The project's key
-    attr_accessor :key
+    # Whether monitor integration is enabled
+    attr_accessor :enabled
 
-    # Project's name
-    attr_accessor :name
-
-    # Whether the project is restricted
-    attr_accessor :restricted
-
-    # Project settings
-    attr_accessor :settings
+    # Monitor handle
+    attr_accessor :handle
 
     attr_accessor :additional_properties
 
@@ -45,12 +39,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'columns_config' => :'columns_config',
-        :'enabled_custom_case_types' => :'enabled_custom_case_types',
-        :'key' => :'key',
-        :'name' => :'name',
-        :'restricted' => :'restricted',
-        :'settings' => :'settings'
+        :'auto_resolve_enabled' => :'auto_resolve_enabled',
+        :'case_type_id' => :'case_type_id',
+        :'enabled' => :'enabled',
+        :'handle' => :'handle'
       }
     end
 
@@ -58,12 +50,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'columns_config' => :'ProjectColumnsConfig',
-        :'enabled_custom_case_types' => :'Array<String>',
-        :'key' => :'String',
-        :'name' => :'String',
-        :'restricted' => :'Boolean',
-        :'settings' => :'ProjectSettings'
+        :'auto_resolve_enabled' => :'Boolean',
+        :'case_type_id' => :'String',
+        :'enabled' => :'Boolean',
+        :'handle' => :'String'
       }
     end
 
@@ -72,7 +62,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ProjectAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::IntegrationMonitor` initialize method"
       end
 
       self.additional_properties = {}
@@ -85,30 +75,20 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'columns_config')
-        self.columns_config = attributes[:'columns_config']
+      if attributes.key?(:'auto_resolve_enabled')
+        self.auto_resolve_enabled = attributes[:'auto_resolve_enabled']
       end
 
-      if attributes.key?(:'enabled_custom_case_types')
-        if (value = attributes[:'enabled_custom_case_types']).is_a?(Array)
-          self.enabled_custom_case_types = value
-        end
+      if attributes.key?(:'case_type_id')
+        self.case_type_id = attributes[:'case_type_id']
       end
 
-      if attributes.key?(:'key')
-        self.key = attributes[:'key']
+      if attributes.key?(:'enabled')
+        self.enabled = attributes[:'enabled']
       end
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.key?(:'restricted')
-        self.restricted = attributes[:'restricted']
-      end
-
-      if attributes.key?(:'settings')
-        self.settings = attributes[:'settings']
+      if attributes.key?(:'handle')
+        self.handle = attributes[:'handle']
       end
     end
 
@@ -138,12 +118,10 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          columns_config == o.columns_config &&
-          enabled_custom_case_types == o.enabled_custom_case_types &&
-          key == o.key &&
-          name == o.name &&
-          restricted == o.restricted &&
-          settings == o.settings &&
+          auto_resolve_enabled == o.auto_resolve_enabled &&
+          case_type_id == o.case_type_id &&
+          enabled == o.enabled &&
+          handle == o.handle &&
           additional_properties == o.additional_properties
     end
 
@@ -151,7 +129,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [columns_config, enabled_custom_case_types, key, name, restricted, settings, additional_properties].hash
+      [auto_resolve_enabled, case_type_id, enabled, handle, additional_properties].hash
     end
   end
 end

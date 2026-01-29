@@ -17,27 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Project attributes
-  class ProjectAttributes
+  # On-Call integration settings
+  class IntegrationOnCall
     include BaseGenericModel
 
-    # Project columns configuration
-    attr_accessor :columns_config
+    # Whether to auto-assign on-call
+    attr_accessor :auto_assign_on_call
 
-    # List of enabled custom case type IDs
-    attr_accessor :enabled_custom_case_types
+    # Whether On-Call integration is enabled
+    attr_accessor :enabled
 
-    # The project's key
-    attr_accessor :key
-
-    # Project's name
-    attr_accessor :name
-
-    # Whether the project is restricted
-    attr_accessor :restricted
-
-    # Project settings
-    attr_accessor :settings
+    #
+    attr_accessor :escalation_queries
 
     attr_accessor :additional_properties
 
@@ -45,12 +36,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'columns_config' => :'columns_config',
-        :'enabled_custom_case_types' => :'enabled_custom_case_types',
-        :'key' => :'key',
-        :'name' => :'name',
-        :'restricted' => :'restricted',
-        :'settings' => :'settings'
+        :'auto_assign_on_call' => :'auto_assign_on_call',
+        :'enabled' => :'enabled',
+        :'escalation_queries' => :'escalation_queries'
       }
     end
 
@@ -58,12 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'columns_config' => :'ProjectColumnsConfig',
-        :'enabled_custom_case_types' => :'Array<String>',
-        :'key' => :'String',
-        :'name' => :'String',
-        :'restricted' => :'Boolean',
-        :'settings' => :'ProjectSettings'
+        :'auto_assign_on_call' => :'Boolean',
+        :'enabled' => :'Boolean',
+        :'escalation_queries' => :'Array<IntegrationOnCallEscalationQueriesItems>'
       }
     end
 
@@ -72,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ProjectAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::IntegrationOnCall` initialize method"
       end
 
       self.additional_properties = {}
@@ -85,30 +70,18 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'columns_config')
-        self.columns_config = attributes[:'columns_config']
+      if attributes.key?(:'auto_assign_on_call')
+        self.auto_assign_on_call = attributes[:'auto_assign_on_call']
       end
 
-      if attributes.key?(:'enabled_custom_case_types')
-        if (value = attributes[:'enabled_custom_case_types']).is_a?(Array)
-          self.enabled_custom_case_types = value
+      if attributes.key?(:'enabled')
+        self.enabled = attributes[:'enabled']
+      end
+
+      if attributes.key?(:'escalation_queries')
+        if (value = attributes[:'escalation_queries']).is_a?(Array)
+          self.escalation_queries = value
         end
-      end
-
-      if attributes.key?(:'key')
-        self.key = attributes[:'key']
-      end
-
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.key?(:'restricted')
-        self.restricted = attributes[:'restricted']
-      end
-
-      if attributes.key?(:'settings')
-        self.settings = attributes[:'settings']
       end
     end
 
@@ -138,12 +111,9 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          columns_config == o.columns_config &&
-          enabled_custom_case_types == o.enabled_custom_case_types &&
-          key == o.key &&
-          name == o.name &&
-          restricted == o.restricted &&
-          settings == o.settings &&
+          auto_assign_on_call == o.auto_assign_on_call &&
+          enabled == o.enabled &&
+          escalation_queries == o.escalation_queries &&
           additional_properties == o.additional_properties
     end
 
@@ -151,7 +121,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [columns_config, enabled_custom_case_types, key, name, restricted, settings, additional_properties].hash
+      [auto_assign_on_call, enabled, escalation_queries, additional_properties].hash
     end
   end
 end
