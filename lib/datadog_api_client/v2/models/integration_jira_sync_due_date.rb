@@ -17,27 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Project attributes
-  class ProjectAttributes
+  # 
+  class IntegrationJiraSyncDueDate
     include BaseGenericModel
 
-    # Project columns configuration
-    attr_accessor :columns_config
+    #
+    attr_accessor :jira_field_id
 
-    # List of enabled custom case type IDs
-    attr_accessor :enabled_custom_case_types
-
-    # The project's key
-    attr_accessor :key
-
-    # Project's name
-    attr_accessor :name
-
-    # Whether the project is restricted
-    attr_accessor :restricted
-
-    # Project settings
-    attr_accessor :settings
+    #
+    attr_accessor :sync_type
 
     attr_accessor :additional_properties
 
@@ -45,12 +33,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'columns_config' => :'columns_config',
-        :'enabled_custom_case_types' => :'enabled_custom_case_types',
-        :'key' => :'key',
-        :'name' => :'name',
-        :'restricted' => :'restricted',
-        :'settings' => :'settings'
+        :'jira_field_id' => :'jira_field_id',
+        :'sync_type' => :'sync_type'
       }
     end
 
@@ -58,12 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'columns_config' => :'ProjectColumnsConfig',
-        :'enabled_custom_case_types' => :'Array<String>',
-        :'key' => :'String',
-        :'name' => :'String',
-        :'restricted' => :'Boolean',
-        :'settings' => :'ProjectSettings'
+        :'jira_field_id' => :'String',
+        :'sync_type' => :'String'
       }
     end
 
@@ -72,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ProjectAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::IntegrationJiraSyncDueDate` initialize method"
       end
 
       self.additional_properties = {}
@@ -85,30 +65,12 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'columns_config')
-        self.columns_config = attributes[:'columns_config']
+      if attributes.key?(:'jira_field_id')
+        self.jira_field_id = attributes[:'jira_field_id']
       end
 
-      if attributes.key?(:'enabled_custom_case_types')
-        if (value = attributes[:'enabled_custom_case_types']).is_a?(Array)
-          self.enabled_custom_case_types = value
-        end
-      end
-
-      if attributes.key?(:'key')
-        self.key = attributes[:'key']
-      end
-
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.key?(:'restricted')
-        self.restricted = attributes[:'restricted']
-      end
-
-      if attributes.key?(:'settings')
-        self.settings = attributes[:'settings']
+      if attributes.key?(:'sync_type')
+        self.sync_type = attributes[:'sync_type']
       end
     end
 
@@ -138,12 +100,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          columns_config == o.columns_config &&
-          enabled_custom_case_types == o.enabled_custom_case_types &&
-          key == o.key &&
-          name == o.name &&
-          restricted == o.restricted &&
-          settings == o.settings &&
+          jira_field_id == o.jira_field_id &&
+          sync_type == o.sync_type &&
           additional_properties == o.additional_properties
     end
 
@@ -151,7 +109,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [columns_config, enabled_custom_case_types, key, name, restricted, settings, additional_properties].hash
+      [jira_field_id, sync_type, additional_properties].hash
     end
   end
 end
