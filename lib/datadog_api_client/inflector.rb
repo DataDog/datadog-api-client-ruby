@@ -538,6 +538,8 @@ module DatadogAPIClient
           "v1.slo_correction_update_data" => "SLOCorrectionUpdateData",
           "v1.slo_correction_update_request" => "SLOCorrectionUpdateRequest",
           "v1.slo_correction_update_request_attributes" => "SLOCorrectionUpdateRequestAttributes",
+          "v1.slo_count_definition" => "SLOCountDefinition",
+          "v1.slo_count_spec" => "SLOCountSpec",
           "v1.slo_creator" => "SLOCreator",
           "v1.slo_data_source_query_definition" => "SLODataSourceQueryDefinition",
           "v1.slo_delete_response" => "SLODeleteResponse",
