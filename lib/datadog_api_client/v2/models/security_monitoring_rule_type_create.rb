@@ -24,6 +24,7 @@ module DatadogAPIClient::V2
     API_SECURITY = "api_security".freeze
     APPLICATION_SECURITY = "application_security".freeze
     LOG_DETECTION = "log_detection".freeze
+    WORKLOAD_ACTIVITY = "workload_activity".freeze
     WORKLOAD_SECURITY = "workload_security".freeze
   end
 end
