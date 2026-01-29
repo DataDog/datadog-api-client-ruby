@@ -27,7 +27,7 @@ module DatadogAPIClient::V2
     # Creation time of the monitor notification rule.
     attr_accessor :created
 
-    # Filter used to associate the notification rule with monitors.
+    # Specifies the matching criteria for monitor notifications.
     attr_accessor :filter
 
     # Time the monitor notification rule was last modified.

@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # Use conditional recipients to define different recipients for different situations. Cannot be used with `recipients`.
     attr_accessor :conditional_recipients
 
-    # Filter used to associate the notification rule with monitors.
+    # Specifies the matching criteria for monitor notifications.
     attr_accessor :filter
 
     # The name of the monitor notification rule.

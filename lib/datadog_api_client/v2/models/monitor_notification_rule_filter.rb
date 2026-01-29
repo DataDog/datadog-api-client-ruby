@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Filter used to associate the notification rule with monitors.
+  # Specifies the matching criteria for monitor notifications.
   module MonitorNotificationRuleFilter
     class << self
       include BaseOneOfModel

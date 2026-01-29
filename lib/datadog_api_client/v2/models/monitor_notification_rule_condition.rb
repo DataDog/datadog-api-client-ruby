@@ -17,14 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Conditions for `conditional_recipients`.
+  # A conditional recipient rule composed of a `scope` (the matching condition) and
+  # `recipients` (who to notify when it matches).
   class MonitorNotificationRuleCondition
     include BaseGenericModel
 
     # A list of recipients to notify. Uses the same format as the monitor `message` field. Must not start with an '@'. Cannot be used with `conditional_recipients`.
     attr_reader :recipients
 
-    # The scope to which the monitor applied.
+    # Defines the condition under which the recipients are notified. Supported formats:
+    # - Monitor status condition using `transition_type:<status>`, for example `transition_type:is_alert`.
+    # - A single tag key:value pair, for example `env:prod`.
     attr_reader :scope
 
     attr_accessor :additional_properties
