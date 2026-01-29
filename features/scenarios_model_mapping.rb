@@ -1590,6 +1590,35 @@ ScenariosModelMappings = {
             "page_size" => "Integer",
             "page_number" => "Integer",
     },
+    "v2.ListSecurityMonitoringDatasets" => {
+            "page_size" => "Integer",
+            "page_number" => "Integer",
+            "sort" => "String",
+            "filter_query" => "String",
+    },
+    "v2.CreateSecurityMonitoringDataset" => {
+            "body" => "SecurityMonitoringDatasetCreateRequest",
+    },
+    "v2.BatchGetSecurityMonitoringDatasetDependencies" => {
+            "body" => "SecurityMonitoringDatasetDependenciesRequest",
+    },
+    "v2.DeleteSecurityMonitoringDataset" => {
+            "dataset_id" => "UUID",
+    },
+    "v2.GetSecurityMonitoringDataset" => {
+            "dataset_id" => "UUID",
+    },
+    "v2.UpdateSecurityMonitoringDataset" => {
+            "dataset_id" => "UUID",
+            "body" => "SecurityMonitoringDatasetUpdateRequest",
+    },
+    "v2.GetSecurityMonitoringDatasetHistory" => {
+            "dataset_id" => "UUID",
+    },
+    "v2.GetSecurityMonitoringDatasetByVersion" => {
+            "dataset_id" => "UUID",
+            "version" => "Integer",
+    },
     "v2.ListSecurityMonitoringRules" => {
             "page_size" => "Integer",
             "page_number" => "Integer",
