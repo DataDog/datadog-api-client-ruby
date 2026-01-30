@@ -1,5 +1,5 @@
 http_interactions:
-- recorded_at: Fri, 09 Jan 2026 15:42:37 GMT
+- recorded_at: Fri, 30 Jan 2026 16:23:40 GMT
   request:
     body:
       encoding: UTF-8
@@ -15,7 +15,7 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"d33cceac-ed71-11f0-bd8c-da7ad0900002","type":"pipelines","attributes":{"name":"Main
+      string: '{"data":{"id":"0a44c8d2-fdf8-11f0-8d8c-da7ad0900002","type":"pipelines","attributes":{"name":"Main
         Observability Pipeline","config":{"destinations":[{"id":"datadog-logs-destination","inputs":["my-processor-group"],"type":"datadog_logs"}],"processor_groups":[{"enabled":true,"id":"my-processor-group","include":"service:my-service","inputs":["datadog-agent-source"],"processors":[{"enabled":true,"id":"filter-processor","include":"status:error","type":"filter"}]}],"processors":[{"enabled":true,"id":"my-processor-group","include":"service:my-service","inputs":["datadog-agent-source"],"processors":[{"enabled":true,"id":"filter-processor","include":"status:error","type":"filter"}]}],"sources":[{"id":"datadog-agent-source","type":"datadog_agent"}]}}}}
 
         '
@@ -25,14 +25,14 @@ http_interactions:
     status:
       code: 201
       message: Created
-- recorded_at: Fri, 09 Jan 2026 15:42:37 GMT
+- recorded_at: Fri, 30 Jan 2026 16:23:40 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/obs-pipelines/pipelines/d33cceac-ed71-11f0-bd8c-da7ad0900002
+    uri: https://api.datadoghq.com/api/v2/obs-pipelines/pipelines/0a44c8d2-fdf8-11f0-8d8c-da7ad0900002
   response:
     body:
       encoding: UTF-8

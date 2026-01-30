@@ -1,5 +1,5 @@
 http_interactions:
-- recorded_at: Fri, 09 Jan 2026 15:42:41 GMT
+- recorded_at: Fri, 30 Jan 2026 16:23:45 GMT
   request:
     body:
       encoding: UTF-8
@@ -17,7 +17,7 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"d5da36ae-ed71-11f0-bd8e-da7ad0900002","type":"pipelines","attributes":{"name":"Main
+      string: '{"data":{"id":"0cda650c-fdf8-11f0-9e92-da7ad0900002","type":"pipelines","attributes":{"name":"Main
         Observability Pipeline","config":{"destinations":[{"id":"datadog-logs-destination","inputs":["processor-group-0"],"type":"datadog_logs"}],"processor_groups":[{"display_name":"My
         Processor Group","enabled":true,"id":"processor-group-0","include":"service:my-service","inputs":["datadog-agent-source"],"processors":[{"display_name":"My
         Filter Processor","enabled":true,"id":"filter-processor","include":"status:error","type":"filter"}]}],"processors":[{"display_name":"My
@@ -31,18 +31,18 @@ http_interactions:
     status:
       code: 201
       message: Created
-- recorded_at: Fri, 09 Jan 2026 15:42:41 GMT
+- recorded_at: Fri, 30 Jan 2026 16:23:45 GMT
   request:
     body: null
     headers:
       Accept:
       - application/json
     method: GET
-    uri: https://api.datadoghq.com/api/v2/obs-pipelines/pipelines/d5da36ae-ed71-11f0-bd8e-da7ad0900002
+    uri: https://api.datadoghq.com/api/v2/obs-pipelines/pipelines/0cda650c-fdf8-11f0-9e92-da7ad0900002
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"d5da36ae-ed71-11f0-bd8e-da7ad0900002","type":"pipelines","attributes":{"name":"Main
+      string: '{"data":{"id":"0cda650c-fdf8-11f0-9e92-da7ad0900002","type":"pipelines","attributes":{"name":"Main
         Observability Pipeline","config":{"destinations":[{"id":"datadog-logs-destination","inputs":["processor-group-0"],"type":"datadog_logs"}],"processor_groups":[{"display_name":"My
         Processor Group","enabled":true,"id":"processor-group-0","include":"service:my-service","inputs":["datadog-agent-source"],"processors":[{"display_name":"My
         Filter Processor","enabled":true,"id":"filter-processor","include":"status:error","type":"filter"}]}],"processors":[{"display_name":"My
@@ -56,14 +56,14 @@ http_interactions:
     status:
       code: 200
       message: OK
-- recorded_at: Fri, 09 Jan 2026 15:42:41 GMT
+- recorded_at: Fri, 30 Jan 2026 16:23:45 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/obs-pipelines/pipelines/d5da36ae-ed71-11f0-bd8e-da7ad0900002
+    uri: https://api.datadoghq.com/api/v2/obs-pipelines/pipelines/0cda650c-fdf8-11f0-9e92-da7ad0900002
   response:
     body:
       encoding: UTF-8

@@ -1,9 +1,6 @@
 # Create a new pipeline returns "OK" response
 
 require "datadog_api_client"
-DatadogAPIClient.configure do |config|
-  config.unstable_operations["v2.create_pipeline".to_sym] = true
-end
 api_instance = DatadogAPIClient::V2::ObservabilityPipelinesAPI.new
 
 body = DatadogAPIClient::V2::ObservabilityPipelineSpec.new({
