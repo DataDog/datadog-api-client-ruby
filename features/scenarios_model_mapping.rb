@@ -2001,6 +2001,10 @@ ScenariosModelMappings = {
     "v2.GetDORADeployment" => {
             "deployment_id" => "String",
     },
+    "v2.PatchDORADeployment" => {
+            "deployment_id" => "String",
+            "body" => "DORADeploymentPatchRequest",
+    },
     "v2.CreateDORAFailure" => {
             "body" => "DORAFailureRequest",
     },
