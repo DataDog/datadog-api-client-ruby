@@ -39,12 +39,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(ObservabilityPipeline, Integer, Hash)>] ObservabilityPipeline data, response status code and response headers
     def create_pipeline_with_http_info(body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.create_pipeline".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_pipeline")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_pipeline"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ObservabilityPipelinesAPI.create_pipeline ...'
@@ -112,12 +106,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_pipeline_with_http_info(pipeline_id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.delete_pipeline".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_pipeline")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_pipeline"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ObservabilityPipelinesAPI.delete_pipeline ...'
@@ -183,12 +171,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(ObservabilityPipeline, Integer, Hash)>] ObservabilityPipeline data, response status code and response headers
     def get_pipeline_with_http_info(pipeline_id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.get_pipeline".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_pipeline")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_pipeline"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ObservabilityPipelinesAPI.get_pipeline ...'
@@ -255,12 +237,6 @@ module DatadogAPIClient::V2
     # @option opts [Integer] :page_number Specific page number to return.
     # @return [Array<(ListPipelinesResponse, Integer, Hash)>] ListPipelinesResponse data, response status code and response headers
     def list_pipelines_with_http_info(opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.list_pipelines".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_pipelines")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_pipelines"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ObservabilityPipelinesAPI.list_pipelines ...'
@@ -325,12 +301,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(ObservabilityPipeline, Integer, Hash)>] ObservabilityPipeline data, response status code and response headers
     def update_pipeline_with_http_info(pipeline_id, body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.update_pipeline".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_pipeline")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_pipeline"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ObservabilityPipelinesAPI.update_pipeline ...'
@@ -403,12 +373,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(ValidationResponse, Integer, Hash)>] ValidationResponse data, response status code and response headers
     def validate_pipeline_with_http_info(body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.validate_pipeline".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.validate_pipeline")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.validate_pipeline"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ObservabilityPipelinesAPI.validate_pipeline ...'
