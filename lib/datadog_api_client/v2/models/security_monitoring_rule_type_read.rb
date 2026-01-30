@@ -27,5 +27,6 @@ module DatadogAPIClient::V2
     CLOUD_CONFIGURATION = "cloud_configuration".freeze
     APPLICATION_SECURITY = "application_security".freeze
     API_SECURITY = "api_security".freeze
+    WORKLOAD_ACTIVITY = "workload_activity".freeze
   end
 end
