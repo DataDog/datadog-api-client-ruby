@@ -241,5 +241,92 @@ module DatadogAPIClient::V2
       end
       return data, status_code, headers
     end
+
+    # Get SLO status.
+    #
+    # @see #get_slo_status_with_http_info
+    def get_slo_status(slo_id, from_ts, to_ts, opts = {})
+      data, _status_code, _headers = get_slo_status_with_http_info(slo_id, from_ts, to_ts, opts)
+      data
+    end
+
+    # Get SLO status.
+    #
+    # Get the status of a Service Level Objective (SLO) for a given time period.
+    #
+    # This endpoint returns the current SLI value, error budget remaining, and other status information for the specified SLO.
+    #
+    # @param slo_id [String] The ID of the SLO.
+    # @param from_ts [Integer] The starting timestamp for the SLO status query in epoch seconds.
+    # @param to_ts [Integer] The ending timestamp for the SLO status query in epoch seconds.
+    # @param opts [Hash] the optional parameters
+    # @option opts [Boolean] :disable_corrections Whether to exclude correction windows from the SLO status calculation. Defaults to false.
+    # @return [Array<(SloStatusResponse, Integer, Hash)>] SloStatusResponse data, response status code and response headers
+    def get_slo_status_with_http_info(slo_id, from_ts, to_ts, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_slo_status".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_slo_status")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_slo_status"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ServiceLevelObjectivesAPI.get_slo_status ...'
+      end
+      # verify the required parameter 'slo_id' is set
+      if @api_client.config.client_side_validation && slo_id.nil?
+        fail ArgumentError, "Missing the required parameter 'slo_id' when calling ServiceLevelObjectivesAPI.get_slo_status"
+      end
+      # verify the required parameter 'from_ts' is set
+      if @api_client.config.client_side_validation && from_ts.nil?
+        fail ArgumentError, "Missing the required parameter 'from_ts' when calling ServiceLevelObjectivesAPI.get_slo_status"
+      end
+      # verify the required parameter 'to_ts' is set
+      if @api_client.config.client_side_validation && to_ts.nil?
+        fail ArgumentError, "Missing the required parameter 'to_ts' when calling ServiceLevelObjectivesAPI.get_slo_status"
+      end
+      # resource path
+      local_var_path = '/api/v2/slo/{slo_id}/status'.sub('{slo_id}', CGI.escape(slo_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'from_ts'] = from_ts
+      query_params[:'to_ts'] = to_ts
+      query_params[:'disable_corrections'] = opts[:'disable_corrections'] if !opts[:'disable_corrections'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SloStatusResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_slo_status,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ServiceLevelObjectivesAPI#get_slo_status\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
   end
 end

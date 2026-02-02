@@ -3338,6 +3338,12 @@ ScenariosModelMappings = {
     "v2.GetSLOReportJobStatus" => {
             "report_id" => "String",
     },
+    "v2.GetSloStatus" => {
+            "slo_id" => "String",
+            "from_ts" => "Integer",
+            "to_ts" => "Integer",
+            "disable_corrections" => "Boolean",
+    },
     "v2.GetSPARecommendations" => {
             "bypass_cache" => "String",
             "service" => "String",

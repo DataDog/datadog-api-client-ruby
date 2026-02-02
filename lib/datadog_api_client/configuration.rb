@@ -349,6 +349,7 @@ module DatadogAPIClient
             "v2.create_slo_report_job": false,
             "v2.get_slo_report": false,
             "v2.get_slo_report_job_status": false,
+            "v2.get_slo_status": false,
             "v2.get_spa_recommendations": false,
             "v2.get_spa_recommendations_with_shard": false,
             "v2.create_custom_rule": false,
