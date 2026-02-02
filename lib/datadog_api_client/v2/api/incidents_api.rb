@@ -561,6 +561,10 @@ module DatadogAPIClient::V2
     #
     # Create a postmortem attachment for an incident.
     #
+    # The endpoint accepts markdown for notebooks created in Confluence or Google Docs.
+    # Postmortems created from notebooks need to be formatted using frontend notebook cells,
+    # in addition to markdown format.
+    #
     # @param incident_id [String] The ID of the incident
     # @param body [PostmortemAttachmentRequest] 
     # @param opts [Hash] the optional parameters
