@@ -2947,6 +2947,9 @@ ScenariosModelMappings = {
             "role_id" => "String",
             "body" => "RelationshipToUser",
     },
+    "v2.EvaluatePolicyResult" => {
+            "policy_type" => "String",
+    },
     "v2.ListPowerpacks" => {
             "page_limit" => "Integer",
             "page_offset" => "Integer",
@@ -3517,6 +3520,25 @@ ScenariosModelMappings = {
     "v2.PatchGlobalVariable" => {
             "variable_id" => "String",
             "body" => "GlobalVariableJsonPatchRequest",
+    },
+    "v2.ListTagPolicies" => {
+            "filter_source" => "String",
+    },
+    "v2.CreateTagPolicy" => {
+            "body" => "TagPolicyCreateRequest",
+    },
+    "v2.DeleteTagPolicy" => {
+            "policy_id" => "String",
+    },
+    "v2.GetTagPolicy" => {
+            "policy_id" => "String",
+    },
+    "v2.UpdateTagPolicy" => {
+            "policy_id" => "String",
+            "body" => "TagPolicyUpdateRequest",
+    },
+    "v2.GetTagPolicyScore" => {
+            "policy_id" => "String",
     },
     "v2.ListTeams" => {
             "page_number" => "Integer",
