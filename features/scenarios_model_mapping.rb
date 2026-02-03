@@ -3115,6 +3115,22 @@ ScenariosModelMappings = {
             "agent_rule_id" => "String",
             "body" => "CloudWorkloadSecurityAgentRuleUpdateRequest",
     },
+    "v2.ListReplayHeatmapSnapshots" => {
+            "filter_device_type" => "String",
+            "filter_view_name" => "String",
+            "page_limit" => "Integer",
+            "filter_application_id" => "String",
+    },
+    "v2.CreateReplayHeatmapSnapshot" => {
+            "body" => "SnapshotCreateRequest",
+    },
+    "v2.DeleteReplayHeatmapSnapshot" => {
+            "snapshot_id" => "String",
+    },
+    "v2.UpdateReplayHeatmapSnapshot" => {
+            "snapshot_id" => "String",
+            "body" => "SnapshotUpdateRequest",
+    },
     "v2.DeleteRestrictionPolicy" => {
             "resource_id" => "String",
     },
@@ -3189,6 +3205,73 @@ ScenariosModelMappings = {
     "v2.UpdateRumMetric" => {
             "metric_id" => "String",
             "body" => "RumMetricUpdateRequest",
+    },
+    "v2.ListRumReplayPlaylists" => {
+            "filter_created_by_uuid" => "String",
+            "filter_query" => "String",
+            "page_number" => "Integer",
+            "page_size" => "Integer",
+    },
+    "v2.CreateRumReplayPlaylist" => {
+            "body" => "Playlist",
+    },
+    "v2.DeleteRumReplayPlaylist" => {
+            "playlist_id" => "Integer",
+    },
+    "v2.GetRumReplayPlaylist" => {
+            "playlist_id" => "Integer",
+    },
+    "v2.UpdateRumReplayPlaylist" => {
+            "playlist_id" => "Integer",
+            "body" => "Playlist",
+    },
+    "v2.BulkRemoveRumReplayPlaylistSessions" => {
+            "playlist_id" => "Integer",
+            "body" => "SessionIdArray",
+    },
+    "v2.ListRumReplayPlaylistSessions" => {
+            "playlist_id" => "Integer",
+            "page_number" => "Integer",
+            "page_size" => "Integer",
+    },
+    "v2.RemoveRumReplaySessionFromPlaylist" => {
+            "playlist_id" => "Integer",
+            "session_id" => "String",
+    },
+    "v2.AddRumReplaySessionToPlaylist" => {
+            "data_source" => "String",
+            "ts" => "Integer",
+            "playlist_id" => "Integer",
+            "session_id" => "String",
+    },
+    "v2.GetSegments" => {
+            "view_id" => "String",
+            "source" => "String",
+            "session_id" => "String",
+            "ts" => "Integer",
+            "max_list_size" => "Integer",
+            "paging" => "String",
+    },
+    "v2.ListRumReplaySessionWatchers" => {
+            "page_size" => "Integer",
+            "page_number" => "Integer",
+            "session_id" => "String",
+    },
+    "v2.DeleteRumReplaySessionWatch" => {
+            "session_id" => "String",
+    },
+    "v2.CreateRumReplaySessionWatch" => {
+            "session_id" => "String",
+            "body" => "Watch",
+    },
+    "v2.ListRumReplayViewershipHistorySessions" => {
+            "filter_watched_at_start" => "Integer",
+            "page_number" => "Integer",
+            "filter_created_by" => "String",
+            "filter_watched_at_end" => "Integer",
+            "filter_session_ids" => "String",
+            "page_size" => "Integer",
+            "filter_application_id" => "String",
     },
     "v2.ListScorecardOutcomes" => {
             "page_size" => "Integer",
