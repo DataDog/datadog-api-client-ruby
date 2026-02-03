@@ -995,6 +995,79 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Create a security signal investigation.
+    #
+    # @see #create_signal_investigation_with_http_info
+    def create_signal_investigation(body, opts = {})
+      data, _status_code, _headers = create_signal_investigation_with_http_info(body, opts)
+      data
+    end
+
+    # Create a security signal investigation.
+    #
+    # Create an investigation for a security signal using AI-powered analysis.
+    #
+    # @param body [SecurityMonitoringSignalInvestigationRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SecurityMonitoringSignalInvestigationResponse, Integer, Hash)>] SecurityMonitoringSignalInvestigationResponse data, response status code and response headers
+    def create_signal_investigation_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_signal_investigation".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_signal_investigation")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_signal_investigation"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.create_signal_investigation ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.create_signal_investigation"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/signals/investigation'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityMonitoringSignalInvestigationResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_signal_investigation,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#create_signal_investigation\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create a new signal-based notification rule.
     #
     # @see #create_signal_notification_rule_with_http_info
@@ -2151,6 +2224,77 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SecurityMonitoringAPI#get_finding\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get investigation feedback.
+    #
+    # @see #get_investigation_feedback_with_http_info
+    def get_investigation_feedback(signal_id, opts = {})
+      data, _status_code, _headers = get_investigation_feedback_with_http_info(signal_id, opts)
+      data
+    end
+
+    # Get investigation feedback.
+    #
+    # Retrieve feedback for a security signal investigation.
+    #
+    # @param signal_id [String] The ID of the signal.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SecurityMonitoringSignalInvestigationFeedbackResponse, Integer, Hash)>] SecurityMonitoringSignalInvestigationFeedbackResponse data, response status code and response headers
+    def get_investigation_feedback_with_http_info(signal_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_investigation_feedback".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_investigation_feedback")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_investigation_feedback"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_investigation_feedback ...'
+      end
+      # verify the required parameter 'signal_id' is set
+      if @api_client.config.client_side_validation && signal_id.nil?
+        fail ArgumentError, "Missing the required parameter 'signal_id' when calling SecurityMonitoringAPI.get_investigation_feedback"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/signals/investigation/feedback/{signal_id}'.sub('{signal_id}', CGI.escape(signal_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityMonitoringSignalInvestigationFeedbackResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_investigation_feedback,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#get_investigation_feedback\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -5724,6 +5868,79 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SecurityMonitoringAPI#update_custom_framework\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update investigation feedback.
+    #
+    # @see #update_investigation_feedback_with_http_info
+    def update_investigation_feedback(body, opts = {})
+      update_investigation_feedback_with_http_info(body, opts)
+      nil
+    end
+
+    # Update investigation feedback.
+    #
+    # Provide feedback on a security signal investigation.
+    #
+    # @param body [SecurityMonitoringSignalInvestigationFeedbackRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def update_investigation_feedback_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.update_investigation_feedback".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_investigation_feedback")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_investigation_feedback"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.update_investigation_feedback ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.update_investigation_feedback"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/signals/investigation/feedback'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_investigation_feedback,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#update_investigation_feedback\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

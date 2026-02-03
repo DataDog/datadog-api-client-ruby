@@ -1660,6 +1660,15 @@ ScenariosModelMappings = {
             "page_cursor" => "String",
             "page_limit" => "Integer",
     },
+    "v2.CreateSignalInvestigation" => {
+            "body" => "SecurityMonitoringSignalInvestigationRequest",
+    },
+    "v2.UpdateInvestigationFeedback" => {
+            "body" => "SecurityMonitoringSignalInvestigationFeedbackRequest",
+    },
+    "v2.GetInvestigationFeedback" => {
+            "signal_id" => "String",
+    },
     "v2.SearchSecurityMonitoringSignals" => {
             "body" => "SecurityMonitoringSignalListRequest",
     },
