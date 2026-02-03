@@ -2346,6 +2346,22 @@ ScenariosModelMappings = {
             "handle_id" => "String",
             "body" => "MicrosoftTeamsUpdateWorkflowsWebhookHandleRequest",
     },
+    "v2.ListTenancyProducts" => {
+            "product_keys" => "String",
+    },
+    "v2.CreateTenancyConfig" => {
+            "body" => "CreateTenancyConfigRequest",
+    },
+    "v2.DeleteTenancyConfig" => {
+            "tenancy_ocid" => "String",
+    },
+    "v2.GetTenancyConfig" => {
+            "tenancy_ocid" => "String",
+    },
+    "v2.UpdateTenancyConfig" => {
+            "tenancy_ocid" => "String",
+            "body" => "UpdateTenancyConfigRequest",
+    },
     "v2.CreateOpsgenieService" => {
             "body" => "OpsgenieServiceCreateRequest",
     },
