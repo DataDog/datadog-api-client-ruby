@@ -12,6 +12,7 @@ body = DatadogAPIClient::V2::FlakyTestsSearchRequest.new({
       filter: DatadogAPIClient::V2::FlakyTestsSearchFilter.new({
         query: 'flaky_test_state:active @git.repository.id_v2:"github.com/datadog/shopist"',
       }),
+      include_history: true,
       page: DatadogAPIClient::V2::FlakyTestsSearchPageOptions.new({
         cursor: "eyJzdGFydEF0IjoiQVFBQUFYS2tMS3pPbm40NGV3QUFBQUJCV0V0clRFdDZVbG8zY3pCRmNsbHJiVmxDWlEifQ==",
         limit: 25,

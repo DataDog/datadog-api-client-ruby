@@ -17,23 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes for the flaky tests search request.
-  class FlakyTestsSearchRequestAttributes
+  # A single history entry representing a status change for a flaky test.
+  class FlakyTestHistory
     include BaseGenericModel
 
-    # Search filter settings.
-    attr_accessor :filter
+    # The commit SHA associated with this status change. Will be an empty string if the commit SHA is not available.
+    attr_reader :commit_sha
 
-    # Whether to include the status change history for each flaky test in the response.
-    # When set to true, each test will include a `history` array with chronological status changes.
-    # Defaults to false.
-    attr_accessor :include_history
+    # The test status at this point in history.
+    attr_reader :status
 
-    # Pagination attributes for listing flaky tests.
-    attr_accessor :page
-
-    # Parameter for sorting flaky test results. The default sort is by ascending Fully Qualified Name (FQN). The FQN is the concatenation of the test module, suite, and name.
-    attr_accessor :sort
+    # Unix timestamp in milliseconds when this status change occurred.
+    attr_reader :timestamp
 
     attr_accessor :additional_properties
 
@@ -41,10 +36,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'filter' => :'filter',
-        :'include_history' => :'include_history',
-        :'page' => :'page',
-        :'sort' => :'sort'
+        :'commit_sha' => :'commit_sha',
+        :'status' => :'status',
+        :'timestamp' => :'timestamp'
       }
     end
 
@@ -52,10 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'filter' => :'FlakyTestsSearchFilter',
-        :'include_history' => :'Boolean',
-        :'page' => :'FlakyTestsSearchPageOptions',
-        :'sort' => :'FlakyTestsSearchSort'
+        :'commit_sha' => :'String',
+        :'status' => :'String',
+        :'timestamp' => :'Integer'
       }
     end
 
@@ -64,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::FlakyTestsSearchRequestAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::FlakyTestHistory` initialize method"
       end
 
       self.additional_properties = {}
@@ -77,21 +70,57 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'filter')
-        self.filter = attributes[:'filter']
+      if attributes.key?(:'commit_sha')
+        self.commit_sha = attributes[:'commit_sha']
       end
 
-      if attributes.key?(:'include_history')
-        self.include_history = attributes[:'include_history']
+      if attributes.key?(:'status')
+        self.status = attributes[:'status']
       end
 
-      if attributes.key?(:'page')
-        self.page = attributes[:'page']
+      if attributes.key?(:'timestamp')
+        self.timestamp = attributes[:'timestamp']
       end
+    end
 
-      if attributes.key?(:'sort')
-        self.sort = attributes[:'sort']
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @commit_sha.nil?
+      return false if @status.nil?
+      return false if @timestamp.nil?
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param commit_sha [Object] Object to be assigned
+    # @!visibility private
+    def commit_sha=(commit_sha)
+      if commit_sha.nil?
+        fail ArgumentError, 'invalid value for "commit_sha", commit_sha cannot be nil.'
       end
+      @commit_sha = commit_sha
+    end
+
+    # Custom attribute writer method with validation
+    # @param status [Object] Object to be assigned
+    # @!visibility private
+    def status=(status)
+      if status.nil?
+        fail ArgumentError, 'invalid value for "status", status cannot be nil.'
+      end
+      @status = status
+    end
+
+    # Custom attribute writer method with validation
+    # @param timestamp [Object] Object to be assigned
+    # @!visibility private
+    def timestamp=(timestamp)
+      if timestamp.nil?
+        fail ArgumentError, 'invalid value for "timestamp", timestamp cannot be nil.'
+      end
+      @timestamp = timestamp
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -120,10 +149,9 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          filter == o.filter &&
-          include_history == o.include_history &&
-          page == o.page &&
-          sort == o.sort &&
+          commit_sha == o.commit_sha &&
+          status == o.status &&
+          timestamp == o.timestamp &&
           additional_properties == o.additional_properties
     end
 
@@ -131,7 +159,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [filter, include_history, page, sort, additional_properties].hash
+      [commit_sha, status, timestamp, additional_properties].hash
     end
   end
 end
