@@ -2087,6 +2087,43 @@ ScenariosModelMappings = {
     "v2.GetEvent" => {
             "event_id" => "String",
     },
+    "v2.ListForms" => {
+            "name" => "String",
+    },
+    "v2.CreateForm" => {
+            "body" => "FormCreateRequest",
+    },
+    "v2.CreateAndPublishForm" => {
+            "body" => "FormCreateRequest",
+    },
+    "v2.DeleteForm" => {
+            "form_id" => "UUID",
+    },
+    "v2.GetForm" => {
+            "form_id" => "UUID",
+            "version" => "Integer",
+            "published_version" => "Boolean",
+    },
+    "v2.UpdateForm" => {
+            "form_id" => "UUID",
+            "body" => "FormUpdateRequest",
+    },
+    "v2.PublishForm" => {
+            "form_id" => "UUID",
+            "body" => "FormPublicationRequest",
+    },
+    "v2.SubmitForm" => {
+            "form_id" => "UUID",
+            "body" => "FormSubmissionRequest",
+    },
+    "v2.UpsertFormVersion" => {
+            "form_id" => "UUID",
+            "body" => "FormVersionRequest",
+    },
+    "v2.UpsertAndPublishFormVersion" => {
+            "form_id" => "UUID",
+            "body" => "FormVersionRequest",
+    },
     "v2.CreateHamrOrgConnection" => {
             "body" => "HamrOrgConnectionRequest",
     },
