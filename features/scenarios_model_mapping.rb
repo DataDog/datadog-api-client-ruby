@@ -1610,6 +1610,12 @@ ScenariosModelMappings = {
             "page_size" => "Integer",
             "page_number" => "Integer",
     },
+    "v2.ActivateContentPack" => {
+            "content_pack_id" => "String",
+    },
+    "v2.DeactivateContentPack" => {
+            "content_pack_id" => "String",
+    },
     "v2.ListSecurityMonitoringRules" => {
             "page_size" => "Integer",
             "page_number" => "Integer",

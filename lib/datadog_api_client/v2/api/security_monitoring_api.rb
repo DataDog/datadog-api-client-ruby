@@ -23,6 +23,79 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
+    # Activate content pack.
+    #
+    # @see #activate_content_pack_with_http_info
+    def activate_content_pack(content_pack_id, opts = {})
+      activate_content_pack_with_http_info(content_pack_id, opts)
+      nil
+    end
+
+    # Activate content pack.
+    #
+    # Activate a security monitoring content pack. This operation configures the necessary
+    # log filters or security filters depending on the pricing model and updates the content
+    # pack activation state.
+    #
+    # @param content_pack_id [String] The ID of the content pack to activate.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def activate_content_pack_with_http_info(content_pack_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.activate_content_pack".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.activate_content_pack")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.activate_content_pack"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.activate_content_pack ...'
+      end
+      # verify the required parameter 'content_pack_id' is set
+      if @api_client.config.client_side_validation && content_pack_id.nil?
+        fail ArgumentError, "Missing the required parameter 'content_pack_id' when calling SecurityMonitoringAPI.activate_content_pack"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/content_packs/{content_pack_id}/activate'.sub('{content_pack_id}', CGI.escape(content_pack_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :activate_content_pack,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#activate_content_pack\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Attach security findings to a case.
     #
     # @see #attach_case_with_http_info
@@ -1129,6 +1202,78 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Deactivate content pack.
+    #
+    # @see #deactivate_content_pack_with_http_info
+    def deactivate_content_pack(content_pack_id, opts = {})
+      deactivate_content_pack_with_http_info(content_pack_id, opts)
+      nil
+    end
+
+    # Deactivate content pack.
+    #
+    # Deactivate a security monitoring content pack. This operation removes the content pack's
+    # configuration from log filters or security filters and updates the content pack activation state.
+    #
+    # @param content_pack_id [String] The ID of the content pack to deactivate.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def deactivate_content_pack_with_http_info(content_pack_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.deactivate_content_pack".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.deactivate_content_pack")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.deactivate_content_pack"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.deactivate_content_pack ...'
+      end
+      # verify the required parameter 'content_pack_id' is set
+      if @api_client.config.client_side_validation && content_pack_id.nil?
+        fail ArgumentError, "Missing the required parameter 'content_pack_id' when calling SecurityMonitoringAPI.deactivate_content_pack"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/content_packs/{content_pack_id}/deactivate'.sub('{content_pack_id}', CGI.escape(content_pack_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :deactivate_content_pack,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#deactivate_content_pack\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Delete a custom framework.
     #
     # @see #delete_custom_framework_with_http_info
@@ -1940,6 +2085,74 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SecurityMonitoringAPI#edit_security_monitoring_signal_state\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get content pack states.
+    #
+    # @see #get_content_packs_states_with_http_info
+    def get_content_packs_states(opts = {})
+      data, _status_code, _headers = get_content_packs_states_with_http_info(opts)
+      data
+    end
+
+    # Get content pack states.
+    #
+    # Get the activation and configuration states for all security monitoring content packs.
+    # This endpoint returns status information about each content pack including activation state,
+    # integration status, and log collection status.
+    #
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SecurityMonitoringContentPackStatesResponse, Integer, Hash)>] SecurityMonitoringContentPackStatesResponse data, response status code and response headers
+    def get_content_packs_states_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_content_packs_states".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_content_packs_states")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_content_packs_states"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_content_packs_states ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/content_packs/states'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityMonitoringContentPackStatesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_content_packs_states,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#get_content_packs_states\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
