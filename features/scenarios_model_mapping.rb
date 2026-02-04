@@ -1932,6 +1932,13 @@ ScenariosModelMappings = {
             "dashboard_list_id" => "Integer",
             "body" => "DashboardListUpdateItemsRequest",
     },
+    "v2.SearchDashboards" => {
+            "query" => "String",
+            "sort" => "String",
+            "include" => "String",
+            "page" => "Integer",
+            "limit" => "Integer",
+    },
     "v2.CreateDataset" => {
             "body" => "DatasetCreateRequest",
     },
@@ -2771,6 +2778,13 @@ ScenariosModelMappings = {
             "to" => "Integer",
             "group_by" => "String",
             "tags" => "String",
+            "limit" => "Integer",
+    },
+    "v2.SearchNotebooks" => {
+            "query" => "String",
+            "sort" => "String",
+            "include" => "String",
+            "page" => "Integer",
             "limit" => "Integer",
     },
     "v2.ListPipelines" => {
