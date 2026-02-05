@@ -4484,6 +4484,7 @@ module DatadogAPIClient
           "v2.sensitive_data_scanner_standard_patterns_response_data" => "SensitiveDataScannerStandardPatternsResponseData",
           "v2.sensitive_data_scanner_standard_patterns_response_item" => "SensitiveDataScannerStandardPatternsResponseItem",
           "v2.sensitive_data_scanner_standard_pattern_type" => "SensitiveDataScannerStandardPatternType",
+          "v2.sensitive_data_scanner_suppressions" => "SensitiveDataScannerSuppressions",
           "v2.sensitive_data_scanner_text_replacement" => "SensitiveDataScannerTextReplacement",
           "v2.sensitive_data_scanner_text_replacement_type" => "SensitiveDataScannerTextReplacementType",
           "v2.service_account_create_attributes" => "ServiceAccountCreateAttributes",
