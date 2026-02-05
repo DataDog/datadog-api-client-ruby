@@ -2408,6 +2408,7 @@ module DatadogAPIClient
           "v2.flaky_test" => "FlakyTest",
           "v2.flaky_test_attributes" => "FlakyTestAttributes",
           "v2.flaky_test_attributes_flaky_state" => "FlakyTestAttributesFlakyState",
+          "v2.flaky_test_history" => "FlakyTestHistory",
           "v2.flaky_test_pipeline_stats" => "FlakyTestPipelineStats",
           "v2.flaky_test_run_metadata" => "FlakyTestRunMetadata",
           "v2.flaky_tests_pagination" => "FlakyTestsPagination",

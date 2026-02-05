@@ -1,4 +1,4 @@
-# Search flaky tests returns "OK" response with pagination
+# Search flaky tests returns "OK" response with history
 
 require "datadog_api_client"
 DatadogAPIClient.configure do |config|
@@ -12,12 +12,11 @@ body = DatadogAPIClient::V2::FlakyTestsSearchRequest.new({
       filter: DatadogAPIClient::V2::FlakyTestsSearchFilter.new({
         query: 'flaky_test_state:active @git.repository.id_v2:"github.com/datadog/shopist"',
       }),
-      include_history: true,
       page: DatadogAPIClient::V2::FlakyTestsSearchPageOptions.new({
-        cursor: "eyJzdGFydEF0IjoiQVFBQUFYS2tMS3pPbm40NGV3QUFBQUJCV0V0clRFdDZVbG8zY3pCRmNsbHJiVmxDWlEifQ==",
-        limit: 25,
+        limit: 10,
       }),
-      sort: DatadogAPIClient::V2::FlakyTestsSearchSort::FAILURE_RATE_ASCENDING,
+      sort: DatadogAPIClient::V2::FlakyTestsSearchSort::FQN_ASCENDING,
+      include_history: true,
     }),
     type: DatadogAPIClient::V2::FlakyTestsSearchRequestDataType::SEARCH_FLAKY_TESTS_REQUEST,
   }),
@@ -25,4 +24,4 @@ body = DatadogAPIClient::V2::FlakyTestsSearchRequest.new({
 opts = {
   body: body,
 }
-api_instance.search_flaky_tests_with_pagination(opts) { |item| puts item }
+p api_instance.search_flaky_tests(opts)
