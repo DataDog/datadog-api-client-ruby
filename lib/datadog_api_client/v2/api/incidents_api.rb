@@ -631,6 +631,79 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Create postmortem template.
+    #
+    # @see #create_incident_postmortem_template_with_http_info
+    def create_incident_postmortem_template(body, opts = {})
+      data, _status_code, _headers = create_incident_postmortem_template_with_http_info(body, opts)
+      data
+    end
+
+    # Create postmortem template.
+    #
+    # Create a new postmortem template for incidents.
+    #
+    # @param body [PostmortemTemplateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(PostmortemTemplateResponse, Integer, Hash)>] PostmortemTemplateResponse data, response status code and response headers
+    def create_incident_postmortem_template_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_incident_postmortem_template".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_incident_postmortem_template")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_incident_postmortem_template"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: IncidentsAPI.create_incident_postmortem_template ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling IncidentsAPI.create_incident_postmortem_template"
+      end
+      # resource path
+      local_var_path = '/api/v2/incidents/config/postmortem-templates'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'PostmortemTemplateResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :create_incident_postmortem_template,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: IncidentsAPI#create_incident_postmortem_template\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create an incident todo.
     #
     # @see #create_incident_todo_with_http_info
@@ -1284,6 +1357,77 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Delete postmortem template.
+    #
+    # @see #delete_incident_postmortem_template_with_http_info
+    def delete_incident_postmortem_template(template_id, opts = {})
+      delete_incident_postmortem_template_with_http_info(template_id, opts)
+      nil
+    end
+
+    # Delete postmortem template.
+    #
+    # Delete a postmortem template.
+    #
+    # @param template_id [String] The ID of the postmortem template
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_incident_postmortem_template_with_http_info(template_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.delete_incident_postmortem_template".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_incident_postmortem_template")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_incident_postmortem_template"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: IncidentsAPI.delete_incident_postmortem_template ...'
+      end
+      # verify the required parameter 'template_id' is set
+      if @api_client.config.client_side_validation && template_id.nil?
+        fail ArgumentError, "Missing the required parameter 'template_id' when calling IncidentsAPI.delete_incident_postmortem_template"
+      end
+      # resource path
+      local_var_path = '/api/v2/incidents/config/postmortem-templates/{template_id}'.sub('{template_id}', CGI.escape(template_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :delete_incident_postmortem_template,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: IncidentsAPI#delete_incident_postmortem_template\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Delete an incident todo.
     #
     # @see #delete_incident_todo_with_http_info
@@ -1788,6 +1932,77 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: IncidentsAPI#get_incident_notification_template\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get postmortem template.
+    #
+    # @see #get_incident_postmortem_template_with_http_info
+    def get_incident_postmortem_template(template_id, opts = {})
+      data, _status_code, _headers = get_incident_postmortem_template_with_http_info(template_id, opts)
+      data
+    end
+
+    # Get postmortem template.
+    #
+    # Retrieve details of a specific postmortem template.
+    #
+    # @param template_id [String] The ID of the postmortem template
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(PostmortemTemplateResponse, Integer, Hash)>] PostmortemTemplateResponse data, response status code and response headers
+    def get_incident_postmortem_template_with_http_info(template_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_incident_postmortem_template".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_incident_postmortem_template")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_incident_postmortem_template"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: IncidentsAPI.get_incident_postmortem_template ...'
+      end
+      # verify the required parameter 'template_id' is set
+      if @api_client.config.client_side_validation && template_id.nil?
+        fail ArgumentError, "Missing the required parameter 'template_id' when calling IncidentsAPI.get_incident_postmortem_template"
+      end
+      # resource path
+      local_var_path = '/api/v2/incidents/config/postmortem-templates/{template_id}'.sub('{template_id}', CGI.escape(template_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'PostmortemTemplateResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_incident_postmortem_template,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: IncidentsAPI#get_incident_postmortem_template\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2354,6 +2569,72 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: IncidentsAPI#list_incident_notification_templates\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List postmortem templates.
+    #
+    # @see #list_incident_postmortem_templates_with_http_info
+    def list_incident_postmortem_templates(opts = {})
+      data, _status_code, _headers = list_incident_postmortem_templates_with_http_info(opts)
+      data
+    end
+
+    # List postmortem templates.
+    #
+    # Retrieve a list of all postmortem templates for incidents.
+    #
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(PostmortemTemplatesResponse, Integer, Hash)>] PostmortemTemplatesResponse data, response status code and response headers
+    def list_incident_postmortem_templates_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_incident_postmortem_templates".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_incident_postmortem_templates")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_incident_postmortem_templates"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: IncidentsAPI.list_incident_postmortem_templates ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/incidents/config/postmortem-templates'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'PostmortemTemplatesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :list_incident_postmortem_templates,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: IncidentsAPI#list_incident_postmortem_templates\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -3248,6 +3529,84 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: IncidentsAPI#update_incident_notification_template\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update postmortem template.
+    #
+    # @see #update_incident_postmortem_template_with_http_info
+    def update_incident_postmortem_template(template_id, body, opts = {})
+      data, _status_code, _headers = update_incident_postmortem_template_with_http_info(template_id, body, opts)
+      data
+    end
+
+    # Update postmortem template.
+    #
+    # Update an existing postmortem template.
+    #
+    # @param template_id [String] The ID of the postmortem template
+    # @param body [PostmortemTemplateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(PostmortemTemplateResponse, Integer, Hash)>] PostmortemTemplateResponse data, response status code and response headers
+    def update_incident_postmortem_template_with_http_info(template_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.update_incident_postmortem_template".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_incident_postmortem_template")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_incident_postmortem_template"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: IncidentsAPI.update_incident_postmortem_template ...'
+      end
+      # verify the required parameter 'template_id' is set
+      if @api_client.config.client_side_validation && template_id.nil?
+        fail ArgumentError, "Missing the required parameter 'template_id' when calling IncidentsAPI.update_incident_postmortem_template"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling IncidentsAPI.update_incident_postmortem_template"
+      end
+      # resource path
+      local_var_path = '/api/v2/incidents/config/postmortem-templates/{template_id}'.sub('{template_id}', CGI.escape(template_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'PostmortemTemplateResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :update_incident_postmortem_template,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: IncidentsAPI#update_incident_postmortem_template\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
