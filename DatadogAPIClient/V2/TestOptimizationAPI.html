@@ -449,6 +449,22 @@
 
 <p>List endpoint returning flaky tests from Flaky Test Management. Results are paginated.</p>
 
+<p>The response includes comprehensive test information including:</p>
+
+<ul>
+<li>Test identification and metadata (module, suite, name)</li>
+<li>Flaky state and categorization</li>
+<li>First and last flake occurrences (timestamp, branch, commit SHA)</li>
+<li>Test execution statistics from the last 7 days (failure rate)</li>
+<li>Pipeline impact metrics (failed pipelines count, total lost time)</li>
+<li>Complete status change history (optional, ordered from most recent to oldest)</li>
+</ul>
+
+<p>Set <code>include_history</code> to <code>true</code> in the request to receive the status change history for each test.
+History is disabled by default for better performance.</p>
+
+<p>Results support filtering by various facets including service, environment, repository, branch, and test state.</p>
+
 
   </div>
 </div>
@@ -517,19 +533,6 @@
       <pre class="lines">
 
 
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
 54
 55
 56
@@ -569,10 +572,23 @@
 90
 91
 92
-93</pre>
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/test_optimization_api.rb', line 41</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/test_optimization_api.rb', line 54</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_search_flaky_tests_with_http_info'>search_flaky_tests_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_unstable_enabled'>unstable_enabled</span> <span class='op'>=</span> <span class='ivar'>@api_client</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_unstable_operations'>unstable_operations</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>v2.search_flaky_tests</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='rbracket'>]</span>
@@ -678,22 +694,22 @@
       <pre class="lines">
 
 
-102
-103
-104
-105
-106
-107
-108
-109
-110
-111
-112
-113
-114</pre>
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/test_optimization_api.rb', line 102</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/test_optimization_api.rb', line 115</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_search_flaky_tests_with_pagination'>search_flaky_tests_with_pagination</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_api_version'>api_version</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>V2</span><span class='tstring_end'>&quot;</span></span>
@@ -745,13 +761,13 @@
       <pre class="lines">
 
 
-119
-120
-121
-122</pre>
+132
+133
+134
+135</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/test_optimization_api.rb', line 119</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/test_optimization_api.rb', line 132</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update_flaky_tests'>update_flaky_tests</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_update_flaky_tests_with_http_info'>update_flaky_tests_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -838,19 +854,6 @@
       <pre class="lines">
 
 
-131
-132
-133
-134
-135
-136
-137
-138
-139
-140
-141
-142
-143
 144
 145
 146
@@ -894,10 +897,23 @@
 184
 185
 186
-187</pre>
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/test_optimization_api.rb', line 131</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/test_optimization_api.rb', line 144</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update_flaky_tests_with_http_info'>update_flaky_tests_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_unstable_enabled'>unstable_enabled</span> <span class='op'>=</span> <span class='ivar'>@api_client</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_unstable_operations'>unstable_operations</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>v2.update_flaky_tests</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='rbracket'>]</span>
@@ -966,7 +982,7 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Feb  5 19:25:07 2026 by
+  Generated on Thu Feb  5 20:28:19 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.38 (ruby-2.7.8).
 </div>
