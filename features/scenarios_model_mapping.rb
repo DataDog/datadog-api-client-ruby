@@ -2151,6 +2151,19 @@ ScenariosModelMappings = {
             "include" => "String",
             "body" => "PatchIncidentNotificationTemplateRequest",
     },
+    "v2.CreateIncidentPostmortemTemplate" => {
+            "body" => "PostmortemTemplateRequest",
+    },
+    "v2.DeleteIncidentPostmortemTemplate" => {
+            "template_id" => "String",
+    },
+    "v2.GetIncidentPostmortemTemplate" => {
+            "template_id" => "String",
+    },
+    "v2.UpdateIncidentPostmortemTemplate" => {
+            "template_id" => "String",
+            "body" => "PostmortemTemplateRequest",
+    },
     "v2.ListIncidentTypes" => {
             "include_deleted" => "Boolean",
     },
