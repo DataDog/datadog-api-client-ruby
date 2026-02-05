@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # The `items` `enabled`.
     attr_reader :enabled
 
-    # The definition of `UpdateRulesetRequestDataAttributesRulesItemsMapping` object.
+    # The definition of `DataAttributesRulesItemsMapping` object.
     attr_accessor :mapping
 
     # The `items` `metadata`.
@@ -59,7 +59,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'enabled' => :'Boolean',
-        :'mapping' => :'UpdateRulesetRequestDataAttributesRulesItemsMapping',
+        :'mapping' => :'DataAttributesRulesItemsMapping',
         :'metadata' => :'Hash<String, String>',
         :'name' => :'String',
         :'query' => :'UpdateRulesetRequestDataAttributesRulesItemsQuery',

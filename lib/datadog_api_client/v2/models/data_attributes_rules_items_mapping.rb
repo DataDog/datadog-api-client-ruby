@@ -17,15 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The definition of `CreateRulesetRequestDataAttributesRulesItemsMapping` object.
-  class CreateRulesetRequestDataAttributesRulesItemsMapping
+  # The definition of `DataAttributesRulesItemsMapping` object.
+  class DataAttributesRulesItemsMapping
     include BaseGenericModel
 
     # The `mapping` `destination_key`.
     attr_reader :destination_key
 
-    # The `mapping` `if_not_exists`.
-    attr_reader :if_not_exists
+    # Deprecated. Use `if_tag_exists` instead. The `mapping` `if_not_exists`.
+    attr_accessor :if_not_exists
+
+    # The behavior when the tag already exists.
+    attr_accessor :if_tag_exists
 
     # The `mapping` `source_keys`.
     attr_reader :source_keys
@@ -38,6 +41,7 @@ module DatadogAPIClient::V2
       {
         :'destination_key' => :'destination_key',
         :'if_not_exists' => :'if_not_exists',
+        :'if_tag_exists' => :'if_tag_exists',
         :'source_keys' => :'source_keys'
       }
     end
@@ -48,6 +52,7 @@ module DatadogAPIClient::V2
       {
         :'destination_key' => :'String',
         :'if_not_exists' => :'Boolean',
+        :'if_tag_exists' => :'DataAttributesRulesItemsIfTagExists',
         :'source_keys' => :'Array<String>'
       }
     end
@@ -57,7 +62,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::CreateRulesetRequestDataAttributesRulesItemsMapping` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::DataAttributesRulesItemsMapping` initialize method"
       end
 
       self.additional_properties = {}
@@ -78,6 +83,10 @@ module DatadogAPIClient::V2
         self.if_not_exists = attributes[:'if_not_exists']
       end
 
+      if attributes.key?(:'if_tag_exists')
+        self.if_tag_exists = attributes[:'if_tag_exists']
+      end
+
       if attributes.key?(:'source_keys')
         if (value = attributes[:'source_keys']).is_a?(Array)
           self.source_keys = value
@@ -90,7 +99,6 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @destination_key.nil?
-      return false if @if_not_exists.nil?
       return false if @source_keys.nil?
       true
     end
@@ -103,16 +111,6 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "destination_key", destination_key cannot be nil.'
       end
       @destination_key = destination_key
-    end
-
-    # Custom attribute writer method with validation
-    # @param if_not_exists [Object] Object to be assigned
-    # @!visibility private
-    def if_not_exists=(if_not_exists)
-      if if_not_exists.nil?
-        fail ArgumentError, 'invalid value for "if_not_exists", if_not_exists cannot be nil.'
-      end
-      @if_not_exists = if_not_exists
     end
 
     # Custom attribute writer method with validation
@@ -153,6 +151,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           destination_key == o.destination_key &&
           if_not_exists == o.if_not_exists &&
+          if_tag_exists == o.if_tag_exists &&
           source_keys == o.source_keys &&
           additional_properties == o.additional_properties
     end
@@ -161,7 +160,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [destination_key, if_not_exists, source_keys, additional_properties].hash
+      [destination_key, if_not_exists, if_tag_exists, source_keys, additional_properties].hash
     end
   end
 end

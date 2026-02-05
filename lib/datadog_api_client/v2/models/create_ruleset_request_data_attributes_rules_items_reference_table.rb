@@ -27,8 +27,11 @@ module DatadogAPIClient::V2
     # The `reference_table` `field_pairs`.
     attr_reader :field_pairs
 
-    # The `reference_table` `if_not_exists`.
+    # Deprecated. Use `if_tag_exists` instead. The `reference_table` `if_not_exists`.
     attr_accessor :if_not_exists
+
+    # The behavior when the tag already exists.
+    attr_accessor :if_tag_exists
 
     # The `reference_table` `source_keys`.
     attr_reader :source_keys
@@ -45,6 +48,7 @@ module DatadogAPIClient::V2
         :'case_insensitivity' => :'case_insensitivity',
         :'field_pairs' => :'field_pairs',
         :'if_not_exists' => :'if_not_exists',
+        :'if_tag_exists' => :'if_tag_exists',
         :'source_keys' => :'source_keys',
         :'table_name' => :'table_name'
       }
@@ -57,6 +61,7 @@ module DatadogAPIClient::V2
         :'case_insensitivity' => :'Boolean',
         :'field_pairs' => :'Array<CreateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems>',
         :'if_not_exists' => :'Boolean',
+        :'if_tag_exists' => :'DataAttributesRulesItemsIfTagExists',
         :'source_keys' => :'Array<String>',
         :'table_name' => :'String'
       }
@@ -92,6 +97,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'if_not_exists')
         self.if_not_exists = attributes[:'if_not_exists']
+      end
+
+      if attributes.key?(:'if_tag_exists')
+        self.if_tag_exists = attributes[:'if_tag_exists']
       end
 
       if attributes.key?(:'source_keys')
@@ -174,6 +183,7 @@ module DatadogAPIClient::V2
           case_insensitivity == o.case_insensitivity &&
           field_pairs == o.field_pairs &&
           if_not_exists == o.if_not_exists &&
+          if_tag_exists == o.if_tag_exists &&
           source_keys == o.source_keys &&
           table_name == o.table_name &&
           additional_properties == o.additional_properties
@@ -183,7 +193,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [case_insensitivity, field_pairs, if_not_exists, source_keys, table_name, additional_properties].hash
+      [case_insensitivity, field_pairs, if_not_exists, if_tag_exists, source_keys, table_name, additional_properties].hash
     end
   end
 end
