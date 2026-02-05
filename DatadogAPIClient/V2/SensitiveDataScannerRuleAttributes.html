@@ -6,7 +6,7 @@
 <title>
   Class: DatadogAPIClient::V2::SensitiveDataScannerRuleAttributes
   
-    &mdash; datadog-api-client 2.30.0.dev.1 documentation
+    &mdash; datadog-api-client 2.49.0 documentation
   
 </title>
 
@@ -352,6 +352,32 @@
 
   
     <span class="summary_desc"><div class='inline'><p>Integer from 1 (high) to 5 (low) indicating rule issue severity.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#suppressions-instance_method" title="#suppressions (instance method)">#<strong>suppressions</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Object describing the suppressions for a rule.</p>
 </div></span>
   
 </li>
@@ -812,6 +838,49 @@ If both are missing the whole event is scanned.</p>
 </div>
     
       
+      <span id="suppressions=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="suppressions-instance_method">
+  
+    #<strong>suppressions</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Object describing the suppressions for a rule. There are three types of suppressions, <code>starts_with</code>, <code>ends_with</code>, and <code>exact_match</code>.
+Suppressed matches are not obfuscated, counted in metrics, or displayed in the Findings page.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+54
+55
+56</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/sensitive_data_scanner_rule_attributes.rb', line 54</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_suppressions'>suppressions</span>
+  <span class='ivar'>@suppressions</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
       <span id="tags=-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="tags-instance_method">
@@ -901,9 +970,9 @@ If both are missing the whole event is scanned.</p>
 </div>
 
       <div id="footer">
-  Generated on Tue Feb 18 21:07:43 2025 by
+  Generated on Thu Feb  5 19:25:02 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.37 (ruby-2.7.8).
+  0.9.38 (ruby-2.7.8).
 </div>
 
     </div>
