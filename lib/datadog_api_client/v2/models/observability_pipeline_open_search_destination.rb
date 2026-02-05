@@ -23,6 +23,9 @@ module DatadogAPIClient::V2
   class ObservabilityPipelineOpenSearchDestination
     include BaseGenericModel
 
+    # Configuration for buffer settings on destination components.
+    attr_accessor :buffer
+
     # The index to write logs to.
     attr_accessor :bulk_index
 
@@ -44,6 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'buffer' => :'buffer',
         :'bulk_index' => :'bulk_index',
         :'data_stream' => :'data_stream',
         :'id' => :'id',
@@ -56,6 +60,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'buffer' => :'ObservabilityPipelineBufferOptions',
         :'bulk_index' => :'String',
         :'data_stream' => :'ObservabilityPipelineOpenSearchDestinationDataStream',
         :'id' => :'String',
@@ -81,6 +86,10 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'buffer')
+        self.buffer = attributes[:'buffer']
+      end
 
       if attributes.key?(:'bulk_index')
         self.bulk_index = attributes[:'bulk_index']
@@ -171,6 +180,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          buffer == o.buffer &&
           bulk_index == o.bulk_index &&
           data_stream == o.data_stream &&
           id == o.id &&
@@ -183,7 +193,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [bulk_index, data_stream, id, inputs, type, additional_properties].hash
+      [buffer, bulk_index, data_stream, id, inputs, type, additional_properties].hash
     end
   end
 end

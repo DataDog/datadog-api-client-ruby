@@ -23,6 +23,9 @@ module DatadogAPIClient::V2
   class MicrosoftSentinelDestination
     include BaseGenericModel
 
+    # Configuration for buffer settings on destination components.
+    attr_accessor :buffer
+
     # Azure AD client ID used for authentication.
     attr_reader :client_id
 
@@ -50,6 +53,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'buffer' => :'buffer',
         :'client_id' => :'client_id',
         :'dcr_immutable_id' => :'dcr_immutable_id',
         :'id' => :'id',
@@ -64,6 +68,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'buffer' => :'ObservabilityPipelineBufferOptions',
         :'client_id' => :'String',
         :'dcr_immutable_id' => :'String',
         :'id' => :'String',
@@ -91,6 +96,10 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'buffer')
+        self.buffer = attributes[:'buffer']
+      end
 
       if attributes.key?(:'client_id')
         self.client_id = attributes[:'client_id']
@@ -233,6 +242,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          buffer == o.buffer &&
           client_id == o.client_id &&
           dcr_immutable_id == o.dcr_immutable_id &&
           id == o.id &&
@@ -247,7 +257,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [client_id, dcr_immutable_id, id, inputs, table, tenant_id, type, additional_properties].hash
+      [buffer, client_id, dcr_immutable_id, id, inputs, table, tenant_id, type, additional_properties].hash
     end
   end
 end

@@ -26,6 +26,9 @@ module DatadogAPIClient::V2
     # GCP credentials used to authenticate with Google Cloud Storage.
     attr_accessor :auth
 
+    # Configuration for buffer settings on destination components.
+    attr_accessor :buffer
+
     # Encoding format for log events.
     attr_reader :encoding
 
@@ -54,6 +57,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'auth' => :'auth',
+        :'buffer' => :'buffer',
         :'encoding' => :'encoding',
         :'id' => :'id',
         :'inputs' => :'inputs',
@@ -69,6 +73,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'auth' => :'ObservabilityPipelineGcpAuth',
+        :'buffer' => :'ObservabilityPipelineBufferOptions',
         :'encoding' => :'ObservabilityPipelineGooglePubSubDestinationEncoding',
         :'id' => :'String',
         :'inputs' => :'Array<String>',
@@ -99,6 +104,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'auth')
         self.auth = attributes[:'auth']
+      end
+
+      if attributes.key?(:'buffer')
+        self.buffer = attributes[:'buffer']
       end
 
       if attributes.key?(:'encoding')
@@ -232,6 +241,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           auth == o.auth &&
+          buffer == o.buffer &&
           encoding == o.encoding &&
           id == o.id &&
           inputs == o.inputs &&
@@ -246,7 +256,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [auth, encoding, id, inputs, project, tls, topic, type, additional_properties].hash
+      [auth, buffer, encoding, id, inputs, project, tls, topic, type, additional_properties].hash
     end
   end
 end
