@@ -30,6 +30,9 @@ module DatadogAPIClient::V2
     # Name of the Amazon S3 bucket in Security Lake (3-63 characters).
     attr_reader :bucket
 
+    # Configuration for buffer settings on destination components.
+    attr_accessor :buffer
+
     # Custom source name for the logs in Security Lake.
     attr_reader :custom_source_name
 
@@ -56,6 +59,7 @@ module DatadogAPIClient::V2
       {
         :'auth' => :'auth',
         :'bucket' => :'bucket',
+        :'buffer' => :'buffer',
         :'custom_source_name' => :'custom_source_name',
         :'id' => :'id',
         :'inputs' => :'inputs',
@@ -71,6 +75,7 @@ module DatadogAPIClient::V2
       {
         :'auth' => :'ObservabilityPipelineAwsAuth',
         :'bucket' => :'String',
+        :'buffer' => :'ObservabilityPipelineBufferOptions',
         :'custom_source_name' => :'String',
         :'id' => :'String',
         :'inputs' => :'Array<String>',
@@ -104,6 +109,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'bucket')
         self.bucket = attributes[:'bucket']
+      end
+
+      if attributes.key?(:'buffer')
+        self.buffer = attributes[:'buffer']
       end
 
       if attributes.key?(:'custom_source_name')
@@ -234,6 +243,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           auth == o.auth &&
           bucket == o.bucket &&
+          buffer == o.buffer &&
           custom_source_name == o.custom_source_name &&
           id == o.id &&
           inputs == o.inputs &&
@@ -247,7 +257,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [auth, bucket, custom_source_name, id, inputs, region, tls, type, additional_properties].hash
+      [auth, bucket, buffer, custom_source_name, id, inputs, region, tls, type, additional_properties].hash
     end
   end
 end

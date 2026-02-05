@@ -23,6 +23,9 @@ module DatadogAPIClient::V2
   class ObservabilityPipelineSentinelOneDestination
     include BaseGenericModel
 
+    # Configuration for buffer settings on destination components.
+    attr_accessor :buffer
+
     # The unique identifier for this component.
     attr_reader :id
 
@@ -41,6 +44,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'buffer' => :'buffer',
         :'id' => :'id',
         :'inputs' => :'inputs',
         :'region' => :'region',
@@ -52,6 +56,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'buffer' => :'ObservabilityPipelineBufferOptions',
         :'id' => :'String',
         :'inputs' => :'Array<String>',
         :'region' => :'ObservabilityPipelineSentinelOneDestinationRegion',
@@ -76,6 +81,10 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'buffer')
+        self.buffer = attributes[:'buffer']
+      end
 
       if attributes.key?(:'id')
         self.id = attributes[:'id']
@@ -173,6 +182,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          buffer == o.buffer &&
           id == o.id &&
           inputs == o.inputs &&
           region == o.region &&
@@ -184,7 +194,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [id, inputs, region, type, additional_properties].hash
+      [buffer, id, inputs, region, type, additional_properties].hash
     end
   end
 end
