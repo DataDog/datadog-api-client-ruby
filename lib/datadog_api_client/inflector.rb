@@ -795,6 +795,7 @@ module DatadogAPIClient
           "v1.target_format_type" => "TargetFormatType",
           "v1.timeseries_background" => "TimeseriesBackground",
           "v1.timeseries_background_type" => "TimeseriesBackgroundType",
+          "v1.timeseries_request_style" => "TimeseriesRequestStyle",
           "v1.timeseries_widget_definition" => "TimeseriesWidgetDefinition",
           "v1.timeseries_widget_definition_type" => "TimeseriesWidgetDefinitionType",
           "v1.timeseries_widget_expression_alias" => "TimeseriesWidgetExpressionAlias",
