@@ -2276,6 +2276,26 @@ ScenariosModelMappings = {
             "todo_id" => "String",
             "body" => "IncidentTodoPatchRequest",
     },
+    "v2.ListIncidentTimestampOverrides" => {
+            "incident_id" => "UUID",
+            "include" => "String",
+            "include_deleted" => "Boolean",
+    },
+    "v2.CreateIncidentTimestampOverride" => {
+            "incident_id" => "UUID",
+            "include" => "String",
+            "body" => "IncidentTimestampOverrideCreateRequest",
+    },
+    "v2.DeleteIncidentTimestampOverride" => {
+            "incident_id" => "UUID",
+            "timestamp_override_id" => "UUID",
+    },
+    "v2.UpdateIncidentTimestampOverride" => {
+            "incident_id" => "UUID",
+            "timestamp_override_id" => "UUID",
+            "include" => "String",
+            "body" => "IncidentTimestampOverridePatchRequest",
+    },
     "v2.ListAWSAccounts" => {
             "aws_account_id" => "String",
     },
