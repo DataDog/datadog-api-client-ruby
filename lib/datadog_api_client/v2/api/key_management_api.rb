@@ -157,6 +157,81 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Create personal access token.
+    #
+    # @see #create_personal_access_token_with_http_info
+    def create_personal_access_token(body, opts = {})
+      data, _status_code, _headers = create_personal_access_token_with_http_info(body, opts)
+      data
+    end
+
+    # Create personal access token.
+    #
+    # Create a new personal access token with fine-grained permissions. The token value
+    # will be returned in the response and cannot be retrieved later. Be sure to save it
+    # securely.
+    #
+    # @param body [PersonalAccessTokenCreateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(PersonalAccessTokenResponse, Integer, Hash)>] PersonalAccessTokenResponse data, response status code and response headers
+    def create_personal_access_token_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_personal_access_token".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_personal_access_token")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_personal_access_token"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KeyManagementAPI.create_personal_access_token ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling KeyManagementAPI.create_personal_access_token"
+      end
+      # resource path
+      local_var_path = '/api/v2/personal_access_tokens'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'PersonalAccessTokenResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_personal_access_token,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: KeyManagementAPI#create_personal_access_token\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Delete an API key.
     #
     # @see #delete_api_key_with_http_info
@@ -552,6 +627,77 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get personal access token.
+    #
+    # @see #get_personal_access_token_with_http_info
+    def get_personal_access_token(pat_uuid, opts = {})
+      data, _status_code, _headers = get_personal_access_token_with_http_info(pat_uuid, opts)
+      data
+    end
+
+    # Get personal access token.
+    #
+    # Get a specific personal access token by UUID.
+    #
+    # @param pat_uuid [UUID] The UUID of the personal access token.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(PersonalAccessTokenGetResponse, Integer, Hash)>] PersonalAccessTokenGetResponse data, response status code and response headers
+    def get_personal_access_token_with_http_info(pat_uuid, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_personal_access_token".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_personal_access_token")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_personal_access_token"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KeyManagementAPI.get_personal_access_token ...'
+      end
+      # verify the required parameter 'pat_uuid' is set
+      if @api_client.config.client_side_validation && pat_uuid.nil?
+        fail ArgumentError, "Missing the required parameter 'pat_uuid' when calling KeyManagementAPI.get_personal_access_token"
+      end
+      # resource path
+      local_var_path = '/api/v2/personal_access_tokens/{pat_uuid}'.sub('{pat_uuid}', CGI.escape(pat_uuid.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'PersonalAccessTokenGetResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_personal_access_token,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: KeyManagementAPI#get_personal_access_token\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get all API keys.
     #
     # @see #list_api_keys_with_http_info
@@ -794,6 +940,160 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # List personal access tokens.
+    #
+    # @see #list_personal_access_tokens_with_http_info
+    def list_personal_access_tokens(opts = {})
+      data, _status_code, _headers = list_personal_access_tokens_with_http_info(opts)
+      data
+    end
+
+    # List personal access tokens.
+    #
+    # List all personal access tokens in your organization. Supports filtering,
+    # pagination, and sorting.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 100.
+    # @option opts [Integer] :page_number Specific page number to return.
+    # @option opts [PersonalAccessTokensSort] :sort Personal access token attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign.
+    # @option opts [String] :filter Filter personal access tokens by name.
+    # @option opts [Array<UUID>] :filter_owner_uuid Filter personal access tokens by owner UUID.
+    # @return [Array<(PersonalAccessTokensListResponse, Integer, Hash)>] PersonalAccessTokensListResponse data, response status code and response headers
+    def list_personal_access_tokens_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_personal_access_tokens".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_personal_access_tokens")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_personal_access_tokens"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KeyManagementAPI.list_personal_access_tokens ...'
+      end
+      allowable_values = ['name', '-name', 'created_at', '-created_at', 'expires_at', '-expires_at']
+      if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
+        fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/api/v2/personal_access_tokens'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+      query_params[:'page[number]'] = opts[:'page_number'] if !opts[:'page_number'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'filter[owner_uuid]'] = @api_client.build_collection_param(opts[:'filter_owner_uuid'], :multi) if !opts[:'filter_owner_uuid'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'PersonalAccessTokensListResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_personal_access_tokens,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+      new_options[:query_string_normalizer] = HTTParty::Request::NON_RAILS_QUERY_STRING_NORMALIZER
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: KeyManagementAPI#list_personal_access_tokens\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Revoke personal access token.
+    #
+    # @see #revoke_personal_access_token_with_http_info
+    def revoke_personal_access_token(pat_uuid, opts = {})
+      revoke_personal_access_token_with_http_info(pat_uuid, opts)
+      nil
+    end
+
+    # Revoke personal access token.
+    #
+    # Revoke a personal access token. Once revoked, the token can no longer be used
+    # to authenticate API requests.
+    #
+    # @param pat_uuid [UUID] The UUID of the personal access token.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def revoke_personal_access_token_with_http_info(pat_uuid, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.revoke_personal_access_token".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.revoke_personal_access_token")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.revoke_personal_access_token"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KeyManagementAPI.revoke_personal_access_token ...'
+      end
+      # verify the required parameter 'pat_uuid' is set
+      if @api_client.config.client_side_validation && pat_uuid.nil?
+        fail ArgumentError, "Missing the required parameter 'pat_uuid' when calling KeyManagementAPI.revoke_personal_access_token"
+      end
+      # resource path
+      local_var_path = '/api/v2/personal_access_tokens/{pat_uuid}'.sub('{pat_uuid}', CGI.escape(pat_uuid.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :revoke_personal_access_token,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: KeyManagementAPI#revoke_personal_access_token\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Edit an API key.
     #
     # @see #update_api_key_with_http_info
@@ -1007,6 +1307,85 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: KeyManagementAPI#update_current_user_application_key\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update personal access token.
+    #
+    # @see #update_personal_access_token_with_http_info
+    def update_personal_access_token(pat_uuid, body, opts = {})
+      data, _status_code, _headers = update_personal_access_token_with_http_info(pat_uuid, body, opts)
+      data
+    end
+
+    # Update personal access token.
+    #
+    # Update the name and/or scopes of an existing personal access token. The ID in the
+    # request body must match the UUID in the path.
+    #
+    # @param pat_uuid [UUID] The UUID of the personal access token.
+    # @param body [PersonalAccessTokenUpdateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(PersonalAccessTokenGetResponse, Integer, Hash)>] PersonalAccessTokenGetResponse data, response status code and response headers
+    def update_personal_access_token_with_http_info(pat_uuid, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.update_personal_access_token".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_personal_access_token")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_personal_access_token"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KeyManagementAPI.update_personal_access_token ...'
+      end
+      # verify the required parameter 'pat_uuid' is set
+      if @api_client.config.client_side_validation && pat_uuid.nil?
+        fail ArgumentError, "Missing the required parameter 'pat_uuid' when calling KeyManagementAPI.update_personal_access_token"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling KeyManagementAPI.update_personal_access_token"
+      end
+      # resource path
+      local_var_path = '/api/v2/personal_access_tokens/{pat_uuid}'.sub('{pat_uuid}', CGI.escape(pat_uuid.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'PersonalAccessTokenGetResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_personal_access_token,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: KeyManagementAPI#update_personal_access_token\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
