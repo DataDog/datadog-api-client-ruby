@@ -48,10 +48,6 @@ module DatadogAPIClient::V2
     # The current state of the flaky test.
     attr_accessor :flaky_state
 
-    # Chronological history of status changes for this flaky test, ordered from most recent to oldest.
-    # Includes state transitions like new -> quarantined -> fixed, along with the associated commit SHA when available.
-    attr_accessor :history
-
     # The branch name where the test exhibited flakiness for the last time.
     attr_accessor :last_flaked_branch
 
@@ -104,7 +100,6 @@ module DatadogAPIClient::V2
         :'first_flaked_ts' => :'first_flaked_ts',
         :'flaky_category' => :'flaky_category',
         :'flaky_state' => :'flaky_state',
-        :'history' => :'history',
         :'last_flaked_branch' => :'last_flaked_branch',
         :'last_flaked_sha' => :'last_flaked_sha',
         :'last_flaked_ts' => :'last_flaked_ts',
@@ -130,7 +125,6 @@ module DatadogAPIClient::V2
         :'first_flaked_ts' => :'Integer',
         :'flaky_category' => :'String',
         :'flaky_state' => :'FlakyTestAttributesFlakyState',
-        :'history' => :'Array<FlakyTestHistory>',
         :'last_flaked_branch' => :'String',
         :'last_flaked_sha' => :'String',
         :'last_flaked_ts' => :'Integer',
@@ -205,12 +199,6 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'flaky_state')
         self.flaky_state = attributes[:'flaky_state']
-      end
-
-      if attributes.key?(:'history')
-        if (value = attributes[:'history']).is_a?(Array)
-          self.history = value
-        end
       end
 
       if attributes.key?(:'last_flaked_branch')
@@ -290,7 +278,6 @@ module DatadogAPIClient::V2
           first_flaked_ts == o.first_flaked_ts &&
           flaky_category == o.flaky_category &&
           flaky_state == o.flaky_state &&
-          history == o.history &&
           last_flaked_branch == o.last_flaked_branch &&
           last_flaked_sha == o.last_flaked_sha &&
           last_flaked_ts == o.last_flaked_ts &&
@@ -308,7 +295,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attempt_to_fix_id, codeowners, envs, first_flaked_branch, first_flaked_sha, first_flaked_ts, flaky_category, flaky_state, history, last_flaked_branch, last_flaked_sha, last_flaked_ts, _module, name, pipeline_stats, services, suite, test_run_metadata, test_stats, additional_properties].hash
+      [attempt_to_fix_id, codeowners, envs, first_flaked_branch, first_flaked_sha, first_flaked_ts, flaky_category, flaky_state, last_flaked_branch, last_flaked_sha, last_flaked_ts, _module, name, pipeline_stats, services, suite, test_run_metadata, test_stats, additional_properties].hash
     end
   end
 end
