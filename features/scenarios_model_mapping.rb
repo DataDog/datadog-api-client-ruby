@@ -1254,6 +1254,33 @@ ScenariosModelMappings = {
             "case_id" => "String",
             "body" => "CaseUpdatePriorityRequest",
     },
+    "v2.LinkIncident" => {
+            "case_id" => "String",
+            "body" => "RelationshipToIncidentRequest",
+    },
+    "v2.UnlinkJiraIssue" => {
+            "case_id" => "String",
+    },
+    "v2.LinkJiraIssueToCase" => {
+            "case_id" => "String",
+            "body" => "JiraIssueLinkRequest",
+    },
+    "v2.CreateCaseJiraIssue" => {
+            "case_id" => "String",
+            "body" => "JiraIssueCreateRequest",
+    },
+    "v2.CreateCaseNotebook" => {
+            "case_id" => "String",
+            "body" => "NotebookCreateRequest",
+    },
+    "v2.MoveCaseToProject" => {
+            "case_id" => "String",
+            "body" => "ProjectRelationship",
+    },
+    "v2.CreateCaseServiceNowTicket" => {
+            "case_id" => "String",
+            "body" => "ServiceNowTicketCreateRequest",
+    },
     "v2.UpdateStatus" => {
             "case_id" => "String",
             "body" => "CaseUpdateStatusRequest",
