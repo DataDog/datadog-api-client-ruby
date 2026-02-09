@@ -306,6 +306,240 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Create Jira issue for case.
+    #
+    # @see #create_case_jira_issue_with_http_info
+    def create_case_jira_issue(case_id, body, opts = {})
+      create_case_jira_issue_with_http_info(case_id, body, opts)
+      nil
+    end
+
+    # Create Jira issue for case.
+    #
+    # Create a new Jira issue and link it to a case
+    #
+    # @param case_id [String] Case's UUID or key
+    # @param body [JiraIssueCreateRequest] Jira issue creation request
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def create_case_jira_issue_with_http_info(case_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_case_jira_issue".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_case_jira_issue")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_case_jira_issue"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CaseManagementAPI.create_case_jira_issue ...'
+      end
+      # verify the required parameter 'case_id' is set
+      if @api_client.config.client_side_validation && case_id.nil?
+        fail ArgumentError, "Missing the required parameter 'case_id' when calling CaseManagementAPI.create_case_jira_issue"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CaseManagementAPI.create_case_jira_issue"
+      end
+      # resource path
+      local_var_path = '/api/v2/cases/{case_id}/relationships/jira_issues'.sub('{case_id}', CGI.escape(case_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_case_jira_issue,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CaseManagementAPI#create_case_jira_issue\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create investigation notebook for case.
+    #
+    # @see #create_case_notebook_with_http_info
+    def create_case_notebook(case_id, body, opts = {})
+      create_case_notebook_with_http_info(case_id, body, opts)
+      nil
+    end
+
+    # Create investigation notebook for case.
+    #
+    # Create a new investigation notebook and link it to a case
+    #
+    # @param case_id [String] Case's UUID or key
+    # @param body [NotebookCreateRequest] Notebook creation request
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def create_case_notebook_with_http_info(case_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_case_notebook".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_case_notebook")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_case_notebook"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CaseManagementAPI.create_case_notebook ...'
+      end
+      # verify the required parameter 'case_id' is set
+      if @api_client.config.client_side_validation && case_id.nil?
+        fail ArgumentError, "Missing the required parameter 'case_id' when calling CaseManagementAPI.create_case_notebook"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CaseManagementAPI.create_case_notebook"
+      end
+      # resource path
+      local_var_path = '/api/v2/cases/{case_id}/relationships/notebook'.sub('{case_id}', CGI.escape(case_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_case_notebook,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CaseManagementAPI#create_case_notebook\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create ServiceNow ticket for case.
+    #
+    # @see #create_case_service_now_ticket_with_http_info
+    def create_case_service_now_ticket(case_id, body, opts = {})
+      create_case_service_now_ticket_with_http_info(case_id, body, opts)
+      nil
+    end
+
+    # Create ServiceNow ticket for case.
+    #
+    # Create a new ServiceNow incident ticket and link it to a case
+    #
+    # @param case_id [String] Case's UUID or key
+    # @param body [ServiceNowTicketCreateRequest] ServiceNow ticket creation request
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def create_case_service_now_ticket_with_http_info(case_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_case_service_now_ticket".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_case_service_now_ticket")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_case_service_now_ticket"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CaseManagementAPI.create_case_service_now_ticket ...'
+      end
+      # verify the required parameter 'case_id' is set
+      if @api_client.config.client_side_validation && case_id.nil?
+        fail ArgumentError, "Missing the required parameter 'case_id' when calling CaseManagementAPI.create_case_service_now_ticket"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CaseManagementAPI.create_case_service_now_ticket"
+      end
+      # resource path
+      local_var_path = '/api/v2/cases/{case_id}/relationships/servicenow_tickets'.sub('{case_id}', CGI.escape(case_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_case_service_now_ticket,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CaseManagementAPI#create_case_service_now_ticket\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create a project.
     #
     # @see #create_project_with_http_info
@@ -975,6 +1209,240 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Link incident to case.
+    #
+    # @see #link_incident_with_http_info
+    def link_incident(case_id, body, opts = {})
+      data, _status_code, _headers = link_incident_with_http_info(case_id, body, opts)
+      data
+    end
+
+    # Link incident to case.
+    #
+    # Link an incident to a case
+    #
+    # @param case_id [String] Case's UUID or key
+    # @param body [RelationshipToIncidentRequest] Incident link request
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(CaseResponse, Integer, Hash)>] CaseResponse data, response status code and response headers
+    def link_incident_with_http_info(case_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.link_incident".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.link_incident")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.link_incident"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CaseManagementAPI.link_incident ...'
+      end
+      # verify the required parameter 'case_id' is set
+      if @api_client.config.client_side_validation && case_id.nil?
+        fail ArgumentError, "Missing the required parameter 'case_id' when calling CaseManagementAPI.link_incident"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CaseManagementAPI.link_incident"
+      end
+      # resource path
+      local_var_path = '/api/v2/cases/{case_id}/relationships/incidents'.sub('{case_id}', CGI.escape(case_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CaseResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :link_incident,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CaseManagementAPI#link_incident\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Link existing Jira issue to case.
+    #
+    # @see #link_jira_issue_to_case_with_http_info
+    def link_jira_issue_to_case(case_id, body, opts = {})
+      link_jira_issue_to_case_with_http_info(case_id, body, opts)
+      nil
+    end
+
+    # Link existing Jira issue to case.
+    #
+    # Link an existing Jira issue to a case
+    #
+    # @param case_id [String] Case's UUID or key
+    # @param body [JiraIssueLinkRequest] Jira issue link request
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def link_jira_issue_to_case_with_http_info(case_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.link_jira_issue_to_case".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.link_jira_issue_to_case")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.link_jira_issue_to_case"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CaseManagementAPI.link_jira_issue_to_case ...'
+      end
+      # verify the required parameter 'case_id' is set
+      if @api_client.config.client_side_validation && case_id.nil?
+        fail ArgumentError, "Missing the required parameter 'case_id' when calling CaseManagementAPI.link_jira_issue_to_case"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CaseManagementAPI.link_jira_issue_to_case"
+      end
+      # resource path
+      local_var_path = '/api/v2/cases/{case_id}/relationships/jira_issues'.sub('{case_id}', CGI.escape(case_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :link_jira_issue_to_case,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CaseManagementAPI#link_jira_issue_to_case\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update case project.
+    #
+    # @see #move_case_to_project_with_http_info
+    def move_case_to_project(case_id, body, opts = {})
+      data, _status_code, _headers = move_case_to_project_with_http_info(case_id, body, opts)
+      data
+    end
+
+    # Update case project.
+    #
+    # Update the project associated with a case
+    #
+    # @param case_id [String] Case's UUID or key
+    # @param body [ProjectRelationship] Project update request
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(CaseResponse, Integer, Hash)>] CaseResponse data, response status code and response headers
+    def move_case_to_project_with_http_info(case_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.move_case_to_project".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.move_case_to_project")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.move_case_to_project"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CaseManagementAPI.move_case_to_project ...'
+      end
+      # verify the required parameter 'case_id' is set
+      if @api_client.config.client_side_validation && case_id.nil?
+        fail ArgumentError, "Missing the required parameter 'case_id' when calling CaseManagementAPI.move_case_to_project"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CaseManagementAPI.move_case_to_project"
+      end
+      # resource path
+      local_var_path = '/api/v2/cases/{case_id}/relationships/project'.sub('{case_id}', CGI.escape(case_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CaseResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :move_case_to_project,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CaseManagementAPI#move_case_to_project\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Search cases.
     #
     # @see #search_cases_with_http_info
@@ -1211,6 +1679,77 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CaseManagementAPI#unassign_case\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Remove Jira issue link from case.
+    #
+    # @see #unlink_jira_issue_with_http_info
+    def unlink_jira_issue(case_id, opts = {})
+      unlink_jira_issue_with_http_info(case_id, opts)
+      nil
+    end
+
+    # Remove Jira issue link from case.
+    #
+    # Remove the link between a Jira issue and a case
+    #
+    # @param case_id [String] Case's UUID or key
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def unlink_jira_issue_with_http_info(case_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.unlink_jira_issue".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.unlink_jira_issue")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.unlink_jira_issue"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CaseManagementAPI.unlink_jira_issue ...'
+      end
+      # verify the required parameter 'case_id' is set
+      if @api_client.config.client_side_validation && case_id.nil?
+        fail ArgumentError, "Missing the required parameter 'case_id' when calling CaseManagementAPI.unlink_jira_issue"
+      end
+      # resource path
+      local_var_path = '/api/v2/cases/{case_id}/relationships/jira_issues'.sub('{case_id}', CGI.escape(case_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :unlink_jira_issue,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CaseManagementAPI#unlink_jira_issue\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
