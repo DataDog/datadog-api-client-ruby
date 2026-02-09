@@ -3837,6 +3837,10 @@ ScenariosModelMappings = {
     "v2.ListUserPermissions" => {
             "user_id" => "String",
     },
+    "v2.ExecuteWorkflowFromTemplate" => {
+            "parent_id" => "String",
+            "body" => "WorkflowHeadlessExecutionRequest",
+    },
     "v2.CreateWorkflow" => {
             "body" => "CreateWorkflowRequest",
     },
@@ -3849,6 +3853,10 @@ ScenariosModelMappings = {
     "v2.UpdateWorkflow" => {
             "workflow_id" => "String",
             "body" => "UpdateWorkflowRequest",
+    },
+    "v2.UpdateWorkflowFavorite" => {
+            "workflow_id" => "String",
+            "body" => "WorkflowFavoriteRequest",
     },
     "v2.ListWorkflowInstances" => {
             "workflow_id" => "String",
@@ -3866,5 +3874,12 @@ ScenariosModelMappings = {
     "v2.CancelWorkflowInstance" => {
             "workflow_id" => "String",
             "instance_id" => "String",
+    },
+    "v2.ExecuteWorkflowFromWebhook" => {
+            "workflow_id" => "String",
+            "org_id" => "UUID",
+            "x_hub_signature_256" => "String",
+            "user_agent" => "String",
+            "body" => "Hash<String, Object>",
     },
 }

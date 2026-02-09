@@ -384,6 +384,9 @@ module DatadogAPIClient
             "v2.update_incident_team": false,
             "v2.search_flaky_tests": false,
             "v2.update_flaky_tests": false,
+            "v2.execute_workflow_from_template": false,
+            "v2.execute_workflow_from_webhook": false,
+            "v2.update_workflow_favorite": false,
       }
       @server_variables[:site] = ENV['DD_SITE'] if ENV.key? 'DD_SITE'
       @api_key['apiKeyAuth'] = ENV['DD_API_KEY'] if ENV.key? 'DD_API_KEY'

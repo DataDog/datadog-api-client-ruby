@@ -297,6 +297,194 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Execute a workflow from a template.
+    #
+    # @see #execute_workflow_from_template_with_http_info
+    def execute_workflow_from_template(parent_id, body, opts = {})
+      data, _status_code, _headers = execute_workflow_from_template_with_http_info(parent_id, body, opts)
+      data
+    end
+
+    # Execute a workflow from a template.
+    #
+    # Execute a headless workflow instance from a template. This endpoint creates and executes
+    # a workflow instance based on a template configuration.
+    #
+    # **Note**: This endpoint is in public beta and is subject to change.
+    # If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
+    #
+    # @param parent_id [String] The ID of the parent workflow
+    # @param body [WorkflowHeadlessExecutionRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(WorkflowHeadlessExecutionResponse, Integer, Hash)>] WorkflowHeadlessExecutionResponse data, response status code and response headers
+    def execute_workflow_from_template_with_http_info(parent_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.execute_workflow_from_template".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.execute_workflow_from_template")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.execute_workflow_from_template"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: WorkflowAutomationAPI.execute_workflow_from_template ...'
+      end
+      # verify the required parameter 'parent_id' is set
+      if @api_client.config.client_side_validation && parent_id.nil?
+        fail ArgumentError, "Missing the required parameter 'parent_id' when calling WorkflowAutomationAPI.execute_workflow_from_template"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling WorkflowAutomationAPI.execute_workflow_from_template"
+      end
+      # resource path
+      local_var_path = '/api/v2/workflow_headless/{parent_id}/instances'.sub('{parent_id}', CGI.escape(parent_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'WorkflowHeadlessExecutionResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :execute_workflow_from_template,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: WorkflowAutomationAPI#execute_workflow_from_template\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Execute a workflow from a webhook.
+    #
+    # @see #execute_workflow_from_webhook_with_http_info
+    def execute_workflow_from_webhook(workflow_id, org_id, x_hub_signature_256, user_agent, body, opts = {})
+      data, _status_code, _headers = execute_workflow_from_webhook_with_http_info(workflow_id, org_id, x_hub_signature_256, user_agent, body, opts)
+      data
+    end
+
+    # Execute a workflow from a webhook.
+    #
+    # Execute a workflow triggered by a GitHub webhook. This endpoint validates the GitHub webhook signature
+    # and the GitHub user agent before executing the workflow.
+    #
+    # This endpoint requires:
+    # - Valid GitHub webhook signature in the X-Hub-Signature-256 header
+    # - GitHub user agent in the User-Agent header
+    # - Valid organization ID in the orgId query parameter
+    # - Valid workflow ID in the path
+    #
+    # **Note**: This endpoint is in public beta and is subject to change.
+    # If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
+    #
+    # @param workflow_id [String] The ID of the workflow.
+    # @param org_id [UUID] The organization ID
+    # @param x_hub_signature_256 [String] GitHub webhook signature for payload validation
+    # @param user_agent [String] Must start with "GitHub-Hookshot/"
+    # @param body [Hash<String, Object>] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(WorkflowWebhookExecutionResponse, Integer, Hash)>] WorkflowWebhookExecutionResponse data, response status code and response headers
+    def execute_workflow_from_webhook_with_http_info(workflow_id, org_id, x_hub_signature_256, user_agent, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.execute_workflow_from_webhook".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.execute_workflow_from_webhook")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.execute_workflow_from_webhook"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: WorkflowAutomationAPI.execute_workflow_from_webhook ...'
+      end
+      # verify the required parameter 'workflow_id' is set
+      if @api_client.config.client_side_validation && workflow_id.nil?
+        fail ArgumentError, "Missing the required parameter 'workflow_id' when calling WorkflowAutomationAPI.execute_workflow_from_webhook"
+      end
+      # verify the required parameter 'org_id' is set
+      if @api_client.config.client_side_validation && org_id.nil?
+        fail ArgumentError, "Missing the required parameter 'org_id' when calling WorkflowAutomationAPI.execute_workflow_from_webhook"
+      end
+      # verify the required parameter 'x_hub_signature_256' is set
+      if @api_client.config.client_side_validation && x_hub_signature_256.nil?
+        fail ArgumentError, "Missing the required parameter 'x_hub_signature_256' when calling WorkflowAutomationAPI.execute_workflow_from_webhook"
+      end
+      # verify the required parameter 'user_agent' is set
+      if @api_client.config.client_side_validation && user_agent.nil?
+        fail ArgumentError, "Missing the required parameter 'user_agent' when calling WorkflowAutomationAPI.execute_workflow_from_webhook"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling WorkflowAutomationAPI.execute_workflow_from_webhook"
+      end
+      # resource path
+      local_var_path = '/api/v2/workflows/{workflow_id}/webhook'.sub('{workflow_id}', CGI.escape(workflow_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'orgId'] = org_id
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+      header_params['X-Hub-Signature-256'] = x_hub_signature_256
+      header_params['User-Agent'] = user_agent
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'WorkflowWebhookExecutionResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :execute_workflow_from_webhook,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: WorkflowAutomationAPI#execute_workflow_from_webhook\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get an existing Workflow.
     #
     # @see #get_workflow_with_http_info
@@ -569,6 +757,87 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: WorkflowAutomationAPI#update_workflow\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update workflow favorite status.
+    #
+    # @see #update_workflow_favorite_with_http_info
+    def update_workflow_favorite(workflow_id, body, opts = {})
+      update_workflow_favorite_with_http_info(workflow_id, body, opts)
+      nil
+    end
+
+    # Update workflow favorite status.
+    #
+    # Mark a workflow as favorite or unfavorite for the authenticated user.
+    #
+    # **Note**: This endpoint is in public beta and is subject to change.
+    # If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
+    #
+    # @param workflow_id [String] The ID of the workflow.
+    # @param body [WorkflowFavoriteRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def update_workflow_favorite_with_http_info(workflow_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.update_workflow_favorite".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_workflow_favorite")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_workflow_favorite"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: WorkflowAutomationAPI.update_workflow_favorite ...'
+      end
+      # verify the required parameter 'workflow_id' is set
+      if @api_client.config.client_side_validation && workflow_id.nil?
+        fail ArgumentError, "Missing the required parameter 'workflow_id' when calling WorkflowAutomationAPI.update_workflow_favorite"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling WorkflowAutomationAPI.update_workflow_favorite"
+      end
+      # resource path
+      local_var_path = '/api/v2/workflows/{workflow_id}/favorite'.sub('{workflow_id}', CGI.escape(workflow_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :update_workflow_favorite,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: WorkflowAutomationAPI#update_workflow_favorite\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
