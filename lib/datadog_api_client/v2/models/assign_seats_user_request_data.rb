@@ -17,21 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Jira issue creation attributes
-  class JiraIssueCreateAttributes
+  # 
+  class AssignSeatsUserRequestData
     include BaseGenericModel
 
-    # Additional Jira fields
-    attr_accessor :fields
+    #
+    attr_accessor :attributes
 
-    # Jira issue type ID
-    attr_reader :issue_type_id
+    # The ID of the assign seats user request.
+    attr_accessor :id
 
-    # Jira account ID
-    attr_reader :jira_account_id
-
-    # Jira project ID
-    attr_reader :project_id
+    # Seat assignments resource type.
+    attr_reader :type
 
     attr_accessor :additional_properties
 
@@ -39,10 +36,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'fields' => :'fields',
-        :'issue_type_id' => :'issue_type_id',
-        :'jira_account_id' => :'jira_account_id',
-        :'project_id' => :'project_id'
+        :'attributes' => :'attributes',
+        :'id' => :'id',
+        :'type' => :'type'
       }
     end
 
@@ -50,10 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'fields' => :'Hash<String, Object>',
-        :'issue_type_id' => :'String',
-        :'jira_account_id' => :'String',
-        :'project_id' => :'String'
+        :'attributes' => :'AssignSeatsUserRequestDataAttributes',
+        :'id' => :'String',
+        :'type' => :'SeatAssignmentsDataType'
       }
     end
 
@@ -62,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::JiraIssueCreateAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::AssignSeatsUserRequestData` initialize method"
       end
 
       self.additional_properties = {}
@@ -75,20 +70,16 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'fields')
-        self.fields = attributes[:'fields']
+      if attributes.key?(:'attributes')
+        self.attributes = attributes[:'attributes']
       end
 
-      if attributes.key?(:'issue_type_id')
-        self.issue_type_id = attributes[:'issue_type_id']
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
       end
 
-      if attributes.key?(:'jira_account_id')
-        self.jira_account_id = attributes[:'jira_account_id']
-      end
-
-      if attributes.key?(:'project_id')
-        self.project_id = attributes[:'project_id']
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
       end
     end
 
@@ -96,40 +87,18 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @issue_type_id.nil?
-      return false if @jira_account_id.nil?
-      return false if @project_id.nil?
+      return false if @type.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param issue_type_id [Object] Object to be assigned
+    # @param type [Object] Object to be assigned
     # @!visibility private
-    def issue_type_id=(issue_type_id)
-      if issue_type_id.nil?
-        fail ArgumentError, 'invalid value for "issue_type_id", issue_type_id cannot be nil.'
+    def type=(type)
+      if type.nil?
+        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
       end
-      @issue_type_id = issue_type_id
-    end
-
-    # Custom attribute writer method with validation
-    # @param jira_account_id [Object] Object to be assigned
-    # @!visibility private
-    def jira_account_id=(jira_account_id)
-      if jira_account_id.nil?
-        fail ArgumentError, 'invalid value for "jira_account_id", jira_account_id cannot be nil.'
-      end
-      @jira_account_id = jira_account_id
-    end
-
-    # Custom attribute writer method with validation
-    # @param project_id [Object] Object to be assigned
-    # @!visibility private
-    def project_id=(project_id)
-      if project_id.nil?
-        fail ArgumentError, 'invalid value for "project_id", project_id cannot be nil.'
-      end
-      @project_id = project_id
+      @type = type
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -158,10 +127,9 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          fields == o.fields &&
-          issue_type_id == o.issue_type_id &&
-          jira_account_id == o.jira_account_id &&
-          project_id == o.project_id &&
+          attributes == o.attributes &&
+          id == o.id &&
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -169,7 +137,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [fields, issue_type_id, jira_account_id, project_id, additional_properties].hash
+      [attributes, id, type, additional_properties].hash
     end
   end
 end

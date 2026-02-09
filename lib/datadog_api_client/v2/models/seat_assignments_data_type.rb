@@ -17,10 +17,10 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Jira issue resource type
-  class JiraIssueResourceType
+  # Seat assignments resource type.
+  class SeatAssignmentsDataType
     include BaseEnumModel
 
-    ISSUES = "issues".freeze
+    SEAT_ASSIGNMENTS = "seat-assignments".freeze
   end
 end

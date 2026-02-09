@@ -17,12 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Notebook creation request
-  class NotebookCreateRequest
+  # 
+  class AssignSeatsUserResponseDataAttributes
     include BaseGenericModel
 
-    # Notebook creation data
-    attr_reader :data
+    # The list of user IDs to which the seats were assigned.
+    attr_accessor :assigned_ids
+
+    # The product code for which the seats were assigned.
+    attr_accessor :product_code
 
     attr_accessor :additional_properties
 
@@ -30,7 +33,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data'
+        :'assigned_ids' => :'assigned_ids',
+        :'product_code' => :'product_code'
       }
     end
 
@@ -38,7 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'NotebookCreateData'
+        :'assigned_ids' => :'Array<String>',
+        :'product_code' => :'String'
       }
     end
 
@@ -47,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::NotebookCreateRequest` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::AssignSeatsUserResponseDataAttributes` initialize method"
       end
 
       self.additional_properties = {}
@@ -60,27 +65,15 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'data')
-        self.data = attributes[:'data']
+      if attributes.key?(:'assigned_ids')
+        if (value = attributes[:'assigned_ids']).is_a?(Array)
+          self.assigned_ids = value
+        end
       end
-    end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    # @!visibility private
-    def valid?
-      return false if @data.nil?
-      true
-    end
-
-    # Custom attribute writer method with validation
-    # @param data [Object] Object to be assigned
-    # @!visibility private
-    def data=(data)
-      if data.nil?
-        fail ArgumentError, 'invalid value for "data", data cannot be nil.'
+      if attributes.key?(:'product_code')
+        self.product_code = attributes[:'product_code']
       end
-      @data = data
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -109,7 +102,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data &&
+          assigned_ids == o.assigned_ids &&
+          product_code == o.product_code &&
           additional_properties == o.additional_properties
     end
 
@@ -117,7 +111,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, additional_properties].hash
+      [assigned_ids, product_code, additional_properties].hash
     end
   end
 end

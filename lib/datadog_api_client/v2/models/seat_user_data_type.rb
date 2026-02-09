@@ -17,10 +17,10 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Incident resource type
-  class IncidentResourceType
+  # Seat users resource type.
+  class SeatUserDataType
     include BaseEnumModel
 
-    INCIDENTS = "incidents".freeze
+    SEAT_USERS = "seat-users".freeze
   end
 end

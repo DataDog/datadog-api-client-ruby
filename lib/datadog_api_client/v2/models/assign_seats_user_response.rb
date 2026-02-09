@@ -17,12 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Relationship to incident request
-  class RelationshipToIncidentRequest
+  # 
+  class AssignSeatsUserResponse
     include BaseGenericModel
 
-    # Incident relationship data
-    attr_reader :data
+    #
+    attr_accessor :data
 
     attr_accessor :additional_properties
 
@@ -38,7 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'IncidentRelationshipData'
+        :'data' => :'AssignSeatsUserResponseData'
       }
     end
 
@@ -47,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RelationshipToIncidentRequest` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::AssignSeatsUserResponse` initialize method"
       end
 
       self.additional_properties = {}
@@ -63,24 +63,6 @@ module DatadogAPIClient::V2
       if attributes.key?(:'data')
         self.data = attributes[:'data']
       end
-    end
-
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    # @!visibility private
-    def valid?
-      return false if @data.nil?
-      true
-    end
-
-    # Custom attribute writer method with validation
-    # @param data [Object] Object to be assigned
-    # @!visibility private
-    def data=(data)
-      if data.nil?
-        fail ArgumentError, 'invalid value for "data", data cannot be nil.'
-      end
-      @data = data
     end
 
     # Returns the object in the form of hash, with additionalProperties support.

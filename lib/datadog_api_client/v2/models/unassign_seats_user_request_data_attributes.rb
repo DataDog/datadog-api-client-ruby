@@ -17,12 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # ServiceNow ticket creation request
-  class ServiceNowTicketCreateRequest
+  # 
+  class UnassignSeatsUserRequestDataAttributes
     include BaseGenericModel
 
-    # ServiceNow ticket creation data
-    attr_reader :data
+    # The product code for which to unassign seats.
+    attr_reader :product_code
+
+    # The list of user IDs to unassign seats from.
+    attr_reader :user_uuids
 
     attr_accessor :additional_properties
 
@@ -30,7 +33,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data'
+        :'product_code' => :'product_code',
+        :'user_uuids' => :'user_uuids'
       }
     end
 
@@ -38,7 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'ServiceNowTicketCreateData'
+        :'product_code' => :'String',
+        :'user_uuids' => :'Array<String>'
       }
     end
 
@@ -47,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ServiceNowTicketCreateRequest` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::UnassignSeatsUserRequestDataAttributes` initialize method"
       end
 
       self.additional_properties = {}
@@ -60,8 +65,14 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'data')
-        self.data = attributes[:'data']
+      if attributes.key?(:'product_code')
+        self.product_code = attributes[:'product_code']
+      end
+
+      if attributes.key?(:'user_uuids')
+        if (value = attributes[:'user_uuids']).is_a?(Array)
+          self.user_uuids = value
+        end
       end
     end
 
@@ -69,18 +80,29 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @data.nil?
+      return false if @product_code.nil?
+      return false if @user_uuids.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param data [Object] Object to be assigned
+    # @param product_code [Object] Object to be assigned
     # @!visibility private
-    def data=(data)
-      if data.nil?
-        fail ArgumentError, 'invalid value for "data", data cannot be nil.'
+    def product_code=(product_code)
+      if product_code.nil?
+        fail ArgumentError, 'invalid value for "product_code", product_code cannot be nil.'
       end
-      @data = data
+      @product_code = product_code
+    end
+
+    # Custom attribute writer method with validation
+    # @param user_uuids [Object] Object to be assigned
+    # @!visibility private
+    def user_uuids=(user_uuids)
+      if user_uuids.nil?
+        fail ArgumentError, 'invalid value for "user_uuids", user_uuids cannot be nil.'
+      end
+      @user_uuids = user_uuids
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -109,7 +131,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data &&
+          product_code == o.product_code &&
+          user_uuids == o.user_uuids &&
           additional_properties == o.additional_properties
     end
 
@@ -117,7 +140,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, additional_properties].hash
+      [product_code, user_uuids, additional_properties].hash
     end
   end
 end

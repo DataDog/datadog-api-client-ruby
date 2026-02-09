@@ -17,12 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Jira issue link attributes
-  class JiraIssueLinkAttributes
+  # 
+  class SeatUserData
     include BaseGenericModel
 
-    # URL of the Jira issue
-    attr_reader :jira_issue_url
+    #
+    attr_accessor :attributes
+
+    # The ID of the seat user.
+    attr_accessor :id
+
+    # Seat users resource type.
+    attr_reader :type
 
     attr_accessor :additional_properties
 
@@ -30,7 +36,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'jira_issue_url' => :'jira_issue_url'
+        :'attributes' => :'attributes',
+        :'id' => :'id',
+        :'type' => :'type'
       }
     end
 
@@ -38,7 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'jira_issue_url' => :'String'
+        :'attributes' => :'SeatUserDataAttributes',
+        :'id' => :'String',
+        :'type' => :'SeatUserDataType'
       }
     end
 
@@ -47,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::JiraIssueLinkAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SeatUserData` initialize method"
       end
 
       self.additional_properties = {}
@@ -60,8 +70,16 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'jira_issue_url')
-        self.jira_issue_url = attributes[:'jira_issue_url']
+      if attributes.key?(:'attributes')
+        self.attributes = attributes[:'attributes']
+      end
+
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
+      end
+
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
       end
     end
 
@@ -69,18 +87,18 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @jira_issue_url.nil?
+      return false if @type.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param jira_issue_url [Object] Object to be assigned
+    # @param type [Object] Object to be assigned
     # @!visibility private
-    def jira_issue_url=(jira_issue_url)
-      if jira_issue_url.nil?
-        fail ArgumentError, 'invalid value for "jira_issue_url", jira_issue_url cannot be nil.'
+    def type=(type)
+      if type.nil?
+        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
       end
-      @jira_issue_url = jira_issue_url
+      @type = type
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -109,7 +127,9 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          jira_issue_url == o.jira_issue_url &&
+          attributes == o.attributes &&
+          id == o.id &&
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -117,7 +137,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [jira_issue_url, additional_properties].hash
+      [attributes, id, type, additional_properties].hash
     end
   end
 end

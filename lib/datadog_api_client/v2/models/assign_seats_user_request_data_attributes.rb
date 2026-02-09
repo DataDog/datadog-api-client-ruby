@@ -17,15 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # ServiceNow ticket creation data
-  class ServiceNowTicketCreateData
+  # 
+  class AssignSeatsUserRequestDataAttributes
     include BaseGenericModel
 
-    # ServiceNow ticket creation attributes
-    attr_reader :attributes
+    # The product code for which to assign seats.
+    attr_reader :product_code
 
-    # ServiceNow ticket resource type
-    attr_reader :type
+    # The list of user IDs to assign seats to.
+    attr_reader :user_uuids
 
     attr_accessor :additional_properties
 
@@ -33,8 +33,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'attributes' => :'attributes',
-        :'type' => :'type'
+        :'product_code' => :'product_code',
+        :'user_uuids' => :'user_uuids'
       }
     end
 
@@ -42,8 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'ServiceNowTicketCreateAttributes',
-        :'type' => :'ServiceNowTicketResourceType'
+        :'product_code' => :'String',
+        :'user_uuids' => :'Array<String>'
       }
     end
 
@@ -52,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ServiceNowTicketCreateData` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::AssignSeatsUserRequestDataAttributes` initialize method"
       end
 
       self.additional_properties = {}
@@ -65,12 +65,14 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'attributes')
-        self.attributes = attributes[:'attributes']
+      if attributes.key?(:'product_code')
+        self.product_code = attributes[:'product_code']
       end
 
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
+      if attributes.key?(:'user_uuids')
+        if (value = attributes[:'user_uuids']).is_a?(Array)
+          self.user_uuids = value
+        end
       end
     end
 
@@ -78,29 +80,29 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @attributes.nil?
-      return false if @type.nil?
+      return false if @product_code.nil?
+      return false if @user_uuids.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param attributes [Object] Object to be assigned
+    # @param product_code [Object] Object to be assigned
     # @!visibility private
-    def attributes=(attributes)
-      if attributes.nil?
-        fail ArgumentError, 'invalid value for "attributes", attributes cannot be nil.'
+    def product_code=(product_code)
+      if product_code.nil?
+        fail ArgumentError, 'invalid value for "product_code", product_code cannot be nil.'
       end
-      @attributes = attributes
+      @product_code = product_code
     end
 
     # Custom attribute writer method with validation
-    # @param type [Object] Object to be assigned
+    # @param user_uuids [Object] Object to be assigned
     # @!visibility private
-    def type=(type)
-      if type.nil?
-        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+    def user_uuids=(user_uuids)
+      if user_uuids.nil?
+        fail ArgumentError, 'invalid value for "user_uuids", user_uuids cannot be nil.'
       end
-      @type = type
+      @user_uuids = user_uuids
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -129,8 +131,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          attributes == o.attributes &&
-          type == o.type &&
+          product_code == o.product_code &&
+          user_uuids == o.user_uuids &&
           additional_properties == o.additional_properties
     end
 
@@ -138,7 +140,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, type, additional_properties].hash
+      [product_code, user_uuids, additional_properties].hash
     end
   end
 end
