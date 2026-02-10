@@ -169,9 +169,9 @@ module DatadogAPIClient::V2
     # Get the list of devices.
     #
     # @param opts [Hash] the optional parameters
-    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 100.
-    # @option opts [Integer] :page_number Specific page number to return.
-    # @option opts [String] :sort The field to sort the devices by.
+    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 500. Defaults to 50.
+    # @option opts [Integer] :page_number Specific page number to return. Defaults to 0.
+    # @option opts [String] :sort The field to sort the devices by. Defaults to `name`.
     # @option opts [String] :filter_tag Filter devices by tag.
     # @return [Array<(ListDevicesResponse, Integer, Hash)>] ListDevicesResponse data, response status code and response headers
     def list_devices_with_http_info(opts = {})
@@ -233,7 +233,7 @@ module DatadogAPIClient::V2
     # @yield [DevicesListData] Paginated items
     def list_devices_with_pagination(opts = {})
         api_version = "V2"
-        page_size = @api_client.get_attribute_from_path(opts, "page_size", 10)
+        page_size = @api_client.get_attribute_from_path(opts, "page_size", 50)
         @api_client.set_attribute_from_path(api_version, opts, "page_size", Integer, page_size)
         @api_client.set_attribute_from_path(api_version, opts, "page_number", Integer, 0)
         while true do
