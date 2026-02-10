@@ -3412,6 +3412,7 @@ module DatadogAPIClient
           "v2.observability_pipeline_datadog_tags_processor_type" => "ObservabilityPipelineDatadogTagsProcessorType",
           "v2.observability_pipeline_decoding" => "ObservabilityPipelineDecoding",
           "v2.observability_pipeline_dedupe_processor" => "ObservabilityPipelineDedupeProcessor",
+          "v2.observability_pipeline_dedupe_processor_cache" => "ObservabilityPipelineDedupeProcessorCache",
           "v2.observability_pipeline_dedupe_processor_mode" => "ObservabilityPipelineDedupeProcessorMode",
           "v2.observability_pipeline_dedupe_processor_type" => "ObservabilityPipelineDedupeProcessorType",
           "v2.observability_pipeline_disk_buffer_options" => "ObservabilityPipelineDiskBufferOptions",
