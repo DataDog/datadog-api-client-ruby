@@ -1359,7 +1359,7 @@
             
           </span>
           
-            &mdash; <div class='inline'><p>Size for a given page. The maximum allowed value is 100.</p>
+            &mdash; <div class='inline'><p>Size for a given page. The maximum allowed value is 500. Defaults to 50.</p>
 </div>
           
         </li>
@@ -1371,7 +1371,7 @@
             
           </span>
           
-            &mdash; <div class='inline'><p>Specific page number to return.</p>
+            &mdash; <div class='inline'><p>Specific page number to return. Defaults to 0.</p>
 </div>
           
         </li>
@@ -1383,7 +1383,7 @@
             
           </span>
           
-            &mdash; <div class='inline'><p>The field to sort the devices by.</p>
+            &mdash; <div class='inline'><p>The field to sort the devices by. Defaults to <code>name</code>.</p>
 </div>
           
         </li>
@@ -1600,7 +1600,7 @@
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_devices_with_pagination'>list_devices_with_pagination</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_api_version'>api_version</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>V2</span><span class='tstring_end'>&quot;</span></span>
-    <span class='id identifier rubyid_page_size'>page_size</span> <span class='op'>=</span> <span class='ivar'>@api_client</span><span class='period'>.</span><span class='id identifier rubyid_get_attribute_from_path'>get_attribute_from_path</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>page_size</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='int'>10</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_page_size'>page_size</span> <span class='op'>=</span> <span class='ivar'>@api_client</span><span class='period'>.</span><span class='id identifier rubyid_get_attribute_from_path'>get_attribute_from_path</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>page_size</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='int'>50</span><span class='rparen'>)</span>
     <span class='ivar'>@api_client</span><span class='period'>.</span><span class='id identifier rubyid_set_attribute_from_path'>set_attribute_from_path</span><span class='lparen'>(</span><span class='id identifier rubyid_api_version'>api_version</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>page_size</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='const'>Integer</span><span class='comma'>,</span> <span class='id identifier rubyid_page_size'>page_size</span><span class='rparen'>)</span>
     <span class='ivar'>@api_client</span><span class='period'>.</span><span class='id identifier rubyid_set_attribute_from_path'>set_attribute_from_path</span><span class='lparen'>(</span><span class='id identifier rubyid_api_version'>api_version</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>page_number</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='const'>Integer</span><span class='comma'>,</span> <span class='int'>0</span><span class='rparen'>)</span>
     <span class='kw'>while</span> <span class='kw'>true</span> <span class='kw'>do</span>
@@ -1881,7 +1881,7 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Feb 10 11:31:03 2026 by
+  Generated on Tue Feb 10 13:03:38 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.38 (ruby-2.7.8).
 </div>
