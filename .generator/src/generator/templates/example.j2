@@ -1,4 +1,4 @@
-# {{ scenario.name|wordwrap(width=120)}}
+# {{ scenario.name|wordwrap(width=120, wrapstring="\n# ")}}
 {%- set parameters, opts = format_parameters(context.api_request.kwargs, operation_spec, replace_values=context._replace_values, has_body=context.body) %}
 {%- if context.body %}
 {%- set body = format_data_with_schema(context.body.value, context.api_request.schema.spec, name_prefix="DatadogAPIClient::{}::".format(version.upper()), replace_values=context._replace_values)%}
