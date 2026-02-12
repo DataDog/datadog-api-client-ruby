@@ -27,8 +27,11 @@ module DatadogAPIClient::V2
     # The `query` `case_insensitivity`.
     attr_accessor :case_insensitivity
 
-    # The `query` `if_not_exists`.
-    attr_reader :if_not_exists
+    # Deprecated. Use `if_tag_exists` instead. The `query` `if_not_exists`.
+    attr_accessor :if_not_exists
+
+    # The behavior when the tag already exists.
+    attr_accessor :if_tag_exists
 
     # The `query` `query`.
     attr_reader :query
@@ -42,6 +45,7 @@ module DatadogAPIClient::V2
         :'addition' => :'addition',
         :'case_insensitivity' => :'case_insensitivity',
         :'if_not_exists' => :'if_not_exists',
+        :'if_tag_exists' => :'if_tag_exists',
         :'query' => :'query'
       }
     end
@@ -53,6 +57,7 @@ module DatadogAPIClient::V2
         :'addition' => :'CreateRulesetRequestDataAttributesRulesItemsQueryAddition',
         :'case_insensitivity' => :'Boolean',
         :'if_not_exists' => :'Boolean',
+        :'if_tag_exists' => :'DataAttributesRulesItemsIfTagExists',
         :'query' => :'String'
       }
     end
@@ -95,6 +100,10 @@ module DatadogAPIClient::V2
         self.if_not_exists = attributes[:'if_not_exists']
       end
 
+      if attributes.key?(:'if_tag_exists')
+        self.if_tag_exists = attributes[:'if_tag_exists']
+      end
+
       if attributes.key?(:'query')
         self.query = attributes[:'query']
       end
@@ -104,19 +113,8 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @if_not_exists.nil?
       return false if @query.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param if_not_exists [Object] Object to be assigned
-    # @!visibility private
-    def if_not_exists=(if_not_exists)
-      if if_not_exists.nil?
-        fail ArgumentError, 'invalid value for "if_not_exists", if_not_exists cannot be nil.'
-      end
-      @if_not_exists = if_not_exists
     end
 
     # Custom attribute writer method with validation
@@ -158,6 +156,7 @@ module DatadogAPIClient::V2
           addition == o.addition &&
           case_insensitivity == o.case_insensitivity &&
           if_not_exists == o.if_not_exists &&
+          if_tag_exists == o.if_tag_exists &&
           query == o.query &&
           additional_properties == o.additional_properties
     end
@@ -166,7 +165,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [addition, case_insensitivity, if_not_exists, query, additional_properties].hash
+      [addition, case_insensitivity, if_not_exists, if_tag_exists, query, additional_properties].hash
     end
   end
 end

@@ -1,4 +1,4 @@
-# Update tag pipeline ruleset returns "OK" response
+# Update tag pipeline ruleset with if_tag_exists returns "OK" response
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::CloudCostManagementAPI.new
@@ -13,7 +13,7 @@ body = DatadogAPIClient::V2::UpdateRulesetRequest.new({
           enabled: true,
           mapping: DatadogAPIClient::V2::DataAttributesRulesItemsMapping.new({
             destination_key: "team_owner",
-            if_not_exists: true,
+            if_tag_exists: DatadogAPIClient::V2::DataAttributesRulesItemsIfTagExists::REPLACE,
             source_keys: [
               "account_name",
               "account_id",

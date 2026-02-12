@@ -68,12 +68,12 @@ module DatadogAPIClient::V1
     # The name of the service level objective object.
     attr_reader :name
 
-    # A metric-based SLO. **Required if type is `metric`**. Note that Datadog only allows the sum by aggregator
+    # A count-based (metric) SLO query. This field is superseded by `sli_specification` but is retained for backwards compatibility. Note that Datadog only allows the sum by aggregator
     # to be used because this will sum up all request counts instead of averaging them, or taking the max or
     # min of all of those requests.
     attr_accessor :query
 
-    # A generic SLI specification. This is currently used for time-slice SLOs only.
+    # A generic SLI specification. This is used for time-slice and count-based (metric) SLOs only.
     attr_accessor :sli_specification
 
     # A list of tags associated with this service level objective.
