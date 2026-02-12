@@ -29,6 +29,9 @@ module DatadogAPIClient::V2
     # Higher values require higher deviations before triggering a signal.
     attr_accessor :detection_tolerance
 
+    # When set to true, Datadog uses previous values that fall within the defined learning window to construct the baseline, enabling the system to establish an accurate baseline more rapidly rather than relying solely on gradual learning over time.
+    attr_accessor :instantaneous_baseline
+
     # Learning duration in hours. Anomaly detection waits for at least this amount of historical data before it starts evaluating.
     attr_accessor :learning_duration
 
@@ -43,6 +46,7 @@ module DatadogAPIClient::V2
       {
         :'bucket_duration' => :'bucketDuration',
         :'detection_tolerance' => :'detectionTolerance',
+        :'instantaneous_baseline' => :'instantaneousBaseline',
         :'learning_duration' => :'learningDuration',
         :'learning_period_baseline' => :'learningPeriodBaseline'
       }
@@ -54,6 +58,7 @@ module DatadogAPIClient::V2
       {
         :'bucket_duration' => :'SecurityMonitoringRuleAnomalyDetectionOptionsBucketDuration',
         :'detection_tolerance' => :'SecurityMonitoringRuleAnomalyDetectionOptionsDetectionTolerance',
+        :'instantaneous_baseline' => :'Boolean',
         :'learning_duration' => :'SecurityMonitoringRuleAnomalyDetectionOptionsLearningDuration',
         :'learning_period_baseline' => :'Integer'
       }
@@ -83,6 +88,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'detection_tolerance')
         self.detection_tolerance = attributes[:'detection_tolerance']
+      end
+
+      if attributes.key?(:'instantaneous_baseline')
+        self.instantaneous_baseline = attributes[:'instantaneous_baseline']
       end
 
       if attributes.key?(:'learning_duration')
@@ -140,6 +149,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           bucket_duration == o.bucket_duration &&
           detection_tolerance == o.detection_tolerance &&
+          instantaneous_baseline == o.instantaneous_baseline &&
           learning_duration == o.learning_duration &&
           learning_period_baseline == o.learning_period_baseline &&
           additional_properties == o.additional_properties
@@ -149,7 +159,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [bucket_duration, detection_tolerance, learning_duration, learning_period_baseline, additional_properties].hash
+      [bucket_duration, detection_tolerance, instantaneous_baseline, learning_duration, learning_period_baseline, additional_properties].hash
     end
   end
 end

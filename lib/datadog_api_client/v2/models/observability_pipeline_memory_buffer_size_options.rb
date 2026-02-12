@@ -27,6 +27,9 @@ module DatadogAPIClient::V2
     # The type of the buffer that will be configured, a memory buffer.
     attr_accessor :type
 
+    # Behavior when the buffer is full (block and stop accepting new events, or drop new events)
+    attr_accessor :when_full
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -34,7 +37,8 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'max_events' => :'max_events',
-        :'type' => :'type'
+        :'type' => :'type',
+        :'when_full' => :'when_full'
       }
     end
 
@@ -43,7 +47,8 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'max_events' => :'Integer',
-        :'type' => :'ObservabilityPipelineBufferOptionsMemoryType'
+        :'type' => :'ObservabilityPipelineBufferOptionsMemoryType',
+        :'when_full' => :'ObservabilityPipelineBufferOptionsWhenFull'
       }
     end
 
@@ -71,6 +76,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'type')
         self.type = attributes[:'type']
+      end
+
+      if attributes.key?(:'when_full')
+        self.when_full = attributes[:'when_full']
       end
     end
 
@@ -102,6 +111,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           max_events == o.max_events &&
           type == o.type &&
+          when_full == o.when_full &&
           additional_properties == o.additional_properties
     end
 
@@ -109,7 +119,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [max_events, type, additional_properties].hash
+      [max_events, type, when_full, additional_properties].hash
     end
   end
 end

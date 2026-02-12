@@ -21,6 +21,12 @@ module DatadogAPIClient::V2
   class InputSchemaParameters
     include BaseGenericModel
 
+    # The `InputSchemaParameters` `allowExtraValues`.
+    attr_accessor :allow_extra_values
+
+    # The `InputSchemaParameters` `allowedValues`.
+    attr_accessor :allowed_values
+
     # The `InputSchemaParameters` `defaultValue`.
     attr_accessor :default_value
 
@@ -42,6 +48,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'allow_extra_values' => :'allowExtraValues',
+        :'allowed_values' => :'allowedValues',
         :'default_value' => :'defaultValue',
         :'description' => :'description',
         :'label' => :'label',
@@ -54,6 +62,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'allow_extra_values' => :'Boolean',
+        :'allowed_values' => :'Object',
         :'default_value' => :'Object',
         :'description' => :'String',
         :'label' => :'String',
@@ -79,6 +89,14 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'allow_extra_values')
+        self.allow_extra_values = attributes[:'allow_extra_values']
+      end
+
+      if attributes.key?(:'allowed_values')
+        self.allowed_values = attributes[:'allowed_values']
+      end
 
       if attributes.key?(:'default_value')
         self.default_value = attributes[:'default_value']
@@ -156,6 +174,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          allow_extra_values == o.allow_extra_values &&
+          allowed_values == o.allowed_values &&
           default_value == o.default_value &&
           description == o.description &&
           label == o.label &&
@@ -168,7 +188,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [default_value, description, label, name, type, additional_properties].hash
+      [allow_extra_values, allowed_values, default_value, description, label, name, type, additional_properties].hash
     end
   end
 end
