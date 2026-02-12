@@ -1,5 +1,5 @@
 # Validate a detection rule with detection method 'new_value' with enabled feature 'instantaneousBaseline' returns "OK"
-response
+# response
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::SecurityMonitoringAPI.new
