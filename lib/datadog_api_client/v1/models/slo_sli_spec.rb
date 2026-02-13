@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # A generic SLI specification. This is currently used for time-slice SLOs only.
+  # A generic SLI specification. This is used for time-slice and count-based (metric) SLOs only.
   module SLOSliSpec
     class << self
       include BaseOneOfModel
@@ -26,7 +26,8 @@ module DatadogAPIClient::V1
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of
         [
-          :'SLOTimeSliceSpec'
+          :'SLOTimeSliceSpec',
+          :'SLOCountSpec'
         ]
       end
       # Builds the object
