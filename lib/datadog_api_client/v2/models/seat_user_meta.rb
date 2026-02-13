@@ -17,12 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Jira issue link request
-  class JiraIssueLinkRequest
+  # 
+  class SeatUserMeta
     include BaseGenericModel
 
-    # Jira issue link data
-    attr_reader :data
+    # The cursor for the seat users.
+    attr_accessor :cursor
+
+    # The limit for the seat users.
+    attr_accessor :limit
+
+    # The next cursor for the seat users.
+    attr_accessor :next_cursor
 
     attr_accessor :additional_properties
 
@@ -30,7 +36,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data'
+        :'cursor' => :'cursor',
+        :'limit' => :'limit',
+        :'next_cursor' => :'next_cursor'
       }
     end
 
@@ -38,7 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'JiraIssueLinkData'
+        :'cursor' => :'String',
+        :'limit' => :'Integer',
+        :'next_cursor' => :'String'
       }
     end
 
@@ -47,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::JiraIssueLinkRequest` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SeatUserMeta` initialize method"
       end
 
       self.additional_properties = {}
@@ -60,27 +70,17 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'data')
-        self.data = attributes[:'data']
+      if attributes.key?(:'cursor')
+        self.cursor = attributes[:'cursor']
       end
-    end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    # @!visibility private
-    def valid?
-      return false if @data.nil?
-      true
-    end
-
-    # Custom attribute writer method with validation
-    # @param data [Object] Object to be assigned
-    # @!visibility private
-    def data=(data)
-      if data.nil?
-        fail ArgumentError, 'invalid value for "data", data cannot be nil.'
+      if attributes.key?(:'limit')
+        self.limit = attributes[:'limit']
       end
-      @data = data
+
+      if attributes.key?(:'next_cursor')
+        self.next_cursor = attributes[:'next_cursor']
+      end
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -109,7 +109,9 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data &&
+          cursor == o.cursor &&
+          limit == o.limit &&
+          next_cursor == o.next_cursor &&
           additional_properties == o.additional_properties
     end
 
@@ -117,7 +119,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, additional_properties].hash
+      [cursor, limit, next_cursor, additional_properties].hash
     end
   end
 end

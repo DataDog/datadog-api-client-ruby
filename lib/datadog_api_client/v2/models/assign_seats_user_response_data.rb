@@ -17,15 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # ServiceNow ticket creation attributes
-  class ServiceNowTicketCreateAttributes
+  # 
+  class AssignSeatsUserResponseData
     include BaseGenericModel
 
-    # ServiceNow assignment group
-    attr_accessor :assignment_group
+    #
+    attr_accessor :attributes
 
-    # ServiceNow instance name
-    attr_reader :instance_name
+    # The ID of the assign seats user response.
+    attr_accessor :id
+
+    # Seat assignments resource type.
+    attr_reader :type
 
     attr_accessor :additional_properties
 
@@ -33,8 +36,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'assignment_group' => :'assignment_group',
-        :'instance_name' => :'instance_name'
+        :'attributes' => :'attributes',
+        :'id' => :'id',
+        :'type' => :'type'
       }
     end
 
@@ -42,8 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'assignment_group' => :'String',
-        :'instance_name' => :'String'
+        :'attributes' => :'AssignSeatsUserResponseDataAttributes',
+        :'id' => :'String',
+        :'type' => :'SeatAssignmentsDataType'
       }
     end
 
@@ -52,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ServiceNowTicketCreateAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::AssignSeatsUserResponseData` initialize method"
       end
 
       self.additional_properties = {}
@@ -65,12 +70,16 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'assignment_group')
-        self.assignment_group = attributes[:'assignment_group']
+      if attributes.key?(:'attributes')
+        self.attributes = attributes[:'attributes']
       end
 
-      if attributes.key?(:'instance_name')
-        self.instance_name = attributes[:'instance_name']
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
+      end
+
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
       end
     end
 
@@ -78,18 +87,18 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @instance_name.nil?
+      return false if @type.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param instance_name [Object] Object to be assigned
+    # @param type [Object] Object to be assigned
     # @!visibility private
-    def instance_name=(instance_name)
-      if instance_name.nil?
-        fail ArgumentError, 'invalid value for "instance_name", instance_name cannot be nil.'
+    def type=(type)
+      if type.nil?
+        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
       end
-      @instance_name = instance_name
+      @type = type
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -118,8 +127,9 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          assignment_group == o.assignment_group &&
-          instance_name == o.instance_name &&
+          attributes == o.attributes &&
+          id == o.id &&
+          type == o.type &&
           additional_properties == o.additional_properties
     end
 
@@ -127,7 +137,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [assignment_group, instance_name, additional_properties].hash
+      [attributes, id, type, additional_properties].hash
     end
   end
 end

@@ -17,12 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Notebook creation data
-  class NotebookCreateData
+  # 
+  class SeatUserDataAttributes
     include BaseGenericModel
 
-    # Notebook resource type
-    attr_reader :type
+    # The date and time the seat was assigned.
+    attr_accessor :assigned_at
+
+    # The email of the user.
+    attr_accessor :email
+
+    # The name of the user.
+    attr_accessor :name
 
     attr_accessor :additional_properties
 
@@ -30,7 +36,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'type' => :'type'
+        :'assigned_at' => :'assigned_at',
+        :'email' => :'email',
+        :'name' => :'name'
       }
     end
 
@@ -38,7 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'type' => :'NotebookResourceType'
+        :'assigned_at' => :'Time',
+        :'email' => :'String',
+        :'name' => :'String'
       }
     end
 
@@ -47,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::NotebookCreateData` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SeatUserDataAttributes` initialize method"
       end
 
       self.additional_properties = {}
@@ -60,27 +70,17 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
+      if attributes.key?(:'assigned_at')
+        self.assigned_at = attributes[:'assigned_at']
       end
-    end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    # @!visibility private
-    def valid?
-      return false if @type.nil?
-      true
-    end
-
-    # Custom attribute writer method with validation
-    # @param type [Object] Object to be assigned
-    # @!visibility private
-    def type=(type)
-      if type.nil?
-        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+      if attributes.key?(:'email')
+        self.email = attributes[:'email']
       end
-      @type = type
+
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
+      end
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -109,7 +109,9 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          type == o.type &&
+          assigned_at == o.assigned_at &&
+          email == o.email &&
+          name == o.name &&
           additional_properties == o.additional_properties
     end
 
@@ -117,7 +119,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [type, additional_properties].hash
+      [assigned_at, email, name, additional_properties].hash
     end
   end
 end
