@@ -6,7 +6,7 @@
 <title>
   Class: DatadogAPIClient::V1::SLOResponseData
   
-    &mdash; datadog-api-client 2.30.0.dev.1 documentation
+    &mdash; datadog-api-client 2.49.0 documentation
   
 </title>
 
@@ -428,7 +428,7 @@ for one or more timeframes, and metadata (<code>name</code>, <code>description</
   
 
   
-    <span class="summary_desc"><div class='inline'><p>A metric-based SLO.</p>
+    <span class="summary_desc"><div class='inline'><p>A count-based (metric) SLO query.</p>
 </div></span>
   
 </li>
@@ -1130,7 +1130,7 @@ determined entirely by the <code>monitor_ids</code> field).</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>A metric-based SLO. <strong>Required if type is <code>metric</code></strong>. Note that Datadog only allows the sum by aggregator
+    <p>A count-based (metric) SLO query. This field is superseded by <code>sli_specification</code> but is retained for backwards compatibility. Note that Datadog only allows the sum by aggregator
 to be used because this will sum up all request counts instead of averaging them, or taking the max or
 min of all of those requests.</p>
 
@@ -1174,7 +1174,7 @@ min of all of those requests.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>A generic SLI specification. This is currently used for time-slice SLOs only.</p>
+    <p>A generic SLI specification. This is used for time-slice and count-based (metric) SLOs only.</p>
 
 
   </div>
@@ -1469,9 +1469,9 @@ threshold.</p>
 </div>
 
       <div id="footer">
-  Generated on Tue Feb 18 21:07:18 2025 by
+  Generated on Fri Feb 13 00:06:33 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.37 (ruby-2.7.8).
+  0.9.38 (ruby-2.7.8).
 </div>
 
     </div>

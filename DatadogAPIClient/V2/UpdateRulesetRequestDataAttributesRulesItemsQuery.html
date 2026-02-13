@@ -211,7 +211,31 @@
   
   
     
-      <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Deprecated.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#if_tag_exists-instance_method" title="#if_tag_exists (instance method)">#<strong>if_tag_exists</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
     
     
   
@@ -221,7 +245,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>The <code>query</code> <code>if_not_exists</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>The behavior when the tag already exists.</p>
 </div></span>
   
 </li>
@@ -344,12 +368,12 @@
       <pre class="lines">
 
 
-36
-37
-38</pre>
+39
+40
+41</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/update_ruleset_request_data_attributes_rules_items_query.rb', line 36</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/update_ruleset_request_data_attributes_rules_items_query.rb', line 39</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_additional_properties'>additional_properties</span>
   <span class='ivar'>@additional_properties</span>
@@ -414,7 +438,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>The <code>query</code> <code>if_not_exists</code>.</p>
+    <p>Deprecated. Use <code>if_tag_exists</code> instead. The <code>query</code> <code>if_not_exists</code>.</p>
 
 
   </div>
@@ -437,6 +461,48 @@
 
 <span class='kw'>def</span> <span class='id identifier rubyid_if_not_exists'>if_not_exists</span>
   <span class='ivar'>@if_not_exists</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="if_tag_exists=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="if_tag_exists-instance_method">
+  
+    #<strong>if_tag_exists</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>The behavior when the tag already exists.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+34
+35
+36</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/update_ruleset_request_data_attributes_rules_items_query.rb', line 34</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_if_tag_exists'>if_tag_exists</span>
+  <span class='ivar'>@if_tag_exists</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -470,12 +536,12 @@
       <pre class="lines">
 
 
-34
-35
-36</pre>
+37
+38
+39</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/update_ruleset_request_data_attributes_rules_items_query.rb', line 34</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/update_ruleset_request_data_attributes_rules_items_query.rb', line 37</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_query'>query</span>
   <span class='ivar'>@query</span>
@@ -491,7 +557,7 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Feb 12 11:36:54 2026 by
+  Generated on Fri Feb 13 00:07:05 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.38 (ruby-2.7.8).
 </div>
