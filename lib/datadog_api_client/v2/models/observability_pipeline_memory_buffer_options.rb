@@ -22,7 +22,7 @@ module DatadogAPIClient::V2
     include BaseGenericModel
 
     # Maximum size of the memory buffer.
-    attr_accessor :max_size
+    attr_reader :max_size
 
     # The type of the buffer that will be configured, a memory buffer.
     attr_accessor :type
@@ -81,6 +81,24 @@ module DatadogAPIClient::V2
       if attributes.key?(:'when_full')
         self.when_full = attributes[:'when_full']
       end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @max_size.nil?
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param max_size [Object] Object to be assigned
+    # @!visibility private
+    def max_size=(max_size)
+      if max_size.nil?
+        fail ArgumentError, 'invalid value for "max_size", max_size cannot be nil.'
+      end
+      @max_size = max_size
     end
 
     # Returns the object in the form of hash, with additionalProperties support.

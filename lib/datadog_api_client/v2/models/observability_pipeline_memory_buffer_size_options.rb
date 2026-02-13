@@ -22,7 +22,7 @@ module DatadogAPIClient::V2
     include BaseGenericModel
 
     # Maximum events for the memory buffer.
-    attr_accessor :max_events
+    attr_reader :max_events
 
     # The type of the buffer that will be configured, a memory buffer.
     attr_accessor :type
@@ -81,6 +81,24 @@ module DatadogAPIClient::V2
       if attributes.key?(:'when_full')
         self.when_full = attributes[:'when_full']
       end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @max_events.nil?
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param max_events [Object] Object to be assigned
+    # @!visibility private
+    def max_events=(max_events)
+      if max_events.nil?
+        fail ArgumentError, 'invalid value for "max_events", max_events cannot be nil.'
+      end
+      @max_events = max_events
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
