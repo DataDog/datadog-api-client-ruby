@@ -1401,6 +1401,12 @@ ScenariosModelMappings = {
             "version" => "String",
             "body" => "UpdateCustomFrameworkRequest",
     },
+    "v2.AssignIntegrationIssues" => {
+            "body" => "IntegrationAssignmentRequest",
+    },
+    "v2.CreateJiraIssue" => {
+            "body" => "JiraIssueRequest",
+    },
     "v2.GetResourceEvaluationFilters" => {
             "cloud_provider" => "String",
             "account_id" => "String",
@@ -1454,6 +1460,9 @@ ScenariosModelMappings = {
     },
     "v2.CreateJiraIssues" => {
             "body" => "CreateJiraIssueRequestArray",
+    },
+    "v2.GetJiraIssueMetadata" => {
+            "url" => "String",
     },
     "v2.SearchSecurityFindings" => {
             "body" => "SecurityFindingsSearchRequest",

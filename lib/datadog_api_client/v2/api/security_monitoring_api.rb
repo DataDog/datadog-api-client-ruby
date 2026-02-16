@@ -96,6 +96,80 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Assign or un-assign Jira issues to security findings.
+    #
+    # @see #assign_integration_issues_with_http_info
+    def assign_integration_issues(body, opts = {})
+      assign_integration_issues_with_http_info(body, opts)
+      nil
+    end
+
+    # Assign or un-assign Jira issues to security findings.
+    #
+    # Assign or un-assign Jira issues to security findings or vulnerabilities.
+    # This endpoint allows you to associate existing Jira issues with security findings or vulnerabilities, or remove such associations.
+    #
+    # @param body [IntegrationAssignmentRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def assign_integration_issues_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.assign_integration_issues".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.assign_integration_issues")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.assign_integration_issues"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.assign_integration_issues ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.assign_integration_issues"
+      end
+      # resource path
+      local_var_path = '/api/v2/cloud_security_management/integrations/assign'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :assign_integration_issues,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#assign_integration_issues\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Attach security findings to a case.
     #
     # @see #attach_case_with_http_info
@@ -725,6 +799,80 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SecurityMonitoringAPI#create_custom_framework\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create Jira issues for security findings.
+    #
+    # @see #create_jira_issue_with_http_info
+    def create_jira_issue(body, opts = {})
+      create_jira_issue_with_http_info(body, opts)
+      nil
+    end
+
+    # Create Jira issues for security findings.
+    #
+    # Create Jira issues for security findings or vulnerabilities.
+    # This endpoint creates new Jira issues based on the provided security findings or vulnerability information. The operation is asynchronous and returns immediately with a 202 Accepted status.
+    #
+    # @param body [JiraIssueRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def create_jira_issue_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_jira_issue".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_jira_issue")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_jira_issue"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.create_jira_issue ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.create_jira_issue"
+      end
+      # resource path
+      local_var_path = '/api/v2/cloud_security_management/jira_issues'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_jira_issue,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#create_jira_issue\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2364,6 +2512,79 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SecurityMonitoringAPI#get_finding\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get Jira issue metadata.
+    #
+    # @see #get_jira_issue_metadata_with_http_info
+    def get_jira_issue_metadata(url, opts = {})
+      data, _status_code, _headers = get_jira_issue_metadata_with_http_info(url, opts)
+      data
+    end
+
+    # Get Jira issue metadata.
+    #
+    # Retrieve metadata for a Jira issue.
+    # This endpoint returns metadata about a Jira issue, including account ID, issue type ID, and project ID, based on the provided Jira issue URL.
+    #
+    # @param url [String] The Jira issue URL.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(JiraIssuesMetadataResponse, Integer, Hash)>] JiraIssuesMetadataResponse data, response status code and response headers
+    def get_jira_issue_metadata_with_http_info(url, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_jira_issue_metadata".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_jira_issue_metadata")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_jira_issue_metadata"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_jira_issue_metadata ...'
+      end
+      # verify the required parameter 'url' is set
+      if @api_client.config.client_side_validation && url.nil?
+        fail ArgumentError, "Missing the required parameter 'url' when calling SecurityMonitoringAPI.get_jira_issue_metadata"
+      end
+      # resource path
+      local_var_path = '/api/v2/security/findings/jira_issues/metadata'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'url'] = url
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'JiraIssuesMetadataResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_jira_issue_metadata,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#get_jira_issue_metadata\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
