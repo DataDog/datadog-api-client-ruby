@@ -26,24 +26,30 @@ module DatadogAPIClient::V2
     # Get service list.
     #
     # @see #get_service_list_with_http_info
-    def get_service_list(opts = {})
-      data, _status_code, _headers = get_service_list_with_http_info(opts)
+    def get_service_list(filter_env, opts = {})
+      data, _status_code, _headers = get_service_list_with_http_info(filter_env, opts)
       data
     end
 
     # Get service list.
+    # @param filter_env [String] Filter services by environment. Can be set to `*` to return all services across all environments.
     # @param opts [Hash] the optional parameters
     # @return [Array<(ServiceList, Integer, Hash)>] ServiceList data, response status code and response headers
-    def get_service_list_with_http_info(opts = {})
+    def get_service_list_with_http_info(filter_env, opts = {})
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: APMAPI.get_service_list ...'
+      end
+      # verify the required parameter 'filter_env' is set
+      if @api_client.config.client_side_validation && filter_env.nil?
+        fail ArgumentError, "Missing the required parameter 'filter_env' when calling APMAPI.get_service_list"
       end
       # resource path
       local_var_path = '/api/v2/apm/services'
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'filter[env]'] = filter_env
 
       # header parameters
       header_params = opts[:header_params] || {}

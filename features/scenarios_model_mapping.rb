@@ -1108,6 +1108,9 @@ ScenariosModelMappings = {
             "filter_id" => "String",
             "body" => "RetentionFilterUpdateRequest",
     },
+    "v2.GetServiceList" => {
+            "filter_env" => "String",
+    },
     "v2.DeleteApps" => {
             "body" => "DeleteAppsRequest",
     },
