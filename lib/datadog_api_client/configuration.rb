@@ -237,6 +237,8 @@ module DatadogAPIClient
             "v2.mute_findings": false,
             "v2.run_threat_hunting_job": false,
             "v2.search_security_monitoring_histsignals": false,
+            "v2.get_code_coverage_branch_summary": false,
+            "v2.get_code_coverage_commit_summary": false,
             "v2.create_dataset": false,
             "v2.delete_dataset": false,
             "v2.get_all_datasets": false,
