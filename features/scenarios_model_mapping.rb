@@ -1758,6 +1758,12 @@ ScenariosModelMappings = {
     "v2.ListMultipleRulesets" => {
             "body" => "GetMultipleRulesetsRequest",
     },
+    "v2.GetCodeCoverageBranchSummary" => {
+            "body" => "BranchCoverageSummaryRequest",
+    },
+    "v2.GetCodeCoverageCommitSummary" => {
+            "body" => "CommitCoverageSummaryRequest",
+    },
     "v2.ListContainerImages" => {
             "filter_tags" => "String",
             "group_by" => "String",
