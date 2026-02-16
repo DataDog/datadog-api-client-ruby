@@ -285,6 +285,91 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # List action connections.
+    #
+    # @see #list_action_connections_with_http_info
+    def list_action_connections(opts = {})
+      data, _status_code, _headers = list_action_connections_with_http_info(opts)
+      data
+    end
+
+    # List action connections.
+    #
+    # List all action connections for the organization. This endpoint supports filtering by integration type, tags, environment, and search strings. Pagination is supported using page size and page number parameters.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :page_size The number of connections to return per page.
+    # @option opts [Integer] :page_number The page number to return.
+    # @option opts [Array<String>] :filter_integration Filter by integration type.
+    # @option opts [Array<String>] :filter_tags Filter by tags.
+    # @option opts [String] :filter_environment Filter by environment.
+    # @option opts [Array<String>] :filter_connection_ids Filter by connection IDs.
+    # @option opts [Array<String>] :filter_creator_ids Filter by creator IDs.
+    # @option opts [String] :filter_search Search string to filter connections.
+    # @option opts [Array<String>] :sort Sort parameters.
+    # @return [Array<(ListActionConnectionsResponse, Integer, Hash)>] ListActionConnectionsResponse data, response status code and response headers
+    def list_action_connections_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_action_connections".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_action_connections")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_action_connections"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ActionConnectionAPI.list_action_connections ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/actions/connections'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+      query_params[:'page[number]'] = opts[:'page_number'] if !opts[:'page_number'].nil?
+      query_params[:'filter[integration]'] = @api_client.build_collection_param(opts[:'filter_integration'], :multi) if !opts[:'filter_integration'].nil?
+      query_params[:'filter[tags]'] = @api_client.build_collection_param(opts[:'filter_tags'], :multi) if !opts[:'filter_tags'].nil?
+      query_params[:'filter[environment]'] = opts[:'filter_environment'] if !opts[:'filter_environment'].nil?
+      query_params[:'filter[connection_ids]'] = @api_client.build_collection_param(opts[:'filter_connection_ids'], :multi) if !opts[:'filter_connection_ids'].nil?
+      query_params[:'filter[creator_ids]'] = @api_client.build_collection_param(opts[:'filter_creator_ids'], :multi) if !opts[:'filter_creator_ids'].nil?
+      query_params[:'filter[search]'] = opts[:'filter_search'] if !opts[:'filter_search'].nil?
+      query_params[:'sort'] = @api_client.build_collection_param(opts[:'sort'], :multi) if !opts[:'sort'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ListActionConnectionsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :list_action_connections,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+      new_options[:query_string_normalizer] = HTTParty::Request::NON_RAILS_QUERY_STRING_NORMALIZER
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ActionConnectionAPI#list_action_connections\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List App Key Registrations.
     #
     # @see #list_app_key_registrations_with_http_info
@@ -345,6 +430,91 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ActionConnectionAPI#list_app_key_registrations\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List connection groups.
+    #
+    # @see #list_connection_groups_with_http_info
+    def list_connection_groups(opts = {})
+      data, _status_code, _headers = list_connection_groups_with_http_info(opts)
+      data
+    end
+
+    # List connection groups.
+    #
+    # List all connection groups for the organization. This endpoint supports filtering by integration type, environment, connection group IDs, and search strings. Pagination is supported using page size and page number parameters.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :page_size The number of connection groups to return per page.
+    # @option opts [Integer] :page_number The page number to return.
+    # @option opts [Array<String>] :filter_integration Filter by integration type.
+    # @option opts [String] :filter_environment Filter by environment.
+    # @option opts [Array<String>] :filter_connection_group_ids Filter by connection group IDs.
+    # @option opts [String] :filter_creator_id Filter by creator ID.
+    # @option opts [Array<String>] :filter_creator_ids Filter by creator IDs.
+    # @option opts [String] :filter_search Search string to filter connection groups.
+    # @option opts [Array<String>] :sort Sort parameters.
+    # @return [Array<(ListConnectionGroupsResponse, Integer, Hash)>] ListConnectionGroupsResponse data, response status code and response headers
+    def list_connection_groups_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_connection_groups".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_connection_groups")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_connection_groups"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ActionConnectionAPI.list_connection_groups ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/actions/connections/groups'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+      query_params[:'page[number]'] = opts[:'page_number'] if !opts[:'page_number'].nil?
+      query_params[:'filter[integration]'] = @api_client.build_collection_param(opts[:'filter_integration'], :multi) if !opts[:'filter_integration'].nil?
+      query_params[:'filter[environment]'] = opts[:'filter_environment'] if !opts[:'filter_environment'].nil?
+      query_params[:'filter[connection_group_ids]'] = @api_client.build_collection_param(opts[:'filter_connection_group_ids'], :multi) if !opts[:'filter_connection_group_ids'].nil?
+      query_params[:'filter[creator_id]'] = opts[:'filter_creator_id'] if !opts[:'filter_creator_id'].nil?
+      query_params[:'filter[creator_ids]'] = @api_client.build_collection_param(opts[:'filter_creator_ids'], :multi) if !opts[:'filter_creator_ids'].nil?
+      query_params[:'filter[search]'] = opts[:'filter_search'] if !opts[:'filter_search'].nil?
+      query_params[:'sort'] = @api_client.build_collection_param(opts[:'sort'], :multi) if !opts[:'sort'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ListConnectionGroupsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :list_connection_groups,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+      new_options[:query_string_normalizer] = HTTParty::Request::NON_RAILS_QUERY_STRING_NORMALIZER
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ActionConnectionAPI#list_connection_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -547,6 +717,84 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ActionConnectionAPI#update_action_connection\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update a connection group.
+    #
+    # @see #update_connection_group_with_http_info
+    def update_connection_group(connection_group_id, body, opts = {})
+      data, _status_code, _headers = update_connection_group_with_http_info(connection_group_id, body, opts)
+      data
+    end
+
+    # Update a connection group.
+    #
+    # Update an existing connection group by ID. This endpoint allows updating the name, description, tag keys, integration type, connections, and policy attributes of a connection group.
+    #
+    # @param connection_group_id [String] The ID of the connection group.
+    # @param body [UpdateConnectionGroupRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(UpdateConnectionGroupResponse, Integer, Hash)>] UpdateConnectionGroupResponse data, response status code and response headers
+    def update_connection_group_with_http_info(connection_group_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.update_connection_group".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_connection_group")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_connection_group"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ActionConnectionAPI.update_connection_group ...'
+      end
+      # verify the required parameter 'connection_group_id' is set
+      if @api_client.config.client_side_validation && connection_group_id.nil?
+        fail ArgumentError, "Missing the required parameter 'connection_group_id' when calling ActionConnectionAPI.update_connection_group"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling ActionConnectionAPI.update_connection_group"
+      end
+      # resource path
+      local_var_path = '/api/v2/actions/connections/groups/{connection_group_id}'.sub('{connection_group_id}', CGI.escape(connection_group_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'UpdateConnectionGroupResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :update_connection_group,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ActionConnectionAPI#update_connection_group\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
