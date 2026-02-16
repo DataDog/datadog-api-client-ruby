@@ -934,8 +934,34 @@ ScenariosModelMappings = {
     "v2.RegisterAppKey" => {
             "app_key_id" => "String",
     },
+    "v2.ListActionConnections" => {
+            "page_size" => "Integer",
+            "page_number" => "Integer",
+            "filter_integration" => "Array<String>",
+            "filter_tags" => "Array<String>",
+            "filter_environment" => "String",
+            "filter_connection_ids" => "Array<String>",
+            "filter_creator_ids" => "Array<String>",
+            "filter_search" => "String",
+            "sort" => "Array<String>",
+    },
     "v2.CreateActionConnection" => {
             "body" => "CreateActionConnectionRequest",
+    },
+    "v2.ListConnectionGroups" => {
+            "page_size" => "Integer",
+            "page_number" => "Integer",
+            "filter_integration" => "Array<String>",
+            "filter_environment" => "String",
+            "filter_connection_group_ids" => "Array<String>",
+            "filter_creator_id" => "String",
+            "filter_creator_ids" => "Array<String>",
+            "filter_search" => "String",
+            "sort" => "Array<String>",
+    },
+    "v2.UpdateConnectionGroup" => {
+            "connection_group_id" => "String",
+            "body" => "UpdateConnectionGroupRequest",
     },
     "v2.DeleteActionConnection" => {
             "connection_id" => "String",
