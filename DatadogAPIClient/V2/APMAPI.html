@@ -148,7 +148,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#get_service_list-instance_method" title="#get_service_list (instance method)">#<strong>get_service_list</strong>(opts = {})  &#x21d2; Object </a>
+      <a href="#get_service_list-instance_method" title="#get_service_list (instance method)">#<strong>get_service_list</strong>(filter_env, opts = {})  &#x21d2; Object </a>
     
 
     
@@ -171,7 +171,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#get_service_list_with_http_info-instance_method" title="#get_service_list_with_http_info (instance method)">#<strong>get_service_list_with_http_info</strong>(opts = {})  &#x21d2; Array&lt;(ServiceList, Integer, Hash)&gt; </a>
+      <a href="#get_service_list_with_http_info-instance_method" title="#get_service_list_with_http_info (instance method)">#<strong>get_service_list_with_http_info</strong>(filter_env, opts = {})  &#x21d2; Array&lt;(ServiceList, Integer, Hash)&gt; </a>
     
 
     
@@ -319,7 +319,7 @@
       <div class="method_details first">
   <h3 class="signature first" id="get_service_list-instance_method">
   
-    #<strong>get_service_list</strong>(opts = {})  &#x21d2; <tt>Object</tt> 
+    #<strong>get_service_list</strong>(filter_env, opts = {})  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -356,8 +356,8 @@
     <td>
       <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/apm_api.rb', line 29</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_get_service_list'>get_service_list</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_get_service_list_with_http_info'>get_service_list_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_get_service_list'>get_service_list</span><span class='lparen'>(</span><span class='id identifier rubyid_filter_env'>filter_env</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_get_service_list_with_http_info'>get_service_list_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_filter_env'>filter_env</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -368,7 +368,7 @@
       <div class="method_details ">
   <h3 class="signature " id="get_service_list_with_http_info-instance_method">
   
-    #<strong>get_service_list_with_http_info</strong>(opts = {})  &#x21d2; <tt>Array&lt;(<span class='object_link'><a href="ServiceList.html" title="DatadogAPIClient::V2::ServiceList (class)">ServiceList</a></span>, Integer, Hash)&gt;</tt> 
+    #<strong>get_service_list_with_http_info</strong>(filter_env, opts = {})  &#x21d2; <tt>Array&lt;(<span class='object_link'><a href="ServiceList.html" title="DatadogAPIClient::V2::ServiceList (class)">ServiceList</a></span>, Integer, Hash)&gt;</tt> 
   
 
   
@@ -384,6 +384,21 @@
 <div class="tags">
   <p class="tag_title">Parameters:</p>
 <ul class="param">
+  
+    <li>
+      
+        <span class='name'>filter_env</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Filter services by environment. Can be set to <code>*</code> to return all services across all environments.</p>
+</div>
+      
+    </li>
   
     <li>
       
@@ -428,7 +443,6 @@
       <pre class="lines">
 
 
-37
 38
 39
 40
@@ -472,21 +486,32 @@
 78
 79
 80
-81</pre>
+81
+82
+83
+84
+85
+86
+87</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/apm_api.rb', line 37</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/api/apm_api.rb', line 38</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_get_service_list_with_http_info'>get_service_list_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_get_service_list_with_http_info'>get_service_list_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_filter_env'>filter_env</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
   <span class='kw'>if</span> <span class='ivar'>@api_client</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_debugging'>debugging</span>
     <span class='ivar'>@api_client</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_logger'>logger</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Calling API: APMAPI.get_service_list ...</span><span class='tstring_end'>&#39;</span></span>
+  <span class='kw'>end</span>
+  <span class='comment'># verify the required parameter &#39;filter_env&#39; is set
+</span>  <span class='kw'>if</span> <span class='ivar'>@api_client</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_client_side_validation'>client_side_validation</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_filter_env'>filter_env</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+    <span class='id identifier rubyid_fail'>fail</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Missing the required parameter &#39;filter_env&#39; when calling APMAPI.get_service_list</span><span class='tstring_end'>&quot;</span></span>
   <span class='kw'>end</span>
   <span class='comment'># resource path
 </span>  <span class='id identifier rubyid_local_var_path'>local_var_path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/api/v2/apm/services</span><span class='tstring_end'>&#39;</span></span>
 
   <span class='comment'># query parameters
 </span>  <span class='id identifier rubyid_query_params'>query_params</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:query_params</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='id identifier rubyid_query_params'>query_params</span><span class='lbracket'>[</span><span class='symbol'>:&#39;filter[env]&#39;</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_filter_env'>filter_env</span>
 
   <span class='comment'># header parameters
 </span>  <span class='id identifier rubyid_header_params'>header_params</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:header_params</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
@@ -532,7 +557,7 @@
 </div>
 
       <div id="footer">
-  Generated on Mon Feb 16 11:45:50 2026 by
+  Generated on Mon Feb 16 15:04:01 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.38 (ruby-2.7.8).
 </div>
