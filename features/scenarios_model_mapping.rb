@@ -1333,6 +1333,10 @@ ScenariosModelMappings = {
     "v2.UpsertCatalogEntity" => {
             "body" => "UpsertCatalogEntityRequest",
     },
+    "v2.ConvertCatalogEntities" => {
+            "target_version" => "EntitySchemaVersion",
+            "body" => "UpsertCatalogEntityRequest",
+    },
     "v2.DeleteCatalogEntity" => {
             "entity_id" => "String",
     },
@@ -1348,6 +1352,15 @@ ScenariosModelMappings = {
     "v2.DeleteCatalogKind" => {
             "kind_id" => "String",
     },
+    "v2.AcceptRecommendedEntities" => {
+            "body" => "Array<RecommendedEntityWithSchema>",
+    },
+    "v2.DeclineRecommendedEntities" => {
+            "body" => "Array<RecommendedEntityID>",
+    },
+    "v2.TriggerRecommendedEntities" => {
+            "body" => "Object",
+    },
     "v2.ListCatalogRelation" => {
             "page_offset" => "Integer",
             "page_limit" => "Integer",
@@ -1356,6 +1369,13 @@ ScenariosModelMappings = {
             "filter_to_ref" => "String",
             "include" => "RelationIncludeType",
             "include_discovered" => "Boolean",
+    },
+    "v2.GetIDPConfigValue" => {
+            "config_name" => "String",
+    },
+    "v2.UpsertIDPConfigValue" => {
+            "config_name" => "String",
+            "body" => "IDPConfigRequest",
     },
     "v2.CreateCIAppPipelineEvent" => {
             "body" => "CIAppCreatePipelineEventRequest",

@@ -23,6 +23,236 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
+    # Accept recommended entities in bulk.
+    #
+    # @see #accept_recommended_entities_with_http_info
+    def accept_recommended_entities(body, opts = {})
+      accept_recommended_entities_with_http_info(body, opts)
+      nil
+    end
+
+    # Accept recommended entities in bulk.
+    #
+    # Accept multiple recommended entities in Software Catalog in a single request.
+    #
+    # @param body [Array<RecommendedEntityWithSchema>] List of recommended entities to accept with their schemas.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def accept_recommended_entities_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.accept_recommended_entities".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.accept_recommended_entities")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.accept_recommended_entities"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SoftwareCatalogAPI.accept_recommended_entities ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SoftwareCatalogAPI.accept_recommended_entities"
+      end
+      # resource path
+      local_var_path = '/api/v2/catalog/recommended_entity/bulk_accept'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :accept_recommended_entities,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SoftwareCatalogAPI#accept_recommended_entities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Convert entities between schema versions.
+    #
+    # @see #convert_catalog_entities_with_http_info
+    def convert_catalog_entities(target_version, body, opts = {})
+      data, _status_code, _headers = convert_catalog_entities_with_http_info(target_version, body, opts)
+      data
+    end
+
+    # Convert entities between schema versions.
+    #
+    # Convert entities from one schema version to another in Software Catalog.
+    #
+    # @param target_version [EntitySchemaVersion] The target schema version to convert entities to.
+    # @param body [UpsertCatalogEntityRequest] Entity YAML or JSON to convert.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(String, Integer, Hash)>] String data, response status code and response headers
+    def convert_catalog_entities_with_http_info(target_version, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.convert_catalog_entities".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.convert_catalog_entities")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.convert_catalog_entities"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SoftwareCatalogAPI.convert_catalog_entities ...'
+      end
+      # verify the required parameter 'target_version' is set
+      if @api_client.config.client_side_validation && target_version.nil?
+        fail ArgumentError, "Missing the required parameter 'target_version' when calling SoftwareCatalogAPI.convert_catalog_entities"
+      end
+      # verify enum value
+      allowable_values = ['v2', 'v2.1', 'v2.2', 'v3']
+      if @api_client.config.client_side_validation && !allowable_values.include?(target_version)
+        fail ArgumentError, "invalid value for \"target_version\", must be one of #{allowable_values}"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SoftwareCatalogAPI.convert_catalog_entities"
+      end
+      # resource path
+      local_var_path = '/api/v2/catalog/entity/convert'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'target_version'] = target_version
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'String'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :convert_catalog_entities,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SoftwareCatalogAPI#convert_catalog_entities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Decline recommended entities in bulk.
+    #
+    # @see #decline_recommended_entities_with_http_info
+    def decline_recommended_entities(body, opts = {})
+      decline_recommended_entities_with_http_info(body, opts)
+      nil
+    end
+
+    # Decline recommended entities in bulk.
+    #
+    # Decline multiple recommended entities in Software Catalog in a single request.
+    #
+    # @param body [Array<RecommendedEntityID>] List of recommended entity IDs to decline.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def decline_recommended_entities_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.decline_recommended_entities".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.decline_recommended_entities")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.decline_recommended_entities"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SoftwareCatalogAPI.decline_recommended_entities ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SoftwareCatalogAPI.decline_recommended_entities"
+      end
+      # resource path
+      local_var_path = '/api/v2/catalog/recommended_entity/bulk_decline'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :decline_recommended_entities,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SoftwareCatalogAPI#decline_recommended_entities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Delete a single entity.
     #
     # @see #delete_catalog_entity_with_http_info
@@ -149,6 +379,77 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SoftwareCatalogAPI#delete_catalog_kind\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get Internal Developer Portal configuration.
+    #
+    # @see #get_idp_config_value_with_http_info
+    def get_idp_config_value(config_name, opts = {})
+      data, _status_code, _headers = get_idp_config_value_with_http_info(config_name, opts)
+      data
+    end
+
+    # Get Internal Developer Portal configuration.
+    #
+    # Get a configuration value for the Internal Developer Portal (IDP).
+    #
+    # @param config_name [String] The configuration key to retrieve.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(IDPConfigResponse, Integer, Hash)>] IDPConfigResponse data, response status code and response headers
+    def get_idp_config_value_with_http_info(config_name, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_idp_config_value".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_idp_config_value")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_idp_config_value"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SoftwareCatalogAPI.get_idp_config_value ...'
+      end
+      # verify the required parameter 'config_name' is set
+      if @api_client.config.client_side_validation && config_name.nil?
+        fail ArgumentError, "Missing the required parameter 'config_name' when calling SoftwareCatalogAPI.get_idp_config_value"
+      end
+      # resource path
+      local_var_path = '/api/v2/idp/config/{config_name}'.sub('{config_name}', CGI.escape(config_name.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'IDPConfigResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_idp_config_value,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SoftwareCatalogAPI#get_idp_config_value\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -513,6 +814,75 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Trigger recommended entity discovery.
+    #
+    # @see #trigger_recommended_entities_with_http_info
+    def trigger_recommended_entities(opts = {})
+      data, _status_code, _headers = trigger_recommended_entities_with_http_info(opts)
+      data
+    end
+
+    # Trigger recommended entity discovery.
+    #
+    # Trigger the discovery of recommended entities in Software Catalog.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [Object] :body Optional request body for triggering recommended entity discovery.
+    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
+    def trigger_recommended_entities_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.trigger_recommended_entities".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.trigger_recommended_entities")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.trigger_recommended_entities"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SoftwareCatalogAPI.trigger_recommended_entities ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/catalog/recommended_entity/trigger'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'body'])
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'Object'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :trigger_recommended_entities,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SoftwareCatalogAPI#trigger_recommended_entities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create or update entities.
     #
     # @see #upsert_catalog_entity_with_http_info
@@ -643,6 +1013,84 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SoftwareCatalogAPI#upsert_catalog_kind\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create or update IDP configuration.
+    #
+    # @see #upsert_idp_config_value_with_http_info
+    def upsert_idp_config_value(config_name, body, opts = {})
+      upsert_idp_config_value_with_http_info(config_name, body, opts)
+      nil
+    end
+
+    # Create or update IDP configuration.
+    #
+    # Create or update a configuration value for the Internal Developer Portal (IDP).
+    #
+    # @param config_name [String] The configuration key to create or update.
+    # @param body [IDPConfigRequest] Configuration value to set.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def upsert_idp_config_value_with_http_info(config_name, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.upsert_idp_config_value".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.upsert_idp_config_value")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.upsert_idp_config_value"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SoftwareCatalogAPI.upsert_idp_config_value ...'
+      end
+      # verify the required parameter 'config_name' is set
+      if @api_client.config.client_side_validation && config_name.nil?
+        fail ArgumentError, "Missing the required parameter 'config_name' when calling SoftwareCatalogAPI.upsert_idp_config_value"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SoftwareCatalogAPI.upsert_idp_config_value"
+      end
+      # resource path
+      local_var_path = '/api/v2/idp/config/{config_name}'.sub('{config_name}', CGI.escape(config_name.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :upsert_idp_config_value,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SoftwareCatalogAPI#upsert_idp_config_value\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
