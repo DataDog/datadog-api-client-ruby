@@ -321,6 +321,8 @@ module DatadogAPIClient
             "v2.list_service_now_templates": false,
             "v2.list_service_now_users": false,
             "v2.update_service_now_template": false,
+            "v2.update_login_org_config_max_session_duration": false,
+            "v2.update_org_saml_configurations": false,
             "v2.add_role_to_restriction_query": false,
             "v2.create_restriction_query": false,
             "v2.delete_restriction_query": false,
