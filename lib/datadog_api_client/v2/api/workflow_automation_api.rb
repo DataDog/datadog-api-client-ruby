@@ -93,6 +93,376 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Create a custom agent conversation.
+    #
+    # @see #create_custom_agent_conversation_with_http_info
+    def create_custom_agent_conversation(custom_agent_id, body, opts = {})
+      data, _status_code, _headers = create_custom_agent_conversation_with_http_info(custom_agent_id, body, opts)
+      data
+    end
+
+    # Create a custom agent conversation.
+    #
+    # Initiates or continues a conversation with a custom agent. Supports streaming responses.
+    #
+    # @param custom_agent_id [UUID] The ID of the custom agent.
+    # @param body [CustomAgentConversationRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(CustomAgentConversationStreamResponse, Integer, Hash)>] CustomAgentConversationStreamResponse data, response status code and response headers
+    def create_custom_agent_conversation_with_http_info(custom_agent_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_custom_agent_conversation".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_custom_agent_conversation")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_custom_agent_conversation"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: WorkflowAutomationAPI.create_custom_agent_conversation ...'
+      end
+      # verify the required parameter 'custom_agent_id' is set
+      if @api_client.config.client_side_validation && custom_agent_id.nil?
+        fail ArgumentError, "Missing the required parameter 'custom_agent_id' when calling WorkflowAutomationAPI.create_custom_agent_conversation"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling WorkflowAutomationAPI.create_custom_agent_conversation"
+      end
+      # resource path
+      local_var_path = '/api/v2/actions/agents/{custom_agent_id}/conversation'.sub('{custom_agent_id}', CGI.escape(custom_agent_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['text/event-stream', 'application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CustomAgentConversationStreamResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :create_custom_agent_conversation,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: WorkflowAutomationAPI#create_custom_agent_conversation\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Generate data transformation code.
+    #
+    # @see #create_data_transformation_with_http_info
+    def create_data_transformation(body, opts = {})
+      data, _status_code, _headers = create_data_transformation_with_http_info(body, opts)
+      data
+    end
+
+    # Generate data transformation code.
+    #
+    # Generates data transformation code (JavaScript or Python) based on user prompt and context.
+    #
+    # @param body [DataTransformationRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(DataTransformationStreamResponse, Integer, Hash)>] DataTransformationStreamResponse data, response status code and response headers
+    def create_data_transformation_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_data_transformation".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_data_transformation")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_data_transformation"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: WorkflowAutomationAPI.create_data_transformation ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling WorkflowAutomationAPI.create_data_transformation"
+      end
+      # resource path
+      local_var_path = '/api/v2/workflow_generation/data_transformation'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['text/event-stream', 'application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DataTransformationStreamResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :create_data_transformation,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: WorkflowAutomationAPI#create_data_transformation\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Generate data transformation description.
+    #
+    # @see #create_data_transformation_description_with_http_info
+    def create_data_transformation_description(body, opts = {})
+      data, _status_code, _headers = create_data_transformation_description_with_http_info(body, opts)
+      data
+    end
+
+    # Generate data transformation description.
+    #
+    # Generates a summary and detailed description for data transformation code.
+    #
+    # @param body [DataTransformationDescriptionRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(DataTransformationDescriptionResponse, Integer, Hash)>] DataTransformationDescriptionResponse data, response status code and response headers
+    def create_data_transformation_description_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_data_transformation_description".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_data_transformation_description")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_data_transformation_description"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: WorkflowAutomationAPI.create_data_transformation_description ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling WorkflowAutomationAPI.create_data_transformation_description"
+      end
+      # resource path
+      local_var_path = '/api/v2/workflow_generation/data_transformation/description'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DataTransformationDescriptionResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :create_data_transformation_description,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: WorkflowAutomationAPI#create_data_transformation_description\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Pick relevant actions.
+    #
+    # @see #create_pick_action_with_http_info
+    def create_pick_action(body, opts = {})
+      data, _status_code, _headers = create_pick_action_with_http_info(body, opts)
+      data
+    end
+
+    # Pick relevant actions.
+    #
+    # Finds similar actions based on a user prompt using vector search.
+    #
+    # @param body [PickActionRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(PickActionResponse, Integer, Hash)>] PickActionResponse data, response status code and response headers
+    def create_pick_action_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_pick_action".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_pick_action")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_pick_action"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: WorkflowAutomationAPI.create_pick_action ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling WorkflowAutomationAPI.create_pick_action"
+      end
+      # resource path
+      local_var_path = '/api/v2/workflow_generation/pick_action'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'PickActionResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :create_pick_action,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: WorkflowAutomationAPI#create_pick_action\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Pick remediation actions from investigation.
+    #
+    # @see #create_pick_remediation_from_investigation_with_http_info
+    def create_pick_remediation_from_investigation(body, opts = {})
+      data, _status_code, _headers = create_pick_remediation_from_investigation_with_http_info(body, opts)
+      data
+    end
+
+    # Pick remediation actions from investigation.
+    #
+    # Generates keywords from an investigation and finds relevant remediation actions.
+    #
+    # @param body [PickRemediationFromInvestigationRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(PickRemediationFromInvestigationResponse, Integer, Hash)>] PickRemediationFromInvestigationResponse data, response status code and response headers
+    def create_pick_remediation_from_investigation_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_pick_remediation_from_investigation".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_pick_remediation_from_investigation")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_pick_remediation_from_investigation"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: WorkflowAutomationAPI.create_pick_remediation_from_investigation ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling WorkflowAutomationAPI.create_pick_remediation_from_investigation"
+      end
+      # resource path
+      local_var_path = '/api/v2/workflow_generation/pick_remediation_from_investigation'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'PickRemediationFromInvestigationResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :create_pick_remediation_from_investigation,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: WorkflowAutomationAPI#create_pick_remediation_from_investigation\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create a Workflow.
     #
     # @see #create_workflow_with_http_info
@@ -156,6 +526,79 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: WorkflowAutomationAPI#create_workflow\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Generate workflow description.
+    #
+    # @see #create_workflow_description_with_http_info
+    def create_workflow_description(body, opts = {})
+      data, _status_code, _headers = create_workflow_description_with_http_info(body, opts)
+      data
+    end
+
+    # Generate workflow description.
+    #
+    # Generates a description and summary for a workflow based on its specification.
+    #
+    # @param body [WorkflowDescriptionRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(WorkflowDescriptionResponse, Integer, Hash)>] WorkflowDescriptionResponse data, response status code and response headers
+    def create_workflow_description_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_workflow_description".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_workflow_description")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_workflow_description"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: WorkflowAutomationAPI.create_workflow_description ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling WorkflowAutomationAPI.create_workflow_description"
+      end
+      # resource path
+      local_var_path = '/api/v2/workflow_generation/description'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'WorkflowDescriptionResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :create_workflow_description,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: WorkflowAutomationAPI#create_workflow_description\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -228,6 +671,79 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: WorkflowAutomationAPI#create_workflow_instance\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Generate workflow scaffold with agentic stream.
+    #
+    # @see #create_workflow_scaffold_agentic_stream_with_http_info
+    def create_workflow_scaffold_agentic_stream(body, opts = {})
+      data, _status_code, _headers = create_workflow_scaffold_agentic_stream_with_http_info(body, opts)
+      data
+    end
+
+    # Generate workflow scaffold with agentic stream.
+    #
+    # Generates or updates a workflow scaffold using agentic streaming based on user prompts.
+    #
+    # @param body [WorkflowScaffoldAgenticStreamRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(WorkflowScaffoldAgenticStreamResponse, Integer, Hash)>] WorkflowScaffoldAgenticStreamResponse data, response status code and response headers
+    def create_workflow_scaffold_agentic_stream_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_workflow_scaffold_agentic_stream".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_workflow_scaffold_agentic_stream")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_workflow_scaffold_agentic_stream"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: WorkflowAutomationAPI.create_workflow_scaffold_agentic_stream ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling WorkflowAutomationAPI.create_workflow_scaffold_agentic_stream"
+      end
+      # resource path
+      local_var_path = '/api/v2/workflow_generation/scaffold_agentic_stream'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['text/event-stream', 'application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'WorkflowScaffoldAgenticStreamResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :create_workflow_scaffold_agentic_stream,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: WorkflowAutomationAPI#create_workflow_scaffold_agentic_stream\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

@@ -921,6 +921,58 @@ ScenariosModelMappings = {
             "datastore_id" => "String",
             "body" => "BulkPutAppsDatastoreItemsRequest",
     },
+    "v2.CreateCustomAgentConversation" => {
+            "custom_agent_id" => "UUID",
+            "body" => "CustomAgentConversationRequest",
+    },
+    "v2.CreateDataTransformation" => {
+            "body" => "DataTransformationRequest",
+    },
+    "v2.CreateDataTransformationDescription" => {
+            "body" => "DataTransformationDescriptionRequest",
+    },
+    "v2.CreateWorkflowDescription" => {
+            "body" => "WorkflowDescriptionRequest",
+    },
+    "v2.CreatePickAction" => {
+            "body" => "PickActionRequest",
+    },
+    "v2.CreatePickRemediationFromInvestigation" => {
+            "body" => "PickRemediationFromInvestigationRequest",
+    },
+    "v2.CreateWorkflowScaffoldAgenticStream" => {
+            "body" => "WorkflowScaffoldAgenticStreamRequest",
+    },
+    "v2.CreateWorkflow" => {
+            "body" => "CreateWorkflowRequest",
+    },
+    "v2.DeleteWorkflow" => {
+            "workflow_id" => "String",
+    },
+    "v2.GetWorkflow" => {
+            "workflow_id" => "String",
+    },
+    "v2.UpdateWorkflow" => {
+            "workflow_id" => "String",
+            "body" => "UpdateWorkflowRequest",
+    },
+    "v2.ListWorkflowInstances" => {
+            "workflow_id" => "String",
+            "page_size" => "Integer",
+            "page_number" => "Integer",
+    },
+    "v2.CreateWorkflowInstance" => {
+            "workflow_id" => "String",
+            "body" => "WorkflowInstanceCreateRequest",
+    },
+    "v2.GetWorkflowInstance" => {
+            "workflow_id" => "String",
+            "instance_id" => "String",
+    },
+    "v2.CancelWorkflowInstance" => {
+            "workflow_id" => "String",
+            "instance_id" => "String",
+    },
     "v2.ListAppKeyRegistrations" => {
             "page_size" => "Integer",
             "page_number" => "Integer",
@@ -3869,35 +3921,5 @@ ScenariosModelMappings = {
     },
     "v2.ListUserPermissions" => {
             "user_id" => "String",
-    },
-    "v2.CreateWorkflow" => {
-            "body" => "CreateWorkflowRequest",
-    },
-    "v2.DeleteWorkflow" => {
-            "workflow_id" => "String",
-    },
-    "v2.GetWorkflow" => {
-            "workflow_id" => "String",
-    },
-    "v2.UpdateWorkflow" => {
-            "workflow_id" => "String",
-            "body" => "UpdateWorkflowRequest",
-    },
-    "v2.ListWorkflowInstances" => {
-            "workflow_id" => "String",
-            "page_size" => "Integer",
-            "page_number" => "Integer",
-    },
-    "v2.CreateWorkflowInstance" => {
-            "workflow_id" => "String",
-            "body" => "WorkflowInstanceCreateRequest",
-    },
-    "v2.GetWorkflowInstance" => {
-            "workflow_id" => "String",
-            "instance_id" => "String",
-    },
-    "v2.CancelWorkflowInstance" => {
-            "workflow_id" => "String",
-            "instance_id" => "String",
     },
 }
