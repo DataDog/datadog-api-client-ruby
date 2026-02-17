@@ -285,6 +285,7 @@ module DatadogAPIClient
             "v2.get_incident_postmortem_template": false,
             "v2.get_incident_todo": false,
             "v2.get_incident_type": false,
+            "v2.import_incident": false,
             "v2.list_global_incident_handles": false,
             "v2.list_incident_attachments": false,
             "v2.list_incident_integrations": false,

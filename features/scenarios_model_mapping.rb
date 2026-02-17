@@ -2216,6 +2216,10 @@ ScenariosModelMappings = {
             "incident_type_id" => "String",
             "body" => "IncidentTypePatchRequest",
     },
+    "v2.ImportIncident" => {
+            "include" => "Array<IncidentImportRelatedObject>",
+            "body" => "IncidentImportRequest",
+    },
     "v2.SearchIncidents" => {
             "include" => "IncidentRelatedObject",
             "query" => "String",
