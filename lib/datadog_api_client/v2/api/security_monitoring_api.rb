@@ -4651,7 +4651,7 @@ module DatadogAPIClient::V2
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.list_security_monitoring_suppressions ...'
       end
-      allowable_values = ['name', 'start_date', 'expiration_date', 'update_date', 'enabled', '-name', '-start_date', '-expiration_date', '-update_date', '-enabled']
+      allowable_values = ['name', 'start_date', 'expiration_date', 'update_date', 'enabled', '-name', '-start_date', '-expiration_date', '-update_date', '-creation_date', '-enabled']
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
         fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
       end
