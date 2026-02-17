@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class ChangeEventCustomAttributesChangedResource
     include BaseGenericModel
 
-    # The name of the resource that was changed. Limited to 128 characters.
+    # The name of the resource that was changed. Limited to 128 characters. Must contain at least one non-whitespace character.
     attr_reader :name
 
     # The type of the resource that was changed.
@@ -77,6 +77,8 @@ module DatadogAPIClient::V2
       return false if @name.nil?
       return false if @name.to_s.length > 128
       return false if @name.to_s.length < 1
+      pattern = Regexp.new(/.*\S.*/)
+      return false if @name !~ pattern
       return false if @type.nil?
       true
     end
@@ -93,6 +95,10 @@ module DatadogAPIClient::V2
       end
       if name.to_s.length < 1
         fail ArgumentError, 'invalid value for "name", the character length must be great than or equal to 1.'
+      end
+      pattern = Regexp.new(/.*\S.*/)
+      if name !~ pattern
+        fail ArgumentError, "invalid value for \"name\", must conform to the pattern #{pattern}."
       end
       @name = name
     end
