@@ -311,6 +311,71 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # List tags for an interface.
+    #
+    # @see #list_interface_user_tags_with_http_info
+    def list_interface_user_tags(interface_id, opts = {})
+      data, _status_code, _headers = list_interface_user_tags_with_http_info(interface_id, opts)
+      data
+    end
+
+    # List tags for an interface.
+    #
+    # Returns the tags associated with the specified interface.
+    #
+    # @param interface_id [String] The ID of the interface for which to retrieve tags.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(ListInterfaceTagsResponse, Integer, Hash)>] ListInterfaceTagsResponse data, response status code and response headers
+    def list_interface_user_tags_with_http_info(interface_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: NetworkDeviceMonitoringAPI.list_interface_user_tags ...'
+      end
+      # verify the required parameter 'interface_id' is set
+      if @api_client.config.client_side_validation && interface_id.nil?
+        fail ArgumentError, "Missing the required parameter 'interface_id' when calling NetworkDeviceMonitoringAPI.list_interface_user_tags"
+      end
+      # resource path
+      local_var_path = '/api/v2/ndm/tags/interfaces/{interface_id}'.sub('{interface_id}', CGI.escape(interface_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ListInterfaceTagsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :list_interface_user_tags,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: NetworkDeviceMonitoringAPI#list_interface_user_tags\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Update the tags for a device.
     #
     # @see #update_device_user_tags_with_http_info
@@ -379,6 +444,78 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: NetworkDeviceMonitoringAPI#update_device_user_tags\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update the tags for an interface.
+    #
+    # @see #update_interface_user_tags_with_http_info
+    def update_interface_user_tags(interface_id, body, opts = {})
+      data, _status_code, _headers = update_interface_user_tags_with_http_info(interface_id, body, opts)
+      data
+    end
+
+    # Update the tags for an interface.
+    #
+    # Updates the tags associated with the specified interface.
+    #
+    # @param interface_id [String] The ID of the interface for which to update tags.
+    # @param body [ListInterfaceTagsResponse] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(ListInterfaceTagsResponse, Integer, Hash)>] ListInterfaceTagsResponse data, response status code and response headers
+    def update_interface_user_tags_with_http_info(interface_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: NetworkDeviceMonitoringAPI.update_interface_user_tags ...'
+      end
+      # verify the required parameter 'interface_id' is set
+      if @api_client.config.client_side_validation && interface_id.nil?
+        fail ArgumentError, "Missing the required parameter 'interface_id' when calling NetworkDeviceMonitoringAPI.update_interface_user_tags"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling NetworkDeviceMonitoringAPI.update_interface_user_tags"
+      end
+      # resource path
+      local_var_path = '/api/v2/ndm/tags/interfaces/{interface_id}'.sub('{interface_id}', CGI.escape(interface_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ListInterfaceTagsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :update_interface_user_tags,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: NetworkDeviceMonitoringAPI#update_interface_user_tags\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

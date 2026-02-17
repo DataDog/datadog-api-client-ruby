@@ -3052,6 +3052,8 @@ module DatadogAPIClient
           "v2.list_findings_meta" => "ListFindingsMeta",
           "v2.list_findings_page" => "ListFindingsPage",
           "v2.list_findings_response" => "ListFindingsResponse",
+          "v2.list_interface_tags_response" => "ListInterfaceTagsResponse",
+          "v2.list_interface_tags_response_data" => "ListInterfaceTagsResponseData",
           "v2.list_kind_catalog_response" => "ListKindCatalogResponse",
           "v2.list_notification_channels_response" => "ListNotificationChannelsResponse",
           "v2.list_on_call_notification_rules_response" => "ListOnCallNotificationRulesResponse",

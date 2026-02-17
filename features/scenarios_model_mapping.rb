@@ -2808,6 +2808,13 @@ ScenariosModelMappings = {
             "device_id" => "String",
             "body" => "ListTagsResponse",
     },
+    "v2.ListInterfaceUserTags" => {
+            "interface_id" => "String",
+    },
+    "v2.UpdateInterfaceUserTags" => {
+            "interface_id" => "String",
+            "body" => "ListInterfaceTagsResponse",
+    },
     "v2.GetAggregatedConnections" => {
             "from" => "Integer",
             "to" => "Integer",
