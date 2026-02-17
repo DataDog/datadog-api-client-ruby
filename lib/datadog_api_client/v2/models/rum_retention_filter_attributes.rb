@@ -21,6 +21,11 @@ module DatadogAPIClient::V2
   class RumRetentionFilterAttributes
     include BaseGenericModel
 
+    # Configuration for additional APM trace data retention for sessions that match this retention filter.
+    # When a session matches the filter and is retained (based on `sample_rate`), you can configure
+    # the percentage of retained sessions with ingested traces whose traces are indexed.
+    attr_accessor :cross_product_sampling
+
     # Whether the retention filter is enabled.
     attr_accessor :enabled
 
@@ -42,6 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'cross_product_sampling' => :'cross_product_sampling',
         :'enabled' => :'enabled',
         :'event_type' => :'event_type',
         :'name' => :'name',
@@ -54,6 +60,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'cross_product_sampling' => :'RumCrossProductSampling',
         :'enabled' => :'Boolean',
         :'event_type' => :'RumRetentionFilterEventType',
         :'name' => :'String',
@@ -79,6 +86,10 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'cross_product_sampling')
+        self.cross_product_sampling = attributes[:'cross_product_sampling']
+      end
 
       if attributes.key?(:'enabled')
         self.enabled = attributes[:'enabled']
@@ -149,6 +160,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          cross_product_sampling == o.cross_product_sampling &&
           enabled == o.enabled &&
           event_type == o.event_type &&
           name == o.name &&
@@ -161,7 +173,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [enabled, event_type, name, query, sample_rate, additional_properties].hash
+      [cross_product_sampling, enabled, event_type, name, query, sample_rate, additional_properties].hash
     end
   end
 end
