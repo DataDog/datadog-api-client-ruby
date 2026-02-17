@@ -1,5 +1,72 @@
 # CHANGELOG
 
+## 2.50.0/2026-02-17
+
+### Fixed
+* Add mandatory filter env parameter to APM services endpoint [#3005](https://github.com/DataDog/datadog-api-client-ruby/pull/3005)
+* Resolve issue where the go client cannot resolve between memoryBuffer and memoryBufferSize options [#3002](https://github.com/DataDog/datadog-api-client-ruby/pull/3002)
+* [CWS-5817] Add workload_activity rule type to OpenAPI spec [#2960](https://github.com/DataDog/datadog-api-client-ruby/pull/2960)
+* Modify api spec description of create postmortem attachment [#2959](https://github.com/DataDog/datadog-api-client-ruby/pull/2959)
+* Update some SDS status codes [#2912](https://github.com/DataDog/datadog-api-client-ruby/pull/2912)
+* Update api/v2/incidents/id/attachment endpoints documentation [#2882](https://github.com/DataDog/datadog-api-client-ruby/pull/2882)
+
+### Added
+* Cloud SIEM - Add instantaneousBaseline to anomaly detection options [#2998](https://github.com/DataDog/datadog-api-client-ruby/pull/2998)
+* Add new endpoints for Code Coverage summary information [#2997](https://github.com/DataDog/datadog-api-client-ruby/pull/2997)
+* [Workflow Automation] Add allowedValues to InputSchemaParameters [#2996](https://github.com/DataDog/datadog-api-client-ruby/pull/2996)
+* Adding when full option to the Memory Buffer options as well [#2994](https://github.com/DataDog/datadog-api-client-ruby/pull/2994)
+* Add OpenAPI documentation for cache property in dedupe processor in observability pipelines  [#2993](https://github.com/DataDog/datadog-api-client-ruby/pull/2993)
+* Adding Buffer options to Observability Pipeline Destinations [#2981](https://github.com/DataDog/datadog-api-client-ruby/pull/2981)
+* Add Descriptions for OCI Integrations Endpoint OpenAPI Spec [#2974](https://github.com/DataDog/datadog-api-client-ruby/pull/2974)
+* Sync rum-replay endpoints with backend for public documentation [#2969](https://github.com/DataDog/datadog-api-client-ruby/pull/2969)
+* Add OpenAPI documentation for security monitoring content packs endpoints [#2968](https://github.com/DataDog/datadog-api-client-ruby/pull/2968)
+* Create OpenAPI for incidents config postmortem templates [#2965](https://github.com/DataDog/datadog-api-client-ruby/pull/2965)
+* Add case-management-project resource type for restriction policies [#2961](https://github.com/DataDog/datadog-api-client-ruby/pull/2961)
+* Add OpenAPI documentation for case-rapid-api relationship endpoints [#2957](https://github.com/DataDog/datadog-api-client-ruby/pull/2957)
+* Add new products to usage API docs for ccm_spend_monitored_pro and ccm_spend_monitored_ent [#2954](https://github.com/DataDog/datadog-api-client-ruby/pull/2954)
+* Expose use_legacy_search_syntax flag in the Observability Pipelines API [#2951](https://github.com/DataDog/datadog-api-client-ruby/pull/2951)
+* Add Project and NotificationRule API specs for Case Management [#2950](https://github.com/DataDog/datadog-api-client-ruby/pull/2950)
+* Added spec for flex_logs_starter [#2949](https://github.com/DataDog/datadog-api-client-ruby/pull/2949)
+* Update api spec with additional monitor notification presets [#2948](https://github.com/DataDog/datadog-api-client-ruby/pull/2948)
+* Add public patch DORA deployment endpoint [#2945](https://github.com/DataDog/datadog-api-client-ruby/pull/2945)
+* Add On-Call Trigger to Workflow Automation Public API [#2943](https://github.com/DataDog/datadog-api-client-ruby/pull/2943)
+* Add UpdateFlakyTestState endpoint to Flaky Test Management API [#2941](https://github.com/DataDog/datadog-api-client-ruby/pull/2941)
+* Update api spec with additional monitor notification presets [#2939](https://github.com/DataDog/datadog-api-client-ruby/pull/2939)
+* Add order_by field to timeseries widget request schema [#2936](https://github.com/DataDog/datadog-api-client-ruby/pull/2936)
+* Add budget validation endpoints [#2935](https://github.com/DataDog/datadog-api-client-ruby/pull/2935)
+* Remove x-unstable property from security findings Jira issues endpoints [#2934](https://github.com/DataDog/datadog-api-client-ruby/pull/2934)
+* Add tags support to Logs Indexes API [#2933](https://github.com/DataDog/datadog-api-client-ruby/pull/2933)
+* Add OpenAPI specification for ServiceNow integration [#2932](https://github.com/DataDog/datadog-api-client-ruby/pull/2932)
+* Add support for routes in datadog logs destination [#2929](https://github.com/DataDog/datadog-api-client-ruby/pull/2929)
+* Create OpenAPI for HAMR endpoints [#2927](https://github.com/DataDog/datadog-api-client-ruby/pull/2927)
+* Create OpenAPI for incidents config global endpoints [#2926](https://github.com/DataDog/datadog-api-client-ruby/pull/2926)
+* Add Synthetics suites CRUD endpoints [#2925](https://github.com/DataDog/datadog-api-client-ruby/pull/2925)
+* security_monitoring - Document rules bulk export [#2920](https://github.com/DataDog/datadog-api-client-ruby/pull/2920)
+* Adding datastream to Open Search destination and adding Auth Strategy for Observability Pipeline API [#2919](https://github.com/DataDog/datadog-api-client-ruby/pull/2919)
+* Add OpenAPI for entity risk score api  [#2918](https://github.com/DataDog/datadog-api-client-ruby/pull/2918)
+* Create OpenAPI for SLO status endpoint [#2917](https://github.com/DataDog/datadog-api-client-ruby/pull/2917)
+* Add OpenAPI specification for collab-general service [#2916](https://github.com/DataDog/datadog-api-client-ruby/pull/2916)
+* Add missing incident attachments documentation [#2911](https://github.com/DataDog/datadog-api-client-ruby/pull/2911)
+* Add Network Path Monitors to API Docs [#2909](https://github.com/DataDog/datadog-api-client-ruby/pull/2909)
+* Update metrics all-tags endpoint documentation [#2906](https://github.com/DataDog/datadog-api-client-ruby/pull/2906)
+* Add Status Pages API specs [#2896](https://github.com/DataDog/datadog-api-client-ruby/pull/2896)
+* Add `custom/rulesets` endpoints [#2890](https://github.com/DataDog/datadog-api-client-ruby/pull/2890)
+* Add Synthetics suites CRUD endpoints [#2878](https://github.com/DataDog/datadog-api-client-ruby/pull/2878)
+* Add suppressions to SensitiveDataScannerRule resource [#2873](https://github.com/DataDog/datadog-api-client-ruby/pull/2873)
+* Support decimal sample_rate for RUM retention filters [#2829](https://github.com/DataDog/datadog-api-client-ruby/pull/2829)
+
+### Changed
+* [SDTEST-3293] Add history field to flaky test management API [#2982](https://github.com/DataDog/datadog-api-client-ruby/pull/2982)
+* Make id required in patch status pages request schemas, id and attributes required in post/patch status pages request schemas [#2952](https://github.com/DataDog/datadog-api-client-ruby/pull/2952)
+* Fix GetBudget endpoint to return BudgetWithEntries instead of BudgetValidationRequest [#2942](https://github.com/DataDog/datadog-api-client-ruby/pull/2942)
+* Update permissions in docs api for apm retention filters [#2937](https://github.com/DataDog/datadog-api-client-ruby/pull/2937)
+* Vulnerabilities-SBOM endpoints GA - Remove `x-unstable` [#2921](https://github.com/DataDog/datadog-api-client-ruby/pull/2921)
+* Add pagination and sorting parameters on suppression list [#2903](https://github.com/DataDog/datadog-api-client-ruby/pull/2903)
+* Changed Metric SLO to support SLI specification [#2790](https://github.com/DataDog/datadog-api-client-ruby/pull/2790)
+
+### Deprecated
+* Mark restricted_roles as deprecated [#2914](https://github.com/DataDog/datadog-api-client-ruby/pull/2914)
+
 ## 2.49.0/2026-01-15
 
 ### Added
