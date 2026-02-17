@@ -4386,6 +4386,7 @@ module DatadogAPIClient
           "v2.security_monitoring_rule_sequence_detection_step" => "SecurityMonitoringRuleSequenceDetectionStep",
           "v2.security_monitoring_rule_sequence_detection_step_transition" => "SecurityMonitoringRuleSequenceDetectionStepTransition",
           "v2.security_monitoring_rule_severity" => "SecurityMonitoringRuleSeverity",
+          "v2.security_monitoring_rule_sort" => "SecurityMonitoringRuleSort",
           "v2.security_monitoring_rule_test_payload" => "SecurityMonitoringRuleTestPayload",
           "v2.security_monitoring_rule_test_request" => "SecurityMonitoringRuleTestRequest",
           "v2.security_monitoring_rule_test_response" => "SecurityMonitoringRuleTestResponse",
