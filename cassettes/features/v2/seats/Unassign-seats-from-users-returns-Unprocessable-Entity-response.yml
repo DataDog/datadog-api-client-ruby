@@ -1,0 +1,24 @@
+http_interactions:
+- recorded_at: Wed, 11 Feb 2026 20:26:20 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"product_code":"","user_uuids":[""]},"type":"seat-assignments"}}'
+    headers:
+      Accept:
+      - '*/*'
+      Content-Type:
+      - application/json
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/seats/users
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"title":"Generic Error","detail":"product_code is required"}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 422
+      message: Unprocessable Entity
+recorded_with: VCR 6.0.0
