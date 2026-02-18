@@ -30,6 +30,11 @@ module DatadogAPIClient::V2
     # Name of the role.
     attr_reader :name
 
+    # The managed role from which this role automatically inherits new permissions.
+    # Specify one of the following: "Datadog Admin Role", "Datadog Standard Role", or "Datadog Read Only Role".
+    # If empty or not specified, the role does not automatically inherit permissions from any managed role.
+    attr_accessor :receives_permissions_from
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -38,7 +43,8 @@ module DatadogAPIClient::V2
       {
         :'created_at' => :'created_at',
         :'modified_at' => :'modified_at',
-        :'name' => :'name'
+        :'name' => :'name',
+        :'receives_permissions_from' => :'receives_permissions_from'
       }
     end
 
@@ -48,7 +54,8 @@ module DatadogAPIClient::V2
       {
         :'created_at' => :'Time',
         :'modified_at' => :'Time',
-        :'name' => :'String'
+        :'name' => :'String',
+        :'receives_permissions_from' => :'Array<String>'
       }
     end
 
@@ -80,6 +87,12 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'receives_permissions_from')
+        if (value = attributes[:'receives_permissions_from']).is_a?(Array)
+          self.receives_permissions_from = value
+        end
       end
     end
 
@@ -130,6 +143,7 @@ module DatadogAPIClient::V2
           created_at == o.created_at &&
           modified_at == o.modified_at &&
           name == o.name &&
+          receives_permissions_from == o.receives_permissions_from &&
           additional_properties == o.additional_properties
     end
 
@@ -137,7 +151,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created_at, modified_at, name, additional_properties].hash
+      [created_at, modified_at, name, receives_permissions_from, additional_properties].hash
     end
   end
 end
