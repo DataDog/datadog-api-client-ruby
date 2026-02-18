@@ -1,0 +1,21 @@
+http_interactions:
+- recorded_at: Wed, 11 Feb 2026 18:39:39 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+    method: GET
+    uri: https://api.datadoghq.com/api/v2/seats/users
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"title":"Generic Error","detail":"product_code query parameter
+        is required"}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 400
+      message: Bad Request
+recorded_with: VCR 6.0.0

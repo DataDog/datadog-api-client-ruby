@@ -3392,6 +3392,17 @@ ScenariosModelMappings = {
             "rule_id" => "String",
             "body" => "UpdateRuleRequest",
     },
+    "v2.UnassignSeatsUser" => {
+            "body" => "UnassignSeatsUserRequest",
+    },
+    "v2.GetSeatsUsers" => {
+            "product_code" => "String",
+            "page_limit" => "Integer",
+            "page_cursor" => "String",
+    },
+    "v2.AssignSeatsUser" => {
+            "body" => "AssignSeatsUserRequest",
+    },
     "v2.ListEntityRiskScores" => {
             "from" => "Integer",
             "to" => "Integer",
