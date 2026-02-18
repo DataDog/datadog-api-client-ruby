@@ -1650,6 +1650,7 @@ ScenariosModelMappings = {
             "page_size" => "Integer",
             "page_number" => "Integer",
             "query" => "String",
+            "sort" => "SecurityMonitoringRuleSort",
     },
     "v2.CreateSecurityMonitoringRule" => {
             "body" => "SecurityMonitoringRuleCreatePayload",

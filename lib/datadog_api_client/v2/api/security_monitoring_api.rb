@@ -4476,11 +4476,16 @@ module DatadogAPIClient::V2
     # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 100.
     # @option opts [Integer] :page_number Specific page number to return.
     # @option opts [String] :query A search query to filter security rules. You can filter by attributes such as `type`, `source`, `tags`.
+    # @option opts [SecurityMonitoringRuleSort] :sort Attribute used to sort rules. Prefix with `-` to sort in descending order.
     # @return [Array<(SecurityMonitoringListRulesResponse, Integer, Hash)>] SecurityMonitoringListRulesResponse data, response status code and response headers
     def list_security_monitoring_rules_with_http_info(opts = {})
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.list_security_monitoring_rules ...'
+      end
+      allowable_values = ['name', 'creation_date', 'update_date', 'enabled', 'type', 'highest_severity', 'source', '-name', '-creation_date', '-update_date', '-enabled', '-type', '-highest_severity', '-source']
+      if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
+        fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
       end
       # resource path
       local_var_path = '/api/v2/security_monitoring/rules'
@@ -4490,6 +4495,7 @@ module DatadogAPIClient::V2
       query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
       query_params[:'page[number]'] = opts[:'page_number'] if !opts[:'page_number'].nil?
       query_params[:'query'] = opts[:'query'] if !opts[:'query'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
