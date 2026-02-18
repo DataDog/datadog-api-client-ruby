@@ -24,5 +24,6 @@ module DatadogAPIClient::V2
     RUNBOOK = "runbook".freeze
     DOCUMENTATION = "documentation".freeze
     DASHBOARD = "dashboard".freeze
+    RESOURCE = "resource".freeze
   end
 end
