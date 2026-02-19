@@ -6,7 +6,7 @@
 <title>
   Class: DatadogAPIClient::V2::RoleAttributes
   
-    &mdash; datadog-api-client 2.30.0.dev.1 documentation
+    &mdash; datadog-api-client 2.50.0 documentation
   
 </title>
 
@@ -228,6 +228,32 @@
       <li class="public ">
   <span class="summary_signature">
     
+      <a href="#receives_permissions_from-instance_method" title="#receives_permissions_from (instance method)">#<strong>receives_permissions_from</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The managed role from which this role automatically inherits new permissions.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#user_count-instance_method" title="#user_count (instance method)">#<strong>user_count</strong>  &#x21d2; Object </a>
     
 
@@ -440,6 +466,50 @@
 </div>
     
       
+      <span id="receives_permissions_from=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="receives_permissions_from-instance_method">
+  
+    #<strong>receives_permissions_from</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>The managed role from which this role automatically inherits new permissions.
+Specify one of the following: &quot;Datadog Admin Role&quot;, &quot;Datadog Standard Role&quot;, or &quot;Datadog Read Only Role&quot;.
+If empty or not specified, the role does not automatically inherit permissions from any managed role.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+36
+37
+38</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v2/models/role_attributes.rb', line 36</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_receives_permissions_from'>receives_permissions_from</span>
+  <span class='ivar'>@receives_permissions_from</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
       <span id="user_count=-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="user_count-instance_method">
@@ -487,9 +557,9 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Feb 18 21:07:16 2025 by
+  Generated on Thu Feb 19 17:29:43 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.37 (ruby-2.7.8).
+  0.9.38 (ruby-2.7.8).
 </div>
 
     </div>
