@@ -40,5 +40,7 @@ module DatadogAPIClient::V1
     GRPC_METADATA = "grpcMetadata".freeze
     GRPC_PROTO = "grpcProto".freeze
     CONNECTION = "connection".freeze
+    MULTI_NETWORK_HOP = "multiNetworkHop".freeze
+    JITTER = "jitter".freeze
   end
 end

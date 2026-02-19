@@ -48,7 +48,7 @@ module DatadogAPIClient::V1
     # The public ID of the Synthetic test.
     attr_accessor :test_public_id
 
-    # Type of the Synthetic test, either `api` or `browser`.
+    # Type of the Synthetic test.
     attr_accessor :test_type
 
     attr_accessor :additional_properties

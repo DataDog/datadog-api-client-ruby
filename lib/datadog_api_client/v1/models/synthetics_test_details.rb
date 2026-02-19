@@ -59,7 +59,7 @@ module DatadogAPIClient::V1
     # Array of tags attached to the test.
     attr_accessor :tags
 
-    # Type of the Synthetic test, either `api` or `browser`.
+    # Type of the Synthetic test.
     attr_accessor :type
 
     attr_accessor :additional_properties
