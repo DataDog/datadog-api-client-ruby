@@ -1357,6 +1357,29 @@ ScenariosModelMappings = {
             "include" => "RelationIncludeType",
             "include_discovered" => "Boolean",
     },
+    "v2.CreateChangeRequest" => {
+            "body" => "ChangeRequestCreateRequest",
+    },
+    "v2.GetChangeRequest" => {
+            "change_request_id" => "String",
+    },
+    "v2.UpdateChangeRequest" => {
+            "change_request_id" => "String",
+            "body" => "ChangeRequestUpdateRequest",
+    },
+    "v2.CreateChangeRequestBranch" => {
+            "change_request_id" => "String",
+            "body" => "ChangeRequestBranchCreateRequest",
+    },
+    "v2.DeleteChangeRequestDecision" => {
+            "change_request_id" => "String",
+            "decision_id" => "String",
+    },
+    "v2.UpdateChangeRequestDecision" => {
+            "change_request_id" => "String",
+            "decision_id" => "String",
+            "body" => "ChangeRequestDecisionUpdateRequest",
+    },
     "v2.CreateCIAppPipelineEvent" => {
             "body" => "CIAppCreatePipelineEventRequest",
     },
