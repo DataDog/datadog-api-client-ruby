@@ -3687,6 +3687,19 @@ ScenariosModelMappings = {
             "public_id" => "String",
             "body" => "SuiteCreateEditRequest",
     },
+    "v2.DeleteSyntheticsTests" => {
+            "body" => "DeletedTestsRequestDeleteRequest",
+    },
+    "v2.CreateSyntheticsNetworkTest" => {
+            "body" => "SyntheticsNetworkTestEditRequest",
+    },
+    "v2.GetSyntheticsNetworkTest" => {
+            "public_id" => "String",
+    },
+    "v2.UpdateSyntheticsNetworkTest" => {
+            "public_id" => "String",
+            "body" => "SyntheticsNetworkTestEditRequest",
+    },
     "v2.PatchGlobalVariable" => {
             "variable_id" => "String",
             "body" => "GlobalVariableJsonPatchRequest",

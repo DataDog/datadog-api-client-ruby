@@ -23,6 +23,70 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
+    # Synthetics: Create a Network Path test.
+    #
+    # @see #create_synthetics_network_test_with_http_info
+    def create_synthetics_network_test(body, opts = {})
+      data, _status_code, _headers = create_synthetics_network_test_with_http_info(body, opts)
+      data
+    end
+
+    # Synthetics: Create a Network Path test.
+    # @param body [SyntheticsNetworkTestEditRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SyntheticsNetworkTestResponse, Integer, Hash)>] SyntheticsNetworkTestResponse data, response status code and response headers
+    def create_synthetics_network_test_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsAPI.create_synthetics_network_test ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SyntheticsAPI.create_synthetics_network_test"
+      end
+      # resource path
+      local_var_path = '/api/v2/synthetics/tests/network'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SyntheticsNetworkTestResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_synthetics_network_test,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SyntheticsAPI#create_synthetics_network_test\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Synthetics: Create a test suite.
     #
     # @see #create_synthetics_suite_with_http_info
@@ -147,6 +211,70 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SyntheticsAPI#delete_synthetics_suites\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Synthetics: Bulk delete tests.
+    #
+    # @see #delete_synthetics_tests_with_http_info
+    def delete_synthetics_tests(body, opts = {})
+      data, _status_code, _headers = delete_synthetics_tests_with_http_info(body, opts)
+      data
+    end
+
+    # Synthetics: Bulk delete tests.
+    # @param body [DeletedTestsRequestDeleteRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(DeletedTestsResponse, Integer, Hash)>] DeletedTestsResponse data, response status code and response headers
+    def delete_synthetics_tests_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsAPI.delete_synthetics_tests ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SyntheticsAPI.delete_synthetics_tests"
+      end
+      # resource path
+      local_var_path = '/api/v2/synthetics/tests/bulk-delete'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DeletedTestsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_synthetics_tests,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SyntheticsAPI#delete_synthetics_tests\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -276,6 +404,68 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SyntheticsAPI#get_on_demand_concurrency_cap\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Synthetics: Get a Network Path test.
+    #
+    # @see #get_synthetics_network_test_with_http_info
+    def get_synthetics_network_test(public_id, opts = {})
+      data, _status_code, _headers = get_synthetics_network_test_with_http_info(public_id, opts)
+      data
+    end
+
+    # Synthetics: Get a Network Path test.
+    # @param public_id [String] The public ID of the Network Path test to get details from.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SyntheticsNetworkTestResponse, Integer, Hash)>] SyntheticsNetworkTestResponse data, response status code and response headers
+    def get_synthetics_network_test_with_http_info(public_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsAPI.get_synthetics_network_test ...'
+      end
+      # verify the required parameter 'public_id' is set
+      if @api_client.config.client_side_validation && public_id.nil?
+        fail ArgumentError, "Missing the required parameter 'public_id' when calling SyntheticsAPI.get_synthetics_network_test"
+      end
+      # resource path
+      local_var_path = '/api/v2/synthetics/tests/network/{public_id}'.sub('{public_id}', CGI.escape(public_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SyntheticsNetworkTestResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_synthetics_network_test,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SyntheticsAPI#get_synthetics_network_test\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -554,6 +744,75 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SyntheticsAPI#set_on_demand_concurrency_cap\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Synthetics: Edit a Network Path test.
+    #
+    # @see #update_synthetics_network_test_with_http_info
+    def update_synthetics_network_test(public_id, body, opts = {})
+      data, _status_code, _headers = update_synthetics_network_test_with_http_info(public_id, body, opts)
+      data
+    end
+
+    # Synthetics: Edit a Network Path test.
+    # @param public_id [String] The public ID of the Network Path test to edit.
+    # @param body [SyntheticsNetworkTestEditRequest] New Network Path test details to be saved.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SyntheticsNetworkTestResponse, Integer, Hash)>] SyntheticsNetworkTestResponse data, response status code and response headers
+    def update_synthetics_network_test_with_http_info(public_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsAPI.update_synthetics_network_test ...'
+      end
+      # verify the required parameter 'public_id' is set
+      if @api_client.config.client_side_validation && public_id.nil?
+        fail ArgumentError, "Missing the required parameter 'public_id' when calling SyntheticsAPI.update_synthetics_network_test"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SyntheticsAPI.update_synthetics_network_test"
+      end
+      # resource path
+      local_var_path = '/api/v2/synthetics/tests/network/{public_id}'.sub('{public_id}', CGI.escape(public_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SyntheticsNetworkTestResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_synthetics_network_test,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SyntheticsAPI#update_synthetics_network_test\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
