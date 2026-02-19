@@ -7,6 +7,7 @@ body = DatadogAPIClient::V2::RoleCreateRequest.new({
   data: DatadogAPIClient::V2::RoleCreateData.new({
     attributes: DatadogAPIClient::V2::RoleCreateAttributes.new({
       name: "developers",
+      receives_permissions_from: [],
     }),
     relationships: DatadogAPIClient::V2::RoleRelationships.new({
       permissions: DatadogAPIClient::V2::RelationshipToPermissions.new({
