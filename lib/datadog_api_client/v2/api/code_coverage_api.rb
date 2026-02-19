@@ -37,8 +37,6 @@ module DatadogAPIClient::V2
     # This endpoint provides overall coverage metrics as well as breakdowns by service
     # and code owner.
     #
-    # **Note**: This endpoint requires the `code_coverage_read` permission.
-    #
     # @param body [BranchCoverageSummaryRequest] 
     # @param opts [Hash] the optional parameters
     # @return [Array<(CoverageSummaryResponse, Integer, Hash)>] CoverageSummaryResponse data, response status code and response headers
@@ -115,8 +113,6 @@ module DatadogAPIClient::V2
     # and code owner.
     #
     # The commit SHA must be a 40-character hexadecimal string (SHA-1 hash).
-    #
-    # **Note**: This endpoint requires the `code_coverage_read` permission.
     #
     # @param body [CommitCoverageSummaryRequest] 
     # @param opts [Hash] the optional parameters
