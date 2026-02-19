@@ -215,6 +215,7 @@ module DatadogAPIClient
             "v2.link_jira_issue_to_case": false,
             "v2.move_case_to_project": false,
             "v2.unlink_jira_issue": false,
+            "v2.list_aws_cloud_auth_persona_mappings": false,
             "v2.activate_content_pack": false,
             "v2.cancel_threat_hunting_job": false,
             "v2.convert_job_result_to_signal": false,
