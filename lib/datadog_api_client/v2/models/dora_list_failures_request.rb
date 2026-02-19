@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Request to get a list of failures.
+  # Request to get a list of incidents.
   class DORAListFailuresRequest
     include BaseGenericModel
 

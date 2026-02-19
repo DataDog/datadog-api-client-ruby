@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Response after receiving a DORA failure event.
+  # Response after receiving a DORA incident event.
   class DORAFailureResponse
     include BaseGenericModel
 
-    # Response after receiving a DORA failure event.
+    # Response after receiving a DORA incident event.
     attr_reader :data
 
     attr_accessor :additional_properties

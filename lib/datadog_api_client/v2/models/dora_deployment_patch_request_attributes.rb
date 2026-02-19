@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # Indicates whether the deployment resulted in a change failure.
     attr_accessor :change_failure
 
-    # Remediation details for the deployment.
+    # Remediation details for the deployment. Optional, but required to calculate failed deployment recovery time.
     attr_accessor :remediation
 
     attr_accessor :additional_properties

@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class DORAListFailuresRequestData
     include BaseGenericModel
 
-    # Attributes to get a list of failures.
+    # Attributes to get a list of incidents.
     attr_reader :attributes
 
     # The definition of `DORAListFailuresRequestDataType` object.
