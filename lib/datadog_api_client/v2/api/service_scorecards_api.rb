@@ -23,6 +23,79 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
+    # Create a new campaign.
+    #
+    # @see #create_scorecard_campaign_with_http_info
+    def create_scorecard_campaign(body, opts = {})
+      data, _status_code, _headers = create_scorecard_campaign_with_http_info(body, opts)
+      data
+    end
+
+    # Create a new campaign.
+    #
+    # Creates a new scorecard campaign.
+    #
+    # @param body [CreateCampaignRequest] Campaign data.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(CampaignResponse, Integer, Hash)>] CampaignResponse data, response status code and response headers
+    def create_scorecard_campaign_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_scorecard_campaign".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_scorecard_campaign")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_scorecard_campaign"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ServiceScorecardsAPI.create_scorecard_campaign ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling ServiceScorecardsAPI.create_scorecard_campaign"
+      end
+      # resource path
+      local_var_path = '/api/v2/scorecard/campaigns'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CampaignResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_scorecard_campaign,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ServiceScorecardsAPI#create_scorecard_campaign\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create outcomes batch.
     #
     # @see #create_scorecard_outcomes_batch_with_http_info
@@ -169,6 +242,77 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Delete a campaign.
+    #
+    # @see #delete_scorecard_campaign_with_http_info
+    def delete_scorecard_campaign(campaign_id, opts = {})
+      delete_scorecard_campaign_with_http_info(campaign_id, opts)
+      nil
+    end
+
+    # Delete a campaign.
+    #
+    # Deletes a single campaign by ID or key.
+    #
+    # @param campaign_id [String] Campaign ID or key.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_scorecard_campaign_with_http_info(campaign_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.delete_scorecard_campaign".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_scorecard_campaign")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_scorecard_campaign"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ServiceScorecardsAPI.delete_scorecard_campaign ...'
+      end
+      # verify the required parameter 'campaign_id' is set
+      if @api_client.config.client_side_validation && campaign_id.nil?
+        fail ArgumentError, "Missing the required parameter 'campaign_id' when calling ServiceScorecardsAPI.delete_scorecard_campaign"
+      end
+      # resource path
+      local_var_path = '/api/v2/scorecard/campaigns/{campaign_id}'.sub('{campaign_id}', CGI.escape(campaign_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_scorecard_campaign,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ServiceScorecardsAPI#delete_scorecard_campaign\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Delete a rule.
     #
     # @see #delete_scorecard_rule_with_http_info
@@ -240,6 +384,518 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Delete rule workflow.
+    #
+    # @see #delete_scorecard_rule_workflow_with_http_info
+    def delete_scorecard_rule_workflow(rule_id, opts = {})
+      delete_scorecard_rule_workflow_with_http_info(rule_id, opts)
+      nil
+    end
+
+    # Delete rule workflow.
+    #
+    # Removes workflow association from a scorecard rule.
+    #
+    # @param rule_id [String] The ID of the rule.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_scorecard_rule_workflow_with_http_info(rule_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.delete_scorecard_rule_workflow".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_scorecard_rule_workflow")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_scorecard_rule_workflow"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ServiceScorecardsAPI.delete_scorecard_rule_workflow ...'
+      end
+      # verify the required parameter 'rule_id' is set
+      if @api_client.config.client_side_validation && rule_id.nil?
+        fail ArgumentError, "Missing the required parameter 'rule_id' when calling ServiceScorecardsAPI.delete_scorecard_rule_workflow"
+      end
+      # resource path
+      local_var_path = '/api/v2/scorecard/rules/{rule_id}/workflow'.sub('{rule_id}', CGI.escape(rule_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_scorecard_rule_workflow,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ServiceScorecardsAPI#delete_scorecard_rule_workflow\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Generate campaign report.
+    #
+    # @see #generate_scorecard_campaign_report_with_http_info
+    def generate_scorecard_campaign_report(campaign_id, body, opts = {})
+      generate_scorecard_campaign_report_with_http_info(campaign_id, body, opts)
+      nil
+    end
+
+    # Generate campaign report.
+    #
+    # Generates and sends a campaign report to Slack.
+    #
+    # @param campaign_id [String] Campaign ID.
+    # @param body [GenerateCampaignReportRequest] Report generation request.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def generate_scorecard_campaign_report_with_http_info(campaign_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.generate_scorecard_campaign_report".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.generate_scorecard_campaign_report")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.generate_scorecard_campaign_report"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ServiceScorecardsAPI.generate_scorecard_campaign_report ...'
+      end
+      # verify the required parameter 'campaign_id' is set
+      if @api_client.config.client_side_validation && campaign_id.nil?
+        fail ArgumentError, "Missing the required parameter 'campaign_id' when calling ServiceScorecardsAPI.generate_scorecard_campaign_report"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling ServiceScorecardsAPI.generate_scorecard_campaign_report"
+      end
+      # resource path
+      local_var_path = '/api/v2/scorecard/campaigns/{campaign_id}/report'.sub('{campaign_id}', CGI.escape(campaign_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :generate_scorecard_campaign_report,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ServiceScorecardsAPI#generate_scorecard_campaign_report\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Generate team-specific campaign reports.
+    #
+    # @see #generate_scorecard_campaign_team_reports_with_http_info
+    def generate_scorecard_campaign_team_reports(campaign_id, body, opts = {})
+      generate_scorecard_campaign_team_reports_with_http_info(campaign_id, body, opts)
+      nil
+    end
+
+    # Generate team-specific campaign reports.
+    #
+    # Generates and sends team-specific campaign reports to Slack.
+    #
+    # @param campaign_id [String] Campaign ID.
+    # @param body [GenerateCampaignTeamReportsRequest] Team report generation request.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def generate_scorecard_campaign_team_reports_with_http_info(campaign_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.generate_scorecard_campaign_team_reports".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.generate_scorecard_campaign_team_reports")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.generate_scorecard_campaign_team_reports"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ServiceScorecardsAPI.generate_scorecard_campaign_team_reports ...'
+      end
+      # verify the required parameter 'campaign_id' is set
+      if @api_client.config.client_side_validation && campaign_id.nil?
+        fail ArgumentError, "Missing the required parameter 'campaign_id' when calling ServiceScorecardsAPI.generate_scorecard_campaign_team_reports"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling ServiceScorecardsAPI.generate_scorecard_campaign_team_reports"
+      end
+      # resource path
+      local_var_path = '/api/v2/scorecard/campaigns/{campaign_id}/entity-owner-report'.sub('{campaign_id}', CGI.escape(campaign_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :generate_scorecard_campaign_team_reports,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ServiceScorecardsAPI#generate_scorecard_campaign_team_reports\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get a campaign.
+    #
+    # @see #get_scorecard_campaign_with_http_info
+    def get_scorecard_campaign(campaign_id, opts = {})
+      data, _status_code, _headers = get_scorecard_campaign_with_http_info(campaign_id, opts)
+      data
+    end
+
+    # Get a campaign.
+    #
+    # Fetches a single campaign by ID or key.
+    #
+    # @param campaign_id [String] Campaign ID or key.
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :include Include related data (for example, scores).
+    # @option opts [Boolean] :include_meta Include metadata (entity and rule counts).
+    # @return [Array<(CampaignResponse, Integer, Hash)>] CampaignResponse data, response status code and response headers
+    def get_scorecard_campaign_with_http_info(campaign_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_scorecard_campaign".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_scorecard_campaign")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_scorecard_campaign"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ServiceScorecardsAPI.get_scorecard_campaign ...'
+      end
+      # verify the required parameter 'campaign_id' is set
+      if @api_client.config.client_side_validation && campaign_id.nil?
+        fail ArgumentError, "Missing the required parameter 'campaign_id' when calling ServiceScorecardsAPI.get_scorecard_campaign"
+      end
+      # resource path
+      local_var_path = '/api/v2/scorecard/campaigns/{campaign_id}'.sub('{campaign_id}', CGI.escape(campaign_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
+      query_params[:'include_meta'] = opts[:'include_meta'] if !opts[:'include_meta'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CampaignResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_scorecard_campaign,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ServiceScorecardsAPI#get_scorecard_campaign\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List all campaigns.
+    #
+    # @see #list_scorecard_campaigns_with_http_info
+    def list_scorecard_campaigns(opts = {})
+      data, _status_code, _headers = list_scorecard_campaigns_with_http_info(opts)
+      data
+    end
+
+    # List all campaigns.
+    #
+    # Fetches all scorecard campaigns.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :page_limit Maximum number of campaigns to return.
+    # @option opts [Integer] :page_offset Offset for pagination.
+    # @option opts [String] :filter_campaign_name Filter campaigns by name (full-text search).
+    # @option opts [String] :filter_campaign_status Filter campaigns by status.
+    # @option opts [String] :filter_campaign_owner Filter campaigns by owner UUID.
+    # @return [Array<(ListCampaignsResponse, Integer, Hash)>] ListCampaignsResponse data, response status code and response headers
+    def list_scorecard_campaigns_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_scorecard_campaigns".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_scorecard_campaigns")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_scorecard_campaigns"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ServiceScorecardsAPI.list_scorecard_campaigns ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/scorecard/campaigns'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'page[limit]'] = opts[:'page_limit'] if !opts[:'page_limit'].nil?
+      query_params[:'page[offset]'] = opts[:'page_offset'] if !opts[:'page_offset'].nil?
+      query_params[:'filter[campaign][name]'] = opts[:'filter_campaign_name'] if !opts[:'filter_campaign_name'].nil?
+      query_params[:'filter[campaign][status]'] = opts[:'filter_campaign_status'] if !opts[:'filter_campaign_status'].nil?
+      query_params[:'filter[campaign][owner]'] = opts[:'filter_campaign_owner'] if !opts[:'filter_campaign_owner'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ListCampaignsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_scorecard_campaigns,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ServiceScorecardsAPI#list_scorecard_campaigns\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List default rules.
+    #
+    # @see #list_scorecard_default_rules_with_http_info
+    def list_scorecard_default_rules(opts = {})
+      data, _status_code, _headers = list_scorecard_default_rules_with_http_info(opts)
+      data
+    end
+
+    # List default rules.
+    #
+    # Fetches all default scorecard rules available for the organization.
+    #
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(ListDefaultRulesResponse, Integer, Hash)>] ListDefaultRulesResponse data, response status code and response headers
+    def list_scorecard_default_rules_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_scorecard_default_rules".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_scorecard_default_rules")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_scorecard_default_rules"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ServiceScorecardsAPI.list_scorecard_default_rules ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/scorecard/default-rules'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ListDefaultRulesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_scorecard_default_rules,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ServiceScorecardsAPI#list_scorecard_default_rules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List entity facets.
+    #
+    # @see #list_scorecard_facets_with_http_info
+    def list_scorecard_facets(opts = {})
+      data, _status_code, _headers = list_scorecard_facets_with_http_info(opts)
+      data
+    end
+
+    # List entity facets.
+    #
+    # Fetches facets for scorecard entities with counts.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :filter_entity_query Entity query filter.
+    # @return [Array<(ListFacetsResponse, Integer, Hash)>] ListFacetsResponse data, response status code and response headers
+    def list_scorecard_facets_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_scorecard_facets".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_scorecard_facets")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_scorecard_facets"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ServiceScorecardsAPI.list_scorecard_facets ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/scorecard/facets'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter[entity][query]'] = opts[:'filter_entity_query'] if !opts[:'filter_entity_query'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ListFacetsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_scorecard_facets,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ServiceScorecardsAPI#list_scorecard_facets\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List all rule outcomes.
     #
     # @see #list_scorecard_outcomes_with_http_info
@@ -258,9 +914,9 @@ module DatadogAPIClient::V2
     # @option opts [String] :include Include related rule details in the response.
     # @option opts [String] :fields_outcome Return only specified values in the outcome attributes.
     # @option opts [String] :fields_rule Return only specified values in the included rule details.
-    # @option opts [String] :filter_outcome_service_name Filter the outcomes on a specific service name.
-    # @option opts [String] :filter_outcome_state Filter the outcomes by a specific state.
-    # @option opts [Boolean] :filter_rule_enabled Filter outcomes on whether a rule is enabled/disabled.
+    # @option opts [String] :filter_outcome_service_name Filter outcomes on a specific service name.
+    # @option opts [String] :filter_outcome_state Filter outcomes by a specific state.
+    # @option opts [Boolean] :filter_rule_enabled Filter outcomes based on whether a rule is enabled or disabled.
     # @option opts [String] :filter_rule_id Filter outcomes based on rule ID.
     # @option opts [String] :filter_rule_name Filter outcomes based on rule name.
     # @return [Array<(OutcomesResponse, Integer, Hash)>] OutcomesResponse data, response status code and response headers
@@ -454,6 +1110,318 @@ module DatadogAPIClient::V2
         end
     end
 
+    # List all scorecards.
+    #
+    # @see #list_scorecards_with_http_info
+    def list_scorecards(opts = {})
+      data, _status_code, _headers = list_scorecards_with_http_info(opts)
+      data
+    end
+
+    # List all scorecards.
+    #
+    # Fetches all scorecards.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :page_offset Offset for pagination.
+    # @option opts [Integer] :page_size Maximum number of scorecards to return.
+    # @option opts [String] :filter_scorecard_id Filter by scorecard ID.
+    # @option opts [String] :filter_scorecard_name Filter by scorecard name (partial match).
+    # @option opts [String] :filter_scorecard_description Filter by scorecard description (partial match).
+    # @return [Array<(ListScorecardsResponse, Integer, Hash)>] ListScorecardsResponse data, response status code and response headers
+    def list_scorecards_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_scorecards".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_scorecards")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_scorecards"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ServiceScorecardsAPI.list_scorecards ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/scorecard/scorecards'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'page[offset]'] = opts[:'page_offset'] if !opts[:'page_offset'].nil?
+      query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+      query_params[:'filter[scorecard][id]'] = opts[:'filter_scorecard_id'] if !opts[:'filter_scorecard_id'].nil?
+      query_params[:'filter[scorecard][name]'] = opts[:'filter_scorecard_name'] if !opts[:'filter_scorecard_name'].nil?
+      query_params[:'filter[scorecard][description]'] = opts[:'filter_scorecard_description'] if !opts[:'filter_scorecard_description'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ListScorecardsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_scorecards,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ServiceScorecardsAPI#list_scorecards\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List scores by aggregation.
+    #
+    # @see #list_scorecard_scores_with_http_info
+    def list_scorecard_scores(aggregation, opts = {})
+      data, _status_code, _headers = list_scorecard_scores_with_http_info(aggregation, opts)
+      data
+    end
+
+    # List scores by aggregation.
+    #
+    # Fetches scorecard scores aggregated by entity, rule, scorecard, service, or team.
+    #
+    # @param aggregation [String] Aggregation type (by-entity, by-rule, by-scorecard, by-service, by-team).
+    # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :page_limit Maximum number of scores to return.
+    # @option opts [Integer] :page_offset Offset for pagination.
+    # @option opts [String] :filter_entity_query Entity query filter.
+    # @option opts [String] :filter_rule_id Filter by rule IDs (comma-separated).
+    # @option opts [Boolean] :filter_rule_enabled Filter by rule enabled status.
+    # @option opts [Boolean] :filter_rule_custom Filter by custom rules.
+    # @option opts [String] :sort Sort order (comma-separated list of fields; prefix a field with - for descending order).
+    # @return [Array<(ListScoresResponse, Integer, Hash)>] ListScoresResponse data, response status code and response headers
+    def list_scorecard_scores_with_http_info(aggregation, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_scorecard_scores".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_scorecard_scores")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_scorecard_scores"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ServiceScorecardsAPI.list_scorecard_scores ...'
+      end
+      # verify the required parameter 'aggregation' is set
+      if @api_client.config.client_side_validation && aggregation.nil?
+        fail ArgumentError, "Missing the required parameter 'aggregation' when calling ServiceScorecardsAPI.list_scorecard_scores"
+      end
+      # resource path
+      local_var_path = '/api/v2/scorecard/scores/{aggregation}'.sub('{aggregation}', CGI.escape(aggregation.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'page[limit]'] = opts[:'page_limit'] if !opts[:'page_limit'].nil?
+      query_params[:'page[offset]'] = opts[:'page_offset'] if !opts[:'page_offset'].nil?
+      query_params[:'filter[entity][query]'] = opts[:'filter_entity_query'] if !opts[:'filter_entity_query'].nil?
+      query_params[:'filter[rule][id]'] = opts[:'filter_rule_id'] if !opts[:'filter_rule_id'].nil?
+      query_params[:'filter[rule][enabled]'] = opts[:'filter_rule_enabled'] if !opts[:'filter_rule_enabled'].nil?
+      query_params[:'filter[rule][custom]'] = opts[:'filter_rule_custom'] if !opts[:'filter_rule_custom'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ListScoresResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_scorecard_scores,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ServiceScorecardsAPI#list_scorecard_scores\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Set up rules for organization.
+    #
+    # @see #setup_scorecard_rules_with_http_info
+    def setup_scorecard_rules(body, opts = {})
+      setup_scorecard_rules_with_http_info(body, opts)
+      nil
+    end
+
+    # Set up rules for organization.
+    #
+    # Sets up default scorecard rules for the organization.
+    #
+    # @param body [SetupRulesRequest] Setup rules request.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def setup_scorecard_rules_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.setup_scorecard_rules".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.setup_scorecard_rules")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.setup_scorecard_rules"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ServiceScorecardsAPI.setup_scorecard_rules ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling ServiceScorecardsAPI.setup_scorecard_rules"
+      end
+      # resource path
+      local_var_path = '/api/v2/scorecard/setup'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :setup_scorecard_rules,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ServiceScorecardsAPI#setup_scorecard_rules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update a campaign.
+    #
+    # @see #update_scorecard_campaign_with_http_info
+    def update_scorecard_campaign(campaign_id, body, opts = {})
+      data, _status_code, _headers = update_scorecard_campaign_with_http_info(campaign_id, body, opts)
+      data
+    end
+
+    # Update a campaign.
+    #
+    # Updates an existing campaign.
+    #
+    # @param campaign_id [String] Campaign ID or key.
+    # @param body [UpdateCampaignRequest] Campaign data.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(CampaignResponse, Integer, Hash)>] CampaignResponse data, response status code and response headers
+    def update_scorecard_campaign_with_http_info(campaign_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.update_scorecard_campaign".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_scorecard_campaign")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_scorecard_campaign"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ServiceScorecardsAPI.update_scorecard_campaign ...'
+      end
+      # verify the required parameter 'campaign_id' is set
+      if @api_client.config.client_side_validation && campaign_id.nil?
+        fail ArgumentError, "Missing the required parameter 'campaign_id' when calling ServiceScorecardsAPI.update_scorecard_campaign"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling ServiceScorecardsAPI.update_scorecard_campaign"
+      end
+      # resource path
+      local_var_path = '/api/v2/scorecard/campaigns/{campaign_id}'.sub('{campaign_id}', CGI.escape(campaign_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CampaignResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_scorecard_campaign,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ServiceScorecardsAPI#update_scorecard_campaign\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Update Scorecard outcomes asynchronously.
     #
     # @see #update_scorecard_outcomes_async_with_http_info
@@ -601,6 +1569,82 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ServiceScorecardsAPI#update_scorecard_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Associate workflow with rule.
+    #
+    # @see #update_scorecard_rule_workflow_with_http_info
+    def update_scorecard_rule_workflow(rule_id, workflow_id, opts = {})
+      update_scorecard_rule_workflow_with_http_info(rule_id, workflow_id, opts)
+      nil
+    end
+
+    # Associate workflow with rule.
+    #
+    # Associates a workflow with a scorecard rule.
+    #
+    # @param rule_id [String] The ID of the rule.
+    # @param workflow_id [String] Workflow ID.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def update_scorecard_rule_workflow_with_http_info(rule_id, workflow_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.update_scorecard_rule_workflow".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_scorecard_rule_workflow")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_scorecard_rule_workflow"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ServiceScorecardsAPI.update_scorecard_rule_workflow ...'
+      end
+      # verify the required parameter 'rule_id' is set
+      if @api_client.config.client_side_validation && rule_id.nil?
+        fail ArgumentError, "Missing the required parameter 'rule_id' when calling ServiceScorecardsAPI.update_scorecard_rule_workflow"
+      end
+      # verify the required parameter 'workflow_id' is set
+      if @api_client.config.client_side_validation && workflow_id.nil?
+        fail ArgumentError, "Missing the required parameter 'workflow_id' when calling ServiceScorecardsAPI.update_scorecard_rule_workflow"
+      end
+      # resource path
+      local_var_path = '/api/v2/scorecard/rules/{rule_id}/workflow/{workflow_id}'.sub('{rule_id}', CGI.escape(rule_id.to_s).gsub('%2F', '/')).sub('{workflow_id}', CGI.escape(workflow_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_scorecard_rule_workflow,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ServiceScorecardsAPI#update_scorecard_rule_workflow\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
