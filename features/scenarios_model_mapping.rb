@@ -3352,6 +3352,26 @@ ScenariosModelMappings = {
             "page_size" => "Integer",
             "filter_application_id" => "String",
     },
+    "v2.ListRumSegments" => {
+            "sort" => "String",
+            "limit" => "Integer",
+    },
+    "v2.CreateRumSegment" => {
+            "body" => "RumSegmentCreateRequest",
+    },
+    "v2.CreateRumStaticSegment" => {
+            "body" => "RumStaticSegmentCreateRequest",
+    },
+    "v2.DeleteRumSegment" => {
+            "segment_id" => "String",
+    },
+    "v2.GetRumSegment" => {
+            "segment_id" => "String",
+    },
+    "v2.UpdateRumSegment" => {
+            "segment_id" => "String",
+            "body" => "RumSegmentUpdateRequest",
+    },
     "v2.ListScorecardOutcomes" => {
             "page_size" => "Integer",
             "page_offset" => "Integer",
