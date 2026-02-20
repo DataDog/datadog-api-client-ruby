@@ -1,0 +1,58 @@
+http_interactions:
+- recorded_at: Tue, 10 Feb 2026 19:17:10 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"name":"Test-Get_all_organization_handles_returns_OK_response-1770751030","space_resource_name":"spaces/AAQA-zFIks8"}},"type":"google-chat-organization-handle"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/integration/google-chat/organizations/e54cb570-c674-529c-769d-84b312288ed7/organization-handles
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"9c140b3f-05c1-4943-959a-cae272356979","type":"google-chat-organization-handle","attributes":{"name":"Test-Get_all_organization_handles_returns_OK_response-1770751030","space_display_name":"api-test-space","space_resource_name":"spaces/AAQA-zFIks8"}}}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 201
+      message: Created
+- recorded_at: Tue, 10 Feb 2026 19:17:10 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+    method: GET
+    uri: https://api.datadoghq.com/api/v2/integration/google-chat/organizations/e54cb570-c674-529c-769d-84b312288ed7/organization-handles
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"9c140b3f-05c1-4943-959a-cae272356979","type":"google-chat-organization-handle","attributes":{"name":"Test-Get_all_organization_handles_returns_OK_response-1770751030","space_display_name":"api-test-space","space_resource_name":"spaces/AAQA-zFIks8"}}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 200
+      message: OK
+- recorded_at: Tue, 10 Feb 2026 19:17:10 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/integration/google-chat/organizations/e54cb570-c674-529c-769d-84b312288ed7/organization-handles/9c140b3f-05c1-4943-959a-cae272356979
+  response:
+    body:
+      encoding: UTF-8
+      string: ''
+    headers: {}
+    status:
+      code: 204
+      message: No Content
+recorded_with: VCR 6.0.0
