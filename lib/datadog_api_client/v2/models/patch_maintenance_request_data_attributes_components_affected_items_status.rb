@@ -17,10 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Integration resource type.
-  class IntegrationType
+  # The status of the component.
+  class PatchMaintenanceRequestDataAttributesComponentsAffectedItemsStatus
     include BaseEnumModel
 
-    INTEGRATION = "integration".freeze
+    OPERATIONAL = "operational".freeze
+    MAINTENANCE = "maintenance".freeze
   end
 end

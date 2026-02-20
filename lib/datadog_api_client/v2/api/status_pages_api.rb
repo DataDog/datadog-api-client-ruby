@@ -173,6 +173,82 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Create maintenance.
+    #
+    # @see #create_maintenance_with_http_info
+    def create_maintenance(page_id, body, opts = {})
+      data, _status_code, _headers = create_maintenance_with_http_info(page_id, body, opts)
+      data
+    end
+
+    # Create maintenance.
+    #
+    # Creates a new maintenance.
+    #
+    # @param page_id [UUID] The ID of the status page.
+    # @param body [CreateMaintenanceRequest] 
+    # @param opts [Hash] the optional parameters
+    # @option opts [Boolean] :notify_subscribers Whether to notify page subscribers of the maintenance.
+    # @option opts [String] :include Comma-separated list of resources to include. Supported values: created_by_user, last_modified_by_user, status_page.
+    # @return [Array<(Maintenance, Integer, Hash)>] Maintenance data, response status code and response headers
+    def create_maintenance_with_http_info(page_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: StatusPagesAPI.create_maintenance ...'
+      end
+      # verify the required parameter 'page_id' is set
+      if @api_client.config.client_side_validation && page_id.nil?
+        fail ArgumentError, "Missing the required parameter 'page_id' when calling StatusPagesAPI.create_maintenance"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling StatusPagesAPI.create_maintenance"
+      end
+      # resource path
+      local_var_path = '/api/v2/statuspages/{page_id}/maintenances'.sub('{page_id}', CGI.escape(page_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'notify_subscribers'] = opts[:'notify_subscribers'] if !opts[:'notify_subscribers'].nil?
+      query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'Maintenance'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_maintenance,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: StatusPagesAPI#create_maintenance\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create status page.
     #
     # @see #create_status_page_with_http_info
@@ -591,6 +667,78 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get maintenance.
+    #
+    # @see #get_maintenance_with_http_info
+    def get_maintenance(page_id, maintenance_id, opts = {})
+      data, _status_code, _headers = get_maintenance_with_http_info(page_id, maintenance_id, opts)
+      data
+    end
+
+    # Get maintenance.
+    #
+    # Retrieves a specific maintenance by its ID.
+    #
+    # @param page_id [UUID] The ID of the status page.
+    # @param maintenance_id [UUID] The ID of the maintenance.
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :include Comma-separated list of resources to include. Supported values: created_by_user, last_modified_by_user, status_page.
+    # @return [Array<(Maintenance, Integer, Hash)>] Maintenance data, response status code and response headers
+    def get_maintenance_with_http_info(page_id, maintenance_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: StatusPagesAPI.get_maintenance ...'
+      end
+      # verify the required parameter 'page_id' is set
+      if @api_client.config.client_side_validation && page_id.nil?
+        fail ArgumentError, "Missing the required parameter 'page_id' when calling StatusPagesAPI.get_maintenance"
+      end
+      # verify the required parameter 'maintenance_id' is set
+      if @api_client.config.client_side_validation && maintenance_id.nil?
+        fail ArgumentError, "Missing the required parameter 'maintenance_id' when calling StatusPagesAPI.get_maintenance"
+      end
+      # resource path
+      local_var_path = '/api/v2/statuspages/{page_id}/maintenances/{maintenance_id}'.sub('{page_id}', CGI.escape(page_id.to_s).gsub('%2F', '/')).sub('{maintenance_id}', CGI.escape(maintenance_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'Maintenance'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_maintenance,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: StatusPagesAPI#get_maintenance\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get status page.
     #
     # @see #get_status_page_with_http_info
@@ -743,6 +891,7 @@ module DatadogAPIClient::V2
     # @option opts [Integer] :page_limit The number of degradations to return per page.
     # @option opts [String] :include Comma-separated list of resources to include. Supported values: created_by_user, last_modified_by_user, status_page.
     # @option opts [String] :filter_status Optional degradation status filter. Supported values: investigating, identified, monitoring, resolved.
+    # @option opts [String] :sort Sort order. Prefix with '-' for descending. Supported values: created_at, -created_at, modified_at, -modified_at.
     # @return [Array<(DegradationArray, Integer, Hash)>] DegradationArray data, response status code and response headers
     def list_degradations_with_http_info(opts = {})
 
@@ -759,6 +908,7 @@ module DatadogAPIClient::V2
       query_params[:'page[limit]'] = opts[:'page_limit'] if !opts[:'page_limit'].nil?
       query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
       query_params[:'filter[status]'] = opts[:'filter_status'] if !opts[:'filter_status'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -791,6 +941,78 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: StatusPagesAPI#list_degradations\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List maintenances.
+    #
+    # @see #list_maintenances_with_http_info
+    def list_maintenances(opts = {})
+      data, _status_code, _headers = list_maintenances_with_http_info(opts)
+      data
+    end
+
+    # List maintenances.
+    #
+    # Lists all maintenances for the organization. Optionally filter by status and page.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :filter_page_id Optional page id filter.
+    # @option opts [Integer] :page_offset Offset to use as the start of the page.
+    # @option opts [Integer] :page_limit The number of maintenances to return per page.
+    # @option opts [String] :include Comma-separated list of resources to include. Supported values: created_by_user, last_modified_by_user, status_page.
+    # @option opts [String] :filter_status Optional maintenance status filter. Supported values: scheduled, in_progress, completed, canceled.
+    # @option opts [String] :sort Sort order. Prefix with '-' for descending. Supported values: created_at, -created_at, start_date, -start_date.
+    # @return [Array<(MaintenanceArray, Integer, Hash)>] MaintenanceArray data, response status code and response headers
+    def list_maintenances_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: StatusPagesAPI.list_maintenances ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/statuspages/maintenances'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter[page_id]'] = opts[:'filter_page_id'] if !opts[:'filter_page_id'].nil?
+      query_params[:'page[offset]'] = opts[:'page_offset'] if !opts[:'page_offset'].nil?
+      query_params[:'page[limit]'] = opts[:'page_limit'] if !opts[:'page_limit'].nil?
+      query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
+      query_params[:'filter[status]'] = opts[:'filter_status'] if !opts[:'filter_status'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MaintenanceArray'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_maintenances,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: StatusPagesAPI#list_maintenances\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1017,6 +1239,87 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: StatusPagesAPI#update_degradation\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update maintenance.
+    #
+    # @see #update_maintenance_with_http_info
+    def update_maintenance(page_id, maintenance_id, body, opts = {})
+      data, _status_code, _headers = update_maintenance_with_http_info(page_id, maintenance_id, body, opts)
+      data
+    end
+
+    # Update maintenance.
+    #
+    # Updates an existing maintenance's attributes.
+    #
+    # @param page_id [UUID] The ID of the status page.
+    # @param maintenance_id [UUID] The ID of the maintenance.
+    # @param body [PatchMaintenanceRequest] 
+    # @param opts [Hash] the optional parameters
+    # @option opts [Boolean] :notify_subscribers Whether to notify page subscribers of the maintenance.
+    # @option opts [String] :include Comma-separated list of resources to include. Supported values: created_by_user, last_modified_by_user, status_page.
+    # @return [Array<(Maintenance, Integer, Hash)>] Maintenance data, response status code and response headers
+    def update_maintenance_with_http_info(page_id, maintenance_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: StatusPagesAPI.update_maintenance ...'
+      end
+      # verify the required parameter 'page_id' is set
+      if @api_client.config.client_side_validation && page_id.nil?
+        fail ArgumentError, "Missing the required parameter 'page_id' when calling StatusPagesAPI.update_maintenance"
+      end
+      # verify the required parameter 'maintenance_id' is set
+      if @api_client.config.client_side_validation && maintenance_id.nil?
+        fail ArgumentError, "Missing the required parameter 'maintenance_id' when calling StatusPagesAPI.update_maintenance"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling StatusPagesAPI.update_maintenance"
+      end
+      # resource path
+      local_var_path = '/api/v2/statuspages/{page_id}/maintenances/{maintenance_id}'.sub('{page_id}', CGI.escape(page_id.to_s).gsub('%2F', '/')).sub('{maintenance_id}', CGI.escape(maintenance_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'notify_subscribers'] = opts[:'notify_subscribers'] if !opts[:'notify_subscribers'].nil?
+      query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'Maintenance'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_maintenance,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: StatusPagesAPI#update_maintenance\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

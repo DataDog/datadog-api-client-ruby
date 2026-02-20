@@ -17,20 +17,29 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes for an integration.
-  class IntegrationAttributes
+  # The supported attributes for creating a maintenance.
+  class CreateMaintenanceRequestDataAttributes
     include BaseGenericModel
 
-    # List of categories associated with the integration.
-    attr_reader :categories
+    # Timestamp of when the maintenance was completed.
+    attr_accessor :completed_date
 
-    # A description of the integration.
-    attr_reader :description
+    # The description shown when the maintenance is completed.
+    attr_accessor :completed_description
 
-    # Whether the integration is installed.
-    attr_reader :installed
+    # The components affected by the maintenance.
+    attr_reader :components_affected
 
-    # The name of the integration.
+    # The description shown while the maintenance is in progress.
+    attr_accessor :in_progress_description
+
+    # The description shown when the maintenance is scheduled.
+    attr_accessor :scheduled_description
+
+    # Timestamp of when the maintenance is scheduled to start.
+    attr_accessor :start_date
+
+    # The title of the maintenance.
     attr_reader :title
 
     attr_accessor :additional_properties
@@ -39,9 +48,12 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'categories' => :'categories',
-        :'description' => :'description',
-        :'installed' => :'installed',
+        :'completed_date' => :'completed_date',
+        :'completed_description' => :'completed_description',
+        :'components_affected' => :'components_affected',
+        :'in_progress_description' => :'in_progress_description',
+        :'scheduled_description' => :'scheduled_description',
+        :'start_date' => :'start_date',
         :'title' => :'title'
       }
     end
@@ -50,9 +62,12 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'categories' => :'Array<String>',
-        :'description' => :'String',
-        :'installed' => :'Boolean',
+        :'completed_date' => :'Time',
+        :'completed_description' => :'String',
+        :'components_affected' => :'Array<CreateMaintenanceRequestDataAttributesComponentsAffectedItems>',
+        :'in_progress_description' => :'String',
+        :'scheduled_description' => :'String',
+        :'start_date' => :'Time',
         :'title' => :'String'
       }
     end
@@ -62,7 +77,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::IntegrationAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::CreateMaintenanceRequestDataAttributes` initialize method"
       end
 
       self.additional_properties = {}
@@ -75,18 +90,30 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'categories')
-        if (value = attributes[:'categories']).is_a?(Array)
-          self.categories = value
+      if attributes.key?(:'completed_date')
+        self.completed_date = attributes[:'completed_date']
+      end
+
+      if attributes.key?(:'completed_description')
+        self.completed_description = attributes[:'completed_description']
+      end
+
+      if attributes.key?(:'components_affected')
+        if (value = attributes[:'components_affected']).is_a?(Array)
+          self.components_affected = value
         end
       end
 
-      if attributes.key?(:'description')
-        self.description = attributes[:'description']
+      if attributes.key?(:'in_progress_description')
+        self.in_progress_description = attributes[:'in_progress_description']
       end
 
-      if attributes.key?(:'installed')
-        self.installed = attributes[:'installed']
+      if attributes.key?(:'scheduled_description')
+        self.scheduled_description = attributes[:'scheduled_description']
+      end
+
+      if attributes.key?(:'start_date')
+        self.start_date = attributes[:'start_date']
       end
 
       if attributes.key?(:'title')
@@ -98,41 +125,19 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @categories.nil?
-      return false if @description.nil?
-      return false if @installed.nil?
+      return false if @components_affected.nil?
       return false if @title.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param categories [Object] Object to be assigned
+    # @param components_affected [Object] Object to be assigned
     # @!visibility private
-    def categories=(categories)
-      if categories.nil?
-        fail ArgumentError, 'invalid value for "categories", categories cannot be nil.'
+    def components_affected=(components_affected)
+      if components_affected.nil?
+        fail ArgumentError, 'invalid value for "components_affected", components_affected cannot be nil.'
       end
-      @categories = categories
-    end
-
-    # Custom attribute writer method with validation
-    # @param description [Object] Object to be assigned
-    # @!visibility private
-    def description=(description)
-      if description.nil?
-        fail ArgumentError, 'invalid value for "description", description cannot be nil.'
-      end
-      @description = description
-    end
-
-    # Custom attribute writer method with validation
-    # @param installed [Object] Object to be assigned
-    # @!visibility private
-    def installed=(installed)
-      if installed.nil?
-        fail ArgumentError, 'invalid value for "installed", installed cannot be nil.'
-      end
-      @installed = installed
+      @components_affected = components_affected
     end
 
     # Custom attribute writer method with validation
@@ -171,9 +176,12 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          categories == o.categories &&
-          description == o.description &&
-          installed == o.installed &&
+          completed_date == o.completed_date &&
+          completed_description == o.completed_description &&
+          components_affected == o.components_affected &&
+          in_progress_description == o.in_progress_description &&
+          scheduled_description == o.scheduled_description &&
+          start_date == o.start_date &&
           title == o.title &&
           additional_properties == o.additional_properties
     end
@@ -182,7 +190,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [categories, description, installed, title, additional_properties].hash
+      [completed_date, completed_description, components_affected, in_progress_description, scheduled_description, start_date, title, additional_properties].hash
     end
   end
 end
