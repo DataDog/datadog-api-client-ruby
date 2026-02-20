@@ -1,4 +1,4 @@
-# Synthetics: Edit a Network Path test returns "OK" response
+# Edit a Network Path test returns "OK" response
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::SyntheticsAPI.new

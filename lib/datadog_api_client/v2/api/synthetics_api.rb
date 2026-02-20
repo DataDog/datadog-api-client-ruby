@@ -23,7 +23,7 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
-    # Synthetics: Create a Network Path test.
+    # Create a Network Path test.
     #
     # @see #create_synthetics_network_test_with_http_info
     def create_synthetics_network_test(body, opts = {})
@@ -31,7 +31,7 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Synthetics: Create a Network Path test.
+    # Create a Network Path test.
     # @param body [SyntheticsNetworkTestEditRequest] 
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsNetworkTestResponse, Integer, Hash)>] SyntheticsNetworkTestResponse data, response status code and response headers
@@ -87,7 +87,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Synthetics: Create a test suite.
+    # Create a test suite.
     #
     # @see #create_synthetics_suite_with_http_info
     def create_synthetics_suite(body, opts = {})
@@ -95,7 +95,7 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Synthetics: Create a test suite.
+    # Create a test suite.
     # @param body [SuiteCreateEditRequest] 
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsSuiteResponse, Integer, Hash)>] SyntheticsSuiteResponse data, response status code and response headers
@@ -151,7 +151,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Synthetics: Bulk delete suites.
+    # Bulk delete suites.
     #
     # @see #delete_synthetics_suites_with_http_info
     def delete_synthetics_suites(body, opts = {})
@@ -159,7 +159,7 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Synthetics: Bulk delete suites.
+    # Bulk delete suites.
     # @param body [DeletedSuitesRequestDeleteRequest] 
     # @param opts [Hash] the optional parameters
     # @return [Array<(DeletedSuitesResponse, Integer, Hash)>] DeletedSuitesResponse data, response status code and response headers
@@ -215,7 +215,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Synthetics: Bulk delete tests.
+    # Bulk delete tests.
     #
     # @see #delete_synthetics_tests_with_http_info
     def delete_synthetics_tests(body, opts = {})
@@ -223,7 +223,7 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Synthetics: Bulk delete tests.
+    # Bulk delete tests.
     # @param body [DeletedTestsRequestDeleteRequest] 
     # @param opts [Hash] the optional parameters
     # @return [Array<(DeletedTestsResponse, Integer, Hash)>] DeletedTestsResponse data, response status code and response headers
@@ -279,7 +279,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Synthetics: Edit a test suite.
+    # Edit a test suite.
     #
     # @see #edit_synthetics_suite_with_http_info
     def edit_synthetics_suite(public_id, body, opts = {})
@@ -287,7 +287,7 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Synthetics: Edit a test suite.
+    # Edit a test suite.
     # @param public_id [String] The public ID of the suite to edit.
     # @param body [SuiteCreateEditRequest] New suite details to be saved.
     # @param opts [Hash] the optional parameters
@@ -408,7 +408,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Synthetics: Get a Network Path test.
+    # Get a Network Path test.
     #
     # @see #get_synthetics_network_test_with_http_info
     def get_synthetics_network_test(public_id, opts = {})
@@ -416,7 +416,7 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Synthetics: Get a Network Path test.
+    # Get a Network Path test.
     # @param public_id [String] The public ID of the Network Path test to get details from.
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsNetworkTestResponse, Integer, Hash)>] SyntheticsNetworkTestResponse data, response status code and response headers
@@ -470,7 +470,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Synthetics: Get a suite.
+    # Get a suite.
     #
     # @see #get_synthetics_suite_with_http_info
     def get_synthetics_suite(public_id, opts = {})
@@ -478,7 +478,7 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Synthetics: Get a suite.
+    # Get a suite.
     # @param public_id [String] The public ID of the suite to get details from.
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsSuiteResponse, Integer, Hash)>] SyntheticsSuiteResponse data, response status code and response headers
@@ -611,7 +611,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Search Synthetics suites.
+    # Search test suites.
     #
     # @see #search_suites_with_http_info
     def search_suites(opts = {})
@@ -619,9 +619,9 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Search Synthetics suites.
+    # Search test suites.
     #
-    # Search for Synthetics suites.
+    # Search for test suites.
     #
     # @param opts [Hash] the optional parameters
     # @option opts [String] :query The search query.
@@ -748,7 +748,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Synthetics: Edit a Network Path test.
+    # Edit a Network Path test.
     #
     # @see #update_synthetics_network_test_with_http_info
     def update_synthetics_network_test(public_id, body, opts = {})
@@ -756,7 +756,7 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Synthetics: Edit a Network Path test.
+    # Edit a Network Path test.
     # @param public_id [String] The public ID of the Network Path test to edit.
     # @param body [SyntheticsNetworkTestEditRequest] New Network Path test details to be saved.
     # @param opts [Hash] the optional parameters

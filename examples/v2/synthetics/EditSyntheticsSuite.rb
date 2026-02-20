@@ -1,4 +1,4 @@
-# Synthetics: Edit a test suite returns "OK" response
+# Edit a test suite returns "OK" response
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::SyntheticsAPI.new

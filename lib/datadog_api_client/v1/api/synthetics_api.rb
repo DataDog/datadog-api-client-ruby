@@ -1175,7 +1175,7 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get a Mobile test.
+    # Get a mobile test.
     #
     # @see #get_mobile_test_with_http_info
     def get_mobile_test(public_id, opts = {})
@@ -1183,10 +1183,10 @@ module DatadogAPIClient::V1
       data
     end
 
-    # Get a Mobile test.
+    # Get a mobile test.
     #
     # Get the detailed configuration associated with
-    # a Synthetic Mobile test.
+    # a Synthetic mobile test.
     #
     # @param public_id [String] The public ID of the test to get details from.
     # @param opts [Hash] the optional parameters
@@ -2125,7 +2125,7 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Edit a Mobile test.
+    # Edit a mobile test.
     #
     # @see #update_mobile_test_with_http_info
     def update_mobile_test(public_id, body, opts = {})
@@ -2133,9 +2133,9 @@ module DatadogAPIClient::V1
       data
     end
 
-    # Edit a Mobile test.
+    # Edit a mobile test.
     #
-    # Edit the configuration of a Synthetic Mobile test.
+    # Edit the configuration of a Synthetic mobile test.
     #
     # @param public_id [String] The public ID of the test to get details from.
     # @param body [SyntheticsMobileTest] New test details to be saved.

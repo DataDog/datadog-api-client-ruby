@@ -1,4 +1,4 @@
-# Synthetics: Bulk delete tests returns "OK" response
+# Bulk delete tests returns "OK" response
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::SyntheticsAPI.new
