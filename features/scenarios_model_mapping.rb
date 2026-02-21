@@ -2371,6 +2371,30 @@ ScenariosModelMappings = {
     "v2.MakeGCPSTSDelegate" => {
             "body" => "Object",
     },
+    "v2.GetSpaceByDisplayName" => {
+            "domain_name" => "String",
+            "space_display_name" => "String",
+    },
+    "v2.ListOrganizationHandles" => {
+            "organization_binding_id" => "String",
+    },
+    "v2.CreateOrganizationHandle" => {
+            "organization_binding_id" => "String",
+            "body" => "GoogleChatCreateOrganizationHandleRequest",
+    },
+    "v2.DeleteOrganizationHandle" => {
+            "organization_binding_id" => "String",
+            "handle_id" => "String",
+    },
+    "v2.GetOrganizationHandle" => {
+            "organization_binding_id" => "String",
+            "handle_id" => "String",
+    },
+    "v2.UpdateOrganizationHandle" => {
+            "organization_binding_id" => "String",
+            "handle_id" => "String",
+            "body" => "GoogleChatUpdateOrganizationHandleRequest",
+    },
     "v2.DeleteJiraAccount" => {
             "account_id" => "UUID",
     },
