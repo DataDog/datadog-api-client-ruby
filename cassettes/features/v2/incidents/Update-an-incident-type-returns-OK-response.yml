@@ -1,5 +1,5 @@
 http_interactions:
-- recorded_at: Mon, 19 Jan 2026 20:16:33 GMT
+- recorded_at: Tue, 17 Feb 2026 13:49:56 GMT
   request:
     body:
       encoding: UTF-8
@@ -16,9 +16,9 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"be5bae51-9d0d-440a-a179-067ca56e51b2","type":"incident_types","attributes":{"createdAt":"2026-01-19T20:16:33.554076991Z","createdBy":"3ad549bf-eba0-11e9-a77a-0705486660d0","description":"Any
+      string: '{"data":{"id":"c8329273-d2b7-4a2a-9b31-8aaac024989e","type":"incident_types","attributes":{"createdAt":"2026-02-17T13:49:56.478161626Z","createdBy":"3ad549bf-eba0-11e9-a77a-0705486660d0","description":"Any
         incidents that harm (or have the potential to) the confidentiality, integrity,
-        or availability of our data.","is_default":false,"lastModifiedBy":"3ad549bf-eba0-11e9-a77a-0705486660d0","modifiedAt":"2026-01-19T20:16:33.554077065Z","name":"Security
+        or availability of our data.","is_default":false,"lastModifiedBy":"3ad549bf-eba0-11e9-a77a-0705486660d0","modifiedAt":"2026-02-17T13:49:56.478161708Z","name":"Security
         Incident","prefix":"IR"},"relationships":{"created_by_user":{"data":{"id":"3ad549bf-eba0-11e9-a77a-0705486660d0","type":"users"}},"google_chat_configuration":{"data":null},"google_meet_configuration":{"data":null},"last_modified_by_user":{"data":{"id":"3ad549bf-eba0-11e9-a77a-0705486660d0","type":"users"}},"microsoft_teams_configuration":{"data":null},"zoom_configuration":{"data":null}}}}'
     headers:
       Content-Type:
@@ -26,24 +26,24 @@ http_interactions:
     status:
       code: 201
       message: Created
-- recorded_at: Mon, 19 Jan 2026 20:16:33 GMT
+- recorded_at: Tue, 17 Feb 2026 13:49:56 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"name":"Security Incident-updated"},"id":"be5bae51-9d0d-440a-a179-067ca56e51b2","type":"incident_types"}}'
+      string: '{"data":{"attributes":{"name":"Security Incident-updated"},"id":"c8329273-d2b7-4a2a-9b31-8aaac024989e","type":"incident_types"}}'
     headers:
       Accept:
       - application/json
       Content-Type:
       - application/json
     method: PATCH
-    uri: https://api.datadoghq.com/api/v2/incidents/config/types/be5bae51-9d0d-440a-a179-067ca56e51b2
+    uri: https://api.datadoghq.com/api/v2/incidents/config/types/c8329273-d2b7-4a2a-9b31-8aaac024989e
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"be5bae51-9d0d-440a-a179-067ca56e51b2","type":"incident_types","attributes":{"createdAt":"2026-01-19T20:16:33.554076Z","createdBy":"3ad549bf-eba0-11e9-a77a-0705486660d0","description":"Any
+      string: '{"data":{"id":"c8329273-d2b7-4a2a-9b31-8aaac024989e","type":"incident_types","attributes":{"createdAt":"2026-02-17T13:49:56.478161Z","createdBy":"3ad549bf-eba0-11e9-a77a-0705486660d0","description":"Any
         incidents that harm (or have the potential to) the confidentiality, integrity,
-        or availability of our data.","is_default":false,"lastModifiedBy":"3ad549bf-eba0-11e9-a77a-0705486660d0","modifiedAt":"2026-01-19T20:16:33.83531Z","name":"Security
+        or availability of our data.","is_default":false,"lastModifiedBy":"3ad549bf-eba0-11e9-a77a-0705486660d0","modifiedAt":"2026-02-17T13:49:56.885349Z","name":"Security
         Incident-updated","prefix":"IR"},"relationships":{"created_by_user":{"data":{"id":"3ad549bf-eba0-11e9-a77a-0705486660d0","type":"users"}},"google_chat_configuration":{"data":null},"google_meet_configuration":{"data":null},"last_modified_by_user":{"data":{"id":"3ad549bf-eba0-11e9-a77a-0705486660d0","type":"users"}},"microsoft_teams_configuration":{"data":null},"zoom_configuration":{"data":null}}}}'
     headers:
       Content-Type:
@@ -51,14 +51,14 @@ http_interactions:
     status:
       code: 200
       message: OK
-- recorded_at: Mon, 19 Jan 2026 20:16:33 GMT
+- recorded_at: Tue, 17 Feb 2026 13:49:56 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/incidents/config/types/be5bae51-9d0d-440a-a179-067ca56e51b2
+    uri: https://api.datadoghq.com/api/v2/incidents/config/types/c8329273-d2b7-4a2a-9b31-8aaac024989e
   response:
     body:
       encoding: UTF-8
