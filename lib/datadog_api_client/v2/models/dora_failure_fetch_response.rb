@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Response for fetching a single failure event.
+  # Response for fetching a single incident event.
   class DORAFailureFetchResponse
     include BaseGenericModel
 

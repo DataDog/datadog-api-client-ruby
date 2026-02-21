@@ -17,35 +17,35 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes to create a DORA failure event.
+  # Attributes to create a DORA incident event.
   class DORAFailureRequestAttributes
     include BaseGenericModel
 
     # A list of user-defined tags. The tags must follow the `key:value` pattern. Up to 100 may be added per event.
     attr_accessor :custom_tags
 
-    # Environment name that was impacted by the failure.
+    # Environment name that was impacted by the incident.
     attr_accessor :env
 
-    # Unix timestamp when the failure finished. It must be in nanoseconds, milliseconds, or seconds.
+    # Unix timestamp when the incident finished. It must be in nanoseconds, milliseconds, or seconds.
     attr_accessor :finished_at
 
     # Git info for DORA Metrics events.
     attr_accessor :git
 
-    # Failure ID. Must be 16-128 characters and contain only alphanumeric characters, hyphens, underscores, periods, and colons (a-z, A-Z, 0-9, -, _, ., :).
+    # Incident ID. Must be 16-128 characters and contain only alphanumeric characters, hyphens, underscores, periods, and colons (a-z, A-Z, 0-9, -, _, ., :).
     attr_accessor :id
 
-    # Failure name.
+    # Incident name.
     attr_accessor :name
 
-    # Service names impacted by the failure. If possible, use names registered in the Service Catalog. Required when the team field is not provided.
+    # Service names impacted by the incident. If possible, use names registered in the Service Catalog. Required when the team field is not provided.
     attr_accessor :services
 
-    # Failure severity.
+    # Incident severity.
     attr_accessor :severity
 
-    # Unix timestamp when the failure started. It must be in nanoseconds, milliseconds, or seconds.
+    # Unix timestamp when the incident started. It must be in nanoseconds, milliseconds, or seconds.
     attr_reader :started_at
 
     # Name of the team owning the services impacted. If possible, use team handles registered in Datadog. Required when the services field is not provided.

@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Response for the list failures endpoint.
+  # Response for the list incidents endpoint.
   class DORAFailuresListResponse
     include BaseGenericModel
 

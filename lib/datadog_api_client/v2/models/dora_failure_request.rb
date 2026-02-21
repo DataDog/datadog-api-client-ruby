@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Request to create a DORA failure event.
+  # Request to create a DORA incident event.
   class DORAFailureRequest
     include BaseGenericModel
 

@@ -1,4 +1,4 @@
-# Send an incident event returns "OK" response
+# Send an incident event (legacy) returns "OK" response
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::DORAMetricsAPI.new

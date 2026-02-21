@@ -1,4 +1,4 @@
-# Get a failure event returns "OK" response
+# Get an incident event returns "OK" response
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::DORAMetricsAPI.new
