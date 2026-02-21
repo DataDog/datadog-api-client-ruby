@@ -47,7 +47,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'data' => :'Array<DegradationData>',
-        :'included' => :'Array<DegradationArrayIncluded>',
+        :'included' => :'Array<DegradationIncluded>',
         :'meta' => :'StatusPagesResponseMeta'
       }
     end

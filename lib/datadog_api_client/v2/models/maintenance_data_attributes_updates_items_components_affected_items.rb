@@ -17,12 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Links for the integration resource.
-  class IntegrationLinks
+  # 
+  class MaintenanceDataAttributesUpdatesItemsComponentsAffectedItems
     include BaseGenericModel
 
-    # Link to the integration resource.
-    attr_accessor :_self
+    # Identifier of the component affected at the time of the update.
+    attr_reader :id
+
+    # The name of the component affected at the time of the update.
+    attr_accessor :name
+
+    # The status of the component.
+    attr_reader :status
 
     attr_accessor :additional_properties
 
@@ -30,7 +36,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'_self' => :'self'
+        :'id' => :'id',
+        :'name' => :'name',
+        :'status' => :'status'
       }
     end
 
@@ -38,7 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'_self' => :'String'
+        :'id' => :'UUID',
+        :'name' => :'String',
+        :'status' => :'PatchMaintenanceRequestDataAttributesComponentsAffectedItemsStatus'
       }
     end
 
@@ -47,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::IntegrationLinks` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::MaintenanceDataAttributesUpdatesItemsComponentsAffectedItems` initialize method"
       end
 
       self.additional_properties = {}
@@ -60,9 +70,46 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'_self')
-        self._self = attributes[:'_self']
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
       end
+
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'status')
+        self.status = attributes[:'status']
+      end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @id.nil?
+      return false if @status.nil?
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param id [Object] Object to be assigned
+    # @!visibility private
+    def id=(id)
+      if id.nil?
+        fail ArgumentError, 'invalid value for "id", id cannot be nil.'
+      end
+      @id = id
+    end
+
+    # Custom attribute writer method with validation
+    # @param status [Object] Object to be assigned
+    # @!visibility private
+    def status=(status)
+      if status.nil?
+        fail ArgumentError, 'invalid value for "status", status cannot be nil.'
+      end
+      @status = status
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -91,7 +138,9 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          _self == o._self &&
+          id == o.id &&
+          name == o.name &&
+          status == o.status &&
           additional_properties == o.additional_properties
     end
 
@@ -99,7 +148,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [_self, additional_properties].hash
+      [id, name, status, additional_properties].hash
     end
   end
 end
