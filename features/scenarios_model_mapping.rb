@@ -2973,6 +2973,15 @@ ScenariosModelMappings = {
     "v2.ResolveOnCallPage" => {
             "page_id" => "UUID",
     },
+    "v2.CreateOnPremManagementServiceEnrollment" => {
+            "body" => "OnPremManagementServiceCreateEnrollmentRequest",
+    },
+    "v2.GetOnPremManagementServiceEnrollment" => {
+            "token_hash" => "String",
+    },
+    "v2.RegisterOnPremManagementServiceToken" => {
+            "body" => "OnPremManagementServiceRegisterTokenRequest",
+    },
     "v2.GetOrgConfig" => {
             "org_config_name" => "String",
     },
