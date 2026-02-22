@@ -13,7 +13,7 @@ body = DatadogAPIClient::V1::Dashboard.new({
         requests: [
           DatadogAPIClient::V1::TimeseriesWidgetRequest.new({
             q: "avg:system.cpu.user{*} by {host}",
-            style: DatadogAPIClient::V1::WidgetRequestStyle.new({
+            style: DatadogAPIClient::V1::TimeseriesRequestStyle.new({
               palette: "dog_classic",
               order_by: DatadogAPIClient::V1::WidgetStyleOrderBy::TAGS,
             }),
