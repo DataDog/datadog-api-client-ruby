@@ -2548,6 +2548,8 @@ module DatadogAPIClient
           "v2.fleet_schedule_response" => "FleetScheduleResponse",
           "v2.fleet_schedules_response" => "FleetSchedulesResponse",
           "v2.fleet_schedule_status" => "FleetScheduleStatus",
+          "v2.form_trigger" => "FormTrigger",
+          "v2.form_trigger_wrapper" => "FormTriggerWrapper",
           "v2.formula_limit" => "FormulaLimit",
           "v2.framework_handle_and_version_response_data" => "FrameworkHandleAndVersionResponseData",
           "v2.freshservice_api_key" => "FreshserviceAPIKey",
