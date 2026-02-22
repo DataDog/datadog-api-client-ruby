@@ -2571,6 +2571,22 @@ ScenariosModelMappings = {
     "v2.UpdateIPAllowlist" => {
             "body" => "IPAllowlistUpdateRequest",
     },
+    "v2.UpdateLoginOrgConfigMaxSessionDuration" => {
+            "body" => "MaxSessionDurationUpdateRequest",
+    },
+    "v2.UpdateOrgSamlConfigurations" => {
+            "body" => "SamlConfigurationsUpdateRequest",
+    },
+    "v2.GetOrgConfig" => {
+            "org_config_name" => "String",
+    },
+    "v2.UpdateOrgConfig" => {
+            "org_config_name" => "String",
+            "body" => "OrgConfigWriteRequest",
+    },
+    "v2.UploadIdPMetadata" => {
+            "idp_file" => "File",
+    },
     "v2.SubmitLog" => {
             "content_encoding" => "ContentEncoding",
             "ddtags" => "String",
@@ -2972,16 +2988,6 @@ ScenariosModelMappings = {
     },
     "v2.ResolveOnCallPage" => {
             "page_id" => "UUID",
-    },
-    "v2.GetOrgConfig" => {
-            "org_config_name" => "String",
-    },
-    "v2.UpdateOrgConfig" => {
-            "org_config_name" => "String",
-            "body" => "OrgConfigWriteRequest",
-    },
-    "v2.UploadIdPMetadata" => {
-            "idp_file" => "File",
     },
     "v2.ListOrgConnections" => {
             "sink_org_id" => "String",
