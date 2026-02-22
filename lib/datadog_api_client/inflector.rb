@@ -94,6 +94,7 @@ module DatadogAPIClient
           "v1.dashboard_share_type" => "DashboardShareType",
           "v1.dashboard_summary" => "DashboardSummary",
           "v1.dashboard_summary_definition" => "DashboardSummaryDefinition",
+          "v1.dashboard_tab" => "DashboardTab",
           "v1.dashboard_template_variable" => "DashboardTemplateVariable",
           "v1.dashboard_template_variable_preset" => "DashboardTemplateVariablePreset",
           "v1.dashboard_template_variable_preset_value" => "DashboardTemplateVariablePresetValue",
