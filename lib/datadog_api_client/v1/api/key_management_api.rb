@@ -158,6 +158,80 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
+    # Create client token.
+    #
+    # @see #create_client_token_with_http_info
+    def create_client_token(body, opts = {})
+      data, _status_code, _headers = create_client_token_with_http_info(body, opts)
+      data
+    end
+
+    # Create client token.
+    #
+    # Create a new client token (public API key) to submit data from your browser or mobile
+    # applications to Datadog.
+    #
+    # @param body [ClientTokenCreateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(ClientToken, Integer, Hash)>] ClientToken data, response status code and response headers
+    def create_client_token_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v1.create_client_token".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v1.create_client_token")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v1.create_client_token"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KeyManagementAPI.create_client_token ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling KeyManagementAPI.create_client_token"
+      end
+      # resource path
+      local_var_path = '/api/v1/public_api_key'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ClientToken'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_client_token,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V1"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: KeyManagementAPI#create_client_token\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Delete an API key.
     #
     # @see #delete_api_key_with_http_info
@@ -541,6 +615,80 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
+    # Revoke client token.
+    #
+    # @see #revoke_client_token_with_http_info
+    def revoke_client_token(body, opts = {})
+      revoke_client_token_with_http_info(body, opts)
+      nil
+    end
+
+    # Revoke client token.
+    #
+    # Revoke a client token (public API key). Once revoked, the token can no longer be used
+    # to submit data to Datadog.
+    #
+    # @param body [ClientTokenRevokeRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def revoke_client_token_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v1.revoke_client_token".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v1.revoke_client_token")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v1.revoke_client_token"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KeyManagementAPI.revoke_client_token ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling KeyManagementAPI.revoke_client_token"
+      end
+      # resource path
+      local_var_path = '/api/v1/public_api_key'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :revoke_client_token,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V1"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: KeyManagementAPI#revoke_client_token\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Edit an API key.
     #
     # @see #update_api_key_with_http_info
@@ -682,6 +830,79 @@ module DatadogAPIClient::V1
       data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: KeyManagementAPI#update_application_key\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update client token.
+    #
+    # @see #update_client_token_with_http_info
+    def update_client_token(body, opts = {})
+      data, _status_code, _headers = update_client_token_with_http_info(body, opts)
+      data
+    end
+
+    # Update client token.
+    #
+    # Update the name and/or origin URLs of an existing client token (public API key).
+    #
+    # @param body [ClientTokenUpdateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(ClientToken, Integer, Hash)>] ClientToken data, response status code and response headers
+    def update_client_token_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v1.update_client_token".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v1.update_client_token")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v1.update_client_token"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KeyManagementAPI.update_client_token ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling KeyManagementAPI.update_client_token"
+      end
+      # resource path
+      local_var_path = '/api/v1/public_api_key'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ClientToken'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_client_token,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V1"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: KeyManagementAPI#update_client_token\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

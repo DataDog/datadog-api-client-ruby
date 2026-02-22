@@ -25,6 +25,15 @@ ScenariosModelMappings = {
             "key" => "String",
             "body" => "ApplicationKey",
     },
+    "v1.RevokeClientToken" => {
+            "body" => "ClientTokenRevokeRequest",
+    },
+    "v1.CreateClientToken" => {
+            "body" => "ClientTokenCreateRequest",
+    },
+    "v1.UpdateClientToken" => {
+            "body" => "ClientTokenUpdateRequest",
+    },
     "v1.SubmitServiceCheck" => {
             "body" => "Array<ServiceCheck>",
     },
@@ -1060,6 +1069,26 @@ ScenariosModelMappings = {
     "v2.UpdateCurrentUserApplicationKey" => {
             "app_key_id" => "String",
             "body" => "ApplicationKeyUpdateRequest",
+    },
+    "v2.ListPersonalAccessTokens" => {
+            "page_size" => "Integer",
+            "page_number" => "Integer",
+            "sort" => "PersonalAccessTokensSort",
+            "filter" => "String",
+            "filter_owner_uuid" => "Array<UUID>",
+    },
+    "v2.CreatePersonalAccessToken" => {
+            "body" => "PersonalAccessTokenCreateRequest",
+    },
+    "v2.RevokePersonalAccessToken" => {
+            "pat_uuid" => "UUID",
+    },
+    "v2.GetPersonalAccessToken" => {
+            "pat_uuid" => "UUID",
+    },
+    "v2.UpdatePersonalAccessToken" => {
+            "pat_uuid" => "UUID",
+            "body" => "PersonalAccessTokenUpdateRequest",
     },
     "v2.ListAPIs" => {
             "query" => "String",
