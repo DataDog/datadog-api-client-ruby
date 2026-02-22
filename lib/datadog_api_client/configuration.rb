@@ -249,7 +249,6 @@ module DatadogAPIClient
             "v2.create_dataset": false,
             "v2.delete_dataset": false,
             "v2.get_all_datasets": false,
-            "v2.get_dataset": false,
             "v2.update_dataset": false,
             "v2.cancel_data_deletion_request": false,
             "v2.create_data_deletion_request": false,
