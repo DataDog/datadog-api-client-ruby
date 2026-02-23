@@ -17,12 +17,19 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Google Cloud credentials used to authenticate with Google Cloud Storage.
-  class ObservabilityPipelineGcpAuth
+  # Authentication settings for the Elasticsearch destination.
+  # When `strategy` is `basic`, use `username_key` and `password_key` to reference credentials stored in environment variables or secrets.
+  class ObservabilityPipelineElasticsearchDestinationAuth
     include BaseGenericModel
 
-    # Path to the Google Cloud service account key file.
-    attr_reader :credentials_file
+    # Name of the environment variable or secret that holds the Elasticsearch password (used when `strategy` is `basic`).
+    attr_accessor :password_key
+
+    # The authentication strategy to use.
+    attr_reader :strategy
+
+    # Name of the environment variable or secret that holds the Elasticsearch username (used when `strategy` is `basic`).
+    attr_accessor :username_key
 
     attr_accessor :additional_properties
 
@@ -30,7 +37,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'credentials_file' => :'credentials_file'
+        :'password_key' => :'password_key',
+        :'strategy' => :'strategy',
+        :'username_key' => :'username_key'
       }
     end
 
@@ -38,7 +47,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'credentials_file' => :'String'
+        :'password_key' => :'String',
+        :'strategy' => :'ObservabilityPipelineAmazonOpenSearchDestinationAuthStrategy',
+        :'username_key' => :'String'
       }
     end
 
@@ -47,7 +58,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineGcpAuth` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineElasticsearchDestinationAuth` initialize method"
       end
 
       self.additional_properties = {}
@@ -60,8 +71,16 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'credentials_file')
-        self.credentials_file = attributes[:'credentials_file']
+      if attributes.key?(:'password_key')
+        self.password_key = attributes[:'password_key']
+      end
+
+      if attributes.key?(:'strategy')
+        self.strategy = attributes[:'strategy']
+      end
+
+      if attributes.key?(:'username_key')
+        self.username_key = attributes[:'username_key']
       end
     end
 
@@ -69,18 +88,18 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @credentials_file.nil?
+      return false if @strategy.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param credentials_file [Object] Object to be assigned
+    # @param strategy [Object] Object to be assigned
     # @!visibility private
-    def credentials_file=(credentials_file)
-      if credentials_file.nil?
-        fail ArgumentError, 'invalid value for "credentials_file", credentials_file cannot be nil.'
+    def strategy=(strategy)
+      if strategy.nil?
+        fail ArgumentError, 'invalid value for "strategy", strategy cannot be nil.'
       end
-      @credentials_file = credentials_file
+      @strategy = strategy
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -109,7 +128,9 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          credentials_file == o.credentials_file &&
+          password_key == o.password_key &&
+          strategy == o.strategy &&
+          username_key == o.username_key &&
           additional_properties == o.additional_properties
     end
 
@@ -117,7 +138,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [credentials_file, additional_properties].hash
+      [password_key, strategy, username_key, additional_properties].hash
     end
   end
 end

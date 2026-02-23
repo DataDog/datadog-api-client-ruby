@@ -23,6 +23,9 @@ module DatadogAPIClient::V2
   class ObservabilityPipelineCloudPremDestination
     include BaseGenericModel
 
+    # Name of the environment variable or secret that holds the CloudPrem endpoint URL.
+    attr_accessor :endpoint_url_key
+
     # The unique identifier for this component.
     attr_reader :id
 
@@ -38,6 +41,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'endpoint_url_key' => :'endpoint_url_key',
         :'id' => :'id',
         :'inputs' => :'inputs',
         :'type' => :'type'
@@ -48,6 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'endpoint_url_key' => :'String',
         :'id' => :'String',
         :'inputs' => :'Array<String>',
         :'type' => :'ObservabilityPipelineCloudPremDestinationType'
@@ -71,6 +76,10 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'endpoint_url_key')
+        self.endpoint_url_key = attributes[:'endpoint_url_key']
+      end
 
       if attributes.key?(:'id')
         self.id = attributes[:'id']
@@ -153,6 +162,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          endpoint_url_key == o.endpoint_url_key &&
           id == o.id &&
           inputs == o.inputs &&
           type == o.type &&
@@ -163,7 +173,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [id, inputs, type, additional_properties].hash
+      [endpoint_url_key, id, inputs, type, additional_properties].hash
     end
   end
 end

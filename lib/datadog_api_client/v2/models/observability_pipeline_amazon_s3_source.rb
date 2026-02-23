@@ -40,6 +40,9 @@ module DatadogAPIClient::V2
     # The source type. Always `amazon_s3`.
     attr_reader :type
 
+    # Name of the environment variable or secret that holds the S3 bucket URL.
+    attr_accessor :url_key
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -50,7 +53,8 @@ module DatadogAPIClient::V2
         :'id' => :'id',
         :'region' => :'region',
         :'tls' => :'tls',
-        :'type' => :'type'
+        :'type' => :'type',
+        :'url_key' => :'url_key'
       }
     end
 
@@ -62,7 +66,8 @@ module DatadogAPIClient::V2
         :'id' => :'String',
         :'region' => :'String',
         :'tls' => :'ObservabilityPipelineTls',
-        :'type' => :'ObservabilityPipelineAmazonS3SourceType'
+        :'type' => :'ObservabilityPipelineAmazonS3SourceType',
+        :'url_key' => :'String'
       }
     end
 
@@ -102,6 +107,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'type')
         self.type = attributes[:'type']
+      end
+
+      if attributes.key?(:'url_key')
+        self.url_key = attributes[:'url_key']
       end
     end
 
@@ -176,6 +185,7 @@ module DatadogAPIClient::V2
           region == o.region &&
           tls == o.tls &&
           type == o.type &&
+          url_key == o.url_key &&
           additional_properties == o.additional_properties
     end
 
@@ -183,7 +193,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [auth, id, region, tls, type, additional_properties].hash
+      [auth, id, region, tls, type, url_key, additional_properties].hash
     end
   end
 end

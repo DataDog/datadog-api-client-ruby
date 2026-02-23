@@ -23,6 +23,9 @@ module DatadogAPIClient::V2
   class ObservabilityPipelineNewRelicDestination
     include BaseGenericModel
 
+    # Name of the environment variable or secret that holds the New Relic account ID.
+    attr_accessor :account_id_key
+
     # Configuration for buffer settings on destination components.
     attr_accessor :buffer
 
@@ -31,6 +34,9 @@ module DatadogAPIClient::V2
 
     # A list of component IDs whose output is used as the `input` for this component.
     attr_reader :inputs
+
+    # Name of the environment variable or secret that holds the New Relic license key.
+    attr_accessor :license_key_key
 
     # The New Relic region.
     attr_reader :region
@@ -44,9 +50,11 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'account_id_key' => :'account_id_key',
         :'buffer' => :'buffer',
         :'id' => :'id',
         :'inputs' => :'inputs',
+        :'license_key_key' => :'license_key_key',
         :'region' => :'region',
         :'type' => :'type'
       }
@@ -56,9 +64,11 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'account_id_key' => :'String',
         :'buffer' => :'ObservabilityPipelineBufferOptions',
         :'id' => :'String',
         :'inputs' => :'Array<String>',
+        :'license_key_key' => :'String',
         :'region' => :'ObservabilityPipelineNewRelicDestinationRegion',
         :'type' => :'ObservabilityPipelineNewRelicDestinationType'
       }
@@ -82,6 +92,10 @@ module DatadogAPIClient::V2
         end
       }
 
+      if attributes.key?(:'account_id_key')
+        self.account_id_key = attributes[:'account_id_key']
+      end
+
       if attributes.key?(:'buffer')
         self.buffer = attributes[:'buffer']
       end
@@ -94,6 +108,10 @@ module DatadogAPIClient::V2
         if (value = attributes[:'inputs']).is_a?(Array)
           self.inputs = value
         end
+      end
+
+      if attributes.key?(:'license_key_key')
+        self.license_key_key = attributes[:'license_key_key']
       end
 
       if attributes.key?(:'region')
@@ -182,9 +200,11 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          account_id_key == o.account_id_key &&
           buffer == o.buffer &&
           id == o.id &&
           inputs == o.inputs &&
+          license_key_key == o.license_key_key &&
           region == o.region &&
           type == o.type &&
           additional_properties == o.additional_properties
@@ -194,7 +214,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [buffer, id, inputs, region, type, additional_properties].hash
+      [account_id_key, buffer, id, inputs, license_key_key, region, type, additional_properties].hash
     end
   end
 end

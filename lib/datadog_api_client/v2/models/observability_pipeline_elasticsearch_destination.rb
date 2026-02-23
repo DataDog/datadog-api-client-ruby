@@ -26,6 +26,10 @@ module DatadogAPIClient::V2
     # The Elasticsearch API version to use. Set to `auto` to auto-detect.
     attr_accessor :api_version
 
+    # Authentication settings for the Elasticsearch destination.
+    # When `strategy` is `basic`, use `username_key` and `password_key` to reference credentials stored in environment variables or secrets.
+    attr_accessor :auth
+
     # Configuration for buffer settings on destination components.
     attr_accessor :buffer
 
@@ -34,6 +38,9 @@ module DatadogAPIClient::V2
 
     # Configuration options for writing to Elasticsearch Data Streams instead of a fixed index.
     attr_accessor :data_stream
+
+    # Name of the environment variable or secret that holds the Elasticsearch endpoint URL.
+    attr_accessor :endpoint_url_key
 
     # The unique identifier for this component.
     attr_reader :id
@@ -51,9 +58,11 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'api_version' => :'api_version',
+        :'auth' => :'auth',
         :'buffer' => :'buffer',
         :'bulk_index' => :'bulk_index',
         :'data_stream' => :'data_stream',
+        :'endpoint_url_key' => :'endpoint_url_key',
         :'id' => :'id',
         :'inputs' => :'inputs',
         :'type' => :'type'
@@ -65,9 +74,11 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'api_version' => :'ObservabilityPipelineElasticsearchDestinationApiVersion',
+        :'auth' => :'ObservabilityPipelineElasticsearchDestinationAuth',
         :'buffer' => :'ObservabilityPipelineBufferOptions',
         :'bulk_index' => :'String',
         :'data_stream' => :'ObservabilityPipelineElasticsearchDestinationDataStream',
+        :'endpoint_url_key' => :'String',
         :'id' => :'String',
         :'inputs' => :'Array<String>',
         :'type' => :'ObservabilityPipelineElasticsearchDestinationType'
@@ -96,6 +107,10 @@ module DatadogAPIClient::V2
         self.api_version = attributes[:'api_version']
       end
 
+      if attributes.key?(:'auth')
+        self.auth = attributes[:'auth']
+      end
+
       if attributes.key?(:'buffer')
         self.buffer = attributes[:'buffer']
       end
@@ -106,6 +121,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'data_stream')
         self.data_stream = attributes[:'data_stream']
+      end
+
+      if attributes.key?(:'endpoint_url_key')
+        self.endpoint_url_key = attributes[:'endpoint_url_key']
       end
 
       if attributes.key?(:'id')
@@ -190,9 +209,11 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           api_version == o.api_version &&
+          auth == o.auth &&
           buffer == o.buffer &&
           bulk_index == o.bulk_index &&
           data_stream == o.data_stream &&
+          endpoint_url_key == o.endpoint_url_key &&
           id == o.id &&
           inputs == o.inputs &&
           type == o.type &&
@@ -203,7 +224,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [api_version, buffer, bulk_index, data_stream, id, inputs, type, additional_properties].hash
+      [api_version, auth, buffer, bulk_index, data_stream, endpoint_url_key, id, inputs, type, additional_properties].hash
     end
   end
 end

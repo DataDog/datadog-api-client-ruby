@@ -3497,6 +3497,7 @@ module DatadogAPIClient
           "v2.observability_pipeline_disk_buffer_options" => "ObservabilityPipelineDiskBufferOptions",
           "v2.observability_pipeline_elasticsearch_destination" => "ObservabilityPipelineElasticsearchDestination",
           "v2.observability_pipeline_elasticsearch_destination_api_version" => "ObservabilityPipelineElasticsearchDestinationApiVersion",
+          "v2.observability_pipeline_elasticsearch_destination_auth" => "ObservabilityPipelineElasticsearchDestinationAuth",
           "v2.observability_pipeline_elasticsearch_destination_data_stream" => "ObservabilityPipelineElasticsearchDestinationDataStream",
           "v2.observability_pipeline_elasticsearch_destination_type" => "ObservabilityPipelineElasticsearchDestinationType",
           "v2.observability_pipeline_enrichment_table_file" => "ObservabilityPipelineEnrichmentTableFile",

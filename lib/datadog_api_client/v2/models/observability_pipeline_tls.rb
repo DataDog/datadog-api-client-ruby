@@ -30,6 +30,9 @@ module DatadogAPIClient::V2
     # Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
     attr_accessor :key_file
 
+    # Name of the environment variable or secret that holds the passphrase for the private key file.
+    attr_accessor :key_pass_key
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -38,7 +41,8 @@ module DatadogAPIClient::V2
       {
         :'ca_file' => :'ca_file',
         :'crt_file' => :'crt_file',
-        :'key_file' => :'key_file'
+        :'key_file' => :'key_file',
+        :'key_pass_key' => :'key_pass_key'
       }
     end
 
@@ -48,7 +52,8 @@ module DatadogAPIClient::V2
       {
         :'ca_file' => :'String',
         :'crt_file' => :'String',
-        :'key_file' => :'String'
+        :'key_file' => :'String',
+        :'key_pass_key' => :'String'
       }
     end
 
@@ -80,6 +85,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'key_file')
         self.key_file = attributes[:'key_file']
+      end
+
+      if attributes.key?(:'key_pass_key')
+        self.key_pass_key = attributes[:'key_pass_key']
       end
     end
 
@@ -130,6 +139,7 @@ module DatadogAPIClient::V2
           ca_file == o.ca_file &&
           crt_file == o.crt_file &&
           key_file == o.key_file &&
+          key_pass_key == o.key_pass_key &&
           additional_properties == o.additional_properties
     end
 
@@ -137,7 +147,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [ca_file, crt_file, key_file, additional_properties].hash
+      [ca_file, crt_file, key_file, key_pass_key, additional_properties].hash
     end
   end
 end

@@ -21,6 +21,9 @@ module DatadogAPIClient::V2
   class ObservabilityPipelineEnrichmentTableReferenceTable
     include BaseGenericModel
 
+    # Name of the environment variable or secret that holds the Datadog application key used to access the reference table.
+    attr_accessor :app_key_key
+
     # List of column names to include from the reference table. If not provided, all columns are included.
     attr_accessor :columns
 
@@ -36,6 +39,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'app_key_key' => :'app_key_key',
         :'columns' => :'columns',
         :'key_field' => :'key_field',
         :'table_id' => :'table_id'
@@ -46,6 +50,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'app_key_key' => :'String',
         :'columns' => :'Array<String>',
         :'key_field' => :'String',
         :'table_id' => :'String'
@@ -69,6 +74,10 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'app_key_key')
+        self.app_key_key = attributes[:'app_key_key']
+      end
 
       if attributes.key?(:'columns')
         if (value = attributes[:'columns']).is_a?(Array)
@@ -140,6 +149,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          app_key_key == o.app_key_key &&
           columns == o.columns &&
           key_field == o.key_field &&
           table_id == o.table_id &&
@@ -150,7 +160,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [columns, key_field, table_id, additional_properties].hash
+      [app_key_key, columns, key_field, table_id, additional_properties].hash
     end
   end
 end

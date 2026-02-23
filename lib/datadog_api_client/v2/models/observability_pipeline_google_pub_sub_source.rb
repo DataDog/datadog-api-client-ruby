@@ -23,7 +23,7 @@ module DatadogAPIClient::V2
   class ObservabilityPipelineGooglePubSubSource
     include BaseGenericModel
 
-    # GCP credentials used to authenticate with Google Cloud Storage.
+    # Google Cloud credentials used to authenticate with Google Cloud Storage.
     attr_accessor :auth
 
     # The decoding format used to interpret incoming logs.
@@ -32,7 +32,7 @@ module DatadogAPIClient::V2
     # The unique identifier for this component. Used in other parts of the pipeline to reference this component (for example, as the `input` to downstream components).
     attr_reader :id
 
-    # The GCP project ID that owns the Pub/Sub subscription.
+    # The Google Cloud project ID that owns the Pub/Sub subscription.
     attr_reader :project
 
     # The Pub/Sub subscription name from which messages are consumed.

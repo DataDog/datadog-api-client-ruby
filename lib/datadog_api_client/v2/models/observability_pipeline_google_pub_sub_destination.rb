@@ -23,7 +23,7 @@ module DatadogAPIClient::V2
   class ObservabilityPipelineGooglePubSubDestination
     include BaseGenericModel
 
-    # GCP credentials used to authenticate with Google Cloud Storage.
+    # Google Cloud credentials used to authenticate with Google Cloud Storage.
     attr_accessor :auth
 
     # Configuration for buffer settings on destination components.
@@ -32,13 +32,16 @@ module DatadogAPIClient::V2
     # Encoding format for log events.
     attr_reader :encoding
 
+    # Name of the environment variable or secret that holds the Google Cloud Pub/Sub endpoint URL.
+    attr_accessor :endpoint_url_key
+
     # The unique identifier for this component.
     attr_reader :id
 
     # A list of component IDs whose output is used as the `input` for this component.
     attr_reader :inputs
 
-    # The GCP project ID that owns the Pub/Sub topic.
+    # The Google Cloud project ID that owns the Pub/Sub topic.
     attr_reader :project
 
     # Configuration for enabling TLS encryption between the pipeline component and external services.
@@ -59,6 +62,7 @@ module DatadogAPIClient::V2
         :'auth' => :'auth',
         :'buffer' => :'buffer',
         :'encoding' => :'encoding',
+        :'endpoint_url_key' => :'endpoint_url_key',
         :'id' => :'id',
         :'inputs' => :'inputs',
         :'project' => :'project',
@@ -75,6 +79,7 @@ module DatadogAPIClient::V2
         :'auth' => :'ObservabilityPipelineGcpAuth',
         :'buffer' => :'ObservabilityPipelineBufferOptions',
         :'encoding' => :'ObservabilityPipelineGooglePubSubDestinationEncoding',
+        :'endpoint_url_key' => :'String',
         :'id' => :'String',
         :'inputs' => :'Array<String>',
         :'project' => :'String',
@@ -112,6 +117,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'encoding')
         self.encoding = attributes[:'encoding']
+      end
+
+      if attributes.key?(:'endpoint_url_key')
+        self.endpoint_url_key = attributes[:'endpoint_url_key']
       end
 
       if attributes.key?(:'id')
@@ -243,6 +252,7 @@ module DatadogAPIClient::V2
           auth == o.auth &&
           buffer == o.buffer &&
           encoding == o.encoding &&
+          endpoint_url_key == o.endpoint_url_key &&
           id == o.id &&
           inputs == o.inputs &&
           project == o.project &&
@@ -256,7 +266,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [auth, buffer, encoding, id, inputs, project, tls, topic, type, additional_properties].hash
+      [auth, buffer, encoding, endpoint_url_key, id, inputs, project, tls, topic, type, additional_properties].hash
     end
   end
 end

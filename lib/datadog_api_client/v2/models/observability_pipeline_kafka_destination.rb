@@ -23,6 +23,9 @@ module DatadogAPIClient::V2
   class ObservabilityPipelineKafkaDestination
     include BaseGenericModel
 
+    # Name of the environment variable or secret that holds the Kafka bootstrap servers list.
+    attr_accessor :bootstrap_servers_key
+
     # Compression codec for Kafka messages.
     attr_accessor :compression
 
@@ -74,6 +77,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'bootstrap_servers_key' => :'bootstrap_servers_key',
         :'compression' => :'compression',
         :'encoding' => :'encoding',
         :'headers_key' => :'headers_key',
@@ -96,6 +100,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'bootstrap_servers_key' => :'String',
         :'compression' => :'ObservabilityPipelineKafkaDestinationCompression',
         :'encoding' => :'ObservabilityPipelineKafkaDestinationEncoding',
         :'headers_key' => :'String',
@@ -131,6 +136,10 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'bootstrap_servers_key')
+        self.bootstrap_servers_key = attributes[:'bootstrap_servers_key']
+      end
 
       if attributes.key?(:'compression')
         self.compression = attributes[:'compression']
@@ -333,6 +342,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          bootstrap_servers_key == o.bootstrap_servers_key &&
           compression == o.compression &&
           encoding == o.encoding &&
           headers_key == o.headers_key &&
@@ -355,7 +365,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [compression, encoding, headers_key, id, inputs, key_field, librdkafka_options, message_timeout_ms, rate_limit_duration_secs, rate_limit_num, sasl, socket_timeout_ms, tls, topic, type, additional_properties].hash
+      [bootstrap_servers_key, compression, encoding, headers_key, id, inputs, key_field, librdkafka_options, message_timeout_ms, rate_limit_duration_secs, rate_limit_num, sasl, socket_timeout_ms, tls, topic, type, additional_properties].hash
     end
   end
 end

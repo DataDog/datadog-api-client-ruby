@@ -23,6 +23,9 @@ module DatadogAPIClient::V2
   class ObservabilityPipelineAmazonDataFirehoseSource
     include BaseGenericModel
 
+    # Name of the environment variable or secret that holds the Firehose delivery stream address.
+    attr_accessor :address_key
+
     # AWS authentication credentials used for accessing AWS services such as S3.
     # If omitted, the system’s default credentials are used (for example, the IAM role and environment variables).
     attr_accessor :auth
@@ -42,6 +45,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'address_key' => :'address_key',
         :'auth' => :'auth',
         :'id' => :'id',
         :'tls' => :'tls',
@@ -53,6 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'address_key' => :'String',
         :'auth' => :'ObservabilityPipelineAwsAuth',
         :'id' => :'String',
         :'tls' => :'ObservabilityPipelineTls',
@@ -77,6 +82,10 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'address_key')
+        self.address_key = attributes[:'address_key']
+      end
 
       if attributes.key?(:'auth')
         self.auth = attributes[:'auth']
@@ -150,6 +159,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          address_key == o.address_key &&
           auth == o.auth &&
           id == o.id &&
           tls == o.tls &&
@@ -161,7 +171,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [auth, id, tls, type, additional_properties].hash
+      [address_key, auth, id, tls, type, additional_properties].hash
     end
   end
 end

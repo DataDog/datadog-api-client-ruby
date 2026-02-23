@@ -23,6 +23,9 @@ module DatadogAPIClient::V2
   class ObservabilityPipelineSocketDestination
     include BaseGenericModel
 
+    # Name of the environment variable or secret that holds the socket address (host:port).
+    attr_accessor :address_key
+
     # Configuration for buffer settings on destination components.
     attr_accessor :buffer
 
@@ -53,6 +56,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'address_key' => :'address_key',
         :'buffer' => :'buffer',
         :'encoding' => :'encoding',
         :'framing' => :'framing',
@@ -68,6 +72,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'address_key' => :'String',
         :'buffer' => :'ObservabilityPipelineBufferOptions',
         :'encoding' => :'ObservabilityPipelineSocketDestinationEncoding',
         :'framing' => :'ObservabilityPipelineSocketDestinationFraming',
@@ -96,6 +101,10 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'address_key')
+        self.address_key = attributes[:'address_key']
+      end
 
       if attributes.key?(:'buffer')
         self.buffer = attributes[:'buffer']
@@ -231,6 +240,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          address_key == o.address_key &&
           buffer == o.buffer &&
           encoding == o.encoding &&
           framing == o.framing &&
@@ -246,7 +256,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [buffer, encoding, framing, id, inputs, mode, tls, type, additional_properties].hash
+      [address_key, buffer, encoding, framing, id, inputs, mode, tls, type, additional_properties].hash
     end
   end
 end

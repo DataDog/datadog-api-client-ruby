@@ -24,13 +24,21 @@ module DatadogAPIClient::V2
     # SASL mechanism used for Kafka authentication.
     attr_accessor :mechanism
 
+    # Name of the environment variable or secret that holds the SASL password.
+    attr_accessor :password_key
+
+    # Name of the environment variable or secret that holds the SASL username.
+    attr_accessor :username_key
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'mechanism' => :'mechanism'
+        :'mechanism' => :'mechanism',
+        :'password_key' => :'password_key',
+        :'username_key' => :'username_key'
       }
     end
 
@@ -38,7 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'mechanism' => :'ObservabilityPipelineKafkaSaslMechanism'
+        :'mechanism' => :'ObservabilityPipelineKafkaSaslMechanism',
+        :'password_key' => :'String',
+        :'username_key' => :'String'
       }
     end
 
@@ -62,6 +72,14 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'mechanism')
         self.mechanism = attributes[:'mechanism']
+      end
+
+      if attributes.key?(:'password_key')
+        self.password_key = attributes[:'password_key']
+      end
+
+      if attributes.key?(:'username_key')
+        self.username_key = attributes[:'username_key']
       end
     end
 
@@ -92,6 +110,8 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           mechanism == o.mechanism &&
+          password_key == o.password_key &&
+          username_key == o.username_key &&
           additional_properties == o.additional_properties
     end
 
@@ -99,7 +119,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [mechanism, additional_properties].hash
+      [mechanism, password_key, username_key, additional_properties].hash
     end
   end
 end

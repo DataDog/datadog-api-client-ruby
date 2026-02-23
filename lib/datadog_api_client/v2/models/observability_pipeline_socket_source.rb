@@ -23,6 +23,9 @@ module DatadogAPIClient::V2
   class ObservabilityPipelineSocketSource
     include BaseGenericModel
 
+    # Name of the environment variable or secret that holds the listen address for the socket.
+    attr_accessor :address_key
+
     # Framing method configuration for the socket source.
     attr_reader :framing
 
@@ -44,6 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'address_key' => :'address_key',
         :'framing' => :'framing',
         :'id' => :'id',
         :'mode' => :'mode',
@@ -56,6 +60,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'address_key' => :'String',
         :'framing' => :'ObservabilityPipelineSocketSourceFraming',
         :'id' => :'String',
         :'mode' => :'ObservabilityPipelineSocketSourceMode',
@@ -81,6 +86,10 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'address_key')
+        self.address_key = attributes[:'address_key']
+      end
 
       if attributes.key?(:'framing')
         self.framing = attributes[:'framing']
@@ -180,6 +189,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          address_key == o.address_key &&
           framing == o.framing &&
           id == o.id &&
           mode == o.mode &&
@@ -192,7 +202,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [framing, id, mode, tls, type, additional_properties].hash
+      [address_key, framing, id, mode, tls, type, additional_properties].hash
     end
   end
 end
