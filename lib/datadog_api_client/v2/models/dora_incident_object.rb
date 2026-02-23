@@ -27,7 +27,7 @@ module DatadogAPIClient::V2
     # The ID of the incident event.
     attr_accessor :id
 
-    # JSON:API type for DORA failure events.
+    # JSON:API type for DORA incident events.
     attr_accessor :type
 
     attr_accessor :additional_properties

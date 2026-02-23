@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The type of remediation action taken.
+  # The type of remediation action taken. Required when the failed deployment must be linked to a remediation deployment.
   class DORADeploymentPatchRemediationType
     include BaseEnumModel
 

@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class DORAFailureRequestData
     include BaseGenericModel
 
-    # Attributes to create a DORA failure event.
+    # Attributes to create a DORA incident event.
     attr_reader :attributes
 
     attr_accessor :additional_properties
