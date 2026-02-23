@@ -39,6 +39,7 @@ module DatadogAPIClient::V2
     # - Deployment Frequency
     # - Change Lead Time
     # - Change Failure Rate
+    # - Failed Deployment Recovery Time
     #
     # @param body [DORADeploymentRequest] 
     # @param opts [Hash] the optional parameters
@@ -95,7 +96,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Send a failure event.
+    # Send an incident event.
     #
     # @see #create_dora_failure_with_http_info
     def create_dora_failure(body, opts = {})
@@ -103,13 +104,11 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Send a failure event.
+    # Send an incident event.
     #
-    # Use this API endpoint to provide failure data.
-    #
-    # This is necessary for:
-    # - Change Failure Rate
-    # - Time to Restore
+    # Use this API endpoint to provide incident data for DORA Metrics.
+    # Note that change failure rate and failed deployment recovery time are computed from change failures detected on deployments, not from incident events sent through this endpoint.
+    # Tracking incidents gives a side-by-side view of how failed deployments translate into real-world incidents, including their severity and frequency.
     #
     # @param body [DORAFailureRequest] 
     # @param opts [Hash] the optional parameters
@@ -166,7 +165,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Send an incident event.
+    # Send an incident event (legacy).
     #
     # @see #create_dora_incident_with_http_info
     def create_dora_incident(body, opts = {})
@@ -174,15 +173,12 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Send an incident event.
+    # Send an incident event (legacy).
     #
     # **Note**: This endpoint is deprecated. Please use `/api/v2/dora/failure` instead.
     #
-    # Use this API endpoint to provide failure data.
-    #
-    # This is necessary for:
-    # - Change Failure Rate
-    # - Time to Restore
+    # Use this API endpoint to provide incident data.
+    # Tracking incidents gives a side-by-side view of how failed deployments translate into real-world incidents.
     #
     # @deprecated This API is deprecated.
     #
@@ -307,7 +303,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Delete a failure event.
+    # Delete an incident event.
     #
     # @see #delete_dora_failure_with_http_info
     def delete_dora_failure(failure_id, opts = {})
@@ -315,11 +311,11 @@ module DatadogAPIClient::V2
       nil
     end
 
-    # Delete a failure event.
+    # Delete an incident event.
     #
-    # Use this API endpoint to delete a failure event.
+    # Use this API endpoint to delete an incident event.
     #
-    # @param failure_id [String] The ID of the failure event to delete.
+    # @param failure_id [String] The ID of the incident event to delete.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_dora_failure_with_http_info(failure_id, opts = {})
@@ -437,7 +433,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Get a failure event.
+    # Get an incident event.
     #
     # @see #get_dora_failure_with_http_info
     def get_dora_failure(failure_id, opts = {})
@@ -445,11 +441,11 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Get a failure event.
+    # Get an incident event.
     #
-    # Use this API endpoint to get a failure event.
+    # Use this API endpoint to get an incident event.
     #
-    # @param failure_id [String] The ID of the failure event.
+    # @param failure_id [String] The ID of the incident event.
     # @param opts [Hash] the optional parameters
     # @return [Array<(DORAFailureFetchResponse, Integer, Hash)>] DORAFailureFetchResponse data, response status code and response headers
     def get_dora_failure_with_http_info(failure_id, opts = {})
@@ -569,7 +565,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Get a list of failure events.
+    # Get a list of incident events.
     #
     # @see #list_dora_failures_with_http_info
     def list_dora_failures(body, opts = {})
@@ -577,9 +573,9 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Get a list of failure events.
+    # Get a list of incident events.
     #
-    # Use this API endpoint to get a list of failure events.
+    # Use this API endpoint to get a list of incident events.
     #
     # @param body [DORAListFailuresRequest] 
     # @param opts [Hash] the optional parameters
@@ -646,7 +642,7 @@ module DatadogAPIClient::V2
 
     # Patch a deployment event.
     #
-    # Use this API endpoint to patch a deployment event.
+    # Update a deployment's change failure status. Use this to mark a deployment as a change failure or back to stable. You can optionally include remediation details to enable failed deployment recovery time calculation.
     #
     # @param deployment_id [String] The ID of the deployment event.
     # @param body [DORADeploymentPatchRequest] 
