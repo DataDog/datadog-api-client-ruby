@@ -33,6 +33,7 @@ module DatadogAPIClient::V2
           :'DatabaseMonitoringTriggerWrapper',
           :'DatastoreTriggerWrapper',
           :'DashboardTriggerWrapper',
+          :'FormTriggerWrapper',
           :'GithubWebhookTriggerWrapper',
           :'IncidentTriggerWrapper',
           :'MonitorTriggerWrapper',
