@@ -2154,6 +2154,83 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Import an incident.
+    #
+    # @see #import_incident_with_http_info
+    def import_incident(body, opts = {})
+      data, _status_code, _headers = import_incident_with_http_info(body, opts)
+      data
+    end
+
+    # Import an incident.
+    #
+    # Import an incident from an external system. This endpoint allows you to create incidents with
+    # historical data such as custom timestamps for detection, declaration, and resolution.
+    # Imported incidents do not execute integrations or notification rules.
+    #
+    # @param body [IncidentImportRequest] Incident import payload.
+    # @param opts [Hash] the optional parameters
+    # @option opts [Array<IncidentImportRelatedObject>] :include Specifies which related object types to include in the response when importing an incident.
+    # @return [Array<(IncidentImportResponse, Integer, Hash)>] IncidentImportResponse data, response status code and response headers
+    def import_incident_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.import_incident".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.import_incident")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.import_incident"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: IncidentsAPI.import_incident ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling IncidentsAPI.import_incident"
+      end
+      # resource path
+      local_var_path = '/api/v2/incidents/import'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'include'] = @api_client.build_collection_param(opts[:'include'], :csv) if !opts[:'include'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'IncidentImportResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :import_incident,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: IncidentsAPI#import_incident\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List global incident handles.
     #
     # @see #list_global_incident_handles_with_http_info
