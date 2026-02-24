@@ -23,7 +23,7 @@ module DatadogAPIClient::V2
   class ObservabilityPipelineGoogleChronicleDestination
     include BaseGenericModel
 
-    # GCP credentials used to authenticate with Google Cloud Storage.
+    # Google Cloud credentials used to authenticate with Google Cloud Storage.
     attr_accessor :auth
 
     # Configuration for buffer settings on destination components.
@@ -34,6 +34,9 @@ module DatadogAPIClient::V2
 
     # The encoding format for the logs sent to Chronicle.
     attr_accessor :encoding
+
+    # Name of the environment variable or secret that holds the Google Chronicle endpoint URL.
+    attr_accessor :endpoint_url_key
 
     # The unique identifier for this component.
     attr_reader :id
@@ -57,6 +60,7 @@ module DatadogAPIClient::V2
         :'buffer' => :'buffer',
         :'customer_id' => :'customer_id',
         :'encoding' => :'encoding',
+        :'endpoint_url_key' => :'endpoint_url_key',
         :'id' => :'id',
         :'inputs' => :'inputs',
         :'log_type' => :'log_type',
@@ -72,6 +76,7 @@ module DatadogAPIClient::V2
         :'buffer' => :'ObservabilityPipelineBufferOptions',
         :'customer_id' => :'String',
         :'encoding' => :'ObservabilityPipelineGoogleChronicleDestinationEncoding',
+        :'endpoint_url_key' => :'String',
         :'id' => :'String',
         :'inputs' => :'Array<String>',
         :'log_type' => :'String',
@@ -111,6 +116,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'encoding')
         self.encoding = attributes[:'encoding']
+      end
+
+      if attributes.key?(:'endpoint_url_key')
+        self.endpoint_url_key = attributes[:'endpoint_url_key']
       end
 
       if attributes.key?(:'id')
@@ -213,6 +222,7 @@ module DatadogAPIClient::V2
           buffer == o.buffer &&
           customer_id == o.customer_id &&
           encoding == o.encoding &&
+          endpoint_url_key == o.endpoint_url_key &&
           id == o.id &&
           inputs == o.inputs &&
           log_type == o.log_type &&
@@ -224,7 +234,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [auth, buffer, customer_id, encoding, id, inputs, log_type, type, additional_properties].hash
+      [auth, buffer, customer_id, encoding, endpoint_url_key, id, inputs, log_type, type, additional_properties].hash
     end
   end
 end

@@ -29,6 +29,9 @@ module DatadogAPIClient::V2
     # Compression configuration for HTTP requests.
     attr_accessor :compression
 
+    # Name of the environment variable or secret that holds a custom header value (used with custom auth strategies).
+    attr_accessor :custom_key
+
     # Encoding format for log events.
     attr_reader :encoding
 
@@ -38,11 +41,23 @@ module DatadogAPIClient::V2
     # A list of component IDs whose output is used as the input for this component.
     attr_reader :inputs
 
+    # Name of the environment variable or secret that holds the password (used when `auth_strategy` is `basic`).
+    attr_accessor :password_key
+
     # Configuration for enabling TLS encryption between the pipeline component and external services.
     attr_accessor :tls
 
+    # Name of the environment variable or secret that holds the bearer token (used when `auth_strategy` is `bearer`).
+    attr_accessor :token_key
+
     # The destination type. The value should always be `http_client`.
     attr_reader :type
+
+    # Name of the environment variable or secret that holds the HTTP endpoint URI.
+    attr_accessor :uri_key
+
+    # Name of the environment variable or secret that holds the username (used when `auth_strategy` is `basic`).
+    attr_accessor :username_key
 
     attr_accessor :additional_properties
 
@@ -52,11 +67,16 @@ module DatadogAPIClient::V2
       {
         :'auth_strategy' => :'auth_strategy',
         :'compression' => :'compression',
+        :'custom_key' => :'custom_key',
         :'encoding' => :'encoding',
         :'id' => :'id',
         :'inputs' => :'inputs',
+        :'password_key' => :'password_key',
         :'tls' => :'tls',
-        :'type' => :'type'
+        :'token_key' => :'token_key',
+        :'type' => :'type',
+        :'uri_key' => :'uri_key',
+        :'username_key' => :'username_key'
       }
     end
 
@@ -66,11 +86,16 @@ module DatadogAPIClient::V2
       {
         :'auth_strategy' => :'ObservabilityPipelineHttpClientDestinationAuthStrategy',
         :'compression' => :'ObservabilityPipelineHttpClientDestinationCompression',
+        :'custom_key' => :'String',
         :'encoding' => :'ObservabilityPipelineHttpClientDestinationEncoding',
         :'id' => :'String',
         :'inputs' => :'Array<String>',
+        :'password_key' => :'String',
         :'tls' => :'ObservabilityPipelineTls',
-        :'type' => :'ObservabilityPipelineHttpClientDestinationType'
+        :'token_key' => :'String',
+        :'type' => :'ObservabilityPipelineHttpClientDestinationType',
+        :'uri_key' => :'String',
+        :'username_key' => :'String'
       }
     end
 
@@ -100,6 +125,10 @@ module DatadogAPIClient::V2
         self.compression = attributes[:'compression']
       end
 
+      if attributes.key?(:'custom_key')
+        self.custom_key = attributes[:'custom_key']
+      end
+
       if attributes.key?(:'encoding')
         self.encoding = attributes[:'encoding']
       end
@@ -114,12 +143,28 @@ module DatadogAPIClient::V2
         end
       end
 
+      if attributes.key?(:'password_key')
+        self.password_key = attributes[:'password_key']
+      end
+
       if attributes.key?(:'tls')
         self.tls = attributes[:'tls']
       end
 
+      if attributes.key?(:'token_key')
+        self.token_key = attributes[:'token_key']
+      end
+
       if attributes.key?(:'type')
         self.type = attributes[:'type']
+      end
+
+      if attributes.key?(:'uri_key')
+        self.uri_key = attributes[:'uri_key']
+      end
+
+      if attributes.key?(:'username_key')
+        self.username_key = attributes[:'username_key']
       end
     end
 
@@ -202,11 +247,16 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           auth_strategy == o.auth_strategy &&
           compression == o.compression &&
+          custom_key == o.custom_key &&
           encoding == o.encoding &&
           id == o.id &&
           inputs == o.inputs &&
+          password_key == o.password_key &&
           tls == o.tls &&
+          token_key == o.token_key &&
           type == o.type &&
+          uri_key == o.uri_key &&
+          username_key == o.username_key &&
           additional_properties == o.additional_properties
     end
 
@@ -214,7 +264,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [auth_strategy, compression, encoding, id, inputs, tls, type, additional_properties].hash
+      [auth_strategy, compression, custom_key, encoding, id, inputs, password_key, tls, token_key, type, uri_key, username_key, additional_properties].hash
     end
   end
 end

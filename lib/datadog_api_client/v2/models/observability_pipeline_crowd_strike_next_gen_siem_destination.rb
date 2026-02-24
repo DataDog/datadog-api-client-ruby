@@ -32,6 +32,9 @@ module DatadogAPIClient::V2
     # Encoding format for log events.
     attr_reader :encoding
 
+    # Name of the environment variable or secret that holds the CrowdStrike endpoint URL.
+    attr_accessor :endpoint_url_key
+
     # The unique identifier for this component.
     attr_reader :id
 
@@ -40,6 +43,9 @@ module DatadogAPIClient::V2
 
     # Configuration for enabling TLS encryption between the pipeline component and external services.
     attr_accessor :tls
+
+    # Name of the environment variable or secret that holds the CrowdStrike API token.
+    attr_accessor :token_key
 
     # The destination type. The value should always be `crowdstrike_next_gen_siem`.
     attr_reader :type
@@ -53,9 +59,11 @@ module DatadogAPIClient::V2
         :'buffer' => :'buffer',
         :'compression' => :'compression',
         :'encoding' => :'encoding',
+        :'endpoint_url_key' => :'endpoint_url_key',
         :'id' => :'id',
         :'inputs' => :'inputs',
         :'tls' => :'tls',
+        :'token_key' => :'token_key',
         :'type' => :'type'
       }
     end
@@ -67,9 +75,11 @@ module DatadogAPIClient::V2
         :'buffer' => :'ObservabilityPipelineBufferOptions',
         :'compression' => :'ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompression',
         :'encoding' => :'ObservabilityPipelineCrowdStrikeNextGenSiemDestinationEncoding',
+        :'endpoint_url_key' => :'String',
         :'id' => :'String',
         :'inputs' => :'Array<String>',
         :'tls' => :'ObservabilityPipelineTls',
+        :'token_key' => :'String',
         :'type' => :'ObservabilityPipelineCrowdStrikeNextGenSiemDestinationType'
       }
     end
@@ -104,6 +114,10 @@ module DatadogAPIClient::V2
         self.encoding = attributes[:'encoding']
       end
 
+      if attributes.key?(:'endpoint_url_key')
+        self.endpoint_url_key = attributes[:'endpoint_url_key']
+      end
+
       if attributes.key?(:'id')
         self.id = attributes[:'id']
       end
@@ -116,6 +130,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'tls')
         self.tls = attributes[:'tls']
+      end
+
+      if attributes.key?(:'token_key')
+        self.token_key = attributes[:'token_key']
       end
 
       if attributes.key?(:'type')
@@ -203,9 +221,11 @@ module DatadogAPIClient::V2
           buffer == o.buffer &&
           compression == o.compression &&
           encoding == o.encoding &&
+          endpoint_url_key == o.endpoint_url_key &&
           id == o.id &&
           inputs == o.inputs &&
           tls == o.tls &&
+          token_key == o.token_key &&
           type == o.type &&
           additional_properties == o.additional_properties
     end
@@ -214,7 +234,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [buffer, compression, encoding, id, inputs, tls, type, additional_properties].hash
+      [buffer, compression, encoding, endpoint_url_key, id, inputs, tls, token_key, type, additional_properties].hash
     end
   end
 end

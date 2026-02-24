@@ -33,6 +33,9 @@ module DatadogAPIClient::V2
     # Encoding format for log events.
     attr_accessor :encoding
 
+    # Name of the environment variable or secret that holds the Splunk HEC endpoint URL.
+    attr_accessor :endpoint_url_key
+
     # The unique identifier for this component. Used in other parts of the pipeline to reference this component (for example, as the `input` to downstream components).
     attr_reader :id
 
@@ -44,6 +47,9 @@ module DatadogAPIClient::V2
 
     # The Splunk sourcetype to assign to log events.
     attr_accessor :sourcetype
+
+    # Name of the environment variable or secret that holds the Splunk HEC token.
+    attr_accessor :token_key
 
     # The destination type. Always `splunk_hec`.
     attr_reader :type
@@ -57,10 +63,12 @@ module DatadogAPIClient::V2
         :'auto_extract_timestamp' => :'auto_extract_timestamp',
         :'buffer' => :'buffer',
         :'encoding' => :'encoding',
+        :'endpoint_url_key' => :'endpoint_url_key',
         :'id' => :'id',
         :'index' => :'index',
         :'inputs' => :'inputs',
         :'sourcetype' => :'sourcetype',
+        :'token_key' => :'token_key',
         :'type' => :'type'
       }
     end
@@ -72,10 +80,12 @@ module DatadogAPIClient::V2
         :'auto_extract_timestamp' => :'Boolean',
         :'buffer' => :'ObservabilityPipelineBufferOptions',
         :'encoding' => :'ObservabilityPipelineSplunkHecDestinationEncoding',
+        :'endpoint_url_key' => :'String',
         :'id' => :'String',
         :'index' => :'String',
         :'inputs' => :'Array<String>',
         :'sourcetype' => :'String',
+        :'token_key' => :'String',
         :'type' => :'ObservabilityPipelineSplunkHecDestinationType'
       }
     end
@@ -110,6 +120,10 @@ module DatadogAPIClient::V2
         self.encoding = attributes[:'encoding']
       end
 
+      if attributes.key?(:'endpoint_url_key')
+        self.endpoint_url_key = attributes[:'endpoint_url_key']
+      end
+
       if attributes.key?(:'id')
         self.id = attributes[:'id']
       end
@@ -126,6 +140,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'sourcetype')
         self.sourcetype = attributes[:'sourcetype']
+      end
+
+      if attributes.key?(:'token_key')
+        self.token_key = attributes[:'token_key']
       end
 
       if attributes.key?(:'type')
@@ -202,10 +220,12 @@ module DatadogAPIClient::V2
           auto_extract_timestamp == o.auto_extract_timestamp &&
           buffer == o.buffer &&
           encoding == o.encoding &&
+          endpoint_url_key == o.endpoint_url_key &&
           id == o.id &&
           index == o.index &&
           inputs == o.inputs &&
           sourcetype == o.sourcetype &&
+          token_key == o.token_key &&
           type == o.type &&
           additional_properties == o.additional_properties
     end
@@ -214,7 +234,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [auto_extract_timestamp, buffer, encoding, id, index, inputs, sourcetype, type, additional_properties].hash
+      [auto_extract_timestamp, buffer, encoding, endpoint_url_key, id, index, inputs, sourcetype, token_key, type, additional_properties].hash
     end
   end
 end

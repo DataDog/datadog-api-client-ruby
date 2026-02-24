@@ -35,6 +35,9 @@ module DatadogAPIClient::V2
     # The SentinelOne region to send logs to.
     attr_reader :region
 
+    # Name of the environment variable or secret that holds the SentinelOne API token.
+    attr_accessor :token_key
+
     # The destination type. The value should always be `sentinel_one`.
     attr_reader :type
 
@@ -48,6 +51,7 @@ module DatadogAPIClient::V2
         :'id' => :'id',
         :'inputs' => :'inputs',
         :'region' => :'region',
+        :'token_key' => :'token_key',
         :'type' => :'type'
       }
     end
@@ -60,6 +64,7 @@ module DatadogAPIClient::V2
         :'id' => :'String',
         :'inputs' => :'Array<String>',
         :'region' => :'ObservabilityPipelineSentinelOneDestinationRegion',
+        :'token_key' => :'String',
         :'type' => :'ObservabilityPipelineSentinelOneDestinationType'
       }
     end
@@ -98,6 +103,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'region')
         self.region = attributes[:'region']
+      end
+
+      if attributes.key?(:'token_key')
+        self.token_key = attributes[:'token_key']
       end
 
       if attributes.key?(:'type')
@@ -186,6 +195,7 @@ module DatadogAPIClient::V2
           id == o.id &&
           inputs == o.inputs &&
           region == o.region &&
+          token_key == o.token_key &&
           type == o.type &&
           additional_properties == o.additional_properties
     end
@@ -194,7 +204,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [buffer, id, inputs, region, type, additional_properties].hash
+      [buffer, id, inputs, region, token_key, type, additional_properties].hash
     end
   end
 end

@@ -29,6 +29,9 @@ module DatadogAPIClient::V2
     # The output encoding format.
     attr_accessor :encoding
 
+    # Name of the environment variable or secret that holds the Sumo Logic HTTP endpoint URL.
+    attr_accessor :endpoint_url_key
+
     # A list of custom headers to include in the request to Sumo Logic.
     attr_accessor :header_custom_fields
 
@@ -58,6 +61,7 @@ module DatadogAPIClient::V2
       {
         :'buffer' => :'buffer',
         :'encoding' => :'encoding',
+        :'endpoint_url_key' => :'endpoint_url_key',
         :'header_custom_fields' => :'header_custom_fields',
         :'header_host_name' => :'header_host_name',
         :'header_source_category' => :'header_source_category',
@@ -74,6 +78,7 @@ module DatadogAPIClient::V2
       {
         :'buffer' => :'ObservabilityPipelineBufferOptions',
         :'encoding' => :'ObservabilityPipelineSumoLogicDestinationEncoding',
+        :'endpoint_url_key' => :'String',
         :'header_custom_fields' => :'Array<ObservabilityPipelineSumoLogicDestinationHeaderCustomFieldsItem>',
         :'header_host_name' => :'String',
         :'header_source_category' => :'String',
@@ -108,6 +113,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'encoding')
         self.encoding = attributes[:'encoding']
+      end
+
+      if attributes.key?(:'endpoint_url_key')
+        self.endpoint_url_key = attributes[:'endpoint_url_key']
       end
 
       if attributes.key?(:'header_custom_fields')
@@ -211,6 +220,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           buffer == o.buffer &&
           encoding == o.encoding &&
+          endpoint_url_key == o.endpoint_url_key &&
           header_custom_fields == o.header_custom_fields &&
           header_host_name == o.header_host_name &&
           header_source_category == o.header_source_category &&
@@ -225,7 +235,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [buffer, encoding, header_custom_fields, header_host_name, header_source_category, header_source_name, id, inputs, type, additional_properties].hash
+      [buffer, encoding, endpoint_url_key, header_custom_fields, header_host_name, header_source_category, header_source_name, id, inputs, type, additional_properties].hash
     end
   end
 end

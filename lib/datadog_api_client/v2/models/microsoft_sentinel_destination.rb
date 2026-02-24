@@ -29,6 +29,12 @@ module DatadogAPIClient::V2
     # Azure AD client ID used for authentication.
     attr_reader :client_id
 
+    # Name of the environment variable or secret that holds the Azure AD client secret.
+    attr_accessor :client_secret_key
+
+    # Name of the environment variable or secret that holds the Data Collection Endpoint (DCE) URI.
+    attr_accessor :dce_uri_key
+
     # The immutable ID of the Data Collection Rule (DCR).
     attr_reader :dcr_immutable_id
 
@@ -55,6 +61,8 @@ module DatadogAPIClient::V2
       {
         :'buffer' => :'buffer',
         :'client_id' => :'client_id',
+        :'client_secret_key' => :'client_secret_key',
+        :'dce_uri_key' => :'dce_uri_key',
         :'dcr_immutable_id' => :'dcr_immutable_id',
         :'id' => :'id',
         :'inputs' => :'inputs',
@@ -70,6 +78,8 @@ module DatadogAPIClient::V2
       {
         :'buffer' => :'ObservabilityPipelineBufferOptions',
         :'client_id' => :'String',
+        :'client_secret_key' => :'String',
+        :'dce_uri_key' => :'String',
         :'dcr_immutable_id' => :'String',
         :'id' => :'String',
         :'inputs' => :'Array<String>',
@@ -103,6 +113,14 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'client_id')
         self.client_id = attributes[:'client_id']
+      end
+
+      if attributes.key?(:'client_secret_key')
+        self.client_secret_key = attributes[:'client_secret_key']
+      end
+
+      if attributes.key?(:'dce_uri_key')
+        self.dce_uri_key = attributes[:'dce_uri_key']
       end
 
       if attributes.key?(:'dcr_immutable_id')
@@ -244,6 +262,8 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           buffer == o.buffer &&
           client_id == o.client_id &&
+          client_secret_key == o.client_secret_key &&
+          dce_uri_key == o.dce_uri_key &&
           dcr_immutable_id == o.dcr_immutable_id &&
           id == o.id &&
           inputs == o.inputs &&
@@ -257,7 +277,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [buffer, client_id, dcr_immutable_id, id, inputs, table, tenant_id, type, additional_properties].hash
+      [buffer, client_id, client_secret_key, dce_uri_key, dcr_immutable_id, id, inputs, table, tenant_id, type, additional_properties].hash
     end
   end
 end

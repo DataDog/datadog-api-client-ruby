@@ -26,11 +26,20 @@ module DatadogAPIClient::V2
     # Optional authentication strategy for HTTP requests.
     attr_accessor :auth_strategy
 
+    # Name of the environment variable or secret that holds a custom header value (used with custom auth strategies).
+    attr_accessor :custom_key
+
     # The decoding format used to interpret incoming logs.
     attr_reader :decoding
 
+    # Name of the environment variable or secret that holds the HTTP endpoint URL to scrape.
+    attr_accessor :endpoint_url_key
+
     # The unique identifier for this component. Used in other parts of the pipeline to reference this component (for example, as the `input` to downstream components).
     attr_reader :id
+
+    # Name of the environment variable or secret that holds the password (used when `auth_strategy` is `basic`).
+    attr_accessor :password_key
 
     # The interval (in seconds) between HTTP scrape requests.
     attr_accessor :scrape_interval_secs
@@ -41,8 +50,14 @@ module DatadogAPIClient::V2
     # Configuration for enabling TLS encryption between the pipeline component and external services.
     attr_accessor :tls
 
+    # Name of the environment variable or secret that holds the bearer token (used when `auth_strategy` is `bearer`).
+    attr_accessor :token_key
+
     # The source type. The value should always be `http_client`.
     attr_reader :type
+
+    # Name of the environment variable or secret that holds the username (used when `auth_strategy` is `basic`).
+    attr_accessor :username_key
 
     attr_accessor :additional_properties
 
@@ -51,12 +66,17 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'auth_strategy' => :'auth_strategy',
+        :'custom_key' => :'custom_key',
         :'decoding' => :'decoding',
+        :'endpoint_url_key' => :'endpoint_url_key',
         :'id' => :'id',
+        :'password_key' => :'password_key',
         :'scrape_interval_secs' => :'scrape_interval_secs',
         :'scrape_timeout_secs' => :'scrape_timeout_secs',
         :'tls' => :'tls',
-        :'type' => :'type'
+        :'token_key' => :'token_key',
+        :'type' => :'type',
+        :'username_key' => :'username_key'
       }
     end
 
@@ -65,12 +85,17 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'auth_strategy' => :'ObservabilityPipelineHttpClientSourceAuthStrategy',
+        :'custom_key' => :'String',
         :'decoding' => :'ObservabilityPipelineDecoding',
+        :'endpoint_url_key' => :'String',
         :'id' => :'String',
+        :'password_key' => :'String',
         :'scrape_interval_secs' => :'Integer',
         :'scrape_timeout_secs' => :'Integer',
         :'tls' => :'ObservabilityPipelineTls',
-        :'type' => :'ObservabilityPipelineHttpClientSourceType'
+        :'token_key' => :'String',
+        :'type' => :'ObservabilityPipelineHttpClientSourceType',
+        :'username_key' => :'String'
       }
     end
 
@@ -96,12 +121,24 @@ module DatadogAPIClient::V2
         self.auth_strategy = attributes[:'auth_strategy']
       end
 
+      if attributes.key?(:'custom_key')
+        self.custom_key = attributes[:'custom_key']
+      end
+
       if attributes.key?(:'decoding')
         self.decoding = attributes[:'decoding']
       end
 
+      if attributes.key?(:'endpoint_url_key')
+        self.endpoint_url_key = attributes[:'endpoint_url_key']
+      end
+
       if attributes.key?(:'id')
         self.id = attributes[:'id']
+      end
+
+      if attributes.key?(:'password_key')
+        self.password_key = attributes[:'password_key']
       end
 
       if attributes.key?(:'scrape_interval_secs')
@@ -116,8 +153,16 @@ module DatadogAPIClient::V2
         self.tls = attributes[:'tls']
       end
 
+      if attributes.key?(:'token_key')
+        self.token_key = attributes[:'token_key']
+      end
+
       if attributes.key?(:'type')
         self.type = attributes[:'type']
+      end
+
+      if attributes.key?(:'username_key')
+        self.username_key = attributes[:'username_key']
       end
     end
 
@@ -188,12 +233,17 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           auth_strategy == o.auth_strategy &&
+          custom_key == o.custom_key &&
           decoding == o.decoding &&
+          endpoint_url_key == o.endpoint_url_key &&
           id == o.id &&
+          password_key == o.password_key &&
           scrape_interval_secs == o.scrape_interval_secs &&
           scrape_timeout_secs == o.scrape_timeout_secs &&
           tls == o.tls &&
+          token_key == o.token_key &&
           type == o.type &&
+          username_key == o.username_key &&
           additional_properties == o.additional_properties
     end
 
@@ -201,7 +251,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [auth_strategy, decoding, id, scrape_interval_secs, scrape_timeout_secs, tls, type, additional_properties].hash
+      [auth_strategy, custom_key, decoding, endpoint_url_key, id, password_key, scrape_interval_secs, scrape_timeout_secs, tls, token_key, type, username_key, additional_properties].hash
     end
   end
 end

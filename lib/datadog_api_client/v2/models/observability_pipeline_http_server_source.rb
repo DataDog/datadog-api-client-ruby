@@ -23,8 +23,14 @@ module DatadogAPIClient::V2
   class ObservabilityPipelineHttpServerSource
     include BaseGenericModel
 
+    # Name of the environment variable or secret that holds the listen address for the HTTP server.
+    attr_accessor :address_key
+
     # HTTP authentication method.
     attr_reader :auth_strategy
+
+    # Name of the environment variable or secret that holds a custom header value (used with custom auth strategies).
+    attr_accessor :custom_key
 
     # The decoding format used to interpret incoming logs.
     attr_reader :decoding
@@ -32,11 +38,17 @@ module DatadogAPIClient::V2
     # Unique ID for the HTTP server source.
     attr_reader :id
 
+    # Name of the environment variable or secret that holds the password (used when `auth_strategy` is `plain`).
+    attr_accessor :password_key
+
     # Configuration for enabling TLS encryption between the pipeline component and external services.
     attr_accessor :tls
 
     # The source type. The value should always be `http_server`.
     attr_reader :type
+
+    # Name of the environment variable or secret that holds the username (used when `auth_strategy` is `plain`).
+    attr_accessor :username_key
 
     attr_accessor :additional_properties
 
@@ -44,11 +56,15 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'address_key' => :'address_key',
         :'auth_strategy' => :'auth_strategy',
+        :'custom_key' => :'custom_key',
         :'decoding' => :'decoding',
         :'id' => :'id',
+        :'password_key' => :'password_key',
         :'tls' => :'tls',
-        :'type' => :'type'
+        :'type' => :'type',
+        :'username_key' => :'username_key'
       }
     end
 
@@ -56,11 +72,15 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'address_key' => :'String',
         :'auth_strategy' => :'ObservabilityPipelineHttpServerSourceAuthStrategy',
+        :'custom_key' => :'String',
         :'decoding' => :'ObservabilityPipelineDecoding',
         :'id' => :'String',
+        :'password_key' => :'String',
         :'tls' => :'ObservabilityPipelineTls',
-        :'type' => :'ObservabilityPipelineHttpServerSourceType'
+        :'type' => :'ObservabilityPipelineHttpServerSourceType',
+        :'username_key' => :'String'
       }
     end
 
@@ -82,8 +102,16 @@ module DatadogAPIClient::V2
         end
       }
 
+      if attributes.key?(:'address_key')
+        self.address_key = attributes[:'address_key']
+      end
+
       if attributes.key?(:'auth_strategy')
         self.auth_strategy = attributes[:'auth_strategy']
+      end
+
+      if attributes.key?(:'custom_key')
+        self.custom_key = attributes[:'custom_key']
       end
 
       if attributes.key?(:'decoding')
@@ -94,12 +122,20 @@ module DatadogAPIClient::V2
         self.id = attributes[:'id']
       end
 
+      if attributes.key?(:'password_key')
+        self.password_key = attributes[:'password_key']
+      end
+
       if attributes.key?(:'tls')
         self.tls = attributes[:'tls']
       end
 
       if attributes.key?(:'type')
         self.type = attributes[:'type']
+      end
+
+      if attributes.key?(:'username_key')
+        self.username_key = attributes[:'username_key']
       end
     end
 
@@ -180,11 +216,15 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          address_key == o.address_key &&
           auth_strategy == o.auth_strategy &&
+          custom_key == o.custom_key &&
           decoding == o.decoding &&
           id == o.id &&
+          password_key == o.password_key &&
           tls == o.tls &&
           type == o.type &&
+          username_key == o.username_key &&
           additional_properties == o.additional_properties
     end
 
@@ -192,7 +232,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [auth_strategy, decoding, id, tls, type, additional_properties].hash
+      [address_key, auth_strategy, custom_key, decoding, id, password_key, tls, type, username_key, additional_properties].hash
     end
   end
 end

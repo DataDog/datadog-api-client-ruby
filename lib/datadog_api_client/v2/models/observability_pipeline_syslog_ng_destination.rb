@@ -26,6 +26,9 @@ module DatadogAPIClient::V2
     # Configuration for buffer settings on destination components.
     attr_accessor :buffer
 
+    # Name of the environment variable or secret that holds the syslog-ng server endpoint URL.
+    attr_accessor :endpoint_url_key
+
     # The unique identifier for this component.
     attr_reader :id
 
@@ -48,6 +51,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'buffer' => :'buffer',
+        :'endpoint_url_key' => :'endpoint_url_key',
         :'id' => :'id',
         :'inputs' => :'inputs',
         :'keepalive' => :'keepalive',
@@ -61,6 +65,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'buffer' => :'ObservabilityPipelineBufferOptions',
+        :'endpoint_url_key' => :'String',
         :'id' => :'String',
         :'inputs' => :'Array<String>',
         :'keepalive' => :'Integer',
@@ -89,6 +94,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'buffer')
         self.buffer = attributes[:'buffer']
+      end
+
+      if attributes.key?(:'endpoint_url_key')
+        self.endpoint_url_key = attributes[:'endpoint_url_key']
       end
 
       if attributes.key?(:'id')
@@ -192,6 +201,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           buffer == o.buffer &&
+          endpoint_url_key == o.endpoint_url_key &&
           id == o.id &&
           inputs == o.inputs &&
           keepalive == o.keepalive &&
@@ -204,7 +214,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [buffer, id, inputs, keepalive, tls, type, additional_properties].hash
+      [buffer, endpoint_url_key, id, inputs, keepalive, tls, type, additional_properties].hash
     end
   end
 end

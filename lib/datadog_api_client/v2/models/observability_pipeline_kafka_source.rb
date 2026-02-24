@@ -23,6 +23,9 @@ module DatadogAPIClient::V2
   class ObservabilityPipelineKafkaSource
     include BaseGenericModel
 
+    # Name of the environment variable or secret that holds the Kafka bootstrap servers list.
+    attr_accessor :bootstrap_servers_key
+
     # Consumer group ID used by the Kafka client.
     attr_reader :group_id
 
@@ -50,6 +53,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'bootstrap_servers_key' => :'bootstrap_servers_key',
         :'group_id' => :'group_id',
         :'id' => :'id',
         :'librdkafka_options' => :'librdkafka_options',
@@ -64,6 +68,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'bootstrap_servers_key' => :'String',
         :'group_id' => :'String',
         :'id' => :'String',
         :'librdkafka_options' => :'Array<ObservabilityPipelineKafkaLibrdkafkaOption>',
@@ -91,6 +96,10 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'bootstrap_servers_key')
+        self.bootstrap_servers_key = attributes[:'bootstrap_servers_key']
+      end
 
       if attributes.key?(:'group_id')
         self.group_id = attributes[:'group_id']
@@ -202,6 +211,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          bootstrap_servers_key == o.bootstrap_servers_key &&
           group_id == o.group_id &&
           id == o.id &&
           librdkafka_options == o.librdkafka_options &&
@@ -216,7 +226,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [group_id, id, librdkafka_options, sasl, tls, topics, type, additional_properties].hash
+      [bootstrap_servers_key, group_id, id, librdkafka_options, sasl, tls, topics, type, additional_properties].hash
     end
   end
 end
