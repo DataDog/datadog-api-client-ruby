@@ -17,27 +17,21 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # The data attributes of a notebook.
-  class NotebookCreateDataAttributes
+  # Template variable for a notebook.
+  class NotebookTemplateVariable
     include BaseGenericModel
 
-    # List of cells to display in the notebook.
-    attr_reader :cells
+    # The list of values that the template variable drop-down is limited to.
+    attr_accessor :available_values
 
-    # Metadata associated with the notebook.
-    attr_accessor :metadata
+    # The default value for the template variable.
+    attr_accessor :default
 
-    # The name of the notebook.
+    # The name of the variable.
     attr_reader :name
 
-    # Publication status of the notebook. For now, always "published".
-    attr_accessor :status
-
-    # List of template variables for this notebook.
-    attr_accessor :template_variables
-
-    # Notebook global timeframe.
-    attr_reader :time
+    # The tag prefix associated with the variable. Only tags with this prefix appear in the variable drop-down.
+    attr_accessor :prefix
 
     attr_accessor :additional_properties
 
@@ -45,12 +39,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.attribute_map
       {
-        :'cells' => :'cells',
-        :'metadata' => :'metadata',
+        :'available_values' => :'available_values',
+        :'default' => :'default',
         :'name' => :'name',
-        :'status' => :'status',
-        :'template_variables' => :'template_variables',
-        :'time' => :'time'
+        :'prefix' => :'prefix'
       }
     end
 
@@ -58,13 +50,21 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
-        :'cells' => :'Array<NotebookCellCreateRequest>',
-        :'metadata' => :'NotebookMetadata',
+        :'available_values' => :'Array<String>',
+        :'default' => :'String',
         :'name' => :'String',
-        :'status' => :'NotebookStatus',
-        :'template_variables' => :'Array<NotebookTemplateVariable>',
-        :'time' => :'NotebookGlobalTime'
+        :'prefix' => :'String'
       }
+    end
+
+    # List of attributes with nullable: true
+    # @!visibility private
+    def self.openapi_nullable
+      Set.new([
+        :'available_values',
+        :'default',
+        :'prefix',
+      ])
     end
 
     # Initializes the object
@@ -72,7 +72,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::NotebookCreateDataAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::NotebookTemplateVariable` initialize method"
       end
 
       self.additional_properties = {}
@@ -85,32 +85,22 @@ module DatadogAPIClient::V1
         end
       }
 
-      if attributes.key?(:'cells')
-        if (value = attributes[:'cells']).is_a?(Array)
-          self.cells = value
+      if attributes.key?(:'available_values')
+        if (value = attributes[:'available_values']).is_a?(Array)
+          self.available_values = value
         end
       end
 
-      if attributes.key?(:'metadata')
-        self.metadata = attributes[:'metadata']
+      if attributes.key?(:'default')
+        self.default = attributes[:'default']
       end
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
 
-      if attributes.key?(:'status')
-        self.status = attributes[:'status']
-      end
-
-      if attributes.key?(:'template_variables')
-        if (value = attributes[:'template_variables']).is_a?(Array)
-          self.template_variables = value
-        end
-      end
-
-      if attributes.key?(:'time')
-        self.time = attributes[:'time']
+      if attributes.key?(:'prefix')
+        self.prefix = attributes[:'prefix']
       end
     end
 
@@ -118,22 +108,8 @@ module DatadogAPIClient::V1
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @cells.nil?
       return false if @name.nil?
-      return false if @name.to_s.length > 80
-      return false if @name.to_s.length < 0
-      return false if @time.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param cells [Object] Object to be assigned
-    # @!visibility private
-    def cells=(cells)
-      if cells.nil?
-        fail ArgumentError, 'invalid value for "cells", cells cannot be nil.'
-      end
-      @cells = cells
     end
 
     # Custom attribute writer method with validation
@@ -143,23 +119,7 @@ module DatadogAPIClient::V1
       if name.nil?
         fail ArgumentError, 'invalid value for "name", name cannot be nil.'
       end
-      if name.to_s.length > 80
-        fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 80.'
-      end
-      if name.to_s.length < 0
-        fail ArgumentError, 'invalid value for "name", the character length must be great than or equal to 0.'
-      end
       @name = name
-    end
-
-    # Custom attribute writer method with validation
-    # @param time [Object] Object to be assigned
-    # @!visibility private
-    def time=(time)
-      if time.nil?
-        fail ArgumentError, 'invalid value for "time", time cannot be nil.'
-      end
-      @time = time
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -188,12 +148,10 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          cells == o.cells &&
-          metadata == o.metadata &&
+          available_values == o.available_values &&
+          default == o.default &&
           name == o.name &&
-          status == o.status &&
-          template_variables == o.template_variables &&
-          time == o.time &&
+          prefix == o.prefix &&
           additional_properties == o.additional_properties
     end
 
@@ -201,7 +159,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [cells, metadata, name, status, template_variables, time, additional_properties].hash
+      [available_values, default, name, prefix, additional_properties].hash
     end
   end
 end
