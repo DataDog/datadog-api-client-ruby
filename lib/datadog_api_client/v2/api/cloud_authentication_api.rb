@@ -23,6 +23,221 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
+    # Create an AWS cloud authentication persona mapping.
+    #
+    # @see #create_aws_cloud_auth_persona_mapping_with_http_info
+    def create_aws_cloud_auth_persona_mapping(body, opts = {})
+      data, _status_code, _headers = create_aws_cloud_auth_persona_mapping_with_http_info(body, opts)
+      data
+    end
+
+    # Create an AWS cloud authentication persona mapping.
+    #
+    # Create an AWS cloud authentication persona mapping. This endpoint associates an AWS IAM principal with a Datadog user.
+    #
+    # @param body [AWSCloudAuthPersonaMappingCreateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(AWSCloudAuthPersonaMappingResponse, Integer, Hash)>] AWSCloudAuthPersonaMappingResponse data, response status code and response headers
+    def create_aws_cloud_auth_persona_mapping_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_aws_cloud_auth_persona_mapping".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_aws_cloud_auth_persona_mapping")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_aws_cloud_auth_persona_mapping"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudAuthenticationAPI.create_aws_cloud_auth_persona_mapping ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CloudAuthenticationAPI.create_aws_cloud_auth_persona_mapping"
+      end
+      # resource path
+      local_var_path = '/api/v2/cloud_auth/aws/persona_mapping'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AWSCloudAuthPersonaMappingResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :create_aws_cloud_auth_persona_mapping,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudAuthenticationAPI#create_aws_cloud_auth_persona_mapping\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete an AWS cloud authentication persona mapping.
+    #
+    # @see #delete_aws_cloud_auth_persona_mapping_with_http_info
+    def delete_aws_cloud_auth_persona_mapping(persona_mapping_id, opts = {})
+      delete_aws_cloud_auth_persona_mapping_with_http_info(persona_mapping_id, opts)
+      nil
+    end
+
+    # Delete an AWS cloud authentication persona mapping.
+    #
+    # Delete an AWS cloud authentication persona mapping by ID. This removes the association between an AWS IAM principal and a Datadog user.
+    #
+    # @param persona_mapping_id [String] The ID of the persona mapping
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_aws_cloud_auth_persona_mapping_with_http_info(persona_mapping_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.delete_aws_cloud_auth_persona_mapping".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_aws_cloud_auth_persona_mapping")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_aws_cloud_auth_persona_mapping"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudAuthenticationAPI.delete_aws_cloud_auth_persona_mapping ...'
+      end
+      # verify the required parameter 'persona_mapping_id' is set
+      if @api_client.config.client_side_validation && persona_mapping_id.nil?
+        fail ArgumentError, "Missing the required parameter 'persona_mapping_id' when calling CloudAuthenticationAPI.delete_aws_cloud_auth_persona_mapping"
+      end
+      # resource path
+      local_var_path = '/api/v2/cloud_auth/aws/persona_mapping/{persona_mapping_id}'.sub('{persona_mapping_id}', CGI.escape(persona_mapping_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :delete_aws_cloud_auth_persona_mapping,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudAuthenticationAPI#delete_aws_cloud_auth_persona_mapping\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get an AWS cloud authentication persona mapping.
+    #
+    # @see #get_aws_cloud_auth_persona_mapping_with_http_info
+    def get_aws_cloud_auth_persona_mapping(persona_mapping_id, opts = {})
+      data, _status_code, _headers = get_aws_cloud_auth_persona_mapping_with_http_info(persona_mapping_id, opts)
+      data
+    end
+
+    # Get an AWS cloud authentication persona mapping.
+    #
+    # Get a specific AWS cloud authentication persona mapping by ID. This endpoint retrieves a single configured persona mapping that associates an AWS IAM principal with a Datadog user.
+    #
+    # @param persona_mapping_id [String] The ID of the persona mapping
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(AWSCloudAuthPersonaMappingResponse, Integer, Hash)>] AWSCloudAuthPersonaMappingResponse data, response status code and response headers
+    def get_aws_cloud_auth_persona_mapping_with_http_info(persona_mapping_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_aws_cloud_auth_persona_mapping".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_aws_cloud_auth_persona_mapping")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_aws_cloud_auth_persona_mapping"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudAuthenticationAPI.get_aws_cloud_auth_persona_mapping ...'
+      end
+      # verify the required parameter 'persona_mapping_id' is set
+      if @api_client.config.client_side_validation && persona_mapping_id.nil?
+        fail ArgumentError, "Missing the required parameter 'persona_mapping_id' when calling CloudAuthenticationAPI.get_aws_cloud_auth_persona_mapping"
+      end
+      # resource path
+      local_var_path = '/api/v2/cloud_auth/aws/persona_mapping/{persona_mapping_id}'.sub('{persona_mapping_id}', CGI.escape(persona_mapping_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AWSCloudAuthPersonaMappingResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_aws_cloud_auth_persona_mapping,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudAuthenticationAPI#get_aws_cloud_auth_persona_mapping\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List AWS cloud authentication persona mappings.
     #
     # @see #list_aws_cloud_auth_persona_mappings_with_http_info
