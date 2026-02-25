@@ -3956,6 +3956,26 @@ ScenariosModelMappings = {
     "v2.ListUserPermissions" => {
             "user_id" => "String",
     },
+    "v2.SearchWidgetsApiV2WidgetsExperienceTypeGet" => {
+            "experience_type" => "WidgetExperienceType",
+    },
+    "v2.CreateWidgetApiV2WidgetsExperienceTypePost" => {
+            "experience_type" => "WidgetExperienceType",
+            "body" => "CreateOrUpdateWidgetRequestJSONAPIRequestDocument",
+    },
+    "v2.DeleteWidgetApiV2WidgetsExperienceTypeUuidDelete" => {
+            "uuid" => "UUID",
+            "experience_type" => "WidgetExperienceType",
+    },
+    "v2.GetWidgetApiV2WidgetsExperienceTypeUuidGet" => {
+            "uuid" => "UUID",
+            "experience_type" => "WidgetExperienceType",
+    },
+    "v2.UpdateWidgetApiV2WidgetsExperienceTypeUuidPut" => {
+            "uuid" => "UUID",
+            "experience_type" => "WidgetExperienceType",
+            "body" => "CreateOrUpdateWidgetRequestJSONAPIRequestDocument",
+    },
     "v2.CreateWorkflow" => {
             "body" => "CreateWorkflowRequest",
     },
