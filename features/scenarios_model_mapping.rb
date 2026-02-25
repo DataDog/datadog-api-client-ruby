@@ -1411,6 +1411,15 @@ ScenariosModelMappings = {
     "v2.SearchCIAppTestEvents" => {
             "body" => "CIAppTestEventsRequest",
     },
+    "v2.CreateAWSCloudAuthPersonaMapping" => {
+            "body" => "AWSCloudAuthPersonaMappingCreateRequest",
+    },
+    "v2.DeleteAWSCloudAuthPersonaMapping" => {
+            "persona_mapping_id" => "String",
+    },
+    "v2.GetAWSCloudAuthPersonaMapping" => {
+            "persona_mapping_id" => "String",
+    },
     "v2.CreateCustomFramework" => {
             "body" => "CreateCustomFrameworkRequest",
     },
