@@ -3114,6 +3114,12 @@ ScenariosModelMappings = {
     "v2.SubmitProductAnalyticsEvent" => {
             "body" => "ProductAnalyticsServerSideEventItem",
     },
+    "v2.QueryProductAnalyticsScalar" => {
+            "body" => "ProductAnalyticsAnalyticsRequest",
+    },
+    "v2.QueryProductAnalyticsTimeseries" => {
+            "body" => "ProductAnalyticsAnalyticsRequest",
+    },
     "v2.GetAccountFacetInfo" => {
             "body" => "FacetInfoRequest",
     },

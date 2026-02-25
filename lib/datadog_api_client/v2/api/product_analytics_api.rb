@@ -23,6 +23,143 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
+    # Compute scalar analytics.
+    #
+    # @see #query_product_analytics_scalar_with_http_info
+    def query_product_analytics_scalar(body, opts = {})
+      data, _status_code, _headers = query_product_analytics_scalar_with_http_info(body, opts)
+      data
+    end
+
+    # Compute scalar analytics.
+    #
+    # Compute scalar analytics results for Product Analytics data.
+    # Returns aggregated values (counts, averages, percentiles) optionally grouped by facets.
+    #
+    # @param body [ProductAnalyticsAnalyticsRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(ProductAnalyticsScalarResponse, Integer, Hash)>] ProductAnalyticsScalarResponse data, response status code and response headers
+    def query_product_analytics_scalar_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ProductAnalyticsAPI.query_product_analytics_scalar ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling ProductAnalyticsAPI.query_product_analytics_scalar"
+      end
+      # resource path
+      local_var_path = '/api/v2/product-analytics/analytics/scalar'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ProductAnalyticsScalarResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :query_product_analytics_scalar,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ProductAnalyticsAPI#query_product_analytics_scalar\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Compute timeseries analytics.
+    #
+    # @see #query_product_analytics_timeseries_with_http_info
+    def query_product_analytics_timeseries(body, opts = {})
+      data, _status_code, _headers = query_product_analytics_timeseries_with_http_info(body, opts)
+      data
+    end
+
+    # Compute timeseries analytics.
+    #
+    # Compute timeseries analytics results for Product Analytics data.
+    # Returns time-bucketed values for charts and trend analysis.
+    # The `compute.interval` field (milliseconds) is required for time bucketing.
+    #
+    # @param body [ProductAnalyticsAnalyticsRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(ProductAnalyticsTimeseriesResponse, Integer, Hash)>] ProductAnalyticsTimeseriesResponse data, response status code and response headers
+    def query_product_analytics_timeseries_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ProductAnalyticsAPI.query_product_analytics_timeseries ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling ProductAnalyticsAPI.query_product_analytics_timeseries"
+      end
+      # resource path
+      local_var_path = '/api/v2/product-analytics/analytics/timeseries'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ProductAnalyticsTimeseriesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :query_product_analytics_timeseries,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ProductAnalyticsAPI#query_product_analytics_timeseries\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Send server-side events.
     #
     # @see #submit_product_analytics_event_with_http_info
