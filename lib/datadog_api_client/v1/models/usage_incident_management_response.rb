@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Response containing the incident management usage for each hour for a given organization.
+  # Response containing the Incident Management usage for each hour for a given organization.
   class UsageIncidentManagementResponse
     include BaseGenericModel
 
-    # Get hourly usage for incident management.
+    # Get hourly usage for Incident Management.
     attr_accessor :usage
 
     attr_accessor :additional_properties

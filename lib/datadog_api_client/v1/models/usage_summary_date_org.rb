@@ -339,7 +339,7 @@ module DatadogAPIClient::V1
     # The organization id.
     attr_accessor :id
 
-    # Shows the high-water mark of incident management monthly active users over all hours in the current date for the given org.
+    # Shows the high-water mark of Incident Management monthly active users over all hours in the current date for the given org.
     attr_accessor :incident_management_monthly_active_users_hwm
 
     # Shows the high-water mark of Incident Management seats over all hours on the current date for the given organization.
