@@ -967,7 +967,7 @@ module DatadogAPIClient
         ],
         "v2.submit_product_analytics_event": [
           {
-            url: +"https://{subdomain}.{site}",
+            url: +"https://{subdomain}-{site}",
             description: "No description provided",
             variables: {
               site: {
