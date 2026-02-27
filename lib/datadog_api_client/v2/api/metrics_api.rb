@@ -667,7 +667,7 @@ module DatadogAPIClient::V2
 
     # Get a list of metrics.
     #
-    # Returns all metrics that can be configured in the Metrics Summary page or with Metrics without Limits™ (matching additional filters if specified).
+    # Returns all metrics for your organization that match the given filter parameters.
     # Optionally, paginate by using the `page[cursor]` and/or `page[size]` query parameters.
     # To fetch the first page, pass in a query parameter with either a valid `page[size]` or an empty cursor like `page[cursor]=`. To fetch the next page, pass in the `next_cursor` value from the response as the new `page[cursor]` value.
     # Once the `meta.pagination.next_cursor` value is null, all pages have been retrieved.
@@ -680,7 +680,7 @@ module DatadogAPIClient::V2
     # @option opts [Boolean] :filter_queried (Preview) Filter custom metrics that have or have not been queried in the specified window[seconds]. If no window is provided or the window is less than 2 hours, a default of 2 hours will be applied.
     # @option opts [String] :filter_tags Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions. Can only be combined with the filter[queried] filter.
     # @option opts [Boolean] :filter_related_assets (Preview) Filter metrics that are used in dashboards, monitors, notebooks, SLOs.
-    # @option opts [Integer] :window_seconds The number of seconds of look back (from now) to apply to a filter[tag] or filter[queried] query. Default value is 3600 (1 hour), maximum value is 2,592,000 (30 days).
+    # @option opts [Integer] :window_seconds The number of seconds of look back (from now) to apply to a filter[tag] or filter[queried] query. Default value is 3600 (1 hour), maximum value is 5,184,000 (60 days).
     # @option opts [Integer] :page_size Maximum number of results returned.
     # @option opts [String] :page_cursor String to query the next page of results. This key is provided with each valid response from the API in `meta.pagination.next_cursor`. Once the `meta.pagination.next_cursor` key is null, all pages have been retrieved.
     # @return [Array<(MetricsAndMetricTagConfigurationsResponse, Integer, Hash)>] MetricsAndMetricTagConfigurationsResponse data, response status code and response headers
