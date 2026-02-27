@@ -36,8 +36,8 @@ module DatadogAPIClient::V2
     # Determines which parts of the log the pattern-matching rule should be applied to.
     attr_reader :scope
 
-    # Tags assigned to this rule for filtering and classification.
-    attr_reader :tags
+    # Optional tags assigned to this rule for filtering and classification.
+    attr_accessor :tags
 
     attr_accessor :additional_properties
 
@@ -120,7 +120,6 @@ module DatadogAPIClient::V2
       return false if @on_match.nil?
       return false if @pattern.nil?
       return false if @scope.nil?
-      return false if @tags.nil?
       true
     end
 
@@ -162,16 +161,6 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "scope", scope cannot be nil.'
       end
       @scope = scope
-    end
-
-    # Custom attribute writer method with validation
-    # @param tags [Object] Object to be assigned
-    # @!visibility private
-    def tags=(tags)
-      if tags.nil?
-        fail ArgumentError, 'invalid value for "tags", tags cannot be nil.'
-      end
-      @tags = tags
     end
 
     # Returns the object in the form of hash, with additionalProperties support.

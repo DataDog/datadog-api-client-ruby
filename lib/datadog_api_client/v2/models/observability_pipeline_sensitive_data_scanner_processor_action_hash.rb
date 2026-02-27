@@ -24,7 +24,9 @@ module DatadogAPIClient::V2
     # Action type that replaces the matched sensitive data with a hashed representation, preserving structure while securing content.
     attr_reader :action
 
-    # The `ObservabilityPipelineSensitiveDataScannerProcessorActionHash` `options`.
+    # Optional settings for the hash action. When omitted or empty, matched sensitive data is
+    # replaced with a deterministic hashed value that preserves structure for analytics while
+    # protecting the original content. Reserved for future hash configuration (for example, algorithm or salt).
     attr_accessor :options
 
     attr_accessor :additional_properties
