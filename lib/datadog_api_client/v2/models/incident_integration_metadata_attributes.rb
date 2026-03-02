@@ -118,7 +118,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @integration_type.nil?
-      return false if @integration_type > 9
+      return false if @integration_type > 100
       return false if @metadata.nil?
       return false if !@status.nil? && @status > 5
       true
@@ -131,8 +131,8 @@ module DatadogAPIClient::V2
       if integration_type.nil?
         fail ArgumentError, 'invalid value for "integration_type", integration_type cannot be nil.'
       end
-      if integration_type > 9
-        fail ArgumentError, 'invalid value for "integration_type", must be smaller than or equal to 9.'
+      if integration_type > 100
+        fail ArgumentError, 'invalid value for "integration_type", must be smaller than or equal to 100.'
       end
       @integration_type = integration_type
     end
