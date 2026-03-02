@@ -2954,10 +2954,12 @@ ScenariosModelMappings = {
     "v2.GetOnCallTeamRoutingRules" => {
             "team_id" => "String",
             "include" => "String",
+            "use_policy_action" => "Boolean",
     },
     "v2.SetOnCallTeamRoutingRules" => {
             "team_id" => "String",
             "include" => "String",
+            "use_policy_action" => "Boolean",
             "body" => "TeamRoutingRulesRequest",
     },
     "v2.ListUserNotificationChannels" => {

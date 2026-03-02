@@ -724,6 +724,7 @@ module DatadogAPIClient::V2
     # @param team_id [String] The team ID
     # @param opts [Hash] the optional parameters
     # @option opts [String] :include Comma-separated list of included relationships to be returned. Allowed values: `rules`, `rules.policy`.
+    # @option opts [Boolean] :use_policy_action When set to `true`, escalation policies are returned as actions within routing rules rather than as a separate `policy_id` field.
     # @return [Array<(TeamRoutingRules, Integer, Hash)>] TeamRoutingRules data, response status code and response headers
     def get_on_call_team_routing_rules_with_http_info(team_id, opts = {})
 
@@ -740,6 +741,7 @@ module DatadogAPIClient::V2
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
+      query_params[:'use_policy_action'] = opts[:'use_policy_action'] if !opts[:'use_policy_action'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -1202,6 +1204,7 @@ module DatadogAPIClient::V2
     # @param body [TeamRoutingRulesRequest] 
     # @param opts [Hash] the optional parameters
     # @option opts [String] :include Comma-separated list of included relationships to be returned. Allowed values: `rules`, `rules.policy`.
+    # @option opts [Boolean] :use_policy_action When set to `true`, escalation policies are returned as actions within routing rules rather than as a separate `policy_id` field.
     # @return [Array<(TeamRoutingRules, Integer, Hash)>] TeamRoutingRules data, response status code and response headers
     def set_on_call_team_routing_rules_with_http_info(team_id, body, opts = {})
 
@@ -1222,6 +1225,7 @@ module DatadogAPIClient::V2
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
+      query_params[:'use_policy_action'] = opts[:'use_policy_action'] if !opts[:'use_policy_action'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

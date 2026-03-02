@@ -2340,6 +2340,8 @@ module DatadogAPIClient
           "v2.error_handler" => "ErrorHandler",
           "v2.escalation" => "Escalation",
           "v2.escalation_policy" => "EscalationPolicy",
+          "v2.escalation_policy_action" => "EscalationPolicyAction",
+          "v2.escalation_policy_action_type" => "EscalationPolicyActionType",
           "v2.escalation_policy_create_request" => "EscalationPolicyCreateRequest",
           "v2.escalation_policy_create_request_data" => "EscalationPolicyCreateRequestData",
           "v2.escalation_policy_create_request_data_attributes" => "EscalationPolicyCreateRequestDataAttributes",

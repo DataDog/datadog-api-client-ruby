@@ -27,7 +27,8 @@ module DatadogAPIClient::V2
       def openapi_one_of
         [
           :'SendSlackMessageAction',
-          :'SendTeamsMessageAction'
+          :'SendTeamsMessageAction',
+          :'EscalationPolicyAction'
         ]
       end
       # Builds the object
