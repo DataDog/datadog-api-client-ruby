@@ -41,7 +41,6 @@ body = DatadogAPIClient::V1::Dashboard.new({
                   aggregation: DatadogAPIClient::V1::FormulaAndFunctionEventAggregation::COUNT,
                   metric: "@ci.queue_time",
                 }),
-                group_by: [],
               }),
             ],
             response_format: DatadogAPIClient::V1::FormulaAndFunctionResponseFormat::TIMESERIES,

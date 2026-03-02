@@ -40,7 +40,6 @@ body = DatadogAPIClient::V1::Dashboard.new({
                 compute: DatadogAPIClient::V1::FormulaAndFunctionEventQueryDefinitionCompute.new({
                   aggregation: DatadogAPIClient::V1::FormulaAndFunctionEventAggregation::COUNT,
                 }),
-                group_by: [],
               }),
             ],
             response_format: DatadogAPIClient::V1::FormulaAndFunctionResponseFormat::TIMESERIES,

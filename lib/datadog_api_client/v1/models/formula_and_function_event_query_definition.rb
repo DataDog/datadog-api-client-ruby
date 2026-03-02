@@ -30,7 +30,7 @@ module DatadogAPIClient::V1
     # Data source for event platform-based queries.
     attr_reader :data_source
 
-    # Group by options.
+    # Group by configuration for a formula and functions events query. Accepts either a list of facet objects or a flat object that specifies a list of facet fields.
     attr_accessor :group_by
 
     # An array of index names to query in the stream. Omit or use `[]` to query all indexes at once.
@@ -69,7 +69,7 @@ module DatadogAPIClient::V1
         :'compute' => :'FormulaAndFunctionEventQueryDefinitionCompute',
         :'cross_org_uuids' => :'Array<String>',
         :'data_source' => :'FormulaAndFunctionEventsDataSource',
-        :'group_by' => :'Array<FormulaAndFunctionEventQueryGroupBy>',
+        :'group_by' => :'FormulaAndFunctionEventQueryGroupByConfig',
         :'indexes' => :'Array<String>',
         :'name' => :'String',
         :'search' => :'FormulaAndFunctionEventQueryDefinitionSearch',
@@ -110,9 +110,7 @@ module DatadogAPIClient::V1
       end
 
       if attributes.key?(:'group_by')
-        if (value = attributes[:'group_by']).is_a?(Array)
-          self.group_by = value
-        end
+        self.group_by = attributes[:'group_by']
       end
 
       if attributes.key?(:'indexes')

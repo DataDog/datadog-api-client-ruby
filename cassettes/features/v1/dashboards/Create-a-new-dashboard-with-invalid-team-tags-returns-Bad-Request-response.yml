@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Fri, 15 Nov 2024 19:32:44 GMT
+- recorded_at: Mon, 02 Mar 2026 11:31:32 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"layout_type":"ordered","tags":["tm:foobar"],"title":"Test-Create_a_new_dashboard_with_invalid_team_tags_returns_Bad_Request_response-1731699164","widgets":[{"definition":{"requests":[{"change_type":"absolute","compare_to":"hour_before","formulas":[{"formula":"hour_before(query1)"},{"formula":"query1"}],"increase_good":true,"order_by":"change","order_dir":"desc","queries":[{"compute":{"aggregation":"count"},"data_source":"logs","group_by":[],"indexes":["*"],"name":"query1","search":{"query":""}}],"response_format":"scalar"}],"time":{},"title":"","title_align":"left","title_size":"16","type":"change"},"layout":{"height":4,"width":4,"x":0,"y":0}}]}'
+      string: '{"layout_type":"ordered","tags":["tm:foobar"],"title":"Test-Create_a_new_dashboard_with_invalid_team_tags_returns_Bad_Request_response-1772451092","widgets":[{"definition":{"requests":[{"change_type":"absolute","compare_to":"hour_before","formulas":[{"formula":"hour_before(query1)"},{"formula":"query1"}],"increase_good":true,"order_by":"change","order_dir":"desc","queries":[{"compute":{"aggregation":"count"},"data_source":"logs","indexes":["*"],"name":"query1","search":{"query":""}}],"response_format":"scalar"}],"time":{},"title":"","title_align":"left","title_size":"16","type":"change"},"layout":{"height":4,"width":4,"x":0,"y":0}}]}'
     headers:
       Accept:
       - application/json
@@ -14,7 +14,7 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"errors":["Invalid tag format. Tag key must be `team`."]}'
+      string: '{"errors":["Invalid tag format. Valid tag keys are: team."]}'
     headers:
       Content-Type:
       - application/json
