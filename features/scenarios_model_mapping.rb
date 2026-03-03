@@ -2150,6 +2150,32 @@ ScenariosModelMappings = {
     "v2.CreateEvent" => {
             "body" => "EventCreateRequestPayload",
     },
+    "v2.ListEventEmailAddresses" => {
+            "active" => "Boolean",
+            "include" => "String",
+    },
+    "v2.CreateEventEmailAddress" => {
+            "body" => "EventEmailAddressCreateRequest",
+    },
+    "v2.ListOnCallEventEmailAddresses" => {
+            "filter_team_handle" => "String",
+    },
+    "v2.CreateOnCallEventEmailAddress" => {
+            "body" => "OnCallEventEmailAddressCreateRequest",
+    },
+    "v2.DeleteOnCallEventEmailAddress" => {
+            "id" => "UUID",
+    },
+    "v2.DeleteEventEmailAddress" => {
+            "email_uuid" => "UUID",
+    },
+    "v2.GetEventEmailAddress" => {
+            "email_uuid" => "UUID",
+    },
+    "v2.UpdateEventEmailAddress" => {
+            "email_uuid" => "UUID",
+            "body" => "EventEmailAddressUpdateRequest",
+    },
     "v2.SearchEvents" => {
             "body" => "EventsListRequest",
     },
