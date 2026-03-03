@@ -26,7 +26,6 @@ body = DatadogAPIClient::V1::Dashboard.new({
                 indexes: [
                   "*",
                 ],
-                group_by: [],
               }),
             ],
           }),

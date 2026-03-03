@@ -41,7 +41,6 @@ body = DatadogAPIClient::V1::Dashboard.new({
               indexes: [
                 "*",
               ],
-              group_by: [],
             }),
             request_type: DatadogAPIClient::V1::WidgetHistogramRequestType::HISTOGRAM,
           }),
