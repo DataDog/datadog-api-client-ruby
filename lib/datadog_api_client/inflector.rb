@@ -139,6 +139,8 @@ module DatadogAPIClient
           "v1.formula_and_function_event_query_definition_compute" => "FormulaAndFunctionEventQueryDefinitionCompute",
           "v1.formula_and_function_event_query_definition_search" => "FormulaAndFunctionEventQueryDefinitionSearch",
           "v1.formula_and_function_event_query_group_by" => "FormulaAndFunctionEventQueryGroupBy",
+          "v1.formula_and_function_event_query_group_by_config" => "FormulaAndFunctionEventQueryGroupByConfig",
+          "v1.formula_and_function_event_query_group_by_fields" => "FormulaAndFunctionEventQueryGroupByFields",
           "v1.formula_and_function_event_query_group_by_sort" => "FormulaAndFunctionEventQueryGroupBySort",
           "v1.formula_and_function_events_data_source" => "FormulaAndFunctionEventsDataSource",
           "v1.formula_and_function_metric_aggregation" => "FormulaAndFunctionMetricAggregation",
