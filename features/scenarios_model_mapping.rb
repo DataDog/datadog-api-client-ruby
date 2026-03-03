@@ -2728,6 +2728,7 @@ ScenariosModelMappings = {
             "filter_metric_type" => "MetricTagConfigurationMetricTypeCategory",
             "filter_include_percentiles" => "Boolean",
             "filter_queried" => "Boolean",
+            "filter_queried_window_seconds" => "Integer",
             "filter_tags" => "String",
             "filter_related_assets" => "Boolean",
             "window_seconds" => "Integer",
