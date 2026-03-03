@@ -75,6 +75,7 @@ body = DatadogAPIClient::V1::SyntheticsAPITest.new({
           original_file_name: "image.png",
           content: "file content",
           type: "file type",
+          encoding: "base64",
         }),
       ],
       basic_auth: DatadogAPIClient::V1::SyntheticsBasicAuthOauthClient.new({

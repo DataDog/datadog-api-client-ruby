@@ -27,6 +27,9 @@ module DatadogAPIClient::V1
     # Content of the file.
     attr_reader :content
 
+    # Encoding of the file content. The only supported value is `base64`, indicating the `content` field contains base64-encoded data.
+    attr_accessor :encoding
+
     # Name of the file.
     attr_reader :name
 
@@ -47,6 +50,7 @@ module DatadogAPIClient::V1
       {
         :'bucket_key' => :'bucketKey',
         :'content' => :'content',
+        :'encoding' => :'encoding',
         :'name' => :'name',
         :'original_file_name' => :'originalFileName',
         :'size' => :'size',
@@ -60,6 +64,7 @@ module DatadogAPIClient::V1
       {
         :'bucket_key' => :'String',
         :'content' => :'String',
+        :'encoding' => :'String',
         :'name' => :'String',
         :'original_file_name' => :'String',
         :'size' => :'Integer',
@@ -91,6 +96,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'content')
         self.content = attributes[:'content']
+      end
+
+      if attributes.key?(:'encoding')
+        self.encoding = attributes[:'encoding']
       end
 
       if attributes.key?(:'name')
@@ -204,6 +213,7 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           bucket_key == o.bucket_key &&
           content == o.content &&
+          encoding == o.encoding &&
           name == o.name &&
           original_file_name == o.original_file_name &&
           size == o.size &&
@@ -215,7 +225,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [bucket_key, content, name, original_file_name, size, type, additional_properties].hash
+      [bucket_key, content, encoding, name, original_file_name, size, type, additional_properties].hash
     end
   end
 end
