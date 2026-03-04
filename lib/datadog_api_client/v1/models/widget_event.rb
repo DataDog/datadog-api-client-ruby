@@ -21,6 +21,8 @@ module DatadogAPIClient::V1
   # 
   # See the dedicated [Events JSON schema documentation](https://docs.datadoghq.com/dashboards/graphing_json/widget_json/#events-schema)
   # to learn how to build the `<EVENTS_SCHEMA>`.
+  #
+  # @deprecated This model is deprecated.
   class WidgetEvent
     include BaseGenericModel
 
@@ -54,6 +56,7 @@ module DatadogAPIClient::V1
     # @param attributes [Hash] Model attributes in the form of hash
     # @!visibility private
     def initialize(attributes = {})
+      warn "[DEPRECATION] `WidgetEvent` is deprecated."
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::WidgetEvent` initialize method"
       end

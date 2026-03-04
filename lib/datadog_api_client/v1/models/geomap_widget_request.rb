@@ -33,7 +33,7 @@ module DatadogAPIClient::V1
     # The log query.
     attr_accessor :log_query
 
-    # The widget metrics query.
+    # The widget metrics query. Deprecated - Use `queries` and `formulas` instead.
     attr_accessor :q
 
     # List of queries that can be returned directly or used in formulas.
