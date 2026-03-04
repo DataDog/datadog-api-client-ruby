@@ -25,5 +25,6 @@ module DatadogAPIClient::V2
     DEGRADED = "degraded".freeze
     PARTIAL_OUTAGE = "partial_outage".freeze
     MAJOR_OUTAGE = "major_outage".freeze
+    MAINTENANCE = "maintenance".freeze
   end
 end

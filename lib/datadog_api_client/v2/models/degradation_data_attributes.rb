@@ -33,6 +33,9 @@ module DatadogAPIClient::V2
     # Timestamp of when the degradation was last modified.
     attr_accessor :modified_at
 
+    # The source of the degradation.
+    attr_accessor :source
+
     # The status of the degradation.
     attr_accessor :status
 
@@ -52,6 +55,7 @@ module DatadogAPIClient::V2
         :'created_at' => :'created_at',
         :'description' => :'description',
         :'modified_at' => :'modified_at',
+        :'source' => :'source',
         :'status' => :'status',
         :'title' => :'title',
         :'updates' => :'updates'
@@ -66,6 +70,7 @@ module DatadogAPIClient::V2
         :'created_at' => :'Time',
         :'description' => :'String',
         :'modified_at' => :'Time',
+        :'source' => :'DegradationDataAttributesSource',
         :'status' => :'CreateDegradationRequestDataAttributesStatus',
         :'title' => :'String',
         :'updates' => :'Array<DegradationDataAttributesUpdatesItems>'
@@ -106,6 +111,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'modified_at')
         self.modified_at = attributes[:'modified_at']
+      end
+
+      if attributes.key?(:'source')
+        self.source = attributes[:'source']
       end
 
       if attributes.key?(:'status')
@@ -153,6 +162,7 @@ module DatadogAPIClient::V2
           created_at == o.created_at &&
           description == o.description &&
           modified_at == o.modified_at &&
+          source == o.source &&
           status == o.status &&
           title == o.title &&
           updates == o.updates &&
@@ -163,7 +173,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [components_affected, created_at, description, modified_at, status, title, updates, additional_properties].hash
+      [components_affected, created_at, description, modified_at, source, status, title, updates, additional_properties].hash
     end
   end
 end

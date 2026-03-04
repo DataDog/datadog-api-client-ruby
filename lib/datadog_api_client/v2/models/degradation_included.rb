@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # 
-  module DegradationArrayIncluded
+  module DegradationIncluded
     class << self
       include BaseOneOfModel
       include BaseOneOfModelNoDiscriminator

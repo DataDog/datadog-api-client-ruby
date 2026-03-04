@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # Offset-based pagination schema.
-  class StatusPagesPagination
+  class PaginationMetaPage
     include BaseGenericModel
 
     # Integer representing the offset to fetch the first page of results.
@@ -27,7 +27,7 @@ module DatadogAPIClient::V2
     # Integer representing the offset to fetch the last page of results.
     attr_accessor :last_offset
 
-    # Integer representing the number of elements to returned in the results.
+    # Integer representing the number of elements to be returned in the results.
     attr_accessor :limit
 
     # Integer representing the index of the first element in the next page of results. Equal to page size added to the current offset.
@@ -73,7 +73,7 @@ module DatadogAPIClient::V2
         :'offset' => :'Integer',
         :'prev_offset' => :'Integer',
         :'total' => :'Integer',
-        :'type' => :'StatusPagesPaginationType'
+        :'type' => :'PaginationMetaPageType'
       }
     end
 
@@ -93,7 +93,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::StatusPagesPagination` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::PaginationMetaPage` initialize method"
       end
 
       self.additional_properties = {}
