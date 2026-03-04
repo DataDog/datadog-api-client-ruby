@@ -48,7 +48,7 @@ module DatadogAPIClient::V2
       {
         :'data' => :'Array<StatusPageData>',
         :'included' => :'Array<StatusPageArrayIncluded>',
-        :'meta' => :'StatusPagesResponseMeta'
+        :'meta' => :'PaginationMeta'
       }
     end
 

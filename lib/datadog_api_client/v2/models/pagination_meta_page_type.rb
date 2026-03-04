@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # 
-  class StatusPagesPaginationType
+  class PaginationMetaPageType
     include BaseEnumModel
 
     OFFSET_LIMIT = "offset_limit".freeze

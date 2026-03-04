@@ -3671,6 +3671,15 @@ ScenariosModelMappings = {
             "page_limit" => "Integer",
             "include" => "String",
             "filter_status" => "String",
+            "sort" => "String",
+    },
+    "v2.ListMaintenances" => {
+            "filter_page_id" => "String",
+            "page_offset" => "Integer",
+            "page_limit" => "Integer",
+            "include" => "String",
+            "filter_status" => "String",
+            "sort" => "String",
     },
     "v2.DeleteStatusPage" => {
             "page_id" => "UUID",
@@ -3730,6 +3739,24 @@ ScenariosModelMappings = {
             "degradation_id" => "UUID",
             "include" => "String",
             "body" => "PatchDegradationRequest",
+    },
+    "v2.CreateMaintenance" => {
+            "page_id" => "UUID",
+            "notify_subscribers" => "Boolean",
+            "include" => "String",
+            "body" => "CreateMaintenanceRequest",
+    },
+    "v2.GetMaintenance" => {
+            "page_id" => "UUID",
+            "maintenance_id" => "UUID",
+            "include" => "String",
+    },
+    "v2.UpdateMaintenance" => {
+            "page_id" => "UUID",
+            "notify_subscribers" => "Boolean",
+            "maintenance_id" => "UUID",
+            "include" => "String",
+            "body" => "PatchMaintenanceRequest",
     },
     "v2.SetOnDemandConcurrencyCap" => {
             "body" => "OnDemandConcurrencyCapAttributes",
