@@ -678,6 +678,7 @@ module DatadogAPIClient::V2
     # @option opts [MetricTagConfigurationMetricTypeCategory] :filter_metric_type Filter metrics by metric type.
     # @option opts [Boolean] :filter_include_percentiles Filter distributions with additional percentile aggregations enabled or disabled.
     # @option opts [Boolean] :filter_queried (Preview) Filter custom metrics that have or have not been queried in the specified window[seconds]. If no window is provided or the window is less than 2 hours, a default of 2 hours will be applied.
+    # @option opts [Integer] :filter_queried_window_seconds The number of seconds of look back (from now) used by the `filter[queried]` filter logic. Must be sent with `filter[queried]` and is only applied when `filter[queried]=true`. If `filter[queried]=false`, this parameter is ignored and default queried-window behavior applies. If `filter[queried]` is not provided, sending this parameter returns a 400. For example: `GET /api/v2/metrics?filter[queried]=true&filter[queried][window][seconds]=7776000`.
     # @option opts [String] :filter_tags Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions. Can only be combined with the filter[queried] filter.
     # @option opts [Boolean] :filter_related_assets (Preview) Filter metrics that are used in dashboards, monitors, notebooks, SLOs.
     # @option opts [Integer] :window_seconds The number of seconds of look back (from now) to apply to a filter[tag] or filter[queried] query. Default value is 3600 (1 hour), maximum value is 2,592,000 (30 days).
@@ -692,6 +693,12 @@ module DatadogAPIClient::V2
       allowable_values = ['non_distribution', 'distribution']
       if @api_client.config.client_side_validation && opts[:'filter_metric_type'] && !allowable_values.include?(opts[:'filter_metric_type'])
         fail ArgumentError, "invalid value for \"filter_metric_type\", must be one of #{allowable_values}"
+      end
+      if @api_client.config.client_side_validation && !opts[:'filter_queried_window_seconds'].nil? && opts[:'filter_queried_window_seconds'] > 15552000
+        fail ArgumentError, 'invalid value for "opts[:"filter_queried_window_seconds"]" when calling MetricsAPI.list_tag_configurations, must be smaller than or equal to 15552000.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'filter_queried_window_seconds'].nil? && opts[:'filter_queried_window_seconds'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"filter_queried_window_seconds"]" when calling MetricsAPI.list_tag_configurations, must be greater than or equal to 0.'
       end
       if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] > 10000
         fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling MetricsAPI.list_tag_configurations, must be smaller than or equal to 10000.'
@@ -709,6 +716,7 @@ module DatadogAPIClient::V2
       query_params[:'filter[metric_type]'] = opts[:'filter_metric_type'] if !opts[:'filter_metric_type'].nil?
       query_params[:'filter[include_percentiles]'] = opts[:'filter_include_percentiles'] if !opts[:'filter_include_percentiles'].nil?
       query_params[:'filter[queried]'] = opts[:'filter_queried'] if !opts[:'filter_queried'].nil?
+      query_params[:'filter[queried][window][seconds]'] = opts[:'filter_queried_window_seconds'] if !opts[:'filter_queried_window_seconds'].nil?
       query_params[:'filter[tags]'] = opts[:'filter_tags'] if !opts[:'filter_tags'].nil?
       query_params[:'filter[related_assets]'] = opts[:'filter_related_assets'] if !opts[:'filter_related_assets'].nil?
       query_params[:'window[seconds]'] = opts[:'window_seconds'] if !opts[:'window_seconds'].nil?
