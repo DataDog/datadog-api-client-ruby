@@ -24,7 +24,7 @@ module DatadogAPIClient::V1
     # List of formulas that operate on queries.
     attr_accessor :formulas
 
-    # The widget metrics query.
+    # The widget metrics query. Deprecated - Use `queries` and `formulas` instead.
     attr_accessor :q
 
     # List of queries that can be returned directly or used in formulas.

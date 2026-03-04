@@ -24,7 +24,7 @@ module DatadogAPIClient::V1
     # List of custom links.
     attr_accessor :custom_links
 
-    # List of widget events.
+    # List of widget events. Deprecated - Use `overlay` request type instead.
     attr_accessor :events
 
     # Available legend sizes for a widget. Should be one of "0", "2", "4", "8", "16", or "auto".

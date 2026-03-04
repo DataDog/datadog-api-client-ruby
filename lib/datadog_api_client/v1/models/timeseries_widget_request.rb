@@ -54,7 +54,7 @@ module DatadogAPIClient::V1
     # The log query.
     attr_accessor :profile_metrics_query
 
-    # Widget query.
+    # Widget query. Deprecated - Use `queries` and `formulas` instead.
     attr_accessor :q
 
     # List of queries that can be returned directly or used in formulas.

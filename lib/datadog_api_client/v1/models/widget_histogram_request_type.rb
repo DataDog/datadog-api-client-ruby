@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Request type for the histogram request.
+  # Request type for distribution of point values for distribution metrics. Query space aggregator must be `histogram:<metric name>` for points distributions.
   class WidgetHistogramRequestType
     include BaseEnumModel
 

@@ -42,7 +42,7 @@ module DatadogAPIClient::V1
     # The log query.
     attr_accessor :profile_metrics_query
 
-    # Widget query.
+    # Widget query. Deprecated - Use `queries` and `formulas` instead.
     attr_accessor :q
 
     # List of queries that can be returned directly or used in formulas.
@@ -51,7 +51,7 @@ module DatadogAPIClient::V1
     # A formula and functions metrics query.
     attr_accessor :query
 
-    # Request type for the histogram request.
+    # Request type for distribution of point values for distribution metrics. Query space aggregator must be `histogram:<metric name>` for points distributions.
     attr_accessor :request_type
 
     # Timeseries, scalar, or event list response. Event list response formats are supported by Geomap widgets.
