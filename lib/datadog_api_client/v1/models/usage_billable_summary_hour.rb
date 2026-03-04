@@ -27,7 +27,7 @@ module DatadogAPIClient::V1
     # The account public ID.
     attr_accessor :account_public_id
 
-    # The billing plan.
+    # The billing plan (metadata). (Deprecated from May 2026)
     attr_accessor :billing_plan
 
     # Shows the last date of usage.
