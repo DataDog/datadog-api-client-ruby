@@ -21,8 +21,8 @@ module DatadogAPIClient::V1
   class SLOCountSpec
     include BaseGenericModel
 
-    # A count-based (metric) SLI specification, composed of three parts: the good events formula, the total events formula,
-    # and the underlying queries.
+    # A count-based (metric) SLI specification, composed of three parts: the good events formula,
+    # the bad or total events formula, and the underlying queries.
     attr_reader :count
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -17,10 +17,13 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # A count-based (metric) SLI specification, composed of three parts: the good events formula, the total events formula,
-  # and the underlying queries.
+  # A count-based (metric) SLI specification, composed of three parts: the good events formula,
+  # the bad or total events formula, and the underlying queries.
   class SLOCountDefinition
     include BaseGenericModel
+
+    # A formula that specifies how to combine the results of multiple queries.
+    attr_accessor :bad_events_formula
 
     # A formula that specifies how to combine the results of multiple queries.
     attr_reader :good_events_formula
@@ -29,7 +32,7 @@ module DatadogAPIClient::V1
     attr_reader :queries
 
     # A formula that specifies how to combine the results of multiple queries.
-    attr_reader :total_events_formula
+    attr_accessor :total_events_formula
 
     attr_accessor :additional_properties
 
@@ -37,6 +40,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.attribute_map
       {
+        :'bad_events_formula' => :'bad_events_formula',
         :'good_events_formula' => :'good_events_formula',
         :'queries' => :'queries',
         :'total_events_formula' => :'total_events_formula'
@@ -47,6 +51,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
+        :'bad_events_formula' => :'SLOFormula',
         :'good_events_formula' => :'SLOFormula',
         :'queries' => :'Array<SLODataSourceQueryDefinition>',
         :'total_events_formula' => :'SLOFormula'
@@ -71,6 +76,10 @@ module DatadogAPIClient::V1
         end
       }
 
+      if attributes.key?(:'bad_events_formula')
+        self.bad_events_formula = attributes[:'bad_events_formula']
+      end
+
       if attributes.key?(:'good_events_formula')
         self.good_events_formula = attributes[:'good_events_formula']
       end
@@ -93,7 +102,6 @@ module DatadogAPIClient::V1
       return false if @good_events_formula.nil?
       return false if @queries.nil?
       return false if @queries.length < 1
-      return false if @total_events_formula.nil?
       true
     end
 
@@ -118,16 +126,6 @@ module DatadogAPIClient::V1
         fail ArgumentError, 'invalid value for "queries", number of items must be greater than or equal to 1.'
       end
       @queries = queries
-    end
-
-    # Custom attribute writer method with validation
-    # @param total_events_formula [Object] Object to be assigned
-    # @!visibility private
-    def total_events_formula=(total_events_formula)
-      if total_events_formula.nil?
-        fail ArgumentError, 'invalid value for "total_events_formula", total_events_formula cannot be nil.'
-      end
-      @total_events_formula = total_events_formula
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -156,6 +154,7 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          bad_events_formula == o.bad_events_formula &&
           good_events_formula == o.good_events_formula &&
           queries == o.queries &&
           total_events_formula == o.total_events_formula &&
@@ -166,7 +165,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [good_events_formula, queries, total_events_formula, additional_properties].hash
+      [bad_events_formula, good_events_formula, queries, total_events_formula, additional_properties].hash
     end
   end
 end
