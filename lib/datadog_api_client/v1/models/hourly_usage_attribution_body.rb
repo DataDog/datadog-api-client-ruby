@@ -49,8 +49,8 @@ module DatadogAPIClient::V1
     # Shows the most recent hour in the current month for all organizations where usages are calculated.
     attr_accessor :updated_at
 
-    # Supported products for hourly usage attribution requests.
-    # The following values have been **deprecated**: `estimated_indexed_spans_usage`, `estimated_ingested_spans_usage`.
+    # Supported products for hourly usage attribution requests. Usage types are in the format `<usage_type>_usage`.
+    # To obtain the complete list of valid usage types, make a request to the [Get usage attribution types API](https://docs.datadoghq.com/api/latest/usage-metering/#get-usage-attribution-types).
     attr_accessor :usage_type
 
     attr_accessor :additional_properties

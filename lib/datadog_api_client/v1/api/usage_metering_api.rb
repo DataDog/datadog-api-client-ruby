@@ -129,11 +129,9 @@ module DatadogAPIClient::V1
     #   cursor := response.metadata.pagination.next_record_id
     # END
     # ```
-    # The following values have been **deprecated**:
-    #     `estimated_indexed_spans_usage`, `estimated_indexed_spans_percentage`, `estimated_ingested_spans_usage`, `estimated_ingested_spans_percentage`, `llm_observability_usage`, `llm_observability_percentage`.
     #
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
-    # @param usage_type [HourlyUsageAttributionUsageType] Usage type to retrieve. The following values have been **deprecated**: `estimated_indexed_spans_usage`, `estimated_ingested_spans_usage`.
+    # @param usage_type [HourlyUsageAttributionUsageType] Usage type to retrieve. Usage types are in the format `<usage_type>_usage`. Example: `infra_host_usage` To obtain the complete list of active usage types that can be used to replace `<usage_type>` in the field names, make a request to the [Get usage attribution types API](https://docs.datadoghq.com/api/latest/usage-metering/#get-usage-attribution-types).
     # @param opts [Hash] the optional parameters
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
     # @option opts [String] :next_record_id List following results with a next_record_id provided in the previous query.
@@ -457,11 +455,11 @@ module DatadogAPIClient::V1
     # ```
     #
     # @param start_month [Time] Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage beginning in this month. Maximum of 15 months ago.
-    # @param fields [MonthlyUsageAttributionSupportedMetrics] Comma-separated list of usage types to return, or `*` for all usage types. The following values have been **deprecated**: `estimated_indexed_spans_usage`, `estimated_indexed_spans_percentage`, `estimated_ingested_spans_usage`, `estimated_ingested_spans_percentage`, `llm_observability_usage`, `llm_observability_percentage`.
+    # @param fields [MonthlyUsageAttributionSupportedMetrics] Comma-separated list of usage types to return, or `*` for all usage types. Usage types are in the format `<usage_type>_usage` and `<usage_type>_percentage`. Example: `infra_host_usage,infra_host_percentage` To obtain the complete list of usage attribution types that can be used to replace `<usage_type>` in the field names, make a request to the [Get usage attribution types API](https://docs.datadoghq.com/api/latest/usage-metering/#get-usage-attribution-types).
     # @param opts [Hash] the optional parameters
     # @option opts [Time] :end_month Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage ending this month.
     # @option opts [UsageSortDirection] :sort_direction The direction to sort by: `[desc, asc]`.
-    # @option opts [MonthlyUsageAttributionSupportedMetrics] :sort_name The field to sort by. The following values have been **deprecated**: `estimated_indexed_spans_usage`, `estimated_indexed_spans_percentage`, `estimated_ingested_spans_usage`, `estimated_ingested_spans_percentage`.
+    # @option opts [MonthlyUsageAttributionSupportedMetrics] :sort_name The field to sort by. Sort fields are in the format `<usage_type>_usage`. Example: `infra_host_usage` To obtain the complete list of usage attribution types that can be used to replace `<usage_type>` in the field names, make a request to the [Get usage attribution types API](https://docs.datadoghq.com/api/latest/usage-metering/#get-usage-attribution-types).
     # @option opts [String] :tag_breakdown_keys Comma separated list of tag keys used to group usage. If no value is provided the usage will not be broken down by tags.  To see which tags are available, look for the value of `tag_config_source` in the API response.
     # @option opts [String] :next_record_id List following results with a next_record_id provided in the previous query.
     # @option opts [Boolean] :include_descendants Include child org usage in the response. Defaults to `true`.
