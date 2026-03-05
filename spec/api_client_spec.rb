@@ -206,4 +206,75 @@ describe DatadogAPIClient::APIClient do
       expect(api_client.sanitize_filename('.\sun.gif')).to eq('sun.gif')
     end
   end
+
+  describe '#update_params_for_auth!' do
+    let(:config) { DatadogAPIClient::Configuration.new }
+    let(:api_client) { DatadogAPIClient::APIClient.new(config) }
+
+    context 'when all auth credentials are configured' do
+      before do
+        config.api_key = 'test_api_key'
+        config.application_key = 'test_app_key'
+        config.access_token = 'ddpat_test_pat'
+      end
+
+      it 'sends all configured auth headers simultaneously' do
+        header_params = {}
+        query_params = {}
+        api_client.update_params_for_auth!(header_params, query_params, [:apiKeyAuth, :appKeyAuth, :bearerAuth])
+        expect(header_params['Authorization']).to eq('Bearer ddpat_test_pat')
+        expect(header_params['DD-API-KEY']).to eq('test_api_key')
+        expect(header_params['DD-APPLICATION-KEY']).to eq('test_app_key')
+      end
+    end
+
+    context 'when only bearer token is configured' do
+      before do
+        config.access_token = 'ddpat_test_pat'
+      end
+
+      it 'sends only Bearer header, skips empty API key and app key' do
+        header_params = {}
+        query_params = {}
+        api_client.update_params_for_auth!(header_params, query_params, [:apiKeyAuth, :appKeyAuth, :bearerAuth])
+        expect(header_params['Authorization']).to eq('Bearer ddpat_test_pat')
+        expect(header_params).not_to have_key('DD-API-KEY')
+        expect(header_params).not_to have_key('DD-APPLICATION-KEY')
+      end
+    end
+
+    context 'when only API key and app key are configured' do
+      before do
+        config.api_key = 'test_api_key'
+        config.application_key = 'test_app_key'
+      end
+
+      it 'sends API key and app key, no Bearer header' do
+        header_params = {}
+        query_params = {}
+        api_client.update_params_for_auth!(header_params, query_params, [:apiKeyAuth, :appKeyAuth, :bearerAuth])
+        expect(header_params['DD-API-KEY']).to eq('test_api_key')
+        expect(header_params['DD-APPLICATION-KEY']).to eq('test_app_key')
+        expect(header_params).not_to have_key('Authorization')
+      end
+    end
+  end
+
+  describe '#sanitize_request_header' do
+    let(:api_client) { DatadogAPIClient::APIClient.new }
+
+    it 'redacts sensitive headers including Authorization' do
+      headers = {
+        'DD-API-KEY' => 'secret_api_key',
+        'DD-APPLICATION-KEY' => 'secret_app_key',
+        'Authorization' => 'Bearer ddapp_secret_pat',
+        'Content-Type' => 'application/json'
+      }
+      sanitized = api_client.sanitize_request_header(headers)
+      expect(sanitized['DD-API-KEY']).to eq('REDACTED')
+      expect(sanitized['DD-APPLICATION-KEY']).to eq('REDACTED')
+      expect(sanitized['Authorization']).to eq('REDACTED')
+      expect(sanitized['Content-Type']).to eq('application/json')
+    end
+  end
 end
