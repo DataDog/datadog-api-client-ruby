@@ -2608,6 +2608,85 @@ ScenariosModelMappings = {
     "v2.UpdateIPAllowlist" => {
             "body" => "IPAllowlistUpdateRequest",
     },
+    "v2.ListLLMObsExperiments" => {
+            "filter_project_id" => "String",
+            "filter_dataset_id" => "String",
+            "filter_id" => "String",
+            "page_cursor" => "String",
+            "page_limit" => "Integer",
+    },
+    "v2.CreateLLMObsExperiment" => {
+            "body" => "LLMObsExperimentRequest",
+    },
+    "v2.DeleteLLMObsExperiments" => {
+            "body" => "LLMObsDeleteExperimentsRequest",
+    },
+    "v2.UpdateLLMObsExperiment" => {
+            "experiment_id" => "String",
+            "body" => "LLMObsExperimentUpdateRequest",
+    },
+    "v2.CreateLLMObsExperimentEvents" => {
+            "experiment_id" => "String",
+            "body" => "LLMObsExperimentEventsRequest",
+    },
+    "v2.ListLLMObsProjects" => {
+            "filter_id" => "String",
+            "filter_name" => "String",
+            "page_cursor" => "String",
+            "page_limit" => "Integer",
+    },
+    "v2.CreateLLMObsProject" => {
+            "body" => "LLMObsProjectRequest",
+    },
+    "v2.DeleteLLMObsProjects" => {
+            "body" => "LLMObsDeleteProjectsRequest",
+    },
+    "v2.UpdateLLMObsProject" => {
+            "project_id" => "String",
+            "body" => "LLMObsProjectUpdateRequest",
+    },
+    "v2.ListLLMObsDatasets" => {
+            "project_id" => "String",
+            "filter_name" => "String",
+            "filter_id" => "String",
+            "page_cursor" => "String",
+            "page_limit" => "Integer",
+    },
+    "v2.CreateLLMObsDataset" => {
+            "project_id" => "String",
+            "body" => "LLMObsDatasetRequest",
+    },
+    "v2.DeleteLLMObsDatasets" => {
+            "project_id" => "String",
+            "body" => "LLMObsDeleteDatasetsRequest",
+    },
+    "v2.UpdateLLMObsDataset" => {
+            "project_id" => "String",
+            "dataset_id" => "String",
+            "body" => "LLMObsDatasetUpdateRequest",
+    },
+    "v2.ListLLMObsDatasetRecords" => {
+            "project_id" => "String",
+            "dataset_id" => "String",
+            "filter_version" => "Integer",
+            "page_cursor" => "String",
+            "page_limit" => "Integer",
+    },
+    "v2.UpdateLLMObsDatasetRecords" => {
+            "project_id" => "String",
+            "dataset_id" => "String",
+            "body" => "LLMObsDatasetRecordsUpdateRequest",
+    },
+    "v2.CreateLLMObsDatasetRecords" => {
+            "project_id" => "String",
+            "dataset_id" => "String",
+            "body" => "LLMObsDatasetRecordsRequest",
+    },
+    "v2.DeleteLLMObsDatasetRecords" => {
+            "project_id" => "String",
+            "dataset_id" => "String",
+            "body" => "LLMObsDeleteDatasetRecordsRequest",
+    },
     "v2.SubmitLog" => {
             "content_encoding" => "ContentEncoding",
             "ddtags" => "String",
