@@ -32,6 +32,8 @@ module DatadogAPIClient::V1
     ASM_SERVERLESS_TRACED_INVOCATIONS_PERCENTAGE = "asm_serverless_traced_invocations_percentage".freeze
     BITS_AI_INVESTIGATIONS_USAGE = "bits_ai_investigations_usage".freeze
     BROWSER_USAGE = "browser_usage".freeze
+    CI_CODE_COVERAGE_COMMITTERS_PERCENTAGE = "ci_code_coverage_committers_percentage".freeze
+    CI_CODE_COVERAGE_COMMITTERS_USAGE = "ci_code_coverage_committers_usage".freeze
     CI_PIPELINE_INDEXED_SPANS_USAGE = "ci_pipeline_indexed_spans_usage".freeze
     CI_TEST_INDEXED_SPANS_USAGE = "ci_test_indexed_spans_usage".freeze
     CI_VISIBILITY_ITR_USAGE = "ci_visibility_itr_usage".freeze
