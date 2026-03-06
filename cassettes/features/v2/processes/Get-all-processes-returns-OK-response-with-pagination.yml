@@ -36,4 +36,22 @@ http_interactions:
     status:
       code: 200
       message: OK
+- recorded_at: Mon, 11 Apr 2022 15:53:14 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+    method: GET
+    uri: https://api.datadoghq.com/api/v2/processes?page%5Blimit%5D=2&page%5Bcursor%5D=78ece26c7701000015e90400ecda56b600e21f012357ad716ee71ca9
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":[]}'
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 200
+      message: OK
 recorded_with: VCR 6.0.0

@@ -46,4 +46,26 @@ http_interactions:
     status:
       code: 200
       message: OK
+- recorded_at: Thu, 29 Jun 2023 10:52:06 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"filter":{"from":"now-15m","query":"service:python*","to":"now"},"options":{"timezone":"GMT"},"page":{"cursor":"eyJhZnRlciI6IkFnQUFBWWtHdXF2UUQ0YzdlUUFBQUFBQUFBQVlBQUFBQUVGWmEwZDFjbVpSUVVGRWMzZDVaVUZYYVZOblFWRmxOUUFBQUNRQUFBQUFNREU0T1RBMll6QXROVEZrT0MwME5EYzVMV0ZsT0RndE56WXdZbVl4TldRM016QXkiLCJ2YWx1ZXMiOlsiMjAyMy0wNi0yOVQxMDozNzoyNC4zMDRaIiwyNjA1MjA4MjVdfQ==","limit":2},"sort":"timestamp"},"type":"search_request"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/spans/events/search
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":[]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 200
+      message: OK
 recorded_with: VCR 6.0.0
