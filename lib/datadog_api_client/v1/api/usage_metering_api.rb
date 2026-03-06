@@ -839,7 +839,7 @@ module DatadogAPIClient::V1
     #
     # @param opts [Hash] the optional parameters
     # @option opts [Time] :month Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage starting this month.
-    # @option opts [Boolean] :include_connected_accounts Boolean to specify whether to include accounts connected to the current account as partner customers in the Datadog partner network program. Defaults to `false`. 
+    # @option opts [Boolean] :include_connected_accounts Boolean to specify whether to include accounts connected to the current account as partner customers in the Datadog partner network program. Defaults to `false`.
     # @return [Array<(UsageBillableSummaryResponse, Integer, Hash)>] UsageBillableSummaryResponse data, response status code and response headers
     def get_usage_billable_summary_with_http_info(opts = {})
 
@@ -2348,7 +2348,7 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @option opts [Time] :end_month Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage ending this month.
     # @option opts [Boolean] :include_org_details Include usage summaries for each sub-org.
-    # @option opts [Boolean] :include_connected_accounts Boolean to specify whether to include accounts connected to the current account as partner customers in the Datadog partner network program. Defaults to `false`. 
+    # @option opts [Boolean] :include_connected_accounts Boolean to specify whether to include accounts connected to the current account as partner customers in the Datadog partner network program. Defaults to `false`.
     # @return [Array<(UsageSummaryResponse, Integer, Hash)>] UsageSummaryResponse data, response status code and response headers
     def get_usage_summary_with_http_info(start_month, opts = {})
 
