@@ -1,5 +1,40 @@
 # CHANGELOG
 
+## 2.51.0/2026-03-06
+
+### Added
+* Billing_plan field deprecation - correction start date [#3059](https://github.com/DataDog/datadog-api-client-ruby/pull/3059)
+* Add ci_code_coverage_committers to usage API [#3056](https://github.com/DataDog/datadog-api-client-ruby/pull/3056)
+* Expose usage-attribution-types publicly and update attribution descriptions [#3055](https://github.com/DataDog/datadog-api-client-ruby/pull/3055)
+* Add new param to api/v2/metrics [#3049](https://github.com/DataDog/datadog-api-client-ruby/pull/3049)
+* Add FormulaAndFunctionEventQueryGroupByFields schema to support flat group_by form [#3046](https://github.com/DataDog/datadog-api-client-ruby/pull/3046)
+* billing_plan field deprecation in billable-summary endpoint [#3043](https://github.com/DataDog/datadog-api-client-ruby/pull/3043)
+* Add OpenAPI spec for LLM Observability Experiments API [#3042](https://github.com/DataDog/datadog-api-client-ruby/pull/3042)
+* Add missing persona_mapping endpoints [#3029](https://github.com/DataDog/datadog-api-client-ruby/pull/3029)
+* Adding Observability Pipelines Secret Management feature support [#3027](https://github.com/DataDog/datadog-api-client-ruby/pull/3027)
+* Workflow Automation - Add Form Trigger [#3026](https://github.com/DataDog/datadog-api-client-ruby/pull/3026)
+* Add Maintenances and minor updates to Status Pages API [#3025](https://github.com/DataDog/datadog-api-client-ruby/pull/3025)
+* Introduce api/v2/integration API endpoint [#3018](https://github.com/DataDog/datadog-api-client-ruby/pull/3018)
+* Add OpenAPI spec for Change Management endpoints [#3016](https://github.com/DataDog/datadog-api-client-ruby/pull/3016)
+* Add sort parameter to detection rules list endpoint [#3013](https://github.com/DataDog/datadog-api-client-ruby/pull/3013)
+* Add public documentation on NDM interface tags endpoint [#3010](https://github.com/DataDog/datadog-api-client-ruby/pull/3010)
+* Add documentation for POST api/v2/incidents/import [#3007](https://github.com/DataDog/datadog-api-client-ruby/pull/3007)
+* Post an event v2 API - add a new enum value to links.category field and add pattern validation on changed_resource.name field [#3006](https://github.com/DataDog/datadog-api-client-ruby/pull/3006)
+* Add receives_permissions_from field to Roles API [#3000](https://github.com/DataDog/datadog-api-client-ruby/pull/3000)
+* Adding custom mapper support to Observability Pipelines OCSF Mapper [#2995](https://github.com/DataDog/datadog-api-client-ruby/pull/2995)
+* Add seats API v2 endpoints with error responses and required fields [#2992](https://github.com/DataDog/datadog-api-client-ruby/pull/2992)
+* Added support for Google Chat Organization Handles Public API [#2973](https://github.com/DataDog/datadog-api-client-ruby/pull/2973)
+* Add Network Path test endpoints to v2 spec [#2966](https://github.com/DataDog/datadog-api-client-ruby/pull/2966)
+* Add OpenAPI documentation for cloud-auth-config service [#2938](https://github.com/DataDog/datadog-api-client-ruby/pull/2938)
+* Add suppression sort by create date [#2923](https://github.com/DataDog/datadog-api-client-ruby/pull/2923)
+
+### Deprecated
+* Mark legacy non-FnF query fields and WidgetEvent as deprecated in dashboard spec + update Distribuition docs [#3045](https://github.com/DataDog/datadog-api-client-ruby/pull/3045)
+
+### Fixed
+* Fix WidgetNewFixedSpan - timestamps are milliseconds not seconds [#3021](https://github.com/DataDog/datadog-api-client-ruby/pull/3021)
+* Increase validation limit on integration type [#3014](https://github.com/DataDog/datadog-api-client-ruby/pull/3014)
+
 ## 2.50.0/2026-02-17
 
 ### Fixed
