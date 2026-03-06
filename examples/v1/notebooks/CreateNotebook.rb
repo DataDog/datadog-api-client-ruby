@@ -23,7 +23,7 @@ body = DatadogAPIClient::V1::NotebookCreateRequest.new({
                 DatadogAPIClient::V1::TimeseriesWidgetRequest.new({
                   display_type: DatadogAPIClient::V1::WidgetDisplayType::LINE,
                   q: "avg:system.load.1{*}",
-                  style: DatadogAPIClient::V1::WidgetRequestStyle.new({
+                  style: DatadogAPIClient::V1::TimeseriesRequestStyle.new({
                     line_type: DatadogAPIClient::V1::WidgetLineType::SOLID,
                     line_width: DatadogAPIClient::V1::WidgetLineWidth::NORMAL,
                     palette: "dog_classic",

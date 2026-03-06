@@ -14,7 +14,7 @@ body = DatadogAPIClient::V1::Dashboard.new({
           DatadogAPIClient::V1::TimeseriesWidgetRequest.new({
             q: "sum:trace.test.errors{env:prod,service:datadog-api-spec} by {resource_name}.as_count()",
             on_right_yaxis: false,
-            style: DatadogAPIClient::V1::WidgetRequestStyle.new({
+            style: DatadogAPIClient::V1::TimeseriesRequestStyle.new({
               palette: "warm",
               line_type: DatadogAPIClient::V1::WidgetLineType::SOLID,
               line_width: DatadogAPIClient::V1::WidgetLineWidth::NORMAL,
