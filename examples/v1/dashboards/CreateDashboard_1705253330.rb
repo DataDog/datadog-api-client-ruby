@@ -1,11 +1,11 @@
-# Create a new dashboard with timeseries widget using order_by tags
+# Create a new dashboard with timeseries widget using has_value_labels
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::DashboardsAPI.new
 
 body = DatadogAPIClient::V1::Dashboard.new({
   layout_type: DatadogAPIClient::V1::DashboardLayoutType::ORDERED,
-  title: "Example-Dashboard with order_by tags",
+  title: "Example-Dashboard with has_value_labels",
   widgets: [
     DatadogAPIClient::V1::Widget.new({
       definition: DatadogAPIClient::V1::TimeseriesWidgetDefinition.new({
@@ -15,7 +15,9 @@ body = DatadogAPIClient::V1::Dashboard.new({
             q: "avg:system.cpu.user{*} by {host}",
             style: DatadogAPIClient::V1::TimeseriesRequestStyle.new({
               palette: "dog_classic",
-              order_by: DatadogAPIClient::V1::WidgetStyleOrderBy::TAGS,
+              line_type: DatadogAPIClient::V1::WidgetLineType::SOLID,
+              line_width: DatadogAPIClient::V1::WidgetLineWidth::NORMAL,
+              has_value_labels: true,
             }),
             display_type: DatadogAPIClient::V1::WidgetDisplayType::LINE,
           }),

@@ -69,7 +69,7 @@ module DatadogAPIClient::V1
     # The log query.
     attr_accessor :security_query
 
-    # Define request widget style.
+    # Define request widget style for timeseries widgets.
     attr_accessor :style
 
     attr_accessor :additional_properties
@@ -118,7 +118,7 @@ module DatadogAPIClient::V1
         :'response_format' => :'FormulaAndFunctionResponseFormat',
         :'rum_query' => :'LogQueryDefinition',
         :'security_query' => :'LogQueryDefinition',
-        :'style' => :'WidgetRequestStyle'
+        :'style' => :'TimeseriesRequestStyle'
       }
     end
 
