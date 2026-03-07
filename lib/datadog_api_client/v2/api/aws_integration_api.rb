@@ -90,6 +90,85 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Create AWS CCM config.
+    #
+    # @see #create_aws_account_ccm_config_with_http_info
+    def create_aws_account_ccm_config(aws_account_config_id, body, opts = {})
+      data, _status_code, _headers = create_aws_account_ccm_config_with_http_info(aws_account_config_id, body, opts)
+      data
+    end
+
+    # Create AWS CCM config.
+    #
+    # Create the Cloud Cost Management config for an AWS Account Integration Config using Cost and Usage Report
+    # (CUR) 2.0 by config ID.
+    #
+    # @param aws_account_config_id [String] Unique Datadog ID of the AWS Account Integration Config. To get the config ID for an account, use the [List all AWS integrations](https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations) endpoint and query by AWS Account ID.
+    # @param body [AWSCcmConfigRequest] Create a Cloud Cost Management config for an AWS Account Integration Config.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(AWSCcmConfigResponse, Integer, Hash)>] AWSCcmConfigResponse data, response status code and response headers
+    def create_aws_account_ccm_config_with_http_info(aws_account_config_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_aws_account_ccm_config".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_aws_account_ccm_config")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_aws_account_ccm_config"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AWSIntegrationAPI.create_aws_account_ccm_config ...'
+      end
+      # verify the required parameter 'aws_account_config_id' is set
+      if @api_client.config.client_side_validation && aws_account_config_id.nil?
+        fail ArgumentError, "Missing the required parameter 'aws_account_config_id' when calling AWSIntegrationAPI.create_aws_account_ccm_config"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling AWSIntegrationAPI.create_aws_account_ccm_config"
+      end
+      # resource path
+      local_var_path = '/api/v2/integration/aws/accounts/{aws_account_config_id}/ccm_config'.sub('{aws_account_config_id}', CGI.escape(aws_account_config_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AWSCcmConfigResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :create_aws_account_ccm_config,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AWSIntegrationAPI#create_aws_account_ccm_config\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create an Amazon EventBridge source.
     #
     # @see #create_aws_event_bridge_source_with_http_info
@@ -282,6 +361,78 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Delete AWS CCM config.
+    #
+    # @see #delete_aws_account_ccm_config_with_http_info
+    def delete_aws_account_ccm_config(aws_account_config_id, opts = {})
+      delete_aws_account_ccm_config_with_http_info(aws_account_config_id, opts)
+      nil
+    end
+
+    # Delete AWS CCM config.
+    #
+    # Delete the Cloud Cost Management config for an AWS Account Integration Config using Cost and Usage Report
+    # (CUR) 2.0 by config ID.
+    #
+    # @param aws_account_config_id [String] Unique Datadog ID of the AWS Account Integration Config. To get the config ID for an account, use the [List all AWS integrations](https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations) endpoint and query by AWS Account ID.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_aws_account_ccm_config_with_http_info(aws_account_config_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.delete_aws_account_ccm_config".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_aws_account_ccm_config")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_aws_account_ccm_config"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AWSIntegrationAPI.delete_aws_account_ccm_config ...'
+      end
+      # verify the required parameter 'aws_account_config_id' is set
+      if @api_client.config.client_side_validation && aws_account_config_id.nil?
+        fail ArgumentError, "Missing the required parameter 'aws_account_config_id' when calling AWSIntegrationAPI.delete_aws_account_ccm_config"
+      end
+      # resource path
+      local_var_path = '/api/v2/integration/aws/accounts/{aws_account_config_id}/ccm_config'.sub('{aws_account_config_id}', CGI.escape(aws_account_config_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :delete_aws_account_ccm_config,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AWSIntegrationAPI#delete_aws_account_ccm_config\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Delete an Amazon EventBridge source.
     #
     # @see #delete_aws_event_bridge_source_with_http_info
@@ -410,6 +561,78 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AWSIntegrationAPI#get_aws_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get AWS CCM config.
+    #
+    # @see #get_aws_account_ccm_config_with_http_info
+    def get_aws_account_ccm_config(aws_account_config_id, opts = {})
+      data, _status_code, _headers = get_aws_account_ccm_config_with_http_info(aws_account_config_id, opts)
+      data
+    end
+
+    # Get AWS CCM config.
+    #
+    # Get the Cloud Cost Management config for an AWS Account Integration Config using Cost and Usage Report
+    # (CUR) 2.0 by config ID.
+    #
+    # @param aws_account_config_id [String] Unique Datadog ID of the AWS Account Integration Config. To get the config ID for an account, use the [List all AWS integrations](https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations) endpoint and query by AWS Account ID.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(AWSCcmConfigResponse, Integer, Hash)>] AWSCcmConfigResponse data, response status code and response headers
+    def get_aws_account_ccm_config_with_http_info(aws_account_config_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_aws_account_ccm_config".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_aws_account_ccm_config")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_aws_account_ccm_config"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AWSIntegrationAPI.get_aws_account_ccm_config ...'
+      end
+      # verify the required parameter 'aws_account_config_id' is set
+      if @api_client.config.client_side_validation && aws_account_config_id.nil?
+        fail ArgumentError, "Missing the required parameter 'aws_account_config_id' when calling AWSIntegrationAPI.get_aws_account_ccm_config"
+      end
+      # resource path
+      local_var_path = '/api/v2/integration/aws/accounts/{aws_account_config_id}/ccm_config'.sub('{aws_account_config_id}', CGI.escape(aws_account_config_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AWSCcmConfigResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_aws_account_ccm_config,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AWSIntegrationAPI#get_aws_account_ccm_config\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -844,6 +1067,85 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AWSIntegrationAPI#update_aws_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update AWS CCM config.
+    #
+    # @see #update_aws_account_ccm_config_with_http_info
+    def update_aws_account_ccm_config(aws_account_config_id, body, opts = {})
+      data, _status_code, _headers = update_aws_account_ccm_config_with_http_info(aws_account_config_id, body, opts)
+      data
+    end
+
+    # Update AWS CCM config.
+    #
+    # Update the Cloud Cost Management config for an AWS Account Integration Config using Cost and Usage Report
+    # (CUR) 2.0 by config ID.
+    #
+    # @param aws_account_config_id [String] Unique Datadog ID of the AWS Account Integration Config. To get the config ID for an account, use the [List all AWS integrations](https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations) endpoint and query by AWS Account ID.
+    # @param body [AWSCcmConfigRequest] Update a Cloud Cost Management config for an AWS Account Integration Config.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(AWSCcmConfigResponse, Integer, Hash)>] AWSCcmConfigResponse data, response status code and response headers
+    def update_aws_account_ccm_config_with_http_info(aws_account_config_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.update_aws_account_ccm_config".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_aws_account_ccm_config")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_aws_account_ccm_config"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AWSIntegrationAPI.update_aws_account_ccm_config ...'
+      end
+      # verify the required parameter 'aws_account_config_id' is set
+      if @api_client.config.client_side_validation && aws_account_config_id.nil?
+        fail ArgumentError, "Missing the required parameter 'aws_account_config_id' when calling AWSIntegrationAPI.update_aws_account_ccm_config"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling AWSIntegrationAPI.update_aws_account_ccm_config"
+      end
+      # resource path
+      local_var_path = '/api/v2/integration/aws/accounts/{aws_account_config_id}/ccm_config'.sub('{aws_account_config_id}', CGI.escape(aws_account_config_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AWSCcmConfigResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :update_aws_account_ccm_config,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AWSIntegrationAPI#update_aws_account_ccm_config\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
