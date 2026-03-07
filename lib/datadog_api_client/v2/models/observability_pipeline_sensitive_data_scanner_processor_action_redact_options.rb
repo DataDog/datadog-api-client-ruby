@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class ObservabilityPipelineSensitiveDataScannerProcessorActionRedactOptions
     include BaseGenericModel
 
-    # The `ObservabilityPipelineSensitiveDataScannerProcessorActionRedactOptions` `replace`.
+    # The string used to replace matched sensitive data (for example, "***" or "[REDACTED]").
     attr_reader :replace
 
     attr_accessor :additional_properties
