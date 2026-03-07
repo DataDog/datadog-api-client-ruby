@@ -154,7 +154,7 @@ module DatadogAPIClient
     #Redact api and app key in the request header
     def sanitize_request_header(request_header)
       sanitized_headers= request_header.dup
-      keys_to_redact = ["DD-API-KEY", "DD-APPLICATION-KEY"]
+      keys_to_redact = ["DD-API-KEY", "DD-APPLICATION-KEY", "Authorization"]
       keys_to_redact.each do |key_to_redact|
         if sanitized_headers.key?(key_to_redact)
           sanitized_headers[key_to_redact] = "REDACTED"
@@ -380,6 +380,7 @@ module DatadogAPIClient
       Array(auth_names).each do |auth_name|
         auth_setting = @config.auth_settings[auth_name]
         next unless auth_setting
+        next if auth_setting[:value].nil? || auth_setting[:value].to_s.empty?
         case auth_setting[:in]
         when 'header' then header_params[auth_setting[:key]] = auth_setting[:value]
         when 'query'  then query_params[auth_setting[:key]] = auth_setting[:value]

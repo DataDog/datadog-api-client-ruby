@@ -425,6 +425,7 @@ module DatadogAPIClient
       @server_variables[:site] = ENV['DD_SITE'] if ENV.key? 'DD_SITE'
       @api_key['apiKeyAuth'] = ENV['DD_API_KEY'] if ENV.key? 'DD_API_KEY'
       @api_key['appKeyAuth'] = ENV['DD_APP_KEY'] if ENV.key? 'DD_APP_KEY'
+      @access_token = ENV['DD_BEARER_TOKEN'] if ENV.key? 'DD_BEARER_TOKEN'
 
       yield(self) if block_given?
     end
@@ -519,6 +520,13 @@ module DatadogAPIClient
             in: 'header',
             key: 'DD-APPLICATION-KEY',
             value: api_key_with_prefix('appKeyAuth')
+          },
+        bearerAuth:
+          {
+            type: 'http',
+            in: 'header',
+            key: 'Authorization',
+            value: access_token ? "Bearer #{access_token}" : nil
           },
       }
     end
