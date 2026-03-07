@@ -112,4 +112,27 @@ http_interactions:
     status:
       code: 200
       message: OK
+- recorded_at: Tue, 12 Apr 2022 15:49:41 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"filter":{"from":"2022-04-13T11:17:57.080Z","query":"security:attack
+        status:high","to":"2022-04-13T11:32:57.080Z"},"page":{"cursor":"eyJhZnRlciI6IkFRQUFBWUFlRGFHZENMd21QZ0FBQUFCQldVRmxSR0ZIWkVGQlJFa3lkakpuYjFCSmF6Um5RVUUifQ","limit":2},"sort":"timestamp"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/security_monitoring/signals/search
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":[]}'
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 200
+      message: OK
 recorded_with: VCR 6.0.0
