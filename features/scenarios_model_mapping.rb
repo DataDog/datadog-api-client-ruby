@@ -3200,6 +3200,9 @@ ScenariosModelMappings = {
     "v2.QueryProductAnalyticsTimeseries" => {
             "body" => "ProductAnalyticsAnalyticsRequest",
     },
+    "v2.QueryProductAnalyticsSankey" => {
+            "body" => "ProductAnalyticsSankeyRequest",
+    },
     "v2.GetAccountFacetInfo" => {
             "body" => "FacetInfoRequest",
     },
