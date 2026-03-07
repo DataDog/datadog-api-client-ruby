@@ -36,6 +36,7 @@ module DatadogAPIClient::V2
           :'FormTriggerWrapper',
           :'GithubWebhookTriggerWrapper',
           :'IncidentTriggerWrapper',
+          :'IncidentScheduleTriggerWrapper',
           :'MonitorTriggerWrapper',
           :'NotebookTriggerWrapper',
           :'OnCallTriggerWrapper',
