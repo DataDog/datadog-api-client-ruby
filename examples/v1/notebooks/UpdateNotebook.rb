@@ -51,6 +51,14 @@ body = DatadogAPIClient::V1::NotebookUpdateRequest.new({
       ],
       name: "Example-Notebook-updated",
       status: DatadogAPIClient::V1::NotebookStatus::PUBLISHED,
+      template_variables: [
+        DatadogAPIClient::V1::NotebookTemplateVariable.new({
+          name: "example-notebook",
+          prefix: "service",
+          available_values: [],
+          default: "*",
+        }),
+      ],
       time: DatadogAPIClient::V1::NotebookRelativeTime.new({
         live_span: DatadogAPIClient::V1::WidgetLiveSpan::PAST_ONE_HOUR,
       }),
