@@ -30,6 +30,9 @@ module DatadogAPIClient::V1
     # Measurable attribute to compute.
     attr_accessor :metric
 
+    # The name assigned to this aggregation, when multiple aggregations are defined for a query.
+    attr_accessor :name
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -38,7 +41,8 @@ module DatadogAPIClient::V1
       {
         :'aggregation' => :'aggregation',
         :'interval' => :'interval',
-        :'metric' => :'metric'
+        :'metric' => :'metric',
+        :'name' => :'name'
       }
     end
 
@@ -48,7 +52,8 @@ module DatadogAPIClient::V1
       {
         :'aggregation' => :'MonitorFormulaAndFunctionEventAggregation',
         :'interval' => :'Integer',
-        :'metric' => :'String'
+        :'metric' => :'String',
+        :'name' => :'String'
       }
     end
 
@@ -80,6 +85,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'metric')
         self.metric = attributes[:'metric']
+      end
+
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
     end
 
@@ -130,6 +139,7 @@ module DatadogAPIClient::V1
           aggregation == o.aggregation &&
           interval == o.interval &&
           metric == o.metric &&
+          name == o.name &&
           additional_properties == o.additional_properties
     end
 
@@ -137,7 +147,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [aggregation, interval, metric, additional_properties].hash
+      [aggregation, interval, metric, name, additional_properties].hash
     end
   end
 end
