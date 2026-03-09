@@ -35,4 +35,22 @@ http_interactions:
     status:
       code: 200
       message: OK
+- recorded_at: Thu, 29 Jun 2023 10:47:31 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+    method: GET
+    uri: https://api.datadoghq.com/api/v2/spans/events?page%5Blimit%5D=2&page%5Bcursor%5D=eyJhZnRlciI6IkFnQUFBWWtHdzRwa083amdBZ0FBQUFBQUFBQVlBQUFBQUVGWmEwZDNOVmRSUVVGQ01sbFRNV3N3WTNGdGVsQndad0FBQUNRQUFBQUFNREU0T1RBMll6TXRPR0UyTkMwMFpETmlMV0ZqWm1NdFlUaGxaR1kxTW1ZeE1Ua3kiLCJ2YWx1ZXMiOlsiMjAyMy0wNi0yOVQxMDo0NzowNS41NzJaIiwxMDAxOTcxNzE0XX0%3D
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":[]}'
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 200
+      message: OK
 recorded_with: VCR 6.0.0
