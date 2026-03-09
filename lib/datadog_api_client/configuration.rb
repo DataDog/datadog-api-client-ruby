@@ -984,24 +984,20 @@ module DatadogAPIClient
         ],
         "v2.submit_product_analytics_event": [
           {
-            url: +"https://{subdomain}.{site}",
+            url: +"https://{site}",
             description: "No description provided",
             variables: {
               site: {
-                description: "The regional site for customers.",
-                default_value: "datadoghq.com",
+                description: "The intake domain for the regional site.",
+                default_value: "browser-intake-datadoghq.com",
                 enum_values: [
-                  "datadoghq.com",
-                  "us3.datadoghq.com",
-                  "us5.datadoghq.com",
-                  "ap1.datadoghq.com",
-                  "ap2.datadoghq.com",
-                  "datadoghq.eu"
+                  "browser-intake-datadoghq.com",
+                  "browser-intake-us3-datadoghq.com",
+                  "browser-intake-us5-datadoghq.com",
+                  "browser-intake-ap1-datadoghq.com",
+                  "browser-intake-ap2-datadoghq.com",
+                  "browser-intake-datadoghq.eu"
                 ]
-              },
-              subdomain: {
-                description: "The subdomain where the API is deployed.",
-                default_value: "browser-intake",
               }
             }
           },
@@ -1029,7 +1025,7 @@ module DatadogAPIClient
               },
               subdomain: {
                 description: "The subdomain where the API is deployed.",
-                default_value: "browser-intake",
+                default_value: "api",
               }
             }
           }
