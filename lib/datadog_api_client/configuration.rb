@@ -408,6 +408,7 @@ module DatadogAPIClient
             "v2.get_custom_rule": false,
             "v2.get_custom_rule_revision": false,
             "v2.get_custom_ruleset": false,
+            "v2.get_licenses": false,
             "v2.list_custom_rule_revisions": false,
             "v2.revert_custom_rule_revision": false,
             "v2.update_custom_ruleset": false,
