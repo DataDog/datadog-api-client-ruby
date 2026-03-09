@@ -17,24 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Log Autosubscription configuration for Datadog Forwarder Lambda functions.
-  # Automatically set up triggers for existing and new logs for some services,
-  # ensuring no logs from new resources are missed and saving time spent on manual configuration.
-  class AWSLambdaForwarderConfig
+  # AWS CCM Config attributes for Create/Update requests.
+  class AWSCcmConfigRequestAttributes
     include BaseGenericModel
 
-    # List of Datadog Lambda Log Forwarder ARNs in your AWS account. Defaults to `[]`.
-    attr_accessor :lambdas
-
-    # Log source configuration.
-    attr_accessor :log_source_config
-
-    # List of service IDs set to enable automatic log collection.
-    # Discover the list of available services with the
-    # [Get list of AWS log ready
-    # services](https://docs.datadoghq.com/api/latest/aws-logs-integration/#get-list-of-aws-log-ready-services)
-    # endpoint.
-    attr_accessor :sources
+    # AWS Cloud Cost Management config.
+    attr_reader :ccm_config
 
     attr_accessor :additional_properties
 
@@ -42,9 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'lambdas' => :'lambdas',
-        :'log_source_config' => :'log_source_config',
-        :'sources' => :'sources'
+        :'ccm_config' => :'ccm_config'
       }
     end
 
@@ -52,9 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'lambdas' => :'Array<String>',
-        :'log_source_config' => :'AWSLambdaForwarderConfigLogSourceConfig',
-        :'sources' => :'Array<String>'
+        :'ccm_config' => :'AWSCcmConfig'
       }
     end
 
@@ -63,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::AWSLambdaForwarderConfig` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::AWSCcmConfigRequestAttributes` initialize method"
       end
 
       self.additional_properties = {}
@@ -76,21 +60,27 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'lambdas')
-        if (value = attributes[:'lambdas']).is_a?(Array)
-          self.lambdas = value
-        end
+      if attributes.key?(:'ccm_config')
+        self.ccm_config = attributes[:'ccm_config']
       end
+    end
 
-      if attributes.key?(:'log_source_config')
-        self.log_source_config = attributes[:'log_source_config']
-      end
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @ccm_config.nil?
+      true
+    end
 
-      if attributes.key?(:'sources')
-        if (value = attributes[:'sources']).is_a?(Array)
-          self.sources = value
-        end
+    # Custom attribute writer method with validation
+    # @param ccm_config [Object] Object to be assigned
+    # @!visibility private
+    def ccm_config=(ccm_config)
+      if ccm_config.nil?
+        fail ArgumentError, 'invalid value for "ccm_config", ccm_config cannot be nil.'
       end
+      @ccm_config = ccm_config
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -119,9 +109,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          lambdas == o.lambdas &&
-          log_source_config == o.log_source_config &&
-          sources == o.sources &&
+          ccm_config == o.ccm_config &&
           additional_properties == o.additional_properties
     end
 
@@ -129,7 +117,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [lambdas, log_source_config, sources, additional_properties].hash
+      [ccm_config, additional_properties].hash
     end
   end
 end
