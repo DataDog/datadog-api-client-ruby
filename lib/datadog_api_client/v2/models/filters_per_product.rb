@@ -28,7 +28,7 @@ module DatadogAPIClient::V2
     attr_reader :filters
 
     # Name of the product the dataset is for. Possible values are 'apm', 'rum',
-    # 'metrics', 'logs', 'error_tracking', and 'cloud_cost'.
+    # 'metrics', 'logs', 'error_tracking', 'cloud_cost', and 'sd_repoinfo'.
     attr_reader :product
 
     attr_accessor :additional_properties
