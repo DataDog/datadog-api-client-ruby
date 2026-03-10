@@ -177,7 +177,7 @@ module DatadogAPIClient::V2
         while true do
             response = list_logs(opts)
             @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
-            if @api_client.get_attribute_from_path(response, "data").length < page_size
+            if @api_client.get_attribute_from_path(response, "data").length == 0
               break
             end
             @api_client.set_attribute_from_path(api_version, opts, "body.page.cursor", LogsListRequest, @api_client.get_attribute_from_path(response, "meta.page.after"))
@@ -295,7 +295,7 @@ module DatadogAPIClient::V2
         while true do
             response = list_logs_get(opts)
             @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
-            if @api_client.get_attribute_from_path(response, "data").length < page_size
+            if @api_client.get_attribute_from_path(response, "data").length == 0
               break
             end
             @api_client.set_attribute_from_path(api_version, opts, "page_cursor", String, @api_client.get_attribute_from_path(response, "meta.page.after"))
