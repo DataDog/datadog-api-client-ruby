@@ -23,5 +23,6 @@ module DatadogAPIClient::V2
 
     LOGS = "logs".freeze
     METRICS = "metrics".freeze
+    AUDIT = "audit".freeze
   end
 end
