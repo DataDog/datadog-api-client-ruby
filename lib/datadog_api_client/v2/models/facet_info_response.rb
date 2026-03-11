@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Response containing facet information for an attribute, including its distinct values and occurrence counts.
   class FacetInfoResponse
     include BaseGenericModel
 
-    #
+    # The data object containing the resource type and attributes for the facet info response.
     attr_accessor :data
 
     attr_accessor :additional_properties

@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # The data object containing the resource type and attributes for the get mapping response.
   class GetMappingResponseData
     include BaseGenericModel
 
-    #
+    # Attributes of the get mapping response, containing the list of configured entity attributes.
     attr_accessor :attributes
 
-    #
+    # Unique identifier for the get mapping response resource.
     attr_accessor :id
 
     # Get mappings response resource type.

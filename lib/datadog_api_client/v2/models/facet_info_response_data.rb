@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # The data object containing the resource type and attributes for the facet info response.
   class FacetInfoResponseData
     include BaseGenericModel
 
-    #
+    # Attributes of the facet info response, containing the facet result data.
     attr_accessor :attributes
 
-    #
+    # Unique identifier for the facet info response resource.
     attr_accessor :id
 
     # Users facet info resource type.

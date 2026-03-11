@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Response containing the list of all data source connections configured for an entity.
   class ListConnectionsResponse
     include BaseGenericModel
 
-    #
+    # The data object containing the resource type and attributes for the list connections response.
     attr_accessor :data
 
     attr_accessor :additional_properties

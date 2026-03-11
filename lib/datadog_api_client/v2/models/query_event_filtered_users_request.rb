@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Request body for querying users filtered by user properties combined with event platform activity.
   class QueryEventFilteredUsersRequest
     include BaseGenericModel
 
-    #
+    # The data object containing the resource type and attributes for querying event-filtered users.
     attr_accessor :data
 
     attr_accessor :additional_properties

@@ -17,26 +17,26 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Definition of a custom attribute field to import from a data source connection.
   class CreateConnectionRequestDataAttributesFieldsItems
     include BaseGenericModel
 
-    #
+    # Human-readable explanation of what the field represents.
     attr_accessor :description
 
-    #
+    # The human-readable label for the field shown in the UI.
     attr_accessor :display_name
 
-    #
+    # List of group labels used to categorize the field.
     attr_accessor :groups
 
-    #
+    # The unique identifier for the field within the connection.
     attr_reader :id
 
-    #
+    # The name of the column or attribute in the source data system that maps to this field.
     attr_reader :source_name
 
-    #
+    # The data type of the field (for example, string or number).
     attr_reader :type
 
     attr_accessor :additional_properties

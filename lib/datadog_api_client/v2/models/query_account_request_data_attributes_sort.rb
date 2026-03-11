@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Sorting configuration specifying the field and direction for ordering query results.
   class QueryAccountRequestDataAttributesSort
     include BaseGenericModel
 
-    #
+    # The attribute field name to sort results by.
     attr_accessor :field
 
-    #
+    # The sort direction, either ascending or descending.
     attr_accessor :order
 
     attr_accessor :additional_properties

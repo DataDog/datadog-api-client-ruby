@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # The time window defining the start and end of the event query period as Unix timestamps.
   class QueryEventFilteredUsersRequestDataAttributesEventQueryTimeFrame
     include BaseGenericModel
 
-    #
+    # End of the time frame as a Unix timestamp in seconds.
     attr_accessor :_end
 
-    #
+    # Start of the time frame as a Unix timestamp in seconds.
     attr_accessor :start
 
     attr_accessor :additional_properties

@@ -17,23 +17,23 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Attributes for filtering and shaping the user query results.
   class QueryUsersRequestDataAttributes
     include BaseGenericModel
 
-    #
+    # Maximum number of user records to return in the response.
     attr_accessor :limit
 
-    #
+    # Filter expression using user attribute conditions to narrow results.
     attr_accessor :query
 
-    #
+    # List of user attribute column names to include in the response.
     attr_accessor :select_columns
 
-    #
+    # Sorting configuration specifying the field and direction for ordering user query results.
     attr_accessor :sort
 
-    #
+    # Free-text term used for wildcard search across user attribute values.
     attr_accessor :wildcard_search_term
 
     attr_accessor :additional_properties
