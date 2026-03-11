@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # The `opentelemetry` source receives telemetry data using the OpenTelemetry Protocol (OTLP) over gRPC and HTTP.
   # 
-  # **Supported pipeline types:** logs
+  # **Supported pipeline types:** logs, metrics
   class ObservabilityPipelineOpentelemetrySource
     include BaseGenericModel
 
