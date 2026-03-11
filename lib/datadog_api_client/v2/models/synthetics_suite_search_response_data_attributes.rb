@@ -21,10 +21,10 @@ module DatadogAPIClient::V2
   class SyntheticsSuiteSearchResponseDataAttributes
     include BaseGenericModel
 
-    #
+    # List of Synthetic suites matching the search query.
     attr_accessor :suites
 
-    #
+    # Total number of Synthetic suites matching the search query.
     attr_reader :total
 
     attr_accessor :additional_properties

@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Data object for a deleted Synthetic test suite.
   class DeletedSuiteResponseData
     include BaseGenericModel
 
-    #
+    # Attributes of a deleted Synthetic test suite, including deletion timestamp and public ID.
     attr_accessor :attributes
 
-    #
+    # The public ID of the deleted Synthetic test suite.
     attr_accessor :id
 
     # Type for the Synthetics suites responses, `suites`.

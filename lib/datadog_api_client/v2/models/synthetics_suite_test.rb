@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # Alerting criticality for each the test.
     attr_accessor :alerting_criticality
 
-    #
+    # The public ID of the Synthetic test included in the suite.
     attr_reader :public_id
 
     attr_accessor :additional_properties

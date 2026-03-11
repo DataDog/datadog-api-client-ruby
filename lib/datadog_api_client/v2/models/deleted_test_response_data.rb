@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Data object for a deleted Synthetic test.
   class DeletedTestResponseData
     include BaseGenericModel
 
-    #
+    # Attributes of a deleted Synthetic test, including deletion timestamp and public ID.
     attr_accessor :attributes
 
-    #
+    # The public ID of the deleted Synthetic test.
     attr_accessor :id
 
-    #
+    # Type for the bulk delete Synthetic tests response, `delete_tests`.
     attr_accessor :type
 
     attr_accessor :additional_properties
