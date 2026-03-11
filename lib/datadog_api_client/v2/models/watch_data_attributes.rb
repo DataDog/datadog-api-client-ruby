@@ -17,20 +17,20 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Attributes for recording a session watch event, including the application, event reference, and timestamp.
   class WatchDataAttributes
     include BaseGenericModel
 
-    #
+    # Unique identifier of the RUM application containing the session.
     attr_reader :application_id
 
-    #
+    # Data source type indicating the origin of the session data (e.g., rum or product_analytics).
     attr_accessor :data_source
 
-    #
+    # Unique identifier of the RUM event that was watched.
     attr_reader :event_id
 
-    #
+    # Timestamp when the session was watched.
     attr_reader :timestamp
 
     attr_accessor :additional_properties

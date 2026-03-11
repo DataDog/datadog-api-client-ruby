@@ -17,26 +17,26 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Attributes of a RUM replay playlist, including its name, description, session count, and audit timestamps.
   class PlaylistDataAttributes
     include BaseGenericModel
 
-    #
+    # Timestamp when the playlist was created.
     attr_accessor :created_at
 
-    #
+    # Information about the user who created the playlist.
     attr_accessor :created_by
 
-    #
+    # Optional human-readable description of the playlist's purpose or contents.
     attr_accessor :description
 
-    #
+    # Human-readable name of the playlist.
     attr_reader :name
 
-    #
+    # Number of replay sessions currently in the playlist.
     attr_accessor :session_count
 
-    #
+    # Timestamp when the playlist was last updated.
     attr_accessor :updated_at
 
     attr_accessor :additional_properties

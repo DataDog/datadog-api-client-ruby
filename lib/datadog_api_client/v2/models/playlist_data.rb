@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Data object representing a RUM replay playlist, including its identifier, type, and attributes.
   class PlaylistData
     include BaseGenericModel
 
-    #
+    # Attributes of a RUM replay playlist, including its name, description, session count, and audit timestamps.
     attr_accessor :attributes
 
-    #
+    # Unique identifier of the playlist.
     attr_accessor :id
 
     # Rum replay playlist resource type.

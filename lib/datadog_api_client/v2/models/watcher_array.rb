@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # A list of users who have watched a RUM replay session.
   class WatcherArray
     include BaseGenericModel
 
-    #
+    # Array of watcher data objects.
     attr_reader :data
 
     attr_accessor :additional_properties

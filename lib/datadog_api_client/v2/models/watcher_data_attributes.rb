@@ -17,23 +17,23 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Attributes of a user who has watched a RUM replay session, including contact information and watch statistics.
   class WatcherDataAttributes
     include BaseGenericModel
 
-    #
+    # Email handle of the user who watched the session.
     attr_reader :handle
 
-    #
+    # URL or identifier of the watcher's avatar icon.
     attr_accessor :icon
 
-    #
+    # Timestamp when the watcher last viewed the session.
     attr_reader :last_watched_at
 
-    #
+    # Display name of the user who watched the session.
     attr_accessor :name
 
-    #
+    # Total number of times the user has watched the session.
     attr_reader :watch_count
 
     attr_accessor :additional_properties
