@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # The response body for the service list endpoint.
   class ServiceList
     include BaseGenericModel
 
-    #
+    # A single data item in the service list response.
     attr_accessor :data
 
     attr_accessor :additional_properties
