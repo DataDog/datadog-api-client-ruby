@@ -21,10 +21,10 @@ module DatadogAPIClient::V2
   class ListOnCallNotificationRulesResponse
     include BaseGenericModel
 
-    #
+    # Array of notification rule data objects.
     attr_accessor :data
 
-    #
+    # Array of related resources included in the response.
     attr_accessor :included
 
     attr_accessor :additional_properties

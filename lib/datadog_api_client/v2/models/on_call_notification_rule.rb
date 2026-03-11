@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # Data for an on-call notification rule
     attr_reader :data
 
-    #
+    # Array of related resources included in the response.
     attr_accessor :included
 
     attr_accessor :additional_properties
