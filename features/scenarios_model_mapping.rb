@@ -1474,6 +1474,11 @@ ScenariosModelMappings = {
             "page_limit" => "Integer",
             "sort" => "SecurityFindingsSort",
     },
+    "v2.CreateSecurityFinding" => {
+            "vendor" => "String",
+            "finding_type" => "SecurityFindingType",
+            "body" => "Hash<String, Object>",
+    },
     "v2.DetachCase" => {
             "body" => "DetachCaseRequest",
     },
@@ -1530,6 +1535,12 @@ ScenariosModelMappings = {
             "id" => "String",
             "body" => "PatchNotificationRuleParameters",
     },
+    "v2.ImportThreatIntel" => {
+            "ti_vendor" => "String",
+            "ti_indicator" => "ThreatIntelIndicatorType",
+            "ti_integration_account" => "String",
+            "body" => "Object",
+    },
     "v2.ListVulnerabilities" => {
             "page_token" => "String",
             "page_number" => "Integer",
@@ -1574,6 +1585,9 @@ ScenariosModelMappings = {
             "filter_asset_arch" => "String",
             "filter_asset_operating_system_name" => "String",
             "filter_asset_operating_system_version" => "String",
+    },
+    "v2.ImportSecurityVulnerabilities" => {
+            "body" => "CycloneDXBOM",
     },
     "v2.CreateVulnerabilityNotificationRule" => {
             "body" => "CreateNotificationRuleParameters",

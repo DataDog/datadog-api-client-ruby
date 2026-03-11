@@ -867,6 +867,99 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Create security finding.
+    #
+    # @see #create_security_finding_with_http_info
+    def create_security_finding(vendor, finding_type, body, opts = {})
+      create_security_finding_with_http_info(vendor, finding_type, body, opts)
+      nil
+    end
+
+    # Create security finding.
+    #
+    # Allows external integrations to send security findings to Datadog. This endpoint accepts finding data in a custom format and returns an empty response on success.
+    #
+    # **Note**: This endpoint is in preview and is subject to change.
+    # If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
+    #
+    # @param vendor [String] The vendor providing the security finding. Must be lowercase.
+    # @param finding_type [SecurityFindingType] The type of security finding.
+    # @param body [Hash<String, Object>] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def create_security_finding_with_http_info(vendor, finding_type, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_security_finding".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_security_finding")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_security_finding"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.create_security_finding ...'
+      end
+      # verify the required parameter 'vendor' is set
+      if @api_client.config.client_side_validation && vendor.nil?
+        fail ArgumentError, "Missing the required parameter 'vendor' when calling SecurityMonitoringAPI.create_security_finding"
+      end
+      # verify the required parameter 'finding_type' is set
+      if @api_client.config.client_side_validation && finding_type.nil?
+        fail ArgumentError, "Missing the required parameter 'finding_type' when calling SecurityMonitoringAPI.create_security_finding"
+      end
+      # verify enum value
+      allowable_values = ['vulnerability', 'configuration_finding']
+      if @api_client.config.client_side_validation && !allowable_values.include?(finding_type)
+        fail ArgumentError, "invalid value for \"finding_type\", must be one of #{allowable_values}"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.create_security_finding"
+      end
+      # resource path
+      local_var_path = '/api/v2/security/findings'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+      header_params['vendor'] = vendor
+      header_params['finding_type'] = finding_type
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :create_security_finding,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#create_security_finding\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create a critical asset.
     #
     # @see #create_security_monitoring_critical_asset_with_http_info
@@ -3666,6 +3759,177 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SecurityMonitoringAPI#get_vulnerability_notification_rules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Import vulnerabilities.
+    #
+    # @see #import_security_vulnerabilities_with_http_info
+    def import_security_vulnerabilities(body, opts = {})
+      import_security_vulnerabilities_with_http_info(body, opts)
+      nil
+    end
+
+    # Import vulnerabilities.
+    #
+    # Import vulnerabilities in CycloneDX 1.5 format. This endpoint validates the payload against the CycloneDX 1.5 schema and additional mandatory field requirements.
+    #
+    # **Note**: This endpoint is in preview and is subject to change.
+    # If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
+    #
+    # @param body [CycloneDXBOM] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def import_security_vulnerabilities_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.import_security_vulnerabilities".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.import_security_vulnerabilities")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.import_security_vulnerabilities"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.import_security_vulnerabilities ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.import_security_vulnerabilities"
+      end
+      # resource path
+      local_var_path = '/api/v2/security/vulnerabilities'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :import_security_vulnerabilities,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#import_security_vulnerabilities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Import threat intelligence feed.
+    #
+    # @see #import_threat_intel_with_http_info
+    def import_threat_intel(ti_vendor, ti_indicator, body, opts = {})
+      import_threat_intel_with_http_info(ti_vendor, ti_indicator, body, opts)
+      nil
+    end
+
+    # Import threat intelligence feed.
+    #
+    # Import threat intelligence feeds with support for IP addresses, domains, and SHA256 hashes. This endpoint requires specific headers to identify the vendor and indicator type.
+    #
+    # **Note**: This endpoint is in preview and is subject to change.
+    # If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
+    #
+    # @param ti_vendor [String] The vendor providing the threat intelligence feed.
+    # @param ti_indicator [ThreatIntelIndicatorType] The type of threat indicator. Valid values are ip_address, domain, or sha256.
+    # @param body [Object] 
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :ti_integration_account Optional integration account identifier.
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def import_threat_intel_with_http_info(ti_vendor, ti_indicator, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.import_threat_intel".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.import_threat_intel")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.import_threat_intel"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.import_threat_intel ...'
+      end
+      # verify the required parameter 'ti_vendor' is set
+      if @api_client.config.client_side_validation && ti_vendor.nil?
+        fail ArgumentError, "Missing the required parameter 'ti_vendor' when calling SecurityMonitoringAPI.import_threat_intel"
+      end
+      # verify the required parameter 'ti_indicator' is set
+      if @api_client.config.client_side_validation && ti_indicator.nil?
+        fail ArgumentError, "Missing the required parameter 'ti_indicator' when calling SecurityMonitoringAPI.import_threat_intel"
+      end
+      # verify enum value
+      allowable_values = ['ip_address', 'domain', 'sha256']
+      if @api_client.config.client_side_validation && !allowable_values.include?(ti_indicator)
+        fail ArgumentError, "invalid value for \"ti_indicator\", must be one of #{allowable_values}"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.import_threat_intel"
+      end
+      # resource path
+      local_var_path = '/api/v2/security/threat-intel-feed'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'application/octet-stream'])
+      header_params['ti_vendor'] = ti_vendor
+      header_params['ti_indicator'] = ti_indicator
+      header_params['ti_integration_account'] = opts[:'ti_integration_account'] if !opts[:'ti_integration_account'].nil?
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :import_threat_intel,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#import_threat_intel\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
