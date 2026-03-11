@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Attributes for a HAMR organization connection request.
   class HamrOrgConnectionAttributesRequest
     include BaseGenericModel
 
