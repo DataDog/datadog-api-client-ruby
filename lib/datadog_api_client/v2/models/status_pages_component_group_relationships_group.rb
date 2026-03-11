@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class StatusPagesComponentGroupRelationshipsGroup
     include BaseGenericModel
 
-    #
+    # The data object identifying the parent group of a component group.
     attr_accessor :data
 
     attr_accessor :additional_properties

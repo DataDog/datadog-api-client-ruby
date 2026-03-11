@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # A single included resource item in an incident handle response, which can be a user or an incident type.
   module IncidentHandleIncludedItemResponse
     class << self
       include BaseOneOfModel

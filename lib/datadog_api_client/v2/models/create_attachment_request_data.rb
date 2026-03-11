@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # The attributes for creating an attachment.
     attr_accessor :attributes
 
-    #
+    # The unique identifier of the attachment.
     attr_accessor :id
 
     # The incident attachment resource type.

@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Response object for a list of components.
   class StatusPagesComponentArray
     include BaseGenericModel
 
-    #
+    # A list of component data objects.
     attr_reader :data
 
     # The included related resources of a component. Client must explicitly request these resources by name in the `include` query parameter.

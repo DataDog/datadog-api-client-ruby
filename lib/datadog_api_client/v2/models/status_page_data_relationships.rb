@@ -21,10 +21,10 @@ module DatadogAPIClient::V2
   class StatusPageDataRelationships
     include BaseGenericModel
 
-    #
+    # The Datadog user who created the status page.
     attr_accessor :created_by_user
 
-    #
+    # The Datadog user who last modified the status page.
     attr_accessor :last_modified_by_user
 
     attr_accessor :additional_properties

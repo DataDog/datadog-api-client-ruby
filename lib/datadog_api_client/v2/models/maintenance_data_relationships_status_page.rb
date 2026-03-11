@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # The status page the maintenance belongs to.
   class MaintenanceDataRelationshipsStatusPage
     include BaseGenericModel
 
-    #
+    # The data object identifying the status page associated with a maintenance.
     attr_reader :data
 
     attr_accessor :additional_properties

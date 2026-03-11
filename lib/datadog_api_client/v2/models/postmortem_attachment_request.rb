@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Request body for creating a postmortem attachment.
   class PostmortemAttachmentRequest
     include BaseGenericModel
 

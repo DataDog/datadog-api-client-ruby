@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # The data object identifying the Datadog user who last modified the degradation.
   class DegradationDataRelationshipsLastModifiedByUserData
     include BaseGenericModel
 

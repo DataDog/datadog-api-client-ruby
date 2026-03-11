@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # The data object identifying the group to create the component within.
   class CreateComponentRequestDataRelationshipsGroupData
     include BaseGenericModel
 

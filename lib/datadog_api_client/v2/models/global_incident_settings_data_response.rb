@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Data object in the global incident settings response.
   class GlobalIncidentSettingsDataResponse
     include BaseGenericModel
 
