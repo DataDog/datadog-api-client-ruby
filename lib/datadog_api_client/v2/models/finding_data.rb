@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Data object representing a security finding.
   class FindingData
     include BaseGenericModel
 

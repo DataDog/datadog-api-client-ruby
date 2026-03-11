@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class CreateCaseRequestArray
     include BaseGenericModel
 
-    #
+    # Array of case creation request data objects.
     attr_reader :data
 
     attr_accessor :additional_properties
