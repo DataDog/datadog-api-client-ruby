@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Priority synchronization configuration for ServiceNow integration
   class IntegrationServiceNowSyncConfigPriority
     include BaseGenericModel
 
-    #
+    # Mapping of case priority values to ServiceNow impact values
     attr_accessor :impact_mapping
 
-    #
+    # The type of synchronization to apply for priority
     attr_accessor :sync_type
 
-    #
+    # Mapping of case priority values to ServiceNow urgency values
     attr_accessor :urgency_mapping
 
     attr_accessor :additional_properties

@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Field-level synchronization properties for ServiceNow integration
   class IntegrationServiceNowSyncConfig139772721534496
     include BaseGenericModel
 
     # Sync property configuration
     attr_accessor :comments
 
-    #
+    # Priority synchronization configuration for ServiceNow integration
     attr_accessor :priority
 
     # Sync property with mapping configuration

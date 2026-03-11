@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Sort configuration for a project board column
   class ProjectColumnsConfigColumnsItemsSort
     include BaseGenericModel
 
-    #
+    # Whether to sort in ascending order
     attr_accessor :ascending
 
-    #
+    # The sort priority order for this column
     attr_accessor :priority
 
     attr_accessor :additional_properties
