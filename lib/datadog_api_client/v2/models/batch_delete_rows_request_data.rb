@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class BatchDeleteRowsRequestData
     include BaseGenericModel
 
-    #
+    # The primary key value that uniquely identifies the row to delete.
     attr_reader :id
 
     # Row resource type.

@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class BatchUpsertRowsRequestArray
     include BaseGenericModel
 
-    #
+    # List of row resources to create or update in the reference table.
     attr_reader :data
 
     attr_accessor :additional_properties

@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # Attributes containing row data values for row creation or update operations.
     attr_accessor :attributes
 
-    #
+    # The primary key value that uniquely identifies the row to create or update.
     attr_reader :id
 
     # Row resource type.
