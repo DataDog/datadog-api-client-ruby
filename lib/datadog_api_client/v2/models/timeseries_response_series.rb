@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # A single series in a timeseries query response, containing the query index, unit information, and group tags.
   class TimeseriesResponseSeries
     include BaseGenericModel
 
