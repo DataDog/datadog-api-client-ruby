@@ -24,6 +24,9 @@ module DatadogAPIClient::V2
     # Array of metrics and metric tag configurations.
     attr_accessor :data
 
+    # Array of included metric volume objects. Only present when `include=metric_volumes` is requested.
+    attr_accessor :included
+
     # Pagination links. Only present if pagination query parameters were provided.
     attr_accessor :links
 
@@ -37,6 +40,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'data' => :'data',
+        :'included' => :'included',
         :'links' => :'links',
         :'meta' => :'meta'
       }
@@ -47,6 +51,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'data' => :'Array<MetricsAndMetricTagConfigurations>',
+        :'included' => :'Array<MetricIngestedIndexedVolume>',
         :'links' => :'MetricsListResponseLinks',
         :'meta' => :'MetricPaginationMeta'
       }
@@ -73,6 +78,12 @@ module DatadogAPIClient::V2
       if attributes.key?(:'data')
         if (value = attributes[:'data']).is_a?(Array)
           self.data = value
+        end
+      end
+
+      if attributes.key?(:'included')
+        if (value = attributes[:'included']).is_a?(Array)
+          self.included = value
         end
       end
 
@@ -112,6 +123,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           data == o.data &&
+          included == o.included &&
           links == o.links &&
           meta == o.meta &&
           additional_properties == o.additional_properties
@@ -121,7 +133,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, links, meta, additional_properties].hash
+      [data, included, links, meta, additional_properties].hash
     end
   end
 end

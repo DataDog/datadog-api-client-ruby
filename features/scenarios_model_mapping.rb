@@ -2824,6 +2824,7 @@ ScenariosModelMappings = {
             "filter_queried_window_seconds" => "Integer",
             "filter_tags" => "String",
             "filter_related_assets" => "Boolean",
+            "include" => "MetricVolumesInclude",
             "window_seconds" => "Integer",
             "page_size" => "Integer",
             "page_cursor" => "String",
