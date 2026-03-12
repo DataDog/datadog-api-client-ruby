@@ -24,11 +24,6 @@ module DatadogAPIClient::V2
     # Search filter settings.
     attr_accessor :filter
 
-    # Whether to include the status change history for each flaky test in the response.
-    # When set to true, each test will include a `history` array with chronological status changes.
-    # Defaults to false.
-    attr_accessor :include_history
-
     # Pagination attributes for listing flaky tests.
     attr_accessor :page
 
@@ -42,7 +37,6 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'filter' => :'filter',
-        :'include_history' => :'include_history',
         :'page' => :'page',
         :'sort' => :'sort'
       }
@@ -53,7 +47,6 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'filter' => :'FlakyTestsSearchFilter',
-        :'include_history' => :'Boolean',
         :'page' => :'FlakyTestsSearchPageOptions',
         :'sort' => :'FlakyTestsSearchSort'
       }
@@ -79,10 +72,6 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'filter')
         self.filter = attributes[:'filter']
-      end
-
-      if attributes.key?(:'include_history')
-        self.include_history = attributes[:'include_history']
       end
 
       if attributes.key?(:'page')
@@ -121,7 +110,6 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           filter == o.filter &&
-          include_history == o.include_history &&
           page == o.page &&
           sort == o.sort &&
           additional_properties == o.additional_properties
@@ -131,7 +119,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [filter, include_history, page, sort, additional_properties].hash
+      [filter, page, sort, additional_properties].hash
     end
   end
 end

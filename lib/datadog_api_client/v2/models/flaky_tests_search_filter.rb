@@ -21,6 +21,11 @@ module DatadogAPIClient::V2
   class FlakyTestsSearchFilter
     include BaseGenericModel
 
+    # Whether to include the status change history for each flaky test in the response.
+    # When set to true, each test will include a 'history' array with chronological status changes.
+    # Defaults to false.
+    attr_accessor :include_history
+
     # Search query following log syntax used to filter flaky tests, same as on Flaky Tests Management UI. The supported search keys are:
     # - `flaky_test_state`
     # - `flaky_test_category`
@@ -40,6 +45,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'include_history' => :'include_history',
         :'query' => :'query'
       }
     end
@@ -48,6 +54,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'include_history' => :'Boolean',
         :'query' => :'String'
       }
     end
@@ -69,6 +76,10 @@ module DatadogAPIClient::V2
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'include_history')
+        self.include_history = attributes[:'include_history']
+      end
 
       if attributes.key?(:'query')
         self.query = attributes[:'query']
@@ -101,6 +112,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          include_history == o.include_history &&
           query == o.query &&
           additional_properties == o.additional_properties
     end
@@ -109,7 +121,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [query, additional_properties].hash
+      [include_history, query, additional_properties].hash
     end
   end
 end
