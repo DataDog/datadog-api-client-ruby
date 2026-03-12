@@ -21,9 +21,7 @@ module DatadogAPIClient::V2
   class RumRetentionFilterAttributes
     include BaseGenericModel
 
-    # Configuration for additional APM trace data retention for sessions that match this retention filter.
-    # When a session matches the filter and is retained (based on `sample_rate`), you can configure
-    # the percentage of retained sessions with ingested traces whose traces are indexed.
+    # The configuration for cross-product retention filters.
     attr_accessor :cross_product_sampling
 
     # Whether the retention filter is enabled.

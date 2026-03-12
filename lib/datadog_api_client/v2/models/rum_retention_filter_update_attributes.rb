@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class RumRetentionFilterUpdateAttributes
     include BaseGenericModel
 
-    # Configuration for cross-product sampling when updating a retention filter. All fields are optional for partial updates.
+    # The configuration for cross-product retention filters. All fields are optional for partial updates.
     attr_accessor :cross_product_sampling
 
     # Whether the retention filter is enabled.
