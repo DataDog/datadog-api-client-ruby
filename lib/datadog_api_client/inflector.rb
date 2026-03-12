@@ -2240,6 +2240,7 @@ module DatadogAPIClient
           "v2.dora_failures_list_response" => "DORAFailuresListResponse",
           "v2.dora_failure_type" => "DORAFailureType",
           "v2.dora_git_info" => "DORAGitInfo",
+          "v2.dora_git_info_response" => "DORAGitInfoResponse",
           "v2.dora_incident_object" => "DORAIncidentObject",
           "v2.dora_incident_object_attributes" => "DORAIncidentObjectAttributes",
           "v2.dora_list_deployments_request" => "DORAListDeploymentsRequest",

@@ -30,7 +30,7 @@ module DatadogAPIClient::V2
     # Unix timestamp when the deployment finished.
     attr_reader :finished_at
 
-    # Git info for DORA Metrics events.
+    # Git info returned by DORA Metrics events.
     attr_accessor :git
 
     # Service name.
@@ -69,7 +69,7 @@ module DatadogAPIClient::V2
         :'custom_tags' => :'Array<String>',
         :'env' => :'String',
         :'finished_at' => :'Integer',
-        :'git' => :'DORAGitInfo',
+        :'git' => :'DORAGitInfoResponse',
         :'service' => :'String',
         :'started_at' => :'Integer',
         :'team' => :'String',
