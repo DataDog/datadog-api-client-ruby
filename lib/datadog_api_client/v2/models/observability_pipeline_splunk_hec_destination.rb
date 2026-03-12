@@ -42,6 +42,9 @@ module DatadogAPIClient::V2
     # Optional name of the Splunk index where logs are written.
     attr_accessor :index
 
+    # List of log field names to send as indexed fields to Splunk HEC. Available only when `encoding` is `json`.
+    attr_accessor :indexed_fields
+
     # A list of component IDs whose output is used as the `input` for this component.
     attr_reader :inputs
 
@@ -66,6 +69,7 @@ module DatadogAPIClient::V2
         :'endpoint_url_key' => :'endpoint_url_key',
         :'id' => :'id',
         :'index' => :'index',
+        :'indexed_fields' => :'indexed_fields',
         :'inputs' => :'inputs',
         :'sourcetype' => :'sourcetype',
         :'token_key' => :'token_key',
@@ -83,6 +87,7 @@ module DatadogAPIClient::V2
         :'endpoint_url_key' => :'String',
         :'id' => :'String',
         :'index' => :'String',
+        :'indexed_fields' => :'Array<String>',
         :'inputs' => :'Array<String>',
         :'sourcetype' => :'String',
         :'token_key' => :'String',
@@ -130,6 +135,12 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'index')
         self.index = attributes[:'index']
+      end
+
+      if attributes.key?(:'indexed_fields')
+        if (value = attributes[:'indexed_fields']).is_a?(Array)
+          self.indexed_fields = value
+        end
       end
 
       if attributes.key?(:'inputs')
@@ -223,6 +234,7 @@ module DatadogAPIClient::V2
           endpoint_url_key == o.endpoint_url_key &&
           id == o.id &&
           index == o.index &&
+          indexed_fields == o.indexed_fields &&
           inputs == o.inputs &&
           sourcetype == o.sourcetype &&
           token_key == o.token_key &&
@@ -234,7 +246,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [auto_extract_timestamp, buffer, encoding, endpoint_url_key, id, index, inputs, sourcetype, token_key, type, additional_properties].hash
+      [auto_extract_timestamp, buffer, encoding, endpoint_url_key, id, index, indexed_fields, inputs, sourcetype, token_key, type, additional_properties].hash
     end
   end
 end
