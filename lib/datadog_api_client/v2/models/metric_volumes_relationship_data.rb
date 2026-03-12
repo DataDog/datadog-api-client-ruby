@@ -17,18 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Object for a single metric tag configuration.
-  class Metric
+  # Relationship data for a metric's ingested and indexed volumes.
+  class MetricVolumesRelationshipData
     include BaseGenericModel
 
     # The metric name for this resource.
-    attr_accessor :id
+    attr_reader :id
 
-    # Relationships to related metric objects.
-    attr_accessor :relationships
-
-    # The metric resource type.
-    attr_accessor :type
+    # The metric ingested and indexed volume type.
+    attr_reader :type
 
     attr_accessor :additional_properties
 
@@ -37,7 +34,6 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'id' => :'id',
-        :'relationships' => :'relationships',
         :'type' => :'type'
       }
     end
@@ -47,8 +43,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'id' => :'String',
-        :'relationships' => :'MetricRelationships',
-        :'type' => :'MetricType'
+        :'type' => :'MetricIngestedIndexedVolumeType'
       }
     end
 
@@ -57,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::Metric` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::MetricVolumesRelationshipData` initialize method"
       end
 
       self.additional_properties = {}
@@ -74,13 +69,38 @@ module DatadogAPIClient::V2
         self.id = attributes[:'id']
       end
 
-      if attributes.key?(:'relationships')
-        self.relationships = attributes[:'relationships']
-      end
-
       if attributes.key?(:'type')
         self.type = attributes[:'type']
       end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @id.nil?
+      return false if @type.nil?
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param id [Object] Object to be assigned
+    # @!visibility private
+    def id=(id)
+      if id.nil?
+        fail ArgumentError, 'invalid value for "id", id cannot be nil.'
+      end
+      @id = id
+    end
+
+    # Custom attribute writer method with validation
+    # @param type [Object] Object to be assigned
+    # @!visibility private
+    def type=(type)
+      if type.nil?
+        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+      end
+      @type = type
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -110,7 +130,6 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           id == o.id &&
-          relationships == o.relationships &&
           type == o.type &&
           additional_properties == o.additional_properties
     end
@@ -119,7 +138,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [id, relationships, type, additional_properties].hash
+      [id, type, additional_properties].hash
     end
   end
 end

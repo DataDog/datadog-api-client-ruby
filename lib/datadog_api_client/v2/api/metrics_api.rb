@@ -671,6 +671,7 @@ module DatadogAPIClient::V2
     # Optionally, paginate by using the `page[cursor]` and/or `page[size]` query parameters.
     # To fetch the first page, pass in a query parameter with either a valid `page[size]` or an empty cursor like `page[cursor]=`. To fetch the next page, pass in the `next_cursor` value from the response as the new `page[cursor]` value.
     # Once the `meta.pagination.next_cursor` value is null, all pages have been retrieved.
+    # Use the `include` query parameter to fetch additional data with the response. When `include=metric_volumes` is specified, the response includes volume data for each custom metric in the `included` array, with a corresponding `relationships` link on each metric in `data`. Volume data is only returned for custom metrics. All volume values represent a 1-hour timeframe.
     #
     # @param opts [Hash] the optional parameters
     # @option opts [Boolean] :filter_configured Filter custom metrics that have configured tags.
@@ -681,6 +682,7 @@ module DatadogAPIClient::V2
     # @option opts [Integer] :filter_queried_window_seconds The number of seconds of look back (from now) used by the `filter[queried]` filter logic. Must be sent with `filter[queried]` and is only applied when `filter[queried]=true`. If `filter[queried]=false`, this parameter is ignored and default queried-window behavior applies. If `filter[queried]` is not provided, sending this parameter returns a 400. For example: `GET /api/v2/metrics?filter[queried]=true&filter[queried][window][seconds]=7776000`.
     # @option opts [String] :filter_tags Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions. Can only be combined with the filter[queried] filter.
     # @option opts [Boolean] :filter_related_assets (Preview) Filter metrics that are used in dashboards, monitors, notebooks, SLOs.
+    # @option opts [MetricVolumesInclude] :include Comma-separated list of additional data to include in the response. Allowed values: `metric_volumes`. When `metric_volumes` is specified, the response includes volume data for each custom metric in the `included` array, with a corresponding `relationships` link on each metric in `data`.
     # @option opts [Integer] :window_seconds The number of seconds of look back (from now) to apply to a filter[tag] or filter[queried] query. Default value is 3600 (1 hour), maximum value is 5,184,000 (60 days).
     # @option opts [Integer] :page_size Maximum number of results returned.
     # @option opts [String] :page_cursor String to query the next page of results. This key is provided with each valid response from the API in `meta.pagination.next_cursor`. Once the `meta.pagination.next_cursor` key is null, all pages have been retrieved.
@@ -699,6 +701,10 @@ module DatadogAPIClient::V2
       end
       if @api_client.config.client_side_validation && !opts[:'filter_queried_window_seconds'].nil? && opts[:'filter_queried_window_seconds'] < 0
         fail ArgumentError, 'invalid value for "opts[:"filter_queried_window_seconds"]" when calling MetricsAPI.list_tag_configurations, must be greater than or equal to 0.'
+      end
+      allowable_values = ['metric_volumes', 'generated_metric_attributes']
+      if @api_client.config.client_side_validation && opts[:'include'] && !allowable_values.include?(opts[:'include'])
+        fail ArgumentError, "invalid value for \"include\", must be one of #{allowable_values}"
       end
       if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] > 10000
         fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling MetricsAPI.list_tag_configurations, must be smaller than or equal to 10000.'
@@ -719,6 +725,7 @@ module DatadogAPIClient::V2
       query_params[:'filter[queried][window][seconds]'] = opts[:'filter_queried_window_seconds'] if !opts[:'filter_queried_window_seconds'].nil?
       query_params[:'filter[tags]'] = opts[:'filter_tags'] if !opts[:'filter_tags'].nil?
       query_params[:'filter[related_assets]'] = opts[:'filter_related_assets'] if !opts[:'filter_related_assets'].nil?
+      query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
       query_params[:'window[seconds]'] = opts[:'window_seconds'] if !opts[:'window_seconds'].nil?
       query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
       query_params[:'page[cursor]'] = opts[:'page_cursor'] if !opts[:'page_cursor'].nil?

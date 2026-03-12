@@ -17,18 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Object for a single metric tag configuration.
-  class Metric
+  # Relationships to related metric objects.
+  class MetricRelationships
     include BaseGenericModel
 
-    # The metric name for this resource.
-    attr_accessor :id
-
-    # Relationships to related metric objects.
-    attr_accessor :relationships
-
-    # The metric resource type.
-    attr_accessor :type
+    # Relationship to a metric's ingested and indexed volumes.
+    attr_accessor :metric_volumes
 
     attr_accessor :additional_properties
 
@@ -36,9 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'id' => :'id',
-        :'relationships' => :'relationships',
-        :'type' => :'type'
+        :'metric_volumes' => :'metric_volumes'
       }
     end
 
@@ -46,9 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'id' => :'String',
-        :'relationships' => :'MetricRelationships',
-        :'type' => :'MetricType'
+        :'metric_volumes' => :'MetricVolumesRelationship'
       }
     end
 
@@ -57,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::Metric` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::MetricRelationships` initialize method"
       end
 
       self.additional_properties = {}
@@ -70,16 +60,8 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
-      end
-
-      if attributes.key?(:'relationships')
-        self.relationships = attributes[:'relationships']
-      end
-
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
+      if attributes.key?(:'metric_volumes')
+        self.metric_volumes = attributes[:'metric_volumes']
       end
     end
 
@@ -109,9 +91,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
-          relationships == o.relationships &&
-          type == o.type &&
+          metric_volumes == o.metric_volumes &&
           additional_properties == o.additional_properties
     end
 
@@ -119,7 +99,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [id, relationships, type, additional_properties].hash
+      [metric_volumes, additional_properties].hash
     end
   end
 end
