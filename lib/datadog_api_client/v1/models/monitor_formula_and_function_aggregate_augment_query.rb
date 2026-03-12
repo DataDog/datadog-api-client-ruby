@@ -17,8 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # A formula and function query.
-  module MonitorFormulaAndFunctionQueryDefinition
+  # Augment query for aggregate augmented queries. Can be an events query or a reference table query.
+  module MonitorFormulaAndFunctionAggregateAugmentQuery
     class << self
       include BaseOneOfModel
       include BaseOneOfModelNoDiscriminator
@@ -27,10 +27,7 @@ module DatadogAPIClient::V1
       def openapi_one_of
         [
           :'MonitorFormulaAndFunctionEventQueryDefinition',
-          :'MonitorFormulaAndFunctionCostQueryDefinition',
-          :'MonitorFormulaAndFunctionDataQualityQueryDefinition',
-          :'MonitorFormulaAndFunctionAggregateAugmentedQueryDefinition',
-          :'MonitorFormulaAndFunctionAggregateFilteredQueryDefinition'
+          :'MonitorFormulaAndFunctionReferenceTableQueryDefinition'
         ]
       end
       # Builds the object
