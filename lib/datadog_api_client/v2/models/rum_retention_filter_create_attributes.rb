@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class RumRetentionFilterCreateAttributes
     include BaseGenericModel
 
-    # Configuration for cross-product sampling when creating a retention filter.
+    # The configuration for cross-product retention filters.
     attr_accessor :cross_product_sampling
 
     # Whether the retention filter is enabled.

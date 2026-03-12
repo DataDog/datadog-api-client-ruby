@@ -17,17 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Configuration for additional APM trace data retention for sessions that match this retention filter.
-  # When a session matches the filter and is retained (based on `sample_rate`), you can configure
-  # the percentage of retained sessions with ingested traces whose traces are indexed.
+  # The configuration for cross-product retention filters.
   class RumCrossProductSampling
     include BaseGenericModel
 
-    # Indicates whether trace cross-product sampling is enabled. If `false`, no traces are indexed regardless of `trace_sample_rate`.
+    # Whether the cross-product retention filter for APM traces is enabled.
     attr_accessor :trace_enabled
 
-    # The percentage (0-100) of retained sessions with ingested traces whose traces are indexed.
-    # For example, 25.0 means 25% of retained sessions with ingested traces have their traces indexed.
+    # The sample rate for the APM cross-product retention filter, between 0 and 100.
     attr_reader :trace_sample_rate
 
     attr_accessor :additional_properties
