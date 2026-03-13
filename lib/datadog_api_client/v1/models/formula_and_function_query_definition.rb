@@ -31,6 +31,7 @@ module DatadogAPIClient::V1
           :'FormulaAndFunctionProcessQueryDefinition',
           :'FormulaAndFunctionApmDependencyStatsQueryDefinition',
           :'FormulaAndFunctionApmResourceStatsQueryDefinition',
+          :'FormulaAndFunctionApmMetricsQueryDefinition',
           :'FormulaAndFunctionSLOQueryDefinition',
           :'FormulaAndFunctionCloudCostQueryDefinition'
         ]
