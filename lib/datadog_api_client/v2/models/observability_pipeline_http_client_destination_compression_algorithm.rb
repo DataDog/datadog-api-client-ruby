@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Compression algorithm.
+  # The compression algorithm used for HTTP client destinations.
   class ObservabilityPipelineHttpClientDestinationCompressionAlgorithm
     include BaseEnumModel
 
