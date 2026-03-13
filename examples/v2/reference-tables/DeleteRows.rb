@@ -5,7 +5,7 @@ api_instance = DatadogAPIClient::V2::ReferenceTablesAPI.new
 
 body = DatadogAPIClient::V2::BatchDeleteRowsRequestArray.new({
   data: [
-    DatadogAPIClient::V2::BatchDeleteRowsRequestData.new({
+    DatadogAPIClient::V2::TableRowResourceIdentifier.new({
       id: "primary_key_value",
       type: DatadogAPIClient::V2::TableRowResourceDataType::ROW,
     }),
