@@ -39,6 +39,9 @@ module DatadogAPIClient::V2
     # Name of the permission.
     attr_accessor :name
 
+    # List of alias names for the permission.
+    attr_accessor :name_aliases
+
     # Whether or not the permission is restricted.
     attr_accessor :restricted
 
@@ -54,6 +57,7 @@ module DatadogAPIClient::V2
         :'display_type' => :'display_type',
         :'group_name' => :'group_name',
         :'name' => :'name',
+        :'name_aliases' => :'name_aliases',
         :'restricted' => :'restricted'
       }
     end
@@ -68,6 +72,7 @@ module DatadogAPIClient::V2
         :'display_type' => :'String',
         :'group_name' => :'String',
         :'name' => :'String',
+        :'name_aliases' => :'Array<String>',
         :'restricted' => :'Boolean'
       }
     end
@@ -114,6 +119,12 @@ module DatadogAPIClient::V2
         self.name = attributes[:'name']
       end
 
+      if attributes.key?(:'name_aliases')
+        if (value = attributes[:'name_aliases']).is_a?(Array)
+          self.name_aliases = value
+        end
+      end
+
       if attributes.key?(:'restricted')
         self.restricted = attributes[:'restricted']
       end
@@ -151,6 +162,7 @@ module DatadogAPIClient::V2
           display_type == o.display_type &&
           group_name == o.group_name &&
           name == o.name &&
+          name_aliases == o.name_aliases &&
           restricted == o.restricted &&
           additional_properties == o.additional_properties
     end
@@ -159,7 +171,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created, description, display_name, display_type, group_name, name, restricted, additional_properties].hash
+      [created, description, display_name, display_type, group_name, name, name_aliases, restricted, additional_properties].hash
     end
   end
 end
