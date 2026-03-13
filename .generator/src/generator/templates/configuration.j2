@@ -193,6 +193,9 @@ module {{ module_name }}
       {%- for name, schema in openapi.components.securitySchemes.items() if "x-env-name" in schema and schema.in == "header" and schema.type == "apiKey" %}
       @api_key['{{ name }}'] = ENV['{{ schema["x-env-name"] }}'] if ENV.key? '{{ schema["x-env-name"] }}'
       {%- endfor %}
+      {%- for name, schema in openapi.components.securitySchemes.items() if "x-env-name" in schema and schema.type == "http" and schema.scheme == "bearer" %}
+      @access_token = ENV['{{ schema["x-env-name"] }}'] if ENV.key? '{{ schema["x-env-name"] }}'
+      {%- endfor %}
 
       yield(self) if block_given?
     end
@@ -284,18 +287,14 @@ module {{ module_name }}
             key: 'Authorization',
             value: basic_auth_token
           },
-{# {%- elif schema.type == "http" and schema.scheme == "bearer" %}
+{%- elif schema.type == "http" and schema.scheme == "bearer" %}
         {{name}}:
           {
-            type: 'bearer',
+            type: 'http',
             in: 'header',
-            {% if schema.bearerFormat %}
-            format: '{{ schema.bearerFormat }}',
-            {% endif %}
             key: 'Authorization',
-            value: "Bearer #{access_token}"
+            value: access_token ? "Bearer #{access_token}" : nil
           },
-#}
 {%- elif schema.type == "oauth2" %}
         {{name}}:
           {

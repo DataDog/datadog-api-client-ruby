@@ -58,5 +58,45 @@ describe DatadogAPIClient::Configuration do
     end
   end
 
+  describe '#access_token (bearer auth)' do
+    let(:config) { DatadogAPIClient::Configuration.new }
+
+    it 'defaults to nil' do
+      expect(config.access_token).to be_nil
+    end
+
+    it 'can be set directly' do
+      config.access_token = 'ddpat_test_token_123'
+      expect(config.access_token).to eq('ddpat_test_token_123')
+    end
+
+    it 'loads from DD_BEARER_TOKEN environment variable' do
+      allow(ENV).to receive(:key?).and_call_original
+      allow(ENV).to receive(:key?).with('DD_BEARER_TOKEN').and_return(true)
+      allow(ENV).to receive(:[]).and_call_original
+      allow(ENV).to receive(:[]).with('DD_BEARER_TOKEN').and_return('ddpat_env_token')
+      new_config = DatadogAPIClient::Configuration.new
+      expect(new_config.access_token).to eq('ddpat_env_token')
+    end
+  end
+
+  describe '#auth_settings' do
+    let(:config) { DatadogAPIClient::Configuration.new }
+
+    it 'includes bearerAuth with nil value when token not set' do
+      expect(config.auth_settings[:bearerAuth]).not_to be_nil
+      expect(config.auth_settings[:bearerAuth][:value]).to be_nil
+    end
+
+    it 'includes bearerAuth with Bearer token when access_token is set' do
+      config.access_token = 'ddpat_my_token'
+      auth = config.auth_settings[:bearerAuth]
+      expect(auth[:type]).to eq('http')
+      expect(auth[:in]).to eq('header')
+      expect(auth[:key]).to eq('Authorization')
+      expect(auth[:value]).to eq('Bearer ddpat_my_token')
+    end
+  end
+
 
 end
