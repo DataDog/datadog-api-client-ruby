@@ -17,12 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The request body for deleting multiple rows from a reference table.
-  class BatchDeleteRowsRequestArray
+  # 
+  class BatchRowsQueryRequestDataAttributes
     include BaseGenericModel
 
     #
-    attr_reader :data
+    attr_reader :row_ids
+
+    #
+    attr_reader :table_id
 
     attr_accessor :additional_properties
 
@@ -30,7 +33,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data'
+        :'row_ids' => :'row_ids',
+        :'table_id' => :'table_id'
       }
     end
 
@@ -38,7 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'Array<TableRowResourceIdentifier>'
+        :'row_ids' => :'Array<String>',
+        :'table_id' => :'String'
       }
     end
 
@@ -47,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::BatchDeleteRowsRequestArray` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::BatchRowsQueryRequestDataAttributes` initialize method"
       end
 
       self.additional_properties = {}
@@ -60,10 +65,14 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'data')
-        if (value = attributes[:'data']).is_a?(Array)
-          self.data = value
+      if attributes.key?(:'row_ids')
+        if (value = attributes[:'row_ids']).is_a?(Array)
+          self.row_ids = value
         end
+      end
+
+      if attributes.key?(:'table_id')
+        self.table_id = attributes[:'table_id']
       end
     end
 
@@ -71,22 +80,29 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @data.nil?
-      return false if @data.length > 200
+      return false if @row_ids.nil?
+      return false if @table_id.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param data [Object] Object to be assigned
+    # @param row_ids [Object] Object to be assigned
     # @!visibility private
-    def data=(data)
-      if data.nil?
-        fail ArgumentError, 'invalid value for "data", data cannot be nil.'
+    def row_ids=(row_ids)
+      if row_ids.nil?
+        fail ArgumentError, 'invalid value for "row_ids", row_ids cannot be nil.'
       end
-      if data.length > 200
-        fail ArgumentError, 'invalid value for "data", number of items must be less than or equal to 200.'
+      @row_ids = row_ids
+    end
+
+    # Custom attribute writer method with validation
+    # @param table_id [Object] Object to be assigned
+    # @!visibility private
+    def table_id=(table_id)
+      if table_id.nil?
+        fail ArgumentError, 'invalid value for "table_id", table_id cannot be nil.'
       end
-      @data = data
+      @table_id = table_id
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -115,7 +131,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data &&
+          row_ids == o.row_ids &&
+          table_id == o.table_id &&
           additional_properties == o.additional_properties
     end
 
@@ -123,7 +140,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, additional_properties].hash
+      [row_ids, table_id, additional_properties].hash
     end
   end
 end

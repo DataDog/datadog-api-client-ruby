@@ -17,12 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The request body for deleting multiple rows from a reference table.
-  class BatchDeleteRowsRequestArray
+  # 
+  class BatchRowsQueryResponseDataRelationshipsRows
     include BaseGenericModel
 
     #
-    attr_reader :data
+    attr_accessor :data
 
     attr_accessor :additional_properties
 
@@ -47,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::BatchDeleteRowsRequestArray` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::BatchRowsQueryResponseDataRelationshipsRows` initialize method"
       end
 
       self.additional_properties = {}
@@ -65,28 +65,6 @@ module DatadogAPIClient::V2
           self.data = value
         end
       end
-    end
-
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    # @!visibility private
-    def valid?
-      return false if @data.nil?
-      return false if @data.length > 200
-      true
-    end
-
-    # Custom attribute writer method with validation
-    # @param data [Object] Object to be assigned
-    # @!visibility private
-    def data=(data)
-      if data.nil?
-        fail ArgumentError, 'invalid value for "data", data cannot be nil.'
-      end
-      if data.length > 200
-        fail ArgumentError, 'invalid value for "data", number of items must be less than or equal to 200.'
-      end
-      @data = data
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
