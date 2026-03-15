@@ -17,32 +17,26 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # The table visualization is available on timeboards and screenboards. It displays columns of metrics grouped by tag key.
-  class TableWidgetDefinition
+  # Formats values according to where they fall on a color scale.
+  class GuidedTableRangeFormattingRule
     include BaseGenericModel
 
-    # List of custom links.
-    attr_accessor :custom_links
+    # Maximum value on the mapping scale.
+    attr_accessor :max
 
-    # Controls the display of the search bar.
-    attr_accessor :has_search_bar
+    # Minimum value on the mapping scale.
+    attr_accessor :min
 
-    # Widget definition. Each item is either a classic `TableWidgetRequest` or an experimental `GuidedTableRequest` (used when the `graphing_new_table_widget_editor` feature flag is enabled).
-    attr_reader :requests
+    # Color palette used by range-based conditional formatting rules.
+    attr_reader :palette
 
-    # Time setting for the widget.
-    attr_accessor :time
+    # Whether to reverse the palette scale direction.
+    attr_accessor :reverse
 
-    # Title of your widget.
-    attr_accessor :title
+    # Scale function for mapping values to colors.
+    attr_accessor :scale
 
-    # How to align the text on the widget.
-    attr_accessor :title_align
-
-    # Size of the title.
-    attr_accessor :title_size
-
-    # Type of the table widget.
+    #
     attr_reader :type
 
     attr_accessor :additional_properties
@@ -51,13 +45,11 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.attribute_map
       {
-        :'custom_links' => :'custom_links',
-        :'has_search_bar' => :'has_search_bar',
-        :'requests' => :'requests',
-        :'time' => :'time',
-        :'title' => :'title',
-        :'title_align' => :'title_align',
-        :'title_size' => :'title_size',
+        :'max' => :'max',
+        :'min' => :'min',
+        :'palette' => :'palette',
+        :'reverse' => :'reverse',
+        :'scale' => :'scale',
         :'type' => :'type'
       }
     end
@@ -66,14 +58,12 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
-        :'custom_links' => :'Array<WidgetCustomLink>',
-        :'has_search_bar' => :'TableWidgetHasSearchBar',
-        :'requests' => :'Array<Object>',
-        :'time' => :'WidgetTime',
-        :'title' => :'String',
-        :'title_align' => :'WidgetTextAlign',
-        :'title_size' => :'String',
-        :'type' => :'TableWidgetDefinitionType'
+        :'max' => :'Float',
+        :'min' => :'Float',
+        :'palette' => :'GuidedTableRangePalette',
+        :'reverse' => :'Boolean',
+        :'scale' => :'GuidedTableRangeFormattingRuleScale',
+        :'type' => :'GuidedTableRangeFormattingRuleType'
       }
     end
 
@@ -82,7 +72,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::TableWidgetDefinition` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::GuidedTableRangeFormattingRule` initialize method"
       end
 
       self.additional_properties = {}
@@ -95,36 +85,24 @@ module DatadogAPIClient::V1
         end
       }
 
-      if attributes.key?(:'custom_links')
-        if (value = attributes[:'custom_links']).is_a?(Array)
-          self.custom_links = value
-        end
+      if attributes.key?(:'max')
+        self.max = attributes[:'max']
       end
 
-      if attributes.key?(:'has_search_bar')
-        self.has_search_bar = attributes[:'has_search_bar']
+      if attributes.key?(:'min')
+        self.min = attributes[:'min']
       end
 
-      if attributes.key?(:'requests')
-        if (value = attributes[:'requests']).is_a?(Array)
-          self.requests = value
-        end
+      if attributes.key?(:'palette')
+        self.palette = attributes[:'palette']
       end
 
-      if attributes.key?(:'time')
-        self.time = attributes[:'time']
+      if attributes.key?(:'reverse')
+        self.reverse = attributes[:'reverse']
       end
 
-      if attributes.key?(:'title')
-        self.title = attributes[:'title']
-      end
-
-      if attributes.key?(:'title_align')
-        self.title_align = attributes[:'title_align']
-      end
-
-      if attributes.key?(:'title_size')
-        self.title_size = attributes[:'title_size']
+      if attributes.key?(:'scale')
+        self.scale = attributes[:'scale']
       end
 
       if attributes.key?(:'type')
@@ -136,19 +114,19 @@ module DatadogAPIClient::V1
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @requests.nil?
+      return false if @palette.nil?
       return false if @type.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param requests [Object] Object to be assigned
+    # @param palette [Object] Object to be assigned
     # @!visibility private
-    def requests=(requests)
-      if requests.nil?
-        fail ArgumentError, 'invalid value for "requests", requests cannot be nil.'
+    def palette=(palette)
+      if palette.nil?
+        fail ArgumentError, 'invalid value for "palette", palette cannot be nil.'
       end
-      @requests = requests
+      @palette = palette
     end
 
     # Custom attribute writer method with validation
@@ -187,13 +165,11 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          custom_links == o.custom_links &&
-          has_search_bar == o.has_search_bar &&
-          requests == o.requests &&
-          time == o.time &&
-          title == o.title &&
-          title_align == o.title_align &&
-          title_size == o.title_size &&
+          max == o.max &&
+          min == o.min &&
+          palette == o.palette &&
+          reverse == o.reverse &&
+          scale == o.scale &&
           type == o.type &&
           additional_properties == o.additional_properties
     end
@@ -202,7 +178,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [custom_links, has_search_bar, requests, time, title, title_align, title_size, type, additional_properties].hash
+      [max, min, palette, reverse, scale, type, additional_properties].hash
     end
   end
 end
