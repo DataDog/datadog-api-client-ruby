@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptions
     include BaseGenericModel
 
-    # The `ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptions` `characters`.
+    # Number of characters to leave visible from the start or end of the matched value; the rest are redacted.
     attr_reader :characters
 
     # Indicates whether to redact characters from the first or last part of the matched value.
