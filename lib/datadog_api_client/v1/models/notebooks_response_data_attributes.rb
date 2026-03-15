@@ -42,6 +42,9 @@ module DatadogAPIClient::V1
     # Publication status of the notebook. For now, always "published".
     attr_accessor :status
 
+    # List of template variables for this notebook.
+    attr_accessor :template_variables
+
     # Notebook global timeframe.
     attr_accessor :time
 
@@ -58,6 +61,7 @@ module DatadogAPIClient::V1
         :'modified' => :'modified',
         :'name' => :'name',
         :'status' => :'status',
+        :'template_variables' => :'template_variables',
         :'time' => :'time'
       }
     end
@@ -73,6 +77,7 @@ module DatadogAPIClient::V1
         :'modified' => :'Time',
         :'name' => :'String',
         :'status' => :'NotebookStatus',
+        :'template_variables' => :'Array<NotebookTemplateVariable>',
         :'time' => :'NotebookGlobalTime'
       }
     end
@@ -123,6 +128,12 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'status')
         self.status = attributes[:'status']
+      end
+
+      if attributes.key?(:'template_variables')
+        if (value = attributes[:'template_variables']).is_a?(Array)
+          self.template_variables = value
+        end
       end
 
       if attributes.key?(:'time')
@@ -189,6 +200,7 @@ module DatadogAPIClient::V1
           modified == o.modified &&
           name == o.name &&
           status == o.status &&
+          template_variables == o.template_variables &&
           time == o.time &&
           additional_properties == o.additional_properties
     end
@@ -197,7 +209,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [author, cells, created, metadata, modified, name, status, time, additional_properties].hash
+      [author, cells, created, metadata, modified, name, status, template_variables, time, additional_properties].hash
     end
   end
 end
