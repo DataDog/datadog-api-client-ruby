@@ -27,7 +27,7 @@ module DatadogAPIClient::V2
     # Relationship to user.
     attr_accessor :assigned_to
 
-    #
+    # Custom attributes associated with the case as key-value pairs where values are string arrays.
     attr_accessor :attributes
 
     # Timestamp of when the case was closed.
