@@ -439,6 +439,7 @@ module DatadogAPIClient
           "v1.notebooks_response_meta" => "NotebooksResponseMeta",
           "v1.notebooks_response_page" => "NotebooksResponsePage",
           "v1.notebook_status" => "NotebookStatus",
+          "v1.notebook_template_variable" => "NotebookTemplateVariable",
           "v1.notebook_timeseries_cell_attributes" => "NotebookTimeseriesCellAttributes",
           "v1.notebook_toplist_cell_attributes" => "NotebookToplistCellAttributes",
           "v1.notebook_update_cell" => "NotebookUpdateCell",
