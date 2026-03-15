@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # A single item in an array of arbitrary values, which can be a string, number, object, or boolean.
   module AnyValueItem
     class << self
       include BaseOneOfModel
