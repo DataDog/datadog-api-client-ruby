@@ -24,13 +24,17 @@ module DatadogAPIClient::V2
     # Defines a rate limit for a trigger.
     attr_accessor :rate_limit
 
+    # Version of the incident trigger.
+    attr_accessor :version
+
     attr_accessor :additional_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'rate_limit' => :'rateLimit'
+        :'rate_limit' => :'rateLimit',
+        :'version' => :'version'
       }
     end
 
@@ -38,7 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'rate_limit' => :'TriggerRateLimit'
+        :'rate_limit' => :'TriggerRateLimit',
+        :'version' => :'String'
       }
     end
 
@@ -62,6 +67,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'rate_limit')
         self.rate_limit = attributes[:'rate_limit']
+      end
+
+      if attributes.key?(:'version')
+        self.version = attributes[:'version']
       end
     end
 
@@ -92,6 +101,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           rate_limit == o.rate_limit &&
+          version == o.version &&
           additional_properties == o.additional_properties
     end
 
@@ -99,7 +109,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [rate_limit, additional_properties].hash
+      [rate_limit, version, additional_properties].hash
     end
   end
 end
