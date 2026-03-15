@@ -17,53 +17,53 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Attributes of a heatmap snapshot, including view context, device information, and audit metadata.
   class SnapshotDataAttributes
     include BaseGenericModel
 
-    #
+    # Unique identifier of the RUM application.
     attr_accessor :application_id
 
-    #
+    # Timestamp when the snapshot was created.
     attr_accessor :created_at
 
-    #
+    # Display name of the user who created the snapshot.
     attr_accessor :created_by
 
-    #
+    # Email handle of the user who created the snapshot.
     attr_accessor :created_by_handle
 
-    #
+    # Numeric identifier of the user who created the snapshot.
     attr_accessor :created_by_user_id
 
-    #
+    # Device type used when capturing the snapshot (e.g., desktop, mobile, tablet).
     attr_accessor :device_type
 
-    #
+    # Unique identifier of the RUM event associated with the snapshot.
     attr_accessor :event_id
 
-    #
+    # Indicates whether the device type was explicitly selected by the user rather than auto-detected.
     attr_accessor :is_device_type_selected_by_user
 
-    #
+    # Timestamp when the snapshot was last modified.
     attr_accessor :modified_at
 
-    #
+    # Numeric identifier of the organization that owns the snapshot.
     attr_accessor :org_id
 
-    #
+    # Unique identifier of the RUM session associated with the snapshot.
     attr_accessor :session_id
 
-    #
+    # Human-readable name for the snapshot.
     attr_accessor :snapshot_name
 
-    #
+    # Offset in milliseconds from the start of the session at which the snapshot was captured.
     attr_accessor :start
 
-    #
+    # Unique identifier of the RUM view associated with the snapshot.
     attr_accessor :view_id
 
-    #
+    # URL path or name of the view where the snapshot was captured.
     attr_accessor :view_name
 
     attr_accessor :additional_properties

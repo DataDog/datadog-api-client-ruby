@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # A collection of session identifiers used for bulk add or remove operations on a playlist.
   class SessionIdArray
     include BaseGenericModel
 
-    #
+    # Array of session identifier data objects.
     attr_reader :data
 
     attr_accessor :additional_properties

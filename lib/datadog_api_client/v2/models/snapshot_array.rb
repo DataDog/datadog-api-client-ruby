@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # A list of heatmap snapshots returned by a list operation.
   class SnapshotArray
     include BaseGenericModel
 
-    #
+    # Array of heatmap snapshot data objects.
     attr_reader :data
 
     attr_accessor :additional_properties

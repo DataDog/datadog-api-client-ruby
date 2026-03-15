@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # A list of RUM replay sessions from a user's viewership history.
   class ViewershipHistorySessionArray
     include BaseGenericModel
 
-    #
+    # Array of viewership history session data objects.
     attr_reader :data
 
     attr_accessor :additional_properties

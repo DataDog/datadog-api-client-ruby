@@ -17,23 +17,23 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Attributes for updating a heatmap snapshot, including event, session, and view context.
   class SnapshotUpdateRequestDataAttributes
     include BaseGenericModel
 
-    #
+    # Unique identifier of the RUM event associated with the snapshot.
     attr_reader :event_id
 
-    #
+    # Indicates whether the device type was explicitly selected by the user rather than auto-detected.
     attr_reader :is_device_type_selected_by_user
 
-    #
+    # Unique identifier of the RUM session associated with the snapshot.
     attr_accessor :session_id
 
-    #
+    # Offset in milliseconds from the start of the session at which the snapshot was captured.
     attr_reader :start
 
-    #
+    # Unique identifier of the RUM view associated with the snapshot.
     attr_accessor :view_id
 
     attr_accessor :additional_properties
