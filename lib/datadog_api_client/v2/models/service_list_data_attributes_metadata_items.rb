@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # An object containing metadata flags for a service, indicating whether it is traced by APM or monitored via Universal Service Monitoring.
   class ServiceListDataAttributesMetadataItems
     include BaseGenericModel
 
-    #
+    # Indicates whether the service is traced by APM.
     attr_accessor :is_traced
 
-    #
+    # Indicates whether the service uses Universal Service Monitoring.
     attr_accessor :is_usm
 
     attr_accessor :additional_properties
