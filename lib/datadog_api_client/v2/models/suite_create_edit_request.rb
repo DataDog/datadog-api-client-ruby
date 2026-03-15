@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Request body for creating or editing a Synthetic test suite.
   class SuiteCreateEditRequest
     include BaseGenericModel
 
-    #
+    # Data object for creating or editing a Synthetic test suite.
     attr_reader :data
 
     attr_accessor :additional_properties

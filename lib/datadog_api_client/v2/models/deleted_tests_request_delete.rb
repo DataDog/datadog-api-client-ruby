@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Data object for a bulk delete Synthetic tests request.
   class DeletedTestsRequestDelete
     include BaseGenericModel
 
-    #
+    # Attributes for a bulk delete Synthetic tests request.
     attr_reader :attributes
 
-    #
+    # An optional identifier for the delete request.
     attr_accessor :id
 
-    #
+    # Type for the bulk delete Synthetic tests request, `delete_tests_request`.
     attr_accessor :type
 
     attr_accessor :additional_properties
