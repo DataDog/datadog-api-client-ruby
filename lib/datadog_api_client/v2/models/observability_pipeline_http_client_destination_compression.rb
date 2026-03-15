@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class ObservabilityPipelineHttpClientDestinationCompression
     include BaseGenericModel
 
-    # Compression algorithm.
+    # The compression algorithm used for HTTP client destinations.
     attr_reader :algorithm
 
     attr_accessor :additional_properties
