@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Response containing the entity attribute mapping configuration including all available attributes and their properties.
   class GetMappingResponse
     include BaseGenericModel
 
-    #
+    # The data object containing the resource type and attributes for the get mapping response.
     attr_accessor :data
 
     attr_accessor :additional_properties

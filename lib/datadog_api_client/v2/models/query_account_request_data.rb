@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # The data object containing the resource type and attributes for querying accounts.
   class QueryAccountRequestData
     include BaseGenericModel
 
-    #
+    # Attributes for filtering and shaping the account query results.
     attr_accessor :attributes
 
-    #
+    # Unique identifier for the query account request resource.
     attr_accessor :id
 
     # Query account request resource type.

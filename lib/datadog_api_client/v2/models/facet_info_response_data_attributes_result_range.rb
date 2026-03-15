@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # The numeric range of a facet attribute, representing the minimum and maximum observed values.
   class FacetInfoResponseDataAttributesResultRange
     include BaseGenericModel
 
-    #
+    # The maximum observed value for the numeric facet attribute.
     attr_accessor :max
 
-    #
+    # The minimum observed value for the numeric facet attribute.
     attr_accessor :min
 
     attr_accessor :additional_properties

@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # The facet query result containing discrete value counts or a numeric range for the requested facet.
   class FacetInfoResponseDataAttributesResult
     include BaseGenericModel
 
-    #
+    # The numeric range of a facet attribute, representing the minimum and maximum observed values.
     attr_accessor :range
 
-    #
+    # List of discrete facet values with their occurrence counts.
     attr_accessor :values
 
     attr_accessor :additional_properties

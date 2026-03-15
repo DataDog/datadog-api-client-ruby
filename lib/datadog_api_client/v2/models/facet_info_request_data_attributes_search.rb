@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Query-based search configuration for filtering the audience context when retrieving facet values.
   class FacetInfoRequestDataAttributesSearch
     include BaseGenericModel
 
-    #
+    # The filter expression used to scope the audience from which facet values are retrieved.
     attr_accessor :query
 
     attr_accessor :additional_properties

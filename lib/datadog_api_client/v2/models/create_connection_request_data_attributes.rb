@@ -17,23 +17,23 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Attributes defining the data source connection, including join configuration and custom fields.
   class CreateConnectionRequestDataAttributes
     include BaseGenericModel
 
-    #
+    # List of custom attribute fields to import from the data source.
     attr_accessor :fields
 
-    #
+    # The attribute in the data source used to join records with the entity.
     attr_reader :join_attribute
 
-    #
+    # The type of join key used to link the data source to the entity (for example, email or user_id).
     attr_reader :join_type
 
-    #
+    # Additional key-value metadata associated with the connection.
     attr_accessor :metadata
 
-    #
+    # The type of data source connection (for example, ref_table).
     attr_reader :type
 
     attr_accessor :additional_properties

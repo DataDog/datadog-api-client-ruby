@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # The data object containing the resource type and attributes of the query response.
   class QueryResponseData
     include BaseGenericModel
 
-    #
+    # Attributes of the query response, containing the matched records and total count.
     attr_accessor :attributes
 
-    #
+    # Unique identifier for the query response resource.
     attr_accessor :id
 
     # Query response resource type.
