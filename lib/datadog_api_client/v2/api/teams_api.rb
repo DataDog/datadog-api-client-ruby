@@ -2114,6 +2114,10 @@ module DatadogAPIClient::V2
     #
     # This operation is read-only on the GitHub side, no teams will be modified or created.
     #
+    # Optionally, provide `selection_state` to limit synchronization
+    # to specific teams or organizations and their subtrees, instead
+    # of syncing all teams.
+    #
     # [A GitHub organization must be connected to your Datadog account](https://docs.datadoghq.com/integrations/github/),
     # and the GitHub App integrated with Datadog must have the `Members Read` permission. Matching is performed by comparing the Datadog team handle to the GitHub team slug
     # using a normalized exact match; case is ignored and spaces are removed. No modifications are made
