@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class SecurityEntityRiskScoresResponse
     include BaseGenericModel
 
-    #
+    # Array of entity risk score objects.
     attr_reader :data
 
     # Metadata for pagination
