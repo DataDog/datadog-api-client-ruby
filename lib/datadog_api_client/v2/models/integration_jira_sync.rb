@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Synchronization configuration for Jira integration
   class IntegrationJiraSync
     include BaseGenericModel
 
-    #
+    # Whether Jira field synchronization is enabled
     attr_accessor :enabled
 
-    #
+    # Field synchronization properties for Jira integration
     attr_accessor :properties
 
     attr_accessor :additional_properties

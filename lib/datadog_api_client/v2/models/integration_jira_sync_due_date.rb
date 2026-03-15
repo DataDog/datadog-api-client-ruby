@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Due date synchronization configuration for Jira integration
   class IntegrationJiraSyncDueDate
     include BaseGenericModel
 
-    #
+    # The Jira field identifier used to store the due date
     attr_accessor :jira_field_id
 
-    #
+    # The type of synchronization to apply for the due date field
     attr_accessor :sync_type
 
     attr_accessor :additional_properties

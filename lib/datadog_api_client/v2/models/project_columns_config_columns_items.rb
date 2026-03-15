@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Configuration for a single column in a project board view
   class ProjectColumnsConfigColumnsItems
     include BaseGenericModel
 
-    #
+    # Sort configuration for a project board column
     attr_accessor :sort
 
-    #
+    # The field used to sort items in this column
     attr_accessor :sort_field
 
-    #
+    # The type of column
     attr_accessor :type
 
     attr_accessor :additional_properties

@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Field synchronization properties for Jira integration
   class IntegrationJiraSyncProperties
     include BaseGenericModel
 
@@ -27,13 +27,13 @@ module DatadogAPIClient::V2
     # Sync property configuration
     attr_accessor :comments
 
-    #
+    # Map of custom field identifiers to their sync configurations
     attr_accessor :custom_fields
 
     # Sync property configuration
     attr_accessor :description
 
-    #
+    # Due date synchronization configuration for Jira integration
     attr_accessor :due_date
 
     # Sync property with mapping configuration

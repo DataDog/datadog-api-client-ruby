@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # The target recipient for an On-Call escalation query
   class IntegrationOnCallEscalationQueriesItemsTarget
     include BaseGenericModel
 
-    #
+    # Whether to use dynamic team paging for escalation
     attr_accessor :dynamic_team_paging
 
-    #
+    # The identifier of the team to escalate to
     attr_accessor :team_id
 
-    #
+    # The identifier of the user to escalate to
     attr_accessor :user_id
 
     attr_accessor :additional_properties
