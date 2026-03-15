@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Response containing a single postmortem template.
   class PostmortemTemplateResponse
     include BaseGenericModel
 
-    #
+    # Data object for a postmortem template returned in a response.
     attr_reader :data
 
     attr_accessor :additional_properties

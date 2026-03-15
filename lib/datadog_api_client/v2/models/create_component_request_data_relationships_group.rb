@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # The group to create the component within.
   class CreateComponentRequestDataRelationshipsGroup
     include BaseGenericModel
 
-    #
+    # The data object identifying the group to create the component within.
     attr_accessor :data
 
     attr_accessor :additional_properties

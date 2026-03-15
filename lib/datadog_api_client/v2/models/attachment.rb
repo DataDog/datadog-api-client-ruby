@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # Attachment data from a response.
     attr_accessor :data
 
-    #
+    # A list of related objects included in the response.
     attr_accessor :included
 
     attr_accessor :additional_properties

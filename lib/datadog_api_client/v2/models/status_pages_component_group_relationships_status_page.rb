@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class StatusPagesComponentGroupRelationshipsStatusPage
     include BaseGenericModel
 
-    #
+    # The data object identifying the status page the component group belongs to.
     attr_reader :data
 
     attr_accessor :additional_properties

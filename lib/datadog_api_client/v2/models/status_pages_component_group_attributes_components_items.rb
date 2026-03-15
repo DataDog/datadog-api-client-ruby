@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # A component within a component group.
   class StatusPagesComponentGroupAttributesComponentsItems
     include BaseGenericModel
 

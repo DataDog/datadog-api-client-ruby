@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Response payload containing global incident settings.
   class GlobalIncidentSettingsResponse
     include BaseGenericModel
 
-    #
+    # Data object in the global incident settings response.
     attr_reader :data
 
     attr_accessor :additional_properties

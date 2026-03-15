@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # A component affected at the time of a maintenance update.
   class MaintenanceDataAttributesUpdatesItemsComponentsAffectedItems
     include BaseGenericModel
 

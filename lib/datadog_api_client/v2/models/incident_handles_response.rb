@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Response payload for a list of global incident handles, including handle data and related resources.
   class IncidentHandlesResponse
     include BaseGenericModel
 
-    #
+    # Array of incident handle data objects returned in a list response.
     attr_reader :data
 
     # Included related resources

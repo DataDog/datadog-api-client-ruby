@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Request object for creating a degradation.
   class CreateDegradationRequest
     include BaseGenericModel
 
-    #
+    # The data object for creating a degradation.
     attr_accessor :data
 
     attr_accessor :additional_properties

@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # The status page the degradation belongs to.
   class DegradationDataRelationshipsStatusPage
     include BaseGenericModel
 
-    #
+    # The data object identifying the status page the degradation belongs to.
     attr_reader :data
 
     attr_accessor :additional_properties
