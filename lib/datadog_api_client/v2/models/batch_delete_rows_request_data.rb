@@ -17,8 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Row resource containing a single row identifier.
-  class TableRowResourceIdentifier
+  # Row resource containing a single row identifier for deletion.
+  class BatchDeleteRowsRequestData
     include BaseGenericModel
 
     #
@@ -52,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TableRowResourceIdentifier` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::BatchDeleteRowsRequestData` initialize method"
       end
 
       self.additional_properties = {}

@@ -27,7 +27,7 @@ module DatadogAPIClient::V2
     # The name of the deployment rule.
     attr_reader :name
 
-    # Options for deployment rule response representing either faulty deployment detection or monitor options.
+    # Options for deployment rule requests representing either faulty deployment detection or monitor options.
     attr_reader :options
 
     attr_accessor :additional_properties
