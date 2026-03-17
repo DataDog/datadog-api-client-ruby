@@ -29,18 +29,28 @@ module DatadogAPIClient::V2
     SERVER_REQUEST_URI_RAW = "server.request.uri.raw".freeze
     SERVER_REQUEST_PATH_PARAMS = "server.request.path_params".freeze
     SERVER_REQUEST_QUERY = "server.request.query".freeze
+    SERVER_REQUEST_HEADERS = "server.request.headers".freeze
     SERVER_REQUEST_HEADERS_NO_COOKIES = "server.request.headers.no_cookies".freeze
+    SERVER_REQUEST_CUSTOM_AUTH = "server.request.custom-auth".freeze
     SERVER_REQUEST_COOKIES = "server.request.cookies".freeze
     SERVER_REQUEST_TRAILERS = "server.request.trailers".freeze
     SERVER_REQUEST_BODY = "server.request.body".freeze
+    SERVER_REQUEST_BODY_FILENAMES = "server.request.body.filenames".freeze
     SERVER_RESPONSE_STATUS = "server.response.status".freeze
     SERVER_RESPONSE_HEADERS_NO_COOKIES = "server.response.headers.no_cookies".freeze
     SERVER_RESPONSE_TRAILERS = "server.response.trailers".freeze
+    SERVER_RESPONSE_BODY = "server.response.body".freeze
     GRPC_SERVER_REQUEST_METADATA = "grpc.server.request.metadata".freeze
     GRPC_SERVER_REQUEST_MESSAGE = "grpc.server.request.message".freeze
     GRPC_SERVER_METHOD = "grpc.server.method".freeze
     GRAPHQL_SERVER_ALL_RESOLVERS = "graphql.server.all_resolvers".freeze
     USR_ID = "usr.id".freeze
     HTTP_CLIENT_IP = "http.client_ip".freeze
+    SERVER_LLM_EVENT = "server.llm.event".freeze
+    SERVER_LLM_GUARD_VERDICT = "server.llm.guard.verdict".freeze
+    DD_APPSEC_FP_HTTP_HEADER = "_dd.appsec.fp.http.header".freeze
+    DD_APPSEC_FP_HTTP_NETWORK = "_dd.appsec.fp.http.network".freeze
+    DD_APPSEC_FP_SESSION = "_dd.appsec.fp.session".freeze
+    DD_APPSEC_FP_HTTP_ENDPOINT = "_dd.appsec.fp.http.endpoint".freeze
   end
 end
