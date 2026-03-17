@@ -27,7 +27,7 @@ module DatadogAPIClient::V2
     # Whether On-Call integration is enabled
     attr_accessor :enabled
 
-    #
+    # List of escalation queries for routing cases to on-call responders
     attr_accessor :escalation_queries
 
     attr_accessor :additional_properties

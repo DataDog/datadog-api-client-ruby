@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Mapping between an incident user-defined field and a case field
   class IntegrationIncidentFieldMappingsItems
     include BaseGenericModel
 
-    #
+    # The case field to map the incident field value to
     attr_accessor :case_field
 
-    #
+    # The identifier of the incident user-defined field to map from
     attr_accessor :incident_user_defined_field_id
 
     attr_accessor :additional_properties

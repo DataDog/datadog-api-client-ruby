@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class SyncProperty
     include BaseGenericModel
 
-    #
+    # The direction and type of synchronization for this property
     attr_accessor :sync_type
 
     attr_accessor :additional_properties
