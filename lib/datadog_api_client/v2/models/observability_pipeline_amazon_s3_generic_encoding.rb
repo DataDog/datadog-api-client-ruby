@@ -17,8 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A destination for the pipeline.
-  module ObservabilityPipelineConfigDestinationItem
+  # Encoding format for the destination.
+  module ObservabilityPipelineAmazonS3GenericEncoding
     class << self
       include BaseOneOfModel
       include BaseOneOfModelNoDiscriminator
@@ -26,30 +26,8 @@ module DatadogAPIClient::V2
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of
         [
-          :'ObservabilityPipelineHttpClientDestination',
-          :'ObservabilityPipelineAmazonOpenSearchDestination',
-          :'ObservabilityPipelineAmazonS3Destination',
-          :'ObservabilityPipelineAmazonS3GenericDestination',
-          :'ObservabilityPipelineAmazonSecurityLakeDestination',
-          :'AzureStorageDestination',
-          :'ObservabilityPipelineCloudPremDestination',
-          :'ObservabilityPipelineCrowdStrikeNextGenSiemDestination',
-          :'ObservabilityPipelineDatadogLogsDestination',
-          :'ObservabilityPipelineElasticsearchDestination',
-          :'ObservabilityPipelineGoogleChronicleDestination',
-          :'ObservabilityPipelineGoogleCloudStorageDestination',
-          :'ObservabilityPipelineGooglePubSubDestination',
-          :'ObservabilityPipelineKafkaDestination',
-          :'MicrosoftSentinelDestination',
-          :'ObservabilityPipelineNewRelicDestination',
-          :'ObservabilityPipelineOpenSearchDestination',
-          :'ObservabilityPipelineRsyslogDestination',
-          :'ObservabilityPipelineSentinelOneDestination',
-          :'ObservabilityPipelineSocketDestination',
-          :'ObservabilityPipelineSplunkHecDestination',
-          :'ObservabilityPipelineSumoLogicDestination',
-          :'ObservabilityPipelineSyslogNgDestination',
-          :'ObservabilityPipelineDatadogMetricsDestination'
+          :'ObservabilityPipelineAmazonS3GenericEncodingJson',
+          :'ObservabilityPipelineAmazonS3GenericEncodingParquet'
         ]
       end
       # Builds the object
