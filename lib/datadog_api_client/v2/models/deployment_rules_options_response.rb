@@ -17,8 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Options for deployment rule requests representing either faulty deployment detection or monitor options.
-  module DeploymentRulesOptions
+  # Options returned in deployment rule responses representing either faulty deployment detection or monitor options. Faulty deployment detection responses always include `excluded_resources`, making the two variants unambiguous.
+  module DeploymentRulesOptionsResponse
     class << self
       include BaseOneOfModel
       include BaseOneOfModelNoDiscriminator
@@ -26,7 +26,7 @@ module DatadogAPIClient::V2
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of
         [
-          :'DeploymentRuleOptionsFaultyDeploymentDetection',
+          :'DeploymentRuleOptionsFaultyDeploymentDetectionResponse',
           :'DeploymentRuleOptionsMonitor'
         ]
       end

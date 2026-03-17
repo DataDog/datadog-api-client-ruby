@@ -36,7 +36,7 @@ module DatadogAPIClient::V2
     # The name of the deployment rule.
     attr_reader :name
 
-    # Options for deployment rule response representing either faulty deployment detection or monitor options.
+    # Options returned in deployment rule responses representing either faulty deployment detection or monitor options. Faulty deployment detection responses always include `excluded_resources`, making the two variants unambiguous.
     attr_reader :options
 
     # The type of the deployment rule.
@@ -75,7 +75,7 @@ module DatadogAPIClient::V2
         :'dry_run' => :'Boolean',
         :'gate_id' => :'String',
         :'name' => :'String',
-        :'options' => :'DeploymentRulesOptions',
+        :'options' => :'DeploymentRulesOptionsResponse',
         :'type' => :'DeploymentRuleResponseDataAttributesType',
         :'updated_at' => :'Time',
         :'updated_by' => :'DeploymentRuleResponseDataAttributesUpdatedBy'

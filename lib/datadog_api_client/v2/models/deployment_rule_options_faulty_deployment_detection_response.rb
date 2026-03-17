@@ -17,20 +17,22 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The request body for deleting multiple rows from a reference table.
-  class BatchDeleteRowsRequestArray
+  # Faulty deployment detection options returned in deployment rule responses. The `excluded_resources` field is always present, which allows disambiguating this type from monitor options when both share a `duration` field.
+  class DeploymentRuleOptionsFaultyDeploymentDetectionResponse
     include BaseGenericModel
 
-    #
-    attr_reader :data
+    # The duration for faulty deployment detection.
+    attr_accessor :duration
 
-    attr_accessor :additional_properties
+    # Resources to exclude from faulty deployment detection.
+    attr_reader :excluded_resources
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data'
+        :'duration' => :'duration',
+        :'excluded_resources' => :'excluded_resources'
       }
     end
 
@@ -38,7 +40,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'Array<BatchDeleteRowsRequestData>'
+        :'duration' => :'Integer',
+        :'excluded_resources' => :'Array<String>'
       }
     end
 
@@ -47,22 +50,24 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::BatchDeleteRowsRequestArray` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::DeploymentRuleOptionsFaultyDeploymentDetectionResponse` initialize method"
       end
 
-      self.additional_properties = {}
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          self.additional_properties[k.to_sym] = v
-        else
-          h[k.to_sym] = v
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::DeploymentRuleOptionsFaultyDeploymentDetectionResponse`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
+        h[k.to_sym] = v
       }
 
-      if attributes.key?(:'data')
-        if (value = attributes[:'data']).is_a?(Array)
-          self.data = value
+      if attributes.key?(:'duration')
+        self.duration = attributes[:'duration']
+      end
+
+      if attributes.key?(:'excluded_resources')
+        if (value = attributes[:'excluded_resources']).is_a?(Array)
+          self.excluded_resources = value
         end
       end
     end
@@ -71,42 +76,18 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @data.nil?
-      return false if @data.length > 200
+      return false if @excluded_resources.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param data [Object] Object to be assigned
+    # @param excluded_resources [Object] Object to be assigned
     # @!visibility private
-    def data=(data)
-      if data.nil?
-        fail ArgumentError, 'invalid value for "data", data cannot be nil.'
+    def excluded_resources=(excluded_resources)
+      if excluded_resources.nil?
+        fail ArgumentError, 'invalid value for "excluded_resources", excluded_resources cannot be nil.'
       end
-      if data.length > 200
-        fail ArgumentError, 'invalid value for "data", number of items must be less than or equal to 200.'
-      end
-      @data = data
-    end
-
-    # Returns the object in the form of hash, with additionalProperties support.
-    # @return [Hash] Returns the object in the form of hash
-    # @!visibility private
-    def to_hash
-      hash = {}
-      self.class.attribute_map.each_pair do |attr, param|
-        value = self.send(attr)
-        if value.nil?
-          is_nullable = self.class.openapi_nullable.include?(attr)
-          next if !is_nullable || (is_nullable && !instance_variable_defined?(:"@#{attr}"))
-        end
-
-        hash[param] = _to_hash(value)
-      end
-      self.additional_properties.each_pair do |attr, value|
-        hash[attr] = value
-      end
-      hash
+      @excluded_resources = excluded_resources
     end
 
     # Checks equality by comparing each attribute.
@@ -115,15 +96,15 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data &&
-          additional_properties == o.additional_properties
+          duration == o.duration &&
+          excluded_resources == o.excluded_resources
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, additional_properties].hash
+      [duration, excluded_resources].hash
     end
   end
 end

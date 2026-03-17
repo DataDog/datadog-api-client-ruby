@@ -3247,9 +3247,6 @@ ScenariosModelMappings = {
     "v2.ListConnections" => {
             "entity" => "String",
     },
-    "v2.BatchRowsQuery" => {
-            "body" => "BatchRowsQueryRequest",
-    },
     "v2.ListTables" => {
             "page_limit" => "Integer",
             "page_offset" => "Integer",
