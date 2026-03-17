@@ -557,6 +557,8 @@ module DatadogAPIClient
           "v1.slo_correction_update_request" => "SLOCorrectionUpdateRequest",
           "v1.slo_correction_update_request_attributes" => "SLOCorrectionUpdateRequestAttributes",
           "v1.slo_count_definition" => "SLOCountDefinition",
+          "v1.slo_count_definition_with_bad_events_formula" => "SLOCountDefinitionWithBadEventsFormula",
+          "v1.slo_count_definition_with_total_events_formula" => "SLOCountDefinitionWithTotalEventsFormula",
           "v1.slo_count_spec" => "SLOCountSpec",
           "v1.slo_creator" => "SLOCreator",
           "v1.slo_data_source_query_definition" => "SLODataSourceQueryDefinition",
