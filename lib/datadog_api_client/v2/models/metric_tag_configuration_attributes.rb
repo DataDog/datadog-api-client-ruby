@@ -36,7 +36,7 @@ module DatadogAPIClient::V2
     # Only present when the `metric_type` is `distribution`.
     attr_accessor :include_percentiles
 
-    # The metric's type.
+    # The metric's type. Contact your Customer Success Manager (CSM) for instructions on how to use the histogram types.
     attr_accessor :metric_type
 
     # Timestamp when the tag configuration was last modified.
