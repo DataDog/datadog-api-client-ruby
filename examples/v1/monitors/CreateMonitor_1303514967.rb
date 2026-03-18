@@ -20,7 +20,7 @@ body = DatadogAPIClient::V1::Monitor.new({
     }),
     variables: [
       DatadogAPIClient::V1::MonitorFormulaAndFunctionCostQueryDefinition.new({
-        data_source: DatadogAPIClient::V1::MonitorFormulaAndFunctionCostDataSource::CLOUD_COST,
+        data_source: DatadogAPIClient::V1::MonitorFormulaAndFunctionMetricsDataSource::CLOUD_COST,
         query: "sum:aws.cost.net.amortized.shared.resources.allocated{aws_product IN (amplify ,athena, backup, bedrock ) } by {aws_product}.rollup(sum, 86400)",
         name: "query1",
         aggregator: DatadogAPIClient::V1::MonitorFormulaAndFunctionCostAggregator::SUM,
