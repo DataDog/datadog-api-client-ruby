@@ -1607,9 +1607,6 @@ ScenariosModelMappings = {
             "filter_operating_system_name" => "String",
             "filter_operating_system_version" => "String",
     },
-    "v2.ListSecurityMonitoringCriticalAssets" => {
-            "query" => "String",
-    },
     "v2.CreateSecurityMonitoringCriticalAsset" => {
             "body" => "SecurityMonitoringCriticalAssetCreateRequest",
     },
