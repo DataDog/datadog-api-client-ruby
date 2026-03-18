@@ -35,6 +35,9 @@ module DatadogAPIClient::V2
     # A Datadog search query used to determine which logs this processor targets.
     attr_reader :include
 
+    # Whether to keep an event that does not match any of the mapping filters.
+    attr_accessor :keep_unmatched
+
     # A list of mapping rules to convert events to the OCSF format.
     attr_reader :mappings
 
@@ -51,6 +54,7 @@ module DatadogAPIClient::V2
         :'enabled' => :'enabled',
         :'id' => :'id',
         :'include' => :'include',
+        :'keep_unmatched' => :'keep_unmatched',
         :'mappings' => :'mappings',
         :'type' => :'type'
       }
@@ -64,6 +68,7 @@ module DatadogAPIClient::V2
         :'enabled' => :'Boolean',
         :'id' => :'String',
         :'include' => :'String',
+        :'keep_unmatched' => :'Boolean',
         :'mappings' => :'Array<ObservabilityPipelineOcsfMapperProcessorMapping>',
         :'type' => :'ObservabilityPipelineOcsfMapperProcessorType'
       }
@@ -101,6 +106,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'include')
         self.include = attributes[:'include']
+      end
+
+      if attributes.key?(:'keep_unmatched')
+        self.keep_unmatched = attributes[:'keep_unmatched']
       end
 
       if attributes.key?(:'mappings')
@@ -206,6 +215,7 @@ module DatadogAPIClient::V2
           enabled == o.enabled &&
           id == o.id &&
           include == o.include &&
+          keep_unmatched == o.keep_unmatched &&
           mappings == o.mappings &&
           type == o.type &&
           additional_properties == o.additional_properties
@@ -215,7 +225,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [display_name, enabled, id, include, mappings, type, additional_properties].hash
+      [display_name, enabled, id, include, keep_unmatched, mappings, type, additional_properties].hash
     end
   end
 end
