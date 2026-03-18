@@ -4326,6 +4326,7 @@ module DatadogAPIClient::V2
     # Get the list of all critical assets.
     #
     # @param opts [Hash] the optional parameters
+    # @option opts [String] :query Query string.
     # @return [Array<(SecurityMonitoringCriticalAssetsResponse, Integer, Hash)>] SecurityMonitoringCriticalAssetsResponse data, response status code and response headers
     def list_security_monitoring_critical_assets_with_http_info(opts = {})
 
@@ -4337,6 +4338,7 @@ module DatadogAPIClient::V2
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'query'] = opts[:'query'] if !opts[:'query'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

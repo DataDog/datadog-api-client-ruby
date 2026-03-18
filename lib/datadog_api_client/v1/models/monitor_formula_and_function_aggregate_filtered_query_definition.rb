@@ -30,7 +30,7 @@ module DatadogAPIClient::V1
     # Data source for aggregate filtered queries.
     attr_reader :data_source
 
-    # Filter query for aggregate filtered queries. Can be an events query or a reference table query.
+    # Sub-query for aggregate composite queries (augmented or filtered). Can be an events query or a reference table query.
     attr_reader :filter_query
 
     # Filter conditions for the query.
@@ -63,7 +63,7 @@ module DatadogAPIClient::V1
         :'base_query' => :'MonitorFormulaAndFunctionAggregateBaseQuery',
         :'compute' => :'Array<MonitorFormulaAndFunctionEventQueryDefinitionCompute>',
         :'data_source' => :'MonitorFormulaAndFunctionAggregateFilteredDataSource',
-        :'filter_query' => :'MonitorFormulaAndFunctionAggregateFilterQuery',
+        :'filter_query' => :'MonitorFormulaAndFunctionAggregateSubQuery',
         :'filters' => :'Array<MonitorFormulaAndFunctionAggregateQueryFilter>',
         :'group_by' => :'Array<MonitorFormulaAndFunctionEventQueryGroupBy>',
         :'name' => :'String'

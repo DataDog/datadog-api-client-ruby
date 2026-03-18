@@ -17,8 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Filter query for aggregate filtered queries. Can be an events query or a reference table query.
-  module MonitorFormulaAndFunctionAggregateFilterQuery
+  # Sub-query for aggregate composite queries (augmented or filtered). Can be an events query or a reference table query.
+  module MonitorFormulaAndFunctionAggregateSubQuery
     class << self
       include BaseOneOfModel
       include BaseOneOfModelNoDiscriminator

@@ -21,7 +21,7 @@ module DatadogAPIClient::V1
   class MonitorFormulaAndFunctionAggregateAugmentedQueryDefinition
     include BaseGenericModel
 
-    # Augment query for aggregate augmented queries. Can be an events query or a reference table query.
+    # Sub-query for aggregate composite queries (augmented or filtered). Can be an events query or a reference table query.
     attr_reader :augment_query
 
     # Base query for aggregate queries. Can be an events query or a metrics query.
@@ -60,7 +60,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
-        :'augment_query' => :'MonitorFormulaAndFunctionAggregateAugmentQuery',
+        :'augment_query' => :'MonitorFormulaAndFunctionAggregateSubQuery',
         :'base_query' => :'MonitorFormulaAndFunctionAggregateBaseQuery',
         :'compute' => :'Array<MonitorFormulaAndFunctionEventQueryDefinitionCompute>',
         :'data_source' => :'MonitorFormulaAndFunctionAggregateAugmentedDataSource',
