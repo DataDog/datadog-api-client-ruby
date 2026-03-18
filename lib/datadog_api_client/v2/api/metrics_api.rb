@@ -667,23 +667,20 @@ module DatadogAPIClient::V2
 
     # Get a list of metrics.
     #
-    # Returns all metrics for your organization that match the given filter parameters.
-    # Optionally, paginate by using the `page[cursor]` and/or `page[size]` query parameters.
-    # To fetch the first page, pass in a query parameter with either a valid `page[size]` or an empty cursor like `page[cursor]=`. To fetch the next page, pass in the `next_cursor` value from the response as the new `page[cursor]` value.
-    # Once the `meta.pagination.next_cursor` value is null, all pages have been retrieved.
+    # Get a list of actively reporting metrics for your organization. Pagination is optional using the `page[cursor]` and `page[size]` query parameters.
     #
     # @param opts [Hash] the optional parameters
-    # @option opts [Boolean] :filter_configured Filter custom metrics that have configured tags.
-    # @option opts [String] :filter_tags_configured Filter tag configurations by configured tags.
-    # @option opts [MetricTagConfigurationMetricTypeCategory] :filter_metric_type Filter metrics by metric type.
-    # @option opts [Boolean] :filter_include_percentiles Filter distributions with additional percentile aggregations enabled or disabled.
-    # @option opts [Boolean] :filter_queried (Preview) Filter custom metrics that have or have not been queried in the specified window[seconds]. If no window is provided or the window is less than 2 hours, a default of 2 hours will be applied.
-    # @option opts [Integer] :filter_queried_window_seconds The number of seconds of look back (from now) used by the `filter[queried]` filter logic. Must be sent with `filter[queried]` and is only applied when `filter[queried]=true`. If `filter[queried]=false`, this parameter is ignored and default queried-window behavior applies. If `filter[queried]` is not provided, sending this parameter returns a 400. For example: `GET /api/v2/metrics?filter[queried]=true&filter[queried][window][seconds]=15552000`.
-    # @option opts [String] :filter_tags Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions. Can only be combined with the filter[queried] filter.
-    # @option opts [Boolean] :filter_related_assets (Preview) Filter metrics that are used in dashboards, monitors, notebooks, SLOs.
-    # @option opts [Integer] :window_seconds The number of seconds of look back (from now) to apply to a filter[tag] query. Default value is 3600 (1 hour), maximum value is 5,184,000 (60 days).
-    # @option opts [Integer] :page_size Maximum number of results returned.
-    # @option opts [String] :page_cursor String to query the next page of results. This key is provided with each valid response from the API in `meta.pagination.next_cursor`. Once the `meta.pagination.next_cursor` key is null, all pages have been retrieved.
+    # @option opts [Boolean] :filter_configured Only return custom metrics that have been configured with Metrics Without Limits.
+    # @option opts [String] :filter_tags_configured Only return metrics that have the given tag key(s) in their Metrics Without Limits configuration (included or excluded).
+    # @option opts [MetricTagConfigurationMetricTypeCategory] :filter_metric_type Only return metrics of the given metric type.
+    # @option opts [Boolean] :filter_include_percentiles Only return distribution metrics that have percentile aggregations enabled (true) or disabled (false).
+    # @option opts [Boolean] :filter_queried Only return metrics that have been queried (true) or not queried (false) in the look back window. Set the window with `filter[queried][window][seconds]`; if omitted, a default window is used.
+    # @option opts [Integer] :filter_queried_window_seconds Only return metrics that have been queried or not queried in the specified window. Dependent on being sent with `filter[queried]`.
+    # @option opts [String] :filter_tags Only return metrics that were submitted with tags matching this expression. You can use AND, OR, IN, and wildcards (for example, service:web*).
+    # @option opts [Boolean] :filter_related_assets Only return metrics that are used in at least one dashboard, monitor, notebook, or SLO.
+    # @option opts [Integer] :window_seconds Only return metrics that have been actively reporting in the specified window.
+    # @option opts [Integer] :page_size Maximum number of results per page. Use with `page[cursor]` for pagination.
+    # @option opts [String] :page_cursor Cursor for pagination. Use `page[size]` to opt-in to pagination and get the first page; for subsequent pages, use the value from `meta.pagination.next_cursor` in the response. Pagination is complete when `next_cursor` is null.
     # @return [Array<(MetricsAndMetricTagConfigurationsResponse, Integer, Hash)>] MetricsAndMetricTagConfigurationsResponse data, response status code and response headers
     def list_tag_configurations_with_http_info(opts = {})
 
@@ -697,8 +694,14 @@ module DatadogAPIClient::V2
       if @api_client.config.client_side_validation && !opts[:'filter_queried_window_seconds'].nil? && opts[:'filter_queried_window_seconds'] > 15552000
         fail ArgumentError, 'invalid value for "opts[:"filter_queried_window_seconds"]" when calling MetricsAPI.list_tag_configurations, must be smaller than or equal to 15552000.'
       end
-      if @api_client.config.client_side_validation && !opts[:'filter_queried_window_seconds'].nil? && opts[:'filter_queried_window_seconds'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"filter_queried_window_seconds"]" when calling MetricsAPI.list_tag_configurations, must be greater than or equal to 0.'
+      if @api_client.config.client_side_validation && !opts[:'filter_queried_window_seconds'].nil? && opts[:'filter_queried_window_seconds'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"filter_queried_window_seconds"]" when calling MetricsAPI.list_tag_configurations, must be greater than or equal to 1.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'window_seconds'].nil? && opts[:'window_seconds'] > 2592000
+        fail ArgumentError, 'invalid value for "opts[:"window_seconds"]" when calling MetricsAPI.list_tag_configurations, must be smaller than or equal to 2592000.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'window_seconds'].nil? && opts[:'window_seconds'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"window_seconds"]" when calling MetricsAPI.list_tag_configurations, must be greater than or equal to 1.'
       end
       if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] > 10000
         fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling MetricsAPI.list_tag_configurations, must be smaller than or equal to 10000.'
