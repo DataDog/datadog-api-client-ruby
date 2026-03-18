@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The metric's type.
+  # The metric's type. Contact your Customer Success Manager (CSM) for instructions on how to use the histogram types.
   class MetricTagConfigurationMetricTypes
     include BaseEnumModel
 
@@ -25,5 +25,7 @@ module DatadogAPIClient::V2
     COUNT = "count".freeze
     RATE = "rate".freeze
     DISTRIBUTION = "distribution".freeze
+    EXPONENTIAL_HISTOGRAM = "exponential_histogram".freeze
+    EXPLICIT_HISTOGRAM = "explicit_histogram".freeze
   end
 end

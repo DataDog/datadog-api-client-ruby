@@ -33,7 +33,7 @@ module DatadogAPIClient::V2
     # Defaults to false. Can only be applied to metrics that have a `metric_type` of `distribution`.
     attr_accessor :include_percentiles
 
-    # The metric's type.
+    # The metric's type. Contact your Customer Success Manager (CSM) for instructions on how to use the histogram types.
     attr_reader :metric_type
 
     # A list of tag keys that will be queryable for your metric.
