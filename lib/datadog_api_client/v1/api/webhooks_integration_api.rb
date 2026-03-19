@@ -167,7 +167,7 @@ module DatadogAPIClient::V1
 
     # Delete a webhook.
     #
-    # Deletes the endpoint with the name `<WEBHOOK NAME>`.
+    # Deletes the endpoint with the name `<WEBHOOK NAME>`. This action cannot be undone.
     #
     # @param webhook_name [String] The name of the webhook.
     # @param opts [Hash] the optional parameters
