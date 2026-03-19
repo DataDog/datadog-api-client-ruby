@@ -59,9 +59,6 @@ module DatadogAPIClient::V1
     # A list of role identifiers. Only the author and users associated with at least one of these roles can edit this dashboard.
     attr_accessor :restricted_roles
 
-    # List of tabs for organizing dashboard widgets into groups.
-    attr_reader :tabs
-
     # List of team names representing ownership of a dashboard.
     attr_reader :tags
 
@@ -97,7 +94,6 @@ module DatadogAPIClient::V1
         :'notify_list' => :'notify_list',
         :'reflow_type' => :'reflow_type',
         :'restricted_roles' => :'restricted_roles',
-        :'tabs' => :'tabs',
         :'tags' => :'tags',
         :'template_variable_presets' => :'template_variable_presets',
         :'template_variables' => :'template_variables',
@@ -122,7 +118,6 @@ module DatadogAPIClient::V1
         :'notify_list' => :'Array<String>',
         :'reflow_type' => :'DashboardReflowType',
         :'restricted_roles' => :'Array<String>',
-        :'tabs' => :'Array<DashboardTab>',
         :'tags' => :'Array<String>',
         :'template_variable_presets' => :'Array<DashboardTemplateVariablePreset>',
         :'template_variables' => :'Array<DashboardTemplateVariable>',
@@ -139,7 +134,6 @@ module DatadogAPIClient::V1
         :'author_name',
         :'description',
         :'notify_list',
-        :'tabs',
         :'tags',
         :'template_variable_presets',
         :'template_variables',
@@ -212,12 +206,6 @@ module DatadogAPIClient::V1
         end
       end
 
-      if attributes.key?(:'tabs')
-        if (value = attributes[:'tabs']).is_a?(Array)
-          self.tabs = value
-        end
-      end
-
       if attributes.key?(:'tags')
         if (value = attributes[:'tags']).is_a?(Array)
           self.tags = value
@@ -256,7 +244,6 @@ module DatadogAPIClient::V1
     # @!visibility private
     def valid?
       return false if @layout_type.nil?
-      return false if !@tabs.nil? && @tabs.length > 100
       return false if !@tags.nil? && @tags.length > 5
       return false if @title.nil?
       return false if @widgets.nil?
@@ -271,16 +258,6 @@ module DatadogAPIClient::V1
         fail ArgumentError, 'invalid value for "layout_type", layout_type cannot be nil.'
       end
       @layout_type = layout_type
-    end
-
-    # Custom attribute writer method with validation
-    # @param tabs [Object] Object to be assigned
-    # @!visibility private
-    def tabs=(tabs)
-      if !tabs.nil? && tabs.length > 100
-        fail ArgumentError, 'invalid value for "tabs", number of items must be less than or equal to 100.'
-      end
-      @tabs = tabs
     end
 
     # Custom attribute writer method with validation
@@ -350,7 +327,6 @@ module DatadogAPIClient::V1
           notify_list == o.notify_list &&
           reflow_type == o.reflow_type &&
           restricted_roles == o.restricted_roles &&
-          tabs == o.tabs &&
           tags == o.tags &&
           template_variable_presets == o.template_variable_presets &&
           template_variables == o.template_variables &&
@@ -364,7 +340,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [author_handle, author_name, created_at, description, id, is_read_only, layout_type, modified_at, notify_list, reflow_type, restricted_roles, tabs, tags, template_variable_presets, template_variables, title, url, widgets, additional_properties].hash
+      [author_handle, author_name, created_at, description, id, is_read_only, layout_type, modified_at, notify_list, reflow_type, restricted_roles, tags, template_variable_presets, template_variables, title, url, widgets, additional_properties].hash
     end
   end
 end
