@@ -254,6 +254,7 @@ module DatadogAPIClient::V2
     #
     # Deletes a metric's tag configuration. Can only be used with application
     # keys from users with the `Manage Tags for Metrics` permission.
+    # Note: This operation is irreversible.
     #
     # @param metric_name [String] The name of the metric.
     # @param opts [Hash] the optional parameters
