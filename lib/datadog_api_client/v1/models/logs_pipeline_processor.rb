@@ -25,6 +25,9 @@ module DatadogAPIClient::V1
   class LogsPipelineProcessor
     include BaseGenericModel
 
+    # A description of the pipeline.
+    attr_accessor :description
+
     # Filter for logs.
     attr_accessor :filter
 
@@ -37,6 +40,9 @@ module DatadogAPIClient::V1
     # Ordered list of processors in this pipeline.
     attr_accessor :processors
 
+    # A list of tags associated with the pipeline.
+    attr_accessor :tags
+
     # Type of logs pipeline processor.
     attr_reader :type
 
@@ -46,10 +52,12 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.attribute_map
       {
+        :'description' => :'description',
         :'filter' => :'filter',
         :'is_enabled' => :'is_enabled',
         :'name' => :'name',
         :'processors' => :'processors',
+        :'tags' => :'tags',
         :'type' => :'type'
       }
     end
@@ -58,10 +66,12 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
+        :'description' => :'String',
         :'filter' => :'LogsFilter',
         :'is_enabled' => :'Boolean',
         :'name' => :'String',
         :'processors' => :'Array<LogsProcessor>',
+        :'tags' => :'Array<String>',
         :'type' => :'LogsPipelineProcessorType'
       }
     end
@@ -84,6 +94,10 @@ module DatadogAPIClient::V1
         end
       }
 
+      if attributes.key?(:'description')
+        self.description = attributes[:'description']
+      end
+
       if attributes.key?(:'filter')
         self.filter = attributes[:'filter']
       end
@@ -99,6 +113,12 @@ module DatadogAPIClient::V1
       if attributes.key?(:'processors')
         if (value = attributes[:'processors']).is_a?(Array)
           self.processors = value
+        end
+      end
+
+      if attributes.key?(:'tags')
+        if (value = attributes[:'tags']).is_a?(Array)
+          self.tags = value
         end
       end
 
@@ -151,10 +171,12 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          description == o.description &&
           filter == o.filter &&
           is_enabled == o.is_enabled &&
           name == o.name &&
           processors == o.processors &&
+          tags == o.tags &&
           type == o.type &&
           additional_properties == o.additional_properties
     end
@@ -163,7 +185,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [filter, is_enabled, name, processors, type, additional_properties].hash
+      [description, filter, is_enabled, name, processors, tags, type, additional_properties].hash
     end
   end
 end
