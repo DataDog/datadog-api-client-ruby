@@ -353,6 +353,7 @@ module DatadogAPIClient
           "v1.monitor_formula_and_function_aggregate_query_join_condition" => "MonitorFormulaAndFunctionAggregateQueryJoinCondition",
           "v1.monitor_formula_and_function_aggregate_query_join_type" => "MonitorFormulaAndFunctionAggregateQueryJoinType",
           "v1.monitor_formula_and_function_cost_aggregator" => "MonitorFormulaAndFunctionCostAggregator",
+          "v1.monitor_formula_and_function_cost_data_source" => "MonitorFormulaAndFunctionCostDataSource",
           "v1.monitor_formula_and_function_cost_query_definition" => "MonitorFormulaAndFunctionCostQueryDefinition",
           "v1.monitor_formula_and_function_data_quality_data_source" => "MonitorFormulaAndFunctionDataQualityDataSource",
           "v1.monitor_formula_and_function_data_quality_model_type_override" => "MonitorFormulaAndFunctionDataQualityModelTypeOverride",

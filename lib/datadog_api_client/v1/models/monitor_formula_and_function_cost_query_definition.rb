@@ -24,7 +24,7 @@ module DatadogAPIClient::V1
     # Aggregation methods for metric queries.
     attr_accessor :aggregator
 
-    # Data source for metrics queries.
+    # Data source for cost queries.
     attr_reader :data_source
 
     # Name of the query for use in formulas.
@@ -51,7 +51,7 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'aggregator' => :'MonitorFormulaAndFunctionCostAggregator',
-        :'data_source' => :'MonitorFormulaAndFunctionMetricsDataSource',
+        :'data_source' => :'MonitorFormulaAndFunctionCostDataSource',
         :'name' => :'String',
         :'query' => :'String'
       }
