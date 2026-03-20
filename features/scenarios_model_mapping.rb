@@ -2153,6 +2153,55 @@ ScenariosModelMappings = {
     "v2.GetEvent" => {
             "event_id" => "String",
     },
+    "v2.ListFeatureFlags" => {
+            "key" => "String",
+            "is_archived" => "Boolean",
+            "limit" => "Integer",
+            "offset" => "Integer",
+    },
+    "v2.CreateFeatureFlag" => {
+            "body" => "CreateFeatureFlagRequest",
+    },
+    "v2.ListFeatureFlagsEnvironments" => {
+            "name" => "String",
+            "key" => "String",
+            "limit" => "Integer",
+            "offset" => "Integer",
+    },
+    "v2.CreateFeatureFlagsEnvironment" => {
+            "body" => "CreateEnvironmentRequest",
+    },
+    "v2.DeleteFeatureFlagsEnvironment" => {
+            "environment_id" => "UUID",
+    },
+    "v2.GetFeatureFlagsEnvironment" => {
+            "environment_id" => "UUID",
+    },
+    "v2.UpdateFeatureFlagsEnvironment" => {
+            "environment_id" => "UUID",
+            "body" => "UpdateEnvironmentRequest",
+    },
+    "v2.GetFeatureFlag" => {
+            "feature_flag_id" => "UUID",
+    },
+    "v2.UpdateFeatureFlag" => {
+            "feature_flag_id" => "UUID",
+            "body" => "UpdateFeatureFlagRequest",
+    },
+    "v2.ArchiveFeatureFlag" => {
+            "feature_flag_id" => "UUID",
+    },
+    "v2.DisableFeatureFlagEnvironment" => {
+            "feature_flag_id" => "UUID",
+            "environment_id" => "UUID",
+    },
+    "v2.EnableFeatureFlagEnvironment" => {
+            "feature_flag_id" => "UUID",
+            "environment_id" => "UUID",
+    },
+    "v2.UnarchiveFeatureFlag" => {
+            "feature_flag_id" => "UUID",
+    },
     "v2.CreateHamrOrgConnection" => {
             "body" => "HamrOrgConnectionRequest",
     },
