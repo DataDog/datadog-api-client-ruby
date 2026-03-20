@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class ObservabilityPipelineSensitiveDataScannerProcessorScopeOptions
     include BaseGenericModel
 
-    # The `ObservabilityPipelineSensitiveDataScannerProcessorScopeOptions` `fields`.
+    # List of log attribute names (field paths) to which the scope applies. Only these fields are included in or excluded from pattern matching.
     attr_reader :fields
 
     attr_accessor :additional_properties
