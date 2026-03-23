@@ -1,0 +1,21 @@
+http_interactions:
+- recorded_at: Tue, 17 Mar 2026 10:23:16 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+    method: GET
+    uri: https://api.datadoghq.com/api/v2/deployment_gates/not-a-valid-id/rules/not-a-valid-id
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"status":"400","title":"Bad Request","detail":"attribute
+        \"gate_id\" Invalid id"}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 400
+      message: Bad Request
+recorded_with: VCR 6.0.0

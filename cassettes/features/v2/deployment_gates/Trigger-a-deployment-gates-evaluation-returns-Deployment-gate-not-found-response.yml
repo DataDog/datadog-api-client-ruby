@@ -1,0 +1,25 @@
+http_interactions:
+- recorded_at: Tue, 17 Mar 2026 10:23:18 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"env":"staging","service":"non-existent-service-xyz"},"type":"deployment_gates_evaluation_request"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/deployments/gates/evaluation
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"status":"404","title":"Not Found","detail":"no gate found
+        for service non-existent-service-xyz, env staging, and identifier default"}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 404
+      message: Not Found
+recorded_with: VCR 6.0.0

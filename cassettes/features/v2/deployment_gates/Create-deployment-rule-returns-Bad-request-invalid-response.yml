@@ -1,0 +1,25 @@
+http_interactions:
+- recorded_at: Tue, 17 Mar 2026 10:23:14 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"dry_run":false,"name":"My deployment rule","options":{"duration":3600,"excluded_resources":["resource1","resource2"]},"type":"faulty_deployment_detection"},"type":"deployment_rule"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/deployment_gates/not-a-valid-id/rules
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"status":"400","title":"Bad Request","detail":"attribute
+        \"gate_id\" Invalid id"}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 400
+      message: Bad Request
+recorded_with: VCR 6.0.0
