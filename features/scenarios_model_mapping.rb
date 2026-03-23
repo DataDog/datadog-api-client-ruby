@@ -1397,6 +1397,21 @@ ScenariosModelMappings = {
     "v2.SearchCIAppPipelineEvents" => {
             "body" => "CIAppPipelineEventsRequest",
     },
+    "v2.DeleteTestOptimizationServiceSettings" => {
+            "body" => "TestOptimizationDeleteServiceSettingsRequest",
+    },
+    "v2.UpdateTestOptimizationServiceSettings" => {
+            "body" => "TestOptimizationUpdateServiceSettingsRequest",
+    },
+    "v2.GetTestOptimizationServiceSettings" => {
+            "body" => "TestOptimizationGetServiceSettingsRequest",
+    },
+    "v2.UpdateFlakyTests" => {
+            "body" => "UpdateFlakyTestsRequest",
+    },
+    "v2.SearchFlakyTests" => {
+            "body" => "FlakyTestsSearchRequest",
+    },
     "v2.AggregateCIAppTestEvents" => {
             "body" => "CIAppTestsAggregateRequest",
     },
@@ -4101,12 +4116,6 @@ ScenariosModelMappings = {
     "v2.UpdateIncidentTeam" => {
             "team_id" => "String",
             "body" => "IncidentTeamUpdateRequest",
-    },
-    "v2.UpdateFlakyTests" => {
-            "body" => "UpdateFlakyTestsRequest",
-    },
-    "v2.SearchFlakyTests" => {
-            "body" => "FlakyTestsSearchRequest",
     },
     "v2.SendInvitations" => {
             "body" => "UserInvitationsRequest",

@@ -23,6 +23,152 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
+    # Delete Test Optimization service settings.
+    #
+    # @see #delete_test_optimization_service_settings_with_http_info
+    def delete_test_optimization_service_settings(body, opts = {})
+      delete_test_optimization_service_settings_with_http_info(body, opts)
+      nil
+    end
+
+    # Delete Test Optimization service settings.
+    #
+    # Delete Test Optimization settings for a specific service identified by repository, service name, and environment.
+    #
+    # @param body [TestOptimizationDeleteServiceSettingsRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_test_optimization_service_settings_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.delete_test_optimization_service_settings".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_test_optimization_service_settings")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_test_optimization_service_settings"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TestOptimizationAPI.delete_test_optimization_service_settings ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling TestOptimizationAPI.delete_test_optimization_service_settings"
+      end
+      # resource path
+      local_var_path = '/api/v2/ci/test-optimization/settings/service'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_test_optimization_service_settings,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TestOptimizationAPI#delete_test_optimization_service_settings\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get Test Optimization service settings.
+    #
+    # @see #get_test_optimization_service_settings_with_http_info
+    def get_test_optimization_service_settings(body, opts = {})
+      data, _status_code, _headers = get_test_optimization_service_settings_with_http_info(body, opts)
+      data
+    end
+
+    # Get Test Optimization service settings.
+    #
+    # Retrieve Test Optimization settings for a specific service identified by repository, service name, and environment.
+    #
+    # @param body [TestOptimizationGetServiceSettingsRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(TestOptimizationServiceSettingsResponse, Integer, Hash)>] TestOptimizationServiceSettingsResponse data, response status code and response headers
+    def get_test_optimization_service_settings_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_test_optimization_service_settings".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_test_optimization_service_settings")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_test_optimization_service_settings"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TestOptimizationAPI.get_test_optimization_service_settings ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling TestOptimizationAPI.get_test_optimization_service_settings"
+      end
+      # resource path
+      local_var_path = '/api/v2/ci/test-optimization/settings/service'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TestOptimizationServiceSettingsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_test_optimization_service_settings,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TestOptimizationAPI#get_test_optimization_service_settings\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Search flaky tests.
     #
     # @see #search_flaky_tests_with_http_info
@@ -195,6 +341,80 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: TestOptimizationAPI#update_flaky_tests\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update Test Optimization service settings.
+    #
+    # @see #update_test_optimization_service_settings_with_http_info
+    def update_test_optimization_service_settings(body, opts = {})
+      data, _status_code, _headers = update_test_optimization_service_settings_with_http_info(body, opts)
+      data
+    end
+
+    # Update Test Optimization service settings.
+    #
+    # Partially update Test Optimization settings for a specific service identified by repository, service name, and environment.
+    # Only provided fields are updated; null or omitted fields are left unchanged.
+    #
+    # @param body [TestOptimizationUpdateServiceSettingsRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(TestOptimizationServiceSettingsResponse, Integer, Hash)>] TestOptimizationServiceSettingsResponse data, response status code and response headers
+    def update_test_optimization_service_settings_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.update_test_optimization_service_settings".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_test_optimization_service_settings")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_test_optimization_service_settings"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TestOptimizationAPI.update_test_optimization_service_settings ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling TestOptimizationAPI.update_test_optimization_service_settings"
+      end
+      # resource path
+      local_var_path = '/api/v2/ci/test-optimization/settings/service'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TestOptimizationServiceSettingsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_test_optimization_service_settings,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TestOptimizationAPI#update_test_optimization_service_settings\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
