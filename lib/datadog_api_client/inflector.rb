@@ -1822,6 +1822,7 @@ module DatadogAPIClient
           "v2.convert_job_results_to_signals_data" => "ConvertJobResultsToSignalsData",
           "v2.convert_job_results_to_signals_data_type" => "ConvertJobResultsToSignalsDataType",
           "v2.convert_job_results_to_signals_request" => "ConvertJobResultsToSignalsRequest",
+          "v2.cost_aggregation_type" => "CostAggregationType",
           "v2.cost_attribution_aggregates_body" => "CostAttributionAggregatesBody",
           "v2.cost_attribution_type" => "CostAttributionType",
           "v2.cost_by_org" => "CostByOrg",

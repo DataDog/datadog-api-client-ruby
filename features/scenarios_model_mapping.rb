@@ -1955,6 +1955,7 @@ ScenariosModelMappings = {
             "end_month" => "Time",
             "start_date" => "Time",
             "end_date" => "Time",
+            "cost_aggregation" => "CostAggregationType",
             "include_connected_accounts" => "Boolean",
     },
     "v2.GetHistoricalCostByOrg" => {

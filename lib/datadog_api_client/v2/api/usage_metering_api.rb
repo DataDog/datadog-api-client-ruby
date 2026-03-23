@@ -250,12 +250,17 @@ module DatadogAPIClient::V2
     # @option opts [Time] :end_month Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for cost ending this month.
     # @option opts [Time] :start_date Datetime in ISO-8601 format, UTC, precise to day: `[YYYY-MM-DD]` for cost beginning this day. **Either start_month or start_date should be specified, but not both.** (start_date cannot go beyond two months in the past). Provide an `end_date` to view day-over-day cumulative cost.
     # @option opts [Time] :end_date Datetime in ISO-8601 format, UTC, precise to day: `[YYYY-MM-DD]` for cost ending this day.
+    # @option opts [CostAggregationType] :cost_aggregation Controls how costs are aggregated when using `start_date`. The `cumulative` option returns month-to-date running totals.
     # @option opts [Boolean] :include_connected_accounts Boolean to specify whether to include accounts connected to the current account as partner customers in the Datadog partner network program. Defaults to `false`.
     # @return [Array<(CostByOrgResponse, Integer, Hash)>] CostByOrgResponse data, response status code and response headers
     def get_estimated_cost_by_org_with_http_info(opts = {})
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_estimated_cost_by_org ...'
+      end
+      allowable_values = ['cumulative']
+      if @api_client.config.client_side_validation && opts[:'cost_aggregation'] && !allowable_values.include?(opts[:'cost_aggregation'])
+        fail ArgumentError, "invalid value for \"cost_aggregation\", must be one of #{allowable_values}"
       end
       # resource path
       local_var_path = '/api/v2/usage/estimated_cost'
@@ -267,6 +272,7 @@ module DatadogAPIClient::V2
       query_params[:'end_month'] = opts[:'end_month'] if !opts[:'end_month'].nil?
       query_params[:'start_date'] = opts[:'start_date'] if !opts[:'start_date'].nil?
       query_params[:'end_date'] = opts[:'end_date'] if !opts[:'end_date'].nil?
+      query_params[:'cost_aggregation'] = opts[:'cost_aggregation'] if !opts[:'cost_aggregation'].nil?
       query_params[:'include_connected_accounts'] = opts[:'include_connected_accounts'] if !opts[:'include_connected_accounts'].nil?
 
       # header parameters
