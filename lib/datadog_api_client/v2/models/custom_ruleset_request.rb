@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Request body for creating or updating a custom ruleset.
   class CustomRulesetRequest
     include BaseGenericModel
 
-    #
+    # Data object for a custom ruleset create or update request.
     attr_accessor :data
 
     attr_accessor :additional_properties

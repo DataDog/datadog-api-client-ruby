@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Data object for a heatmap snapshot creation request, containing the resource type and attributes.
   class SnapshotCreateRequestData
     include BaseGenericModel
 
-    #
+    # Attributes for creating a heatmap snapshot, including the view, session, event, and device context.
     attr_accessor :attributes
 
     # Snapshots resource type.

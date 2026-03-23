@@ -17,20 +17,20 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Attributes of a viewership history session entry, capturing when it was last watched and the associated event data.
   class ViewershipHistorySessionDataAttributes
     include BaseGenericModel
 
-    #
+    # Unique identifier of the RUM event associated with the watched session.
     attr_accessor :event_id
 
-    #
+    # Timestamp when the session was last watched by the user.
     attr_reader :last_watched_at
 
-    #
+    # Raw event data associated with the replay session.
     attr_accessor :session_event
 
-    #
+    # Replay track identifier indicating which recording track the session belongs to.
     attr_accessor :track
 
     attr_accessor :additional_properties

@@ -17,32 +17,32 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Project settings
+  # Project settings.
   class ProjectSettings
     include BaseGenericModel
 
-    # Auto-close inactive cases settings
+    # Auto-close inactive cases settings.
     attr_accessor :auto_close_inactive_cases
 
-    # Auto-transition assigned cases settings
+    # Auto-transition assigned cases settings.
     attr_accessor :auto_transition_assigned_cases
 
-    # Incident integration settings
+    # Incident integration settings.
     attr_accessor :integration_incident
 
-    # Jira integration settings
+    # Jira integration settings.
     attr_accessor :integration_jira
 
-    # Monitor integration settings
+    # Monitor integration settings.
     attr_accessor :integration_monitor
 
-    # On-Call integration settings
+    # On-Call integration settings.
     attr_accessor :integration_on_call
 
-    # ServiceNow integration settings
+    # ServiceNow integration settings.
     attr_accessor :integration_service_now
 
-    # Project notification settings
+    # Project notification settings.
     attr_accessor :notification
 
     attr_accessor :additional_properties

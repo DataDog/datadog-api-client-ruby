@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Project response
+  # Project response.
   class ProjectResponse
     include BaseGenericModel
 
-    # A Project
+    # A Project.
     attr_accessor :data
 
     attr_accessor :additional_properties

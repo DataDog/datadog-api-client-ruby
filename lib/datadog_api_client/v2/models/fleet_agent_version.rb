@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class FleetAgentVersion
     include BaseGenericModel
 
-    #
+    # Attributes of an available Datadog Agent version.
     attr_accessor :attributes
 
     # Unique identifier for the Agent version (same as version).

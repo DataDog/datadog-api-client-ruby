@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class ProductAnalyticsScalarColumn
     include BaseGenericModel
 
-    #
+    # Metadata associated with a scalar response column, including optional unit information.
     attr_accessor :meta
 
     # Column name (facet name for group-by, or "query").

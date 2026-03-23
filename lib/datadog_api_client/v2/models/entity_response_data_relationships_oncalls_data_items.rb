@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Oncall relationship data item containing the oncall resource identifier and type.
   class EntityResponseDataRelationshipsOncallsDataItems
     include BaseGenericModel
 
-    #
+    # Oncall resource unique identifier.
     attr_reader :id
 
     # Oncall resource type.

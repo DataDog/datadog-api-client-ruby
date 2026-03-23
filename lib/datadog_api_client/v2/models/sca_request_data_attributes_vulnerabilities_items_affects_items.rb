@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # A reference to a component affected by a vulnerability.
   class ScaRequestDataAttributesVulnerabilitiesItemsAffectsItems
     include BaseGenericModel
 
-    #
+    # The BOM reference identifying the affected component.
     attr_accessor :ref
 
     attr_accessor :additional_properties

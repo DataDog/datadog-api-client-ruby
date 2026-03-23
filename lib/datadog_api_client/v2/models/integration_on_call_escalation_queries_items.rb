@@ -17,20 +17,20 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # An On-Call escalation query entry used to route cases to on-call responders.
   class IntegrationOnCallEscalationQueriesItems
     include BaseGenericModel
 
-    #
+    # Whether this escalation query is enabled.
     attr_accessor :enabled
 
-    #
+    # Unique identifier of the escalation query.
     attr_accessor :id
 
-    #
+    # The query used to match cases for escalation.
     attr_accessor :query
 
-    #
+    # The target recipient for an On-Call escalation query.
     attr_accessor :target
 
     attr_accessor :additional_properties

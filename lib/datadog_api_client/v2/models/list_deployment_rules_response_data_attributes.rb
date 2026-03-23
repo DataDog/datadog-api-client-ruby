@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Attributes of the response for listing deployment rules.
   class ListDeploymentRulesResponseDataAttributes
     include BaseGenericModel
 
-    #
+    # The list of deployment rules.
     attr_accessor :rules
 
     attr_accessor :additional_properties

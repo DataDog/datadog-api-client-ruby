@@ -17,35 +17,35 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Details of a single data source connection, including its fields, join configuration, and audit metadata.
   class ListConnectionsResponseDataAttributesConnectionsItems
     include BaseGenericModel
 
-    #
+    # Timestamp indicating when the connection was created.
     attr_accessor :created_at
 
-    #
+    # Identifier of the user who created the connection.
     attr_accessor :created_by
 
-    #
+    # List of custom attribute fields imported from the data source.
     attr_accessor :fields
 
-    #
+    # Unique identifier of the connection.
     attr_accessor :id
 
-    #
+    # The join configuration describing how the data source is linked to the entity.
     attr_accessor :join
 
-    #
+    # Additional key-value metadata associated with the connection.
     attr_accessor :metadata
 
-    #
+    # The type of data source connection (for example, ref_table).
     attr_accessor :type
 
-    #
+    # Timestamp indicating when the connection was last updated.
     attr_accessor :updated_at
 
-    #
+    # Identifier of the user who last updated the connection.
     attr_accessor :updated_by
 
     attr_accessor :additional_properties

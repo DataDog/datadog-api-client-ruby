@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # A single monthly budget entry defining the allocated amount and optional tag filters for a specific month.
   class BudgetWithEntriesDataAttributesEntriesItems
     include BaseGenericModel
 
-    #
+    # The budgeted amount for this entry.
     attr_accessor :amount
 
-    #
+    # The month this budget entry applies to, in YYYYMM format.
     attr_accessor :month
 
-    #
+    # The list of tag filters that scope this budget entry to specific resources.
     attr_accessor :tag_filters
 
     attr_accessor :additional_properties

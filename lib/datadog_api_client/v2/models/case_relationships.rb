@@ -30,7 +30,7 @@ module DatadogAPIClient::V2
     # Relationship to user.
     attr_accessor :modified_by
 
-    # Relationship to project
+    # Relationship to project.
     attr_accessor :project
 
     attr_accessor :additional_properties

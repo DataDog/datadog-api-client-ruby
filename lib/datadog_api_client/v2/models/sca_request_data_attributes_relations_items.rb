@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # A dependency relation describing which other components a given component depends on.
   class ScaRequestDataAttributesRelationsItems
     include BaseGenericModel
 
-    #
+    # The list of BOM references that this component directly depends on.
     attr_accessor :depends_on
 
-    #
+    # The BOM reference of the component that has dependencies.
     attr_accessor :ref
 
     attr_accessor :additional_properties

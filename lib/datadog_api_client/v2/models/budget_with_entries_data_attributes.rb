@@ -17,41 +17,41 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # The attributes of a budget including all its monthly entries.
   class BudgetWithEntriesDataAttributes
     include BaseGenericModel
 
-    #
+    # The timestamp when the budget was created.
     attr_accessor :created_at
 
-    #
+    # The ID of the user that created the budget.
     attr_accessor :created_by
 
-    #
+    # The month when the budget ends, in YYYYMM format.
     attr_accessor :end_month
 
-    #
+    # The list of monthly budget entries.
     attr_accessor :entries
 
-    #
+    # The cost query used to track spending against the budget.
     attr_accessor :metrics_query
 
-    #
+    # The name of the budget.
     attr_accessor :name
 
-    #
+    # The ID of the organization the budget belongs to.
     attr_accessor :org_id
 
-    #
+    # The month when the budget starts, in YYYYMM format.
     attr_accessor :start_month
 
-    #
+    # The total budget amount across all entries.
     attr_accessor :total_amount
 
-    #
+    # The timestamp when the budget was last updated.
     attr_accessor :updated_at
 
-    #
+    # The ID of the user that last updated the budget.
     attr_accessor :updated_by
 
     attr_accessor :additional_properties

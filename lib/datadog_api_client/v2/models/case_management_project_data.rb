@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Data object representing a case management project.
   class CaseManagementProjectData
     include BaseGenericModel
 

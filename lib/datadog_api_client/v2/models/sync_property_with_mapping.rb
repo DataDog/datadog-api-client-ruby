@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Sync property with mapping configuration
+  # Sync property with mapping configuration.
   class SyncPropertyWithMapping
     include BaseGenericModel
 
-    #
+    # Map of source values to destination values for synchronization.
     attr_accessor :mapping
 
-    #
+    # Map of source names to display names used during synchronization.
     attr_accessor :name_mapping
 
-    #
+    # The direction and type of synchronization for this property.
     attr_accessor :sync_type
 
     attr_accessor :additional_properties

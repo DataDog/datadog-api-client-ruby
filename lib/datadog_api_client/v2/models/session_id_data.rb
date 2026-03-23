@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # A session identifier data object used for bulk playlist operations.
   class SessionIdData
     include BaseGenericModel
 
-    #
+    # Unique identifier of the RUM replay session.
     attr_accessor :id
 
     # Rum replay session resource type.

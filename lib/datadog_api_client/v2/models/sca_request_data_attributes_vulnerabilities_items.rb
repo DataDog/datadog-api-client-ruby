@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # A vulnerability entry from the Software Bill of Materials (SBOM), describing a known security issue and the components it affects.
   class ScaRequestDataAttributesVulnerabilitiesItems
     include BaseGenericModel
 
-    #
+    # The list of components affected by this vulnerability.
     attr_accessor :affects
 
-    #
+    # The unique BOM reference identifier for this vulnerability entry.
     attr_accessor :bom_ref
 
-    #
+    # The vulnerability identifier (e.g., CVE ID or similar).
     attr_accessor :id
 
     attr_accessor :additional_properties

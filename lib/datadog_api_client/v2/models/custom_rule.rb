@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # A custom static analysis rule within a ruleset.
   class CustomRule
     include BaseGenericModel
 
@@ -27,7 +27,7 @@ module DatadogAPIClient::V2
     # Creator identifier
     attr_reader :created_by
 
-    #
+    # A specific revision of a custom static analysis rule.
     attr_reader :last_revision
 
     # Rule name

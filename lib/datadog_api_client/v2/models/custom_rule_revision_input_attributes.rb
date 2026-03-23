@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Input attributes for creating or updating a custom rule revision.
   class CustomRuleRevisionInputAttributes
     include BaseGenericModel
 

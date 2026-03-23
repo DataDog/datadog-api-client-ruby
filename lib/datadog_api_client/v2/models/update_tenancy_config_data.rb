@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # The data object for updating an existing OCI tenancy integration configuration, including the tenancy ID, type, and updated attributes.
   class UpdateTenancyConfigData
     include BaseGenericModel
 
-    #
+    # Attributes for updating an existing OCI tenancy integration configuration, including optional credentials, region settings, and collection options.
     attr_accessor :attributes
 
-    #
+    # The OCID of the OCI tenancy to update.
     attr_reader :id
 
     # OCI tenancy resource type.

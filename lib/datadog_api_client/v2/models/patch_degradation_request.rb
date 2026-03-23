@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Request object for updating a degradation.
   class PatchDegradationRequest
     include BaseGenericModel
 
-    #
+    # The data object for updating a degradation.
     attr_accessor :data
 
     attr_accessor :additional_properties

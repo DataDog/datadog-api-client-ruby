@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Data object for a HAMR organization connection request.
   class HamrOrgConnectionDataRequest
     include BaseGenericModel
 
-    #
+    # Attributes for a HAMR organization connection request.
     attr_reader :attributes
 
     # The organization UUID for this HAMR connection. Must match the authenticated organization's UUID.

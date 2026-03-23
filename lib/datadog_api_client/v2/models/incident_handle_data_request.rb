@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Data object representing an incident handle in a create or update request.
   class IncidentHandleDataRequest
     include BaseGenericModel
 
@@ -27,7 +27,7 @@ module DatadogAPIClient::V2
     # The ID of the incident handle (required for PUT requests)
     attr_accessor :id
 
-    #
+    # Relationships to associate with an incident handle in a create or update request.
     attr_accessor :relationships
 
     # Incident handle resource type

@@ -17,35 +17,35 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # The attributes of a secret detection rule, including its pattern, priority, and validation configuration.
   class SecretRuleDataAttributes
     include BaseGenericModel
 
-    #
+    # A list of keywords that are included by default when scanning for secrets matching this rule.
     attr_accessor :default_included_keywords
 
-    #
+    # A detailed explanation of what type of secret this rule detects.
     attr_accessor :description
 
-    #
+    # The license under which this secret rule is distributed.
     attr_accessor :license
 
-    #
+    # Configuration for validating whether a detected secret is active by making an HTTP request and inspecting the response.
     attr_accessor :match_validation
 
-    #
+    # The unique name of the secret detection rule.
     attr_accessor :name
 
-    #
+    # The regular expression pattern used to identify potential secrets in source code or configuration.
     attr_accessor :pattern
 
-    #
+    # The priority level of this rule, used to rank findings when multiple rules match.
     attr_accessor :priority
 
-    #
+    # The identifier of the corresponding Sensitive Data Scanner rule, if one exists.
     attr_accessor :sds_id
 
-    #
+    # A list of validator identifiers used to further confirm a detected secret is genuine.
     attr_accessor :validators
 
     attr_accessor :additional_properties

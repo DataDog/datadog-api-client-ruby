@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # The primary data object in the get-multiple-rulesets request, containing request attributes and resource type.
   class GetMultipleRulesetsRequestData
     include BaseGenericModel
 
-    #
+    # The request attributes for fetching multiple rulesets, specifying which rulesets to retrieve and what data to include.
     attr_accessor :attributes
 
-    #
+    # An optional identifier for the get-multiple-rulesets request resource.
     attr_accessor :id
 
     # Get multiple rulesets request resource type.

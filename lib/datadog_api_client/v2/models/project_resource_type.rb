@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Project resource type
+  # Project resource type.
   class ProjectResourceType
     include BaseEnumModel
 

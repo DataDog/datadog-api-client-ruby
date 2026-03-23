@@ -21,10 +21,10 @@ module DatadogAPIClient::V2
   class AttachmentArray
     include BaseGenericModel
 
-    #
+    # An array of attachment data objects.
     attr_reader :data
 
-    #
+    # A list of related objects included in the response.
     attr_accessor :included
 
     attr_accessor :additional_properties

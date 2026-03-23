@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Relationships to associate with an incident handle in a create or update request.
   class IncidentHandleRelationshipsRequest
     include BaseGenericModel
 
-    #
+    # A single relationship object for an incident handle, wrapping the related resource data.
     attr_accessor :commander_user
 
-    #
+    # A single relationship object for an incident handle, wrapping the related resource data.
     attr_reader :incident_type
 
     attr_accessor :additional_properties

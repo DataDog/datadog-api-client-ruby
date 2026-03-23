@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Response containing a list of OCI tenancy product resources with their product enablement status.
   class TenancyProductsList
     include BaseGenericModel
 
-    #
+    # List of OCI tenancy product resource objects.
     attr_reader :data
 
     attr_accessor :additional_properties

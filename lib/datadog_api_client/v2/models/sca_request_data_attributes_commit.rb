@@ -17,29 +17,29 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Metadata about the commit associated with the SCA scan, including author, committer, and branch information.
   class ScaRequestDataAttributesCommit
     include BaseGenericModel
 
-    #
+    # The date when the commit was authored.
     attr_accessor :author_date
 
-    #
+    # The email address of the commit author.
     attr_accessor :author_email
 
-    #
+    # The full name of the commit author.
     attr_accessor :author_name
 
-    #
+    # The branch name on which the commit was made.
     attr_accessor :branch
 
-    #
+    # The email address of the person who committed the change.
     attr_accessor :committer_email
 
-    #
+    # The full name of the person who committed the change.
     attr_accessor :committer_name
 
-    #
+    # The SHA hash uniquely identifying the commit.
     attr_accessor :sha
 
     attr_accessor :additional_properties

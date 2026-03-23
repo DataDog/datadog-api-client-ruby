@@ -17,35 +17,35 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # The attributes of an SCA request, containing dependency graph data, vulnerability information, and repository context.
   class ScaRequestDataAttributes
     include BaseGenericModel
 
-    #
+    # Metadata about the commit associated with the SCA scan, including author, committer, and branch information.
     attr_accessor :commit
 
-    #
+    # The list of dependencies discovered in the repository.
     attr_accessor :dependencies
 
-    #
+    # The environment context in which the SCA scan was performed (e.g., production, staging).
     attr_accessor :env
 
-    #
+    # The list of dependency manifest files found in the repository.
     attr_accessor :files
 
-    #
+    # The dependency relations describing the inter-component dependency graph.
     attr_accessor :relations
 
-    #
+    # Information about the source code repository being analyzed.
     attr_accessor :repository
 
-    #
+    # The name of the service or application being analyzed.
     attr_accessor :service
 
-    #
+    # A map of key-value tags providing additional metadata for the SCA scan.
     attr_accessor :tags
 
-    #
+    # The list of vulnerabilities identified in the dependency graph.
     attr_accessor :vulnerabilities
 
     attr_accessor :additional_properties

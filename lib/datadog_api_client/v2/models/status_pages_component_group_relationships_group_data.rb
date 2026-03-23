@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # The data object identifying the parent group of a component group.
   class StatusPagesComponentGroupRelationshipsGroupData
     include BaseGenericModel
 
-    #
+    # The ID of the parent group.
     attr_reader :id
 
     # Components resource type.

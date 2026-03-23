@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Relationship to project
+  # Relationship to project.
   class ProjectRelationship
     include BaseGenericModel
 
-    # Relationship to project object
+    # Relationship to project object.
     attr_reader :data
 
     attr_accessor :additional_properties

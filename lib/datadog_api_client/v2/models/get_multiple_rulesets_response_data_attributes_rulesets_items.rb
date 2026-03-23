@@ -17,23 +17,23 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # A ruleset returned in the response, containing its metadata and associated rules.
   class GetMultipleRulesetsResponseDataAttributesRulesetsItems
     include BaseGenericModel
 
-    #
+    # The resource identifier and type for a ruleset.
     attr_reader :data
 
-    #
+    # A detailed description of the ruleset's purpose and the types of issues it targets.
     attr_accessor :description
 
-    #
+    # The unique name of the ruleset.
     attr_accessor :name
 
-    #
+    # The list of static analysis rules included in this ruleset.
     attr_accessor :rules
 
-    #
+    # A brief summary of the ruleset, suitable for display in listings.
     attr_accessor :short_description
 
     attr_accessor :additional_properties

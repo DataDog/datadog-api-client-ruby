@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class FindingCaseResponseArray
     include BaseGenericModel
 
-    #
+    # Array of case response data objects.
     attr_reader :data
 
     attr_accessor :additional_properties

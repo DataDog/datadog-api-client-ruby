@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Data object for a timeseries analytics response.
   class ProductAnalyticsTimeseriesResponseData
     include BaseGenericModel
 
-    #
+    # Attributes of a timeseries analytics response, containing series data, timestamps, and interval definitions.
     attr_accessor :attributes
 
-    #
+    # Unique identifier for this response data object.
     attr_accessor :id
 
-    #
+    # The resource type identifier for a timeseries analytics response.
     attr_accessor :type
 
     attr_accessor :additional_properties

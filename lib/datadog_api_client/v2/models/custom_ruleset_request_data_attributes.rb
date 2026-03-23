@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Attributes for creating or updating a custom ruleset.
   class CustomRulesetRequestDataAttributes
     include BaseGenericModel
 

@@ -21,16 +21,16 @@ module DatadogAPIClient::V2
   class ProductAnalyticsInterval
     include BaseGenericModel
 
-    #
+    # The duration of each time bucket in milliseconds.
     attr_accessor :milliseconds
 
-    #
+    # The start of this interval as an epoch timestamp in milliseconds.
     attr_accessor :start_time
 
-    #
+    # Epoch timestamps (in milliseconds) for each bucket in this interval.
     attr_accessor :times
 
-    #
+    # The interval type (e.g., fixed or auto-computed bucket size).
     attr_accessor :type
 
     attr_accessor :additional_properties

@@ -17,23 +17,23 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # ServiceNow integration settings
+  # ServiceNow integration settings.
   class IntegrationServiceNow
     include BaseGenericModel
 
-    # Assignment group
+    # Assignment group.
     attr_accessor :assignment_group
 
-    #
+    # Auto-creation settings for ServiceNow incidents from cases.
     attr_accessor :auto_creation
 
-    # Whether ServiceNow integration is enabled
+    # Whether ServiceNow integration is enabled.
     attr_accessor :enabled
 
-    # ServiceNow instance name
+    # ServiceNow instance name.
     attr_accessor :instance_name
 
-    #
+    # Synchronization configuration for ServiceNow integration.
     attr_accessor :sync_config
 
     attr_accessor :additional_properties

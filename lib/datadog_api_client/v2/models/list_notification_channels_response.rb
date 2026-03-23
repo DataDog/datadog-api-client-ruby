@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class ListNotificationChannelsResponse
     include BaseGenericModel
 
-    #
+    # Array of notification channel data objects.
     attr_accessor :data
 
     attr_accessor :additional_properties

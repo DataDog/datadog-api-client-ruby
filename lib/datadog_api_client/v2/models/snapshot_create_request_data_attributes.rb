@@ -17,35 +17,35 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Attributes for creating a heatmap snapshot, including the view, session, event, and device context.
   class SnapshotCreateRequestDataAttributes
     include BaseGenericModel
 
-    #
+    # Unique identifier of the RUM application.
     attr_reader :application_id
 
-    #
+    # Device type used when capturing the snapshot (e.g., desktop, mobile, tablet).
     attr_reader :device_type
 
-    #
+    # Unique identifier of the RUM event associated with the snapshot.
     attr_reader :event_id
 
-    #
+    # Indicates whether the device type was explicitly selected by the user rather than auto-detected.
     attr_reader :is_device_type_selected_by_user
 
-    #
+    # Unique identifier of the RUM session associated with the snapshot.
     attr_accessor :session_id
 
-    #
+    # Human-readable name for the snapshot.
     attr_reader :snapshot_name
 
-    #
+    # Offset in milliseconds from the start of the session at which the snapshot was captured.
     attr_reader :start
 
-    #
+    # Unique identifier of the RUM view associated with the snapshot.
     attr_accessor :view_id
 
-    #
+    # URL path or name of the view where the snapshot was captured.
     attr_reader :view_name
 
     attr_accessor :additional_properties

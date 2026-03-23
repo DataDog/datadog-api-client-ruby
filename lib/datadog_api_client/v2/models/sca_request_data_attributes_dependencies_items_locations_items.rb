@@ -17,20 +17,20 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # The source code location where a dependency is declared, including block, name, namespace, and version positions within the file.
   class ScaRequestDataAttributesDependenciesItemsLocationsItems
     include BaseGenericModel
 
-    #
+    # A range within a file defined by a start and end position, along with the file name.
     attr_accessor :block
 
-    #
+    # A range within a file defined by a start and end position, along with the file name.
     attr_accessor :name
 
-    #
+    # A range within a file defined by a start and end position, along with the file name.
     attr_accessor :namespace
 
-    #
+    # A range within a file defined by a start and end position, along with the file name.
     attr_accessor :version
 
     attr_accessor :additional_properties

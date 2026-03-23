@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # The data object for creating a degradation.
   class CreateDegradationRequestData
     include BaseGenericModel
 

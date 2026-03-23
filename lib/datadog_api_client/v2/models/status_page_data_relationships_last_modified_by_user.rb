@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # The Datadog user who last modified the status page.
   class StatusPageDataRelationshipsLastModifiedByUser
     include BaseGenericModel
 
-    #
+    # The data object identifying the Datadog user who last modified the status page.
     attr_reader :data
 
     attr_accessor :additional_properties

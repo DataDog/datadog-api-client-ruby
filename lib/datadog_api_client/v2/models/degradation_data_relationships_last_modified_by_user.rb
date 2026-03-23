@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # The Datadog user who last modified the degradation.
   class DegradationDataRelationshipsLastModifiedByUser
     include BaseGenericModel
 
-    #
+    # The data object identifying the Datadog user who last modified the degradation.
     attr_reader :data
 
     attr_accessor :additional_properties

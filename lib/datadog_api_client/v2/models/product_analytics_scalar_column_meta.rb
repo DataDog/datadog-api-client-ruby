@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Metadata associated with a scalar response column, including optional unit information.
   class ProductAnalyticsScalarColumnMeta
     include BaseGenericModel
 
-    #
+    # Unit definitions for the column values, if applicable.
     attr_accessor :unit
 
     attr_accessor :additional_properties

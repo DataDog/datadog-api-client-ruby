@@ -17,23 +17,23 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Attributes for filtering users by both user properties and event platform activity.
   class QueryEventFilteredUsersRequestDataAttributes
     include BaseGenericModel
 
-    #
+    # Event platform query used to filter users based on their event activity within a specified time window.
     attr_accessor :event_query
 
-    #
+    # Whether to include the total count of matching users in the response.
     attr_accessor :include_row_count
 
-    #
+    # Maximum number of user records to return in the response.
     attr_accessor :limit
 
-    #
+    # Filter expression using user attribute conditions to narrow results.
     attr_accessor :query
 
-    #
+    # List of user attribute column names to include in the response.
     attr_accessor :select_columns
 
     attr_accessor :additional_properties

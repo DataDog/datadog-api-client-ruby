@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # The execution status of a Product Analytics query.
   class ProductAnalyticsResponseMetaStatus
     include BaseEnumModel
 

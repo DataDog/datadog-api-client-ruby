@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class SyntheticsNetworkTestEditRequest
     include BaseGenericModel
 
-    #
+    # Data object for creating or editing a Network Path test.
     attr_reader :data
 
     attr_accessor :additional_properties

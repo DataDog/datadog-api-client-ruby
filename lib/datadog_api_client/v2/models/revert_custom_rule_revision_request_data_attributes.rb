@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Attributes specifying the current and target revision IDs for a revert operation.
   class RevertCustomRuleRevisionRequestDataAttributes
     include BaseGenericModel
 

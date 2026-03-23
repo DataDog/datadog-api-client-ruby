@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Type for the bulk delete Synthetic tests response, `delete_tests`.
   class DeletedTestsResponseType
     include BaseEnumModel
 

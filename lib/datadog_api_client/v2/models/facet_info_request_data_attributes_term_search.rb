@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Term-level search configuration for filtering facet values by an exact or partial term match.
   class FacetInfoRequestDataAttributesTermSearch
     include BaseGenericModel
 
-    #
+    # The term string to match against facet values.
     attr_accessor :value
 
     attr_accessor :additional_properties

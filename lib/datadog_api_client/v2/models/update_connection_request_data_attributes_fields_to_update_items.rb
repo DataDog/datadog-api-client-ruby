@@ -17,23 +17,23 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Specification for updating an existing field in a connection, including which field to modify and the new values.
   class UpdateConnectionRequestDataAttributesFieldsToUpdateItems
     include BaseGenericModel
 
-    #
+    # The identifier of the existing field to update.
     attr_reader :field_id
 
-    #
+    # The new description to set for the field.
     attr_accessor :updated_description
 
-    #
+    # The new human-readable display name to set for the field.
     attr_accessor :updated_display_name
 
-    #
+    # The new identifier to assign to the field, if renaming it.
     attr_accessor :updated_field_id
 
-    #
+    # The updated list of group labels to associate with the field.
     attr_accessor :updated_groups
 
     attr_accessor :additional_properties

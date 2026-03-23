@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Attributes for a bulk delete Synthetic tests request.
   class DeletedTestsRequestDeleteAttributes
     include BaseGenericModel
 
-    #
+    # Whether to force deletion of tests that have dependent resources.
     attr_accessor :force_delete_dependencies
 
-    #
+    # List of public IDs of the Synthetic tests to delete.
     attr_reader :public_ids
 
     attr_accessor :additional_properties

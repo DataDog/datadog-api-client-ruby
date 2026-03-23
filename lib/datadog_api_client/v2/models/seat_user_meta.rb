@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Pagination metadata for the seat users list response.
   class SeatUserMeta
     include BaseGenericModel
 

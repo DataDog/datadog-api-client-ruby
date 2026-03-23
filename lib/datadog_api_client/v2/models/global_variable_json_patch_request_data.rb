@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Data object for a JSON Patch request on a Synthetic global variable.
   class GlobalVariableJsonPatchRequestData
     include BaseGenericModel
 
-    #
+    # Attributes for a JSON Patch request on a Synthetic global variable.
     attr_accessor :attributes
 
     # Global variable JSON Patch type.

@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Response object containing an array of entity data items.
   class EntityResponseArray
     include BaseGenericModel
 
-    #
+    # Array of entity response data items.
     attr_reader :data
 
     attr_accessor :additional_properties

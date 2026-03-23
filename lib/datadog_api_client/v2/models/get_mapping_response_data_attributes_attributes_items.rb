@@ -17,26 +17,26 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Details of a single entity attribute including its mapping configuration and metadata.
   class GetMappingResponseDataAttributesAttributesItems
     include BaseGenericModel
 
-    #
+    # The attribute identifier as used in the entity data model.
     attr_accessor :attribute
 
-    #
+    # Human-readable explanation of what the attribute represents.
     attr_accessor :description
 
-    #
+    # The human-readable label for the attribute shown in the UI.
     attr_accessor :display_name
 
-    #
+    # List of group labels used to categorize the attribute.
     attr_accessor :groups
 
-    #
+    # Whether this attribute is a custom user-defined attribute rather than a built-in one.
     attr_accessor :is_custom
 
-    #
+    # The data type of the attribute (for example, string or number).
     attr_accessor :type
 
     attr_accessor :additional_properties

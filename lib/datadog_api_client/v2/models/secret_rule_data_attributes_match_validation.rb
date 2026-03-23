@@ -17,32 +17,32 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Configuration for validating whether a detected secret is active by making an HTTP request and inspecting the response.
   class SecretRuleDataAttributesMatchValidation
     include BaseGenericModel
 
-    #
+    # The URL endpoint to call when validating a detected secret.
     attr_accessor :endpoint
 
-    #
+    # The list of hostnames to include when performing secret match validation.
     attr_accessor :hosts
 
-    #
+    # The HTTP method (e.g., GET, POST) to use when making the validation request.
     attr_accessor :http_method
 
-    #
+    # The HTTP status code ranges that indicate the detected secret is invalid or inactive.
     attr_accessor :invalid_http_status_code
 
-    #
+    # A map of HTTP header names to values to include in the validation request.
     attr_accessor :request_headers
 
-    #
+    # The maximum number of seconds to wait for a response during validation before timing out.
     attr_reader :timeout_seconds
 
-    #
+    # The type of match validation to perform (e.g., http).
     attr_accessor :type
 
-    #
+    # The HTTP status code ranges that indicate the detected secret is valid and active.
     attr_accessor :valid_http_status_code
 
     attr_accessor :additional_properties

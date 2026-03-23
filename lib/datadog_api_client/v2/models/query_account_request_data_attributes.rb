@@ -17,23 +17,23 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Attributes for filtering and shaping the account query results.
   class QueryAccountRequestDataAttributes
     include BaseGenericModel
 
-    #
+    # Maximum number of account records to return in the response.
     attr_accessor :limit
 
-    #
+    # Filter expression using account attribute conditions to narrow results.
     attr_accessor :query
 
-    #
+    # List of account attribute column names to include in the response.
     attr_accessor :select_columns
 
-    #
+    # Sorting configuration specifying the field and direction for ordering query results.
     attr_accessor :sort
 
-    #
+    # Free-text term used for wildcard search across account attribute values.
     attr_accessor :wildcard_search_term
 
     attr_accessor :additional_properties

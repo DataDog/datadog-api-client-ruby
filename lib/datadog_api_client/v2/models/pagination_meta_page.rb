@@ -42,7 +42,7 @@ module DatadogAPIClient::V2
     # Integer representing the total number of elements available.
     attr_accessor :total
 
-    #
+    # The pagination type used for offset-based pagination.
     attr_accessor :type
 
     attr_accessor :additional_properties

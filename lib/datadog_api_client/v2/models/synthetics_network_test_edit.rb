@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Data object for creating or editing a Network Path test.
   class SyntheticsNetworkTestEdit
     include BaseGenericModel
 

@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Attributes of the assign seats response, including the list of users assigned and the product code.
   class AssignSeatsUserResponseDataAttributes
     include BaseGenericModel
 

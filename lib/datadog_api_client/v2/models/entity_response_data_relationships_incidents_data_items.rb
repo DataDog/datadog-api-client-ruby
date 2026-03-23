@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Incident relationship data item containing the incident resource identifier and type.
   class EntityResponseDataRelationshipsIncidentsDataItems
     include BaseGenericModel
 
-    #
+    # Incident resource unique identifier.
     attr_reader :id
 
     # Incident resource type.

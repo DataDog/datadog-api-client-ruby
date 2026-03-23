@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class ProductAnalyticsTimeseriesResponse
     include BaseGenericModel
 
-    #
+    # Data object for a timeseries analytics response.
     attr_accessor :data
 
     # Metadata for a Product Analytics query response.

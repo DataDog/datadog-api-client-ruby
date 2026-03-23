@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # A test case associated with a static analysis rule, containing the source code and expected annotation count.
   class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsTestsItems
     include BaseGenericModel
 
-    #
+    # The expected number of annotations (findings) the rule should produce when run against the test code.
     attr_reader :annotation_count
 
-    #
+    # The source code snippet used as input for the rule test.
     attr_accessor :code
 
-    #
+    # The filename associated with the test code snippet.
     attr_accessor :filename
 
     attr_accessor :additional_properties

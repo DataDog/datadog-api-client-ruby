@@ -21,13 +21,13 @@ module DatadogAPIClient::V2
   class MaintenanceDataRelationships
     include BaseGenericModel
 
-    #
+    # The Datadog user who created the maintenance.
     attr_accessor :created_by_user
 
-    #
+    # The Datadog user who last modified the maintenance.
     attr_accessor :last_modified_by_user
 
-    #
+    # The status page the maintenance belongs to.
     attr_accessor :status_page
 
     attr_accessor :additional_properties

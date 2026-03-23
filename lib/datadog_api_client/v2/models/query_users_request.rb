@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Request body for querying users with optional filtering, column selection, and sorting.
   class QueryUsersRequest
     include BaseGenericModel
 
-    #
+    # The data object containing the resource type and attributes for querying users.
     attr_accessor :data
 
     attr_accessor :additional_properties

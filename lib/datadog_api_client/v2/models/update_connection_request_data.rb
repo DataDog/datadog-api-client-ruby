@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # The data object containing the resource identifier and attributes for updating an existing connection.
   class UpdateConnectionRequestData
     include BaseGenericModel
 
-    #
+    # Attributes specifying the field modifications to apply to an existing connection.
     attr_accessor :attributes
 
-    #
+    # The unique identifier of the connection to update.
     attr_reader :id
 
     # Connection id resource type.

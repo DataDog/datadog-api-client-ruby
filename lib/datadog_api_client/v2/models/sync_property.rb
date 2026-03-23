@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Sync property configuration
+  # Sync property configuration.
   class SyncProperty
     include BaseGenericModel
 
-    #
+    # The direction and type of synchronization for this property.
     attr_accessor :sync_type
 
     attr_accessor :additional_properties

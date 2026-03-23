@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Metrics collection configuration for an OCI tenancy, indicating which compartments and services are included or excluded.
   class TenancyConfigDataAttributesMetricsConfig
     include BaseGenericModel
 
-    #
+    # List of compartment tag filters scoping metrics collection to specific compartments.
     attr_accessor :compartment_tag_filters
 
-    #
+    # Whether metrics collection is enabled for the tenancy.
     attr_accessor :enabled
 
-    #
+    # List of OCI service names excluded from metrics collection.
     attr_accessor :excluded_services
 
     attr_accessor :additional_properties

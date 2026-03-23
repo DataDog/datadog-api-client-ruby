@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # The data object in an SCA request, containing the dependency graph attributes and request type.
   class ScaRequestData
     include BaseGenericModel
 
-    #
+    # The attributes of an SCA request, containing dependency graph data, vulnerability information, and repository context.
     attr_accessor :attributes
 
-    #
+    # An optional identifier for this SCA request data object.
     attr_accessor :id
 
-    #
+    # The type identifier for SCA dependency analysis requests.
     attr_reader :type
 
     attr_accessor :additional_properties

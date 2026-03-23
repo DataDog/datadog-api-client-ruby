@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # An HTTP status code range that indicates an invalid (unsuccessful) secret match during validation.
   class SecretRuleDataAttributesMatchValidationInvalidHttpStatusCodeItems
     include BaseGenericModel
 
-    #
+    # The inclusive upper bound of the HTTP status code range.
     attr_reader :_end
 
-    #
+    # The inclusive lower bound of the HTTP status code range.
     attr_reader :start
 
     attr_accessor :additional_properties

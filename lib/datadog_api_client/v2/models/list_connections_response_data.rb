@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # The data object containing the resource type and attributes for the list connections response.
   class ListConnectionsResponseData
     include BaseGenericModel
 
-    #
+    # Attributes of the list connections response, containing the collection of data source connections.
     attr_accessor :attributes
 
-    #
+    # Unique identifier for the list connections response resource.
     attr_accessor :id
 
     # List connections response resource type.

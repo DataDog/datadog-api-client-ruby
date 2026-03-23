@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class CaseManagementProject
     include BaseGenericModel
 
-    #
+    # Data object representing a case management project.
     attr_reader :data
 
     attr_accessor :additional_properties

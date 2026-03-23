@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Attributes specifying the product and users from whom seats will be unassigned.
   class UnassignSeatsUserRequestDataAttributes
     include BaseGenericModel
 

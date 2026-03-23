@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # A component affected by a degradation.
   class PatchDegradationRequestDataAttributesComponentsAffectedItems
     include BaseGenericModel
 
     # The ID of the component. Must be a component of type `component`.
     attr_reader :id
 
-    #
+    # The name of the component.
     attr_accessor :name
 
     # The status of the component.

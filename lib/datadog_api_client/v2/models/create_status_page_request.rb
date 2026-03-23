@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Request object for creating a status page.
   class CreateStatusPageRequest
     include BaseGenericModel
 
-    #
+    # The data object for creating a status page.
     attr_accessor :data
 
     attr_accessor :additional_properties

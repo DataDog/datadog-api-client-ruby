@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class StatusPagesComponentGroupRelationshipsCreatedByUser
     include BaseGenericModel
 
-    #
+    # The data object identifying the Datadog user who created the component group.
     attr_reader :data
 
     attr_accessor :additional_properties

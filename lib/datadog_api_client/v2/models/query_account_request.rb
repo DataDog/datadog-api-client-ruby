@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Request body for querying accounts with optional filtering, column selection, and sorting.
   class QueryAccountRequest
     include BaseGenericModel
 
-    #
+    # The data object containing the resource type and attributes for querying accounts.
     attr_accessor :data
 
     attr_accessor :additional_properties

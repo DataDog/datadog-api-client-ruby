@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # The data object for creating a new OCI tenancy integration configuration, including the tenancy ID, type, and configuration attributes.
   class CreateTenancyConfigData
     include BaseGenericModel
 
-    #
+    # Attributes for creating a new OCI tenancy integration configuration, including credentials, region settings, and collection options.
     attr_accessor :attributes
 
-    #
+    # The OCID of the OCI tenancy to configure.
     attr_reader :id
 
     # OCI tenancy resource type.

@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # The top-level request object for submitting a Software Composition Analysis (SCA) scan result.
   class ScaRequest
     include BaseGenericModel
 
-    #
+    # The data object in an SCA request, containing the dependency graph attributes and request type.
     attr_accessor :data
 
     attr_accessor :additional_properties

@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # A range within a file defined by a start and end position, along with the file name.
   class ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition
     include BaseGenericModel
 
-    #
+    # A specific position (line and column) within a source file.
     attr_accessor :_end
 
-    #
+    # The name or path of the file containing this location.
     attr_accessor :file_name
 
-    #
+    # A specific position (line and column) within a source file.
     attr_accessor :start
 
     attr_accessor :additional_properties

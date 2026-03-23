@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Request object for creating a maintenance.
   class CreateMaintenanceRequest
     include BaseGenericModel
 
-    #
+    # The data object for creating a maintenance.
     attr_accessor :data
 
     attr_accessor :additional_properties

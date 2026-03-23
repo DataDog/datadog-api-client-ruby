@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # A single heatmap snapshot resource returned by create or update operations.
   class Snapshot
     include BaseGenericModel
 
-    #
+    # Data object representing a heatmap snapshot, including its identifier, type, and attributes.
     attr_accessor :data
 
     attr_accessor :additional_properties

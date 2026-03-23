@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # An included resource related to a status page.
   module StatusPageArrayIncluded
     class << self
       include BaseOneOfModel

@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # The result of resolving vulnerable symbols for a specific package, identified by its PURL.
   class ResolveVulnerableSymbolsResponseResults
     include BaseGenericModel
 
-    #
+    # The Package URL (PURL) uniquely identifying the package for which vulnerable symbols are resolved.
     attr_accessor :purl
 
-    #
+    # The list of vulnerable symbol groups found in this package, organized by advisory.
     attr_accessor :vulnerable_symbols
 
     attr_accessor :additional_properties

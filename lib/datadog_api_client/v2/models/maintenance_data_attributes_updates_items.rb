@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # An update made to a maintenance.
   class MaintenanceDataAttributesUpdatesItems
     include BaseGenericModel
 

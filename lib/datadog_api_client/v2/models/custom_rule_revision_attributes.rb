@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Attributes of a custom rule revision, including code, metadata, and test cases.
   class CustomRuleRevisionAttributes
     include BaseGenericModel
 

@@ -21,13 +21,13 @@ module DatadogAPIClient::V2
   class DegradationDataRelationships
     include BaseGenericModel
 
-    #
+    # The Datadog user who created the degradation.
     attr_accessor :created_by_user
 
-    #
+    # The Datadog user who last modified the degradation.
     attr_accessor :last_modified_by_user
 
-    #
+    # The status page the degradation belongs to.
     attr_accessor :status_page
 
     attr_accessor :additional_properties

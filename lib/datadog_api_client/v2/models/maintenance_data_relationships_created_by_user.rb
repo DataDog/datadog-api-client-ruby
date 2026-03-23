@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # The Datadog user who created the maintenance.
   class MaintenanceDataRelationshipsCreatedByUser
     include BaseGenericModel
 
-    #
+    # The data object identifying the Datadog user who created the maintenance.
     attr_reader :data
 
     attr_accessor :additional_properties

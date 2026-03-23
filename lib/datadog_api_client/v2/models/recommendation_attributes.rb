@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class RecommendationAttributes
     include BaseGenericModel
 
-    #
+    # The confidence level of the recommendation, expressed as a value between 0.0 (low confidence) and 1.0 (high confidence).
     attr_accessor :confidence_level
 
     # Resource recommendation for a single Spark component (driver or executor). Contains estimation data used to patch Spark job specs.

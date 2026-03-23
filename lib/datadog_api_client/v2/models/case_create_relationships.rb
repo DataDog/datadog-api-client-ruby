@@ -24,7 +24,7 @@ module DatadogAPIClient::V2
     # Relationship to user.
     attr_accessor :assignee
 
-    # Relationship to project
+    # Relationship to project.
     attr_reader :project
 
     attr_accessor :additional_properties

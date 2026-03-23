@@ -17,20 +17,20 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Project creation attributes
+  # Project creation attributes.
   class ProjectCreateAttributes
     include BaseGenericModel
 
-    # List of enabled custom case type IDs
+    # List of enabled custom case type IDs.
     attr_accessor :enabled_custom_case_types
 
-    # Project's key. Cannot be "CASE"
+    # Project's key. Cannot be "CASE".
     attr_reader :key
 
-    # Project name
+    # Project name.
     attr_reader :name
 
-    # Team UUID to associate with the project
+    # Team UUID to associate with the project.
     attr_accessor :team_uuid
 
     attr_accessor :additional_properties

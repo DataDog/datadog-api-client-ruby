@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Data object representing an incident handle in a response.
   class IncidentHandleDataResponse
     include BaseGenericModel
 
@@ -27,7 +27,7 @@ module DatadogAPIClient::V2
     # The ID of the incident handle
     attr_reader :id
 
-    #
+    # Relationships associated with an incident handle response, including linked users and incident type.
     attr_accessor :relationships
 
     # Incident handle resource type

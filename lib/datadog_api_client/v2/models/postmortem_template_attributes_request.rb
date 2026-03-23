@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Attributes for creating or updating a postmortem template.
   class PostmortemTemplateAttributesRequest
     include BaseGenericModel
 

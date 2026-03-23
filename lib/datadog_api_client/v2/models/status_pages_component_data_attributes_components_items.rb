@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # A component within a component group.
   class StatusPagesComponentDataAttributesComponentsItems
     include BaseGenericModel
 
-    #
+    # The ID of the component within the group.
     attr_accessor :id
 
-    #
+    # The name of the component within the group.
     attr_accessor :name
 
-    #
+    # The zero-indexed position of the component within the group.
     attr_accessor :position
 
     # The status of the component.

@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # An individual Datadog product with its enablement status for a tenancy.
   class TenancyProductsDataAttributesProductsItems
     include BaseGenericModel
 
-    #
+    # Indicates whether the product is enabled for the tenancy.
     attr_accessor :enabled
 
-    #
+    # The unique key identifying the Datadog product (for example, CLOUD_SECURITY_POSTURE_MANAGEMENT).
     attr_accessor :product_key
 
     attr_accessor :additional_properties

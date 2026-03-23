@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # The request data object containing attributes for unassigning seats from users.
   class UnassignSeatsUserRequestData
     include BaseGenericModel
 
-    #
+    # Attributes specifying the product and users from whom seats will be unassigned.
     attr_reader :attributes
 
     # The ID of the unassign seats user request.

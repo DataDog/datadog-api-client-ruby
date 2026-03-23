@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Attributes of a user assigned to a seat, including their email, name, and assignment timestamp.
   class SeatUserDataAttributes
     include BaseGenericModel
 

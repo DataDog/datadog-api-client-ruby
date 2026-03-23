@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # A named argument for a custom static analysis rule.
   class Argument
     include BaseGenericModel
 

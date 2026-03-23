@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Attributes of an available Datadog Agent version.
   class FleetAgentVersionAttributes
     include BaseGenericModel
 

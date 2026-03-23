@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # A key-value property describing a reachable symbol within a dependency.
   class ScaRequestDataAttributesDependenciesItemsReachableSymbolPropertiesItems
     include BaseGenericModel
 
-    #
+    # The name of the reachable symbol property.
     attr_accessor :name
 
-    #
+    # The value of the reachable symbol property.
     attr_accessor :value
 
     attr_accessor :additional_properties

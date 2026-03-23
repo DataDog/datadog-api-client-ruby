@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class StatusPagesComponentGroupRelationshipsLastModifiedByUser
     include BaseGenericModel
 
-    #
+    # The data object identifying the Datadog user who last modified the component group.
     attr_reader :data
 
     attr_accessor :additional_properties

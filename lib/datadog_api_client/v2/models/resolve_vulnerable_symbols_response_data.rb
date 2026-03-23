@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # The data object in a response for resolving vulnerable symbols, containing the result attributes and response type.
   class ResolveVulnerableSymbolsResponseData
     include BaseGenericModel
 
-    #
+    # The attributes of a response containing resolved vulnerable symbols, organized by package.
     attr_accessor :attributes
 
-    #
+    # The unique identifier for this response data object.
     attr_accessor :id
 
-    #
+    # The type identifier for responses containing resolved vulnerable symbols.
     attr_reader :type
 
     attr_accessor :additional_properties

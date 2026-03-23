@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Request body for retrieving facet value information for a specified attribute with optional filtering.
   class FacetInfoRequest
     include BaseGenericModel
 
-    #
+    # The data object containing the resource type and attributes for the facet info request.
     attr_accessor :data
 
     attr_accessor :additional_properties
