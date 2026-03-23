@@ -17,26 +17,22 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Team sync attributes.
-  class TeamSyncAttributes
+  # Identifies a team or organization hierarchy to include in synchronization.
+  class TeamSyncSelectionStateItem
     include BaseGenericModel
 
-    # How often the sync process should be run. Defaults to `once` when not provided.
-    attr_accessor :frequency
+    # The external identifier for a team or organization in the source platform.
+    attr_reader :external_id
 
-    # Specifies which teams or organizations to sync. When
-    # provided, synchronization is limited to the specified
-    # items and their subtrees.
-    attr_accessor :selection_state
+    # The operation to perform on the selected hierarchy.
+    # When set to `include`, synchronization covers the
+    # referenced teams or organizations.
+    attr_accessor :operation
 
-    # The external source platform for team synchronization. Only "github" is supported.
-    attr_reader :source
-
-    # Whether to sync members from the external team to the Datadog team. Defaults to `false` when not provided.
-    attr_accessor :sync_membership
-
-    # The type of synchronization operation. "link" connects teams by matching names. "provision" creates new teams when no match is found.
-    attr_reader :type
+    # The scope of the selection. When set to `subtree`,
+    # synchronization includes the referenced team or
+    # organization and everything nested under it.
+    attr_accessor :scope
 
     attr_accessor :additional_properties
 
@@ -44,11 +40,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'frequency' => :'frequency',
-        :'selection_state' => :'selection_state',
-        :'source' => :'source',
-        :'sync_membership' => :'sync_membership',
-        :'type' => :'type'
+        :'external_id' => :'external_id',
+        :'operation' => :'operation',
+        :'scope' => :'scope'
       }
     end
 
@@ -56,11 +50,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'frequency' => :'TeamSyncAttributesFrequency',
-        :'selection_state' => :'Array<TeamSyncSelectionStateItem>',
-        :'source' => :'TeamSyncAttributesSource',
-        :'sync_membership' => :'Boolean',
-        :'type' => :'TeamSyncAttributesType'
+        :'external_id' => :'TeamSyncSelectionStateExternalId',
+        :'operation' => :'TeamSyncSelectionStateOperation',
+        :'scope' => :'TeamSyncSelectionStateScope'
       }
     end
 
@@ -69,7 +61,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TeamSyncAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::TeamSyncSelectionStateItem` initialize method"
       end
 
       self.additional_properties = {}
@@ -82,26 +74,16 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'frequency')
-        self.frequency = attributes[:'frequency']
+      if attributes.key?(:'external_id')
+        self.external_id = attributes[:'external_id']
       end
 
-      if attributes.key?(:'selection_state')
-        if (value = attributes[:'selection_state']).is_a?(Array)
-          self.selection_state = value
-        end
+      if attributes.key?(:'operation')
+        self.operation = attributes[:'operation']
       end
 
-      if attributes.key?(:'source')
-        self.source = attributes[:'source']
-      end
-
-      if attributes.key?(:'sync_membership')
-        self.sync_membership = attributes[:'sync_membership']
-      end
-
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
+      if attributes.key?(:'scope')
+        self.scope = attributes[:'scope']
       end
     end
 
@@ -109,29 +91,18 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @source.nil?
-      return false if @type.nil?
+      return false if @external_id.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param source [Object] Object to be assigned
+    # @param external_id [Object] Object to be assigned
     # @!visibility private
-    def source=(source)
-      if source.nil?
-        fail ArgumentError, 'invalid value for "source", source cannot be nil.'
+    def external_id=(external_id)
+      if external_id.nil?
+        fail ArgumentError, 'invalid value for "external_id", external_id cannot be nil.'
       end
-      @source = source
-    end
-
-    # Custom attribute writer method with validation
-    # @param type [Object] Object to be assigned
-    # @!visibility private
-    def type=(type)
-      if type.nil?
-        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
-      end
-      @type = type
+      @external_id = external_id
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -160,11 +131,9 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          frequency == o.frequency &&
-          selection_state == o.selection_state &&
-          source == o.source &&
-          sync_membership == o.sync_membership &&
-          type == o.type &&
+          external_id == o.external_id &&
+          operation == o.operation &&
+          scope == o.scope &&
           additional_properties == o.additional_properties
     end
 
@@ -172,7 +141,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [frequency, selection_state, source, sync_membership, type, additional_properties].hash
+      [external_id, operation, scope, additional_properties].hash
     end
   end
 end

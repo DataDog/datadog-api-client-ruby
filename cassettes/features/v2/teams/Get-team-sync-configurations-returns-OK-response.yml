@@ -1,0 +1,20 @@
+http_interactions:
+- recorded_at: Wed, 04 Mar 2026 16:01:00 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+    method: GET
+    uri: https://api.datadoghq.com/api/v2/team/sync?filter%5Bsource%5D=github
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"3d33cc55-aea4-4801-bb75-139d347298c9","type":"team_sync_bulk","attributes":{"frequency":"once","selection_state":[{"external_id":{"type":"organization","value":"1"},"operation":"include","scope":"subtree"}],"source":"github","sync_membership":false,"type":"link"}}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 200
+      message: OK
+recorded_with: VCR 6.0.0
