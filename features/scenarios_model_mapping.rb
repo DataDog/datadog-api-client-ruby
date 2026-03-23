@@ -2025,6 +2025,10 @@ ScenariosModelMappings = {
     "v2.CancelDataDeletionRequest" => {
             "id" => "String",
     },
+    "v2.ListDeploymentGates" => {
+            "page_cursor" => "String",
+            "page_size" => "Integer",
+    },
     "v2.CreateDeploymentGate" => {
             "body" => "CreateDeploymentGateParams",
     },
@@ -2057,6 +2061,12 @@ ScenariosModelMappings = {
     "v2.UpdateDeploymentGate" => {
             "id" => "String",
             "body" => "UpdateDeploymentGateParams",
+    },
+    "v2.TriggerDeploymentGatesEvaluation" => {
+            "body" => "DeploymentGatesEvaluationRequest",
+    },
+    "v2.GetDeploymentGatesEvaluationResult" => {
+            "id" => "UUID",
     },
     "v2.PatchDomainAllowlist" => {
             "body" => "DomainAllowlistRequest",

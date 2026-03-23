@@ -463,6 +463,81 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get a deployment gate evaluation result.
+    #
+    # @see #get_deployment_gates_evaluation_result_with_http_info
+    def get_deployment_gates_evaluation_result(id, opts = {})
+      data, _status_code, _headers = get_deployment_gates_evaluation_result_with_http_info(id, opts)
+      data
+    end
+
+    # Get a deployment gate evaluation result.
+    #
+    # Retrieves the result of a deployment gate evaluation by its evaluation ID.
+    # If the evaluation is still in progress, `data.attributes.gate_status` will be `in_progress`;
+    # continue polling until it returns `pass` or `fail`.
+    # Polling every 10-20 seconds is recommended.
+    # The endpoint may return a 404 if called too soon after triggering; retry after a few seconds.
+    #
+    # @param id [UUID] The evaluation ID returned by the trigger endpoint.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(DeploymentGatesEvaluationResultResponse, Integer, Hash)>] DeploymentGatesEvaluationResultResponse data, response status code and response headers
+    def get_deployment_gates_evaluation_result_with_http_info(id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_deployment_gates_evaluation_result".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_deployment_gates_evaluation_result")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_deployment_gates_evaluation_result"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DeploymentGatesAPI.get_deployment_gates_evaluation_result ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling DeploymentGatesAPI.get_deployment_gates_evaluation_result"
+      end
+      # resource path
+      local_var_path = '/api/v2/deployments/gates/evaluation/{id}'.sub('{id}', CGI.escape(id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DeploymentGatesEvaluationResultResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_deployment_gates_evaluation_result,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DeploymentGatesAPI#get_deployment_gates_evaluation_result\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get deployment rule.
     #
     # @see #get_deployment_rule_with_http_info
@@ -535,6 +610,158 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: DeploymentGatesAPI#get_deployment_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get all deployment gates.
+    #
+    # @see #list_deployment_gates_with_http_info
+    def list_deployment_gates(opts = {})
+      data, _status_code, _headers = list_deployment_gates_with_http_info(opts)
+      data
+    end
+
+    # Get all deployment gates.
+    #
+    # Returns a paginated list of all deployment gates for the organization.
+    # Use `page[cursor]` and `page[size]` query parameters to paginate through results.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :page_cursor Cursor for pagination. Use the `meta.page.next_cursor` value from the previous response.
+    # @option opts [Integer] :page_size Number of results per page. Defaults to 50. Must be between 1 and 1000.
+    # @return [Array<(DeploymentGatesListResponse, Integer, Hash)>] DeploymentGatesListResponse data, response status code and response headers
+    def list_deployment_gates_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_deployment_gates".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_deployment_gates")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_deployment_gates"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DeploymentGatesAPI.list_deployment_gates ...'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] > 1000
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling DeploymentGatesAPI.list_deployment_gates, must be smaller than or equal to 1000.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling DeploymentGatesAPI.list_deployment_gates, must be greater than or equal to 1.'
+      end
+      # resource path
+      local_var_path = '/api/v2/deployment_gates'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'page[cursor]'] = opts[:'page_cursor'] if !opts[:'page_cursor'].nil?
+      query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DeploymentGatesListResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :list_deployment_gates,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DeploymentGatesAPI#list_deployment_gates\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Trigger a deployment gate evaluation.
+    #
+    # @see #trigger_deployment_gates_evaluation_with_http_info
+    def trigger_deployment_gates_evaluation(body, opts = {})
+      data, _status_code, _headers = trigger_deployment_gates_evaluation_with_http_info(body, opts)
+      data
+    end
+
+    # Trigger a deployment gate evaluation.
+    #
+    # Triggers an asynchronous deployment gate evaluation for the given service and environment.
+    # Returns an evaluation ID that can be used to poll for the result via the
+    # `GET /api/v2/deployments/gates/evaluation/{id}` endpoint.
+    #
+    # @param body [DeploymentGatesEvaluationRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(DeploymentGatesEvaluationResponse, Integer, Hash)>] DeploymentGatesEvaluationResponse data, response status code and response headers
+    def trigger_deployment_gates_evaluation_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.trigger_deployment_gates_evaluation".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.trigger_deployment_gates_evaluation")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.trigger_deployment_gates_evaluation"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DeploymentGatesAPI.trigger_deployment_gates_evaluation ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling DeploymentGatesAPI.trigger_deployment_gates_evaluation"
+      end
+      # resource path
+      local_var_path = '/api/v2/deployments/gates/evaluation'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DeploymentGatesEvaluationResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :trigger_deployment_gates_evaluation,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DeploymentGatesAPI#trigger_deployment_gates_evaluation\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
