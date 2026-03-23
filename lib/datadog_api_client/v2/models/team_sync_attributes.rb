@@ -24,11 +24,6 @@ module DatadogAPIClient::V2
     # How often the sync process should be run. Defaults to `once` when not provided.
     attr_accessor :frequency
 
-    # Specifies which teams or organizations to sync. When
-    # provided, synchronization is limited to the specified
-    # items and their subtrees.
-    attr_accessor :selection_state
-
     # The external source platform for team synchronization. Only "github" is supported.
     attr_reader :source
 
@@ -45,7 +40,6 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'frequency' => :'frequency',
-        :'selection_state' => :'selection_state',
         :'source' => :'source',
         :'sync_membership' => :'sync_membership',
         :'type' => :'type'
@@ -57,7 +51,6 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'frequency' => :'TeamSyncAttributesFrequency',
-        :'selection_state' => :'Array<TeamSyncSelectionStateItem>',
         :'source' => :'TeamSyncAttributesSource',
         :'sync_membership' => :'Boolean',
         :'type' => :'TeamSyncAttributesType'
@@ -84,12 +77,6 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'frequency')
         self.frequency = attributes[:'frequency']
-      end
-
-      if attributes.key?(:'selection_state')
-        if (value = attributes[:'selection_state']).is_a?(Array)
-          self.selection_state = value
-        end
       end
 
       if attributes.key?(:'source')
@@ -161,7 +148,6 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           frequency == o.frequency &&
-          selection_state == o.selection_state &&
           source == o.source &&
           sync_membership == o.sync_membership &&
           type == o.type &&
@@ -172,7 +158,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [frequency, selection_state, source, sync_membership, type, additional_properties].hash
+      [frequency, source, sync_membership, type, additional_properties].hash
     end
   end
 end

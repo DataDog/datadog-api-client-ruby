@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Wed, 04 Mar 2026 16:01:34 GMT
+- recorded_at: Fri, 15 Aug 2025 17:48:19 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"selection_state":[{"external_id":{"type":"organization","value":"1"}}],"source":"github","type":"link"},"type":"team_sync_bulk"}}'
+      string: '{"data":{"attributes":{"source":"github","type":"link"},"type":"team_sync_bulk"}}'
     headers:
       Accept:
       - '*/*'
@@ -15,8 +15,10 @@ http_interactions:
     body:
       encoding: UTF-8
       string: ''
-    headers: {}
+    headers:
+      Content-Type:
+      - text/plain
     status:
-      code: 204
-      message: No Content
+      code: 200
+      message: OK
 recorded_with: VCR 6.0.0
