@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Log collection configuration for an OCI tenancy, controlling which compartments and services have log collection enabled.
   class CreateTenancyConfigDataAttributesLogsConfig
     include BaseGenericModel
 
-    #
+    # List of compartment tag filters to scope log collection to specific compartments.
     attr_accessor :compartment_tag_filters
 
-    #
+    # Whether log collection is enabled for the tenancy.
     attr_accessor :enabled
 
-    #
+    # List of OCI service names for which log collection is enabled.
     attr_accessor :enabled_services
 
     attr_accessor :additional_properties

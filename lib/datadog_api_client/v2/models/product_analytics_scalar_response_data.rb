@@ -21,13 +21,13 @@ module DatadogAPIClient::V2
   class ProductAnalyticsScalarResponseData
     include BaseGenericModel
 
-    #
+    # Attributes of a scalar analytics response, containing the result columns.
     attr_accessor :attributes
 
-    #
+    # Unique identifier for this response data object.
     attr_accessor :id
 
-    #
+    # The resource type identifier for a scalar analytics response.
     attr_accessor :type
 
     attr_accessor :additional_properties

@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # The request body for assigning seats to users for a product code.
   class AssignSeatsUserRequest
     include BaseGenericModel
 
-    #
+    # The request data object containing attributes for assigning seats to users.
     attr_accessor :data
 
     attr_accessor :additional_properties

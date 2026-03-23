@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Attributes specifying the field modifications to apply to an existing connection.
   class UpdateConnectionRequestDataAttributes
     include BaseGenericModel
 
-    #
+    # New fields to add to the connection from the data source.
     attr_accessor :fields_to_add
 
-    #
+    # Identifiers of existing fields to remove from the connection.
     attr_accessor :fields_to_delete
 
-    #
+    # Existing fields with updated metadata to apply to the connection.
     attr_accessor :fields_to_update
 
     attr_accessor :additional_properties

@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Attributes of a session within a playlist, including the session event data and its replay track.
   class PlaylistsSessionDataAttributes
     include BaseGenericModel
 
-    #
+    # Raw event data associated with the replay session.
     attr_accessor :session_event
 
-    #
+    # Replay track identifier indicating which recording track the session belongs to.
     attr_accessor :track
 
     attr_accessor :additional_properties

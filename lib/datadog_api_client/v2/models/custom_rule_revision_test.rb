@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # A test case associated with a custom rule revision, used to validate rule behavior.
   class CustomRuleRevisionTest
     include BaseGenericModel
 

@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # The response body returned after successfully assigning seats to users.
   class AssignSeatsUserResponse
     include BaseGenericModel
 
-    #
+    # The response data object containing attributes of the seat assignment result.
     attr_accessor :data
 
     attr_accessor :additional_properties

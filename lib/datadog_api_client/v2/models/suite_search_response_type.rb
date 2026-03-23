@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Type for the Synthetics suites search response, `suites_search`.
   class SuiteSearchResponseType
     include BaseEnumModel
 

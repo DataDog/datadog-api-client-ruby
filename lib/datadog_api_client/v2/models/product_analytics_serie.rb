@@ -21,13 +21,13 @@ module DatadogAPIClient::V2
   class ProductAnalyticsSerie
     include BaseGenericModel
 
-    #
+    # The group-by tag values that identify this series.
     attr_accessor :group_tags
 
-    #
+    # The index of the query that produced this series.
     attr_accessor :query_index
 
-    #
+    # Unit definitions for the series values.
     attr_accessor :unit
 
     attr_accessor :additional_properties

@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # A single facet value with its occurrence count in the dataset.
   class FacetInfoResponseDataAttributesResultValuesItems
     include BaseGenericModel
 
-    #
+    # The number of records that have this facet value.
     attr_accessor :count
 
-    #
+    # The facet value (for example, a browser name or country code).
     attr_accessor :value
 
     attr_accessor :additional_properties

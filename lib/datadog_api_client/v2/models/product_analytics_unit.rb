@@ -21,22 +21,22 @@ module DatadogAPIClient::V2
   class ProductAnalyticsUnit
     include BaseGenericModel
 
-    #
+    # The unit family (e.g., time, bytes).
     attr_accessor :family
 
-    #
+    # Numeric identifier for the unit.
     attr_accessor :id
 
-    #
+    # The full name of the unit (e.g., nanosecond).
     attr_accessor :name
 
-    #
+    # Plural form of the unit name (e.g., nanoseconds).
     attr_accessor :plural
 
-    #
+    # Conversion factor relative to the base unit of the family.
     attr_accessor :scale_factor
 
-    #
+    # Abbreviated unit name (e.g., ns).
     attr_accessor :short_name
 
     attr_accessor :additional_properties

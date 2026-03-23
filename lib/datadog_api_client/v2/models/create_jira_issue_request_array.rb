@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class CreateJiraIssueRequestArray
     include BaseGenericModel
 
-    #
+    # Array of Jira issue creation request data objects.
     attr_reader :data
 
     attr_accessor :additional_properties

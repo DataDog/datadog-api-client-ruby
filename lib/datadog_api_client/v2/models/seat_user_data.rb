@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # A seat user resource object containing its ID, type, and associated attributes.
   class SeatUserData
     include BaseGenericModel
 
-    #
+    # Attributes of a user assigned to a seat, including their email, name, and assignment timestamp.
     attr_accessor :attributes
 
     # The ID of the seat user.

@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Response object for a single maintenance.
   class Maintenance
     include BaseGenericModel
 
-    #
+    # The data object for a maintenance.
     attr_accessor :data
 
     # The included related resources of a maintenance. Client must explicitly request these resources by name in the `include` query parameter.

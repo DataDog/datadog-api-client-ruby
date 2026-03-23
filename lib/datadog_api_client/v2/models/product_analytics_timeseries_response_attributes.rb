@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Attributes of a timeseries analytics response, containing series data, timestamps, and interval definitions.
   class ProductAnalyticsTimeseriesResponseAttributes
     include BaseGenericModel
 
-    #
+    # Interval definitions describing the time buckets used in the response.
     attr_accessor :intervals
 
-    #
+    # The list of series, each corresponding to a query or group-by combination.
     attr_accessor :series
 
     # Timestamps for each data point (epoch milliseconds).

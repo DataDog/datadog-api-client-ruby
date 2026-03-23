@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Attributes of the facet info response, containing the facet result data.
   class FacetInfoResponseDataAttributes
     include BaseGenericModel
 
-    #
+    # The facet query result containing discrete value counts or a numeric range for the requested facet.
     attr_accessor :result
 
     attr_accessor :additional_properties

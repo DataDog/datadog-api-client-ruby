@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # The pagination type used for offset-based pagination.
   class PaginationMetaPageType
     include BaseEnumModel
 

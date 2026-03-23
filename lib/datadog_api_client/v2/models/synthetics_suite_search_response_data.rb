@@ -24,10 +24,10 @@ module DatadogAPIClient::V2
     # Synthetics suite search response data attributes
     attr_accessor :attributes
 
-    #
+    # The unique identifier of the suite search response data.
     attr_accessor :id
 
-    #
+    # Type for the Synthetics suites search response, `suites_search`.
     attr_accessor :type
 
     attr_accessor :additional_properties

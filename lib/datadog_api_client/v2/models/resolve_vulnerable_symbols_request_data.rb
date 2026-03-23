@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # The data object in a request to resolve vulnerable symbols, containing the package PURLs and request type.
   class ResolveVulnerableSymbolsRequestData
     include BaseGenericModel
 
-    #
+    # The attributes of a request to resolve vulnerable symbols, containing the list of package PURLs to check.
     attr_accessor :attributes
 
-    #
+    # An optional identifier for this request data object.
     attr_accessor :id
 
-    #
+    # The type identifier for requests to resolve vulnerable symbols.
     attr_reader :type
 
     attr_accessor :additional_properties

@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Auto-transition assigned cases settings
+  # Auto-transition assigned cases settings.
   class AutoTransitionAssignedCases
     include BaseGenericModel
 
-    # Whether to auto-transition cases when self-assigned
+    # Whether to auto-transition cases when self-assigned.
     attr_accessor :auto_transition_assigned_cases_on_self_assigned
 
     attr_accessor :additional_properties

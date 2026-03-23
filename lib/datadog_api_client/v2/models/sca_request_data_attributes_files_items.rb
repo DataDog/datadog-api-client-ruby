@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # A file entry in the repository associated with a dependency manifest.
   class ScaRequestDataAttributesFilesItems
     include BaseGenericModel
 
-    #
+    # The name or path of the file within the repository.
     attr_accessor :name
 
-    #
+    # The Package URL (PURL) associated with the dependency declared in this file.
     attr_accessor :purl
 
     attr_accessor :additional_properties

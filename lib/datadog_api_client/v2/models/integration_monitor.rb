@@ -17,20 +17,20 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Monitor integration settings
+  # Monitor integration settings.
   class IntegrationMonitor
     include BaseGenericModel
 
-    # Whether auto-resolve is enabled
+    # Whether auto-resolve is enabled.
     attr_accessor :auto_resolve_enabled
 
-    # Case type ID for monitor integration
+    # Case type ID for monitor integration.
     attr_accessor :case_type_id
 
-    # Whether monitor integration is enabled
+    # Whether monitor integration is enabled.
     attr_accessor :enabled
 
-    # Monitor handle
+    # Monitor handle.
     attr_accessor :handle
 
     attr_accessor :additional_properties

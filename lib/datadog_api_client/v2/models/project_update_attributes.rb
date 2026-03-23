@@ -17,23 +17,23 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Project update attributes
+  # Project update attributes.
   class ProjectUpdateAttributes
     include BaseGenericModel
 
-    # Project columns configuration
+    # Project columns configuration.
     attr_accessor :columns_config
 
-    # List of enabled custom case type IDs
+    # List of enabled custom case type IDs.
     attr_accessor :enabled_custom_case_types
 
-    # Project name
+    # Project name.
     attr_accessor :name
 
-    # Project settings
+    # Project settings.
     attr_accessor :settings
 
-    # Team UUID to associate with the project
+    # Team UUID to associate with the project.
     attr_accessor :team_uuid
 
     attr_accessor :additional_properties

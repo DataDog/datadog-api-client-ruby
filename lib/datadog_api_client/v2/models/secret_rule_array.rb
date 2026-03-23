@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # A collection of secret detection rules returned by the list endpoint.
   class SecretRuleArray
     include BaseGenericModel
 
-    #
+    # The list of secret detection rules.
     attr_reader :data
 
     attr_accessor :additional_properties

@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # A paginated list of seat user resources with associated pagination metadata.
   class SeatUserDataArray
     include BaseGenericModel
 
     # The list of seat users.
     attr_accessor :data
 
-    #
+    # Pagination metadata for the seat users list response.
     attr_accessor :meta
 
     attr_accessor :additional_properties

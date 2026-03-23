@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Response containing a single custom rule.
   class CustomRuleResponse
     include BaseGenericModel
 
-    #
+    # Data object returned in a custom rule response, including its ID, type, and attributes.
     attr_reader :data
 
     attr_accessor :additional_properties

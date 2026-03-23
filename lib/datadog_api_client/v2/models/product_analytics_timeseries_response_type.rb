@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # The resource type identifier for a timeseries analytics response.
   class ProductAnalyticsTimeseriesResponseType
     include BaseEnumModel
 

@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # A specific position (line and column) within a source file.
   class ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition
     include BaseGenericModel
 
-    #
+    # The column number of the position within the line.
     attr_reader :col
 
-    #
+    # The line number of the position within the file.
     attr_reader :line
 
     attr_accessor :additional_properties

@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # A tag filter used to scope a budget entry to specific resource tags.
   class BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems
     include BaseGenericModel
 
-    #
+    # The tag key to filter on.
     attr_accessor :tag_key
 
-    #
+    # The tag value to filter on.
     attr_accessor :tag_value
 
     attr_accessor :additional_properties

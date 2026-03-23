@@ -17,83 +17,83 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # A static analysis rule within a ruleset, including its definition, metadata, and associated test cases.
   class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems
     include BaseGenericModel
 
-    #
+    # The list of configurable arguments accepted by this rule.
     attr_accessor :arguments
 
-    #
+    # The category classifying the type of issue this rule detects (e.g., security, style, performance).
     attr_accessor :category
 
-    #
+    # A checksum of the rule definition used to detect changes.
     attr_accessor :checksum
 
-    #
+    # The rule implementation code used by the static analysis engine.
     attr_accessor :code
 
-    #
+    # The date and time when the rule was created.
     attr_accessor :created_at
 
-    #
+    # The identifier of the user or system that created the rule.
     attr_accessor :created_by
 
-    #
+    # The CVE identifier associated with the vulnerability this rule detects, if applicable.
     attr_accessor :cve
 
-    #
+    # The CWE identifier associated with the weakness category this rule detects, if applicable.
     attr_accessor :cwe
 
-    #
+    # The resource identifier and type for a static analysis rule.
     attr_reader :data
 
-    #
+    # A detailed explanation of what the rule detects and why it matters.
     attr_accessor :description
 
-    #
+    # A URL pointing to additional documentation for this rule.
     attr_accessor :documentation_url
 
-    #
+    # The code entity type (e.g., function, class, variable) that this rule inspects.
     attr_accessor :entity_checked
 
-    #
+    # Indicates whether the rule is publicly published and available to all users.
     attr_accessor :is_published
 
-    #
+    # Indicates whether the rule is in testing mode and not yet promoted to production.
     attr_accessor :is_testing
 
-    #
+    # The programming language this rule applies to.
     attr_accessor :language
 
-    #
+    # The date and time when the rule was last modified.
     attr_accessor :last_updated_at
 
-    #
+    # The identifier of the user or system that last updated the rule.
     attr_accessor :last_updated_by
 
-    #
+    # The unique name identifying this rule within its ruleset.
     attr_accessor :name
 
-    #
+    # A regular expression pattern used by the rule for pattern-based detection.
     attr_accessor :regex
 
-    #
+    # The severity level of findings produced by this rule (e.g., ERROR, WARNING, NOTICE).
     attr_accessor :severity
 
-    #
+    # A brief summary of what the rule detects, suitable for display in listings.
     attr_accessor :short_description
 
-    #
+    # Indicates whether an AI-generated fix suggestion should be offered for findings from this rule.
     attr_accessor :should_use_ai_fix
 
-    #
+    # The list of test cases used to validate the rule's behavior.
     attr_accessor :tests
 
-    #
+    # The Tree-sitter query expression used by the rule to match code patterns in the AST.
     attr_accessor :tree_sitter_query
 
-    #
+    # The rule type indicating the detection mechanism used (e.g., tree_sitter, regex).
     attr_accessor :type
 
     attr_accessor :additional_properties

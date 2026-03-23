@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Region configuration for an OCI tenancy, indicating which regions are available, enabled, or disabled for data collection.
   class TenancyConfigDataAttributesRegionsConfig
     include BaseGenericModel
 
-    #
+    # List of OCI regions available for data collection in the tenancy.
     attr_accessor :available
 
-    #
+    # List of OCI regions explicitly disabled for data collection.
     attr_accessor :disabled
 
-    #
+    # List of OCI regions enabled for data collection.
     attr_accessor :enabled
 
     attr_accessor :additional_properties

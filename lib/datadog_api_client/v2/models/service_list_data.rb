@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # A single data item in the service list response.
   class ServiceListData
     include BaseGenericModel
 
-    #
+    # Attributes of a service list entry, containing metadata and a list of service names.
     attr_accessor :attributes
 
-    #
+    # The unique identifier of the service.
     attr_accessor :id
 
     # Services list resource type.

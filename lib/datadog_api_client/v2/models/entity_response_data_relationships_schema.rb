@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Schema relationship linking an entity to its associated schema resource.
   class EntityResponseDataRelationshipsSchema
     include BaseGenericModel
 
-    #
+    # Schema relationship data containing the schema resource identifier and type.
     attr_reader :data
 
     attr_accessor :additional_properties

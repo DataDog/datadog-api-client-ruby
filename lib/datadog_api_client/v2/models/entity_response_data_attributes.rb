@@ -17,35 +17,35 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Entity response attributes containing core entity metadata fields.
   class EntityResponseDataAttributes
     include BaseGenericModel
 
-    #
+    # The API version of the entity schema.
     attr_accessor :api_version
 
-    #
+    # A short description of the entity.
     attr_accessor :description
 
-    #
+    # The user-friendly display name of the entity.
     attr_accessor :display_name
 
-    #
+    # The kind of the entity (e.g. service, datastore, queue).
     attr_accessor :kind
 
-    #
+    # The unique name of the entity within its kind and namespace.
     attr_accessor :name
 
-    #
+    # The namespace the entity belongs to.
     attr_accessor :namespace
 
-    #
+    # The owner of the entity, usually a team.
     attr_accessor :owner
 
-    #
+    # Additional custom properties for the entity.
     attr_accessor :properties
 
-    #
+    # A set of custom tags assigned to the entity.
     attr_accessor :tags
 
     attr_accessor :additional_properties

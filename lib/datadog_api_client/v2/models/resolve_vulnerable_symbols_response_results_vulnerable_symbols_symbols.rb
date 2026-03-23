@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # A symbol identified as vulnerable within a dependency, including its name, type, and value.
   class ResolveVulnerableSymbolsResponseResultsVulnerableSymbolsSymbols
     include BaseGenericModel
 
-    #
+    # The name of the vulnerable symbol.
     attr_accessor :name
 
-    #
+    # The type classification of the vulnerable symbol (e.g., function, class, variable).
     attr_accessor :type
 
-    #
+    # The value or identifier associated with the vulnerable symbol.
     attr_accessor :value
 
     attr_accessor :additional_properties

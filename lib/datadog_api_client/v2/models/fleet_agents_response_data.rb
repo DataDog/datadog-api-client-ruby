@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class FleetAgentsResponseData
     include BaseGenericModel
 
-    #
+    # Attributes of the fleet agents response containing the list of agents.
     attr_reader :attributes
 
     # Status identifier.

@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # The data object containing the resource type and attributes for creating a new connection.
   class CreateConnectionRequestData
     include BaseGenericModel
 
-    #
+    # Attributes defining the data source connection, including join configuration and custom fields.
     attr_accessor :attributes
 
-    #
+    # Unique identifier for the new connection resource.
     attr_accessor :id
 
     # Connection id resource type.

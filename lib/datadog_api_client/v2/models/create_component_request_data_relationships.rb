@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class CreateComponentRequestDataRelationships
     include BaseGenericModel
 
-    #
+    # The group to create the component within.
     attr_accessor :group
 
     attr_accessor :additional_properties

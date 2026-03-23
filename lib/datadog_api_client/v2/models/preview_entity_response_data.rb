@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Entity data returned in a preview response, including attributes, relationships, and type.
   class PreviewEntityResponseData
     include BaseGenericModel
 
-    #
+    # Entity response attributes containing core entity metadata fields.
     attr_accessor :attributes
 
-    #
+    # Entity unique identifier.
     attr_accessor :id
 
-    #
+    # Entity relationships including incidents, oncalls, schemas, and related entities.
     attr_accessor :relationships
 
     # Entity resource type.

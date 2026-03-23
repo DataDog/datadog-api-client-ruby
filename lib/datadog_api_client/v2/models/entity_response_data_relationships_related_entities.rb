@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Related entities relationship containing a list of entity references related to this entity.
   class EntityResponseDataRelationshipsRelatedEntities
     include BaseGenericModel
 
-    #
+    # List of related entity relationship data items.
     attr_accessor :data
 
     attr_accessor :additional_properties

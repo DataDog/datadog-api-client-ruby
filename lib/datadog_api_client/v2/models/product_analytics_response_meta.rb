@@ -21,10 +21,10 @@ module DatadogAPIClient::V2
   class ProductAnalyticsResponseMeta
     include BaseGenericModel
 
-    #
+    # Unique identifier for the request, used for multi-step query continuation.
     attr_accessor :request_id
 
-    #
+    # The execution status of a Product Analytics query.
     attr_accessor :status
 
     attr_accessor :additional_properties

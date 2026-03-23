@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # The resource identifier and type for a static analysis rule.
   class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsData
     include BaseGenericModel
 
-    #
+    # The unique identifier of the rule resource.
     attr_accessor :id
 
     # Rules resource type.

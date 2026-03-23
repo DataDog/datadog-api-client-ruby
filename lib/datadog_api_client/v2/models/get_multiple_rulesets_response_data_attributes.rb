@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # The attributes of the get-multiple-rulesets response, containing the list of requested rulesets.
   class GetMultipleRulesetsResponseDataAttributes
     include BaseGenericModel
 
-    #
+    # The list of rulesets returned in response to the batch request.
     attr_accessor :rulesets
 
     attr_accessor :additional_properties

@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Data object for a request to revert a custom rule to a previous revision.
   class RevertCustomRuleRevisionRequestData
     include BaseGenericModel
 
-    #
+    # Attributes specifying the current and target revision IDs for a revert operation.
     attr_accessor :attributes
 
     # Request identifier

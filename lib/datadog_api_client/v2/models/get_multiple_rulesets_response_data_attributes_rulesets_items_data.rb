@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # The resource identifier and type for a ruleset.
   class GetMultipleRulesetsResponseDataAttributesRulesetsItemsData
     include BaseGenericModel
 
-    #
+    # The unique identifier of the ruleset resource.
     attr_accessor :id
 
     # Rulesets resource type.

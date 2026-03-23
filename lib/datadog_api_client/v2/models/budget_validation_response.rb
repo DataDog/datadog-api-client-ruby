@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # The response object for a budget validation request, containing the validation result data.
   class BudgetValidationResponse
     include BaseGenericModel
 
-    #
+    # The data object for a budget validation response, containing the resource type, ID, and validation attributes.
     attr_accessor :data
 
     attr_accessor :additional_properties

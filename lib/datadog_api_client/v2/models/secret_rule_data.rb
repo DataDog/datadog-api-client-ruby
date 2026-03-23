@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # The data object representing a secret detection rule, including its attributes and resource type.
   class SecretRuleData
     include BaseGenericModel
 
-    #
+    # The attributes of a secret detection rule, including its pattern, priority, and validation configuration.
     attr_accessor :attributes
 
-    #
+    # The unique identifier of the secret rule resource.
     attr_accessor :id
 
     # Secret rule resource type.

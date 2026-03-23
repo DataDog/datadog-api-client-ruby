@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Request body for updating a heatmap snapshot.
   class SnapshotUpdateRequest
     include BaseGenericModel
 
-    #
+    # Data object for a heatmap snapshot update request, containing the resource identifier, type, and attributes.
     attr_reader :data
 
     attr_accessor :additional_properties

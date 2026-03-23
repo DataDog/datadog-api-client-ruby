@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # OCI API signing key credentials used to authenticate the Datadog integration with the OCI tenancy.
   class CreateTenancyConfigDataAttributesAuthCredentials
     include BaseGenericModel
 
-    #
+    # The fingerprint of the OCI API signing key used for authentication.
     attr_accessor :fingerprint
 
-    #
+    # The PEM-encoded private key corresponding to the OCI API signing key fingerprint.
     attr_reader :private_key
 
     attr_accessor :additional_properties

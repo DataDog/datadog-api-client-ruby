@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # The attributes of a budget validation response, including any validation errors and the validity status.
   class BudgetValidationResponseDataAttributes
     include BaseGenericModel
 
-    #
+    # A list of validation error messages for the budget.
     attr_accessor :errors
 
-    #
+    # Whether the budget configuration is valid.
     attr_accessor :valid
 
     attr_accessor :additional_properties

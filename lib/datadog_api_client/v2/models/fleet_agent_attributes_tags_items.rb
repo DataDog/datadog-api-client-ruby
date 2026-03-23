@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # A key-value pair representing a tag associated with a Datadog Agent.
   class FleetAgentAttributesTagsItems
     include BaseGenericModel
 
-    #
+    # The tag key.
     attr_accessor :key
 
-    #
+    # The tag value.
     attr_accessor :value
 
     attr_accessor :additional_properties

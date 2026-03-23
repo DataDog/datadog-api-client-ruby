@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # A single RUM replay session watch resource returned by create operations.
   class Watch
     include BaseGenericModel
 
-    #
+    # Data object representing a session watch record, including its identifier, type, and attributes.
     attr_reader :data
 
     attr_accessor :additional_properties

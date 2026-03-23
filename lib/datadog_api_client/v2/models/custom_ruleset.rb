@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # A custom static analysis ruleset containing a set of user-defined rules.
   class CustomRuleset
     include BaseGenericModel
 
-    #
+    # Attributes of a custom ruleset, including its name, description, and rules.
     attr_reader :attributes
 
     # Ruleset identifier

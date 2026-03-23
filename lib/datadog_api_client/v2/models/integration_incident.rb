@@ -17,26 +17,26 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Incident integration settings
+  # Incident integration settings.
   class IntegrationIncident
     include BaseGenericModel
 
-    # Query for auto-escalation
+    # Query for auto-escalation.
     attr_accessor :auto_escalation_query
 
-    # Default incident commander
+    # Default incident commander.
     attr_accessor :default_incident_commander
 
-    # Whether incident integration is enabled
+    # Whether incident integration is enabled.
     attr_accessor :enabled
 
-    #
+    # List of mappings between incident fields and case fields.
     attr_accessor :field_mappings
 
-    # Incident type
+    # Incident type.
     attr_accessor :incident_type
 
-    #
+    # Severity configuration for mapping incident priorities to case priorities.
     attr_accessor :severity_config
 
     attr_accessor :additional_properties

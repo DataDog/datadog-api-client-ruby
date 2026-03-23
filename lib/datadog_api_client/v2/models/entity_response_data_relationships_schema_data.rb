@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Schema relationship data containing the schema resource identifier and type.
   class EntityResponseDataRelationshipsSchemaData
     include BaseGenericModel
 
-    #
+    # Entity schema unique identifier.
     attr_reader :id
 
     # Schema resource type.

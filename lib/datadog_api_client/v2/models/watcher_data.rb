@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Data object representing a session watcher, including their identifier, type, and attributes.
   class WatcherData
     include BaseGenericModel
 
-    #
+    # Attributes of a user who has watched a RUM replay session, including contact information and watch statistics.
     attr_accessor :attributes
 
-    #
+    # Unique identifier of the watcher user.
     attr_accessor :id
 
     # Rum replay watcher resource type.

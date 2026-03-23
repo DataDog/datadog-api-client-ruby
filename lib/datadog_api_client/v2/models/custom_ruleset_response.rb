@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Response containing a single custom ruleset.
   class CustomRulesetResponse
     include BaseGenericModel
 
-    #
+    # A custom static analysis ruleset containing a set of user-defined rules.
     attr_reader :data
 
     attr_accessor :additional_properties

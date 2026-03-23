@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Information about the source code repository being analyzed.
   class ScaRequestDataAttributesRepository
     include BaseGenericModel
 
-    #
+    # The URL of the repository.
     attr_accessor :url
 
     attr_accessor :additional_properties

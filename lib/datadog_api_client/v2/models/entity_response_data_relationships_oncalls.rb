@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Oncalls relationship containing a list of oncall resources associated with this entity.
   class EntityResponseDataRelationshipsOncalls
     include BaseGenericModel
 
-    #
+    # List of oncall relationship data items.
     attr_accessor :data
 
     attr_accessor :additional_properties

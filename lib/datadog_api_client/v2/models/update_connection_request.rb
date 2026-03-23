@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Request body for updating an existing data source connection by adding, modifying, or removing fields.
   class UpdateConnectionRequest
     include BaseGenericModel
 
-    #
+    # The data object containing the resource identifier and attributes for updating an existing connection.
     attr_accessor :data
 
     attr_accessor :additional_properties

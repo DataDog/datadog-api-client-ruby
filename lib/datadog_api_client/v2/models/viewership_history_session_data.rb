@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Data object representing a session in the viewership history, including its identifier, type, and attributes.
   class ViewershipHistorySessionData
     include BaseGenericModel
 
-    #
+    # Attributes of a viewership history session entry, capturing when it was last watched and the associated event data.
     attr_accessor :attributes
 
-    #
+    # Unique identifier of the RUM replay session.
     attr_accessor :id
 
     # Rum replay session resource type.

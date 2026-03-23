@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # A collection of vulnerable symbols associated with a specific security advisory.
   class ResolveVulnerableSymbolsResponseResultsVulnerableSymbols
     include BaseGenericModel
 
-    #
+    # The identifier of the security advisory that describes the vulnerability.
     attr_accessor :advisory_id
 
-    #
+    # The list of symbols that are vulnerable according to this advisory.
     attr_accessor :symbols
 
     attr_accessor :additional_properties

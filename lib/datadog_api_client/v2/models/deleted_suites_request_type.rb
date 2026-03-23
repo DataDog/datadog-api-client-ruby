@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Type for the bulk delete Synthetic suites request, `delete_suites_request`.
   class DeletedSuitesRequestType
     include BaseEnumModel
 

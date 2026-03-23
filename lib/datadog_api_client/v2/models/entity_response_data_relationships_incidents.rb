@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Incidents relationship containing a list of incident resources associated with this entity.
   class EntityResponseDataRelationshipsIncidents
     include BaseGenericModel
 
-    #
+    # List of incident relationship data items.
     attr_accessor :data
 
     attr_accessor :additional_properties

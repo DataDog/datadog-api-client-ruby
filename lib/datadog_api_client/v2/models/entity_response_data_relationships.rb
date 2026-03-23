@@ -17,23 +17,23 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Entity relationships including incidents, oncalls, schemas, and related entities.
   class EntityResponseDataRelationships
     include BaseGenericModel
 
-    #
+    # Incidents relationship containing a list of incident resources associated with this entity.
     attr_accessor :incidents
 
-    #
+    # Oncalls relationship containing a list of oncall resources associated with this entity.
     attr_accessor :oncalls
 
-    #
+    # Raw schema relationship linking an entity to its raw schema resource.
     attr_accessor :raw_schema
 
-    #
+    # Related entities relationship containing a list of entity references related to this entity.
     attr_accessor :related_entities
 
-    #
+    # Schema relationship linking an entity to its associated schema resource.
     attr_accessor :schema
 
     attr_accessor :additional_properties

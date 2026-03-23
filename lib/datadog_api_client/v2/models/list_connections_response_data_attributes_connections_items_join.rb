@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # The join configuration describing how the data source is linked to the entity.
   class ListConnectionsResponseDataAttributesConnectionsItemsJoin
     include BaseGenericModel
 
-    #
+    # The entity attribute used as the join key to link records from the data source.
     attr_accessor :attribute
 
-    #
+    # The type of join key used (for example, email or user_id).
     attr_accessor :type
 
     attr_accessor :additional_properties

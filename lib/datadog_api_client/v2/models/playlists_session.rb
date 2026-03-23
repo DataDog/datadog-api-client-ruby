@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # A single RUM replay session resource as it appears within a playlist context.
   class PlaylistsSession
     include BaseGenericModel
 
-    #
+    # Data object representing a session within a playlist, including its identifier, type, and attributes.
     attr_reader :data
 
     attr_accessor :additional_properties

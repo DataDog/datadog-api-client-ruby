@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # An argument parameter for a static analysis rule, with a name and description.
   class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsArgumentsItems
     include BaseGenericModel
 
-    #
+    # A human-readable explanation of the argument's purpose and accepted values.
     attr_accessor :description
 
-    #
+    # The name of the rule argument.
     attr_accessor :name
 
     attr_accessor :additional_properties

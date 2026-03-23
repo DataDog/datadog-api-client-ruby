@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Attributes of a scalar analytics response, containing the result columns.
   class ProductAnalyticsScalarResponseAttributes
     include BaseGenericModel
 
-    #
+    # The list of result columns, each containing values and metadata.
     attr_accessor :columns
 
     attr_accessor :additional_properties

@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # The request attributes for fetching multiple rulesets, specifying which rulesets to retrieve and what data to include.
   class GetMultipleRulesetsRequestDataAttributes
     include BaseGenericModel
 
-    #
+    # When true, rules that are available in testing mode are included in the response.
     attr_accessor :include_testing_rules
 
-    #
+    # When true, test cases associated with each rule are included in the response.
     attr_accessor :include_tests
 
-    #
+    # The list of ruleset names to retrieve.
     attr_accessor :rulesets
 
     attr_accessor :additional_properties

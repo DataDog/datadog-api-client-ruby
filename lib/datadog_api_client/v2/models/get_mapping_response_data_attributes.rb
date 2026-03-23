@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Attributes of the get mapping response, containing the list of configured entity attributes.
   class GetMappingResponseDataAttributes
     include BaseGenericModel
 
-    #
+    # The list of entity attributes and their mapping configurations.
     attr_accessor :attributes
 
     attr_accessor :additional_properties

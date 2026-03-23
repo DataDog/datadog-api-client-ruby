@@ -552,7 +552,7 @@ module DatadogAPIClient::V2
     #
     # Create a project.
     #
-    # @param body [ProjectCreateRequest] Project payload
+    # @param body [ProjectCreateRequest] Project payload.
     # @param opts [Hash] the optional parameters
     # @return [Array<(ProjectResponse, Integer, Hash)>] ProjectResponse data, response status code and response headers
     def create_project_with_http_info(body, opts = {})
@@ -831,7 +831,7 @@ module DatadogAPIClient::V2
     #
     # Remove a project using the project's `id`.
     #
-    # @param project_id [String] Project UUID
+    # @param project_id [String] Project UUID.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_project_with_http_info(project_id, opts = {})
@@ -1031,7 +1031,7 @@ module DatadogAPIClient::V2
     #
     # Get the details of a project by `project_id`.
     #
-    # @param project_id [String] Project UUID
+    # @param project_id [String] Project UUID.
     # @param opts [Hash] the optional parameters
     # @return [Array<(ProjectResponse, Integer, Hash)>] ProjectResponse data, response status code and response headers
     def get_project_with_http_info(project_id, opts = {})
@@ -2131,8 +2131,8 @@ module DatadogAPIClient::V2
     #
     # Update a project.
     #
-    # @param project_id [String] Project UUID
-    # @param body [ProjectUpdateRequest] Project payload
+    # @param project_id [String] Project UUID.
+    # @param body [ProjectUpdateRequest] Project payload.
     # @param opts [Hash] the optional parameters
     # @return [Array<(ProjectResponse, Integer, Hash)>] ProjectResponse data, response status code and response headers
     def update_project_with_http_info(project_id, body, opts = {})

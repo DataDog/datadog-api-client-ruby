@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Synchronization configuration for ServiceNow integration.
   class IntegrationServiceNowSyncConfig
     include BaseGenericModel
 
-    #
+    # Whether ServiceNow synchronization is enabled.
     attr_accessor :enabled
 
-    #
+    # Field-level synchronization properties for ServiceNow integration.
     attr_accessor :properties
 
     attr_accessor :additional_properties

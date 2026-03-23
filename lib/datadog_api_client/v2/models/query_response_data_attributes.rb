@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Attributes of the query response, containing the matched records and total count.
   class QueryResponseDataAttributes
     include BaseGenericModel
 
-    #
+    # The list of matching records returned by the query, each as a map of attribute names to values.
     attr_accessor :hits
 
-    #
+    # Total number of records matching the query, regardless of the limit applied.
     attr_accessor :total
 
     attr_accessor :additional_properties

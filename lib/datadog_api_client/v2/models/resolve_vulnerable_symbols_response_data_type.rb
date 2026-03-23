@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # The type identifier for responses containing resolved vulnerable symbols.
   class ResolveVulnerableSymbolsResponseDataType
     include BaseEnumModel
 

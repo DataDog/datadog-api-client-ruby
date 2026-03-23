@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Auto-close inactive cases settings
+  # Auto-close inactive cases settings.
   class AutoCloseInactiveCases
     include BaseGenericModel
 
-    # Whether auto-close is enabled
+    # Whether auto-close is enabled.
     attr_accessor :enabled
 
-    # Maximum inactive time in seconds before auto-closing
+    # Maximum inactive time in seconds before auto-closing.
     attr_accessor :max_inactive_time_in_secs
 
     attr_accessor :additional_properties

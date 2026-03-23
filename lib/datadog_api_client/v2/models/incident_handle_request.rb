@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Request payload for creating or updating a global incident handle.
   class IncidentHandleRequest
     include BaseGenericModel
 
-    #
+    # Data object representing an incident handle in a create or update request.
     attr_reader :data
 
     attr_accessor :additional_properties

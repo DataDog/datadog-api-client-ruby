@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Response containing a list of OCI tenancy integration configurations.
   class TenancyConfigList
     include BaseGenericModel
 
-    #
+    # List of OCI tenancy integration configuration objects.
     attr_reader :data
 
     attr_accessor :additional_properties

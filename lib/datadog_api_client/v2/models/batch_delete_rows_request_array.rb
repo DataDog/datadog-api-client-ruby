@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class BatchDeleteRowsRequestArray
     include BaseGenericModel
 
-    #
+    # List of row resources to delete from the reference table.
     attr_reader :data
 
     attr_accessor :additional_properties

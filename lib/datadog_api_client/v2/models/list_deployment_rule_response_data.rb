@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class ListDeploymentRuleResponseData
     include BaseGenericModel
 
-    #
+    # Attributes of the response for listing deployment rules.
     attr_reader :attributes
 
     # Unique identifier of the deployment rule.

@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # A single OCI tenancy product resource object containing the tenancy ID, type, and product attributes.
   class TenancyProductsData
     include BaseGenericModel
 
-    #
+    # Attributes of an OCI tenancy product resource, containing the list of available products and their enablement status.
     attr_accessor :attributes
 
-    #
+    # The OCID of the OCI tenancy.
     attr_accessor :id
 
     # OCI tenancy product resource type.

@@ -17,17 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # On-Call integration settings
+  # On-Call integration settings.
   class IntegrationOnCall
     include BaseGenericModel
 
-    # Whether to auto-assign on-call
+    # Whether to auto-assign on-call.
     attr_accessor :auto_assign_on_call
 
-    # Whether On-Call integration is enabled
+    # Whether On-Call integration is enabled.
     attr_accessor :enabled
 
-    #
+    # List of escalation queries for routing cases to on-call responders.
     attr_accessor :escalation_queries
 
     attr_accessor :additional_properties

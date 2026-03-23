@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Request payload for creating or updating a HAMR organization connection.
   class HamrOrgConnectionRequest
     include BaseGenericModel
 
-    #
+    # Data object for a HAMR organization connection request.
     attr_reader :data
 
     attr_accessor :additional_properties

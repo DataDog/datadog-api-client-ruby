@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # A component to be created on a status page.
   class CreateStatusPageRequestDataAttributesComponentsItems
     include BaseGenericModel
 

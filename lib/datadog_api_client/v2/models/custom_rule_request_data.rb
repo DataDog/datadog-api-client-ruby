@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Data object for a custom rule create or update request.
   class CustomRuleRequestData
     include BaseGenericModel
 
-    #
+    # Attributes for creating or updating a custom rule.
     attr_accessor :attributes
 
     # Rule identifier

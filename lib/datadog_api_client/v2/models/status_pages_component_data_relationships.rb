@@ -21,16 +21,16 @@ module DatadogAPIClient::V2
   class StatusPagesComponentDataRelationships
     include BaseGenericModel
 
-    #
+    # The Datadog user who created the component.
     attr_accessor :created_by_user
 
-    #
+    # The group the component belongs to.
     attr_accessor :group
 
-    #
+    # The Datadog user who last modified the component.
     attr_accessor :last_modified_by_user
 
-    #
+    # The status page the component belongs to.
     attr_accessor :status_page
 
     attr_accessor :additional_properties

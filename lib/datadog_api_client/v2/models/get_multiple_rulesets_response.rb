@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # The response payload for the get-multiple-rulesets endpoint, containing the requested rulesets and their rules.
   class GetMultipleRulesetsResponse
     include BaseGenericModel
 
-    #
+    # The primary data object in the get-multiple-rulesets response, containing the response attributes and resource type.
     attr_accessor :data
 
     attr_accessor :additional_properties

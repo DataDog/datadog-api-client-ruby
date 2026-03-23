@@ -17,35 +17,35 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Project notification settings
+  # Project notification settings.
   class ProjectNotificationSettings
     include BaseGenericModel
 
-    # Notification destinations (1=email, 2=slack, 3=in-app)
+    # Notification destinations (1=email, 2=slack, 3=in-app).
     attr_accessor :destinations
 
-    # Whether notifications are enabled
+    # Whether notifications are enabled.
     attr_accessor :enabled
 
-    #
+    # Whether to send a notification when a case is assigned.
     attr_accessor :notify_on_case_assignment
 
-    #
+    # Whether to send a notification when a case is closed.
     attr_accessor :notify_on_case_closed
 
-    #
+    # Whether to send a notification when a comment is added to a case.
     attr_accessor :notify_on_case_comment
 
-    #
+    # Whether to send a notification when a user is mentioned in a case comment.
     attr_accessor :notify_on_case_comment_mention
 
-    #
+    # Whether to send a notification when a case's priority changes.
     attr_accessor :notify_on_case_priority_change
 
-    #
+    # Whether to send a notification when a case's status changes.
     attr_accessor :notify_on_case_status_change
 
-    #
+    # Whether to send a notification when a case is unassigned.
     attr_accessor :notify_on_case_unassignment
 
     attr_accessor :additional_properties

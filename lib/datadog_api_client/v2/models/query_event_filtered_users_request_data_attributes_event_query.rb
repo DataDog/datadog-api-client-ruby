@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Event platform query used to filter users based on their event activity within a specified time window.
   class QueryEventFilteredUsersRequestDataAttributesEventQuery
     include BaseGenericModel
 
-    #
+    # The event platform query expression for filtering users by their event activity.
     attr_accessor :query
 
-    #
+    # The time window defining the start and end of the event query period as Unix timestamps.
     attr_accessor :time_frame
 
     attr_accessor :additional_properties

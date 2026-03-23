@@ -30,7 +30,7 @@ module DatadogAPIClient::V2
     # The month when the budget ends.
     attr_accessor :end_month
 
-    #
+    # The list of monthly budget entries.
     attr_accessor :entries
 
     # The cost query used to track against the budget.

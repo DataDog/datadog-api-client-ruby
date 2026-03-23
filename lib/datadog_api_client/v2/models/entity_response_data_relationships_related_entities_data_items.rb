@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Related entity relationship data item containing the related entity resource identifier and type.
   class EntityResponseDataRelationshipsRelatedEntitiesDataItems
     include BaseGenericModel
 
-    #
+    # Related entity unique identifier.
     attr_reader :id
 
     # Related entity resource type.

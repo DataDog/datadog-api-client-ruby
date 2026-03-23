@@ -17,23 +17,23 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Information about the user who created the playlist.
   class PlaylistDataAttributesCreatedBy
     include BaseGenericModel
 
-    #
+    # Email handle of the user who created the playlist.
     attr_reader :handle
 
-    #
+    # URL or identifier of the user's avatar icon.
     attr_accessor :icon
 
-    #
+    # Unique identifier of the user who created the playlist.
     attr_reader :id
 
-    #
+    # Display name of the user who created the playlist.
     attr_accessor :name
 
-    #
+    # UUID of the user who created the playlist.
     attr_reader :uuid
 
     attr_accessor :additional_properties

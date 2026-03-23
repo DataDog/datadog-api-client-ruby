@@ -17,41 +17,41 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Attributes for creating a new OCI tenancy integration configuration, including credentials, region settings, and collection options.
   class CreateTenancyConfigDataAttributes
     include BaseGenericModel
 
-    #
+    # OCI API signing key credentials used to authenticate the Datadog integration with the OCI tenancy.
     attr_reader :auth_credentials
 
-    #
+    # Version number of the integration the tenancy is integrated with
     attr_accessor :config_version
 
-    #
+    # Whether cost data collection from OCI is enabled for the tenancy.
     attr_accessor :cost_collection_enabled
 
-    #
+    # The OCID of the OCI compartment used by the Datadog integration stack.
     attr_accessor :dd_compartment_id
 
-    #
+    # The OCID of the OCI Resource Manager stack used by the Datadog integration.
     attr_accessor :dd_stack_id
 
-    #
+    # The home region of the OCI tenancy (for example, us-ashburn-1).
     attr_reader :home_region
 
-    #
+    # Log collection configuration for an OCI tenancy, controlling which compartments and services have log collection enabled.
     attr_accessor :logs_config
 
-    #
+    # Metrics collection configuration for an OCI tenancy, controlling which compartments and services are included or excluded.
     attr_accessor :metrics_config
 
-    #
+    # Region configuration for an OCI tenancy, specifying which regions are available, enabled, or disabled for data collection.
     attr_accessor :regions_config
 
-    #
+    # Whether resource collection from OCI is enabled for the tenancy.
     attr_accessor :resource_collection_enabled
 
-    #
+    # The OCID of the OCI user used by the Datadog integration for authentication.
     attr_reader :user_ocid
 
     attr_accessor :additional_properties

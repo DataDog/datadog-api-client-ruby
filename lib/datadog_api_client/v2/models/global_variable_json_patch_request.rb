@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class GlobalVariableJsonPatchRequest
     include BaseGenericModel
 
-    #
+    # Data object for a JSON Patch request on a Synthetic global variable.
     attr_reader :data
 
     attr_accessor :additional_properties

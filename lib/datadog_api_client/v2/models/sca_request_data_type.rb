@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # The type identifier for SCA dependency analysis requests.
   class ScaRequestDataType
     include BaseEnumModel
 

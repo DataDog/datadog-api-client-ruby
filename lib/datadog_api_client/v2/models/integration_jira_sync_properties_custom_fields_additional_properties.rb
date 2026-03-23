@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Synchronization configuration for a Jira custom field.
   class IntegrationJiraSyncPropertiesCustomFieldsAdditionalProperties
     include BaseGenericModel
 
-    #
+    # The type of synchronization to apply for this custom field.
     attr_accessor :sync_type
 
     # Represents any valid JSON value.

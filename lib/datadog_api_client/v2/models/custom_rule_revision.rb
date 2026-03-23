@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # A specific revision of a custom static analysis rule.
   class CustomRuleRevision
     include BaseGenericModel
 
-    #
+    # Attributes of a custom rule revision, including code, metadata, and test cases.
     attr_reader :attributes
 
     # Revision identifier

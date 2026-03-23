@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # The status page the component belongs to.
   class StatusPagesComponentDataRelationshipsStatusPage
     include BaseGenericModel
 
-    #
+    # The data object identifying the status page the component belongs to.
     attr_reader :data
 
     attr_accessor :additional_properties

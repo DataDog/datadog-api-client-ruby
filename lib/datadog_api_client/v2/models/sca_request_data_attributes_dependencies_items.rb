@@ -17,41 +17,41 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # A dependency found in the repository, including its identity, location, and reachability metadata.
   class ScaRequestDataAttributesDependenciesItems
     include BaseGenericModel
 
-    #
+    # A list of patterns or identifiers that should be excluded from analysis for this dependency.
     attr_accessor :exclusions
 
-    #
+    # The group or organization namespace of the dependency (e.g., Maven group ID).
     attr_accessor :group
 
-    #
+    # Indicates whether this is a development-only dependency not used in production.
     attr_accessor :is_dev
 
-    #
+    # Indicates whether this is a direct dependency (as opposed to a transitive one).
     attr_accessor :is_direct
 
-    #
+    # The programming language ecosystem of this dependency (e.g., java, python, javascript).
     attr_accessor :language
 
-    #
+    # The list of source file locations where this dependency is declared.
     attr_accessor :locations
 
-    #
+    # The name of the dependency package.
     attr_accessor :name
 
-    #
+    # The package manager responsible for this dependency (e.g., maven, pip, npm).
     attr_accessor :package_manager
 
-    #
+    # The Package URL (PURL) uniquely identifying this dependency.
     attr_accessor :purl
 
-    #
+    # Properties describing symbols from this dependency that are reachable in the application code.
     attr_accessor :reachable_symbol_properties
 
-    #
+    # The version of the dependency.
     attr_accessor :version
 
     attr_accessor :additional_properties

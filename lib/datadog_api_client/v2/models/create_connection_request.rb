@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Request body for creating a new data source connection for an entity.
   class CreateConnectionRequest
     include BaseGenericModel
 
-    #
+    # The data object containing the resource type and attributes for creating a new connection.
     attr_accessor :data
 
     attr_accessor :additional_properties

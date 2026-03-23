@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Project relationships
+  # Project relationships.
   class ProjectRelationships
     include BaseGenericModel
 

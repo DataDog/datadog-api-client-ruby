@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Data object representing a session watch record, including its identifier, type, and attributes.
   class WatchData
     include BaseGenericModel
 
-    #
+    # Attributes for recording a session watch event, including the application, event reference, and timestamp.
     attr_accessor :attributes
 
-    #
+    # Unique identifier of the watch record.
     attr_accessor :id
 
     # Rum replay watch resource type.

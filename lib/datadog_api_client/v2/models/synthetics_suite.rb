@@ -39,7 +39,7 @@ module DatadogAPIClient::V2
     # Array of tags attached to the suite.
     attr_accessor :tags
 
-    #
+    # Array of Synthetic tests included in the suite.
     attr_reader :tests
 
     # Type of the Synthetic suite, `suite`.

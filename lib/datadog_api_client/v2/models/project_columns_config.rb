@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Project columns configuration
+  # Project columns configuration.
   class ProjectColumnsConfig
     include BaseGenericModel
 
-    #
+    # List of column configurations for the project board view.
     attr_accessor :columns
 
     attr_accessor :additional_properties
