@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Severity associated with this critical asset. Either an explicit severity can be set, or the severity can be increased or decreased.
+  # Severity associated with this critical asset. Either an explicit severity can be set, or the severity can be increased or decreased, or the severity can be left unchanged (no-op).
   class SecurityMonitoringCriticalAssetSeverity
     include BaseEnumModel
 
@@ -28,5 +28,6 @@ module DatadogAPIClient::V2
     CRITICAL = "critical".freeze
     INCREASE = "increase".freeze
     DECREASE = "decrease".freeze
+    NO_OP = "no-op".freeze
   end
 end
