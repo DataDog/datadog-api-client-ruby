@@ -1,12 +1,12 @@
-# Create a dataset returns "OK" response
+# Edit a Data Access Control dataset returns "OK" response
 
 require "datadog_api_client"
 DatadogAPIClient.configure do |config|
-  config.unstable_operations["v2.create_dataset".to_sym] = true
+  config.unstable_operations["v2.update_dataset".to_sym] = true
 end
-api_instance = DatadogAPIClient::V2::DatasetsAPI.new
+api_instance = DatadogAPIClient::V2::DataAccessControlsAPI.new
 
-body = DatadogAPIClient::V2::DatasetCreateRequest.new({
+body = DatadogAPIClient::V2::DatasetUpdateRequest.new({
   data: DatadogAPIClient::V2::DatasetRequest.new({
     attributes: DatadogAPIClient::V2::DatasetAttributesRequest.new({
       name: "Security Audit Dataset",
@@ -18,11 +18,11 @@ body = DatadogAPIClient::V2::DatasetCreateRequest.new({
           filters: [
             "@application.id:ABCD",
           ],
-          product: "metrics",
+          product: "logs",
         }),
       ],
     }),
     type: DatadogAPIClient::V2::DatasetType::DATASET,
   }),
 })
-p api_instance.create_dataset(body)
+p api_instance.update_dataset("dataset_id", body)
