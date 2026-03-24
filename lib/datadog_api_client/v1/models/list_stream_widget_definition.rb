@@ -22,6 +22,9 @@ module DatadogAPIClient::V1
   class ListStreamWidgetDefinition
     include BaseGenericModel
 
+    # The description of the widget.
+    attr_accessor :description
+
     # Available legend sizes for a widget. Should be one of "0", "2", "4", "8", "16", or "auto".
     attr_accessor :legend_size
 
@@ -52,6 +55,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.attribute_map
       {
+        :'description' => :'description',
         :'legend_size' => :'legend_size',
         :'requests' => :'requests',
         :'show_legend' => :'show_legend',
@@ -67,6 +71,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
+        :'description' => :'String',
         :'legend_size' => :'String',
         :'requests' => :'Array<ListStreamWidgetRequest>',
         :'show_legend' => :'Boolean',
@@ -95,6 +100,10 @@ module DatadogAPIClient::V1
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'description')
+        self.description = attributes[:'description']
+      end
 
       if attributes.key?(:'legend_size')
         self.legend_size = attributes[:'legend_size']
@@ -194,6 +203,7 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          description == o.description &&
           legend_size == o.legend_size &&
           requests == o.requests &&
           show_legend == o.show_legend &&
@@ -209,7 +219,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [legend_size, requests, show_legend, time, title, title_align, title_size, type, additional_properties].hash
+      [description, legend_size, requests, show_legend, time, title, title_align, title_size, type, additional_properties].hash
     end
   end
 end

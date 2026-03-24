@@ -24,6 +24,9 @@ module DatadogAPIClient::V1
     # List of custom links.
     attr_accessor :custom_links
 
+    # The description of the widget.
+    attr_accessor :description
+
     # Show the total value in this widget.
     attr_accessor :hide_total
 
@@ -55,6 +58,7 @@ module DatadogAPIClient::V1
     def self.attribute_map
       {
         :'custom_links' => :'custom_links',
+        :'description' => :'description',
         :'hide_total' => :'hide_total',
         :'legend' => :'legend',
         :'requests' => :'requests',
@@ -71,6 +75,7 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'custom_links' => :'Array<WidgetCustomLink>',
+        :'description' => :'String',
         :'hide_total' => :'Boolean',
         :'legend' => :'SunburstWidgetLegend',
         :'requests' => :'Array<SunburstWidgetRequest>',
@@ -104,6 +109,10 @@ module DatadogAPIClient::V1
         if (value = attributes[:'custom_links']).is_a?(Array)
           self.custom_links = value
         end
+      end
+
+      if attributes.key?(:'description')
+        self.description = attributes[:'description']
       end
 
       if attributes.key?(:'hide_total')
@@ -201,6 +210,7 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           custom_links == o.custom_links &&
+          description == o.description &&
           hide_total == o.hide_total &&
           legend == o.legend &&
           requests == o.requests &&
@@ -216,7 +226,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [custom_links, hide_total, legend, requests, time, title, title_align, title_size, type, additional_properties].hash
+      [custom_links, description, hide_total, legend, requests, time, title, title_align, title_size, type, additional_properties].hash
     end
   end
 end

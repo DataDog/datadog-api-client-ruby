@@ -1,4 +1,4 @@
-# Create a new dashboard with query_value widget
+# Create a new dashboard with a query_value widget containing a description
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::DashboardsAPI.new

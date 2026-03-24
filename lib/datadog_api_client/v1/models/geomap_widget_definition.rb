@@ -24,6 +24,9 @@ module DatadogAPIClient::V1
     # A list of custom links.
     attr_accessor :custom_links
 
+    # The description of the widget.
+    attr_accessor :description
+
     # Array of request objects to display in the widget. May include an optional request for the region layer and/or an optional request for the points layer. Region layer requests must contain a `group-by` tag whose value is a country ISO code.
     # See the [Request JSON schema documentation](https://docs.datadoghq.com/dashboards/graphing_json/request_json)
     # for information about building the `REQUEST_SCHEMA`.
@@ -57,6 +60,7 @@ module DatadogAPIClient::V1
     def self.attribute_map
       {
         :'custom_links' => :'custom_links',
+        :'description' => :'description',
         :'requests' => :'requests',
         :'style' => :'style',
         :'time' => :'time',
@@ -73,6 +77,7 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'custom_links' => :'Array<WidgetCustomLink>',
+        :'description' => :'String',
         :'requests' => :'Array<GeomapWidgetRequest>',
         :'style' => :'GeomapWidgetDefinitionStyle',
         :'time' => :'WidgetTime',
@@ -106,6 +111,10 @@ module DatadogAPIClient::V1
         if (value = attributes[:'custom_links']).is_a?(Array)
           self.custom_links = value
         end
+      end
+
+      if attributes.key?(:'description')
+        self.description = attributes[:'description']
       end
 
       if attributes.key?(:'requests')
@@ -229,6 +238,7 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           custom_links == o.custom_links &&
+          description == o.description &&
           requests == o.requests &&
           style == o.style &&
           time == o.time &&
@@ -244,7 +254,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [custom_links, requests, style, time, title, title_align, title_size, type, view, additional_properties].hash
+      [custom_links, description, requests, style, time, title, title_align, title_size, type, view, additional_properties].hash
     end
   end
 end

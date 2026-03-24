@@ -26,6 +26,9 @@ module DatadogAPIClient::V1
     # A list of custom links.
     attr_accessor :custom_links
 
+    # The description of the widget.
+    attr_accessor :description
+
     # (Deprecated) The widget legend was replaced by a tooltip and sidebar.
     attr_accessor :legend_size
 
@@ -69,6 +72,7 @@ module DatadogAPIClient::V1
     def self.attribute_map
       {
         :'custom_links' => :'custom_links',
+        :'description' => :'description',
         :'legend_size' => :'legend_size',
         :'markers' => :'markers',
         :'requests' => :'requests',
@@ -88,6 +92,7 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'custom_links' => :'Array<WidgetCustomLink>',
+        :'description' => :'String',
         :'legend_size' => :'String',
         :'markers' => :'Array<WidgetMarker>',
         :'requests' => :'Array<DistributionWidgetRequest>',
@@ -124,6 +129,10 @@ module DatadogAPIClient::V1
         if (value = attributes[:'custom_links']).is_a?(Array)
           self.custom_links = value
         end
+      end
+
+      if attributes.key?(:'description')
+        self.description = attributes[:'description']
       end
 
       if attributes.key?(:'legend_size')
@@ -239,6 +248,7 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           custom_links == o.custom_links &&
+          description == o.description &&
           legend_size == o.legend_size &&
           markers == o.markers &&
           requests == o.requests &&
@@ -257,7 +267,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [custom_links, legend_size, markers, requests, show_legend, time, title, title_align, title_size, type, xaxis, yaxis, additional_properties].hash
+      [custom_links, description, legend_size, markers, requests, show_legend, time, title, title_align, title_size, type, xaxis, yaxis, additional_properties].hash
     end
   end
 end

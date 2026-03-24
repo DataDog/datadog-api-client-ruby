@@ -24,6 +24,9 @@ module DatadogAPIClient::V1
     # List of custom links.
     attr_accessor :custom_links
 
+    # The description of the widget.
+    attr_accessor :description
+
     # List of widget events. Deprecated - Use `overlay` request type instead.
     attr_accessor :events
 
@@ -73,6 +76,7 @@ module DatadogAPIClient::V1
     def self.attribute_map
       {
         :'custom_links' => :'custom_links',
+        :'description' => :'description',
         :'events' => :'events',
         :'legend_columns' => :'legend_columns',
         :'legend_layout' => :'legend_layout',
@@ -95,6 +99,7 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'custom_links' => :'Array<WidgetCustomLink>',
+        :'description' => :'String',
         :'events' => :'Array<WidgetEvent>',
         :'legend_columns' => :'Array<TimeseriesWidgetLegendColumn>',
         :'legend_layout' => :'TimeseriesWidgetLegendLayout',
@@ -134,6 +139,10 @@ module DatadogAPIClient::V1
         if (value = attributes[:'custom_links']).is_a?(Array)
           self.custom_links = value
         end
+      end
+
+      if attributes.key?(:'description')
+        self.description = attributes[:'description']
       end
 
       if attributes.key?(:'events')
@@ -261,6 +270,7 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           custom_links == o.custom_links &&
+          description == o.description &&
           events == o.events &&
           legend_columns == o.legend_columns &&
           legend_layout == o.legend_layout &&
@@ -282,7 +292,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [custom_links, events, legend_columns, legend_layout, legend_size, markers, requests, right_yaxis, show_legend, time, title, title_align, title_size, type, yaxis, additional_properties].hash
+      [custom_links, description, events, legend_columns, legend_layout, legend_size, markers, requests, right_yaxis, show_legend, time, title, title_align, title_size, type, yaxis, additional_properties].hash
     end
   end
 end

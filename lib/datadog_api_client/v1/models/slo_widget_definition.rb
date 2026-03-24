@@ -24,6 +24,9 @@ module DatadogAPIClient::V1
     # Additional filters applied to the SLO query.
     attr_accessor :additional_query_filters
 
+    # The description of the widget.
+    attr_accessor :description
+
     # Defined global time target.
     attr_accessor :global_time_target
 
@@ -61,6 +64,7 @@ module DatadogAPIClient::V1
     def self.attribute_map
       {
         :'additional_query_filters' => :'additional_query_filters',
+        :'description' => :'description',
         :'global_time_target' => :'global_time_target',
         :'show_error_budget' => :'show_error_budget',
         :'slo_id' => :'slo_id',
@@ -79,6 +83,7 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'additional_query_filters' => :'String',
+        :'description' => :'String',
         :'global_time_target' => :'String',
         :'show_error_budget' => :'Boolean',
         :'slo_id' => :'String',
@@ -112,6 +117,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'additional_query_filters')
         self.additional_query_filters = attributes[:'additional_query_filters']
+      end
+
+      if attributes.key?(:'description')
+        self.description = attributes[:'description']
       end
 
       if attributes.key?(:'global_time_target')
@@ -213,6 +222,7 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           additional_query_filters == o.additional_query_filters &&
+          description == o.description &&
           global_time_target == o.global_time_target &&
           show_error_budget == o.show_error_budget &&
           slo_id == o.slo_id &&
@@ -230,7 +240,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [additional_query_filters, global_time_target, show_error_budget, slo_id, time_windows, title, title_align, title_size, type, view_mode, view_type, additional_properties].hash
+      [additional_query_filters, description, global_time_target, show_error_budget, slo_id, time_windows, title, title_align, title_size, type, view_mode, view_type, additional_properties].hash
     end
   end
 end

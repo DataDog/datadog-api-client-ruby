@@ -24,6 +24,9 @@ module DatadogAPIClient::V1
     # Which columns to display on the widget.
     attr_accessor :columns
 
+    # The description of the widget.
+    attr_accessor :description
+
     # An array of index names to query in the stream. Use [] to query all indexes at once.
     attr_accessor :indexes
 
@@ -67,6 +70,7 @@ module DatadogAPIClient::V1
     def self.attribute_map
       {
         :'columns' => :'columns',
+        :'description' => :'description',
         :'indexes' => :'indexes',
         :'logset' => :'logset',
         :'message_display' => :'message_display',
@@ -87,6 +91,7 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'columns' => :'Array<String>',
+        :'description' => :'String',
         :'indexes' => :'Array<String>',
         :'logset' => :'String',
         :'message_display' => :'WidgetMessageDisplay',
@@ -124,6 +129,10 @@ module DatadogAPIClient::V1
         if (value = attributes[:'columns']).is_a?(Array)
           self.columns = value
         end
+      end
+
+      if attributes.key?(:'description')
+        self.description = attributes[:'description']
       end
 
       if attributes.key?(:'indexes')
@@ -222,6 +231,7 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           columns == o.columns &&
+          description == o.description &&
           indexes == o.indexes &&
           logset == o.logset &&
           message_display == o.message_display &&
@@ -241,7 +251,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [columns, indexes, logset, message_display, query, show_date_column, show_message_column, sort, time, title, title_align, title_size, type, additional_properties].hash
+      [columns, description, indexes, logset, message_display, query, show_date_column, show_message_column, sort, time, title, title_align, title_size, type, additional_properties].hash
     end
   end
 end

@@ -30,6 +30,9 @@ module DatadogAPIClient::V1
     # Display a unit of your choice on the widget.
     attr_accessor :custom_unit
 
+    # The description of the widget.
+    attr_accessor :description
+
     # Number of decimals to show. If not defined, the widget uses the raw value.
     attr_accessor :precision
 
@@ -66,6 +69,7 @@ module DatadogAPIClient::V1
         :'autoscale' => :'autoscale',
         :'custom_links' => :'custom_links',
         :'custom_unit' => :'custom_unit',
+        :'description' => :'description',
         :'precision' => :'precision',
         :'requests' => :'requests',
         :'text_align' => :'text_align',
@@ -85,6 +89,7 @@ module DatadogAPIClient::V1
         :'autoscale' => :'Boolean',
         :'custom_links' => :'Array<WidgetCustomLink>',
         :'custom_unit' => :'String',
+        :'description' => :'String',
         :'precision' => :'Integer',
         :'requests' => :'Array<QueryValueWidgetRequest>',
         :'text_align' => :'WidgetTextAlign',
@@ -127,6 +132,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'custom_unit')
         self.custom_unit = attributes[:'custom_unit']
+      end
+
+      if attributes.key?(:'description')
+        self.description = attributes[:'description']
       end
 
       if attributes.key?(:'precision')
@@ -234,6 +243,7 @@ module DatadogAPIClient::V1
           autoscale == o.autoscale &&
           custom_links == o.custom_links &&
           custom_unit == o.custom_unit &&
+          description == o.description &&
           precision == o.precision &&
           requests == o.requests &&
           text_align == o.text_align &&
@@ -250,7 +260,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [autoscale, custom_links, custom_unit, precision, requests, text_align, time, timeseries_background, title, title_align, title_size, type, additional_properties].hash
+      [autoscale, custom_links, custom_unit, description, precision, requests, text_align, time, timeseries_background, title, title_align, title_size, type, additional_properties].hash
     end
   end
 end

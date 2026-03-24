@@ -27,6 +27,9 @@ module DatadogAPIClient::V1
     # List of custom links.
     attr_accessor :custom_links
 
+    # The description of the widget.
+    attr_accessor :description
+
     # (deprecated) The attribute formerly used to group elements in the widget.
     attr_accessor :group_by
 
@@ -53,6 +56,7 @@ module DatadogAPIClient::V1
       {
         :'color_by' => :'color_by',
         :'custom_links' => :'custom_links',
+        :'description' => :'description',
         :'group_by' => :'group_by',
         :'requests' => :'requests',
         :'size_by' => :'size_by',
@@ -68,6 +72,7 @@ module DatadogAPIClient::V1
       {
         :'color_by' => :'TreeMapColorBy',
         :'custom_links' => :'Array<WidgetCustomLink>',
+        :'description' => :'String',
         :'group_by' => :'TreeMapGroupBy',
         :'requests' => :'Array<TreeMapWidgetRequest>',
         :'size_by' => :'TreeMapSizeBy',
@@ -103,6 +108,10 @@ module DatadogAPIClient::V1
         if (value = attributes[:'custom_links']).is_a?(Array)
           self.custom_links = value
         end
+      end
+
+      if attributes.key?(:'description')
+        self.description = attributes[:'description']
       end
 
       if attributes.key?(:'group_by')
@@ -197,6 +206,7 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           color_by == o.color_by &&
           custom_links == o.custom_links &&
+          description == o.description &&
           group_by == o.group_by &&
           requests == o.requests &&
           size_by == o.size_by &&
@@ -210,7 +220,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [color_by, custom_links, group_by, requests, size_by, time, title, type, additional_properties].hash
+      [color_by, custom_links, description, group_by, requests, size_by, time, title, type, additional_properties].hash
     end
   end
 end

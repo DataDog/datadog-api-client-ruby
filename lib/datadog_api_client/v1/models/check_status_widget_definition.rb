@@ -24,6 +24,9 @@ module DatadogAPIClient::V1
     # Name of the check to use in the widget.
     attr_reader :check
 
+    # The description of the widget.
+    attr_accessor :description
+
     # Group reporting a single check.
     attr_accessor :group
 
@@ -58,6 +61,7 @@ module DatadogAPIClient::V1
     def self.attribute_map
       {
         :'check' => :'check',
+        :'description' => :'description',
         :'group' => :'group',
         :'group_by' => :'group_by',
         :'grouping' => :'grouping',
@@ -75,6 +79,7 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'check' => :'String',
+        :'description' => :'String',
         :'group' => :'String',
         :'group_by' => :'Array<String>',
         :'grouping' => :'WidgetGrouping',
@@ -107,6 +112,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'check')
         self.check = attributes[:'check']
+      end
+
+      if attributes.key?(:'description')
+        self.description = attributes[:'description']
       end
 
       if attributes.key?(:'group')
@@ -217,6 +226,7 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           check == o.check &&
+          description == o.description &&
           group == o.group &&
           group_by == o.group_by &&
           grouping == o.grouping &&
@@ -233,7 +243,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [check, group, group_by, grouping, tags, time, title, title_align, title_size, type, additional_properties].hash
+      [check, description, group, group_by, grouping, tags, time, title, title_align, title_size, type, additional_properties].hash
     end
   end
 end

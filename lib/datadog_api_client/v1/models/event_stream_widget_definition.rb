@@ -22,6 +22,9 @@ module DatadogAPIClient::V1
   class EventStreamWidgetDefinition
     include BaseGenericModel
 
+    # The description of the widget.
+    attr_accessor :description
+
     # Size to use to display an event.
     attr_accessor :event_size
 
@@ -52,6 +55,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.attribute_map
       {
+        :'description' => :'description',
         :'event_size' => :'event_size',
         :'query' => :'query',
         :'tags_execution' => :'tags_execution',
@@ -67,6 +71,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
+        :'description' => :'String',
         :'event_size' => :'WidgetEventSize',
         :'query' => :'String',
         :'tags_execution' => :'String',
@@ -95,6 +100,10 @@ module DatadogAPIClient::V1
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'description')
+        self.description = attributes[:'description']
+      end
 
       if attributes.key?(:'event_size')
         self.event_size = attributes[:'event_size']
@@ -184,6 +193,7 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          description == o.description &&
           event_size == o.event_size &&
           query == o.query &&
           tags_execution == o.tags_execution &&
@@ -199,7 +209,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [event_size, query, tags_execution, time, title, title_align, title_size, type, additional_properties].hash
+      [description, event_size, query, tags_execution, time, title, title_align, title_size, type, additional_properties].hash
     end
   end
 end

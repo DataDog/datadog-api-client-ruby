@@ -27,6 +27,9 @@ module DatadogAPIClient::V1
     # The number of monitors to display.
     attr_accessor :count
 
+    # The description of the widget.
+    attr_accessor :description
+
     # What to display on the widget.
     attr_accessor :display_format
 
@@ -71,6 +74,7 @@ module DatadogAPIClient::V1
       {
         :'color_preference' => :'color_preference',
         :'count' => :'count',
+        :'description' => :'description',
         :'display_format' => :'display_format',
         :'hide_zero_counts' => :'hide_zero_counts',
         :'query' => :'query',
@@ -92,6 +96,7 @@ module DatadogAPIClient::V1
       {
         :'color_preference' => :'WidgetColorPreference',
         :'count' => :'Integer',
+        :'description' => :'String',
         :'display_format' => :'WidgetMonitorSummaryDisplayFormat',
         :'hide_zero_counts' => :'Boolean',
         :'query' => :'String',
@@ -131,6 +136,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'count')
         self.count = attributes[:'count']
+      end
+
+      if attributes.key?(:'description')
+        self.description = attributes[:'description']
       end
 
       if attributes.key?(:'display_format')
@@ -239,6 +248,7 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           color_preference == o.color_preference &&
           count == o.count &&
+          description == o.description &&
           display_format == o.display_format &&
           hide_zero_counts == o.hide_zero_counts &&
           query == o.query &&
@@ -258,7 +268,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [color_preference, count, display_format, hide_zero_counts, query, show_last_triggered, show_priority, sort, start, summary_type, title, title_align, title_size, type, additional_properties].hash
+      [color_preference, count, description, display_format, hide_zero_counts, query, show_last_triggered, show_priority, sort, start, summary_type, title, title_align, title_size, type, additional_properties].hash
     end
   end
 end
