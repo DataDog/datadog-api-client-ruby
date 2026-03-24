@@ -21,6 +21,9 @@ module DatadogAPIClient::V1
   class ServiceSummaryWidgetDefinition
     include BaseGenericModel
 
+    # The description of the widget.
+    attr_accessor :description
+
     # Number of columns to display.
     attr_accessor :display_format
 
@@ -75,6 +78,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.attribute_map
       {
+        :'description' => :'description',
         :'display_format' => :'display_format',
         :'env' => :'env',
         :'service' => :'service',
@@ -98,6 +102,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
+        :'description' => :'String',
         :'display_format' => :'WidgetServiceSummaryDisplayFormat',
         :'env' => :'String',
         :'service' => :'String',
@@ -134,6 +139,10 @@ module DatadogAPIClient::V1
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'description')
+        self.description = attributes[:'description']
+      end
 
       if attributes.key?(:'display_format')
         self.display_format = attributes[:'display_format']
@@ -277,6 +286,7 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          description == o.description &&
           display_format == o.display_format &&
           env == o.env &&
           service == o.service &&
@@ -300,7 +310,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [display_format, env, service, show_breakdown, show_distribution, show_errors, show_hits, show_latency, show_resource_list, size_format, span_name, time, title, title_align, title_size, type, additional_properties].hash
+      [description, display_format, env, service, show_breakdown, show_distribution, show_errors, show_hits, show_latency, show_resource_list, size_format, span_name, time, title, title_align, title_size, type, additional_properties].hash
     end
   end
 end

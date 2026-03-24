@@ -12,6 +12,7 @@ body = DatadogAPIClient::V1::Dashboard.new({
         title: "",
         title_size: "16",
         title_align: DatadogAPIClient::V1::WidgetTextAlign::LEFT,
+        description: "Example widget description",
         show_legend: true,
         legend_layout: DatadogAPIClient::V1::TimeseriesWidgetLegendLayout::AUTO,
         time: DatadogAPIClient::V1::WidgetLegacyLiveSpan.new({}),

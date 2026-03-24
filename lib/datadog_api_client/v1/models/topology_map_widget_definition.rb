@@ -24,6 +24,9 @@ module DatadogAPIClient::V1
     # List of custom links.
     attr_accessor :custom_links
 
+    # The description of the widget.
+    attr_accessor :description
+
     # One or more Topology requests.
     attr_reader :requests
 
@@ -46,6 +49,7 @@ module DatadogAPIClient::V1
     def self.attribute_map
       {
         :'custom_links' => :'custom_links',
+        :'description' => :'description',
         :'requests' => :'requests',
         :'title' => :'title',
         :'title_align' => :'title_align',
@@ -59,6 +63,7 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'custom_links' => :'Array<WidgetCustomLink>',
+        :'description' => :'String',
         :'requests' => :'Array<TopologyRequest>',
         :'title' => :'String',
         :'title_align' => :'WidgetTextAlign',
@@ -89,6 +94,10 @@ module DatadogAPIClient::V1
         if (value = attributes[:'custom_links']).is_a?(Array)
           self.custom_links = value
         end
+      end
+
+      if attributes.key?(:'description')
+        self.description = attributes[:'description']
       end
 
       if attributes.key?(:'requests')
@@ -174,6 +183,7 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           custom_links == o.custom_links &&
+          description == o.description &&
           requests == o.requests &&
           title == o.title &&
           title_align == o.title_align &&
@@ -186,7 +196,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [custom_links, requests, title, title_align, title_size, type, additional_properties].hash
+      [custom_links, description, requests, title, title_align, title_size, type, additional_properties].hash
     end
   end
 end

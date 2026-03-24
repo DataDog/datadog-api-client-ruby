@@ -27,6 +27,9 @@ module DatadogAPIClient::V1
     # List of custom links.
     attr_accessor :custom_links
 
+    # The description of the widget.
+    attr_accessor :description
+
     # Widget definition.
     attr_reader :requests
 
@@ -59,6 +62,7 @@ module DatadogAPIClient::V1
       {
         :'color_by_groups' => :'color_by_groups',
         :'custom_links' => :'custom_links',
+        :'description' => :'description',
         :'requests' => :'requests',
         :'time' => :'time',
         :'title' => :'title',
@@ -76,6 +80,7 @@ module DatadogAPIClient::V1
       {
         :'color_by_groups' => :'Array<String>',
         :'custom_links' => :'Array<WidgetCustomLink>',
+        :'description' => :'String',
         :'requests' => :'ScatterPlotWidgetDefinitionRequests',
         :'time' => :'WidgetTime',
         :'title' => :'String',
@@ -115,6 +120,10 @@ module DatadogAPIClient::V1
         if (value = attributes[:'custom_links']).is_a?(Array)
           self.custom_links = value
         end
+      end
+
+      if attributes.key?(:'description')
+        self.description = attributes[:'description']
       end
 
       if attributes.key?(:'requests')
@@ -207,6 +216,7 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           color_by_groups == o.color_by_groups &&
           custom_links == o.custom_links &&
+          description == o.description &&
           requests == o.requests &&
           time == o.time &&
           title == o.title &&
@@ -222,7 +232,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [color_by_groups, custom_links, requests, time, title, title_align, title_size, type, xaxis, yaxis, additional_properties].hash
+      [color_by_groups, custom_links, description, requests, time, title, title_align, title_size, type, xaxis, yaxis, additional_properties].hash
     end
   end
 end

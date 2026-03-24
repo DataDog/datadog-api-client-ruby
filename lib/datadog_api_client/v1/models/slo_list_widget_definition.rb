@@ -21,6 +21,9 @@ module DatadogAPIClient::V1
   class SLOListWidgetDefinition
     include BaseGenericModel
 
+    # The description of the widget.
+    attr_accessor :description
+
     # Array of one request object to display in the widget.
     attr_reader :requests
 
@@ -42,6 +45,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.attribute_map
       {
+        :'description' => :'description',
         :'requests' => :'requests',
         :'title' => :'title',
         :'title_align' => :'title_align',
@@ -54,6 +58,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
+        :'description' => :'String',
         :'requests' => :'Array<SLOListWidgetRequest>',
         :'title' => :'String',
         :'title_align' => :'WidgetTextAlign',
@@ -79,6 +84,10 @@ module DatadogAPIClient::V1
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'description')
+        self.description = attributes[:'description']
+      end
 
       if attributes.key?(:'requests')
         if (value = attributes[:'requests']).is_a?(Array)
@@ -166,6 +175,7 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          description == o.description &&
           requests == o.requests &&
           title == o.title &&
           title_align == o.title_align &&
@@ -178,7 +188,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [requests, title, title_align, title_size, type, additional_properties].hash
+      [description, requests, title, title_align, title_size, type, additional_properties].hash
     end
   end
 end

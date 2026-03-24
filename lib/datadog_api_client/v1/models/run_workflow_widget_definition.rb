@@ -24,6 +24,9 @@ module DatadogAPIClient::V1
     # List of custom links.
     attr_accessor :custom_links
 
+    # The description of the widget.
+    attr_accessor :description
+
     # Array of workflow inputs to map to dashboard template variables.
     attr_accessor :inputs
 
@@ -52,6 +55,7 @@ module DatadogAPIClient::V1
     def self.attribute_map
       {
         :'custom_links' => :'custom_links',
+        :'description' => :'description',
         :'inputs' => :'inputs',
         :'time' => :'time',
         :'title' => :'title',
@@ -67,6 +71,7 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'custom_links' => :'Array<WidgetCustomLink>',
+        :'description' => :'String',
         :'inputs' => :'Array<RunWorkflowWidgetInput>',
         :'time' => :'WidgetTime',
         :'title' => :'String',
@@ -99,6 +104,10 @@ module DatadogAPIClient::V1
         if (value = attributes[:'custom_links']).is_a?(Array)
           self.custom_links = value
         end
+      end
+
+      if attributes.key?(:'description')
+        self.description = attributes[:'description']
       end
 
       if attributes.key?(:'inputs')
@@ -188,6 +197,7 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           custom_links == o.custom_links &&
+          description == o.description &&
           inputs == o.inputs &&
           time == o.time &&
           title == o.title &&
@@ -202,7 +212,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [custom_links, inputs, time, title, title_align, title_size, type, workflow_id, additional_properties].hash
+      [custom_links, description, inputs, time, title, title_align, title_size, type, workflow_id, additional_properties].hash
     end
   end
 end

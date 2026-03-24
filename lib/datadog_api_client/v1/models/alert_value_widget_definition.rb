@@ -24,6 +24,9 @@ module DatadogAPIClient::V1
     # ID of the alert to use in the widget.
     attr_reader :alert_id
 
+    # The description of the widget.
+    attr_accessor :description
+
     # Number of decimal to show. If not defined, will use the raw value.
     attr_accessor :precision
 
@@ -52,6 +55,7 @@ module DatadogAPIClient::V1
     def self.attribute_map
       {
         :'alert_id' => :'alert_id',
+        :'description' => :'description',
         :'precision' => :'precision',
         :'text_align' => :'text_align',
         :'title' => :'title',
@@ -67,6 +71,7 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'alert_id' => :'String',
+        :'description' => :'String',
         :'precision' => :'Integer',
         :'text_align' => :'WidgetTextAlign',
         :'title' => :'String',
@@ -97,6 +102,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'alert_id')
         self.alert_id = attributes[:'alert_id']
+      end
+
+      if attributes.key?(:'description')
+        self.description = attributes[:'description']
       end
 
       if attributes.key?(:'precision')
@@ -184,6 +193,7 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           alert_id == o.alert_id &&
+          description == o.description &&
           precision == o.precision &&
           text_align == o.text_align &&
           title == o.title &&
@@ -198,7 +208,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [alert_id, precision, text_align, title, title_align, title_size, type, unit, additional_properties].hash
+      [alert_id, description, precision, text_align, title, title_align, title_size, type, unit, additional_properties].hash
     end
   end
 end

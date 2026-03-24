@@ -24,6 +24,9 @@ module DatadogAPIClient::V1
     # ID of the alert to use in the widget.
     attr_reader :alert_id
 
+    # The description of the widget.
+    attr_accessor :description
+
     # Time setting for the widget.
     attr_accessor :time
 
@@ -49,6 +52,7 @@ module DatadogAPIClient::V1
     def self.attribute_map
       {
         :'alert_id' => :'alert_id',
+        :'description' => :'description',
         :'time' => :'time',
         :'title' => :'title',
         :'title_align' => :'title_align',
@@ -63,6 +67,7 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'alert_id' => :'String',
+        :'description' => :'String',
         :'time' => :'WidgetTime',
         :'title' => :'String',
         :'title_align' => :'WidgetTextAlign',
@@ -92,6 +97,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'alert_id')
         self.alert_id = attributes[:'alert_id']
+      end
+
+      if attributes.key?(:'description')
+        self.description = attributes[:'description']
       end
 
       if attributes.key?(:'time')
@@ -186,6 +195,7 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           alert_id == o.alert_id &&
+          description == o.description &&
           time == o.time &&
           title == o.title &&
           title_align == o.title_align &&
@@ -199,7 +209,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [alert_id, time, title, title_align, title_size, type, viz_type, additional_properties].hash
+      [alert_id, description, time, title, title_align, title_size, type, viz_type, additional_properties].hash
     end
   end
 end

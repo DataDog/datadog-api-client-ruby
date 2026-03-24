@@ -21,6 +21,9 @@ module DatadogAPIClient::V1
   class EventTimelineWidgetDefinition
     include BaseGenericModel
 
+    # The description of the widget.
+    attr_accessor :description
+
     # Query to filter the event timeline with.
     attr_reader :query
 
@@ -48,6 +51,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.attribute_map
       {
+        :'description' => :'description',
         :'query' => :'query',
         :'tags_execution' => :'tags_execution',
         :'time' => :'time',
@@ -62,6 +66,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
+        :'description' => :'String',
         :'query' => :'String',
         :'tags_execution' => :'String',
         :'time' => :'WidgetTime',
@@ -89,6 +94,10 @@ module DatadogAPIClient::V1
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'description')
+        self.description = attributes[:'description']
+      end
 
       if attributes.key?(:'query')
         self.query = attributes[:'query']
@@ -174,6 +183,7 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          description == o.description &&
           query == o.query &&
           tags_execution == o.tags_execution &&
           time == o.time &&
@@ -188,7 +198,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [query, tags_execution, time, title, title_align, title_size, type, additional_properties].hash
+      [description, query, tags_execution, time, title, title_align, title_size, type, additional_properties].hash
     end
   end
 end

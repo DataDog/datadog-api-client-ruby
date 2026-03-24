@@ -21,6 +21,9 @@ module DatadogAPIClient::V1
   class FunnelWidgetDefinition
     include BaseGenericModel
 
+    # The description of the widget.
+    attr_accessor :description
+
     # Request payload used to query items.
     attr_reader :requests
 
@@ -45,6 +48,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.attribute_map
       {
+        :'description' => :'description',
         :'requests' => :'requests',
         :'time' => :'time',
         :'title' => :'title',
@@ -58,6 +62,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
+        :'description' => :'String',
         :'requests' => :'Array<FunnelWidgetRequest>',
         :'time' => :'WidgetTime',
         :'title' => :'String',
@@ -84,6 +89,10 @@ module DatadogAPIClient::V1
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'description')
+        self.description = attributes[:'description']
+      end
 
       if attributes.key?(:'requests')
         if (value = attributes[:'requests']).is_a?(Array)
@@ -175,6 +184,7 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          description == o.description &&
           requests == o.requests &&
           time == o.time &&
           title == o.title &&
@@ -188,7 +198,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [requests, time, title, title_align, title_size, type, additional_properties].hash
+      [description, requests, time, title, title_align, title_size, type, additional_properties].hash
     end
   end
 end
