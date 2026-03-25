@@ -52,7 +52,6 @@ module DatadogAPIClient::V1
           :'SLOListWidgetDefinition',
           :'SLOWidgetDefinition',
           :'ScatterPlotWidgetDefinition',
-          :'SankeyWidgetDefinition',
           :'ServiceMapWidgetDefinition',
           :'ServiceSummaryWidgetDefinition',
           :'SplitGraphWidgetDefinition',
