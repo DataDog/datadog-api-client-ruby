@@ -676,11 +676,11 @@ module DatadogAPIClient::V2
     # @option opts [MetricTagConfigurationMetricTypeCategory] :filter_metric_type Only return metrics of the given metric type.
     # @option opts [Boolean] :filter_include_percentiles Only return distribution metrics that have percentile aggregations enabled (true) or disabled (false).
     # @option opts [Boolean] :filter_queried Only return metrics that have been queried (true) or not queried (false) in the look back window. Set the window with `filter[queried][window][seconds]`; if omitted, a default window is used.
-    # @option opts [Integer] :filter_queried_window_seconds Only return metrics that have been queried or not queried in the specified window. Dependent on being sent with `filter[queried]`.
+    # @option opts [Integer] :filter_queried_window_seconds Only return metrics that have been queried or not queried in the specified window. Dependent on being sent with `filter[queried]`. The default value is 2,592,000 seconds (30 days), the maximum value is 15,552,000 seconds (180 days), and the minimum value is 1 second.
     # @option opts [String] :filter_tags Only return metrics that were submitted with tags matching this expression. You can use AND, OR, IN, and wildcards (for example, service:web*).
     # @option opts [Boolean] :filter_related_assets Only return metrics that are used in at least one dashboard, monitor, notebook, or SLO.
-    # @option opts [Integer] :window_seconds Only return metrics that have been actively reporting in the specified window.
-    # @option opts [Integer] :page_size Maximum number of results per page. Use with `page[cursor]` for pagination.
+    # @option opts [Integer] :window_seconds Only return metrics that have been actively reporting in the specified window. The default value is 3600 seconds (1 hour), the maximum value is 2,592,000 seconds (30 days), and the minimum value is 1 second.
+    # @option opts [Integer] :page_size Maximum number of results per page. Use with `page[cursor]` for pagination. The default value is 10000, the maximum value is 10000, and the minimum value is 1.
     # @option opts [String] :page_cursor Cursor for pagination. Use `page[size]` to opt-in to pagination and get the first page; for subsequent pages, use the value from `meta.pagination.next_cursor` in the response. Pagination is complete when `next_cursor` is null.
     # @return [Array<(MetricsAndMetricTagConfigurationsResponse, Integer, Hash)>] MetricsAndMetricTagConfigurationsResponse data, response status code and response headers
     def list_tag_configurations_with_http_info(opts = {})
