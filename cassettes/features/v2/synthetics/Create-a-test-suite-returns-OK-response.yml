@@ -1,5 +1,5 @@
 http_interactions:
-- recorded_at: Wed, 07 Jan 2026 12:38:45 GMT
+- recorded_at: Wed, 18 Feb 2026 16:57:05 GMT
   request:
     body:
       encoding: UTF-8
@@ -15,10 +15,10 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"suites","id":"36n-bb6-njj","attributes":{"tags":["env:production"],"type":"suite","created_by":{"email":"team-intg-tools-libs-spam@datadoghq.com","handle":"9919ec9b-ebc7-49ee-8dc8-03626e717cca","name":"CI
-        Account"},"created_at":"2026-01-07T12:38:46.109472+00:00","modified_at":"2026-01-07T12:38:46.109472+00:00","message":"Notification
-        message","public_id":"36n-bb6-njj","options":{},"modified_by":{"email":"team-intg-tools-libs-spam@datadoghq.com","handle":"9919ec9b-ebc7-49ee-8dc8-03626e717cca","name":"CI
-        Account"},"tests":[],"name":"Example suite name","org_id":321813,"monitor_id":249141773}}}
+      string: '{"data":{"type":"suites","attributes":{"type":"suite","monitor_id":259845717,"name":"Example
+        suite name","options":{},"tests":[],"tags":["env:production"],"public_id":"hik-xp5-9q6","created_at":"2026-02-18T16:57:05.583051+00:00","modified_at":"2026-02-18T16:57:05.583051+00:00","created_by":{"name":"Corentin
+        Girard","email":"corentin.girard@datadoghq.com","handle":"corentin.girard@datadoghq.com"},"message":"Notification
+        message","org_id":321813,"modified_by":{"name":"Corentin Girard","email":"corentin.girard@datadoghq.com","handle":"corentin.girard@datadoghq.com"}},"id":"hik-xp5-9q6"}}
 
         '
     headers:
@@ -27,11 +27,11 @@ http_interactions:
     status:
       code: 200
       message: OK
-- recorded_at: Wed, 07 Jan 2026 12:38:45 GMT
+- recorded_at: Wed, 18 Feb 2026 16:57:05 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"public_ids":["36n-bb6-njj"]},"type":"delete_suites_request"}}'
+      string: '{"data":{"attributes":{"public_ids":["hik-xp5-9q6"]},"type":"delete_suites_request"}}'
     headers:
       Accept:
       - application/json
@@ -42,8 +42,7 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":[{"type":"suites","attributes":{"public_id":"36n-bb6-njj","deleted_at":"2026-01-07
-        12:38:46.679914"},"id":"36n-bb6-njj"}]}
+      string: '{"data":[{"type":"suites","attributes":{"deleted_at":"2026-02-18 16:57:06.420679","public_id":"hik-xp5-9q6"},"id":"hik-xp5-9q6"}]}
 
         '
     headers:
