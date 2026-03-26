@@ -40,6 +40,8 @@ module DatadogAPIClient::V1
     # consider use of the Datadog archive capabilities instead of the log list API.
     # See [Datadog Logs Archive documentation][2].**
     #
+    # **Note**: This endpoint is enabled by default for logs customers. To disable it, contact [Datadog support](https://docs.datadoghq.com/help/).
+    #
     # [1]: /logs/guide/collect-multiple-logs-with-pagination
     # [2]: https://docs.datadoghq.com/logs/archives
     #
