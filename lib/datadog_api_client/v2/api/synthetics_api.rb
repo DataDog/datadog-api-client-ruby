@@ -408,6 +408,68 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get a fast test result.
+    #
+    # @see #get_synthetics_fast_test_result_with_http_info
+    def get_synthetics_fast_test_result(id, opts = {})
+      data, _status_code, _headers = get_synthetics_fast_test_result_with_http_info(id, opts)
+      data
+    end
+
+    # Get a fast test result.
+    # @param id [String] The UUID of the fast test to retrieve the result for.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SyntheticsFastTestResult, Integer, Hash)>] SyntheticsFastTestResult data, response status code and response headers
+    def get_synthetics_fast_test_result_with_http_info(id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsAPI.get_synthetics_fast_test_result ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling SyntheticsAPI.get_synthetics_fast_test_result"
+      end
+      # resource path
+      local_var_path = '/api/v2/synthetics/tests/fast/{id}'.sub('{id}', CGI.escape(id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SyntheticsFastTestResult'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_synthetics_fast_test_result,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SyntheticsAPI#get_synthetics_fast_test_result\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get a Network Path test.
     #
     # @see #get_synthetics_network_test_with_http_info
