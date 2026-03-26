@@ -39,12 +39,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(ServiceNowTemplateResponse, Integer, Hash)>] ServiceNowTemplateResponse data, response status code and response headers
     def create_service_now_template_with_http_info(body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.create_service_now_template".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_service_now_template")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_service_now_template"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ServiceNowIntegrationAPI.create_service_now_template ...'
@@ -112,12 +106,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_service_now_template_with_http_info(template_id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.delete_service_now_template".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_service_now_template")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_service_now_template"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ServiceNowIntegrationAPI.delete_service_now_template ...'
@@ -183,12 +171,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(ServiceNowTemplateResponse, Integer, Hash)>] ServiceNowTemplateResponse data, response status code and response headers
     def get_service_now_template_with_http_info(template_id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.get_service_now_template".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_service_now_template")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_service_now_template"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ServiceNowIntegrationAPI.get_service_now_template ...'
@@ -254,12 +236,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(ServiceNowAssignmentGroupsResponse, Integer, Hash)>] ServiceNowAssignmentGroupsResponse data, response status code and response headers
     def list_service_now_assignment_groups_with_http_info(instance_id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.list_service_now_assignment_groups".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_service_now_assignment_groups")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_service_now_assignment_groups"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ServiceNowIntegrationAPI.list_service_now_assignment_groups ...'
@@ -325,12 +301,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(ServiceNowBusinessServicesResponse, Integer, Hash)>] ServiceNowBusinessServicesResponse data, response status code and response headers
     def list_service_now_business_services_with_http_info(instance_id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.list_service_now_business_services".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_service_now_business_services")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_service_now_business_services"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ServiceNowIntegrationAPI.list_service_now_business_services ...'
@@ -395,12 +365,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(ServiceNowInstancesResponse, Integer, Hash)>] ServiceNowInstancesResponse data, response status code and response headers
     def list_service_now_instances_with_http_info(opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.list_service_now_instances".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_service_now_instances")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_service_now_instances"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ServiceNowIntegrationAPI.list_service_now_instances ...'
@@ -461,12 +425,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(ServiceNowTemplatesResponse, Integer, Hash)>] ServiceNowTemplatesResponse data, response status code and response headers
     def list_service_now_templates_with_http_info(opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.list_service_now_templates".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_service_now_templates")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_service_now_templates"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ServiceNowIntegrationAPI.list_service_now_templates ...'
@@ -528,12 +486,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(ServiceNowUsersResponse, Integer, Hash)>] ServiceNowUsersResponse data, response status code and response headers
     def list_service_now_users_with_http_info(instance_id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.list_service_now_users".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_service_now_users")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_service_now_users"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ServiceNowIntegrationAPI.list_service_now_users ...'
@@ -600,12 +552,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(ServiceNowTemplateResponse, Integer, Hash)>] ServiceNowTemplateResponse data, response status code and response headers
     def update_service_now_template_with_http_info(template_id, body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.update_service_now_template".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_service_now_template")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_service_now_template"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ServiceNowIntegrationAPI.update_service_now_template ...'
