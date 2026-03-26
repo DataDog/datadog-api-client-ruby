@@ -1,9 +1,6 @@
 # Create ServiceNow template returns "Created" response
 
 require "datadog_api_client"
-DatadogAPIClient.configure do |config|
-  config.unstable_operations["v2.create_service_now_template".to_sym] = true
-end
 api_instance = DatadogAPIClient::V2::ServiceNowIntegrationAPI.new
 
 body = DatadogAPIClient::V2::ServiceNowTemplateCreateRequest.new({
