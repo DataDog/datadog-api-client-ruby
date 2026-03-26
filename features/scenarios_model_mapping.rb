@@ -3952,6 +3952,9 @@ ScenariosModelMappings = {
     "v2.DeleteSyntheticsTests" => {
             "body" => "DeletedTestsRequestDeleteRequest",
     },
+    "v2.GetSyntheticsFastTestResult" => {
+            "id" => "String",
+    },
     "v2.CreateSyntheticsNetworkTest" => {
             "body" => "SyntheticsNetworkTestEditRequest",
     },
