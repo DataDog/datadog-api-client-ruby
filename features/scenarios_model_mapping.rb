@@ -3926,6 +3926,12 @@ ScenariosModelMappings = {
             "include" => "String",
             "body" => "PatchMaintenanceRequest",
     },
+    "v2.GetApiMultistepSubtests" => {
+            "public_id" => "String",
+    },
+    "v2.GetApiMultistepSubtestParents" => {
+            "public_id" => "String",
+    },
     "v2.SetOnDemandConcurrencyCap" => {
             "body" => "OnDemandConcurrencyCapAttributes",
     },
@@ -3949,6 +3955,10 @@ ScenariosModelMappings = {
             "public_id" => "String",
             "body" => "SuiteCreateEditRequest",
     },
+    "v2.PatchTestSuite" => {
+            "public_id" => "String",
+            "body" => "SuiteJsonPatchRequest",
+    },
     "v2.DeleteSyntheticsTests" => {
             "body" => "DeletedTestsRequestDeleteRequest",
     },
@@ -3964,6 +3974,20 @@ ScenariosModelMappings = {
     "v2.UpdateSyntheticsNetworkTest" => {
             "public_id" => "String",
             "body" => "SyntheticsNetworkTestEditRequest",
+    },
+    "v2.GetTestParentSuites" => {
+            "public_id" => "String",
+    },
+    "v2.ListSyntheticsTestVersions" => {
+            "public_id" => "String",
+            "last_version_number" => "Integer",
+            "limit" => "Integer",
+    },
+    "v2.GetSyntheticsTestVersion" => {
+            "public_id" => "String",
+            "version_number" => "Integer",
+            "include_change_metadata" => "Boolean",
+            "only_check_existence" => "Boolean",
     },
     "v2.PatchGlobalVariable" => {
             "variable_id" => "String",
@@ -4163,6 +4187,34 @@ ScenariosModelMappings = {
     },
     "v2.ListUserPermissions" => {
             "user_id" => "String",
+    },
+    "v2.SearchWidgets" => {
+            "experience_type" => "WidgetExperienceType",
+            "filter_widget_type" => "WidgetType",
+            "filter_creator_handle" => "String",
+            "filter_is_favorited" => "Boolean",
+            "filter_title" => "String",
+            "filter_tags" => "String",
+            "sort" => "String",
+            "page_number" => "Integer",
+            "page_size" => "Integer",
+    },
+    "v2.CreateWidget" => {
+            "experience_type" => "WidgetExperienceType",
+            "body" => "CreateOrUpdateWidgetRequest",
+    },
+    "v2.DeleteWidget" => {
+            "experience_type" => "WidgetExperienceType",
+            "uuid" => "UUID",
+    },
+    "v2.GetWidget" => {
+            "experience_type" => "WidgetExperienceType",
+            "uuid" => "UUID",
+    },
+    "v2.UpdateWidget" => {
+            "experience_type" => "WidgetExperienceType",
+            "uuid" => "UUID",
+            "body" => "CreateOrUpdateWidgetRequest",
     },
     "v2.CreateWorkflow" => {
             "body" => "CreateWorkflowRequest",
