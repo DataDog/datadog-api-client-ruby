@@ -21,7 +21,7 @@ module DatadogAPIClient::V1
   class NotebookLogStreamCellAttributes
     include BaseGenericModel
 
-    # The Log Stream displays a log flow matching the defined query. Only available on FREE layout dashboards.
+    # The Log Stream displays a log flow matching the defined query.
     attr_reader :definition
 
     # The size of the graph.

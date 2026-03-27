@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # The Log Stream displays a log flow matching the defined query. Only available on FREE layout dashboards.
+  # The Log Stream displays a log flow matching the defined query.
   class LogStreamWidgetDefinition
     include BaseGenericModel
 
