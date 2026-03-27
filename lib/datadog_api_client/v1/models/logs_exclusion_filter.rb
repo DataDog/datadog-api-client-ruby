@@ -25,6 +25,10 @@ module DatadogAPIClient::V1
     # Scope down exclusion filter to only a subset of logs with a log query.
     attr_accessor :query
 
+    # Sample attribute to use for the sampling of logs going through this exclusion filter.
+    # When set, only the logs with the specified attribute are sampled.
+    attr_accessor :sample_attribute
+
     # Sample rate to apply to logs going through this exclusion filter,
     # a value of 1.0 excludes all logs matching the query.
     attr_reader :sample_rate
@@ -36,6 +40,7 @@ module DatadogAPIClient::V1
     def self.attribute_map
       {
         :'query' => :'query',
+        :'sample_attribute' => :'sample_attribute',
         :'sample_rate' => :'sample_rate'
       }
     end
@@ -45,6 +50,7 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'query' => :'String',
+        :'sample_attribute' => :'String',
         :'sample_rate' => :'Float'
       }
     end
@@ -69,6 +75,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'query')
         self.query = attributes[:'query']
+      end
+
+      if attributes.key?(:'sample_attribute')
+        self.sample_attribute = attributes[:'sample_attribute']
       end
 
       if attributes.key?(:'sample_rate')
@@ -121,6 +131,7 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           query == o.query &&
+          sample_attribute == o.sample_attribute &&
           sample_rate == o.sample_rate &&
           additional_properties == o.additional_properties
     end
@@ -129,7 +140,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [query, sample_rate, additional_properties].hash
+      [query, sample_attribute, sample_rate, additional_properties].hash
     end
   end
 end

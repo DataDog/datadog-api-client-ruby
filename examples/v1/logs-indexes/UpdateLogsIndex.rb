@@ -15,6 +15,7 @@ body = DatadogAPIClient::V1::LogsIndexUpdateRequest.new({
     DatadogAPIClient::V1::LogsExclusion.new({
       filter: DatadogAPIClient::V1::LogsExclusionFilter.new({
         query: "*",
+        sample_attribute: "@ci.job_id",
         sample_rate: 1.0,
       }),
       name: "payment",
