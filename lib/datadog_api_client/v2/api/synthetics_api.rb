@@ -348,6 +348,138 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get parent tests for a subtest.
+    #
+    # @see #get_api_multistep_subtest_parents_with_http_info
+    def get_api_multistep_subtest_parents(public_id, opts = {})
+      data, _status_code, _headers = get_api_multistep_subtest_parents_with_http_info(public_id, opts)
+      data
+    end
+
+    # Get parent tests for a subtest.
+    #
+    # Get the list of API multistep tests that include a given subtest,
+    # along with their monitor status.
+    #
+    # @param public_id [String] The public ID of the subtest.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SyntheticsApiMultistepParentTestsResponse, Integer, Hash)>] SyntheticsApiMultistepParentTestsResponse data, response status code and response headers
+    def get_api_multistep_subtest_parents_with_http_info(public_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsAPI.get_api_multistep_subtest_parents ...'
+      end
+      # verify the required parameter 'public_id' is set
+      if @api_client.config.client_side_validation && public_id.nil?
+        fail ArgumentError, "Missing the required parameter 'public_id' when calling SyntheticsAPI.get_api_multistep_subtest_parents"
+      end
+      # resource path
+      local_var_path = '/api/v2/synthetics/api-multistep/subtests/{public_id}/parents'.sub('{public_id}', CGI.escape(public_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SyntheticsApiMultistepParentTestsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_api_multistep_subtest_parents,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SyntheticsAPI#get_api_multistep_subtest_parents\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get available subtests for a multistep test.
+    #
+    # @see #get_api_multistep_subtests_with_http_info
+    def get_api_multistep_subtests(public_id, opts = {})
+      data, _status_code, _headers = get_api_multistep_subtests_with_http_info(public_id, opts)
+      data
+    end
+
+    # Get available subtests for a multistep test.
+    #
+    # Get the list of API tests that can be added as subtests to a given API multistep test.
+    # The current test is excluded from the list since a test cannot be a subtest of itself.
+    #
+    # @param public_id [String] The public ID of the API multistep test.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SyntheticsApiMultistepSubtestsResponse, Integer, Hash)>] SyntheticsApiMultistepSubtestsResponse data, response status code and response headers
+    def get_api_multistep_subtests_with_http_info(public_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsAPI.get_api_multistep_subtests ...'
+      end
+      # verify the required parameter 'public_id' is set
+      if @api_client.config.client_side_validation && public_id.nil?
+        fail ArgumentError, "Missing the required parameter 'public_id' when calling SyntheticsAPI.get_api_multistep_subtests"
+      end
+      # resource path
+      local_var_path = '/api/v2/synthetics/api-multistep/subtests/{public_id}'.sub('{public_id}', CGI.escape(public_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SyntheticsApiMultistepSubtestsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_api_multistep_subtests,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SyntheticsAPI#get_api_multistep_subtests\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get the on-demand concurrency cap.
     #
     # @see #get_on_demand_concurrency_cap_with_http_info
@@ -594,6 +726,217 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get a specific version of a test.
+    #
+    # @see #get_synthetics_test_version_with_http_info
+    def get_synthetics_test_version(public_id, version_number, opts = {})
+      data, _status_code, _headers = get_synthetics_test_version_with_http_info(public_id, version_number, opts)
+      data
+    end
+
+    # Get a specific version of a test.
+    #
+    # Get a specific version of a Synthetic test by its version number.
+    #
+    # @param public_id [String] The public ID of the Synthetic test.
+    # @param version_number [Integer] The version number to retrieve.
+    # @param opts [Hash] the optional parameters
+    # @option opts [Boolean] :include_change_metadata If `true`, include change metadata in the response.
+    # @option opts [Boolean] :only_check_existence If `true`, only check whether the version exists without returning its full payload. Returns an empty object if the version exists, or 404 if not.
+    # @return [Array<(SyntheticsTestVersionResponse, Integer, Hash)>] SyntheticsTestVersionResponse data, response status code and response headers
+    def get_synthetics_test_version_with_http_info(public_id, version_number, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsAPI.get_synthetics_test_version ...'
+      end
+      # verify the required parameter 'public_id' is set
+      if @api_client.config.client_side_validation && public_id.nil?
+        fail ArgumentError, "Missing the required parameter 'public_id' when calling SyntheticsAPI.get_synthetics_test_version"
+      end
+      # verify the required parameter 'version_number' is set
+      if @api_client.config.client_side_validation && version_number.nil?
+        fail ArgumentError, "Missing the required parameter 'version_number' when calling SyntheticsAPI.get_synthetics_test_version"
+      end
+      # resource path
+      local_var_path = '/api/v2/synthetics/tests/{public_id}/version_history/{version_number}'.sub('{public_id}', CGI.escape(public_id.to_s).gsub('%2F', '/')).sub('{version_number}', CGI.escape(version_number.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'include_change_metadata'] = opts[:'include_change_metadata'] if !opts[:'include_change_metadata'].nil?
+      query_params[:'only_check_existence'] = opts[:'only_check_existence'] if !opts[:'only_check_existence'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SyntheticsTestVersionResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_synthetics_test_version,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SyntheticsAPI#get_synthetics_test_version\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get parent suites for a test.
+    #
+    # @see #get_test_parent_suites_with_http_info
+    def get_test_parent_suites(public_id, opts = {})
+      data, _status_code, _headers = get_test_parent_suites_with_http_info(public_id, opts)
+      data
+    end
+
+    # Get parent suites for a test.
+    #
+    # Get the list of parent suites and their status for a given Synthetic test.
+    #
+    # @param public_id [String] The public ID of the Synthetic test.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SyntheticsTestParentSuitesResponse, Integer, Hash)>] SyntheticsTestParentSuitesResponse data, response status code and response headers
+    def get_test_parent_suites_with_http_info(public_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsAPI.get_test_parent_suites ...'
+      end
+      # verify the required parameter 'public_id' is set
+      if @api_client.config.client_side_validation && public_id.nil?
+        fail ArgumentError, "Missing the required parameter 'public_id' when calling SyntheticsAPI.get_test_parent_suites"
+      end
+      # resource path
+      local_var_path = '/api/v2/synthetics/tests/{public_id}/parent-suites'.sub('{public_id}', CGI.escape(public_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SyntheticsTestParentSuitesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_test_parent_suites,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SyntheticsAPI#get_test_parent_suites\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get version history of a test.
+    #
+    # @see #list_synthetics_test_versions_with_http_info
+    def list_synthetics_test_versions(public_id, opts = {})
+      data, _status_code, _headers = list_synthetics_test_versions_with_http_info(public_id, opts)
+      data
+    end
+
+    # Get version history of a test.
+    #
+    # Get the paginated version history for a Synthetic test.
+    #
+    # @param public_id [String] The public ID of the Synthetic test.
+    # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :last_version_number The version number of the last item from the previous page. Omit to get the first page.
+    # @option opts [Integer] :limit Maximum number of version records to return per page.
+    # @return [Array<(SyntheticsTestVersionHistoryResponse, Integer, Hash)>] SyntheticsTestVersionHistoryResponse data, response status code and response headers
+    def list_synthetics_test_versions_with_http_info(public_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsAPI.list_synthetics_test_versions ...'
+      end
+      # verify the required parameter 'public_id' is set
+      if @api_client.config.client_side_validation && public_id.nil?
+        fail ArgumentError, "Missing the required parameter 'public_id' when calling SyntheticsAPI.list_synthetics_test_versions"
+      end
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 50
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SyntheticsAPI.list_synthetics_test_versions, must be smaller than or equal to 50.'
+      end
+      # resource path
+      local_var_path = '/api/v2/synthetics/tests/{public_id}/version_history'.sub('{public_id}', CGI.escape(public_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'last_version_number'] = opts[:'last_version_number'] if !opts[:'last_version_number'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SyntheticsTestVersionHistoryResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_synthetics_test_versions,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SyntheticsAPI#list_synthetics_test_versions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Patch a global variable.
     #
     # @see #patch_global_variable_with_http_info
@@ -669,6 +1012,84 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SyntheticsAPI#patch_global_variable\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Patch a test suite.
+    #
+    # @see #patch_test_suite_with_http_info
+    def patch_test_suite(public_id, body, opts = {})
+      data, _status_code, _headers = patch_test_suite_with_http_info(public_id, body, opts)
+      data
+    end
+
+    # Patch a test suite.
+    #
+    # Patch a Synthetic test suite using JSON Patch (RFC 6902).
+    # Use partial updates to modify only specific fields of a test suite.
+    #
+    # Common operations include:
+    # - Replace field values: `{"op": "replace", "path": "/name", "value": "new_name"}`
+    # - Add/update tags: `{"op": "add", "path": "/tags/-", "value": "new_tag"}`
+    # - Remove fields: `{"op": "remove", "path": "/message"}`
+    #
+    # @param public_id [String] The public ID of the Synthetic test suite to patch.
+    # @param body [SuiteJsonPatchRequest] JSON Patch document with operations to apply.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SyntheticsSuiteResponse, Integer, Hash)>] SyntheticsSuiteResponse data, response status code and response headers
+    def patch_test_suite_with_http_info(public_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsAPI.patch_test_suite ...'
+      end
+      # verify the required parameter 'public_id' is set
+      if @api_client.config.client_side_validation && public_id.nil?
+        fail ArgumentError, "Missing the required parameter 'public_id' when calling SyntheticsAPI.patch_test_suite"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SyntheticsAPI.patch_test_suite"
+      end
+      # resource path
+      local_var_path = '/api/v2/synthetics/suites/{public_id}/jsonpatch'.sub('{public_id}', CGI.escape(public_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SyntheticsSuiteResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :patch_test_suite,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SyntheticsAPI#patch_test_suite\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
