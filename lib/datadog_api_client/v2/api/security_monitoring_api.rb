@@ -4878,6 +4878,8 @@ module DatadogAPIClient::V2
     #
     # Extensions can only include one value: `ext:modifier=value`.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param opts [Hash] the optional parameters
     # @option opts [String] :page_token Its value must come from the `links` section of the response of the first request. Do not manually edit it.
     # @option opts [Integer] :page_number The page number to be retrieved. It should be equal or greater than `1`
@@ -4924,6 +4926,7 @@ module DatadogAPIClient::V2
     # @option opts [String] :filter_asset_operating_system_version Filter by asset operating system version.
     # @return [Array<(ListVulnerabilitiesResponse, Integer, Hash)>] ListVulnerabilitiesResponse data, response status code and response headers
     def list_vulnerabilities_with_http_info(opts = {})
+      warn "[DEPRECATION] `ListVulnerabilities` is deprecated."
       unstable_enabled = @api_client.config.unstable_operations["v2.list_vulnerabilities".to_sym]
       if unstable_enabled
         @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_vulnerabilities")
