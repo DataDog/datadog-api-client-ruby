@@ -4164,34 +4164,6 @@ ScenariosModelMappings = {
     "v2.ListUserPermissions" => {
             "user_id" => "String",
     },
-    "v2.SearchWidgets" => {
-            "experience_type" => "WidgetExperienceType",
-            "filter_widget_type" => "WidgetType",
-            "filter_creator_handle" => "String",
-            "filter_is_favorited" => "Boolean",
-            "filter_title" => "String",
-            "filter_tags" => "String",
-            "sort" => "String",
-            "page_number" => "Integer",
-            "page_size" => "Integer",
-    },
-    "v2.CreateWidget" => {
-            "experience_type" => "WidgetExperienceType",
-            "body" => "CreateOrUpdateWidgetRequest",
-    },
-    "v2.DeleteWidget" => {
-            "experience_type" => "WidgetExperienceType",
-            "uuid" => "UUID",
-    },
-    "v2.GetWidget" => {
-            "experience_type" => "WidgetExperienceType",
-            "uuid" => "UUID",
-    },
-    "v2.UpdateWidget" => {
-            "experience_type" => "WidgetExperienceType",
-            "uuid" => "UUID",
-            "body" => "CreateOrUpdateWidgetRequest",
-    },
     "v2.CreateWorkflow" => {
             "body" => "CreateWorkflowRequest",
     },

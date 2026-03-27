@@ -1,0 +1,62 @@
+http_interactions:
+- recorded_at: Fri, 27 Mar 2026 09:09:22 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"handle":"test-handle-8d5b9953d168d107","name":"test-name-8d5b9953d168d107"},"type":"team"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/team
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"726053a9-9b81-4381-bf91-b96b746f28d9","type":"team","attributes":{"avatar":null,"banner":11,"created_at":"2026-03-27T09:09:23.174349+00:00","description":null,"handle":"test-handle-8d5b9953d168d107","hidden_modules":null,"is_managed":false,"link_count":0,"modified_at":"2026-03-27T09:09:23.174349+00:00","name":"test-name-8d5b9953d168d107","summary":null,"user_count":0,"visible_modules":null},"relationships":{"team_links":{"data":[],"links":{"related":"/api/v2/team/726053a9-9b81-4381-bf91-b96b746f28d9/links"}},"user_team_permissions":{"data":null,"links":{"related":"/api/v2/team/726053a9-9b81-4381-bf91-b96b746f28d9/permission-settings"}}}}}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 201
+      message: Created
+- recorded_at: Fri, 27 Mar 2026 09:09:22 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"attributes":{"managed_by":"datadog","source":"github"},"relationships":{"connected_team":{"data":{"id":"@MyGitHubAccount/my-team-name","type":"github_team"}},"team":{"data":{"id":"726053a9-9b81-4381-bf91-b96b746f28d9","type":"team"}}},"type":"team_connection"}]}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/team/connections
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"a5c93d48-29bc-11f1-82fc-da7ad0900002","type":"team_connection","attributes":{"managed_by":"datadog","source":"github"},"relationships":{"connected_team":{"data":{"id":"@MyGitHubAccount/my-team-name","type":"github_team"}},"team":{"data":{"id":"726053a9-9b81-4381-bf91-b96b746f28d9","type":"team"}}}}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 201
+      message: Created
+- recorded_at: Fri, 27 Mar 2026 09:09:22 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/team/726053a9-9b81-4381-bf91-b96b746f28d9
+  response:
+    body:
+      encoding: UTF-8
+      string: ''
+    headers: {}
+    status:
+      code: 204
+      message: No Content
+recorded_with: VCR 6.0.0

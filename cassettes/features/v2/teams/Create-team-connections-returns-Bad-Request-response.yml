@@ -1,0 +1,25 @@
+http_interactions:
+- recorded_at: Fri, 27 Mar 2026 09:09:04 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":[]}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/team/connections
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"status":"400","title":"Bad Request","detail":"attribute
+        \"data\" at least one team connection must be provided"}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 400
+      message: Bad Request
+recorded_with: VCR 6.0.0
