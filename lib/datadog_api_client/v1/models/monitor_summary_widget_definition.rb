@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # The monitor summary widget displays a summary view of all your Datadog monitors, or a subset based on a query. Only available on FREE layout dashboards.
+  # The monitor summary widget displays a summary view of all your Datadog monitors, or a subset based on a query.
   class MonitorSummaryWidgetDefinition
     include BaseGenericModel
 

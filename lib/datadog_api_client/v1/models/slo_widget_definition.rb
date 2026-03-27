@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Use the SLO and uptime widget to track your SLOs (Service Level Objectives) and uptime on screenboards and timeboards.
+  # Use the SLO and uptime widget to track your SLOs (Service Level Objectives) and uptime on dashboards.
   class SLOWidgetDefinition
     include BaseGenericModel
 

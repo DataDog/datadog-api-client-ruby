@@ -17,9 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Free text is a widget that allows you to add headings to your screenboard. Commonly used to state the overall purpose of the dashboard. Only available on FREE layout dashboards.
+  # Free text is a widget that allows you to add headings to your dashboard. Commonly used to state the overall purpose of the dashboard.
   class FreeTextWidgetDefinition
     include BaseGenericModel
+
+    # Background color of the widget. Supported values are `white`, `blue`, `purple`, `pink`, `orange`, `yellow`, `green`, `gray`, `vivid_blue`, `vivid_purple`, `vivid_pink`, `vivid_orange`, `vivid_yellow`, `vivid_green`, and `transparent`.
+    attr_accessor :background_color
 
     # Color of the text.
     attr_accessor :color
@@ -42,6 +45,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.attribute_map
       {
+        :'background_color' => :'background_color',
         :'color' => :'color',
         :'font_size' => :'font_size',
         :'text' => :'text',
@@ -54,6 +58,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
+        :'background_color' => :'String',
         :'color' => :'String',
         :'font_size' => :'String',
         :'text' => :'String',
@@ -79,6 +84,10 @@ module DatadogAPIClient::V1
           h[k.to_sym] = v
         end
       }
+
+      if attributes.key?(:'background_color')
+        self.background_color = attributes[:'background_color']
+      end
 
       if attributes.key?(:'color')
         self.color = attributes[:'color']
@@ -156,6 +165,7 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          background_color == o.background_color &&
           color == o.color &&
           font_size == o.font_size &&
           text == o.text &&
@@ -168,7 +178,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [color, font_size, text, text_align, type, additional_properties].hash
+      [background_color, color, font_size, text, text_align, type, additional_properties].hash
     end
   end
 end
