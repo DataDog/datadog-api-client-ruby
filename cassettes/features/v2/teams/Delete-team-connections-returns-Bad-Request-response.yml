@@ -1,0 +1,25 @@
+http_interactions:
+- recorded_at: Fri, 27 Mar 2026 09:21:11 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"","type":"team_connection"}]}'
+    headers:
+      Accept:
+      - '*/*'
+      Content-Type:
+      - application/json
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/team/connections
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"status":"400","title":"Bad Request","detail":"attribute
+        \"id\" one or more team connection ids are not present"}]}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+    status:
+      code: 400
+      message: Bad Request
+recorded_with: VCR 6.0.0
