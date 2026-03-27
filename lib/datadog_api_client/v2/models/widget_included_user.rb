@@ -17,26 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The `splunk_hec` source implements the Splunk HTTP Event Collector (HEC) API.
-  # 
-  # **Supported pipeline types:** logs
-  class ObservabilityPipelineSplunkHecSource
+  # A user resource included in the response.
+  class WidgetIncludedUser
     include BaseGenericModel
 
-    # Name of the environment variable or secret that holds the listen address for the HEC API.
-    attr_accessor :address_key
+    # Attributes of an included user resource.
+    attr_accessor :attributes
 
-    # The unique identifier for this component. Used in other parts of the pipeline to reference this component (for example, as the `input` to downstream components).
+    # The unique identifier of the user.
     attr_reader :id
 
-    # If `true`, the HEC token is stored in the event's metadata and made available to the Enrichment Table
-    # processor and the `splunk_hec` destination for routing or enrichment based on the token. Defaults to `false`.
-    attr_accessor :store_hec_token
-
-    # Configuration for enabling TLS encryption between the pipeline component and external services.
-    attr_accessor :tls
-
-    # The source type. Always `splunk_hec`.
+    # Users resource type.
     attr_reader :type
 
     attr_accessor :additional_properties
@@ -45,10 +36,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'address_key' => :'address_key',
+        :'attributes' => :'attributes',
         :'id' => :'id',
-        :'store_hec_token' => :'store_hec_token',
-        :'tls' => :'tls',
         :'type' => :'type'
       }
     end
@@ -57,11 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'address_key' => :'String',
+        :'attributes' => :'WidgetIncludedUserAttributes',
         :'id' => :'String',
-        :'store_hec_token' => :'Boolean',
-        :'tls' => :'ObservabilityPipelineTls',
-        :'type' => :'ObservabilityPipelineSplunkHecSourceType'
+        :'type' => :'String'
       }
     end
 
@@ -70,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineSplunkHecSource` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::WidgetIncludedUser` initialize method"
       end
 
       self.additional_properties = {}
@@ -83,20 +70,12 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'address_key')
-        self.address_key = attributes[:'address_key']
+      if attributes.key?(:'attributes')
+        self.attributes = attributes[:'attributes']
       end
 
       if attributes.key?(:'id')
         self.id = attributes[:'id']
-      end
-
-      if attributes.key?(:'store_hec_token')
-        self.store_hec_token = attributes[:'store_hec_token']
-      end
-
-      if attributes.key?(:'tls')
-        self.tls = attributes[:'tls']
       end
 
       if attributes.key?(:'type')
@@ -159,10 +138,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          address_key == o.address_key &&
+          attributes == o.attributes &&
           id == o.id &&
-          store_hec_token == o.store_hec_token &&
-          tls == o.tls &&
           type == o.type &&
           additional_properties == o.additional_properties
     end
@@ -171,7 +148,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [address_key, id, store_hec_token, tls, type, additional_properties].hash
+      [attributes, id, type, additional_properties].hash
     end
   end
 end

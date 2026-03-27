@@ -17,27 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The `splunk_hec` source implements the Splunk HTTP Event Collector (HEC) API.
-  # 
-  # **Supported pipeline types:** logs
-  class ObservabilityPipelineSplunkHecSource
+  # Response containing a list of widgets.
+  class WidgetListResponse
     include BaseGenericModel
 
-    # Name of the environment variable or secret that holds the listen address for the HEC API.
-    attr_accessor :address_key
+    # List of widget resources.
+    attr_reader :data
 
-    # The unique identifier for this component. Used in other parts of the pipeline to reference this component (for example, as the `input` to downstream components).
-    attr_reader :id
+    # Array of user resources related to the widgets.
+    attr_accessor :included
 
-    # If `true`, the HEC token is stored in the event's metadata and made available to the Enrichment Table
-    # processor and the `splunk_hec` destination for routing or enrichment based on the token. Defaults to `false`.
-    attr_accessor :store_hec_token
-
-    # Configuration for enabling TLS encryption between the pipeline component and external services.
-    attr_accessor :tls
-
-    # The source type. Always `splunk_hec`.
-    attr_reader :type
+    # Metadata about the search results.
+    attr_accessor :meta
 
     attr_accessor :additional_properties
 
@@ -45,11 +36,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'address_key' => :'address_key',
-        :'id' => :'id',
-        :'store_hec_token' => :'store_hec_token',
-        :'tls' => :'tls',
-        :'type' => :'type'
+        :'data' => :'data',
+        :'included' => :'included',
+        :'meta' => :'meta'
       }
     end
 
@@ -57,11 +46,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'address_key' => :'String',
-        :'id' => :'String',
-        :'store_hec_token' => :'Boolean',
-        :'tls' => :'ObservabilityPipelineTls',
-        :'type' => :'ObservabilityPipelineSplunkHecSourceType'
+        :'data' => :'Array<WidgetData>',
+        :'included' => :'Array<WidgetIncludedUser>',
+        :'meta' => :'WidgetSearchMeta'
       }
     end
 
@@ -70,7 +57,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineSplunkHecSource` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::WidgetListResponse` initialize method"
       end
 
       self.additional_properties = {}
@@ -83,24 +70,20 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'address_key')
-        self.address_key = attributes[:'address_key']
+      if attributes.key?(:'data')
+        if (value = attributes[:'data']).is_a?(Array)
+          self.data = value
+        end
       end
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.key?(:'included')
+        if (value = attributes[:'included']).is_a?(Array)
+          self.included = value
+        end
       end
 
-      if attributes.key?(:'store_hec_token')
-        self.store_hec_token = attributes[:'store_hec_token']
-      end
-
-      if attributes.key?(:'tls')
-        self.tls = attributes[:'tls']
-      end
-
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
+      if attributes.key?(:'meta')
+        self.meta = attributes[:'meta']
       end
     end
 
@@ -108,29 +91,18 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @id.nil?
-      return false if @type.nil?
+      return false if @data.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param id [Object] Object to be assigned
+    # @param data [Object] Object to be assigned
     # @!visibility private
-    def id=(id)
-      if id.nil?
-        fail ArgumentError, 'invalid value for "id", id cannot be nil.'
+    def data=(data)
+      if data.nil?
+        fail ArgumentError, 'invalid value for "data", data cannot be nil.'
       end
-      @id = id
-    end
-
-    # Custom attribute writer method with validation
-    # @param type [Object] Object to be assigned
-    # @!visibility private
-    def type=(type)
-      if type.nil?
-        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
-      end
-      @type = type
+      @data = data
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -159,11 +131,9 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          address_key == o.address_key &&
-          id == o.id &&
-          store_hec_token == o.store_hec_token &&
-          tls == o.tls &&
-          type == o.type &&
+          data == o.data &&
+          included == o.included &&
+          meta == o.meta &&
           additional_properties == o.additional_properties
     end
 
@@ -171,7 +141,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [address_key, id, store_hec_token, tls, type, additional_properties].hash
+      [data, included, meta, additional_properties].hash
     end
   end
 end
