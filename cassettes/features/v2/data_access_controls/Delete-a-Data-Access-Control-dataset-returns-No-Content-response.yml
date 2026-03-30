@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Tue, 29 Jul 2025 20:35:58 GMT
+- recorded_at: Thu, 26 Mar 2026 21:30:09 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"name":"Security Audit Dataset","principals":["role:94172442-be03-11e9-a77a-3b7612558ac1"],"product_filters":[{"filters":["@application.id:ABCD"],"product":"metrics"}]},"type":"dataset"}}'
+      string: '{"data":{"attributes":{"name":"Security Audit DAC","principals":["role:94172442-be03-11e9-a77a-3b7612558ac1"],"product_filters":[{"filters":["@application.id:ABCD"],"product":"logs"}]},"type":"dataset"}}'
     headers:
       Accept:
       - application/json
@@ -14,8 +14,8 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"dataset","id":"60ee6562-48f5-455f-bdb4-fd3f5f899978","attributes":{"name":"Security
-        Audit Dataset","product_filters":[{"product":"metrics","filters":["@application.id:ABCD"]}],"principals":["role:94172442-be03-11e9-a77a-3b7612558ac1"]}}}
+      string: '{"data":{"type":"dataset","id":"d7eacc0a-68a8-4511-8a9e-81c275a3cfc4","attributes":{"name":"Security
+        Audit DAC","product_filters":[{"product":"logs","filters":["@application.id:ABCD"]}],"principals":["role:94172442-be03-11e9-a77a-3b7612558ac1"]}}}
 
         '
     headers:
@@ -24,14 +24,14 @@ http_interactions:
     status:
       code: 200
       message: OK
-- recorded_at: Tue, 29 Jul 2025 20:35:58 GMT
+- recorded_at: Thu, 26 Mar 2026 21:30:09 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/datasets/60ee6562-48f5-455f-bdb4-fd3f5f899978
+    uri: https://api.datadoghq.com/api/v2/datasets/d7eacc0a-68a8-4511-8a9e-81c275a3cfc4
   response:
     body:
       encoding: UTF-8
@@ -42,18 +42,18 @@ http_interactions:
     status:
       code: 204
       message: No Content
-- recorded_at: Tue, 29 Jul 2025 20:35:58 GMT
+- recorded_at: Thu, 26 Mar 2026 21:30:09 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/datasets/60ee6562-48f5-455f-bdb4-fd3f5f899978
+    uri: https://api.datadoghq.com/api/v2/datasets/d7eacc0a-68a8-4511-8a9e-81c275a3cfc4
   response:
     body:
       encoding: UTF-8
-      string: '{"errors":["Invalid request: [DatasetNotFound] dataset \"60ee6562-48f5-455f-bdb4-fd3f5f899978\"
+      string: '{"errors":["Invalid request: [DatasetNotFound] dataset \"d7eacc0a-68a8-4511-8a9e-81c275a3cfc4\"
         not found"]}
 
         '

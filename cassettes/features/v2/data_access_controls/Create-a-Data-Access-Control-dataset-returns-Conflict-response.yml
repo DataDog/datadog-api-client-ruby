@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Tue, 29 Jul 2025 20:35:57 GMT
+- recorded_at: Thu, 26 Mar 2026 21:30:08 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"name":"Security Audit Dataset","principals":["role:94172442-be03-11e9-a77a-3b7612558ac1"],"product_filters":[{"filters":["@application.id:ABCD"],"product":"metrics"}]},"type":"dataset"}}'
+      string: '{"data":{"attributes":{"name":"Security Audit DAC","principals":["role:94172442-be03-11e9-a77a-3b7612558ac1"],"product_filters":[{"filters":["@application.id:ABCD"],"product":"logs"}]},"type":"dataset"}}'
     headers:
       Accept:
       - application/json
@@ -14,8 +14,8 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"dataset","id":"7cbada94-7d01-4e73-8c74-ea70fb3b3088","attributes":{"name":"Security
-        Audit Dataset","product_filters":[{"product":"metrics","filters":["@application.id:ABCD"]}],"principals":["role:94172442-be03-11e9-a77a-3b7612558ac1"]}}}
+      string: '{"data":{"type":"dataset","id":"fc61b4b4-d05a-4cba-b109-0d123141056e","attributes":{"name":"Security
+        Audit DAC","product_filters":[{"product":"logs","filters":["@application.id:ABCD"]}],"principals":["role:94172442-be03-11e9-a77a-3b7612558ac1"]}}}
 
         '
     headers:
@@ -24,11 +24,11 @@ http_interactions:
     status:
       code: 200
       message: OK
-- recorded_at: Tue, 29 Jul 2025 20:35:57 GMT
+- recorded_at: Thu, 26 Mar 2026 21:30:08 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"name":"Security Audit Dataset","principals":["role:94172442-be03-11e9-a77a-3b7612558ac1"],"product_filters":[{"filters":["@application.id:ABCD"],"product":"metrics"}]},"type":"dataset"}}'
+      string: '{"data":{"attributes":{"name":"Security Audit DAC","principals":["role:94172442-be03-11e9-a77a-3b7612558ac1"],"product_filters":[{"filters":["@application.id:ABCD"],"product":"logs"}]},"type":"dataset"}}'
     headers:
       Accept:
       - application/json
@@ -40,7 +40,7 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"errors":["Invalid request: [DatasetNameConflict] dataset with name
-        \"Security Audit Dataset\" already exists"]}
+        \"Security Audit DAC\" already exists"]}
 
         '
     headers:
@@ -49,14 +49,14 @@ http_interactions:
     status:
       code: 409
       message: Conflict
-- recorded_at: Tue, 29 Jul 2025 20:35:57 GMT
+- recorded_at: Thu, 26 Mar 2026 21:30:08 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/datasets/7cbada94-7d01-4e73-8c74-ea70fb3b3088
+    uri: https://api.datadoghq.com/api/v2/datasets/fc61b4b4-d05a-4cba-b109-0d123141056e
   response:
     body:
       encoding: UTF-8

@@ -1,5 +1,5 @@
 http_interactions:
-- recorded_at: Tue, 29 Jul 2025 20:35:58 GMT
+- recorded_at: Thu, 26 Mar 2026 21:30:10 GMT
   request:
     body: null
     headers:
@@ -10,8 +10,8 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"errors":["Invalid request: [DatasetNotFound] dataset \"00000000-0000-0000-0000-000000000000\"
-        not found"]}
+      string: '{"errors":["Invalid request: [DatasetNotFound] failed to fetch dataset
+        \"00000000-0000-0000-0000-000000000000\""]}
 
         '
     headers:

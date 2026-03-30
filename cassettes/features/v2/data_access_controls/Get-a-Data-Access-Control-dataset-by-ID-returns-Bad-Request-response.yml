@@ -1,11 +1,11 @@
 http_interactions:
-- recorded_at: Tue, 29 Jul 2025 20:35:58 GMT
+- recorded_at: Thu, 26 Mar 2026 21:30:11 GMT
   request:
     body: null
     headers:
       Accept:
-      - '*/*'
-    method: DELETE
+      - application/json
+    method: GET
     uri: https://api.datadoghq.com/api/v2/datasets/malformed_id
   response:
     body:
