@@ -32,6 +32,8 @@ module DatadogAPIClient::V1
     ASSERT_PAGE_LACKS = "assertPageLacks".freeze
     ASSERT_REQUESTS = "assertRequests".freeze
     CLICK = "click".freeze
+    DRAG = "drag".freeze
+    DROP = "drop".freeze
     EXTRACT_FROM_JAVASCRIPT = "extractFromJavascript".freeze
     EXTRACT_FROM_EMAIL_BODY = "extractFromEmailBody".freeze
     EXTRACT_VARIABLE = "extractVariable".freeze
