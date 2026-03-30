@@ -23,6 +23,152 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
+    # Abort a multipart upload of a test file.
+    #
+    # @see #abort_test_file_multipart_upload_with_http_info
+    def abort_test_file_multipart_upload(public_id, body, opts = {})
+      abort_test_file_multipart_upload_with_http_info(public_id, body, opts)
+      nil
+    end
+
+    # Abort a multipart upload of a test file.
+    #
+    # Abort an in-progress multipart file upload for a Synthetic test. This cancels the upload
+    # and releases any storage used by already-uploaded parts.
+    #
+    # @param public_id [String] The public ID of the Synthetic test.
+    # @param body [SyntheticsTestFileAbortMultipartUploadRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def abort_test_file_multipart_upload_with_http_info(public_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsAPI.abort_test_file_multipart_upload ...'
+      end
+      # verify the required parameter 'public_id' is set
+      if @api_client.config.client_side_validation && public_id.nil?
+        fail ArgumentError, "Missing the required parameter 'public_id' when calling SyntheticsAPI.abort_test_file_multipart_upload"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SyntheticsAPI.abort_test_file_multipart_upload"
+      end
+      # resource path
+      local_var_path = '/api/v2/synthetics/tests/{public_id}/files/multipart-upload-abort'.sub('{public_id}', CGI.escape(public_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :abort_test_file_multipart_upload,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SyntheticsAPI#abort_test_file_multipart_upload\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Complete a multipart upload of a test file.
+    #
+    # @see #complete_test_file_multipart_upload_with_http_info
+    def complete_test_file_multipart_upload(public_id, body, opts = {})
+      complete_test_file_multipart_upload_with_http_info(public_id, body, opts)
+      nil
+    end
+
+    # Complete a multipart upload of a test file.
+    #
+    # Complete a multipart file upload for a Synthetic test. Call this endpoint after all parts
+    # have been uploaded using the presigned URLs obtained from the multipart presigned URLs endpoint.
+    #
+    # @param public_id [String] The public ID of the Synthetic test.
+    # @param body [SyntheticsTestFileCompleteMultipartUploadRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def complete_test_file_multipart_upload_with_http_info(public_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsAPI.complete_test_file_multipart_upload ...'
+      end
+      # verify the required parameter 'public_id' is set
+      if @api_client.config.client_side_validation && public_id.nil?
+        fail ArgumentError, "Missing the required parameter 'public_id' when calling SyntheticsAPI.complete_test_file_multipart_upload"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SyntheticsAPI.complete_test_file_multipart_upload"
+      end
+      # resource path
+      local_var_path = '/api/v2/synthetics/tests/{public_id}/files/multipart-upload-complete'.sub('{public_id}', CGI.escape(public_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :complete_test_file_multipart_upload,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SyntheticsAPI#complete_test_file_multipart_upload\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create a Network Path test.
     #
     # @see #create_synthetics_network_test_with_http_info
@@ -796,6 +942,152 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SyntheticsAPI#get_synthetics_test_version\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get a presigned URL for downloading a test file.
+    #
+    # @see #get_test_file_download_url_with_http_info
+    def get_test_file_download_url(public_id, body, opts = {})
+      data, _status_code, _headers = get_test_file_download_url_with_http_info(public_id, body, opts)
+      data
+    end
+
+    # Get a presigned URL for downloading a test file.
+    #
+    # Get a presigned URL to download a file attached to a Synthetic test.
+    # The returned URL is temporary and expires after a short period.
+    #
+    # @param public_id [String] The public ID of the Synthetic test.
+    # @param body [SyntheticsTestFileDownloadRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SyntheticsTestFileDownloadResponse, Integer, Hash)>] SyntheticsTestFileDownloadResponse data, response status code and response headers
+    def get_test_file_download_url_with_http_info(public_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsAPI.get_test_file_download_url ...'
+      end
+      # verify the required parameter 'public_id' is set
+      if @api_client.config.client_side_validation && public_id.nil?
+        fail ArgumentError, "Missing the required parameter 'public_id' when calling SyntheticsAPI.get_test_file_download_url"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SyntheticsAPI.get_test_file_download_url"
+      end
+      # resource path
+      local_var_path = '/api/v2/synthetics/tests/{public_id}/files/download'.sub('{public_id}', CGI.escape(public_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SyntheticsTestFileDownloadResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_test_file_download_url,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SyntheticsAPI#get_test_file_download_url\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get presigned URLs for uploading a test file.
+    #
+    # @see #get_test_file_multipart_presigned_urls_with_http_info
+    def get_test_file_multipart_presigned_urls(public_id, body, opts = {})
+      data, _status_code, _headers = get_test_file_multipart_presigned_urls_with_http_info(public_id, body, opts)
+      data
+    end
+
+    # Get presigned URLs for uploading a test file.
+    #
+    # Get presigned URLs for uploading a file to a Synthetic test using multipart upload.
+    # Returns the presigned URLs for each part along with the bucket key that references the file.
+    #
+    # @param public_id [String] The public ID of the Synthetic test.
+    # @param body [SyntheticsTestFileMultipartPresignedUrlsRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SyntheticsTestFileMultipartPresignedUrlsResponse, Integer, Hash)>] SyntheticsTestFileMultipartPresignedUrlsResponse data, response status code and response headers
+    def get_test_file_multipart_presigned_urls_with_http_info(public_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsAPI.get_test_file_multipart_presigned_urls ...'
+      end
+      # verify the required parameter 'public_id' is set
+      if @api_client.config.client_side_validation && public_id.nil?
+        fail ArgumentError, "Missing the required parameter 'public_id' when calling SyntheticsAPI.get_test_file_multipart_presigned_urls"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SyntheticsAPI.get_test_file_multipart_presigned_urls"
+      end
+      # resource path
+      local_var_path = '/api/v2/synthetics/tests/{public_id}/files/multipart-presigned-urls'.sub('{public_id}', CGI.escape(public_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SyntheticsTestFileMultipartPresignedUrlsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_test_file_multipart_presigned_urls,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SyntheticsAPI#get_test_file_multipart_presigned_urls\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

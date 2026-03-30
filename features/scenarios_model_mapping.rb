@@ -3975,6 +3975,22 @@ ScenariosModelMappings = {
             "public_id" => "String",
             "body" => "SyntheticsNetworkTestEditRequest",
     },
+    "v2.GetTestFileDownloadUrl" => {
+            "public_id" => "String",
+            "body" => "SyntheticsTestFileDownloadRequest",
+    },
+    "v2.GetTestFileMultipartPresignedUrls" => {
+            "public_id" => "String",
+            "body" => "SyntheticsTestFileMultipartPresignedUrlsRequest",
+    },
+    "v2.AbortTestFileMultipartUpload" => {
+            "public_id" => "String",
+            "body" => "SyntheticsTestFileAbortMultipartUploadRequest",
+    },
+    "v2.CompleteTestFileMultipartUpload" => {
+            "public_id" => "String",
+            "body" => "SyntheticsTestFileCompleteMultipartUploadRequest",
+    },
     "v2.GetTestParentSuites" => {
             "public_id" => "String",
     },
