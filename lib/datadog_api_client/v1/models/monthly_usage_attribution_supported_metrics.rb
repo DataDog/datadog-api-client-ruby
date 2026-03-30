@@ -124,6 +124,8 @@ module DatadogAPIClient::V1
     PUBLISHED_APP_PERCENTAGE = "published_app_percentage".freeze
     SERVERLESS_APPS_USAGE = "serverless_apps_usage".freeze
     SERVERLESS_APPS_PERCENTAGE = "serverless_apps_percentage".freeze
+    SERVERLESS_APPS_APM_USAGE = "serverless_apps_apm_usage".freeze
+    SERVERLESS_APPS_APM_PERCENTAGE = "serverless_apps_apm_percentage".freeze
     SNMP_USAGE = "snmp_usage".freeze
     SNMP_PERCENTAGE = "snmp_percentage".freeze
     UNIVERSAL_SERVICE_MONITORING_USAGE = "universal_service_monitoring_usage".freeze
