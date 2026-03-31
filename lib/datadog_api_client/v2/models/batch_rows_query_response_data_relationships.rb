@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Relationships of the batch rows query response data.
   class BatchRowsQueryResponseDataRelationships
     include BaseGenericModel
 
-    #
+    # Relationship data containing the list of matching rows.
     attr_accessor :rows
 
     attr_accessor :additional_properties

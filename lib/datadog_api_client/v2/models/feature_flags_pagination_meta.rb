@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class FeatureFlagsPaginationMeta
     include BaseGenericModel
 
-    #
+    # Pagination metadata for feature flags list responses.
     attr_accessor :page
 
     attr_accessor :additional_properties

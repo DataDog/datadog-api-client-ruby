@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Pagination metadata for environments list responses.
   class EnvironmentsPaginationMetaPage
     include BaseGenericModel
 

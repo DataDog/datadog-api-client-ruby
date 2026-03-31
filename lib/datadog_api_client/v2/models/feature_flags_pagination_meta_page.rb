@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Pagination metadata for feature flags list responses.
   class FeatureFlagsPaginationMetaPage
     include BaseGenericModel
 

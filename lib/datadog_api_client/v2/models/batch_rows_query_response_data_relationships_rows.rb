@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Relationship data containing the list of matching rows.
   class BatchRowsQueryResponseDataRelationshipsRows
     include BaseGenericModel
 
