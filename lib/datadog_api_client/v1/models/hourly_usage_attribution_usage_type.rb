@@ -101,6 +101,7 @@ module DatadogAPIClient::V1
     SCA_FARGATE_USAGE = "sca_fargate_usage".freeze
     SDS_SCANNED_BYTES_USAGE = "sds_scanned_bytes_usage".freeze
     SERVERLESS_APPS_USAGE = "serverless_apps_usage".freeze
+    SERVERLESS_APPS_APM_USAGE = "serverless_apps_apm_usage".freeze
     SIEM_ANALYZED_LOGS_ADD_ON_USAGE = "siem_analyzed_logs_add_on_usage".freeze
     SIEM_INGESTED_BYTES_USAGE = "siem_ingested_bytes_usage".freeze
     SNMP_USAGE = "snmp_usage".freeze
