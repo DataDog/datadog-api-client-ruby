@@ -1741,6 +1741,12 @@ ScenariosModelMappings = {
             "page_cursor" => "String",
             "page_limit" => "Integer",
     },
+    "v2.BulkEditSecurityMonitoringSignalsAssignee" => {
+            "body" => "SecurityMonitoringSignalsBulkAssigneeUpdateRequest",
+    },
+    "v2.BulkEditSecurityMonitoringSignalsState" => {
+            "body" => "SecurityMonitoringSignalsBulkStateUpdateRequest",
+    },
     "v2.SearchSecurityMonitoringSignals" => {
             "body" => "SecurityMonitoringSignalListRequest",
     },
