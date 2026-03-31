@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # 
+  # Data object for a batch rows query request.
   class BatchRowsQueryRequestData
     include BaseGenericModel
 
-    #
+    # Attributes for a batch rows query request.
     attr_accessor :attributes
 
     # Resource type identifier for batch queries of reference table rows.

@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class EnvironmentsPaginationMeta
     include BaseGenericModel
 
-    #
+    # Pagination metadata for environments list responses.
     attr_accessor :page
 
     attr_accessor :additional_properties
