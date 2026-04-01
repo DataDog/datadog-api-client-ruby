@@ -2327,6 +2327,29 @@ ScenariosModelMappings = {
             "incident_type_id" => "String",
             "body" => "IncidentTypePatchRequest",
     },
+    "v2.ListIncidentUserDefinedFields" => {
+            "page_size" => "Integer",
+            "page_number" => "Integer",
+            "include_deleted" => "Boolean",
+            "filter_incident_type" => "String",
+            "include" => "String",
+    },
+    "v2.CreateIncidentUserDefinedField" => {
+            "include" => "String",
+            "body" => "IncidentUserDefinedFieldCreateRequest",
+    },
+    "v2.DeleteIncidentUserDefinedField" => {
+            "field_id" => "String",
+    },
+    "v2.GetIncidentUserDefinedField" => {
+            "field_id" => "String",
+            "include" => "String",
+    },
+    "v2.UpdateIncidentUserDefinedField" => {
+            "field_id" => "String",
+            "include" => "String",
+            "body" => "IncidentUserDefinedFieldUpdateRequest",
+    },
     "v2.ImportIncident" => {
             "include" => "Array<IncidentImportRelatedObject>",
             "body" => "IncidentImportRequest",

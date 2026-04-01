@@ -855,6 +855,81 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Create an incident user-defined field.
+    #
+    # @see #create_incident_user_defined_field_with_http_info
+    def create_incident_user_defined_field(body, opts = {})
+      data, _status_code, _headers = create_incident_user_defined_field_with_http_info(body, opts)
+      data
+    end
+
+    # Create an incident user-defined field.
+    #
+    # Create an incident user-defined field.
+    #
+    # @param body [IncidentUserDefinedFieldCreateRequest] Incident user-defined field payload.
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :include Comma-separated list of related resources to include. Supported values are "last_modified_by_user", "created_by_user", and "incident_type".
+    # @return [Array<(IncidentUserDefinedFieldResponse, Integer, Hash)>] IncidentUserDefinedFieldResponse data, response status code and response headers
+    def create_incident_user_defined_field_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_incident_user_defined_field".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_incident_user_defined_field")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_incident_user_defined_field"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: IncidentsAPI.create_incident_user_defined_field ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling IncidentsAPI.create_incident_user_defined_field"
+      end
+      # resource path
+      local_var_path = '/api/v2/incidents/config/user-defined-fields'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'IncidentUserDefinedFieldResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_incident_user_defined_field,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: IncidentsAPI#create_incident_user_defined_field\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Delete global incident handle.
     #
     # @see #delete_global_incident_handle_with_http_info
@@ -1575,6 +1650,77 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Delete an incident user-defined field.
+    #
+    # @see #delete_incident_user_defined_field_with_http_info
+    def delete_incident_user_defined_field(field_id, opts = {})
+      delete_incident_user_defined_field_with_http_info(field_id, opts)
+      nil
+    end
+
+    # Delete an incident user-defined field.
+    #
+    # Delete an incident user-defined field.
+    #
+    # @param field_id [String] The ID of the incident user-defined field.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_incident_user_defined_field_with_http_info(field_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.delete_incident_user_defined_field".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_incident_user_defined_field")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_incident_user_defined_field"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: IncidentsAPI.delete_incident_user_defined_field ...'
+      end
+      # verify the required parameter 'field_id' is set
+      if @api_client.config.client_side_validation && field_id.nil?
+        fail ArgumentError, "Missing the required parameter 'field_id' when calling IncidentsAPI.delete_incident_user_defined_field"
+      end
+      # resource path
+      local_var_path = '/api/v2/incidents/config/user-defined-fields/{field_id}'.sub('{field_id}', CGI.escape(field_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_incident_user_defined_field,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: IncidentsAPI#delete_incident_user_defined_field\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get global incident settings.
     #
     # @see #get_global_incident_settings_with_http_info
@@ -2150,6 +2296,79 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: IncidentsAPI#get_incident_type\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get an incident user-defined field.
+    #
+    # @see #get_incident_user_defined_field_with_http_info
+    def get_incident_user_defined_field(field_id, opts = {})
+      data, _status_code, _headers = get_incident_user_defined_field_with_http_info(field_id, opts)
+      data
+    end
+
+    # Get an incident user-defined field.
+    #
+    # Get details of an incident user-defined field.
+    #
+    # @param field_id [String] The ID of the incident user-defined field.
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :include Comma-separated list of related resources to include. Supported values are "last_modified_by_user", "created_by_user", and "incident_type".
+    # @return [Array<(IncidentUserDefinedFieldResponse, Integer, Hash)>] IncidentUserDefinedFieldResponse data, response status code and response headers
+    def get_incident_user_defined_field_with_http_info(field_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_incident_user_defined_field".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_incident_user_defined_field")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_incident_user_defined_field"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: IncidentsAPI.get_incident_user_defined_field ...'
+      end
+      # verify the required parameter 'field_id' is set
+      if @api_client.config.client_side_validation && field_id.nil?
+        fail ArgumentError, "Missing the required parameter 'field_id' when calling IncidentsAPI.get_incident_user_defined_field"
+      end
+      # resource path
+      local_var_path = '/api/v2/incidents/config/user-defined-fields/{field_id}'.sub('{field_id}', CGI.escape(field_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'IncidentUserDefinedFieldResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_incident_user_defined_field,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: IncidentsAPI#get_incident_user_defined_field\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2944,6 +3163,91 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: IncidentsAPI#list_incident_types\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get a list of incident user-defined fields.
+    #
+    # @see #list_incident_user_defined_fields_with_http_info
+    def list_incident_user_defined_fields(opts = {})
+      data, _status_code, _headers = list_incident_user_defined_fields_with_http_info(opts)
+      data
+    end
+
+    # Get a list of incident user-defined fields.
+    #
+    # Get a list of all incident user-defined fields.
+    #
+    # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :page_size The number of results to return per page. Must be between 0 and 1000.
+    # @option opts [Integer] :page_number The page number to retrieve, starting at 0.
+    # @option opts [Boolean] :include_deleted When true, include soft-deleted fields in the response.
+    # @option opts [String] :filter_incident_type Filter results to fields associated with the given incident type UUID.
+    # @option opts [String] :include Comma-separated list of related resources to include. Supported values are "last_modified_by_user", "created_by_user", and "incident_type".
+    # @return [Array<(IncidentUserDefinedFieldListResponse, Integer, Hash)>] IncidentUserDefinedFieldListResponse data, response status code and response headers
+    def list_incident_user_defined_fields_with_http_info(opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_incident_user_defined_fields".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_incident_user_defined_fields")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_incident_user_defined_fields"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: IncidentsAPI.list_incident_user_defined_fields ...'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] > 1000
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling IncidentsAPI.list_incident_user_defined_fields, must be smaller than or equal to 1000.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling IncidentsAPI.list_incident_user_defined_fields, must be greater than or equal to 0.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_number'].nil? && opts[:'page_number'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"page_number"]" when calling IncidentsAPI.list_incident_user_defined_fields, must be greater than or equal to 0.'
+      end
+      # resource path
+      local_var_path = '/api/v2/incidents/config/user-defined-fields'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+      query_params[:'page[number]'] = opts[:'page_number'] if !opts[:'page_number'].nil?
+      query_params[:'include-deleted'] = opts[:'include_deleted'] if !opts[:'include_deleted'].nil?
+      query_params[:'filter[incident-type]'] = opts[:'filter_incident_type'] if !opts[:'filter_incident_type'].nil?
+      query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'IncidentUserDefinedFieldListResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_incident_user_defined_fields,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: IncidentsAPI#list_incident_user_defined_fields\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -3845,6 +4149,86 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: IncidentsAPI#update_incident_type\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update an incident user-defined field.
+    #
+    # @see #update_incident_user_defined_field_with_http_info
+    def update_incident_user_defined_field(field_id, body, opts = {})
+      data, _status_code, _headers = update_incident_user_defined_field_with_http_info(field_id, body, opts)
+      data
+    end
+
+    # Update an incident user-defined field.
+    #
+    # Update an incident user-defined field.
+    #
+    # @param field_id [String] The ID of the incident user-defined field.
+    # @param body [IncidentUserDefinedFieldUpdateRequest] Incident user-defined field update payload.
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :include Comma-separated list of related resources to include. Supported values are "last_modified_by_user", "created_by_user", and "incident_type".
+    # @return [Array<(IncidentUserDefinedFieldResponse, Integer, Hash)>] IncidentUserDefinedFieldResponse data, response status code and response headers
+    def update_incident_user_defined_field_with_http_info(field_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.update_incident_user_defined_field".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_incident_user_defined_field")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_incident_user_defined_field"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: IncidentsAPI.update_incident_user_defined_field ...'
+      end
+      # verify the required parameter 'field_id' is set
+      if @api_client.config.client_side_validation && field_id.nil?
+        fail ArgumentError, "Missing the required parameter 'field_id' when calling IncidentsAPI.update_incident_user_defined_field"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling IncidentsAPI.update_incident_user_defined_field"
+      end
+      # resource path
+      local_var_path = '/api/v2/incidents/config/user-defined-fields/{field_id}'.sub('{field_id}', CGI.escape(field_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'IncidentUserDefinedFieldResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_incident_user_defined_field,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: IncidentsAPI#update_incident_user_defined_field\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
