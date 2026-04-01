@@ -1,5 +1,60 @@
 # CHANGELOG
 
+## 2.52.0/2026-04-01
+
+### Added
+* Add Synthetics test file upload and download endpoints [#3176](https://github.com/DataDog/datadog-api-client-ruby/pull/3176)
+* document v2 stable mcnulty-web-py3 endpoints [#3174](https://github.com/DataDog/datadog-api-client-ruby/pull/3174)
+* document synthetics API to retrieve fast test result [#3170](https://github.com/DataDog/datadog-api-client-ruby/pull/3170)
+* Add description field to widget definition schemas [#3153](https://github.com/DataDog/datadog-api-client-ruby/pull/3153)
+* Add Widgets API v2 OpenAPI spec [#3152](https://github.com/DataDog/datadog-api-client-ruby/pull/3152)
+* Add bulk triage endpoints for security monitoring signals [#3151](https://github.com/DataDog/datadog-api-client-ruby/pull/3151)
+* Add cost_aggregation parameter to GetEstimatedCostByOrg [#3146](https://github.com/DataDog/datadog-api-client-ruby/pull/3146)
+* Add new endpoints for Test Optimization settings for service [#3141](https://github.com/DataDog/datadog-api-client-ruby/pull/3141)
+* dashboards - Add DashboardTab schema and tabs property to Dashboard spec [#3139](https://github.com/DataDog/datadog-api-client-ruby/pull/3139)
+* Add WildcardWidgetDefinition to Dashboard spec [#3136](https://github.com/DataDog/datadog-api-client-ruby/pull/3136)
+* Add feature flags public api endpoints to api spec [#3132](https://github.com/DataDog/datadog-api-client-ruby/pull/3132)
+* Use openapi-transformer split mechanism for full spec generation [#3131](https://github.com/DataDog/datadog-api-client-ruby/pull/3131)
+* Add v2 deployment gates evaluation endpoints [#3130](https://github.com/DataDog/datadog-api-client-ruby/pull/3130)
+* Make datadog agent source address configurable in Observability Pipelines [#3126](https://github.com/DataDog/datadog-api-client-ruby/pull/3126)
+* Add OpenAPI documentation for keep_unmatched field in ocsf mapper processor  [#3122](https://github.com/DataDog/datadog-api-client-ruby/pull/3122)
+* Add Batch Rows Query Endpoint to Reference Tables API spec [#3119](https://github.com/DataDog/datadog-api-client-ruby/pull/3119)
+* Add apm_metrics query support to dashboard OpenAPI spec [#3116](https://github.com/DataDog/datadog-api-client-ruby/pull/3116)
+* Add Observability Pipelines Amazon S3 Generic destination [#3111](https://github.com/DataDog/datadog-api-client-ruby/pull/3111)
+* [OPA-4681] Update Public API for Splunk HEC destination indexed_fields [#3107](https://github.com/DataDog/datadog-api-client-ruby/pull/3107)
+* RUM - simplify cross-product sampling descriptions on rum-retention-filters API docs [#3069](https://github.com/DataDog/datadog-api-client-ruby/pull/3069)
+* Add `name_aliases` field to `PermissionAttributes` for `ListPermissions` endpoint [#3068](https://github.com/DataDog/datadog-api-client-ruby/pull/3068)
+* Add audit track to list of available org connections [#3065](https://github.com/DataDog/datadog-api-client-ruby/pull/3065)
+* Add partial hierarchy selection to team sync endpoints [#3060](https://github.com/DataDog/datadog-api-client-ruby/pull/3060)
+* Add support for composite queries on monitor variables [#3057](https://github.com/DataDog/datadog-api-client-ruby/pull/3057)
+* Adds OpenTelemetry source support for metrics pipelines [#3054](https://github.com/DataDog/datadog-api-client-ruby/pull/3054)
+* Add Edge Devices Monitoring fields to usage summary API [#3050](https://github.com/DataDog/datadog-api-client-ruby/pull/3050)
+* Add Network Path fields to usage summary API [#3048](https://github.com/DataDog/datadog-api-client-ruby/pull/3048)
+* Add OCI support to Cloud Security Management Enterprise usage fields [#3037](https://github.com/DataDog/datadog-api-client-ruby/pull/3037)
+* Add bad events support in metric SLOs [#3035](https://github.com/DataDog/datadog-api-client-ruby/pull/3035)
+* dashboards - Add DashboardTab schema and tabs property to Dashboard spec [#3011](https://github.com/DataDog/datadog-api-client-ruby/pull/3011)
+* Timeseries Request Style supports value labels field [#2983](https://github.com/DataDog/datadog-api-client-ruby/pull/2983)
+* Add specs for new ccm_config endpoints [#2902](https://github.com/DataDog/datadog-api-client-ruby/pull/2902)
+* Add Sankey widget definition to Dashboards api specs [#2880](https://github.com/DataDog/datadog-api-client-ruby/pull/2880)
+
+### Fixed
+* Fix consistency issues in security monitoring signal triage routes [#3167](https://github.com/DataDog/datadog-api-client-ruby/pull/3167)
+* Add pageStart extension to case management pagination [#3157](https://github.com/DataDog/datadog-api-client-ruby/pull/3157)
+* Fix consistency issues in security monitoring signal triage routes [#3150](https://github.com/DataDog/datadog-api-client-ruby/pull/3150)
+* Allow cursor base pagination to query extra page until collection is empty in Ruby and Golang [#3062](https://github.com/DataDog/datadog-api-client-ruby/pull/3062)
+
+### Deprecated
+* Deprecate ListVulnerabilities endpoint [#3148](https://github.com/DataDog/datadog-api-client-ruby/pull/3148)
+* Deprecate appsecspans datasource in SecurityMonitoringStandardDataSource [#3120](https://github.com/DataDog/datadog-api-client-ruby/pull/3120)
+
+### Changed
+* Add sample_attribute to log exclusion filter [#3145](https://github.com/DataDog/datadog-api-client-ruby/pull/3145)
+* Add tags and description fields to the logs nested pipeline type LogsPipelineProcessor [#3134](https://github.com/DataDog/datadog-api-client-ruby/pull/3134)
+* Update documentation for api/v2/metrics endpoint [#3125](https://github.com/DataDog/datadog-api-client-ruby/pull/3125)
+* Use repository_id in DORA deployment GET docs [#3067](https://github.com/DataDog/datadog-api-client-ruby/pull/3067)
+* Observability Pipelines - Updating descriptions and making the tags field optional not required [#3038](https://github.com/DataDog/datadog-api-client-ruby/pull/3038)
+* Fix Restriction Policies API documentation - add missing resource types [#3001](https://github.com/DataDog/datadog-api-client-ruby/pull/3001)
+
 ## 2.51.0/2026-03-06
 
 ### Added
