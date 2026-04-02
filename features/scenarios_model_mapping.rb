@@ -3955,6 +3955,12 @@ ScenariosModelMappings = {
             "include" => "String",
             "body" => "PatchMaintenanceRequest",
     },
+    "v2.PublishStatusPage" => {
+            "page_id" => "UUID",
+    },
+    "v2.UnpublishStatusPage" => {
+            "page_id" => "UUID",
+    },
     "v2.GetApiMultistepSubtests" => {
             "public_id" => "String",
     },
