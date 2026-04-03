@@ -89,6 +89,83 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Create targeting rules for a flag env.
+    #
+    # @see #create_allocations_for_feature_flag_in_environment_with_http_info
+    def create_allocations_for_feature_flag_in_environment(feature_flag_id, environment_id, body, opts = {})
+      data, _status_code, _headers = create_allocations_for_feature_flag_in_environment_with_http_info(feature_flag_id, environment_id, body, opts)
+      data
+    end
+
+    # Create targeting rules for a flag env.
+    #
+    # Creates a new targeting rule (allocation) for a specific feature flag in a specific environment.
+    #
+    # @param feature_flag_id [UUID] The ID of the feature flag.
+    # @param environment_id [UUID] The ID of the environment.
+    # @param body [CreateAllocationsRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(AllocationResponse, Integer, Hash)>] AllocationResponse data, response status code and response headers
+    def create_allocations_for_feature_flag_in_environment_with_http_info(feature_flag_id, environment_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FeatureFlagsAPI.create_allocations_for_feature_flag_in_environment ...'
+      end
+      # verify the required parameter 'feature_flag_id' is set
+      if @api_client.config.client_side_validation && feature_flag_id.nil?
+        fail ArgumentError, "Missing the required parameter 'feature_flag_id' when calling FeatureFlagsAPI.create_allocations_for_feature_flag_in_environment"
+      end
+      # verify the required parameter 'environment_id' is set
+      if @api_client.config.client_side_validation && environment_id.nil?
+        fail ArgumentError, "Missing the required parameter 'environment_id' when calling FeatureFlagsAPI.create_allocations_for_feature_flag_in_environment"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling FeatureFlagsAPI.create_allocations_for_feature_flag_in_environment"
+      end
+      # resource path
+      local_var_path = '/api/v2/feature-flags/{feature_flag_id}/environments/{environment_id}/allocations'.sub('{feature_flag_id}', CGI.escape(feature_flag_id.to_s).gsub('%2F', '/')).sub('{environment_id}', CGI.escape(environment_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AllocationResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :create_allocations_for_feature_flag_in_environment,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FeatureFlagsAPI#create_allocations_for_feature_flag_in_environment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create a feature flag.
     #
     # @see #create_feature_flag_with_http_info
@@ -715,6 +792,266 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Pause a progressive rollout.
+    #
+    # @see #pause_exposure_schedule_with_http_info
+    def pause_exposure_schedule(exposure_schedule_id, opts = {})
+      data, _status_code, _headers = pause_exposure_schedule_with_http_info(exposure_schedule_id, opts)
+      data
+    end
+
+    # Pause a progressive rollout.
+    #
+    # Pauses a progressive rollout while preserving rollout state.
+    #
+    # @param exposure_schedule_id [UUID] The ID of the exposure schedule.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(AllocationExposureScheduleResponse, Integer, Hash)>] AllocationExposureScheduleResponse data, response status code and response headers
+    def pause_exposure_schedule_with_http_info(exposure_schedule_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FeatureFlagsAPI.pause_exposure_schedule ...'
+      end
+      # verify the required parameter 'exposure_schedule_id' is set
+      if @api_client.config.client_side_validation && exposure_schedule_id.nil?
+        fail ArgumentError, "Missing the required parameter 'exposure_schedule_id' when calling FeatureFlagsAPI.pause_exposure_schedule"
+      end
+      # resource path
+      local_var_path = '/api/v2/feature-flags/exposure-schedules/{exposure_schedule_id}/pause'.sub('{exposure_schedule_id}', CGI.escape(exposure_schedule_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AllocationExposureScheduleResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :pause_exposure_schedule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FeatureFlagsAPI#pause_exposure_schedule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Resume a progressive rollout.
+    #
+    # @see #resume_exposure_schedule_with_http_info
+    def resume_exposure_schedule(exposure_schedule_id, opts = {})
+      data, _status_code, _headers = resume_exposure_schedule_with_http_info(exposure_schedule_id, opts)
+      data
+    end
+
+    # Resume a progressive rollout.
+    #
+    # Resumes progression for a previously paused progressive rollout.
+    #
+    # @param exposure_schedule_id [UUID] The ID of the exposure schedule.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(AllocationExposureScheduleResponse, Integer, Hash)>] AllocationExposureScheduleResponse data, response status code and response headers
+    def resume_exposure_schedule_with_http_info(exposure_schedule_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FeatureFlagsAPI.resume_exposure_schedule ...'
+      end
+      # verify the required parameter 'exposure_schedule_id' is set
+      if @api_client.config.client_side_validation && exposure_schedule_id.nil?
+        fail ArgumentError, "Missing the required parameter 'exposure_schedule_id' when calling FeatureFlagsAPI.resume_exposure_schedule"
+      end
+      # resource path
+      local_var_path = '/api/v2/feature-flags/exposure-schedules/{exposure_schedule_id}/resume'.sub('{exposure_schedule_id}', CGI.escape(exposure_schedule_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AllocationExposureScheduleResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :resume_exposure_schedule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FeatureFlagsAPI#resume_exposure_schedule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Start a progressive rollout.
+    #
+    # @see #start_exposure_schedule_with_http_info
+    def start_exposure_schedule(exposure_schedule_id, opts = {})
+      data, _status_code, _headers = start_exposure_schedule_with_http_info(exposure_schedule_id, opts)
+      data
+    end
+
+    # Start a progressive rollout.
+    #
+    # Starts a progressive rollout and begins progression.
+    #
+    # @param exposure_schedule_id [UUID] The ID of the exposure schedule.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(AllocationExposureScheduleResponse, Integer, Hash)>] AllocationExposureScheduleResponse data, response status code and response headers
+    def start_exposure_schedule_with_http_info(exposure_schedule_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FeatureFlagsAPI.start_exposure_schedule ...'
+      end
+      # verify the required parameter 'exposure_schedule_id' is set
+      if @api_client.config.client_side_validation && exposure_schedule_id.nil?
+        fail ArgumentError, "Missing the required parameter 'exposure_schedule_id' when calling FeatureFlagsAPI.start_exposure_schedule"
+      end
+      # resource path
+      local_var_path = '/api/v2/feature-flags/exposure-schedules/{exposure_schedule_id}/start'.sub('{exposure_schedule_id}', CGI.escape(exposure_schedule_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AllocationExposureScheduleResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :start_exposure_schedule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FeatureFlagsAPI#start_exposure_schedule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Stop a progressive rollout.
+    #
+    # @see #stop_exposure_schedule_with_http_info
+    def stop_exposure_schedule(exposure_schedule_id, opts = {})
+      data, _status_code, _headers = stop_exposure_schedule_with_http_info(exposure_schedule_id, opts)
+      data
+    end
+
+    # Stop a progressive rollout.
+    #
+    # Stops a progressive rollout and marks it as aborted.
+    #
+    # @param exposure_schedule_id [UUID] The ID of the exposure schedule.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(AllocationExposureScheduleResponse, Integer, Hash)>] AllocationExposureScheduleResponse data, response status code and response headers
+    def stop_exposure_schedule_with_http_info(exposure_schedule_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FeatureFlagsAPI.stop_exposure_schedule ...'
+      end
+      # verify the required parameter 'exposure_schedule_id' is set
+      if @api_client.config.client_side_validation && exposure_schedule_id.nil?
+        fail ArgumentError, "Missing the required parameter 'exposure_schedule_id' when calling FeatureFlagsAPI.stop_exposure_schedule"
+      end
+      # resource path
+      local_var_path = '/api/v2/feature-flags/exposure-schedules/{exposure_schedule_id}/stop'.sub('{exposure_schedule_id}', CGI.escape(exposure_schedule_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AllocationExposureScheduleResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :stop_exposure_schedule,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FeatureFlagsAPI#stop_exposure_schedule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Unarchive a feature flag.
     #
     # @see #unarchive_feature_flag_with_http_info
@@ -777,6 +1114,84 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: FeatureFlagsAPI#unarchive_feature_flag\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update targeting rules for a flag.
+    #
+    # @see #update_allocations_for_feature_flag_in_environment_with_http_info
+    def update_allocations_for_feature_flag_in_environment(feature_flag_id, environment_id, body, opts = {})
+      data, _status_code, _headers = update_allocations_for_feature_flag_in_environment_with_http_info(feature_flag_id, environment_id, body, opts)
+      data
+    end
+
+    # Update targeting rules for a flag.
+    #
+    # Updates targeting rules (allocations) for a specific feature flag in a specific environment.
+    # This operation replaces the existing allocation set with the request payload.
+    #
+    # @param feature_flag_id [UUID] The ID of the feature flag.
+    # @param environment_id [UUID] The ID of the environment.
+    # @param body [OverwriteAllocationsRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(ListAllocationsResponse, Integer, Hash)>] ListAllocationsResponse data, response status code and response headers
+    def update_allocations_for_feature_flag_in_environment_with_http_info(feature_flag_id, environment_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FeatureFlagsAPI.update_allocations_for_feature_flag_in_environment ...'
+      end
+      # verify the required parameter 'feature_flag_id' is set
+      if @api_client.config.client_side_validation && feature_flag_id.nil?
+        fail ArgumentError, "Missing the required parameter 'feature_flag_id' when calling FeatureFlagsAPI.update_allocations_for_feature_flag_in_environment"
+      end
+      # verify the required parameter 'environment_id' is set
+      if @api_client.config.client_side_validation && environment_id.nil?
+        fail ArgumentError, "Missing the required parameter 'environment_id' when calling FeatureFlagsAPI.update_allocations_for_feature_flag_in_environment"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling FeatureFlagsAPI.update_allocations_for_feature_flag_in_environment"
+      end
+      # resource path
+      local_var_path = '/api/v2/feature-flags/{feature_flag_id}/environments/{environment_id}/allocations'.sub('{feature_flag_id}', CGI.escape(feature_flag_id.to_s).gsub('%2F', '/')).sub('{environment_id}', CGI.escape(environment_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ListAllocationsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :update_allocations_for_feature_flag_in_environment,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FeatureFlagsAPI#update_allocations_for_feature_flag_in_environment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

@@ -54,6 +54,9 @@ module DatadogAPIClient::V2
     # Indicates whether this feature flag requires approval for changes.
     attr_accessor :require_approval
 
+    # Tags associated with the feature flag.
+    attr_accessor :tags
+
     # The timestamp when the feature flag was last updated.
     attr_accessor :updated_at
 
@@ -80,6 +83,7 @@ module DatadogAPIClient::V2
         :'last_updated_by' => :'last_updated_by',
         :'name' => :'name',
         :'require_approval' => :'require_approval',
+        :'tags' => :'tags',
         :'updated_at' => :'updated_at',
         :'value_type' => :'value_type',
         :'variants' => :'variants'
@@ -101,6 +105,7 @@ module DatadogAPIClient::V2
         :'last_updated_by' => :'UUID',
         :'name' => :'String',
         :'require_approval' => :'Boolean',
+        :'tags' => :'Array<String>',
         :'updated_at' => :'Time',
         :'value_type' => :'ValueType',
         :'variants' => :'Array<Variant>'
@@ -178,6 +183,12 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'require_approval')
         self.require_approval = attributes[:'require_approval']
+      end
+
+      if attributes.key?(:'tags')
+        if (value = attributes[:'tags']).is_a?(Array)
+          self.tags = value
+        end
       end
 
       if attributes.key?(:'updated_at')
@@ -294,6 +305,7 @@ module DatadogAPIClient::V2
           last_updated_by == o.last_updated_by &&
           name == o.name &&
           require_approval == o.require_approval &&
+          tags == o.tags &&
           updated_at == o.updated_at &&
           value_type == o.value_type &&
           variants == o.variants &&
@@ -304,7 +316,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [archived_at, created_at, created_by, description, distribution_channel, feature_flag_environments, json_schema, key, last_updated_by, name, require_approval, updated_at, value_type, variants, additional_properties].hash
+      [archived_at, created_at, created_by, description, distribution_channel, feature_flag_environments, json_schema, key, last_updated_by, name, require_approval, tags, updated_at, value_type, variants, additional_properties].hash
     end
   end
 end
