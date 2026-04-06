@@ -36,6 +36,9 @@ module DatadogAPIClient::V2
     # The name of the environment.
     attr_accessor :environment_name
 
+    # Queries that target this environment.
+    attr_accessor :environment_queries
+
     # Indicates whether the environment is production.
     attr_accessor :is_production
 
@@ -71,6 +74,7 @@ module DatadogAPIClient::V2
         :'default_variant_id' => :'default_variant_id',
         :'environment_id' => :'environment_id',
         :'environment_name' => :'environment_name',
+        :'environment_queries' => :'environment_queries',
         :'is_production' => :'is_production',
         :'override_allocation_key' => :'override_allocation_key',
         :'override_variant_id' => :'override_variant_id',
@@ -91,6 +95,7 @@ module DatadogAPIClient::V2
         :'default_variant_id' => :'String',
         :'environment_id' => :'UUID',
         :'environment_name' => :'String',
+        :'environment_queries' => :'Array<String>',
         :'is_production' => :'Boolean',
         :'override_allocation_key' => :'String',
         :'override_variant_id' => :'String',
@@ -149,6 +154,12 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'environment_name')
         self.environment_name = attributes[:'environment_name']
+      end
+
+      if attributes.key?(:'environment_queries')
+        if (value = attributes[:'environment_queries']).is_a?(Array)
+          self.environment_queries = value
+        end
       end
 
       if attributes.key?(:'is_production')
@@ -261,6 +272,7 @@ module DatadogAPIClient::V2
           default_variant_id == o.default_variant_id &&
           environment_id == o.environment_id &&
           environment_name == o.environment_name &&
+          environment_queries == o.environment_queries &&
           is_production == o.is_production &&
           override_allocation_key == o.override_allocation_key &&
           override_variant_id == o.override_variant_id &&
@@ -276,7 +288,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [allocations, default_allocation_key, default_variant_id, environment_id, environment_name, is_production, override_allocation_key, override_variant_id, pending_suggestion_id, require_feature_flag_approval, rollout_percentage, rules, status, additional_properties].hash
+      [allocations, default_allocation_key, default_variant_id, environment_id, environment_name, environment_queries, is_production, override_allocation_key, override_variant_id, pending_suggestion_id, require_feature_flag_approval, rollout_percentage, rules, status, additional_properties].hash
     end
   end
 end

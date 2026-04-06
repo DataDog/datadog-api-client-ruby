@@ -2213,6 +2213,18 @@ ScenariosModelMappings = {
             "environment_id" => "UUID",
             "body" => "UpdateEnvironmentRequest",
     },
+    "v2.PauseExposureSchedule" => {
+            "exposure_schedule_id" => "UUID",
+    },
+    "v2.ResumeExposureSchedule" => {
+            "exposure_schedule_id" => "UUID",
+    },
+    "v2.StartExposureSchedule" => {
+            "exposure_schedule_id" => "UUID",
+    },
+    "v2.StopExposureSchedule" => {
+            "exposure_schedule_id" => "UUID",
+    },
     "v2.GetFeatureFlag" => {
             "feature_flag_id" => "UUID",
     },
@@ -2222,6 +2234,16 @@ ScenariosModelMappings = {
     },
     "v2.ArchiveFeatureFlag" => {
             "feature_flag_id" => "UUID",
+    },
+    "v2.CreateAllocationsForFeatureFlagInEnvironment" => {
+            "feature_flag_id" => "UUID",
+            "environment_id" => "UUID",
+            "body" => "CreateAllocationsRequest",
+    },
+    "v2.UpdateAllocationsForFeatureFlagInEnvironment" => {
+            "feature_flag_id" => "UUID",
+            "environment_id" => "UUID",
+            "body" => "OverwriteAllocationsRequest",
     },
     "v2.DisableFeatureFlagEnvironment" => {
             "feature_flag_id" => "UUID",
