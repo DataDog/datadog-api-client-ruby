@@ -26,6 +26,7 @@ module DatadogAPIClient::V2
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of
         [
+          :'ObservabilityPipelineElasticsearchDestination',
           :'ObservabilityPipelineHttpClientDestination',
           :'ObservabilityPipelineAmazonOpenSearchDestination',
           :'ObservabilityPipelineAmazonS3Destination',
@@ -35,7 +36,6 @@ module DatadogAPIClient::V2
           :'ObservabilityPipelineCloudPremDestination',
           :'ObservabilityPipelineCrowdStrikeNextGenSiemDestination',
           :'ObservabilityPipelineDatadogLogsDestination',
-          :'ObservabilityPipelineElasticsearchDestination',
           :'ObservabilityPipelineGoogleChronicleDestination',
           :'ObservabilityPipelineGoogleCloudStorageDestination',
           :'ObservabilityPipelineGooglePubSubDestination',

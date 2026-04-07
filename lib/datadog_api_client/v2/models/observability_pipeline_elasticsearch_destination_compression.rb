@@ -17,24 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Configuration options for writing to Elasticsearch Data Streams instead of a fixed index.
-  class ObservabilityPipelineElasticsearchDestinationDataStream
+  # Compression configuration for the Elasticsearch destination.
+  class ObservabilityPipelineElasticsearchDestinationCompression
     include BaseGenericModel
 
-    # When `true`, automatically routes events to the appropriate data stream based on the event content.
-    attr_accessor :auto_routing
+    # The compression algorithm applied when sending data to Elasticsearch.
+    attr_reader :algorithm
 
-    # The data stream dataset. This groups events by their source or application.
-    attr_accessor :dataset
-
-    # The data stream type. This determines how events are categorized within the data stream.
-    attr_accessor :dtype
-
-    # The data stream namespace. This separates events into different environments or domains.
-    attr_accessor :namespace
-
-    # When `true`, synchronizes data stream fields with the Elasticsearch index mapping.
-    attr_accessor :sync_fields
+    # The compression level. Only applicable for `gzip`, `zlib`, and `zstd` algorithms.
+    attr_accessor :level
 
     attr_accessor :additional_properties
 
@@ -42,11 +33,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'auto_routing' => :'auto_routing',
-        :'dataset' => :'dataset',
-        :'dtype' => :'dtype',
-        :'namespace' => :'namespace',
-        :'sync_fields' => :'sync_fields'
+        :'algorithm' => :'algorithm',
+        :'level' => :'level'
       }
     end
 
@@ -54,11 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'auto_routing' => :'Boolean',
-        :'dataset' => :'String',
-        :'dtype' => :'String',
-        :'namespace' => :'String',
-        :'sync_fields' => :'Boolean'
+        :'algorithm' => :'ObservabilityPipelineElasticsearchDestinationCompressionAlgorithm',
+        :'level' => :'Integer'
       }
     end
 
@@ -67,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineElasticsearchDestinationDataStream` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ObservabilityPipelineElasticsearchDestinationCompression` initialize method"
       end
 
       self.additional_properties = {}
@@ -80,25 +65,31 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'auto_routing')
-        self.auto_routing = attributes[:'auto_routing']
+      if attributes.key?(:'algorithm')
+        self.algorithm = attributes[:'algorithm']
       end
 
-      if attributes.key?(:'dataset')
-        self.dataset = attributes[:'dataset']
+      if attributes.key?(:'level')
+        self.level = attributes[:'level']
       end
+    end
 
-      if attributes.key?(:'dtype')
-        self.dtype = attributes[:'dtype']
-      end
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @algorithm.nil?
+      true
+    end
 
-      if attributes.key?(:'namespace')
-        self.namespace = attributes[:'namespace']
+    # Custom attribute writer method with validation
+    # @param algorithm [Object] Object to be assigned
+    # @!visibility private
+    def algorithm=(algorithm)
+      if algorithm.nil?
+        fail ArgumentError, 'invalid value for "algorithm", algorithm cannot be nil.'
       end
-
-      if attributes.key?(:'sync_fields')
-        self.sync_fields = attributes[:'sync_fields']
-      end
+      @algorithm = algorithm
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -127,11 +118,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          auto_routing == o.auto_routing &&
-          dataset == o.dataset &&
-          dtype == o.dtype &&
-          namespace == o.namespace &&
-          sync_fields == o.sync_fields &&
+          algorithm == o.algorithm &&
+          level == o.level &&
           additional_properties == o.additional_properties
     end
 
@@ -139,7 +127,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [auto_routing, dataset, dtype, namespace, sync_fields, additional_properties].hash
+      [algorithm, level, additional_properties].hash
     end
   end
 end
