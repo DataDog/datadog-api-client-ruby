@@ -1761,9 +1761,15 @@ ScenariosModelMappings = {
             "signal_id" => "String",
             "body" => "SecurityMonitoringSignalIncidentsUpdateRequest",
     },
+    "v2.GetInvestigationLogQueriesMatchingSignal" => {
+            "signal_id" => "String",
+    },
     "v2.EditSecurityMonitoringSignalState" => {
             "signal_id" => "String",
             "body" => "SecurityMonitoringSignalStateUpdateRequest",
+    },
+    "v2.GetSuggestedActionsMatchingSignal" => {
+            "signal_id" => "String",
     },
     "v2.ListSecurityMonitoringHistsignals" => {
             "filter_query" => "String",

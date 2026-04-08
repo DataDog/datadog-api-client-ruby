@@ -2504,6 +2504,71 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get investigation queries for a signal.
+    #
+    # @see #get_investigation_log_queries_matching_signal_with_http_info
+    def get_investigation_log_queries_matching_signal(signal_id, opts = {})
+      data, _status_code, _headers = get_investigation_log_queries_matching_signal_with_http_info(signal_id, opts)
+      data
+    end
+
+    # Get investigation queries for a signal.
+    #
+    # Get the list of investigation log queries available for a given security signal.
+    #
+    # @param signal_id [String] The ID of the signal.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SecurityMonitoringSignalSuggestedActionsResponse, Integer, Hash)>] SecurityMonitoringSignalSuggestedActionsResponse data, response status code and response headers
+    def get_investigation_log_queries_matching_signal_with_http_info(signal_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_investigation_log_queries_matching_signal ...'
+      end
+      # verify the required parameter 'signal_id' is set
+      if @api_client.config.client_side_validation && signal_id.nil?
+        fail ArgumentError, "Missing the required parameter 'signal_id' when calling SecurityMonitoringAPI.get_investigation_log_queries_matching_signal"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/signals/{signal_id}/investigation_queries'.sub('{signal_id}', CGI.escape(signal_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityMonitoringSignalSuggestedActionsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_investigation_log_queries_matching_signal,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#get_investigation_log_queries_matching_signal\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List resource filters.
     #
     # @see #get_resource_evaluation_filters_with_http_info
@@ -3405,6 +3470,71 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SecurityMonitoringAPI#get_signal_notification_rules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get suggested actions for a signal.
+    #
+    # @see #get_suggested_actions_matching_signal_with_http_info
+    def get_suggested_actions_matching_signal(signal_id, opts = {})
+      data, _status_code, _headers = get_suggested_actions_matching_signal_with_http_info(signal_id, opts)
+      data
+    end
+
+    # Get suggested actions for a signal.
+    #
+    # Get the list of suggested actions for a given security signal.
+    #
+    # @param signal_id [String] The ID of the signal.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SecurityMonitoringSignalSuggestedActionsResponse, Integer, Hash)>] SecurityMonitoringSignalSuggestedActionsResponse data, response status code and response headers
+    def get_suggested_actions_matching_signal_with_http_info(signal_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_suggested_actions_matching_signal ...'
+      end
+      # verify the required parameter 'signal_id' is set
+      if @api_client.config.client_side_validation && signal_id.nil?
+        fail ArgumentError, "Missing the required parameter 'signal_id' when calling SecurityMonitoringAPI.get_suggested_actions_matching_signal"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/signals/{signal_id}/suggested_actions'.sub('{signal_id}', CGI.escape(signal_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityMonitoringSignalSuggestedActionsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_suggested_actions_matching_signal,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#get_suggested_actions_matching_signal\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
