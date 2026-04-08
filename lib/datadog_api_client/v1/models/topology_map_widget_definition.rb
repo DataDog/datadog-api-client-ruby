@@ -27,7 +27,7 @@ module DatadogAPIClient::V1
     # The description of the widget.
     attr_accessor :description
 
-    # One or more Topology requests.
+    # One Topology request.
     attr_reader :requests
 
     # Title of your widget.
