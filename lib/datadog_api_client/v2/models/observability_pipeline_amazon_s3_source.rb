@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The `amazon_s3` source ingests logs from an Amazon S3 bucket.
-  # It supports AWS authentication and TLS encryption.
+  # It supports AWS authentication, TLS encryption, and configurable compression.
   # 
   # **Supported pipeline types:** logs
   class ObservabilityPipelineAmazonS3Source
@@ -27,6 +27,9 @@ module DatadogAPIClient::V2
     # AWS authentication credentials used for accessing AWS services such as S3.
     # If omitted, the system’s default credentials are used (for example, the IAM role and environment variables).
     attr_accessor :auth
+
+    # Compression format for objects retrieved from the S3 bucket. Use `auto` to detect compression from the object's Content-Encoding header or file extension.
+    attr_accessor :compression
 
     # The unique identifier for this component. Used in other parts of the pipeline to reference this component (for example, as the `input` to downstream components).
     attr_reader :id
@@ -50,6 +53,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'auth' => :'auth',
+        :'compression' => :'compression',
         :'id' => :'id',
         :'region' => :'region',
         :'tls' => :'tls',
@@ -63,6 +67,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'auth' => :'ObservabilityPipelineAwsAuth',
+        :'compression' => :'ObservabilityPipelineAmazonS3SourceCompression',
         :'id' => :'String',
         :'region' => :'String',
         :'tls' => :'ObservabilityPipelineTls',
@@ -91,6 +96,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'auth')
         self.auth = attributes[:'auth']
+      end
+
+      if attributes.key?(:'compression')
+        self.compression = attributes[:'compression']
       end
 
       if attributes.key?(:'id')
@@ -181,6 +190,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           auth == o.auth &&
+          compression == o.compression &&
           id == o.id &&
           region == o.region &&
           tls == o.tls &&
@@ -193,7 +203,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [auth, id, region, tls, type, url_key, additional_properties].hash
+      [auth, compression, id, region, tls, type, url_key, additional_properties].hash
     end
   end
 end

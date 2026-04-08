@@ -3758,6 +3758,7 @@ module DatadogAPIClient
           "v2.observability_pipeline_amazon_s3_generic_encoding_parquet" => "ObservabilityPipelineAmazonS3GenericEncodingParquet",
           "v2.observability_pipeline_amazon_s3_generic_encoding_parquet_type" => "ObservabilityPipelineAmazonS3GenericEncodingParquetType",
           "v2.observability_pipeline_amazon_s3_source" => "ObservabilityPipelineAmazonS3Source",
+          "v2.observability_pipeline_amazon_s3_source_compression" => "ObservabilityPipelineAmazonS3SourceCompression",
           "v2.observability_pipeline_amazon_s3_source_type" => "ObservabilityPipelineAmazonS3SourceType",
           "v2.observability_pipeline_amazon_security_lake_destination" => "ObservabilityPipelineAmazonSecurityLakeDestination",
           "v2.observability_pipeline_amazon_security_lake_destination_type" => "ObservabilityPipelineAmazonSecurityLakeDestinationType",
