@@ -3638,6 +3638,28 @@ ScenariosModelMappings = {
             "page_size" => "Integer",
             "filter_application_id" => "String",
     },
+    "v2.ListScorecardCampaigns" => {
+            "page_limit" => "Integer",
+            "page_offset" => "Integer",
+            "filter_campaign_name" => "String",
+            "filter_campaign_status" => "String",
+            "filter_campaign_owner" => "String",
+    },
+    "v2.CreateScorecardCampaign" => {
+            "body" => "CreateCampaignRequest",
+    },
+    "v2.DeleteScorecardCampaign" => {
+            "campaign_id" => "String",
+    },
+    "v2.GetScorecardCampaign" => {
+            "campaign_id" => "String",
+            "include" => "String",
+            "include_meta" => "Boolean",
+    },
+    "v2.UpdateScorecardCampaign" => {
+            "campaign_id" => "String",
+            "body" => "UpdateCampaignRequest",
+    },
     "v2.ListScorecardOutcomes" => {
             "page_size" => "Integer",
             "page_offset" => "Integer",
@@ -3650,7 +3672,7 @@ ScenariosModelMappings = {
             "filter_rule_id" => "String",
             "filter_rule_name" => "String",
     },
-    "v2.UpdateScorecardOutcomesAsync" => {
+    "v2.UpdateScorecardOutcomes" => {
             "body" => "UpdateOutcomesAsyncRequest",
     },
     "v2.CreateScorecardOutcomesBatch" => {
@@ -3677,6 +3699,13 @@ ScenariosModelMappings = {
     "v2.UpdateScorecardRule" => {
             "rule_id" => "String",
             "body" => "UpdateRuleRequest",
+    },
+    "v2.ListScorecards" => {
+            "page_offset" => "Integer",
+            "page_size" => "Integer",
+            "filter_scorecard_id" => "String",
+            "filter_scorecard_name" => "String",
+            "filter_scorecard_description" => "String",
     },
     "v2.UnassignSeatsUser" => {
             "body" => "UnassignSeatsUserRequest",

@@ -17,42 +17,21 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Details of a rule.
-  class RuleAttributes
+  # Scorecard attributes.
+  class ScorecardListResponseAttributes
     include BaseGenericModel
 
-    # The scorecard name to which this rule must belong.
-    attr_accessor :category
+    # Creation time of the scorecard.
+    attr_reader :created_at
 
-    # Creation time of the rule outcome.
-    attr_accessor :created_at
-
-    # Defines if the rule is a custom rule.
-    attr_accessor :custom
-
-    # Explanation of the rule.
+    # The description of the scorecard.
     attr_accessor :description
 
-    # If enabled, the rule is calculated as part of the score.
-    attr_accessor :enabled
+    # Time of last scorecard modification.
+    attr_reader :modified_at
 
-    # The maturity level of the rule (1, 2, or 3).
-    attr_reader :level
-
-    # Time of the last rule outcome modification.
-    attr_accessor :modified_at
-
-    # Name of the rule.
-    attr_accessor :name
-
-    # Owner of the rule.
-    attr_accessor :owner
-
-    # A query to filter which entities this rule applies to.
-    attr_accessor :scope_query
-
-    # The scorecard name to which this rule must belong.
-    attr_accessor :scorecard_name
+    # The name of the scorecard.
+    attr_reader :name
 
     attr_accessor :additional_properties
 
@@ -60,17 +39,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'category' => :'category',
         :'created_at' => :'created_at',
-        :'custom' => :'custom',
         :'description' => :'description',
-        :'enabled' => :'enabled',
-        :'level' => :'level',
         :'modified_at' => :'modified_at',
-        :'name' => :'name',
-        :'owner' => :'owner',
-        :'scope_query' => :'scope_query',
-        :'scorecard_name' => :'scorecard_name'
+        :'name' => :'name'
       }
     end
 
@@ -78,17 +50,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'category' => :'String',
         :'created_at' => :'Time',
-        :'custom' => :'Boolean',
         :'description' => :'String',
-        :'enabled' => :'Boolean',
-        :'level' => :'Integer',
         :'modified_at' => :'Time',
-        :'name' => :'String',
-        :'owner' => :'String',
-        :'scope_query' => :'String',
-        :'scorecard_name' => :'String'
+        :'name' => :'String'
       }
     end
 
@@ -97,7 +62,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RuleAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ScorecardListResponseAttributes` initialize method"
       end
 
       self.additional_properties = {}
@@ -110,28 +75,12 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'category')
-        self.category = attributes[:'category']
-      end
-
       if attributes.key?(:'created_at')
         self.created_at = attributes[:'created_at']
       end
 
-      if attributes.key?(:'custom')
-        self.custom = attributes[:'custom']
-      end
-
       if attributes.key?(:'description')
         self.description = attributes[:'description']
-      end
-
-      if attributes.key?(:'enabled')
-        self.enabled = attributes[:'enabled']
-      end
-
-      if attributes.key?(:'level')
-        self.level = attributes[:'level']
       end
 
       if attributes.key?(:'modified_at')
@@ -141,40 +90,46 @@ module DatadogAPIClient::V2
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
-
-      if attributes.key?(:'owner')
-        self.owner = attributes[:'owner']
-      end
-
-      if attributes.key?(:'scope_query')
-        self.scope_query = attributes[:'scope_query']
-      end
-
-      if attributes.key?(:'scorecard_name')
-        self.scorecard_name = attributes[:'scorecard_name']
-      end
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if !@level.nil? && @level > 3
-      return false if !@level.nil? && @level < 1
+      return false if @created_at.nil?
+      return false if @modified_at.nil?
+      return false if @name.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param level [Object] Object to be assigned
+    # @param created_at [Object] Object to be assigned
     # @!visibility private
-    def level=(level)
-      if !level.nil? && level > 3
-        fail ArgumentError, 'invalid value for "level", must be smaller than or equal to 3.'
+    def created_at=(created_at)
+      if created_at.nil?
+        fail ArgumentError, 'invalid value for "created_at", created_at cannot be nil.'
       end
-      if !level.nil? && level < 1
-        fail ArgumentError, 'invalid value for "level", must be greater than or equal to 1.'
+      @created_at = created_at
+    end
+
+    # Custom attribute writer method with validation
+    # @param modified_at [Object] Object to be assigned
+    # @!visibility private
+    def modified_at=(modified_at)
+      if modified_at.nil?
+        fail ArgumentError, 'invalid value for "modified_at", modified_at cannot be nil.'
       end
-      @level = level
+      @modified_at = modified_at
+    end
+
+    # Custom attribute writer method with validation
+    # @param name [Object] Object to be assigned
+    # @!visibility private
+    def name=(name)
+      if name.nil?
+        fail ArgumentError, 'invalid value for "name", name cannot be nil.'
+      end
+      @name = name
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -203,17 +158,10 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          category == o.category &&
           created_at == o.created_at &&
-          custom == o.custom &&
           description == o.description &&
-          enabled == o.enabled &&
-          level == o.level &&
           modified_at == o.modified_at &&
           name == o.name &&
-          owner == o.owner &&
-          scope_query == o.scope_query &&
-          scorecard_name == o.scorecard_name &&
           additional_properties == o.additional_properties
     end
 
@@ -221,7 +169,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [category, created_at, custom, description, enabled, level, modified_at, name, owner, scope_query, scorecard_name, additional_properties].hash
+      [created_at, description, modified_at, name, additional_properties].hash
     end
   end
 end

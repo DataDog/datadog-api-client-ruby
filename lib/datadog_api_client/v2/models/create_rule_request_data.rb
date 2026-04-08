@@ -21,7 +21,7 @@ module DatadogAPIClient::V2
   class CreateRuleRequestData
     include BaseGenericModel
 
-    # Details of a rule.
+    # Attributes for creating or updating a rule. Server-managed fields (created_at, modified_at, custom) are excluded.
     attr_accessor :attributes
 
     # The JSON:API type for scorecard rules.
@@ -42,7 +42,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'RuleAttributes',
+        :'attributes' => :'RuleAttributesRequest',
         :'type' => :'RuleType'
       }
     end

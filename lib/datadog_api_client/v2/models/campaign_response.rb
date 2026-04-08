@@ -17,15 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Data for the request to update a scorecard rule.
-  class UpdateRuleRequestData
+  # Response containing campaign data.
+  class CampaignResponse
     include BaseGenericModel
 
-    # Attributes for creating or updating a rule. Server-managed fields (created_at, modified_at, custom) are excluded.
-    attr_accessor :attributes
-
-    # The JSON:API type for scorecard rules.
-    attr_accessor :type
+    # Campaign data.
+    attr_reader :data
 
     attr_accessor :additional_properties
 
@@ -33,8 +30,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
-        :'attributes' => :'attributes',
-        :'type' => :'type'
+        :'data' => :'data'
       }
     end
 
@@ -42,8 +38,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'RuleAttributesRequest',
-        :'type' => :'RuleType'
+        :'data' => :'CampaignResponseData'
       }
     end
 
@@ -52,7 +47,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::UpdateRuleRequestData` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::CampaignResponse` initialize method"
       end
 
       self.additional_properties = {}
@@ -65,13 +60,27 @@ module DatadogAPIClient::V2
         end
       }
 
-      if attributes.key?(:'attributes')
-        self.attributes = attributes[:'attributes']
+      if attributes.key?(:'data')
+        self.data = attributes[:'data']
       end
+    end
 
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @data.nil?
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param data [Object] Object to be assigned
+    # @!visibility private
+    def data=(data)
+      if data.nil?
+        fail ArgumentError, 'invalid value for "data", data cannot be nil.'
       end
+      @data = data
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
@@ -100,8 +109,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          attributes == o.attributes &&
-          type == o.type &&
+          data == o.data &&
           additional_properties == o.additional_properties
     end
 
@@ -109,7 +117,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, type, additional_properties].hash
+      [data, additional_properties].hash
     end
   end
 end

@@ -17,15 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Data for the request to update a scorecard rule.
-  class UpdateRuleRequestData
+  # Data for creating a new campaign.
+  class CreateCampaignRequestData
     include BaseGenericModel
 
-    # Attributes for creating or updating a rule. Server-managed fields (created_at, modified_at, custom) are excluded.
-    attr_accessor :attributes
+    # Attributes for creating a new campaign.
+    attr_reader :attributes
 
-    # The JSON:API type for scorecard rules.
-    attr_accessor :type
+    # The JSON:API type for campaigns.
+    attr_reader :type
 
     attr_accessor :additional_properties
 
@@ -42,8 +42,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'RuleAttributesRequest',
-        :'type' => :'RuleType'
+        :'attributes' => :'CreateCampaignRequestAttributes',
+        :'type' => :'CampaignType'
       }
     end
 
@@ -52,7 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::UpdateRuleRequestData` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::CreateCampaignRequestData` initialize method"
       end
 
       self.additional_properties = {}
@@ -72,6 +72,35 @@ module DatadogAPIClient::V2
       if attributes.key?(:'type')
         self.type = attributes[:'type']
       end
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    # @!visibility private
+    def valid?
+      return false if @attributes.nil?
+      return false if @type.nil?
+      true
+    end
+
+    # Custom attribute writer method with validation
+    # @param attributes [Object] Object to be assigned
+    # @!visibility private
+    def attributes=(attributes)
+      if attributes.nil?
+        fail ArgumentError, 'invalid value for "attributes", attributes cannot be nil.'
+      end
+      @attributes = attributes
+    end
+
+    # Custom attribute writer method with validation
+    # @param type [Object] Object to be assigned
+    # @!visibility private
+    def type=(type)
+      if type.nil?
+        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+      end
+      @type = type
     end
 
     # Returns the object in the form of hash, with additionalProperties support.
