@@ -39,7 +39,7 @@ module DatadogAPIClient::V1
     # Number of steps.
     attr_accessor :number_of_steps
 
-    #
+    # Filter applied to occurrence counts when building a Product Analytics audience.
     attr_accessor :occurrences
 
     # Query string.

@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # 
+  # SLO count definition using a total events formula alongside a good events formula.
   class SLOCountDefinitionWithTotalEventsFormula
     include BaseGenericModel
 

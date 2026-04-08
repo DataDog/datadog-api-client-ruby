@@ -21,10 +21,10 @@ module DatadogAPIClient::V1
   class ProductAnalyticsAudienceUserSubquery
     include BaseGenericModel
 
-    #
+    # The name of the user subquery.
     attr_accessor :name
 
-    #
+    # The query string for the user subquery.
     attr_accessor :query
 
     attr_accessor :additional_properties
