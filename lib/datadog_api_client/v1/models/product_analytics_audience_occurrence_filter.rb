@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # 
+  # Filter applied to occurrence counts when building a Product Analytics audience.
   class ProductAnalyticsAudienceOccurrenceFilter
     include BaseGenericModel
 
-    #
+    # The comparison operator used for the occurrence filter (for example: `gt`, `lt`, `eq`).
     attr_accessor :operator
 
-    #
+    # The threshold value to compare occurrence counts against.
     attr_accessor :value
 
     attr_accessor :additional_properties

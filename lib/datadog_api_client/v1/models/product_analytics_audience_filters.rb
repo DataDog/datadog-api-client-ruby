@@ -24,7 +24,7 @@ module DatadogAPIClient::V1
     #
     attr_accessor :accounts
 
-    #
+    # An optional filter condition applied to the audience subquery.
     attr_accessor :filter_condition
 
     #

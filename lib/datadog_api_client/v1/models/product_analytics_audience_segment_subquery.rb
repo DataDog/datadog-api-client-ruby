@@ -21,10 +21,10 @@ module DatadogAPIClient::V1
   class ProductAnalyticsAudienceSegmentSubquery
     include BaseGenericModel
 
-    #
+    # The name of the segment subquery.
     attr_accessor :name
 
-    #
+    # The unique identifier of the segment.
     attr_accessor :segment_id
 
     attr_accessor :additional_properties
