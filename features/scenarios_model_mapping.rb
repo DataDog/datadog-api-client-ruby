@@ -2751,6 +2751,31 @@ ScenariosModelMappings = {
     "v2.UpdateIPAllowlist" => {
             "body" => "IPAllowlistUpdateRequest",
     },
+    "v2.ListLLMObsAnnotationQueues" => {
+            "project_id" => "String",
+            "queue_ids" => "Array<String>",
+    },
+    "v2.CreateLLMObsAnnotationQueue" => {
+            "body" => "LLMObsAnnotationQueueRequest",
+    },
+    "v2.DeleteLLMObsAnnotationQueue" => {
+            "queue_id" => "String",
+    },
+    "v2.UpdateLLMObsAnnotationQueue" => {
+            "queue_id" => "String",
+            "body" => "LLMObsAnnotationQueueUpdateRequest",
+    },
+    "v2.GetLLMObsAnnotatedInteractions" => {
+            "queue_id" => "String",
+    },
+    "v2.CreateLLMObsAnnotationQueueInteractions" => {
+            "queue_id" => "String",
+            "body" => "LLMObsAnnotationQueueInteractionsRequest",
+    },
+    "v2.DeleteLLMObsAnnotationQueueInteractions" => {
+            "queue_id" => "String",
+            "body" => "LLMObsDeleteAnnotationQueueInteractionsRequest",
+    },
     "v2.ListLLMObsExperiments" => {
             "filter_project_id" => "String",
             "filter_dataset_id" => "String",
