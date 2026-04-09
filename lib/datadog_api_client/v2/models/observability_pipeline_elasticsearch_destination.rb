@@ -17,9 +17,9 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The `elasticsearch` destination writes logs to an Elasticsearch cluster.
+  # The `elasticsearch` destination writes logs or metrics to an Elasticsearch cluster.
   # 
-  # **Supported pipeline types:** logs
+  # **Supported pipeline types:** logs, metrics
   class ObservabilityPipelineElasticsearchDestination
     include BaseGenericModel
 
@@ -33,8 +33,11 @@ module DatadogAPIClient::V2
     # Configuration for buffer settings on destination components.
     attr_accessor :buffer
 
-    # The index to write logs to in Elasticsearch.
+    # The name of the index to write events to in Elasticsearch.
     attr_accessor :bulk_index
+
+    # Compression configuration for the Elasticsearch destination.
+    attr_accessor :compression
 
     # Configuration options for writing to Elasticsearch Data Streams instead of a fixed index.
     attr_accessor :data_stream
@@ -45,8 +48,20 @@ module DatadogAPIClient::V2
     # The unique identifier for this component.
     attr_reader :id
 
+    # The name of the field used as the document ID in Elasticsearch.
+    attr_accessor :id_key
+
     # A list of component IDs whose output is used as the `input` for this component.
     attr_reader :inputs
+
+    # The name of an Elasticsearch ingest pipeline to apply to events before indexing.
+    attr_accessor :pipeline
+
+    # When `true`, retries failed partial bulk requests when some events in a batch fail while others succeed.
+    attr_accessor :request_retry_partial
+
+    # Configuration for enabling TLS encryption between the pipeline component and external services.
+    attr_accessor :tls
 
     # The destination type. The value should always be `elasticsearch`.
     attr_reader :type
@@ -61,10 +76,15 @@ module DatadogAPIClient::V2
         :'auth' => :'auth',
         :'buffer' => :'buffer',
         :'bulk_index' => :'bulk_index',
+        :'compression' => :'compression',
         :'data_stream' => :'data_stream',
         :'endpoint_url_key' => :'endpoint_url_key',
         :'id' => :'id',
+        :'id_key' => :'id_key',
         :'inputs' => :'inputs',
+        :'pipeline' => :'pipeline',
+        :'request_retry_partial' => :'request_retry_partial',
+        :'tls' => :'tls',
         :'type' => :'type'
       }
     end
@@ -77,10 +97,15 @@ module DatadogAPIClient::V2
         :'auth' => :'ObservabilityPipelineElasticsearchDestinationAuth',
         :'buffer' => :'ObservabilityPipelineBufferOptions',
         :'bulk_index' => :'String',
+        :'compression' => :'ObservabilityPipelineElasticsearchDestinationCompression',
         :'data_stream' => :'ObservabilityPipelineElasticsearchDestinationDataStream',
         :'endpoint_url_key' => :'String',
         :'id' => :'String',
+        :'id_key' => :'String',
         :'inputs' => :'Array<String>',
+        :'pipeline' => :'String',
+        :'request_retry_partial' => :'Boolean',
+        :'tls' => :'ObservabilityPipelineTls',
         :'type' => :'ObservabilityPipelineElasticsearchDestinationType'
       }
     end
@@ -119,6 +144,10 @@ module DatadogAPIClient::V2
         self.bulk_index = attributes[:'bulk_index']
       end
 
+      if attributes.key?(:'compression')
+        self.compression = attributes[:'compression']
+      end
+
       if attributes.key?(:'data_stream')
         self.data_stream = attributes[:'data_stream']
       end
@@ -131,10 +160,26 @@ module DatadogAPIClient::V2
         self.id = attributes[:'id']
       end
 
+      if attributes.key?(:'id_key')
+        self.id_key = attributes[:'id_key']
+      end
+
       if attributes.key?(:'inputs')
         if (value = attributes[:'inputs']).is_a?(Array)
           self.inputs = value
         end
+      end
+
+      if attributes.key?(:'pipeline')
+        self.pipeline = attributes[:'pipeline']
+      end
+
+      if attributes.key?(:'request_retry_partial')
+        self.request_retry_partial = attributes[:'request_retry_partial']
+      end
+
+      if attributes.key?(:'tls')
+        self.tls = attributes[:'tls']
       end
 
       if attributes.key?(:'type')
@@ -212,10 +257,15 @@ module DatadogAPIClient::V2
           auth == o.auth &&
           buffer == o.buffer &&
           bulk_index == o.bulk_index &&
+          compression == o.compression &&
           data_stream == o.data_stream &&
           endpoint_url_key == o.endpoint_url_key &&
           id == o.id &&
+          id_key == o.id_key &&
           inputs == o.inputs &&
+          pipeline == o.pipeline &&
+          request_retry_partial == o.request_retry_partial &&
+          tls == o.tls &&
           type == o.type &&
           additional_properties == o.additional_properties
     end
@@ -224,7 +274,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [api_version, auth, buffer, bulk_index, data_stream, endpoint_url_key, id, inputs, type, additional_properties].hash
+      [api_version, auth, buffer, bulk_index, compression, data_stream, endpoint_url_key, id, id_key, inputs, pipeline, request_retry_partial, tls, type, additional_properties].hash
     end
   end
 end
